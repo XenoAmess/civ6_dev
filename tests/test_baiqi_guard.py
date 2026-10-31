@@ -15,8 +15,8 @@ class UIGuardTests(unittest.TestCase):
             self.lua.execute((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
         self.g, self.w = self.lua.globals(), self.lua.globals().TestGuard
 
-    def test_builder_settler_all_manual_command_sinks_and_hotkey_capability_blocked(self):
-        for kind in (1, 2):
+    def test_builder_settler_trader_all_manual_command_sinks_and_hotkey_capability_blocked(self):
+        for kind in (1, 2, 3):
             unit = self.g.TestUnit(kind, 7, kind)
             for name in ('RequestOperation', 'RequestCommand', 'CanStartOperation', 'CanStartCommand'):
                 self.assertFalse(self.g.UnitManager[name](unit, 99, self.lua.table()))

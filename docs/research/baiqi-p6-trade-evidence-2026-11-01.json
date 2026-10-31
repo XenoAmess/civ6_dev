@@ -1,0 +1,65 @@
+{
+  "schema": "civ6.baiqi-p6-trade-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "base_commit": "beac23f",
+  "local_date": "2026-11-01",
+  "additional_http_requests": 2,
+  "additional_peak_in_flight": 2,
+  "cumulative_p6_http": 19,
+  "cumulative_p6_complete_stop_json": 18,
+  "cumulative_p6_length_discarded": 1,
+  "cumulative_p6_peak": 12,
+  "automatic_retries": 0,
+  "server_concurrency": null,
+  "tasks": [
+    {
+      "name": "trade-narrow",
+      "request_sha256": "48a310d7c59ec73131b9be4bbe9c7ad15a0da07eac090137560f1bf1beaa21f8",
+      "http_status": 200,
+      "sse_done": true,
+      "finish_reason": "stop",
+      "success": true,
+      "usage": {
+        "prompt_tokens": 27769,
+        "completion_tokens": 1784,
+        "total_tokens": 29553
+      },
+      "total_ms": 28777.363900007913,
+      "cached_prompt_tokens_if_reported": null,
+      "review": "Code rejected: relaxes strict escort formation, allows manual trader control, wrong unit activity and player route APIs, pending incompatible with existing consumer. Owner rewrites from native consumer, matching actual TraderUnitID and destination, preserving pending capacity and normal production."
+    },
+    {
+      "name": "religion-selection-narrow",
+      "request_sha256": "f5b493ac1bcb87b541ac276f45f12f89c1e7768a4f95519e549cf4eb227d1f9c",
+      "http_status": 200,
+      "sse_done": true,
+      "finish_reason": "stop",
+      "success": true,
+      "usage": {
+        "prompt_tokens": 21801,
+        "completion_tokens": 1115,
+        "total_tokens": 22916
+      },
+      "total_ms": 21884.673900000053,
+      "cached_prompt_tokens_if_reported": null,
+      "review": "Analysis only. Some exact native parameters useful; omits mandatory first follower belief despite complete source. Not a complete founding or evangelize implementation. No engine pass."
+    }
+  ],
+  "validation": {
+    "software_tests_passed": 91,
+    "manifest_version": 10,
+    "file_count": 42,
+    "native_route_creation": "pending",
+    "native_normal_trader_production": "pending",
+    "full_game_acceptance": false
+  },
+  "implementation_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "d1c6a160f0020c58bca7d04baa4fa9c73cce991370e76767db4fae698c8a9133",
+    "mod/Baiqi/Lua/BaiqiController.lua": "b3ed9bbc355c1e17e4d2d2f12b1aa167319763ae8ad6741caa3d756ef5775900",
+    "mod/Baiqi/Lua/BaiqiPolicy.lua": "7ceb81ed968c8fcad4d8e6504cc428079f5e5e09ca4db393e139b3b090dc6b63",
+    "mod/Baiqi/Lua/BaiqiPlanner.lua": "b2cc3edf21c7dbdae1a5b37d30da1e4e0075cda66587d7fb50a15a7f95a9ced9",
+    "mod/Baiqi/Lua/BaiqiUIGuard.lua": "866813e1843c1d934e45292f821a5d818f73302404a5988ccaff049c987d8c24",
+    "tests/lua/mock_trade.lua": "28438df68497fa8425dbc22730a48266e57bddb4c487d7d6cdaf74ee9c7426d0",
+    "tests/test_baiqi_trade.py": "1f9470753244a8fbded8e38143abcbbab6807c55cbb61e709f46804f4632ac55"
+  }
+}

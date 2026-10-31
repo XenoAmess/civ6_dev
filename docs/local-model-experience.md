@@ -185,3 +185,9 @@ P4 软件与实机的最终范围、失败及恢复分别见[本轮报告](testi
 负责人实机修正包括：新增清单文件须重载内容；游戏逻辑层是 `Player:IsHuman`、`Unit:GetType`、城市 `GetDistricts():GetDistrict`，与 UI 接口不一致；原型现用实际能力分支和游戏侧 API 替身。原合同错误写成普通 `PopupDialog:new`，原生对局应使用 `PopupDialogInGame:new`，负责人依据原版 UnitPanel 修正。读档中已消耗移民仍可能有无效坐标，需等视图就绪并跳过无效对象。这些是集成／合同错误，不宣称模型已解决。
 
 本轮 **44 个软件测试方法通过**。实机已从面板取消、确认征取粮仓，观察原建筑留在敌城、原城 -1 粮食／-2 住房、白绮接收城市 +1 粮食／+2 住房、150 金币／行动结算；三次重复、完成态读档和下一回合没有叠加。随后整城原位转移、300 金币结算和新城自动生产入队，旧经营权结束。其他资产与完整 40 项游戏用例仍未验收，详细限制见[实测报告](testing/results/2026-10-31-p2-requisition.md)。
+
+## 2026-11-01 P6 商路与后续宗教窄任务
+
+机器 `BF-202609141645`，在真实商路与宗教尚未完成时并行提供完整原版消费者和当前源码。新增 2 次实际 HTTP，均完整 stop/SSE/JSON，零重试，小批在途峰值 2；P6 累计 19 次 HTTP、18 次完整、1 次 length、累计峰值仍 12，缓存／服务端实际推理并行未知。
+
+商路候选违反明确的严格编队和强制托管合同，仍建议允许多人编队及人工命令；使用未给出的 unit:GetActivityType 和 player:GetTrade():GetOutgoingRoutes，待确认结构也不兼容 Controller，拒绝代码。负责人按实际 UnitManager.GetActivityType、city:GetTrade():GetOutgoingRoutes 和 TraderUnitID 重写，加入正常生产容量与待确认预留，6 项新增有状态消费者测试后全套 91 项通过。后续宗教候选有部分参数依据，但遗漏首个信条须追随者的 UI 限制，不能作为完整宗教决策。完整候选不等于采用或引擎通过，见[阶段证据](research/baiqi-p6-trade-evidence-2026-11-01.json)。

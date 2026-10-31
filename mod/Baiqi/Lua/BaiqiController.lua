@@ -77,7 +77,38 @@ local function UnitSnapshot(unit, state)
   return {id=unit:GetID(), owner=unit:GetOwner(), type=def and def.UnitType,
     paused=false,
     formationCount=unit.GetFormationUnitCount and unit:GetFormationUnitCount() or nil,
+    tradeIdle=def and def.UnitType=="UNIT_TRADER" and UnitManager.GetActivityType~=nil
+      and UnitManager.GetActivityType(unit)==ActivityTypes.ACTIVITY_AWAKE,
     moves=unit:GetMovesRemaining(), plot=unit:GetPlotId()}
+end
+
+local function TradeParams(ctx,player,unit,plot)
+  if UnitManager.GetActivityType(unit)~=ActivityTypes.ACTIVITY_AWAKE then return nil end
+  local trade=player:GetTrade()
+  local reserved=0
+  for _,p in pairs(pendingUnits) do if p.kind=="MAKE_TRADE_ROUTE" then reserved=reserved+1 end end
+  if trade:GetNumOutgoingRoutes()+reserved>=trade:GetOutgoingRouteCapacity() then return nil end
+  local origin=Cities.GetCityInPlot(unit:GetX(),unit:GetY())
+  local dest=plot and Cities.GetCityInPlot(plot:GetX(),plot:GetY())
+  if not origin or not dest or origin:GetOwner()~=ctx.player or dest:GetOwner()~=ctx.player
+    or origin:GetID()==dest:GetID() then return nil end
+  local path,entrances,exits=Game.GetTradeManager():GetTradeRoutePath(ctx.player,origin:GetID(),ctx.player,dest:GetID())
+  if type(path)~="table" or next(path)==nil then return nil end
+  local length=0
+  for _,index in pairs(path) do
+    local p=Map.GetPlotByIndex(index)
+    if not Safe(p,player) or (p:GetOwner()~=-1 and p:GetOwner()~=ctx.player) then return nil end
+    length=length+1
+  end
+  for _,portals in pairs({entrances or {},exits or {}}) do
+    for _,index in pairs(portals) do
+      if index>=0 and not Safe(Map.GetPlotByIndex(index),player) then return nil end
+    end
+  end
+  local params={[UnitOperationTypes.PARAM_X0]=dest:GetX(),[UnitOperationTypes.PARAM_Y0]=dest:GetY(),
+    [UnitOperationTypes.PARAM_X1]=unit:GetX(),[UnitOperationTypes.PARAM_Y1]=unit:GetY()}
+  if UnitManager.CanStartOperation(unit,UnitOperationTypes.MAKE_TRADE_ROUTE,nil,params)~=true then return nil end
+  return params,origin,dest,length
 end
 
 local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
@@ -89,14 +120,17 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local def = GameInfo.Units[unit:GetUnitType()]
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
   if operation~="SKIP_TURN" and not Safe(plot, Players[ctx.player]) then return false, "unsafe" end
-  local params = {}
+  local params,origin,dest = {}
   local action = UnitOperationTypes[operation]
   if operation=="SKIP_TURN" and action==nil then
     local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN
     action=row and row.Hash
   end
   if action == nil then return false, "operation_unavailable" end
-  if operation == "MOVE_TO" then
+  if operation=="MAKE_TRADE_ROUTE" then
+    params,origin,dest=TradeParams(ctx,freshPlayer,unit,plot)
+    if not params then return false,"no_safe_domestic_route" end
+  elseif operation == "MOVE_TO" then
     if Map.GetPlotDistance(unit:GetX(), unit:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
     if plot:GetOwner() ~= -1 and plot:GetOwner() ~= ctx.player then return false, "foreign_border" end
     if visibility:IsVisible(plot:GetX(),plot:GetY()) then
@@ -122,6 +156,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
   pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=unit:GetPlotId(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
+  if origin then pendingUnits[unit:GetID()].origin=origin:GetID();pendingUnits[unit:GetID()].destination=dest:GetID() end
   Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex())
   UnitManager.RequestOperation(unit, action, params)
   return true, "submitted"
@@ -224,14 +259,30 @@ end
 
 local function Military(row) return (row.Combat or 0) > 0 or (row.RangedCombat or 0) > 0 or row.FormationClass == "FORMATION_CLASS_SUPPORT" end
 
+local function ProcessTrader(ctx,player,state,unit)
+  local best,bestLength
+  for _,city in player:GetCities():Members() do
+    local plot=Map.GetPlot(city:GetX(),city:GetY())
+    local params,origin,dest,length=TradeParams(ctx,player,unit,plot)
+    if params and (not best or length<bestLength or (length==bestLength and city:GetID()<best:GetID())) then
+      best,bestLength=city,length
+    end
+  end
+  if best then return RequestCivilian(ctx,state,unit,"MAKE_TRADE_ROUTE",Map.GetPlot(best:GetX(),best:GetY())) end
+  Reason("trader:"..unit:GetID(),"商人等待有容量、已探明且安全的国内商路")
+  return false
+end
+
 local function Economy(player)
   local s = {cities=player:GetCities():GetCount(), army=0, builders=0, settlers=0,
+    traders=0,queuedTraders=0,tradeCapacity=player.GetTrade and player:GetTrade():GetOutgoingRouteCapacity() or 0,
     queuedArmy=0, queuedBuilders=0, queuedSettlers=0, reservedSettlers=0, committedMaintenance=0,
     gold=player:GetTreasury():GetGoldBalance(), netGold=player:GetTreasury():GetGoldYield()-player:GetTreasury():GetTotalMaintenance()}
   for _, unit in player:GetUnits():Members() do
     local row=GameInfo.Units[unit:GetUnitType()]
     if row.UnitType=="UNIT_BUILDER" then s.builders=s.builders+1
     elseif row.UnitType=="UNIT_SETTLER" then s.settlers=s.settlers+1
+    elseif row.UnitType=="UNIT_TRADER" then s.traders=s.traders+1
     elseif Military(row) then s.army=s.army+1 end
   end
   for _, city in player:GetCities():Members() do
@@ -243,6 +294,7 @@ local function Economy(player)
         s.committedMaintenance=s.committedMaintenance+(row.Maintenance or 0)
         if row.UnitType=="UNIT_BUILDER" then s.queuedBuilders=s.queuedBuilders+1
         elseif row.UnitType=="UNIT_SETTLER" then s.queuedSettlers=s.queuedSettlers+1
+        elseif row.UnitType=="UNIT_TRADER" then s.queuedTraders=s.queuedTraders+1
         elseif Military(row) then s.queuedArmy=s.queuedArmy+1 end
       end
     end
@@ -313,12 +365,13 @@ local function ProcessCity(ctx, player, state, city)
   economy.cityPopulation=city:GetPopulation()
   economy.hasSafeSite=#SettlementSites(player,state,nil)>0
   for row in GameInfo.Units() do
-    local role=row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler" or (Military(row) and "military" or nil))
+    local role=row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler"
+      or (row.UnitType=="UNIT_TRADER" and "trader" or (Military(row) and "military" or nil)))
     if role then
       economy.maintenance=row.Maintenance or 0
       economy.resourceAffordable=q:CanProduce(row.Hash,false,true)==true
       if BaiqiPlanner.AllowRecruit(role,economy,C) then
-        local priority=role=="settler" and 105 or (role=="builder" and 95 or 55)
+        local priority=role=="settler" and 105 or (role=="builder" and 95 or (role=="trader" and 75 or 55))
         Add("unit",row,priority,false)
       end
     end
@@ -344,7 +397,26 @@ end
 local function ReadBack(player)
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
-    if unit==nil or unit:GetOwner()~=contextID or unit:GetPlotId()~=pending.from or unit:GetMovesRemaining()~=pending.moves then
+    if pending.kind=="MAKE_TRADE_ROUTE" then
+      local origin=player:GetCities():FindID(pending.origin)
+      local observed=false
+      for _,route in ipairs(origin and origin:GetTrade():GetOutgoingRoutes() or {}) do
+        if route.TraderUnitID==unitID and route.DestinationCityPlayer==contextID
+          and route.DestinationCityID==pending.destination then observed=true;break end
+      end
+      if observed then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=MAKE_TRADE_ROUTE|destination="..pending.destination)
+        pendingUnits[unitID]=nil
+      elseif unit==nil or unit:GetOwner()~=contextID then
+        Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=trader_unavailable")
+        pendingUnits[unitID]=nil
+      elseif (pending.elapsed or 0)>=C.interval*2 and UnitManager.GetActivityType(unit)==ActivityTypes.ACTIVITY_AWAKE
+        and UI.IsGameCoreBusy and not UI.IsGameCoreBusy() and UI.IsProcessingMessages and not UI.IsProcessingMessages() then
+        Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=native_idle_without_trade_route")
+        pendingUnits[unitID]=nil
+        unitEvaluated[unitID..":"..unit:GetPlotId()..":"..tostring(unit:GetMovesRemaining())]=nil
+      end
+    elseif unit==nil or unit:GetOwner()~=contextID or unit:GetPlotId()~=pending.from or unit:GetMovesRemaining()~=pending.moves then
       Log("observed","id="..pending.id.."|unit="..unitID.."|kind="..pending.kind)
       pendingUnits[unitID]=nil
     elseif pending.kind=="MOVE_TO" and (pending.elapsed or 0)>=C.interval*2
@@ -399,6 +471,8 @@ local function Tick()
         if ProcessSettler(ctx,player,state,unit) then status="已提交移民操作，等待实际结果"; return end
       elseif snapshot.type=="UNIT_BUILDER" then
         if ProcessBuilder(ctx,player,state,unit) then status="已提交建造者操作，等待实际结果"; return end
+      elseif snapshot.type=="UNIT_TRADER" then
+        if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
       end
       local here=Map.GetPlotByIndex(unit:GetPlotId())
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then

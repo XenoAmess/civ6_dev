@@ -14,7 +14,7 @@ Players={[7]=player}
 PlayerConfigurations={[7]={GetLeaderTypeName=function() return w.leader end,IsHuman=function() return w.human end}}
 Game={GetLocalPlayer=function() return w.localPlayer end}
 GameConfiguration={IsAnyMultiplayer=function() return w.multi end}
-GameInfo={Units={[0]={UnitType='UNIT_WARRIOR'},[1]={UnitType='UNIT_BUILDER'},[2]={UnitType='UNIT_SETTLER'}}}
+GameInfo={Units={[0]={UnitType='UNIT_WARRIOR'},[1]={UnitType='UNIT_BUILDER'},[2]={UnitType='UNIT_SETTLER'},[3]={UnitType='UNIT_TRADER'}}}
 function TestUnit(kind,owner,id)
  local unit={GetUnitType=function() return kind end,GetOwner=function() return owner or 7 end,GetID=function() return id or kind end}
  units[id or kind]=unit;return unit

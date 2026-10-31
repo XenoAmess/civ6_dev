@@ -19,7 +19,8 @@ function BaiqiUIGuard.Civilian(unit)
   local pid=BaiqiUIGuard.PlayerID()
   if pid==nil or unit==nil or unit:GetOwner()~=pid then return false end
   local definition=GameInfo.Units[unit:GetUnitType()]
-  return definition~=nil and (definition.UnitType=="UNIT_SETTLER" or definition.UnitType=="UNIT_BUILDER")
+  return definition~=nil and (definition.UnitType=="UNIT_SETTLER" or definition.UnitType=="UNIT_BUILDER"
+    or definition.UnitType=="UNIT_TRADER")
 end
 
 -- Native colon methods must receive the real native instance, not the proxy table.
