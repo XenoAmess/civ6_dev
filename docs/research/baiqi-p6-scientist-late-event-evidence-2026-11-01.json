@@ -1,0 +1,39 @@
+{
+  "schema": "civ6.baiqi-p6-scientist-late-event-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "model": {
+    "additional_http_requests": 1,
+    "additional_peak_in_flight": 1,
+    "cumulative_p6_http_at_dispatch": 28,
+    "cumulative_complete_stop_json": 27,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "request_sha256": "a33729f07f77f4b667a5a78ea8c20bbf3027ee322dc428ae539f7c446d8849ae",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 13304,
+      "completion_tokens": 525,
+      "total_tokens": 13829
+    },
+    "cached_prompt_tokens_if_reported": null,
+    "review": "Adopted retaining exact pending correlation, not candidate code. Rejected arbitrary 1.4s timeout and unchanged-charge reason when no unit exists. Owner logs unavailable once while awaiting exact native event; never success from disappearance, refund or replay. Late native event still confirms after absence, later turn, unrelated events and long delay."
+  },
+  "native_failure_evidence": "baiqi-p6-scientist-native14-evidence-2026-11-01.json",
+  "owner_implementation": {
+    "manifest_version": 16,
+    "software_tests_passed": 130,
+    "native_late_event_retest": "pending",
+    "pending_retained_for_late_exact_event": true,
+    "absence_timeout_assumed_failure": false,
+    "implementation_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "966051bf72958445a50c59f6dc898e91b521fefab6090b1acdefc8d870fcf482",
+      "mod/Baiqi/Lua/BaiqiController.lua": "3e471a52f3fe71d6971bb2e47a7fbf570629d102e70f98456e474ff64be4558f",
+      "tests/test_baiqi_scientist.py": "4257196c893029d013127b30467e75a2290b3d81f2a234e9518284c0a7c15883"
+    },
+    "full_game_acceptance": false
+  }
+}

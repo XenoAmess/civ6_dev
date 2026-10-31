@@ -106,6 +106,27 @@ class BaiqiScientistTests(unittest.TestCase):
                 self.assertEqual(len(self.w.commandRequests), 1)
                 self.assertTrue(any('great_person_request_unavailable' in l for l in self.logs), self.logs)
                 self.assertFalse(any('kind=ACTIVATE_GREAT_PERSON|charges=' in l for l in self.logs))
+                self.c.Update(10)
+                self.assertEqual(sum('great_person_request_unavailable' in l for l in self.logs), 1)
+
+    def test_consumed_unit_keeps_correlation_for_late_activation_event_without_timeout(self):
+        self.w.scientistPlot = 43
+        self.c.RunNow()
+        self.w.withScientist = False
+        self.c.Update(2)
+        self.w.turn += 1
+        self.c.Update(3600)
+        for packet in ((8,4,5,70), (7,99,5,70), (7,4,0,70), (7,4,5,99)):
+            self.w.FireActivation(*packet)
+            self.c.RunNow()
+        self.assertFalse(any('proof=native_activation_event' in l for l in self.logs))
+        self.w.FireActivation(7,4,5,70)
+        self.c.RunNow()
+        self.w.FireActivation(7,4,5,70)
+        self.c.RunNow()
+        self.assertEqual(sum('proof=native_activation_event' in l for l in self.logs), 1)
+        self.assertEqual(sum('great_person_request_unavailable' in l for l in self.logs), 1)
+        self.assertEqual((len(self.w.commandRequests),len(self.w.unitRequests)), (1,0))
 
     def test_matching_native_activation_event_confirms_consumed_unit_and_unrelated_events_do_not(self):
         self.w.scientistPlot = 43

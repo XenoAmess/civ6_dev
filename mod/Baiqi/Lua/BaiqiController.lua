@@ -513,8 +513,12 @@ local function ReadBack(player)
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event")
         pendingUnits[unitID]=nil
       elseif not gp then
-        Log("great_person_request_unavailable","id="..pending.id.."|unit="..unitID)
-        pendingUnits[unitID]=nil
+        -- Consumed units can disappear before UnitGreatPersonActivated arrives.
+        -- Keep the exact request identity; absence alone proves no outcome.
+        if not pending.unavailableLogged then
+          Log("great_person_request_unavailable","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_event=true")
+          pending.unavailableLogged=true
+        end
       elseif gp:GetActionCharges()<pending.charges then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|charges="..gp:GetActionCharges())
         pendingUnits[unitID]=nil
