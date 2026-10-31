@@ -9,3 +9,9 @@
 本轮先将参考仓库同步至 `6fd2e6681157775884837c3cb3a3393e3eed54b3`，再读取其 [Steam 离线规范](https://github.com/XenoAmess/ck3_eternal_recurrence/blob/6fd2e6681157775884837c3cb3a3393e3eed54b3/AGENTS.md#steam-离线模式与账号占用)、[后台只读探针](https://github.com/XenoAmess/ck3_eternal_recurrence/blob/6fd2e6681157775884837c3cb3a3393e3eed54b3/tools/steam_offline_state_probe.py)及 [steam-ck3-versions 技能](https://github.com/XenoAmess/ck3_eternal_recurrence/blob/6fd2e6681157775884837c3cb3a3393e3eed54b3/skills/steam-ck3-versions/SKILL.md)。版本切换技能的离线恢复原则可参考；本任务不切 CK3 分支，也不继承 CK3 的游戏权限、进程或机器路径。
 
 每次必要联网记录实际机器 ID、时间、目的、Steam 实例与恢复结果。原件放被忽略的 `.local-model/steam/`；公开资料只保留可分享的状态、复现方式和指纹，不记录账号、认证、会话或私人聊天内容。
+
+## 2026-10-31 本机确认
+
+机器 `BF-202609141645`，Steam `11.15.70.27`。本轮通过正式客户端入口请求离线，并正常退出、以离线模式重新启动客户端；没有强杀或修改账号配置。UTC `14:54:40` 对当前实例进行后台 UI Automation 只读查询，实际可见的 Steam 模式菜单项为“上线...”，确认客户端当前离线。查询没有输入、切换焦点或使用截图；完整回执保存在本机忽略目录。
+
+参考项目的原生内存探针在该实例返回 `unavailable`，没有把它解释为在线。此前从主窗口枚举到的隐藏／陈旧菜单名称与实际弹出菜单不同；后续检查必须绑定当前实例并检查控件可见性，不能只匹配整棵 UIA 树中的文字。导航时的截图或菜单调用成功均不作为状态确认。
