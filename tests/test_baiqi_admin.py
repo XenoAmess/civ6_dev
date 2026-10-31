@@ -50,6 +50,62 @@ class AdministrationTests(unittest.TestCase):
         self.admin.Run()
         self.assertEqual((len(self.w.requests), self.w.policyCalls), (2, 0))
 
+    def governors(self):
+        self.lua.execute((ROOT / 'tests/lua/mock_governors.lua').read_text(encoding='utf-8'))
+        # Governor handling must also run outside the free policy-change window.
+        self.w.policyChanged = True
+        return self.w.gov
+
+    def test_governor_requests_wait_for_state_and_spend_real_titles(self):
+        g = self.governors()
+        self.admin.Run()
+        self.admin.Run()
+        self.assertEqual((len(g.requests), g.spent), (1, 0))
+        g.Apply()
+        self.assertEqual(g.spent, 1)
+        self.admin.Run()
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 2)
+        g.Apply()
+        self.assertEqual(g.owned[930].city.GetID(), 2)
+        self.admin.Run()
+        g.Apply()
+        self.assertEqual((g.spent, g.owned[930].promoted), (2, True))
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 3)
+
+    def test_governor_no_titles_and_base_game_absence(self):
+        g = self.governors()
+        g.points = 0
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 0)
+        self.lua.execute('Players[7].GetGovernors=nil;GameInfo.Governors=nil')
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 0)
+
+    def test_governor_rejects_illegal_city_and_preserves_existing_assignment(self):
+        g = self.governors()
+        self.admin.Run()
+        g.Apply()
+        g.illegal[2] = True
+        self.admin.Run()
+        g.Apply()
+        self.assertEqual(g.owned[930].city.GetID(), 1)
+        self.admin.Run()
+        g.Apply()
+        self.w.turn = 2
+        self.admin.Run()
+        self.assertEqual(g.owned[930].city.GetID(), 1)
+        self.assertEqual(len(g.requests), 3)
+
+    def test_neutralized_governor_is_not_assigned(self):
+        g = self.governors()
+        self.admin.Run()
+        g.Apply()
+        g.points, g.neutralized = 1, 2
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 1)
+
 
 if __name__ == '__main__':
     unittest.main()

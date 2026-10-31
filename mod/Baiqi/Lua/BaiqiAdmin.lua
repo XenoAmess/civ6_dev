@@ -6,6 +6,8 @@ local attempted,turn={},-1
 local techPriority={TECH_MINING=90,TECH_ANIMAL_HUSBANDRY=85,TECH_ARCHERY=80,TECH_BRONZE_WORKING=75,TECH_WHEEL=70}
 local civicPriority={CIVIC_CODE_OF_LAWS=100,CIVIC_CRAFTSMANSHIP=90,CIVIC_FOREIGN_TRADE=85,CIVIC_EARLY_EMPIRE=80,CIVIC_STATE_WORKFORCE=75,CIVIC_POLITICAL_PHILOSOPHY=70}
 local policyPriority={POLICY_URBAN_PLANNING=100,POLICY_DISCIPLINE=95,POLICY_AGOGE=90,POLICY_COLONIZATION=85,POLICY_ILKUM=80}
+local governorPriority={GOVERNOR_THE_RESOURCE_MANAGER=100,GOVERNOR_THE_BUILDER=90,
+  GOVERNOR_THE_EDUCATOR=80,GOVERNOR_THE_DEFENDER=70}
 local function Once(key,action)
   if attempted[key] then return false end
   attempted[key]=true
@@ -26,6 +28,74 @@ local function Choose(rows,can,cost,priorities,typeKey)
     return a.Index<b.Index
   end)
   return choices[1]
+end
+local function Assignable(row)
+  if GameInfo.GovernorsCannotAssign then
+    for restriction in GameInfo.GovernorsCannotAssign() do
+      if restriction.GovernorType==row.GovernorType and restriction.CannotAssign then return false end
+    end
+  end
+  return true
+end
+local function Governors(pid,player)
+  if not player.GetGovernors or not GameInfo.Governors then return end
+  local governors=player:GetGovernors()
+  if not governors then return end
+  local cities={}
+  for _,city in player:GetCities():Members() do
+    if city:GetOwner()==pid and not governors:GetAssignedGovernor(city) then cities[#cities+1]=city end
+  end
+  table.sort(cities,function(a,b)
+    if a:GetPopulation()~=b:GetPopulation() then return a:GetPopulation()>b:GetPopulation() end
+    return a:GetID()<b:GetID()
+  end)
+  local _,list=governors:GetGovernorList()
+  table.sort(list,function(a,b) return a:GetType()<b:GetType() end)
+  -- Wait for each request's actual state before making another title decision.
+  for _,governor in ipairs(list) do
+    local row=GameInfo.Governors[governor:GetType()]
+    if row and Assignable(row) and not governor:GetAssignedCity() and governor:GetNeutralizedTurns()==0 then
+      for _,city in ipairs(cities) do
+        if governors:CanAssignGovernor(row.Hash,city,true) then
+          Once("governor-assign:"..row.Index,function()
+            UI.RequestPlayerOperation(pid,PlayerOperations.ASSIGN_GOVERNOR,{
+              [PlayerOperations.PARAM_GOVERNOR_TYPE]=row.Index,
+              [PlayerOperations.PARAM_PLAYER_ONE]=pid,[PlayerOperations.PARAM_CITY_DEST]=city:GetID()})
+          end)
+          return
+        end
+      end
+    end
+  end
+  local spent=governors:GetGovernorPointsSpent()
+  if governors:GetGovernorPoints()<=spent then return end
+  local titleKey="governor-title:"..spent
+  if #cities>0 and governors:CanAppoint() then
+    local row=Choose(GameInfo.Governors,function(r)
+      -- CanAssignGovernor is false before appointment in the native engine.
+      return Assignable(r) and not governors:HasGovernor(r.Hash) and governors:CanEverAppointGovernor(r.Hash)
+    end,function() return 0 end,governorPriority,"GovernorType")
+    if row then
+      Once(titleKey,function() UI.RequestPlayerOperation(pid,PlayerOperations.APPOINT_GOVERNOR,
+        {[PlayerOperations.PARAM_GOVERNOR_TYPE]=row.Index}) end)
+      return
+    end
+  end
+  for _,governor in ipairs(list) do
+    local row=GameInfo.Governors[governor:GetType()]
+    if row and Assignable(row) and governors:CanPromoteGovernor(row.Hash) then
+      for entry in GameInfo.GovernorPromotionSets() do
+        local promotion=GameInfo.GovernorPromotions[entry.GovernorPromotion]
+        if entry.GovernorType==row.GovernorType and promotion and not promotion.BaseAbility
+          and not governor:HasPromotion(promotion.Hash) and governors:CanEarnPromotion(row.Hash,promotion.Hash) then
+          Once(titleKey,function() UI.RequestPlayerOperation(pid,PlayerOperations.PROMOTE_GOVERNOR,{
+            [PlayerOperations.PARAM_GOVERNOR_TYPE]=row.Index,
+            [PlayerOperations.PARAM_GOVERNOR_PROMOTION_TYPE]=promotion.Index}) end)
+          return
+        end
+      end
+    end
+  end
 end
 function BaiqiAdmin.Run()
   local pid=Game.GetLocalPlayer()
@@ -59,6 +129,7 @@ function BaiqiAdmin.Run()
       end
     end
   end
+  Governors(pid,player)
   -- Fill open slots only in the game's free policy window. Never pay to unlock it.
   if culture:PolicyChangeMade() or not (culture:CivicCompletedThisTurn() or culture:GetNumPolicySlotsOpen()>0) then return end
   local used,add,clear={}, {}, {}

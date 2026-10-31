@@ -4,7 +4,9 @@
 
 2026-11-01 验收修订：清单版本 3，数值参数仍为 `BAIQI_P4`。修复快捷科技／市政选择器绕过完整树界面拦截的问题，并覆盖单位旗帜独立上下文。当前冷启动、回归与新发现见 [P5 报告](../testing/results/2026-11-01-p5-acceptance.md)。
 
-当前清单版本 4：政策提交改用原版完整槽列表与最终 hash map，修复“请求已发但槽位始终为空”。已有政策保持原样，数值参数未改；软件与实机范围仍分别记录。
+清单版本 4：政策提交改用原版完整槽列表与最终 hash map，修复“请求已发但槽位始终为空”。已有政策保持原样，数值参数未改；软件与实机范围仍分别记录。
+
+当前清单版本 5：增加正常总督头衔的任命、闲置总督派驻与合法晋升。优先资源管理者、建造者、教育者与防御者，派驻人口较多的自有空位城市；保留已有派驻，跳过中立化总督和秘密结社。请求后等待实际状态，不用关闭通知替代决策；基础游戏无总督接口时跳过。冷启动与长回合结果见 P5 报告。
 
 ## 安装
 
@@ -29,7 +31,7 @@
 | 模块 | 作用 |
 | --- | --- |
 | [Controller](../../mod/Baiqi/Lua/BaiqiController.lua)、[Policy](../../mod/Baiqi/Lua/BaiqiPolicy.lua)、[Planner](../../mod/Baiqi/Lua/BaiqiPlanner.lua) | 合法空队列、建筑／区域生产、文职与安全城址规划；正常成本、有界请求，军队不进入后台动作白名单 |
-| [Admin](../../mod/Baiqi/Lua/BaiqiAdmin.lua) | 空科技／市政路径自动选择、免费政策窗口填空槽；保留已生效队列／政策，不猜原生函数 ABI |
+| [Admin](../../mod/Baiqi/Lua/BaiqiAdmin.lua) | 空科技／市政路径自动选择、免费政策窗口填空槽、正常头衔任命／派驻／晋升总督；保留已生效队列／政策／派驻，不猜原生函数 ABI |
 | [UIGuard](../../mod/Baiqi/Lua/BaiqiUIGuard.lua)、[UILoader](../../mod/Baiqi/Lua/BaiqiUILoader.lua)、`UI/Baiqi*.lua` | 在原版 UI 上限制人工写入，保留军队、其他领袖和只读信息；按规则集包含最上层原版脚本，不复制游戏资产或重复初始化 |
 | [Actions](../../mod/Baiqi/Lua/BaiqiActions.lua)、[Requisition](../../mod/Baiqi/Lua/BaiqiRequisition.lua)、[Capture](../../mod/Baiqi/Lua/BaiqiCapture.lua) | 地图交互报价、提交前与游戏侧重检、原生城市转移、费用／行动防重日志 |
 | [Gameplay](../../mod/Baiqi/Lua/BaiqiGameplay.lua)、[Executor](../../mod/Baiqi/UI/BaiqiExecutor.lua) | 游戏侧迁移／路由与不可交互的后台执行器。执行器不导入人工 UI 拦截器 |
