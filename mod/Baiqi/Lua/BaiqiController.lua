@@ -199,44 +199,53 @@ local function PathStep(unit, target, player, state)
   return Map.GetPlotByIndex(path.plots[2])
 end
 
-local function ScientistData(unit)
+local function DistrictPersonData(unit)
   local def=GameInfo.Units[unit:GetUnitType()]
-  if not def or def.UnitType~="UNIT_GREAT_SCIENTIST" then return nil end
+  local classType=def and BaiqiPolicy.DistrictGreatPersonClass(def.UnitType)
+  if not classType then return nil end
   local gp=unit:GetGreatPerson()
   if not gp or not BaiqiPolicy.Number(gp:GetActionCharges()) or gp:GetActionCharges()<=0 then return nil end
   local info=GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
+  local class=GameInfo.GreatPersonClasses[gp:GetClass()]
   local district=info and info.ActionRequiresCompletedDistrictType and GameInfo.Districts[info.ActionRequiresCompletedDistrictType]
-  if not district or info.GreatPersonClassType~="GREAT_PERSON_CLASS_SCIENTIST" then return nil end
-  return gp,info,district
+  if not district or not class or class.GreatPersonClassType~=classType or info.GreatPersonClassType~=classType
+    or info.ActionRequiresSuzerainTerritory==true or info.ActionRequiresSuzerainTerritory==1
+    or info.ActionRequiresSuzerainTerritory=="True" or info.ActionRequiresSuzerainTerritory=="true" then return nil end
+  return gp,info,district,class,def
 end
 
-local function RequestScientist(unit)
+local function RequestDistrictPerson(unit)
   local ctx,player,state=PlayerContext()
   if not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state))
     or not BaiqiPolicy.ActionAllowed(GameInfo.Units[unit:GetUnitType()].UnitType,"ACTIVATE_GREAT_PERSON") then return false end
-  local gp,info=ScientistData(unit)
+  local gp,info,required,class,def=DistrictPersonData(unit)
   local here=UnitPlot(unit)
   local command=GameInfo.UnitCommands and GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
+  local unitID,individual,charges=unit:GetID(),info and info.Index,gp and gp:GetActionCharges()
   if not gp or not command or not here or here:GetOwner()~=ctx.player or not Safe(here,player)
     or pendingUnits[unit:GetID()] or UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true then return false end
-  if UnitIndex(unit)~=here:GetIndex() then return false end
-  local id=NextRequest("scientist:"..unit:GetID()..":"..gp:GetIndividual()..":"..gp:GetActionCharges())
+  local freshCtx=PlayerContext()
+  local freshGP,freshInfo,_,freshClass,freshDef=DistrictPersonData(unit)
+  if not BaiqiPolicy.Context(freshCtx) or freshCtx.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID) or unit:GetOwner()~=freshCtx.player
+    or not freshGP or freshInfo.Index~=individual or freshClass.Index~=class.Index or freshDef.UnitType~=def.UnitType
+    or freshGP:GetActionCharges()~=charges or UnitIndex(unit)~=here:GetIndex() or here:GetOwner()~=freshCtx.player then return false end
+  local id=NextRequest("district_person:"..unitID..":"..individual..":"..charges)
   if not id then return false end
-  pendingUnits[unit:GetID()]={id=id,kind="ACTIVATE_GREAT_PERSON",command=command.Hash,
-    from=here:GetIndex(),moves=unit:GetMovesRemaining(),charges=gp:GetActionCharges(),
-    individual=info.Index,elapsed=0}
-  Log("request","id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|command=ACTIVATE_GREAT_PERSON|charges="..gp:GetActionCharges())
+  pendingUnits[unitID]={id=id,kind="ACTIVATE_GREAT_PERSON",command=command.Hash,
+    from=here:GetIndex(),moves=unit:GetMovesRemaining(),charges=charges,
+    individual=individual,class=class.Index,unitType=def.UnitType,elapsed=0}
+  Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|command=ACTIVATE_GREAT_PERSON|charges="..charges.."|class="..class.GreatPersonClassType)
   UnitManager.RequestCommand(unit,command.Hash)
   return true
 end
 
-local function ProcessScientist(ctx,player,state,unit)
-  local gp,info,required=ScientistData(unit)
+local function ProcessDistrictPerson(ctx,player,state,unit)
+  local gp,info,required=DistrictPersonData(unit)
   if not gp then
-    Reason("scientist:"..unit:GetID(),"科学家等待当前支持的区域激活条件")
+    Reason("district_person:"..unit:GetID(),"文职伟人等待当前支持的区域激活条件")
     return false
   end
-  if RequestScientist(unit) then return true end
+  if RequestDistrictPerson(unit) then return true end
   local targets={}
   for _,city in player:GetCities():Members() do
     if city:GetDistricts():HasDistrict(required.Index,true) then
@@ -254,7 +263,7 @@ local function ProcessScientist(ctx,player,state,unit)
   end
   table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
   if targets[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",targets[1].step) end
-  Reason("scientist:"..unit:GetID(),"科学家等待已建成的安全区域与原生激活资格")
+  Reason("district_person:"..unit:GetID(),"文职伟人等待已建成的安全区域与原生激活资格")
   return false
 end
 
@@ -566,9 +575,11 @@ local function ReadBack(player)
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
     if pending.kind=="ACTIVATE_GREAT_PERSON" then
       local def=unit and GameInfo.Units[unit:GetUnitType()]
-      local gp=unit and unit:GetOwner()==contextID and def and def.UnitType=="UNIT_GREAT_SCIENTIST" and unit:GetGreatPerson()
+      local gp=unit and unit:GetOwner()==contextID and def and def.UnitType==pending.unitType and unit:GetGreatPerson()
       local individual=gp and GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
-      if not individual or individual.Index~=pending.individual then gp=nil end
+      local class=gp and GameInfo.GreatPersonClasses[gp:GetClass()]
+      if not individual or individual.Index~=pending.individual or not class or class.Index~=pending.class
+        or individual.GreatPersonClassType~=BaiqiPolicy.DistrictGreatPersonClass(pending.unitType) then gp=nil end
       if pending.nativeActivated then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event")
         pendingUnits[unitID]=nil
@@ -702,8 +713,8 @@ local function Tick()
         if ProcessBuilder(ctx,player,state,unit) then status="已提交建造者操作，等待实际结果"; return end
       elseif snapshot.type=="UNIT_TRADER" then
         if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
-      elseif snapshot.type=="UNIT_GREAT_SCIENTIST" then
-        if ProcessScientist(ctx,player,state,unit) then status="已提交科学家内政任务，等待实际结果";return end
+      elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
+        if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
       end
       local here=UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
@@ -737,11 +748,11 @@ Events.CityProductionCompleted.Add(OnCityCompleted)
 local function OnGreatPersonActivated(playerID,unitID,classID,individualID)
   local ctx=PlayerContext()
   local pending=pendingUnits[unitID]
-  local scientist=GameInfo.GreatPersonClasses and GameInfo.GreatPersonClasses.GREAT_PERSON_CLASS_SCIENTIST
   local class=GameInfo.GreatPersonClasses and GameInfo.GreatPersonClasses[classID]
   local individual=GameInfo.GreatPersonIndividuals and GameInfo.GreatPersonIndividuals[individualID]
-  if ctx and ctx.player==playerID and scientist and class and class.Index==scientist.Index and individual
-    and pending and pending.kind=="ACTIVATE_GREAT_PERSON" and pending.individual==individual.Index then
+  if ctx and ctx.player==playerID and class and individual and pending and pending.kind=="ACTIVATE_GREAT_PERSON"
+    and class.Index==pending.class and individual.Index==pending.individual
+    and individual.GreatPersonClassType==BaiqiPolicy.DistrictGreatPersonClass(pending.unitType) then
     pending.nativeActivated=true
   end
 end

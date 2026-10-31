@@ -1,5 +1,7 @@
 -- Reviewed from local-model policy candidate; player IDs must not be fixed to 0.
 BaiqiPolicy = {}
+local districtGreatPersonClasses={UNIT_GREAT_SCIENTIST="GREAT_PERSON_CLASS_SCIENTIST",
+  UNIT_GREAT_ENGINEER="GREAT_PERSON_CLASS_ENGINEER",UNIT_GREAT_MERCHANT="GREAT_PERSON_CLASS_MERCHANT"}
 
 function BaiqiPolicy.Number(value)
   return type(value) == "number" and value == value and math.abs(value) < math.huge
@@ -18,14 +20,18 @@ function BaiqiPolicy.Context(ctx)
     and ctx.player == ctx.localPlayer
 end
 
+function BaiqiPolicy.DistrictGreatPersonClass(unitType)
+  return districtGreatPersonClasses[unitType]
+end
+
 function BaiqiPolicy.CivilianType(unitType)
   return unitType=="UNIT_SETTLER" or unitType=="UNIT_BUILDER" or unitType=="UNIT_TRADER"
-    or unitType=="UNIT_GREAT_SCIENTIST"
+    or BaiqiPolicy.DistrictGreatPersonClass(unitType)~=nil
 end
 
 function BaiqiPolicy.ActionAllowed(unitType, operation)
   if operation=="SKIP_TURN" then return BaiqiPolicy.CivilianType(unitType) end
-  if unitType=="UNIT_GREAT_SCIENTIST" then return operation=="MOVE_TO" or operation=="ACTIVATE_GREAT_PERSON" end
+  if BaiqiPolicy.DistrictGreatPersonClass(unitType) then return operation=="MOVE_TO" or operation=="ACTIVATE_GREAT_PERSON" end
   if unitType=="UNIT_TRADER" then return operation=="MAKE_TRADE_ROUTE" end
   if unitType == "UNIT_SETTLER" then return operation == "MOVE_TO" or operation == "FOUND_CITY" end
   if unitType == "UNIT_BUILDER" then

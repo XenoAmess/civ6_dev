@@ -47,7 +47,7 @@ function o.city:GetDistricts()
  return {HasDistrict=function(_,index,completed) assert(index==7 and completed==true);return w.completed end,
   Members=members({district})}
 end
-local gp={GetIndividual=function() return w.scientistIndividual or 70 end,GetActionCharges=function() return w.scientistCharges end}
+local gp={GetIndividual=function() return w.scientistIndividual or 70 end,GetClass=function() return w.scientistClass or 5 end,GetActionCharges=function() return w.scientistCharges end}
 local scientist={GetID=function() return w.scientistID or 4 end,GetOwner=function() return w.scientistOwner or 7 end,
  GetUnitType=function() return w.scientistType or 3 end,GetPlotId=function() return w.stalePlotId or w.scientistPlot end,
  GetX=function() return plots[w.scientistPlot]:GetX() end,GetY=function() return 3 end,

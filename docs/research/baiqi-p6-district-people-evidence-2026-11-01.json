@@ -1,0 +1,55 @@
+{
+  "schema": "civ6.baiqi-p6-district-people-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "model": {
+    "additional_http_requests": 1,
+    "additional_peak_in_flight": 1,
+    "cumulative_p6_http": 34,
+    "cumulative_complete_stop_json": 33,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "request_sha256": "da347981cc5d3e2aa75d5b9ff6329c479cea5802e1dda099d5d9f52d09f748c2",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 42452,
+      "completion_tokens": 736,
+      "total_tokens": 43188
+    },
+    "total_ms": 10424.702599993907,
+    "first_nonempty_content_delta_ms": 5690.896999993129,
+    "cached_prompt_tokens_if_reported": null,
+    "review": "Partially adopted explicit engineer/merchant unit-class mapping and late-event scenarios. Candidate incorrectly used player:GetCities():HasDistrict rather than actual city:GetDistricts():HasDistrict, did not supply safe exact district path, omitted final owner/identity checks and concrete suzerain exclusion. No model code executed. Owner implements using current Controller native APIs and consumers."
+  },
+  "owner_implementation": {
+    "manifest_version": 20,
+    "software_tests_passed": 159,
+    "new_consumer_tests": 7,
+    "artifact_sha256": "bc90872ab2a6d0cea5bc1ab852a0193cdcb5327296e416515290e096df5f7e91",
+    "whitelist": [
+      "UNIT_GREAT_SCIENTIST",
+      "UNIT_GREAT_ENGINEER",
+      "UNIT_GREAT_MERCHANT"
+    ],
+    "scope": "Positive action charges and actual completed-district requirement only. UnitType, GP class and individual must match. Actual city district type and X/Y guide safe revealed movement, final current-tile activation uses native authority.",
+    "command": "CanStartCommand(unit,ACTIVATE_GREAT_PERSON.Hash,false,true); RequestCommand(unit,ACTIVATE_GREAT_PERSON.Hash)",
+    "safety": "Own current tile; exact final ID, owner, context, position, individual, class, type and charges; no escort/foreign target; explicitly reject suzerain-territory actions.",
+    "readback": "Original full unit ID, type, GP class and individual, charges or matching native event. Consumed/aliased units remain unknown awaiting exact late event.",
+    "manual_guard": "Same strict civilian type policy applied by UIGuard; generals/admirals keep native player commands.",
+    "remaining": "Non-district engineer/merchant actions, creators with XML ActionCharges0, religion founding and other unimplemented domestic choices remain unfinished.",
+    "native_validation": "pending cold start",
+    "full_game_acceptance": false,
+    "source_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "7eda1839509926841d5e984e1138de0f3937f43b121b694d879ded6fb062625a",
+      "mod/Baiqi/Lua/BaiqiController.lua": "c6f2a99114380fc363c30f195c47f4774875024caba408a53c1508a68256dddf",
+      "mod/Baiqi/Lua/BaiqiPolicy.lua": "1d2b7560f2dbee375155e21ca3668e5847e014f9751223e734d1ac640a393b2c",
+      "tests/test_baiqi_district_people.py": "e3ec1b195d97fcc929d34f064c9289fe8dbe4a6820614b0cec5390703a9f8937",
+      "tests/lua/mock_scientist.lua": "57aa5a06328c311bdc2380c02ab94eba9a638ee23a0c913414fbdf5edf8613e1",
+      "tests/lua/mock_guard.lua": "5acf0343a3b0ce6c6d882d3e7e09e0b9f7408027949c1edd85638343f6341572",
+      "tests/test_baiqi_guard.py": "99f5c90ed12f5b93d4344751283b794d3cbbd96ef3b91273dfeae54269b87e0c"
+    }
+  }
+}
