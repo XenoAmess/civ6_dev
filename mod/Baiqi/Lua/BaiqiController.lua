@@ -358,15 +358,20 @@ end
 
 local function Economy(player)
   local s = {cities=player:GetCities():GetCount(), army=0, builders=0, settlers=0,
+    militaryRoles={recon=0,frontline=0,ranged=0,siege=0,support=0,naval=0,air=0},
     traders=0,queuedTraders=0,tradeCapacity=player.GetTrade and player:GetTrade():GetOutgoingRouteCapacity() or 0,
     queuedArmy=0, queuedBuilders=0, queuedSettlers=0, reservedSettlers=0, committedMaintenance=0,
     gold=player:GetTreasury():GetGoldBalance(), netGold=player:GetTreasury():GetGoldYield()-player:GetTreasury():GetTotalMaintenance()}
+  local function CountMilitary(row)
+    local role=BaiqiPlanner.MilitaryRole(row)
+    if role then s.militaryRoles[role]=s.militaryRoles[role]+1 end
+  end
   for _, unit in player:GetUnits():Members() do
     local row=GameInfo.Units[unit:GetUnitType()]
     if row.UnitType=="UNIT_BUILDER" then s.builders=s.builders+1
     elseif row.UnitType=="UNIT_SETTLER" then s.settlers=s.settlers+1
     elseif row.UnitType=="UNIT_TRADER" then s.traders=s.traders+1
-    elseif Military(row) then s.army=s.army+1 end
+    elseif Military(row) then s.army=s.army+1;CountMilitary(row) end
   end
   local function Commitment(row,kind)
     if not row then return end
@@ -375,7 +380,7 @@ local function Economy(player)
       if row.UnitType=="UNIT_BUILDER" then s.queuedBuilders=s.queuedBuilders+1
       elseif row.UnitType=="UNIT_SETTLER" then s.queuedSettlers=s.queuedSettlers+1
       elseif row.UnitType=="UNIT_TRADER" then s.queuedTraders=s.queuedTraders+1
-      elseif Military(row) then s.queuedArmy=s.queuedArmy+1 end
+      elseif Military(row) then s.queuedArmy=s.queuedArmy+1;CountMilitary(row) end
     end
   end
   for _, city in player:GetCities():Members() do
@@ -476,7 +481,8 @@ local function ProcessCity(ctx, player, state, city)
       economy.resourceAffordable=q:CanProduce(row.Hash,false,true)==true
       if BaiqiPlanner.AllowRecruit(role,economy,C) then
         local priority=role=="settler" and 105 or (role=="builder" and 95 or (role=="trader" and 75 or 55))
-        Add("unit",row,priority,false)
+        if role=="military" then priority=BaiqiPlanner.MilitaryScore(row,economy,C) end
+        if priority then Add("unit",row,priority,false) end
       end
     end
   end

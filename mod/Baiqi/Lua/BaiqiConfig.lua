@@ -4,7 +4,7 @@ BaiqiConfig = {
   interval = 0.35, requestsPerTurn = 64, candidatesPerCity = 512,
   productionObservationSeconds = 2,
   goldReserve = 100, netGoldMin = 2, settlerMinPop = 4,
-  maxSettlers = 1, buildersPerCity = 0.5, armyPerCity = 2,
+  maxSettlers = 1, buildersPerCity = 0.5, armyPerCity = 2, reconCitiesPerUnit = 4,
   pathLimit = 48, threatRadius = 2,
   cityRequisition = true, cityCostBase = 200, cityCostPerPopulation = 100,
   cityHealthPercent = 35, requisitionKey = "BAIQI_REQUISITION_V1",

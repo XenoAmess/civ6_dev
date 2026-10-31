@@ -1,0 +1,54 @@
+{
+  "schema": "civ6.baiqi-p6-military-production-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "problem": "Native v12 twenty-turn acceptance produced seven scouts and one warrior; all military priority55 fell back to lowest unit index.",
+  "model": {
+    "additional_http_requests": 1,
+    "additional_peak_in_flight": 1,
+    "cumulative_p6_http": 27,
+    "cumulative_complete_stop_json": 26,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "request_sha256": "10889bf50e34a33c7938ad1cc4f4bc693d5b26e6aa1fa52e9eb61bcd8518db78",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 17528,
+      "completion_tokens": 633,
+      "total_tokens": 18161
+    },
+    "cached_prompt_tokens_if_reported": null,
+    "review": "Role-based recon cap adopted as a design direction only. Candidate code rejected: only boosts melee deficit, never ranged; naval/support scores can exceed ordinary frontline; support PromotionClass assumption not native FormationClass; no strength ranking; separate pending counters conflict with existing commitment tally. Owner uses one actual+queued+pending role tally, both-direction frontline/ranged balance and bounded strength tie-break."
+  },
+  "owner_implementation": {
+    "manifest_version": 15,
+    "software_tests_passed": 129,
+    "new_consumer_tests": 7,
+    "native_production_and_completion": "pending",
+    "background_military_orders": "not added",
+    "frozen_rules": {
+      "existing_army_cap": "max(2,cities*2)",
+      "recon_cap": "max(1,ceil(cities/4))",
+      "frontline_and_ranged_priority": "66 for underrepresented role,64 otherwise; frontline wins equal counts",
+      "siege_priority": 62,
+      "support_and_air_priority": 61,
+      "naval_priority": 60,
+      "recon_priority": 50,
+      "strength_bonus": "min(0.9,max(Combat,RangedCombat,Bombard,0)/1000)",
+      "native_legality_resource_budget_and_maintenance_checks": "retained",
+      "existing_scouts_deleted": false
+    },
+    "implementation_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "fbed80e7ff673de2544d3b4aa16e8c187b446662cb480623fa094f95d9c1858e",
+      "mod/Baiqi/Lua/BaiqiConfig.lua": "025a6c6a9ff27bd6e00e2040395ec09485c8c9171803218254a0d3de5f20b5ab",
+      "mod/Baiqi/Lua/BaiqiController.lua": "6cab5fa33109d032dfc8e267fe512409c694cc10d025b488008efbb685052afe",
+      "mod/Baiqi/Lua/BaiqiPlanner.lua": "7e57bcd224c4c8b5dccd8e541fc2fd7c528b5117e4dc861e376d4e90b24f9e76",
+      "tests/lua/mock_military.lua": "d23af4ea35079daf56f225f69cd8bca2bf8354d2e930925b255b3410cbdfb5be",
+      "tests/test_baiqi_military_production.py": "61ae540f42074142e6f6d1ad63696931dcf8b3a7f90e98e322af00c0b4f710fd"
+    },
+    "full_game_acceptance": false
+  }
+}

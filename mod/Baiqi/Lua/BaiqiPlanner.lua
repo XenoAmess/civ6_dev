@@ -41,6 +41,40 @@ function BaiqiPlanner.AllowRecruit(role, s, c)
   return false
 end
 
+function BaiqiPlanner.MilitaryRole(row)
+  if row.PromotionClass=="PROMOTION_CLASS_RECON" then return "recon" end
+  if row.Domain=="DOMAIN_SEA" then return "naval" end
+  if row.Domain=="DOMAIN_AIR" then return "air" end
+  if row.FormationClass=="FORMATION_CLASS_SUPPORT" then return "support" end
+  if row.PromotionClass=="PROMOTION_CLASS_SIEGE" then return "siege" end
+  if (row.RangedCombat or 0)>0 then return "ranged" end
+  if (row.Combat or 0)>0 then return "frontline" end
+end
+
+-- Rank production only. Live, queued and unacknowledged commitments share one
+-- role tally; no orders are issued to the resulting units.
+function BaiqiPlanner.MilitaryScore(row, s, c)
+  local role=BaiqiPlanner.MilitaryRole(row)
+  local counts=s.militaryRoles
+  if not role or type(counts)~="table" or not number(s.cities) then return nil end
+  for _,key in ipairs({"recon","frontline","ranged","siege","support","naval","air"}) do
+    if not number(counts[key]) or counts[key]<0 then return nil end
+  end
+  local score
+  if role=="recon" then
+    if not number(c.reconCitiesPerUnit) or c.reconCitiesPerUnit<=0
+      or counts.recon>=math.max(1,math.ceil(s.cities/c.reconCitiesPerUnit)) then return nil end
+    score=50
+  elseif role=="frontline" then score=counts.frontline<=counts.ranged and 66 or 64
+  elseif role=="ranged" then score=counts.ranged<counts.frontline and 66 or 64
+  elseif role=="siege" then score=62
+  elseif role=="support" then score=61
+  elseif role=="air" then score=61
+  else score=60 end
+  local strength=math.max(row.Combat or 0,row.RangedCombat or 0,row.Bombard or 0)
+  return score+math.min(0.9,math.max(0,strength)/1000)
+end
+
 function BaiqiPlanner.Site(candidates, reservations, unitID)
   local best
   for _, p in ipairs(candidates or {}) do
