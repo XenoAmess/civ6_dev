@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="10">
+<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="11">
   <Properties>
     <Name>白绮：为我前驱</Name>
     <Description>白绮领袖原型：自动内政，军队由玩家指挥。开发版本。</Description>
@@ -72,6 +72,10 @@
       <File>UI/BaiqiPantheonChooser.lua</File>
       <File>UI/BaiqiDedicationPopup.lua</File>
       <File>UI/BaiqiNaturalDisasterPopup.lua</File>
+      <File>UI/BaiqiTechCivicCompletedPopup.lua</File>
+      <File>UI/BaiqiNotificationPanel.lua</File>
+      <File>UI/BaiqiNaturalWonderPopup.lua</File>
+      <File>UI/BaiqiHistoricMoments.lua</File>
     </ImportFiles>
     <AddGameplayScripts id="BaiqiGameplay">
       <File>Lua/BaiqiGameplay.lua</File>
@@ -239,6 +243,18 @@
         <LuaReplace>UI/BaiqiNaturalDisasterPopup.lua</LuaReplace>
       </Properties>
     </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiQuietTechCivicCompletedPopup">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>TechCivicCompletedPopup</LuaContext><LuaReplace>UI/BaiqiTechCivicCompletedPopup.lua</LuaReplace></Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiQuietNotificationPanel">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>NotificationPanel</LuaContext><LuaReplace>UI/BaiqiNotificationPanel.lua</LuaReplace></Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiQuietNaturalWonderPopup">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>NaturalWonderPopup</LuaContext><LuaReplace>UI/BaiqiNaturalWonderPopup.lua</LuaReplace></Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiQuietHistoricMoments">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>HistoricMoments</LuaContext><LuaReplace>UI/BaiqiHistoricMoments.lua</LuaReplace></Properties>
+    </ReplaceUIScript>
   </InGameActions>
   <Files>
     <File>Config/BaiqiConfig.sql</File>
@@ -282,5 +298,9 @@
     <File>UI/BaiqiPantheonChooser.lua</File>
     <File>UI/BaiqiDedicationPopup.lua</File>
     <File>UI/BaiqiNaturalDisasterPopup.lua</File>
+    <File>UI/BaiqiTechCivicCompletedPopup.lua</File>
+    <File>UI/BaiqiNotificationPanel.lua</File>
+    <File>UI/BaiqiNaturalWonderPopup.lua</File>
+    <File>UI/BaiqiHistoricMoments.lua</File>
   </Files>
 </Mod>

@@ -191,3 +191,9 @@ P4 软件与实机的最终范围、失败及恢复分别见[本轮报告](testi
 机器 `BF-202609141645`，在真实商路与宗教尚未完成时并行提供完整原版消费者和当前源码。新增 2 次实际 HTTP，均完整 stop/SSE/JSON，零重试，小批在途峰值 2；P6 累计 19 次 HTTP、18 次完整、1 次 length、累计峰值仍 12，缓存／服务端实际推理并行未知。
 
 商路候选违反明确的严格编队和强制托管合同，仍建议允许多人编队及人工命令；使用未给出的 unit:GetActivityType 和 player:GetTrade():GetOutgoingRoutes，待确认结构也不兼容 Controller，拒绝代码。负责人按实际 UnitManager.GetActivityType、city:GetTrade():GetOutgoingRoutes 和 TraderUnitID 重写，加入正常生产容量与待确认预留，6 项新增有状态消费者测试后全套 91 项通过。后续宗教候选有部分参数依据，但遗漏首个信条须追随者的 UI 限制，不能作为完整宗教决策。完整候选不等于采用或引擎通过，见[阶段证据](research/baiqi-p6-trade-evidence-2026-11-01.json)。
+
+## 2026-11-01 P6 信息弹窗待办
+
+机器 `BF-202609141645`，真实长测出现多种展示点击后，并行派发完成、boost／自然奇观、历史三项。3 次实际 HTTP 均完整 stop/SSE/JSON、零重试；本小批峰值 3，P6 累计 22 次 HTTP、21 次完整、1 次 length 拒绝，累计峰值 12，未知缓存保持 null。
+
+完成候选只有未完的推测，没有实现；boost 和历史候选把源码明确的 function 全局定义反复误读为 local，提议过宽 UIManager 拦截，或虚构 HistoricMoments_Expansion2 文件名，拒绝代码。负责人追踪实际事件对象、延迟 RegisterHandlers、原生 activatedByUser 及 isByUser 信号，分别实现过滤，避免在播放锁之后才跳过。5 项新增回归后全套 96 项通过；不把替身当成实际时代分或引擎播放通过，见[阶段证据](research/baiqi-p6-popup-evidence-2026-11-01.json)。

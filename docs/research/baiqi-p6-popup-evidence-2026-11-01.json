@@ -1,0 +1,80 @@
+{
+  "schema": "civ6.baiqi-p6-popup-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "base_commit": "6b388e9",
+  "local_date": "2026-11-01",
+  "additional_http_requests": 3,
+  "additional_peak_in_flight": 3,
+  "cumulative_p6_http": 22,
+  "cumulative_p6_complete_stop_json": 21,
+  "cumulative_p6_length_discarded": 1,
+  "cumulative_p6_peak": 12,
+  "automatic_retries": 0,
+  "server_concurrency": null,
+  "tasks": [
+    {
+      "name": "completion-popup",
+      "request_sha256": "68b1f8e6264f4a6687c4535b0dc456182f378daf38ab7fae47691ba73d743c84",
+      "http_status": 200,
+      "sse_done": true,
+      "finish_reason": "stop",
+      "success": true,
+      "usage": {
+        "prompt_tokens": 8483,
+        "completion_tokens": 328,
+        "total_tokens": 8811
+      },
+      "total_ms": 7812.982899995404,
+      "cached_prompt_tokens_if_reported": null,
+      "review": "Code rejected: no implementation, incomplete analysis despite stop/valid JSON. Owner intercepts actual AddCompletedPopup before queue, preserving isByUser."
+    },
+    {
+      "name": "boost-popup",
+      "request_sha256": "25121127501a7b737109ed8ab86ac74df793f1ab7cf62665e22fe2e6d089b0b1",
+      "http_status": 200,
+      "sse_done": true,
+      "finish_reason": "stop",
+      "success": true,
+      "usage": {
+        "prompt_tokens": 8927,
+        "completion_tokens": 2229,
+        "total_tokens": 11156
+      },
+      "total_ms": 30201.12720000907,
+      "cached_prompt_tokens_if_reported": null,
+      "review": "Code rejected: repeatedly misreads global functions as local, invents locking/entry structure, proposes broad UIManager interception losing manual inspection. Owner traces actual producer activatedByUser and wraps two notification handler types after deferred registration."
+    },
+    {
+      "name": "historic-popup",
+      "request_sha256": "934eda1fb5d14476956025f99ce3d1591407bccbfde5b24e98ba84bb4c2a28fb",
+      "http_status": 200,
+      "sse_done": true,
+      "finish_reason": "stop",
+      "success": true,
+      "usage": {
+        "prompt_tokens": 14752,
+        "completion_tokens": 665,
+        "total_tokens": 15417
+      },
+      "total_ms": 10735.730299988063,
+      "cached_prompt_tokens_if_reported": null,
+      "review": "Code rejected: global functions misread as local, nonexistent HistoricMoments_Expansion2 filename, no implementable candidate. Owner uses exact mounted basename and replaces captured native notification event with one guarded callback preserving manual access."
+    }
+  ],
+  "validation": {
+    "software_tests_passed": 96,
+    "manifest_version": 11,
+    "file_count": 46,
+    "native_cold_quiet_window": "pending",
+    "native_manual_inspection": "pending",
+    "full_game_acceptance": false
+  },
+  "implementation_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "5b56f8e0197eb19d4cbcc475aafe49ac2fa3c0e658a008d1fc994674e7801e83",
+    "mod/Baiqi/UI/BaiqiTechCivicCompletedPopup.lua": "08de0946713b4204cfbcf4ce3e1ff8cd3a380d096b5ae99b5228bf812da924f1",
+    "mod/Baiqi/UI/BaiqiNotificationPanel.lua": "61d006090f7d40c15606df46294240edd8c035e70df242c7d15631d90228acf7",
+    "mod/Baiqi/UI/BaiqiNaturalWonderPopup.lua": "db572e935b114e171ce29369abecef5dbf8ce0b944ce71b6c54ed9b6afc9b320",
+    "mod/Baiqi/UI/BaiqiHistoricMoments.lua": "e8019bcfafbe524ebb26af9aa81a1f477b0e31050dfe3935eba12f5ff188ccae",
+    "tests/test_baiqi_ui_contexts.py": "012f86888a1e740f1173219a736125ee5fdc07c1e1bee884b9132421ba768993"
+  }
+}
