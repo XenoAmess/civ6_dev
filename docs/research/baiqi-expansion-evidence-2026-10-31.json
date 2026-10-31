@@ -1,0 +1,169 @@
+{
+  "schema": "civ6.baiqi-expansion-research/v1",
+  "observed_at_utc": "2026-10-31T08:29:29.782962+00:00",
+  "machine_id": "BF-202609141645",
+  "steam_app_id": 289070,
+  "steam_build_id": "15296837",
+  "leader_name": "白绮",
+  "ability_name": "代我执行",
+  "scope": [
+    "automatic production",
+    "automatic construction",
+    "automatic peaceful expansion",
+    "player retains military command"
+  ],
+  "runtime_tested": false,
+  "source_files": [
+    {
+      "path": "Base/Assets/UI/Panels/UnitPanel.lua",
+      "sha256": "6d029bfa8f7119c18ee88956ef775f7d05a57aae9d2ffe3be60c256c7a8d5b6e",
+      "line_ranges": [
+        [
+          310,
+          340
+        ],
+        [
+          359,
+          389
+        ],
+        [
+          617,
+          648
+        ],
+        [
+          2227,
+          2259
+        ],
+        [
+          2419,
+          2463
+        ],
+        [
+          2523,
+          2575
+        ],
+        [
+          2614,
+          2659
+        ],
+        [
+          3851,
+          3881
+        ],
+        [
+          600,
+          638
+        ],
+        [
+          2580,
+          2650
+        ]
+      ]
+    },
+    {
+      "path": "Base/Assets/UI/WorldInput.lua",
+      "sha256": "05be449b00f0fc7bed30d23543e31b43f619650ede2da061131f1967b6d32fa8",
+      "line_ranges": [
+        [
+          840,
+          870
+        ],
+        [
+          2066,
+          2096
+        ],
+        [
+          2156,
+          2186
+        ],
+        [
+          2341,
+          2371
+        ],
+        [
+          2407,
+          2437
+        ],
+        [
+          2475,
+          2505
+        ],
+        [
+          2698,
+          2728
+        ],
+        [
+          3092,
+          3122
+        ]
+      ]
+    },
+    {
+      "path": "Base/Assets/UI/WorldViewIconsManager.lua",
+      "sha256": "ea64737dcb6b4546ba636411cf5719705bc8c58342ebfd847739ba13666d53c7",
+      "line_ranges": [
+        [
+          690,
+          735
+        ]
+      ]
+    },
+    {
+      "path": "Base/Assets/UI/UnitFlagManager.lua",
+      "sha256": "26f056a54b9c0f8410af4d05721ab9584740f35906424974fed58e984cced0ea",
+      "line_ranges": [
+        [
+          265,
+          305
+        ],
+        [
+          1270,
+          1300
+        ]
+      ]
+    }
+  ],
+  "local_model": {
+    "actual_http_requests": 2,
+    "automatic_retries": 0,
+    "observed_peak_client_in_flight": 2,
+    "server_inference_concurrency": null,
+    "tasks": [
+      {
+        "task": "design",
+        "begin_utc": "2026-10-31T08:23:33.385160+00:00",
+        "end_utc": "2026-10-31T08:23:40.519194+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "ttft_ms": 3151.982900002622,
+        "total_ms": 7130.746100003307,
+        "usage": {
+          "prompt_tokens": 18558,
+          "completion_tokens": 502,
+          "total_tokens": 19060
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partially adopted ability wording and action-boundary organization. User supplied the actual name and scope; owner supplied recruitment versus command distinction and civilian-formation restriction in task context. Owner clarified research/diplomacy as outside current automation scope rather than user-prohibited features; no runtime feasibility credit."
+      },
+      {
+        "task": "expansion",
+        "begin_utc": "2026-10-31T08:23:33.384556+00:00",
+        "end_utc": "2026-10-31T08:23:43.091320+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "ttft_ms": 3153.5293999986607,
+        "total_ms": 9704.860600002576,
+        "usage": {
+          "prompt_tokens": 18595,
+          "completion_tokens": 801,
+          "total_tokens": 19396
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partially adopted distinction between settlement suggestions and legality, arrival recheck, formation guard, and recovery scenarios. Rejected unshown remote legal-FOUND_CITY-target API and unverified OnUnitMoveComplete callback. Owner corrected population/budget gates to settler production/planning rather than a separate founding cost; no implementation adopted."
+      }
+    ]
+  },
+  "owner_preparation_note": "First source packet preparation failed before HTTP because UnitFlagManager.lua contained a non-UTF-8 byte. Reread that file byte-preservingly as Latin-1 for ASCII call-site inspection and retained original-byte SHA256. This was not a local-model error or request retry."
+}
