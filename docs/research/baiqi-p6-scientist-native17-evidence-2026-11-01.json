@@ -1,0 +1,75 @@
+{
+  "schema": "civ6.baiqi-p6-scientist-native17-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "pid": 6012,
+  "manifest_version": 17,
+  "artifact_sha256": "d007b9befabc6484033ffeb34a20b8b5b586736bb18cf1f15bedd160802e91ef",
+  "steam_offline_before_launch_utc": "2026-10-31T22:10:09.863411+00:00",
+  "turn": 44,
+  "code_hot_reloads": 0,
+  "fixture_sha256": "063fed5aba67f64a05290e14ce4e7e1c341b5fef9e5d61bbb52ff031c131520c",
+  "activation_requests": [
+    "BaiqiExecutor: BAIQI|request|turn=44|id=0:44:6|source=BACKGROUND|unit=1376267|command=ACTIVATE_GREAT_PERSON|charges=1"
+  ],
+  "native_event": [
+    "BaiqiExecutor: P6_NATIVE_SCIENTIST_ACTIVATED\t44\t0\t1376267\t5\t205"
+  ],
+  "pending_unknown": [
+    "BaiqiExecutor: BAIQI|great_person_request_unavailable|turn=44|id=0:44:6|unit=1376267|awaiting_native_activation_event=true"
+  ],
+  "observed": [
+    "BaiqiExecutor: BAIQI|observed|turn=44|id=0:44:6|unit=1376267|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event"
+  ],
+  "native_effect_and_late_event_tracking": "PASS narrow scientist scenario",
+  "target_tech_states": {
+    "TECH_MATHEMATICS": {
+      "before": {
+        "has_tech": false,
+        "boost": false
+      },
+      "after": {
+        "has_tech": false,
+        "boost": true
+      }
+    },
+    "TECH_CELESTIAL_NAVIGATION": {
+      "before": {
+        "has_tech": true,
+        "boost": false
+      },
+      "after": {
+        "has_tech": true,
+        "boost": false
+      }
+    },
+    "TECH_ENGINEERING": {
+      "before": {
+        "has_tech": false,
+        "boost": false
+      },
+      "after": {
+        "has_tech": false,
+        "boost": true
+      }
+    }
+  },
+  "error_lines": [],
+  "logs": {
+    "Database.log": "7c865d53b7ee29e250a3f2c5a21a2f5beaeae67f5a1e681560373f1c2c43f5c5",
+    "Lua.log": "be0e5c5d680e09d5be8695ce7ae05e30b6d1903f2c3a04395c31258f8ba6717c",
+    "Modding.log": "5c1282bed738ce2fe94bcdce3676a54ba80081b944aeb84a61f6c8f8009a0269"
+  },
+  "save": {
+    "name": "Baiqi_P6_20261101_Cold17_ScientistAfter44.Civ6Save",
+    "sha256": "871a9da8738f715a70cfdc17b7f5b6fed58367b84189e5623c9db0a143f93915",
+    "bytes": 428258
+  },
+  "limits": [
+    "Point eligibility fixture adds29 to actual1, no claim all30 naturally earned.",
+    "Other great people and scientist conditions still untested/unfinished.",
+    "Damage/repair fixture starts only AFTER this checkpoint and archive.",
+    "No native paid stale-army scenario claimed from software regression."
+  ],
+  "full_game_acceptance": false
+}
