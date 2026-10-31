@@ -1,0 +1,111 @@
+{
+  "schema": "civ6.baiqi-p6-production-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "base_commit": "5fad71b",
+  "model": {
+    "additional_http_requests": 2,
+    "additional_peak_in_flight": 2,
+    "cumulative_p6_http": 24,
+    "cumulative_complete_stop_json": 23,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "server_actual_concurrency": null,
+    "tasks": [
+      {
+        "name": "production-reservations",
+        "request_sha256": "c78016f9065156f4e158b2f0d3cd3beef9b80ba75f7b9ae3ec04554c33657e59",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "success": true,
+        "usage": {
+          "prompt_tokens": 13640,
+          "completion_tokens": 737,
+          "total_tokens": 14377
+        },
+        "total_ms": 8142.523300004541,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partial empty-queue pending commitment structure adopted. Code rejected: choice.index is candidate scan ordinal, not native unit index; tradeCapacity removed. Owner keeps native type/hash and counts commitments once, including maintenance."
+      },
+      {
+        "name": "production-rejection",
+        "request_sha256": "774df23b321585ca808ec761cf5a2b7418326ad7d658a53163c060f1601671cf",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "success": true,
+        "usage": {
+          "prompt_tokens": 13674,
+          "completion_tokens": 903,
+          "total_tokens": 14577
+        },
+        "total_ms": 9499.771199989482,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Code rejected: unrelated queue logged as success, elapsed never advanced, no cityEvaluated reset or per-candidate keys/alternate selection despite prompt. Owner implements bounded observation, supersession and different legal candidate in same turn without replay."
+      }
+    ]
+  },
+  "native_failure": {
+    "manifest_version": 11,
+    "artifact_sha256": "7241a87b6b12750a939863ad965ba11774441a4ec6852de1ba221146d9c8f8c0",
+    "pid": 11220,
+    "steam_offline_before_launch_utc": "2026-10-31T20:17:57.288630+00:00",
+    "start_turn": 24,
+    "blocked_turn": 34,
+    "native_endturn_clicks": 10,
+    "strict_case_passed": false,
+    "script_errors": 0,
+    "manual_information_closures": 0,
+    "quiet_display_log_count": 19,
+    "code_hot_reloads": 0,
+    "trader_request_logs": [
+      "BaiqiExecutor: BAIQI|request|turn=34|id=0:34:31|source=BACKGROUND|city=65536|type=UNIT_TRADER",
+      "BaiqiExecutor: BAIQI|request|turn=34|id=0:34:32|source=BACKGROUND|city=196610|type=UNIT_TRADER"
+    ],
+    "capacity": 1,
+    "accepted_city": 65536,
+    "accepted_queue_size": 1,
+    "accepted_native_unit_index": 2,
+    "rejected_city": 196610,
+    "rejected_queue_size": 0,
+    "rejected_current_hash": 0,
+    "native_busy": false,
+    "native_processing": false,
+    "blocker": "ENDTURN_BLOCKING_PRODUCTION",
+    "save": {
+      "name": "Baiqi_P6_20261101_Cold11_ProductionRace34.Civ6Save",
+      "bytes": 404222,
+      "sha256": "5c8be4b1ca7fcbbd16a5e1ac7b014da97616d3f533a0ff2e6d8fe61cf3aa0105"
+    },
+    "queue_receipts": [
+      {
+        "name": "20261031T203230817128Z.json",
+        "sha256": "43b99835a95966aee95868455c7ba2095c12af2b5e53054a2ef371a8b2dc05a1"
+      }
+    ],
+    "log_sha256": {
+      "Lua.log": "85a52b3b55369c3a96fab9470bff544130144296b854cf8f882833b439fecc68",
+      "Database.log": "c387a272406a62180c1222154ba35c0df46896525c5fe5c6eb3005baaca77b63",
+      "Modding.log": "debcef0adef7aeabbad403e0128f81d1adaf387a53a7598878031d6860cd63bc"
+    },
+    "private_summary_sha256": "f7bc28ed07f72d6c1236fbdd02048a5e2ac471d21edbd6afaa8b2ba3e8d6bd75"
+  },
+  "validation": {
+    "software_tests_passed": 102,
+    "manifest_version": 12,
+    "file_count": 46,
+    "native_failure_save_recovery": "pending",
+    "native_no_duplicate_commitments": "pending",
+    "native_twenty_turn_case": "pending",
+    "full_game_acceptance": false
+  },
+  "implementation_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "55dade4d88aacdc20937aa1f0217f3374242aaa1cf251f2db057b779430a1e71",
+    "mod/Baiqi/Lua/BaiqiConfig.lua": "d03dafedb9de82e7a1498751e29f21ece4f5a23cf9c0af2b33cf6e547ce20f7a",
+    "mod/Baiqi/Lua/BaiqiController.lua": "c8a613f2691bd3130409db224df01d04a3ebd4c97ce05155487cc5b72a2dad90",
+    "tests/lua/mock_trade.lua": "c8d3b2d45528c59b0a9583caea6327fd25f6a63f0d1fecd5108977a5e6c569c5",
+    "tests/test_baiqi_trade.py": "d0fd901f27509b44e727a03cc6920a0ab1ca86ef65637c5edaecc4df3241b4d0"
+  }
+}

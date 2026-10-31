@@ -197,3 +197,9 @@ P4 软件与实机的最终范围、失败及恢复分别见[本轮报告](testi
 机器 `BF-202609141645`，真实长测出现多种展示点击后，并行派发完成、boost／自然奇观、历史三项。3 次实际 HTTP 均完整 stop/SSE/JSON、零重试；本小批峰值 3，P6 累计 22 次 HTTP、21 次完整、1 次 length 拒绝，累计峰值 12，未知缓存保持 null。
 
 完成候选只有未完的推测，没有实现；boost 和历史候选把源码明确的 function 全局定义反复误读为 local，提议过宽 UIManager 拦截，或虚构 HistoricMoments_Expansion2 文件名，拒绝代码。负责人追踪实际事件对象、延迟 RegisterHandlers、原生 activatedByUser 及 isByUser 信号，分别实现过滤，避免在播放锁之后才跳过。5 项新增回归后全套 96 项通过；不把替身当成实际时代分或引擎播放通过，见[阶段证据](research/baiqi-p6-popup-evidence-2026-11-01.json)。
+
+## 2026-11-01 P6 真实生产竞态
+
+机器 `BF-202609141645`，实机 T34 的两个商人请求、容量 1、另一城空队列长期 pending 后，并行派发承诺计数与拒绝恢复两项真实窄任务。均完整 stop/SSE/JSON、零重试，本小批在途峰值 2；P6 累计 **24 次 HTTP、23 次完整、1 次 length 拒绝、峰值 12**，未知缓存保持 null。
+
+承诺候选的空队列 pending 计数结构部分采用；其把候选扫描 ordinal 当原生单位 Index，并从 Economy 丢掉 tradeCapacity，代码不采用。恢复候选只在任意队列出现时记成功，未增加 elapsed、cityEvaluated 或同回合候选键，无法解除实际阻塞，拒绝代码。负责人按原生队列字段和异步消费者实现，6 项新增回归后 102 项软件测试通过，真实失败及后续冷启动分开记录，见[生产证据](research/baiqi-p6-production-evidence-2026-11-01.json)。

@@ -2,6 +2,7 @@
 BaiqiConfig = {
   version = 2, leader = "LEADER_BAIQI",
   interval = 0.35, requestsPerTurn = 64, candidatesPerCity = 512,
+  productionObservationSeconds = 2,
   goldReserve = 100, netGoldMin = 2, settlerMinPop = 4,
   maxSettlers = 1, buildersPerCity = 0.5, armyPerCity = 2,
   pathLimit = 48, threatRadius = 2,

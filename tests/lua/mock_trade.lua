@@ -8,6 +8,9 @@ UnitOperationTypes.MAKE_TRADE_ROUTE=18
 UnitOperationTypes.PARAM_X0='x0';UnitOperationTypes.PARAM_Y0='y0'
 UnitOperationTypes.PARAM_X1='x1';UnitOperationTypes.PARAM_Y1='y1'
 local traderRow={UnitType='UNIT_TRADER',Hash=203,Index=3,Combat=0,Maintenance=0}
+GameInfo.Projects=setmetatable({[301]={ProjectType='PROJECT_TEST',Hash=301,Index=0},
+ [0]={ProjectType='PROJECT_TEST',Hash=301,Index=0}},
+ {__call=function(t) local done=false;return function() if not done then done=true;return t[301] end end end})
 local oldUnits=GameInfo.Units
 local unitRows={oldUnits[0],oldUnits[1],oldUnits[2],traderRow}
 GameInfo.Units=setmetatable({},{__index=function(_,key)
@@ -49,6 +52,9 @@ function o.player:GetUnits()
  local list={o.army}
  if w.withTrader then list[#list+1]=t1 end
  if w.secondTrader then list[#list+1]=t2 end
+ for i=1,w.extraArmy or 0 do
+  list[#list+1]=setmetatable({GetID=function() return 10+i end},{__index=o.army})
+ end
  return {Members=members(list),FindID=function(_,id) for _,u in ipairs(list) do if u:GetID()==id then return u end end end}
 end
 Game.GetTradeManager=function() return {GetTradeRoutePath=function() return w.routePath,{},{} end} end
@@ -76,10 +82,31 @@ w.queues={[66]={},[67]={}}
 function city:GetBuildQueue()
  local id=self:GetID()
  return {GetSize=function() return w.productionMode and #w.queues[id] or 1 end,
-  GetCurrentProductionTypeHash=function() return w.queues[id][1] and 203 or 0 end,
+  GetCurrentProductionTypeHash=function()
+   local e=w.queues[id][1]
+   if not e then return 0 end
+   local row=e.UnitType and GameInfo.Units[e.UnitType] or (e.ProjectType and GameInfo.Projects[301])
+   return row and row.Hash or 0
+  end,
   GetAt=function(_,index) return w.queues[id][index+1] end,
-  CanProduce=function(_,hash) return w.productionMode and hash==203 end}
+  CanProduce=function(_,hash)
+   if w.blockSecondCity and id==67 then return false end
+   return w.productionMode and (hash==(w.productionHash or 203) or (w.allowProject and hash==301))
+  end}
 end
 CityManager.RequestOperation=function(c,op,params)
  w.cityRequests[#w.cityRequests+1]={city=c:GetID(),op=op,params=params}
+end
+
+function w.EnableSettlerSite()
+ local site={GetIndex=function() return 44 end,GetX=function() return 8 end,GetY=function() return 3 end,
+  GetOwner=function() return -1 end,GetFeatureType=function() return -1 end,
+  IsWater=function() return false end,IsImpassable=function() return false end,IsCity=function() return false end}
+ plots[44]=site
+ Map.GetPlotDistance=function(x,y,x2,y2) return math.abs(x-x2) end
+ PlayerManager={GetAliveIDs=function() return {7} end}
+ function o.player:GetGrandStrategicAI()
+  return {GetSettlementRecommendations=function() return {{SettlingLocation=44}} end}
+ end
+ city.GetPopulation=function() return 4 end
 end

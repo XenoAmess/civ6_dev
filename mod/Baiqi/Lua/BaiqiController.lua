@@ -285,18 +285,32 @@ local function Economy(player)
     elseif row.UnitType=="UNIT_TRADER" then s.traders=s.traders+1
     elseif Military(row) then s.army=s.army+1 end
   end
+  local function Commitment(row,kind)
+    if not row then return end
+    s.committedMaintenance=s.committedMaintenance+(row.Maintenance or 0)
+    if kind=="unit" then
+      if row.UnitType=="UNIT_BUILDER" then s.queuedBuilders=s.queuedBuilders+1
+      elseif row.UnitType=="UNIT_SETTLER" then s.queuedSettlers=s.queuedSettlers+1
+      elseif row.UnitType=="UNIT_TRADER" then s.queuedTraders=s.queuedTraders+1
+      elseif Military(row) then s.queuedArmy=s.queuedArmy+1 end
+    end
+  end
   for _, city in player:GetCities():Members() do
     local q=city:GetBuildQueue()
     for i=0,q:GetSize()-1 do
       local entry=q:GetAt(i)
       local row=entry and entry.UnitType and GameInfo.Units[entry.UnitType]
-      if row then
-        s.committedMaintenance=s.committedMaintenance+(row.Maintenance or 0)
-        if row.UnitType=="UNIT_BUILDER" then s.queuedBuilders=s.queuedBuilders+1
-        elseif row.UnitType=="UNIT_SETTLER" then s.queuedSettlers=s.queuedSettlers+1
-        elseif row.UnitType=="UNIT_TRADER" then s.queuedTraders=s.queuedTraders+1
-        elseif Military(row) then s.queuedArmy=s.queuedArmy+1 end
-      end
+      if row then Commitment(row,"unit")
+      elseif entry and entry.BuildingType then Commitment(GameInfo.Buildings[entry.BuildingType],"building")
+      elseif entry and entry.DistrictType then Commitment(GameInfo.Districts[entry.DistrictType],"district") end
+    end
+    -- A submitted empty-queue insertion is a commitment before native readback.
+    -- Once the queue exists it is counted above, never again as pending.
+    local pending=pendingCities[city:GetID()]
+    if pending and q:GetSize()==0 and q:GetCurrentProductionTypeHash()==0 then
+      local tables={unit=GameInfo.Units,building=GameInfo.Buildings,district=GameInfo.Districts,project=GameInfo.Projects}
+      local rows=tables[pending.kind]
+      Commitment(rows and rows[pending.hash],pending.kind)
     end
   end
   return s
@@ -318,6 +332,12 @@ local function BuildParams(candidate)
   return params
 end
 
+local function CityRequestKey(city,candidate)
+  local p=candidate.placement
+  return "city:"..city:GetID()..":"..candidate.kind..":"..tostring(candidate.hash)
+    ..":"..(p and (p.x..":"..p.y) or "current")
+end
+
 local function ProcessCity(ctx, player, state, city)
   local q=city:GetBuildQueue()
   if q:GetSize() ~= 0 or q:GetCurrentProductionTypeHash() ~= 0 or pendingCities[city:GetID()] then return false end
@@ -332,15 +352,17 @@ local function ProcessCity(ctx, player, state, city)
     if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
       score=score,repair=repair,placement=placement}
+    if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
   end
   local treasury=player:GetTreasury()
   local netGold=treasury:GetGoldYield()-treasury:GetTotalMaintenance()
+  local economy=Economy(player)
   for row in GameInfo.Buildings() do
     local repair=city:GetBuildings():IsPillaged(row.Index)
     if not row.IsWonder and (not row.RequiresPlacement or repair) and (not row.MustPurchase or repair)
-      and ((row.Maintenance or 0)==0 or netGold-(row.Maintenance or 0)>=C.netGoldMin or repair) then
+      and ((row.Maintenance or 0)==0 or netGold-economy.committedMaintenance-(row.Maintenance or 0)>=C.netGoldMin or repair) then
       Add("building",row,buildingPriority[row.BuildingType] or 40,repair)
     end
   end
@@ -361,7 +383,6 @@ local function ProcessCity(ctx, player, state, city)
       end
     end
   end
-  local economy=Economy(player)
   economy.cityPopulation=city:GetPopulation()
   economy.hasSafeSite=#SettlementSites(player,state,nil)>0
   for row in GameInfo.Units() do
@@ -386,9 +407,9 @@ local function ProcessCity(ctx, player, state, city)
   local params=BuildParams(choice)
   if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
-  local id=NextRequest("city:"..city:GetID())
+  local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
-  pendingCities[city:GetID()]={id=id,hash=choice.hash}
+  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0}
   Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type)
   CityManager.RequestOperation(city,CityOperationTypes.BUILD,params)
   return true
@@ -433,10 +454,35 @@ local function ReadBack(player)
   end
   for cityID,pending in pairs(pendingCities) do
     local city=player:GetCities():FindID(cityID)
-    if city==nil then pendingCities[cityID]=nil
-    elseif city:GetBuildQueue():GetCurrentProductionTypeHash()~=0 then
-      Log("queue_observed","id="..pending.id.."|city="..cityID.."|hash="..city:GetBuildQueue():GetCurrentProductionTypeHash())
+    if city==nil or city:GetOwner()~=contextID then
+      Log("queue_request_not_observed","id="..pending.id.."|city="..cityID.."|reason=city_unavailable")
       pendingCities[cityID]=nil
+    else
+      local q=city:GetBuildQueue()
+      local hash=q:GetCurrentProductionTypeHash()
+      local matched=hash==pending.hash
+      for i=0,q:GetSize()-1 do
+        local entry=q:GetAt(i)
+        local row=entry and ((entry.UnitType and GameInfo.Units[entry.UnitType])
+          or (entry.BuildingType and GameInfo.Buildings[entry.BuildingType])
+          or (entry.DistrictType and GameInfo.Districts[entry.DistrictType])
+          or (entry.ProjectType and GameInfo.Projects[entry.ProjectType]))
+        if row and row.Hash==pending.hash then matched=true;break end
+      end
+      if matched then
+        Log("queue_observed","id="..pending.id.."|city="..cityID.."|hash="..pending.hash)
+        pendingCities[cityID]=nil
+      elseif hash~=0 then
+        Log("queue_request_superseded","id="..pending.id.."|city="..cityID.."|actual_hash="..hash)
+        pendingCities[cityID]=nil
+      elseif q:GetSize()==0 and (pending.elapsed or 0)>=C.productionObservationSeconds
+        and UI.IsGameCoreBusy and not UI.IsGameCoreBusy() and UI.IsProcessingMessages and not UI.IsProcessingMessages() then
+        Log("queue_request_not_observed","id="..pending.id.."|city="..cityID.."|reason=native_idle_empty_queue")
+        pendingCities[cityID]=nil
+        cityEvaluated[cityID]=nil
+        -- Attempts remain keyed by candidate. A different normal legal item may
+        -- fill the empty queue this turn; this candidate is never replayed.
+      end
     end
   end
 end
@@ -492,6 +538,7 @@ end
 
 function BaiqiController.Update(delta)
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
+  for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
   elapsed=elapsed+delta
   if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow() end
 end
