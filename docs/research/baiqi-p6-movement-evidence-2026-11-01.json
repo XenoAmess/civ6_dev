@@ -1,0 +1,68 @@
+{
+  "schema": "civ6.baiqi-p6-movement-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "base_commit": "bb7f1bc",
+  "local_date": "2026-11-01",
+  "model": {
+    "additional_http_requests": 1,
+    "cumulative_p6_http": 17,
+    "cumulative_p6_complete_stop_json": 16,
+    "cumulative_p6_length_discarded": 1,
+    "cumulative_p6_peak": 12,
+    "automatic_retries": 0,
+    "request_sha256": "37649e924737b014df0664d6b19dc488f31d334fec18ddd8c3e11b8ae39aae03",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "success": true,
+    "usage": {
+      "prompt_tokens": 8306,
+      "completion_tokens": 1067,
+      "total_tokens": 9373
+    },
+    "total_ms": 7977.071100001922,
+    "cached_prompt_tokens_if_reported": null,
+    "review": "Code rejected: turn difference treated as seconds, any occupied target rejected, no-effect logged as observed, tests never create a move. Owner implements elapsed scheduler time + native readiness/route/busy gates and keeps same-turn attempt protection."
+  },
+  "native_failure": {
+    "turn": 34,
+    "unit": 589824,
+    "plot": 588,
+    "moves": 4,
+    "first_ready_same_unit": true,
+    "is_ready_to_move": true,
+    "queued_destination": null,
+    "gamecore_busy": false,
+    "processing_messages": false,
+    "save": "Baiqi_P6_20261101_BlockedMove34",
+    "receipts": [
+      {
+        "name": "20261031T190705276337Z.json",
+        "sha256": "018b1cfe90204c0d539f8039d708980a942d84c8b74cbafc7615e7c5f85f6c18"
+      },
+      {
+        "name": "20261031T191003179008Z.json",
+        "sha256": "61acb023b639d0579b398a3f998ee3aba45bdceacc31b17ae564e458550a4024"
+      },
+      {
+        "name": "20261031T191358047570Z.json",
+        "sha256": "f4b859ed6582cfd63c001b801a9c6485b6d9e3c514ce836a5e9993d6c8b00d7c"
+      }
+    ],
+    "hot_reload_recovery": "Transient pending reset, real movement resumed; NOT proof of preserved pending recovery branch."
+  },
+  "validation": {
+    "software_tests_passed": 85,
+    "manifest_version": 9,
+    "full_bundle_cold": "pending",
+    "native_pending_release_branch": "pending",
+    "full_game_acceptance": false
+  },
+  "implementation_sha256": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "a9d6365e40c83c2a5056694f609333f1456753f21e85bc4fdfa1df5b8e3462a7",
+    "mod/Baiqi/Baiqi.modinfo": "2b6548c720b7434edf09f2828abf5a1a1d703d570a123413d0cd38a2b785bdfd",
+    "tests/lua/mock_world.lua": "d2517c5dcf10e300174b2269c5234401c8675ac30e22ad27a079ab2e4821cd33",
+    "tests/lua/mock_movement.lua": "0333b57dfb0d3523443d598fef1a0421202db96731d6821038e0777a51340052",
+    "tests/test_baiqi_controller.py": "387a57ddef35582558e187ccccbd8e8135c72ef2683d821bf99d2d6ee15c7154"
+  }
+}

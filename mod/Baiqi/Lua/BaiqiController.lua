@@ -99,6 +99,15 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if operation == "MOVE_TO" then
     if Map.GetPlotDistance(unit:GetX(), unit:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
     if plot:GetOwner() ~= -1 and plot:GetOwner() ~= ctx.player then return false, "foreign_border" end
+    if visibility:IsVisible(plot:GetX(),plot:GetY()) then
+      for _,other in pairs(Units.GetUnitsInPlot(plot) or {}) do
+        local row=GameInfo.Units[other:GetUnitType()]
+        if other:GetOwner()==ctx.player and other:GetID()~=unit:GetID() and row
+          and (row.UnitType=="UNIT_SETTLER" or row.UnitType=="UNIT_BUILDER") then
+          return false,"civilian_target_occupied"
+        end
+      end
+    end
     params[UnitOperationTypes.PARAM_X], params[UnitOperationTypes.PARAM_Y] = plot:GetX(), plot:GetY()
   else
     if plot:GetIndex() ~= unit:GetPlotId() then return false, "not_current_plot" end
@@ -112,7 +121,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local key = "unit:"..unit:GetID()..":"..unit:GetPlotId()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
-  pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=unit:GetPlotId(), kind=operation, moves=unit:GetMovesRemaining()}
+  pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=unit:GetPlotId(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
   Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex())
   UnitManager.RequestOperation(unit, action, params)
   return true, "submitted"
@@ -338,6 +347,16 @@ local function ReadBack(player)
     if unit==nil or unit:GetOwner()~=contextID or unit:GetPlotId()~=pending.from or unit:GetMovesRemaining()~=pending.moves then
       Log("observed","id="..pending.id.."|unit="..unitID.."|kind="..pending.kind)
       pendingUnits[unitID]=nil
+    elseif pending.kind=="MOVE_TO" and (pending.elapsed or 0)>=C.interval*2
+      and unit.IsReadyToMove and unit:IsReadyToMove()
+      and UnitManager.GetQueuedDestination and UnitManager.GetQueuedDestination(unit)==nil
+      and UI.IsGameCoreBusy and not UI.IsGameCoreBusy()
+      and UI.IsProcessingMessages and not UI.IsProcessingMessages() then
+      Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=native_idle_without_route")
+      pendingUnits[unitID]=nil
+      unitEvaluated[unitID..":"..pending.from..":"..tostring(pending.moves)]=nil
+      -- Keep attempts: the same move is not repeated this turn. The normal
+      -- civilian fallback may wait; a later turn replans from actual state.
     end
   end
   for cityID,pending in pairs(pendingCities) do
@@ -398,6 +417,7 @@ function BaiqiController.RunNow()
 end
 
 function BaiqiController.Update(delta)
+  for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   elapsed=elapsed+delta
   if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow() end
 end

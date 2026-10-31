@@ -81,3 +81,4 @@ UnitManager={CanStartOperation=function() return true end,RequestOperation=funct
 UI={GetHeadSelectedCity=function() return nil end,GetHeadSelectedUnit=function() return nil end}
 local function event() return {Add=function() end,Remove=function() end} end
 Events={UnitOperationStarted=event(),CityProductionCompleted=event()}
+TestWorld.objects={builder=builder,settler=settler,army=army,city=city,player=player}
