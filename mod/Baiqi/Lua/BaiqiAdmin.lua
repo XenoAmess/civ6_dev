@@ -8,6 +8,7 @@ local civicPriority={CIVIC_CODE_OF_LAWS=100,CIVIC_CRAFTSMANSHIP=90,CIVIC_FOREIGN
 local policyPriority={POLICY_URBAN_PLANNING=100,POLICY_DISCIPLINE=95,POLICY_AGOGE=90,POLICY_COLONIZATION=85,POLICY_ILKUM=80}
 local governorPriority={GOVERNOR_THE_RESOURCE_MANAGER=100,GOVERNOR_THE_BUILDER=90,
   GOVERNOR_THE_EDUCATOR=80,GOVERNOR_THE_DEFENDER=70}
+local pantheonPriority={BELIEF_GOD_OF_THE_FORGE=100,BELIEF_CITY_PATRON_GODDESS=90}
 local function Once(key,action)
   if attempted[key] then return false end
   attempted[key]=true
@@ -28,6 +29,22 @@ local function Choose(rows,can,cost,priorities,typeKey)
     return a.Index<b.Index
   end)
   return choices[1]
+end
+local function Pantheon(pid,player)
+  if not player.GetReligion or not GameInfo.Beliefs then return end
+  local religion=player:GetReligion()
+  if not religion or religion:GetPantheon()>=0 or not religion:CanCreatePantheon() then return end
+  local world=Game.GetReligion()
+  local row=Choose(GameInfo.Beliefs,function(r)
+    return r.BeliefClassType=="BELIEF_CLASS_PANTHEON"
+      and not world:IsInSomePantheon(r.Index) and not world:IsInSomeReligion(r.Index)
+  end,function() return 0 end,pantheonPriority,"BeliefType")
+  if row then
+    -- The engine charges normal faith. A request is not proof of founding.
+    Once("pantheon",function() UI.RequestPlayerOperation(pid,PlayerOperations.FOUND_PANTHEON,{
+      [PlayerOperations.PARAM_BELIEF_TYPE]=row.Hash,
+      [PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}) end)
+  end
 end
 local function Assignable(row)
   if GameInfo.GovernorsCannotAssign then
@@ -129,6 +146,7 @@ function BaiqiAdmin.Run()
       end
     end
   end
+  Pantheon(pid,player)
   Governors(pid,player)
   -- Fill open slots only in the game's free policy window. Never pay to unlock it.
   if culture:PolicyChangeMade() or not (culture:CivicCompletedThisTurn() or culture:GetNumPolicySlotsOpen()>0) then return end

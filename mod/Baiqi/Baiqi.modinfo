@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="5">
+<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="6">
   <Properties>
     <Name>白绮：为我前驱</Name>
     <Description>白绮领袖原型：自动内政，军队由玩家指挥。开发版本。</Description>
@@ -68,6 +68,8 @@
       <File>UI/BaiqiResearchChooser.lua</File>
       <File>UI/BaiqiCivicsChooser.lua</File>
       <File>UI/BaiqiUnitFlagManager.lua</File>
+      <File>UI/BaiqiReligionScreen.lua</File>
+      <File>UI/BaiqiPantheonChooser.lua</File>
     </ImportFiles>
     <AddGameplayScripts id="BaiqiGameplay">
       <File>Lua/BaiqiGameplay.lua</File>
@@ -207,6 +209,20 @@
         <LuaReplace>UI/BaiqiUnitFlagManager.lua</LuaReplace>
       </Properties>
     </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiGuardReligionScreen">
+      <Properties>
+        <LoadOrder>1000</LoadOrder>
+        <LuaContext>ReligionScreen</LuaContext>
+        <LuaReplace>UI/BaiqiReligionScreen.lua</LuaReplace>
+      </Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiGuardPantheonChooser">
+      <Properties>
+        <LoadOrder>1000</LoadOrder>
+        <LuaContext>PantheonChooser</LuaContext>
+        <LuaReplace>UI/BaiqiPantheonChooser.lua</LuaReplace>
+      </Properties>
+    </ReplaceUIScript>
   </InGameActions>
   <Files>
     <File>Config/BaiqiConfig.sql</File>
@@ -246,5 +262,7 @@
     <File>UI/BaiqiResearchChooser.lua</File>
     <File>UI/BaiqiCivicsChooser.lua</File>
     <File>UI/BaiqiUnitFlagManager.lua</File>
+    <File>UI/BaiqiReligionScreen.lua</File>
+    <File>UI/BaiqiPantheonChooser.lua</File>
   </Files>
 </Mod>

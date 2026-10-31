@@ -106,6 +106,51 @@ class AdministrationTests(unittest.TestCase):
         self.admin.Run()
         self.assertEqual(len(g.requests), 1)
 
+    def pantheon(self):
+        self.lua.execute((ROOT / 'tests/lua/mock_pantheon.lua').read_text(encoding='utf-8'))
+        self.w.policyChanged = True
+        return self.w.faith
+
+    def test_pantheon_hash_request_waits_for_real_consumer_and_charges_normal_faith(self):
+        f = self.pantheon()
+        self.admin.Run()
+        self.admin.Run()
+        self.assertEqual((len(f.requests), f.balance, f.pantheon), (1, 50, -1))
+        self.assertEqual(f.requests[1].belief, 505)
+        f.Apply()
+        self.assertEqual((f.balance, f.pantheon), (25, 5))
+        self.w.turn = 2
+        self.admin.Run()
+        self.assertEqual(len(f.requests), 1)
+
+    def test_pantheon_excludes_beliefs_claimed_in_pantheon_or_religion(self):
+        f = self.pantheon()
+        f.inReligion[5] = True
+        self.admin.Run()
+        self.assertEqual(f.requests[1].belief, 502)
+        f.claimed[2] = True
+        self.admin.Run()
+        self.w.turn = 2
+        self.admin.Run()
+        self.assertEqual(len(f.requests), 1)
+
+    def test_pantheon_does_not_retry_another_belief_before_pending_confirmation(self):
+        f = self.pantheon()
+        self.admin.Run()
+        f.claimed[5] = True
+        self.admin.Run()
+        self.assertEqual(len(f.requests), 1)
+
+    def test_pantheon_requires_native_permission_faith_and_correct_leader(self):
+        f = self.pantheon()
+        f.can = False
+        self.admin.Run()
+        f.can, f.balance = True, 24
+        self.admin.Run()
+        f.balance, self.w.leader = 50, 'LEADER_TRAJAN'
+        self.admin.Run()
+        self.assertEqual(len(f.requests), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -13,7 +13,8 @@ class UIContextTests(unittest.TestCase):
         lua.globals().TestGuard.leader = leader
         lua.execute("GameConfiguration.GetValue=function() return 'RULESET_EXPANSION_2' end; TestNativeIncludes={}")
         def include(module):
-            native = {'ResearchChooser_Expansion1': 'OnChooseResearch', 'CivicsChooser': 'OnChooseCivic'}
+            native = {'ResearchChooser_Expansion1': 'OnChooseResearch', 'CivicsChooser': 'OnChooseCivic',
+                      'PantheonChooser': 'ConfirmPantheon', 'ReligionScreen': 'TestReligionConfirm'}
             if module in native:
                 lua.execute('TestNativeIncludes[#TestNativeIncludes+1]=...' , module)
                 # Mirrors the relevant native request boundary, not mod behavior.
@@ -63,6 +64,18 @@ class UIContextTests(unittest.TestCase):
         g.TestGuard.leader = 'LEADER_TRAJAN'
         self.assertEqual(g.TestFlagClick(g.TestUnit(1,7,8)), (True,'native'))
         self.assertEqual(g.TestGuard.unitCalls, 2)
+
+    def test_religion_contexts_guard_captured_native_requests_without_changing_executor(self):
+        for name in ('PantheonChooser', 'ReligionScreen'):
+            for leader in ('LEADER_BAIQI', 'LEADER_TRAJAN'):
+                with self.subTest(context=name, leader=leader):
+                    lua = self.load_context(name, leader)
+                    g = lua.globals()
+                    self.assertEqual(g.TestCapturedButton(505), leader == 'LEADER_TRAJAN')
+                    self.assertEqual(g.TestGuard.playerCalls, int(leader == 'LEADER_TRAJAN'))
+                    self.assertEqual((len(g.TestNativeIncludes), g.TestNativeIncludes[1]), (1, name))
+                    if name == 'PantheonChooser':
+                        self.assertEqual(g.ConfirmPantheon(505), leader == 'LEADER_TRAJAN')
 
 
 if __name__ == '__main__':
