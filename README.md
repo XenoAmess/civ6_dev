@@ -1,11 +1,12 @@
 # civ6_dev
 
-《文明 VI》相关开发仓库。当前阶段完成开发协作规则、本地模型配置和可复用调用工具；尚未实现游戏功能，未选定游戏开发架构。
+《文明 VI》相关开发仓库。当前完成开发协作基础设施，并开展战斗领袖与自动城市建设预研；自动建设功能尚未进入实机验收。
 
 - [协作与提交规则](AGENTS.md)：每个工作包验证完成后立即 commit + push。
 - [本地模型指南](docs/local-model-worker-guide.md)：连接、真实任务派发、并发与候选验收。
 - [本地模型唯一配置](docs/local-model-executor-config.json)：`qwen38-coder`，无需密钥。
 - [经验与采用记录](docs/local-model-experience.md)：参考项目来源、本项目实际调用与能力边界。
+- [战斗领袖与自动建设预研](docs/design/custom-leader-autobuild-research-2026-10-31.md)：领袖玩法、自动化范围、原版源码依据与最小原型验收。
 
 本地模型工具仅依赖 Python 3.10+ 标准库；这不规定游戏开发部分的语言或架构。在仓库根目录通过 CMD 执行：
 

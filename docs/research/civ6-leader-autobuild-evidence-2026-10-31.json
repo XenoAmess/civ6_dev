@@ -1,0 +1,156 @@
+{
+  "schema": "civ6.leader-autobuild-research/v1",
+  "observed_at_utc": "2026-10-31T07:43:15.668878+00:00",
+  "machine_id": "BF-202609141645",
+  "steam_app_id": 289070,
+  "steam_build_id": "15296837",
+  "game_installed": true,
+  "runtime_automation_tested": false,
+  "local_sources": [
+    {
+      "path": "Base/Assets/UI/Panels/ProductionPanel.lua",
+      "sha256": "1527d2fd8b2c82d38c228ba2dd75153b3c0bf721c934d1f7cc9cc9ddf98d337f"
+    },
+    {
+      "path": "Base/Assets/UI/ProductionHelper.lua",
+      "sha256": "a455ed06ca1f7b645d794b7e23f719c3c95fd21543fbec424871f28c4d95e535"
+    },
+    {
+      "path": "Base/Assets/UI/StrategicView_MapPlacement.lua",
+      "sha256": "0b184bbad73a460f22e430f285021b684cf2a20554a62e21fa28ac8b53abf861"
+    },
+    {
+      "path": "Base/Assets/UI/WorldView/PlotInfo.lua",
+      "sha256": "aa32a64cef64eefdbfd1262bbacb9699468ab902765fb46aac58e0b6ed5c87cb"
+    },
+    {
+      "path": "Base/Assets/Gameplay/Data/Leaders.xml",
+      "sha256": "3f9fa3e9f6e7c9b8784a9a915e8fe5a3fa1ada646392bb0d79ce6006c0ef5d7e"
+    },
+    {
+      "path": "Base/Assets/Gameplay/Data/Civilizations.xml",
+      "sha256": "07e48fb0cdf46ac33828de8dcc3b339913b824e9882b55a81512452787a28e79"
+    },
+    {
+      "path": "Base/Assets/Gameplay/Data/Modifiers.xml",
+      "sha256": "1e2a73dbb4afb58a8987143e71dd8505fdab7353ee1be717a56f5da00fc04f90"
+    },
+    {
+      "path": "Base/Assets/Scenarios/Tutorial/Tutorial.lua",
+      "sha256": "9cd2a95b447db1ba45a054b5103e7995976856823b37a4085b707510466b237a"
+    },
+    {
+      "path": "DLC/BlackDeathScenario/Scripts/BlackDeathScenario_Support.lua",
+      "sha256": "9ede0d9293ebd10bfa6dfbff5c27cc6c9aa38f228467bf92e33be92a6dd1ff28"
+    },
+    {
+      "path": "Base/Assets/Configuration/Data/Players.xml",
+      "sha256": "9ea0ea95309b29d448933f16f3538cb58031c395c2f93bb3d417c675b12e854a"
+    },
+    {
+      "path": "DLC/RulersOfChina/Data/RulersOfChina_Leaders.xml",
+      "sha256": "44f8f3ab10838619f36635266c29ebdd22dd41157b3d97bd22abf04f3cec297b"
+    },
+    {
+      "path": "Base\\Binaries\\Win64Steam\\CivilizationVI.exe",
+      "sha256": "e7450823cc8e00468cff7b9d7b97c63140eae38ae1d774ba4efa437556c42d63"
+    }
+  ],
+  "reference_repository": {
+    "commit": "0765649cdf1af8b985c2000716241a468bd8f911",
+    "files": [
+      {
+        "path": "AutomatedQueue.lua",
+        "url": "https://raw.githubusercontent.com/starreeze/AutomatedQueue/0765649cdf1af8b985c2000716241a468bd8f911/AutomatedQueue.lua",
+        "sha256": "875be7de55df76975b9e46577ae7e2ec2e2a6ce5e32e5c9022bfa2bbc0461c15"
+      },
+      {
+        "path": "utils.lua",
+        "url": "https://raw.githubusercontent.com/starreeze/AutomatedQueue/0765649cdf1af8b985c2000716241a468bd8f911/utils.lua",
+        "sha256": "8b99426faa5db156941489563f4aa76e8905175e22a8a5a871c7b7681e100f57"
+      },
+      {
+        "path": "AutomatedQueue.modinfo",
+        "url": "https://raw.githubusercontent.com/starreeze/AutomatedQueue/0765649cdf1af8b985c2000716241a468bd8f911/AutomatedQueue.modinfo",
+        "sha256": "08f8646743fa09f9f5b32b5ab4b35fe98d9acf8f2a2f427b6c294a454e44eefd"
+      }
+    ]
+  },
+  "local_model": {
+    "actual_http_requests": 4,
+    "automatic_retries": 0,
+    "observed_peak_client_in_flight": 3,
+    "server_inference_concurrency": null,
+    "tasks": [
+      {
+        "task": "concept",
+        "begin_utc": "2026-10-31T07:34:04.923205+00:00",
+        "end_utc": "2026-10-31T07:34:26.949939+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 22025.07190000324,
+        "ttft_ms": 11381.79300000047,
+        "usage": {
+          "prompt_tokens": 22204,
+          "completion_tokens": 464,
+          "total_tokens": 22668
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Rejected as final design: mandatory city selection/confirmation and skipping new districts contradict full-auto goal; mixes tile improvements into city production. Owner designed leader theme and default takeover."
+      },
+      {
+        "task": "feasibility",
+        "begin_utc": "2026-10-31T07:34:04.923463+00:00",
+        "end_utc": "2026-10-31T07:34:32.644626+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 27718.41950000089,
+        "ttft_ms": 12424.28999999538,
+        "usage": {
+          "prompt_tokens": 22214,
+          "completion_tokens": 1183,
+          "total_tokens": 23397
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partial analytical use: queue vs placement vs improvements distinction and persistence risks. Reject categorical no-placement-API claim and forced queue front replacement. Initial owner packet omitted ConfirmPlaceDistrict body; owner added current source and sent narrower follow-up."
+      },
+      {
+        "task": "validation",
+        "begin_utc": "2026-10-31T07:34:04.923025+00:00",
+        "end_utc": "2026-10-31T07:34:27.202036+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 22276.703700001235,
+        "ttft_ms": 9918.556099997659,
+        "usage": {
+          "prompt_tokens": 22224,
+          "completion_tokens": 508,
+          "total_tokens": 22732
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partial use of ownership, readback, reload and bounded-failure checks. Its exclude-new-district acceptance proves only partial automation, not the user goal; owner supplied full-placement and manual-override criteria."
+      },
+      {
+        "task": "placement",
+        "begin_utc": "2026-10-31T07:38:49.369119+00:00",
+        "end_utc": "2026-10-31T07:38:56.085833+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 6713.5844000004,
+        "ttft_ms": 1803.8369999994757,
+        "usage": {
+          "prompt_tokens": 11523,
+          "completion_tokens": 393,
+          "total_tokens": 11916
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partial use of candidate filtering and experiment categories. Owner narrowed guaranteed automation claim to source-supported hypothesis; improved/occupied tiles are not universally illegal, so actual engine validation plus mod protection policy must be separate."
+      }
+    ]
+  },
+  "validation_scope": "Read-only installed-source inspection, pinned author repository source inspection and public author descriptions; no game runtime automation or balance test."
+}
