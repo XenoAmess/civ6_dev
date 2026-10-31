@@ -3,13 +3,16 @@ include("BaiqiController")
 include("BaiqiAdmin")
 local ready=false
 local adminStopped=false
+local adminElapsed=0
 local function Visible()
   local hud=ContextPtr:LookUpControl("/InGame/HUD")
   return ready and hud~=nil and not hud:IsHidden()
 end
 local function Update(delta)
   if Visible() then
-    if not adminStopped then
+    adminElapsed=adminElapsed+delta
+    if not adminStopped and adminElapsed>=BaiqiConfig.interval then
+      adminElapsed=0
       local ok,err=pcall(BaiqiAdmin.Run)
       if not ok then adminStopped=true;print("BAIQI|admin_error|"..tostring(err)) end
     end

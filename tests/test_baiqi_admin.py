@@ -186,6 +186,51 @@ class AdministrationTests(unittest.TestCase):
         self.assertTrue(g.retained)
         self.assertEqual(len(g.requests), 0)
 
+    def test_dedication_normal_choice_waits_for_actual_state_and_uses_index(self):
+        self.lua.execute((ROOT / 'tests/lua/mock_dedication.lua').read_text(encoding='utf-8'))
+        e = self.w.era
+        self.admin.Run()
+        self.admin.Run()
+        self.assertEqual((len(e.requests), e.requests[1], len(e.active)), (1, 2, 0))
+        e.Apply()
+        self.admin.Run()
+        self.assertEqual((len(e.requests), e.active[1]), (1, 2))
+
+    def test_heroic_dedications_complete_for_total_or_remaining_native_counter(self):
+        for remaining in (False, True):
+            with self.subTest(remaining=remaining):
+                self.setUp()
+                self.lua.execute((ROOT / 'tests/lua/mock_dedication.lua').read_text(encoding='utf-8'))
+                e = self.w.era
+                e.allowed, e.remaining = 3, remaining
+                for expected in (2, 0, 1):
+                    self.admin.Run()
+                    self.admin.Run()
+                    self.assertEqual(e.requests[len(e.requests)], expected)
+                    e.Apply()
+                self.admin.Run()
+                self.assertEqual((len(e.requests), len(e.active)), (3, 3))
+
+    def test_great_people_recruitment_waits_for_confirmation_and_spends_points(self):
+        self.lua.execute((ROOT / 'tests/lua/mock_great_people.lua').read_text(encoding='utf-8'))
+        p = self.w.people
+        self.admin.Run()
+        self.admin.Run()
+        self.assertEqual((len(p.requests), len(p.units), p.points), (1, 0, 120))
+        p.Apply()
+        self.admin.Run()
+        self.admin.Run()
+        self.assertEqual((len(p.requests), len(p.units), p.points), (2, 1, 60))
+        p.Apply()
+        self.admin.Run()
+        self.assertEqual((len(p.requests), len(p.units), p.points), (2, 2, 0))
+
+    def test_great_people_insufficient_points_do_not_trigger_patronage(self):
+        self.lua.execute((ROOT / 'tests/lua/mock_great_people.lua').read_text(encoding='utf-8'))
+        self.w.people.points = 59
+        self.admin.Run()
+        self.assertEqual(len(self.w.people.requests), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

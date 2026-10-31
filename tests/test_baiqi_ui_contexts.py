@@ -14,7 +14,8 @@ class UIContextTests(unittest.TestCase):
         lua.execute("GameConfiguration.GetValue=function() return 'RULESET_EXPANSION_2' end; TestNativeIncludes={}")
         def include(module):
             native = {'ResearchChooser_Expansion1': 'OnChooseResearch', 'CivicsChooser': 'OnChooseCivic',
-                      'PantheonChooser': 'ConfirmPantheon', 'ReligionScreen': 'TestReligionConfirm'}
+                      'PantheonChooser': 'ConfirmPantheon', 'ReligionScreen': 'TestReligionConfirm',
+                      'DedicationPopup': 'OnConfirm'}
             if module in native:
                 lua.execute('TestNativeIncludes[#TestNativeIncludes+1]=...' , module)
                 # Mirrors the relevant native request boundary, not mod behavior.
@@ -29,6 +30,17 @@ class UIContextTests(unittest.TestCase):
                   TestNativeIncludes[#TestNativeIncludes+1]='UnitFlagManager'
                   local request=UnitManager.RequestOperation
                   TestFlagClick=function(unit) return request(unit,99,{}) end
+                ''')
+            elif module == 'NaturalDisasterPopup':
+                lua.execute('''
+                  TestNativeIncludes[#TestNativeIncludes+1]='NaturalDisasterPopup'
+                  TestDisasterNativeCalls=0
+                  ShowRandomEvent=function(a,b) TestDisasterNativeCalls=TestDisasterNativeCalls+1;return a,b end
+                  -- Event registration captures this function object; its global
+                  -- ShowRandomEvent lookup still resolves at event invocation.
+                  local nativeEvent=function(a,b) return ShowRandomEvent(a,b) end
+                  TestDisasterStartedEvent=nativeEvent
+                  Game.GetCurrentGameTurn=function() return 9 end
                 ''')
             else:
                 lua.execute((ROOT / f'mod/Baiqi/Lua/{module}.lua').read_text(encoding='utf-8'))
@@ -66,7 +78,7 @@ class UIContextTests(unittest.TestCase):
         self.assertEqual(g.TestGuard.unitCalls, 2)
 
     def test_religion_contexts_guard_captured_native_requests_without_changing_executor(self):
-        for name in ('PantheonChooser', 'ReligionScreen'):
+        for name in ('PantheonChooser', 'ReligionScreen', 'DedicationPopup'):
             for leader in ('LEADER_BAIQI', 'LEADER_TRAJAN'):
                 with self.subTest(context=name, leader=leader):
                     lua = self.load_context(name, leader)
@@ -76,6 +88,15 @@ class UIContextTests(unittest.TestCase):
                     self.assertEqual((len(g.TestNativeIncludes), g.TestNativeIncludes[1]), (1, name))
                     if name == 'PantheonChooser':
                         self.assertEqual(g.ConfirmPantheon(505), leader == 'LEADER_TRAJAN')
+
+    def test_disaster_captured_native_event_skips_cinematic_only_for_baiqi(self):
+        lua = self.load_context('NaturalDisasterPopup')
+        g = lua.globals()
+        self.assertIsNone(g.TestDisasterStartedEvent(11, 22))
+        self.assertEqual(g.TestDisasterNativeCalls, 0)
+        g.TestGuard.leader = 'LEADER_TRAJAN'
+        self.assertEqual(g.TestDisasterStartedEvent(11, 22), (11, 22))
+        self.assertEqual(g.TestDisasterNativeCalls, 1)
 
 
 if __name__ == '__main__':

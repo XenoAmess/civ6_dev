@@ -10,6 +10,7 @@ local governorPriority={GOVERNOR_THE_RESOURCE_MANAGER=100,GOVERNOR_THE_BUILDER=9
   GOVERNOR_THE_EDUCATOR=80,GOVERNOR_THE_DEFENDER=70}
 local pantheonPriority={BELIEF_GOD_OF_THE_FORGE=100,BELIEF_CITY_PATRON_GODDESS=90}
 local governmentSlots
+local pendingGreatPerson
 local function Once(key,action)
   if attempted[key] then return false end
   attempted[key]=true
@@ -115,6 +116,52 @@ local function Governors(pid,player)
     end
   end
 end
+local function Dedication(pid)
+  if not Game.GetEras or not EndTurnBlockingTypes or not NotificationManager
+    or not EndTurnBlockingTypes.ENDTURN_BLOCKING_COMMEMORATION_AVAILABLE then return end
+  if NotificationManager.GetFirstEndTurnBlocking(pid)~=EndTurnBlockingTypes.ENDTURN_BLOCKING_COMMEMORATION_AVAILABLE then return end
+  local eras=Game.GetEras()
+  if not eras or eras:GetPlayerNumAllowedCommemorations(pid)<=0 then return end
+  local active,choices={},{}
+  local actual=eras:GetPlayerActiveCommemorations(pid)
+  for _,index in ipairs(actual) do active[index]=true end
+  for _,index in ipairs(eras:GetPlayerCommemorateChoices(pid)) do
+    local row=GameInfo.CommemorationTypes[index]
+    if row and not active[index] then choices[#choices+1]=row end
+  end
+  table.sort(choices,function(a,b)
+    local x=a.CommemorationType=="COMMEMORATION_INFRASTRUCTURE" and 1 or 0
+    local y=b.CommemorationType=="COMMEMORATION_INFRASTRUCTURE" and 1 or 0
+    if x~=y then return x>y end
+    return a.Index<b.Index
+  end)
+  if choices[1] then
+    -- One request per observed active-count state; the engine decides when all
+    -- normal or heroic choices are complete. Never infer total vs remaining.
+    Once("dedication:"..#actual,function() UI.RequestPlayerOperation(pid,PlayerOperations.COMMEMORATE,
+      {[PlayerOperations.PARAM_COMMEMORATION_TYPE]=choices[1].Index}) end)
+  end
+end
+local function GreatPeople(pid)
+  if not Game.GetGreatPeople then return end
+  local people=Game.GetGreatPeople()
+  if not people then return end
+  if pendingGreatPerson~=nil then
+    if people:CanRecruitPerson(pid,pendingGreatPerson) then return end
+    pendingGreatPerson=nil
+  end
+  for _,entry in ipairs(people:GetTimeline()) do
+    local index=entry.Individual
+    if index~=nil and people:CanRecruitPerson(pid,index) then
+      Once("great-person:"..index,function()
+        pendingGreatPerson=index
+        UI.RequestPlayerOperation(pid,PlayerOperations.RECRUIT_GREAT_PERSON,
+          {[PlayerOperations.PARAM_GREAT_PERSON_INDIVIDUAL_TYPE]=index})
+      end)
+      return
+    end
+  end
+end
 local function Government(pid,culture)
   if not culture.CanChangeGovernmentAtAll or not GameInfo.Governments or not GameInfo.Government_SlotCounts then return false end
   local currentIndex=culture:GetCurrentGovernment()
@@ -192,6 +239,8 @@ function BaiqiAdmin.Run()
   end
   Pantheon(pid,player)
   Governors(pid,player)
+  Dedication(pid)
+  GreatPeople(pid)
   if Government(pid,culture) then return end
   -- Fill open slots only in the game's free policy window. Never pay to unlock it.
   if culture:PolicyChangeMade() or not (culture:CivicCompletedThisTurn() or culture:GetNumPolicySlotsOpen()>0) then return end

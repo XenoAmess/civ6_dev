@@ -2,7 +2,7 @@
 
 更新：2026-11-01，`BAIQI_P4`，当前清单版本 6。最新要求见[需求](../requirements/baiqi-requirements.md)，当前证据见 [P6 记录](../testing/results/2026-11-01-p6-acceptance.md)，[P5 报告](../testing/results/2026-11-01-p5-acceptance.md)、[P4 报告](../testing/results/2026-10-31-p4-mandatory.md)保留历史。仍是开发原型，不能把软件替身或部分实机观察当作完整验收。
 
-持续修订：当前清单版本 7。版本 6 增加正常成本自动万神殿与 ReligionScreen／PantheonChooser 人工写入保护，已实际越过 T25 阻塞；版本 7 增加免费、无无政府回合的更高槽位政府升级，76 项软件测试通过。冷启动及后续阻塞修复见 [P6 记录](../testing/results/2026-11-01-p6-acceptance.md)，不会以记录 FAIL 代替继续实现。
+持续修订：当前清单版本 8。版本 6 的自动万神殿已冷启动越过 T25 阻塞；版本 7 增加免费、无无政府回合的更高槽位政府升级；版本 8 增加正常时代着力点、正常伟人点招募与白绮跳过灾害电影，后台按 0.35 秒周期运行，81 项软件测试通过。完整整包及后续阻塞修复见 [P6 记录](../testing/results/2026-11-01-p6-acceptance.md)，不会以记录 FAIL 代替继续实现。
 
 2026-11-01 验收修订：清单版本 3，数值参数仍为 `BAIQI_P4`。修复快捷科技／市政选择器绕过完整树界面拦截的问题，并覆盖单位旗帜独立上下文。当前冷启动、回归与新发现见 [P5 报告](../testing/results/2026-11-01-p5-acceptance.md)。
 

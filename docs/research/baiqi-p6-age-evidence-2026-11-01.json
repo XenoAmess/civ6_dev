@@ -1,0 +1,118 @@
+{
+  "schema": "civ6.baiqi-p6-age-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "base_commit": "27a8186",
+  "local_date": "2026-11-01",
+  "model": {
+    "actual_http_requests": 4,
+    "automatic_retries": 0,
+    "client_peak_in_flight": 3,
+    "cumulative_p6_requests": 16,
+    "cumulative_p6_peak": 12,
+    "cumulative_complete_stop_json": 15,
+    "cumulative_length_discarded": 1,
+    "server_actual_concurrency": null,
+    "requests": [
+      {
+        "task": "dedication",
+        "request_sha256": "23591631308769c8c1ac3450909d35b604c5dfed00bd1ffbad56fede415a657e",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "length",
+        "success": false,
+        "usage": {
+          "prompt_tokens": 7284,
+          "completion_tokens": 2600,
+          "total_tokens": 9884
+        },
+        "http_headers_ms": 4397.73559999594,
+        "first_nonempty_content_delta_ms": 4399.299400000018,
+        "total_ms": 21352.905399995507,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Rejected length output, numeric degeneration, incomplete candidate not parsed/adopted."
+      },
+      {
+        "task": "dedication-narrow",
+        "request_sha256": "6b91287e66833470fc4ab9288aa46d91a04512b766b03be14fd4194ff3c084f7",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "success": true,
+        "usage": {
+          "prompt_tokens": 5956,
+          "completion_tokens": 453,
+          "total_tokens": 6409
+        },
+        "http_headers_ms": 970.6926999933785,
+        "first_nonempty_content_delta_ms": 978.5163999913493,
+        "total_ms": 3883.399400001508,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Rejected code: invented GetPlayerPreferredCommemorationType and invalid colon existence syntax; assumes total allowed despite stated uncertainty. Owner uses actual blocker, eligible choices and observed active-count pending key."
+      },
+      {
+        "task": "disaster",
+        "request_sha256": "7f27bbc57bd92336b7bcaac38eb0aca7ed4a9ad2c4b45ed98c069008ebe7d5de",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "success": true,
+        "usage": {
+          "prompt_tokens": 10478,
+          "completion_tokens": 1180,
+          "total_tokens": 11658
+        },
+        "http_headers_ms": 3529.680100007681,
+        "first_nonempty_content_delta_ms": 3537.030399995274,
+        "total_ms": 15022.403199996916,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partial presentation boundary analysis adopted. Rejected claimed late event rebinding semantics and redundant wrappers. Owner replaces dynamic ShowRandomEvent lookup after one native include, before popup/sequence locks; no gameplay requests. Native disaster progression must be tested."
+      },
+      {
+        "task": "greatpeople-narrow",
+        "request_sha256": "9b7232e60ce6db8be716f5deebc7fee5092b9b9c9f881701f929d6d6bcc60ea7",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "success": true,
+        "usage": {
+          "prompt_tokens": 16218,
+          "completion_tokens": 326,
+          "total_tokens": 16544
+        },
+        "http_headers_ms": 4600.082599994494,
+        "first_nonempty_content_delta_ms": 4601.556800000253,
+        "total_ms": 7738.773099990794,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Second implementation rejected: substitutes player:GetGreatPeople() for supplied Game.GetGreatPeople() and still lacks async once/pending protection. Owner took over exact native timeline/recruit request; no unit command."
+      }
+    ]
+  },
+  "validation": {
+    "software_tests_passed": 81,
+    "manifest_version": 8,
+    "package_file_count": 42,
+    "dedication_native_hot": {
+      "turn": 31,
+      "before_allowed": 1,
+      "after_allowed": 0,
+      "active_index": 2,
+      "active_type": "COMMEMORATION_INFRASTRUCTURE",
+      "blocker_after": "NO_ENDTURN_BLOCKING"
+    },
+    "full_bundle_cold": "pending",
+    "great_person_native_recruitment": "pending",
+    "disaster_native_progression": "pending",
+    "full_game_acceptance": false
+  },
+  "implementation_sha256": {
+    "mod/Baiqi/Lua/BaiqiAdmin.lua": "15ebbdff53feee12f0149aa2a3fe66dfe0a178d26c71a34f26575116cbc8b708",
+    "mod/Baiqi/UI/BaiqiExecutor.lua": "cdf90f814f9c57a2f03f4ad269c9f210cd7ba079f128c397bf5e00d31bc8e73b",
+    "mod/Baiqi/UI/BaiqiDedicationPopup.lua": "a08653f2e7f3a68e928fcda373ecf9ac84b3443ec89f2c492ccf655e43199672",
+    "mod/Baiqi/UI/BaiqiNaturalDisasterPopup.lua": "2177294ae0104ec0b7737d185899c640e012091cfbc42658fe041438a9198f67",
+    "mod/Baiqi/Baiqi.modinfo": "ad0bd3930e88c19b89d752e231058d55bc9bb5abb48133d0820ceb7b6d0fcf0f",
+    "tests/lua/mock_dedication.lua": "f837d7e78396cb4fdba37667d1ec450264b6d10bb8e8b6360f65b7bbf6012924",
+    "tests/lua/mock_great_people.lua": "2aa0f46005c32c41a4e712b45feee2aa1790c35334f87bf505fb1a754cabe27c",
+    "tests/test_baiqi_admin.py": "fca9488974aee90bdb78888c2acf94d3cb73c01a6863806114bd5280e64a904b",
+    "tests/test_baiqi_ui_contexts.py": "c2cd9b8b0ceb5b7e2837c1196f13a8be64c1999eb31269ea6fad6fbc9fac785a"
+  }
+}
