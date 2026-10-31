@@ -1,0 +1,223 @@
+{
+  "schema": "civ6.baiqi-p6-district-people-native20-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "manifest_version": 20,
+  "source_commit": "5b990ee",
+  "pid": 13460,
+  "turn": 61,
+  "artifact_sha256": "bc90872ab2a6d0cea5bc1ab852a0193cdcb5327296e416515290e096df5f7e91",
+  "engineer": {
+    "individual": 38,
+    "name": "Bi Sheng",
+    "unit_id": 2490388,
+    "class_index": 2,
+    "fixture": "Add60 normally absent engineer points to reach60; native recruit costs60 ->0; natural point earning not proved.",
+    "background_activation_requests": 1,
+    "native_event_confirmations": 1,
+    "printing_has_tech_before_after": [
+      false,
+      false
+    ],
+    "printing_boost_before_after": [
+      false,
+      true
+    ],
+    "extra_district_capacity_observation": "Capital capacity observed3 then4 after activation; first read was already after boost and not an isolated before fixture capacity baseline."
+  },
+  "merchant": {
+    "individual": 77,
+    "name": "Zhang Qian",
+    "unit_id": 2555925,
+    "class_index": 3,
+    "fixture": "Debug CreatePerson(0,77,13,16), not normal recruitment; existing26 merchant points unchanged.",
+    "background_path": [
+      717,
+      761,
+      806
+    ],
+    "actual_completed_hub": [
+      14,
+      18
+    ],
+    "background_activation_requests": 1,
+    "native_event_confirmations": 1,
+    "trade_capacity_before_after": [
+      2,
+      3
+    ],
+    "actual_routes_before_after": [
+      2,
+      2
+    ],
+    "late_event": "One unavailable/awaiting line precedes matching native activation confirmation; disappearance not counted as success."
+  },
+  "test_instrumentation_limitations": [
+    "Owner initially called gameplay-only CreatePerson from UI; nil function before any creation. Corrected after read-only gameplay API check; failed raw receipt retained. No automatic action retry.",
+    "Owner reused pre-probe that also registered native event observer, creating two passive observer callbacks; merchant raw event printed twice, but mod sent one command and confirmed one request. Raw observer count is not execution count."
+  ],
+  "requests": [
+    "BaiqiExecutor: BAIQI|request|turn=61|id=0:61:2|source=BACKGROUND|unit=2490388|command=ACTIVATE_GREAT_PERSON|charges=1|class=GREAT_PERSON_CLASS_ENGINEER",
+    "BaiqiExecutor: BAIQI|request|turn=61|id=0:61:5|source=BACKGROUND|unit=2555925|command=ACTIVATE_GREAT_PERSON|charges=1|class=GREAT_PERSON_CLASS_MERCHANT"
+  ],
+  "observed": [
+    "BaiqiExecutor: BAIQI|observed|turn=61|id=0:61:2|unit=2490388|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event",
+    "BaiqiExecutor: BAIQI|observed|turn=61|id=0:61:5|unit=2555925|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event"
+  ],
+  "mod_errors": [],
+  "manual_great_person_orders": 0,
+  "manual_information_closures": 0,
+  "actual_turn_advances": 0,
+  "receipts": [
+    {
+      "receipt": "20261031T235051085909Z.json",
+      "sha256": "b4cf0de6acd4fbffb0513feb94b13c3bfda66b8557f6869fdc6d607bed94e9a9",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_ENGINEER\t2\t0\t0",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_ENGINEER\t38\t60\tfalse\tGREAT_PERSON_INDIVIDUAL_BI_SHENG\tDISTRICT_CITY_CENTER\t1\tfalse",
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_MERCHANT\t3\t26\t3",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_MERCHANT\t76\t30\tfalse\tGREAT_PERSON_INDIVIDUAL_MARCUS_LICINIUS_CRASSUS\tnil\t3\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261031T235205860065Z.json",
+      "sha256": "1e56f1dd346a0f08dda2ccb13b10f699c039ba662e6f66d00902888bba692db3",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_PRINTING\t61\t30\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261031T235207077060Z.json",
+      "sha256": "3219d2342c46ea644b47ed046b42acb0f188666b0616b7146dab49df55935172",
+      "context": "BaiqiGameplay",
+      "lines": [
+        "P6_ENGINEER20_POINTS_ADD\t61\t2\t0\t60",
+        "P6_ENGINEER20_POINTS_GAMEPLAY_AFTER\t60"
+      ]
+    },
+    {
+      "receipt": "20261031T235218297789Z.json",
+      "sha256": "149c302fa3068a579ba9984b696dc0e277f91c645c73aa4b308bf4a81b15c7d1",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_ENGINEER\t2\t0\t0",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_ENGINEER\t40\t60\tfalse\tGREAT_PERSON_INDIVIDUAL_JAMES_OF_ST_GEORGE\tDISTRICT_CITY_CENTER\t3\tfalse",
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_MERCHANT\t3\t26\t3",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_MERCHANT\t76\t30\tfalse\tGREAT_PERSON_INDIVIDUAL_MARCUS_LICINIUS_CRASSUS\tnil\t3\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261031T235254721867Z.json",
+      "sha256": "085d9b5de88632f3f1ed9e36773ee60681d12a35158a73d08a2b803fec38bca6",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_PRINTING\t61\t30\tfalse\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261031T235352471883Z.json",
+      "sha256": "605573c7322fd2fa986db5d6b8723a901f97533a38e1298b82387f912e3cfefc",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_PRINTING_AFTER\t61\tfalse\ttrue",
+        "P6_GP20_TRADE_CAPACITY\t61\t2\t2",
+        "P6_GP20_MERCHANT_FIXTURE_DEFINITION\t77\tGREAT_PERSON_CLASS_MERCHANT\tDISTRICT_COMMERCIAL_HUB\t1",
+        "P6_GP20_DISTRICT_CAPACITY\t65536\t16\t14\t3",
+        "P6_GP20_DISTRICT_CAPACITY\t131073\t11\t6\t2",
+        "P6_GP20_ACTUAL_HUB\t131073\t524295\t10\t4\ttrue\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t196610\t10\t13\t3",
+        "P6_GP20_ACTUAL_HUB\t196610\t917517\t10\t15\tfalse\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t262147\t13\t16\t2",
+        "P6_GP20_ACTUAL_HUB\t262147\t720906\t14\t18\ttrue\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t327684\t8\t10\t2",
+        "P6_GP20_DISTRICT_CAPACITY\t393221\t15\t5\t2",
+        "P6_GP20_ACTUAL_HUB\t393221\t851980\t16\t6\tfalse\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t458758\t19\t6\t2",
+        "P6_GP20_DISTRICT_CAPACITY\t524295\t14\t9\t1"
+      ]
+    },
+    {
+      "receipt": "20261031T235412746552Z.json",
+      "sha256": "709e4b115be88a3da8c93a21d6c5ce279eb606fccaeead5bfcb998652ac22281",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_MERCHANT_FIXTURE_CREATE\t61\t77\t13\t16\tdebug CreatePerson fixture; not earned recruitment"
+      ]
+    },
+    {
+      "receipt": "20261031T235413269876Z.json",
+      "sha256": "02effa315c250ea8a3ee0fa9c9f52e71081bc9bffd79bbb578cb588a6f31a5fb",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_ENGINEER\t2\t0\t0",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_ENGINEER\t40\t60\tfalse\tGREAT_PERSON_INDIVIDUAL_JAMES_OF_ST_GEORGE\tDISTRICT_CITY_CENTER\t3\tfalse",
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_MERCHANT\t3\t26\t3",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_MERCHANT\t76\t30\tfalse\tGREAT_PERSON_INDIVIDUAL_MARCUS_LICINIUS_CRASSUS\tnil\t3\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261031T235459395998Z.json",
+      "sha256": "aafd17ab6387f198109bac5c25faec56513f2ead981c96825c2f595a54c728b3",
+      "context": "BaiqiGameplay",
+      "lines": [
+        "P6_GP20_FIXTURE_API\tfunction\tfunction"
+      ]
+    },
+    {
+      "receipt": "20261031T235518751876Z.json",
+      "sha256": "b0dbf12a8d171c5babd8b23d303ffb95fb850f9f23731a5a3875ec12f2a78d57",
+      "context": "BaiqiGameplay",
+      "lines": [
+        "P6_GP20_MERCHANT_FIXTURE_CREATE\t61\t77\t13\t16\tdebug CreatePerson fixture; not earned recruitment"
+      ]
+    },
+    {
+      "receipt": "20261031T235519057225Z.json",
+      "sha256": "aabf3006cd27fc2420b27081d28caeccc4ee2129ce8ee6ff66c563497fc6f644",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_ENGINEER\t2\t0\t0",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_ENGINEER\t40\t60\tfalse\tGREAT_PERSON_INDIVIDUAL_JAMES_OF_ST_GEORGE\tDISTRICT_CITY_CENTER\t3\tfalse",
+        "P6_GP20_POINTS\t61\tGREAT_PERSON_CLASS_MERCHANT\t3\t26\t3",
+        "P6_GP20_CANDIDATE\tGREAT_PERSON_CLASS_MERCHANT\t76\t30\tfalse\tGREAT_PERSON_INDIVIDUAL_MARCUS_LICINIUS_CRASSUS\tnil\t3\tfalse",
+        "P6_GP20_UNIT\t61\t2555925\tUNIT_GREAT_MERCHANT\t14\t18\t1\t77\t3\t1"
+      ]
+    },
+    {
+      "receipt": "20261031T235537877439Z.json",
+      "sha256": "0f2a5c70f633e403013a789a0f2fe4c1f9552e6a39236e79fd58bbd0f3395300",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_GP20_PRINTING_AFTER\t61\tfalse\ttrue",
+        "P6_GP20_TRADE_CAPACITY\t61\t3\t2",
+        "P6_GP20_MERCHANT_FIXTURE_DEFINITION\t77\tGREAT_PERSON_CLASS_MERCHANT\tDISTRICT_COMMERCIAL_HUB\t1",
+        "P6_GP20_DISTRICT_CAPACITY\t65536\t16\t14\t4",
+        "P6_GP20_DISTRICT_CAPACITY\t131073\t11\t6\t2",
+        "P6_GP20_ACTUAL_HUB\t131073\t524295\t10\t4\ttrue\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t196610\t10\t13\t3",
+        "P6_GP20_ACTUAL_HUB\t196610\t917517\t10\t15\tfalse\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t262147\t13\t16\t2",
+        "P6_GP20_ACTUAL_HUB\t262147\t720906\t14\t18\ttrue\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t327684\t8\t10\t2",
+        "P6_GP20_DISTRICT_CAPACITY\t393221\t15\t5\t2",
+        "P6_GP20_ACTUAL_HUB\t393221\t851980\t16\t6\tfalse\tfalse",
+        "P6_GP20_DISTRICT_CAPACITY\t458758\t19\t6\t2",
+        "P6_GP20_DISTRICT_CAPACITY\t524295\t14\t9\t1"
+      ]
+    }
+  ],
+  "logs": {
+    "Database.log": "16a3ecc3e48da155767784eff3b7c821112773193ba178279cc95fb36f0b3685",
+    "Lua.log": "b92d0b44fe8fd99716a0924741fc342ec547cb48dbed125b26d5c85123b6a65e",
+    "Modding.log": "ebf4d16781d3447170290e0f5d6b7e94a4da7324fe090b751cca0ab779db1737"
+  },
+  "save": {
+    "name": "Baiqi_P6_20261101_Cold20_DistrictPeople61.Civ6Save",
+    "sha256": "52e5b3a580c5e0264a228731643794401b271591d500ca0211d7fd7b9d7aa7d5",
+    "bytes": 454713
+  },
+  "result": "PASS sampled engineer center activation and merchant completed-hub movement/activation; all other GP conditions remain unfinished.",
+  "full_game_acceptance": false
+}
