@@ -33,7 +33,8 @@ function BaiqiRequisition.Quote(playerID, unitID, targetOwner, cityID, kind)
   local targetPlayer = Players[targetOwner]
   local unit = player:GetUnits():FindID(unitID)
   local city = targetPlayer and targetPlayer:GetCities():FindID(cityID)
-  if unit == nil or city == nil or unit:GetOwner() ~= playerID or city:GetOwner() ~= targetOwner then return nil, "owner_changed" end
+  if not BaiqiPolicy.MatchesID(unit,unitID) or not BaiqiPolicy.MatchesID(city,cityID)
+    or unit:GetOwner() ~= playerID or city:GetOwner() ~= targetOwner then return nil, "owner_changed" end
   local visibility = PlayersVisibility[playerID]
   if visibility == nil or visibility:IsVisible(city:GetX(),city:GetY()) ~= true then return nil,"not_visible" end
   local unitType
@@ -49,7 +50,10 @@ function BaiqiRequisition.Quote(playerID, unitID, targetOwner, cityID, kind)
   if player:GetDiplomacy():IsAtWarWith(targetOwner) ~= true then return nil, "not_at_war" end
   if Map.GetPlotDistance(unit:GetX(),unit:GetY(),city:GetX(),city:GetY()) ~= 1 then return nil, "not_adjacent" end
   local district
-  if city.GetDistrictID~=nil then district=targetPlayer:GetDistricts():FindID(city:GetDistrictID())
+  if city.GetDistrictID~=nil then
+    local id=city:GetDistrictID()
+    district=targetPlayer:GetDistricts():FindID(id)
+    if not BaiqiPolicy.MatchesID(district,id) then return nil,"defense_unknown" end
   elseif city.GetDistricts~=nil then district=city:GetDistricts():GetDistrict(GameInfo.Districts.DISTRICT_CITY_CENTER.Index) end
   if district == nil then return nil, "defense_unknown" end
   local maxHP, damage = district:GetMaxDamage(DefenseTypes.DISTRICT_GARRISON), district:GetDamage(DefenseTypes.DISTRICT_GARRISON)

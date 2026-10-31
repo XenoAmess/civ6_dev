@@ -4,17 +4,17 @@ TestCapture={turn=8,gold=1000,moves=2,owner=3,hp=200,damage=150,outer=0,outerDam
  failTransfer=false,throwAfterTransfer=false,failCharge=false,formation=1,active=true,localPlayer=7,
  gameProps={},sourceProps={},recipientProps={},granary=true,pillaged=false,recipientOwner=7,extraModifier=false}
 local w=TestCapture
-local unit={GetID=function() return 9 end,GetOwner=function() return 7 end,GetType=function() return 0 end,
+local unit={GetID=function() return w.unitID or 9 end,GetOwner=function() return 7 end,GetType=function() return 0 end,
  GetFormationUnitCount=function() return w.formation end,GetMovesRemaining=function() return w.moves end,
  GetX=function() return 2 end,GetY=function() return 2 end,
  GetProperty=function(_,key) return w.unitProps[key] end,SetProperty=function(_,key,val) w.unitProps[key]=val end}
 local buildings={HasBuilding=function() return w.granary end,IsPillaged=function() return w.pillaged end}
-local city={GetOwner=function() return w.owner end,GetID=function() return 12 end,GetX=function() return 3 end,
+local city={GetOwner=function() return w.owner end,GetID=function() return w.cityID or 12 end,GetX=function() return 3 end,
  GetY=function() return 2 end,GetPopulation=function() return w.population end,
  GetBuildings=function() return buildings end,GetName=function() return 'Source' end}
 local recipient={GetOwner=function() return w.recipientOwner end,GetID=function() return 20 end,
  GetX=function() return 8 end,GetY=function() return 8 end,GetName=function() return 'Recipient' end}
-local district={GetMaxDamage=function(_,kind) return kind==0 and w.hp or w.outer end,
+local district={GetID=function() return w.districtID or 13 end,GetMaxDamage=function(_,kind) return kind==0 and w.hp or w.outer end,
  GetDamage=function(_,kind) return kind==0 and w.damage or w.outerDamage end}
 city.GetDistricts=function() return {GetDistrict=function() return district end} end
 local treasury={GetGoldBalance=function() return w.gold end,
@@ -85,3 +85,4 @@ function TestUI()
   return popup
  end}
 end
+w.objects={unit=unit,city=city,district=district,player=player,enemy=enemy}

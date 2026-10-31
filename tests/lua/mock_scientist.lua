@@ -47,9 +47,9 @@ function o.city:GetDistricts()
  return {HasDistrict=function(_,index,completed) assert(index==7 and completed==true);return w.completed end,
   Members=members({district})}
 end
-local gp={GetIndividual=function() return 70 end,GetActionCharges=function() return w.scientistCharges end}
-local scientist={GetID=function() return 4 end,GetOwner=function() return w.scientistOwner or 7 end,
- GetUnitType=function() return 3 end,GetPlotId=function() return w.stalePlotId or w.scientistPlot end,
+local gp={GetIndividual=function() return w.scientistIndividual or 70 end,GetActionCharges=function() return w.scientistCharges end}
+local scientist={GetID=function() return w.scientistID or 4 end,GetOwner=function() return w.scientistOwner or 7 end,
+ GetUnitType=function() return w.scientistType or 3 end,GetPlotId=function() return w.stalePlotId or w.scientistPlot end,
  GetX=function() return plots[w.scientistPlot]:GetX() end,GetY=function() return 3 end,
  GetMovesRemaining=function() return w.scientistMoves end,GetFormationUnitCount=function() return w.scientistFormation end,
  GetGreatPerson=function() return gp end,IsReadyToMove=function() return w.scientistReady~=false end}
@@ -57,7 +57,10 @@ local general=setmetatable({GetID=function() return 5 end,GetUnitType=function()
 local admiral=setmetatable({GetID=function() return 6 end,GetUnitType=function() return 5 end},{__index=o.army})
 function o.player:GetUnits()
  local list={o.army,general,admiral};if w.withScientist then list[#list+1]=scientist end
- return {Members=members(list),FindID=function(_,id) for _,u in ipairs(list) do if u:GetID()==id then return u end end end}
+ return {Members=members(list),FindID=function(_,id)
+  if id==4 and w.findScientistAlias then return scientist end
+  for _,u in ipairs(list) do if u:GetID()==id then return u end end
+ end}
 end
 UnitManager.GetMoveToPathEx=function(u,index)
  local start=Map.GetPlot(u:GetX(),u:GetY()):GetIndex()

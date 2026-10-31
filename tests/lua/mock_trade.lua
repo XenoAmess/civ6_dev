@@ -76,6 +76,7 @@ o.army.GetOwner=function() return w.enemy and 8 or enemyOwner() end
 function o.player:GetDiplomacy() return {IsAtWarWith=function(_,pid) return pid==8 end} end
 Map.GetPlotXYWithRangeCheck=function(x,y,dx,dy) if dx==0 and dy==0 then return Map.GetPlot(x,y) end end
 w.objects.trader=t1
+w.objects.destination=destination
 
 -- A production queue only changes when the test accepts an actual packet.
 w.queues={[66]={},[67]={}}

@@ -32,6 +32,45 @@ class RequisitionTests(unittest.TestCase):
         self.assertEqual(self.backend.Request(7, params), (False, 'not_at_war'))
         self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 0, 0))
 
+    def test_find_id_hit_with_replacement_unit_or_city_never_executes_old_quote(self):
+        params = self.g.TestParams()
+        for field in ('unitID', 'cityID'):
+            with self.subTest(field=field):
+                self.w[field] = 65545
+                self.assertEqual(self.backend.Request(7, params), (False, 'owner_changed'))
+                self.w[field] = None
+        self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 0, 0))
+
+    def test_final_execute_lookup_rejects_alias_after_valid_requote(self):
+        params = self.g.TestParams()
+        self.lua.execute('''
+local unit=TestCapture.objects.unit;local calls=0
+TestCapture.objects.player.GetUnits=function() return {FindID=function(_,id)
+ calls=calls+1;if calls>=2 then TestCapture.unitID=65545 end;return unit
+end} end
+''')
+        self.assertEqual(self.backend.Request(7, params), (False, 'owner_changed'))
+        self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 0, 0))
+
+    def test_replaced_city_center_district_does_not_supply_defense_eligibility(self):
+        params = self.g.TestParams()
+        self.lua.execute('TestCapture.objects.city.GetDistrictID=function() return 13 end;TestCapture.districtID=65549')
+        self.assertEqual(self.backend.Request(7, params), (False, 'defense_unknown'))
+        self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 0, 0))
+
+    def test_unit_replaced_after_transfer_is_not_finished_or_charged_twice(self):
+        params = self.g.TestParams()
+        self.lua.execute('''
+local original=CityManager.TransferCity
+CityManager.TransferCity=function(...)
+ original(...);TestCapture.unitID=65545
+end
+''')
+        self.assertEqual(self.backend.Request(7, params), (False, 'unit_changed_after_transfer'))
+        self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (1, 1, 0))
+        self.assertEqual(self.backend.Request(7, params), (False, 'duplicate'))
+        self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (1, 1, 0))
+
 
 
 

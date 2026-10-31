@@ -174,6 +174,37 @@ class BaiqiTradeTests(unittest.TestCase):
         self.assertEqual(len(self.w.cityRequests), 1)
         self.assertTrue(any('reason=city_unavailable' in line for line in logs), logs)
 
+    def alias_origin_lookup(self):
+        self.lua.execute('''
+local original=TestWorld.objects.player.GetCities
+TestWorld.objects.player.GetCities=function(self)
+ local cities=original(self);cities.FindID=function() return TestWorld.objects.destination end;return cities
+end
+''')
+
+    def test_recycled_origin_city_cannot_confirm_matching_route_on_replacement(self):
+        logs = []
+        self.lua.globals().print = lambda *args: logs.append(' '.join(map(str, args)))
+        self.c.RunNow()
+        self.alias_origin_lookup()
+        self.lua.execute('TestWorld.routes={{TraderUnitID=4,DestinationCityPlayer=7,DestinationCityID=67}}')
+        self.w.busy = True
+        self.c.Update(1)
+        self.assertFalse(any('kind=MAKE_TRADE_ROUTE|destination=' in s for s in logs), logs)
+        self.assertEqual(len(self.w.unitRequests), 1)
+
+    def test_recycled_city_queue_is_not_acknowledgement_of_old_city_request(self):
+        self.w.withTrader, self.w.productionMode = False, True
+        logs = []
+        self.lua.globals().print = lambda *args: logs.append(' '.join(map(str, args)))
+        self.c.RunNow()
+        self.lua.execute('TestWorld.queues[67]={{UnitType=3}}')
+        self.alias_origin_lookup()
+        self.c.RunNow()
+        self.assertTrue(any('reason=city_unavailable' in s for s in logs), logs)
+        self.assertFalse(any('queue_observed' in s for s in logs), logs)
+        self.assertEqual(len(self.w.cityRequests), 1)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,62 @@
+{
+  "schema": "civ6.baiqi-p6-native-identity-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "native_discovery": {
+    "evidence": "baiqi-p6-scientist-native14-evidence-2026-11-01.json",
+    "turn": 46,
+    "FindID_requested": 983047,
+    "returned_GetID": 1507335,
+    "returned_type": "UNIT_SETTLER",
+    "old_type": "UNIT_BUILDER",
+    "claim": "A non-nil collection lookup does not prove identity of the requested entity."
+  },
+  "model": {
+    "additional_http_requests": 1,
+    "additional_peak_in_flight": 1,
+    "cumulative_p6_http": 29,
+    "cumulative_complete_stop_json": 28,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "request_sha256": "3b44eb9bbba4a5c484681f3756f1e20d1d83bc1f2b83f45e12a9071e353791d1",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18200,
+      "completion_tokens": 817,
+      "total_tokens": 19017
+    },
+    "cached_prompt_tokens_if_reported": null,
+    "review": "Exact GetID verification direction adopted, code/audit rejected. Candidate invented FindID in Poll, confused unit IDs with great-person individual IDs, missed real city readback/trade-origin lookups and final Execute boundary. Owner audited all eight existing FindID sites, adds shared MatchesID plus existing owner checks, district ID verification, fresh finishing-unit identity after transfer, and GP type/individual verification before charge readback. Legitimate transferred-city new ID preserved."
+  },
+  "owner_implementation": {
+    "manifest_version": 17,
+    "software_tests_passed": 140,
+    "new_consumer_tests": 10,
+    "guarded_consumers": [
+      "paid quote unit and city",
+      "city-center district lookup",
+      "final capture Execute attacker",
+      "fresh post-transfer finishing attacker",
+      "deferred ordinary attack",
+      "pending civilian and scientist readback",
+      "pending route origin city",
+      "pending production city",
+      "formation target"
+    ],
+    "scientist_charge_readback_requires": "same full unit ID, owner, scientist type and great-person individual",
+    "native_retest": "pending",
+    "full_game_acceptance": false,
+    "implementation_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "aa6170cf3e49a95847f3cf9ad0e559e0f84761b206da392a6b89feb8bd8385d6",
+      "mod/Baiqi/Lua/BaiqiPolicy.lua": "a2f86a1a88c18354ecb1bfeceea08191d74069d1c24709b32c3fcd58d9d63cbe",
+      "mod/Baiqi/Lua/BaiqiController.lua": "8bd4b157d7f7c7d68635098b45956ad023b7be29a196e7b239de4daddb4b44d5",
+      "mod/Baiqi/Lua/BaiqiRequisition.lua": "f01ffe45cf63263d24b9c6f0f064d1ca276f67a30b41706ba96df555fb43a35a",
+      "mod/Baiqi/Lua/BaiqiCapture.lua": "3d204528707649e117dd9dd732ffdac340d821eea6bedaff8715b62a90efc805",
+      "mod/Baiqi/Lua/BaiqiActions.lua": "7e99e2b438501990663418e4adb00979f0a55bd59895dc547e0d7552155d79fd",
+      "mod/Baiqi/Lua/BaiqiUIGuard.lua": "a97c063499d1d3ccbc345195969fa51f77cc5019d041a11cacc3901fb6133660"
+    }
+  }
+}

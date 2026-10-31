@@ -43,10 +43,12 @@ end
 local function BlockUnit(unit,command,params)
   if BaiqiUIGuard.Civilian(unit) then return true end
   if BaiqiUIGuard.PlayerID()~=nil and UnitCommandTypes.ENTER_FORMATION~=nil
-    and command==UnitCommandTypes.ENTER_FORMATION and type(params)=="table" then
+    and command==UnitCommandTypes.ENTER_FORMATION then
+    if type(params)~="table" then return true end
     local pid,id=params[UnitCommandTypes.PARAM_UNIT_PLAYER],params[UnitCommandTypes.PARAM_UNIT_ID]
     local p=pid~=nil and NativePlayers[pid]
     local target=p and id~=nil and p:GetUnits():FindID(id)
+    if not BaiqiPolicy.MatchesID(target,id) or target:GetOwner()~=pid then return true end
     if BaiqiUIGuard.Civilian(target) then return true end
   end
   return false

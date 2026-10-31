@@ -59,7 +59,7 @@ function BaiqiActions.Interact(unit,x,y,nativeMove)
     if Game.GetLocalPlayer()~=pid or BaiqiRequisition.Player(pid)==nil then return end
     local current=Players[pid]:GetUnits():FindID(quote.unitID)
     local target=CityManager.GetCityAt(quote.x,quote.y)
-    if current==nil or current:GetOwner()~=pid or current:GetMovesRemaining()<=0 or target==nil
+    if not BaiqiPolicy.MatchesID(current,quote.unitID) or current:GetOwner()~=pid or current:GetMovesRemaining()<=0 or target==nil
       or target:GetOwner()~=quote.targetOwner or target:GetID()~=quote.cityID then return end
     nativeMove(current,quote.x,quote.y)
   end)

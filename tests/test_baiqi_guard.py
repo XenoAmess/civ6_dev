@@ -40,6 +40,17 @@ class UIGuardTests(unittest.TestCase):
         self.assertFalse(self.g.UnitManager.RequestCommand(army, 10, self.lua.table_from({'owner': 7, 'id': 8})))
         self.assertEqual(self.w.unitCalls, 0)
 
+    def test_unknown_or_recycled_formation_target_is_blocked_but_exact_army_target_is_native(self):
+        army = self.g.TestUnit(0, 7, 9)
+        other = self.g.TestUnit(0, 7, 8)
+        other.GetID = lambda *args: 65544
+        params = self.lua.table_from({'owner': 7, 'id': 8})
+        self.assertFalse(self.g.UnitManager.RequestCommand(army, 10, params))
+        self.assertFalse(self.g.UnitManager.RequestCommand(army, 10, None))
+        self.assertEqual(self.w.unitCalls, 0)
+        other.GetID = lambda *args: 8
+        self.assertEqual(self.g.UnitManager.RequestCommand(army, 10, params), (True, 'native'))
+
     def test_city_production_purchase_and_citizens_blocked_but_city_combat_allowed(self):
         city = self.g.TestCity(7)
         self.assertFalse(self.g.CityManager.RequestOperation(city, 99))

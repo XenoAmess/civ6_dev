@@ -507,8 +507,12 @@ end
 local function ReadBack(player)
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
+    if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
     if pending.kind=="ACTIVATE_GREAT_PERSON" then
-      local gp=unit and unit:GetOwner()==contextID and unit:GetGreatPerson()
+      local def=unit and GameInfo.Units[unit:GetUnitType()]
+      local gp=unit and unit:GetOwner()==contextID and def and def.UnitType=="UNIT_GREAT_SCIENTIST" and unit:GetGreatPerson()
+      local individual=gp and GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
+      if not individual or individual.Index~=pending.individual then gp=nil end
       if pending.nativeActivated then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event")
         pendingUnits[unitID]=nil
@@ -531,6 +535,7 @@ local function ReadBack(player)
       end
     elseif pending.kind=="MAKE_TRADE_ROUTE" then
       local origin=player:GetCities():FindID(pending.origin)
+      if not BaiqiPolicy.MatchesID(origin,pending.origin) or origin:GetOwner()~=contextID then origin=nil end
       local observed=false
       for _,route in ipairs(origin and origin:GetTrade():GetOutgoingRoutes() or {}) do
         if route.TraderUnitID==unitID and route.DestinationCityPlayer==contextID
@@ -548,7 +553,10 @@ local function ReadBack(player)
         pendingUnits[unitID]=nil
         unitEvaluated[UnitKey(unit)]=nil
       end
-    elseif unit==nil or unit:GetOwner()~=contextID or (UnitIndex(unit)~=nil and UnitIndex(unit)~=pending.from) or unit:GetMovesRemaining()~=pending.moves then
+    elseif unit==nil or unit:GetOwner()~=contextID then
+      Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=unit_unavailable")
+      pendingUnits[unitID]=nil
+    elseif (UnitIndex(unit)~=nil and UnitIndex(unit)~=pending.from) or unit:GetMovesRemaining()~=pending.moves then
       Log("observed","id="..pending.id.."|unit="..unitID.."|kind="..pending.kind)
       pendingUnits[unitID]=nil
     elseif pending.kind=="MOVE_TO" and (pending.elapsed or 0)>=C.interval*2
@@ -566,7 +574,7 @@ local function ReadBack(player)
   end
   for cityID,pending in pairs(pendingCities) do
     local city=player:GetCities():FindID(cityID)
-    if city==nil or city:GetOwner()~=contextID then
+    if not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=contextID then
       Log("queue_request_not_observed","id="..pending.id.."|city="..cityID.."|reason=city_unavailable")
       pendingCities[cityID]=nil
     else

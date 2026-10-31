@@ -47,7 +47,8 @@ end
 local function Execute(player, journal, record, quote)
   local city = CityManager.GetCityAt(quote.x,quote.y)
   local unit = player:GetUnits():FindID(quote.unitID)
-  if city == nil or city:GetOwner() ~= quote.targetOwner or city:GetID() ~= quote.cityID or unit == nil then
+  if city == nil or city:GetOwner() ~= quote.targetOwner or city:GetID() ~= quote.cityID
+    or not BaiqiPolicy.MatchesID(unit,quote.unitID) or unit:GetOwner()~=quote.playerID then
     return false,"owner_changed"
   end
   record.stage = BaiqiPlanner.Transition("QUOTED","SUBMIT",{confirmed=true,quoteValid=true})
@@ -72,6 +73,10 @@ local function Execute(player, journal, record, quote)
   end
   record.phase, record.chargeObserved, record.balanceAfter = "CHARGED", true, after
   Persist(player,journal,record)
+  unit=player:GetUnits():FindID(quote.unitID)
+  if not BaiqiPolicy.MatchesID(unit,quote.unitID) or unit:GetOwner()~=quote.playerID then
+    return Unknown(player,journal,record,"unit_changed_after_transfer")
+  end
   record.phase = "FINISHING"
   Persist(player,journal,record)
   ok = pcall(function()

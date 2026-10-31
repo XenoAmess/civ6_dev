@@ -181,6 +181,24 @@ end
         self.controller.RunNow()
         self.assertEqual([r.op for r in self.world.unitRequests.values()], [10, 12])
 
+    def test_recycled_unit_lookup_does_not_report_old_move_as_observed(self):
+        self.movement()
+        self.controller.RunNow()
+        self.lua.execute('''
+TestWorld.logs={};print=function(s) table.insert(TestWorld.logs,s) end
+TestWorld.objects.builder.GetID=function() return 65539 end
+TestWorld.objects.builder.GetFormationUnitCount=function() return 2 end
+local original=TestWorld.objects.player.GetUnits
+TestWorld.objects.player.GetUnits=function(self)
+ local units=original(self);units.FindID=function() return TestWorld.objects.builder end;return units
+end
+''')
+        self.controller.Update(0.35)
+        logs = list(self.world.logs.values())
+        self.assertTrue(any('reason=unit_unavailable' in s for s in logs))
+        self.assertFalse(any('BAIQI|observed|' in s for s in logs))
+        self.assertEqual(len(self.world.unitRequests), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

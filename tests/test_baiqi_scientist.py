@@ -128,6 +128,29 @@ class BaiqiScientistTests(unittest.TestCase):
         self.assertEqual(sum('great_person_request_unavailable' in l for l in self.logs), 1)
         self.assertEqual((len(self.w.commandRequests),len(self.w.unitRequests)), (1,0))
 
+    def test_replacement_unit_or_individual_cannot_prove_old_activation_from_zero_charges(self):
+        for replacement in ('id', 'type', 'individual'):
+            with self.subTest(replacement=replacement):
+                self.setUp()
+                self.w.scientistPlot = 43
+                self.c.RunNow()
+                self.w.scientistCharges = 0
+                if replacement == 'id':
+                    self.w.scientistID, self.w.findScientistAlias, self.w.scientistFormation = 99, True, 2
+                elif replacement == 'type':
+                    self.w.scientistType = 0
+                else:
+                    self.lua.execute("GameInfo.GreatPersonIndividuals[71]={Index=71,GreatPersonClassType='GREAT_PERSON_CLASS_SCIENTIST'}")
+                    self.w.scientistIndividual = 71
+                self.c.Update(2)
+                self.assertFalse(any('|kind=ACTIVATE_GREAT_PERSON|' in l for l in self.logs))
+                self.assertTrue(any('awaiting_native_activation_event=true' in l for l in self.logs))
+                self.w.withScientist, self.w.findScientistAlias = False, False
+                self.w.FireActivation(7,4,5,70)
+                self.c.RunNow()
+                self.assertEqual(sum('proof=native_activation_event' in l for l in self.logs), 1)
+                self.assertEqual((len(self.w.commandRequests),len(self.w.unitRequests)), (1,0))
+
     def test_matching_native_activation_event_confirms_consumed_unit_and_unrelated_events_do_not(self):
         self.w.scientistPlot = 43
         self.c.RunNow()

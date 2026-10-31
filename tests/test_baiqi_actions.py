@@ -59,6 +59,18 @@ class MapActionTests(unittest.TestCase):
         self.assertFalse(self.interact())
         self.assertFalse(self.w.opened)
 
+    def test_popup_confirm_and_normal_attack_do_not_retarget_recycled_unit_slot(self):
+        self.interact()
+        self.w.unitID = 65545
+        self.w.confirm()
+        self.assertEqual(len(self.w.requests), 0)
+        self.w.unitID = None
+        self.interact()
+        self.w.unitID = 65545
+        self.w.normalAttack()
+        self.assertIsNone(self.w.nativeMove)
+        self.assertEqual((self.w.gold, self.w.moves, self.w.transferCalls), (1000, 2, 0))
+
     def test_ineligible_map_target_preserves_native_move(self):
         move = self.actions.WrapMove(self.g.TestMove)
         self.w.damage = 0

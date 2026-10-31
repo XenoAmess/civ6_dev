@@ -5,6 +5,13 @@ function BaiqiPolicy.Number(value)
   return type(value) == "number" and value == value and math.abs(value) < math.huge
 end
 
+-- Native collection FindID can return a new object occupying an old slot.
+function BaiqiPolicy.MatchesID(object, id)
+  local kind=type(object)
+  return (kind=="table" or kind=="userdata") and BaiqiPolicy.Number(id) and id>=0 and id%1==0
+    and object.GetID~=nil and object:GetID()==id
+end
+
 function BaiqiPolicy.Context(ctx)
   return type(ctx) == "table" and ctx.isBaiqi == true and ctx.activeTurn == true
     and ctx.enabled == true and BaiqiPolicy.Number(ctx.player) and ctx.player >= 0
