@@ -6,6 +6,7 @@ BaiqiController = {}
 local C = BaiqiConfig
 local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
+local pendingQueueCleanup = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local stopped, running = false, false
 local status = "内政托管开启；军队等待你的命令"
@@ -426,8 +427,72 @@ local function CityRequestKey(city,candidate)
     ..":"..(p and (p.x..":"..p.y) or "current")
 end
 
+local function CoreIdle()
+  return UI.IsGameCoreBusy and not UI.IsGameCoreBusy()
+    and UI.IsProcessingMessages and not UI.IsProcessingMessages()
+end
+
+local function QueueHeadSignature(q)
+  if not q.GetAt or q:GetSize()==0 then return nil end
+  local e=q:GetAt(0)
+  if type(e)~="table" then return nil end
+  local p=e.Location or {}
+  return table.concat({tostring(e.Directive),tostring(e.BuildingType),tostring(e.DistrictType),
+    tostring(e.UnitType),tostring(e.ProjectType),tostring(p.x),tostring(p.y),tostring(e.Modifiers)},":"),e
+end
+
+local function CompletedIdleHead(city,q)
+  if q:GetCurrentProductionTypeHash()~=0 then return nil end
+  local signature,e=QueueHeadSignature(q)
+  if not e then return nil end
+  local row,progress,cost
+  if e.BuildingType~=nil then
+    row=GameInfo.Buildings[e.BuildingType]
+    local buildings=city:GetBuildings()
+    if not row or not buildings.HasBuilding or buildings:HasBuilding(row.Index)~=true
+      or buildings:IsPillaged(row.Index)~=false then return nil end
+    progress,cost=q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
+  elseif e.DistrictType~=nil then
+    row=GameInfo.Districts[e.DistrictType]
+    local districts=city:GetDistricts()
+    if not row or row.DistrictType=="DISTRICT_CITY_CENTER" or districts:HasDistrict(row.Index,true)~=true
+      or districts:IsPillaged(row.Index)~=false then return nil end
+    progress,cost=q:GetDistrictProgress(row.Index),q:GetDistrictCost(row.Index)
+  else return nil end -- Units/projects cannot be proved complete by an asset flag.
+  if not BaiqiPolicy.Number(progress) or not BaiqiPolicy.Number(cost) or cost<0 or progress<cost then return nil end
+  return signature,row
+end
+
+local function RemoveCompletedHead(ctx,city)
+  if not CoreIdle() or CityOperationTypes.VALUE_REMOVE_AT==nil or CityOperationTypes.PARAM_QUEUE_LOCATION==nil then return false end
+  local cityID=city:GetID()
+  local signature=CompletedIdleHead(city,city:GetBuildQueue())
+  if not signature then return false end
+  local fresh,player=PlayerContext()
+  if not BaiqiPolicy.Context(fresh) or fresh.player~=ctx.player then return false end
+  local current=player:GetCities():FindID(cityID)
+  if not BaiqiPolicy.MatchesID(current,cityID) or current:GetOwner()~=fresh.player then return false end
+  local q=current:GetBuildQueue()
+  if CompletedIdleHead(current,q)~=signature then return false end
+  local params={[CityOperationTypes.PARAM_INSERT_MODE]=CityOperationTypes.VALUE_REMOVE_AT,[CityOperationTypes.PARAM_QUEUE_LOCATION]=0}
+  if CityManager.CanStartOperation(current,CityOperationTypes.BUILD,params,true)~=true then return false end
+  -- CanStart is read-only, but native state may advance while it runs.
+  if not BaiqiPolicy.MatchesID(current,cityID) or current:GetOwner()~=fresh.player
+    or not CoreIdle() or CompletedIdleHead(current,q)~=signature then return false end
+  local id=NextRequest("queue_cleanup:"..cityID..":"..signature..":"..q:GetSize())
+  if not id then return false end
+  pendingQueueCleanup[cityID]={id=id,head=signature,elapsed=0}
+  Log("queue_cleanup_request","id="..id.."|source=BACKGROUND|city="..cityID.."|head="..signature)
+  CityManager.RequestOperation(current,CityOperationTypes.BUILD,params)
+  return true
+end
+
 local function ProcessCity(ctx, player, state, city)
   local q=city:GetBuildQueue()
+  if pendingQueueCleanup[city:GetID()] then return false end
+  if not pendingCities[city:GetID()] and q:GetSize()>0 and q:GetCurrentProductionTypeHash()==0 then
+    return RemoveCompletedHead(ctx,city)
+  end
   if q:GetSize() ~= 0 or q:GetCurrentProductionTypeHash() ~= 0 or pendingCities[city:GetID()] then return false end
   if cityEvaluated[city:GetID()]==turn then return false end
   cityEvaluated[city:GetID()]=turn
@@ -505,6 +570,23 @@ local function ProcessCity(ctx, player, state, city)
 end
 
 local function ReadBack(player)
+  for cityID,pending in pairs(pendingQueueCleanup) do
+    local city=player:GetCities():FindID(cityID)
+    if not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=contextID then
+      Log("queue_cleanup_not_observed","id="..pending.id.."|city="..cityID.."|reason=city_unavailable")
+      pendingQueueCleanup[cityID]=nil
+    else
+      local q=city:GetBuildQueue()
+      local head=QueueHeadSignature(q)
+      if q:GetSize()==0 or (head~=nil and head~=pending.head) then
+        Log("queue_cleanup_observed","id="..pending.id.."|city="..cityID.."|proof=completed_head_absent")
+        pendingQueueCleanup[cityID]=nil;cityEvaluated[cityID]=nil
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and CoreIdle() then
+        Log("queue_cleanup_not_observed","id="..pending.id.."|city="..cityID.."|reason=native_idle_unchanged_head")
+        pendingQueueCleanup[cityID]=nil
+      end
+    end
+  end
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
@@ -661,6 +743,7 @@ end
 function BaiqiController.Update(delta)
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
+  for _,pending in pairs(pendingQueueCleanup) do pending.elapsed=(pending.elapsed or 0)+delta end
   elapsed=elapsed+delta
   if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow() end
 end
