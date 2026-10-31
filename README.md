@@ -6,6 +6,8 @@
 - [本地模型指南](docs/local-model-worker-guide.md)：连接、真实任务派发、并发与候选验收。
 - [本地模型唯一配置](docs/local-model-executor-config.json)：`qwen38-coder`，无需密钥。
 - [经验与采用记录](docs/local-model-experience.md)：参考项目来源、本项目实际调用与能力边界。
+- [白绮需求清单](docs/requirements/baiqi-requirements.md)：28 条需求、来源、待定规则与用例追踪。
+- [测试验收方案](docs/testing/baiqi-acceptance-plan.md)与[40 项测试用例](docs/testing/baiqi-test-cases.md)：环境、夹具、步骤、通过条件、证据和结果模板；当前尚未执行游戏测试。
 - [白绮与为我前驱设计规格](docs/design/baiqi-delegate-execution.md)：确定的名称、自动生产／建造／扩张范围，以及军队指挥权的实现边界。
 - [有偿夺取设计](docs/design/baiqi-requisition.md)：新增军队主动能力的触发、代价、城市与设施范围，以及待验证的归属转移。
 - [战斗领袖与自动建设预研](docs/design/custom-leader-autobuild-research-2026-10-31.md)：领袖玩法、自动化范围、原版源码依据与最小原型验收。

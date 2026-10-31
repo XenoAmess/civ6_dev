@@ -8,7 +8,7 @@
 
 ## 白绮与为我前驱
 
-- 用户已确定领袖名称为【白绮】，能力名称为【为我前驱】，当前设计以[正式规格](docs/design/baiqi-delegate-execution.md)为准。
+- 用户已确定领袖名称为【白绮】，能力名称为【为我前驱】；行为要求与完成边界见[需求清单](docs/requirements/baiqi-requirements.md)，方案见[设计规格](docs/design/baiqi-delegate-execution.md)，验证见[验收方案](docs/testing/baiqi-acceptance-plan.md)和[用例](docs/testing/baiqi-test-cases.md)。
 - 核心范围是自动生产、自动建造、自动扩张；军队指挥权始终归玩家。自动招募可以补充军队，训练完成后的军事行动等待玩家命令。
 - 自动扩张按和平移民建城推进；不能自动宣战、调动军队侦察或护送，也不能通过移动处于护送编队的文职单位间接移动军队。
 - 能力新增玩家主动指挥的有偿夺取：军队在满足条件、支付代价后可以夺取他人的城市、建筑等。具体条件、费用和独立设施归属机制仍为设计与技术验证项，见[有偿夺取设计](docs/design/baiqi-requisition.md)；后台自动化不得主动发动。

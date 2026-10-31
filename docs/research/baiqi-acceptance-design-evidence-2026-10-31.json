@@ -1,0 +1,109 @@
+{
+  "schema": "civ6.baiqi-acceptance-design/v1",
+  "recorded_at_utc": "2026-10-31T09:44:27.524778+00:00",
+  "machine_id": "BF-202609141645",
+  "leader_name": "白绮",
+  "ability_name": "为我前驱",
+  "scope": "Requirements and acceptance documentation authoring only; no mod implementation, engine tests, compilation, performance or gameplay acceptance.",
+  "input_source_paths": [
+    "AGENTS.md",
+    "docs/design/baiqi-delegate-execution.md",
+    "docs/design/baiqi-requisition.md"
+  ],
+  "captured_request_sha256": {
+    "requirements": "bb4b2eb2cd5d1bb7b2ca5a381d99512fb38a305e24cd200a202330402780455c",
+    "automation_cases": "05d213d69bf4023e614073ace547bb78bd300166c3fcabe7f52301e1060ee6f5",
+    "seizure_cases": "ec7c8f113df3454a2b7d87b2fd913b384108d2551799835b1e75e126f68bc18c"
+  },
+  "local_model": {
+    "model": "qwen38-coder",
+    "configured_initial_in_flight_target": [
+      12,
+      16
+    ],
+    "actual_http_requests": 3,
+    "automatic_retries": 0,
+    "observed_peak_client_in_flight": 3,
+    "server_inference_concurrency": null,
+    "reason_for_batch_size": "Three distinct unfinished documentation tasks; no quota-filling duplicate requests.",
+    "tasks": [
+      {
+        "task": "requirements",
+        "begin_utc": "2026-10-31T09:28:58.943903+00:00",
+        "end_utc": "2026-10-31T09:29:20.874765+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "candidate_json_valid": true,
+        "headers_ms": 1788.473000000522,
+        "ttft_ms": 1790.1856000025873,
+        "total_ms": 21926.96430000069,
+        "usage": {
+          "prompt_tokens": 5545,
+          "completion_tokens": 2219,
+          "total_tokens": 7764
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "adoption": "partial_after_owner_review",
+        "review": "Partial adoption of requirement categories. Owner rewrote 28 requirements with explicit origin and traceability; rejected all-buildings-preserved as user-confirmed, standalone acquisition as optional, hard-coded draft conditions as final requirements, and vague unmeasurable outcomes."
+      },
+      {
+        "task": "automation_cases",
+        "begin_utc": "2026-10-31T09:28:58.945206+00:00",
+        "end_utc": "2026-10-31T09:29:16.443038+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "candidate_json_valid": true,
+        "headers_ms": 2259.7739000048023,
+        "ttft_ms": 2269.3696999995154,
+        "total_ms": 17494.792000004963,
+        "usage": {
+          "prompt_tokens": 5593,
+          "completion_tokens": 1599,
+          "total_tokens": 7192
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "adoption": "partial_after_owner_review",
+        "review": "Partial adoption of scenario categories. Owner supplied actionable building/district/builder cases, legality and actual completion checks, evidence and budgets. Rejected static army-position/movement assertions across natural turn changes and log-only proof."
+      },
+      {
+        "task": "seizure_cases",
+        "begin_utc": "2026-10-31T09:28:58.943920+00:00",
+        "end_utc": "2026-10-31T09:29:17.783105+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "candidate_json_valid": true,
+        "headers_ms": 2261.4082000000053,
+        "ttft_ms": 2271.472600004927,
+        "total_ms": 18837.158400005137,
+        "usage": {
+          "prompt_tokens": 5640,
+          "completion_tokens": 1639,
+          "total_tokens": 7279
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "adoption": "partial_after_owner_review",
+        "review": "Partial adoption of city/asset/cost/repetition/recovery categories. Owner corrected invalid standalone-library fixture and invented control accessors, fresh-copy boundary tests, price drift, causal reconciliation, third-party changes and actual phase/hook constraints."
+      }
+    ]
+  },
+  "authored_outputs": {
+    "requirements": "docs/requirements/baiqi-requirements.md",
+    "acceptance_plan": "docs/testing/baiqi-acceptance-plan.md",
+    "test_cases": "docs/testing/baiqi-test-cases.md",
+    "requirement_count": 28,
+    "test_case_count": 40,
+    "fixture_group_count": 8,
+    "game_test_status": "NOT_RUN",
+    "game_tests_executed": 0,
+    "game_tests_passed": 0,
+    "runtime_tested": false,
+    "fixtures_generated": false
+  },
+  "raw_artifacts": {
+    "local_only": true,
+    "gitignored_path": ".local-model/baiqi-acceptance/"
+  }
+}
