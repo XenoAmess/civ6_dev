@@ -19,7 +19,18 @@ local culture={GetProgressingCivic=function() return w.civic end,HasCivic=functi
  GetSlotPolicy=function(_,i) return w.slots[i+1] end,GetSlotType=function(_,i) return i end,
  IsPolicyUnlocked=function() return true end,IsPolicyObsolete=function() return false end,
  CanSlotPolicy=function() error('Unqualified native signature must not be called') end,
- RequestPolicyChanges=function(_,clear,add) w.policyCalls=w.policyCalls+1;w.clear=clear;w.add=add end}
+ RequestPolicyChanges=function(_,clear,add)
+  w.policyCalls=w.policyCalls+1;w.clear=clear;w.add=add
+  -- Native protocol observed in-game: only the listed slots are processed.
+  for _,slot in ipairs(clear) do w.slots[slot+1]=-1 end
+  for _,slot in ipairs(clear) do
+   if add[slot]~=nil then
+    for row in GameInfo.Policies() do
+     if row.Hash==add[slot] then w.slots[slot+1]=row.Index end
+    end
+   end
+  end
+ end}
 Players={[7]={IsTurnActive=function() return w.active end,GetTechs=function() return techs end,GetCulture=function() return culture end}}
 PlayerConfigurations={[7]={GetLeaderTypeName=function() return w.leader end,IsHuman=function() return true end}}
 Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return w.turn end,IsAllowStrategicCommands=function() return true end}

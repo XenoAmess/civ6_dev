@@ -61,11 +61,17 @@ function BaiqiAdmin.Run()
   end
   -- Fill open slots only in the game's free policy window. Never pay to unlock it.
   if culture:PolicyChangeMade() or not (culture:CivicCompletedThisTurn() or culture:GetNumPolicySlotsOpen()>0) then return end
-  local used,add={},{}
+  local used,add,clear={}, {}, {}
   for i=0,culture:GetNumPolicySlots()-1 do
+    clear[#clear+1]=i
     local index=culture:GetSlotPolicy(i)
-    if index~=nil and index>=0 then used[index]=true end
+    if index~=nil and index>=0 then
+      local row=GameInfo.Policies[index]
+      if row==nil then return end
+      used[index]=true;add[i]=row.Hash
+    end
   end
+  local filled=false
   for i=0,culture:GetNumPolicySlots()-1 do
     if culture:GetSlotPolicy(i)==-1 then
       local slot=GameInfo.GovernmentSlots[culture:GetSlotType(i)]
@@ -74,9 +80,12 @@ function BaiqiAdmin.Run()
           return not used[r.Index] and culture:IsPolicyUnlocked(r.Hash) and not culture:IsPolicyObsolete(r.Hash)
             and (slot.GovernmentSlotType=="SLOT_WILDCARD" or r.GovernmentSlotType==slot.GovernmentSlotType)
         end,function() return 0 end,policyPriority,"PolicyType")
-        if best then used[best.Index]=true;add[i]=best.Hash end
+        if best then used[best.Index]=true;add[i]=best.Hash;filled=true end
       end
     end
   end
-  if next(add)~=nil then Once("policies",function() culture:RequestPolicyChanges({},add) end) end
+  -- The native confirmation submits every slot in clearList, including empty
+  -- slots, and the complete final hash map. An empty clearList is a no-op in
+  -- the actual engine even when add contains legal policies.
+  if filled then Once("policies",function() culture:RequestPolicyChanges(clear,add) end) end
 end

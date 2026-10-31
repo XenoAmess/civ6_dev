@@ -8,6 +8,8 @@
 
 源码审查与实机发现快捷科技选择器未被完整科技树的代理保护：原版 ResearchChooser 回调实际把研究 index 2 改为 0。专项候选又给出错误 LuaContext、遗漏 loader、在原版包含前定义无用 local 函数，且误称原版全局回调为 local；负责人拒绝并实现三个独立上下文、GS 继承 XP1 chooser 的加载分支，以及真实 wrapper/include 回归。软件 63 项测试方法通过；引擎验收与后续结果见 [P5 报告](testing/results/2026-11-01-p5-acceptance.md)。
 
+随后增加 1 次真实政策协议纠错，完整 stop/SSE/JSON、零重试；本轮累计 14 次 HTTP，峰值仍为 10。负责人最初给的原版片段遗漏 clearList 构造，又让 mock 只计数，导致空槽提交缺陷未被发现。补读完整函数并做实际空列表／完整列表对照后定位；候选仍把整数槽类型与字符串比较、遗漏完整保留表，未直接采用代码。负责人按原生协议修复，并用有状态消费者验证，64 项测试通过。详见[追加证据](research/baiqi-p5-policy-evidence-2026-11-01.json)。
+
 更新：2026-10-31。执行机器 ID：`BF-202609141645`。使用方法见[指南](local-model-worker-guide.md)，参数见[配置](local-model-executor-config.json)。
 
 ## 参考项目来源

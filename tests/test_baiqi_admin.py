@@ -24,7 +24,14 @@ class AdministrationTests(unittest.TestCase):
     def test_policy_slots_are_zero_based_hash_map_without_signature_guessing(self):
         self.admin.Run()
         self.assertEqual(self.w.policyCalls, 1)
-        self.assertEqual((self.w.add[0], self.w.add[1], len(self.w.clear)), (300, 301, 0))
+        self.assertEqual((self.w.add[0], self.w.add[1], self.w.clear[1], self.w.clear[2]), (300, 301, 0, 1))
+        self.assertEqual((self.w.slots[1], self.w.slots[2]), (0, 1))
+
+    def test_complete_policy_batch_preserves_existing_policy_while_filling_empty_slot(self):
+        self.w.slots[1] = 0
+        self.admin.Run()
+        self.assertEqual((self.w.add[0], self.w.add[1]), (300, 301))
+        self.assertEqual((self.w.slots[1], self.w.slots[2]), (0, 1))
 
     def test_active_queues_and_existing_policies_are_preserved(self):
         self.w.tech, self.w.civic = 0, 0
