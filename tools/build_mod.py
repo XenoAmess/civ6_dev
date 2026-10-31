@@ -80,14 +80,17 @@ def install(source: Path, mods_dir: Path) -> Path:
         for relative in files:
             if contained(target, relative).exists() and relative not in old_files:
                 raise ValueError(f"Unmanaged file would be overwritten: {relative}")
-    # Keep extra files and old managed files; never recursively delete or move folders.
+    # Every owned path and digest was checked before any write. Only retire exact
+    # unchanged files absent from the new inventory; never recursively remove folders.
     target.mkdir(parents=True, exist_ok=True)
-    new_files = dict(old_files)
+    new_files = {}
     for relative in files:
         src, dst = contained(source, relative), contained(target, relative)
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
         new_files[relative] = digest(dst)
+    for relative in old_files.keys() - new_files.keys():
+        contained(target, relative).unlink()
     marker.write_text(json.dumps({"mod_id": MOD_ID, "files": new_files}, indent=2) + "\n", encoding="utf-8")
     return target
 

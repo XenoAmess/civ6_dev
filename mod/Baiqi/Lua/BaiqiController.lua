@@ -7,7 +7,6 @@ local C = BaiqiConfig
 local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
-local queuedSettings = {}
 local stopped, running = false, false
 local status = "内政托管开启；军队等待你的命令"
 local contextID, visibility
@@ -24,82 +23,14 @@ end
 
 local function PlayerContext()
   local id = Game.GetLocalPlayer()
-  if id == nil or id < 0 or GameConfiguration.IsAnyMultiplayer() or GameConfiguration.IsHotseat() then return nil end
+  if id == nil or id < 0 or GameConfiguration.IsAnyMultiplayer()
+    or (GameConfiguration.IsHotseat and GameConfiguration.IsHotseat()) then return nil end
   local player, config = Players[id], PlayerConfigurations[id]
   if player == nil or config == nil or config:GetLeaderTypeName() ~= C.leader or not config:IsHuman() then return nil end
-  local state = player:GetProperty(C.stateKey)
-  if state == nil then state = {version=1, enabled=true, cities={}, units={}, protected={}} end
-  if type(state) ~= "table" or state.version ~= C.version or type(state.cities) ~= "table"
-    or type(state.units) ~= "table" or type(state.protected) ~= "table" then
-    Reason("state", "托管存档版本不受支持，已停止操作"); return nil
-  end
-  return {player=id, localPlayer=id, isBaiqi=true, activeTurn=player:IsTurnActive(), enabled=state.enabled == true}, player, state
+  return {player=id, localPlayer=id, isBaiqi=true, activeTurn=player:IsTurnActive(), enabled=true}, player, {}
 end
 
 function BaiqiController.IsAvailable() return PlayerContext() ~= nil end
-
-local function CityPaused(state, city)
-  local record = state.cities[tostring(city:GetID())]
-  return record ~= nil and record.x == city:GetX() and record.y == city:GetY() and record.paused == true
-end
-
-local function IsProtected(state, plot) return state.protected[tostring(plot:GetIndex())] == true end
-
-local function SaveSetting(kind, id, value)
-  local ctx = PlayerContext()
-  if ctx == nil or ctx.activeTurn ~= true then return end
-  local key = kind..":"..tostring(id)
-  queuedSettings[key] = {kind=kind, id=id, value=value, turn=Game.GetCurrentGameTurn()}
-  UI.RequestPlayerOperation(ctx.player, PlayerOperations.EXECUTE_SCRIPT,
-    {OnStart="BaiqiSettings", kind=kind, id=id, value=value, turn=Game.GetCurrentGameTurn()})
-  status = "正在保存托管设置"
-end
-
-local function SettingsAcknowledged(state)
-  for key, setting in pairs(queuedSettings) do
-    local value
-    if setting.kind == "global" then value = state.enabled
-    elseif setting.kind == "unit" then value = state.units[tostring(setting.id)]
-    elseif setting.kind == "protect" then value = state.protected[tostring(setting.id)]
-    elseif setting.kind == "city" then
-      local record = state.cities[tostring(setting.id)]; value = record and record.paused
-    end
-    if value == setting.value then queuedSettings[key] = nil end
-  end
-  if next(queuedSettings) ~= nil then status = "等待设置确认；自动操作已暂停"; return false end
-  if status=="正在保存托管设置" or status=="等待设置确认；自动操作已暂停" then status="托管设置已保存；军队等待你的命令" end
-  return true
-end
-
-function BaiqiController.ToggleGlobal()
-  local ctx, player, state = PlayerContext()
-  if ctx then SaveSetting("global", nil, not state.enabled) end
-end
-
-function BaiqiController.ToggleCity()
-  local ctx, player, state = PlayerContext()
-  local city = UI.GetHeadSelectedCity()
-  if ctx and city and city:GetOwner() == ctx.player then SaveSetting("city", city:GetID(), not CityPaused(state, city)) end
-end
-
-function BaiqiController.ToggleUnit()
-  local ctx, player, state = PlayerContext()
-  local unit = UI.GetHeadSelectedUnit()
-  if ctx and unit and unit:GetOwner() == ctx.player then
-    local def = GameInfo.Units[unit:GetUnitType()]
-    if def and (def.UnitType == "UNIT_SETTLER" or def.UnitType == "UNIT_BUILDER") then
-      SaveSetting("unit", unit:GetID(), state.units[tostring(unit:GetID())] ~= true)
-    end
-  end
-end
-
-function BaiqiController.ProtectPlot()
-  local ctx, player, state = PlayerContext()
-  local unit = UI.GetHeadSelectedUnit()
-  local city = UI.GetHeadSelectedCity()
-  local plot = unit and Map.GetPlot(unit:GetX(), unit:GetY()) or (city and Map.GetPlot(city:GetX(), city:GetY()))
-  if ctx and plot and plot:GetOwner() == ctx.player then SaveSetting("protect", plot:GetIndex(), not IsProtected(state, plot)) end
-end
 
 local function Revealed(plot)
   return plot ~= nil and visibility ~= nil and visibility:IsRevealed(plot:GetX(), plot:GetY()) == true
@@ -128,7 +59,7 @@ local function ResourceVisible(plot, player)
 end
 
 local function ClearPlot(plot, state, player)
-  return Revealed(plot) and not IsProtected(state, plot) and not plot:IsCity()
+  return Revealed(plot) and not plot:IsCity()
     and not plot:IsNaturalWonder() and not plot:IsNationalPark()
     and plot:GetDistrictType() == -1 and plot:GetImprovementType() == -1
     and plot:GetFeatureType() == -1 and not ResourceVisible(plot, player)
@@ -144,22 +75,26 @@ end
 local function UnitSnapshot(unit, state)
   local def = GameInfo.Units[unit:GetUnitType()]
   return {id=unit:GetID(), owner=unit:GetOwner(), type=def and def.UnitType,
-    paused=state.units[tostring(unit:GetID())] == true,
+    paused=false,
     formationCount=unit.GetFormationUnitCount and unit:GetFormationUnitCount() or nil,
     moves=unit:GetMovesRemaining(), plot=unit:GetPlotId()}
 end
 
 local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
-  -- Re-read ownership, active player and persisted settings at the write boundary.
+  -- Re-read ownership and active player at the write boundary. No takeover flags.
   local freshCtx, freshPlayer, freshState = PlayerContext()
   ctx, state = freshCtx, freshState
-  if ctx == nil or not SettingsAcknowledged(state) then return false, "context_changed" end
+  if ctx == nil then return false, "context_changed" end
   local allowed, reason = BaiqiPolicy.CanCivilian(ctx, UnitSnapshot(unit, state))
   local def = GameInfo.Units[unit:GetUnitType()]
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
-  if not Safe(plot, Players[ctx.player]) or IsProtected(state, plot) then return false, "unsafe_or_protected" end
+  if operation~="SKIP_TURN" and not Safe(plot, Players[ctx.player]) then return false, "unsafe" end
   local params = {}
   local action = UnitOperationTypes[operation]
+  if operation=="SKIP_TURN" and action==nil then
+    local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN
+    action=row and row.Hash
+  end
   if action == nil then return false, "operation_unavailable" end
   if operation == "MOVE_TO" then
     if Map.GetPlotDistance(unit:GetX(), unit:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
@@ -190,7 +125,7 @@ local function PathStep(unit, target, player, state)
   if path.plots[1] ~= unit:GetPlotId() or path.plots[#path.plots] ~= target:GetIndex() then return nil end
   for _, index in ipairs(path.plots) do
     local p = Map.GetPlotByIndex(index)
-    if p == nil or not Revealed(p) or not Safe(p, player) or IsProtected(state, p)
+    if p == nil or not Revealed(p) or not Safe(p, player)
       or (p:GetOwner() ~= -1 and p:GetOwner() ~= contextID) then return nil end
   end
   return Map.GetPlotByIndex(path.plots[2])
@@ -204,7 +139,7 @@ local function SettlementSites(player, state, unit)
     local plot = Map.GetPlotByIndex(recommendation.SettlingLocation)
     if plot and Revealed(plot) and not plot:IsWater() and not plot:IsImpassable() and not plot:IsCity()
       and plot:GetFeatureType() == -1
-      and (plot:GetOwner() == -1 or plot:GetOwner() == contextID) and Safe(plot, player) and not IsProtected(state, plot) then
+      and (plot:GetOwner() == -1 or plot:GetOwner() == contextID) and Safe(plot, player) then
       -- Recommendations are hints. FOUND_CITY legality is checked at the destination.
       local distantEnough = true
       for _, owner in pairs(PlayerManager.GetAliveIDs()) do
@@ -229,7 +164,7 @@ local function ProcessSettler(ctx, player, state, unit)
   local mayFound = player:GetCities():GetCount() == 0
     or settlementTargets[unit:GetID()] == here:GetIndex()
     or (target ~= nil and target.index == here:GetIndex())
-  if mayFound and not IsProtected(state, here) and Safe(here, player)
+  if mayFound and Safe(here, player)
     and UnitManager.CanStartOperation(unit, UnitOperationTypes.FOUND_CITY) == true then
     return RequestCivilian(ctx, state, unit, "FOUND_CITY", here)
   end
@@ -245,7 +180,7 @@ end
 local function ProcessBuilder(ctx, player, state, unit)
   local here = Map.GetPlotByIndex(unit:GetPlotId())
   if here==nil then return false end
-  if here:GetOwner() == ctx.player and not IsProtected(state, here) and Safe(here, player) then
+  if here:GetOwner() == ctx.player and Safe(here, player) then
     if here:IsImprovementPillaged() and UnitManager.CanStartOperation(unit, UnitOperationTypes.REPAIR) then
       return RequestCivilian(ctx, state, unit, "REPAIR", here)
     end
@@ -266,7 +201,7 @@ local function ProcessBuilder(ctx, player, state, unit)
     if ai then
       for _, rec in pairs(ai:GetImprovementRecommendationsForBuilder(unit:GetComponentID()) or {}) do
         local plot = Map.GetPlotByIndex(rec.ImprovementLocation)
-        if plot and plot:GetOwner() == ctx.player and not IsProtected(state, plot) then
+        if plot and plot:GetOwner() == ctx.player then
           local step=PathStep(unit, plot, player, state)
           if step then targets[#targets+1]={plot=plot,step=step,index=plot:GetIndex(),distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())} end
         end
@@ -324,7 +259,7 @@ end
 
 local function ProcessCity(ctx, player, state, city)
   local q=city:GetBuildQueue()
-  if CityPaused(state,city) or q:GetSize() ~= 0 or q:GetCurrentProductionTypeHash() ~= 0 or pendingCities[city:GetID()] then return false end
+  if q:GetSize() ~= 0 or q:GetCurrentProductionTypeHash() ~= 0 or pendingCities[city:GetID()] then return false end
   if cityEvaluated[city:GetID()]==turn then return false end
   cityEvaluated[city:GetID()]=turn
   local candidates, checked = {}, 0
@@ -384,7 +319,7 @@ local function ProcessCity(ctx, player, state, city)
   if choice == nil then Reason("city:"..city:GetID(),"城市等待合法生产或预算"); return false end
   -- All state and legality are checked again at the write boundary.
   local freshCtx, freshPlayer, freshState=PlayerContext()
-  if not BaiqiPolicy.Context(freshCtx) or CityPaused(freshState,city) or city:GetOwner()~=freshCtx.player
+  if not BaiqiPolicy.Context(freshCtx) or city:GetOwner()~=freshCtx.player
     or q:GetSize()~=0 or q:GetCurrentProductionTypeHash()~=0 then return false end
   local params=BuildParams(choice)
   if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
@@ -420,12 +355,17 @@ local function Tick()
   local ctx,player,state=PlayerContext()
   if ctx==nil then return end
   contextID=ctx.player
-  if not SettingsAcknowledged(state) or not BaiqiPolicy.Context(ctx) then return end
+  if not BaiqiPolicy.Context(ctx) then return end
   visibility=PlayersVisibility[ctx.player]
   if visibility==nil then return end
   local current=Game.GetCurrentGameTurn()
   if current~=turn then
     turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}
+    -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
+    -- turn; retaining that pending slot would strand the civilian indefinitely.
+    for id,pending in pairs(pendingUnits) do
+      if pending.kind=="SKIP_TURN" then pendingUnits[id]=nil end
+    end
   end
   ReadBack(player)
   for _,city in player:GetCities():Members() do
@@ -440,6 +380,10 @@ local function Tick()
         if ProcessSettler(ctx,player,state,unit) then status="已提交移民操作，等待实际结果"; return end
       elseif snapshot.type=="UNIT_BUILDER" then
         if ProcessBuilder(ctx,player,state,unit) then status="已提交建造者操作，等待实际结果"; return end
+      end
+      local here=Map.GetPlotByIndex(unit:GetPlotId())
+      if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
+        status="文职单位本回合等待安全任务；军队由你指挥";return
       end
     end
   end
@@ -458,40 +402,14 @@ function BaiqiController.Update(delta)
   if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow() end
 end
 
-function BaiqiController.GetStatus()
-  local ctx,player,state=PlayerContext()
-  if ctx==nil then return status end
-  if state.enabled~=true then return "内政托管已关闭" end
-  if stopped then return status end
-  local text=status
-  local city=UI.GetHeadSelectedCity()
-  local unit=UI.GetHeadSelectedUnit()
-  if city and city:GetOwner()==ctx.player then text=text.."[NEWLINE]所选城市："..(CityPaused(state,city) and "手动" or "托管") end
-  if unit and unit:GetOwner()==ctx.player then text=text.."[NEWLINE]所选单位："..(state.units[tostring(unit:GetID())] and "手动" or "文职按资格托管，军队由你指挥") end
-  return text
-end
+function BaiqiController.GetStatus() return status end
 
-local function OnUnitOperation(playerID,unitID,operation)
-  if playerID~=Game.GetLocalPlayer() then return end
-  local ctx,player,state=PlayerContext()
-  if ctx==nil then return end
-  local unit=player:GetUnits():FindID(unitID)
-  if unit==nil then return end
-  local row=GameInfo.Units[unit:GetUnitType()]
-  if row==nil or (row.UnitType~="UNIT_SETTLER" and row.UnitType~="UNIT_BUILDER") then return end
-  local pending=pendingUnits[unitID]
-  if pending and pending.operation==operation then return end
-  if state.units[tostring(unitID)]~=true then SaveSetting("unit",unitID,true); Log("manual_takeover","unit="..unitID) end
-end
-
-Events.UnitOperationStarted.Add(OnUnitOperation)
 local function OnCityCompleted(playerID,cityID)
   if playerID==Game.GetLocalPlayer() then cityEvaluated[cityID]=nil end
 end
 Events.CityProductionCompleted.Add(OnCityCompleted)
 function BaiqiController.Shutdown()
   stopped=true
-  Events.UnitOperationStarted.Remove(OnUnitOperation)
   Events.CityProductionCompleted.Remove(OnCityCompleted)
 end
-print("BAIQI|ui_controller_loaded|version=1")
+print("BAIQI|ui_controller_loaded|version=2|mandatory_admin=true")

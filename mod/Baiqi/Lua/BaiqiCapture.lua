@@ -53,22 +53,12 @@ local function Execute(player, journal, record, quote)
   record.stage = BaiqiPlanner.Transition("QUOTED","SUBMIT",{confirmed=true,quoteValid=true})
   record.phase = "TRANSFERRING"
   Persist(player,journal,record)
-  local ok
-  if quote.kind=="granary" then
-    local granted
-    ok,granted=pcall(BaiqiRights.Grant,quote,record.id)
-    if not ok or granted~=true then return Unknown(player,journal,record,"rights_unresolved") end
-    record.phase,record.transferObserved="TRANSFERRED",true
-  else
-    ok = pcall(CityManager.TransferCity,city,quote.playerID)
-    local acquired = CityManager.GetCityAt(quote.x,quote.y)
-    if not ok or acquired == nil or acquired:GetOwner() ~= quote.playerID then
-      return Unknown(player,journal,record,"transfer_unresolved")
-    end
-    -- Correlation is observed immediately around this actual call, not inferred on load.
-    record.phase, record.transferObserved, record.newCityID = "TRANSFERRED", true, acquired:GetID()
-    if BaiqiRights then BaiqiRights.Refresh() end
+  local ok = pcall(CityManager.TransferCity,city,quote.playerID)
+  local acquired = CityManager.GetCityAt(quote.x,quote.y)
+  if not ok or acquired == nil or acquired:GetOwner() ~= quote.playerID then
+    return Unknown(player,journal,record,"transfer_unresolved")
   end
+  record.phase, record.transferObserved, record.newCityID = "TRANSFERRED", true, acquired:GetID()
   Persist(player,journal,record)
   local treasury = player:GetTreasury()
   local before = treasury:GetGoldBalance()
@@ -101,6 +91,7 @@ function BaiqiCapture.Request(playerID, params)
   if player == nil or type(params) ~= "table" or params.confirmed ~= true then return false,"not_confirmed" end
   if params.playerID ~= playerID or params.turn ~= Game.GetCurrentGameTurn() then return false,"stale_turn" end
   if type(params.requestID) ~= "string" or #params.requestID > 128 then return false,"invalid_request" end
+  if (params.kind~=nil and params.kind~="city") or params.requestID:sub(1,5)~="city:" then return false,"invalid_target" end
   local journal = Journal(player)
   if journal == nil then return false,"journal_version" end
   BaiqiCapture.Recover(playerID)
@@ -110,11 +101,10 @@ function BaiqiCapture.Request(playerID, params)
     if type(previous) ~= "table" then return false,"journal_corrupt" end
     Log(params.requestID,previous.stage,"duplicate"); return previous.stage == "COMMITTED","duplicate"
   end
-  local quote, reason = BaiqiRequisition.Quote(playerID,params.unitID,params.targetOwner,params.cityID,params.kind,params.recipientCityID)
+  local quote, reason = BaiqiRequisition.Quote(playerID,params.unitID,params.targetOwner,params.cityID,params.kind)
   if quote == nil then Log(params.requestID,"REJECTED",reason); return false,reason end
   if params.requestID ~= BaiqiRequisition.RequestID(quote) or params.x ~= quote.x or params.y ~= quote.y
-    or params.cost ~= quote.cost or params.population ~= quote.population
-    or params.recipientIndex~=quote.recipientIndex or params.sourceIndex~=quote.sourceIndex then return false,"quote_changed" end
+    or params.cost ~= quote.cost or params.population ~= quote.population then return false,"quote_changed" end
   if BaiqiRequisition.Conflict(journal,quote.unitID,quote.x,quote.y) then return false,"pending_operation" end
   if type(CityManager.TransferCity) ~= "function" or type(UnitManager.FinishMoves) ~= "function" then return false,"engine_unavailable" end
   local record = {id=params.requestID,stage="QUOTED",phase="VALIDATED",turn=quote.turn,

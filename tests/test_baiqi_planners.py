@@ -35,13 +35,15 @@ class BaiqiPlannerTests(unittest.TestCase):
         unit = self.table(owner=7, type="UNIT_SETTLER", paused=False, formationCount=1, moves=2)
         self.assertTrue(self.policy.CanCivilian(ctx, unit)[0])
         for field, values in {"owner": [0, None], "type": ["UNIT_WARRIOR", "UNIT_SCOUT", "UNIT_SPY"],
-                              "paused": [True, None], "formationCount": [2, 0, None],
+                              "formationCount": [2, 0, None],
                               "moves": [0, -1, None, float("nan"), float("inf")]}.items():
             old = unit[field]
             for value in values:
                 unit[field] = value
                 self.assertFalse(self.policy.CanCivilian(ctx, unit)[0], (field, value))
             unit[field] = old
+        unit.paused = True
+        self.assertTrue(self.policy.CanCivilian(ctx, unit)[0])
         for kind in ("UNIT_WARRIOR", "UNIT_SCOUT", "UNIT_SPY", "UNIT_GREAT_GENERAL"):
             for action in ("MOVE_TO", "FOUND_CITY", "BUILD_IMPROVEMENT", "REPAIR", "RANGE_ATTACK"):
                 self.assertFalse(self.policy.ActionAllowed(kind, action))

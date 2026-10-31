@@ -1,6 +1,5 @@
--- Property-gated city effects use shipped effect/requirement types.
--- First supported operating right: unmodified Granary (1 food, 2 housing).
--- No runtime AttachModifier call: district/building lifecycle owns attachment.
+-- Inert old-save compatibility only. No building/district attachment links.
+-- Saved instances need their original IDs and requirements; all amounts are zero.
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)
 VALUES ('BAIQI_GRANARY_OUT_REQS', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO Requirements (RequirementId, RequirementType)
@@ -14,10 +13,9 @@ INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
 ('BAIQI_GRANARY_OUT_FOOD','MODIFIER_SINGLE_CITY_ADJUST_YIELD_CHANGE','BAIQI_GRANARY_OUT_REQS'),
 ('BAIQI_GRANARY_OUT_HOUSING','MODIFIER_SINGLE_CITY_ADJUST_CITY_HOUSING_FROM_GREAT_PEOPLE','BAIQI_GRANARY_OUT_REQS');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-('BAIQI_GRANARY_OUT_FOOD','YieldType','YIELD_FOOD'),('BAIQI_GRANARY_OUT_FOOD','Amount','-1'),
-('BAIQI_GRANARY_OUT_HOUSING','Amount','-2');
-INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-('BUILDING_GRANARY','BAIQI_GRANARY_OUT_FOOD'),('BUILDING_GRANARY','BAIQI_GRANARY_OUT_HOUSING');
+('BAIQI_GRANARY_OUT_FOOD','YieldType','YIELD_FOOD'),('BAIQI_GRANARY_OUT_FOOD','Amount','0'),
+('BAIQI_GRANARY_OUT_HOUSING','Amount','0');
+
 
 WITH RECURSIVE slots(i) AS (VALUES(1) UNION ALL SELECT i+1 FROM slots WHERE i<16)
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)
@@ -39,9 +37,5 @@ UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_HOUSING','MODIFIER_SINGLE_CITY_ADJUST
 WITH RECURSIVE slots(i) AS (VALUES(1) UNION ALL SELECT i+1 FROM slots WHERE i<16)
 INSERT INTO ModifierArguments (ModifierId, Name, Value)
 SELECT 'BAIQI_GRANARY_IN_'||i||'_FOOD','YieldType','YIELD_FOOD' FROM slots
-UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_FOOD','Amount','1' FROM slots
-UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_HOUSING','Amount','2' FROM slots;
-WITH RECURSIVE slots(i) AS (VALUES(1) UNION ALL SELECT i+1 FROM slots WHERE i<16)
-INSERT INTO DistrictModifiers (DistrictType, ModifierId)
-SELECT 'DISTRICT_CITY_CENTER','BAIQI_GRANARY_IN_'||i||'_FOOD' FROM slots
-UNION ALL SELECT 'DISTRICT_CITY_CENTER','BAIQI_GRANARY_IN_'||i||'_HOUSING' FROM slots;
+UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_FOOD','Amount','0' FROM slots
+UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_HOUSING','Amount','0' FROM slots;

@@ -12,6 +12,7 @@ function BaiqiPolicy.Context(ctx)
 end
 
 function BaiqiPolicy.ActionAllowed(unitType, operation)
+  if operation=="SKIP_TURN" then return unitType=="UNIT_SETTLER" or unitType=="UNIT_BUILDER" end
   if unitType == "UNIT_SETTLER" then return operation == "MOVE_TO" or operation == "FOUND_CITY" end
   if unitType == "UNIT_BUILDER" then
     return operation == "MOVE_TO" or operation == "BUILD_IMPROVEMENT" or operation == "REPAIR"
@@ -23,7 +24,6 @@ function BaiqiPolicy.CanCivilian(ctx, unit)
   if not BaiqiPolicy.Context(ctx) then return false, "context_inactive" end
   if type(unit) ~= "table" or unit.owner ~= ctx.player then return false, "owner_mismatch" end
   if unit.type ~= "UNIT_SETTLER" and unit.type ~= "UNIT_BUILDER" then return false, "not_whitelisted" end
-  if unit.paused ~= false then return false, "manual_control" end
   if unit.formationCount ~= 1 then return false, "formation_or_unknown" end
   if not BaiqiPolicy.Number(unit.moves) or unit.moves <= 0 then return false, "no_moves" end
   return true, "eligible"

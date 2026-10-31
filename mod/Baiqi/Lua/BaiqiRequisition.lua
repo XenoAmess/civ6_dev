@@ -1,4 +1,6 @@
--- Shared read-only quote. Normal automation settings do not disable player actions.
+-- Shared read-only quote, usable from gameplay or either native map-input context.
+include("BaiqiConfig")
+include("BaiqiPolicy")
 BaiqiRequisition = {}
 local C = BaiqiConfig
 local classes = {PROMOTION_CLASS_MELEE=true, PROMOTION_CLASS_ANTI_CAVALRY=true,
@@ -22,9 +24,9 @@ function BaiqiRequisition.Player(playerID)
   return player
 end
 
-function BaiqiRequisition.Quote(playerID, unitID, targetOwner, cityID, kind, recipientID)
+function BaiqiRequisition.Quote(playerID, unitID, targetOwner, cityID, kind)
   kind=kind or "city"
-  if kind~="city" and kind~="granary" then return nil,"invalid_target" end
+  if kind~="city" then return nil,"invalid_target" end
   local player = BaiqiRequisition.Player(playerID)
   if player == nil or not C.cityRequisition then return nil, "unavailable" end
   if not integer(unitID) or not integer(targetOwner) or not integer(cityID) or targetOwner == playerID then return nil, "invalid_target" end
@@ -55,22 +57,14 @@ function BaiqiRequisition.Quote(playerID, unitID, targetOwner, cityID, kind, rec
   if not BaiqiPolicy.Number(maxHP) or not BaiqiPolicy.Number(damage) or maxHP <= 0 or damage < 0
     or not BaiqiPolicy.Number(maxOuter) or not BaiqiPolicy.Number(outerDamage) or maxOuter < 0 or outerDamage < 0 then return nil, "defense_unknown" end
   if maxOuter - outerDamage > 0 then return nil, "walls_remaining" end
-  if kind=="city" and math.max(0,maxHP-damage)*100 > maxHP*C.cityHealthPercent then return nil, "city_healthy" end
+  if math.max(0,maxHP-damage)*100 > maxHP*C.cityHealthPercent then return nil, "city_healthy" end
   local population = city:GetPopulation()
   if not integer(population) or population < 1 or not integer(currentTurn) then return nil, "state_unknown" end
   local cost = C.cityCostBase + C.cityCostPerPopulation*population
-  local rights
-  if kind=="granary" then
-    local reason
-    rights,reason=BaiqiRights.Check(playerID,city,recipientID)
-    if rights==nil then return nil,reason end
-    cost=C.granaryCost
-  end
   local gold = player:GetTreasury():GetGoldBalance()
   if not BaiqiPolicy.Number(gold) or gold < cost then return nil, "insufficient_gold" end
   local quote={kind=kind,playerID=playerID, unitID=unitID, targetOwner=targetOwner, cityID=cityID,
     x=city:GetX(), y=city:GetY(), population=population, cost=cost, turn=currentTurn}
-  if rights then for key,value in pairs(rights) do quote[key]=value end end
   return quote,"eligible"
 end
 
@@ -79,7 +73,8 @@ function BaiqiRequisition.Conflict(journal, unitID, x, y)
   if type(journal) ~= "table" or journal.version ~= 1 or type(journal.operations) ~= "table" then return true end
   for _,record in pairs(journal.operations) do
     if type(record) ~= "table" then return true end
-    if record.stage ~= "COMMITTED" and record.stage ~= "REJECTED" then
+    local retired=record.kind=="granary" or (type(record.id)=="string" and record.id:sub(1,8)=="granary:")
+    if not retired and record.stage ~= "COMMITTED" and record.stage ~= "REJECTED" then
       if record.unitID == unitID or (record.x == x and record.y == y) then return true end
     end
   end

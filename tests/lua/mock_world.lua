@@ -14,10 +14,11 @@ GameInfo={Buildings=rows({
   {BuildingType="BUILDING_MONUMENT",Hash=101,Index=1,IsWonder=false,RequiresPlacement=false,MustPurchase=false,Maintenance=0}}),
   Districts=rows({}),Projects=rows({}),Resources=rows({}),Improvements=rows({}),
   Units=rows({{UnitType="UNIT_WARRIOR",Hash=200,Index=0,Combat=20,Maintenance=0},
-    {UnitType="UNIT_SETTLER",Hash=201,Index=1,Combat=0,Maintenance=0}})}
+    {UnitType="UNIT_SETTLER",Hash=201,Index=1,Combat=0,Maintenance=0},
+    {UnitType="UNIT_BUILDER",Hash=202,Index=2,Combat=0,Maintenance=0}})}
 CityOperationTypes={BUILD=1,PARAM_BUILDING_TYPE=2,PARAM_DISTRICT_TYPE=3,PARAM_UNIT_TYPE=4,
   PARAM_PROJECT_TYPE=5,PARAM_INSERT_MODE=6,VALUE_APPEND=7,PARAM_X=8,PARAM_Y=9}
-UnitOperationTypes={MOVE_TO=10,FOUND_CITY=11,BUILD_IMPROVEMENT=12,REPAIR=13,PARAM_X=14,PARAM_Y=15,PARAM_IMPROVEMENT_TYPE=16}
+UnitOperationTypes={MOVE_TO=10,FOUND_CITY=11,BUILD_IMPROVEMENT=12,REPAIR=13,PARAM_X=14,PARAM_Y=15,PARAM_IMPROVEMENT_TYPE=16,SKIP_TURN=17}
 PlayerOperations={EXECUTE_SCRIPT=1}
 YieldTypes={PRODUCTION=0}
 local plot={}
@@ -26,6 +27,8 @@ function plot:GetX() return 2 end
 function plot:GetY() return 3 end
 function plot:GetFeatureType() return -1 end
 function plot:GetOwner() return 7 end
+function plot:IsImprovementPillaged() return false end
+function plot:GetImprovementType() return -1 end
 Map={GetPlotByIndex=function() return plot end,GetPlot=function() return plot end,
   GetPlotXYWithRangeCheck=function() return nil end,GetCityPlots=function() return {GetPurchasedPlots=function() return {} end} end}
 Units={GetUnitsInPlot=function() return {} end}
@@ -41,8 +44,8 @@ function city:GetY() return 3 end
 function city:GetPopulation() return 1 end
 function city:GetBuildQueue() return queue end
 function city:GetBuildings() return {IsPillaged=function() return false end} end
-local army,settler={},{}
-for object,definition in pairs({[army]=0,[settler]=1}) do
+local army,settler,builder={},{},{}
+for object,definition in pairs({[army]=0,[settler]=1,[builder]=2}) do
   object.GetUnitType=function() return definition end
   object.GetOwner=function() return 7 end
   object.GetID=function() return definition+1 end
@@ -64,7 +67,8 @@ function player:GetCities()
 end
 function player:GetUnits()
  local list=W.withSettler and {army,settler} or {army}
- return {Members=members(list),FindID=function(_,id) return list[id] end}
+ if W.withBuilder then list[#list+1]=builder end
+ return {Members=members(list),FindID=function(_,id) for _,unit in ipairs(list) do if unit:GetID()==id then return unit end end end}
 end
 function player:GetTreasury() return {GetGoldBalance=function() return 10 end,GetGoldYield=function() return 5 end,GetTotalMaintenance=function() return 0 end} end
 function player:GetGrandStrategicAI() return nil end

@@ -41,13 +41,25 @@ class BaiqiControllerTests(unittest.TestCase):
         self.assertEqual(self.world.unitRequests[1].op, 11)
         self.assertEqual(self.world.unitRequests[1].unit, 2)
 
-    def test_escorted_settler_and_disabled_global_issue_no_commands(self):
+    def test_escort_is_untouched_but_old_pause_flag_cannot_disable_ai(self):
         self.world.withCity, self.world.withSettler, self.world.formation = False, True, 2
         self.controller.RunNow()
         self.assertEqual(len(self.world.unitRequests), 0)
         self.world.formation, self.world.paused = 1, True
         self.controller.RunNow()
-        self.assertEqual(len(self.world.unitRequests), 0)
+        self.assertEqual(len(self.world.unitRequests), 1)
+        self.assertEqual(self.world.unitRequests[1].op, 11)
+
+    def test_idle_builder_skip_with_unchanged_moves_does_not_strand_next_turn(self):
+        self.world.withCity, self.world.withBuilder = False, True
+        self.controller.RunNow()
+        self.controller.RunNow()
+        self.assertEqual(len(self.world.unitRequests), 1)
+        self.assertEqual((self.world.unitRequests[1].unit, self.world.unitRequests[1].op), (3, 17))
+        self.world.turn += 1
+        self.controller.RunNow()
+        self.assertEqual(len(self.world.unitRequests), 2)
+        self.assertEqual((self.world.unitRequests[2].unit, self.world.unitRequests[2].op), (3, 17))
 
 
 if __name__ == "__main__":

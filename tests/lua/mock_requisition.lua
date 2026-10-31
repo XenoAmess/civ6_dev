@@ -1,6 +1,6 @@
 include=function() end
 TestCapture={turn=8,gold=1000,moves=2,owner=3,hp=200,damage=150,outer=0,outerDamage=0,
- population=2,atWar=true,visible=true,transferCalls=0,charges=0,finishCalls=0,props={},unitProps={},
+ population=2,atWar=true,visible=true,leader='LEADER_BAIQI',transferCalls=0,charges=0,finishCalls=0,props={},unitProps={},
  failTransfer=false,throwAfterTransfer=false,failCharge=false,formation=1,active=true,localPlayer=7,
  gameProps={},sourceProps={},recipientProps={},granary=true,pillaged=false,recipientOwner=7,extraModifier=false}
 local w=TestCapture
@@ -27,7 +27,7 @@ local player={IsHuman=function() return true end,IsTurnActive=function() return 
 local enemy={GetCities=function() return {FindID=function(_,id) if id==12 and w.owner==3 then return city end end} end,
  GetDistricts=function() return {FindID=function(_,id) if id==13 then return district end end} end}
 Players={[7]=player,[3]=enemy}
-PlayerConfigurations={[7]={GetLeaderTypeName=function() return 'LEADER_BAIQI' end}}
+PlayerConfigurations={[7]={GetLeaderTypeName=function() return w.leader end}}
 PlayersVisibility={[7]={IsVisible=function() return w.visible end}}
 Game={GetCurrentGameTurn=function() return w.turn end,GetLocalPlayer=function() return w.localPlayer end,
  GetProperty=function(key) return w.gameProps[key] end,SetProperty=function(key,value) w.gameProps[key]=value end}
@@ -80,6 +80,7 @@ function TestUI()
  PopupDialogInGame={new=function()
   local popup={AddText=function(_,text) w.popupText=text end,
    AddConfirmButton=function(_,text,cb) w.confirm=cb end,
+   AddCustomButton=function(_,text,cb) w.normalAttack=cb end,
    AddCancelButton=function(_,text,cb) w.cancel=cb end,Open=function() w.opened=true end}
   return popup
  end}

@@ -19,16 +19,8 @@ for _,unit in player:GetUnits():Members() do
   local unitType=unit.GetType and unit:GetType() or unit:GetUnitType()
   print("BAIQI_UNIT",unit:GetID(),GameInfo.Units[unitType].UnitType,unit:GetX(),unit:GetY(),unit:GetMovesRemaining(),unit:GetFormationUnitCount())
 end
-local rights=Game.GetProperty("BAIQI_RIGHTS_V1")
-if type(rights)=="table" and type(rights.leases)=="table" then
-  for key,lease in pairs(rights.leases) do
-    print("BAIQI_RIGHT",key,lease.id,lease.status,lease.sourceOwner,lease.sourceCityID,lease.recipientPlayer,lease.recipientCityID)
-    local plot=Map.GetPlotByIndex(lease.sourceIndex)
-    local city=plot and CityManager.GetCityAt(plot:GetX(),plot:GetY())
-    if city then print("BAIQI_SOURCE_CITY",city:GetOwner(),city:GetID(),city:GetX(),city:GetY(),city:GetYield(YieldTypes.FOOD),city:GetGrowth():GetHousing(),
-      city:GetBuildings():HasBuilding(GameInfo.Buildings.BUILDING_GRANARY.Index),plot:GetProperty("BAIQI_GRANARY_OUT")) end
-  end
-end
+print("BAIQI_WITHDRAWN_EFFECTS",Game.GetProperty("BAIQI_WITHDRAWN_RIGHTS_CLEANED"),
+  Game.GetProperty("BAIQI_RIGHTS_V1")==nil,player:GetProperty("BAIQI_STATE_V1")==nil)
 local journal=player:GetProperty("BAIQI_REQUISITION_V1")
 if type(journal)=="table" and type(journal.operations)=="table" then
   for id,record in pairs(journal.operations) do

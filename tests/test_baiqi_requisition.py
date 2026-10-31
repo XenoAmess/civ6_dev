@@ -10,7 +10,7 @@ class RequisitionTests(unittest.TestCase):
     def setUp(self):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lua.execute((ROOT / 'tests/lua/mock_requisition.lua').read_text(encoding='utf-8'))
-        for name in ('BaiqiConfig', 'BaiqiPolicy', 'BaiqiPlanner', 'BaiqiRights', 'BaiqiRequisition', 'BaiqiCapture'):
+        for name in ('BaiqiConfig', 'BaiqiPolicy', 'BaiqiPlanner', 'BaiqiRequisition', 'BaiqiCapture'):
             self.lua.execute((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
         self.g = self.lua.globals()
         self.w = self.g.TestCapture
@@ -32,66 +32,12 @@ class RequisitionTests(unittest.TestCase):
         self.assertEqual(self.backend.Request(7, params), (False, 'not_at_war'))
         self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 0, 0))
 
-    def granary_params(self):
-        quote, reason = self.g.BaiqiRequisition.Quote(7, 9, 3, 12, 'granary')
-        self.assertIsNotNone(quote, reason)
-        quote.confirmed = True
-        quote.requestID = self.g.BaiqiRequisition.RequestID(quote)
-        return quote
 
-    def test_independent_granary_grants_real_properties_with_no_city_transfer(self):
-        self.w.damage = 0  # Building rights need broken outer defense, not low garrison HP.
-        params = self.granary_params()
-        self.assertEqual(self.backend.Request(7, params), (True, 'committed'))
-        self.assertEqual((self.w.owner, self.w.granary, self.w.gold, self.w.moves), (3, True, 850, 0))
-        self.assertEqual(self.w.sourceProps['BAIQI_GRANARY_OUT'], 1)
-        self.assertEqual(self.w.recipientProps['BAIQI_GRANARY_IN'], 1)
-        self.assertEqual(self.backend.Request(7, params), (True, 'duplicate'))
-        self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 1, 1))
 
-    def test_rights_pillage_suspend_repair_resume_and_capture_end_without_more_fees(self):
-        self.backend.Request(7, self.granary_params())
-        self.w.pillaged = True
-        self.g.BaiqiRights.Refresh()
-        self.assertEqual((self.w.sourceProps['BAIQI_GRANARY_OUT'], self.w.recipientProps['BAIQI_GRANARY_IN']), (0, 0))
-        self.w.pillaged = False
-        self.g.BaiqiRights.Refresh()
-        self.assertEqual(self.w.recipientProps['BAIQI_GRANARY_IN'], 1)
-        self.w.owner = 7
-        self.g.BaiqiRights.Refresh()
-        self.assertEqual((self.w.sourceProps['BAIQI_GRANARY_OUT'], self.w.recipientProps['BAIQI_GRANARY_IN']), (0, 0))
-        self.assertEqual(self.w.gameProps['BAIQI_RIGHTS_V1'].leases['100'].status, 'EXPIRED')
-        self.assertEqual((self.w.charges, self.w.finishCalls), (1, 1))
 
-    def test_rights_reload_refresh_is_idempotent_and_cannot_stack_benefits(self):
-        self.backend.Request(7, self.granary_params())
-        for _ in range(4):
-            self.g.BaiqiRights.Refresh()
-            self.backend.Recover(7)
-        self.assertEqual(self.w.recipientProps['BAIQI_GRANARY_IN'], 1)
-        self.assertEqual((self.w.charges, self.w.finishCalls), (1, 1))
 
-    def test_unsupported_modified_building_and_missing_granary_are_rejected(self):
-        params = self.granary_params()
-        self.w.extraModifier = True
-        self.assertEqual(self.backend.Request(7, params), (False, 'building_profile_unsupported'))
-        self.w.extraModifier, self.w.granary = False, False
-        self.assertEqual(self.backend.Request(7, params), (False, 'no_operating_granary'))
-        self.assertEqual((self.w.charges, self.w.transferCalls, self.w.finishCalls), (0, 0, 0))
 
-    def test_changed_recipient_does_not_silently_redirect_paid_building(self):
-        params = self.granary_params()
-        params.recipientIndex = 999
-        self.assertEqual(self.backend.Request(7, params), (False, 'quote_changed'))
-        self.assertIsNone(self.w.sourceProps['BAIQI_GRANARY_OUT'])
-        self.assertEqual(self.w.charges, 0)
 
-    def test_corrupt_rights_ledger_disables_orphan_effects_without_regranting(self):
-        self.backend.Request(7, self.granary_params())
-        self.w.gameProps['BAIQI_RIGHTS_V1'].version = 999
-        self.assertFalse(self.g.BaiqiRights.Refresh())
-        self.assertEqual((self.w.sourceProps['BAIQI_GRANARY_OUT'], self.w.recipientProps['BAIQI_GRANARY_IN']), (0, 0))
-        self.assertEqual((self.w.charges, self.w.finishCalls), (1, 1))
 
     def test_requoted_cost_population_turn_and_visibility_reject_changes(self):
         params = self.g.TestParams()
@@ -156,6 +102,35 @@ class RequisitionTests(unittest.TestCase):
                 self.assertEqual(self.backend.Request(7, params), (False, reason))
                 setattr(self.w, field, restored)
         self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 0, 0))
+
+
+    def test_withdrawn_granary_request_is_rejected_before_legacy_duplicate(self):
+        params = self.g.TestParams()
+        params.kind, params.requestID = 'granary', 'granary:old'
+        self.lua.execute("TestCapture.props.BAIQI_REQUISITION_V1={version=1,operations={['granary:old']={stage='COMMITTED'}}}")
+        self.assertEqual(self.backend.Request(7, params), (False, 'invalid_target'))
+        self.assertEqual((self.w.transferCalls, self.w.charges, self.w.finishCalls), (0, 0, 0))
+
+    def test_removed_rights_migration_clears_effects_and_flags_without_payment(self):
+        self.lua.execute("""
+          TestCapture.sourceProps.BAIQI_GRANARY_OUT=1
+          TestCapture.recipientProps.BAIQI_GRANARY_IN=1
+          TestCapture.gameProps.BAIQI_RIGHTS_V1={version=1}
+          TestCapture.props.BAIQI_STATE_V1={enabled=false,protected={100}}
+          PlayerManager={GetAliveIDs=function() return {7} end}
+          TestEvents={}
+          GameEvents=setmetatable({},{__index=function(t,key)
+            local event={Add=function(fn) TestEvents[key]=fn end};rawset(t,key,event);return event
+          end})
+        """)
+        self.lua.execute((ROOT / 'mod/Baiqi/Lua/BaiqiGameplay.lua').read_text(encoding='utf-8'))
+        for _ in range(2):
+            self.g.TestEvents.OnGameTurnStarted()
+        self.assertEqual(self.w.sourceProps.BAIQI_GRANARY_OUT, 0)
+        self.assertEqual(self.w.recipientProps.BAIQI_GRANARY_IN, 0)
+        self.assertIsNone(self.w.gameProps.BAIQI_RIGHTS_V1)
+        self.assertIsNone(self.w.props.BAIQI_STATE_V1)
+        self.assertEqual((self.w.gold, self.w.moves, self.w.transferCalls, self.w.charges), (1000, 2, 0, 0))
 
 
 if __name__ == '__main__':
