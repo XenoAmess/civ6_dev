@@ -1,0 +1,499 @@
+{
+  "schema": "civ6.baiqi-p2/v1",
+  "recorded_at_utc": "2026-10-31T12:10:36.559119+00:00",
+  "machine_id": "BF-202609141645",
+  "steam_build_id": "15296837",
+  "game_version": "1.0.12.68 (1023995)",
+  "profile_id": "BAIQI_P2",
+  "ruleset": "RULESET_EXPANSION_2",
+  "base_commit": "72fd53e53471f7366a59b161951aff700c3a0014",
+  "source_fingerprints": [
+    {
+      "path": "mod/Baiqi/Baiqi.modinfo",
+      "sha256": "9fbc9e07a930dc93d699446321743c7d17b20370d16df2472836e8cdefdf60f3"
+    },
+    {
+      "path": "mod/Baiqi/Config/BaiqiConfig.sql",
+      "sha256": "3f00639520ff6402e5c511bb5f6ac6cd081e8e5f8ec308d9ad036cc7a65c0490"
+    },
+    {
+      "path": "mod/Baiqi/Data/Baiqi.sql",
+      "sha256": "69d25ad1ba4fc01cd998d7d686bea2a349a44deed7b6f57177cc0c8261d2ce6e"
+    },
+    {
+      "path": "mod/Baiqi/Data/BaiqiColors.xml",
+      "sha256": "f9972697780b70ec1f40fe4a4ed30a933aeaba0094198e8cc169296936a94f74"
+    },
+    {
+      "path": "mod/Baiqi/Data/BaiqiIcons.sql",
+      "sha256": "2df206a7be8fb357a6ada40fecf13a32de40617fda958d3a167cfd0eb0918934"
+    },
+    {
+      "path": "mod/Baiqi/Data/BaiqiRights.sql",
+      "sha256": "b4ad71cf8a0231f7be6e6f3bcfdcd8ab5eb46457061ee50812a98e1a27dea48f"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+      "sha256": "22274e5d761b0add417038ffddd4afccdce8368a9c3e6d29c906d86dbd990137"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiCapture.lua",
+      "sha256": "a30a389aaddf8619c56926d6a4389403124c8a7c5b8926f81e7e5e5806fa2168"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+      "sha256": "3e2b73f554ce8eb010b1eeaa18756be467999f31ecb6adf0497d9fff4132729c"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiController.lua",
+      "sha256": "74bb1a33b200ae2baa9803e041165fb8c0fe54200ba1251be45b3ebf220d7e5a"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiGameplay.lua",
+      "sha256": "92ed7e66398e1809935bf5c0e90331b2443164b67c944a34610d3679be9f0ca1"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiPlanner.lua",
+      "sha256": "dbaf6a1efc87effe01dd5eaca1b4eeadbc9652f30a16bc1a594d1e5aea33c51e"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiPolicy.lua",
+      "sha256": "9b6509c63b51cc7e7574d01327f739bb73c2259e8e841086c258b456b04985a2"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiRequisition.lua",
+      "sha256": "de9a9c236a722c6a839c9b215651cd3ee11fdd59cdc81863f1e767dfab9f1feb"
+    },
+    {
+      "path": "mod/Baiqi/Lua/BaiqiRights.lua",
+      "sha256": "28c43e498dd31c1318d69e061f86e5dddab663ffed42f52e5b40ea7025d324eb"
+    },
+    {
+      "path": "mod/Baiqi/Text/BaiqiText.xml",
+      "sha256": "c5809377a3468d8284eef73c31b615c751ff7fb71f9f826ff679c1d3166d54bc"
+    },
+    {
+      "path": "mod/Baiqi/UI/BaiqiPanel.lua",
+      "sha256": "dc4726c25b7cc2016fd8b23e9dbe50818ba85de3037008ba7c3da18c357a1c09"
+    },
+    {
+      "path": "mod/Baiqi/UI/BaiqiPanel.xml",
+      "sha256": "5414132234fa06d0910d0ad25c9fce436dbca1e5c60dabab8d5b7c61fc590399"
+    }
+  ],
+  "shipped_source_fingerprints": [
+    {
+      "path": "Base/Assets/Gameplay/Data/Modifiers.xml",
+      "sha256": "1e2a73dbb4afb58a8987143e71dd8505fdab7353ee1be717a56f5da00fc04f90"
+    },
+    {
+      "path": "Base/Assets/Gameplay/Data/GreatPeople_Engineers.xml",
+      "sha256": "ff6f9734695283acd48bb479c39d1880b554fed132ee1a56483c4064ac19a366"
+    },
+    {
+      "path": "Base/Assets/UI/Panels/UnitPanel.lua",
+      "sha256": "6d029bfa8f7119c18ee88956ef775f7d05a57aae9d2ffe3be60c256c7a8d5b6e"
+    },
+    {
+      "path": "Base/Assets/UI/Popups/PopupDialog.lua",
+      "sha256": "88776c2e0ad9f214c342066d49d2ce8101f80dd7b13c0365120313b74baa5906"
+    },
+    {
+      "path": "DLC/CivRoyaleScenario/Data/CivRoyaleScenario_UnitAbilities.xml",
+      "sha256": "214884d25b8ea615b6dff1c7a21477405aff5b77c89e2f1062a188ac93c98446"
+    },
+    {
+      "path": "DLC/BlackDeathScenario/Scripts/BlackDeathScenario.lua",
+      "sha256": "a90d391a9308ed103fe3178ca720bb611eb9ac532b586654708f68e18f1f358b"
+    }
+  ],
+  "package": {
+    "file": "dist/Baiqi.zip",
+    "sha256": "e3fc306dc2e4493f10514101511ba18be50659215861fc483ecfcdd1054bd7e2",
+    "installed_locally": true
+  },
+  "local_model": {
+    "actual_http_requests_this_phase": 9,
+    "automatic_retries": 0,
+    "observed_peak_client_in_flight": 3,
+    "configured_initial_target": [
+      12,
+      16
+    ],
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens_if_reported": null,
+    "previous_implementation_requests": 16,
+    "implementation_cumulative_requests": 25,
+    "cumulative_observed_peak": 12,
+    "tasks": [
+      {
+        "task": "city_quote",
+        "begin_utc": "2026-10-31T11:02:49.980580+00:00",
+        "end_utc": "2026-10-31T11:03:21.111689+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 2750.7995999985724,
+        "total_ms": 31128.005499995197,
+        "usage": {
+          "prompt_tokens": 2405,
+          "completion_tokens": 2410,
+          "total_tokens": 4815
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "20ab2c595322f70763d531d34bb8139ceac4e672d29cafc630d84726e39a87e1",
+        "review": {
+          "adoption": "rejected",
+          "details": "Invented unit domain/plot APIs, numeric unit type treated as string, wrong promotion enums and diplomacy argument, mixed health layers, missing active turn/funds and rejects unwalled cities. Owner rewrote."
+        }
+      },
+      {
+        "task": "city_journal",
+        "begin_utc": "2026-10-31T11:02:49.979545+00:00",
+        "end_utc": "2026-10-31T11:03:07.548266+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 2752.4611999979243,
+        "total_ms": 17564.983099997335,
+        "usage": {
+          "prompt_tokens": 2378,
+          "completion_tokens": 1046,
+          "total_tokens": 3424
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "9517cb9ba03b2997d7aeafbdc399613922c6d03080b933f081fea7f305f6fcfe",
+        "review": {
+          "adoption": "rejected",
+          "details": "Excluded UNKNOWN from conflicts, locks COMMITTED forever and lacks state/input validation. Only serializable layout idea retained; executable candidate not adopted."
+        }
+      },
+      {
+        "task": "city_transfer_tests",
+        "begin_utc": "2026-10-31T11:02:49.979257+00:00",
+        "end_utc": "2026-10-31T11:03:14.390097+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 2752.4054999958025,
+        "total_ms": 24405.538799997885,
+        "usage": {
+          "prompt_tokens": 2393,
+          "completion_tokens": 1671,
+          "total_tokens": 4064
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "fc2f8b5b7582090256746f412fbdb7486c2976f196dcab6a4133b606817c4973",
+        "review": {
+          "adoption": "rejected",
+          "details": "Returned fake Lua with assertions only in comments instead of requested concrete JSON cases. Owner wrote fault-injection tests against actual source."
+        }
+      },
+      {
+        "task": "city_quote_correct",
+        "begin_utc": "2026-10-31T11:08:59.978136+00:00",
+        "end_utc": "2026-10-31T11:09:07.441012+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 1409.7962000014377,
+        "total_ms": 7460.937600000761,
+        "usage": {
+          "prompt_tokens": 7861,
+          "completion_tokens": 966,
+          "total_tokens": 8827
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "348c98a103d991cf10aafb96b96aeca657bbcbc99497cc06b6dc16a62bd90b79",
+        "review": {
+          "adoption": "rejected",
+          "details": "After explicit correction still refers to private PlayerContext, disables manual action with automation pause and rejects maxOuter=0. Owner took over; enum/field naming only."
+        }
+      },
+      {
+        "task": "requisition_ui",
+        "begin_utc": "2026-10-31T11:26:08.169905+00:00",
+        "end_utc": "2026-10-31T11:26:22.396626+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 1221.150100005616,
+        "total_ms": 14224.752200003422,
+        "usage": {
+          "prompt_tokens": 2778,
+          "completion_tokens": 1470,
+          "total_tokens": 4248
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "a52050af673f35ba246eac4eb5665ca1178e702e242df5b626425d3478894956",
+        "review": {
+          "adoption": "partial",
+          "details": "Popup/request skeleton only. Rejected fog reads, fake UI completion events and false committed logs; owner wrote debounce, actual property readback, cancellation and lifecycle. Contract incorrectly specified PopupDialog; owner corrected to shipped PopupDialogInGame after engine failure."
+        }
+      },
+      {
+        "task": "building_rights_plan",
+        "begin_utc": "2026-10-31T11:26:08.169148+00:00",
+        "end_utc": "2026-10-31T11:26:15.256066+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 1551.2060999972164,
+        "total_ms": 7085.254199999326,
+        "usage": {
+          "prompt_tokens": 3085,
+          "completion_tokens": 531,
+          "total_tokens": 3616
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "72960d5e4f700d7ec37a85e98799effc2864567990bcd5f0f5b36b493228ccee",
+        "review": {
+          "adoption": "rejected",
+          "details": "No negative source effect, expects source plot property to gate recipient, wrong housing amount and FOOD enum, invented modifier instance/detach API. Owner authored tested native SQL and registry."
+        }
+      },
+      {
+        "task": "capture_fault_review",
+        "begin_utc": "2026-10-31T11:26:08.169156+00:00",
+        "end_utc": "2026-10-31T11:26:33.667513+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "length",
+        "candidate_complete_valid_json": false,
+        "ttft_ms": 1551.1553999967873,
+        "total_ms": 25496.75759999809,
+        "usage": {
+          "prompt_tokens": 4412,
+          "completion_tokens": 3800,
+          "total_tokens": 8212
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "ce4b67d958a7136d2616599bcb4d101d4a2cb7fb4fea2f0b3b332de62e5fd5da",
+        "review": {
+          "adoption": "rejected",
+          "details": "finish_reason=length; incomplete candidate not adopted or stitched. Owner completed backend fault review/tests."
+        }
+      },
+      {
+        "task": "rights_review",
+        "begin_utc": "2026-10-31T11:44:24.025881+00:00",
+        "end_utc": "2026-10-31T11:44:31.279277+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 985.4331999958958,
+        "total_ms": 7251.307999998971,
+        "usage": {
+          "prompt_tokens": 2992,
+          "completion_tokens": 707,
+          "total_tokens": 3699
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "d900f3e8462ad7adc8dc65b20b3effe7676e54c03b88ea35d2a12571640b1f48",
+        "review": {
+          "adoption": "partial",
+          "details": "Adopted malformed-ledger orphan-effect diagnosis with bounded validation and once-per-load sweep. Rejected recharging suspended leases and silent count capping; legitimate grants already limited to 16."
+        }
+      },
+      {
+        "task": "manual_ui_review",
+        "begin_utc": "2026-10-31T11:44:24.026620+00:00",
+        "end_utc": "2026-10-31T11:44:30.929030+00:00",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "candidate_complete_valid_json": true,
+        "ttft_ms": 1192.8932999944664,
+        "total_ms": 6899.750899996434,
+        "usage": {
+          "prompt_tokens": 3868,
+          "completion_tokens": 648,
+          "total_tokens": 4516
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "request_sha256": "a571af0905d6b4c7ae8bd40189c4b55659e714464e9119efb3c91033ae477c9f",
+        "review": {
+          "adoption": "partial",
+          "details": "Adopted stale pending UI diagnosis as next-turn explicit status handling, plus recipient guard. No timeout refund/retry. Rejected alleged confirming early-return bug: flag is already cleared first."
+        }
+      }
+    ]
+  },
+  "software_verification": {
+    "command": "python -m unittest discover -s tests -q",
+    "exit_code": 0,
+    "methods_passed": 44,
+    "lua_runtime": "lupa.lua53",
+    "not_engine_acceptance_count": true
+  },
+  "native_observations": {
+    "cold_start_auto_capital_and_monument_queue": true,
+    "army_before_after": {
+      "id": 131073,
+      "x": 17,
+      "y": 12,
+      "moves": 2
+    },
+    "fixture": "Debug-prepared first city for major player 1, units, gold, damage, war and local vision; not natural campaign",
+    "building": {
+      "kind": "BUILDING_GRANARY",
+      "position": [
+        16,
+        5
+      ],
+      "source_owner_before_after": [
+        1,
+        1
+      ],
+      "source_city_id_before_after": [
+        65536,
+        65536
+      ],
+      "recipient_city_id": 65536,
+      "before": {
+        "gold": 2000,
+        "unit_moves": 2,
+        "source_food": 4,
+        "source_housing": 6,
+        "recipient_food": 5,
+        "recipient_housing": 8
+      },
+      "after": {
+        "gold": 1850,
+        "unit_moves": 0,
+        "source_food": 3,
+        "source_housing": 4,
+        "recipient_food": 6,
+        "recipient_housing": 10
+      },
+      "physical_building_remains": true,
+      "cancel_unchanged": true,
+      "duplicate_replays_tested": 3,
+      "duplicate_unchanged": true,
+      "completed_save_reload_unchanged": true,
+      "next_turn_persistent": true
+    },
+    "city": {
+      "position": [
+        16,
+        5
+      ],
+      "owner_before_after": [
+        1,
+        0
+      ],
+      "id_before_after": [
+        65536,
+        131073
+      ],
+      "population_before_after": [
+        1,
+        1
+      ],
+      "garrison_hp_before": 70,
+      "garrison_max_hp": 200,
+      "outer_hp_before": 0,
+      "gold_before_after": [
+        1855,
+        1555
+      ],
+      "unit_moves_after": 0,
+      "granary_remains": true,
+      "new_city_food": 4,
+      "new_city_housing": 5,
+      "all_assets_preserved_verified": false,
+      "prior_right_status": "EXPIRED",
+      "recipient_food_after": 5,
+      "recipient_housing_after": 8,
+      "auto_queue_after": {
+        "size": 1,
+        "hash": -2025065568,
+        "type": "BUILDING_MONUMENT",
+        "completed": false
+      }
+    },
+    "formal_game_cases_fully_passed": 0,
+    "intermediate_native_fault_tested": false,
+    "other_independent_assets_tested": false,
+    "performance_tested": false
+  },
+  "fixture_saves": [
+    {
+      "name": "Baiqi_P2_20261031_GranaryCommitted.Civ6Save",
+      "size_bytes": 635917,
+      "sha256": "332b81dd88b29c9ab355d14781721b8d12a93e4a5712d7a41b600ba14b01f79f"
+    },
+    {
+      "name": "Baiqi_P2_20261031_PaidReady.Civ6Save",
+      "size_bytes": 635122,
+      "sha256": "38f0cfaa3ed99db96dfa81d2730913eb0677e33ef08169315ce466cc3dbfe920"
+    },
+    {
+      "name": "Baiqi_P2_20261031_RightsFixture.Civ6Save",
+      "size_bytes": 623267,
+      "sha256": "2a092b5d08e83ccc8b8aa965d61e0c29b200899310c05e2410b3530378d144c1"
+    }
+  ],
+  "local_receipt_fingerprints": [
+    {
+      "name": "20261031T113444727692Z.json",
+      "sha256": "309d658254dd83f91e49237f613af1e6e3e01e96796d2ae229920e57509a8550"
+    },
+    {
+      "name": "20261031T113555227346Z.json",
+      "sha256": "8136205e213a47f93c172b421f30fe59fdd6af72644d9cf87cd3e26e023aade9"
+    },
+    {
+      "name": "20261031T115118692609Z.json",
+      "sha256": "d6af1cea4e751b4a7769c261c7139af8522cacb8e763c46b71f840da4f879259"
+    },
+    {
+      "name": "20261031T115353672022Z.json",
+      "sha256": "a44a9e7b3cdf7babefc315aba5ea811dd1293f084c559cb518959428d6203b20"
+    },
+    {
+      "name": "20261031T115405745944Z.json",
+      "sha256": "eea3667aae2a032a706647104c709a5c32d19efd600d3d69f1477f64c0493d56"
+    },
+    {
+      "name": "20261031T115445832182Z.json",
+      "sha256": "1c58424db15cdca9994f219261636df823956392390f326a44733c2ee23ce34e"
+    },
+    {
+      "name": "20261031T115448655000Z.json",
+      "sha256": "bd3e2dded848ee034842b88f22c0fce7aca6c2f41635d5810fa6ab9e64aaed06"
+    },
+    {
+      "name": "20261031T115700952997Z.json",
+      "sha256": "0e98a32bdccfde73108347f9dd63f96704ce52d3103f5ad85ba81a7096c33c5a"
+    },
+    {
+      "name": "20261031T115818940493Z.json",
+      "sha256": "b6eb50e9bae8847575bbc7ce2e41e5c6f6a109897385eb69dda67df562ece402"
+    },
+    {
+      "name": "20261031T115834376987Z.json",
+      "sha256": "cfe07ace3ef357d1aa19d7c7e77b97a11c840d82ffeb7bd31354f66ee0570e96"
+    },
+    {
+      "name": "20261031T115854190649Z.json",
+      "sha256": "e1fb6d7086320a01fd8d7136746f262a7ff0c4e2b678cf9ebe2debe70fb823e4"
+    },
+    {
+      "name": "20261031T115916844106Z.json",
+      "sha256": "2e13d1602459d997095fae2aa650929862acb516b52ee8122c9e99b8ce3f6270"
+    },
+    {
+      "name": "20261031T120027984937Z.json",
+      "sha256": "2a815edeee1b02b3a062764e55fd71e4cec573796d9130c6104e40651bb3d799"
+    }
+  ],
+  "local_only_artifacts": ".local-model/implementation/"
+}

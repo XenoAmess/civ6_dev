@@ -9,7 +9,7 @@ local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local queuedSettings = {}
 local stopped, running = false, false
-local status = "正在初始化托管"
+local status = "内政托管开启；军队等待你的命令"
 local contextID, visibility
 local lastReasons = {}
 
@@ -67,6 +67,7 @@ local function SettingsAcknowledged(state)
     if value == setting.value then queuedSettings[key] = nil end
   end
   if next(queuedSettings) ~= nil then status = "等待设置确认；自动操作已暂停"; return false end
+  if status=="正在保存托管设置" or status=="等待设置确认；自动操作已暂停" then status="托管设置已保存；军队等待你的命令" end
   return true
 end
 
@@ -223,6 +224,7 @@ end
 
 local function ProcessSettler(ctx, player, state, unit)
   local here = Map.GetPlotByIndex(unit:GetPlotId())
+  if here==nil then return false end -- Consumed/removed units may remain in a transient collection snapshot.
   local target = BaiqiPlanner.Site(SettlementSites(player, state, unit), reservations, unit:GetID())
   local mayFound = player:GetCities():GetCount() == 0
     or settlementTargets[unit:GetID()] == here:GetIndex()
@@ -242,6 +244,7 @@ end
 
 local function ProcessBuilder(ctx, player, state, unit)
   local here = Map.GetPlotByIndex(unit:GetPlotId())
+  if here==nil then return false end
   if here:GetOwner() == ctx.player and not IsProtected(state, here) and Safe(here, player) then
     if here:IsImprovementPillaged() and UnitManager.CanStartOperation(unit, UnitOperationTypes.REPAIR) then
       return RequestCivilian(ctx, state, unit, "REPAIR", here)
@@ -413,7 +416,7 @@ local function ReadBack(player)
 end
 
 local function Tick()
-  if stopped or running then return end
+  if stopped then return end
   local ctx,player,state=PlayerContext()
   if ctx==nil then return end
   contextID=ctx.player
@@ -443,7 +446,10 @@ local function Tick()
 end
 
 function BaiqiController.RunNow()
+  if running or stopped then return end
+  running=true
   local ok,err=pcall(Tick)
+  running=false
   if not ok then stopped=true; status="托管因脚本错误停止，请查看 Lua.log"; Log("error",tostring(err)) end
 end
 

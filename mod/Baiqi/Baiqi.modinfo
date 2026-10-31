@@ -14,13 +14,15 @@
     <UpdateColors id="BaiqiFrontColors"><File>Data/BaiqiColors.xml</File></UpdateColors>
   </FrontEndActions>
   <InGameActions>
-    <UpdateDatabase id="BaiqiData"><File>Data/Baiqi.sql</File></UpdateDatabase>
+    <UpdateDatabase id="BaiqiData"><File>Data/Baiqi.sql</File><File>Data/BaiqiRights.sql</File></UpdateDatabase>
     <UpdateText id="BaiqiGameText"><File>Text/BaiqiText.xml</File></UpdateText>
     <UpdateIcons id="BaiqiGameIcons"><File>Data/BaiqiIcons.sql</File></UpdateIcons>
     <UpdateColors id="BaiqiGameColors"><File>Data/BaiqiColors.xml</File></UpdateColors>
     <ImportFiles id="BaiqiScripts">
       <File>Lua/BaiqiConfig.lua</File><File>Lua/BaiqiPolicy.lua</File>
       <File>Lua/BaiqiPlanner.lua</File><File>Lua/BaiqiController.lua</File>
+      <File>Lua/BaiqiRequisition.lua</File><File>Lua/BaiqiCapture.lua</File>
+      <File>Lua/BaiqiActions.lua</File><File>Lua/BaiqiRights.lua</File>
       <File>UI/BaiqiPanel.xml</File><File>UI/BaiqiPanel.lua</File>
     </ImportFiles>
     <AddGameplayScripts id="BaiqiGameplay"><File>Lua/BaiqiGameplay.lua</File></AddGameplayScripts>
@@ -29,10 +31,12 @@
     </AddUserInterfaces>
   </InGameActions>
   <Files>
-    <File>Config/BaiqiConfig.sql</File><File>Data/Baiqi.sql</File>
+    <File>Config/BaiqiConfig.sql</File><File>Data/Baiqi.sql</File><File>Data/BaiqiRights.sql</File>
     <File>Data/BaiqiIcons.sql</File><File>Data/BaiqiColors.xml</File><File>Text/BaiqiText.xml</File>
     <File>Lua/BaiqiConfig.lua</File><File>Lua/BaiqiPolicy.lua</File><File>Lua/BaiqiPlanner.lua</File>
     <File>Lua/BaiqiController.lua</File><File>Lua/BaiqiGameplay.lua</File>
+    <File>Lua/BaiqiRequisition.lua</File><File>Lua/BaiqiCapture.lua</File>
+    <File>Lua/BaiqiActions.lua</File><File>Lua/BaiqiRights.lua</File>
     <File>UI/BaiqiPanel.xml</File><File>UI/BaiqiPanel.lua</File>
   </Files>
 </Mod>
