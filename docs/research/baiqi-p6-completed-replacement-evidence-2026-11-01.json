@@ -1,0 +1,47 @@
+{
+  "schema": "civ6.baiqi-p6-completed-replacement-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "native_failure_evidence": "baiqi-p6-granary-native18-evidence-2026-11-01.json",
+  "model": {
+    "additional_http_requests": 1,
+    "additional_peak_in_flight": 1,
+    "cumulative_p6_http": 33,
+    "cumulative_complete_stop_json": 32,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "request_sha256": "15a05bc96f20ec25494f07e174f71b63da9573bf3afbeefe18dfe0c78bc0334f",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18141,
+      "completion_tokens": 950,
+      "total_tokens": 19091
+    },
+    "cached_prompt_tokens_if_reported": null,
+    "review": "Adopted native REPLACE_AT0 direction for a single proved completed idle head, code guidance incomplete/rejected. Candidate omitted Economy in-flight commitments, used old head disappearance/empty queue as false success, kept arbitrary failure timeout, and suggested repair of an already-complete unpillaged granary. Owner routes a normal selected legal item through verified native replacement packet, counts new pending while old completed entry remains, skips already-owned maintenance, confirms only new type/hash, retains unknown replacement across turns without alternate overwrite."
+  },
+  "owner_implementation": {
+    "manifest_version": 19,
+    "software_tests_passed": 152,
+    "completed_queue_consumer_tests": 12,
+    "native_replacement_after_live_repair": "pending",
+    "full_game_acceptance": false,
+    "native_packet": {
+      "operation": "BUILD",
+      "PARAM_INSERT_MODE": "VALUE_REPLACE_AT",
+      "PARAM_QUEUE_DESTINATION_LOCATION": 0,
+      "item": "new normal legal selected type Hash"
+    },
+    "eligibility": "Only one completed owned building/district head, current hash0, idle engine, finite progress>=cost, unpillaged, fresh full ID/owner/context.",
+    "unknown_result": "Keep pending across turns; never confirm only from old head absent, never send alternate replacement on timeout.",
+    "implementation_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "89c7fa5b405650471b14fe4372937f282ef40e061a4f15a12f93e328468c3c4d",
+      "mod/Baiqi/Lua/BaiqiController.lua": "fddee21a31f14d65afb12c058f033d0a23a2772e8b08403b927dcc78468bab74",
+      "tests/lua/mock_completed_queue.lua": "f8995103b6c0ddd7603fed2cbb2300d13ae29e5c6ab6061a200fcd57799b2498",
+      "tests/test_baiqi_completed_queue.py": "3570f32c6852c585c80eb27cf4df8633d32bd84866395dab8042b8ad26d6a53e"
+    }
+  }
+}

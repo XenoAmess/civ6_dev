@@ -6,7 +6,6 @@ BaiqiController = {}
 local C = BaiqiConfig
 local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
-local pendingQueueCleanup = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local stopped, running = false, false
 local status = "内政托管开启；军队等待你的命令"
@@ -357,76 +356,6 @@ local function ProcessTrader(ctx,player,state,unit)
   return false
 end
 
-local function Economy(player)
-  local s = {cities=player:GetCities():GetCount(), army=0, builders=0, settlers=0,
-    militaryRoles={recon=0,frontline=0,ranged=0,siege=0,support=0,naval=0,air=0},
-    traders=0,queuedTraders=0,tradeCapacity=player.GetTrade and player:GetTrade():GetOutgoingRouteCapacity() or 0,
-    queuedArmy=0, queuedBuilders=0, queuedSettlers=0, reservedSettlers=0, committedMaintenance=0,
-    gold=player:GetTreasury():GetGoldBalance(), netGold=player:GetTreasury():GetGoldYield()-player:GetTreasury():GetTotalMaintenance()}
-  local function CountMilitary(row)
-    local role=BaiqiPlanner.MilitaryRole(row)
-    if role then s.militaryRoles[role]=s.militaryRoles[role]+1 end
-  end
-  for _, unit in player:GetUnits():Members() do
-    local row=GameInfo.Units[unit:GetUnitType()]
-    if row.UnitType=="UNIT_BUILDER" then s.builders=s.builders+1
-    elseif row.UnitType=="UNIT_SETTLER" then s.settlers=s.settlers+1
-    elseif row.UnitType=="UNIT_TRADER" then s.traders=s.traders+1
-    elseif Military(row) then s.army=s.army+1;CountMilitary(row) end
-  end
-  local function Commitment(row,kind)
-    if not row then return end
-    s.committedMaintenance=s.committedMaintenance+(row.Maintenance or 0)
-    if kind=="unit" then
-      if row.UnitType=="UNIT_BUILDER" then s.queuedBuilders=s.queuedBuilders+1
-      elseif row.UnitType=="UNIT_SETTLER" then s.queuedSettlers=s.queuedSettlers+1
-      elseif row.UnitType=="UNIT_TRADER" then s.queuedTraders=s.queuedTraders+1
-      elseif Military(row) then s.queuedArmy=s.queuedArmy+1;CountMilitary(row) end
-    end
-  end
-  for _, city in player:GetCities():Members() do
-    local q=city:GetBuildQueue()
-    for i=0,q:GetSize()-1 do
-      local entry=q:GetAt(i)
-      local row=entry and entry.UnitType and GameInfo.Units[entry.UnitType]
-      if row then Commitment(row,"unit")
-      elseif entry and entry.BuildingType then Commitment(GameInfo.Buildings[entry.BuildingType],"building")
-      elseif entry and entry.DistrictType then Commitment(GameInfo.Districts[entry.DistrictType],"district") end
-    end
-    -- A submitted empty-queue insertion is a commitment before native readback.
-    -- Once the queue exists it is counted above, never again as pending.
-    local pending=pendingCities[city:GetID()]
-    if pending and q:GetSize()==0 and q:GetCurrentProductionTypeHash()==0 then
-      local tables={unit=GameInfo.Units,building=GameInfo.Buildings,district=GameInfo.Districts,project=GameInfo.Projects}
-      local rows=tables[pending.kind]
-      Commitment(rows and rows[pending.hash],pending.kind)
-    end
-  end
-  return s
-end
-
-local buildingPriority = {BUILDING_GRANARY=110,BUILDING_MONUMENT=100,BUILDING_WATER_MILL=95,
-  BUILDING_WORKSHOP=90,BUILDING_MARKET=85,BUILDING_LIBRARY=80,BUILDING_BARRACKS=75,BUILDING_LIGHTHOUSE=85}
-local districtPriority = {DISTRICT_INDUSTRIAL_ZONE=72,DISTRICT_COMMERCIAL_HUB=70,DISTRICT_HARBOR=70,
-  DISTRICT_CAMPUS=68,DISTRICT_ENCAMPMENT=65,DISTRICT_AQUEDUCT=60,DISTRICT_NEIGHBORHOOD=55}
-
-local function BuildParams(candidate)
-  local params = {[CityOperationTypes.PARAM_INSERT_MODE]=CityOperationTypes.VALUE_APPEND}
-  local keys = {building=CityOperationTypes.PARAM_BUILDING_TYPE,district=CityOperationTypes.PARAM_DISTRICT_TYPE,
-    unit=CityOperationTypes.PARAM_UNIT_TYPE,project=CityOperationTypes.PARAM_PROJECT_TYPE}
-  local key=keys[candidate.kind]
-  if key==nil then return nil end
-  params[key]=candidate.hash
-  if candidate.placement then params[CityOperationTypes.PARAM_X]=candidate.placement.x; params[CityOperationTypes.PARAM_Y]=candidate.placement.y end
-  return params
-end
-
-local function CityRequestKey(city,candidate)
-  local p=candidate.placement
-  return "city:"..city:GetID()..":"..candidate.kind..":"..tostring(candidate.hash)
-    ..":"..(p and (p.x..":"..p.y) or "current")
-end
-
 local function CoreIdle()
   return UI.IsGameCoreBusy and not UI.IsGameCoreBusy()
     and UI.IsProcessingMessages and not UI.IsProcessingMessages()
@@ -463,37 +392,96 @@ local function CompletedIdleHead(city,q)
   return signature,row
 end
 
-local function RemoveCompletedHead(ctx,city)
-  if not CoreIdle() or CityOperationTypes.VALUE_REMOVE_AT==nil or CityOperationTypes.PARAM_QUEUE_LOCATION==nil then return false end
-  local cityID=city:GetID()
-  local signature=CompletedIdleHead(city,city:GetBuildQueue())
-  if not signature then return false end
-  local fresh,player=PlayerContext()
-  if not BaiqiPolicy.Context(fresh) or fresh.player~=ctx.player then return false end
-  local current=player:GetCities():FindID(cityID)
-  if not BaiqiPolicy.MatchesID(current,cityID) or current:GetOwner()~=fresh.player then return false end
-  local q=current:GetBuildQueue()
-  if CompletedIdleHead(current,q)~=signature then return false end
-  local params={[CityOperationTypes.PARAM_INSERT_MODE]=CityOperationTypes.VALUE_REMOVE_AT,[CityOperationTypes.PARAM_QUEUE_LOCATION]=0}
-  if CityManager.CanStartOperation(current,CityOperationTypes.BUILD,params,true)~=true then return false end
-  -- CanStart is read-only, but native state may advance while it runs.
-  if not BaiqiPolicy.MatchesID(current,cityID) or current:GetOwner()~=fresh.player
-    or not CoreIdle() or CompletedIdleHead(current,q)~=signature then return false end
-  local id=NextRequest("queue_cleanup:"..cityID..":"..signature..":"..q:GetSize())
-  if not id then return false end
-  pendingQueueCleanup[cityID]={id=id,head=signature,elapsed=0}
-  Log("queue_cleanup_request","id="..id.."|source=BACKGROUND|city="..cityID.."|head="..signature)
-  CityManager.RequestOperation(current,CityOperationTypes.BUILD,params)
-  return true
+local function Economy(player)
+  local s = {cities=player:GetCities():GetCount(), army=0, builders=0, settlers=0,
+    militaryRoles={recon=0,frontline=0,ranged=0,siege=0,support=0,naval=0,air=0},
+    traders=0,queuedTraders=0,tradeCapacity=player.GetTrade and player:GetTrade():GetOutgoingRouteCapacity() or 0,
+    queuedArmy=0, queuedBuilders=0, queuedSettlers=0, reservedSettlers=0, committedMaintenance=0,
+    gold=player:GetTreasury():GetGoldBalance(), netGold=player:GetTreasury():GetGoldYield()-player:GetTreasury():GetTotalMaintenance()}
+  local function CountMilitary(row)
+    local role=BaiqiPlanner.MilitaryRole(row)
+    if role then s.militaryRoles[role]=s.militaryRoles[role]+1 end
+  end
+  for _, unit in player:GetUnits():Members() do
+    local row=GameInfo.Units[unit:GetUnitType()]
+    if row.UnitType=="UNIT_BUILDER" then s.builders=s.builders+1
+    elseif row.UnitType=="UNIT_SETTLER" then s.settlers=s.settlers+1
+    elseif row.UnitType=="UNIT_TRADER" then s.traders=s.traders+1
+    elseif Military(row) then s.army=s.army+1;CountMilitary(row) end
+  end
+  local function Commitment(row,kind)
+    if not row then return end
+    s.committedMaintenance=s.committedMaintenance+(row.Maintenance or 0)
+    if kind=="unit" then
+      if row.UnitType=="UNIT_BUILDER" then s.queuedBuilders=s.queuedBuilders+1
+      elseif row.UnitType=="UNIT_SETTLER" then s.queuedSettlers=s.queuedSettlers+1
+      elseif row.UnitType=="UNIT_TRADER" then s.queuedTraders=s.queuedTraders+1
+      elseif Military(row) then s.queuedArmy=s.queuedArmy+1;CountMilitary(row) end
+    end
+  end
+  for _, city in player:GetCities():Members() do
+    local q=city:GetBuildQueue()
+    local completedHead=CompletedIdleHead(city,q)
+    for i=0,q:GetSize()-1 do
+      local entry=q:GetAt(i)
+      local row=entry and entry.UnitType and GameInfo.Units[entry.UnitType]
+      if i==0 and completedHead then -- Already owned asset; no new commitment.
+      elseif row then Commitment(row,"unit")
+      elseif entry and entry.BuildingType then Commitment(GameInfo.Buildings[entry.BuildingType],"building")
+      elseif entry and entry.DistrictType then Commitment(GameInfo.Districts[entry.DistrictType],"district") end
+    end
+    -- Reserve new work while either no entry exists or only the replaced,
+    -- completed head is visible. Count a real new queue entry only once.
+    local pending=pendingCities[city:GetID()]
+    if pending and q:GetCurrentProductionTypeHash()==0 and (q:GetSize()==0
+      or (pending.replacesHead and QueueHeadSignature(q)==pending.replacesHead)) then
+      local tables={unit=GameInfo.Units,building=GameInfo.Buildings,district=GameInfo.Districts,project=GameInfo.Projects}
+      local rows=tables[pending.kind]
+      Commitment(rows and rows[pending.hash],pending.kind)
+    end
+  end
+  return s
+end
+
+local buildingPriority = {BUILDING_GRANARY=110,BUILDING_MONUMENT=100,BUILDING_WATER_MILL=95,
+  BUILDING_WORKSHOP=90,BUILDING_MARKET=85,BUILDING_LIBRARY=80,BUILDING_BARRACKS=75,BUILDING_LIGHTHOUSE=85}
+local districtPriority = {DISTRICT_INDUSTRIAL_ZONE=72,DISTRICT_COMMERCIAL_HUB=70,DISTRICT_HARBOR=70,
+  DISTRICT_CAMPUS=68,DISTRICT_ENCAMPMENT=65,DISTRICT_AQUEDUCT=60,DISTRICT_NEIGHBORHOOD=55}
+
+local function BuildParams(candidate,completedHead)
+  local params = {[CityOperationTypes.PARAM_INSERT_MODE]=completedHead and CityOperationTypes.VALUE_REPLACE_AT or CityOperationTypes.VALUE_APPEND}
+  if completedHead then params[CityOperationTypes.PARAM_QUEUE_DESTINATION_LOCATION]=0 end
+  local keys = {building=CityOperationTypes.PARAM_BUILDING_TYPE,district=CityOperationTypes.PARAM_DISTRICT_TYPE,
+    unit=CityOperationTypes.PARAM_UNIT_TYPE,project=CityOperationTypes.PARAM_PROJECT_TYPE}
+  local key=keys[candidate.kind]
+  if key==nil then return nil end
+  params[key]=candidate.hash
+  if candidate.placement then params[CityOperationTypes.PARAM_X]=candidate.placement.x; params[CityOperationTypes.PARAM_Y]=candidate.placement.y end
+  return params
+end
+
+local function CityRequestKey(city,candidate)
+  local p=candidate.placement
+  return "city:"..city:GetID()..":"..candidate.kind..":"..tostring(candidate.hash)
+    ..":"..(p and (p.x..":"..p.y) or "current")
+end
+
+local function QueueReady(city,q,completedHead)
+  if completedHead then
+    return q:GetSize()==1 and CoreIdle() and CompletedIdleHead(city,q)==completedHead
+  end
+  return q:GetSize()==0 and q:GetCurrentProductionTypeHash()==0
 end
 
 local function ProcessCity(ctx, player, state, city)
   local q=city:GetBuildQueue()
-  if pendingQueueCleanup[city:GetID()] then return false end
-  if not pendingCities[city:GetID()] and q:GetSize()>0 and q:GetCurrentProductionTypeHash()==0 then
-    return RemoveCompletedHead(ctx,city)
+  local cityID=city:GetID()
+  local completedHead
+  if q:GetSize()==1 and CoreIdle() and CityOperationTypes.VALUE_REPLACE_AT~=nil
+    and CityOperationTypes.PARAM_QUEUE_DESTINATION_LOCATION~=nil then
+    completedHead=CompletedIdleHead(city,q)
   end
-  if q:GetSize() ~= 0 or q:GetCurrentProductionTypeHash() ~= 0 or pendingCities[city:GetID()] then return false end
+  if not QueueReady(city,q,completedHead) or pendingCities[cityID] then return false end
   if cityEvaluated[city:GetID()]==turn then return false end
   cityEvaluated[city:GetID()]=turn
   local candidates, checked = {}, 0
@@ -506,7 +494,7 @@ local function ProcessCity(ctx, player, state, city)
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
       score=score,repair=repair,placement=placement}
     if attempts[CityRequestKey(city,c)] then return end
-    local params=BuildParams(c)
+    local params=BuildParams(c,completedHead)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
   end
   local treasury=player:GetTreasury()
@@ -556,37 +544,23 @@ local function ProcessCity(ctx, player, state, city)
   if choice == nil then Reason("city:"..city:GetID(),"城市等待合法生产或预算"); return false end
   -- All state and legality are checked again at the write boundary.
   local freshCtx, freshPlayer, freshState=PlayerContext()
-  if not BaiqiPolicy.Context(freshCtx) or city:GetOwner()~=freshCtx.player
-    or q:GetSize()~=0 or q:GetCurrentProductionTypeHash()~=0 then return false end
-  local params=BuildParams(choice)
+  if not BaiqiPolicy.Context(freshCtx) or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=freshCtx.player
+    or not QueueReady(city,q,completedHead) then return false end
+  local params=BuildParams(choice,completedHead)
   if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
+  local latest=PlayerContext()
+  if not BaiqiPolicy.Context(latest) or latest.player~=freshCtx.player or not BaiqiPolicy.MatchesID(city,cityID)
+    or city:GetOwner()~=latest.player or not QueueReady(city,q,completedHead) then return false end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
-  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0}
-  Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type)
+  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead}
+  Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type..(completedHead and "|insert=replace_completed" or ""))
   CityManager.RequestOperation(city,CityOperationTypes.BUILD,params)
   return true
 end
 
 local function ReadBack(player)
-  for cityID,pending in pairs(pendingQueueCleanup) do
-    local city=player:GetCities():FindID(cityID)
-    if not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=contextID then
-      Log("queue_cleanup_not_observed","id="..pending.id.."|city="..cityID.."|reason=city_unavailable")
-      pendingQueueCleanup[cityID]=nil
-    else
-      local q=city:GetBuildQueue()
-      local head=QueueHeadSignature(q)
-      if q:GetSize()==0 or (head~=nil and head~=pending.head) then
-        Log("queue_cleanup_observed","id="..pending.id.."|city="..cityID.."|proof=completed_head_absent")
-        pendingQueueCleanup[cityID]=nil;cityEvaluated[cityID]=nil
-      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and CoreIdle() then
-        Log("queue_cleanup_not_observed","id="..pending.id.."|city="..cityID.."|reason=native_idle_unchanged_head")
-        pendingQueueCleanup[cityID]=nil
-      end
-    end
-  end
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
@@ -674,6 +648,13 @@ local function ReadBack(player)
       if matched then
         Log("queue_observed","id="..pending.id.."|city="..cityID.."|hash="..pending.hash)
         pendingCities[cityID]=nil
+      elseif pending.replacesHead then
+        -- A missing replacement is unknown. A late operation could overwrite
+        -- alternate work, so retain the request and never infer failure.
+        if (pending.elapsed or 0)>=C.productionObservationSeconds and CoreIdle() and not pending.unresolvedLogged then
+          Log("queue_replacement_unresolved","id="..pending.id.."|city="..cityID.."|actual_hash="..hash)
+          pending.unresolvedLogged=true
+        end
       elseif hash~=0 then
         Log("queue_request_superseded","id="..pending.id.."|city="..cityID.."|actual_hash="..hash)
         pendingCities[cityID]=nil
@@ -743,7 +724,6 @@ end
 function BaiqiController.Update(delta)
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
-  for _,pending in pairs(pendingQueueCleanup) do pending.elapsed=(pending.elapsed or 0)+delta end
   elapsed=elapsed+delta
   if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow() end
 end
