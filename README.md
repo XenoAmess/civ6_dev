@@ -1,12 +1,13 @@
 # civ6_dev
 
-《文明 VI》新领袖【白绮】开发仓库。领袖能力【代我执行】负责自动生产、自动建造与自动扩张，玩家保留军队指挥权。当前处于设计和源码预研阶段，尚未完成游戏内功能验收。
+《文明 VI》新领袖【白绮】开发仓库。领袖能力【为我前驱】负责自动生产、自动建造与自动扩张，并加入玩家指挥军队支付代价夺取他人资产的设计。玩家保留军队指挥权；当前处于设计和源码预研阶段，尚未完成游戏内功能验收。
 
 - [协作与提交规则](AGENTS.md)：每个工作包验证完成后立即 commit + push。
 - [本地模型指南](docs/local-model-worker-guide.md)：连接、真实任务派发、并发与候选验收。
 - [本地模型唯一配置](docs/local-model-executor-config.json)：`qwen38-coder`，无需密钥。
 - [经验与采用记录](docs/local-model-experience.md)：参考项目来源、本项目实际调用与能力边界。
-- [白绮与代我执行设计规格](docs/design/baiqi-delegate-execution.md)：确定的名称、自动生产／建造／扩张范围，以及军队指挥权的实现边界。
+- [白绮与为我前驱设计规格](docs/design/baiqi-delegate-execution.md)：确定的名称、自动生产／建造／扩张范围，以及军队指挥权的实现边界。
+- [有偿夺取设计](docs/design/baiqi-requisition.md)：新增军队主动能力的触发、代价、城市与设施范围，以及待验证的归属转移。
 - [战斗领袖与自动建设预研](docs/design/custom-leader-autobuild-research-2026-10-31.md)：领袖玩法、自动化范围、原版源码依据与最小原型验收。
 
 本地模型工具仅依赖 Python 3.10+ 标准库；这不规定游戏开发部分的语言或架构。在仓库根目录通过 CMD 执行：

@@ -6,11 +6,12 @@
 - 接手先读 [README](README.md)、[本地模型指南](docs/local-model-worker-guide.md)、[唯一配置](docs/local-model-executor-config.json)和[经验记录](docs/local-model-experience.md)。
 - 参考 `ck3_eternal_recurrence` 的通用经验；不继承 CK3 的游戏权限、运行进程、Java 迁移、机器路径或任务总线。
 
-## 白绮与代我执行
+## 白绮与为我前驱
 
-- 用户已确定领袖名称为【白绮】，能力名称为【代我执行】，当前设计以[正式规格](docs/design/baiqi-delegate-execution.md)为准。
+- 用户已确定领袖名称为【白绮】，能力名称为【为我前驱】，当前设计以[正式规格](docs/design/baiqi-delegate-execution.md)为准。
 - 核心范围是自动生产、自动建造、自动扩张；军队指挥权始终归玩家。自动招募可以补充军队，训练完成后的军事行动等待玩家命令。
 - 自动扩张按和平移民建城推进；不能自动宣战、调动军队侦察或护送，也不能通过移动处于护送编队的文职单位间接移动军队。
+- 能力新增玩家主动指挥的有偿夺取：军队在满足条件、支付代价后可以夺取他人的城市、建筑等。具体条件、费用和独立设施归属机制仍为设计与技术验证项，见[有偿夺取设计](docs/design/baiqi-requisition.md)；后台自动化不得主动发动。
 - 旧人物与能力候选不再作为当前方案；未验证的调用入口、设计目标和完成的游戏效果必须分开记录。
 
 ## Git：每次改动完成必须提交并推送

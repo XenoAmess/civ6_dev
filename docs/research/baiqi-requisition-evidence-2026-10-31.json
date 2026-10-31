@@ -1,0 +1,127 @@
+{
+  "schema": "civ6.baiqi-requisition-research/v1",
+  "observed_at_utc": "2026-10-31T09:20:56.756380+00:00",
+  "machine_id": "BF-202609141645",
+  "steam_app_id": 289070,
+  "steam_build_id": "15296837",
+  "leader_name": "白绮",
+  "ability_name": "为我前驱",
+  "runtime_tested": false,
+  "source_files": [
+    {
+      "path": "DLC/Babylon/Data/Babylon_GreatPeople.xml",
+      "sha256": "9772496e2e46005d1a83a0bb391f9b65caf13f6ef012d9f1d4e9d3ba693a6a62",
+      "line_ranges": [
+        [
+          100,
+          122
+        ],
+        [
+          125,
+          135
+        ]
+      ]
+    },
+    {
+      "path": "Base/Assets/UI/ToolTips/PlotToolTip.lua",
+      "sha256": "fd73dda3ef4e98c69ab75bffe57e17610c226814c97fa98d103cac27a392f1c4",
+      "line_ranges": [
+        [
+          496,
+          518
+        ]
+      ]
+    },
+    {
+      "path": "DLC/Expansion2/UI/CityBanners/CityBannerManager.lua",
+      "sha256": "8c96836143dd8bcdff47db75e499778af0fb071858dd192d2926dbe4621ed1b1",
+      "line_ranges": [
+        [
+          1407,
+          1439
+        ],
+        [
+          1821,
+          1843
+        ],
+        [
+          2234,
+          2276
+        ]
+      ]
+    },
+    {
+      "path": "DLC/Babylon/Data/Babylon_Base.xml",
+      "sha256": "19c195ee94884a8a3ca84d82484d8b2342891c6d6215b490fbde42af9631b7f4",
+      "line_ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "DLC/Babylon/Data/Babylon_Expansion1.xml",
+      "sha256": "b85ffd44fe4e673dba6e3bb6f89bcbc4575f900c606ea587485bb399c6f2978e",
+      "line_ranges": [
+        [
+          1,
+          158
+        ]
+      ]
+    },
+    {
+      "path": "DLC/Babylon/Data/Babylon_Expansion2.xml",
+      "sha256": "25bf923cd2cdc2be3973ba72e4f8a988d0758a82f6f5acfc064edaaff2cf2113",
+      "line_ranges": [
+        [
+          1,
+          112
+        ]
+      ]
+    }
+  ],
+  "local_model": {
+    "actual_http_requests": 2,
+    "automatic_retries": 0,
+    "observed_peak_client_in_flight": 2,
+    "server_inference_concurrency": null,
+    "tasks": [
+      {
+        "task": "mechanic",
+        "begin_utc": "2026-10-31T09:11:53.415026+00:00",
+        "end_utc": "2026-10-31T09:11:59.602479+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "ttft_ms": 2333.884899999248,
+        "total_ms": 6185.297199997876,
+        "usage": {
+          "prompt_tokens": 13362,
+          "completion_tokens": 377,
+          "total_tokens": 13739
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partial use of player-triggered paid city acquisition, visible gold/action cost and separate standalone-facility research. Reject invented default bans on capitals/city-states/wonders and vague conflict status. Owner defined a concrete provisional war/adjacency/defense scenario while retaining unspecified final conditions and costs."
+      },
+      {
+        "task": "technical",
+        "begin_utc": "2026-10-31T09:11:53.404306+00:00",
+        "end_utc": "2026-10-31T09:12:11.990312+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "ttft_ms": 2345.249400001194,
+        "total_ms": 18576.48099999642,
+        "usage": {
+          "prompt_tokens": 13376,
+          "completion_tokens": 834,
+          "total_tokens": 14210
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Partial use of the actual Babylon modifier chain and experiment categories. Reject claims that OwnerCity:GetBuildings proves whole-city transfer preserves buildings; this accessor only establishes a read relationship. Reject unimplemented new EffectType as a ready solution, global claims that no transfer API exists, ungrounded up-front charging, and bankruptcy as a failure penalty. Owner retained standalone asset acquisition as a requirement, separated gift/capture semantics, and specified unresolved-result/payment recovery tests."
+      }
+    ]
+  },
+  "scope": "Rename current leader ability and design player-initiated paid acquisition of cities, buildings and facilities; no game code, city transfer, building transfer or payment execution."
+}
