@@ -9,6 +9,7 @@ local policyPriority={POLICY_URBAN_PLANNING=100,POLICY_DISCIPLINE=95,POLICY_AGOG
 local governorPriority={GOVERNOR_THE_RESOURCE_MANAGER=100,GOVERNOR_THE_BUILDER=90,
   GOVERNOR_THE_EDUCATOR=80,GOVERNOR_THE_DEFENDER=70}
 local pantheonPriority={BELIEF_GOD_OF_THE_FORGE=100,BELIEF_CITY_PATRON_GODDESS=90}
+local governmentSlots
 local function Once(key,action)
   if attempted[key] then return false end
   attempted[key]=true
@@ -114,6 +115,49 @@ local function Governors(pid,player)
     end
   end
 end
+local function Government(pid,culture)
+  if not culture.CanChangeGovernmentAtAll or not GameInfo.Governments or not GameInfo.Government_SlotCounts then return false end
+  local currentIndex=culture:GetCurrentGovernment()
+  local current=GameInfo.Governments[currentIndex]
+  if not governmentSlots then
+    governmentSlots={}
+    for row in GameInfo.Governments() do governmentSlots[row.GovernmentType]={count=0,score=0} end
+    for row in GameInfo.Government_SlotCounts() do
+      local item=governmentSlots[row.GovernmentType]
+      if item then
+        item.count=item.count+row.NumSlots
+        local weight=row.GovernmentSlotType=="SLOT_MILITARY" and 3
+          or (row.GovernmentSlotType=="SLOT_WILDCARD" and 2 or 1)
+        item.score=item.score+row.NumSlots*weight
+      end
+    end
+  end
+  local currentSlots=current and governmentSlots[current.GovernmentType]
+  local best,bestSlots
+  if culture:CanChangeGovernmentAtAll() and not culture:GovernmentChangeMade()
+    and (currentIndex==-1 or culture:CivicCompletedThisTurn()) then
+    for row in GameInfo.Governments() do
+      local slots=governmentSlots[row.GovernmentType]
+      if slots and slots.count>(currentSlots and currentSlots.count or 0)
+        and culture:IsGovernmentUnlocked(row.Hash) and culture:GetAnarchyTurns(row.Index)==0 then
+        if not best or slots.count>bestSlots.count
+          or (slots.count==bestSlots.count and (slots.score>bestSlots.score
+            or (slots.score==bestSlots.score and row.Index<best.Index))) then best,bestSlots=row,slots end
+      end
+    end
+  end
+  if best then
+    Once("government",function() culture:RequestChangeGovernment(best.Hash) end)
+    return true -- Wait for the actual new government before filling its policy slots.
+  end
+  if NotificationManager and EndTurnBlockingTypes
+    and EndTurnBlockingTypes.ENDTURN_BLOCKING_CONSIDER_GOVERNMENT_CHANGE
+    and NotificationManager.GetFirstEndTurnBlocking(pid)==EndTurnBlockingTypes.ENDTURN_BLOCKING_CONSIDER_GOVERNMENT_CHANGE then
+    -- An evaluated decision to retain the current government, not a paid unlock.
+    Once("government-retain",function() culture:SetGovernmentChangeConsidered(true) end)
+  end
+  return false
+end
 function BaiqiAdmin.Run()
   local pid=Game.GetLocalPlayer()
   if pid==nil or pid<0 or GameConfiguration.IsAnyMultiplayer()
@@ -148,6 +192,7 @@ function BaiqiAdmin.Run()
   end
   Pantheon(pid,player)
   Governors(pid,player)
+  if Government(pid,culture) then return end
   -- Fill open slots only in the game's free policy window. Never pay to unlock it.
   if culture:PolicyChangeMade() or not (culture:CivicCompletedThisTurn() or culture:GetNumPolicySlotsOpen()>0) then return end
   local used,add,clear={}, {}, {}

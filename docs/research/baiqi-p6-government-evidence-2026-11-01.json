@@ -1,0 +1,29 @@
+{
+  "schema": "civ6.baiqi-p6-government-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "base_commit": "c3215e3",
+  "local_date": "2026-11-01",
+  "source_contracts": [
+    "GovernmentScreen.IsAbleToChangeGovernment",
+    "GovernmentScreen.OnGovernmentSelected",
+    "GovernmentScreen.OnAcceptGovernmentChange",
+    "GovernmentScreen.RealizeGovernmentsPage",
+    "Government_SlotCounts.NumSlots"
+  ],
+  "implementation": "Free civic window, unlocked, zero anarchy, strictly more slots, retain evaluated current choice; wait for observed state before filling policies. No paid unlock or army action.",
+  "model_request": "government in baiqi-p6-evidence-2026-11-01.json",
+  "model_candidate": "rejected; owner implemented exact native contract",
+  "validation": {
+    "software_tests_passed": 76,
+    "manifest_version": 7,
+    "government_native_upgrade": "pending",
+    "full_bundle_cold": "pending",
+    "full_game_acceptance": false
+  },
+  "implementation_sha256": {
+    "mod/Baiqi/Lua/BaiqiAdmin.lua": "e2b1f4656f2fa5ec9a31e10255c15dbd8482df544adf44fa8ffeab5fead8c006",
+    "mod/Baiqi/Baiqi.modinfo": "0f1690d4c51dd62bf3f36af09723c8658457dfcc795128afa387e96f5ae21067",
+    "tests/lua/mock_government.lua": "07b40be6813ed93791de3c8bc164ee476deff2cc23b7d423d1a9cad1ed2127ae",
+    "tests/test_baiqi_admin.py": "1c6ef511259382e66c294428037d1d9927cadfe7a6ec5ed42e476eab654d643f"
+  }
+}

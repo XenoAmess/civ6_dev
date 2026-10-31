@@ -151,6 +151,41 @@ class AdministrationTests(unittest.TestCase):
         self.admin.Run()
         self.assertEqual(len(f.requests), 0)
 
+    def government(self):
+        self.lua.execute((ROOT / 'tests/lua/mock_government.lua').read_text(encoding='utf-8'))
+        return self.w.government
+
+    def test_government_upgrades_normal_hash_request_and_waits_for_state(self):
+        g = self.government()
+        self.admin.Run()
+        self.admin.Run()
+        self.assertEqual((len(g.requests), g.requests[1], g.current), (1, 702, 0))
+        self.assertEqual(self.w.policyCalls, 0)
+        g.Apply()
+        self.admin.Run()
+        self.assertEqual((g.current, self.w.policyCalls), (2, 1))
+        self.assertEqual(len(g.requests), 1)
+
+    def test_government_rejects_paid_anarchy_locked_or_same_tier_changes(self):
+        g = self.government()
+        g.free = False
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 0)
+        g.free = True
+        g.anarchy[1], g.anarchy[2] = 2, 2
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 0)
+        g.anarchy[1], g.anarchy[2], g.current = None, None, 1
+        self.admin.Run()
+        self.assertEqual(len(g.requests), 0)
+
+    def test_government_retains_current_only_after_evaluating_no_upgrade(self):
+        g = self.government()
+        g.current, g.blocker = 2, 88
+        self.admin.Run()
+        self.assertTrue(g.retained)
+        self.assertEqual(len(g.requests), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
