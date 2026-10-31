@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="1">
+  <Properties>
+    <Name>白绮：为我前驱</Name>
+    <Description>白绮领袖原型：自动内政，军队由玩家指挥。开发版本。</Description>
+    <Teaser>自动生产、建设与和平扩张。</Teaser>
+    <Authors>XenoAmess</Authors>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+  </Properties>
+  <FrontEndActions>
+    <UpdateDatabase id="BaiqiConfig"><Properties><LoadOrder>1000</LoadOrder></Properties><File>Config/BaiqiConfig.sql</File></UpdateDatabase>
+    <UpdateText id="BaiqiFrontText"><File>Text/BaiqiText.xml</File></UpdateText>
+    <UpdateIcons id="BaiqiFrontIcons"><File>Data/BaiqiIcons.sql</File></UpdateIcons>
+    <UpdateColors id="BaiqiFrontColors"><File>Data/BaiqiColors.xml</File></UpdateColors>
+  </FrontEndActions>
+  <InGameActions>
+    <UpdateDatabase id="BaiqiData"><File>Data/Baiqi.sql</File></UpdateDatabase>
+    <UpdateText id="BaiqiGameText"><File>Text/BaiqiText.xml</File></UpdateText>
+    <UpdateIcons id="BaiqiGameIcons"><File>Data/BaiqiIcons.sql</File></UpdateIcons>
+    <UpdateColors id="BaiqiGameColors"><File>Data/BaiqiColors.xml</File></UpdateColors>
+    <ImportFiles id="BaiqiScripts">
+      <File>Lua/BaiqiConfig.lua</File><File>Lua/BaiqiPolicy.lua</File>
+      <File>Lua/BaiqiPlanner.lua</File><File>Lua/BaiqiController.lua</File>
+      <File>UI/BaiqiPanel.xml</File><File>UI/BaiqiPanel.lua</File>
+    </ImportFiles>
+    <AddGameplayScripts id="BaiqiGameplay"><File>Lua/BaiqiGameplay.lua</File></AddGameplayScripts>
+    <AddUserInterfaces id="BaiqiPanel">
+      <Properties><Context>InGame</Context></Properties><File>UI/BaiqiPanel.xml</File>
+    </AddUserInterfaces>
+  </InGameActions>
+  <Files>
+    <File>Config/BaiqiConfig.sql</File><File>Data/Baiqi.sql</File>
+    <File>Data/BaiqiIcons.sql</File><File>Data/BaiqiColors.xml</File><File>Text/BaiqiText.xml</File>
+    <File>Lua/BaiqiConfig.lua</File><File>Lua/BaiqiPolicy.lua</File><File>Lua/BaiqiPlanner.lua</File>
+    <File>Lua/BaiqiController.lua</File><File>Lua/BaiqiGameplay.lua</File>
+    <File>UI/BaiqiPanel.xml</File><File>UI/BaiqiPanel.lua</File>
+  </Files>
+</Mod>

@@ -2,7 +2,7 @@
 
 ## 项目与交接
 
-- 项目用于《文明 VI》领袖模组开发；当前处于预研与设计规格阶段，尚无实机验收通过的游戏功能。
+- 项目用于《文明 VI》领袖模组开发；已有[可安装原型与部分实机证据](docs/implementation/baiqi-prototype.md)，尚未完成全功能实机验收。
 - 接手先读 [README](README.md)、[本地模型指南](docs/local-model-worker-guide.md)、[唯一配置](docs/local-model-executor-config.json)和[经验记录](docs/local-model-experience.md)。
 - 参考 `ck3_eternal_recurrence` 的通用经验；不继承 CK3 的游戏权限、运行进程、Java 迁移、机器路径或任务总线。
 
