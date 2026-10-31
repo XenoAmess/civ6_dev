@@ -133,6 +133,25 @@ class BaiqiScientistTests(unittest.TestCase):
         self.c.RunNow()
         self.assertTrue(any('proof=native_activation_event' in l for l in self.logs), self.logs)
 
+    def test_scientist_arrives_and_activates_using_xy_with_stale_plot_id(self):
+        self.w.stalePlotId = 99
+        self.c.RunNow()
+        self.assertEqual(self.w.unitRequests[1].op, 10)
+        self.w.scientistPlot, self.w.stalePlotId = 43, 42
+        self.c.Update(0.35)
+        self.assertEqual(len(self.w.commandRequests), 1)
+
+    def test_activation_cannot_cross_a_position_change_during_legality_check(self):
+        self.w.scientistPlot = 43
+        self.lua.execute('''
+local original=UnitManager.CanStartCommand
+UnitManager.CanStartCommand=function(...)
+ local result=original(...);TestWorld.scientistPlot=42;return result
+end
+''')
+        self.c.RunNow()
+        self.assertEqual(len(self.w.commandRequests), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,7 +11,7 @@ local plots={[42]=Plot(42,2),[43]=Plot(43,3)}
 Map.GetPlotByIndex=function(index) return plots[index] end
 Map.GetPlot=function(x) return plots[x==2 and 42 or 43] end
 Map.GetPlotDistance=function(x1,y1,x2,y2) return math.abs(x2-x1) end
-objects.builder.GetPlotId=function() return w.builderPlot end
+objects.builder.GetPlotId=function() return w.stalePlotId or w.builderPlot end
 objects.builder.GetX=function() return plots[w.builderPlot]:GetX() end
 objects.builder.GetMovesRemaining=function() return w.builderMoves end
 objects.builder.GetComponentID=function() return 3 end
@@ -19,9 +19,12 @@ objects.builder.IsReadyToMove=function() return w.ready~=false end
 objects.city.GetCityAI=function() return {GetImprovementRecommendationsForBuilder=function() return {{ImprovementLocation=43}} end} end
 GameInfo.Improvements=setmetatable({},{__call=function() local done=false;return function()
  if not done then done=true;return {Hash=904,Index=0} end end end})
-UnitManager.GetMoveToPathEx=function(unit,index) return {plots=unit:GetPlotId()==index and {index} or {unit:GetPlotId(),index}} end
+UnitManager.GetMoveToPathEx=function(unit,index)
+ local start=Map.GetPlot(unit:GetX(),unit:GetY()):GetIndex()
+ return {plots=start==index and {index} or {start,index}}
+end
 UnitManager.CanStartOperation=function(unit,op)
- if op==UnitOperationTypes.BUILD_IMPROVEMENT then return unit:GetPlotId()==43 end
+ if op==UnitOperationTypes.BUILD_IMPROVEMENT then return w.builderPlot==43 end
  return true
 end
 UnitManager.GetQueuedDestination=function() return w.queuedDestination end

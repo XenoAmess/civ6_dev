@@ -72,6 +72,25 @@ local function NextRequest(key)
   return tostring(contextID)..":"..tostring(turn)..":"..tostring(serial)
 end
 
+-- Match shipped WorldInput: use one coordinate-derived plot for planning,
+-- legality, packets and observations. Never mix independent position getters.
+local function UnitPlot(unit)
+  local x,y=unit:GetX(),unit:GetY()
+  if not BaiqiPolicy.Number(x) or not BaiqiPolicy.Number(y) or x<0 or y<0
+    or x%1~=0 or y%1~=0 then return nil end
+  local plot=Map.GetPlot(x,y)
+  if plot and plot:GetX()==x and plot:GetY()==y then return plot end
+end
+
+local function UnitIndex(unit)
+  local plot=UnitPlot(unit)
+  return plot and plot:GetIndex()
+end
+
+local function UnitKey(unit)
+  return unit:GetID()..":"..tostring(UnitIndex(unit))..":"..tostring(unit:GetMovesRemaining())
+end
+
 local function UnitSnapshot(unit, state)
   local def = GameInfo.Units[unit:GetUnitType()]
   return {id=unit:GetID(), owner=unit:GetOwner(), type=def and def.UnitType,
@@ -79,7 +98,7 @@ local function UnitSnapshot(unit, state)
     formationCount=unit.GetFormationUnitCount and unit:GetFormationUnitCount() or nil,
     tradeIdle=def and def.UnitType=="UNIT_TRADER" and UnitManager.GetActivityType~=nil
       and UnitManager.GetActivityType(unit)==ActivityTypes.ACTIVITY_AWAKE,
-    moves=unit:GetMovesRemaining(), plot=unit:GetPlotId()}
+    moves=unit:GetMovesRemaining(), plot=UnitIndex(unit)}
 end
 
 local function TradeParams(ctx,player,unit,plot)
@@ -116,6 +135,8 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local freshCtx, freshPlayer, freshState = PlayerContext()
   ctx, state = freshCtx, freshState
   if ctx == nil then return false, "context_changed" end
+  local here=UnitPlot(unit)
+  if not here then return false,"position_unavailable" end
   local allowed, reason = BaiqiPolicy.CanCivilian(ctx, UnitSnapshot(unit, state))
   local def = GameInfo.Units[unit:GetUnitType()]
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
@@ -131,7 +152,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     params,origin,dest=TradeParams(ctx,freshPlayer,unit,plot)
     if not params then return false,"no_safe_domestic_route" end
   elseif operation == "MOVE_TO" then
-    if Map.GetPlotDistance(unit:GetX(), unit:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
+    if Map.GetPlotDistance(here:GetX(), here:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
     if plot:GetOwner() ~= -1 and plot:GetOwner() ~= ctx.player then return false, "foreign_border" end
     if visibility:IsVisible(plot:GetX(),plot:GetY()) then
       for _,other in pairs(Units.GetUnitsInPlot(plot) or {}) do
@@ -144,29 +165,32 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     end
     params[UnitOperationTypes.PARAM_X], params[UnitOperationTypes.PARAM_Y] = plot:GetX(), plot:GetY()
   else
-    if plot:GetIndex() ~= unit:GetPlotId() then return false, "not_current_plot" end
+    if plot:GetIndex() ~= here:GetIndex() then return false, "not_current_plot" end
     if operation == "BUILD_IMPROVEMENT" then
       if improvement == nil or plot:GetOwner() ~= ctx.player then return false, "invalid_improvement" end
-      params[UnitOperationTypes.PARAM_X], params[UnitOperationTypes.PARAM_Y] = unit:GetX(), unit:GetY()
+      params[UnitOperationTypes.PARAM_X], params[UnitOperationTypes.PARAM_Y] = here:GetX(), here:GetY()
       params[UnitOperationTypes.PARAM_IMPROVEMENT_TYPE] = improvement
     elseif operation == "REPAIR" and plot:GetOwner() ~= ctx.player then return false, "foreign_repair" end
   end
   if UnitManager.CanStartOperation(unit, action, nil, params) ~= true then return false, "engine_rejected" end
-  local key = "unit:"..unit:GetID()..":"..unit:GetPlotId()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
+  if UnitIndex(unit)~=here:GetIndex() then return false,"position_changed" end
+  local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
-  pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=unit:GetPlotId(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
+  pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=here:GetIndex(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
   if origin then pendingUnits[unit:GetID()].origin=origin:GetID();pendingUnits[unit:GetID()].destination=dest:GetID() end
-  Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex())
+  Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex().."|from="..here:GetIndex())
   UnitManager.RequestOperation(unit, action, params)
   return true, "submitted"
 end
 
 local function PathStep(unit, target, player, state)
   if not Revealed(target) or not Safe(target, player) then return nil end
+  local start=UnitIndex(unit)
+  if start==nil then return nil end
   local path = UnitManager.GetMoveToPathEx(unit, target:GetIndex())
   if type(path) ~= "table" or type(path.plots) ~= "table" or #path.plots < 2 or #path.plots > C.pathLimit then return nil end
-  if path.plots[1] ~= unit:GetPlotId() or path.plots[#path.plots] ~= target:GetIndex() then return nil end
+  if path.plots[1] ~= start or path.plots[#path.plots] ~= target:GetIndex() or UnitIndex(unit)~=start then return nil end
   for _, index in ipairs(path.plots) do
     local p = Map.GetPlotByIndex(index)
     if p == nil or not Revealed(p) or not Safe(p, player)
@@ -191,14 +215,15 @@ local function RequestScientist(unit)
   if not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state))
     or not BaiqiPolicy.ActionAllowed(GameInfo.Units[unit:GetUnitType()].UnitType,"ACTIVATE_GREAT_PERSON") then return false end
   local gp,info=ScientistData(unit)
-  local here=Map.GetPlotByIndex(unit:GetPlotId())
+  local here=UnitPlot(unit)
   local command=GameInfo.UnitCommands and GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
   if not gp or not command or not here or here:GetOwner()~=ctx.player or not Safe(here,player)
     or pendingUnits[unit:GetID()] or UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true then return false end
+  if UnitIndex(unit)~=here:GetIndex() then return false end
   local id=NextRequest("scientist:"..unit:GetID()..":"..gp:GetIndividual()..":"..gp:GetActionCharges())
   if not id then return false end
   pendingUnits[unit:GetID()]={id=id,kind="ACTIVATE_GREAT_PERSON",command=command.Hash,
-    from=unit:GetPlotId(),moves=unit:GetMovesRemaining(),charges=gp:GetActionCharges(),
+    from=here:GetIndex(),moves=unit:GetMovesRemaining(),charges=gp:GetActionCharges(),
     individual=info.Index,elapsed=0}
   Log("request","id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|command=ACTIVATE_GREAT_PERSON|charges="..gp:GetActionCharges())
   UnitManager.RequestCommand(unit,command.Hash)
@@ -250,7 +275,7 @@ local function SettlementSites(player, state, unit)
         end
       end
       local step = unit and PathStep(unit, plot, player, state) or nil
-      if distantEnough and (unit == nil or step ~= nil or unit:GetPlotId() == plot:GetIndex()) then
+      if distantEnough and (unit == nil or step ~= nil or UnitIndex(unit) == plot:GetIndex()) then
         result[#result+1] = {index=plot:GetIndex(), score=100-(tonumber(rank) or 0), legal=true, revealed=true, safe=true,
           protected=false, plot=plot, step=step}
       end
@@ -260,7 +285,7 @@ local function SettlementSites(player, state, unit)
 end
 
 local function ProcessSettler(ctx, player, state, unit)
-  local here = Map.GetPlotByIndex(unit:GetPlotId())
+  local here = UnitPlot(unit)
   if here==nil then return false end -- Consumed/removed units may remain in a transient collection snapshot.
   local target = BaiqiPlanner.Site(SettlementSites(player, state, unit), reservations, unit:GetID())
   local mayFound = player:GetCities():GetCount() == 0
@@ -280,7 +305,7 @@ local function ProcessSettler(ctx, player, state, unit)
 end
 
 local function ProcessBuilder(ctx, player, state, unit)
-  local here = Map.GetPlotByIndex(unit:GetPlotId())
+  local here = UnitPlot(unit)
   if here==nil then return false end
   if here:GetOwner() == ctx.player and Safe(here, player) then
     if here:IsImprovementPillaged() and UnitManager.CanStartOperation(unit, UnitOperationTypes.REPAIR) then
@@ -487,12 +512,12 @@ local function ReadBack(player)
       elseif gp:GetActionCharges()<pending.charges then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|charges="..gp:GetActionCharges())
         pendingUnits[unitID]=nil
-        unitEvaluated[unitID..":"..unit:GetPlotId()..":"..tostring(unit:GetMovesRemaining())]=nil
+        unitEvaluated[UnitKey(unit)]=nil
       elseif (pending.elapsed or 0)>=C.interval*2 and unit:IsReadyToMove()
         and UI.IsGameCoreBusy and not UI.IsGameCoreBusy() and UI.IsProcessingMessages and not UI.IsProcessingMessages() then
         Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=native_idle_unchanged_great_person_charges")
         pendingUnits[unitID]=nil
-        unitEvaluated[unitID..":"..unit:GetPlotId()..":"..tostring(unit:GetMovesRemaining())]=nil
+        unitEvaluated[UnitKey(unit)]=nil
       end
     elseif pending.kind=="MAKE_TRADE_ROUTE" then
       local origin=player:GetCities():FindID(pending.origin)
@@ -511,12 +536,13 @@ local function ReadBack(player)
         and UI.IsGameCoreBusy and not UI.IsGameCoreBusy() and UI.IsProcessingMessages and not UI.IsProcessingMessages() then
         Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=native_idle_without_trade_route")
         pendingUnits[unitID]=nil
-        unitEvaluated[unitID..":"..unit:GetPlotId()..":"..tostring(unit:GetMovesRemaining())]=nil
+        unitEvaluated[UnitKey(unit)]=nil
       end
-    elseif unit==nil or unit:GetOwner()~=contextID or unit:GetPlotId()~=pending.from or unit:GetMovesRemaining()~=pending.moves then
+    elseif unit==nil or unit:GetOwner()~=contextID or (UnitIndex(unit)~=nil and UnitIndex(unit)~=pending.from) or unit:GetMovesRemaining()~=pending.moves then
       Log("observed","id="..pending.id.."|unit="..unitID.."|kind="..pending.kind)
       pendingUnits[unitID]=nil
     elseif pending.kind=="MOVE_TO" and (pending.elapsed or 0)>=C.interval*2
+      and UnitIndex(unit)==pending.from
       and unit.IsReadyToMove and unit:IsReadyToMove()
       and UnitManager.GetQueuedDestination and UnitManager.GetQueuedDestination(unit)==nil
       and UI.IsGameCoreBusy and not UI.IsGameCoreBusy()
@@ -586,8 +612,8 @@ local function Tick()
   end
   for _,unit in player:GetUnits():Members() do
     local snapshot=UnitSnapshot(unit,state)
-    local unitKey=unit:GetID()..":"..unit:GetPlotId()..":"..tostring(unit:GetMovesRemaining())
-    if not unitEvaluated[unitKey] and pendingUnits[unit:GetID()]==nil and BaiqiPolicy.CanCivilian(ctx,snapshot) then
+    local unitKey=UnitKey(unit)
+    if snapshot.plot~=nil and not unitEvaluated[unitKey] and pendingUnits[unit:GetID()]==nil and BaiqiPolicy.CanCivilian(ctx,snapshot) then
       unitEvaluated[unitKey]=true
       if snapshot.type=="UNIT_SETTLER" then
         if ProcessSettler(ctx,player,state,unit) then status="已提交移民操作，等待实际结果"; return end
@@ -598,7 +624,7 @@ local function Tick()
       elseif snapshot.type=="UNIT_GREAT_SCIENTIST" then
         if ProcessScientist(ctx,player,state,unit) then status="已提交科学家内政任务，等待实际结果";return end
       end
-      local here=Map.GetPlotByIndex(unit:GetPlotId())
+      local here=UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
         status="文职单位本回合等待安全任务；军队由你指挥";return
       end

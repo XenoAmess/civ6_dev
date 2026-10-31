@@ -114,6 +114,73 @@ class BaiqiControllerTests(unittest.TestCase):
         self.assertEqual(self.world.plotReads, 0)
         self.assertEqual(self.world.unitRequests[1].op, 10)
 
+    def test_builder_packet_safety_and_log_use_xy_when_plot_id_disagrees(self):
+        self.movement()
+        self.world.builderPlot, self.world.stalePlotId = 43, 42
+        self.lua.execute('TestWorld.logs={}; print=function(s) table.insert(TestWorld.logs,s) end')
+        self.controller.RunNow()
+        r = self.world.unitRequests[1]
+        self.assertEqual((r.op, r.params[14], r.params[15]), (12, 3, 3))
+        self.assertTrue(any('operation=BUILD_IMPROVEMENT|plot=43' in line for line in self.world.logs.values()))
+        self.assertNotIn('脚本错误', self.controller.GetStatus())
+
+    def test_stale_plot_id_does_not_reject_native_path_from_actual_xy(self):
+        self.movement()
+        self.world.stalePlotId = 99
+        self.controller.RunNow()
+        self.assertEqual(self.world.unitRequests[1].op, 10)
+
+    def test_xy_arrival_is_observed_even_with_unchanged_moves_and_stale_plot_id(self):
+        self.movement()
+        self.controller.RunNow()
+        self.world.builderPlot, self.world.stalePlotId = 43, 42
+        self.controller.Update(0.35)
+        self.assertEqual([r.op for r in self.world.unitRequests.values()], [10, 12])
+
+    def test_foreign_actual_tile_cannot_be_built_despite_owned_stale_plot(self):
+        self.movement()
+        self.world.builderPlot, self.world.stalePlotId = 43, 42
+        self.lua.execute('Map.GetPlotByIndex(43).GetOwner=function() return 8 end')
+        self.controller.RunNow()
+        self.assertFalse(any(r.op == 12 for r in self.world.unitRequests.values()))
+
+    def test_invalid_coordinates_wait_and_recover_without_native_position_call(self):
+        self.movement()
+        self.lua.execute('TestWorld.objects.builder.GetX=function() return nil end')
+        self.controller.RunNow()
+        self.assertEqual(len(self.world.unitRequests), 0)
+        self.lua.execute('TestWorld.objects.builder.GetX=function() return 2 end')
+        self.controller.RunNow()
+        self.assertEqual(self.world.unitRequests[1].op, 10)
+
+    def test_position_change_during_final_legality_check_cannot_submit_stale_build(self):
+        self.movement()
+        self.world.builderPlot = 43
+        self.lua.execute('''
+local original=UnitManager.CanStartOperation; local checks=0
+UnitManager.CanStartOperation=function(unit,op,...)
+ local allowed=original(unit,op,...)
+ if op==UnitOperationTypes.BUILD_IMPROVEMENT then
+  checks=checks+1
+  if checks==2 then TestWorld.builderPlot=42 end
+ end
+ return allowed
+end
+''')
+        self.controller.RunNow()
+        self.assertFalse(any(r.op == 12 for r in self.world.unitRequests.values()))
+
+    def test_pending_move_with_unknown_coordinates_waits_for_valid_position(self):
+        self.movement()
+        self.controller.RunNow()
+        self.lua.execute('TestWorld.objects.builder.GetX=function() return nil end')
+        self.controller.Update(2)
+        self.assertEqual(len(self.world.unitRequests), 1)
+        self.world.builderPlot = 43
+        self.lua.execute('TestWorld.objects.builder.GetX=function() return 3 end')
+        self.controller.RunNow()
+        self.assertEqual([r.op for r in self.world.unitRequests.values()], [10, 12])
+
 
 if __name__ == "__main__":
     unittest.main()

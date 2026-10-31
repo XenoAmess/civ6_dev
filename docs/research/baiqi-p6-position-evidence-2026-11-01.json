@@ -1,0 +1,56 @@
+{
+  "schema": "civ6.baiqi-p6-position-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "model": {
+    "additional_http_requests": 1,
+    "additional_peak_in_flight": 1,
+    "cumulative_p6_http": 26,
+    "cumulative_complete_stop_json": 25,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "request_sha256": "f2b63a85c2fff83669335ca45ed9b351fd34a64d80399b4a6c8e2a9deb2cea0e",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 12690,
+      "completion_tokens": 1086,
+      "total_tokens": 13776
+    },
+    "cached_prompt_tokens_if_reported": null,
+    "review": "Adopted coordinate-derived position and consumer audit guidance, not unqualified engine diagnosis. Model asserted GetPlotId staleness without native proof. Owner added finite integer/nonnegative coordinate checks, exact map-coordinate agreement, final position recheck before native writes, unknown-position pending preservation and nine consumer regressions."
+  },
+  "observed_problem": {
+    "prior_manifest": 12,
+    "pairs_actual_plot_vs_build_log": [
+      [
+        716,
+        717
+      ],
+      [
+        230,
+        275
+      ],
+      [
+        581,
+        582
+      ]
+    ],
+    "engine_getter_staleness": "hypothesis, not yet established by direct simultaneous native reads"
+  },
+  "owner_implementation": {
+    "manifest_version": 14,
+    "software_tests_passed": 122,
+    "new_regressions": 9,
+    "native_retest": "pending",
+    "full_game_acceptance": false,
+    "implementation_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "b239c61d6f3062e87c1f8912bcebed0e3f3bd34543e0cc2b5eaefce35c84c324",
+      "mod/Baiqi/Lua/BaiqiController.lua": "e51239ccbbe0690724c280f72a31c816e2eb023b1de80ccb6ee736a9468e082e",
+      "tests/test_baiqi_controller.py": "4474dab460faa81db99ee83b5529ca3ab7c26a1c98942922e369bcad280eb1f8",
+      "tests/test_baiqi_scientist.py": "e2bd80ee5f9e97fc320929c1fd6dac2768db639ddaa98c5e534d1ddcc26d5549"
+    }
+  }
+}

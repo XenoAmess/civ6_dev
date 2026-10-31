@@ -77,7 +77,7 @@ Players={[7]=player}
 PlayerConfigurations={[7]={IsHuman=function() return true end,GetLeaderTypeName=function() return "LEADER_BAIQI" end}}
 PlayersVisibility={[7]={IsRevealed=function() return true end,IsVisible=function() return true end}}
 CityManager={CanStartOperation=function() return true end,RequestOperation=function(c,op,params) W.cityRequests[#W.cityRequests+1]=params end}
-UnitManager={CanStartOperation=function() return true end,RequestOperation=function(u,op,params) W.unitRequests[#W.unitRequests+1]={unit=u:GetID(),op=op} end}
+UnitManager={CanStartOperation=function() return true end,RequestOperation=function(u,op,params) W.unitRequests[#W.unitRequests+1]={unit=u:GetID(),op=op,params=params} end}
 UI={GetHeadSelectedCity=function() return nil end,GetHeadSelectedUnit=function() return nil end}
 local function event() return {Add=function() end,Remove=function() end} end
 Events={UnitOperationStarted=event(),CityProductionCompleted=event()}

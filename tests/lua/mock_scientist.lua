@@ -49,7 +49,7 @@ function o.city:GetDistricts()
 end
 local gp={GetIndividual=function() return 70 end,GetActionCharges=function() return w.scientistCharges end}
 local scientist={GetID=function() return 4 end,GetOwner=function() return w.scientistOwner or 7 end,
- GetUnitType=function() return 3 end,GetPlotId=function() return w.scientistPlot end,
+ GetUnitType=function() return 3 end,GetPlotId=function() return w.stalePlotId or w.scientistPlot end,
  GetX=function() return plots[w.scientistPlot]:GetX() end,GetY=function() return 3 end,
  GetMovesRemaining=function() return w.scientistMoves end,GetFormationUnitCount=function() return w.scientistFormation end,
  GetGreatPerson=function() return gp end,IsReadyToMove=function() return w.scientistReady~=false end}
@@ -59,7 +59,10 @@ function o.player:GetUnits()
  local list={o.army,general,admiral};if w.withScientist then list[#list+1]=scientist end
  return {Members=members(list),FindID=function(_,id) for _,u in ipairs(list) do if u:GetID()==id then return u end end end}
 end
-UnitManager.GetMoveToPathEx=function(u,index) return {plots=u:GetPlotId()==index and {index} or {u:GetPlotId(),index}} end
+UnitManager.GetMoveToPathEx=function(u,index)
+ local start=Map.GetPlot(u:GetX(),u:GetY()):GetIndex()
+ return {plots=start==index and {index} or {start,index}}
+end
 UnitManager.GetQueuedDestination=function() return w.queuedDestination end
 UnitManager.CanStartCommand=function(unit,hash,visibility,results)
  assert(unit:GetID()==4 and hash==501 and visibility==false and results==true)
