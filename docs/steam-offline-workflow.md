@@ -1,0 +1,11 @@
+# Steam 离线开发流程
+
+用户于 2026-10-31 明确要求：尽可能使用 Steam 离线模式，仅发布等必须联网的场景短暂上线。该要求适用于后续文明 VI 开发、构建和实机验收。
+
+日常保持离线。确需 Steam 联网时，先明确必要事项，完成准备后再通过客户端正式入口上线；必要事项完成或中止后立即恢复离线。GitHub 推送、浏览开发资料和本地模型调用均不需要 Steam 客户端上线，也不要求关闭操作系统网络。
+
+模式确认与模式切换分开记录：确认采用后台只读查询，不截图、不切换焦点；切换才执行客户端正式菜单。好友状态“离线／隐身”、网络断开、登录状态、`WantsOfflineMode` 缓存，以及菜单调用 ACK 都不代表主动离线已生效。查询不可用时保留 `unavailable`，不能默认写成离线或在线；游戏验收在取得当前实例的新鲜离线确认后启动。
+
+本轮先将参考仓库同步至 `6fd2e6681157775884837c3cb3a3393e3eed54b3`，再读取其 [Steam 离线规范](https://github.com/XenoAmess/ck3_eternal_recurrence/blob/6fd2e6681157775884837c3cb3a3393e3eed54b3/AGENTS.md#steam-离线模式与账号占用)、[后台只读探针](https://github.com/XenoAmess/ck3_eternal_recurrence/blob/6fd2e6681157775884837c3cb3a3393e3eed54b3/tools/steam_offline_state_probe.py)及 [steam-ck3-versions 技能](https://github.com/XenoAmess/ck3_eternal_recurrence/blob/6fd2e6681157775884837c3cb3a3393e3eed54b3/skills/steam-ck3-versions/SKILL.md)。版本切换技能的离线恢复原则可参考；本任务不切 CK3 分支，也不继承 CK3 的游戏权限、进程或机器路径。
+
+每次必要联网记录实际机器 ID、时间、目的、Steam 实例与恢复结果。原件放被忽略的 `.local-model/steam/`；公开资料只保留可分享的状态、复现方式和指纹，不记录账号、认证、会话或私人聊天内容。
