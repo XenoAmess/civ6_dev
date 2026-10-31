@@ -1,6 +1,7 @@
 -- Per UI context only. The invisible AI executor does not import this module.
 include("BaiqiConfig")
 if BaiqiUIGuard~=nil then return end
+include("BaiqiPolicy")
 BaiqiUIGuard={}
 local NativePlayers,NativeUnit,NativeCity,NativeUI=Players,UnitManager,CityManager,UI
 
@@ -19,8 +20,7 @@ function BaiqiUIGuard.Civilian(unit)
   local pid=BaiqiUIGuard.PlayerID()
   if pid==nil or unit==nil or unit:GetOwner()~=pid then return false end
   local definition=GameInfo.Units[unit:GetUnitType()]
-  return definition~=nil and (definition.UnitType=="UNIT_SETTLER" or definition.UnitType=="UNIT_BUILDER"
-    or definition.UnitType=="UNIT_TRADER")
+  return definition~=nil and BaiqiPolicy.CivilianType(definition.UnitType)
 end
 
 -- Native colon methods must receive the real native instance, not the proxy table.

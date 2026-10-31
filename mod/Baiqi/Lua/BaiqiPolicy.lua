@@ -11,8 +11,14 @@ function BaiqiPolicy.Context(ctx)
     and ctx.player == ctx.localPlayer
 end
 
+function BaiqiPolicy.CivilianType(unitType)
+  return unitType=="UNIT_SETTLER" or unitType=="UNIT_BUILDER" or unitType=="UNIT_TRADER"
+    or unitType=="UNIT_GREAT_SCIENTIST"
+end
+
 function BaiqiPolicy.ActionAllowed(unitType, operation)
-  if operation=="SKIP_TURN" then return unitType=="UNIT_SETTLER" or unitType=="UNIT_BUILDER" or unitType=="UNIT_TRADER" end
+  if operation=="SKIP_TURN" then return BaiqiPolicy.CivilianType(unitType) end
+  if unitType=="UNIT_GREAT_SCIENTIST" then return operation=="MOVE_TO" or operation=="ACTIVATE_GREAT_PERSON" end
   if unitType=="UNIT_TRADER" then return operation=="MAKE_TRADE_ROUTE" end
   if unitType == "UNIT_SETTLER" then return operation == "MOVE_TO" or operation == "FOUND_CITY" end
   if unitType == "UNIT_BUILDER" then
@@ -24,7 +30,7 @@ end
 function BaiqiPolicy.CanCivilian(ctx, unit)
   if not BaiqiPolicy.Context(ctx) then return false, "context_inactive" end
   if type(unit) ~= "table" or unit.owner ~= ctx.player then return false, "owner_mismatch" end
-  if unit.type ~= "UNIT_SETTLER" and unit.type ~= "UNIT_BUILDER" and unit.type ~= "UNIT_TRADER" then return false, "not_whitelisted" end
+  if not BaiqiPolicy.CivilianType(unit.type) then return false, "not_whitelisted" end
   if unit.type=="UNIT_TRADER" and unit.tradeIdle~=true then return false,"trade_not_idle" end
   if unit.formationCount ~= 1 then return false, "formation_or_unknown" end
   if not BaiqiPolicy.Number(unit.moves) or unit.moves <= 0 then return false, "no_moves" end

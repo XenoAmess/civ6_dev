@@ -175,6 +175,64 @@ local function PathStep(unit, target, player, state)
   return Map.GetPlotByIndex(path.plots[2])
 end
 
+local function ScientistData(unit)
+  local def=GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType~="UNIT_GREAT_SCIENTIST" then return nil end
+  local gp=unit:GetGreatPerson()
+  if not gp or not BaiqiPolicy.Number(gp:GetActionCharges()) or gp:GetActionCharges()<=0 then return nil end
+  local info=GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
+  local district=info and info.ActionRequiresCompletedDistrictType and GameInfo.Districts[info.ActionRequiresCompletedDistrictType]
+  if not district or info.GreatPersonClassType~="GREAT_PERSON_CLASS_SCIENTIST" then return nil end
+  return gp,info,district
+end
+
+local function RequestScientist(unit)
+  local ctx,player,state=PlayerContext()
+  if not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state))
+    or not BaiqiPolicy.ActionAllowed(GameInfo.Units[unit:GetUnitType()].UnitType,"ACTIVATE_GREAT_PERSON") then return false end
+  local gp,info=ScientistData(unit)
+  local here=Map.GetPlotByIndex(unit:GetPlotId())
+  local command=GameInfo.UnitCommands and GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
+  if not gp or not command or not here or here:GetOwner()~=ctx.player or not Safe(here,player)
+    or pendingUnits[unit:GetID()] or UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true then return false end
+  local id=NextRequest("scientist:"..unit:GetID()..":"..gp:GetIndividual()..":"..gp:GetActionCharges())
+  if not id then return false end
+  pendingUnits[unit:GetID()]={id=id,kind="ACTIVATE_GREAT_PERSON",command=command.Hash,
+    from=unit:GetPlotId(),moves=unit:GetMovesRemaining(),charges=gp:GetActionCharges(),
+    individual=info.Index,elapsed=0}
+  Log("request","id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|command=ACTIVATE_GREAT_PERSON|charges="..gp:GetActionCharges())
+  UnitManager.RequestCommand(unit,command.Hash)
+  return true
+end
+
+local function ProcessScientist(ctx,player,state,unit)
+  local gp,info,required=ScientistData(unit)
+  if not gp then
+    Reason("scientist:"..unit:GetID(),"科学家等待当前支持的区域激活条件")
+    return false
+  end
+  if RequestScientist(unit) then return true end
+  local targets={}
+  for _,city in player:GetCities():Members() do
+    if city:GetDistricts():HasDistrict(required.Index,true) then
+      for _,district in city:GetDistricts():Members() do
+        if district:GetType()==required.Index then
+          local plot=Map.GetPlot(district:GetX(),district:GetY())
+          if plot and plot:GetOwner()==ctx.player then
+            local step=PathStep(unit,plot,player,state)
+            if step then targets[#targets+1]={plot=plot,step=step,index=plot:GetIndex(),
+              distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())} end
+          end
+        end
+      end
+    end
+  end
+  table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
+  if targets[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",targets[1].step) end
+  Reason("scientist:"..unit:GetID(),"科学家等待已建成的安全区域与原生激活资格")
+  return false
+end
+
 local function SettlementSites(player, state, unit)
   local result = {}
   local ai = player:GetGrandStrategicAI()
@@ -418,7 +476,25 @@ end
 local function ReadBack(player)
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
-    if pending.kind=="MAKE_TRADE_ROUTE" then
+    if pending.kind=="ACTIVATE_GREAT_PERSON" then
+      local gp=unit and unit:GetOwner()==contextID and unit:GetGreatPerson()
+      if pending.nativeActivated then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event")
+        pendingUnits[unitID]=nil
+      elseif not gp then
+        Log("great_person_request_unavailable","id="..pending.id.."|unit="..unitID)
+        pendingUnits[unitID]=nil
+      elseif gp:GetActionCharges()<pending.charges then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|charges="..gp:GetActionCharges())
+        pendingUnits[unitID]=nil
+        unitEvaluated[unitID..":"..unit:GetPlotId()..":"..tostring(unit:GetMovesRemaining())]=nil
+      elseif (pending.elapsed or 0)>=C.interval*2 and unit:IsReadyToMove()
+        and UI.IsGameCoreBusy and not UI.IsGameCoreBusy() and UI.IsProcessingMessages and not UI.IsProcessingMessages() then
+        Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=native_idle_unchanged_great_person_charges")
+        pendingUnits[unitID]=nil
+        unitEvaluated[unitID..":"..unit:GetPlotId()..":"..tostring(unit:GetMovesRemaining())]=nil
+      end
+    elseif pending.kind=="MAKE_TRADE_ROUTE" then
       local origin=player:GetCities():FindID(pending.origin)
       local observed=false
       for _,route in ipairs(origin and origin:GetTrade():GetOutgoingRoutes() or {}) do
@@ -519,6 +595,8 @@ local function Tick()
         if ProcessBuilder(ctx,player,state,unit) then status="已提交建造者操作，等待实际结果"; return end
       elseif snapshot.type=="UNIT_TRADER" then
         if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
+      elseif snapshot.type=="UNIT_GREAT_SCIENTIST" then
+        if ProcessScientist(ctx,player,state,unit) then status="已提交科学家内政任务，等待实际结果";return end
       end
       local here=Map.GetPlotByIndex(unit:GetPlotId())
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
@@ -549,8 +627,21 @@ local function OnCityCompleted(playerID,cityID)
   if playerID==Game.GetLocalPlayer() then cityEvaluated[cityID]=nil end
 end
 Events.CityProductionCompleted.Add(OnCityCompleted)
+local function OnGreatPersonActivated(playerID,unitID,classID,individualID)
+  local ctx=PlayerContext()
+  local pending=pendingUnits[unitID]
+  local scientist=GameInfo.GreatPersonClasses and GameInfo.GreatPersonClasses.GREAT_PERSON_CLASS_SCIENTIST
+  local class=GameInfo.GreatPersonClasses and GameInfo.GreatPersonClasses[classID]
+  local individual=GameInfo.GreatPersonIndividuals and GameInfo.GreatPersonIndividuals[individualID]
+  if ctx and ctx.player==playerID and scientist and class and class.Index==scientist.Index and individual
+    and pending and pending.kind=="ACTIVATE_GREAT_PERSON" and pending.individual==individual.Index then
+    pending.nativeActivated=true
+  end
+end
+if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated) end
 function BaiqiController.Shutdown()
   stopped=true
   Events.CityProductionCompleted.Remove(OnCityCompleted)
+  if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Remove(OnGreatPersonActivated) end
 end
 print("BAIQI|ui_controller_loaded|version=2|mandatory_admin=true")
