@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-02",
+  "machine": "BF-202609141645",
+  "manifest_version": 38,
+  "software_tests_passed": 290,
+  "new_ui_consumer_tests": 5,
+  "change": "Filter Baiqi CONSIDER_GOVERNMENT_CHANGE only on native turn-blocker dispatch and automatic activation. Preserve explicit direct notification inspection, launch bar, other player/leader/multiplayer and all diplomatic notifications.",
+  "primary_source": [
+    "Base/Assets/UI/Panels/NotificationPanel.lua:1691-1700 forces activatedByUser=true for ActionPanel cross-context dispatch.",
+    "LateInitialize registers current global OnLuaActivateNotification; OnShutdown removes that same global.",
+    "OnConsiderGovernmentChangeActivate opens government screen; no domestic state writes are required by this UI route."
+  ],
+  "native_baseline_before_install": {
+    "source_commit": "edf7758",
+    "process_pid": 14604,
+    "natural_replay": "Turn29 replay ended31 with research chooser visible. Government spy counts all0; the earlier natural government viewer origin was NOT established.",
+    "plain_table_fixture": "Failed native NotificationType type check, hooks restored before rethrow; no popup opened. Failure retained.",
+    "typed_constructor": "Actual native hmake NotificationType produced type struct. Same typed handler retained. No native notification data mutation.",
+    "controlled_dispatch": "Typed isolated entry/lookup fixture called actual native OnLuaActivateNotification; one lookup and one open event; government Context visible and IsReadOnly=true. Temporary hooks restored.",
+    "limits": "This controlled UI boundary is not a naturally generated notification or proof of the earlier natural popup cause."
+  },
+  "native_source38_status": "Not installed or native-tested at this checkpoint.",
+  "software_limits": [
+    "Actual wrapper and captured late-init event consumers with fake UI bindings; no claim that Lua53 plain-table doubles prove native hstructure compatibility.",
+    "Initial new test failure was Python proxy identity comparison for the same Lua table, fixed by Lua equality and scalar tail assertions."
+  ],
+  "local_models": {
+    "http_total": 114,
+    "complete_total": 110,
+    "length_discarded": 4,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  },
+  "files": {
+    "mod/Baiqi/UI/BaiqiNotificationPanel.lua": "6f7b0c259d97075a8f3bf1485aca4b3db6dacfeacf053bd87b20fa8e159e532b",
+    "mod/Baiqi/Baiqi.modinfo": "8846359913442b99249c5c62d38a1518913dfb103d89c1ab537d005774a121b2",
+    "tests/test_baiqi_ui_contexts.py": "97798639ab7610c33b73e07640668546d6663f0dd99ab75fd53adda71b71dbe8"
+  }
+}

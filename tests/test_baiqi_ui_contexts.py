@@ -7,11 +7,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class UIContextTests(unittest.TestCase):
-    def load_context(self, name, leader='LEADER_BAIQI', multi=False):
+    def load_context(self, name, leader='LEADER_BAIQI', multi=False, missing_government=False):
         lua = LuaRuntime(unpack_returned_tuples=True)
         lua.execute((ROOT / 'tests/lua/mock_guard.lua').read_text(encoding='utf-8'))
         lua.globals().TestGuard.leader = leader
         lua.globals().TestGuard.multi = multi
+        lua.globals().TestMissingGovernmentKind = missing_government
         lua.execute("GameConfiguration.GetValue=function() return 'RULESET_EXPANSION_2' end; TestNativeIncludes={}")
         lua.execute('''
           GameConfiguration.IsHotseat=function() return false end
@@ -86,14 +87,37 @@ class UIContextTests(unittest.TestCase):
             elif module == 'NotificationPanel':
                 lua.execute('''
                   TestNativeIncludes[#TestNativeIncludes+1]='NotificationPanel'
-                  NotificationTypes={TECH_BOOST=1,CIVIC_BOOST=2,COMMAND_UNITS=3}
+                  NotificationTypes={TECH_BOOST=1,CIVIC_BOOST=2,COMMAND_UNITS=3,CONSIDER_GOVERNMENT_CHANGE=4,DIPLOMACY=5}
+                  if TestMissingGovernmentKind then NotificationTypes.CONSIDER_GOVERNMENT_CHANGE=nil end
+                  LuaEvents={ActionPanel_ActivateNotification=TestEvent()}
+                  TestNativeLuaNotificationCalls=0
                   g_notificationHandlers={}
                   function RegisterHandlers()
-                    for i=1,3 do g_notificationHandlers[i]={Activate=function(...)
+                    for i=1,5 do g_notificationHandlers[i]={Activate=function(...)
                       TestPopupNativeCalls=TestPopupNativeCalls+1;return ... end} end
                   end
+                  -- Same native producer/consumer boundary: ActionPanel routes
+                  -- every notification as activatedByUser=true; direct engine
+                  -- activation can still carry its original false/true flag.
+                  function OnLuaActivateNotification(notification,...)
+                    TestNativeLuaNotificationCalls=TestNativeLuaNotificationCalls+1
+                    if notification and notification:IsValidForPhase() then
+                      local kind,pid=notification:GetType(),notification:GetPlayerID()
+                      return g_notificationHandlers[kind].Activate({m_PlayerID=pid},notification:GetID(),true,...)
+                    end
+                  end
                   -- Native initialization defers registration to OnInit.
-                  TestNotificationInit=function() RegisterHandlers() end
+                  TestNotificationInit=function()
+                    RegisterHandlers()
+                    LuaEvents.ActionPanel_ActivateNotification.Add(OnLuaActivateNotification)
+                  end
+                  TestNotificationShutdown=function()
+                    LuaEvents.ActionPanel_ActivateNotification.Remove(OnLuaActivateNotification)
+                  end
+                  TestNotification=function(kind,pid,id,valid)
+                    return {GetType=function() return kind end,GetPlayerID=function() return pid end,
+                      GetID=function() return id end,IsValidForPhase=function() return valid~=false end}
+                  end
                   TestActivateNotification=function(kind,...)
                     return g_notificationHandlers[kind].Activate(...)
                   end
@@ -230,6 +254,65 @@ class UIContextTests(unittest.TestCase):
         g.TestActivateNotification(2, entry, 43, False)
         self.assertEqual(g.TestPopupNativeCalls, 5)
         self.assertEqual((len(g.TestNativeIncludes),g.TestNativeIncludes[1]), (1,'NotificationPanel'))
+
+    def test_government_turn_blocker_captured_event_does_not_open_choice_viewer(self):
+        lua = self.load_context('NotificationPanel')
+        g = lua.globals()
+        g.TestNotificationInit()
+        g.LuaEvents.ActionPanel_ActivateNotification.Fire(g.TestNotification(4, 7, 44, True))
+        self.assertEqual((g.TestNativeLuaNotificationCalls, g.TestPopupNativeCalls), (0, 0))
+        entry = lua.table_from({'m_PlayerID': 7})
+        result = g.TestActivateNotification(4, entry, 44, True, 'inspect', None, 8)
+        self.assertTrue(lua.eval('function(a,b) return a==b end')(result[0], entry))
+        self.assertEqual(result[1:], (44, True, 'inspect', None, 8))
+        self.assertEqual(g.TestPopupNativeCalls, 1)
+
+    def test_government_engine_auto_activation_waits_for_ai_but_manual_inspection_remains(self):
+        lua = self.load_context('NotificationPanel')
+        g = lua.globals()
+        g.TestNotificationInit()
+        entry = lua.table_from({'m_PlayerID': 7})
+        g.TestActivateNotification(4, entry, 44, False)
+        g.TestActivateNotification(4, entry, 44, None)
+        self.assertEqual(g.TestPopupNativeCalls, 0)
+        g.TestActivateNotification(4, entry, 44, True)
+        self.assertEqual(g.TestPopupNativeCalls, 1)
+
+    def test_government_turn_filter_preserves_other_notifications_and_foreign_player(self):
+        lua = self.load_context('NotificationPanel')
+        g = lua.globals()
+        g.TestNotificationInit()
+        for kind in (1, 2, 3, 5):
+            g.LuaEvents.ActionPanel_ActivateNotification.Fire(g.TestNotification(kind, 7, 100+kind, True))
+        g.LuaEvents.ActionPanel_ActivateNotification.Fire(g.TestNotification(4, 8, 44, True))
+        self.assertEqual((g.TestNativeLuaNotificationCalls, g.TestPopupNativeCalls), (5, 5))
+        self.assertEqual(g.TestGuard.playerCalls, 0)
+
+    def test_government_turn_filter_preserves_other_leader_and_multiplayer(self):
+        for kwargs in ({'leader': 'LEADER_TRAJAN'}, {'multi': True}):
+            with self.subTest(kwargs=kwargs):
+                lua = self.load_context('NotificationPanel', **kwargs)
+                g = lua.globals()
+                g.TestNotificationInit()
+                g.LuaEvents.ActionPanel_ActivateNotification.Fire(g.TestNotification(4, 7, 44, True))
+                g.TestActivateNotification(4, lua.table_from({'m_PlayerID': 7}), 44, False)
+                self.assertEqual((g.TestNativeLuaNotificationCalls, g.TestPopupNativeCalls), (1, 2))
+
+    def test_government_filter_refresh_shutdown_and_missing_constant_keep_native_shape(self):
+        lua = self.load_context('NotificationPanel')
+        g = lua.globals()
+        for _ in range(2):
+            g.TestNotificationInit()
+            self.assertEqual(g.LuaEvents.ActionPanel_ActivateNotification.Count(), 1)
+            g.LuaEvents.ActionPanel_ActivateNotification.Fire(g.TestNotification(4, 7, 44, True))
+        self.assertEqual(g.TestPopupNativeCalls, 0)
+        g.TestNotificationShutdown()
+        self.assertEqual(g.LuaEvents.ActionPanel_ActivateNotification.Count(), 0)
+        lua = self.load_context('NotificationPanel', missing_government=True)
+        g = lua.globals()
+        g.TestNotificationInit()
+        g.LuaEvents.ActionPanel_ActivateNotification.Fire(g.TestNotification(4, 7, 44, True))
+        self.assertEqual((g.TestNativeLuaNotificationCalls, g.TestPopupNativeCalls), (1, 1))
 
     def test_natural_wonder_captured_callback_is_replaced_once_before_lock(self):
         lua = self.load_context('NaturalWonderPopup')
