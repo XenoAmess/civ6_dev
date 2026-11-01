@@ -8,6 +8,7 @@ local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
+local districtPersonPlans = {}
 local stopped, running = false, false
 local status = "内政托管开启；军队等待你的命令"
 local contextID, visibility
@@ -341,35 +342,95 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
     Reason("district_person:"..unit:GetID(),"文职伟人等待持久化回执；其他内政继续执行")
     return false
   end
-  local gp,info,required=DistrictPersonData(unit)
+  local gp,info,required,class,def=DistrictPersonData(unit)
   if not gp then
     Reason("district_person:"..unit:GetID(),"文职伟人等待当前支持的激活条件")
     return false
   end
-  if RequestDistrictPerson(unit) then return true end
+  local unitID,charges=unit:GetID(),gp:GetActionCharges()
+  if RequestDistrictPerson(unit) then districtPersonPlans[unitID]=nil;return true end
   -- Non-district abilities may have terrain or other native requirements.
   -- Use them on a verified current tile; never guess a destination for them.
   if not required then
     Reason("district_person:"..unit:GetID(),"文职伟人等待当前位置的原生激活条件")
     return false
   end
-  local targets={}
+  local freshCtx,freshPlayer,freshState=PlayerContext()
+  local freshGP,freshInfo,freshRequired,freshClass,freshDef=DistrictPersonData(unit)
+  local found=freshPlayer and freshPlayer:GetUnits():FindID(unitID)
+  if not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
+    or not BaiqiPolicy.MatchesID(unit,unitID) or not BaiqiPolicy.MatchesID(found,unitID)
+    or found:GetOwner()~=ctx.player or unit:IsReadyToMove()~=true
+    or not freshGP or freshInfo.Index~=info.Index or freshClass.Index~=class.Index
+    or freshDef.UnitType~=def.UnitType or freshGP:GetActionCharges()~=charges
+    or not freshRequired or freshRequired.Index~=required.Index or DistrictPersonHeld(unit) then return false end
+  local plan=districtPersonPlans[unitID]
+  if not plan or plan.owner~=ctx.player or plan.unitType~=def.UnitType or plan.class~=class.Index
+    or plan.individual~=info.Index or plan.charges~=gp:GetActionCharges() or plan.required~=required.Index then
+    local count=0;for _ in pairs(districtPersonPlans) do count=count+1 end
+    if not plan and count>=256 then return false end
+    plan={owner=ctx.player,unitType=def.UnitType,class=class.Index,individual=info.Index,
+      charges=gp:GetActionCharges(),required=required.Index,blocked={}}
+    districtPersonPlans[unitID]=plan
+  end
+  -- Keep a destination across steps and turns. Only an exhausted search wave
+  -- is refreshed on a later turn, so changed conditions can eventually recover.
+  if plan.exhaustedTurn and turn>plan.exhaustedTurn then plan.blocked={};plan.exhaustedTurn=nil end
+  if plan.routeTurn~=turn then
+    for index,reason in pairs(plan.blocked) do if reason=="route" then plan.blocked[index]=nil end end
+    plan.routeTurn=turn
+  end
+  local targets,seen={},{}
   for _,city in player:GetCities():Members() do
     if city:GetDistricts():HasDistrict(required.Index,true) then
       for _,district in city:GetDistricts():Members() do
         if district:GetType()==required.Index then
           local plot=Map.GetPlot(district:GetX(),district:GetY())
-          if plot and plot:GetOwner()==ctx.player then
-            local step=PathStep(unit,plot,player,state)
-            if step then targets[#targets+1]={plot=plot,step=step,index=plot:GetIndex(),
-              distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())} end
+          if plot and plot:GetOwner()==ctx.player and Revealed(plot) and not seen[plot:GetIndex()] then
+            local target={plot=plot,index=plot:GetIndex(),
+              distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
+            seen[plot:GetIndex()]=target
+            targets[#targets+1]=target
           end
         end
       end
     end
   end
+  for index in pairs(plan.blocked) do if not seen[index] then plan.blocked[index]=nil end end
+  if plan.target and not seen[plan.target] then plan.target=nil end
+  local here=UnitPlot(unit)
+  local hereIndex=here and here:GetIndex()
+  local command=GameInfo.UnitCommands and GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
+  if here and seen[hereIndex] and here:GetOwner()==ctx.player
+    and visibility:IsVisible(here:GetX(),here:GetY())==true and Safe(here,player) and command then
+    -- A failed journal/budget request does not mean this city is unsuitable.
+    -- Native command legality can only be queried at the actual current tile.
+    local legal=UnitManager.CanStartCommand(unit,command.Hash,false,true)
+    if legal==true then return false end
+    if legal==false then
+      plan.blocked[hereIndex]="native"
+      if plan.target==hereIndex then plan.target=nil end
+    end
+  end
+  if plan.target and not plan.blocked[plan.target] then
+    local target=seen[plan.target]
+    if hereIndex==plan.target then return false end
+    local step=PathStep(unit,target.plot,player,state)
+    if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+    plan.blocked[plan.target]="route";plan.target=nil
+  end
   table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
-  if targets[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",targets[1].step) end
+  for _,target in ipairs(targets) do
+    if target.index~=hereIndex and not plan.blocked[target.index] then
+      local step=PathStep(unit,target.plot,player,state)
+      if step then
+        plan.target=target.index
+        return RequestCivilian(ctx,state,unit,"MOVE_TO",step)
+      end
+      plan.blocked[target.index]="route"
+    end
+  end
+  plan.exhaustedTurn=turn
   Reason("district_person:"..unit:GetID(),"文职伟人等待已建成的安全区域与原生激活资格")
   return false
 end
@@ -1085,6 +1146,10 @@ local function Tick()
     -- turn; retaining that pending slot would strand the civilian indefinitely.
     for id,pending in pairs(pendingUnits) do
       if pending.kind=="SKIP_TURN" then pendingUnits[id]=nil end
+    end
+    for id in pairs(districtPersonPlans) do
+      local unit=player:GetUnits():FindID(id)
+      if not BaiqiPolicy.MatchesID(unit,id) or unit:GetOwner()~=ctx.player then districtPersonPlans[id]=nil end
     end
   end
   ReadBack(player)
