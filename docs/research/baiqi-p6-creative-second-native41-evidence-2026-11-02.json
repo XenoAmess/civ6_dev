@@ -1,0 +1,151 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-01T20:15:14.158825+00:00",
+  "machine": "BF-202609141645",
+  "source_commit": "2c3cb9a",
+  "manifest_version": 41,
+  "installed_files_matching_commit": 63,
+  "installed_archive_sha256": "1c6f293b0e069aa37e6ac924cdf9b3f82a0ec5bdc4500692278860883e611fcf",
+  "process_pid": 15768,
+  "software_tests_passed": 329,
+  "start": "Original successful writer save from PID6952 was loaded in PID15768. Same full ID1114120, creative:0:1 OBSERVED, seen work0 and lastWork0 survived. Not the separate unknown branch.",
+  "fixture_preparation": {
+    "at_turn38": {
+      "initial_empty_plot": 677,
+      "Debug_native_CreateDistrict_returned": false,
+      "actual_district_absent": true,
+      "prerequisite_civic_DRAMA_POETRY": false,
+      "failure_cause_limit": "Civic missing observed, but exact returned failure details were not retained; do not claim it as sole proven cause."
+    },
+    "at_turn41": {
+      "civic_normally_researched_by_AI": true,
+      "original_plot677": "AI had started a Campus there; did not overwrite it.",
+      "readonly_original_rules_legal_empty_theater_candidates": 6,
+      "chosen_city": 393221,
+      "city_xy": [
+        15,
+        5
+      ],
+      "chosen_plot": 280,
+      "district_xy": [
+        16,
+        6
+      ],
+      "distance_from_writer": 8,
+      "district": "DISTRICT_THEATER",
+      "district_index": 8,
+      "building": "BUILDING_AMPHITHEATER",
+      "building_index": 14,
+      "two_empty_slots_read_back": true,
+      "Debug_native_creations": "WorldBuilder.CityManager with numeric Index, completion100, each one call then independent actual UI readback.",
+      "asset_cost_limit": "Debug fixtures, not automatic district/building production or ordinary cost acceptance.",
+      "no_plot_ownership_or_terrain_or_existing_asset_changes": true
+    }
+  },
+  "normal_continuation": {
+    "start_turn": 38,
+    "end_turn": 46,
+    "actual_advances": 8,
+    "native_end_turn_calls": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "manual_domestic_selections": 0,
+    "manual_civilian_commands": 0,
+    "manual_diplomacy": "Alexander offer wanted Iliad for 5 gold/turn plus open borders. Persisted as a manual UI choice; test actor physically rejected and clicked Goodbye. No automatic deal resolution.",
+    "test_player_army": "Skip/fortify plus one normal unstack move at43, unit1310726 from717to673. Mod did not command armies.",
+    "city_count_final": 7,
+    "all_queues_nonempty": true,
+    "city_count_start": 6
+  },
+  "second_creation": {
+    "same_writer_id": 1114120,
+    "individual": 150,
+    "class": 6,
+    "command_turn": 45,
+    "current_unit_xy_before_native_command": [
+      16,
+      6
+    ],
+    "charges_before": 0,
+    "stage_before": "ARMED",
+    "token": "creative:0:2",
+    "native_target_command_count": 1,
+    "target_operation_count_in_observation_window": 12,
+    "native_exact_event": [
+      0,
+      1114120,
+      15,
+      5,
+      14,
+      1
+    ],
+    "event_city_xy_differs_from_unit_district_xy": true,
+    "real_new_work": {
+      "index": 1,
+      "type_index": 3,
+      "name": "GREATWORK_HOMER_2",
+      "city": 393221,
+      "building": 14,
+      "slot": 0
+    },
+    "original_work0_still_in_original_palace": true,
+    "final_core_journal": {
+      "serial": 2,
+      "stage": "OBSERVED",
+      "lastWork": 1,
+      "seen_work_indices": [
+        0,
+        1
+      ]
+    },
+    "exact_unit_no_longer_in_UI_members": true,
+    "original_command_operation_pointers_and_event_handler_restored": true
+  },
+  "infrastructure_observations": {
+    "native_read_connection_refusal": 1,
+    "turn38_was_confirmed_advanced_before_resume": true,
+    "no_native_actions_automatically_retried": true,
+    "raw_first_driver_log": "Retained original CP936 error bytes; wrapper UTF8 decoding failed as a second reporting symptom. Child stdout/stderr and subprocess PYTHONIOENCODING explicitly UTF8 afterwards.",
+    "readonly_probe_error": {
+      "count": 2,
+      "cause": "WorldBuilder.CityManager exists in Gameplay, nil in UI. Initial UI diagnostic invoked it; fixed diagnostic uses actual UI production legality only. No native mutation in failed probe.",
+      "additional_assertion": "Final queue check expected old count6, but a normal new city already existed. All seven queues printed nonempty before assertion; corrected expected count7 and independently verified. Not a product defect."
+    },
+    "game_log_classifier_runtime_errors": 0,
+    "baiqi_error_records": 0
+  },
+  "steam": {
+    "fresh_offline_before_process_utc": "2026-11-01T19:48:37.912529+00:00",
+    "online_switches": 0
+  },
+  "local_models": {
+    "http_total": 125,
+    "complete_total": 120,
+    "length_discarded": 5,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  },
+  "private_log_sha256": "9941f504ef57da708bca3e4b37eab510e59c0ae93ffc5530d8338025db1d645a",
+  "screenshot_sha256": "4dffdc38dd19836bd1f7403942a88b077469796bcc1f7bff3f4a8a94cbcba969",
+  "save": {
+    "name": "Baiqi_P6_20261102_V41_CreativeSecond46.Civ6Save",
+    "sha256": "90e3fc9f8e52d2c677b210993868d47a89c89d35a28220ae40dcb2025b2e35cc",
+    "bytes": 433336
+  },
+  "limits": [
+    "Passes same sampled writer second work after cold OBSERVED receipt, a real cross-city path and noncenter amphitheater slot; not every creative person or special placement building.",
+    "Initial writer and later slot assets were Debug prepared; research, travel and final two real work effects were ordinary native behavior.",
+    "Eight advances include independent safe resumes around connectivity and manual diplomacy; not one uninterrupted driver run.",
+    "Complete foreign trade/input/budget/economic/performance matrices and full40 suite remain unfinished."
+  ],
+  "final_queue_private_log_sha256": "d94816b5d4adab7c2643a8a611ff97d00b83a72e45993c706eca067f4b2f712e"
+}

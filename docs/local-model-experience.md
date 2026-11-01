@@ -381,3 +381,11 @@ P4 软件与实机的最终范围、失败及恢复分别见[本轮报告](testi
 机器 `BF-202609141645`，63安装文件逐个匹配2c3cb9a。PID6952正常新Debug荷马命令前ARMED／原生Core事件落OBSERVED／UI真实HOMER_1一致；独立复载原始无人物副本后截一次命令、存ARMED，PID15768加载后2577回调无重发／操作／事件，4行动与空槽保留，Prepare拒绝，所有观察器还原。两个独立副本的ID与token可能相同，不能混合结果；本次没有结束回合故障恢复结论。[证据](research/baiqi-p6-creative-intent-native41-evidence-2026-11-02.json)。
 
 125完整stop/SSE/JSON，累计125 HTTP／120完整／5 length／零重试，历史峰13，本项1，服务和缓存未知。候选把圆形剧场当区域、建议改地块所有权、把第二件作品当第二个人，原代码拒绝。负责人转查安装版BlackDeathScenario的真实玩法脚本，发现CreateDistrict用数值Index，且不能把“编辑器专用”当事实；后续夹具须实际读回，不凭方法存在写通过。一次未限定扩展名的DLC搜索过宽，改为仅Lua后直接得到主源码，未改游戏文件。
+
+## 2026-11-02：原生场景接口与跨城第二件作品
+
+机器 `BF-202609141645`，125候选的“编辑器专用”推断被安装版BlackDeathScenario玩法脚本及本次实际CreateDistrict／CreateBuilding成功读回否定；数值Index＋100＋plotIndex才按主源码使用。38创建失败并未强行重试；正常研究完成到41后发现原地已是AI在建学院，改选另一城原版合法空地，保留原设施／地貌／所有权。Debug设施不算自动建造或费用验收。
+
+同一荷马从6952成功档在15768恢复OBSERVED／已见作品0，跨城到(16,6)后45回合新token2、真实HOMER_2、Core保留两作品、单位消失，UI事件城市坐标却是(15,5)。这直接支持此前拒绝“事件坐标等于单位坐标”的建议。[证据](research/baiqi-p6-creative-second-native41-evidence-2026-11-02.json)。一次诊断误在UI调用仅Gameplay存在的WorldBuilder.CityManager，已纠正且保留错误；一次原生只读连接拒绝导致驱动停止，随后读回实际回合才续跑，未重放原生动作。子进程Windows中文异常原以CP936进入UTF8日志，另产生解码错误；现明确子进程stdout／stderr及PYTHONIOENCODING=UTF8。模型累计125／120完整／5 length未变，没有为这些已完成动作补发模型任务。
+
+最终队列探针曾误断言旧6城：逐城输出其实已有7城且各有队列，是正常新增城市458758。改为按实际7城核验通过，未将测试预期过时算成模组缺陷。第二段实机窗口城市自然6→7。
