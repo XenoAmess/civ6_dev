@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import shutil
+import struct
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path, PurePosixPath
@@ -28,6 +29,26 @@ def contained(base: Path, relative: str) -> Path:
     return target
 
 
+def validate_dds(path: Path) -> tuple[int, int]:
+    """Accept the exported single-image, single-mip legacy BGRA8 textures only."""
+    with path.open("rb") as stream:
+        header = stream.read(128)
+    if len(header) != 128 or header[:4] != b"DDS ":
+        raise ValueError(f"Invalid DDS header: {path.name}")
+    fields = struct.unpack("<31I", header[4:])
+    size, flags, height, width, pitch, depth, mips = fields[:7]
+    pixel_format = fields[18:26]
+    if (size != 124 or flags & 0x100F != 0x100F
+            or not 1 <= width <= 8192 or not 1 <= height <= 8192
+            or pitch != width * 4 or depth not in (0, 1) or mips != 1
+            or flags & 0x800000
+            or pixel_format != (32, 0x41, 0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000)
+            or fields[26] != 0x1000 or any(fields[27:30])
+            or path.stat().st_size != 128 + width * height * 4):
+        raise ValueError(f"Unsupported or truncated BGRA8 DDS: {path.name}")
+    return width, height
+
+
 def manifest_files(source: Path) -> list[str]:
     manifest = source / "Baiqi.modinfo"
     root = ET.fromstring(manifest.read_text(encoding="utf-8-sig"))
@@ -43,8 +64,11 @@ def manifest_files(source: Path) -> list[str]:
                 raise ValueError(f"Action references a file outside Files: {entry.text}")
     for relative in files:
         path = contained(source, relative)
-        if not path.is_file() or path.suffix.lower() not in {".sql", ".xml", ".lua"}:
+        if not path.is_file() or path.suffix.lower() not in {".sql", ".xml", ".lua", ".dds"}:
             raise ValueError(f"Missing or unsupported source file: {relative}")
+        if path.suffix.lower() == ".dds":
+            validate_dds(path)
+            continue
         text = path.read_text(encoding="utf-8-sig")
         if path.suffix.lower() == ".xml":
             ET.fromstring(text)

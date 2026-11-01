@@ -1,0 +1,297 @@
+{
+  "schema": "civ6.baiqi-art-integration/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 28,
+  "state": "SOFTWARE_VALIDATED_NATIVE_DISPLAY_NOT_RUN",
+  "source_before": "18f0f95",
+  "source_selection_commit": "94559b5a80ef4bdec8ff8a58042256902d8df713",
+  "artifact": {
+    "files": 58,
+    "sha256": "6a71ecbf4fa1f4ca6ae5d23aa55862e109ae2c83609cee8df910e612b6864573"
+  },
+  "export_record": "baiqi-art-export-2026-11-01.json",
+  "converter": {
+    "tag": "may2026",
+    "published_at": "2026-05-08T21:01:12Z",
+    "url": "https://github.com/microsoft/DirectXTex/releases/download/may2026/texconv.exe",
+    "sha256": "dcfdec10244e02cf5037fba089c55fb7e1326b1c8181742d77d15fa5cb5eef06",
+    "bytes": 966480
+  },
+  "validation": {
+    "software_tests": 226,
+    "full_suite_pass": true,
+    "software_log_sha256": "8384d3aaddeb3a8c4000595992798eaafef869df0655485ff33328f1dc4b55d3",
+    "pixel_readback": [
+      {
+        "name": "Baiqi_DiplomacyBackground.dds",
+        "size": [
+          1920,
+          1010
+        ],
+        "alpha": [
+          255,
+          255
+        ],
+        "corners_alpha": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_Leader256.dds",
+        "size": [
+          256,
+          256
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_Leader32.dds",
+        "size": [
+          32,
+          32
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_Leader45.dds",
+        "size": [
+          45,
+          45
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_Leader50.dds",
+        "size": [
+          50,
+          50
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_Leader55.dds",
+        "size": [
+          55,
+          55
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_Leader64.dds",
+        "size": [
+          64,
+          64
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_Leader80.dds",
+        "size": [
+          80,
+          80
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_LeaderForeground.dds",
+        "size": [
+          825,
+          1024
+        ],
+        "alpha": [
+          0,
+          255
+        ],
+        "corners_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_bgra_pixels_match": true
+      },
+      {
+        "name": "Baiqi_LoadingBackground.dds",
+        "size": [
+          1920,
+          960
+        ],
+        "alpha": [
+          255,
+          255
+        ],
+        "corners_alpha": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "exact_bgra_pixels_match": true
+      }
+    ],
+    "pixel_log_sha256": "34c97042ddb5643aeb03643b715f3780a056adb56892cb028df49e9b392a444a",
+    "method": "Read-only decode of staged layout PNG to BGRA bytes; compared every byte with the independently encoded legacy DDS payload. This compares exported layouts, not resized pixels with original source pixels."
+  },
+  "owner_corrections": [
+    "Actual texconv 2D header uses unused depth1 without volume flags; initial stricter depth0 check rejected before any public asset copy. Microsoft reference and native output confirm unused field; accept0/1 and reject volume flag/caps.",
+    "Default WIC sRGB input to UNORM caused5,812,083 differing channel bytes on diplomacy texture; explicit --ignore-srgb yielded0. All10 final textures exact-match exported layout pixels.",
+    "Visual staging preview revealed diplomacy hair clipped at y=-20; changed y to10 and re-exported, lower legs intentionally clipped by canvas.",
+    "Existing standby icon test schema lacked IconTextureAtlases; updated the fixture to native fields without changing the standby assertion. First full226 run had this1 error; final full226 passed."
+  ],
+  "local_models": {
+    "p6_cumulative_http": 57,
+    "p6_complete_stop_json": 55,
+    "p6_length_discarded": 2,
+    "p6_transient_retries": 0,
+    "p6_peak_client_in_flight": 12,
+    "art_pair_peak": 2,
+    "later_layout_peak": 1,
+    "server_inference_concurrency": null,
+    "calls": [
+      {
+        "success": true,
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 9264,
+          "completion_tokens": 565,
+          "total_tokens": 9829
+        },
+        "total_ms": 6870.940499997232,
+        "first_nonempty_content_delta_ms": 1951.0812999942573,
+        "cached_prompt_tokens_if_reported": null,
+        "task": "art55",
+        "review": "Used per-context resource registration and static diplomacy composition direction. Rejected LoadingInfo in configuration database and unproved no-native-tool claim. Owner uses actual gameplay schema and native consumers.",
+        "request_sha256": "3858871736e8c584808c9751f58370575acc0104caf0ad33f8c12bac30c40ee3",
+        "response_sha256": "87c18105573bf12765d37a6b72b0fc9c069573bbcee392d7818e1cbe8a2741b8"
+      },
+      {
+        "success": false,
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "length",
+        "usage": {
+          "prompt_tokens": 2546,
+          "completion_tokens": 2300,
+          "total_tokens": 4846
+        },
+        "total_ms": 16836.876999994274,
+        "first_nonempty_content_delta_ms": 871.5470999886747,
+        "cached_prompt_tokens_if_reported": null,
+        "task": "art56",
+        "review": "finish_reason=length; entire candidate discarded, no splice or execution. It also invented DDS field offsets and claimed implementation without any source writes. Owner implemented from Microsoft DDS_HEADER and actual converter output.",
+        "request_sha256": "1d3344627d4bee11f32d23a8ff5ec5bc7a7fb5c72af533dc843d3bd7c90ed3b0",
+        "response_sha256": "12a8683000c6a4703ab8b0efe2c40fd17a1f5909c6b08384d199de384793d828"
+      },
+      {
+        "success": true,
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 4831,
+          "completion_tokens": 578,
+          "total_tokens": 5409
+        },
+        "total_ms": 43299.5144000015,
+        "first_nonempty_content_delta_ms": 2991.676399993594,
+        "cached_prompt_tokens_if_reported": null,
+        "task": "art57",
+        "review": "Only aspect-ratio math used. Rejected missing GraphicsUnit DrawImage overload and incorrect no-subrectangle-clip advice; owner wrote valid native overload with Save/SetClip/Restore, wrap-edge handling and explicit disposal.",
+        "request_sha256": "333d8ecfce02b06f1b2f9ce67bb9b0ca222947523900f3500d4ad418c4898b59",
+        "response_sha256": "bdc45f143a10088ca23844fa9fb7648c381d88a74d69785e4d531615b364a0af"
+      }
+    ]
+  },
+  "steam_before_next_launch": {
+    "status": "offline",
+    "readonly_confirmation_utc": "2026-11-01T05:12:37.387883+00:00",
+    "client_pid": 13620,
+    "client_started_utc": "2026-10-31T14:01:46.127500+00:00",
+    "network_mode_changed": false,
+    "note": "Initial hidden-menu query unavailable; official main/menu navigation then separate readonly mode query. No online selection."
+  },
+  "native_display": {
+    "leader_selection": "NOT_RUN",
+    "loading": "NOT_RUN",
+    "static_diplomacy": "NOT_RUN",
+    "scale_variants": "NOT_RUN",
+    "old_save": "NOT_RUN"
+  },
+  "full_game_acceptance": false
+}

@@ -4,6 +4,7 @@ import tempfile
 import unittest
 import zipfile
 import json
+import struct
 
 from tools.build_mod import ROOT, MARKER, contained, digest, install, manifest_files, package
 
@@ -50,6 +51,51 @@ class ModPackageTests(unittest.TestCase):
         (copy / "Lua/BaiqiPolicy.lua").write_bytes(b"\xff")
         with self.assertRaises(UnicodeDecodeError):
             manifest_files(copy)
+
+    def test_texture_binary_survives_package_and_install_unchanged(self):
+        relative = "Art/Baiqi_Leader32.dds"
+        expected = (self.source / relative).read_bytes()
+        output = self.base / "Baiqi.zip"
+        package(self.source, output)
+        with zipfile.ZipFile(output) as archive:
+            self.assertEqual(archive.read("Baiqi/" + relative), expected)
+        target = install(self.source, self.base / "mods")
+        self.assertEqual((target / relative).read_bytes(), expected)
+
+    def test_bad_texture_rejected_before_any_install_write(self):
+        copy = self.base / "source"
+        shutil.copytree(self.source, copy)
+        path = copy / "Art/Baiqi_Leader32.dds"
+        original = path.read_bytes()
+        target = install(self.source, self.base / "mods")
+        marker_before = (target / MARKER).read_bytes()
+        invalid = {"truncated": original[:-1], "bad_magic": b"PNG " + original[4:]}
+        for name, offset, value in (("huge_width", 16, 8193), ("extra_mip", 28, 2),
+                                    ("wrong_mask", 92, 0), ("volume", 112, 0x200000)):
+            data = bytearray(original)
+            struct.pack_into("<I", data, offset, value)
+            invalid[name] = data
+        for name, data in invalid.items():
+            with self.subTest(name=name):
+                path.write_bytes(data)
+                with self.assertRaises(ValueError):
+                    install(copy, self.base / "mods")
+                self.assertEqual((target / MARKER).read_bytes(), marker_before)
+                self.assertEqual((target / "Art/Baiqi_Leader32.dds").read_bytes(), original)
+
+    def test_modified_installed_texture_prevents_other_file_overwrite(self):
+        target = install(self.source, self.base / "mods")
+        installed = target / "Art/Baiqi_Leader32.dds"
+        installed.write_bytes(installed.read_bytes()[:-4] + b"edit")
+        copy = self.base / "source"
+        shutil.copytree(self.source, copy)
+        changed = copy / "Lua/BaiqiPolicy.lua"
+        changed.write_bytes(changed.read_bytes() + b"\n-- next build\n")
+        old_policy = (target / "Lua/BaiqiPolicy.lua").read_bytes()
+        with self.assertRaises(ValueError):
+            install(copy, self.base / "mods")
+        self.assertEqual((target / "Lua/BaiqiPolicy.lua").read_bytes(), old_policy)
+        self.assertEqual(installed.read_bytes()[-4:], b"edit")
 
     def stale_file(self):
         target = install(self.source, self.base)

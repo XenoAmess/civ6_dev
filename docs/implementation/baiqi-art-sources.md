@@ -2,7 +2,7 @@
 
 日期：2026-11-01。执行机器：`BF-202609141645`。本次按用户要求先完整 `git clone`，再检索并查看 [slay-the-spire-vivhite-mod 的 assets](https://github.com/XenoAmess/slay-the-spire-vivhite-mod/tree/94559b5a80ef4bdec8ff8a58042256902d8df713/assets)。源提交为 `94559b5a80ef4bdec8ff8a58042256902d8df713`，`assets/` 有 3,654 个跟踪文件，其中 PNG 1,847 张、JPEG 1 张。数量是目录清点，不代表逐张人工验收。
 
-已找到足够制作静态领袖及可选顾问的人物素材；仅独立宽幅背景使用内置 imagegen 补画一次。此处的“选定”是制作源筛选，不代表已完成 Civ6 资源导出、加载或实机美术验收。玩法原型仍使用原有占位资源。
+已找到足够制作静态领袖及可选顾问的人物素材；仅独立宽幅背景使用内置 imagegen 补画一次。初次“选定”仅指制作源筛选。随后按用户要求，版本28已完成下述DDS导出和资源映射，替换原有占位资源；实际显示正在冷启动验收，不能把导出当作显示通过。
 
 ## 选定制作源
 
@@ -43,7 +43,7 @@
 2. 用领袖母图安排选人／加载和静态外交前景，分别检查人物位置、手部、蝴蝶与文字区遮挡。825×1024 是常见静态前景布局参考，不是原图尺寸。
 3. 宽幅背景需适配加载的 1920×960 与外交的 1920×1010；当前原稿略小，需要明确记录缩放／裁切后再验效果，不能宣称已有原生高清导出。
 4. 若接入白绮顾问，原版 `AdvisorPopup.xml` 的头像显示为 128×128，可复用头像母源。原版其他位置还有 32／48／64／80 像素顾问图标及 22 像素推荐标记；本次没有全局替换原版顾问，也不新增总督人物或晋升图标。
-5. 注册 Civ6 图标／前景／背景映射及必要美术包后，验证选人、加载、外交、不同界面缩放和读档。当前这些步骤均 `NOT_RUN`，没有游戏显示通过结论。
+5. 注册 Civ6 图标／前景／背景映射及必要美术包后，验证选人、加载、外交、不同界面缩放和读档。筛选阶段这些步骤均 `NOT_RUN`；后续导出状态见下节，游戏显示仍须逐项验收。
 
 尺寸工作流参考 [Sailor Cat 的领袖图像教程](https://steamcommunity.com/sharedfiles/filedetails/?id=2420858843)；顾问尺寸依据本机 Civ6 `Base/Assets/UI/Popups/AdvisorPopup.xml`、`Icons/Icons_Advisors.xml`、`PartialScreens/WorldRankings.xml` 和推荐标记的实际 XML 消费者。
 
@@ -52,3 +52,20 @@
 本次为尚未完成的素材映射派发两次真实本地模型 HTTP，请求互相顺序执行，实际在途峰值 1，运输重试 0。首轮 `finish_reason=length`，保留原件、拒绝采用、不拼接；缩窄后得到完整 SSE／`stop`／合法 JSON。仅部分采用领袖母图与排除 atlas 的建议；模型将带文字的设定板推荐为头像，负责人拒绝，依据上游逐项记录与实际图片选择 `0006` 高清原图。缓存数据和服务端实际推理并行均未知，保持 `null`。精简回执见清单，完整请求与 SSE 留在被忽略的本机目录。
 
 可复用经验：先区分图集与独立源，追到小 UI 图的高清原稿；查看器里的透明图 RGB 光雾不能替代真实 Alpha／SourceOver 检查；生成工具的期望尺寸与实际返回尺寸分开记录。没有因素材筛选修改或测试玩法代码。
+
+## 版本28接入与可复现导出
+
+正常退出版本27测试游戏后，按上述三个选定母源的SHA和实际尺寸验证输入；不把上游小图放大作母源。新增[固定布局工具](../../tools/BaiqiArtLayout.cs)与[导出入口](../../tools/export_baiqi_art.py)，由Windows自带.NET Framework编译，System.Drawing仅做确定性缩放、排版和Alpha合成；再用微软[DirectXTex texconv](https://github.com/microsoft/DirectXTex/wiki/texconv)编码游戏纹理。
+
+```bat
+python tools\export_baiqi_art.py --texconv .local-model\tools\texconv\texconv.exe
+python tools\build_mod.py --install
+```
+
+本机工具为官方may2026发行的2026.5.8.1，下载与SHA见[接入证据](../research/baiqi-art-integration-evidence-2026-11-01.json)，各纹理见[导出记录](../research/baiqi-art-export-2026-11-01.json)。工具二进制、原始PNG与中间图留在忽略目录；仓库只交付本次用户指定美术的派生DDS及可复现源码，不含游戏原版资产。
+
+实际导出7种头像，内容等比居中、边缘留4%；加载前景825×1024完整容纳人物与双手，背景1920×960从1774×887等比放大；静态外交画面1920×1010，人物高1470置于(885,10)，左侧留文字区，下方腿部按画布裁切。首次合成发现顶部头发裁切，已将纵向位置从-20改为10并重导出；不声称背景源本身已有目标原生分辨率。未接入可选顾问或魔法装饰层，也没有新增3D人物。
+
+10张纹理均为legacy BGRA8、单mip、straight alpha；实际逐像素核验DDS载荷与导出布局PNG的BGRA字节完全相同，头像／前景四角Alpha为0，背景为255。首次texconv默认转换把sRGB样本变成较暗线性值，经实际像素差异定位后加入`--ignore-srgb`保留样本；不是调整原图颜色。打包器按[微软DDS结构](https://learn.microsoft.com/en-us/windows/win32/direct3ddds/dds-header)验证尺寸、格式、pitch和完整载荷，允许无体积标记时unused depth为0或1，拒绝截断、未知格式、多mip或体积纹理。
+
+前端与局内分别导入纹理，图标映射新atlas；选人使用独立前景和背景，LoadingInfo显式登记且不再借用秦始皇人物语音。DiplomacyInfo原生表只有背景列，因此静态外交图预排人物与场景，不捏造前景字段或独立3D模型。软件226项通过，新增覆盖二进制打包／安装保持、损坏DDS拒绝且不写安装、已安装纹理被修改时保留用户改动。冷启动选人、加载、外交、缩放与读档的实际显示仍分别待验，完整玩法40项也未完成。

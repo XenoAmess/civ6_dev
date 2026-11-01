@@ -98,6 +98,8 @@ CREATE TABLE ProjectCompletionModifiers(ProjectType TEXT,ModifierId TEXT);
         with sqlite3.connect(':memory:') as db:
             db.executescript('''
 CREATE TABLE IconDefinitions(Name TEXT PRIMARY KEY,Atlas TEXT,"Index" INTEGER);
+CREATE TABLE IconTextureAtlases(Name TEXT,IconSize INTEGER,IconsPerRow INTEGER,IconsPerColumn INTEGER,Filename TEXT,
+ PRIMARY KEY(Name,IconSize));
 INSERT INTO IconDefinitions VALUES('ICON_CIVILIZATION_CHINA','NATIVE_CIV_ATLAS',1),
  ('ICON_PROJECT_ENHANCE_DISTRICT_ENCAMPMENT','NATIVE_PROJECT_ATLAS',2);
 ''')

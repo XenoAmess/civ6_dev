@@ -8,7 +8,7 @@ SELECT domains.Domain, CivilizationType, 'LEADER_BAIQI',
   'LOC_LEADER_BAIQI_NAME', 'ICON_LEADER_BAIQI', CivilizationName, CivilizationIcon,
   'LOC_TRAIT_LEADER_BAIQI_FORERUNNER_NAME', 'LOC_TRAIT_LEADER_BAIQI_FORERUNNER_DESCRIPTION',
   'ICON_LEADER_BAIQI', CivilizationAbilityName, CivilizationAbilityDescription,
-  CivilizationAbilityIcon, Portrait, PortraitBackground
+  CivilizationAbilityIcon, 'Baiqi_LeaderForeground.dds', 'Baiqi_LoadingBackground.dds'
 FROM Players CROSS JOIN (
   SELECT 'Players:StandardPlayers' AS Domain UNION ALL
   SELECT 'Players:Expansion1_Players' UNION ALL SELECT 'Players:Expansion2_Players'
