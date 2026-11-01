@@ -26,6 +26,39 @@ function BaiqiPolicy.DistrictGreatPersonClass(unitType)
   return districtGreatPersonClasses[unitType]
 end
 
+local function FlagTrue(value)
+  return value==true or value==1 or value=="True" or value=="true"
+end
+local function FlagFalse(value)
+  return value==false or value==0 or value=="False" or value=="false"
+end
+function BaiqiPolicy.UnownedBorderGreatPerson(unitType,info)
+  return unitType=="UNIT_GREAT_MERCHANT" and type(info)=="table"
+    and info.GreatPersonClassType=="GREAT_PERSON_CLASS_MERCHANT"
+    and FlagFalse(info.ActionRequiresOwnedTile) and FlagTrue(info.ActionRequiresUnownedTile)
+    and FlagTrue(info.ActionRequiresAdjacentOwnedTile) and info.ActionRequiresCompletedDistrictType==nil
+    and FlagFalse(info.ActionRequiresCityStateTerritory) and FlagFalse(info.ActionRequiresSuzerainTerritory)
+    and FlagFalse(info.ActionRequiresEnemyTerritory) and FlagFalse(info.ActionRequiresNonHostileTerritory)
+end
+
+-- Shared read-only validation, using each caller's own Core/UI bindings. No
+-- native objects or authority decisions are passed between Lua contexts.
+function BaiqiPolicy.GreatPersonActivationPlot(unitType,info,pid,plot,visibility,map)
+  if not BaiqiPolicy.Number(pid) or pid<0 or pid%1~=0 or not plot or not visibility then return false end
+  local x,y=plot:GetX(),plot:GetY()
+  if visibility:IsRevealed(x,y)~=true or visibility:IsVisible(x,y)~=true then return false end
+  if not BaiqiPolicy.UnownedBorderGreatPerson(unitType,info) then return plot:GetOwner()==pid end
+  if plot:GetOwner()~=-1 or type(plot.IsWater)~="function" or plot:IsWater()~=false
+    or type(plot.IsImpassable)~="function" or plot:IsImpassable()~=false
+    or not map or type(map.GetAdjacentPlot)~="function" then return false end
+  for direction=0,5 do
+    local adjacent=map.GetAdjacentPlot(x,y,direction)
+    if adjacent and visibility:IsRevealed(adjacent:GetX(),adjacent:GetY())==true
+      and adjacent:GetOwner()==pid then return true end
+  end
+  return false
+end
+
 function BaiqiPolicy.CreativeGreatPersonClass(unitType)
   return creativeGreatPersonClasses[unitType]
 end

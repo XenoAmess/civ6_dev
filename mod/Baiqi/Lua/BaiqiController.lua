@@ -295,7 +295,7 @@ local function RequestDistrictPerson(unit)
   local here=UnitPlot(unit)
   local command=GameInfo.UnitCommands and GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
   local unitID,individual,charges=unit:GetID(),info and info.Index,gp and gp:GetActionCharges()
-  if not gp or not command or not here or here:GetOwner()~=ctx.player
+  if not gp or not command or not BaiqiPolicy.GreatPersonActivationPlot(def.UnitType,info,ctx.player,here,visibility,Map)
     or visibility:IsVisible(here:GetX(),here:GetY())~=true or not Safe(here,player)
     or pendingUnits[unit:GetID()] or UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true then return false end
   local function StillEligible()
@@ -310,7 +310,8 @@ local function RequestDistrictPerson(unit)
     or not BaiqiPolicy.ActionAllowed(freshDef.UnitType,"ACTIVATE_GREAT_PERSON")
     or (required==nil)~=(freshRequired==nil) or (required and freshRequired.Index~=required.Index)
     or freshGP:GetActionCharges()~=charges or not freshHere or freshHere:GetIndex()~=here:GetIndex()
-    or freshHere:GetOwner()~=freshCtx.player or visibility:IsVisible(freshHere:GetX(),freshHere:GetY())~=true
+    or not BaiqiPolicy.GreatPersonActivationPlot(freshDef.UnitType,freshInfo,freshCtx.player,freshHere,visibility,Map)
+    or visibility:IsVisible(freshHere:GetX(),freshHere:GetY())~=true
     or not Safe(freshHere,freshPlayer) then return false end
   return true
   end
@@ -349,9 +350,9 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
   end
   local unitID,charges=unit:GetID(),gp:GetActionCharges()
   if RequestDistrictPerson(unit) then districtPersonPlans[unitID]=nil;return true end
-  -- Non-district abilities may have terrain or other native requirements.
-  -- Use them on a verified current tile; never guess a destination for them.
-  if not required then
+  local border=BaiqiPolicy.UnownedBorderGreatPerson(def.UnitType,info)
+  -- Other non-district abilities still need verified current native legality.
+  if not required and not border then
     Reason("district_person:"..unit:GetID(),"文职伟人等待当前位置的原生激活条件")
     return false
   end
@@ -363,14 +364,16 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
     or found:GetOwner()~=ctx.player or unit:IsReadyToMove()~=true
     or not freshGP or freshInfo.Index~=info.Index or freshClass.Index~=class.Index
     or freshDef.UnitType~=def.UnitType or freshGP:GetActionCharges()~=charges
-    or not freshRequired or freshRequired.Index~=required.Index or DistrictPersonHeld(unit) then return false end
+    or (required==nil)~=(freshRequired==nil) or (required and freshRequired.Index~=required.Index)
+    or BaiqiPolicy.UnownedBorderGreatPerson(freshDef.UnitType,freshInfo)~=border or DistrictPersonHeld(unit) then return false end
+  local purpose=border and "UNOWNED_BORDER" or required.Index
   local plan=districtPersonPlans[unitID]
   if not plan or plan.owner~=ctx.player or plan.unitType~=def.UnitType or plan.class~=class.Index
-    or plan.individual~=info.Index or plan.charges~=gp:GetActionCharges() or plan.required~=required.Index then
+    or plan.individual~=info.Index or plan.charges~=gp:GetActionCharges() or plan.required~=purpose then
     local count=0;for _ in pairs(districtPersonPlans) do count=count+1 end
     if not plan and count>=256 then return false end
     plan={owner=ctx.player,unitType=def.UnitType,class=class.Index,individual=info.Index,
-      charges=gp:GetActionCharges(),required=required.Index,blocked={}}
+      charges=gp:GetActionCharges(),required=purpose,blocked={}}
     districtPersonPlans[unitID]=plan
   end
   -- Keep a destination across steps and turns. Only an exhausted search wave
@@ -381,27 +384,59 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
     plan.routeTurn=turn
   end
   local targets,seen={},{}
+  local function AddTarget(plot)
+    if not plot or seen[plot:GetIndex()] or not Revealed(plot) then return end
+    if border then
+      if not BaiqiPolicy.GreatPersonActivationPlot(def.UnitType,info,ctx.player,plot,visibility,Map) then return end
+    elseif plot:GetOwner()~=ctx.player then return end
+    local target={plot=plot,index=plot:GetIndex(),
+      distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
+    seen[target.index]=target;targets[#targets+1]=target
+  end
+  -- Retained border destinations can be checked without rescanning every city
+  -- border. Native path and final write guards still run on every movement.
+  if border and plan.target and not plan.blocked[plan.target] then
+    AddTarget(Map.GetPlotByIndex(plan.target))
+    local target=seen[plan.target]
+    if target and UnitIndex(unit)~=plan.target then
+      local step=PathStep(unit,target.plot,player,state)
+      if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+      plan.blocked[plan.target]="route"
+    end
+    if not target or plan.blocked[plan.target] then plan.target=nil end
+  end
+  if border then
+    if type(Map.GetAdjacentPlot)~="function" then return false end
+    local anchors={}
+    for _,city in player:GetCities():Members() do
+      for _,index in pairs(Map.GetCityPlots():GetPurchasedPlots(city) or {}) do
+        if not anchors[index] then
+          anchors[index]=true
+          local plot=Map.GetPlotByIndex(index)
+          if plot and Revealed(plot) and plot:GetOwner()==ctx.player then
+            for direction=0,5 do AddTarget(Map.GetAdjacentPlot(plot:GetX(),plot:GetY(),direction)) end
+          end
+        end
+      end
+    end
+  else
   for _,city in player:GetCities():Members() do
     if city:GetDistricts():HasDistrict(required.Index,true) then
       for _,district in city:GetDistricts():Members() do
         if district:GetType()==required.Index then
           local plot=Map.GetPlot(district:GetX(),district:GetY())
-          if plot and plot:GetOwner()==ctx.player and Revealed(plot) and not seen[plot:GetIndex()] then
-            local target={plot=plot,index=plot:GetIndex(),
-              distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
-            seen[plot:GetIndex()]=target
-            targets[#targets+1]=target
-          end
+          AddTarget(plot)
         end
       end
     end
+  end
   end
   for index in pairs(plan.blocked) do if not seen[index] then plan.blocked[index]=nil end end
   if plan.target and not seen[plan.target] then plan.target=nil end
   local here=UnitPlot(unit)
   local hereIndex=here and here:GetIndex()
   local command=GameInfo.UnitCommands and GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
-  if here and seen[hereIndex] and here:GetOwner()==ctx.player
+  if here and seen[hereIndex] and BaiqiPolicy.GreatPersonActivationPlot(def.UnitType,info,ctx.player,here,visibility,Map)
     and visibility:IsVisible(here:GetX(),here:GetY())==true and Safe(here,player) and command then
     -- A failed journal/budget request does not mean this city is unsuitable.
     -- Native command legality can only be queried at the actual current tile.

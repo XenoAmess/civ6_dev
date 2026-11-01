@@ -120,7 +120,8 @@ local function Prepare(pid,id,unitType,class,individual,charges,x,y)
     or not BaiqiPolicy.Number(live.moves) or live.moves<=0 or live.formation~=1 then return false,nil,"unit_changed" end
   local plot=Map.GetPlot(x,y)
   local visibility=PlayersVisibility[pid]
-  if not plot or plot:GetOwner()~=pid or not visibility or visibility:IsVisible(x,y)~=true then return false,nil,"plot" end
+  local info=GameInfo.GreatPersonIndividuals[live.individual]
+  if not BaiqiPolicy.GreatPersonActivationPlot(live.unitType,info,pid,plot,visibility,Map) then return false,nil,"plot" end
   local prior=state.operations[J.UnitKey(id)]
   if prior then
     local ok=Reconcile(player,pid,state,prior,live,false)

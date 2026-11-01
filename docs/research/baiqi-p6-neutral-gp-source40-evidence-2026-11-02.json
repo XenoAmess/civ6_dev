@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-02",
+  "machine": "BF-202609141645",
+  "manifest_version": 40,
+  "software_tests_passed": 309,
+  "new_neutral_gp_consumer_tests": 15,
+  "native_status": "Not installed or native-tested at this checkpoint.",
+  "scope": [
+    "Support the existing native merchant ability requiring unowned land adjacent to owned revealed territory. No new leader tile-seizure/building-rights operation or UI button.",
+    "Exact merchant unit/class and explicit owned=false/unowned=true/adjacent-owned=true/no-district metadata; all city-state/suzerain/enemy/nonhostile flags must explicitly be false.",
+    "Shared plot reads run separately with each context own bindings; visible+revealed neutral land, impassability and adjacent revealed own plot checked before fresh Core grant and final UI command.",
+    "Only UI actual current-position native command legality; no hypothetical-target or Gameplay CanStartCommand.",
+    "Visible frontier hints deduplicated/ranked, native paths queried lazily; retained destination validated before full border rescan.",
+    "Existing durable intent receipts retained; no Legacy_UNKNOWN unfreeze, no changes to player army/diplomacy rights."
+  ],
+  "actual_preimplementation_native_contract": {
+    "individual": "GREAT_PERSON_INDIVIDUAL_MARCUS_LICINIUS_CRASSUS",
+    "index": 76,
+    "class": "GREAT_PERSON_CLASS_MERCHANT",
+    "charges": 3,
+    "owned": false,
+    "unowned": true,
+    "adjacent_owned": true,
+    "completed_district": null,
+    "city_state": false,
+    "suzerain": false,
+    "enemy": false,
+    "nonhostile": false,
+    "gameinfo_row_type_ui_and_core": "table",
+    "gameplay_adjacent_plot_api": "function verified with six actual plots",
+    "gameplay_visibility_apis": "IsVisible/IsRevealed functions verified"
+  },
+  "consumer_checks": [
+    "Owned->neutral movement then activation with persisted Core receipt and stale UI property.",
+    "Foreign/city-state plots, lost adjacent ownership or target transfer after grant, hidden owner-read trap, mixed/unknown flags and missing adjacency API denied.",
+    "Charges3->2 after a claimed tile cannot reactivate on the now-owned tile; a new neutral site can get a distinct next token.",
+    "Unknown ARMED intent holds without movement/skip. Other GP class gets no neutral grant.",
+    "Retained border route continues without another city-border scan; foreign transfer invalidates it before a write."
+  ],
+  "local_models": {
+    "http_total": 119,
+    "complete_total": 114,
+    "length_discarded": 5,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "this_batch_peak": 3,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiPolicy.lua": "a8bcbeb53f4917c33f1b34c7322db41c65cd6df750cf9def47c94e61d1bd7034",
+    "mod/Baiqi/Lua/BaiqiGPIntentGameplay.lua": "6b16b8f54453b66ce56bd47a7e01aeb3362f6f3d2bbb51865dc2efb7ca3c0dc9",
+    "mod/Baiqi/Lua/BaiqiController.lua": "8e0ae1b54bc925a4d9acf0f7eb7c0c4d882e03580613c587f84486116b7f8546",
+    "mod/Baiqi/Baiqi.modinfo": "ecd8b3e4d6fea5903d227c28c52c295b73b8e1da378c2c7a16a67967a43d1c78",
+    "tests/test_baiqi_neutral_people.py": "6216c985cb8309107c5b6a58e4365387d4463027eedbaefe02e9bcfce449f867"
+  }
+}
