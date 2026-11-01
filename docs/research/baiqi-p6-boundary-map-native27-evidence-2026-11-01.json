@@ -1,0 +1,368 @@
+{
+  "schema": "civ6.baiqi-p6-boundary-map-native27-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 27,
+  "source_commit": "515ea11",
+  "artifact_sha256": "95a6db329dbbdf05cedaa14e0d79004f136a4991c25b93c2f7c5f7de8c2c407f",
+  "pid": 14368,
+  "fixture": "Each case independently reloads OrdinaryReady1 a610436a70ab9c10fce20730f40d562112c648ef29d30e57208587733c266b0e. Same native27 process; noncapital owner1 city131073 at11,6 and warrior327684 at10,7, gold500/moves2. No turns advanced.",
+  "normal_attack": {
+    "physical_map_right_click": true,
+    "physical_normal_attack_click": [
+      512,
+      433
+    ],
+    "cursor_moved_after_popup": [
+      16,
+      10
+    ],
+    "bound_target": [
+      11,
+      6
+    ],
+    "damage_before": 150,
+    "damage_after": 198,
+    "max_hp": 200,
+    "unit_damage_before": 0,
+    "unit_damage_after": 13,
+    "unit_moves_before": 2,
+    "unit_moves_after": 0,
+    "unit_position_after": [
+      10,
+      7
+    ],
+    "city_owner_after": 1,
+    "gold_before_after": 500,
+    "matching_paid_journal_records": 0,
+    "result": "PASS actual native attack against bound target, not guaranteed city conquest.",
+    "screenshot_sha256": "f05f92bc66cbd0467d2a5dde9bae50bec00a44d14b8f49936696477a644a4dd2",
+    "pre_popup_snapshot_note": "Owner inspected actual popup, but delayed archival helper rejected its >20s old PNG. No fabricated before screenshot."
+  },
+  "health_threshold": {
+    "max_hp": 200,
+    "configured_percent": 35,
+    "independent_reloads": true,
+    "hp69": {
+      "damage": 131,
+      "quote": "eligible",
+      "cost": 300,
+      "capture_tested": false
+    },
+    "hp70": {
+      "damage": 130,
+      "quote": "eligible",
+      "physical_paid_confirmation": true,
+      "gold_before": 500,
+      "gold_after": 200,
+      "moves_after": 0,
+      "owner_after": 0,
+      "stage": "COMMITTED",
+      "phase": "DONE"
+    },
+    "hp71": {
+      "damage": 129,
+      "old_quote_opened_at_hp50": true,
+      "fresh_quote": "city_healthy",
+      "physical_old_confirmation": true,
+      "visible_notice": "City state or quote changed; interact again.",
+      "gold_before_after": 500,
+      "moves_before_after": 2,
+      "owner_after": 1,
+      "matching_paid_records": 0
+    },
+    "meaning": "Inclusive remainingHP<=35%, corroborated by actual native quote gates and successful exact-boundary capture. HP69 covers quote gate only."
+  },
+  "cost_change": {
+    "old_popup_cost": 300,
+    "population_before": 1,
+    "debug_population_delta": 1,
+    "population_after": 2,
+    "actual_primary_contract": "Debug/City.ltp28, city:ChangePopulation(1); native Gameplay method existence checked before intent.",
+    "fresh_quote_cost": 400,
+    "old_confirmation": {
+      "gold_unchanged": 500,
+      "moves_unchanged": 2,
+      "owner_unchanged": 1,
+      "matching_paid_records": 0,
+      "visible_notice": true
+    },
+    "new_interaction": {
+      "visible_new_cost": 400,
+      "physical_confirmation": true,
+      "gold_before": 500,
+      "gold_after": 100,
+      "moves_after": 0,
+      "owner_after": 0,
+      "stage": "COMMITTED",
+      "phase": "DONE"
+    },
+    "result": "PASS old quote rejected with no fee; increased fee charged only after a new visible quote and explicit confirmation."
+  },
+  "owner_harness_errors": {
+    "health_prep": "First preparation used UI-only city:GetDistrictID in Gameplay and failed before setting intent or damage. Independent read verified damage150/gold500/moves2; corrected to prior-proven city:GetDistricts():GetDistrict. Exactly one intended damage mutation afterwards.",
+    "input_archival": "Expired before-attack screenshot refused; actual later fresh images preserved."
+  },
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261101_Cold27_NormalAttack1.Civ6Save",
+      "sha256": "cfd3e307782cd87b80075af677dc948afb62399aea8097b4954cd91cad307041",
+      "bytes": 641111
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold27_HealthChangedRejected1.Civ6Save",
+      "sha256": "15a313b3d2bcd62e263716741eec9be3291eea08a9b090040e9bf2c31512906a",
+      "bytes": 641047
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold27_Health70Captured1.Civ6Save",
+      "sha256": "c2a50e8f1e860069d5315bad76e4f8cef0894a3cf25399316b2b2a029a571832",
+      "bytes": 642459
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold27_ChangedCost400Captured1.Civ6Save",
+      "sha256": "1838a497eccc559fa5a5bcfaf2d1602489b56cee2c0fd2d5d5b764ad8418ae66",
+      "bytes": 642528
+    }
+  ],
+  "receipts": [
+    {
+      "receipt": "20261101T042348440296Z.json",
+      "sha256": "eadde93268e65308b5d7573c287c2a99b95842e380361bb9060f1a42e9015f1b",
+      "observations": [
+        "P6_ATTACK51_STATE\t1\t1\t131073\t11\t6\t500\t200\t150",
+        "P6_ATTACK51_UNIT\t327684\t0\t10\t7\t2\t0\tnil",
+        "P6_ATTACK51_PAID_RECORDS\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T042416987105Z.json",
+      "sha256": "c55105df4e2283bad3ad4ab3e8f70ad7bb44281366ea5f793db75b6e6841db2b",
+      "observations": [
+        "P6_CAPTURE27_PHYSICAL_CURSOR\t275\t11\t6\t11\t6\t327684"
+      ]
+    },
+    {
+      "receipt": "20261101T042452629028Z.json",
+      "sha256": "fc33a3d62178544c8fabadaad4227515e4fdde07f6174e643bd47a535b1f4a93",
+      "observations": [
+        "P6_CAPTURE27_PHYSICAL_CURSOR\t456\t16\t10\t11\t6\t327684"
+      ]
+    },
+    {
+      "receipt": "20261101T042510924541Z.json",
+      "sha256": "884b0099be54e37df27e5af82d22ff066d081ca211810c6cf5b833f0e3be36e2",
+      "observations": [
+        "P6_ATTACK51_STATE\t1\t1\t131073\t11\t6\t500\t200\t198",
+        "P6_ATTACK51_UNIT\t327684\t0\t10\t7\t0\t13\tnil",
+        "P6_ATTACK51_PAID_RECORDS\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T042618919317Z.json",
+      "sha256": "64c689b67689f6b9965995cd198a8f36b12827b21b8178c7ded3889a687be189",
+      "observations": [
+        "P6_ATTACK51_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T042817379831Z.json",
+      "sha256": "5d226c12eeac4d58989ca9de4a5cc7edfb83f9429eeb25b23297974f27e6f94f",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t1\t500\t2\t200\t150\ttrue\teligible\t300",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T042827412745Z.json",
+      "sha256": "ed05f888ce0bd77624574a0be85ca61c2273be04fe6b1b9b7f4ce7a2e25d86f8",
+      "observations": [
+        "P6_CAPTURE27_PHYSICAL_CURSOR\t275\t11\t6\t11\t6\t327684"
+      ]
+    },
+    {
+      "receipt": "20261101T042837650918Z.json",
+      "sha256": "cc972a71660208377067cc0b8a2e522704290f4ef8ef58fd9802694fa9d9fb66",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t1\t500\t2\t200\t150\ttrue\teligible\t300",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T042855218746Z.json",
+      "sha256": "263c4618956511e12451f4ef44b9de490fe0be3d7421c37acc0804657a5abae4",
+      "observations": [
+        "P6_BOUNDARY50_HEALTH_SET\t200\t129\t1\t131073"
+      ]
+    },
+    {
+      "receipt": "20261101T042855651959Z.json",
+      "sha256": "d15480ee20bac82e111920a849f6455e06fb8510c6a9ac2f2feb29ef354e5896",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t1\t500\t2\t200\t129\tfalse\tcity_healthy\tnil",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T042906249506Z.json",
+      "sha256": "463c91a4b585883d69b58be3ead8125fa5b0c6a0bbefd442f92eed8aafa79cb9",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t1\t500\t2\t200\t129\tfalse\tcity_healthy\tnil",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T042933488573Z.json",
+      "sha256": "23503d34facd633a55b6a1eb2a1e5ed788ce106f2b721ab060ba5db3cfacbf81",
+      "observations": [
+        "P6_BOUNDARY50_HEALTH71_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T043145026419Z.json",
+      "sha256": "26ba17dd7a3508f5d3ee3851733f2b60504f06b57ecab54cac44b0ec72571348",
+      "observations": [
+        "P6_BOUNDARY50_HEALTH69_SET\t200\t131\t1\t131073"
+      ]
+    },
+    {
+      "receipt": "20261101T043145904511Z.json",
+      "sha256": "134d82a8396178b3428120157626f186919298637c671ffe12fcac5f2f4bbbb2",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t1\t500\t2\t200\t131\ttrue\teligible\t300",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T043315338568Z.json",
+      "sha256": "4de174cc809894a2d209df29a94541feecc2ed0a06228067e01091cdb150ac65",
+      "observations": [
+        "P6_BOUNDARY50_HEALTH70_SET\t200\t130\t1\t131073"
+      ]
+    },
+    {
+      "receipt": "20261101T043317043877Z.json",
+      "sha256": "09199249a836e220c8408fc8f2ea0a223c46f6a8e76b220adb0e8316e7e2a8dd",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t1\t500\t2\t200\t130\ttrue\teligible\t300",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T043348929683Z.json",
+      "sha256": "b66fa1cee504a4c2da16fcc0de5e21935a435e286782eb4f5d7257d7e86576c4",
+      "observations": [
+        "P6_CAPTURE27_PHYSICAL_CURSOR\t275\t11\t6\t11\t6\t327684"
+      ]
+    },
+    {
+      "receipt": "20261101T043409832385Z.json",
+      "sha256": "70150da4ae9517c7c0fbc3184deadf0142a71acdbfb08b33999bf3aaeba6cee9",
+      "observations": [
+        "P6_CAPTURE27_RECOVERY\t1\tcity:0:1:327684:1:131073:11:6\tCOMMITTED\tDONE\ttrue\t131073\ttrue\t500\t200\t300\tcommitted",
+        "P6_CAPTURE27_ACTUAL\t0\t131073\t200\t327684\t0\t1",
+        "P6_CAPTURE27_CAPITAL_FLAGS\tfalse\tfalse",
+        "P6_CAPTURE27_RESULT\tCOMMITTED\tcommitted",
+        "P6_CAPTURE27_UI\ttrue\ttrue\tfalse\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T043439227348Z.json",
+      "sha256": "277d30218ac163359f09818185363f2b808bcfbde474615a59bf55f67b43666a",
+      "observations": [
+        "P6_BOUNDARY50_HEALTH70_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T043750241351Z.json",
+      "sha256": "3c6209e61aa9b6da373ace24faa4c9d310295380d703744543d24c59632c105a",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t1\t500\t2\t200\t150\ttrue\teligible\t300",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T043751395806Z.json",
+      "sha256": "00c09c9682735f773270eda960b102d3cc260b152ef44d80ec841b57d0879e23",
+      "observations": [
+        "P6_CAPTURE27_PHYSICAL_CURSOR\t275\t11\t6\t11\t6\t327684"
+      ]
+    },
+    {
+      "receipt": "20261101T043801956963Z.json",
+      "sha256": "261c3b7c244d4067c45432872817d23b6ca87f615b173fb5f29e06d96f2ad44d",
+      "observations": [
+        "P6_BOUNDARY50_POPULATION_CHANGED\t1\t131073\t2"
+      ]
+    },
+    {
+      "receipt": "20261101T043802275228Z.json",
+      "sha256": "8bffaea7723f42870394c7e27ecebdfeb397112ac268a8ec6310d42f4672874d",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t2\t500\t2\t200\t150\ttrue\teligible\t400",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T043813638070Z.json",
+      "sha256": "d9e979ce2cc3268a95085aa82227806e23680d33e6ab6df502dee3c38afa6984",
+      "observations": [
+        "P6_BOUNDARY50_READ\t1\t1\t131073\t2\t500\t2\t200\t150\ttrue\teligible\t400",
+        "P6_BOUNDARY50_RECORD\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T043933146824Z.json",
+      "sha256": "fed6bd5a9c425c738d70738d2887d2cc691db62da5b2541ad9029bf512106a2a",
+      "observations": [
+        "P6_CAPTURE27_RECOVERY\t1\tcity:0:1:327684:1:131073:11:6\tCOMMITTED\tDONE\ttrue\t131073\ttrue\t500\t100\t400\tcommitted",
+        "P6_CAPTURE27_ACTUAL\t0\t131073\t100\t327684\t0\t1",
+        "P6_CAPTURE27_CAPITAL_FLAGS\tfalse\tfalse",
+        "P6_CAPTURE27_RESULT\tCOMMITTED\tcommitted",
+        "P6_CAPTURE27_UI\ttrue\ttrue\tfalse\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T044101568047Z.json",
+      "sha256": "f816c806d722fb0f24a42072beacc2a2a4d94d46421c7982a5d5b306a241890d",
+      "observations": [
+        "P6_BOUNDARY50_COST400_SAVE\ttrue"
+      ]
+    }
+  ],
+  "logs": {
+    "cold27-normal-attack1": {
+      "Database.log": "b8e23ac11743e0a1024d5189aaa4a298e8550c15fd9b30aeb022b5b58829b810",
+      "Lua.log": "0f36a840696c0331d45dbc7b3fb0f48dcae582b13bb60573e3a6afc682077f30",
+      "Modding.log": "0a8028be41da63fdc94edfd80da5de34aaa058a11aff5f1431b476d28b489d9f"
+    },
+    "cold27-stale-health71": {
+      "Database.log": "8f3e828560979da4beb0ed98dda872a0ff368ea8312b1cb43c5da76056ca6043",
+      "Lua.log": "b865031ba78d8c49a278d473ad0dbcc752570fa468918a492b9528fb25a6df92",
+      "Modding.log": "4d2180a26db6b385dc28e6804432d4cbe2bf209b9d5ffee73cadbdba561d78ee"
+    },
+    "cold27-health69-quote": {
+      "Database.log": "1a1944c3090aecc6d317cc7011f62ac5fb9df9a707120bd5ac7117ff514d5ba4",
+      "Lua.log": "64284fae8725edb7eb83bb85cc8a4cda7e19500230c6bc7809f578327b72b6cd",
+      "Modding.log": "92d31b0e8aecf2454878806650683d2914e647366a7cc5434f6a3966b406bcd2"
+    },
+    "cold27-health70-captured": {
+      "Database.log": "99e5fd85ba30dad164d88bffb29f35eeabceb2d3c7d0cf047d91b49ff9354934",
+      "Lua.log": "4b487cc26da5fe357e5a8fc8f9b18b5943f25fc0115fe465f44fb8613e9c812d",
+      "Modding.log": "d40296b08ef33d21a88217307185b0dd7abfa0c61e2403732df33f6346630aaa"
+    },
+    "cold27-changed-cost400-captured": {
+      "Database.log": "e35ed8235a3a56367da63d1cbc869e0f8cbc04c0bb4d33ea4c6913ce9bb728ff",
+      "Lua.log": "c268b189696c96a058d50df152f9e068d7c26d25492dac01749c8dd9ebdcf576",
+      "Modding.log": "9233ba807ba0e0a0a60e74d5c632f2fb2f90fcb41e00a506953587bca3ce00b2"
+    }
+  },
+  "scoped_input_events_sha256": "5841bd61440946650b965a2d19c80d34f9fa5b5cf410308595374b84b5033b15",
+  "screenshots": {
+    "boundary50-stale-health-rejected.png": "deeb738a9bd4b8c867ae4211b642b97f6f19a5164ef546d07a32b3bd36e52dbc",
+    "boundary50-health70-confirmation.png": "ce2ab64487ded079eac623be6dbcacb97e91832aeb32c94dd7db5c78c7179984",
+    "boundary50-stale-cost-rejected.png": "7883a7a5f16d1b890ddd1ccd02c7bb6ee1dfbf147e1afe01e25635eb4c67f0de",
+    "boundary50-new-cost400-confirmation.png": "cccb54d55db5a89775e3c50156689bcd6d1eca410adfbd99abd4e356af876184"
+  },
+  "result": "PASS sampled TC023 ordinary attack branch and target binding, TC024 remaining-health gate, TC026 state/price invalidation and new explicit confirmation. Does not close full distance/movement/formation/walls/owner/actor-change matrix or full game acceptance.",
+  "full_game_acceptance": false
+}
