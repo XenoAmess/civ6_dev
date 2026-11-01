@@ -261,10 +261,14 @@ local function DistrictPersonData(unit)
   if not gp or not BaiqiPolicy.Number(gp:GetActionCharges()) or gp:GetActionCharges()<=0 then return nil end
   local info=GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
   local class=GameInfo.GreatPersonClasses[gp:GetClass()]
-  local district=info and info.ActionRequiresCompletedDistrictType and GameInfo.Districts[info.ActionRequiresCompletedDistrictType]
-  if not district or not class or class.GreatPersonClassType~=classType or info.GreatPersonClassType~=classType
+  if not info or not class or class.GreatPersonClassType~=classType or info.GreatPersonClassType~=classType
     or info.ActionRequiresSuzerainTerritory==true or info.ActionRequiresSuzerainTerritory==1
     or info.ActionRequiresSuzerainTerritory=="True" or info.ActionRequiresSuzerainTerritory=="true" then return nil end
+  local district
+  if info.ActionRequiresCompletedDistrictType~=nil then
+    district=GameInfo.Districts[info.ActionRequiresCompletedDistrictType]
+    if not district then return nil end
+  end
   return gp,info,district,class,def
 end
 
@@ -276,13 +280,20 @@ local function RequestDistrictPerson(unit)
   local here=UnitPlot(unit)
   local command=GameInfo.UnitCommands and GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
   local unitID,individual,charges=unit:GetID(),info and info.Index,gp and gp:GetActionCharges()
-  if not gp or not command or not here or here:GetOwner()~=ctx.player or not Safe(here,player)
+  if not gp or not command or not here or here:GetOwner()~=ctx.player
+    or visibility:IsVisible(here:GetX(),here:GetY())~=true or not Safe(here,player)
     or pendingUnits[unit:GetID()] or UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true then return false end
-  local freshCtx=PlayerContext()
-  local freshGP,freshInfo,_,freshClass,freshDef=DistrictPersonData(unit)
-  if not BaiqiPolicy.Context(freshCtx) or freshCtx.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID) or unit:GetOwner()~=freshCtx.player
+  local freshCtx,freshPlayer,freshState=PlayerContext()
+  local freshGP,freshInfo,freshRequired,freshClass,freshDef=DistrictPersonData(unit)
+  local freshHere=UnitPlot(unit)
+  if not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
+    or unit:IsReadyToMove()~=true or not BaiqiPolicy.MatchesID(unit,unitID) or unit:GetOwner()~=freshCtx.player
     or not freshGP or freshInfo.Index~=individual or freshClass.Index~=class.Index or freshDef.UnitType~=def.UnitType
-    or freshGP:GetActionCharges()~=charges or UnitIndex(unit)~=here:GetIndex() or here:GetOwner()~=freshCtx.player then return false end
+    or not BaiqiPolicy.ActionAllowed(freshDef.UnitType,"ACTIVATE_GREAT_PERSON")
+    or (required==nil)~=(freshRequired==nil) or (required and freshRequired.Index~=required.Index)
+    or freshGP:GetActionCharges()~=charges or not freshHere or freshHere:GetIndex()~=here:GetIndex()
+    or freshHere:GetOwner()~=freshCtx.player or visibility:IsVisible(freshHere:GetX(),freshHere:GetY())~=true
+    or not Safe(freshHere,freshPlayer) then return false end
   local id=NextRequest("district_person:"..unitID..":"..individual..":"..charges)
   if not id then return false end
   pendingUnits[unitID]={id=id,kind="ACTIVATE_GREAT_PERSON",command=command.Hash,
@@ -296,10 +307,16 @@ end
 local function ProcessDistrictPerson(ctx,player,state,unit)
   local gp,info,required=DistrictPersonData(unit)
   if not gp then
-    Reason("district_person:"..unit:GetID(),"文职伟人等待当前支持的区域激活条件")
+    Reason("district_person:"..unit:GetID(),"文职伟人等待当前支持的激活条件")
     return false
   end
   if RequestDistrictPerson(unit) then return true end
+  -- Non-district abilities may have terrain or other native requirements.
+  -- Use them on a verified current tile; never guess a destination for them.
+  if not required then
+    Reason("district_person:"..unit:GetID(),"文职伟人等待当前位置的原生激活条件")
+    return false
+  end
   local targets={}
   for _,city in player:GetCities():Members() do
     if city:GetDistricts():HasDistrict(required.Index,true) then
@@ -859,11 +876,11 @@ local function ReadBack(player)
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|charges="..gp:GetActionCharges())
         pendingUnits[unitID]=nil
         unitEvaluated[UnitKey(unit)]=nil
-      elseif (pending.elapsed or 0)>=C.interval*2 and unit:IsReadyToMove()
-        and UI.IsGameCoreBusy and not UI.IsGameCoreBusy() and UI.IsProcessingMessages and not UI.IsProcessingMessages() then
-        Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=native_idle_unchanged_great_person_charges")
-        pendingUnits[unitID]=nil
-        unitEvaluated[UnitKey(unit)]=nil
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+        -- A void command and unchanged charges do not prove rejection. Keep
+        -- the request across turns until its exact event or effect arrives.
+        Log("great_person_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_or_charge_change=true")
+        pending.unresolvedLogged=true
       end
     elseif pending.kind=="MAKE_TRADE_ROUTE" then
       local origin=player:GetCities():FindID(pending.origin)

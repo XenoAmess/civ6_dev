@@ -1,0 +1,122 @@
+{
+  "schema": "civ6.baiqi-person-source31-software-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "baseline_commit": "488d798",
+  "manifest_version": 31,
+  "artifact_sha256": "098a83262acd9681ca22669a0d3a763ad77fbdb2a50eda779bb09357d85a5bbf",
+  "files": 59,
+  "implementation": "Three explicit nonmilitary GP classes with finite positive charges can use optional district prerequisite and native CanStartCommand on current owned visible safe tile; invalid prerequisite and suzerain action rejected. Final context/fullID/type/class/individual/owner/charges/formation/moves/readiness/visibility/plot ownership rechecks. No speculative movement for generic conditions.",
+  "unknown_results": "No next-turn resend from void command, idle or unchanged charges. Keep pending until exact native event or actual charge reduction. Generic command pending save/reload persistence not proved.",
+  "software": {
+    "methods": 232,
+    "result": "PASS",
+    "log_sha256": "9ad9cf3141cb180eb0c4f3997eada4b6cea942cf8e2874f2e9d7198e6d8a8251",
+    "new_methods": 6,
+    "old_contract_test": "Initial full run had one old expectation error (SKIP then next-turn resend). Root changed it to assert cross-turn unknown hold, bounded log and actual charge-change completion; full run passed."
+  },
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "936a755f11ca6d751bb3b337132fad821391c02d89ff714ba1f85b8e61ba5413",
+    "mod/Baiqi/Baiqi.modinfo": "4368030d349d51da78c8da6950e77af1228ac2ee4d029a17b5e72952c09d4e3e",
+    "tests/test_baiqi_district_people.py": "376e01b4162b55adde05c45e676f185b083f884c24e4b113e0182fe02a01d0c5",
+    "tests/test_baiqi_scientist.py": "92f5bf5aeccede3a2c2afe3cb66eaf8cb1ced78e730412674fb81a619556d663"
+  },
+  "workers": [
+    {
+      "task": "persondata73",
+      "request_sha256": "5e9840e670a4333c1dc13d3b1aee52dc050030bae1b114a9f9edf0d397cc3731",
+      "result_sha256": "4287c69be882b8bb369b3c3068111574bc56c4b652a931c482e8044d8861d4f8",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 16032,
+        "completion_tokens": 389,
+        "total_tokens": 16421
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "total_ms": 17639.05660000455,
+      "review": "Partially adopted optional district return contract. Root retained explicit class/charge/class-individual/suzerain rejection and invalid nonnil prerequisite rejection."
+    },
+    {
+      "task": "persondispatch74",
+      "request_sha256": "aa9aaf4c31d745b74e9137675b51a262abd65fcaa38664db94f154ce11567319",
+      "result_sha256": "5ad028773ef25a8d10f23fc05132a1c435d7584891029a658d1297f760bf31f4",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 16050,
+        "completion_tokens": 862,
+        "total_tokens": 16912
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "total_ms": 22707.569000005606,
+      "review": "Implementation rejected: missing final formation/movement civilian recheck and action whitelist. Root extended original dispatcher with final fresh context, identity, eligibility and actual plot revalidation."
+    },
+    {
+      "task": "persontests75",
+      "request_sha256": "206a50240ca60fb423404e9149fdf4d9808646938dab5a8e31414760d4e1a2f4",
+      "result_sha256": "a9196f5fc90445e4ef5b1bf8b864c557ea8a5b044d8385abd4134aa34c77ee28",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 20293,
+        "completion_tokens": 504,
+        "total_tokens": 20797
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "total_ms": 18606.383799997275,
+      "review": "Partially adopted actual mock rejection and three-class cases. Root corrected formation expectations and added visibility/readiness/movement/invalid prerequisite/new plot/cross-turn unknown tests."
+    },
+    {
+      "task": "personprobe76",
+      "request_sha256": "994a127dddc97cb26656b177493b3e98511afb70bb02db3f0ef13d87ed94c98a",
+      "result_sha256": "ec3e2e400e704cf53054a548559de4dd52dfcfecf6713667b89671b0649b9e04",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 16071,
+        "completion_tokens": 438,
+        "total_tokens": 16509
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "total_ms": 18328.273500010255,
+      "review": "Read-only direction reviewed, not executed. Root must add exact player0/Baiqi contract and diagnostic prefix. No generic native activation outcome claimed."
+    },
+    {
+      "task": "personpending77",
+      "request_sha256": "d17187a6d473ee43af4b97b8f0792aceddf9c572d422bd021b66e32c954478d1",
+      "result_sha256": "6c146ee6c2d5c265c7aa58eac7bb00ac9860061853c58aed70f2b5ecae23ad86",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 22284,
+        "completion_tokens": 535,
+        "total_tokens": 22819
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "total_ms": 8251.66390000959,
+      "review": "Diagnosis and conservative pending retention adopted. Root keeps unknown command across turns with one unresolved log; clears only exact native event or actual charges decrease."
+    },
+    {
+      "task": "scope78",
+      "request_sha256": "2bfdd82b915bcb93778d50eea5a28ffb2e3695d19b5a89b99baa838ea9e10ece",
+      "result_sha256": "196366b26bd21cd84cc27e8c7c479728f33d5f62c13bb656da82eb1f18836fb2",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 19699,
+        "completion_tokens": 597,
+        "total_tokens": 20296
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "total_ms": 8052.436900004977,
+      "review": "Partially adopted user-confirmed cancellation edits for BR019/023 and TC033. Rejected modifying TC031 special-city checks or rewriting historical status as passed. Root preserved all40 cases and28 requirements and added explicit latest-scope banner."
+    }
+  ],
+  "p6_cumulative_local_model": {
+    "http_requests": 78,
+    "complete_stop_sse_json": 75,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "observed_client_http_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "scope_change": "User explicitly cancelled independent building seizure on2026-11-01; only whole-city seizure and assets following city remain. Removed scope is not counted implemented or passed. Legacy cleanup/refusal, fees/recovery and city asset verification still required.",
+  "source31_native_activation": "NOT_RUN",
+  "source31_install": "PENDING",
+  "full_game_acceptance": false
+}

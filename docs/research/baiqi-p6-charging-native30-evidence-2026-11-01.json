@@ -1,0 +1,116 @@
+{
+  "schema": "civ6.baiqi-charging-unknown-native30-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 30,
+  "source_commit": "037e235",
+  "artifact_sha256": "07d2d17f8abadac7fd8634fd947054653d7189a83b8d3ce83b7f39e043581a8f",
+  "pid": 5940,
+  "fixture": "Independent OrdinaryReady1 reload; ordinary noncapital city131073 at11,6, unit327684 adjacent, population1, cost300, starting gold500. No fabricated journal or transfer/debit native wrapper.",
+  "fault": "One-shot BaiqiPolicy.Number wrapper, guarded on actual CHARGING persisted phase, balanceBefore500, actual native balance200 and argument200. Original Lua function restored before throwing. Actual physical map interaction and physical confirm. Native transfer and debit already occurred; charge receipt not yet recorded.",
+  "request_id": "city:0:1:327684:1:131073:11:6",
+  "actual_after_fault_and_after_reload": {
+    "turn": 1,
+    "city_owner": 0,
+    "city_id": 131073,
+    "gold": 200,
+    "unit_id": 327684,
+    "moves": 2,
+    "unit_turn_marker": null,
+    "stage": "UNKNOWN",
+    "phase": "CHARGING",
+    "transferObserved": true,
+    "newCityID": 131073,
+    "balanceBefore": 500,
+    "balanceAfter": null,
+    "chargeObserved": null,
+    "cost": 300,
+    "reason": "execution_interrupted"
+  },
+  "duplicates": "Three guarded confirmed packets before save and three after reload; no additional debit, refund, unit movement exhaustion or success settlement. Last player notice UNKNOWN/duplicate.",
+  "reload": "Network.LoadGame actual saved unknown file in same PID5940, then physical Continue; independently asserted actual state after load and after duplicate packets. Not a new cold process.",
+  "diagnostic_correction": "Reused recovery probe attempted UI-only city:IsCapital in Gameplay and errored after its initial observation prints. No mutations in that probe. Replaced with restricted Gameplay read-only assertions; full corrected batch passed.",
+  "save": {
+    "name": "Baiqi_P6_20261101_Cold30_ChargingUnknown1.Civ6Save",
+    "sha256": "599f587d788bd77a75f801c784a715474af0b07c8265275aa0ac19d979991fd2",
+    "bytes": 644472
+  },
+  "logs": {
+    "Database.log": "bfb34e04838badb0d6d58ec6a85b26efdb7c69374d99862b645471ba977690e6",
+    "Lua.log": "40ae8d01128593d5f5387ff93eb81a9fc40defbcca4dc144b0a12b193c684b60",
+    "Modding.log": "c0bcc2f9c0fd213a77469849ff84af23237528f38ac8ea591ca5bf0d718966e9"
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T074154525229Z.json",
+      "sha256": "45f5d99de4d3025239a582a58653ac061558db82aefd1f2f0fb7248945333ddd",
+      "lines": [
+        "P6_CHARGING64_HOOK_ARMED_ONLY"
+      ]
+    },
+    {
+      "receipt": "20261101T074356316418Z.json",
+      "sha256": "3ce9be9a919da60e9661bc46f071cf66cf5e479f31e6ba63374f141dd5344943",
+      "lines": [
+        "P6_CHARGING64_HOOK_RESTORED\ttrue\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T074356767871Z.json",
+      "sha256": "e8186ff7d56553dc45bac68589a21ef09c804875758b4daecba213c57d15bcae",
+      "lines": [
+        "P6_TESTPLAYER_CHARGING64_DUPLICATE\t1\tcity:0:1:327684:1:131073:11:6",
+        "P6_TESTPLAYER_CHARGING64_DUPLICATE\t2\tcity:0:1:327684:1:131073:11:6",
+        "P6_TESTPLAYER_CHARGING64_DUPLICATE\t3\tcity:0:1:327684:1:131073:11:6"
+      ]
+    },
+    {
+      "receipt": "20261101T074358462405Z.json",
+      "sha256": "baaa7fb60b70bfc75e51a63e5ad8cda184f7072f15e355393076edb1ed2cc451",
+      "lines": [
+        "P6_CHARGING64_UNKNOWN_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T074446205720Z.json",
+      "sha256": "445a52e8a27bc1f67835ba01329df298acf93801f26c3fc559bb60a12f6b4a4f",
+      "lines": [
+        "P6_CHARGING64_RELOAD\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T082853734683Z.json",
+      "sha256": "cc84e392a35d19cf9ca95eb9c4b7802880430e1bf70a627386f536c9a377abfb",
+      "lines": [
+        "P6_CHARGING64_RELOADED\t1\tcity:0:1:327684:1:131073:11:6\tUNKNOWN\tCHARGING\ttrue\t131073\tnil\t500\tnil\t300\texecution_interrupted",
+        "P6_CHARGING64_ACTUAL\t0\t131073\t200\t327684\t2\tnil",
+        "P6_CHARGING64_RESULT\tUNKNOWN\tduplicate",
+        "P6_CHARGING64_ASSERTIONS_OK"
+      ]
+    },
+    {
+      "receipt": "20261101T082924046975Z.json",
+      "sha256": "672262398046cb5f89be3688af8bf908bb0d7688eb191123c9eb5892232f66d8",
+      "lines": [
+        "P6_TESTPLAYER_CHARGING64_DUPLICATE\t1\tcity:0:1:327684:1:131073:11:6",
+        "P6_TESTPLAYER_CHARGING64_DUPLICATE\t2\tcity:0:1:327684:1:131073:11:6",
+        "P6_TESTPLAYER_CHARGING64_DUPLICATE\t3\tcity:0:1:327684:1:131073:11:6"
+      ]
+    },
+    {
+      "receipt": "20261101T082936796815Z.json",
+      "sha256": "bd96a2f91c419898fc2e516c0fa3bc7a1f7470363e66c8dd1a3ccf8264155487",
+      "lines": [
+        "P6_CHARGING64_RELOADED\t1\tcity:0:1:327684:1:131073:11:6\tUNKNOWN\tCHARGING\ttrue\t131073\tnil\t500\tnil\t300\texecution_interrupted",
+        "P6_CHARGING64_ACTUAL\t0\t131073\t200\t327684\t2\tnil",
+        "P6_CHARGING64_RESULT\tUNKNOWN\tduplicate",
+        "P6_CHARGING64_ASSERTIONS_OK"
+      ]
+    }
+  ],
+  "screenshots": {
+    "charging64-before-confirmation.png": "a521da30e11285f3a5ea40243f7a7f08e8c38f60bcd3eb1d54a38875bef4e522",
+    "charging64-unknown-notice.png": "91aa6a351c79a4a1aee5e9ade40e88b8d8a76ab380f482c9ebfbeb457613b9e1"
+  },
+  "result": "PASS sampled actual ambiguous CHARGING freeze and same-process save/reload/duplicates. Not full TC029/030, no third-party takeover or TRANSFERRING proof.",
+  "full_game_acceptance": false
+}

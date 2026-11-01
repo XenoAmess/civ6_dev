@@ -87,8 +87,8 @@ end
                 self.c.RunNow()
                 self.assertEqual((len(self.w.commandRequests), self.w.unitRequests[1].op), (0, 17))
 
-    def test_suzerain_city_transfer_and_non_district_actions_are_not_automated(self):
-        for change in ("ActionRequiresSuzerainTerritory=true", "ActionRequiresCompletedDistrictType=nil"):
+    def test_suzerain_city_transfer_actions_remain_excluded(self):
+        for change in ("ActionRequiresSuzerainTerritory=true", "ActionRequiresSuzerainTerritory=1", "ActionRequiresSuzerainTerritory='true'"):
             with self.subTest(change=change):
                 self.setUp()
                 self.w.SetKind(7)
@@ -96,6 +96,93 @@ end
                 self.w.scientistPlot = 43
                 self.c.RunNow()
                 self.assertEqual((len(self.w.commandRequests), self.w.unitRequests[1].op), (0, 17))
+
+    def generic_person(self, kind):
+        if kind != 3:
+            self.w.SetKind(kind)
+        individual = {3: 70, 6: 71, 7: 72}[kind]
+        self.lua.execute(f'GameInfo.GreatPersonIndividuals[{individual}].ActionRequiresCompletedDistrictType=nil')
+        self.w.scientistPlot = 43
+        return individual
+
+    def test_non_district_scientist_engineer_and_merchant_activate_on_current_legal_tile(self):
+        for kind in (3, 6, 7):
+            with self.subTest(kind=kind):
+                self.setUp()
+                self.generic_person(kind)
+                self.c.RunNow()
+                self.assertEqual((len(self.w.commandRequests), self.w.commandRequests[1].hash), (1, 501))
+                self.assertEqual(len(self.w.unitRequests), 0)
+                self.w.scientistCharges = 0
+                self.c.RunNow()
+                self.assertTrue(any('kind=ACTIVATE_GREAT_PERSON|charges=0' in line for line in self.logs))
+
+    def test_non_district_illegal_native_action_waits_without_speculative_movement(self):
+        for kind in (3, 6, 7):
+            with self.subTest(kind=kind):
+                self.setUp()
+                self.generic_person(kind)
+                self.w.rejectActivation = True
+                self.c.RunNow()
+                self.assertEqual(len(self.w.commandRequests), 0)
+                self.assertEqual((len(self.w.unitRequests), self.w.unitRequests[1].op), (1, 17))
+                self.assertFalse(any('BAIQI|error' in line for line in self.logs), self.logs)
+
+    def test_non_district_final_formation_moves_ready_and_visibility_changes_block_activation(self):
+        for change in ('scientistFormation=2', 'scientistMoves=0', 'scientistReady=false', 'hiddenEnemy=true'):
+            with self.subTest(change=change):
+                self.setUp()
+                self.generic_person(7)
+                self.lua.execute('''
+local original=UnitManager.CanStartCommand
+UnitManager.CanStartCommand=function(...)
+ local result=original(...);TestWorld.'''+change+''';return result
+end
+''')
+                self.c.RunNow()
+                self.assertEqual(len(self.w.commandRequests), 0)
+                self.assertTrue(all(r.op != 10 for r in self.w.unitRequests.values()))
+                self.assertFalse(any('BAIQI|error' in line for line in self.logs), self.logs)
+
+    def test_missing_district_row_is_not_treated_as_generic_ability(self):
+        for expression in ("'DISTRICT_MISSING'", "''", 'false'):
+            with self.subTest(expression=expression):
+                self.setUp()
+                self.generic_person(6)
+                self.lua.execute('GameInfo.GreatPersonIndividuals[71].ActionRequiresCompletedDistrictType='+expression)
+                self.c.RunNow()
+                self.assertEqual((len(self.w.commandRequests), self.w.unitRequests[1].op), (0, 17))
+
+    def test_generic_ability_unknown_result_does_not_replay_in_later_turn(self):
+        self.generic_person(7)
+        self.c.RunNow()
+        self.w.turn = 2
+        self.c.Update(3600)
+        self.c.RunNow()
+        self.assertEqual(len(self.w.commandRequests), 1)
+        self.w.withScientist = False
+        self.w.FireActivation(7, 4, 7, 72)
+        self.c.RunNow()
+        self.assertEqual(len(self.w.commandRequests), 1)
+        self.assertEqual(sum('proof=native_activation_event' in line for line in self.logs), 1)
+
+    def test_generic_ability_rechecks_new_plot_object_ownership(self):
+        self.generic_person(6)
+        self.lua.execute('''
+local original=UnitManager.CanStartCommand
+local oldPlot=Map.GetPlot
+UnitManager.CanStartCommand=function(...)
+ local result=original(...)
+ Map.GetPlot=function(...)
+  local p=oldPlot(...)
+  return setmetatable({GetOwner=function()return 8 end},{__index=p})
+ end
+ return result
+end
+''')
+        self.c.RunNow()
+        self.assertEqual(len(self.w.commandRequests), 0)
+        self.assertFalse(any('BAIQI|error' in line for line in self.logs), self.logs)
 
     def test_military_great_people_and_other_classes_never_enter_policy_whitelist(self):
         policy = self.lua.globals().BaiqiPolicy

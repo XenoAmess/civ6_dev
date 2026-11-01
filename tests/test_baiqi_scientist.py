@@ -49,18 +49,24 @@ class BaiqiScientistTests(unittest.TestCase):
         self.c.RunNow()
         self.assertTrue(any('kind=ACTIVATE_GREAT_PERSON|charges=0' in l for l in self.logs), self.logs)
 
-    def test_unaccepted_activation_waits_and_never_repeats_same_charge_in_turn(self):
+    def test_unknown_activation_stays_pending_across_turns_until_actual_charge_change(self):
         self.w.scientistPlot = 43
         self.c.RunNow()
         self.c.Update(0.35)
         self.assertEqual(len(self.w.commandRequests), 1)
         self.c.Update(0.35)
-        self.assertEqual((len(self.w.commandRequests),len(self.w.unitRequests),self.w.unitRequests[1].op), (1,1,17))
-        self.c.Update(2)
-        self.assertEqual(len(self.w.commandRequests), 1)
+        self.assertEqual((len(self.w.commandRequests),len(self.w.unitRequests)), (1,0))
+        self.c.Update(3600)
         self.w.turn += 1
         self.c.RunNow()
-        self.assertEqual(len(self.w.commandRequests), 2)
+        self.c.Update(3600)
+        self.assertEqual((len(self.w.commandRequests),len(self.w.unitRequests)), (1,0))
+        self.assertEqual(sum('great_person_request_unresolved' in l for l in self.logs), 1)
+        self.assertFalse(any('|observed|' in l and 'ACTIVATE_GREAT_PERSON' in l for l in self.logs))
+        self.w.scientistCharges = 0
+        self.c.RunNow()
+        self.assertTrue(any('kind=ACTIVATE_GREAT_PERSON|charges=0' in l for l in self.logs), self.logs)
+        self.assertEqual(len(self.w.commandRequests), 1)
 
     def test_escort_foreign_owner_and_other_leader_never_receive_background_actions(self):
         self.w.scientistFormation = 2
