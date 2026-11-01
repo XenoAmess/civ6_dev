@@ -1,0 +1,399 @@
+{
+  "schema": "civ6.baiqi-art30-and-escort-native-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "pid": 5940,
+  "source_commit": "037e235",
+  "manifest_version": 30,
+  "artifact_sha256": "07d2d17f8abadac7fd8634fd947054653d7189a83b8d3ce83b7f39e043581a8f",
+  "steam_before_launch_readonly_offline_utc": "2026-11-01T06:35:15.093350+00:00",
+  "art": {
+    "window_pixels": [
+      1024,
+      728
+    ],
+    "leader_avatar": "PASS sampled dropdown, ability panel and in-game ribbon",
+    "selection_framing": "PASS complete head, both hands and boots inside native placard; no ability or button obstruction",
+    "loading_framing": "PASS head and both hands inside viewport; left fingertips clear of text banner. Lower boots partly below viewport, documented native crop.",
+    "old_save": "PASS actual OrdinaryReady1 native load and new resource names, fixture city131073/unit327684/gold500 retained",
+    "static_diplomacy": "NOT_RUN",
+    "other_resolutions_and_scales": "NOT_RUN",
+    "HasTexture_getters": "NOT_RUN; visual actual pixels and native data paths used, no fabricated getter result",
+    "screenshots": {
+      "art30-leader-dropdown.png": "04da3276ea066cb7cee1059cfebd9993b9719e5fcf5c74dc1ddcde9fa3cf273e",
+      "art30-selected-leader.png": "412efcce2f40304c36b63f36efb2901eccca62dc64564a071a2d4daa07b9f5df",
+      "art30-loading-framing.png": "02101cb22535416a070bc82d99e640604f8cff91a60a3cd625aa7092114b1ddf"
+    },
+    "logs": {
+      "Database.log": "83bd43377b34978ec1aebffafa2f8c5ea54d283141a590486626ff1949494005",
+      "Lua.log": "fbe6f6013bec733994c8dc03bb1ccafebf4d9b45becd7c9c9557b14baa69ff9b",
+      "Modding.log": "67f7ef1b1eed7a80fc6dc28436f47f71871dcdd85bc063ca2f23bb685dd0856c"
+    }
+  },
+  "escorts": {
+    "fixture": "Same turn1 OrdinaryReady1 world after art evidence archived. Debug-created each warrior+civilian on empty visible owned land18,10, immediately exhausted civilian to avoid setup race. Real native CanStartCommand returned intended partner, then one actual unguarded test-only ENTER_FORMATION per pair. Formation readback2 before real Debug movement restoration. Not normal unit production or player formation-creation proof.",
+    "restore_binding": "UI BaiqiExecutor method absent; actual readonly capability probe found RestoreMovementToFormation in BaiqiGameplay, same source-backed call there succeeded. No guessed setter.",
+    "builder": {
+      "army_id": 393221,
+      "civilian_id": 458758,
+      "before_xy": [
+        18,
+        10
+      ],
+      "moves_before": [
+        2,
+        2
+      ],
+      "military_formation": [
+        0,
+        -1
+      ],
+      "escort_count": [
+        2,
+        2
+      ],
+      "observation": {
+        "duration_seconds": 30.332353300007526,
+        "before": [
+          "P6_ESCORT52_UNIT\t1\t0\t393221\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+          "P6_ESCORT52_UNIT\t1\t0\t458758\tUNIT_BUILDER\t18\t10\t2\t2\t-1\tnil"
+        ],
+        "after": [
+          "P6_ESCORT52_UNIT\t1\t0\t393221\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+          "P6_ESCORT52_UNIT\t1\t0\t458758\tUNIT_BUILDER\t18\t10\t2\t2\t-1\tnil"
+        ],
+        "background_requests_for_pair": [],
+        "log_offset_start": 4089,
+        "log_offset_end": 4283,
+        "fixture_only_preparation": "Actual Debug ENTER_FORMATION and movement restoration happened before this active-AI observation window."
+      },
+      "player_input": "Guarded WorldInput.MoveUnitToPlot actual army entry via test-player tuner; no direct civilian command",
+      "after_xy": [
+        18,
+        11
+      ],
+      "moves_after": [
+        0,
+        0
+      ],
+      "escort_count_after": [
+        2,
+        2
+      ]
+    },
+    "settler": {
+      "army_id": 524295,
+      "civilian_id": 589832,
+      "before_xy": [
+        18,
+        10
+      ],
+      "moves_before": [
+        2,
+        2
+      ],
+      "military_formation": [
+        0,
+        -1
+      ],
+      "escort_count": [
+        2,
+        2
+      ],
+      "observation": {
+        "duration_seconds": 30.19018230000802,
+        "before": [
+          "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+          "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t18\t10\t2\t2\t-1\tnil"
+        ],
+        "after": [
+          "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+          "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t18\t10\t2\t2\t-1\tnil"
+        ],
+        "background_requests_for_pair": [],
+        "log_offset_start": 5195,
+        "log_offset_end": 5392,
+        "fixture_only_preparation": "Actual Debug ENTER_FORMATION and movement restoration happened before this active-AI observation window."
+      },
+      "camera_setup": "Only native select army and SnapToPlot; no tuner movement request",
+      "cursor_readback": [
+        17,
+        11,
+        17,
+        11,
+        524295,
+        524295
+      ],
+      "first_physical_right_click": [
+        512,
+        378
+      ],
+      "first_result": "No position/move/queued-destination change. Cause not individually instrumented; do not label as mod command rejection or definite flag occlusion.",
+      "second_physical_right_click": [
+        480,
+        390
+      ],
+      "second_precondition": "Independently verified same target17,11, selected army524295, positions/moves unchanged and no queued destination before second click",
+      "after_xy": [
+        17,
+        11
+      ],
+      "moves_after": [
+        1,
+        1
+      ],
+      "escort_count_after": [
+        2,
+        2
+      ],
+      "after_player_observation": {
+        "duration_seconds": 30.228672199998982,
+        "before": [
+          "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t17\t11\t1\t2\t0\tnil",
+          "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t17\t11\t1\t2\t-1\tnil"
+        ],
+        "after": [
+          "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t17\t11\t1\t2\t0\tnil",
+          "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t17\t11\t1\t2\t-1\tnil"
+        ],
+        "background_requests_for_pair": [],
+        "log_offset_start": 6389,
+        "log_offset_end": 6586,
+        "fixture_only_preparation": "Actual Debug ENTER_FORMATION and movement restoration happened before this active-AI observation window."
+      },
+      "screenshot_sha256": "eb17ff065d6db85183bcc952a74c7b4e64d66c56bea0e7659ab541715da21b25"
+    },
+    "scope": "PASS existing builder/settler escort isolation and sampled player military movement, including one actual physical map click. Formation creation prepared through test-only unguarded native route. Missing/unknown formation state is still software coverage; not full TC020 or every army action/input matrix.",
+    "save": {
+      "name": "Baiqi_P6_20261101_Cold30_EscortBoth1.Civ6Save",
+      "sha256": "59aaeab31a2c0babe08b2f6b5e9a81548d6df0212873da465859fe317ffa94d8",
+      "bytes": 643288
+    },
+    "logs": {
+      "Database.log": "83bd43377b34978ec1aebffafa2f8c5ea54d283141a590486626ff1949494005",
+      "Lua.log": "b7a7c4d9c52ef37f957a7645820ab65a9aa5d2436c06f73ce3e1ded585d2843d",
+      "Modding.log": "67f7ef1b1eed7a80fc6dc28436f47f71871dcdd85bc063ca2f23bb685dd0856c"
+    }
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T070139927551Z.json",
+      "sha256": "fa02bf1aa1744d26d2f295758d4867346688b599e2dd32b233bcbf6beb5f40e1",
+      "observations": [
+        "P6_ART28_NATIVE_DATA\t1\tLEADER_BAIQI\tBaiqi_LeaderForeground.dds\tBaiqi_LoadingBackground.dds\tfalse\tBaiqi_DiplomacyBackground.dds",
+        "P6_ART28_OLD_SAVE\ttrue\t131073\t327684\t500"
+      ]
+    },
+    {
+      "receipt": "20261101T070209118335Z.json",
+      "sha256": "01ae702436761d25c223f017a5ad9d106838c6759d4fe12ca0bc15e69022a860",
+      "observations": [
+        "P6_ESCORT52_CREATED\t393221\t458758\t18\t10\t2\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T070210671321Z.json",
+      "sha256": "4d7980f5aada9f511dd4defc5a50e3c0f337b893b10bdf37a3292141accc1bd4",
+      "observations": [
+        "P6_ESCORT52_JOIN_ELIGIBLE\t393221\t458758\ttrue\ttrue",
+        "P6_ESCORT52_DEBUG_FORMATION_REQUEST\t393221\t458758"
+      ]
+    },
+    {
+      "receipt": "20261101T070211162863Z.json",
+      "sha256": "855ece77450b8e0630781a005170eb8ceefbc6507760821d4fc93ca8a3c7a048",
+      "observations": [
+        "P6_ESCORT52_UNIT\t1\t0\t393221\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52_UNIT\t1\t0\t458758\tUNIT_BUILDER\t18\t10\t0\t2\t-1\tnil",
+        "P6_ESCORT52_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T070242887408Z.json",
+      "sha256": "a254768c684beb80b702d2124e72e9cfaf7b6ff7db6ba4ef96ef6178f1d97bd5",
+      "observations": [
+        "P6_ESCORT52_DEBUG_BINDINGS\tfunction\tfunction\tfunction"
+      ]
+    },
+    {
+      "receipt": "20261101T070341883739Z.json",
+      "sha256": "aad0a682415f92980d8cb267014654a2d333f34eb1284d96589c2f44c28b8776",
+      "observations": [
+        "P6_ESCORT52_DEBUG_RESTORED\t393221\t458758\t2\t2\t2\t2"
+      ]
+    },
+    {
+      "receipt": "20261101T070342940432Z.json",
+      "sha256": "8249f8cc16afe7595ff2d17d5795213ff181ee93eda2c6449114719e4de24b0e",
+      "observations": [
+        "P6_ESCORT52_UNIT\t1\t0\t393221\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52_UNIT\t1\t0\t458758\tUNIT_BUILDER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T070343470066Z.json",
+      "sha256": "3155c09a1cc3fcbcc2b72b0827042e36e035b3bbbde856d307633f514146fbbf",
+      "observations": [
+        "P6_ESCORT52_UNIT\t1\t0\t393221\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52_UNIT\t1\t0\t458758\tUNIT_BUILDER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T070413626563Z.json",
+      "sha256": "c8ff797b47876a6b0a043109677cf15c804afd11b39e5e5f384f7131117ca8fd",
+      "observations": [
+        "P6_ESCORT52_UNIT\t1\t0\t393221\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52_UNIT\t1\t0\t458758\tUNIT_BUILDER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T071118892867Z.json",
+      "sha256": "f3f3309b448cfd9cb6610e4ede86a30a769c26f65b98ce587c5e480cab35421d",
+      "observations": [
+        "P6_PLAYER_TEST_ESCORT52_MOVE\t393221\t458758\t18\t10\t18\t11"
+      ]
+    },
+    {
+      "receipt": "20261101T071119385998Z.json",
+      "sha256": "f499650e3b719162d50acd9773427dad486c9838e2e7920863a5b3a73647c0fb",
+      "observations": [
+        "P6_ESCORT52_UNIT\t1\t0\t393221\tUNIT_WARRIOR\t18\t11\t0\t2\t0\tnil",
+        "P6_ESCORT52_UNIT\t1\t0\t458758\tUNIT_BUILDER\t18\t11\t0\t2\t-1\tnil",
+        "P6_ESCORT52_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T071931755263Z.json",
+      "sha256": "66d90e0ebbf57dfdaf735e94e7f623449335af1b9aa11ccc8c26687882e21bf8",
+      "observations": [
+        "P6_ESCORT52S_CREATED\t524295\t589832\t18\t10\t2\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T071932296918Z.json",
+      "sha256": "11da75f117017c7b805f4a51d660da443f516f66c59aa9de7bc207b942be37bc",
+      "observations": [
+        "P6_ESCORT52S_JOIN_ELIGIBLE\t524295\t589832\ttrue\ttrue",
+        "P6_ESCORT52S_DEBUG_FORMATION_REQUEST\t524295\t589832"
+      ]
+    },
+    {
+      "receipt": "20261101T071932632574Z.json",
+      "sha256": "81a2b21363a180baac63273017343c6aeceb2b40b030ae4049ba69762c74eea7",
+      "observations": [
+        "P6_ESCORT52S_DEBUG_RESTORED\t524295\t589832\t2\t2\t2\t2"
+      ]
+    },
+    {
+      "receipt": "20261101T071934301699Z.json",
+      "sha256": "0b3e2619e8698e30327579557c44366a72148c4b772f3cdc5b8bdc095082a282",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T071935209515Z.json",
+      "sha256": "52d44cbd7c37f3b16ababce1508952f00a2455b9773eab27724f82ed27028fbb",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T072005524677Z.json",
+      "sha256": "61d3a0a93c7637faf4b0d477b3af2eba5f15c46535293626512e5b1ea78ab4f8",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T072139149599Z.json",
+      "sha256": "f0dcd7699676136fa87873ad85267805918d8ff9154774c90ca95344f40c5d07",
+      "observations": [
+        "P6_PLAYER_TEST_ESCORT52S_CAMERA_ONLY\t524295\t589832\t18\t10\t17\t11"
+      ]
+    },
+    {
+      "receipt": "20261101T072210490865Z.json",
+      "sha256": "aeb6aaecbe0b4e8a882f1753ac712dcba182c826fcabb00cb8ab998a378c6183",
+      "observations": [
+        "P6_ESCORT52S_PHYSICAL_CURSOR\t17\t11\t17\t11\t524295\t524295"
+      ]
+    },
+    {
+      "receipt": "20261101T072211306471Z.json",
+      "sha256": "12670168eaf7713f81b66fd7057b0310583a5d612fb55f508da6b66fdfef5530",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T072320918634Z.json",
+      "sha256": "0547f8a72d0855baf7beb5220b1e4d388d4d6491a966fb0ac8f1dd426e634081",
+      "observations": [
+        "P6_ESCORT52S_PHYSICAL_CURSOR\t17\t11\t17\t11\t524295\t524295"
+      ]
+    },
+    {
+      "receipt": "20261101T072322309458Z.json",
+      "sha256": "a2159f43021a09eb6f4a8ce5b2750e6adc4b157e2bd4127f5b4b8614dce719b3",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t18\t10\t2\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t18\t10\t2\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T072958149679Z.json",
+      "sha256": "b90a9d19aae7571fb3bc5c9efde61eac58062a186211cd44b21f504bd1000ffc",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t17\t11\t1\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t17\t11\t1\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T073335820099Z.json",
+      "sha256": "f609cd6b3fcd1a9d6d2993089aa9b9ef3d631700ffc16d60bb0b2cf81c0f96d6",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t17\t11\t1\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t17\t11\t1\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T073405928753Z.json",
+      "sha256": "8aad8e49aa752d1ddedfdad3e59cb4a8ddcf40919602f7a2d4b78e18b370860d",
+      "observations": [
+        "P6_ESCORT52S_UNIT\t1\t0\t524295\tUNIT_WARRIOR\t17\t11\t1\t2\t0\tnil",
+        "P6_ESCORT52S_UNIT\t1\t0\t589832\tUNIT_SETTLER\t17\t11\t1\t2\t-1\tnil",
+        "P6_ESCORT52S_RESTORE_AVAILABLE\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T073441898538Z.json",
+      "sha256": "97dc500673060b688012bcf2c4a8fd5491eb7ed52c14e76ccbe23ceefca751e3",
+      "observations": [
+        "P6_ESCORT52_BOTH_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T074116300227Z.json",
+      "sha256": "2a770ace083e2d0834e757b8a7282506b7daf02b4ae22f1cf0e692b0260923ba",
+      "observations": [
+        "P6_ESCORT52_EXECUTOR\ttrue\tfalse\ttrue\ttrue\tfalse\tfalse\t内政托管开启；军队等待你的命令"
+      ]
+    }
+  ],
+  "input_events_sha256": "fad9575580f88ef0898bebf916d655ab8f593e79fd817a9ecd943b01a681f880",
+  "full_game_acceptance": false
+}
