@@ -3,7 +3,7 @@
 ## 项目与交接
 
 - 项目用于《文明 VI》领袖模组开发；已有[可安装原型与部分实机证据](docs/implementation/baiqi-prototype.md)，尚未完成全功能实机验收。
-- 接手先读 [README](README.md)、[本地模型指南](docs/local-model-worker-guide.md)、[唯一配置](docs/local-model-executor-config.json)和[经验记录](docs/local-model-experience.md)。
+- 接手先读 [README](README.md)、[本地模型指南](docs/local-model-worker-guide.md)、[本项目接入清单](docs/local-model-executor-config.json)和[经验记录](docs/local-model-experience.md)。
 - 参考 `ck3_eternal_recurrence` 的通用经验；不继承 CK3 的游戏权限、运行进程、Java 迁移、机器路径或任务总线。
 
 ## 白绮与为我前驱
@@ -31,6 +31,10 @@
 
 ## 大力使用本地模型
 
+- 必须使用父目录的 [local-model-operations](https://github.com/XenoAmess/local-model-operations) 共享规范。接手先读其 AGENTS.md、README.md、docs/usage.md、docs/client-maintenance.md 和 prompts/capability-operations.md；分别持续维护 HTTP 与 OpenCode 能力记录。路径可用 LOCAL_MODEL_OPERATIONS_ROOT 指定，不能硬编码本机目录。
+- 连接、模型、认证、默认参数、超时和重试以共享 config/executor.json 为权威；本项目[接入清单](docs/local-model-executor-config.json)仅保留来源、业务提示和调度要求。通过 tools/local_model.py 委托共享 scripts/call.py，不维护第二套 HTTP/SSE 实现；直接HTTP或嵌入式入口也必须先接共享每日维护。
+- 每台客户端本地自然日首次模型使用前检查 OpenCode，同机同用户复用成功缓存。失败或退出码75/AI_REPAIR_REQUIRED时负责人自主诊断修复并重新检查，通过后恢复真实任务；不绕过、不把维护塞进HTTP重试或重放游戏动作。普通候选和OpenCode原生工具分别记账，维护成功不授代码生成能力。
+- 通用经验、候选采用/拒绝、必要验证及未知成本及时写入共享仓库并提交推送；游戏功能证据留本项目并给精确公开反链。既有完整文档已[按Git blob归档](https://github.com/XenoAmess/local-model-operations/tree/c652acd43805d6b0df333238278cc9ea870a485d/docs/history/civ6-2026-11-02)，不得把历史结论当成当前实测或追认每日维护合规。
 - 对真实未完成的实现、文档或诊断任务，优先让本地模型提出候选，再由负责人审阅和编测；不要先写完答案再要求模型复述。
 - 直接并行派发有完整上下文、互不冲突的真实任务；准备、HTTP、审阅和验证重叠进行，不设中央 ACK 串行门。
 - 参考配置中 12–16 个实际在途的初始目标；仅在真实积压与服务资源允许时扩大，不为凑数重复已完成任务、发空探针或制造工作。

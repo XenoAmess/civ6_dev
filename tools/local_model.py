@@ -1,169 +1,89 @@
-"""Save auditable local-model candidates; never execute their contents."""
+"""Civ6 candidate adapter to local-model-operations; never execute candidates."""
 import argparse
-import datetime
-import errno
-import http.client
+import copy
+import hashlib
 import json
+import math
+import os
 from pathlib import Path
-import random
-import socket
+import subprocess
 import sys
-import time
-import urllib.error
-import urllib.request
+import tempfile
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CONFIG = PROJECT_ROOT / 'docs/local-model-executor-config.json'
+
+
+def read_json(path):
+    return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
 
 def write_json(path, value):
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    with Path(path).open('x', encoding='utf-8', newline='\n') as output:
+        output.write(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
 
 
-def iter_sse_data(lines):
-    # Local-model parser candidate, corrected to avoid consuming a one-shot iterator.
-    event_data = []
-    for line in lines:
-        if not isinstance(line, bytes):
-            raise TypeError('SSE lines must be bytes')
-        text = line.removesuffix(b'\n').removesuffix(b'\r').decode('utf-8')
-        if text == '':
-            if event_data:
-                yield '\n'.join(event_data)
-                event_data = []
-            continue
-        if text.startswith(':'):
-            continue
-        field, _, value = text.partition(':')
-        if field == 'data':
-            event_data.append(value.removeprefix(' '))
-    if event_data:
-        yield '\n'.join(event_data)
+def resolve_shared(project):
+    selected = os.environ.get('LOCAL_MODEL_OPERATIONS_ROOT')
+    root = Path(selected).resolve() if selected else PROJECT_ROOT.joinpath(project['shared_repository']['sibling_path']).resolve()
+    for name in ('AGENTS.md', 'config/executor.json', 'scripts/call.py', 'scripts/check_opencode.py'):
+        if not root.joinpath(name).is_file():
+            raise ValueError('Missing local-model-operations dependency: ' + str(root / name))
+    return root
 
 
-def consume_stream(lines, state, start):
-    for data in iter_sse_data(lines):
-        if data == '[DONE]':
-            state['sse_done'] = True
-            break
-        event = json.loads(data)
-        if not isinstance(event, dict) or 'error' in event:
-            raise ValueError('Invalid SSE object or server error event')
-        if event.get('usage') is not None:
-            if not isinstance(event['usage'], dict):
-                raise ValueError('Invalid usage object')
-            state['usage'] = event['usage']
-        choices = event.get('choices', [])
-        if not isinstance(choices, list):
-            raise ValueError('Invalid choices')
-        for choice in choices:
-            if not isinstance(choice, dict) or choice.get('index', 0) != 0:
-                raise ValueError('Expected only choice index 0')
-            delta = choice.get('delta', {})
-            if not isinstance(delta, dict):
-                raise ValueError('Invalid delta')
-            content = delta.get('content')
-            if content is not None and not isinstance(content, str):
-                raise ValueError('Expected string content')
-            if content:
-                if state['first_nonempty_content_delta_ms'] is None:
-                    state['first_nonempty_content_delta_ms'] = (time.perf_counter() - start) * 1000
-                state['parts'].append(content)
-            if choice.get('finish_reason') is not None:
-                state['finish_reason'] = choice['finish_reason']
-    if state['finish_reason'] not in (None, 'stop'):
-        raise ValueError(f"Unusable finish_reason: {state['finish_reason']}")
-    if not state['sse_done'] or state['finish_reason'] is None:
-        raise EOFError('Incomplete SSE; no complete stop/[DONE] pair')
-    candidate = json.loads(''.join(state['parts']))
+def shared_revision(root):
+    try:
+        result = subprocess.run(['git', '-C', str(root), 'rev-parse', 'HEAD'],
+                                capture_output=True, text=True, encoding='utf-8', check=True)
+        return result.stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def strict_object(text):
+    def invalid_constant(value):
+        raise ValueError('Non-JSON numeric constant: ' + value)
+
+    def unique_pairs(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError('Duplicate JSON key: ' + key)
+            result[key] = value
+        return result
+
+    candidate = json.loads(text, parse_constant=invalid_constant, object_pairs_hook=unique_pairs)
     if not isinstance(candidate, dict):
         raise ValueError('Candidate must be a JSON object')
     return candidate
 
 
-def retry_kind(exc):
-    if isinstance(exc, urllib.error.HTTPError):
-        return None
-    if isinstance(exc, urllib.error.URLError):
-        exc = exc.reason
-    if isinstance(exc, (socket.timeout, TimeoutError)):
-        return 'read_timeout'
-    if isinstance(exc, (EOFError, http.client.IncompleteRead, http.client.RemoteDisconnected)):
-        return 'incomplete_response'
-    if isinstance(exc, OSError):
-        if exc.errno == errno.ECONNREFUSED or getattr(exc, 'winerror', None) == 10061:
-            return 'connection_refused'
-        if exc.errno in (errno.ECONNRESET, errno.ECONNABORTED, errno.EPIPE) or getattr(exc, 'winerror', None) in (10054, 10053):
-            return 'connection_reset'
-        if exc.errno == errno.ETIMEDOUT or getattr(exc, 'winerror', None) == 10060:
-            return 'connect_timeout'
-    return None
-
-
-def execute(config, body, output, timeout):
-    output.mkdir(parents=True, exist_ok=False)
-    write_json(output / 'request.json', body)
-    request_bytes = json.dumps(body, ensure_ascii=False).encode('utf-8')
-    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
-    policy = config['transient_retries']
-
-    def record(event):
-        event = {**event, 'at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat()}
-        with (output / 'events.jsonl').open('a', encoding='utf-8') as file:
-            file.write(json.dumps(event, ensure_ascii=False) + '\n')
-        print(json.dumps(event, ensure_ascii=True), flush=True)
-
-    for attempt in range(1, policy['maximum_attempts'] + 1):
-        start = time.perf_counter()
-        state = {'attempt': attempt, 'http_status': None, 'http_headers_ms': None,
-                 'first_nonempty_content_delta_ms': None, 'sse_done': False,
-                 'finish_reason': None, 'usage': None, 'parts': [], 'adopted': None}
-        record({'event': 'BEGIN', 'attempt': attempt})
-        retry = False
-        with (output / f'attempt-{attempt}.sse').open('wb') as raw:
-            try:
-                request = urllib.request.Request(config['base_url'].rstrip('/') + '/chat/completions',
-                                                 data=request_bytes, headers={'Content-Type': 'application/json'})
-                with opener.open(request, timeout=timeout) as response:
-                    state['http_headers_ms'] = (time.perf_counter() - start) * 1000
-                    state['http_status'] = response.status
-                    write_json(output / f'attempt-{attempt}.headers.json', dict(response.headers))
-
-                    def lines():
-                        for line in response:
-                            raw.write(line)
-                            yield line
-
-                    candidate = consume_stream(lines(), state, start)
-                state.update(success=True, candidate=candidate)
-            except urllib.error.HTTPError as exc:
-                state['http_status'] = exc.code
-                state['http_headers_ms'] = (time.perf_counter() - start) * 1000
-                write_json(output / f'attempt-{attempt}.headers.json', dict(exc.headers))
-                try:
-                    raw.write(exc.read())
-                except (OSError, http.client.HTTPException) as body_error:
-                    state['error_body_read_error'] = str(body_error)
-                finally:
-                    exc.close()
-                state.update(success=False, error=f'HTTP {exc.code}')
-                retry = exc.code in policy['retry_http_statuses']
-            except Exception as exc:
-                state.update(success=False, error=f'{type(exc).__name__}: {exc}')
-                retry = retry_kind(exc) in policy['retry_transport_errors']
-        state['total_ms'] = (time.perf_counter() - start) * 1000
-        usage = state['usage'] or {}
-        state['cached_prompt_tokens_if_reported'] = (usage.get('prompt_tokens_details') or {}).get('cached_tokens')
-        state['content'] = ''.join(state.pop('parts'))
-        (output / f'attempt-{attempt}.content.txt').write_text(state['content'], encoding='utf-8')
-        state['will_retry'] = retry and attempt < policy['maximum_attempts']
-        write_json(output / f'attempt-{attempt}.result.json', state)
-        record({'event': 'END', **{key: value for key, value in state.items() if key not in ('content', 'candidate')}})
-        write_json(output / 'result.json', state)
-        if state['success'] or not state['will_retry']:
-            return 0 if state['success'] else 1
-        delay = policy['backoff_seconds'][attempt - 1]
-        delay *= 1 + random.uniform(-policy['jitter_ratio'], policy['jitter_ratio'])
-        record({'event': 'BACKOFF', 'attempt': attempt, 'seconds': delay})
-        time.sleep(delay)
-    return 1
+def project_result(output, returncode):
+    """Project compatibility result.json; canonical shared evidence stays untouched."""
+    summary = read_json(output / 'SUMMARY.json')
+    attempts = summary['attempts']
+    last = attempts[-1] if attempts else {}
+    ready = (returncode == 0 and summary.get('success') is True
+             and last.get('candidate_complete') is True
+             and last.get('finish_reason') == 'stop' and last.get('sse_done') is True
+             and last.get('failure') is None)
+    candidate = None
+    error = last.get('failure') or (None if ready else 'No complete stop/DONE candidate')
+    if ready:
+        try:
+            content = Path(last['content_path']).resolve()
+            if not content.is_relative_to(output.resolve()):
+                raise ValueError('Candidate content is outside its evidence directory')
+            candidate = strict_object(content.read_text(encoding='utf-8-sig'))
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            ready, error = False, str(exc)
+    result = {**last, 'schema': 'civ6.shared-candidate-result/v1', 'success': ready,
+              'candidate': candidate, 'adopted': None, 'error': error,
+              'canonical_summary': 'SUMMARY.json', 'shared_cli_returncode': returncode}
+    write_json(output / 'result.json', result)
+    return 0 if ready else 1
 
 
 def main(argv=None):
@@ -172,43 +92,70 @@ def main(argv=None):
     parser.add_argument('--source', action='append', required=True, type=Path)
     parser.add_argument('--output-dir', required=True, type=Path)
     parser.add_argument('--max-tokens', required=True, type=int)
-    parser.add_argument('--timeout', default=900, type=float, help='Socket I/O timeout, seconds')
-    parser.add_argument('--config', type=Path, default=Path(__file__).resolve().parents[1] / 'docs/local-model-executor-config.json')
+    parser.add_argument('--timeout', type=float, help='Explicit shared read_seconds override; default comes from shared config')
+    parser.add_argument('--config', type=Path, default=DEFAULT_CONFIG, help='Civ6 adapter manifest, not a second HTTP configuration')
+    parser.add_argument('--task-id')
+    parser.add_argument('--machine-id', default=os.environ.get('LOCAL_MODEL_MACHINE_ID'))
+    parser.add_argument('--owner', default=os.environ.get('LOCAL_MODEL_OWNER'))
+    parser.add_argument('--stop-file', type=Path)
     args = parser.parse_args(argv)
     try:
-        if not 1 <= args.max_tokens <= 16000 or not 0 < args.timeout <= 3600:
-            raise ValueError('max-tokens must be 1..16000; timeout must be >0 and <=3600')
-        config = json.loads(args.config.read_text(encoding='utf-8'))
-        if not config['base_url'].startswith(('http://', 'https://')) or not config['model']:
-            raise ValueError('Invalid base_url/model')
-        if config['authentication']['required']:
-            raise ValueError('This caller supports the configured unauthenticated local service only')
-        policy = config['transient_retries']
-        attempts = policy['maximum_attempts']
-        if not isinstance(attempts, int) or not 1 <= attempts <= 6:
-            raise ValueError('maximum_attempts must be 1..6')
-        delays = policy['backoff_seconds']
-        if len(delays) < attempts - 1 or any(not isinstance(x, (int, float)) or not 0 <= x <= 3600 for x in delays):
-            raise ValueError('Invalid retry backoff')
-        if not 0 <= policy['jitter_ratio'] <= 1:
-            raise ValueError('Invalid jitter_ratio')
-        if not isinstance(policy['retry_http_statuses'], list) or not isinstance(policy['retry_transport_errors'], list):
-            raise ValueError('Retry policies must be lists')
+        if not 1 <= args.max_tokens <= 16000:
+            raise ValueError('max-tokens must be 1..16000')
+        if args.timeout is not None and (not math.isfinite(args.timeout) or not 0 < args.timeout <= 3600):
+            raise ValueError('timeout must be finite, >0 and <=3600')
+        output = args.output_dir.resolve()
+        if output.exists():
+            raise ValueError('Evidence directory already exists; use a new task directory')
+        project = read_json(args.config)
+        if project['schema'] != 'civ6.local-model-adapter/v1':
+            raise ValueError('Expected Civ6 shared adapter manifest; old HTTP configs are historical only')
+        shared = resolve_shared(project)
+        canonical_path = shared / 'config/executor.json'
+        canonical = canonical_path.read_bytes()
+        config = copy.deepcopy(json.loads(canonical.decode('utf-8-sig')))
+        system = project['prompting']['system_template']
+        if not isinstance(system, str) or not system.strip():
+            raise ValueError('Missing Civ6 system template')
+        config['prompting']['system_template'] = system
+        if args.timeout is not None:
+            config.setdefault('timeouts', {})['read_seconds'] = args.timeout
         task = args.task.read_text(encoding='utf-8-sig')
         if not task.strip():
             raise ValueError('Task must be nonempty UTF-8 text')
-        system = config['prompting']['system_template']
-        if not isinstance(system, str) or not system.strip():
-            raise ValueError('Missing system template')
-        sources = '\n\n'.join(f'FILE {path.as_posix()}\n{path.read_text(encoding="utf-8-sig")}'
+        sources = '\n\n'.join('FILE ' + path.as_posix() + '\n' + path.read_text(encoding='utf-8-sig')
                                for path in sorted(set(args.source), key=lambda path: path.as_posix()))
-        body = {**config['defaults'], 'model': config['model'], 'max_tokens': args.max_tokens,
-                'stream': True, 'stream_options': {'include_usage': True},
-                'messages': [{'role': 'system', 'content': system}, {'role': 'user', 'content': sources},
-                             {'role': 'user', 'content': task}]}
-        return execute(config, body, args.output_dir, args.timeout)
+        request = {'model': config['model'], 'max_tokens': args.max_tokens,
+                   'messages': [{'role': 'system', 'content': system},
+                                {'role': 'user', 'content': sources}, {'role': 'user', 'content': task}]}
+        provenance = {'schema': 'civ6.local-model-adapter-provenance/v1',
+                      'shared_repository': project['shared_repository']['url'],
+                      'shared_commit': shared_revision(shared),
+                      'canonical_config_sha256': hashlib.sha256(canonical).hexdigest(),
+                      'canonical_caller_sha256': hashlib.sha256((shared / 'scripts/call.py').read_bytes()).hexdigest(),
+                      'project_manifest_sha256': hashlib.sha256(args.config.read_bytes()).hexdigest(),
+                      'overrides': {'prompting.system_template': system}, 'timeout_override': args.timeout,
+                      'maintenance': 'Delegated to canonical call.py CLI client_preflight, before HTTP'}
+        # The canonical CLI owns daily preflight, HTTP, SSE and retries.
+        with tempfile.TemporaryDirectory(prefix='civ6-model-') as temporary:
+            folder = Path(temporary)
+            spec = folder / 'request.json'
+            effective = folder / 'executor.json'
+            write_json(spec, request)
+            write_json(effective, config)
+            command = [sys.executable, '-X', 'utf8', str(shared / 'scripts/call.py'),
+                       str(spec), args.task_id or output.name, '--config', str(effective), '--output', str(output)]
+            for flag, value in (('--machine-id', args.machine_id), ('--owner', args.owner), ('--stop-file', args.stop_file)):
+                if value is not None:
+                    command.extend([flag, str(value)])
+            returned = subprocess.run(command, shell=False).returncode
+        if returned not in (0, 1):
+            # Preserve 75 / AI_REPAIR_REQUIRED for the owning AI to repair.
+            return returned
+        write_json(output / 'ADAPTER-PROVENANCE.json', provenance)
+        return project_result(output, returned)
     except (OSError, ValueError, KeyError, TypeError) as exc:
-        print(f'Error: {exc}', file=sys.stderr)
+        print('local_model.py: ' + str(exc), file=sys.stderr)
         return 1
 
 
