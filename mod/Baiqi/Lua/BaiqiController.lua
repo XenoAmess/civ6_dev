@@ -529,7 +529,7 @@ local function CreatedWorkObserved(player,pending)
   return false
 end
 
-local function SettlementSites(player, state, unit, firstOnly)
+local function SettlementSites(player, state, firstOnly)
   local result = {}
   local ai = player:GetGrandStrategicAI()
   if ai == nil then return result end
@@ -545,10 +545,9 @@ local function SettlementSites(player, state, unit, firstOnly)
           if Revealed(Map.GetPlot(city:GetX(),city:GetY())) and Map.GetPlotDistance(plot:GetX(),plot:GetY(),city:GetX(),city:GetY()) <= 3 then distantEnough=false end
         end
       end
-      local step = unit and PathStep(unit, plot, player, state) or nil
-      if distantEnough and (unit == nil or step ~= nil or UnitIndex(unit) == plot:GetIndex()) then
+      if distantEnough then
         result[#result+1] = {index=plot:GetIndex(), score=100-(tonumber(rank) or 0), legal=true, revealed=true, safe=true,
-          protected=false, plot=plot, step=step}
+          protected=false, plot=plot}
         if firstOnly then return result end
       end
     end
@@ -561,14 +560,23 @@ local function RecruitAllowed(role,economy,player,state)
   -- No hints are cached; the dispatch boundary repeats this against fresh state.
   economy.hasSafeSite=true
   local allowed=BaiqiPlanner.AllowRecruit(role,economy,C)
-  economy.hasSafeSite=role=="settler" and allowed and #SettlementSites(player,state,nil,true)>0 or false
+  economy.hasSafeSite=role=="settler" and allowed and #SettlementSites(player,state,true)>0 or false
   return allowed and (role~="settler" or economy.hasSafeSite)
 end
 
 local function ProcessSettler(ctx, player, state, unit)
   local here = UnitPlot(unit)
   if here==nil then return false end -- Consumed/removed units may remain in a transient collection snapshot.
-  local target = BaiqiPlanner.Site(SettlementSites(player, state, unit), reservations, unit:GetID())
+  local sites=SettlementSites(player,state)
+  local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
+  -- Keep native hint rank and reservations, but path only the first eligible
+  -- destination. Each rejected hint is removed from this callback's local list.
+  while target and target.index~=here:GetIndex() do
+    target.step=PathStep(unit,target.plot,player,state)
+    if target.step then break end
+    target.legal=false
+    target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
+  end
   local mayFound = player:GetCities():GetCount() == 0
     or settlementTargets[unit:GetID()] == here:GetIndex()
     or (target ~= nil and target.index == here:GetIndex())
@@ -603,21 +611,24 @@ local function ProcessBuilder(ctx, player, state, unit)
     end
     if best then return RequestCivilian(ctx, state, unit, "BUILD_IMPROVEMENT", here, best.Hash) end
   end
-  local targets = {}
+  local targets,seen = {},{}
   for _, city in player:GetCities():Members() do
     local ai = city:GetCityAI()
     if ai then
       for _, rec in pairs(ai:GetImprovementRecommendationsForBuilder(unit:GetComponentID()) or {}) do
         local plot = Map.GetPlotByIndex(rec.ImprovementLocation)
-        if plot and plot:GetOwner() == ctx.player then
-          local step=PathStep(unit, plot, player, state)
-          if step then targets[#targets+1]={plot=plot,step=step,index=plot:GetIndex(),distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())} end
+        if plot and Revealed(plot) and plot:GetOwner() == ctx.player and not seen[plot:GetIndex()] then
+          seen[plot:GetIndex()]=true
+          targets[#targets+1]={plot=plot,index=plot:GetIndex(),distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
         end
       end
     end
   end
   table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
-  if targets[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",targets[1].step) end
+  for _,target in ipairs(targets) do
+    local step=PathStep(unit,target.plot,player,state)
+    if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+  end
   return false
 end
 

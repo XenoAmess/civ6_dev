@@ -1,0 +1,85 @@
+{
+  "schema": "civ6.baiqi-lazy-path-source35-evidence/v1",
+  "recorded_utc": "2026-11-01T13:10:37.357315+00:00",
+  "machine_id": "BF-202609141645",
+  "base_commit": "0f14793",
+  "manifest_version": 35,
+  "change": {
+    "builder": "Collect only revealed-owned native hints, deduplicate plotindex, sort unchanged distance/index, then PathStep in order until first reachable; immediately return original RequestCivilian result even if rejected. Local repair/build logic unchanged.",
+    "settler": "Collect same safe/revealed/distance-qualified hints without paths, select using unchanged Planner.Site score/index/reservations. Reject only locally unreachable candidate and choose next; standing at selected target skips path. First-capital and existing settlementTargets FOUND conditions retained.",
+    "safety": "Full path ownership/revealed/visible-threat/pathlength checks and final unit/move/owner/native write validation remain. No cross-callback cache, no army orders or producttoggle; all-unreachable cases may still require multiple native paths."
+  },
+  "local_models": [
+    {
+      "task": "builderpath95",
+      "request_sha256": "b97a7ca3ce708bc1d15ae9ef51565512d9978c774bdbf475b7494df5f2062c1d",
+      "result_sha256": "7899b5270a52b654352e2de7048b2860ce7e85a78862954c12847a891f211141",
+      "usage": {
+        "prompt_tokens": 21538,
+        "completion_tokens": 851,
+        "total_tokens": 22389
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "buildertests96",
+      "request_sha256": "9d365820a5dc90a2f8236b014398fd0f618151ac9ba306043f4636e6ef471667",
+      "result_sha256": "83c7de30434960875a582ea344af85863f54d2093e55d36593c20cdd9a7994f6",
+      "usage": {
+        "prompt_tokens": 21510,
+        "completion_tokens": 1809,
+        "total_tokens": 23319
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "settlerpath97",
+      "request_sha256": "a12c644ea5e07b05fba23dfb365cc3a4781a654cb7ce73118a0d504ba45230d8",
+      "result_sha256": "78c5906350b52076cb9c730d01f6dd3f0711169cdaf3011d7b2ae6ec067912bf",
+      "usage": {
+        "prompt_tokens": 21976,
+        "completion_tokens": 428,
+        "total_tokens": 22404
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "review": {
+    "95": "Core builder candidate adopted with revealed check before owner/coordinate ranking.",
+    "96": "Partial consumer ideas adopted; rejected false claim old code falls through to another write after first reachable rejection. Root supplied legal adjacent-step paths rather than impossible direct jump to far target.",
+    "97": "Direction only, no code supplied. Root implemented bounded local eligibility removal and same Planner.Site ordering/standing-target behavior."
+  },
+  "software": {
+    "new_test_methods": 12,
+    "old_source_expected_query_contract_failures": 8,
+    "old_log_sha256": "7b365b88915ac38ff7cea8328cf107d7e2c8b637668a94d2c46562f25c6b801e",
+    "focused_after_sha256": "048c61fb4ec8414e054c8ee7653f3ec0c61dbb0d7edd89d9a6a4db388f15d620",
+    "full_tests": 257,
+    "all_passed": true,
+    "full_log_sha256": "71be77ab76a40401305b0005fa2b2c5a8176f7bbbde8a421d4deee8e70fb3c04",
+    "meaning": "Old failures concern redundant native queries/order; original selected-action behavior also checked. Not8 newly discovered incorrect gameplay outcomes.",
+    "coverage": [
+      "9 city duplicate hints only1 path",
+      "Farther-first hints and equal-distance tie",
+      "Unreachable nearest and reachable next",
+      "Unrevealed hint exclusion",
+      "Visible enemy waits without path/move",
+      "First reachable write rejection does not choose another target",
+      "Settler rank priority overdistance",
+      "Settler unreachable scorepriority fallback",
+      "Other settler reservation skips path",
+      "Standing at selected site founds without path",
+      "Initial capital with no hints",
+      "Escort zero paths/orders"
+    ]
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "9fabc90b00f69962f4da314a6a486d8468d62e2ef804e712fc9bde1c8864dbf5",
+    "mod/Baiqi/Baiqi.modinfo": "5faf77e7ae8ed27f9ccca487224cd59a7eb927426f652fe5bd7a7c49425cc5c6",
+    "tests/lua/mock_path_ranking.lua": "d985be532041b4aa78b954f03d1d39d91c18bfa23ff96712fec8317149785828",
+    "tests/test_baiqi_path_ranking.py": "fca1e29190c8503096d57df89af781ecd79acaccc9377d28845c4abdc450ef36"
+  },
+  "artifact_sha256": "8c1d5f8376f16d79323d98dc0252032e2314cf9af84805009757e2b60cabeb76",
+  "native_validation": "NOT_RUN source35. Current native process still source34; path93 diagnostics and fullID evidence in separate native34 file. No actual speedup or full TC036 PASS claimed.",
+  "full_game_acceptance": false
+}
