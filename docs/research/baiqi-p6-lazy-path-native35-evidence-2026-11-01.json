@@ -1,0 +1,356 @@
+{
+  "schema": "civ6.baiqi-lazy-path-native35-evidence/v1",
+  "recorded_utc": "2026-11-01T14:49:30.857905+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "4394ab4",
+  "manifest_version": 35,
+  "pid": 6184,
+  "installed_files": 59,
+  "all_installed_files_match_commit": true,
+  "artifact_sha256": "8c1d5f8376f16d79323d98dc0252032e2314cf9af84805009757e2b60cabeb76",
+  "fresh_steam_offline_before_cold_launch": "2026-11-01T13:14:59.185318+00:00",
+  "steam_online_switches": 0,
+  "normal_regression": {
+    "start_save": "Baiqi_P6_20261101_V34_PathDiagnosis100",
+    "start_turn": 100,
+    "end_turn": 105,
+    "start_cities": 11,
+    "end_cities": 11,
+    "normal_endturn_calls": [
+      100,
+      101,
+      102,
+      103,
+      104
+    ],
+    "manual_domestic_choices": 0,
+    "debug_resources_units_or_production_grants": 0,
+    "all_final_city_queues_size1_nonzero_hash": true,
+    "settler_budget_samples": 26,
+    "all_alive_plus_queued_within_max_one": true,
+    "new_improvements_matching_background_targets": 7,
+    "actual_improvement_readbacks": [
+      "P6_PATH35_IMPROVEMENT\t492\t0\t8\tfalse",
+      "P6_PATH35_IMPROVEMENT\t494\t0\t1\tfalse",
+      "P6_PATH35_IMPROVEMENT\t537\t0\t8\tfalse",
+      "P6_PATH35_IMPROVEMENT\t540\t0\t8\tfalse",
+      "P6_PATH35_IMPROVEMENT\t669\t0\t8\tfalse",
+      "P6_PATH35_IMPROVEMENT\t676\t0\t8\tfalse",
+      "P6_PATH35_IMPROVEMENT\t896\t0\t4\tfalse"
+    ],
+    "scope": "PASS this5turn normal production/improvement regression; does not complete latest20turn or all40cases. Existing settler stilltravelling, no newcity in thiswindow; prior34normal expansion separate."
+  },
+  "manual_diplomacy": {
+    "turn101": "PhysicalAlexander agendaGoodbye, then original blocking worldcongress. Driver stopped honestly onHUDhidden and WORLD_CONGRESS, resumed onlyafterplayercompleted required foreign decisions.",
+    "votes": "Two freeA votes: BorderControl targetBaiqi; UrbanDevelopment targetCampus. Review cost0/favor99. PhysicalSubmit802,683, then physicalReturnGame695,683 afterresults.",
+    "actual_winners": [
+      "BorderControl A targetAlexander: new districts culturebomb",
+      "UrbanDevelopment A targetTheaterSquare: +100%production toward buildings in that district"
+    ],
+    "attribution": "Selected targets differ from winners. Old81 trade/military production effects expired/replaced bynative session rules; do not attribute changed costs, income, NPC borders or building progression to pathoptimization."
+  },
+  "profile": {
+    "summary": {
+      "n": 1865,
+      "p50_ms": 2.000093460083,
+      "p95_ms": 15.000104904175,
+      "max_ms": 431.99992179871,
+      "path_calls": 200,
+      "path_sum_ms": 1729.0010452270521,
+      "units_calls": 41411,
+      "units_sum_ms": 336.9994163513184,
+      "callback_sum_ms": 11195.995807647785
+    },
+    "top10": [
+      {
+        "turn": 105,
+        "cities": 11,
+        "seconds": 0.43199992179871,
+        "path_calls": 11,
+        "path_seconds": 0.27800059318542,
+        "units_calls": 1876,
+        "units_seconds": 0.045999526977539,
+        "max_path_seconds": 0.052000045776367,
+        "path_unit": 5898283,
+        "path_plot": 717,
+        "actual_unit_type_from_native_snapshots": "UNIT_GREAT_ENGINEER"
+      },
+      {
+        "turn": 103,
+        "cities": 11,
+        "seconds": 0.40799999237061,
+        "path_calls": 11,
+        "path_seconds": 0.27100086212158,
+        "units_calls": 1838,
+        "units_seconds": 0.039999961853027,
+        "max_path_seconds": 0.051000118255615,
+        "path_unit": 5898283,
+        "path_plot": 717,
+        "actual_unit_type_from_native_snapshots": "UNIT_GREAT_ENGINEER"
+      },
+      {
+        "turn": 103,
+        "cities": 11,
+        "seconds": 0.37599992752075,
+        "path_calls": 11,
+        "path_seconds": 0.26000022888184,
+        "units_calls": 1876,
+        "units_seconds": 0.035000085830688,
+        "max_path_seconds": 0.039999961853027,
+        "path_unit": 5898283,
+        "path_plot": 717,
+        "actual_unit_type_from_native_snapshots": "UNIT_GREAT_ENGINEER"
+      },
+      {
+        "turn": 105,
+        "cities": 11,
+        "seconds": 0.3600001335144,
+        "path_calls": 11,
+        "path_seconds": 0.24300026893616,
+        "units_calls": 1876,
+        "units_seconds": 0.035999059677124,
+        "max_path_seconds": 0.039000034332275,
+        "path_unit": 5898283,
+        "path_plot": 448,
+        "actual_unit_type_from_native_snapshots": "UNIT_GREAT_ENGINEER"
+      },
+      {
+        "turn": 104,
+        "cities": 11,
+        "seconds": 0.12599992752075,
+        "path_calls": 11,
+        "path_seconds": 0.082999706268311,
+        "units_calls": 1876,
+        "units_seconds": 0.0080001354217529,
+        "max_path_seconds": 0.016999959945679,
+        "path_unit": 5898283,
+        "path_plot": 582,
+        "actual_unit_type_from_native_snapshots": "UNIT_GREAT_ENGINEER"
+      },
+      {
+        "turn": 103,
+        "cities": 11,
+        "seconds": 0.097999811172485,
+        "path_calls": 1,
+        "path_seconds": 0.056999921798706,
+        "units_calls": 305,
+        "units_seconds": 0.007000207901001,
+        "max_path_seconds": 0.056999921798706,
+        "path_unit": 4653085,
+        "path_plot": 584,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 103,
+        "cities": 11,
+        "seconds": 0.092000007629395,
+        "path_calls": 6,
+        "path_seconds": 0.064000368118286,
+        "units_calls": 133,
+        "units_seconds": 0.007000207901001,
+        "max_path_seconds": 0.031000137329102,
+        "path_unit": 5636109,
+        "path_plot": 368,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 101,
+        "cities": 11,
+        "seconds": 0.080999851226807,
+        "path_calls": 1,
+        "path_seconds": 0.045000076293945,
+        "units_calls": 286,
+        "units_seconds": 0.0060000419616699,
+        "max_path_seconds": 0.045000076293945,
+        "path_unit": 5701639,
+        "path_plot": 896,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 103,
+        "cities": 11,
+        "seconds": 0.072999954223633,
+        "path_calls": 1,
+        "path_seconds": 0.0080001354217529,
+        "units_calls": 305,
+        "units_seconds": 0.011999845504761,
+        "max_path_seconds": 0.0080001354217529,
+        "path_unit": 5373970,
+        "path_plot": 918,
+        "actual_unit_type_from_native_snapshots": "UNIT_SETTLER"
+      },
+      {
+        "turn": 103,
+        "cities": 11,
+        "seconds": 0.068000078201294,
+        "path_calls": 1,
+        "path_seconds": 0.032999992370605,
+        "units_calls": 286,
+        "units_seconds": 0.0090000629425049,
+        "max_path_seconds": 0.032999992370605,
+        "path_unit": 5767209,
+        "path_plot": 584,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      }
+    ],
+    "raw_private_summary_sha256": "3284bc683061eba12ae338f4307572ec9a0c52f41d2f26f73360639443061eec",
+    "restored": true,
+    "callback_errors": 0,
+    "api_errors": 0,
+    "dropped": 0,
+    "query_count_distribution": {
+      "1": 71,
+      "0": 1774,
+      "2": 8,
+      "4": 2,
+      "6": 1,
+      "11": 9
+    },
+    "observed_scope": "Actual builder and settler samples use1 path; largest remaining11path callbacks map to engineer5898283, whose district-target loop was deliberately unchanged. Max432ms andp95~15ms are exploratory mixed idle/work callbacks with instrumentation.",
+    "limits": [
+      "No causal percentage against old93→100 or85→90 windows: workloads/timing/policies differ",
+      "Instrumentation overhead and1ms clock quantization",
+      "Not fullmodule/turnCPU/pairedmoddisabledcontrol",
+      "All-unreachable cases can requiremultiplepaths",
+      "Engineer and other unoptimized civilian loops remain"
+    ],
+    "full_tc036_pass": false
+  },
+  "runtime_errors": {
+    "entire_lua_log_zero": false,
+    "native_frontend_carousel_errors": 15697,
+    "source": "Unmodified shipped MainMenu.lua1373 indexes missing firstChallengeStack child.",
+    "temporal_checks": "Count15697 at initial in-game check, still15697 at102/105 and afterprofilerrestore. No new sucherrors observed during laterwindow. Shipped OnHide lines1594–1601 clearsOnUpdate. Rootinitiallycalled itongoing, latercountchecks showedstartuphistory.",
+    "baiqi_error_records": 0,
+    "not_claimed": "No proof that offline mode alone caused the missing carousel child; no gamefilepatch or Steamonline switch. Timing results remain exploratory withstartuperror caveat."
+  },
+  "great_person_preimplementation_capabilities": {
+    "ui_player_game_unit_property_setters": "Allnil; read getters available.",
+    "exposed_members": "table observed bothBaiqiExecutor andBaiqiGameplay; function-call/writesemantics NOT_TESTED atthispoint.",
+    "implementation_status": "UnknownGP cross-save intent stillunfinished; capabilities are not implementation or recoveryPASS."
+  },
+  "p6_local_model_cumulative": {
+    "http_requests": 97,
+    "complete_stop_sse_json": 94,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "actual_client_http_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "save": {
+    "name": "Baiqi_P6_20261101_V35_LazyPaths105.Civ6Save",
+    "sha256": "89429317b5cf7e6aa26d5d9721bc01f85c5be46bfd9b8d6bc51d23a9cb358c83",
+    "bytes": 539029
+  },
+  "screenshots": {
+    "path35-stable105": "0de318a81b2da98ae96605e5ef1bf6c4da26fdd9fe2bb2cf029b086c1ae2079a",
+    "path35-congress101-review": "517a83d6e9a6f9cd72e7bba455fd6f9fb11e7345020b15d53beb0f13a3f0b51f"
+  },
+  "drivers": {
+    "nine32-v35-path100to105-run1.log": "7e7517473fb91fcceb13b1e5ccc81dd50fb99bde3c6f732db37672af54019a3d",
+    "nine32-v35-path100to105-run2.log": "3fe7f3ff2a5ef3e563c1e36e61419e10e427480c6fd8069c30453d1bc3fc4e8b",
+    "nine32-v35-path100to105-run3.log": "17e76963b240e5f59f73131e7215b6b23648d7f3f25fbc42330f3c70074ae1a9"
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T132027630403Z.json",
+      "sha256": "cc86904f70391c3e612b23faac67e42d43808cb90270d3825b112121581c25d6",
+      "context": "MainMenu",
+      "readback": [
+        "P6_PATH35_LOAD100\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T132529849136Z.json",
+      "sha256": "b21d284aa34c59929ebabe7c366460ab3e1fc421a475427269c5f27ce3c53ddc",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH35_STARTED\t100\t11"
+      ]
+    },
+    {
+      "receipt": "20261101T135915395631Z.json",
+      "sha256": "50b18766f227c2c7496fef6b19aae1e180506e9529f8acb4d18aeba9f37731a0",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH35_RESTORED\t105\t1865\t0\t0\t0",
+        "P6_PATH35_STATE\tfalse\t1865\t0\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T140129369361Z.json",
+      "sha256": "cfc543a20a4c1b25c02eb0583c2d946c27f357a0b1589575d30565020f7d18d2",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH35_FINAL\t11\tfalse\tfalse\t已提交建造者操作，等待实际结果",
+        "P6_PATH35_SAVE105\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T141148713826Z.json",
+      "sha256": "5d611d5c4ad24270f0c9bf36b8c538f6bea014e5aeaff692a0e14415d319376e",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH35_IMPROVEMENT\t492\t0\t8\tfalse",
+        "P6_PATH35_IMPROVEMENT\t494\t0\t1\tfalse",
+        "P6_PATH35_IMPROVEMENT\t537\t0\t8\tfalse",
+        "P6_PATH35_IMPROVEMENT\t540\t0\t8\tfalse",
+        "P6_PATH35_IMPROVEMENT\t669\t0\t8\tfalse",
+        "P6_PATH35_IMPROVEMENT\t676\t0\t8\tfalse",
+        "P6_PATH35_IMPROVEMENT\t896\t0\t4\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T142856129990Z.json",
+      "sha256": "85e3e9630ced20e238f8cefb745becc89445d53b2f2fdce3effdff47a8262f96",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_GP_UNIT_PROPERTY_CAP_PLAYER\tfunction\tnil\tnil",
+        "P6_GP_UNIT_PROPERTY_CAP\t4194337\tUNIT_GREAT_MERCHANT\tfunction\tnil",
+        "P6_GP_UNIT_PROPERTY_CAP\t5898283\tUNIT_GREAT_ENGINEER\tfunction\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T143841803170Z.json",
+      "sha256": "9152be9a7de930493d40e9b5937a244bf879db45ed7eb782da4b7497e6e42588",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH35_FINAL_STATE\t105\t11\tfalse\tfalse\t已提交建造者操作，等待实际结果",
+        "P6_PATH35_CITY\t65536\t1\t-578128686",
+        "P6_PATH35_CITY\t131073\t1\t1714821680",
+        "P6_PATH35_CITY\t196610\t1\t101426179",
+        "P6_PATH35_CITY\t262147\t1\t-1698135861",
+        "P6_PATH35_CITY\t327684\t1\t101426179",
+        "P6_PATH35_CITY\t393221\t1\t-468469791",
+        "P6_PATH35_CITY\t458758\t1\t-578128686",
+        "P6_PATH35_CITY\t524295\t1\t101426179",
+        "P6_PATH35_CITY\t589832\t1\t-1698135861",
+        "P6_PATH35_CITY\t655369\t1\t-1698135861",
+        "P6_PATH35_CITY\t720906\t1\t-764771404"
+      ]
+    },
+    {
+      "receipt": "20261101T143842230708Z.json",
+      "sha256": "daa131543d3aab765255cc251bf87792b5b32fd5bc392072e807cc8a32f1953a",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_GP_SHARED_BRIDGE_CAP\ttable\ttable\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T143842634063Z.json",
+      "sha256": "9d97bff3e79b8d71b7e1c00ef4fef395bf119fe44fb7e45285ff8e76181ab598",
+      "context": "BaiqiGameplay",
+      "readback": [
+        "P6_GP_SHARED_BRIDGE_CAP\ttable\ttable\ttable"
+      ]
+    }
+  ],
+  "archived_logs": {
+    "Database.log": "c327e02df45affa72b7449772b3ec80524c454d55871f33eae592f8b25474b51",
+    "Lua.log": "b839aa1d82026b58d331c2b8a7e9095d38442a2a4db48420b6ee6176798b1437",
+    "Modding.log": "d545ac51bec5041a5652635d5983045bd90aba775d5b84880b876efc2b6c0b56"
+  },
+  "full_game_acceptance": false
+}
