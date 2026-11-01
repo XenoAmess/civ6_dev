@@ -99,10 +99,12 @@ end
 
     def test_military_great_people_and_other_classes_never_enter_policy_whitelist(self):
         policy = self.lua.globals().BaiqiPolicy
-        for kind in ('UNIT_GREAT_GENERAL', 'UNIT_GREAT_ADMIRAL', 'UNIT_GREAT_PROPHET', 'UNIT_WARRIOR'):
+        for kind in ('UNIT_GREAT_GENERAL', 'UNIT_GREAT_ADMIRAL', 'UNIT_WARRIOR'):
             self.assertFalse(policy.CivilianType(kind))
             self.assertFalse(policy.ActionAllowed(kind, 'ACTIVATE_GREAT_PERSON'))
-        for kind in ('UNIT_GREAT_WRITER', 'UNIT_GREAT_ARTIST', 'UNIT_GREAT_MUSICIAN'):
+        self.assertTrue(policy.CivilianType('UNIT_GREAT_PROPHET'))
+        self.assertFalse(policy.ActionAllowed('UNIT_GREAT_PROPHET', 'ACTIVATE_GREAT_PERSON'))
+        for kind in ('UNIT_GREAT_WRITER', 'UNIT_GREAT_ARTIST', 'UNIT_GREAT_MUSICIAN', 'UNIT_GREAT_PROPHET'):
             self.assertIsNone(policy.DistrictGreatPersonClass(kind))
 
     def test_type_class_owner_or_individual_change_inside_native_gate_prevents_dispatch(self):

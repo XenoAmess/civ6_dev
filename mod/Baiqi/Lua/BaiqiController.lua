@@ -321,6 +321,79 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
   return false
 end
 
+local function ProphetData(unit)
+  local def=GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType~="UNIT_GREAT_PROPHET" then return nil end
+  local gp=unit:GetGreatPerson()
+  local individual=gp and GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
+  local class=gp and GameInfo.GreatPersonClasses[gp:GetClass()]
+  if individual and class and individual.GreatPersonClassType=="GREAT_PERSON_CLASS_PROPHET"
+    and class.GreatPersonClassType=="GREAT_PERSON_CLASS_PROPHET" then return individual,class end
+end
+
+local function ProphetQualification(player)
+  local religion=player.GetReligion and player:GetReligion()
+  if religion and religion.GetReligionTypeCreated and religion.GetNumBeliefsEarned and religion.HasReligiousFoundingUnit
+    and religion:GetReligionTypeCreated()==-1 and religion:GetNumBeliefsEarned()==0
+    and religion:HasReligiousFoundingUnit()==false then return religion end
+end
+
+local function RequestProphet(unit)
+  local ctx,player,state=PlayerContext()
+  if not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) then return false end
+  local individual,class=ProphetData(unit)
+  local religion=ProphetQualification(player)
+  local here=UnitPlot(unit)
+  local operation=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_FOUND_RELIGION
+  local unitID=unit:GetID()
+  if not individual or not religion or not here or here:GetOwner()~=ctx.player
+    or not Safe(here,player) or not operation or pendingUnits[unitID] then return false end
+  for _,pending in pairs(pendingUnits) do if pending.kind=="FOUND_RELIGION" then return false end end
+  if UnitManager.CanStartOperation(unit,operation.Hash,nil,{})~=true then return false end
+  local freshCtx,freshPlayer,freshState=PlayerContext()
+  local actual,actualClass=ProphetData(unit)
+  if not freshCtx or freshCtx.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)
+    or not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or not actual
+    or actual.Index~=individual.Index or actualClass.Index~=class.Index
+    or UnitIndex(unit)~=here:GetIndex() or here:GetOwner()~=freshCtx.player
+    or not ProphetQualification(freshPlayer) then return false end
+  local id=NextRequest("prophet:"..unitID..":"..individual.Index)
+  if not id then return false end
+  pendingUnits[unitID]={id=id,kind="FOUND_RELIGION",from=here:GetIndex(),moves=unit:GetMovesRemaining(),
+    individual=individual.Index,class=class.Index,unitType="UNIT_GREAT_PROPHET",earned=0,elapsed=0}
+  Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=FOUND_RELIGION|individual="..individual.Index)
+  UnitManager.RequestOperation(unit,operation.Hash)
+  return true
+end
+
+local function ProcessProphet(ctx,player,state,unit)
+  if not ProphetData(unit) or not ProphetQualification(player) then return false end
+  for _,pending in pairs(pendingUnits) do if pending.kind=="FOUND_RELIGION" then return false end end
+  if RequestProphet(unit) then return true end
+  local required=GameInfo.Districts.DISTRICT_HOLY_SITE
+  local targets={}
+  if required then
+    for _,city in player:GetCities():Members() do
+      if city:GetDistricts():HasDistrict(required.Index,true) then
+        for _,district in city:GetDistricts():Members() do
+          if district:GetType()==required.Index and district:IsComplete()==true and district:IsPillaged()==false then
+            local plot=Map.GetPlot(district:GetX(),district:GetY())
+            if plot and plot:GetOwner()==ctx.player then
+              local step=PathStep(unit,plot,player,state)
+              if step then targets[#targets+1]={plot=plot,step=step,index=plot:GetIndex(),
+                distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())} end
+            end
+          end
+        end
+      end
+    end
+  end
+  table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
+  if targets[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",targets[1].step) end
+  Reason("prophet:"..unit:GetID(),"先知等待已建成的安全圣地与原生建教资格")
+  return false
+end
+
 local function CreativeData(unit)
   local def=GameInfo.Units[unit:GetUnitType()]
   local expected=def and BaiqiPolicy.CreativeGreatPersonClass(def.UnitType)
@@ -746,7 +819,17 @@ local function ReadBack(player)
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
-    if pending.kind=="CREATE_GREAT_WORK" then
+    if pending.kind=="FOUND_RELIGION" then
+      local religion=player.GetReligion and player:GetReligion()
+      if pending.nativeActivated and religion and religion.GetNumBeliefsEarned and religion.HasReligiousFoundingUnit
+        and religion:GetNumBeliefsEarned()>pending.earned and religion:HasReligiousFoundingUnit()==true then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=FOUND_RELIGION|proof=native_activation_and_earned_beliefs")
+        pendingUnits[unitID]=nil
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+        Log("prophet_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_and_earned_beliefs=true")
+        pending.unresolvedLogged=true
+      end
+    elseif pending.kind=="CREATE_GREAT_WORK" then
       if CreatedWorkObserved(player,pending) then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=CREATE_GREAT_WORK|work="..pending.createdEvent.work.."|proof=native_event_and_owned_slot")
         pendingUnits[unitID]=nil
@@ -899,6 +982,8 @@ local function Tick()
         if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
       elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
         if ProcessCreative(ctx,player,state,unit) then status="已提交自动创作，等待实际作品";return end
+      elseif snapshot.type=="UNIT_GREAT_PROPHET" then
+        if ProcessProphet(ctx,player,state,unit) then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
       end
       local here=UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
@@ -943,9 +1028,11 @@ local function OnGreatPersonActivated(playerID,unitID,classID,individualID)
   local pending=pendingUnits[unitID]
   local class=GameInfo.GreatPersonClasses and GameInfo.GreatPersonClasses[classID]
   local individual=GameInfo.GreatPersonIndividuals and GameInfo.GreatPersonIndividuals[individualID]
-  if ctx and ctx.player==playerID and class and individual and pending and pending.kind=="ACTIVATE_GREAT_PERSON"
+  local expected=pending and ((pending.kind=="FOUND_RELIGION" and "GREAT_PERSON_CLASS_PROPHET")
+    or (pending.kind=="ACTIVATE_GREAT_PERSON" and BaiqiPolicy.DistrictGreatPersonClass(pending.unitType)))
+  if ctx and ctx.player==playerID and class and individual and pending and expected
     and class.Index==pending.class and individual.Index==pending.individual
-    and individual.GreatPersonClassType==BaiqiPolicy.DistrictGreatPersonClass(pending.unitType) then
+    and class.GreatPersonClassType==expected and individual.GreatPersonClassType==expected then
     pending.nativeActivated=true
   end
 end
