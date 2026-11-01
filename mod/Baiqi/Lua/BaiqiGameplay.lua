@@ -35,6 +35,15 @@ local function OnRequisition(playerID,params)
   local ok,success,reason=pcall(BaiqiCapture.Request,playerID,params)
   local journal=player:GetProperty(BaiqiConfig.requisitionKey)
   local record=journal and journal.operations and journal.operations[params.requestID]
+  if ok and success==false and type(record)=="table" and record.stage=="UNKNOWN" then
+    -- One recovery attempt inside this already confirmed intent. Definite
+    -- receipts can settle; ambiguous native calls remain frozen.
+    local recovered,recoveryError=pcall(BaiqiCapture.Recover,playerID)
+    journal=player:GetProperty(BaiqiConfig.requisitionKey)
+    record=journal and journal.operations and journal.operations[params.requestID]
+    if recovered and type(record)=="table" and record.stage=="COMMITTED" then reason="recovered" end
+    if not recovered then print("BAIQI|recovery_handler_error|"..tostring(recoveryError)) end
+  end
   local stage=type(record)=="table" and record.stage or (ok and "REJECTED" or "UNKNOWN")
   player:SetProperty("BAIQI_REQUISITION_RESULT",{id=params.requestID,stage=stage,reason=ok and reason or "handler_error"})
   if not ok then print("BAIQI|requisition_handler_error|"..tostring(success)) end

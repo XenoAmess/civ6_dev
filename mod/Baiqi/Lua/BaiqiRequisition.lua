@@ -20,8 +20,16 @@ function BaiqiRequisition.Player(playerID)
   if config.IsHuman~=nil then human=config:IsHuman()
   elseif player.IsHuman~=nil then human=player:IsHuman() end
   if human~=true or config:GetLeaderTypeName() ~= C.leader or player:IsTurnActive() ~= true then return nil end
-  if UI ~= nil and playerID ~= Game.GetLocalPlayer() then return nil end
+  if playerID ~= Game.GetLocalPlayer() then return nil end
   return player
+end
+
+function BaiqiRequisition.IsCaptureUnit(unit)
+  local index
+  if unit and unit.GetUnitType~=nil then index=unit:GetUnitType()
+  elseif unit and unit.GetType~=nil then index=unit:GetType() end
+  local row=index~=nil and GameInfo.Units[index]
+  return row~=nil and row.Domain=="DOMAIN_LAND" and classes[row.PromotionClass]==true
 end
 
 function BaiqiRequisition.Quote(playerID, unitID, targetOwner, cityID, kind)
@@ -37,11 +45,7 @@ function BaiqiRequisition.Quote(playerID, unitID, targetOwner, cityID, kind)
     or unit:GetOwner() ~= playerID or city:GetOwner() ~= targetOwner then return nil, "owner_changed" end
   local visibility = PlayersVisibility[playerID]
   if visibility == nil or visibility:IsVisible(city:GetX(),city:GetY()) ~= true then return nil,"not_visible" end
-  local unitType
-  if unit.GetUnitType~=nil then unitType=unit:GetUnitType()
-  elseif unit.GetType~=nil then unitType=unit:GetType() end
-  local definition = unitType~=nil and GameInfo.Units[unitType]
-  if definition == nil or definition.Domain ~= "DOMAIN_LAND" or classes[definition.PromotionClass] ~= true then return nil, "wrong_unit" end
+  if not BaiqiRequisition.IsCaptureUnit(unit) then return nil, "wrong_unit" end
   if unit.GetFormationUnitCount == nil or unit:GetFormationUnitCount() ~= 1 then return nil, "formation" end
   local moves = unit:GetMovesRemaining()
   if not BaiqiPolicy.Number(moves) or moves <= 0 then return nil, "no_moves" end

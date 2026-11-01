@@ -1,0 +1,289 @@
+{
+  "schema": "civ6.baiqi-p6-capture-unknown-native26-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 26,
+  "source_commit": "203ef1d",
+  "pid": 11712,
+  "artifact_sha256": "6099b4ffd3f1c690bfb31ba5e144cabe8871a4c5320775718322299c603224e0",
+  "fixture": "Independent reloads of original P2 PaidReady with source26, GS turn1. Controlled city-center garrison damage150/200 and all outer damage, original adjacent warrior262147 at16,4 preserved, enemy ordinary Niani city65536 at16,5 population1 cost300. No fabricated transaction journal.",
+  "input": "Each case called actual WorldInput army-city interaction then physical confirm at owned window(280,433). Expansion intro remained behind popup; not a quiet uninterrupted gameplay claim. No intro closure or turn advancement.",
+  "faults": [
+    {
+      "phase": "TRANSFERRED",
+      "hook": "One-shot own Lua BaiqiPolicy.Number wrapper throws after actual Persist transferObserved=true; original function restored before exception. No native ABI patch.",
+      "before": {
+        "owner": 1,
+        "city": 65536,
+        "gold": 500,
+        "unit_moves": 2
+      },
+      "after": {
+        "owner": 0,
+        "city": 131073,
+        "gold": 500,
+        "unit_moves": 2,
+        "stage": "UNKNOWN",
+        "phase": "TRANSFERRED",
+        "transferObserved": true,
+        "chargeObserved": false
+      },
+      "actual_recover_called": true,
+      "recover_result": "Unchanged: fee and movement remain unsettled despite confirmed transfer receipt."
+    },
+    {
+      "phase": "CHARGED",
+      "hook": "One-shot own Lua BaiqiPolicy.MatchesID wrapper throws only after actual Persist chargeObserved=true; original restored before exception.",
+      "before": {
+        "owner": 1,
+        "city": 65536,
+        "gold": 500,
+        "unit_moves": 2
+      },
+      "after": {
+        "owner": 0,
+        "city": 131073,
+        "gold": 200,
+        "unit_moves": 2,
+        "stage": "UNKNOWN",
+        "phase": "CHARGED",
+        "transferObserved": true,
+        "chargeObserved": true,
+        "balanceBefore": 500,
+        "balanceAfter": 200
+      },
+      "actual_recover_called": true,
+      "recover_result": "Unchanged: paid fee retained and army action not settled."
+    }
+  ],
+  "request_id": "city:0:1:262147:1:65536:16:5",
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261101_Cold26_CaptureReady1.Civ6Save",
+      "sha256": "1340b58312f051be7532501b0cfb2e29963d169307003eb59a62053862416069",
+      "bytes": 635847
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold26_TransferredUnknown1.Civ6Save",
+      "sha256": "7428c60bc39798facf349709b69f23b61fde7383df694183f316a8282af8e1ca",
+      "bytes": 630305
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold26_ChargedUnknown1.Civ6Save",
+      "sha256": "f857674b349fecfcba5140f225e44b6e9c809acd6ef4dfd1cf52981d9eb8aae4",
+      "bytes": 630346
+    }
+  ],
+  "receipts": [
+    {
+      "receipt": "20261101T021802650975Z.json",
+      "sha256": "3beb89d28eeda5aec0643d8dc0e20b842ef145da7670062cf5bcf8bd65041c86",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t2000",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_CITY\t1\t65536\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\tfalse\tcity_healthy\tnil\tnil",
+        "P6_CAPTURE46_RESULT\tnil\tnil\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T021928057776Z.json",
+      "sha256": "ef1b8224f9d323d8a00000d127b6a21f1feefd886a015082daeaae52316771ed",
+      "lines": [
+        "P6_CAPTURE46_BASE_PREPARED\t65536\t262147\t16\t4\t200\t150"
+      ]
+    },
+    {
+      "receipt": "20261101T021929777990Z.json",
+      "sha256": "7cdc55de7c9bede5e9c93bcff9c1d6b8a81fa5620433435e847929b4f2c06ddb",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t2000",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_CITY\t1\t65536\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\ttrue\teligible\t300\tcity:0:1:262147:1:65536:16:5",
+        "P6_CAPTURE46_RESULT\tnil\tnil\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T021930840139Z.json",
+      "sha256": "66dbff0a6c97b1caf852c9664ef0e8810233fee0271b8db5cd7dbc89a800d86f",
+      "lines": [
+        "P6_CAPTURE46_BASE_SAVED\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T022000754804Z.json",
+      "sha256": "046a661b4b7b2a22164ea5d84627bd5b010bb07636fdbee7ca5c0cdc173890b3",
+      "lines": [
+        "P6_CAPTURE46_FAULT_INSTALLED\tTRANSFERRED\t500"
+      ]
+    },
+    {
+      "receipt": "20261101T022001029076Z.json",
+      "sha256": "6f4f88544f744030179c68bb955c51fdf652d8260c928110dd50fa9047e877f9",
+      "lines": [
+        "P4_MAP_QUOTE\ttrue\teligible\t300\t262147\t16\t4\t2",
+        "P4_MAP_INTERACTION\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T022027587154Z.json",
+      "sha256": "5124b53e54da11a078cbd6d9592384ad5ce353e6c6080abc618d5fd23cb20b8e",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t500",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_CITY\t0\t131073\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\tfalse\towner_changed\tnil\tnil",
+        "P6_CAPTURE46_JOURNAL\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\tTRANSFERRED\ttrue\t131073\tnil\tnil\tnil\t300\texecution_interrupted",
+        "P6_CAPTURE46_RESULT\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\texecution_interrupted"
+      ]
+    },
+    {
+      "receipt": "20261101T022136155193Z.json",
+      "sha256": "3ceada3be085695d01d9ea0c9b072010a57a3f0c2648489a6feb4d799f8a81fc",
+      "lines": [
+        "P6_CAPTURE46_FAULT_RECEIPT\tTRANSFERRED\tcity:0:1:262147:1:65536:16:5\t131073\t500",
+        "P6_CAPTURE46_UNKNOWN_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T022136788179Z.json",
+      "sha256": "21e8e9bd05bd4f6a522d68318cb606a1cf99afcfe910a2b97999ba86a1f044fa",
+      "lines": [
+        "P6_CAPTURE46_NATIVE_RECOVER_CALL"
+      ]
+    },
+    {
+      "receipt": "20261101T022137148273Z.json",
+      "sha256": "f2c092afb24a866850504ba6125c14a4b5240d032792b43e11688df0588cfe09",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t500",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_CITY\t0\t131073\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\tfalse\towner_changed\tnil\tnil",
+        "P6_CAPTURE46_JOURNAL\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\tTRANSFERRED\ttrue\t131073\tnil\tnil\tnil\t300\texecution_interrupted",
+        "P6_CAPTURE46_RESULT\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\texecution_interrupted"
+      ]
+    },
+    {
+      "receipt": "20261101T022700706574Z.json",
+      "sha256": "4cd5d85bea783f83896a0cd106d4b32ccdf1868df9f34568d3e02c20e7a5bcc4",
+      "lines": [
+        "P6_CAPTURE47_FAULT_INSTALLED\tCHARGED\t500"
+      ]
+    },
+    {
+      "receipt": "20261101T022701924864Z.json",
+      "sha256": "8da225fc1eeba9166dd0e436499c0a458b61caf2007ceaabb8dc942ee9d54d3c",
+      "lines": [
+        "P4_MAP_QUOTE\ttrue\teligible\t300\t262147\t16\t4\t2",
+        "P4_MAP_INTERACTION\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T022752407588Z.json",
+      "sha256": "070f66e7c214ac8ec1d7043747719183096a96c322dd018c1015cbd3d2cc0bed",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t200",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_CITY\t0\t131073\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\tfalse\towner_changed\tnil\tnil",
+        "P6_CAPTURE46_JOURNAL\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\tCHARGED\ttrue\t131073\ttrue\t500\t200\t300\texecution_interrupted",
+        "P6_CAPTURE46_RESULT\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\texecution_interrupted"
+      ]
+    },
+    {
+      "receipt": "20261101T022753686696Z.json",
+      "sha256": "3725419c2a5963288062d0bd5de49d7568327ccde5c57083a417d88ce1489c9a",
+      "lines": [
+        "P6_CAPTURE47_FAULT_RECEIPT\tCHARGED\tcity:0:1:262147:1:65536:16:5\t131073\t200",
+        "P6_CAPTURE47_UNKNOWN_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T022754672408Z.json",
+      "sha256": "85ecfeecf973e3528dc08719ef67471ccd839e7b9afa3b1929435152d69415f9",
+      "lines": [
+        "P6_CAPTURE46_NATIVE_RECOVER_CALL"
+      ]
+    },
+    {
+      "receipt": "20261101T022755488164Z.json",
+      "sha256": "ec907039eb3f5a607d9c8752dd0849c835b9638623cd9f0f6ad677985dc1b8d9",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t200",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_CITY\t0\t131073\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\tfalse\towner_changed\tnil\tnil",
+        "P6_CAPTURE46_JOURNAL\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\tCHARGED\ttrue\t131073\ttrue\t500\t200\t300\texecution_interrupted",
+        "P6_CAPTURE46_RESULT\tcity:0:1:262147:1:65536:16:5\tUNKNOWN\texecution_interrupted"
+      ]
+    }
+  ],
+  "logs": {
+    "Database.log": "a0c993e5f17ca549508e108320213a48134951a054c1144d8a269fdd4b3afd87",
+    "Lua.log": "04a5fd6b2a6eb4823da914bba512734a2cd2f2effccfa4ba7cac82a15c5ea331",
+    "Modding.log": "9537110d4b372aa1ffa06a3d79075a6dd083fc44ffdc480b449a367a32da3be2"
+  },
+  "result": "FAIL actual Recover cannot finish either definite persisted phase. These are real in-engine partial transactions produced by one-shot Lua exceptions and saved. Same-version cold reload not claimed; new fixed version must cold-load both original fault saves.",
+  "scope": "Ambiguous TRANSFERRING/CHARGING still must freeze without side-effect inference. C-1/C/C+1 final native boundary runs remain pending.",
+  "full_game_acceptance": false
+}
