@@ -63,7 +63,7 @@ internal static class BaiqiArtLayout
                     });
             }
             Canvas(Path.Combine(output, "Baiqi_LeaderForeground.png"), 825, 1024, false,
-                delegate(Graphics graphics) { DrawFit(graphics, leader, new RectangleF(0, 0, 825, 1024), false); });
+                delegate(Graphics graphics) { DrawFit(graphics, leader, new RectangleF(0, 190, 825, 800), false); });
             Canvas(Path.Combine(output, "Baiqi_LoadingBackground.png"), 1920, 960, true,
                 delegate(Graphics graphics) { DrawFit(graphics, background, new RectangleF(0, 0, 1920, 960), true); });
             Canvas(Path.Combine(output, "Baiqi_DiplomacyBackground.png"), 1920, 1010, true,

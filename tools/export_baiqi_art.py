@@ -62,7 +62,7 @@ def main() -> None:
               "machine_id": os.environ.get("COMPUTERNAME"), "source_record": "baiqi-art-sources-2026-11-01.json",
               "source_sha256": {s["id"]: s["sha256"] for s in sources},
               "layout_source_sha256": digest(ROOT / "tools/BaiqiArtLayout.cs"), "texconv_sha256": digest(converter),
-              "layouts": {"portrait": "92% contain, centered with 4% border", "loading_foreground": "contain in transparent825x1024, no character crop",
+              "layouts": {"portrait": "92% contain, centered with 4% border", "loading_foreground": "contain in825x800 at0,190 within transparent825x1024; complete source character",
                           "loading_background": "cover1920x960, source upscaled1774x887",
                           "diplomacy": "cover1920x1010; original leader height1470 at885,10; lower legs clipped by canvas"},
               "color_encoding": "Preserve PNG sample bytes with --ignore-srgb; do not convert sRGB samples into linear bytes for UI textures.",

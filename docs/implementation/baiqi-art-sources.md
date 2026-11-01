@@ -69,3 +69,7 @@ python tools\build_mod.py --install
 10张纹理均为legacy BGRA8、单mip、straight alpha；实际逐像素核验DDS载荷与导出布局PNG的BGRA字节完全相同，头像／前景四角Alpha为0，背景为255。首次texconv默认转换把sRGB样本变成较暗线性值，经实际像素差异定位后加入`--ignore-srgb`保留样本；不是调整原图颜色。打包器按[微软DDS结构](https://learn.microsoft.com/en-us/windows/win32/direct3ddds/dds-header)验证尺寸、格式、pitch和完整载荷，允许无体积标记时unused depth为0或1，拒绝截断、未知格式、多mip或体积纹理。
 
 前端与局内分别导入纹理，图标映射新atlas；选人使用独立前景和背景，LoadingInfo显式登记且不再借用秦始皇人物语音。DiplomacyInfo原生表只有背景列，因此静态外交图预排人物与场景，不捏造前景字段或独立3D模型。软件226项通过，新增覆盖二进制打包／安装保持、损坏DDS拒绝且不写安装、已安装纹理被修改时保留用户改动。冷启动选人、加载、外交、缩放与读档的实际显示仍分别待验，完整玩法40项也未完成。
+
+### 原生裁切修正进度
+
+版本28冷启动已看到新头像、前景与背景，但720高游戏区的原版布局裁掉了人物头部，选人与加载两项判FAIL。版本29将完整人物改为等比容纳在透明825×1024画布内的(0,190,825,800)矩形，给原版底锚定与顶端裁切留出空间；旧28导出清单见[历史导出](../research/baiqi-art-export28-2026-11-01.json)，当前导出清单为29。没有更改原版UI或其他领袖，也不新增3D模型。[失败与修正证据](../research/baiqi-p6-art29-workers-evidence-2026-11-01.json)记录截图、旧档原生数据和模型审阅；29显示尚待冷启动复测。
