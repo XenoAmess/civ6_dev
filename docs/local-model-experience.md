@@ -389,3 +389,7 @@ P4 软件与实机的最终范围、失败及恢复分别见[本轮报告](testi
 同一荷马从6952成功档在15768恢复OBSERVED／已见作品0，跨城到(16,6)后45回合新token2、真实HOMER_2、Core保留两作品、单位消失，UI事件城市坐标却是(15,5)。这直接支持此前拒绝“事件坐标等于单位坐标”的建议。[证据](research/baiqi-p6-creative-second-native41-evidence-2026-11-02.json)。一次诊断误在UI调用仅Gameplay存在的WorldBuilder.CityManager，已纠正且保留错误；一次原生只读连接拒绝导致驱动停止，随后读回实际回合才续跑，未重放原生动作。子进程Windows中文异常原以CP936进入UTF8日志，另产生解码错误；现明确子进程stdout／stderr及PYTHONIOENCODING=UTF8。模型累计125／120完整／5 length未变，没有为这些已完成动作补发模型任务。
 
 最终队列探针曾误断言旧6城：逐城输出其实已有7城且各有队列，是正常新增城市458758。改为按实际7城核验通过，未将测试预期过时算成模组缺陷。第二段实机窗口城市自然6→7。
+
+## 2026-11-02：艺术家、音乐家真实消费者与清理
+
+机器 BF-202609141645，126为真实未完成本版原生两类覆盖，完整stop/SSE/JSON；累计126 HTTP／121完整／5 length／零重试，历史峰13、本项1，服务与缓存未知。候选在UI用GetType、仅计第一次调用，cleanup却访问未保存的wrapper／event／individual，原代码拒绝。负责人按真实GetUnitType、完整动态身份与逐次计数重写，验证pcall之后先还原两指针／事件再抛断言错误。原生两独立副本实际生成RUBLEV_1和VIVALDI_1、各1命令0操作1事件、Core落账且UI真实作品证明成立，清理已核对。[证据](research/baiqi-p6-creative-classes-native41-evidence-2026-11-02.json)。
