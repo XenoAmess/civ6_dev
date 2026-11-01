@@ -1,0 +1,186 @@
+{
+  "schema": "civ6.baiqi-governor-promotion-native32-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "source_commit": "f6386b1",
+  "manifest_version": 32,
+  "pid": 9012,
+  "artifact_sha256": "d6f0c417028b9833427ba9988484838254363771b6b6208317f4c7f1b0908175",
+  "fixture": "After long32 full window was independently saved/archived, same turn44 prepare8 Debug governor points via shipped Debug/Player.ltp ChangeGovernorPoints(amount), actual Gameplay method capability verified. No manual appointment/assignment/promotion or Admin.Run call. Not naturally earned title evidence, not part of preceding TC037 window.",
+  "before": {
+    "total_points": 2,
+    "spent_points": 2,
+    "appointed": 2,
+    "nonbase_promotions_on_existing_governors": 0
+  },
+  "after_debug_grant": {
+    "total_points": 10,
+    "spent_points": 2
+  },
+  "after_automatic_admin": {
+    "total_points": 10,
+    "spent_points": 10,
+    "appointed": 7,
+    "new_nonbase_defender_promotions": [
+      1,
+      2,
+      3
+    ]
+  },
+  "actual_promoted_rows": [
+    "P6_GOV88_PROMOTION\t0\t1\tGOVERNOR_PROMOTION_GARRISON_COMMANDER\t-1798401920\ttrue\tfalse",
+    "P6_GOV88_PROMOTION\t0\t2\tGOVERNOR_PROMOTION_DEFENSE_LOGISTICS\t-612362363\ttrue\tfalse",
+    "P6_GOV88_PROMOTION\t0\t3\tGOVERNOR_PROMOTION_EMBRASURE\t397664712\ttrue\tfalse"
+  ],
+  "cost_accounting": "8 added available titles all actually spent.5 additional appointed governors and3 actual new non-base promotions account for the8 title delta; decomposition derived from independent governor/promotion/point readbacks, not an instrumented native opcode counter.",
+  "api_contract": "Native GovernorDetailsPanel uses row.Hash and promotion.Hash for CanEarnPromotion/HasPromotion, Index values in PROMOTE_GOVERNOR packet. GetGovernorList first return observed booleantrue, second list; count obtained from #list, not from first return.",
+  "local_model88": {
+    "request_sha256": "526d2693f6acd6641abafed7c255ecf41b5dc110997d4b634a9d7e84ebc4a0e2",
+    "result_sha256": "10535ce32f1354f8acf62c6a9d41e2258c9688e86773632b9dc16cef29f5b3e5",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8508,
+      "completion_tokens": 500,
+      "total_tokens": 9008
+    },
+    "review": "Partial direction only. Candidate incorrectly compared GovernorPromotionSets.GovernorType string to governor GetType integer, silently skipping all promotions, and omitted Baiqi/single/human identity guard. Root corrected join and full context checks; candidate not auto-executed."
+  },
+  "p6_cumulative_local_model": {
+    "http_requests": 88,
+    "complete_stop_sse_json": 85,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "observed_client_http_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T100238814792Z.json",
+      "sha256": "cd82be2b3614b1f81334506cb3cbc357e681d51d403ea40d1f14208d5f1392cd",
+      "observations": [
+        "P6_GOV88_POINTS\t44\t2\t2\ttrue\t2",
+        "P6_GOV88_GOVERNOR\t3\tGOVERNOR_THE_RESOURCE_MANAGER\t1828256809",
+        "P6_GOV88_PROMOTION\t3\t19\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS\t-323567035\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t20\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION\t201364422\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t21\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST\t1417515462\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t22\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER\t-1846904869\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t23\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION\t-1123266087\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t4\tGOVERNOR_THE_BUILDER\t1759071014",
+        "P6_GOV88_PROMOTION\t4\t25\tGOVERNOR_PROMOTION_ZONING_COMMISSIONER\t-1434149405\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t26\tGOVERNOR_PROMOTION_AQUACULTURE\t-122625491\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t27\tGOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE\t1298004032\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t28\tGOVERNOR_PROMOTION_WATER_WORKS\t-1863467223\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t29\tGOVERNOR_PROMOTION_PARKS_RECREATION\t1630405030\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T100331612124Z.json",
+      "sha256": "815a53fe1da22a3f0f017084808d53c7da2c545912b02c7013833157b1333479",
+      "observations": [
+        "P6_GOV88_GAMEPLAY_CAPABILITY\t44\tfunction\t2\t2"
+      ]
+    },
+    {
+      "receipt": "20261101T100409631313Z.json",
+      "sha256": "c409e019de98a88f5ee30bd3618940c0fbdde889bd58824b4bcd541f0919a31e",
+      "observations": [
+        "P6_GOV88_TEST_FIXTURE_BEFORE\t2\t2",
+        "P6_GOV88_TEST_FIXTURE_GRANTED\t10\t2"
+      ]
+    },
+    {
+      "receipt": "20261101T100410100597Z.json",
+      "sha256": "d5da17e22ddfdd5a3ea212a71d1732d3b8b3df1b62a1b4d7dd5148bb7a7b1da3",
+      "observations": [
+        "P6_GOV88_POINTS\t44\t10\t3\ttrue\t3",
+        "P6_GOV88_GOVERNOR\t3\tGOVERNOR_THE_RESOURCE_MANAGER\t1828256809",
+        "P6_GOV88_PROMOTION\t3\t19\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS\t-323567035\tfalse\ttrue",
+        "P6_GOV88_PROMOTION\t3\t20\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION\t201364422\tfalse\ttrue",
+        "P6_GOV88_PROMOTION\t3\t21\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST\t1417515462\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t22\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER\t-1846904869\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t23\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION\t-1123266087\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t4\tGOVERNOR_THE_BUILDER\t1759071014",
+        "P6_GOV88_PROMOTION\t4\t25\tGOVERNOR_PROMOTION_ZONING_COMMISSIONER\t-1434149405\tfalse\ttrue",
+        "P6_GOV88_PROMOTION\t4\t26\tGOVERNOR_PROMOTION_AQUACULTURE\t-122625491\tfalse\ttrue",
+        "P6_GOV88_PROMOTION\t4\t27\tGOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE\t1298004032\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t28\tGOVERNOR_PROMOTION_WATER_WORKS\t-1863467223\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t29\tGOVERNOR_PROMOTION_PARKS_RECREATION\t1630405030\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t5\tGOVERNOR_THE_EDUCATOR\t-1082199467",
+        "P6_GOV88_PROMOTION\t5\t31\tGOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR\t-1896567561\tfalse\ttrue",
+        "P6_GOV88_PROMOTION\t5\t32\tGOVERNOR_PROMOTION_EDUCATOR_RESEARCHER\t25974729\tfalse\ttrue",
+        "P6_GOV88_PROMOTION\t5\t33\tGOVERNOR_PROMOTION_EDUCATOR_GRANTS\t859138435\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t5\t34\tGOVERNOR_PROMOTION_MERCHANT_CURATOR\t-267596526\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t5\t35\tGOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE\t-531669954\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T100445386173Z.json",
+      "sha256": "6e294628a66d86a5905d6877aaaaf3f47536986d8ea6da057e1ee83d02c08416",
+      "observations": [
+        "P6_GOV88_POINTS\t44\t10\t10\ttrue\t7",
+        "P6_GOV88_GOVERNOR\t3\tGOVERNOR_THE_RESOURCE_MANAGER\t1828256809",
+        "P6_GOV88_PROMOTION\t3\t19\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS\t-323567035\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t20\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION\t201364422\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t21\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST\t1417515462\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t22\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER\t-1846904869\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t3\t23\tGOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION\t-1123266087\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t4\tGOVERNOR_THE_BUILDER\t1759071014",
+        "P6_GOV88_PROMOTION\t4\t25\tGOVERNOR_PROMOTION_ZONING_COMMISSIONER\t-1434149405\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t26\tGOVERNOR_PROMOTION_AQUACULTURE\t-122625491\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t27\tGOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE\t1298004032\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t28\tGOVERNOR_PROMOTION_WATER_WORKS\t-1863467223\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t4\t29\tGOVERNOR_PROMOTION_PARKS_RECREATION\t1630405030\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t5\tGOVERNOR_THE_EDUCATOR\t-1082199467",
+        "P6_GOV88_PROMOTION\t5\t31\tGOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR\t-1896567561\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t5\t32\tGOVERNOR_PROMOTION_EDUCATOR_RESEARCHER\t25974729\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t5\t33\tGOVERNOR_PROMOTION_EDUCATOR_GRANTS\t859138435\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t5\t34\tGOVERNOR_PROMOTION_MERCHANT_CURATOR\t-267596526\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t5\t35\tGOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE\t-531669954\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t0\tGOVERNOR_THE_DEFENDER\t1628120902",
+        "P6_GOV88_PROMOTION\t0\t1\tGOVERNOR_PROMOTION_GARRISON_COMMANDER\t-1798401920\ttrue\tfalse",
+        "P6_GOV88_PROMOTION\t0\t2\tGOVERNOR_PROMOTION_DEFENSE_LOGISTICS\t-612362363\ttrue\tfalse",
+        "P6_GOV88_PROMOTION\t0\t3\tGOVERNOR_PROMOTION_EMBRASURE\t397664712\ttrue\tfalse",
+        "P6_GOV88_PROMOTION\t0\t4\tGOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE\t-73961048\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t0\t5\tGOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT\t273628191\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t1\tGOVERNOR_THE_AMBASSADOR\t639110662",
+        "P6_GOV88_PROMOTION\t1\t7\tGOVERNOR_PROMOTION_AMBASSADOR_EMISSARY\t854041117\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t1\t9\tGOVERNOR_PROMOTION_LOCAL_INFORMANTS\t308274133\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t1\t8\tGOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE\t-989892191\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t1\t10\tGOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR\t867509429\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t1\t11\tGOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER\t-1393356649\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t2\tGOVERNOR_THE_CARDINAL\t881141369",
+        "P6_GOV88_PROMOTION\t2\t13\tGOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR\t-1169445237\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t2\t14\tGOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS\t329352432\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t2\t15\tGOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD\t988185986\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t2\t16\tGOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT\t283914776\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t2\t17\tGOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT\t-1246582847\tfalse\tfalse",
+        "P6_GOV88_GOVERNOR\t6\tGOVERNOR_THE_MERCHANT\t1081370761",
+        "P6_GOV88_PROMOTION\t6\t37\tGOVERNOR_PROMOTION_MERCHANT_HARBORMASTER\t-549684962\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t6\t38\tGOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT\t-888289208\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t6\t39\tGOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR\t-1166926876\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t6\t41\tGOVERNOR_PROMOTION_MERCHANT_RENEWABLE_ENERGY\t1767865989\tfalse\tfalse",
+        "P6_GOV88_PROMOTION\t6\t40\tGOVERNOR_PROMOTION_MERCHANT_CONTRACTOR\t1470186972\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T100645502696Z.json",
+      "sha256": "a09c757e8da315f15c9923bdb0c6615dcf20a70637240c3e3736a62cfc76bdcf",
+      "observations": [
+        "P6_GOV88_VERIFIED_SAVE\ttrue"
+      ]
+    }
+  ],
+  "logs": {
+    "Database.log": "e18482848cdd17d54524754094c169217bd1b0f223c5f5c0498386fb135f0485",
+    "Lua.log": "2f1ac49622665a91c7f7782139de59f3813cdcc156b1ef9e7dd2a79d5e31af7a",
+    "Modding.log": "678d361e775d2b994997f31a0ebbfd5decb908886697edb368fa9a0588a240ae"
+  },
+  "save": {
+    "name": "Baiqi_P6_20261101_V32_GovernorPromotions44.Civ6Save",
+    "sha256": "27cc17a708ffb02a4f52cc26b8c87a308248a7d97514d1ef4ec3ba3b7dec3617",
+    "bytes": 431182
+  },
+  "screenshot_sha256": "1e5c3d17823925722111b1885c1d72ad07f875244b753d796eb5f3f009ae8324",
+  "result": "PASS sampled autonomous governor promotion and native title cost after prepared debug resources. Not all promotion trees, effects, natural title earning or cross-save governor recovery.",
+  "full_game_acceptance": false
+}

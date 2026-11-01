@@ -1,5 +1,11 @@
 # 本地模型经验与采用记录
 
+## 2026-11-01 总督原生晋升探针
+
+机器`BF-202609141645`，88号为真实未完成总督晋升的只读候选，完整stop/SSE/JSON、零重试；P6累计88次HTTP、85完整、3length，历史实际在途峰值13。候选把PromotionSets.GovernorType字符串与GetType整数比较，导致全部晋升被漏掉，又缺白绮／单人／人类身份检查。负责人修正关联和边界，仅采用双返回与Hash参数方向，未执行原候选。实际GetGovernorList首返回是booleantrue，第二返回才是列表，不能把首项当数量。
+
+在长窗口完成并归档后另准备8点Debug头衔，真实自动补任5人及3项非基础晋升、头衔实际消耗8。[原生证据](research/baiqi-p6-governor-native32-evidence-2026-11-01.json)限定准备资源的自动使用样本，不宣称自然获得或全树覆盖。
+
 ## 2026-11-01 长窗口移民承诺缺陷
 
 机器`BF-202609141645`，P6累计87次HTTP、84次完整stop/SSE/JSON、3次length拒绝、零传输重试，实际客户端在途峰值仍13。82／83持久化候选出现非法colon存在检查、重置畸形journal、虚构DecodeJSON、请求号代替unitID索引和先DONE后动作，拒绝；84性能包装作用域错误且缺实际身份／错误记录，未执行。85绑定猜测被真实Index0／Hash读回反证。86的当前Hash补计方向部分采用，其遗漏pending和时序承诺由负责人补齐；87测试无法真正发起所需请求，拒绝。逐项审阅见[长窗口证据](research/baiqi-p6-long-native31-evidence-2026-11-01.json)。
