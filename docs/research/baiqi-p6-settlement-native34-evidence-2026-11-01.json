@@ -1,0 +1,203 @@
+{
+  "schema": "civ6.baiqi-settlement-native34-evidence/v1",
+  "recorded_utc": "2026-11-01T12:11:43.664122+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "b8dfa9d",
+  "manifest_version": 34,
+  "pid": 2800,
+  "installed_files": 59,
+  "installed_files_all_match_commit": true,
+  "artifact_sha256": "8ba3162ff13b994131ad4946347e5b0280f9ee03e6c7c7c8b2bcd9de6c5591c4",
+  "fresh_steam_offline_before_cold_launch": "2026-11-01T11:58:34.746284+00:00",
+  "steam_online_switches": 0,
+  "normal_regression": {
+    "start_turn": 85,
+    "end_turn": 90,
+    "start_cities": 10,
+    "end_cities": 11,
+    "normal_endturn_calls": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "observed_turns": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "manual_domestic_choices": 0,
+    "debug_city_unit_resource_or_production_grants": 0,
+    "player_actions": "Military wait, original guarded WorldInput army unstack unit4456482 tile275→274 at88; one physical Alexander praise Goodbye at87;5 original endturn calls.",
+    "settler_budget_samples": 24,
+    "all_alive_plus_queued_within_max_one": true,
+    "final_new_city": 720906,
+    "final_city_queues": "Independent later90 readback11cities, eachqueueSize1/nonzero currentHash.",
+    "transient": "Driver reached target90 with10cities and PRODUCTION blocker while events/new settler were still resolving. Later independent readback90:11cities, core/messageidle, blockerUNITS. Do not call initial production notification a permanent failure or pretend driver target alone proves stable city automation.",
+    "scope": "PASS this five-turn cold regression and normal expansion; not latest-version full20turn TC037 or all40cases."
+  },
+  "profile": {
+    "sample_count": 736,
+    "errors": 0,
+    "restored": true,
+    "stats": {
+      "10": {
+        "n": 282,
+        "p50_ms": 1.0001659393311,
+        "p95_ms": 55.000066757202,
+        "p99_ms": 457.99994468689,
+        "max_ms": 747.99990653992,
+        "mean_ms": 18.815601125676668,
+        "turns": [
+          85,
+          86,
+          87,
+          88,
+          89,
+          90
+        ]
+      },
+      "11": {
+        "n": 454,
+        "p50_ms": 1.9998550415039003,
+        "p95_ms": 13.000011444092,
+        "p99_ms": 16.999959945679,
+        "max_ms": 325.99997520447,
+        "mean_ms": 5.200441188224122,
+        "turns": [
+          90
+        ]
+      }
+    },
+    "raw_private_summary_sha256": "0093823f52f41e79479e429013e94fa31879e5c2bcc58d43484a9956a271610b",
+    "method": "Same root-reviewed single original RunNow wrapper/Automation.GetTime wall-clock, idle and actual work mixed, approx1ms clock. No extra planning calls.",
+    "finding": "No native speedup established:10city p95~55ms/max~748ms still has long tail. Old32 p95~26/max~615 is reported separately; samples have different transient pending state, number and timing, so neither causal speedup nor causal regression percentage follows.",
+    "full_tc036_pass": false,
+    "missing": [
+      "Cause of long tail",
+      "All modules/per-turn cumulative",
+      "Pre-frozen quantitative budgets",
+      "Matched inactive or mod-disabled comparison",
+      "Unified request budget beyond Controller"
+    ]
+  },
+  "local_models": [
+    {
+      "task": "performance91",
+      "request_sha256": "b7d5ad05ed59f48c624ce99f9b15829c0a9e05ec2c036560142a0c20febdaef8",
+      "result_sha256": "16897c705afa3afc30989a7e09d8ff82464a79bfe94c313656443c8541128386",
+      "usage": {
+        "prompt_tokens": 31425,
+        "completion_tokens": 608,
+        "total_tokens": 32033
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "economy92",
+      "request_sha256": "b5d129ca53cf297c0964ec82de445567025ca0adcf401bd50582755d1b351231",
+      "result_sha256": "0bc9cfb6e0e282f35bcd88f7c577d907c8dc02a932b58b4c25f6d2d99c150c8f",
+      "usage": {
+        "prompt_tokens": 31442,
+        "completion_tokens": 896,
+        "total_tokens": 32338
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "local_model_review": {
+    "performance91": "Mostly rejected: B_delta was incorrectly redefined as inter-callback interval; proposed version0 has no disabling check in actual source and product toggle would violate mandatory delegation. No numeric frozen budget supplied; cannot derive active-vs-idle merely from timestamps. Only comparison confounds retained.",
+    "economy92": "Mostly rejected: CPU callback p50 says nothing about queue completion; committed maintenance does not simply disappear without actual owned-unit yield changes; no request alone does not prove gate exercised. Only requirement to observe natural queue opening and actual eligible denied candidate retained. No guessed APIs or game actions adopted."
+  },
+  "p6_local_model_cumulative": {
+    "http_requests": 92,
+    "complete_stop_sse_json": 89,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "actual_client_http_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "native_lua_runtime_errors": 0,
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261101_V32_TenCities85_BeforeProfile.Civ6Save",
+      "sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+      "bytes": 503809
+    },
+    {
+      "name": "Baiqi_P6_20261101_V34_TenToEleven90.Civ6Save",
+      "sha256": "617b7b41f016c522d918d91ac1a14eade2c52bd0018856f531f608950d52431e",
+      "bytes": 518427
+    }
+  ],
+  "screenshot_sha256": "bcdcd1e1e493506615d4af6fc3346877f8fd9fe5fe02fa7a508c88439b2e0b76",
+  "drivers": {
+    "nine32-v34-profile85to90-run1.log": "0a2a1d8760c2529aedd27901b47eb22a4ac4b7aa6bbc03b26b258f596d3bf50a"
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T120047940313Z.json",
+      "sha256": "61cb17fb7ef43b1fe85f12c5d57508b958be9c3a17634df45c806fc2d4deb336",
+      "context": "MainMenu",
+      "readback": [
+        "P6_SETTLEMENT34_LOAD85\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T120306669428Z.json",
+      "sha256": "989fa88d20b21e2395dd573988c6c7300fb548ca717e9e68fe4388dbbd8f8cc7",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_CONTROLLER_PROFILE34_STARTED\t85\t10"
+      ]
+    },
+    {
+      "receipt": "20261101T120808559567Z.json",
+      "sha256": "6915a47f75539fcde2002cf9b81c8f37390090e65791e5826df6ae7b5ea01bdd",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_SETTLEMENT34_STATE\t90\t11\tfalse\tfalse\t已提交文职伟人内政任务，等待实际结果",
+        "P6_SETTLEMENT34_BLOCKER\tENDTURN_BLOCKING_UNITS",
+        "P6_SETTLEMENT34_CITY\t65536\t1\t-46510675",
+        "P6_SETTLEMENT34_CITY\t131073\t1\t1547024909",
+        "P6_SETTLEMENT34_CITY\t196610\t1\t-1698135861",
+        "P6_SETTLEMENT34_CITY\t262147\t1\t101426179",
+        "P6_SETTLEMENT34_CITY\t327684\t1\t806902947",
+        "P6_SETTLEMENT34_CITY\t393221\t1\t1738306535",
+        "P6_SETTLEMENT34_CITY\t458758\t1\t1738306535",
+        "P6_SETTLEMENT34_CITY\t524295\t1\t-1698135861",
+        "P6_SETTLEMENT34_CITY\t589832\t1\t-2025065568",
+        "P6_SETTLEMENT34_CITY\t655369\t1\t-764771404",
+        "P6_SETTLEMENT34_CITY\t720906\t1\t-764771404"
+      ]
+    },
+    {
+      "receipt": "20261101T120808934773Z.json",
+      "sha256": "13a956375556169974a3f44c3a91252a2e415f6b80aa3712153d2e5631bc9f75",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_CONTROLLER_PROFILE34_RESTORED\t90\t736\t0",
+        "P6_CONTROLLER_PROFILE34_STATE\tfalse\t736\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T120917774356Z.json",
+      "sha256": "d03d9f6c8363be3feb32afc15949c0655eb9660840a9fdca75b5cb3834520e20",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_SETTLEMENT34_SAVE90\ttrue"
+      ]
+    }
+  ],
+  "archived_logs": {
+    "Database.log": "5597e7645ffde82f44b81af15cbf8518262e08ae57d2889c950135abbec6aacd",
+    "Lua.log": "2e319d551211ceae43f199cd396fab8475fab100c575a94fcd8ddab5e9728d83",
+    "Modding.log": "567b0a6b020bbe0149afe8d9493fea814daba82997b325dbbfd8a67f09b9e3ba"
+  },
+  "full_game_acceptance": false
+}
