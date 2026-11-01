@@ -1,0 +1,433 @@
+{
+  "schema": "civ6.baiqi-p6-military-native26-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 26,
+  "source_commit": "203ef1d",
+  "pid": 11712,
+  "artifact_sha256": "6099b4ffd3f1c690bfb31ba5e144cabe8871a4c5320775718322299c603224e0",
+  "model": {
+    "cumulative_http": 45,
+    "complete_stop_json": 44,
+    "length_discarded": 1,
+    "automatic_retries": 0,
+    "cumulative_peak": 12,
+    "small_batch_peak": 1,
+    "request_sha256": "d47b2a6d9ef37543be2af9779b8620e9689ab53503a5760a1bd706799bd80466",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5970,
+      "completion_tokens": 1181,
+      "total_tokens": 7151
+    },
+    "total_ms": 8336.087899995618,
+    "first_nonempty_content_delta_ms": 955.1465999975335,
+    "cached_tokens": null,
+    "review": "Finite setup/idle/guarded request/readback direction and source-backed rebase packet retained. Reject model UNIT_RAM/SEA misclassification (actual UNIT_BATTERING_RAM/LAND) and invented GetMoves; owner uses actual GetMovesRemaining. No candidate execution."
+  },
+  "fixture": "Five explicit Debug player:GetUnits():Create samples, corps/army set by shipped Debug Unit.ltp SetMilitaryFormation. Not normal unit production or ordinary corps formation. Own empty revealed land/water targets; air own city-center basing. No executor pause or source hot replacement.",
+  "turn": 75,
+  "actual_turn_transitions": 0,
+  "idle_seconds": 46.080000162124634,
+  "background_orders_for_fixture_ids": [],
+  "player_orders": [
+    "P6_TESTPLAYER_MILITARY45_ORDER\tnaval\t3735581\t20\t6",
+    "P6_TESTPLAYER_MILITARY45_ORDER\tsupport\t3801118\t9\t2",
+    "P6_TESTPLAYER_MILITARY45_ORDER\tcorps\t3866655\t11\t4",
+    "P6_TESTPLAYER_MILITARY45_ORDER\tarmy\t3932192\t14\t6",
+    "P6_TESTPLAYER_MILITARY45_ORDER\tair\t3997729\t13\t16"
+  ],
+  "request_scope": "Four MoveUnitToPlot calls in actual guarded WorldInput context; one native REBASE packet via its guarded UnitManager sink. These are labeled test-player actions, not physical mouse/keyboard coverage.",
+  "samples": [
+    {
+      "time": 1793498902.106,
+      "states": {
+        "naval": {
+          "id": 3735581,
+          "xy": [
+            19,
+            5
+          ],
+          "moves": 3,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "239,284"
+        },
+        "support": {
+          "id": 3801118,
+          "xy": [
+            8,
+            2
+          ],
+          "moves": 2,
+          "military_formation": -1,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "96,97"
+        },
+        "corps": {
+          "id": 3866655,
+          "xy": [
+            10,
+            4
+          ],
+          "moves": 2,
+          "military_formation": 1,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "186,187"
+        },
+        "army": {
+          "id": 3932192,
+          "xy": [
+            13,
+            5
+          ],
+          "moves": 2,
+          "military_formation": 2,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "233,278"
+        },
+        "air": {
+          "id": 3997729,
+          "xy": [
+            16,
+            14
+          ],
+          "moves": 6,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "air_rebase"
+        }
+      }
+    },
+    {
+      "time": 1793498948.186,
+      "states": {
+        "naval": {
+          "id": 3735581,
+          "xy": [
+            19,
+            5
+          ],
+          "moves": 3,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "239,284"
+        },
+        "support": {
+          "id": 3801118,
+          "xy": [
+            8,
+            2
+          ],
+          "moves": 2,
+          "military_formation": -1,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "96,97"
+        },
+        "corps": {
+          "id": 3866655,
+          "xy": [
+            10,
+            4
+          ],
+          "moves": 2,
+          "military_formation": 1,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "186,187"
+        },
+        "army": {
+          "id": 3932192,
+          "xy": [
+            13,
+            5
+          ],
+          "moves": 2,
+          "military_formation": 2,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "233,278"
+        },
+        "air": {
+          "id": 3997729,
+          "xy": [
+            16,
+            14
+          ],
+          "moves": 6,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": true,
+          "path": "air_rebase"
+        }
+      }
+    },
+    {
+      "time": 1793498948.909,
+      "states": {
+        "naval": {
+          "id": 3735581,
+          "xy": [
+            20,
+            6
+          ],
+          "moves": 2,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "support": {
+          "id": 3801118,
+          "xy": [
+            9,
+            2
+          ],
+          "moves": 1,
+          "military_formation": -1,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "corps": {
+          "id": 3866655,
+          "xy": [
+            11,
+            4
+          ],
+          "moves": 0,
+          "military_formation": 1,
+          "escort_count": 1,
+          "ready": false,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "army": {
+          "id": 3932192,
+          "xy": [
+            14,
+            6
+          ],
+          "moves": 0,
+          "military_formation": 2,
+          "escort_count": 1,
+          "ready": false,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "air": {
+          "id": 3997729,
+          "xy": [
+            13,
+            16
+          ],
+          "moves": 0,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": false,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": "air_rebase"
+        }
+      }
+    },
+    {
+      "time": 1793498993.648,
+      "states": {
+        "naval": {
+          "id": 3735581,
+          "xy": [
+            20,
+            6
+          ],
+          "moves": 2,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "support": {
+          "id": 3801118,
+          "xy": [
+            9,
+            2
+          ],
+          "moves": 1,
+          "military_formation": -1,
+          "escort_count": 1,
+          "ready": true,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "corps": {
+          "id": 3866655,
+          "xy": [
+            11,
+            4
+          ],
+          "moves": 0,
+          "military_formation": 1,
+          "escort_count": 1,
+          "ready": false,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "army": {
+          "id": 3932192,
+          "xy": [
+            14,
+            6
+          ],
+          "moves": 0,
+          "military_formation": 2,
+          "escort_count": 1,
+          "ready": false,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": ""
+        },
+        "air": {
+          "id": 3997729,
+          "xy": [
+            13,
+            16
+          ],
+          "moves": 0,
+          "military_formation": 0,
+          "escort_count": 1,
+          "ready": false,
+          "queued_destination": "nil",
+          "native_legal": false,
+          "path": "air_rebase"
+        }
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "receipt": "20261101T020821047548Z.json",
+      "sha256": "b8085d73b04e354f415e34ef30a257027dd8da7e7cfd823b0bafd6e6822939d3",
+      "lines": [
+        "P6_FIXTURE_MILITARY45\tnaval\t3735581\tUNIT_GALLEY\t19\t5\tnil",
+        "P6_FIXTURE_MILITARY45\tsupport\t3801118\tUNIT_BATTERING_RAM\t8\t2\tnil",
+        "P6_FIXTURE_MILITARY45\tcorps\t3866655\tUNIT_WARRIOR\t10\t4\t1",
+        "P6_FIXTURE_MILITARY45\tarmy\t3932192\tUNIT_WARRIOR\t13\t5\t2",
+        "P6_FIXTURE_MILITARY45\tair\t3997729\tUNIT_BIPLANE\t16\t14\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T020821847936Z.json",
+      "sha256": "38566c0bc7daeb230f95a8b75a7aa7ef559f1bcdb53c399985fdef7aad8a7020",
+      "lines": [
+        "P6_MILITARY45_SAMPLE_TIME\t1793498902.106\t75",
+        "P6_MILITARY45_STATE\tnaval\t3735581\t19\t5\t3\t0\t1\ttrue\tnil\ttrue\t239,284",
+        "P6_MILITARY45_STATE\tsupport\t3801118\t8\t2\t2\t-1\t1\ttrue\tnil\ttrue\t96,97",
+        "P6_MILITARY45_STATE\tcorps\t3866655\t10\t4\t2\t1\t1\ttrue\tnil\ttrue\t186,187",
+        "P6_MILITARY45_STATE\tarmy\t3932192\t13\t5\t2\t2\t1\ttrue\tnil\ttrue\t233,278",
+        "P6_MILITARY45_STATE\tair\t3997729\t16\t14\t6\t0\t1\ttrue\tnil\ttrue\tair_rebase"
+      ]
+    },
+    {
+      "receipt": "20261101T020908040540Z.json",
+      "sha256": "23b89d4d5fb18aaad4d9fbfd99afd3d9183de3e12347cd5e730610d9f96e6f28",
+      "lines": [
+        "P6_MILITARY45_SAMPLE_TIME\t1793498948.186\t75",
+        "P6_MILITARY45_STATE\tnaval\t3735581\t19\t5\t3\t0\t1\ttrue\tnil\ttrue\t239,284",
+        "P6_MILITARY45_STATE\tsupport\t3801118\t8\t2\t2\t-1\t1\ttrue\tnil\ttrue\t96,97",
+        "P6_MILITARY45_STATE\tcorps\t3866655\t10\t4\t2\t1\t1\ttrue\tnil\ttrue\t186,187",
+        "P6_MILITARY45_STATE\tarmy\t3932192\t13\t5\t2\t2\t1\ttrue\tnil\ttrue\t233,278",
+        "P6_MILITARY45_STATE\tair\t3997729\t16\t14\t6\t0\t1\ttrue\tnil\ttrue\tair_rebase"
+      ]
+    },
+    {
+      "receipt": "20261101T020908391994Z.json",
+      "sha256": "fe7095839a11038df6097df0f2186f622f78a40d08a331a556a6b8899436c07b",
+      "lines": [
+        "P6_TESTPLAYER_MILITARY45_GUARDED_LEGAL\tnaval\t3735581\ttrue",
+        "P6_TESTPLAYER_MILITARY45_ORDER\tnaval\t3735581\t20\t6",
+        "P6_TESTPLAYER_MILITARY45_GUARDED_LEGAL\tsupport\t3801118\ttrue",
+        "P6_TESTPLAYER_MILITARY45_ORDER\tsupport\t3801118\t9\t2",
+        "P6_TESTPLAYER_MILITARY45_GUARDED_LEGAL\tcorps\t3866655\ttrue",
+        "P6_TESTPLAYER_MILITARY45_ORDER\tcorps\t3866655\t11\t4",
+        "P6_TESTPLAYER_MILITARY45_GUARDED_LEGAL\tarmy\t3932192\ttrue",
+        "P6_TESTPLAYER_MILITARY45_ORDER\tarmy\t3932192\t14\t6",
+        "P6_TESTPLAYER_MILITARY45_GUARDED_LEGAL\tair\t3997729\ttrue",
+        "P6_TESTPLAYER_MILITARY45_ORDER\tair\t3997729\t13\t16"
+      ]
+    },
+    {
+      "receipt": "20261101T020908750678Z.json",
+      "sha256": "39eec5bbed62dbd7ab51e7fbf0e0def59e7708d91bc01151571d420ea3299b76",
+      "lines": [
+        "P6_MILITARY45_SAMPLE_TIME\t1793498948.909\t75",
+        "P6_MILITARY45_STATE\tnaval\t3735581\t20\t6\t2\t0\t1\ttrue\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tsupport\t3801118\t9\t2\t1\t-1\t1\ttrue\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tcorps\t3866655\t11\t4\t0\t1\t1\tfalse\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tarmy\t3932192\t14\t6\t0\t2\t1\tfalse\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tair\t3997729\t13\t16\t0\t0\t1\tfalse\tnil\tfalse\tair_rebase"
+      ]
+    },
+    {
+      "receipt": "20261101T020953457720Z.json",
+      "sha256": "44c463000ef068f02f6b5347b6c35f00edb1c03d26f78db997db9c07e8b889da",
+      "lines": [
+        "P6_MILITARY45_SAMPLE_TIME\t1793498993.648\t75",
+        "P6_MILITARY45_STATE\tnaval\t3735581\t20\t6\t2\t0\t1\ttrue\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tsupport\t3801118\t9\t2\t1\t-1\t1\ttrue\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tcorps\t3866655\t11\t4\t0\t1\t1\tfalse\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tarmy\t3932192\t14\t6\t0\t2\t1\tfalse\tnil\tfalse\t",
+        "P6_MILITARY45_STATE\tair\t3997729\t13\t16\t0\t0\t1\tfalse\tnil\tfalse\tair_rebase"
+      ]
+    }
+  ],
+  "save": {
+    "name": "Baiqi_P6_20261101_Cold26_MilitaryMatrix75.Civ6Save",
+    "sha256": "7aad616ba2d9b3f7c178bf7c625b4cad1cd1495a01c97135139a37418a16e9dc",
+    "bytes": 484375
+  },
+  "result": "PASS sampled native player control and background non-interference for naval/support/air/corps/army. Actual target positions and movement costs, formations retained, no later override. Full TC019/020 input/escort/attack matrix remains unfinished.",
+  "logs": {
+    "Database.log": "6b5c91b7433d43bbbd38f688c858f4de6ef01c7034996637e1ade293984d8f79",
+    "Lua.log": "fc661ac743cfb736a9575b141578d1f482f682f644bd73e004dcd02a0f4ef17d",
+    "Modding.log": "6f07d653e2447929ae8d2a92d2183f4c29f711b83da7bb098ad49c81786f99cb"
+  },
+  "full_game_acceptance": false
+}
