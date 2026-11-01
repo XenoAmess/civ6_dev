@@ -1,0 +1,328 @@
+{
+  "schema": "civ6.baiqi-p6-fee-native27-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 27,
+  "source_commit": "515ea11",
+  "pid": 14368,
+  "artifact_sha256": "95a6db329dbbdf05cedaa14e0d79004f136a4991c25b93c2f7c5f7de8c2c407f",
+  "fixture": "Independent reloads of source26 CaptureReady1, same source27 artifact, turn1 major original capital population1 at16,5 and original warrior262147 at16,4, garrison150/200, outer0. Only fixture balance varied. No turn advancement.",
+  "minus_one": {
+    "gold": 299,
+    "cost": 300,
+    "submission": "Actual UI quote frozen while affordable, then test balance299 before confirmed UI script submission. Native backend requote rejected. No map attack fallback called.",
+    "result": "REJECTED insufficient_gold",
+    "owner_after": 1,
+    "city_after": 65536,
+    "gold_after": 299,
+    "unit_moves_after": 2,
+    "journal_created": false,
+    "evidence": {
+      "receipt": "20261101T030728038213Z.json",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t299",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_CITY\t1\t65536\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\tfalse\tinsufficient_gold\tnil\tnil",
+        "P6_CAPTURE46_RESULT\tcity:0:1:262147:1:65536:16:5\tREJECTED\tinsufficient_gold"
+      ]
+    }
+  },
+  "exact": {
+    "gold": 300,
+    "cost": 300,
+    "cancel": {
+      "physical_cancel": true,
+      "owner_after": 1,
+      "gold_after": 300,
+      "unit_moves_after": 2,
+      "request_result": null,
+      "evidence": {
+        "receipt": "20261101T031602948332Z.json",
+        "lines": [
+          "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t300",
+          "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+          "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+          "P6_CAPTURE46_FIXTURE\tx\t16",
+          "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+          "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+          "P6_CAPTURE46_FIXTURE\tunitX\t16",
+          "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+          "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+          "P6_CAPTURE46_FIXTURE\ty\t5",
+          "P6_CAPTURE46_FIXTURE\tunitY\t4",
+          "P6_CAPTURE46_CITY\t1\t65536\t16\t5\t1",
+          "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+          "P6_CAPTURE46_QUOTE\ttrue\teligible\t300\tcity:0:1:262147:1:65536:16:5",
+          "P6_CAPTURE46_RESULT\tnil\tnil\tnil"
+        ]
+      }
+    },
+    "physical_map_input": {
+      "intro_information_closes": 1,
+      "camera_setup": "Native UI.SelectUnit and WorldInput.SnapToPlot only; no order sent by tuner for this interaction.",
+      "cursor_readback": "P6_CAPTURE27_PHYSICAL_CURSOR\t236\t16\t5\t16\t5\t262147",
+      "owned_right_click": [
+        512,
+        378
+      ],
+      "owned_confirm_click": [
+        280,
+        433
+      ],
+      "observation": "Owner inspected actual popup after physical right click; city remained enemy and gold/moves unchanged before confirmation. Early pointer helper had stdout only; its input call is in assistant tool trace, not a separately fabricated durable input receipt. Cursor and native outcome receipts are preserved."
+    },
+    "actual": {
+      "receipt": "20261101T031658905322Z.json",
+      "stage": "COMMITTED",
+      "phase": "DONE",
+      "before": 300,
+      "after": 0,
+      "cost": 300
+    },
+    "owner_after": 0,
+    "city_after": 131073,
+    "unit_moves_after": 0
+  },
+  "plus_one": {
+    "gold": 301,
+    "cost": 300,
+    "map_input": "Actual guarded WorldInput.MoveUnitToPlot via test-player tuner entry, followed by physical confirm; not another physical map right-click claim.",
+    "actual": {
+      "receipt": "20261101T032311739283Z.json",
+      "stage": "COMMITTED",
+      "phase": "DONE",
+      "before": 301,
+      "after": 1,
+      "cost": 300
+    },
+    "owner_after": 0,
+    "city_after": 131073,
+    "unit_moves_after": 0
+  },
+  "capital_asset_mapping": {
+    "original_capital_before": true,
+    "current_capital_before": true,
+    "palace_before": true,
+    "palace_after": false,
+    "palace_housing_definition": 1,
+    "granary_before": true,
+    "granary_after": true,
+    "granary_housing_definition": 2,
+    "housing_before": 6,
+    "housing_after": 5,
+    "food_before": 4,
+    "food_after": 4,
+    "interpretation": "Native original-capital transfer removes its palace/current-capital status, retains granary presence. Housing delta1 matches removed palace housing1. Not a complete special-asset/works/garrison/occupation matrix."
+  },
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261101_Cold27_ExactCost1.Civ6Save",
+      "sha256": "fd18d5a09cd183071165ae6afc4de220ae04c4549a70ea93f6c36bfbdffcb5fa",
+      "bytes": 630270
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold27_CostPlusOne1.Civ6Save",
+      "sha256": "cd6f9350f5dd95c9a42d250884ce0c4d7ed3cce0c51a4c82a2255f79de991f8e",
+      "bytes": 630236
+    }
+  ],
+  "receipts": [
+    {
+      "receipt": "20261101T030724738278Z.json",
+      "sha256": "6d9c728b91c83d6b95addaf32d7b8fddee8dfe4e345c0c73ffdc13732a063e35",
+      "lines": [
+        "P6_CAPTURE27_ASSET_CLASS\t1\t65536\ttrue\ttrue\t1\ttrue",
+        "P6_CAPTURE27_BUILDINGS\ttrue\t1\ttrue\t2\t6\t4"
+      ]
+    },
+    {
+      "receipt": "20261101T030726398849Z.json",
+      "sha256": "b2c9c08752d3e4ebf76d6682d95fefdcfc1d7d1dc6113a40112d5eff2aa7b5bb",
+      "lines": [
+        "P6_CAPTURE27_FROZEN\tcity:0:1:262147:1:65536:16:5\t300\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T030727391160Z.json",
+      "sha256": "1872b4b7bfb0812433919f6f45bd9a94409347735c7b69e8580b4e83318734f3",
+      "lines": [
+        "P6_CAPTURE27_BOUNDARY_SET\tCminus1\t299"
+      ]
+    },
+    {
+      "receipt": "20261101T030727644744Z.json",
+      "sha256": "5d587c24bbaf905d8b5e85aede4bf2b4b798376a70452125add1c857cce03dea",
+      "lines": [
+        "P6_TESTPLAYER_CAPTURE27_SUBMIT\tcity:0:1:262147:1:65536:16:5"
+      ]
+    },
+    {
+      "receipt": "20261101T030728038213Z.json",
+      "sha256": "bb103b6922979fe05afdcefb34b886d815aa8e598aba1ac8b0b54a4d10a13a4e",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t299",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_CITY\t1\t65536\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\tfalse\tinsufficient_gold\tnil\tnil",
+        "P6_CAPTURE46_RESULT\tcity:0:1:262147:1:65536:16:5\tREJECTED\tinsufficient_gold"
+      ]
+    },
+    {
+      "receipt": "20261101T031041424549Z.json",
+      "sha256": "4b220bdd884a66d9d812b80424d2f9550147d860afc6e427c65e0d2031c00199",
+      "lines": [
+        "P6_CAPTURE27_BOUNDARY_SET\tC\t300"
+      ]
+    },
+    {
+      "receipt": "20261101T031041831528Z.json",
+      "sha256": "18571f26b95ad6a1252a929463457dd29142f9a27a64803b35f30e3093f6e9d8",
+      "lines": [
+        "P4_MAP_QUOTE\ttrue\teligible\t300\t262147\t16\t4\t2",
+        "P4_MAP_INTERACTION\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T031226724986Z.json",
+      "sha256": "33662729d30e32703f86e796f21d9a5f0ae112ad5a5d7f77c25c672e0312751e",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t300",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_CITY\t1\t65536\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\ttrue\teligible\t300\tcity:0:1:262147:1:65536:16:5",
+        "P6_CAPTURE46_RESULT\tnil\tnil\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T031306084963Z.json",
+      "sha256": "3082225238323f814dae4d68e11b886cc41e84ca2ac1a1c6b43088084a5e0032",
+      "lines": [
+        "P6_TESTPLAYER_CAPTURE27_CAMERA_ONLY\t262147\t16\t5"
+      ]
+    },
+    {
+      "receipt": "20261101T031455182257Z.json",
+      "sha256": "238631de1d787b86281a9a8d8cf5a896f239e224b050b4a23f22e048a46d9cc3",
+      "lines": [
+        "P6_CAPTURE27_PHYSICAL_CURSOR\t236\t16\t5\t16\t5\t262147"
+      ]
+    },
+    {
+      "receipt": "20261101T031602948332Z.json",
+      "sha256": "fe852ffa713907d0fc46928d8fce2cd57703cc87272007cc5876541553d3604b",
+      "lines": [
+        "P6_CAPTURE46_IDENTITY\t1\t0\tLEADER_BAIQI\tRULESET_EXPANSION_2\t300",
+        "P6_CAPTURE46_FIXTURE\tunitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tcityUnitID\t262147",
+        "P6_CAPTURE46_FIXTURE\tx\t16",
+        "P6_CAPTURE46_FIXTURE\ttargetOwner\t1",
+        "P6_CAPTURE46_FIXTURE\tcityID\t65536",
+        "P6_CAPTURE46_FIXTURE\tunitX\t16",
+        "P6_CAPTURE46_FIXTURE\tplayerID\t0",
+        "P6_CAPTURE46_FIXTURE\trecipientCityID\t65536",
+        "P6_CAPTURE46_FIXTURE\ty\t5",
+        "P6_CAPTURE46_FIXTURE\tunitY\t4",
+        "P6_CAPTURE46_CITY\t1\t65536\t16\t5\t1",
+        "P6_CAPTURE46_UNIT\t262147\t262147\t16\t4\t2\t1",
+        "P6_CAPTURE46_QUOTE\ttrue\teligible\t300\tcity:0:1:262147:1:65536:16:5",
+        "P6_CAPTURE46_RESULT\tnil\tnil\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T031658905322Z.json",
+      "sha256": "68f1019bc22f295bb68ebfa161a54a95cdc80de896ce33520cbfb561477d3150",
+      "lines": [
+        "P6_CAPTURE27_RECOVERY\t1\tcity:0:1:262147:1:65536:16:5\tCOMMITTED\tDONE\ttrue\t131073\ttrue\t300\t0\t300\tcommitted",
+        "P6_CAPTURE27_ACTUAL\t0\t131073\t0\t262147\t0\t1",
+        "P6_CAPTURE27_CAPITAL_FLAGS\tfalse\ttrue",
+        "P6_CAPTURE27_RESULT\tCOMMITTED\tcommitted",
+        "P6_CAPTURE27_UI\ttrue\ttrue\tfalse\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T031700660909Z.json",
+      "sha256": "78d0b510b68c8ecf3dcd7df582eb8225bb9f790f44d35dd72d36e9fca5f481e9",
+      "lines": [
+        "P6_CAPTURE27_ASSET_CLASS\t0\t131073\tfalse\ttrue\t1\ttrue",
+        "P6_CAPTURE27_BUILDINGS\tfalse\t1\ttrue\t2\t5\t4"
+      ]
+    },
+    {
+      "receipt": "20261101T031701056216Z.json",
+      "sha256": "646e0e539632aa6ca3722cdd67aece76b77b792f5ad3d077fc230cd4f48f02d8",
+      "lines": [
+        "P6_CAPTURE27_C_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T032219707965Z.json",
+      "sha256": "0f2619daef8c9717ef1479681ee246ab26566867505e242ffb953286ec50683b",
+      "lines": [
+        "P6_CAPTURE27_BOUNDARY_SET\tCplus1\t301"
+      ]
+    },
+    {
+      "receipt": "20261101T032221416239Z.json",
+      "sha256": "70f46d2bfbbf79b20a47693d14aebf4dba96c83cd08977541fa5da16c300e0b7",
+      "lines": [
+        "P4_MAP_QUOTE\ttrue\teligible\t300\t262147\t16\t4\t2",
+        "P4_MAP_INTERACTION\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T032311739283Z.json",
+      "sha256": "2e58bfb17758085fd14a297c31e18582567f0ed045005ee598676d3037f9f443",
+      "lines": [
+        "P6_CAPTURE27_RECOVERY\t1\tcity:0:1:262147:1:65536:16:5\tCOMMITTED\tDONE\ttrue\t131073\ttrue\t301\t1\t300\tcommitted",
+        "P6_CAPTURE27_ACTUAL\t0\t131073\t1\t262147\t0\t1",
+        "P6_CAPTURE27_CAPITAL_FLAGS\tfalse\ttrue",
+        "P6_CAPTURE27_RESULT\tCOMMITTED\tcommitted",
+        "P6_CAPTURE27_UI\ttrue\ttrue\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T032313665659Z.json",
+      "sha256": "d8d5812d6539940855fcadf2c759b522ef1e7e8ea6da3b3dca33b90d90622c93",
+      "lines": [
+        "P6_CAPTURE27_CPLUS1_SAVE\ttrue"
+      ]
+    }
+  ],
+  "logs": {
+    "Database.log": "9f719e4296a1cb59c7846871cc2283b5534ff57fd48a9bd774739271d0f54e59",
+    "Lua.log": "6d72eba0df699d2418b996cca4f8ba5c5de97086fa35b1c51516a27915966405",
+    "Modding.log": "6d494806cbd508e5f1ba58336b7f35a32d1bb657b24b3bf3c17b7796ac663e89"
+  },
+  "result": "PASS sampled C-1/C/C+1 actual fee boundary, cancel with no effects, and one physical map right-click through paid capture. No direct UI script transfer in exact-cost case. Other physical input modes, normal attack and all eligibility boundaries still incomplete.",
+  "full_game_acceptance": false
+}
