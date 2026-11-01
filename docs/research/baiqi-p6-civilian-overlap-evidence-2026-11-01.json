@@ -1,0 +1,41 @@
+{
+  "schema": "civ6.baiqi-p6-civilian-overlap-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 25,
+  "native_failure": "baiqi-p6-ready-native24-evidence-2026-11-01.json",
+  "model": {
+    "cumulative_http": 43,
+    "complete_stop_json": 42,
+    "length_discarded": 1,
+    "automatic_retries": 0,
+    "cumulative_peak": 12,
+    "small_batch_peak": 1,
+    "cached_tokens": null,
+    "request_sha256": "4136b22366b8d364db17683a8f7658072c0fe4717ee7dfdd609c4e7f58c10907",
+    "http_status": 200,
+    "sse_done": true,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 16261,
+      "completion_tokens": 999,
+      "total_tokens": 17260
+    },
+    "total_ms": 10844.329599989578,
+    "first_nonempty_content_delta_ms": 2265.075599992997,
+    "adopted": "Only bounded overlap clearance direction. Reject code that runs before normal skip, misclassifies scout, mixes creator/district dispatch and clears destination reservations on turn change."
+  },
+  "software_tests_passed": 201,
+  "new_consumer_tests": 7,
+  "log_sha256": "956f744277f27a403bdc0a2ec280a2901e132d285b4a0236fa77e37aed61566e",
+  "artifact_sha256": "8bf7ee3de1219204fd72d42ae55a5e652f15feddb428ef76782e67abb1c250d0",
+  "files_installed": 48,
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "c2698eee75ad24ee62f2cd86086a4d4e9e0f3c8057b71dd2435c1d761b7167bb",
+    "mod/Baiqi/Lua/BaiqiController.lua": "b5ae622b3211df5cc2e0e96517f43ece5de3a73b6f876c664e1ccab762ddd7e3",
+    "tests/lua/mock_civilian_overlap.lua": "21fa3efccbfb9d0c5f83b97aad1bb7d56ebe04568d111a5b80cff17601a73fa5",
+    "tests/test_baiqi_civilian_overlap.py": "46af89c72978ff8a388b1ebcf2a01f4ee1c490e41067251bafc6963460fdc648"
+  },
+  "native_retest": "pending cold load of actual scientist overlap71; no manual civilian correction",
+  "scope": "No generic non-district GP activation; no idle-trader MOVE permission change; no military/escort movement; no empty tile roaming.",
+  "full_game_acceptance": false
+}

@@ -148,6 +148,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local allowed, reason = BaiqiPolicy.CanCivilian(ctx, UnitSnapshot(unit, state))
   local def = GameInfo.Units[unit:GetUnitType()]
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
+  local unitID,unitType=unit:GetID(),def.UnitType
   if operation~="SKIP_TURN" and not Safe(plot, Players[ctx.player]) then return false, "unsafe" end
   local params,origin,dest = {}
   local action = UnitOperationTypes[operation]
@@ -181,6 +182,12 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     elseif operation == "REPAIR" and plot:GetOwner() ~= ctx.player then return false, "foreign_repair" end
   end
   if UnitManager.CanStartOperation(unit, action, nil, params) ~= true then return false, "engine_rejected" end
+  local latest=PlayerContext()
+  local actual=GameInfo.Units[unit:GetUnitType()]
+  if not latest or latest.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)
+    or not actual or actual.UnitType~=unitType or not BaiqiPolicy.CanCivilian(latest,UnitSnapshot(unit,{})) then
+    return false,"unit_or_context_changed"
+  end
   if UnitIndex(unit)~=here:GetIndex() then return false,"position_changed" end
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
@@ -205,6 +212,45 @@ local function PathStep(unit, target, player, state)
       or (p:GetOwner() ~= -1 and p:GetOwner() ~= contextID) then return nil end
   end
   return Map.GetPlotByIndex(path.plots[2])
+end
+
+-- A newly recruited civilian can share its spawn tile with an idle civilian,
+-- making native SKIP illegal. Move only that unescorted civilian out of the
+-- overlap, after its normal task and wait have both failed. Never roam alone.
+local function ClearCivilianOverlap(ctx,player,state,unit)
+  local here=UnitPlot(unit)
+  local def=GameInfo.Units[unit:GetUnitType()]
+  if not def or not BaiqiPolicy.ActionAllowed(def.UnitType,"MOVE_TO") or not here
+    or here:GetOwner()~=ctx.player or not visibility:IsVisible(here:GetX(),here:GetY())
+    or not Safe(here,player) then return false end
+  local overlap=false
+  for _,other in pairs(Units.GetUnitsInPlot(here) or {}) do
+    local row=GameInfo.Units[other:GetUnitType()]
+    if other:GetID()~=unit:GetID() and other:GetOwner()==ctx.player and row
+      and (BaiqiPolicy.CivilianType(row.UnitType) or row.FormationClass=="FORMATION_CLASS_CIVILIAN") then overlap=true;break end
+  end
+  if not overlap then return false end
+  local targets={}
+  for direction=0,5 do
+    local plot=Map.GetAdjacentPlot(here:GetX(),here:GetY(),direction)
+    if plot and plot:GetOwner()==ctx.player and not plot:IsWater() and not plot:IsImpassable()
+      and visibility:IsVisible(plot:GetX(),plot:GetY()) and Safe(plot,player)
+      and next(Units.GetUnitsInPlot(plot) or {})==nil then
+      local reserved=false
+      for _,pending in pairs(pendingUnits) do
+        if pending.kind=="MOVE_TO" and pending.plot==plot:GetIndex() then reserved=true;break end
+      end
+      if not reserved then
+        local step=PathStep(unit,plot,player,state)
+        if step and step:GetIndex()==plot:GetIndex() then targets[#targets+1]=plot end
+      end
+    end
+  end
+  table.sort(targets,function(a,b) return a:GetIndex()<b:GetIndex() end)
+  for _,plot in ipairs(targets) do
+    if RequestCivilian(ctx,state,unit,"MOVE_TO",plot) then return true end
+  end
+  return false
 end
 
 local function DistrictPersonData(unit)
@@ -857,6 +903,9 @@ local function Tick()
       local here=UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
         status="文职单位本回合等待安全任务；军队由你指挥";return
+      end
+      if ClearCivilianOverlap(ctx,player,state,unit) then
+        status="文职单位自动移出重叠地块；军队由你指挥";return
       end
     end
   end
