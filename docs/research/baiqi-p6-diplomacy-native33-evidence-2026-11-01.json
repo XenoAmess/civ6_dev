@@ -1,0 +1,296 @@
+{
+  "schema": "civ6.baiqi-manual-diplomacy-native33-evidence/v1",
+  "recorded_utc": "2026-11-01T11:53:07.567509+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "1ee7c27",
+  "manifest_version": 33,
+  "pid": 14424,
+  "installed_files": 59,
+  "all_installed_files_equal_source_commit": true,
+  "installed_marker_sha256": "e9d3cfc47f296080b80380eb95c53d9a2e63533a15a3d20dadd1c42873178f7f",
+  "artifact_sha256": "48e2194012530929d1f4bf7652035a7229db97cc9b9144622a93861c6e26db15",
+  "steam": {
+    "client_pid": 13620,
+    "fresh_offline_before_cold_launch": "2026-11-01T11:28:01.705465+00:00",
+    "online_switches": 0,
+    "unavailable_menu_read_retained": "20261101T112735 was unavailable, not online/offline proof. Official main/menu navigation then separate readonly proved offline."
+  },
+  "fixture": {
+    "scope": "Independent new single-player GatheringStorm standard-speed duel map, configured4 city-states, seed2026110190. Major participant count was not explicitly reduced to2; no2major-fixture claim. Source33 process cold, no product hotpatch. Prior11city90 save had onlyFreeCities alive and was unsuitable, preserved independently.",
+    "turns": "AI naturally founded own capital at1; test-player military wait and one original endturn1→2 before minor cities exist.",
+    "debug_preparation": "Only after turn2: grant2tokens via shipped Debug/Player.ltp ChangeTokensToGive(2), reveal only Vilnius city plot665 with shipped Debug/Map.ltp ChangeVisibilityCount(index,1). ImmediateHasMet false→true. Native first-contact reward gives target1 envoy, separate from grant and AI delegation. No direct envoy-assignment, OnMoreEnvoyTokens or OnConfirmPlacement native call by test code."
+  },
+  "manual_envoy": {
+    "before": {
+      "available": 2,
+      "vilnius": 1
+    },
+    "after_physical_increment_before_confirm": {
+      "available": 2,
+      "vilnius": 1,
+      "ui_pending_change": 1
+    },
+    "after_physical_confirm": {
+      "available": 1,
+      "vilnius": 2
+    },
+    "input": "Open original OnOpenSendEnvoys(6) UI handler, physically increment755,245 then confirm756,676; prior542,245 inspected city details only and950,141 returned. No direct player operation packet submitted by test helper.",
+    "idle_observation_seconds": 51.666788,
+    "after_idle": {
+      "available": 1,
+      "vilnius": 2
+    },
+    "claim": "Actual native state remains unchanged during observed interval. No claim of instrumented native operation-count coverage or all diplomacy interactions."
+  },
+  "domestic_isolation": {
+    "native_executor": {
+      "guard": "nil",
+      "monument_can_produce_modes": [
+        true,
+        true
+      ],
+      "build_can_start": true,
+      "warrior_skip_can_start": true
+    },
+    "guarded_production_panel": {
+      "guard": "table",
+      "monument_can_produce_modes": [
+        true,
+        true
+      ],
+      "build_can_start": false,
+      "warrior_skip_can_start": true
+    },
+    "guarded_world_input": {
+      "guard": "table",
+      "monument_can_produce_modes": [
+        true,
+        true
+      ],
+      "build_can_start": false,
+      "warrior_skip_can_start": true
+    },
+    "scope": "Readonly capability comparisons using same actual city65536 and warrior131073. No manual production write attempted; not entire mouse/hotkey matrix."
+  },
+  "source34_separation": "Current repository b8dfa9d has software245 and performance optimization; running install59files verified against source33 commit1ee7c27. Do not attribute these native results to34. Source34 not hotloaded.",
+  "native_lua_runtime_error_count": 0,
+  "save": {
+    "name": "Baiqi_P6_20261101_V33_ManualEnvoy2.Civ6Save",
+    "sha256": "fdd139b55b9815d4c4ff9ae98f04550ad1c999a889608de95477b6fb411a9e6f",
+    "bytes": 638126
+  },
+  "screenshots": {
+    "diplomacy33-before-manual-envoy2": "22c71165d83c3f55da60d3b333729558a80fba2bdc5ddad81456e51b2bbd6d88",
+    "diplomacy33-after-manual-envoy2": "76b755e666a3dc7937c041f0f437111961a77a95681fdb0c0f78b80c7e30eafa"
+  },
+  "archived_logs": {
+    "Database.log": "b2c2605d08f1b4de43b73e309f6ea7c8b00c9d55cb03a1ac342d49e6f29c1d73",
+    "Lua.log": "e501a5026b2a22d612b8b5292177332cb73f9d26d09fe1d388e4b1119a6daa45",
+    "Modding.log": "0868c5f722be20819fec5e3fbb1f5c18b0c4a08c2f0af602848c1b3d8b2e2336"
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T112935575356Z.json",
+      "sha256": "148ba746775f1384bf0d2a00fb1999d6cc1a6c571fedcfa8ca0c3ea1c6a2189e",
+      "context": "MainMenu",
+      "readback": [
+        "P6_DIPLOMACY33_LOAD90\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T113147647380Z.json",
+      "sha256": "741116945f0489e9012a3769172b3ce882b2a79828be33633e28433cc46bbe3a",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_LOCAL\t90\t12\tnil\tfunction",
+        "P6_DIPLOMACY33_MINOR\t62\tCIVILIZATION_FREE_CITIES\ttrue\ttrue\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T113323650395Z.json",
+      "sha256": "33b62a6f3e0f3d0296e0d503539a94ee147703e8ed1f543853add30d1a5cc1b0",
+      "context": "InGameTopOptionsMenu",
+      "readback": [
+        "P6_DIPLOMACY33_EXIT_MAIN_MENU"
+      ]
+    },
+    {
+      "receipt": "20261101T113359846889Z.json",
+      "sha256": "1946fc68a20c2c932b698470975a81218e51c8322b2a42f436a2a7d35808232b",
+      "context": "InGameTopOptionsMenu",
+      "readback": [
+        "P6_DIPLOMACY33_CONFIRM_MAIN_MENU"
+      ]
+    },
+    {
+      "receipt": "20261101T113450428226Z.json",
+      "sha256": "40b4a155750d76b406b22ea89ceb860ef58289336fdb8a5aa0dcf893ac41b97c",
+      "context": "MainMenu",
+      "readback": [
+        "P6_DIPLOMACY33_CONFIG\tRULESET_EXPANSION_2\t4\tMAPSIZE_DUEL\tLEADER_BAIQI"
+      ]
+    },
+    {
+      "receipt": "20261101T113919982312Z.json",
+      "sha256": "e8372d6c5dc125c8c4c82c3a4601c9ef52c8b8dd286f57c91141d490d2c8f10e",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_LOCAL\t1\t0\tnil\tfunction",
+        "P6_DIPLOMACY33_MINOR\t6\tCIVILIZATION_VILNIUS\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t7\tCIVILIZATION_PALENQUE\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t8\tCIVILIZATION_ANTIOCH\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t9\tCIVILIZATION_HATTUSA\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t62\tCIVILIZATION_FREE_CITIES\ttrue\ttrue\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T114053693249Z.json",
+      "sha256": "4d815ebee81c7161e9d316e4ceb6320b754283ffe6eaf78e303648ee4beaee4f",
+      "context": "BaiqiGameplay",
+      "readback": [
+        "P6_DIPLOMACY33_FIXTURE\t1\t1",
+        "P6_DIPLOMACY33_MINOR_CITIES\t6\t0",
+        "P6_DIPLOMACY33_MINOR_CITIES\t7\t0",
+        "P6_DIPLOMACY33_MINOR_CITIES\t8\t0",
+        "P6_DIPLOMACY33_MINOR_CITIES\t9\t0",
+        "P6_DIPLOMACY33_PREPARE_CAPABILITIES\tfunction\tfunction"
+      ]
+    },
+    {
+      "receipt": "20261101T114441540649Z.json",
+      "sha256": "5260771e9d286b987092391e8ee8c0df20df765cbb881c2fbc4388855b1abf49",
+      "context": "BaiqiGameplay",
+      "readback": [
+        "P6_DIPLOMACY33_FIXTURE\t2\t1",
+        "P6_DIPLOMACY33_MINOR_CITIES\t6\t1",
+        "P6_DIPLOMACY33_MINOR_CITY\t6\t65536\t5\t15",
+        "P6_DIPLOMACY33_MINOR_CITIES\t7\t1",
+        "P6_DIPLOMACY33_MINOR_CITY\t7\t65536\t11\t7",
+        "P6_DIPLOMACY33_MINOR_CITIES\t8\t1",
+        "P6_DIPLOMACY33_MINOR_CITY\t8\t65536\t41\t23",
+        "P6_DIPLOMACY33_MINOR_CITIES\t9\t0",
+        "P6_DIPLOMACY33_PREPARE_CAPABILITIES\tfunction\tfunction"
+      ]
+    },
+    {
+      "receipt": "20261101T114709525756Z.json",
+      "sha256": "a98923dd3ad16c7a64d247f8dff11abf2ac42009c4fa0d9cfb2e25f1d78543a0",
+      "context": "BaiqiGameplay",
+      "readback": [
+        "P6_DIPLOMACY33_DEBUG_BEFORE\t0\tfalse",
+        "P6_DIPLOMACY33_DEBUG_REVEAL\t665",
+        "P6_DIPLOMACY33_DEBUG_AFTER\t2\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T114803127002Z.json",
+      "sha256": "7d310ecb1e3d311cb3057232cd8f030325737d5aa780b955f05659c33cfaad81",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_LOCAL\t2\t2\tnil\tfunction",
+        "P6_DIPLOMACY33_MINOR\t6\tCIVILIZATION_VILNIUS\ttrue\tfalse\t1",
+        "P6_DIPLOMACY33_MINOR\t7\tCIVILIZATION_PALENQUE\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t8\tCIVILIZATION_ANTIOCH\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t9\tCIVILIZATION_HATTUSA\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t62\tCIVILIZATION_FREE_CITIES\ttrue\ttrue\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T114851054696Z.json",
+      "sha256": "79db9f5249a4081047a50a033ce03922681dbe69419bd3b58c03c1dddcf5ee3e",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_OPEN_SEND"
+      ]
+    },
+    {
+      "receipt": "20261101T114911962137Z.json",
+      "sha256": "b4d34d1c310c3c2870d86b4a627c02293792f5f375956660b71ffcb71c88f7b4",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_LOCAL\t2\t2\tnil\tfunction",
+        "P6_DIPLOMACY33_MINOR\t6\tCIVILIZATION_VILNIUS\ttrue\tfalse\t1",
+        "P6_DIPLOMACY33_MINOR\t7\tCIVILIZATION_PALENQUE\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t8\tCIVILIZATION_ANTIOCH\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t9\tCIVILIZATION_HATTUSA\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t62\tCIVILIZATION_FREE_CITIES\ttrue\ttrue\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T115001249013Z.json",
+      "sha256": "c84bdb884f0844c9bb8efaf6c2463b636cadbf189fa279f571ca47143b4477d1",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_LOCAL\t2\t2\tnil\tfunction",
+        "P6_DIPLOMACY33_MINOR\t6\tCIVILIZATION_VILNIUS\ttrue\tfalse\t1",
+        "P6_DIPLOMACY33_MINOR\t7\tCIVILIZATION_PALENQUE\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t8\tCIVILIZATION_ANTIOCH\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t9\tCIVILIZATION_HATTUSA\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t62\tCIVILIZATION_FREE_CITIES\ttrue\ttrue\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T115003610954Z.json",
+      "sha256": "bfba4b9bf45f919fda8376a66421e37d79bdc8b1b5746ed75b3cb66458d8488b",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_LOCAL\t2\t1\tnil\tfunction",
+        "P6_DIPLOMACY33_MINOR\t6\tCIVILIZATION_VILNIUS\ttrue\tfalse\t2",
+        "P6_DIPLOMACY33_MINOR\t7\tCIVILIZATION_PALENQUE\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t8\tCIVILIZATION_ANTIOCH\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t9\tCIVILIZATION_HATTUSA\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t62\tCIVILIZATION_FREE_CITIES\ttrue\ttrue\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T115037281204Z.json",
+      "sha256": "78f96d77497412deecf15073dd0529d5e2070c3eeeef0fa9e69998fad1e08409",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_DIPLOMACY33_DOMESTIC_GATE\tnil\ttrue\ttrue\ttrue\tnil",
+        "P6_DIPLOMACY33_ARMY_GATE\t131073\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T115037660258Z.json",
+      "sha256": "9ffb4860860d9335306798ae8e949fa1515c1776497a01a1124bcc350f647a15",
+      "context": "ProductionPanel",
+      "readback": [
+        "P6_DIPLOMACY33_DOMESTIC_GATE\ttable\ttrue\ttrue\tfalse",
+        "P6_DIPLOMACY33_ARMY_GATE\t131073\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T115038038120Z.json",
+      "sha256": "86426b44a3252e1dde80e41cf6647e14ccda2db0919c16fa1f0732646a75e38d",
+      "context": "WorldInput",
+      "readback": [
+        "P6_DIPLOMACY33_DOMESTIC_GATE\ttable\ttrue\ttrue\tfalse",
+        "P6_DIPLOMACY33_ARMY_GATE\t131073\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T115055277742Z.json",
+      "sha256": "f78bead1e95356e5fc3476fd6b523f9e9cff8fe7d6ae062ebabb4335d0c1670e",
+      "context": "CityStates",
+      "readback": [
+        "P6_DIPLOMACY33_LOCAL\t2\t1\tnil\tfunction",
+        "P6_DIPLOMACY33_MINOR\t6\tCIVILIZATION_VILNIUS\ttrue\tfalse\t2",
+        "P6_DIPLOMACY33_MINOR\t7\tCIVILIZATION_PALENQUE\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t8\tCIVILIZATION_ANTIOCH\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t9\tCIVILIZATION_HATTUSA\tfalse\tfalse\t0",
+        "P6_DIPLOMACY33_MINOR\t62\tCIVILIZATION_FREE_CITIES\ttrue\ttrue\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T115056708311Z.json",
+      "sha256": "784ceba2364b27910f557169c83ba683520c97c86322006f1c44bd4413e2942e",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_DIPLOMACY33_VERIFIED_SAVE\ttrue"
+      ]
+    }
+  ],
+  "result": "PASS sampled manual envoy transfer and cost, no further observed transfer, domestic and army capability isolation. Other foreign visit/congress samples documented separately; not all diplomacy/hotkey tests or all40cases.",
+  "full_game_acceptance": false
+}
