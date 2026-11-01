@@ -44,7 +44,7 @@ def main() -> None:
                     "/out:" + str(executable), str(ROOT / "tools/BaiqiArtLayout.cs")], check=True)
     subprocess.run([str(executable), str(args.source_kit.resolve()), str(pngs)], check=True)
     names = [f"Baiqi_Leader{size}" for size in (32, 45, 50, 55, 64, 80, 256)]
-    names += ["Baiqi_LeaderForeground", "Baiqi_LoadingBackground", "Baiqi_DiplomacyBackground"]
+    names += ["Baiqi_SelectionForeground", "Baiqi_LeaderForeground", "Baiqi_LoadingBackground", "Baiqi_DiplomacyBackground"]
     textures = []
     converter = args.texconv.resolve()
     for name in names:
@@ -62,12 +62,13 @@ def main() -> None:
               "machine_id": os.environ.get("COMPUTERNAME"), "source_record": "baiqi-art-sources-2026-11-01.json",
               "source_sha256": {s["id"]: s["sha256"] for s in sources},
               "layout_source_sha256": digest(ROOT / "tools/BaiqiArtLayout.cs"), "texconv_sha256": digest(converter),
-              "layouts": {"portrait": "92% contain, centered with 4% border", "loading_foreground": "contain in825x800 at0,190 within transparent825x1024; complete source character",
+              "layouts": {"portrait": "92% contain, centered with 4% border", "selection_foreground": "contain in825x800 at-90,190 within transparent825x1024; complete source character",
+                          "loading_foreground": "contain in825x720 at20,190 within transparent825x1024; complete source character",
                           "loading_background": "cover1920x960, source upscaled1774x887",
                           "diplomacy": "cover1920x1010; original leader height1470 at885,10; lower legs clipped by canvas"},
               "color_encoding": "Preserve PNG sample bytes with --ignore-srgb; do not convert sRGB samples into linear bytes for UI textures.",
               "textures": textures, "native_display_validation": "NOT_RUN"}
-    (ROOT / "docs/research/baiqi-art-export-2026-11-01.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "docs/research/baiqi-art-export-2026-11-01.json").write_bytes((json.dumps(record, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
     print(json.dumps({"textures": len(textures), "bytes": sum(t["bytes"] for t in textures), "native_display_validation": "NOT_RUN"}))
 
 

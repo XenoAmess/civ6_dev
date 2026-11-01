@@ -62,8 +62,10 @@ internal static class BaiqiArtLayout
                             dimension * .92f, dimension * .92f), false);
                     });
             }
+            Canvas(Path.Combine(output, "Baiqi_SelectionForeground.png"), 825, 1024, false,
+                delegate(Graphics graphics) { DrawFit(graphics, leader, new RectangleF(-90, 190, 825, 800), false); });
             Canvas(Path.Combine(output, "Baiqi_LeaderForeground.png"), 825, 1024, false,
-                delegate(Graphics graphics) { DrawFit(graphics, leader, new RectangleF(0, 190, 825, 800), false); });
+                delegate(Graphics graphics) { DrawFit(graphics, leader, new RectangleF(20, 190, 825, 720), false); });
             Canvas(Path.Combine(output, "Baiqi_LoadingBackground.png"), 1920, 960, true,
                 delegate(Graphics graphics) { DrawFit(graphics, background, new RectangleF(0, 0, 1920, 960), true); });
             Canvas(Path.Combine(output, "Baiqi_DiplomacyBackground.png"), 1920, 1010, true,
@@ -73,7 +75,7 @@ internal static class BaiqiArtLayout
                     DrawFit(graphics, leader, new RectangleF(885, 10, width, height), false);
                 });
         }
-        Console.WriteLine("Exported 10 source-preserving PNG layouts.");
+        Console.WriteLine("Exported 11 source-preserving PNG layouts.");
         return 0;
     }
 }
