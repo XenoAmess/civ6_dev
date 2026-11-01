@@ -1,0 +1,362 @@
+{
+  "schema": "civ6.baiqi-budget-native32-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "source_commit": "f6386b1",
+  "manifest_version": 32,
+  "pid": 9012,
+  "artifact_sha256": "d6f0c417028b9833427ba9988484838254363771b6b6208317f4c7f1b0908175",
+  "installed_files": 59,
+  "all_installed_files_match_source": true,
+  "steam_before_cold_launch_readonly_offline_utc": "2026-11-01T09:38:06.152855+00:00",
+  "fixture": "Cold process actual initial load of copy of own AutoSave42, SHAe98cf99372c58e10c82fc4c63551adcfe8aa6d0fb4061401185c7addfc65f956. Native before43 overcommit has not happened; no queue deletion or manufactured budget state.",
+  "actual_endturn_calls": [
+    "P6_NATIVE_ENDTURN_CLICK\t42",
+    "P6_NATIVE_ENDTURN_CLICK\t43"
+  ],
+  "counts": [
+    {
+      "turn": 42,
+      "alive": 1,
+      "queued": 0,
+      "limit": 1,
+      "cities": 6
+    },
+    {
+      "turn": 42,
+      "alive": 1,
+      "queued": 0,
+      "limit": 1,
+      "cities": 6
+    },
+    {
+      "turn": 42,
+      "alive": 0,
+      "queued": 0,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 42,
+      "alive": 0,
+      "queued": 0,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 42,
+      "alive": 0,
+      "queued": 0,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 42,
+      "alive": 0,
+      "queued": 0,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 43,
+      "alive": 0,
+      "queued": 0,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 43,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 43,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 43,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 43,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 43,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 43,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 44,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 44,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 44,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 44,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 44,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 44,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    },
+    {
+      "turn": 44,
+      "alive": 0,
+      "queued": 1,
+      "limit": 1,
+      "cities": 7
+    }
+  ],
+  "actual_settler_requests": [
+    "BaiqiExecutor: BAIQI|request|turn=43|id=0:43:9|source=BACKGROUND|city=65536|type=UNIT_SETTLER"
+  ],
+  "final_queue": "One actual UNIT_SETTLER in city65536, native currentHash-798712536 and entryUnitType0 at44; no alive settler; city count7.",
+  "player_input": "Original ActionPanel endturn42/43, ordinary military wait and one guarded army-unstack at43. No player domestic/unit creation/queue editing. No policy/CityManager observational wrappers or source hot patch in this new process.",
+  "scope": "PASS sampled cold42to44 max1 settler budget and real city expansion. Original uninstrumented version31 race remains historical FAIL; instrumentation replay had not duplicated, exact native interleaving not proved. Version32 full20turn regression still pending.",
+  "save": {
+    "name": "Baiqi_P6_20261101_V32_BudgetAfter44.Civ6Save",
+    "sha256": "c3267b78c447e1552b26a0330e57d318f15567bb17ae145603e30700be4390ae",
+    "bytes": 430646
+  },
+  "logs": {
+    "Database.log": "93657acd0658832a32867175d84223ff7db1189fae6bdd4b743eb7faa0aa08e9",
+    "Lua.log": "4695bff0cb03f930525591034f9a208c0df321737b651a77c4341a9f92b836f0",
+    "Modding.log": "dde1eb323c291dba98a0949aa36c523d4c81b340bd645049f7274447a3b0855f"
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T094357326068Z.json",
+      "sha256": "78b4dc737e33d1e6d653fd6d1e7eb43a0ac2000d8718eea5bfdd6594a586a51d",
+      "lines": [
+        "P6_BUDGET32_LIVE_SETTLER\t42\t720901\t18\t7",
+        "P6_BUDGET32_COUNTS\t42\t1\t0\t1\t6"
+      ]
+    },
+    {
+      "receipt": "20261101T094358654598Z.json",
+      "sha256": "dad694d588fb7859e2723403583cad160baad52bef3132c504cf7d2b77c857e2",
+      "lines": [
+        "P6_BUDGET32_LIVE_SETTLER\t42\t720901\t19\t6",
+        "P6_BUDGET32_COUNTS\t42\t1\t0\t1\t6"
+      ]
+    },
+    {
+      "receipt": "20261101T094359908946Z.json",
+      "sha256": "b5326d78d8f0b5bc0a18123cc83d9e3e73772ffc0860758cd87446c1ae05c406",
+      "lines": [
+        "P6_BUDGET32_COUNTS\t42\t0\t0\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094401375067Z.json",
+      "sha256": "6ecfa6a8e0ad37cde861bc981169f622d5ee6ecd57377fe266b639c43d7d785f",
+      "lines": [
+        "P6_BUDGET32_COUNTS\t42\t0\t0\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094402643899Z.json",
+      "sha256": "0e5e4c2dcfd1a32bdfd9525dab9b0c2d8cd3fe2a9cdbd3f197a29ad615c19daf",
+      "lines": [
+        "P6_BUDGET32_COUNTS\t42\t0\t0\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094404351336Z.json",
+      "sha256": "9b7af1ac15585a7ffd1230688e4fe1e41ffc94de0ce02830bbb0659e05a62493",
+      "lines": [
+        "P6_NATIVE_ENDTURN_CLICK\t42"
+      ]
+    },
+    {
+      "receipt": "20261101T094406021773Z.json",
+      "sha256": "b2b74b38d5618d387a63023efeb24e969955e98d1eaa10f9d6b7b5aae823f06f",
+      "lines": [
+        "P6_BUDGET32_COUNTS\t42\t0\t0\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094407478348Z.json",
+      "sha256": "69c83dee95a7dd315df9d924c96ae9bccec924be495d4682ee1074670792acda",
+      "lines": [
+        "P6_BUDGET32_COUNTS\t43\t0\t0\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094409631058Z.json",
+      "sha256": "a22f645fa0f4abf6ee68dbb4eb05ea4760d18bfa1851a8adb2c16e9a463d300a",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t43\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t43\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094410918708Z.json",
+      "sha256": "a884406312e10e9a34514ab27453eddccf80aa5c5b3c233a9f23e23f1166c897",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t43\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t43\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094412409644Z.json",
+      "sha256": "fdb8f59a1e35837d650ea31eaff125425e22c0d102d4bf91886bafabc03374ba",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t43\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t43\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094414149869Z.json",
+      "sha256": "ff1037f42d385ca8f9425d77d286ec5524335af04ee48bbbdae2571dd49eacff",
+      "lines": [
+        "P6_PLAYER_TEST_ARMY_UNSTACK_REQ|43|1114117|717|673"
+      ]
+    },
+    {
+      "receipt": "20261101T094416605473Z.json",
+      "sha256": "3407f1bf9328366d1ebc9dfd3df861781594c4aa59a87834d114089d930d0672",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t43\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t43\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094417920767Z.json",
+      "sha256": "6efc539fed3f39fe794d6ed4e376b4d63b2ccd13b41d08ca4f5e19cc9f0baeb3",
+      "lines": [
+        "P6_NATIVE_ENDTURN_CLICK\t43"
+      ]
+    },
+    {
+      "receipt": "20261101T094419278038Z.json",
+      "sha256": "a53902f8743d7f5f929ebd530f07c84db88dc9139aa2b1997ea53223f04d4773",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t43\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t43\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094420755709Z.json",
+      "sha256": "6cacea4267508aa86864ac6a48b6d89f70b21405ed5547eb3b0ffc467b01db5f",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t43\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t43\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094422081277Z.json",
+      "sha256": "c224b975b1e8b87ff132c024da38fa0bb415eeb54aec851baaee019b92b8b176",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t44\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t44\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094424199823Z.json",
+      "sha256": "d80353e4661a97c2350a1c81946d2143b8ea477e476c745c8a6ea4bf6a4f0c45",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t44\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t44\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094425429292Z.json",
+      "sha256": "d75e8150491b5915905640cac5d91c48d19cf33e780f36504c524fb81d682786",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t44\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t44\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094427006502Z.json",
+      "sha256": "5319b3ea61cb3187678574eb252e6cb940471ff0c49e3dc492ef788c6004d5ab",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t44\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t44\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094428228302Z.json",
+      "sha256": "505d6537fd7fc8504f8ba22b1393af2376caee7697f58088449b4859b942a4cd",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t44\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t44\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094429690289Z.json",
+      "sha256": "5e54c6c45836fe0b51a37723f89c9067cb2585e9166cd9a3fab8717a590ec003",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t44\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t44\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094641587904Z.json",
+      "sha256": "35878d307aeaafd8343c2f3fe11df454bfe1b1a831e84450071e855486427250",
+      "lines": [
+        "P6_BUDGET32_SETTLER_QUEUE\t44\t65536\t-798712536\t0",
+        "P6_BUDGET32_COUNTS\t44\t0\t1\t1\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T094642105783Z.json",
+      "sha256": "243823701443c78665d0fce9e4da2db307b94a52e7832264aef409d719e73c81",
+      "lines": [
+        "P6_BUDGET32_SAVE44\ttrue"
+      ]
+    }
+  ],
+  "controller_errors": [],
+  "screenshot_sha256": "ec128d7679a240fd5bb822123fb2a0a1c47753c79928595794b8d8a3be86458b",
+  "full_game_acceptance": false
+}
