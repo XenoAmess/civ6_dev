@@ -1,0 +1,98 @@
+{
+  "schema": "civ6.baiqi-p6-standby-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "native_failure": "baiqi-p6-no-work-native22-evidence-2026-11-01.json",
+  "models": {
+    "additional_http_requests": 3,
+    "dispatch": "Two real independent military/performance preparation tasks overlapped, then one dependent actual no-work failure candidate. Small-batch peak2, not3.",
+    "cumulative_p6_http": 40,
+    "cumulative_complete_stop_json": 39,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "requests": [
+      {
+        "task": "military38",
+        "request_sha256": "de779c465fc9c9c593bae37d4818544774e0693651a7c8ca3378cb5c8cd4bbac",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 32110,
+          "completion_tokens": 648,
+          "total_tokens": 32758
+        },
+        "total_ms": 26953.982499995618,
+        "first_nonempty_content_delta_ms": 12020.537300006254,
+        "cached_prompt_tokens_if_reported": null
+      },
+      {
+        "task": "performance39",
+        "request_sha256": "4f50bc0bd4e1e2c3bfb2bccdbb0e3615749aa3bdb017e2d22ad6ea4605b70d6c",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 29290,
+          "completion_tokens": 781,
+          "total_tokens": 30071
+        },
+        "total_ms": 28572.01950000308,
+        "first_nonempty_content_delta_ms": 8454.933400003938,
+        "cached_prompt_tokens_if_reported": null
+      },
+      {
+        "task": "standby40",
+        "request_sha256": "f928b8b4073e14af2e7ded040e6c75c57ea2820e7ccef43d7f71d36b98215eea",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 21719,
+          "completion_tokens": 697,
+          "total_tokens": 22416
+        },
+        "total_ms": 9106.816699990304,
+        "first_nonempty_content_delta_ms": 3446.64309998916,
+        "cached_prompt_tokens_if_reported": null
+      }
+    ],
+    "military_review": "No implementation adopted: proposed nonexistent UI.RequestCommand/UNITCOMMAND_MOVE and public Controller.Tick, incorrectly marked sea fixture dependent on rebase. Formation-count caution useful; army/sea/air/corps/escort native tests still unfinished.",
+    "performance_review": "No harness adopted: invented os.clock use in Admin, assumed clock CPU/wall semantics without testing and counted only UI player operations while omitting unit/city request sinks. Baseline scope and clock-cache probe direction retained; budgets not yet frozen and no ten-city timing measured.",
+    "standby_review": "Partially adopted isolated normal standby project and lowest score. Supplied exact schema/effect support owner SQL. Candidate miscalled queue hash acknowledgement completion and said no native legal units, whereas real units are legal but strategic caps already reached. Owner preserves distinction and requires native completion followup."
+  },
+  "owner_implementation": {
+    "manifest_version": 23,
+    "software_tests_passed": 183,
+    "new_consumer_tests": 6,
+    "artifact_sha256": "1f1d967f4f1f2899206204d4855ab440e70b036a3cd10c1e22c6c5bc4783b04c",
+    "installed_files": 48,
+    "project": {
+      "type": "PROJECT_BAIQI_STANDBY",
+      "base_cost": 30,
+      "cost_progression": "NO_PROGRESSION_MODEL",
+      "district": "DISTRICT_CITY_CENTER",
+      "unlock_from_effect": true,
+      "score": -1000,
+      "yield_conversions": 0,
+      "great_person_points": 0,
+      "completion_rewards": 0,
+      "extra_units": 0
+    },
+    "isolation": "Own modifier type uses actual engine EFFECT_ADD_PLAYER_PROJECT_AVAILABILITY, only attached to TRAIT_LEADER_BAIQI_FORERUNNER; no dependency on LP modifier identifier, no universal unlock.",
+    "controller": "Existing both CanProduce modes, final native legality, normal BUILD operation and real queue readback. All ordinary candidates outrank standby; army/civilian caps and existing queues remain intact.",
+    "old_save_unlock_retroactivity": "not yet assumed; cold-load validation required",
+    "native_recovery": "pending cold start",
+    "full_game_acceptance": false,
+    "source_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "f81796634be373da01d5ea0aa4dc2be5361dec01866ee923d58dc2efd32c4a5a",
+      "mod/Baiqi/Data/BaiqiStandby.sql": "6f56df4c8f6355dd4d073dd102a591c88b2789dc92218d0ec463818230bda4fa",
+      "mod/Baiqi/Data/BaiqiIcons.sql": "d74b2824bd0d7f7a45779b1c5d01b00b1a1211a92bf275def8d3ac95b7c901aa",
+      "mod/Baiqi/Text/BaiqiText.xml": "8a0e08f4f8a831a2e221ea4db65b52e4a2d8bbd8c66bc4a642d3000742814e1d",
+      "mod/Baiqi/Lua/BaiqiController.lua": "84dc16af5cdbe85e21657d0fcb38f5394735cd33306840a3cb20e3a915a490ae",
+      "tests/lua/mock_standby.lua": "9ec3e066e5e0e0ba98ded58e3898f5363bc6c16ace590d605d771e1eb4de232c",
+      "tests/test_baiqi_standby.py": "2271a95d35e094d056d6201bc7f6cc9a36c9e5b5a2495c081777cd84ed04990e"
+    }
+  }
+}

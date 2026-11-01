@@ -665,7 +665,9 @@ local function ProcessCity(ctx, player, state, city)
       end
     end
   end
-  for row in GameInfo.Projects() do Add("project",row,1,false) end
+  for row in GameInfo.Projects() do
+    Add("project",row,row.ProjectType=="PROJECT_BAIQI_STANDBY" and -1000 or 1,false)
+  end
   local choice=BaiqiPlanner.Choose({paused=false,queueEmpty=true},candidates)
   if choice == nil then Reason("city:"..city:GetID(),"城市等待合法生产或预算"); return false end
   -- All state and legality are checked again at the write boundary.
