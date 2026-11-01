@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-01T18:37:59.453974+00:00",
+  "machine": "BF-202609141645",
+  "source_commit": "0c61f6c",
+  "manifest_version": 39,
+  "process_pid": 12512,
+  "installed_files_matching_commit": 61,
+  "installed_archive_sha256": "681bb777d25fd689228aa820cbe1d23075c95771bbc0e43f9f5a4aadc3020a11",
+  "steam": {
+    "client_pid": 13620,
+    "fresh_offline_check_utc": "2026-11-01T18:25:25.213038+00:00",
+    "online_switches": 0
+  },
+  "software_tests_passed": 294,
+  "fixture": {
+    "save_name": "Baiqi_P6_20261102_V38_GovClose32.Civ6Save",
+    "sha256": "b2e0f3481a4959aa4e0cc05306c091038a685c2e3c37a5b29bd4dda02f3a8b36",
+    "type": "Same saved32 game, native readonly government view and a UI-only visible/enabled ConfirmPolicies flag. No policy-card or native government changes."
+  },
+  "paired_close": {
+    "old_source38": {
+      "physical_escape": "Unsaved policy dialog; government view remains visible/readOnlytrue; required Yes discard.",
+      "screenshot_sha256": "4076ca1986a879b48016002b2d199149582dd1103d8220069c181b5f6a971bbe"
+    },
+    "new_source39": {
+      "physical_escape_count": 1,
+      "government_visible_after": false,
+      "read_only": true,
+      "unsaved_dialog_observed": false,
+      "no_yes_click_needed": true,
+      "ui_fixture_exactly_restored": true,
+      "screenshot_sha256": "2b2ccb118ad9a00b5199b162eec74b53a42a666d061dd82141c447d16ee54a0e"
+    }
+  },
+  "test_driver": {
+    "visible_government_stops_before_actions": true,
+    "old38_endturn_requests": 0,
+    "new39_endturn_requests": 0,
+    "unknown_lookup_stops": true,
+    "fresh_actionpanel_write_guard": true
+  },
+  "normal_continuation": {
+    "start_turn": 32,
+    "end_turn": 34,
+    "actual_turn_advances": 2,
+    "native_end_turn_calls": [
+      32,
+      33
+    ],
+    "manual_domestic_choices": 0,
+    "additional_domestic_popup_dismissals": 0,
+    "final_active": true,
+    "final_government": "GOVERNMENT_OLIGARCHY",
+    "policy_slots": 4,
+    "open_policy_slots": 0,
+    "city_count": 6,
+    "all_six_queues_nonempty": true,
+    "screenshot_sha256": "4f65c54232a70c45d74c46d050167a2a5c92c9bccecaa009378de4dcd17127f2"
+  },
+  "runtime_errors": 0,
+  "private_log_sha256": "cf3aef6540e36f14fda145a9e99c50423d7cd4045e37cb70764e250b5ae06008",
+  "limits": [
+    "Passes this explicit readonly close and two-turn continuation only.",
+    "UI button flags were deliberately prepared; this is not proof of the cause/timing of the earlier natural viewer.",
+    "The driver guard covers government visibility; no claim of complete generic modal/human-input acceptance.",
+    "Other leader/multiplayer native-close behavior has software verification, not new native samples.",
+    "Does not pass full40-case suite, every GP or global performance."
+  ],
+  "local_models": {
+    "http_total": 116,
+    "complete_total": 112,
+    "length_discarded": 4,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  }
+}
