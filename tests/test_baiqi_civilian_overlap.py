@@ -2,6 +2,7 @@
 from pathlib import Path
 import unittest
 from lupa.lua53 import LuaRuntime
+from gp_intent_harness import install_gp_bridge
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -9,7 +10,9 @@ ROOT = Path(__file__).resolve().parents[1]
 class CivilianOverlapTests(unittest.TestCase):
     def setUp(self):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
-        for path in ('tests/lua/mock_world.lua', 'tests/lua/mock_scientist.lua',
+        self.lua.execute((ROOT/'tests/lua/mock_world.lua').read_text(encoding='utf-8'))
+        install_gp_bridge(self.lua)
+        for path in ('tests/lua/mock_scientist.lua',
                      'tests/lua/mock_civilian_overlap.lua', 'mod/Baiqi/Lua/BaiqiConfig.lua',
                      'mod/Baiqi/Lua/BaiqiPolicy.lua', 'mod/Baiqi/Lua/BaiqiPlanner.lua',
                      'mod/Baiqi/Lua/BaiqiController.lua'):

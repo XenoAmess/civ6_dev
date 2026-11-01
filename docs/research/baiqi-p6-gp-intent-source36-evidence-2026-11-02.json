@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-02",
+  "machine": "BF-202609141645",
+  "manifest_version": 36,
+  "software_tests": 271,
+  "native_status": "Not yet installed or tested in a game at this checkpoint.",
+  "scope": [
+    "Durable activation metadata for Scientist, Engineer, Merchant only.",
+    "Gameplay metadata-only synchronous bridge; UI remains sole command emitter.",
+    "Core readback precedes fresh scalar grant, followed by repeated UI native eligibility checks.",
+    "ARMED and LEGACY_UNKNOWN do not move, skip or reactivate automatically.",
+    "Only exact same identity with decreased charges or correlated consumed-unit event can settle an intent. Next activation still requires positive and strictly lower current charges.",
+    "Missing unit, timeout, exception or UI reload alone never authorizes replay.",
+    "Unknown/corrupt property is retained, other domestic work continues.",
+    "Existing charged people without historical receipts become LEGACY_UNKNOWN. No claim of full old-save availability.",
+    "Creative and prophet intent durability remains outside this change."
+  ],
+  "software_limits": [
+    "Tests use separate Core/UI Lua environments and actual journal/provider/Controller; only native bindings and shared property service are fake.",
+    "Context reconstruction tests are not native save serialization or process restart evidence.",
+    "New test fixture initially lacked HasBeenPlaced; the three isolation tests failed and passed after supplying the actual binding shape.",
+    "First full run failed three older overlap tests because their setup had no Core bridge; fixture now bootstraps before awarding a person.",
+    "Continuous event dirty flag caused one consumed engineer/merchant receipt test failure; fixed and full suite passed."
+  ],
+  "local_models": {
+    "http_total": 107,
+    "complete_total": 104,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "this_batch_peak": 4,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiGPJournal.lua": "596486c712e919db42eb45648ee111dd736e2c9f547d87ddaef1601846fedd49",
+    "mod/Baiqi/Lua/BaiqiGPIntentGameplay.lua": "df0a614697ce19c7cf24363291bdde42bd940ea36655c92413ea5aae9af1bf36",
+    "mod/Baiqi/Lua/BaiqiController.lua": "27b080f12858a74a87e09e49c7fb6d76b0dbb8e05b6a80694547fb648b0e8ab9",
+    "mod/Baiqi/Baiqi.modinfo": "f7a50ba6fa519d52814bb3f896952e18d53ea718cded7ead035b7195efa7dcbc",
+    "tests/gp_intent_harness.py": "ad7fdefd9a794dd05aab7aac0fc90a0016efeba0817465dc1d523c494b6c58d3",
+    "tests/test_baiqi_gp_intents.py": "ef222afb3c7781b9114ac02b50654d64d0127cd3d9d6e62c2041b19337cee13c"
+  }
+}

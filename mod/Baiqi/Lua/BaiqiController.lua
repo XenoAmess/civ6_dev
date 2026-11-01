@@ -273,6 +273,19 @@ local function DistrictPersonData(unit)
   return gp,info,district,class,def
 end
 
+local function GPBridge(method,...)
+  local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiGreatPersonIntentBridge
+  if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-gp-intent-v1"
+    or type(bridge[method])~="function" then return nil,nil,"bridge_unavailable" end
+  local ok,a,b,c=pcall(bridge[method],...)
+  if ok then return a,b,c end
+  return nil,nil,"bridge_error"
+end
+local function DistrictPersonHeld(unit)
+  local stage=GPBridge("Inspect",contextID,unit:GetID())
+  return stage~="OPEN" and stage~="OBSERVED"
+end
+
 local function RequestDistrictPerson(unit)
   local ctx,player,state=PlayerContext()
   if not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state))
@@ -284,10 +297,13 @@ local function RequestDistrictPerson(unit)
   if not gp or not command or not here or here:GetOwner()~=ctx.player
     or visibility:IsVisible(here:GetX(),here:GetY())~=true or not Safe(here,player)
     or pendingUnits[unit:GetID()] or UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true then return false end
+  local function StillEligible()
   local freshCtx,freshPlayer,freshState=PlayerContext()
   local freshGP,freshInfo,freshRequired,freshClass,freshDef=DistrictPersonData(unit)
   local freshHere=UnitPlot(unit)
+  local found=freshPlayer and freshPlayer:GetUnits():FindID(unitID)
   if not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
+    or not BaiqiPolicy.MatchesID(found,unitID) or found:GetOwner()~=ctx.player
     or unit:IsReadyToMove()~=true or not BaiqiPolicy.MatchesID(unit,unitID) or unit:GetOwner()~=freshCtx.player
     or not freshGP or freshInfo.Index~=individual or freshClass.Index~=class.Index or freshDef.UnitType~=def.UnitType
     or not BaiqiPolicy.ActionAllowed(freshDef.UnitType,"ACTIVATE_GREAT_PERSON")
@@ -295,17 +311,36 @@ local function RequestDistrictPerson(unit)
     or freshGP:GetActionCharges()~=charges or not freshHere or freshHere:GetIndex()~=here:GetIndex()
     or freshHere:GetOwner()~=freshCtx.player or visibility:IsVisible(freshHere:GetX(),freshHere:GetY())~=true
     or not Safe(freshHere,freshPlayer) then return false end
+  return true
+  end
+  if not StillEligible() then return false end
   local id=NextRequest("district_person:"..unitID..":"..individual..":"..charges)
   if not id then return false end
-  pendingUnits[unitID]={id=id,kind="ACTIVATE_GREAT_PERSON",command=command.Hash,
+  local granted,token=GPBridge("Prepare",ctx.player,unitID,def.UnitType,class.Index,individual,charges,here:GetX(),here:GetY())
+  if granted~=true or type(token)~="string" then return false end
+  local pending={id=id,kind="ACTIVATE_GREAT_PERSON",command=command.Hash,persistent=true,token=token,
     from=here:GetIndex(),moves=unit:GetMovesRemaining(),charges=charges,
     individual=individual,class=class.Index,unitType=def.UnitType,elapsed=0}
+  pendingUnits[unitID]=pending
+  -- The Core acknowledgement precedes the native command; UI property views
+  -- can still be stale. Recheck every current eligibility boundary afterwards.
+  if UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true or not StillEligible() then
+    Log("great_person_intent_held","id="..id.."|unit="..unitID.."|reason=eligibility_changed_after_intent")
+    return true
+  end
   Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|command=ACTIVATE_GREAT_PERSON|charges="..charges.."|class="..class.GreatPersonClassType)
-  UnitManager.RequestCommand(unit,command.Hash)
+  local ok,err=pcall(UnitManager.RequestCommand,unit,command.Hash)
+  if not ok then
+    Log("great_person_command_unknown","id="..id.."|unit="..unitID.."|reason="..tostring(err))
+  end
   return true
 end
 
 local function ProcessDistrictPerson(ctx,player,state,unit)
+  if DistrictPersonHeld(unit) then
+    Reason("district_person:"..unit:GetID(),"文职伟人等待持久化回执；其他内政继续执行")
+    return false
+  end
   local gp,info,required=DistrictPersonData(unit)
   if not gp then
     Reason("district_person:"..unit:GetID(),"文职伟人等待当前支持的激活条件")
@@ -914,7 +949,27 @@ local function ReadBack(player)
       local class=gp and GameInfo.GreatPersonClasses[gp:GetClass()]
       if not individual or individual.Index~=pending.individual or not class or class.Index~=pending.class
         or individual.GreatPersonClassType~=BaiqiPolicy.DistrictGreatPersonClass(pending.unitType) then gp=nil end
-      if pending.nativeActivated then
+      if pending.persistent then
+        local stamp=table.concat({tostring(turn),tostring(unit and unit:GetOwner()),
+          tostring(gp and gp:GetActionCharges())},":")
+        if pending.receiptDirty or stamp~=pending.inspectStamp then
+          local stage,token,proof=GPBridge("Inspect",contextID,unitID)
+          pending.inspectStamp=stamp;pending.receiptDirty=nil
+          if stage=="OBSERVED" and token==pending.token then
+            if gp and gp:GetActionCharges()<pending.charges then proof="charges="..gp:GetActionCharges() end
+            Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|"..(proof=="native_activation_event" and "proof="..proof or tostring(proof)))
+            pendingUnits[unitID]=nil
+            if unit then unitEvaluated[UnitKey(unit)]=nil end
+          end
+        end
+        if pendingUnits[unitID] and not gp and not pending.unavailableLogged then
+          Log("great_person_request_unavailable","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_event=true")
+          pending.unavailableLogged=true
+        elseif pendingUnits[unitID] and (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+          Log("great_person_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_or_charge_change=true")
+          pending.unresolvedLogged=true
+        end
+      elseif pending.nativeActivated then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ACTIVATE_GREAT_PERSON|proof=native_activation_event")
         pendingUnits[unitID]=nil
       elseif not gp then
@@ -1054,11 +1109,12 @@ local function Tick()
       elseif snapshot.type=="UNIT_GREAT_PROPHET" then
         if ProcessProphet(ctx,player,state,unit) then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
       end
-      local here=UnitPlot(unit)
+      local held=BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit)
+      local here=not held and UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
         status="文职单位本回合等待安全任务；军队由你指挥";return
       end
-      if ClearCivilianOverlap(ctx,player,state,unit) then
+      if not held and ClearCivilianOverlap(ctx,player,state,unit) then
         status="文职单位自动移出重叠地块；军队由你指挥";return
       end
     end
@@ -1097,6 +1153,10 @@ local function OnGreatPersonActivated(playerID,unitID,classID,individualID)
   local pending=pendingUnits[unitID]
   local class=GameInfo.GreatPersonClasses and GameInfo.GreatPersonClasses[classID]
   local individual=GameInfo.GreatPersonIndividuals and GameInfo.GreatPersonIndividuals[individualID]
+  if ctx and ctx.player==playerID and class and individual then
+    GPBridge("Observe",playerID,unitID,classID,individualID)
+    if pending and pending.persistent then pending.receiptDirty=true end
+  end
   local expected=pending and ((pending.kind=="FOUND_RELIGION" and "GREAT_PERSON_CLASS_PROPHET")
     or (pending.kind=="ACTIVATE_GREAT_PERSON" and BaiqiPolicy.DistrictGreatPersonClass(pending.unitType)))
   if ctx and ctx.player==playerID and class and individual and pending and expected

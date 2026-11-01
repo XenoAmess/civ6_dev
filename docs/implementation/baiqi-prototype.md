@@ -59,3 +59,9 @@ python tools\build_mod.py --install
 [Controller](../../mod/Baiqi/Lua/BaiqiController.lua)、[Policy](../../mod/Baiqi/Lua/BaiqiPolicy.lua)、[Planner](../../mod/Baiqi/Lua/BaiqiPlanner.lua)负责生产与文职；[Admin](../../mod/Baiqi/Lua/BaiqiAdmin.lua)负责研究、政府、总督和宗教选择；[UIGuard](../../mod/Baiqi/Lua/BaiqiUIGuard.lua)与[UILoader](../../mod/Baiqi/Lua/BaiqiUILoader.lua)保护人工入口。[Actions](../../mod/Baiqi/Lua/BaiqiActions.lua)、[Requisition](../../mod/Baiqi/Lua/BaiqiRequisition.lua)、[Capture](../../mod/Baiqi/Lua/BaiqiCapture.lua)处理地图征城，[Gameplay](../../mod/Baiqi/Lua/BaiqiGameplay.lua)与[Executor](../../mod/Baiqi/UI/BaiqiExecutor.lua)连接游戏侧路由与不可交互执行器。
 
 [Config](../../mod/Baiqi/Lua/BaiqiConfig.lua)当前周期0.35秒，每城最多512个候选；单位／生产Controller每回合最多64次请求。Admin及恢复路由另计，尚未证明全模块统一64次上限。财政储备100、预测净收入最低2、移民最低人口4；实际／在建／预留移民合计最多1，军队需求上限每城2且至少2，新增侦察上限为`max(1,ceil(城市数/4))`。已有军队不为这些阈值被删除。保护已有设施、地貌和可见资源属于系统策略，不是玩家地块保留功能。
+
+## 2026-11-02：版本36的伟人激活记录
+
+科学家、工程师、商人的激活授权改由 Gameplay 持久保存，再由 UI 复查并提交原生命令。没有结果的命令不会因超时、读档或上下文重载重发，也不凭单位消失认定完成。实际次数降低后才能取得下一次新授权。记录损坏或结果不明时只隔离该伟人，其他内政仍运行。全套271项软件测试通过，实机冷启动与具体个体仍需分别验收。
+
+旧档首次接入时，已经存在且带次数的上述三类伟人没有历史回执，会被保留为 LEGACY_UNKNOWN，不能声称它们可继续完全自动执行。新局在获得伟人前建立空记录。创作与先知的指令持久化仍未完成。[源码与验证范围](../research/baiqi-p6-gp-intent-source36-evidence-2026-11-02.json)。

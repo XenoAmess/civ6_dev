@@ -2,6 +2,7 @@
 from pathlib import Path
 import unittest
 from lupa.lua53 import LuaRuntime
+from gp_intent_harness import install_gp_bridge
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -9,8 +10,9 @@ ROOT = Path(__file__).resolve().parents[1]
 class DistrictPeopleTests(unittest.TestCase):
     def setUp(self):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
-        for name in ('tests/lua/mock_world.lua', 'tests/lua/mock_scientist.lua'):
-            self.lua.execute((ROOT/name).read_text(encoding='utf-8'))
+        self.lua.execute((ROOT/'tests/lua/mock_world.lua').read_text(encoding='utf-8'))
+        install_gp_bridge(self.lua)
+        self.lua.execute((ROOT/'tests/lua/mock_scientist.lua').read_text(encoding='utf-8'))
         self.lua.execute('''
 local w=TestWorld
 local function row(table,name,index,hash,data)

@@ -8,4 +8,5 @@ BaiqiConfig = {
   pathLimit = 48, threatRadius = 2,
   cityRequisition = true, cityCostBase = 200, cityCostPerPopulation = 100,
   cityHealthPercent = 35, requisitionKey = "BAIQI_REQUISITION_V1",
+  greatPersonIntentKey = "BAIQI_GREAT_PERSON_INTENTS_V1",
 }
