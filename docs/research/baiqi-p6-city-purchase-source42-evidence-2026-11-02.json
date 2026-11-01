@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-01T20:53:27.955070+00:00",
+  "machine": "BF-202609141645",
+  "manifest_version": 42,
+  "software_tests_passed": 333,
+  "new_actual_city_control_consumer_tests": 4,
+  "native42_status": "Pending cold installation and same-save verification.",
+  "old_native41": {
+    "source_commit": "2c3cb9a",
+    "process_pid": 15768,
+    "turn": 38,
+    "city_id": 65536,
+    "wrong_lookup_names": [
+      "PurchaseGoldCheck",
+      "PurchaseFaithCheck"
+    ],
+    "actual_native_names": [
+      "ProduceWithGoldCheck",
+      "ProduceWithFaithCheck"
+    ],
+    "wrong_controls_exist": false,
+    "actual_controls_exist": true,
+    "actual_controls_disabled": false,
+    "physical_gold_and_faith_clicks": "Both opened their empty native purchase panels; event counts gold1/faith1.",
+    "raw_background_native_watermill_gold_purchase_legal": true,
+    "guarded_ProductionPanel_same_purchase_legal": false,
+    "native_city_state_unchanged": {
+      "gold": 1502.82421875,
+      "faith": 53.828125,
+      "population": 6,
+      "queue_size": 1,
+      "head_hash": 90525320,
+      "head_kind": "building",
+      "head_index": 7,
+      "head_progress": 26,
+      "six_citizen_focus_flags_unchanged": true
+    },
+    "event_observers_removed": true,
+    "physical_panel_close_actions": 2,
+    "private_log_sha256": "89be9154e470c644172878005fa8b137a5552790b5a88eb058afd688ec843e19",
+    "gold_open_snapshot_sha256": "3dee94ef6b4b5e595eec86948c1e525cbaa6ef1d86fc3e1ab4269630dd2c08f6",
+    "faith_open_snapshot_sha256": "094812a2871ccb78f31c2611c6d289a9e0f9eeb3f98431f5fa5710efc437cf05",
+    "interpretation": "Visual/entry affordance defect; no demonstrated purchase bypass. Raw native positive eligibility and guarded denial independently verified."
+  },
+  "change": "Use actual native ProduceWithGoldCheck/ProduceWithFaithCheck IDs in the existing Baiqi-only ViewMain disable list. Underlying purchase guard, military, diplomacy and other-player behavior unchanged.",
+  "software_consumers": [
+    "Captured native city-selection/data callback performs global ViewMain lookup; actual native-named controls trigger registered purchase handlers only when enabled.",
+    "Four tests: three ruleset loaders, Baiqi disabled purchase/no open with info still available; other leader/multiplayer/hotseat/nonhuman native behavior; repeated native repaint and preexisting native locks; optional missing control.",
+    "Before change actual old code yields five failed assertions across four methods; after change all4 and full333 pass. No game-success inference from software."
+  ],
+  "local_models": {
+    "http_total": 129,
+    "complete_total": 124,
+    "length_discarded": 5,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "latest_batch_peak_in_flight": 3,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null,
+    "127": "Partial adoption: correct native ProduceWithGoldCheck/ProduceWithFaithCheck names and native-positive/guard-negative comparison. Primary XML/callback and live controls verified. Rejected candidate case6 which incorrectly expected raw background writer to be denied and would issue an unnecessary raw mutation.",
+    "128": "No code adopted: confused operations with commands, assumed zero-move builder denial proves guard, guessed formation methods and legal warrior/scout stack. Native army/civilian input work remains.",
+    "129": "Per-context guard direction and missing primary diplomacy callers retained; fake TestCityState names, wrong current player7, reused TC numbers and already-tested envoy task rejected."
+  },
+  "files": {
+    "mod/Baiqi/UI/BaiqiCityPanel.lua": "79a1665fd65750e2b2e28e9e5e0a9cd9843186635c7d157775c307b6cd009faa",
+    "mod/Baiqi/Baiqi.modinfo": "7c311735611b73d73afd6210c3a5d2688bb917bb2f476f1b4909675512628a64",
+    "tests/test_baiqi_city_purchase_controls.py": "e771a27c9640120f8b69fa17eab1a061f9ffa6866cfab95529c905cd807a2acd"
+  }
+}

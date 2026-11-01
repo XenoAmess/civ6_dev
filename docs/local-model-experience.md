@@ -393,3 +393,9 @@ P4 软件与实机的最终范围、失败及恢复分别见[本轮报告](testi
 ## 2026-11-02：艺术家、音乐家真实消费者与清理
 
 机器 BF-202609141645，126为真实未完成本版原生两类覆盖，完整stop/SSE/JSON；累计126 HTTP／121完整／5 length／零重试，历史峰13、本项1，服务与缓存未知。候选在UI用GetType、仅计第一次调用，cleanup却访问未保存的wrapper／event／individual，原代码拒绝。负责人按真实GetUnitType、完整动态身份与逐次计数重写，验证pcall之后先还原两指针／事件再抛断言错误。原生两独立副本实际生成RUBLEV_1和VIVALDI_1、各1命令0操作1事件、Core落账且UI真实作品证明成立，清理已核对。[证据](research/baiqi-p6-creative-classes-native41-evidence-2026-11-02.json)。
+
+## 2026-11-02：原生控件名称与权限证据分层
+
+机器 BF-202609141645，127–129三项真实未完成输入／军队／外交矩阵任务完整stop/SSE/JSON，实际峰3；累计129 HTTP／124完整／5 length／零重试，历史峰13，服务和缓存未知。127给出的ProduceWithGoldCheck／ProduceWithFaithCheck经原生XML、回调及活控件核实正确，模组原名单却用不存在的PurchaseGoldCheck／PurchaseFaithCheck，采用此方向修正。其“在原始后台执行写入却断言被保护”错误，未执行；128命令／操作混用与假编队方法、129伪造TC号／当前玩家7等建议也未采用。
+
+41实机两购买入口启用，物理点击各开一次空页；原生水磨坊购买资格true而受保护ProductionPanel为false，原有经济／队列进度／焦点不变，不能误报已绕过购买限制。对应真实消费者先在旧代码出现5项失败断言，再修正两控件名；新4项及333全套通过。42实机效果另验。[证据](research/baiqi-p6-city-purchase-source42-evidence-2026-11-02.json)。
