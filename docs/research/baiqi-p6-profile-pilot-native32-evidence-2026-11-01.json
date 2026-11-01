@@ -1,0 +1,178 @@
+{
+  "schema": "civ6.baiqi-profile-pilot-native32-evidence/v1",
+  "recorded_utc": "2026-11-01T11:24:42.626232+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "f6386b1",
+  "manifest_version": 32,
+  "pid": 9012,
+  "artifact_sha256": "d6f0c417028b9833427ba9988484838254363771b6b6208317f4c7f1b0908175",
+  "continuation": {
+    "start_save": "Baiqi_P6_20261101_Cold31_GenericScientist76",
+    "start_turn": 76,
+    "end_turn": 90,
+    "start_cities": 9,
+    "end_cities": 11,
+    "normal_endturn_calls": 14,
+    "turns_observed": [
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "manual_domestic_choices": 0,
+    "debug_city_unit_or_title_grants": 0,
+    "player_actions": "Military wait/unstack, original endturn, physical diplomacy and congress decisions; not zero total input. Driver honestly stops on foreign modal or HUDhidden; never forced core turn."
+  },
+  "congress": {
+    "manual_votes": "At81, two free A votes: TradePolicy target Baiqi and MercenaryCompanies target Faith; review cost0/favor59. Results at82 differ from votes.",
+    "actual_winners": [
+      "TradePolicy A target Alexander: incoming routes +4gold and additional trade capacity",
+      "MercenaryCompanies B Production: military production cost -50%"
+    ],
+    "attribution": "Native congress effects are present in85 baseline and90 continuation; do not attribute these resource/production changes to mod improvements."
+  },
+  "profile": {
+    "method": "Temporary root-reviewed wrapper measures original Controller.RunNow exactly once with Automation.GetTime, preserving void contract and propagating errors; no extra planning. Includes idle and actual work; approximately1ms clock quantization. Guarded restore confirmed610samples/errors0.",
+    "stats": {
+      "10": {
+        "n": 203,
+        "p50_ms": 1.0001659393311,
+        "p95_ms": 26.000022888184,
+        "p99_ms": 345.99995613098,
+        "max_ms": 615.0000095367401,
+        "mean_ms": 13.8374349753845,
+        "turns": [
+          85,
+          86,
+          87,
+          88,
+          89,
+          90
+        ]
+      },
+      "11": {
+        "n": 407,
+        "p50_ms": 1.0001659393311,
+        "p95_ms": 13.000011444092,
+        "p99_ms": 16.000032424927,
+        "max_ms": 227.9999256134,
+        "mean_ms": 4.879604686390291,
+        "turns": [
+          90
+        ]
+      }
+    },
+    "raw_samples_private_sha256": "4ac1a7c564dac48a1f5201b62bdf56ff5a358ff0d9ff40d01bcb0e5d631a6a62",
+    "sample_count": 610,
+    "errors": 0,
+    "full_tc036_pass": false,
+    "limitations": [
+      "Exploratory baseline, no pre-frozen pass budgets",
+      "Not all modules, CPU time or per-turn total",
+      "No paired mod-disabled comparison",
+      "10city and11city groups differ in turn and work; not a scaling comparison",
+      "615ms long tail measured; no cause established yet"
+    ]
+  },
+  "local_models": [
+    {
+      "task": "perf89",
+      "request_sha256": "0b3a2a76cf663ebb46b1043316f52b6ccb964825c8ca04f8143a96932095c1e4",
+      "result_sha256": "b1153b2ed95a14113e9b212a2af49b82e5d7c90f533e86125f23b46a7d2552a0",
+      "usage": {
+        "prompt_tokens": 23825,
+        "completion_tokens": 722,
+        "total_tokens": 24547
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "diplomacy90",
+      "request_sha256": "8649812f5f1fb7f6b37449f153afd35097233ef527df255da94731f4756196cb",
+      "result_sha256": "53f523216c94780903250fe2616424d7f32044f84756236b4a24b72bbabc4923",
+      "usage": {
+        "prompt_tokens": 5857,
+        "completion_tokens": 842,
+        "total_tokens": 6699
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "model_review": {
+    "perf89": "Direction partially retained for future work only; duplicate filtering helper and confused final ProcessCity gate with ProcessSettler. No product optimization adopted or performance benefit claimed in this evidence.",
+    "diplomacy90": "Partial direction: remove guard only from CityStates. Rejected direct include(CityStates), keep ruleset-aware loader. Native CityStates lacks IsReadOnly function in inspected base source; forced-readonly claim is not established, actual UI.RequestPlayerOperation blocking is concrete. Proxy side-effect speculation not treated as defect."
+  },
+  "p6_model_cumulative": {
+    "http_requests": 90,
+    "complete_stop_sse_json": 87,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "actual_client_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T105510939540Z.json",
+      "sha256": "7c2777ab56999d7202c5402b1a0ca625820105f95e5e0f971ff876d0cb541374",
+      "readback": [
+        "P6_CONTROLLER_PROFILE84_STARTED\t85\t10"
+      ]
+    },
+    {
+      "receipt": "20261101T110333422683Z.json",
+      "sha256": "6daad0683d7115cbccc7f0b0d1b32ddd847f7dfc2c678da1eaae0d7a586c914f",
+      "readback": [
+        "P6_CONTROLLER_PROFILE84_RESTORED\t90\t610\t0",
+        "P6_CONTROLLER_PROFILE84_STATE\tfalse\t610\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T112221120403Z.json",
+      "sha256": "6a9af3ab18cbdcaa237d60619267160219db88ccd552b749a17acd885c1e14ef",
+      "readback": [
+        "P6_PROFILE84_SAVE90\ttrue"
+      ]
+    }
+  ],
+  "drivers": {
+    "nine32-to80-run1.log": "3628255502258f86a8559097b72b42da976c63be05c91296ac3e1abc842b36a7",
+    "nine32-to80-run2.log": "33a639b51d298bfd38c011bceeb421c78467914f9c6b67a799c7553352fe29c6",
+    "nine32-to85-run1.log": "dadcf488e70cdb28a31abba134dcd76bb886e19cb90b1f51d5452c1769148c46",
+    "nine32-to85-run2.log": "84583d4290afd42b5aba06d1953840462719109a6be994cbcb32a802c6cb57f4",
+    "nine32-to85-run3.log": "c7e8c96df5b0128bfc47306ecb33fa58f6d9d604fec2351f652288f3f9193a25",
+    "nine32-to85-run4.log": "03c3f22b5c3a3ac4d4791b8b08e1eb98de62a1d8c4c8eb80d68e8737088a2611",
+    "nine32-profile85to90-run1.log": "ee8e8366c12172104125235313a1869ffdeeae15c990737db0223e26496535b7",
+    "nine32-profile85to90-run2.log": "d85e6a812ea8f73442845c0a83a537b2c5b340dd76b3eb1a5e7864a976471edb"
+  },
+  "archived_logs": {
+    "Database.log": "768b17d1be386e3ed86235dc68119b61006ffe453b48eef49fda394d7f6a762e",
+    "Lua.log": "e6481157bac6d28efee9ef2af9ebc8727a57f0507f71ab43f1cb263e4b1eaa25",
+    "Modding.log": "29d78c421beddd5be444cde43a42cd6e2a9c9f77b7a6c2246f76ec55942f41f3"
+  },
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261101_V32_TenCities85_BeforeProfile.Civ6Save",
+      "sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+      "bytes": 503809
+    },
+    {
+      "name": "Baiqi_P6_20261101_V32_ElevenCities90_AfterProfile.Civ6Save",
+      "sha256": "60e53a5f476ae28193d32793a2ceb3a27f77112597d311ab7122dd590f2bc5cc",
+      "bytes": 518603
+    }
+  ],
+  "screenshot_sha256": "40e94757669c1014818a49191ccf38a25284b8e900e92bfdd7be0adb55e52884",
+  "full_game_acceptance": false
+}

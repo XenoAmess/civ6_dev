@@ -32,4 +32,6 @@ for _,key in ipairs({'RequestOperation','RequestCommand','CanStartOperation','Ca
 end
 CityManager={RequestOperation=function(city,op,params) w.cityCalls=w.cityCalls+1;return true end,
  RequestCommand=function(city,cmd,params) w.cityCalls=w.cityCalls+1;return true end}
-UI={RequestPlayerOperation=function(pid,op,params) w.playerCalls=w.playerCalls+1;return true end}
+UI={RequestPlayerOperation=function(pid,op,params)
+ w.playerCalls=w.playerCalls+1;w.lastPlayer=pid;w.lastOperation=op;w.lastParams=params;return true
+end}

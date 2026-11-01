@@ -37,6 +37,27 @@ class UIContextTests(unittest.TestCase):
                   TestCapturedButton=function(hash) return request(7,operation,{hash=hash}) end
                 ''', 31 if module.startswith('Research') else 32)
                 lua.globals()[native[module]] = lua.globals().TestCapturedButton
+            elif module in ('CityStates', 'CityStates_Expansion1', 'CityStates_Expansion2'):
+                lua.execute('TestNativeIncludes[#TestNativeIncludes+1]=...', module)
+                lua.execute('''
+                  PlayerOperations.GIVE_INFLUENCE_TOKEN=35
+                  PlayerOperations.PARAM_PLAYER_ONE='target'
+                  TestNativeReadOnly=false
+                  IsReadOnly=function() return TestNativeReadOnly end
+                  local request=UI.RequestPlayerOperation
+                  TestCityStateEnvoy=function(target)
+                    local params={}
+                    params[PlayerOperations.PARAM_PLAYER_ONE]=target
+                    return request(7,PlayerOperations.GIVE_INFLUENCE_TOKEN,params)
+                  end
+                  TestCityStatePeace=function(params)
+                    return request(7,PlayerOperations.DIPLOMACY_MAKE_PEACE,params)
+                  end
+                  TestCityStateLevy=function(params)
+                    return request(7,PlayerOperations.LEVY_MILITARY,params)
+                  end
+                  UI.RequestPlayerOperation=function() error('callback should keep captured native sink') end
+                ''')
             elif module == 'UnitFlagManager':
                 lua.execute('''
                   TestNativeIncludes[#TestNativeIncludes+1]='UnitFlagManager'
@@ -110,6 +131,26 @@ class UIContextTests(unittest.TestCase):
         lua.globals().include = include
         lua.execute((ROOT / f'mod/Baiqi/UI/Baiqi{name}.lua').read_text(encoding='utf-8'))
         return lua
+
+    def test_city_state_diplomacy_callbacks_remain_native_for_baiqi(self):
+        lua = self.load_context('CityStates')
+        g = lua.globals()
+        self.assertEqual((len(g.TestNativeIncludes), g.TestNativeIncludes[1]),
+                         (1, 'CityStates_Expansion2'))
+        self.assertIsNone(g.BaiqiUIGuard)
+        self.assertTrue(g.TestCityStateEnvoy(2))
+        self.assertEqual((g.TestGuard.lastPlayer, g.TestGuard.lastOperation,
+                          g.TestGuard.lastParams.target), (7, 35, 2))
+        self.assertTrue(g.TestCityStatePeace(lua.table_from({'target': 2})))
+        self.assertTrue(g.TestCityStateLevy(lua.table_from({'target': 2})))
+        self.assertEqual(g.TestGuard.playerCalls, 3)
+        self.assertFalse(g.IsReadOnly())
+        g.TestNativeReadOnly = True
+        self.assertTrue(g.IsReadOnly())
+        # Context isolation: the existing chooser still blocks its domestic sink.
+        other = self.load_context('ResearchChooser')
+        self.assertFalse(other.globals().TestCapturedButton(100))
+        self.assertEqual(other.globals().TestGuard.playerCalls, 0)
 
     def test_quick_choosers_block_direct_and_previously_captured_native_callbacks(self):
         for name,callback,native in [('ResearchChooser','OnChooseResearch','ResearchChooser_Expansion1'), ('CivicsChooser','OnChooseCivic','CivicsChooser')]:
