@@ -1,0 +1,568 @@
+{
+  "schema": "civ6.baiqi-person-native31-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "source_commit": "9da4183",
+  "manifest_version": 31,
+  "pid": 16496,
+  "artifact_sha256": "4ffbb132e60c44240c71cef483fbebd1ac2fa38b79470fedd4ee5f72f6293420",
+  "installed_files": 59,
+  "all_installed_files_match_current_source": true,
+  "steam_before_cold_launch_readonly_offline_utc": "2026-11-01T08:37:13.721904+00:00",
+  "packaging_note": "Previous software-stage archive098a8326 and installed archive4ffbb132 have distinct zip timestamps after source LF normalization. Native archive fingerprint and every59 installed/source file SHA verified here; do not assert archive bytes unchanged.",
+  "fixture": "Cold process loaded existing Cold25_HolySite75. AlQasim131 was normally recruited in earlier run, no Debug spawn or direct movement/activation in this case. Source25 had cleared overlapping city tile to16,15; source31 reused that actual saved state.",
+  "before": {
+    "turn": 75,
+    "unit": 3211274,
+    "individual": 131,
+    "class": 5,
+    "xy": [
+      16,
+      15
+    ],
+    "moves": 4,
+    "formation": 1,
+    "charges": 1,
+    "district_prerequisite": null,
+    "native_can_activate": true,
+    "ready_to_move": false,
+    "metal_casting_boost": false
+  },
+  "test_driver_blocker": "Initial strict driver correctly stopped at UNIT blocker. Actual readonly per-unit diagnosis identified ready admiral3604507, excluded by Combat/Ranged/Support test-player wait selection. One exact guarded WorldInput test-player SKIP for that admiral resolved blocker; no mod background admiral command or forced turn.",
+  "actual_transition": "One original ActionPanel.OnEndTurnClicked at75 after NO_ENDTURN_BLOCKING; reached76 normally. No manual domestic decisions or civilian activation commands.",
+  "activation": {
+    "turn": 76,
+    "source": "BACKGROUND",
+    "request_id": "0:76:1",
+    "unit_id": 3211274,
+    "native_event": [
+      0,
+      3211274,
+      5,
+      131
+    ],
+    "matching_request_count": 1,
+    "controller_proof": "native_activation_event",
+    "unit_no_longer_present": true,
+    "metal_casting_boost": {
+      "before": false,
+      "after": true
+    },
+    "modifier_contract": "GREATPERSON_1MEDIEVALRENAISSANCETECHBOOST native args medieval..renaissance Amount1. Additional wounded-land-unit heal5 modifier read from data, not separately behavior-verified."
+  },
+  "save": {
+    "name": "Baiqi_P6_20261101_Cold31_GenericScientist76.Civ6Save",
+    "sha256": "f0f5cce2d09455bfa0326d873e5ea06d392baeade0ab796b7cb677872de51fe2",
+    "bytes": 483179
+  },
+  "logs": {
+    "Database.log": "8073a9bbe1fdff8de34e730d437a4fef16bbcb2581a3ae31dda23c306a074c9f",
+    "Lua.log": "c7ff55635722ebed3054e54f595f49411f4817fa45f6ecdf53c94e78cb4c7a9b",
+    "Modding.log": "a05f30dd27162b8819a513e62b7fb785207d7291faded31ba9f4314e78257f7e"
+  },
+  "receipts": [
+    {
+      "receipt": "20261101T084134696388Z.json",
+      "sha256": "479d5ad1198df995a13b224fbb8c663a61f55d8f270fe37a488daf7a3ffaac1d",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084225782974Z.json",
+      "sha256": "89515ed6fb55935bcc5342383f9bd5618618c7e14841d6e527d4c97485895e9f",
+      "observations": [
+        "P6_PERSON31_INDIVIDUAL\tGREAT_PERSON_INDIVIDUAL_ABU_AL_QASIM_AL_ZAHRAWI\tLOC_GREAT_PERSON_INDIVIDUAL_ABU_AL_QASIM_AL_ZAHRAWI_NAME\t\t1\tnil",
+        "P6_PERSON31_DEFINITION\tActionEffectText\tnil",
+        "P6_PERSON31_DEFINITION\tActionEffectTileHighlighting\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresOwnedTile\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresUnownedTile\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresAdjacentMountain\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresOwnedLuxuryResource\tnil",
+        "P6_PERSON31_TECH\t75\t19\tTECH_MILITARY_TACTICS\ttrue\tfalse",
+        "P6_PERSON31_TECH\t75\t20\tTECH_APPRENTICESHIP\ttrue\ttrue",
+        "P6_PERSON31_TECH\t75\t21\tTECH_MACHINERY\ttrue\ttrue",
+        "P6_PERSON31_TECH\t75\t22\tTECH_EDUCATION\ttrue\ttrue",
+        "P6_PERSON31_TECH\t75\t23\tTECH_STIRRUPS\tfalse\ttrue",
+        "P6_PERSON31_TECH\t75\t24\tTECH_MILITARY_ENGINEERING\tfalse\tfalse",
+        "P6_PERSON31_TECH\t75\t25\tTECH_CASTLES\tfalse\ttrue",
+        "P6_PERSON31_TECH\t75\t26\tTECH_CARTOGRAPHY\tfalse\ttrue",
+        "P6_PERSON31_TECH\t75\t27\tTECH_MASS_PRODUCTION\tfalse\ttrue",
+        "P6_PERSON31_TECH\t75\t28\tTECH_BANKING\tfalse\tfalse",
+        "P6_PERSON31_TECH\t75\t29\tTECH_GUNPOWDER\tfalse\tfalse",
+        "P6_PERSON31_TECH\t75\t30\tTECH_PRINTING\tfalse\ttrue",
+        "P6_PERSON31_TECH\t75\t31\tTECH_SQUARE_RIGGING\tfalse\tfalse",
+        "P6_PERSON31_TECH\t75\t32\tTECH_ASTRONOMY\tfalse\tfalse",
+        "P6_PERSON31_TECH\t75\t33\tTECH_METAL_CASTING\tfalse\tfalse",
+        "P6_PERSON31_TECH\t75\t34\tTECH_SIEGE_TACTICS\tfalse\tfalse",
+        "P6_PERSON31_TECH\t75\t67\tTECH_BUTTRESS\ttrue\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T084226067383Z.json",
+      "sha256": "273b536f972ad43eeb71796e149a7f497b6d8e34593fdf7d57881215ffe52cf3",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084227270587Z.json",
+      "sha256": "beac7d6df6c1626c67778d6f3efe0a4f4c26073cebaf4338c52d86e03baaed5b",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084228507418Z.json",
+      "sha256": "60ae31b33a333d94703eafd567b4975de789f279f2bc5b1679528e7eb6ccea13",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084229973353Z.json",
+      "sha256": "f10c349e953a4a8323139102c6932e98650713cb9c611fb3806d12a1a44cc962",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084232808728Z.json",
+      "sha256": "33b62be7af1b21fbadaa27fc099fa8fc243d8066eaf7eccdf52dd3c881c39e17",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084235580358Z.json",
+      "sha256": "24043a2e2cbbb891bbef8498dc344a38ecb570ce88b5c93bbf8de4d86c2097fe",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084238628393Z.json",
+      "sha256": "6876100564d83cc263625c15a5c5a7ca0eaa34371ec9f51b1ba008e749b94129",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084241734820Z.json",
+      "sha256": "88c7320db49593defba2b777a05b4b01aaa322958cae3eef3a18e6d63e48dc87",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084244625534Z.json",
+      "sha256": "f722b5bf7726869b646e67c2c0c393896845611c94b88ea635f9926bf9bbd55a",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084247356116Z.json",
+      "sha256": "a79c2248d1e38357654ae445a3f7e384ef4b79500df1300991f642538cd1a2f2",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084250203083Z.json",
+      "sha256": "b93c3cf70d8a581d96889c38001da7717d008a78e9750155aed7e4e9d7025cd5",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084253035309Z.json",
+      "sha256": "238b9ea97e795f8efaecfe84bc286ae1a65752532fc4e6a81bcaca92c770c99b",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084256063420Z.json",
+      "sha256": "54d69f7ea5b42828142d2d2717a63aac629f3db3467381569e14b263ae784f09",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084259562577Z.json",
+      "sha256": "9c42de5239244c44d7782b3b600bc2c9ce94ce72f5127ff80092a324b3b09002",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084303875320Z.json",
+      "sha256": "f16faab8ec1233f9fb1f563f050e9f818ff8e12aaa0853b70c4b5517cbe12341",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084307063039Z.json",
+      "sha256": "03faedf7f5fb9a1f655cea2151ce689991621550042fdb81f20f632cc400e613",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084310292906Z.json",
+      "sha256": "01b1079f59d74d4e1937dacf86cada31103f40cf2aa8ccb3a20896a7872a35f6",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084313275047Z.json",
+      "sha256": "a286bed55665ccf4a83fe30d819ff3440b8d4eabac8b3f6832d296a5ad18e278",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084316388749Z.json",
+      "sha256": "f3b7f862892e409d07fdea6ed3fc90394468ad0ef8857cba2bcd33a14a158d8b",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084319301863Z.json",
+      "sha256": "dbdfa303272d6635ecebc1106cc5ed8756b4317ff7fc935946b40d7b7fa12cf9",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084322354329Z.json",
+      "sha256": "ea8cab5f3a774e279793849ebe1d912631608d099528c957a1a6a9060f5eff94",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084324935529Z.json",
+      "sha256": "714aca0181a79ceb77b3a6c1b0b51d49bdd584e530eccfffd1b55f258c810713",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084349871937Z.json",
+      "sha256": "5fb6841132205ab066bbb0c85416a5fe52c9987fc5d7dee0d6ecc0c6157a171d",
+      "observations": [
+        "P6_PERSON31_UNIT_BLOCKER\t1048576\tUNIT_SCOUT\t13\t16\t3\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t131073\tUNIT_WARRIOR\t15\t14\t2\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t851970\tUNIT_TRADER\t14\t15\t2\t1\tfalse\t1225574625\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t327683\tUNIT_SCOUT\t15\t15\t3\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t524292\tUNIT_SCOUT\t16\t14\t3\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t1835013\tUNIT_HORSEMAN\t11\t13\t4\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t786438\tUNIT_SCOUT\t10\t13\t3\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3342343\tUNIT_BUILDER\t9\t3\t0\t1\tfalse\t1797587246\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t1114120\tUNIT_SCOUT\t14\t16\t3\t1\tfalse\t-793848223\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t1245193\tUNIT_SCOUT\t12\t16\t3\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3211274\tUNIT_GREAT_SCIENTIST\t16\t15\t4\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t1441803\tUNIT_SCOUT\t13\t17\t3\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2162700\tUNIT_HORSEMAN\t10\t12\t4\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3538957\tUNIT_BUILDER\t14\t15\t0\t1\tfalse\t1797587246\ttrue\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3473422\tUNIT_TRADER\t10\t5\t0\t1\tfalse\t1225574625\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3407887\tUNIT_BUILDER\t13\t7\t0\t1\tfalse\t1797587246\ttrue\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2097168\tUNIT_ARCHER\t17\t14\t2\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2228241\tUNIT_TRADER\t18\t5\t2\t1\tfalse\t1225574625\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3276818\tUNIT_SETTLER\t14\t8\t0\t1\tfalse\t1797587246\ttrue\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2424851\tUNIT_HORSEMAN\t11\t6\t4\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2752532\tUNIT_TRADER\t16\t12\t2\t1\tfalse\t1225574625\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2686997\tUNIT_ARCHER\t16\t13\t2\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2621462\tUNIT_GREAT_MUSICIAN\t16\t14\t4\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2818071\tUNIT_HORSEMAN\t10\t5\t4\t1\tfalse\t75236491\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t2883608\tUNIT_TRADER\t10\t14\t2\t1\tfalse\t1225574625\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3145753\tUNIT_TRADER\t13\t8\t2\t1\tfalse\t1225574625\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3080218\tUNIT_TRADER\t9\t7\t2\t1\tfalse\t1225574625\tfalse\tnil",
+        "P6_PERSON31_UNIT_BLOCKER\t3604507\tUNIT_GREAT_ADMIRAL\t7\t9\t4\t1\ttrue\t1797587246\ttrue\tnil",
+        "P6_PERSON31_ROW\tActionCharges\t1",
+        "P6_PERSON31_ROW\tActionRequiresCityStateTerritory\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresIncompleteWonder\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresAdjacentOwnedTile\tfalse",
+        "P6_PERSON31_ROW\tActionNameTextOverride\tLOC_GREATPERSON_ACTION_NAME_RETIRE",
+        "P6_PERSON31_ROW\tActionRequiresNonHostileTerritory\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresUnownedTile\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresAdjacentBarbarianUnit\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresOnOrAdjacentNaturalWonder\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresVisibleLuxury\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresAdjacentMountain\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresIncompleteSpaceRaceProject\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresUnitCanGainExperience\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresSuzerainTerritory\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresPlayerRelicSlot\tfalse",
+        "P6_PERSON31_ROW\tActionEffectTileHighlighting\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresEnemyTerritory\tfalse",
+        "P6_PERSON31_ROW\tActionRequiresNoMilitaryUnit\tfalse",
+        "P6_PERSON31_ROW\tGreatPersonIndividualType\tGREAT_PERSON_INDIVIDUAL_ABU_AL_QASIM_AL_ZAHRAWI",
+        "P6_PERSON31_ROW\tActionRequiresOwnedTile\tfalse",
+        "P6_PERSON31_LEGACY\ttable: 00000002181E3400"
+      ]
+    },
+    {
+      "receipt": "20261101T084420291780Z.json",
+      "sha256": "c9f6e7b6c3aabda3ebd69421b65f7b37214af11ac2d6696c68b3b87fa0745343",
+      "observations": [
+        "P6_PLAYER_TEST_ADMIRAL_WAIT\t75\t3604507"
+      ]
+    },
+    {
+      "receipt": "20261101T084420772693Z.json",
+      "sha256": "c343770442b8f8ebc69d73dd51dcea0c9d673dc1576ac2e47f13d02eed1c047b",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084421978087Z.json",
+      "sha256": "e39fbaa6baf13152b5968d05d328ba7c587f7131e4fa8727dfb8677504d9bb4c",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084423312528Z.json",
+      "sha256": "f92972cb90c2258ef2a4d7aa5a386950acdc05223fb36348b72503a579931775",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084424519694Z.json",
+      "sha256": "bbf9cd275dc34ab37709e4ca20433c9e066394b06834f5618d5a39231ec0ac31",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\ttrue",
+        "P6_PERSON31_CONTEXT\t75\ttrue\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084428010895Z.json",
+      "sha256": "3f4b36bb67a6a4f148516ffcf1118e3fa05b69647ebaa8b8233a97c016905d9f",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\tfalse",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\tfalse",
+        "P6_PERSON31_CONTEXT\t75\tfalse\ttrue\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084429346016Z.json",
+      "sha256": "14797e995fc44ab2158d8fb23232b65e8834b74a1dcad4cfa5d3694dc1ab62bf",
+      "observations": [
+        "P6_PERSON31_UNIT\t3211274\tUNIT_GREAT_SCIENTIST\t0\t16\t15\t4\t1\ttrue",
+        "P6_PERSON31_ABILITY\t131\tGREAT_PERSON_CLASS_SCIENTIST\t1\tnil\tfalse\tfalse",
+        "P6_PERSON31_CONTEXT\t75\tfalse\ttrue\ttrue\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T084432270280Z.json",
+      "sha256": "607505a1fbcd77c9d3863e1cdf3cdbaa895554ff41cef579f4d41ef32619b48f",
+      "observations": [
+        "P6_PERSON31_CONTEXT\t76\ttrue\ttrue\tfalse\tfalse\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T084435239528Z.json",
+      "sha256": "4721e9c311217c2883df255a2efdc84885d00b6385cfaee12e0b43205b8bf007",
+      "observations": [
+        "P6_PERSON31_CONTEXT\t76\ttrue\ttrue\tfalse\tfalse\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T084436796145Z.json",
+      "sha256": "24e3fffc3b8e7d3b99a501d89411bbdcc0d32608b696e7a710d16b0e81bce65d",
+      "observations": [
+        "P6_PERSON31_CONTEXT\t76\ttrue\ttrue\tfalse\tfalse\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T084438399501Z.json",
+      "sha256": "b46d6076f1c1d02387caa2dfc5a0ee7c079c9a553c23b295cf5f05ece48d40f6",
+      "observations": [
+        "P6_PERSON31_CONTEXT\t76\ttrue\ttrue\tfalse\tfalse\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T084439724506Z.json",
+      "sha256": "81943251d7f535bcb44074d2f53d3d6213dc37342c2e3a1f9e85933d6922c825",
+      "observations": [
+        "P6_PERSON31_CONTEXT\t76\ttrue\ttrue\tfalse\tfalse\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T084441234052Z.json",
+      "sha256": "67044646a531809ae9cb619447be593c8bf789fe084344db56022b94513dddac",
+      "observations": [
+        "P6_PERSON31_CONTEXT\t76\ttrue\ttrue\tfalse\tfalse\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T084507976249Z.json",
+      "sha256": "c0ad727de4e798a0387f37c8efb046bec5f9fee9ef448535ffd7fe67352d9e28",
+      "observations": [
+        "P6_PERSON31_INDIVIDUAL\tGREAT_PERSON_INDIVIDUAL_ABU_AL_QASIM_AL_ZAHRAWI\tLOC_GREAT_PERSON_INDIVIDUAL_ABU_AL_QASIM_AL_ZAHRAWI_NAME\t\t1\tnil",
+        "P6_PERSON31_DEFINITION\tActionEffectText\tnil",
+        "P6_PERSON31_DEFINITION\tActionEffectTileHighlighting\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresOwnedTile\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresUnownedTile\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresAdjacentMountain\tfalse",
+        "P6_PERSON31_DEFINITION\tActionRequiresOwnedLuxuryResource\tnil",
+        "P6_PERSON31_TECH\t76\t19\tTECH_MILITARY_TACTICS\ttrue\tfalse",
+        "P6_PERSON31_TECH\t76\t20\tTECH_APPRENTICESHIP\ttrue\ttrue",
+        "P6_PERSON31_TECH\t76\t21\tTECH_MACHINERY\ttrue\ttrue",
+        "P6_PERSON31_TECH\t76\t22\tTECH_EDUCATION\ttrue\ttrue",
+        "P6_PERSON31_TECH\t76\t23\tTECH_STIRRUPS\tfalse\ttrue",
+        "P6_PERSON31_TECH\t76\t24\tTECH_MILITARY_ENGINEERING\tfalse\tfalse",
+        "P6_PERSON31_TECH\t76\t25\tTECH_CASTLES\tfalse\ttrue",
+        "P6_PERSON31_TECH\t76\t26\tTECH_CARTOGRAPHY\tfalse\ttrue",
+        "P6_PERSON31_TECH\t76\t27\tTECH_MASS_PRODUCTION\tfalse\ttrue",
+        "P6_PERSON31_TECH\t76\t28\tTECH_BANKING\tfalse\tfalse",
+        "P6_PERSON31_TECH\t76\t29\tTECH_GUNPOWDER\tfalse\tfalse",
+        "P6_PERSON31_TECH\t76\t30\tTECH_PRINTING\tfalse\ttrue",
+        "P6_PERSON31_TECH\t76\t31\tTECH_SQUARE_RIGGING\tfalse\tfalse",
+        "P6_PERSON31_TECH\t76\t32\tTECH_ASTRONOMY\tfalse\tfalse",
+        "P6_PERSON31_TECH\t76\t33\tTECH_METAL_CASTING\tfalse\ttrue",
+        "P6_PERSON31_TECH\t76\t34\tTECH_SIEGE_TACTICS\tfalse\tfalse",
+        "P6_PERSON31_TECH\t76\t67\tTECH_BUTTRESS\ttrue\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T084508361240Z.json",
+      "sha256": "b59e813e7abde581a5fbc5ce26527227fadf6ba0a10a133ba054ec6f0c775dd7",
+      "observations": [
+        "P6_PERSON31_CONTEXT\t76\ttrue\ttrue\tfalse\tfalse\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T084509806521Z.json",
+      "sha256": "b9a1f1d47aa278410f380867b66b06b3eb8b5bd830f4a5252731e191f3545307",
+      "observations": [
+        "P6_PERSON31_ACTION_MODIFIER\tGREATPERSON_1MEDIEVALRENAISSANCETECHBOOST",
+        "P6_PERSON31_ACTION_MODIFIER\tGREATPERSON_ABU_AL_QASIM_AL_ZAHRAWI_ACTIVE",
+        "P6_PERSON31_ACTION_ARGUMENT\tGREATPERSON_1MEDIEVALRENAISSANCETECHBOOST\tStartEraType\tERA_MEDIEVAL",
+        "P6_PERSON31_ACTION_ARGUMENT\tGREATPERSON_1MEDIEVALRENAISSANCETECHBOOST\tEndEraType\tERA_RENAISSANCE",
+        "P6_PERSON31_ACTION_ARGUMENT\tGREATPERSON_1MEDIEVALRENAISSANCETECHBOOST\tAmount\t1",
+        "P6_PERSON31_ACTION_ARGUMENT\tGREATPERSON_ABU_AL_QASIM_AL_ZAHRAWI_ACTIVE\tModifierId\tGREATPERSON_ABU_AL_QASIM_AL_ZAHRAWI_ACTIVE_HEAL_BONUS",
+        "P6_PERSON31_ACTION_TEXT\tGREATPERSON_1MEDIEVALRENAISSANCETECHBOOST\tSummary\t",
+        "P6_PERSON31_ACTION_TEXT\tGREATPERSON_ABU_AL_QASIM_AL_ZAHRAWI_ACTIVE\tSummary\t受伤的陆地单位每回合能恢复5点生命值。"
+      ]
+    },
+    {
+      "receipt": "20261101T084559191655Z.json",
+      "sha256": "dc16801030a93f30dd54957c30589f6aeb1e1dd52e3be14c8a49a1386a3fcdae",
+      "observations": [
+        "P6_PERSON31_SAVE_AFTER76\ttrue"
+      ]
+    }
+  ],
+  "screenshot_sha256": "8044ee52d0fd2ae285c118b8294cec6df56d42ada4901fd2b703eb9b7ede5817",
+  "workers79_81": [
+    {
+      "task": "personsave79",
+      "request_sha256": "80ca577876af2c638e817ee3f45f62df9ad4c6753f8c7c5d07a070419a88f3cb",
+      "result_sha256": "f76a1592219fb1a976b9d74feb5dd37811823786028339d22a773154e81336ea",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 22910,
+        "completion_tokens": 380,
+        "total_tokens": 23290
+      },
+      "review": "Risk direction only adopted as unclosed gap. Candidate ignored cross-context route requirement and proposed UI Player.SetProperty as if writable, and disappearance cleanup is unsafe. No persistence implementation or game-reload proof adopted."
+    },
+    {
+      "task": "scopeforeign80",
+      "request_sha256": "cc8db379b5c5909e8ecf44b86f41e8cd682a9af3b466abdf3100db8652d55ee6",
+      "result_sha256": "c81c8f28059351c8a1cf0c602b8c5084880326aa1da11a30dac4f4801089445f",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 13888,
+        "completion_tokens": 693,
+        "total_tokens": 14581
+      },
+      "review": "No code adopted. It correctly sees no envoy/spy scheduling but conflates levying with paid city capture, assumes war forwarded by this UI operation gate, and invents city-state spies UI. Scope between domestic and foreign decisions needs accurate separate treatment; do not automatically implement diplomacy."
+    },
+    {
+      "task": "gpidentity81",
+      "request_sha256": "ecfdc8a74475f1766128e5ee34138dbb623b34569c80e2ef148526100c033964",
+      "result_sha256": "4ca3d7cf49e2825e22e33b0bf5012ade628b518b5b37db4ec387199b1dbe005b",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 21911,
+        "completion_tokens": 557,
+        "total_tokens": 22468
+      },
+      "review": "Rejected. Proposed rechecking after final state gate ignores current code already performs final readiness/CanCivilian; repeated gate merely moves race. Suggested deleting unavailable pending violates exact late-event/unknown contract and existing ID reuse regression."
+    }
+  ],
+  "p6_cumulative_local_model": {
+    "http_requests": 81,
+    "complete_stop_sse_json": 78,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "observed_client_http_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "result": "PASS one normally recruited non-district scientist automated activation with exact native event and actual technology boost. Not all generic scientist/engineer/merchant individuals or all healing effects.",
+  "remaining": "Generic unknown activation journal save/reload persistence not implemented; current next-turn pending retention is UI-memory scope only. Foreign affairs automation scope must not silently expand. Full40 cases and version31 long regression still incomplete.",
+  "full_game_acceptance": false
+}
