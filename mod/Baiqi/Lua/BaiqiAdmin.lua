@@ -11,6 +11,9 @@ local governorPriority={GOVERNOR_THE_RESOURCE_MANAGER=100,GOVERNOR_THE_BUILDER=9
 local pantheonPriority={BELIEF_GOD_OF_THE_FORGE=100,BELIEF_CITY_PATRON_GODDESS=90}
 local governmentSlots
 local pendingGreatPerson
+local pendingReligion
+local religionBeliefPriority={BELIEF_WORK_ETHIC=100,BELIEF_FEED_THE_WORLD=95,
+  BELIEF_TITHE=90,BELIEF_DEFENDER_OF_FAITH=85}
 local function Once(key,action)
   if attempted[key] then return false end
   attempted[key]=true
@@ -48,6 +51,109 @@ local function Pantheon(pid,player)
       [PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}) end)
   end
 end
+local function ReligionState(pid,player)
+  local religion=player.GetReligion and player:GetReligion()
+  if not religion or not religion.GetReligionTypeCreated or not religion.GetNumBeliefsEarned or not religion.GetPantheon
+    or not Game.GetReligion then return nil end
+  local world=Game.GetReligion()
+  if not world or not world.GetReligions then return nil end
+  local state={id=religion:GetReligionTypeCreated(),earned=religion:GetNumBeliefsEarned(),pantheon=religion:GetPantheon(),beliefs={},classes={},count=0}
+  if type(state.id)~="number" or state.id<-1 or state.id%1~=0 or type(state.earned)~="number" or state.earned<0 or state.earned%1~=0
+    or type(state.pantheon)~="number" or state.pantheon<-1 or state.pantheon%1~=0 then return nil end
+  if state.id>=0 then
+    local found=false
+    local list=world:GetReligions()
+    if type(list)~="table" then return nil end
+    for _,entry in ipairs(list) do
+      if entry.Founder==pid and entry.Religion==state.id then
+        if type(entry.Beliefs)~="table" then return nil end
+        for _,index in pairs(entry.Beliefs) do
+          local row=GameInfo.Beliefs[index]
+          if not row or state.beliefs[index] then return nil end
+          state.beliefs[index]=true;state.classes[row.BeliefClassType]=true;state.count=state.count+1
+        end
+        found=true;break
+      end
+    end
+    if not found then return nil end
+  end
+  local indices={};for index in pairs(state.beliefs) do indices[#indices+1]=index end;table.sort(indices)
+  state.stamp=state.id..":"..state.earned..":"..table.concat(indices,",")
+  return state,world
+end
+
+local function ReligionPlayer(pid)
+  local player,config=Players[pid],PlayerConfigurations[pid]
+  if Game.GetLocalPlayer()==pid and player and config and config:IsHuman()==true
+    and config:GetLeaderTypeName()==BaiqiConfig.leader and player:IsTurnActive()==true
+    and Game.IsAllowStrategicCommands(pid)==true and GameConfiguration.IsAnyMultiplayer()==false
+    and (not GameConfiguration.IsHotseat or GameConfiguration.IsHotseat()==false)
+    and Game.GetCurrentGameTurn()==turn then return player end
+end
+
+local function Religion(pid,player)
+  if not GameInfo.Religions or not GameInfo.Beliefs then return end
+  local state,world=ReligionState(pid,player)
+  if not state then return end
+  if pendingReligion then
+    if pendingReligion.player~=pid then return end
+    local observed=(pendingReligion.kind=="found" and state.id==pendingReligion.index)
+      or (pendingReligion.kind=="belief" and state.beliefs[pendingReligion.index])
+    if not observed then
+      if not pendingReligion.waitLogged then
+        print("BAIQI|religion_request_pending|turn="..turn.."|kind="..pendingReligion.kind.."|index="..pendingReligion.index)
+        pendingReligion.waitLogged=true
+      end
+      return
+    end
+    print("BAIQI|admin_observed|turn="..turn.."|kind=religion_"..pendingReligion.kind.."|index="..pendingReligion.index.."|beliefs="..state.count)
+    pendingReligion=nil
+  end
+  if state.pantheon<0 or state.earned<=state.count then return end
+  local kind,row,operation,parameters
+  if state.id<0 then
+    if not world.HasBeenFounded then return end
+    local choices={}
+    for candidate in GameInfo.Religions() do
+      if candidate.Pantheon==false and world:HasBeenFounded(candidate.Index)==false then choices[#choices+1]=candidate end
+    end
+    table.sort(choices,function(a,b)
+      if a.RequiresCustomName~=b.RequiresCustomName then return not a.RequiresCustomName end
+      return a.Index<b.Index
+    end)
+    row=choices[1];if not row then return end
+    kind,operation="found",PlayerOperations.FOUND_RELIGION
+    parameters={[PlayerOperations.PARAM_RELIGION_TYPE]=row.Hash,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}
+    if row.RequiresCustomName then parameters[PlayerOperations.PARAM_RELIGION_CUSTOM_NAME]="白绮之道" end
+  else
+    if not world.IsTooManyForReligion then return end
+    row=Choose(GameInfo.Beliefs,function(candidate)
+      return candidate.BeliefClassType~="BELIEF_CLASS_PANTHEON" and not state.classes[candidate.BeliefClassType]
+        and (state.classes.BELIEF_CLASS_FOLLOWER or candidate.BeliefClassType=="BELIEF_CLASS_FOLLOWER")
+        and world:IsInSomePantheon(candidate.Index)==false and world:IsInSomeReligion(candidate.Index)==false
+        and world:IsTooManyForReligion(candidate.Index,state.id)==false
+    end,function() return 0 end,religionBeliefPriority,"BeliefType")
+    if not row then return end
+    kind,operation="belief",PlayerOperations.ADD_BELIEF
+    parameters={[PlayerOperations.PARAM_BELIEF_TYPE]=row.Hash,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}
+  end
+  if operation==nil then return end
+  -- Selection and actual earned capacity are re-read at the write boundary.
+  local actualPlayer=ReligionPlayer(pid)
+  if not actualPlayer then return end
+  local fresh,freshWorld=ReligionState(pid,actualPlayer)
+  if not fresh or fresh.stamp~=state.stamp then return end
+  if kind=="found" then
+    if freshWorld:HasBeenFounded(row.Index)~=false then return end
+  elseif freshWorld:IsInSomePantheon(row.Index)~=false or freshWorld:IsInSomeReligion(row.Index)~=false
+    or freshWorld:IsTooManyForReligion(row.Index,fresh.id)~=false then return end
+  if not ReligionPlayer(pid) then return end
+  Once("religion:"..kind..":"..row.Index..":"..fresh.stamp,function()
+    pendingReligion={player=pid,kind=kind,index=row.Index}
+    UI.RequestPlayerOperation(pid,operation,parameters)
+  end)
+end
+
 local function Assignable(row)
   if GameInfo.GovernorsCannotAssign then
     for restriction in GameInfo.GovernorsCannotAssign() do
@@ -238,6 +344,7 @@ function BaiqiAdmin.Run()
     end
   end
   Pantheon(pid,player)
+  Religion(pid,player)
   Governors(pid,player)
   Dedication(pid)
   GreatPeople(pid)

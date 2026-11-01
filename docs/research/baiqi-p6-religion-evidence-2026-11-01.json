@@ -1,0 +1,66 @@
+{
+  "schema": "civ6.baiqi-p6-religion-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "local_models": {
+    "choice_task": "religion35, already recorded with source/request hashes in baiqi-p6-creative-evidence-2026-11-01.json",
+    "choice_review": "Did not use invented equipped-belief getter, unsafe repeated while, clearing correlation on mismatch, or omitted custom-name packet. Owner counts actual GameReligion.GetReligions entries and stages exact normal operations.",
+    "additional_prophet_task": {
+      "request_sha256": "bd59cdf5f79778955be922e5b9beead46d8c9cf439347eb6363bf347c382ea1e",
+      "http_status": 200,
+      "sse_done": true,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 20615,
+        "completion_tokens": 1613,
+        "total_tokens": 22228
+      },
+      "total_ms": 16695.132799999556,
+      "first_nonempty_content_delta_ms": 3287.7664000116056,
+      "cached_prompt_tokens_if_reported": null
+    },
+    "prophet_review": "Candidate retained as analysis, not implementation: confused settler FOUND_CITY with FOUND_RELIGION, offered unowned activation tiles, guessed HasReligiousFoundingUnit transition in the wrong direction, and clears unknown after timeout. Exact native operation/state still requires independent fixture probe.",
+    "additional_http_requests": 1,
+    "additional_peak_in_flight": 1,
+    "cumulative_p6_http": 37,
+    "cumulative_complete_stop_json": 36,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0
+  },
+  "owner_implementation": {
+    "manifest_version": 22,
+    "software_tests_passed": 177,
+    "new_religion_consumer_tests": 9,
+    "artifact_sha256": "2c3049aacfcc723757d7cbbed78b341a2a1e19aae5ab996d29be67cf7e683df6",
+    "scope": "Religion selection only after actual earned belief capacity and pantheon. Founder-specific native religion/belief readback. Prefer predefined religion, explicit custom name fallback, follower first and distinct classes with global occupancy and native per-religion limits.",
+    "packets": "FOUND_RELIGION(religion Hash,EXCLUSIVE,custom name if required), then actual founded-row readback; ADD_BELIEF(belief Hash,EXCLUSIVE), one at a time with actual belief membership readback.",
+    "safety": "Re-read exact founded type, earned capacity and existing belief set, then re-check active local human Baiqi/turn/strategic-command state after final native eligibility. Unknown result retains one correlation across turns without another selection.",
+    "native_validation": "pending cold start",
+    "prophet_auto_movement_and_operation": "not implemented yet; retained as next unfinished task",
+    "full_game_acceptance": false,
+    "source_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "c98271d04be27508913855971a174ea760fc303b9a0d3859402326558b8b4e54",
+      "mod/Baiqi/Lua/BaiqiAdmin.lua": "e69760bfb335df79597fe8a14348563cda563dd657d522024c8223dfad304c18",
+      "tests/lua/mock_religion.lua": "6bb9273e6685951ea7984fa91f0fa9d7dd0eee52a5f933ce3da6fbc920de3de9",
+      "tests/test_baiqi_religion.py": "de1a7dcbc9e54f7749ed51e8412be09a3a859e399cf0281d2aca1be42b82c2e7"
+    }
+  },
+  "native_fixture_preparation": {
+    "prepared_manifest": 21,
+    "turn": 61,
+    "city": 327684,
+    "prior_lighthouse_progress_cost": [
+      40,
+      60
+    ],
+    "prior_queue_preserved": true,
+    "tail": "normal HolySite at7,12, initial progress0/cost90; native APPEND, no free production",
+    "save": {
+      "name": "Baiqi_P6_20261101_Cold21_TwoItemsHoly61.Civ6Save",
+      "sha256": "8189de9c5c4d9f8adc01d6c440966d91fd665490e4c6d140116cbf2df034d5d7",
+      "bytes": 455059
+    },
+    "preparation_limitations": "Capital had no unprotected legal tile; rejected before any mutation. Read-only whole-empire survey found city327684. Manual append is fixture preparation, not proof that AI independently selected this holy site."
+  }
+}
