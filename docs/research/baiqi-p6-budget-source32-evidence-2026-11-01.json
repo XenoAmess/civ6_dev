@@ -1,0 +1,50 @@
+{
+  "schema": "civ6.baiqi-budget-source32-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "baseline_commit": "8da4a65",
+  "manifest_version": 32,
+  "software_archive_sha256": "d6f0c417028b9833427ba9988484838254363771b6b6208317f4c7f1b0908175",
+  "files": 59,
+  "failure": "Source31 actual T43 two settler requests, T44 two real queues vs max1. Original twenty-turn failure is retained separately.",
+  "diagnostic": "Same-source instrumented native42to43 replay did not duplicate: exact AllowRecruit got queuedSettlers1 after first request and second eligible city selected another unit. Passive wrapper restored. Original native race/interleaving is not conclusively identified; do not claim otherwise.",
+  "software_old_failure": "After correcting military mock to preserve actual blockSecondCity contract, three new real consumer cases fail old source: active current hash with no entry, acknowledged request followed by old project view, unacknowledged request obscured by different hash.",
+  "implementation": "Count native queue entries, otherwise-unrepresented active unit hash, unresolved pending and same-turn submitted unit commitments by city/kind/hash without double counting. Keep submitted commitments through cache invalidation and acknowledgements; reset on next turn and read actual objects. Final unit budget/resource/military-role checks rerun before final player/owner/queue gate. Changed budget invalidates city evaluation so next tick selects a legal fallback rather than deadlocking an empty city. Existing queues/progress untouched.",
+  "software": {
+    "tests": 238,
+    "new_methods": 6,
+    "result": "PASS",
+    "final_log_sha256": "8d126eecbd17b760e70a8429fdf33cadc8901ee40b1ac4798393f040e50b3e60",
+    "cases": [
+      "active unit hash before entry",
+      "same-turn ACK then stale view",
+      "unresolved intent then other hash",
+      "no double count with two-slot control",
+      "next-turn actual-object recomputation",
+      "budget changes during native validation and next-tick fallback"
+    ]
+  },
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "7307d2c95a5f2aa333870ff93d443630c150374e63d2a32f480bc1fabade3d00",
+    "mod/Baiqi/Lua/BaiqiController.lua": "5b0f0efd59b83564a50f01d2adb0fc95dbe884cc177bc58561d92cb056cb57b0",
+    "tests/test_baiqi_military_production.py": "16e50fdac53ee22b62a369f9b508bc5f3b28e85a5b43fec46c991cf6f12e1cf6",
+    "tests/lua/mock_military.lua": "ff776127dd002ab3842be6a9be6fb88390ae430ae45b0ec7416c0ab16ce33eb8"
+  },
+  "native31_diagnostic_logs": {
+    "Database.log": "1eb0da67524cdb32c2bcedabcd75c5cc8fbfde35ae0ee058a3d9146e913ba17f",
+    "Lua.log": "0f994792e79d3874860b3644d52385185893dff33dd392f9c476391055252be1",
+    "Modding.log": "a0d5a0515ac34dce88047de1455dcdd2d6e3622b94252c06024865e6f10509fb"
+  },
+  "local_model_review": "85 hash guess refuted by native. 86 current-hash supplemental count partially adopted; its unchanged pending-only-current0 logic rejected. Root added same-turn ledger and final recheck. 87 unusable tests rejected; root built actual consumers. Reviews/request fingerprints in linked long31 evidence.",
+  "p6_cumulative_local_model": {
+    "http_requests": 87,
+    "complete_stop_sse_json": 84,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "observed_client_http_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "native32": "NOT_RUN",
+  "full_game_acceptance": false,
+  "remaining": "Same-turn ledger is memory-only, not durable across save/reload. Whole production unknown-result persistence, original timing-specific native reproduction, full40 cases and ten-city performance still unaccepted."
+}

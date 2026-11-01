@@ -6,6 +6,7 @@ BaiqiController = {}
 local C = BaiqiConfig
 local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
+local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local stopped, running = false, false
 local status = "内政托管开启；军队等待你的命令"
@@ -692,22 +693,34 @@ local function Economy(player)
   for _, city in player:GetCities():Members() do
     local q=city:GetBuildQueue()
     local completedHead=CompletedIdleHead(city,q)
+    local represented={}
+    local function Commit(row,kind)
+      if not row then return end
+      Commitment(row,kind)
+      represented[kind..":"..tostring(row.Hash)]=true
+    end
     for i=0,q:GetSize()-1 do
       local entry=q:GetAt(i)
       local row=entry and entry.UnitType and GameInfo.Units[entry.UnitType]
       if i==0 and completedHead then -- Already owned asset; no new commitment.
-      elseif row then Commitment(row,"unit")
-      elseif entry and entry.BuildingType then Commitment(GameInfo.Buildings[entry.BuildingType],"building")
-      elseif entry and entry.DistrictType then Commitment(GameInfo.Districts[entry.DistrictType],"district") end
+      elseif row then Commit(row,"unit")
+      elseif entry and entry.BuildingType then Commit(GameInfo.Buildings[entry.BuildingType],"building")
+      elseif entry and entry.DistrictType then Commit(GameInfo.Districts[entry.DistrictType],"district") end
     end
-    -- Reserve new work while either no entry exists or only the replaced,
-    -- completed head is visible. Count a real new queue entry only once.
+    -- Native current production and queue entries can become visible separately.
+    local current=q:GetCurrentProductionTypeHash()
+    local active=current~=0 and GameInfo.Units[current]
+    if active and not represented["unit:"..tostring(active.Hash)] then Commit(active,"unit") end
     local pending=pendingCities[city:GetID()]
-    if pending and q:GetCurrentProductionTypeHash()==0 and (q:GetSize()==0
-      or (pending.replacesHead and QueueHeadSignature(q)==pending.replacesHead)) then
+    if pending and not represented[pending.kind..":"..tostring(pending.hash)] then
       local tables={unit=GameInfo.Units,building=GameInfo.Buildings,district=GameInfo.Districts,project=GameInfo.Projects}
       local rows=tables[pending.kind]
-      Commitment(rows and rows[pending.hash],pending.kind)
+      Commit(rows and rows[pending.hash],pending.kind)
+    end
+    -- An acknowledged request remains a same-turn commitment even if a later
+    -- native read briefly shows the old head. Invalidation must not erase it.
+    for hash in pairs(submittedUnits[city:GetID()] or {}) do
+      if not represented["unit:"..tostring(hash)] then Commit(GameInfo.Units[hash],"unit") end
     end
   end
   return s
@@ -821,12 +834,32 @@ local function ProcessCity(ctx, player, state, city)
   local params=BuildParams(choice,completedHead)
   if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
+  if choice.kind=="unit" then
+    local row=GameInfo.Units[choice.hash]
+    local role=row and (row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler"
+      or (row.UnitType=="UNIT_TRADER" and "trader" or (Military(row) and "military" or nil))))
+    local actual=Economy(freshPlayer)
+    actual.cityPopulation=city:GetPopulation()
+    actual.hasSafeSite=role=="settler" and #SettlementSites(freshPlayer,freshState,nil)>0 or false
+    actual.maintenance=row and row.Maintenance or 0
+    actual.resourceAffordable=q:CanProduce(choice.hash,false,true)==true
+    if not role or not BaiqiPlanner.AllowRecruit(role,actual,C)
+      or (role=="military" and not BaiqiPlanner.MilitaryScore(row,actual,C)) then
+      cityEvaluated[cityID]=nil
+      Reason("budget_changed:"..cityID,"生产预算已变化，重新安排合法任务")
+      return false
+    end
+  end
   local latest=PlayerContext()
   if not BaiqiPolicy.Context(latest) or latest.player~=freshCtx.player or not BaiqiPolicy.MatchesID(city,cityID)
     or city:GetOwner()~=latest.player or not QueueReady(city,q,completedHead) then return false end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
   pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead}
+  if choice.kind=="unit" then
+    submittedUnits[cityID]=submittedUnits[cityID] or {}
+    submittedUnits[cityID][choice.hash]=true
+  end
   Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type..(completedHead and "|insert=replace_completed" or ""))
   CityManager.RequestOperation(city,CityOperationTypes.BUILD,params)
   return true
@@ -973,7 +1006,7 @@ local function Tick()
   if visibility==nil then return end
   local current=Game.GetCurrentGameTurn()
   if current~=turn then
-    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}
+    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
     -- turn; retaining that pending slot would strand the civilian indefinitely.
     for id,pending in pairs(pendingUnits) do

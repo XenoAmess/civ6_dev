@@ -76,6 +76,97 @@ local chosen=BaiqiPlanner.Choose({paused=false,queueEmpty=true},
 assert(chosen.type=='campus')
 ''')
 
+    def test_active_settler_hash_without_visible_queue_entry_reserves_capacity(self):
+        self.lua.execute('''
+TestWorld.EnableSettlerSite()
+TestWorld.allowedMilitary={[201]=true};TestWorld.allowProject=true
+local original=TestWorld.objects.city.GetBuildQueue
+TestWorld.objects.city.GetBuildQueue=function(city)
+ local q=original(city)
+ if city:GetID()==66 then q.GetCurrentProductionTypeHash=function() return 201 end end
+ return q
+end
+''')
+        self.c.RunNow()
+        self.assertEqual(self.units(), [])
+        self.assertEqual(self.w.cityRequests[1].city, 67)
+        self.assertEqual(self.w.cityRequests[1].params[5], 301)
+
+    def test_settler_budget_is_rechecked_after_native_candidate_validation(self):
+        self.lua.execute('''
+TestWorld.EnableSettlerSite();TestWorld.allowedMilitary={[201]=true};TestWorld.allowProject=true
+local checks=0
+CityManager.CanStartOperation=function(city,operation,params)
+ if params[CityOperationTypes.PARAM_UNIT_TYPE]==201 then
+  checks=checks+1
+  if checks==2 then TestWorld.queues[67]={{UnitType=1}} end
+ end
+ return true
+end
+''')
+        self.c.RunNow()
+        self.assertEqual(self.units(), [])
+        self.assertEqual(len(self.w.cityRequests), 0)
+        self.c.RunNow()
+        self.assertEqual(self.units(), [])
+        self.assertEqual(self.w.cityRequests[1].city, 66)
+        self.assertEqual(self.w.cityRequests[1].params[5], 301)
+
+    def test_acknowledged_settler_commitment_survives_same_turn_stale_project_view(self):
+        self.lua.execute('''
+TestWorld.EnableSettlerSite()
+TestWorld.allowedMilitary={[201]=true};TestWorld.allowProject=true
+TestWorld.blockSecondCity=true
+''')
+        self.c.RunNow()
+        self.assertEqual(self.units(), [201])
+        self.lua.execute('TestWorld.queues[66]={{UnitType=1}}')
+        self.c.RunNow()  # Observe the actual accepted unit entry.
+        self.lua.execute('TestWorld.queues[66]={{ProjectType=0}};TestWorld.blockSecondCity=false')
+        self.c.RefreshProduction()
+        self.c.RunNow()
+        self.assertEqual(self.units(), [201])
+        self.assertEqual(self.w.cityRequests[2].params[5], 301)
+
+    def test_unresolved_settler_reservation_is_not_lost_when_other_hash_appears(self):
+        self.lua.execute('''
+TestWorld.EnableSettlerSite()
+TestWorld.allowedMilitary={[201]=true};TestWorld.allowProject=true
+TestWorld.blockSecondCity=true
+''')
+        self.c.RunNow()
+        # No accepted settler entry: a different view appears before its outcome.
+        self.lua.execute('TestWorld.queues[66]={{ProjectType=0}};TestWorld.blockSecondCity=false')
+        self.c.RefreshProduction()
+        self.c.RunNow()
+        self.assertEqual(self.units(), [201])
+
+    def test_same_settler_queue_hash_and_submitted_commitment_are_counted_once(self):
+        self.lua.execute('''
+TestWorld.EnableSettlerSite()
+TestWorld.allowedMilitary={[201]=true};TestWorld.allowProject=true
+TestWorld.blockSecondCity=true;BaiqiConfig.maxSettlers=2
+''')
+        self.c.RunNow()
+        self.lua.execute('TestWorld.queues[66]={{UnitType=1}};TestWorld.blockSecondCity=false')
+        self.c.RefreshProduction()
+        self.c.RunNow()
+        self.assertEqual(self.units(), [201, 201])
+
+    def test_next_turn_recomputes_completed_settler_commitment_from_actual_objects(self):
+        self.lua.execute('''
+TestWorld.EnableSettlerSite()
+TestWorld.allowedMilitary={[201]=true};TestWorld.allowProject=true
+TestWorld.blockSecondCity=true
+''')
+        self.c.RunNow()
+        self.lua.execute('TestWorld.queues[66]={{UnitType=1}}')
+        self.c.RunNow()
+        # Next-turn fixture: original unit is no longer queued or alive.
+        self.lua.execute('TestWorld.turn=2;TestWorld.queues[66]={{ProjectType=0}};TestWorld.blockSecondCity=false')
+        self.c.RunNow()
+        self.assertEqual(self.units(), [201, 201])
+
 
 if __name__ == '__main__':
     unittest.main()

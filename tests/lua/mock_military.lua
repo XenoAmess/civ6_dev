@@ -32,8 +32,12 @@ function o.player:GetCities()
 end
 local originalQueue=o.city.GetBuildQueue
 function o.city:GetBuildQueue()
+ local cityID=self:GetID()
  local q=originalQueue(self)
- q.CanProduce=function(_,hash) return w.allowedMilitary[hash]==true or (w.allowProject and hash==301) end
+ q.CanProduce=function(_,hash)
+  if w.blockSecondCity and cityID==67 then return false end
+  return w.allowedMilitary[hash]==true or (w.allowProject and hash==301)
+ end
  return q
 end
 CityManager.CanStartOperation=function(city,op,params)
