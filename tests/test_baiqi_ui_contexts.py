@@ -59,6 +59,27 @@ class UIContextTests(unittest.TestCase):
                   end
                   UI.RequestPlayerOperation=function() error('callback should keep captured native sink') end
                 ''')
+            elif module in ('GovernmentScreen', 'GovernmentScreen_Expansion1', 'GovernmentScreen_Expansion2'):
+                lua.execute('TestNativeIncludes[#TestNativeIncludes+1]=...', module)
+                lua.execute('''
+                  TestGovernment={visible=true,confirmVisible=true,enabled=true,closed=0,warnings=0,flagWrites=0}
+                  Controls={ConfirmPolicies={
+                    IsVisible=function() return TestGovernment.confirmVisible end,
+                    IsEnabled=function() return TestGovernment.enabled end,
+                    SetDisabled=function(_,value)
+                      TestGovernment.flagWrites=TestGovernment.flagWrites+1
+                      TestGovernment.enabled=not value
+                    end}}
+                  IsReadOnly=function() return false end
+                  function Close(...)
+                    if Controls.ConfirmPolicies and Controls.ConfirmPolicies:IsVisible()
+                      and Controls.ConfirmPolicies:IsEnabled() then
+                      TestGovernment.warnings=TestGovernment.warnings+1
+                    else TestGovernment.visible=false;TestGovernment.closed=TestGovernment.closed+1 end
+                    return 'native_close',...
+                  end
+                  TestGovernmentCapturedClose=function(...) return Close(...) end
+                ''')
             elif module == 'UnitFlagManager':
                 lua.execute('''
                   TestNativeIncludes[#TestNativeIncludes+1]='UnitFlagManager'
@@ -323,6 +344,40 @@ class UIContextTests(unittest.TestCase):
         g.TestGuard.leader = 'LEADER_TRAJAN'
         g.Events.NaturalWonderRevealed.Fire(1, 2, 3, True)
         self.assertEqual(g.TestPopupNativeCalls, 1)
+
+    def test_readonly_government_captured_close_discards_ui_state_without_policy_write(self):
+        lua = self.load_context('GovernmentScreen')
+        g = lua.globals()
+        self.assertTrue(g.IsReadOnly())
+        self.assertEqual(g.TestGovernmentCapturedClose('button', None, 7), ('native_close', 'button', None, 7))
+        self.assertEqual((g.TestGovernment.closed, g.TestGovernment.warnings, g.TestGovernment.flagWrites), (1, 0, 1))
+        self.assertFalse(g.TestGovernment.visible)
+        self.assertEqual(g.TestGuard.playerCalls, 0)
+        self.assertEqual(g.TestNativeIncludes[1], 'GovernmentScreen_Expansion2')
+
+    def test_readonly_government_close_rechecks_after_ai_refresh_reenables_confirm(self):
+        lua = self.load_context('GovernmentScreen')
+        g = lua.globals()
+        for _ in range(2):
+            g.TestGovernment.visible, g.TestGovernment.enabled = True, True
+            g.TestGovernmentCapturedClose()
+        self.assertEqual((g.TestGovernment.closed, g.TestGovernment.warnings, g.TestGovernment.flagWrites), (2, 0, 2))
+        self.assertEqual(g.TestGuard.playerCalls, 0)
+
+    def test_government_close_other_leader_and_multiplayer_keep_native_warning(self):
+        for kwargs in ({'leader': 'LEADER_TRAJAN'}, {'multi': True}):
+            with self.subTest(kwargs=kwargs):
+                lua = self.load_context('GovernmentScreen', **kwargs)
+                g = lua.globals()
+                g.TestGovernmentCapturedClose()
+                self.assertEqual((g.TestGovernment.closed, g.TestGovernment.warnings, g.TestGovernment.flagWrites), (0, 1, 0))
+
+    def test_readonly_government_close_tolerates_missing_optional_confirm_control(self):
+        lua = self.load_context('GovernmentScreen')
+        g = lua.globals()
+        g.Controls.ConfirmPolicies = None
+        self.assertEqual(g.TestGovernmentCapturedClose('escape'), ('native_close', 'escape'))
+        self.assertEqual((g.TestGovernment.closed, g.TestGovernment.warnings, g.TestGovernment.flagWrites), (1, 0, 0))
 
     def test_history_keeps_manual_notification_and_timeline_without_duplicate_handler(self):
         lua = self.load_context('HistoricMoments')

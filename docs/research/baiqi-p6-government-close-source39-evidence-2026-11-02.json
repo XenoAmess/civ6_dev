@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-02",
+  "machine": "BF-202609141645",
+  "manifest_version": 39,
+  "software_tests_passed": 294,
+  "new_close_consumer_tests": 4,
+  "change": "On Baiqi explicit government-view close only, disable local ConfirmPolicies UI flag and tail-call native Close. This matches native Yes/discard callback, not a government/policy request. Other leader/multiplayer retain native warning.",
+  "native_status": "Not installed or cold-tested at this checkpoint.",
+  "baseline_source38": {
+    "source_commit": "63050fa",
+    "process_pid": 15960,
+    "turn": 32,
+    "fixture": "Actual readonly government view; set only ConfirmPolicies UI visibility/enabled flags to true, without modifying policy cards or native government data.",
+    "physical_escape_result": "Native unsaved policy warning; GovernmentScreen remains visible/readOnlytrue.",
+    "after_yes_discard": "UI flag fixture restored; visibility independently false; no manual policy decision.",
+    "screenshot_sha256": "4076ca1986a879b48016002b2d199149582dd1103d8220069c181b5f6a971bbe"
+  },
+  "test_driver_fix": {
+    "scope": "Ignored test tooling only, not mod/player flow.",
+    "visible_government_behavior": "Native32 visible-page probe blocked immediately, no army/unstack/endturn writes in that run.",
+    "guards": "Visibility before any test writes; fresh ActionPanel-context visibility before callback, report click only when callback marker actually returned. Unknown control stops.",
+    "limitations": "Does not claim all other modal dialogs are covered; previous behind-overlay spans remain excluded from input acceptance."
+  },
+  "local_models": {
+    "http_total": 116,
+    "complete_total": 112,
+    "length_discarded": 4,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "this_batch_peak": 2,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  },
+  "files": {
+    "mod/Baiqi/UI/BaiqiGovernmentScreen.lua": "4114156af941fdd9ba83c220168f477cb7b812e36ae8e2b60b384259abea0485",
+    "mod/Baiqi/Baiqi.modinfo": "c17e86703a4c6c2b8a451ad404653103ad20db8ad5cf4fb71e1b84a4e1f44beb",
+    "tests/test_baiqi_ui_contexts.py": "b00b93daabae6339e3f5774dc7a4dad99b0e151552a5214fc43b97a7a2533b6e"
+  }
+}
