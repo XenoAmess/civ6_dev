@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="20">
+<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="21">
   <Properties>
     <Name>白绮：为我前驱</Name>
     <Description>白绮领袖原型：自动内政，军队由玩家指挥。开发版本。</Description>
@@ -76,6 +76,7 @@
       <File>UI/BaiqiNotificationPanel.lua</File>
       <File>UI/BaiqiNaturalWonderPopup.lua</File>
       <File>UI/BaiqiHistoricMoments.lua</File>
+      <File>UI/BaiqiGreatWorkShowcase.lua</File>
     </ImportFiles>
     <AddGameplayScripts id="BaiqiGameplay">
       <File>Lua/BaiqiGameplay.lua</File>
@@ -255,6 +256,9 @@
     <ReplaceUIScript id="BaiqiQuietHistoricMoments">
       <Properties><LoadOrder>1000</LoadOrder><LuaContext>HistoricMoments</LuaContext><LuaReplace>UI/BaiqiHistoricMoments.lua</LuaReplace></Properties>
     </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiQuietGreatWorkShowcase">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>GreatWorkShowcase</LuaContext><LuaReplace>UI/BaiqiGreatWorkShowcase.lua</LuaReplace></Properties>
+    </ReplaceUIScript>
   </InGameActions>
   <Files>
     <File>Config/BaiqiConfig.sql</File>
@@ -302,5 +306,6 @@
     <File>UI/BaiqiNotificationPanel.lua</File>
     <File>UI/BaiqiNaturalWonderPopup.lua</File>
     <File>UI/BaiqiHistoricMoments.lua</File>
+    <File>UI/BaiqiGreatWorkShowcase.lua</File>
   </Files>
 </Mod>

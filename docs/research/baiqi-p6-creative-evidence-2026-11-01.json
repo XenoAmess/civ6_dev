@@ -1,0 +1,134 @@
+{
+  "schema": "civ6.baiqi-p6-creative-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "model": {
+    "additional_http_requests": 2,
+    "additional_peak_in_flight": 2,
+    "cumulative_p6_http": 36,
+    "cumulative_complete_stop_json": 35,
+    "cumulative_length_discarded": 1,
+    "cumulative_peak": 12,
+    "automatic_retries": 0,
+    "requests": [
+      {
+        "task": "religion35",
+        "request_sha256": "16bcf6c92f0e89b562e694951ad45fa275279be2d263bb82d8aa492b3d749454",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 18208,
+          "completion_tokens": 863,
+          "total_tokens": 19071
+        },
+        "total_ms": 14869.019200006733,
+        "first_nonempty_content_delta_ms": 5924.2699000024,
+        "cached_prompt_tokens_if_reported": null
+      },
+      {
+        "task": "creative36",
+        "request_sha256": "39ca537cf107067c06998509348d0a8d46bf7ed70de4ba5354fe1bda5f652727",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 27411,
+          "completion_tokens": 684,
+          "total_tokens": 28095
+        },
+        "total_ms": 13386.812700002338,
+        "first_nonempty_content_delta_ms": 6185.925400000997,
+        "cached_prompt_tokens_if_reported": null
+      }
+    ],
+    "review_creative": "Rejected code guidance: required positive charges (native0 still legal), confused creatorID with individual rather than full unit ID, proposed timeout clearing and nearest empty slot regardless subtype, and claimed supplied event/slot source was absent. Owner uses primary native zero-charge creation and exact event+new owned slot proof; native hint district coordinates and compatible slot subtypes; preserves unknown and manual showcase view.",
+    "review_religion": "State scenarios partially useful; code guidance not adopted. Invented GetNumBeliefsEquipped getter, unsafe while without actual readback, clears pending on unrelated mismatch, omits custom-name packet and full gate. Religion choices remain unfinished and are the next implementation package."
+  },
+  "native_probe_before_implementation": {
+    "schema": "civ6.baiqi-creative-native-probe/v1",
+    "machine_id": "BF-202609141645",
+    "local_date": "2026-11-01",
+    "manifest_version": 20,
+    "source_commit": "5b990ee",
+    "pid": 13460,
+    "turn": 61,
+    "artifact_sha256": "bc90872ab2a6d0cea5bc1ab852a0193cdcb5327296e416515290e096df5f7e91",
+    "fixture": "Debug CreatePerson writer Homer150 at16,14; unit2621462, not normal recruitment. Clean pre-writer starting checkpoint is Cold20_DistrictPeople61.",
+    "live_action_charges": 0,
+    "xml_action_charges": 0,
+    "native_activate_legal": true,
+    "native_packet": "UnitManager.RequestCommand(unit,374670040), ACTIVATE_GREAT_PERSON, no parameters.",
+    "native_event": [
+      0,
+      2621462,
+      16,
+      14,
+      1,
+      2
+    ],
+    "creator_id_semantics": "Full unit ID, not individual150.",
+    "actual_owned_slot": {
+      "city": 65536,
+      "building": 1,
+      "slot": 0,
+      "before": -1,
+      "after": 2,
+      "actual_great_work_type": 2
+    },
+    "unit_after": {
+      "id": 2621462,
+      "still_present": true,
+      "moves": 0,
+      "action_charges": 0
+    },
+    "test_player_command_count": 1,
+    "background_creation_command_count": 0,
+    "manual_showcase_closures": 1,
+    "probe_error": "Initial assert(CanStartCommand(...)) received native second return table as assert message; failed before observer registration/request. Corrected first return comparison ==true, then explicit reviewed action once.",
+    "automated_feature_pass_claimed": false,
+    "raw_lines": [
+      "BaiqiGameplay: P6_CREATIVE36_FIXTURE_CREATE\t61\t150\t16\t14\tDebug CreatePerson only; not normal recruitment",
+      "BaiqiExecutor: P6_CREATIVE36_UNIT\t2621462\tUNIT_GREAT_WRITER\t16\t14\t4\t150\t6\t0\t0\ttrue",
+      "BaiqiExecutor: P6_CREATIVE36_COMMAND_RESULT\t527363920\t创作巨作",
+      "BaiqiExecutor: P6_CREATIVE36_COMMAND_RESULT_LIST\t-1554772595\t1\t《伊里亚特》（[ICON_GreatWork_Writing] 著作）.[NEWLINE]《奥德赛》（[ICON_GreatWork_Writing] 著作）.",
+      "BaiqiExecutor: P6_CREATIVE36_SLOT\t65536\t16\t14\t1\t0\t4\t-1\tfalse",
+      "BaiqiExecutor: P6_CREATIVE36_UNIT\t2621462\tUNIT_GREAT_WRITER\t16\t14\t4\t150\t6\t0\t0\ttrue",
+      "BaiqiExecutor: P6_CREATIVE36_COMMAND_RESULT\t527363920\t创作巨作",
+      "BaiqiExecutor: P6_CREATIVE36_COMMAND_RESULT_LIST\t-1554772595\t1\t《伊里亚特》（[ICON_GreatWork_Writing] 著作）.[NEWLINE]《奥德赛》（[ICON_GreatWork_Writing] 著作）.",
+      "BaiqiExecutor: P6_CREATIVE36_SLOT\t65536\t16\t14\t1\t0\t4\t-1\tfalse",
+      "BaiqiExecutor: P6_PLAYER_TEST_CREATIVE36_COMMAND\t61\t2621462\t150\t374670040\ttest probe; not background automation",
+      "BaiqiExecutor: P6_CREATIVE36_NATIVE_CREATED\t0\t2621462\t16\t14\t1\t2",
+      "BaiqiExecutor: P6_CREATIVE36_UNIT\t2621462\tUNIT_GREAT_WRITER\t16\t14\t0\t150\t6\t0\t0\tfalse",
+      "BaiqiExecutor: P6_CREATIVE36_SLOT\t65536\t16\t14\t1\t0\t4\t2\t2"
+    ],
+    "logs": {
+      "Database.log": "c5fe66aa13c14c5ee14d9778cf30e38cf96c366f271466076b57f85df32cf39e",
+      "Lua.log": "3f80461006f419f8e1e5504eb1a9b916bec33939000d1a0c5f7fee1ff317d479",
+      "Modding.log": "8ba3f3c8e51eadd9069a7185748cba9f5929a0813735abbe50f897ed029d01c9"
+    }
+  },
+  "owner_implementation": {
+    "manifest_version": 21,
+    "software_tests_passed": 168,
+    "new_creation_consumer_tests": 8,
+    "new_showcase_consumer_tests": 1,
+    "artifact_sha256": "092437e73950283939db6f670b342293da094ee902da5b35abe6ce18457ba449",
+    "scope": "Writer, artist and musician classes, explicit UnitType/class/individual match. Normal owned nonplacement building with compatible empty slot, actual completed district coordinates, safe revealed path, native current-tile ACTIVATE command. No positive action-charge assumption.",
+    "proof": "Native GreatWorkCreated matching original full unit ID plus actual owned city/building slot containing a new work index of the same individual. Unit disappearance/zero charges/new global work count alone never confirms.",
+    "pending": "Single creation in flight across creators, retain unknown across turns, no timeout replay. Other domestic and player military activity continue.",
+    "ui": "Creators are mandatory domestic; native player general/admiral commands retained. Automatic creation showcase skipped only for Baiqi, manual OnViewGreatWork preserved.",
+    "remaining": "Special placement-building target hints, other engineer/merchant conditions, prophets/religion and other unfinished domestic systems remain unaccepted.",
+    "native_automated_validation": "pending cold start",
+    "full_game_acceptance": false,
+    "source_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "7f05e0545f3977fccb29abb481836be7e0912d5dc84a84375642a56b4ce97583",
+      "mod/Baiqi/Lua/BaiqiController.lua": "70a6deb2914e4092adcae979361d14f1c230940d0a21c010c6e9b44410eb24d9",
+      "mod/Baiqi/Lua/BaiqiPolicy.lua": "ad72625d831546ad6264d09f2bf902ea4c73752c70963d7a0589d66f94d240db",
+      "mod/Baiqi/UI/BaiqiGreatWorkShowcase.lua": "48f6b7d88d09edbe6026114dcb1a6e276fb1662b847e012117831e4beb216eb8",
+      "tests/lua/mock_creative.lua": "336ae2c2658345e0e5d0de73accee14386cba80e87ebfab572e768d25a64f350",
+      "tests/test_baiqi_creative.py": "0bedd9dc203b9337e3b3fae9dd670872db0c1d6d8a62380a7a5e085e3165b7f4",
+      "tests/test_baiqi_ui_contexts.py": "70fa1b70c03cee24040b6c5eb9d1a75e9600568e761884587775cc0b6ce0214f"
+    }
+  }
+}

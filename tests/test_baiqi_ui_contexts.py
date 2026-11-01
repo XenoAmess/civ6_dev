@@ -86,6 +86,14 @@ class UIContextTests(unittest.TestCase):
                     Events.NaturalWonderRevealed.Add(OnNaturalWonderRevealed)
                   end
                 ''')
+            elif module == 'GreatWorkShowcase':
+                lua.execute('''
+                  TestNativeIncludes[#TestNativeIncludes+1]='GreatWorkShowcase'
+                  Events={GreatWorkCreated=TestEvent()}
+                  OnGreatWorkCreated=function(...) TestPopupNativeCalls=TestPopupNativeCalls+1 end
+                  Events.GreatWorkCreated.Add(OnGreatWorkCreated)
+                  OnViewGreatWork=function(...) TestPopupNativeCalls=TestPopupNativeCalls+1 end
+                ''')
             elif module == 'HistoricMoments':
                 lua.execute('''
                   TestNativeIncludes[#TestNativeIncludes+1]='HistoricMoments'
@@ -213,6 +221,22 @@ class UIContextTests(unittest.TestCase):
         self.assertEqual(g.Events.NaturalWonderRevealed.Count(), 0)
         lua = self.load_context('TechCivicCompletedPopup', multi=True)
         lua.globals().TestTechDiscovered(7, 4, False)
+        self.assertEqual(lua.globals().TestPopupNativeCalls, 1)
+
+    def test_creative_native_event_skips_only_automatic_baiqi_showcase_and_keeps_manual_view(self):
+        lua = self.load_context('GreatWorkShowcase')
+        g = lua.globals()
+        self.assertEqual(g.Events.GreatWorkCreated.Count(), 1)
+        g.Events.GreatWorkCreated.Fire(7, 999, 2, 3, 4, 5)
+        self.assertEqual(g.TestPopupNativeCalls, 0)
+        g.OnViewGreatWork(2, 3, 4)
+        g.Events.GreatWorkCreated.Fire(8, 999, 2, 3, 4, 5)
+        self.assertEqual(g.TestPopupNativeCalls, 2)
+        g.TestGuard.leader = 'LEADER_TRAJAN'
+        g.Events.GreatWorkCreated.Fire(7, 999, 2, 3, 4, 5)
+        self.assertEqual(g.TestPopupNativeCalls, 3)
+        lua = self.load_context('GreatWorkShowcase', multi=True)
+        lua.globals().Events.GreatWorkCreated.Fire(7, 999, 2, 3, 4, 5)
         self.assertEqual(lua.globals().TestPopupNativeCalls, 1)
 
 

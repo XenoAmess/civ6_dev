@@ -267,6 +267,123 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
   return false
 end
 
+local function CreativeData(unit)
+  local def=GameInfo.Units[unit:GetUnitType()]
+  local expected=def and BaiqiPolicy.CreativeGreatPersonClass(def.UnitType)
+  local gp=expected and unit:GetGreatPerson()
+  local individual=gp and GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
+  local class=gp and GameInfo.GreatPersonClasses[gp:GetClass()]
+  -- Native writers have zero action charges even while creation is legal.
+  if individual and class and individual.GreatPersonClassType==expected and class.GreatPersonClassType==expected then
+    return gp,individual,class,def
+  end
+end
+
+local function CreativeSites(ctx,player,individual)
+  local objects,known,sites={},{},{}
+  for work in GameInfo.GreatWorks() do
+    if work.GreatPersonIndividualType==individual.GreatPersonIndividualType then objects[work.GreatWorkObjectType]=true end
+  end
+  for _,city in player:GetCities():Members() do
+    if city:GetOwner()==ctx.player then
+      local buildings=city:GetBuildings()
+      for building in GameInfo.Buildings() do
+        if buildings:HasBuilding(building.Index) then
+          local empty=false
+          local count=buildings:GetNumGreatWorkSlots(building.Index)
+          if BaiqiPolicy.Number(count) and count>=0 and count%1==0 then
+            for slot=0,count-1 do
+              local index=buildings:GetGreatWorkInSlot(building.Index,slot)
+              if BaiqiPolicy.Number(index) and index>=0 then known[index]=true
+              elseif index==-1 then
+                local kind=GameInfo.GreatWorkSlotTypes[buildings:GetGreatWorkSlotType(building.Index,slot)]
+                if kind then
+                  for compatible in GameInfo.GreatWork_ValidSubTypes() do
+                    if compatible.GreatWorkSlotType==kind.GreatWorkSlotType and objects[compatible.GreatWorkObjectType] then empty=true;break end
+                  end
+                end
+              end
+            end
+          end
+          local required=building.PrereqDistrict and GameInfo.Districts[building.PrereqDistrict]
+          if empty and required and not building.RequiresPlacement and not buildings:IsPillaged(building.Index)
+            and city:GetDistricts():HasDistrict(required.Index,true) then
+            for _,district in city:GetDistricts():Members() do
+              if district:GetType()==required.Index then
+                local plot=Map.GetPlot(district:GetX(),district:GetY())
+                if plot and plot:GetOwner()==ctx.player and Safe(plot,player) then
+                  sites[#sites+1]={plot=plot,city=city:GetID(),building=building.Index}
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  return sites,known
+end
+
+local function ProcessCreative(ctx,player,state,unit)
+  local gp,individual,class,def=CreativeData(unit)
+  if not gp then return false end
+  -- One creation in flight prevents separate creators competing for a last slot.
+  for _,pending in pairs(pendingUnits) do
+    if pending.kind=="CREATE_GREAT_WORK" then Reason("creative_pending","创作等待上一项原生结果");return false end
+  end
+  local sites,known=CreativeSites(ctx,player,individual)
+  local here=UnitPlot(unit)
+  local current=false
+  for _,site in ipairs(sites) do if here and site.plot:GetIndex()==here:GetIndex() then current=true;break end end
+  local command=GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
+  local unitID=unit:GetID()
+  if current and command and here:GetOwner()==ctx.player and Safe(here,player)
+    and UnitManager.CanStartCommand(unit,command.Hash,false,true)==true then
+    local freshCtx=PlayerContext()
+    local freshGP,freshIndividual,freshClass,freshDef=CreativeData(unit)
+    if not BaiqiPolicy.Context(freshCtx) or freshCtx.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)
+      or unit:GetOwner()~=ctx.player or not freshGP or freshIndividual.Index~=individual.Index
+      or freshClass.Index~=class.Index or freshDef.UnitType~=def.UnitType or UnitIndex(unit)~=here:GetIndex()
+      or here:GetOwner()~=ctx.player then return false end
+    local id=NextRequest("creative:"..unitID..":"..individual.Index)
+    if not id then return false end
+    pendingUnits[unitID]={id=id,kind="CREATE_GREAT_WORK",individual=individual.Index,
+      individualType=individual.GreatPersonIndividualType,class=class.Index,unitType=def.UnitType,
+      knownWorks=known,elapsed=0}
+    Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|command=CREATE_GREAT_WORK|individual="..individual.Index)
+    UnitManager.RequestCommand(unit,command.Hash)
+    return true
+  end
+  local paths={}
+  for _,site in ipairs(sites) do
+    local step=PathStep(unit,site.plot,player,state)
+    if step then paths[#paths+1]={step=step,index=site.plot:GetIndex(),
+      distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),site.plot:GetX(),site.plot:GetY())} end
+  end
+  table.sort(paths,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
+  if paths[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",paths[1].step) end
+  Reason("creative:"..unitID,"创作等待安全且有匹配空槽的自有建筑")
+  return false
+end
+
+local function CreatedWorkObserved(player,pending)
+  local event=pending.createdEvent
+  if not event or pending.knownWorks[event.work] then return false end
+  local city=Cities.GetCityInPlot(event.x,event.y)
+  if not city or city:GetOwner()~=contextID then return false end
+  local buildings=city:GetBuildings()
+  if not buildings:HasBuilding(event.building) then return false end
+  local count=buildings:GetNumGreatWorkSlots(event.building)
+  if not BaiqiPolicy.Number(count) or count<0 or count%1~=0 then return false end
+  for slot=0,count-1 do
+    if buildings:GetGreatWorkInSlot(event.building,slot)==event.work then
+      local work=GameInfo.GreatWorks[buildings:GetGreatWorkTypeFromIndex(event.work)]
+      return work~=nil and work.GreatPersonIndividualType==pending.individualType
+    end
+  end
+  return false
+end
+
 local function SettlementSites(player, state, unit)
   local result = {}
   local ai = player:GetGrandStrategicAI()
@@ -573,7 +690,16 @@ local function ReadBack(player)
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
-    if pending.kind=="ACTIVATE_GREAT_PERSON" then
+    if pending.kind=="CREATE_GREAT_WORK" then
+      if CreatedWorkObserved(player,pending) then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=CREATE_GREAT_WORK|work="..pending.createdEvent.work.."|proof=native_event_and_owned_slot")
+        pendingUnits[unitID]=nil
+        if unit then unitEvaluated[UnitKey(unit)]=nil end
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+        Log("great_work_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_native_event_and_owned_slot=true")
+        pending.unresolvedLogged=true
+      end
+    elseif pending.kind=="ACTIVATE_GREAT_PERSON" then
       local def=unit and GameInfo.Units[unit:GetUnitType()]
       local gp=unit and unit:GetOwner()==contextID and def and def.UnitType==pending.unitType and unit:GetGreatPerson()
       local individual=gp and GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
@@ -715,6 +841,8 @@ local function Tick()
         if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
       elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
         if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
+      elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
+        if ProcessCreative(ctx,player,state,unit) then status="已提交自动创作，等待实际作品";return end
       end
       local here=UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
@@ -757,9 +885,22 @@ local function OnGreatPersonActivated(playerID,unitID,classID,individualID)
   end
 end
 if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated) end
+local function OnGreatWorkCreated(playerID,creatorID,x,y,buildingID,workIndex)
+  local ctx=PlayerContext()
+  local pending=pendingUnits[creatorID]
+  local building=BaiqiPolicy.Number(buildingID) and GameInfo.Buildings[buildingID]
+  if ctx and ctx.player==playerID and pending and pending.kind=="CREATE_GREAT_WORK"
+    and BaiqiPolicy.Number(x) and BaiqiPolicy.Number(y) and x>=0 and y>=0 and x%1==0 and y%1==0
+    and BaiqiPolicy.Number(workIndex) and workIndex>=0 and workIndex%1==0
+    and building then
+    pending.createdEvent={x=x,y=y,building=building.Index,work=workIndex}
+  end
+end
+if Events.GreatWorkCreated then Events.GreatWorkCreated.Add(OnGreatWorkCreated) end
 function BaiqiController.Shutdown()
   stopped=true
   Events.CityProductionCompleted.Remove(OnCityCompleted)
   if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Remove(OnGreatPersonActivated) end
+  if Events.GreatWorkCreated then Events.GreatWorkCreated.Remove(OnGreatWorkCreated) end
 end
 print("BAIQI|ui_controller_loaded|version=2|mandatory_admin=true")
