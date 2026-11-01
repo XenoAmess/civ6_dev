@@ -286,6 +286,18 @@ local function DistrictPersonHeld(unit)
   local stage=GPBridge("Inspect",contextID,unit:GetID())
   return stage~="OPEN" and stage~="OBSERVED"
 end
+local function CreativeBridge(method,...)
+  local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiCreativeIntentBridge
+  if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-creative-intent-v1"
+    or type(bridge[method])~="function" then return nil,nil,"bridge_unavailable" end
+  local ok,a,b,c=pcall(bridge[method],...)
+  if ok then return a,b,c end
+  return nil,nil,"bridge_error"
+end
+local function CreativeHeld(unit)
+  local stage=CreativeBridge("Inspect",contextID,unit:GetID())
+  return stage~="OPEN" and stage~="OBSERVED"
+end
 
 local function RequestDistrictPerson(unit)
   local ctx,player,state=PlayerContext()
@@ -603,6 +615,10 @@ end
 local function ProcessCreative(ctx,player,state,unit)
   local gp,individual,class,def=CreativeData(unit)
   if not gp then return false end
+  if CreativeHeld(unit) then
+    Reason("creative:"..unit:GetID(),"创作等待持久化回执；其他内政继续执行")
+    return false
+  end
   -- One creation in flight prevents separate creators competing for a last slot.
   for _,pending in pairs(pendingUnits) do
     if pending.kind=="CREATE_GREAT_WORK" then Reason("creative_pending","创作等待上一项原生结果");return false end
@@ -613,21 +629,45 @@ local function ProcessCreative(ctx,player,state,unit)
   for _,site in ipairs(sites) do if here and site.plot:GetIndex()==here:GetIndex() then current=true;break end end
   local command=GameInfo.UnitCommands.UNITCOMMAND_ACTIVATE_GREAT_PERSON
   local unitID=unit:GetID()
-  if current and command and here:GetOwner()==ctx.player and Safe(here,player)
+  if current and command and Revealed(here) and visibility:IsVisible(here:GetX(),here:GetY())==true
+    and here:GetOwner()==ctx.player and Safe(here,player)
     and UnitManager.CanStartCommand(unit,command.Hash,false,true)==true then
-    local freshCtx=PlayerContext()
-    local freshGP,freshIndividual,freshClass,freshDef=CreativeData(unit)
-    if not BaiqiPolicy.Context(freshCtx) or freshCtx.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)
-      or unit:GetOwner()~=ctx.player or not freshGP or freshIndividual.Index~=individual.Index
-      or freshClass.Index~=class.Index or freshDef.UnitType~=def.UnitType or UnitIndex(unit)~=here:GetIndex()
-      or here:GetOwner()~=ctx.player then return false end
+    local latestKnown=known
+    local function StillEligible()
+      local freshCtx,freshPlayer,freshState=PlayerContext()
+      local freshGP,freshIndividual,freshClass,freshDef=CreativeData(unit)
+      local freshHere=UnitPlot(unit)
+      local found=freshPlayer and freshPlayer:GetUnits():FindID(unitID)
+      if not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
+        or not BaiqiPolicy.MatchesID(found,unitID) or found:GetOwner()~=ctx.player
+        or not BaiqiPolicy.MatchesID(unit,unitID) or unit:GetOwner()~=ctx.player or unit:IsReadyToMove()~=true
+        or not freshGP or freshIndividual.Index~=individual.Index or freshClass.Index~=class.Index
+        or freshDef.UnitType~=def.UnitType or not freshHere or freshHere:GetIndex()~=here:GetIndex()
+        or not Revealed(freshHere) or visibility:IsVisible(freshHere:GetX(),freshHere:GetY())~=true
+        or freshHere:GetOwner()~=ctx.player or not Safe(freshHere,freshPlayer) then return false end
+      local freshSites,freshKnown=CreativeSites(freshCtx,freshPlayer,freshIndividual)
+      for _,site in ipairs(freshSites) do
+        if site.plot:GetIndex()==freshHere:GetIndex() then latestKnown=freshKnown;return true end
+      end
+      return false
+    end
+    if not StillEligible() then return false end
     local id=NextRequest("creative:"..unitID..":"..individual.Index)
     if not id then return false end
-    pendingUnits[unitID]={id=id,kind="CREATE_GREAT_WORK",individual=individual.Index,
+    local granted,token=CreativeBridge("Prepare",ctx.player,unitID,def.UnitType,class.Index,individual.Index,here:GetX(),here:GetY())
+    if granted~=true or type(token)~="string" then return false end
+    local pending={id=id,kind="CREATE_GREAT_WORK",individual=individual.Index,persistent=true,token=token,
       individualType=individual.GreatPersonIndividualType,class=class.Index,unitType=def.UnitType,
-      knownWorks=known,elapsed=0}
+      knownWorks=latestKnown,elapsed=0}
+    pendingUnits[unitID]=pending
+    if UnitManager.CanStartCommand(unit,command.Hash,false,true)~=true or not StillEligible() then
+      Log("creative_intent_held","id="..id.."|unit="..unitID.."|reason=eligibility_changed_after_intent")
+      return true
+    end
+    pending.knownWorks=latestKnown
     Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|command=CREATE_GREAT_WORK|individual="..individual.Index)
-    UnitManager.RequestCommand(unit,command.Hash)
+    local ok,err=pcall(UnitManager.RequestCommand,unit,command.Hash)
+    if not ok then Log("creative_command_unknown","id="..id.."|unit="..unitID.."|reason="..tostring(err)) end
     return true
   end
   local paths={}
@@ -1030,7 +1070,8 @@ local function ReadBack(player)
         pending.unresolvedLogged=true
       end
     elseif pending.kind=="CREATE_GREAT_WORK" then
-      if CreatedWorkObserved(player,pending) then
+      local stage,token=CreativeBridge("Inspect",contextID,unitID)
+      if stage=="OBSERVED" and token==pending.token and CreatedWorkObserved(player,pending) then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=CREATE_GREAT_WORK|work="..pending.createdEvent.work.."|proof=native_event_and_owned_slot")
         pendingUnits[unitID]=nil
         if unit then unitEvaluated[UnitKey(unit)]=nil end
@@ -1209,7 +1250,8 @@ local function Tick()
       elseif snapshot.type=="UNIT_GREAT_PROPHET" then
         if ProcessProphet(ctx,player,state,unit) then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
       end
-      local held=BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit)
+      local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
+        or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
       local here=not held and UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
         status="文职单位本回合等待安全任务；军队由你指挥";return

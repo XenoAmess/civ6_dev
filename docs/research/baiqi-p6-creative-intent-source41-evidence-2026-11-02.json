@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-02",
+  "machine": "BF-202609141645",
+  "manifest_version": 41,
+  "software_tests_passed": 329,
+  "new_actual_consumer_tests": 20,
+  "native41_status": "Pending cold installation and testing. Source40 discovery is not source41 effect proof.",
+  "separate_journal": {
+    "key": "BAIQI_CREATIVE_INTENTS_V1",
+    "version": 1,
+    "positive_charge_gp_journal": "Unchanged v1 format.",
+    "stages": [
+      "ARMED",
+      "OBSERVED",
+      "LEGACY_UNKNOWN"
+    ],
+    "max_units": 256,
+    "max_seen_work_indices_per_unit": 64,
+    "saved_full_id_max": 9007199254740991,
+    "native_find_id_max": 2147483647,
+    "serial_max": 2147483647,
+    "invalid_raw": "Retained, not repaired; only creative execution held.",
+    "legacy": "Creators already present when this separate journal first initializes are held LEGACY_UNKNOWN; no invented historical receipts."
+  },
+  "native_source40_discovery": {
+    "process_pid": 11964,
+    "turn": 38,
+    "core_building_slot_and_type_methods": null,
+    "core_Game_GetGreatWorkTypeFromIndex": null,
+    "core_culture_GetGreatWorksInCity": null,
+    "actual_core_native_GreatWorkCreated_event": [
+      0,
+      1114120,
+      16,
+      14,
+      1,
+      0
+    ],
+    "actual_ui_native_event_same_tuple": true,
+    "Debug_Homer_individual": 150,
+    "class": 6,
+    "metadata_and_runtime_charges": 0,
+    "real_owned_palace_slot": {
+      "city": 65536,
+      "building": 1,
+      "slot": 0,
+      "work_index": 0,
+      "work_type": 2
+    },
+    "core_event_observer_removed": true,
+    "ui_command_proxy_and_event_handler_restored": true,
+    "private_log_sha256": "aaf1b560b97186d6a34168b8bfaba84134334d0cab001cfb7ffef4117bf70f63",
+    "not_earned_recruitment": true
+  },
+  "authorization": [
+    "Core exact local human Baiqi/SP owner, full-ID/type/class/individual/moves/formation and revealed visible own current plot before metadata grant.",
+    "Persist/readback ARMED before UI command; UI repeats native eligibility and compatible empty building-slot checks after grant.",
+    "Core directly consumes its verified native GreatWorkCreated event, matches full creator ID/ARMED, validates own visible city/building and globally unseen work index before persisting OBSERVED. No UI Observe endpoint and no nonexistent Core slot/type read.",
+    "UI live pending requires both matching durable OBSERVED token AND its existing exact event/real new owned work of this individual.",
+    "Retain prior seen work IDs after each next token; delayed old event cannot settle a later intent. ARMED blocks competing creators, not domestic queues. Missing unit/timeouts/exceptions do not grant replay.",
+    "Cold OBSERVED receipts can permit a new legitimate attempt only through current native eligibility/slot checks; unknown or invalid state holds without fallback MOVE/SKIP."
+  ],
+  "limits": [
+    "Core cannot query work type or slot; its trusted native event is the Core effect receipt. UI still validates actual same-individual work in the normal live pending consumer.",
+    "If native event receipt cannot be persisted, unknown ARMED remains held, including after cold load; no automatic guessing/replay.",
+    "Special placement buildings, all creative classes native durable behavior and multiwork continuation require native samples.",
+    "Full40 suite, religious units, global performance and complete control matrix remain unfinished."
+  ],
+  "local_models": {
+    "http_total": 124,
+    "complete_total": 119,
+    "length_discarded": 5,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "this_batch_peak_in_flight": 3,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null,
+    "122": "Adopted separate Core-native-event direction. Rejected OPEN-only flow, event coordinates equaling unit coordinates, cached/UI city authority and clearing pending without UI slot proof.",
+    "123": "Adopted strict separate schema/bounds direction; corrected contradictory 32-bit saved-ID restriction and invalid positive-charge assertions. Root wrote complete deep validation/clone/equality.",
+    "124": "Scenario headings useful; rejected wrong GameEvents bus/key, Core OBSERVED claimed ARMED during UI lag, event Observe endpoint and retry-after-error recommendation. Root built actual separate native event/UI slot harness."
+  },
+  "test_preparation_failure": "First consumer test expected two creations in the same turn despite per-turn request key bound. Corrected test to advance a real modeled turn; retained failed log, not called a product defect.",
+  "files": {
+    "mod/Baiqi/Lua/BaiqiCreativeJournal.lua": "6399ec11de6a7647a259e1088b4de86751e31b9cc06e54a691b32e2bb3cb6731",
+    "mod/Baiqi/Lua/BaiqiCreativeIntentGameplay.lua": "429d160b05be5c1c65d2a0da440b00243ee217bf8a0fffbec2fde0762ff128a7",
+    "mod/Baiqi/Lua/BaiqiController.lua": "3c011f1b918f916a45f49b3c46b04b4e9c237ed62e16390edc6d4d4ee64591fa",
+    "mod/Baiqi/Lua/BaiqiGameplay.lua": "e3aa9de2dc237ec8599a7ffaa947aa17b8678ea089247125cf66b0f67b07b681",
+    "tests/creative_intent_harness.py": "d140e45c0ba017a37dff1d3e6aad1239001760140ec69d04acc332be017c7cae",
+    "tests/test_baiqi_creative_intents.py": "d56ec96d30a13cb14be55c8c46ce9fbc32a7fadef4b552d0e6f2522e638068d9"
+  },
+  "software_final_log": "329 tests / 46.195 seconds / OK; context-reload harness retains only the native UI event bus, not discarded Core listeners."
+}

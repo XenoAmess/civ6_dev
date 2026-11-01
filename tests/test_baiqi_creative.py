@@ -2,6 +2,7 @@
 from pathlib import Path
 import unittest
 from lupa.lua53 import LuaRuntime
+from creative_intent_harness import install_creative_bridge
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -11,6 +12,9 @@ class CreativeTests(unittest.TestCase):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         for name in ('tests/lua/mock_world.lua', 'tests/lua/mock_scientist.lua', 'tests/lua/mock_creative.lua'):
             self.lua.execute((ROOT/name).read_text(encoding='utf-8'))
+        self.lua.globals().TestWorld.withScientist = False
+        install_creative_bridge(self.lua)
+        self.lua.globals().TestWorld.withScientist = True
         for name in ('BaiqiConfig', 'BaiqiPolicy', 'BaiqiPlanner', 'BaiqiController'):
             self.lua.execute((ROOT/f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
         self.w = self.lua.globals().TestWorld
@@ -150,7 +154,7 @@ end
         self.c.RunNow()
         self.c.Update(1)
         self.assertEqual(len(self.w.commandRequests), 1)
-        self.assertEqual((self.w.unitRequests[1].unit, self.w.unitRequests[1].op), (55, 17))
+        self.assertEqual(len(self.w.unitRequests), 0)
         self.assertFalse(any('BAIQI|error' in line for line in self.logs), self.logs)
 
 

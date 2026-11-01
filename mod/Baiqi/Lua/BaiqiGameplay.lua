@@ -5,6 +5,7 @@ include("BaiqiPlanner")
 include("BaiqiRequisition")
 include("BaiqiCapture")
 include("BaiqiGPIntentGameplay")
+include("BaiqiCreativeIntentGameplay")
 
 local function RetireLegacyControls()
   -- Remove withdrawn plot-effect gates without refunds, transfers or replay.
