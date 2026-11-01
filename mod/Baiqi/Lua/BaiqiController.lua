@@ -529,7 +529,7 @@ local function CreatedWorkObserved(player,pending)
   return false
 end
 
-local function SettlementSites(player, state, unit)
+local function SettlementSites(player, state, unit, firstOnly)
   local result = {}
   local ai = player:GetGrandStrategicAI()
   if ai == nil then return result end
@@ -549,10 +549,20 @@ local function SettlementSites(player, state, unit)
       if distantEnough and (unit == nil or step ~= nil or UnitIndex(unit) == plot:GetIndex()) then
         result[#result+1] = {index=plot:GetIndex(), score=100-(tonumber(rank) or 0), legal=true, revealed=true, safe=true,
           protected=false, plot=plot, step=step}
+        if firstOnly then return result end
       end
     end
   end
   return result
+end
+
+local function RecruitAllowed(role,economy,player,state)
+  -- Query native settlement hints only after every other recruitment gate passes.
+  -- No hints are cached; the dispatch boundary repeats this against fresh state.
+  economy.hasSafeSite=true
+  local allowed=BaiqiPlanner.AllowRecruit(role,economy,C)
+  economy.hasSafeSite=role=="settler" and allowed and #SettlementSites(player,state,nil,true)>0 or false
+  return allowed and (role~="settler" or economy.hasSafeSite)
 end
 
 local function ProcessSettler(ctx, player, state, unit)
@@ -808,14 +818,13 @@ local function ProcessCity(ctx, player, state, city)
     end
   end
   economy.cityPopulation=city:GetPopulation()
-  economy.hasSafeSite=#SettlementSites(player,state,nil)>0
   for row in GameInfo.Units() do
     local role=row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler"
       or (row.UnitType=="UNIT_TRADER" and "trader" or (Military(row) and "military" or nil)))
     if role then
       economy.maintenance=row.Maintenance or 0
       economy.resourceAffordable=q:CanProduce(row.Hash,false,true)==true
-      if BaiqiPlanner.AllowRecruit(role,economy,C) then
+      if RecruitAllowed(role,economy,player,state) then
         local priority=role=="settler" and 105 or (role=="builder" and 95 or (role=="trader" and 75 or 55))
         if role=="military" then priority=BaiqiPlanner.MilitaryScore(row,economy,C) end
         if priority then Add("unit",row,priority,false) end
@@ -840,10 +849,9 @@ local function ProcessCity(ctx, player, state, city)
       or (row.UnitType=="UNIT_TRADER" and "trader" or (Military(row) and "military" or nil))))
     local actual=Economy(freshPlayer)
     actual.cityPopulation=city:GetPopulation()
-    actual.hasSafeSite=role=="settler" and #SettlementSites(freshPlayer,freshState,nil)>0 or false
     actual.maintenance=row and row.Maintenance or 0
     actual.resourceAffordable=q:CanProduce(choice.hash,false,true)==true
-    if not role or not BaiqiPlanner.AllowRecruit(role,actual,C)
+    if not role or not RecruitAllowed(role,actual,freshPlayer,freshState)
       or (role=="military" and not BaiqiPlanner.MilitaryScore(row,actual,C)) then
       cityEvaluated[cityID]=nil
       Reason("budget_changed:"..cityID,"生产预算已变化，重新安排合法任务")

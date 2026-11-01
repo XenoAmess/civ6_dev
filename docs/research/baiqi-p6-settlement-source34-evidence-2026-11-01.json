@@ -1,0 +1,47 @@
+{
+  "schema": "civ6.baiqi-settlement-query-source34-evidence/v1",
+  "recorded_utc": "2026-11-01T11:44:44.947033+00:00",
+  "machine_id": "BF-202609141645",
+  "base_commit": "1ee7c27",
+  "manifest_version": 34,
+  "change": "Production queries safe settlement existence only after same AllowRecruit non-site gates pass, with early return on first fully legal safe revealed site. Shares existing filter; no duplicated safety rules, no game-state cache, no priority or budget change. Actual settler path selection retains full ranked candidates. Final dispatch reruns current Economy, non-site gates and site query.",
+  "local_model89": {
+    "request_sha256": "0b3a2a76cf663ebb46b1043316f52b6ccb964825c8ca04f8143a96932095c1e4",
+    "result_sha256": "b1153b2ed95a14113e9b212a2af49b82e5d7c90f533e86125f23b46a7d2552a0",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 23825,
+      "completion_tokens": 722,
+      "total_tokens": 24547
+    },
+    "adoption": "Partial direction adopted only. Root rejected duplicate helper/filter and retained actual ProcessCity dispatch guard. Candidate mislabeled final production gate as ProcessSettler; root checked real call sites."
+  },
+  "software": {
+    "new_test_methods": 6,
+    "old_source_failure_assertions": 7,
+    "old_source_sha256": "484be80e99bec873583d234364d74baa10d148693f97ca6d7888b3634dfd9aec",
+    "full_tests": 245,
+    "all_passed": true,
+    "full_log_sha256": "344248213e6bf9a479feb85701673ffd3be92fd3d32da210aab36cd2cdbcc6df",
+    "scope": [
+      "Real controller and delayed production packet consumer",
+      "Military/builder/trader production: zero settlement hint queries",
+      "Settler initial and final fresh query then pending commitment excludes next city",
+      "Actual queued settler avoids query and picks legal fallback",
+      "No site: no settler, legal projects",
+      "Site lost before final dispatch: rejected then next tick fallback",
+      "Existence query stops before later recommendation"
+    ],
+    "test_preparation_correction": "Initial test expected two project requests in one RunNow, but real controller submits one per invocation. Corrected to two invocations and reran old source before changing product; original erroneous failed log also retained privately."
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "0fec511416a3959c05e5acb4652bdc16ee4a6ab55c48128ef47651326f1144c3",
+    "mod/Baiqi/Baiqi.modinfo": "af1e6692e77a7cbc3af2c667b9a8219c3b07ab07a41fd1654903ca11272adfde",
+    "mod/Baiqi/Text/BaiqiText.xml": "c3456c808b0f6886f361dd3b14cb464287708f5b22847af4844ec9f058f4534d",
+    "tests/lua/mock_trade.lua": "b44c1626a9d7d8fe7b53bebc600ae9c81bca1e7ddb6832e59afe726e2d618b30",
+    "tests/test_baiqi_settlement_queries.py": "36f5cbf606d6445ca540b88d305891843b3d9908bcce75e5b8a74c2c45c43381"
+  },
+  "artifact_sha256": "8ba3162ff13b994131ad4946347e5b0280f9ee03e6c7c7c8b2bcd9de6c5591c4",
+  "native_validation": "NOT_RUN version34. Live independent native diplomacy fixture still runs installed version33. No speedup or615ms cause established. Full TC036 paired baseline/global budget/per-turn cumulative incomplete.",
+  "full_game_acceptance": false
+}

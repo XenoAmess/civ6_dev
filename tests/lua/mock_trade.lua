@@ -107,7 +107,11 @@ function w.EnableSettlerSite()
  Map.GetPlotDistance=function(x,y,x2,y2) return math.abs(x-x2) end
  PlayerManager={GetAliveIDs=function() return {7} end}
  function o.player:GetGrandStrategicAI()
-  return {GetSettlementRecommendations=function() return {{SettlingLocation=44}} end}
+   return {GetSettlementRecommendations=function()
+    w.settlementQueries=(w.settlementQueries or 0)+1
+    if w.noSettlementSite or (w.loseSettlementSite and w.settlementQueries>1) then return {} end
+    return w.settlementRecommendations or {{SettlingLocation=44}}
+   end}
  end
  city.GetPopulation=function() return 4 end
 end
