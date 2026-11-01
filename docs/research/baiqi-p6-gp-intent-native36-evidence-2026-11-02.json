@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-01T16:58:17.556675+00:00",
+  "machine": "BF-202609141645",
+  "source_commit": "41b8280",
+  "manifest_version": 36,
+  "installed_files_matching_commit": 61,
+  "installed_archive_sha256": "6fff4af41a894876283bd432c838f877ea7ce8bc24fc8abe2abc0c07e25a0ecb",
+  "steam": {
+    "client_pid": 13620,
+    "online_switches": 0,
+    "fresh_offline_checks_utc": [
+      "2026-11-01T16:45:31.372141+00:00",
+      "2026-11-01T16:53:39.386046+00:00"
+    ]
+  },
+  "first_process_pid": 14076,
+  "second_process_pid": 12880,
+  "software_tests_passed": 271,
+  "legacy105": {
+    "charged_merchant_id": 4194337,
+    "charges": 3,
+    "charged_engineer_id": 5898283,
+    "engineer_charges": 2,
+    "stage": "LEGACY_UNKNOWN",
+    "repeat_prepare_granted": false,
+    "cities_with_queues": 11
+  },
+  "fixture24": {
+    "initial_journal_serial": 0,
+    "initial_charged_gp_count": 0,
+    "debug_create_person": "GREAT_PERSON_INDIVIDUAL_JAMES_OF_ST_GEORGE",
+    "individual_index": 40,
+    "class_index": 2,
+    "unit_id": 589829,
+    "position": [
+      13,
+      16
+    ],
+    "charges": 3,
+    "moves": 4,
+    "token": "gp:0:1",
+    "fault_injection": "Test-only UI wrapper suppressed exactly one legal activation request AFTER durable Core ARMED receipt; original native command was NOT called. Not an actual activation success.",
+    "suppressed_calls": 1,
+    "native_activation_events_before_save": 0,
+    "suppression_restored_before_exit": true,
+    "saved_file_name": "Baiqi_P6_20261102_V36_ArmedGP24.Civ6Save",
+    "saved_bytes": 381957,
+    "saved_sha256": "91721557f5c4f97fcdbf4c57ce3c27288dd4591362e3e5b0f9d21d7362ded252"
+  },
+  "new_process_reload": {
+    "stage": "ARMED",
+    "token": "gp:0:1",
+    "charges": 3,
+    "moves": 4,
+    "controller_callbacks_observed": 69,
+    "target_native_commands_during_observer": 0,
+    "target_native_events_during_observer": 0,
+    "explicit_repeat_prepare_granted": false,
+    "reason": "prior_intent",
+    "observer_wrappers_restored": true,
+    "cities_with_queues": 5,
+    "runtime_errors_in_current_process_log": 0
+  },
+  "receipts": [
+    {
+      "file": "20261101T164905593348Z.json",
+      "sha256": "84b3e6beb7bca757706a43704eaeca301a6a0cf5577688b06066b007a67df14b",
+      "context": "BaiqiExecutor",
+      "observations": [
+        "BaiqiExecutor: P6_GP36_LEGACY_DENIED\t4194337\tLEGACY_UNKNOWN\tgp:0:1\tfalse\tgp:0:1\tprior_intent\t3\t4",
+        "BaiqiExecutor: P6_GP36_LEGACY_DENIED\t5898283\tLEGACY_UNKNOWN\tgp:0:2\tfalse\tgp:0:2\tprior_intent\t2\t4"
+      ]
+    },
+    {
+      "file": "20261101T165218084594Z.json",
+      "sha256": "10f2e012f8f4c13ee68483bcba5f9fb9ff8789334d59a4b55a8bf35d59358777",
+      "context": "BaiqiExecutor",
+      "observations": [
+        "BaiqiExecutor: P6_GP36_SAVE_ARMED\ttrue"
+      ]
+    },
+    {
+      "file": "20261101T165218543936Z.json",
+      "sha256": "d431ec01697e4f74ab256d7f2b036f659e4339b227c6374aa5cae64868ccfe42",
+      "context": "BaiqiExecutor",
+      "observations": [
+        "BaiqiExecutor: P6_GP36_SUPPRESSION_RESTORED\t1\t0\t589829\tgp:0:1"
+      ]
+    },
+    {
+      "file": "20261101T165645682743Z.json",
+      "sha256": "4934fd9af68816dced5b38a4ab70f58a7442e2b28b7dd4adabf3d1170f3a56e1",
+      "context": "BaiqiExecutor",
+      "observations": [
+        "BaiqiExecutor: P6_GP36_COLD_VERIFIED\t589829\tARMED\tgp:0:1\t69\t0\t0\t3\t4\tfalse\tprior_intent"
+      ]
+    },
+    {
+      "file": "20261101T165645682743Z.json",
+      "sha256": "4934fd9af68816dced5b38a4ab70f58a7442e2b28b7dd4adabf3d1170f3a56e1",
+      "context": "BaiqiExecutor",
+      "observations": [
+        "BaiqiExecutor: P6_GP36_COLD_OBSERVER_RESTORED\ttrue"
+      ]
+    },
+    {
+      "file": "gp36-pre-second-cold-Lua.log",
+      "sha256": "bd10e7091313657d7bce5cd80a8d3929c8af5fe668c2a1dd5f51176d8a33d084",
+      "context": "Lua.log asynchronous record",
+      "observations": [
+        "BaiqiExecutor: P6_GP36_SUPPRESSED_NATIVE_COMMAND\t1\t589829\tgp:0:1\t3\tARMED\ttest injection; original native command NOT called"
+      ]
+    }
+  ],
+  "screenshots": {
+    "gp36-armed-before-cold24": "4e5db784668627ab6e1b02a7f1b2b502f513ea39401340fb14a5640dd98ad82c",
+    "gp36-armed-after-second-cold24": "eb184c137eb6fcac68ce183d181d526406772e908a8fc27548d6177907d20106"
+  },
+  "private_log_sha256": "f3e272c663e7f70ca40499886b2ab69999fe5adf6a5ec712a8fa92fe15425d24",
+  "scope_limitations": [
+    "Passes this native metadata-before-command and new-process no-replay fixture only.",
+    "No real GP charge was consumed by the suppressed request. Normal activation and subsequent charge grants need separate native evidence.",
+    "Old existing charged people remain LEGACY_UNKNOWN; this is not full old-save automatic availability.",
+    "Does not cover creative/prophet command durability, every individual, every turn or the complete 40-case acceptance suite."
+  ],
+  "local_models": {
+    "http_total": 108,
+    "complete_total": 105,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  }
+}
