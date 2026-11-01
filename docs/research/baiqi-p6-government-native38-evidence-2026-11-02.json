@@ -1,0 +1,143 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-01T18:13:01.054939+00:00",
+  "machine": "BF-202609141645",
+  "source_commit": "63050fa",
+  "manifest_version": 38,
+  "process_pid": 15960,
+  "installed_files_matching_commit": 61,
+  "installed_archive_sha256": "6857441659502772d3e0f1a507403be780c37b751a1b3a38fa6b6ba9da6b1bb9",
+  "steam": {
+    "client_pid": 13620,
+    "fresh_offline_check_utc": "2026-11-01T17:56:40.724715+00:00",
+    "online_switches": 0
+  },
+  "software_tests_passed": 290,
+  "controlled_ui_test": {
+    "kind": "Actual native UI dispatch with isolated typed hmake NotificationType entry and sentinel-only Lua lookup; no native notification data mutation. Not a naturally generated notification.",
+    "before_source37": {
+      "lookups": 1,
+      "open_events": 1,
+      "view_visible": true,
+      "read_only": true,
+      "receipts": [
+        {
+          "file": "20261101T175403757219Z.json",
+          "sha256": "0622bf7115b05f28c7e44fbb1cf1a5ce7ed35f7c9dad1677e49789a85bd72cd7",
+          "context": "NotificationPanel",
+          "observations": [
+            "NotificationPanel: P6_GOV_CONTROLLED_DISPATCH_RESULT\t31\ttrue\t1\t1\ttrue\tLua fixture, no native notification mutation"
+          ]
+        }
+      ]
+    },
+    "after_source38": {
+      "lookups": 0,
+      "open_events": 0,
+      "view_visible": false,
+      "read_only": true,
+      "receipts": [
+        {
+          "file": "20261101T180041661147Z.json",
+          "sha256": "9b503d33233e2bc065c9b487bf0e848c778353cda27393440dd78bfc064b8390",
+          "context": "NotificationPanel",
+          "observations": [
+            "NotificationPanel: P6_GOV_CONTROLLED_DISPATCH_RESULT\t29\ttrue\t0\t0\ttrue\tLua fixture, no native notification mutation"
+          ]
+        }
+      ]
+    },
+    "explicit_direct_inspection": {
+      "open_view_visible": true,
+      "read_only": true
+    },
+    "automatic_false_activation_at32": {
+      "view_before": false,
+      "view_after": false,
+      "delegated_record": true
+    },
+    "temporary_lookup_and_event_observer_restored": true
+  },
+  "views": [
+    {
+      "file": "20261101T175404224303Z.json",
+      "sha256": "7dae70577e3a7e78f7f8687ad2a01ded76807844ab325d2252de7f59721c13a7",
+      "context": "GovernmentScreen",
+      "observations": [
+        "GovernmentScreen: P6_GOV_VIEW\t31\ttrue\tfunction\ttrue"
+      ]
+    },
+    {
+      "file": "20261101T180041369967Z.json",
+      "sha256": "661be854458e41d1f006cc14207163b1777b06ed3113784c0c82cb7b7fc0d5aa",
+      "context": "GovernmentScreen",
+      "observations": [
+        "GovernmentScreen: P6_GOV_VIEW\t29\tfalse\tfunction\ttrue"
+      ]
+    },
+    {
+      "file": "20261101T180042045604Z.json",
+      "sha256": "ce587105781e3d20c490dd97f16ed5b160aaf0e81378dc3ce825c6a9e5b80dea",
+      "context": "GovernmentScreen",
+      "observations": [
+        "GovernmentScreen: P6_GOV_VIEW\t29\tfalse\tfunction\ttrue"
+      ]
+    },
+    {
+      "file": "20261101T180101655990Z.json",
+      "sha256": "b0222ec685163ab6c79e069688cc3441389c011da33a381428d2bfa5c39a5b53",
+      "context": "GovernmentScreen",
+      "observations": [
+        "GovernmentScreen: P6_GOV_VIEW\t29\ttrue\tfunction\ttrue"
+      ]
+    },
+    {
+      "file": "20261101T180427900693Z.json",
+      "sha256": "2e382f0a3aa8c98d6f1420b2041f0dc7878477e0718718f0920c7eed126f6069",
+      "context": "GovernmentScreen",
+      "observations": [
+        "GovernmentScreen: P6_GOV_VIEW\t31\tfalse\tfunction\ttrue"
+      ]
+    },
+    {
+      "file": "20261101T181054598482Z.json",
+      "sha256": "5626983915c092b6ec9ab6f96ed54f864fe24e190154959149b0c42774da3aab",
+      "context": "GovernmentScreen",
+      "observations": [
+        "GovernmentScreen: P6_GOV_VIEW\t32\tfalse\tfunction\ttrue"
+      ]
+    },
+    {
+      "file": "20261101T181055551245Z.json",
+      "sha256": "13f9235f537c991fc31be29752c55e1a3e298cfd00630619deb6747bb6ff5071",
+      "context": "GovernmentScreen",
+      "observations": [
+        "GovernmentScreen: P6_GOV_VIEW\t32\tfalse\tfunction\ttrue"
+      ]
+    }
+  ],
+  "screenshots": {
+    "gov37-controlled-turn-notification-opens-view": "96d5a736370b3f2fb47621939ac433480febafe4d9320f580c5f7beeffe4e577",
+    "gov38-controlled-turn-notification-keeps-view-closed": "e79fa4d15e25ee11a8d5c4923f90ea5a5d510929d4bfc181ed466850788c8dde",
+    "gov38-explicit-inspection-remains-readonly": "0875695c3b8fa1386583a81de6e6f4933502c34c9eca16d11e8498c7fe5cc856"
+  },
+  "runtime_errors_current_process": 0,
+  "private_log_sha256": "6b3ad23eed4514ca98b0b6c0d4fe0cb519fd7ca85e74dac70a257ff40bef70dd",
+  "workflow_limitations": [
+    "Earlier natural31 government-view origin was not established; a separate replay spy recorded0 government activations and the visible panel was research chooser.",
+    "After controlled explicit inspection, physical Escape was assumed to close the page without confirmation. At31 the actual screen showed an unsaved-policy UI warning. This was a test-orchestration mistake, not a passed no-popup window.",
+    "The initial test driver checked HUD/readiness but did not guard visible government overlay. Some native end-turn callbacks were requested behind that dialog; do not count this span as a human-input modal acceptance pass.",
+    "Physical Yes discarded the UI pending state; government visibility was then independently false. A separate guarded/readiness continuation reached32. No manual government or policy choice was made.",
+    "Readonly close should not prompt as if the player could apply domestic changes; fixing that UI close path and the test driver is subsequent work.",
+    "Does not establish all domestic popup suppression or full40-case acceptance."
+  ],
+  "local_models_through_source38": {
+    "http_total": 114,
+    "complete_total": 110,
+    "length_discarded": 4,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  }
+}
