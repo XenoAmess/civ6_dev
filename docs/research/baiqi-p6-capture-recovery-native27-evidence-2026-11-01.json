@@ -1,0 +1,190 @@
+{
+  "schema": "civ6.baiqi-p6-capture-recovery-native27-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 27,
+  "source_commit": "515ea11",
+  "pid": 14368,
+  "artifact_sha256": "95a6db329dbbdf05cedaa14e0d79004f136a4991c25b93c2f7c5f7de8c2c407f",
+  "startup_issue": {
+    "first_owned_pid": 14124,
+    "save_loaded": false,
+    "mod_gameplay_script_loaded": false,
+    "native_window_hung": true,
+    "native_close_requested": true,
+    "startup_process_only_terminated": true,
+    "proof": "Exact executable/birth/PID, hung original window, startup age>180s, no log progress>120s, new Lua log<200 bytes without BAIQI. Source/artifact untouched.",
+    "resolved_by": "New owned launch14368 reached MainMenu and loaded fault saves. Cause not assigned to mod. Steam client not terminated or put online."
+  },
+  "steam_offline_confirmation_utc": "2026-11-01T02:48:27.793515+00:00",
+  "cases": [
+    {
+      "input": "Baiqi_P6_20261101_Cold26_ChargedUnknown1.Civ6Save",
+      "input_sha256": "f857674b349fecfcba5140f225e44b6e9c809acd6ef4dfd1cf52981d9eb8aae4",
+      "load": "First save in fresh successful cold launch, no source hot replacement",
+      "before": {
+        "phase": "CHARGED",
+        "stage": "UNKNOWN",
+        "gold": 200,
+        "moves": 2
+      },
+      "after": {
+        "phase": "DONE",
+        "stage": "COMMITTED",
+        "gold": 200,
+        "moves": 0,
+        "unit_turn_marker": 1,
+        "result_reason": "recovered"
+      },
+      "actual_fee_delta": 0,
+      "manual_recovery_request": false
+    },
+    {
+      "input": "Baiqi_P6_20261101_Cold26_TransferredUnknown1.Civ6Save",
+      "input_sha256": "7428c60bc39798facf349709b69f23b61fde7383df694183f316a8282af8e1ca",
+      "load": "Independent reload in same unchanged cold process, not a second fresh launch",
+      "before": {
+        "phase": "TRANSFERRED",
+        "stage": "UNKNOWN",
+        "gold": 500,
+        "moves": 2
+      },
+      "after": {
+        "phase": "DONE",
+        "stage": "COMMITTED",
+        "gold": 200,
+        "moves": 0,
+        "unit_turn_marker": 1,
+        "result_reason": "recovered"
+      },
+      "actual_fee_delta": -300,
+      "manual_recovery_request": false
+    }
+  ],
+  "shared_actual": {
+    "turn": 1,
+    "owner": 0,
+    "city_id": 131073,
+    "unit_id": 262147,
+    "balance_receipt": [
+      500,
+      200
+    ],
+    "cost": 300,
+    "transfer_replay": false
+  },
+  "duplicates": {
+    "explicit_test_player_requests": 3,
+    "gold_before": 200,
+    "gold_after": 200,
+    "unit_moves_after": 0,
+    "stage": "COMMITTED",
+    "result_reason": "duplicate",
+    "extra_native_fee": 0,
+    "scope": "Same loaded world after recovery; not yet current-version completed-save reload coverage."
+  },
+  "classification_correction": {
+    "city_xy": [
+      16,
+      5
+    ],
+    "current_is_capital": false,
+    "is_original_capital": true,
+    "original_owner": 1,
+    "original_owner_is_major": true,
+    "palace_present_after": false,
+    "palace_housing_definition": 1,
+    "granary_present_after": true,
+    "granary_housing_definition": 2,
+    "housing_after": 5,
+    "food_after": 4,
+    "correction": "Prior ordinary-city label is inaccurate: this sample is a major original capital. Do not count it as independent ordinary non-capital capture. Palace-before and ordinary-city assets still need separate readback."
+  },
+  "manual_domestic_choices": 0,
+  "manual_information_closes": 0,
+  "actual_turn_transitions": 0,
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261101_Cold27_ChargedRecovered1.Civ6Save",
+      "sha256": "3e76874b729746bed64326361439dc9bb891bf4b39a9c39f82d8b1c1eb0dfca2",
+      "bytes": 630244
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold27_TransferredRecovered1.Civ6Save",
+      "sha256": "310e86494c0a74dde15d816251ada728bef9d0ef87ac14754a6273e0f5a189c9",
+      "bytes": 630246
+    }
+  ],
+  "receipts": [
+    {
+      "receipt": "20261101T025246108899Z.json",
+      "sha256": "499f4191bee791130019a11db942c4c1a3ffa1e2b799266384c2e02319a68f9a",
+      "lines": [
+        "P6_CAPTURE27_RECOVERY\t1\tcity:0:1:262147:1:65536:16:5\tCOMMITTED\tDONE\ttrue\t131073\ttrue\t500\t200\t300\trecovered",
+        "P6_CAPTURE27_ACTUAL\t0\t131073\t200\t262147\t0\t1",
+        "P6_CAPTURE27_CAPITAL_FLAGS\tfalse\ttrue",
+        "P6_CAPTURE27_RESULT\tCOMMITTED\trecovered",
+        "P6_CAPTURE27_UI\ttrue\ttrue\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T025439944811Z.json",
+      "sha256": "070a231ec5985903fe1c0ab0d133f6353ae9f2b6d976e0ce11cd7515dd649f69",
+      "lines": [
+        "P6_CAPTURE27_ASSET_CLASS\t0\t131073\tfalse\ttrue\t1\ttrue",
+        "P6_CAPTURE27_BUILDINGS\tfalse\t1\ttrue\t2\t5\t4"
+      ]
+    },
+    {
+      "receipt": "20261101T025440380290Z.json",
+      "sha256": "05b40e5c5b0409af0f8624722eeb81403c46188495fc35f77c22798b8b90f86e",
+      "lines": [
+        "P6_CAPTURE27_CHARGED_RECOVERED_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T030006060366Z.json",
+      "sha256": "ad898d41df2014aba369421e5c8a6159b5ca6500122e9a68a17eae5f4bad4b48",
+      "lines": [
+        "P6_CAPTURE27_RECOVERY\t1\tcity:0:1:262147:1:65536:16:5\tCOMMITTED\tDONE\ttrue\t131073\ttrue\t500\t200\t300\trecovered",
+        "P6_CAPTURE27_ACTUAL\t0\t131073\t200\t262147\t0\t1",
+        "P6_CAPTURE27_CAPITAL_FLAGS\tfalse\ttrue",
+        "P6_CAPTURE27_RESULT\tCOMMITTED\trecovered",
+        "P6_CAPTURE27_UI\ttrue\ttrue\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T030007116806Z.json",
+      "sha256": "68d8aca4bb1a6fcaf53352ed4e3d1851b1b29c043083b6c04642d517b1e9725e",
+      "lines": [
+        "P6_CAPTURE27_TRANSFERRED_RECOVERED_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T030148739334Z.json",
+      "sha256": "b220a78b086584c31804808c9a82f81d125f30b6193a96d133d0438716282d61",
+      "lines": [
+        "P6_TESTPLAYER_CAPTURE27_DUPLICATE\t1\tcity:0:1:262147:1:65536:16:5",
+        "P6_TESTPLAYER_CAPTURE27_DUPLICATE\t2\tcity:0:1:262147:1:65536:16:5",
+        "P6_TESTPLAYER_CAPTURE27_DUPLICATE\t3\tcity:0:1:262147:1:65536:16:5"
+      ]
+    },
+    {
+      "receipt": "20261101T030150160513Z.json",
+      "sha256": "f3a200e6901e0c2ad8a3b1165366ce6426c094dc2093701b96eeedcb1d6e35b9",
+      "lines": [
+        "P6_CAPTURE27_RECOVERY\t1\tcity:0:1:262147:1:65536:16:5\tCOMMITTED\tDONE\ttrue\t131073\ttrue\t500\t200\t300\trecovered",
+        "P6_CAPTURE27_ACTUAL\t0\t131073\t200\t262147\t0\t1",
+        "P6_CAPTURE27_CAPITAL_FLAGS\tfalse\ttrue",
+        "P6_CAPTURE27_RESULT\tCOMMITTED\tduplicate",
+        "P6_CAPTURE27_UI\ttrue\ttrue\tfalse\tfalse"
+      ]
+    }
+  ],
+  "result": "PASS sampled automatic recovery of two actual source26 definite partial stages; no duplicate debit, transfer or current-turn movement replay. Three duplicate requests have no new effects. Full TC029/030 still incomplete for other actual phases and third-party cases.",
+  "logs": {
+    "Database.log": "7ffbc977c48ee855a60662878503321258af58a663e8f113d9268ca3d5e46c1b",
+    "Lua.log": "a4e99980ff61f360064e92e1d91f876455b25164e486254dcaf48973b4024026",
+    "Modding.log": "88a73ba0a4df9c784b4b97e032548545a30354c7b8637b3b51dbe1c0b0a06c14"
+  },
+  "full_game_acceptance": false
+}
