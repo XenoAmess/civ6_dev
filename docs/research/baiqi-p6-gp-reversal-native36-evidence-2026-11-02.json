@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-02",
+  "machine": "BF-202609141645",
+  "source_commit": "41b8280",
+  "manifest_version": 36,
+  "process_pid": 12880,
+  "status": "FAIL for repeated use / target progress; PASS for one actual activation and receipt.",
+  "fixture_preparation": "Debug CreatePerson James of St George, individual40/class2, after empty durable bootstrap. Not earned recruitment.",
+  "observations": {
+    "unit_id": 589829,
+    "first_actual_native_commands": 1,
+    "first_native_events": 1,
+    "charges_before": 3,
+    "charges_after": 2,
+    "moves_after_first_activation": 0,
+    "receipt_stage": "OBSERVED",
+    "receipt_token": "gp:0:1",
+    "walls_and_castle_before": false,
+    "walls_and_castle_later": true,
+    "star_fort_later": false,
+    "immediate_ui_event_building_values_still_false": true,
+    "normal_end_turn_calls": [
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "final_turn": 29,
+    "later_charge_count": 2,
+    "plot_reversals": [
+      "BaiqiExecutor: BAIQI|request|turn=25|id=0:25:3|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=716|from=717",
+      "BaiqiExecutor: BAIQI|request|turn=25|id=0:25:5|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=717|from=716",
+      "BaiqiExecutor: BAIQI|request|turn=26|id=0:26:7|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=716|from=717",
+      "BaiqiExecutor: BAIQI|request|turn=27|id=0:27:11|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=716|from=717",
+      "BaiqiExecutor: BAIQI|request|turn=27|id=0:27:12|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=717|from=716",
+      "BaiqiExecutor: BAIQI|request|turn=28|id=0:28:17|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=716|from=717",
+      "BaiqiExecutor: BAIQI|request|turn=28|id=0:28:18|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=717|from=716",
+      "BaiqiExecutor: BAIQI|request|turn=29|id=0:29:22|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=716|from=717",
+      "BaiqiExecutor: BAIQI|request|turn=29|id=0:29:23|source=BACKGROUND|unit=589829|operation=MOVE_TO|plot=717|from=716"
+    ],
+    "diagnosis": "Re-sorting nearest district after every step chooses the already-used origin city again once it becomes nearer. No committed destination / current-city ineligibility memory. No second activation or grant observed in this window.",
+    "diplomacy": "Driver stopped at turn26 HUD-hidden embassy visit; two physical player-side clicks rejected/closed it, then normal driver resumed. This was not mod automatic diplomacy.",
+    "observer_restored": true,
+    "runtime_error_count": 0
+  },
+  "effect_records": [
+    "BaiqiExecutor: P6_GP36_FORTIFICATION\tbefore\t262147\tBUILDING_WALLS\t6\tfalse",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION\tbefore\t262147\tBUILDING_CASTLE\t15\tfalse",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION\tbefore\t262147\tBUILDING_STAR_FORT\t22\tfalse",
+    "BaiqiExecutor: P6_GP36_REAL_NATIVE_COMMAND\t1\t589829\t3\tARMED\tgp:0:1\t13\t16\tforwarding original command unchanged",
+    "BaiqiExecutor: P6_GP36_REAL_NATIVE_EVENT\t1\t0\t589829\t2\t40",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION\tevent\t262147\tBUILDING_WALLS\t6\tfalse",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION\tevent\t262147\tBUILDING_CASTLE\t15\tfalse",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION\tevent\t262147\tBUILDING_STAR_FORT\t22\tfalse",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION_LATER\t262147\tBUILDING_WALLS\t6\ttrue",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION_LATER\t262147\tBUILDING_CASTLE\t15\ttrue",
+    "BaiqiExecutor: P6_GP36_FORTIFICATION_LATER\t262147\tBUILDING_STAR_FORT\t22\tfalse"
+  ],
+  "private_log_sha256": "6366c97fb6e0ef8e898ccf63b4aaa07ce041c0dbf7c6e25c9a81659ccc51df48",
+  "scope_limits": [
+    "One actual initial activation does not pass multiple-charge automation.",
+    "UI event callback readback can lag; later native reads confirmed fortifications.",
+    "New source37 changes are not installed in this process and cannot be credited with these results."
+  ]
+}
