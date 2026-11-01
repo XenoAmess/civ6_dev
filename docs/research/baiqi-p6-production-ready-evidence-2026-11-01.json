@@ -1,0 +1,66 @@
+{
+  "schema": "civ6.baiqi-p6-production-ready-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "local_date": "2026-11-01",
+  "manifest_version": 24,
+  "models": {
+    "cumulative_http": 42,
+    "complete_stop_json": 41,
+    "length_discarded": 1,
+    "automatic_retries": 0,
+    "cumulative_peak": 12,
+    "small_batch_peak": 1,
+    "pre_http_decode_failures": 1,
+    "requests": [
+      {
+        "task": "standby41",
+        "request_sha256": "684ac151311c6a3c46e05794e2fd871b239a98081c09d995f37e81e39184db74",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3769,
+          "completion_tokens": 675,
+          "total_tokens": 4444
+        },
+        "total_ms": 5173.419600003399,
+        "first_nonempty_content_delta_ms": 709.6501000050921,
+        "cached_prompt_tokens_if_reported": null
+      },
+      {
+        "task": "production42",
+        "request_sha256": "1bfa7c99a582a5072b0c9d817d33e1b2a4e9236b0f58e5a805e9c64c16af9cb4",
+        "http_status": 200,
+        "sse_done": true,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 23622,
+          "completion_tokens": 633,
+          "total_tokens": 24255
+        },
+        "total_ms": 7713.947999989614,
+        "first_nonempty_content_delta_ms": 3326.4253999950597,
+        "cached_prompt_tokens_if_reported": null
+      }
+    ],
+    "review": "Adopt readiness and narrowly invalidated production direction. Reject blind attach, retry on unknown, marker only after native call, and clearing unit evaluation. Owner preserves late event identity while action permission is false and waits for actual CanProduce before unlock observed."
+  },
+  "software": {
+    "tests_passed": 194,
+    "new_consumer_tests": 11,
+    "log_sha256": "feade39f7977c5444f23880e18b20eca60964ce7b195e7bade6ab72f12348706"
+  },
+  "artifact_sha256": "8cf39b3c7fdb31fc4b48cbf836e9b7a32876f48286fe457735b11338dbec9608",
+  "files_installed": 48,
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "7a46484e297953a8f65aa44efa4f29dc17d188509acbd35faa93b73434fbaac1",
+    "mod/Baiqi/Lua/BaiqiController.lua": "c5f236f1b4d6861682c51deac558f13d6d59bfaf5db5b152d27c556b8e32e983",
+    "mod/Baiqi/Lua/BaiqiGameplay.lua": "fba64ed7fbc8e2e708f65c2a6667d986d8ab3c0789e022d9fc2f159fd51b4184",
+    "mod/Baiqi/UI/BaiqiExecutor.lua": "116e020a875538503cfbd424fa60c2012bd737481b2c43ad5a4e88bb85c89513",
+    "tests/lua/mock_world.lua": "6760e493871540dee47f1a7fea863cfb06a0a0c31114b1822c0aae6c2fe71fee",
+    "tests/test_baiqi_production_ready.py": "9ea805eb4c39459e2ba206c5ca5443352f30474309cf8f8415d147eb32a76e9a"
+  },
+  "native": "pending cold start of original native22 T67 failure save; normal builder can outrank fallback, so recovery cannot automatically be attributed to standby project.",
+  "previous_failure": "baiqi-p6-locked-native23-evidence-2026-11-01.json",
+  "full_game_acceptance": false
+}

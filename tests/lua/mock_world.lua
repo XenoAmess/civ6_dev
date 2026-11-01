@@ -2,7 +2,8 @@
 TestWorld={cityRequests={},unitRequests={},turn=1,paused=false,formation=1,withCity=true,withSettler=false}
 local W=TestWorld
 function include(name) end
-Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end}
+Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end,
+ IsAllowStrategicCommands=function() return W.strategic~=false end}
 GameConfiguration={IsAnyMultiplayer=function() return false end,IsHotseat=function() return false end}
 local function rows(data)
   local result={}

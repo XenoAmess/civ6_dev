@@ -27,10 +27,18 @@ local function PlayerContext()
     or (GameConfiguration.IsHotseat and GameConfiguration.IsHotseat()) then return nil end
   local player, config = Players[id], PlayerConfigurations[id]
   if player == nil or config == nil or config:GetLeaderTypeName() ~= C.leader or not config:IsHuman() then return nil end
-  return {player=id, localPlayer=id, isBaiqi=true, activeTurn=player:IsTurnActive(), enabled=true}, player, {}
+  local active=player:IsTurnActive()==true and Game.IsAllowStrategicCommands~=nil
+    and Game.IsAllowStrategicCommands(id)==true
+  return {player=id, localPlayer=id, isBaiqi=true, activeTurn=active, enabled=true}, player, {}
 end
 
-function BaiqiController.IsAvailable() return PlayerContext() ~= nil end
+function BaiqiController.IsAvailable()
+  local ctx=PlayerContext()
+  return ctx~=nil and ctx.activeTurn==true
+end
+
+-- Internal invalidation only: retain pending requests, attempts and turn budget.
+function BaiqiController.RefreshProduction() cityEvaluated={} end
 
 local function Revealed(plot)
   return plot ~= nil and visibility ~= nil and visibility:IsRevealed(plot:GetX(), plot:GetY()) == true
@@ -863,6 +871,7 @@ function BaiqiController.RunNow()
 end
 
 function BaiqiController.Update(delta)
+  if not BaiqiController.IsAvailable() then return end
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
   elapsed=elapsed+delta
@@ -872,9 +881,14 @@ end
 function BaiqiController.GetStatus() return status end
 
 local function OnCityCompleted(playerID,cityID)
-  if playerID==Game.GetLocalPlayer() then cityEvaluated[cityID]=nil end
+  if playerID==Game.GetLocalPlayer() then BaiqiController.RefreshProduction() end
 end
 Events.CityProductionCompleted.Add(OnCityCompleted)
+local function OnUnitCountChanged(playerID)
+  if playerID==Game.GetLocalPlayer() then BaiqiController.RefreshProduction() end
+end
+if Events.UnitAddedToMap then Events.UnitAddedToMap.Add(OnUnitCountChanged) end
+if Events.UnitRemovedFromMap then Events.UnitRemovedFromMap.Add(OnUnitCountChanged) end
 local function OnGreatPersonActivated(playerID,unitID,classID,individualID)
   local ctx=PlayerContext()
   local pending=pendingUnits[unitID]
@@ -902,6 +916,8 @@ if Events.GreatWorkCreated then Events.GreatWorkCreated.Add(OnGreatWorkCreated) 
 function BaiqiController.Shutdown()
   stopped=true
   Events.CityProductionCompleted.Remove(OnCityCompleted)
+  if Events.UnitAddedToMap then Events.UnitAddedToMap.Remove(OnUnitCountChanged) end
+  if Events.UnitRemovedFromMap then Events.UnitRemovedFromMap.Remove(OnUnitCountChanged) end
   if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Remove(OnGreatPersonActivated) end
   if Events.GreatWorkCreated then Events.GreatWorkCreated.Remove(OnGreatWorkCreated) end
 end

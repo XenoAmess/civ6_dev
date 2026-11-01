@@ -40,10 +40,34 @@ local function OnRequisition(playerID,params)
   if not ok then print("BAIQI|requisition_handler_error|"..tostring(success)) end
 end
 
+local standbyUnavailableLogged=false
+local function MigrateStandby(playerID,params)
+  if type(params)~="table" or params.standbyUnlockNeeded~=true
+    or playerID~=Game.GetLocalPlayer() then return end
+  local player=BaiqiRequisition.Player(playerID)
+  if not player or player:GetProperty("BAIQI_STANDBY_UNLOCK_V1")~=nil then return end
+  if player.AttachModifierByID==nil then
+    if not standbyUnavailableLogged then
+      print("BAIQI|standby_unlock_unavailable|reason=native_attach_missing")
+      standbyUnavailableLogged=true
+    end
+    return
+  end
+  -- Persist intent BEFORE the void native call. Unknown outcomes never replay.
+  local record={version=1,stage="SUBMITTED",turn=Game.GetCurrentGameTurn()}
+  player:SetProperty("BAIQI_STANDBY_UNLOCK_V1",record)
+  local ok,err=pcall(function() player:AttachModifierByID("BAIQI_ENABLE_STANDBY") end)
+  record.stage=ok and "RETURNED" or "UNKNOWN"
+  player:SetProperty("BAIQI_STANDBY_UNLOCK_V1",record)
+  print("BAIQI|standby_unlock_request|stage="..record.stage.."|player="..tostring(playerID))
+  if not ok then print("BAIQI|standby_unlock_unknown|"..tostring(err)) end
+end
+
 GameEvents.BaiqiRequisition.Add(OnRequisition)
-GameEvents.BaiqiRequisitionRecover.Add(function(playerID)
+GameEvents.BaiqiRequisitionRecover.Add(function(playerID,params)
   BaiqiCapture.Recover(playerID)
   RetireLegacyControls()
+  MigrateStandby(playerID,params)
 end)
 GameEvents.OnGameTurnStarted.Add(RetireLegacyControls)
 print("BAIQI|gameplay_loaded|version=2|mandatory_admin=true")
