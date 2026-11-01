@@ -1,0 +1,145 @@
+{
+  "schema": "civ6.baiqi-p6-prophet-native26-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 26,
+  "source_commit": "203ef1d",
+  "pid": 11712,
+  "artifact_sha256": "6099b4ffd3f1c690bfb31ba5e144cabe8871a4c5320775718322299c603224e0",
+  "input_save": {
+    "name": "Baiqi_P6_20261101_Cold25_HolySite75.Civ6Save",
+    "sha256": "ba628273416549ebcef1f92e2d816bf221ea134215f72e5b1d123b460be060e1"
+  },
+  "fixture": "One Debug CreatePerson(0,113,8,12) on actual owned visible empty passable land; not normal earned recruitment. No free religious qualification or manual unit operation.",
+  "turn": 75,
+  "actual_turn_transitions": 0,
+  "manual_prophet_commands": 0,
+  "manual_religion_choices": 0,
+  "informational_popup_closes": 0,
+  "unit": 3670044,
+  "individual": 113,
+  "class": 4,
+  "action_charges": 0,
+  "actual_background_move": {
+    "from_plot": 536,
+    "from_xy": [
+      8,
+      12
+    ],
+    "to_plot": 535,
+    "to_xy": [
+      7,
+      12
+    ],
+    "native_arrival_confirmed": true
+  },
+  "native_founding": {
+    "requests": 1,
+    "operation_hash": -953161477,
+    "params": "none",
+    "matching_activation": [
+      0,
+      3670044,
+      4,
+      113
+    ],
+    "qualification_before": [
+      0,
+      false
+    ],
+    "qualification_after": [
+      2,
+      true
+    ],
+    "observed_confirmations": 1,
+    "unit_consumed": true
+  },
+  "actual_auto_admin": {
+    "religion_index": 1,
+    "belief_indices": [
+      27,
+      44
+    ],
+    "belief_types": [
+      "BELIEF_WORK_ETHIC",
+      "BELIEF_TITHE"
+    ],
+    "independent_actual_membership": true,
+    "operations": "found religion, wait state, add follower, wait state, add founder, wait state"
+  },
+  "trace": [
+    "BaiqiExecutor: BAIQI|request|turn=75|id=0:75:1|source=BACKGROUND|unit=3670044|operation=MOVE_TO|plot=535|from=536",
+    "BaiqiExecutor: BAIQI|observed|turn=75|id=0:75:1|unit=3670044|kind=MOVE_TO",
+    "BaiqiExecutor: BAIQI|request|turn=75|id=0:75:2|source=BACKGROUND|unit=3670044|operation=FOUND_RELIGION|individual=113",
+    "BaiqiExecutor: BAIQI|admin_request|turn=75|key=religion:found:1:-1:2:",
+    "BaiqiExecutor: BAIQI|admin_observed|turn=75|kind=religion_found|index=1|beliefs=0",
+    "BaiqiExecutor: BAIQI|admin_request|turn=75|key=religion:belief:27:1:2:",
+    "BaiqiExecutor: BAIQI|religion_request_pending|turn=75|kind=belief|index=27",
+    "BaiqiExecutor: BAIQI|observed|turn=75|id=0:75:2|unit=3670044|kind=FOUND_RELIGION|proof=native_activation_and_earned_beliefs",
+    "BaiqiExecutor: BAIQI|admin_observed|turn=75|kind=religion_belief|index=27|beliefs=1",
+    "BaiqiExecutor: BAIQI|admin_request|turn=75|key=religion:belief:44:1:2:27",
+    "BaiqiExecutor: BAIQI|admin_observed|turn=75|kind=religion_belief|index=44|beliefs=2"
+  ],
+  "receipts": [
+    {
+      "receipt": "20261101T020144900934Z.json",
+      "sha256": "a7944f6bb3b985bda4158d7941275712bac6bf4a18279506f2ef0199584b1dad",
+      "lines": [
+        "P6_PROPHET_PRESTATE\t75\t-1\t14\t0\tfalse",
+        "P6_PROPHET_NATIVE_DEFS\t113\tGREAT_PERSON_CLASS_PROPHET\t0\t4\t-953161477",
+        "P6_PROPHET_HOLY_SITE\t327684\t983054\t7\t12\ttrue\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T020146440792Z.json",
+      "sha256": "53037ebce0d6355206de897b73c5c8dbde86b4cd8c9bda80b3579ed18c0c8ce3",
+      "lines": [
+        "P6_PROPHET26_SPAWN_CANDIDATE\t536\t0\tfalse\tfalse"
+      ]
+    },
+    {
+      "receipt": "20261101T020147609329Z.json",
+      "sha256": "433b63b1039729744e150b902fa6f0a43a4e79854591eea804e7a766abec6dad",
+      "lines": [
+        "P6_FIXTURE_PROPHET26_CREATE_OFFSITE"
+      ]
+    },
+    {
+      "receipt": "20261101T020149092652Z.json",
+      "sha256": "bcfce7712e969a059fa13555881bcf888e77a2dfbe01615a3bc8cc0296d7f7be",
+      "lines": [
+        "P6_PROPHET_STATE\t75\t1\t14\t2\ttrue",
+        "P6_PROPHET_WORLD_RELIGION\t0\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T020158152293Z.json",
+      "sha256": "a6712a0fe01d7f05735b48815fe57cc92bb5392a00f64d2a254347114f9203fe",
+      "lines": [
+        "P6_PROPHET_STATE\t75\t1\t14\t2\ttrue",
+        "P6_PROPHET_WORLD_RELIGION\t0\t1",
+        "P6_PROPHET_BELIEF\t27\tBELIEF_WORK_ETHIC",
+        "P6_PROPHET_BELIEF\t44\tBELIEF_TITHE"
+      ]
+    },
+    {
+      "receipt": "20261101T020301491982Z.json",
+      "sha256": "ee9b4d44be97a57a9d0979fec8b573456c216b50561e1def85451551304c9dd4",
+      "lines": [
+        "P6_SAVE_PROPHET26_AUTO75\ttrue"
+      ]
+    }
+  ],
+  "save": {
+    "name": "Baiqi_P6_20261101_Cold26_AutoReligion75.Civ6Save",
+    "sha256": "40883010bc7e2cc0514289f080a8797c1d66bfa3a87bb732ed1fde3e8b4d33f1",
+    "bytes": 482559
+  },
+  "mod_errors": [],
+  "logs": {
+    "Database.log": "6b5c91b7433d43bbbd38f688c858f4de6ef01c7034996637e1ade293984d8f79",
+    "Lua.log": "5efc31efc44127fdc25c2f10ccf4d29c1f3678c0c0e114ffd0a2893eedc2d8dd",
+    "Modding.log": "6f07d653e2447929ae8d2a92d2183f4c29f711b83da7bb098ad49c81786f99cb"
+  },
+  "result": "PASS sampled cold-start autonomous off-site prophet movement, native founding qualification, religion and two belief choices. No test-player domestic commands. Not proof of normal prophet recruitment, long path, Stonehenge, exhausted religions or all religious unit automation.",
+  "full_game_acceptance": false
+}
