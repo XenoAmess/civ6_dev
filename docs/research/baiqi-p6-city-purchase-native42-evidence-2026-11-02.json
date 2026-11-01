@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-01T21:22:38.712995+00:00",
+  "machine": "BF-202609141645",
+  "manifest_version": 42,
+  "mod_source_commit": "76a41d8d2c23806a20a4d98aa3ba251d598f054b",
+  "repository_commit_at_native_test": "b2cf36744fa9ed7de89cc220f2d19f89002f3492",
+  "cold_process": {
+    "pid": 3868,
+    "created_epoch": 1793566467.1840808,
+    "single_native_tuner_owner": true
+  },
+  "installation": {
+    "files_git_blob_equal": 63,
+    "zip_sha256": "dc117811d40bae2b4682135e4ef5c512cef527373ad3bc89a61c482e23d6afaf"
+  },
+  "steam": {
+    "mode": "offline",
+    "client_pid": 13620,
+    "fresh_confirmation_before_cold_launch_utc": "2026-11-01T20:54:26.899095+00:00",
+    "online_switches": 0
+  },
+  "fixture": {
+    "save_label": "V41 Musician38 independent branch",
+    "turn": 38,
+    "player": 0,
+    "city_id": 65536,
+    "city_center": [
+      16,
+      14
+    ],
+    "leader": "LEADER_BAIQI"
+  },
+  "old41_reference": "baiqi-p6-city-purchase-source42-evidence-2026-11-02.json",
+  "comparison": {
+    "old_controls_enabled": true,
+    "old_physical_click_open_events": {
+      "gold": 1,
+      "faith": 1
+    },
+    "new_controls_visible_and_disabled": [
+      "ProduceWithGoldCheck",
+      "ProduceWithFaithCheck"
+    ],
+    "nonexistent_aliases_confirmed_absent": [
+      "PurchaseGoldCheck",
+      "PurchaseFaithCheck"
+    ],
+    "new_physical_clicks_screen_xy": [
+      [
+        625,
+        512
+      ],
+      [
+        670,
+        512
+      ]
+    ],
+    "new_physical_click_open_events": {
+      "gold": 0,
+      "faith": 0
+    },
+    "production_panel_visible_after_each_click": [
+      false,
+      false
+    ],
+    "raw_background_watermill_gold_purchase_eligible": true,
+    "guarded_production_panel_same_purchase_eligible": false,
+    "raw_background_purchase_writer_called": false
+  },
+  "before_equals_after": {
+    "gold": 1502.82421875,
+    "faith": 53.828125,
+    "population": 6,
+    "queue_size": 1,
+    "head_hash": 90525320,
+    "head_kind": "building",
+    "head_index": 7,
+    "head_progress": 26,
+    "six_yield_favored_disfavored_flags_equal": true
+  },
+  "cleanup": {
+    "gold_event_observer_removed": true,
+    "faith_event_observer_removed": true,
+    "assertions_after_cleanup": true
+  },
+  "runtime": {
+    "lua_classifier_faults": 0,
+    "baiqi_error_records": 0,
+    "external_probe_errors_this_window": 0,
+    "turn_advances": 0,
+    "manual_domestic_commands": 0
+  },
+  "evidence": {
+    "private_log_sha256": "9a92cf8243917b2da68a1e6d6c8dfd92b0dc341a7a031ca4e81e0b8456c47f94",
+    "private_snapshot_sha256": "1f58c761c2997a74e41b5c634aa19508ca647f1930c5f261f25519bdf7b8f37b",
+    "raw_files_published": false
+  },
+  "local_model_adoption": {
+    "127": "Correct native IDs and positive-native/negative-guard comparison partially adopted; unsafe raw write proposal rejected. Source42 four software consumers and this same-save native comparison support only that scope.",
+    "new_shared_migration_tasks": "130-133 are separately recorded in local-model-operations; not new game generation or native test cases."
+  },
+  "result": "PASS: same-save gold/faith disabled-control physical-click comparison",
+  "limits": [
+    "Not the complete manual-input or keyboard matrix.",
+    "No other-leader native comparison in this window.",
+    "Not full40 acceptance.",
+    "Historical333 source42 software and later14 adapter tests are separate scopes, not a new combined full run."
+  ]
+}
