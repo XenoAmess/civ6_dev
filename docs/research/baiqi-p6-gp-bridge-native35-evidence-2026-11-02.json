@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-02",
+  "machine": "BF-202609141645",
+  "source_commit": "4394ab4",
+  "manifest_version": 35,
+  "steam_online_switches": 0,
+  "game_process_id": 6184,
+  "turn": 105,
+  "scope": "Read-only API discovery and isolated metadata-only bridge probe; no unit or resource commands.",
+  "observations": [
+    "UI called an ExposedMembers Gameplay-owned function synchronously and received scalar Core results.",
+    "Gameplay Player.SetProperty exists; UI Player.SetProperty is absent.",
+    "Gameplay wrote and read back a private test property before returning a scalar acknowledgement.",
+    "Immediate UI GetProperty was nil: that assertion failed and is retained. Later UI and Gameplay reads matched.",
+    "Saved the property, removed it from the running game, independently reloaded the save, and recovered the exact nonce/stage/sequence.",
+    "Roundtrip used the same Civ process; this is not a new-process persistence test.",
+    "The restored test property was removed after exact nonce and schema checks. Both temporary ExposedMembers namespaces were removed.",
+    "Focus loss prevented one physical Continue; three subsequently issued Tuner calls timed out during LSQ. No commands were reached. After restoring focus and Continue the verification completed."
+  ],
+  "probe_files": {
+    "bridge98-register-reviewed.lua": "4b01c520a0dd60dec1ddc467d31e19ca11f010ddddce4dfa225b62b434866b9a",
+    "bridge98-ui-call-reviewed.lua": "90b91a760f583e85a853befd8993e4b0ee2f76ddac0e255ed5e452de95f9f9e8",
+    "bridge99-register-reviewed.lua": "375a109b7d77e2c870d2cc17da2ccbef749571f00ce9bd2b9e1d6ca28aca4a08",
+    "bridge99-ui-call-reviewed.lua": "6d1ee562cae80ea42b799ca886642bd175dccb4966f55f0c0c156b1ed5c4d960",
+    "bridge99-save-property105.lua": "31ed3169805caea000f6560b5723f5565dd010b33086fbd0957cbbbc6977f0d0",
+    "bridge99-cleanup-reviewed.lua": "76bbaf8f4f1696903e408facc2b85dc72192d95c5b84fe3023f5d7d784b04250",
+    "bridge99-load-property105.lua": "0f22548ab665308591b701ec75d062af28edfb316462c3e398f4b38f7f4fb771",
+    "bridge99-restored-cleanup-reviewed.lua": "ac66025030b7342196d99bf3407ff0b673b25b1a73be3b1964d2e9185a3f8d4f",
+    "bridge99-ui-clean-readonly.lua": "7947f1a09ee5efc1507190ad24faa8f4765c667cf5e840d36153ead9b426ec86"
+  },
+  "local_models": {
+    "http_total": 103,
+    "complete_total": 100,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "historical_client_peak_in_flight": 13,
+    "server_in_flight": null,
+    "cached_prompt_tokens": null
+  },
+  "limitations": [
+    "No production intent journal is implemented by this probe.",
+    "No great-person activation or native charge outcome is tested here."
+  ]
+}
