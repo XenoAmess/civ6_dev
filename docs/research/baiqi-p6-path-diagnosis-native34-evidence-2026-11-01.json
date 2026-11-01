@@ -1,0 +1,375 @@
+{
+  "schema": "civ6.baiqi-path-diagnosis-native34-evidence/v1",
+  "recorded_utc": "2026-11-01T12:52:59.911604+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "b8dfa9d",
+  "manifest_version": 34,
+  "pid": 2800,
+  "steam_online_switches": 0,
+  "normal_continuation": {
+    "turns": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100
+    ],
+    "normal_endturn_calls": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "cities_at100": 11,
+    "manual_domestic_choices": 0,
+    "debug_resource_unit_or_production_grants": 0,
+    "foreign_actions_after90": "At92 physically refuse embassy(280,558) thenGoodbye(282,607); driver honestly stopped HUDhidden before resume93.",
+    "army_unstack_after90": [
+      "turn90 unit4718628 tile275→318",
+      "turn97 unit5570597 tile275→319"
+    ],
+    "scope": "15turn normal continuation total; not yet20turn or full TC037/036."
+  },
+  "diagnostic": {
+    "window": "Installed at93, observed through100;90→92 had no probe because initial capability assert rejected before any change.",
+    "method": "Root-reviewed temporary proxies only in BaiqiExecutor context, preserve native args, all returns including nils via explicit pack.n and actual global unpack, pcall/rethrow; nested sample stack, bounds2048. No extra queries/planning/actions. Pointer-checked restore of both global tables and RunNow verified1355 samples/errors0/dropped0.",
+    "summary": {
+      "n": 1355,
+      "p50_ms": 1.0001659393311,
+      "p95_ms": 16.999959945679,
+      "max_ms": 934.99994277954,
+      "path_calls": 476,
+      "path_sum_ms": 5577.001333236724,
+      "units_calls": 130807,
+      "units_sum_ms": 906.9981575012148,
+      "callback_sum_ms": 13594.999790191683
+    },
+    "top10": [
+      {
+        "turn": 100,
+        "cities": 11,
+        "seconds": 0.93499994277954,
+        "path_calls": 10,
+        "path_seconds": 0.53299999237061,
+        "units_calls": 3744,
+        "units_seconds": 0.16899991035461,
+        "max_path_seconds": 0.12600016593933,
+        "path_unit": 5373970,
+        "path_plot": 598,
+        "actual_unit_type_from_native_snapshots": "UNIT_SETTLER"
+      },
+      {
+        "turn": 96,
+        "cities": 11,
+        "seconds": 0.49699997901917,
+        "path_calls": 10,
+        "path_seconds": 0.34299969673157,
+        "units_calls": 1951,
+        "units_seconds": 0.043999433517456,
+        "max_path_seconds": 0.10399985313416,
+        "path_unit": 5308423,
+        "path_plot": 54,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 100,
+        "cities": 11,
+        "seconds": 0.46000003814697,
+        "path_calls": 10,
+        "path_seconds": 0.41299986839294,
+        "units_calls": 380,
+        "units_seconds": 0.010999917984009,
+        "max_path_seconds": 0.093000173568726,
+        "path_unit": 5373970,
+        "path_plot": 598,
+        "actual_unit_type_from_native_snapshots": "UNIT_SETTLER"
+      },
+      {
+        "turn": 98,
+        "cities": 11,
+        "seconds": 0.45499992370605,
+        "path_calls": 9,
+        "path_seconds": 0.31799960136414,
+        "units_calls": 3459,
+        "units_seconds": 0.040999889373779,
+        "max_path_seconds": 0.062999963760376,
+        "path_unit": 5373970,
+        "path_plot": 731,
+        "actual_unit_type_from_native_snapshots": "UNIT_SETTLER"
+      },
+      {
+        "turn": 95,
+        "cities": 11,
+        "seconds": 0.40400004386902,
+        "path_calls": 9,
+        "path_seconds": 0.24300026893616,
+        "units_calls": 1678,
+        "units_seconds": 0.04800009727478,
+        "max_path_seconds": 0.059999942779541,
+        "path_unit": 5242893,
+        "path_plot": 852,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 95,
+        "cities": 11,
+        "seconds": 0.38800001144409,
+        "path_calls": 9,
+        "path_seconds": 0.23599982261658,
+        "units_calls": 1894,
+        "units_seconds": 0.046999931335449,
+        "max_path_seconds": 0.053999900817871,
+        "path_unit": 4653085,
+        "path_plot": 11,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 96,
+        "cities": 11,
+        "seconds": 0.3840000629425,
+        "path_calls": 9,
+        "path_seconds": 0.24900031089783,
+        "units_calls": 1685,
+        "units_seconds": 0.037999868392944,
+        "max_path_seconds": 0.064000129699707,
+        "path_unit": 4653085,
+        "path_plot": 54,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 94,
+        "cities": 11,
+        "seconds": 0.37700009346008,
+        "path_calls": 9,
+        "path_seconds": 0.22599911689758,
+        "units_calls": 1894,
+        "units_seconds": 0.043000221252441,
+        "max_path_seconds": 0.056999921798706,
+        "path_unit": 5111845,
+        "path_plot": 11,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 96,
+        "cities": 11,
+        "seconds": 0.32599997520447,
+        "path_calls": 9,
+        "path_seconds": 0.22399997711182,
+        "units_calls": 1908,
+        "units_seconds": 0.023999452590942,
+        "max_path_seconds": 0.085999965667725,
+        "path_unit": 5111845,
+        "path_plot": 11,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      },
+      {
+        "turn": 94,
+        "cities": 11,
+        "seconds": 0.2739999294281,
+        "path_calls": 9,
+        "path_seconds": 0.16900038719177,
+        "units_calls": 1913,
+        "units_seconds": 0.027999877929688,
+        "max_path_seconds": 0.052999973297119,
+        "path_unit": 5111845,
+        "path_plot": 54,
+        "actual_unit_type_from_native_snapshots": "UNIT_BUILDER"
+      }
+    ],
+    "raw_summary_private_sha256": "ad51eb0c61b6b89b1bb0877c2545d4267d8eb58029540d673371780d9d847dcc",
+    "observation": "Native fullID mapping identifies3 of top10 as settler5373970,7 as builders. Slowest935ms settler callback had10 native path calls533ms and3744 unit-in-plot lookups169ms; other slow calls9-10paths. Current ProcessBuilder paths all recommendations before distance/index sorting; SettlementSites(unit) paths all before Planner.Site score/reservation filtering.",
+    "limits": "Instrumentation adds overhead and ~1ms clock quantization per call; sums not exactCPU or guaranteed non-overlap. Establishes repeated expensive path queries in measured settler/builder calls, not sole cause of all historical long tails or formal performancePASS."
+  },
+  "great_person_capability94": {
+    "context": "BaiqiGameplay",
+    "unit_type_getter": "GetType; GetUnitType unavailable",
+    "human_check": "PlayerConfigurations.IsHuman unavailable; Players.IsHuman fallback",
+    "actual_merchant": {
+      "unit": 4194337,
+      "charges": 3,
+      "class": 3,
+      "individual": 76,
+      "name": "GREAT_PERSON_INDIVIDUAL_MARCUS_LICINIUS_CRASSUS"
+    },
+    "actual_scientist": {
+      "unit": 4915239,
+      "charges": 0,
+      "class": 5,
+      "individual": 133,
+      "name": "GREAT_PERSON_INDIVIDUAL_OMAR_KHAYYAM"
+    },
+    "proved_getters": [
+      "GetGreatPerson",
+      "GetActionCharges",
+      "GetClass",
+      "GetIndividual"
+    ],
+    "not_implemented": "Durable GP unknown intent remains unfinished; readonly getter availability is not journal implementation or save-recovery proof."
+  },
+  "root_probe_failures": {
+    "count": 3,
+    "details": [
+      "First GP readonly probe called missing config.IsHuman; corrected fallback",
+      "Next GP readonly probe called UI-only GetUnitType; corrected actual GetType",
+      "Initial path probe required table.unpack, actual engine only globalunpack; assert failed before proxies or globals changed"
+    ],
+    "raw_errors_retained": true,
+    "separation": "These are root-authored Tuner helper failures; not zero-error current completeLua.log. Pre-probe source34 regression archived error0 separately. Installed profiling callback/api error counters both0 after corrections."
+  },
+  "local_models": [
+    {
+      "task": "pathprobe93",
+      "request_sha256": "f0cbbd94004b6318062cec34bb3367d45c5a1c1a04601d733867665c33214b6d",
+      "result_sha256": "ae8dec6249938bae458dcaa62af804bdda870b5720719b856e939d845a60f62c",
+      "usage": {
+        "prompt_tokens": 17823,
+        "completion_tokens": 663,
+        "total_tokens": 18486
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "gpcap94",
+      "request_sha256": "9bf5e60f952f6f6ed1f053794fc1a83950bc8bf680d5cecbe416d4053a951a5f",
+      "result_sha256": "7af53fcff94c67a8cb7bb138b81ce57fd11eb3783590016f6c87e938d208a251",
+      "usage": {
+        "prompt_tokens": 17957,
+        "completion_tokens": 399,
+        "total_tokens": 18356
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "builderpath95",
+      "request_sha256": "b97a7ca3ce708bc1d15ae9ef51565512d9978c774bdbf475b7494df5f2062c1d",
+      "result_sha256": "7899b5270a52b654352e2de7048b2860ce7e85a78862954c12847a891f211141",
+      "usage": {
+        "prompt_tokens": 21538,
+        "completion_tokens": 851,
+        "total_tokens": 22389
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "buildertests96",
+      "request_sha256": "9d365820a5dc90a2f8236b014398fd0f618151ac9ba306043f4636e6ef471667",
+      "result_sha256": "83c7de30434960875a582ea344af85863f54d2093e55d36593c20cdd9a7994f6",
+      "usage": {
+        "prompt_tokens": 21510,
+        "completion_tokens": 1809,
+        "total_tokens": 23319
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "task": "settlerpath97",
+      "request_sha256": "a12c644ea5e07b05fba23dfb365cc3a4781a654cb7ce73118a0d504ba45230d8",
+      "result_sha256": "78c5906350b52076cb9c730d01f6dd3f0711169cdaf3011d7b2ae6ec067912bf",
+      "usage": {
+        "prompt_tokens": 21976,
+        "completion_tokens": 428,
+        "total_tokens": 22404
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "review": {
+    "93": "Rejected code: loses nil/trailing returns, no RunNow correlation, no pointerchecked restore and notglobalaccessibleprobe. Root rewrote with actual engineglobalunpack, stack, pack.n, complete restore.",
+    "94": "Rejected numeric GetUnitType vs string comparison and inventedrequire(json); root wrote type-aware actualGameInfo lookup, then corrected own Gameplay differences.",
+    "95": "Candidate for next source35 shared builder sort-before-path direction accepted for review; not yet product code here.",
+    "96": "Partial cases only; rejected claim that current code continues after first reachable write rejection, and fixed proposed farther destination paths so RequestCivilian still moves only one actual adjacent step."
+  },
+  "p6_local_model_cumulative": {
+    "http_requests": 97,
+    "complete_stop_sse_json": 94,
+    "length_discarded": 3,
+    "transport_retries": 0,
+    "actual_client_in_flight_peak": 13,
+    "server_inference_concurrency": null,
+    "cached_prompt_tokens": null
+  },
+  "save": {
+    "name": "Baiqi_P6_20261101_V34_PathDiagnosis100.Civ6Save",
+    "sha256": "e7fb148feca09c5a58d5c9bd2be2da78cb6ec10c1423e656000b6190c9193ffb",
+    "bytes": 533742
+  },
+  "screenshot_sha256": "55661f61a753a7ea94af45ec4684a5988e8b4e0664e15cac81d60e2223e6538a",
+  "receipts": [
+    {
+      "receipt": "20261101T122306450228Z.json",
+      "sha256": "ddfd94cf608c36d020e603eaa377cf1a5d4707e2dddd6a5115004edaacba4b5a",
+      "context": "BaiqiGameplay",
+      "readback": [
+        "P6_GP_CAP94_UNIT\t90\t4194337\tUNIT_GREAT_MERCHANT\tfunction",
+        "P6_GP_CAP94_METHODS\t4194337\tfunction\tfunction\tfunction",
+        "P6_GP_CAP94_DATA\t4194337\t3\t3\t76\tGREAT_PERSON_CLASS_MERCHANT\tGREAT_PERSON_INDIVIDUAL_MARCUS_LICINIUS_CRASSUS",
+        "P6_GP_CAP94_UNIT\t90\t4915239\tUNIT_GREAT_SCIENTIST\tfunction",
+        "P6_GP_CAP94_METHODS\t4915239\tfunction\tfunction\tfunction",
+        "P6_GP_CAP94_DATA\t4915239\t0\t5\t133\tGREAT_PERSON_CLASS_SCIENTIST\tGREAT_PERSON_INDIVIDUAL_OMAR_KHAYYAM",
+        "P6_GP_CAP94_COUNT\t2"
+      ]
+    },
+    {
+      "receipt": "20261101T122721520848Z.json",
+      "sha256": "cc119849c42fd08dc6354de2bb28b78f54cd4e2ea929d7f85500dc88b18d1ddb",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH93_CAPABILITIES\t2013.2.0 r13768\tnil\tfunction\tfunction\ttable\ttable\tfunction\tfunction\tfunction\tnil"
+      ]
+    },
+    {
+      "receipt": "20261101T122911881550Z.json",
+      "sha256": "af0c43d4016dffa6727278df9f29abe9108815bd43bd36732eed30a3d8e61200",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH93_STARTED\t93\t11"
+      ]
+    },
+    {
+      "receipt": "20261101T123731957516Z.json",
+      "sha256": "504adf14f5a6591a6a8064d219dec73e75a20259d57a701df0c9e6077276f463",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH93_RESTORED\t100\t1355\t0\t0\t0",
+        "P6_PATH93_STATE\tfalse\t1355\t0\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T124339887690Z.json",
+      "sha256": "e4ee17df18f32750ec3fabd1d88ac340242e7d1a8afaeceeba8deb1952a5b9ff",
+      "context": "BaiqiExecutor",
+      "readback": [
+        "P6_PATH93_FINAL\t11\tfalse\tfalse",
+        "P6_PATH93_SAVE100\ttrue"
+      ]
+    }
+  ],
+  "archived_logs": {
+    "Database.log": "5597e7645ffde82f44b81af15cbf8518262e08ae57d2889c950135abbec6aacd",
+    "Lua.log": "fa8eeee8807f91dd2fca8302bc2d5d5882413c04b220e3bbd99a2b252a675211",
+    "Modding.log": "567b0a6b020bbe0149afe8d9493fea814daba82997b325dbbfd8a67f09b9e3ba"
+  },
+  "full_game_acceptance": false
+}
