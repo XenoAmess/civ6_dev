@@ -1,0 +1,1261 @@
+{
+  "schema": "civ6.baiqi-p6-ordinary-native27-evidence/v1",
+  "machine_id": "BF-202609141645",
+  "manifest_version": 27,
+  "source_commit": "515ea11",
+  "pid": 14368,
+  "artifact_sha256": "95a6db329dbbdf05cedaa14e0d79004f136a4991c25b93c2f7c5f7de8c2c407f",
+  "run_boundary": "Same native27 process as fee cases; independent source26 CaptureReady1 reload, Debug creates separate noncapital while original Mali capital retained. No mod reinstall or new cold launch. Actual normal turn1→3 continuation after captured-save reload.",
+  "fixture": {
+    "target_owner": 1,
+    "city_id": 131073,
+    "xy": [
+      11,
+      6
+    ],
+    "population": 1,
+    "is_capital": false,
+    "is_original_capital": false,
+    "original_capital_preserved": [
+      1,
+      65536,
+      16,
+      5
+    ],
+    "fixture_assets": [
+      "BUILDING_GRANARY",
+      "BUILDING_MONUMENT"
+    ],
+    "unit_id": 327684,
+    "unit_xy": [
+      10,
+      7
+    ],
+    "unit_moves": 2,
+    "gold": 500,
+    "garrison_max": 200,
+    "garrison_damage": 150,
+    "outer_max": 0,
+    "outer_damage": 0,
+    "debug_not_normal_production": true
+  },
+  "physical_input": {
+    "cursor_verified": [
+      11,
+      6,
+      327684
+    ],
+    "right_click": [
+      512,
+      378
+    ],
+    "confirm_click": [
+      280,
+      433
+    ],
+    "events_sha256": "0a233d9f2774e3e04be991c6c6d5a11af8499e2fcac78aad045cf9b82c38c53c",
+    "popup_screenshot_sha256": "73a7abd3d47def3540a0f30edb2fc509d901e19f042f6ae708da7032fd61a46a",
+    "interpretation": "Durable scoped input receipts prove sent input only; owner inspected actual popup and independently read actual native results. Camera/selection preparation sent no army order."
+  },
+  "actual_capture": {
+    "request_id": "city:0:1:327684:1:131073:11:6",
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "owner_before": 1,
+    "owner_after": 0,
+    "city_id_before": 131073,
+    "city_id_after": 131073,
+    "id_note": "City IDs are owner-local; equal numeric IDs do not imply failed transfer. Owner+position+ID independently verified.",
+    "gold_before": 500,
+    "gold_after": 200,
+    "moves_before": 2,
+    "moves_after": 0,
+    "turn_marker": 1,
+    "housing_before": 7,
+    "housing_after": 7,
+    "granary_present_unpillaged_before_after": true,
+    "monument_present_unpillaged_before_after": true,
+    "palace_absent_before_after": true,
+    "garrison_damage_after": 100,
+    "health_note": "Native transfer changed damage150→100; do not claim unchanged HP."
+  },
+  "yield_attribution": {
+    "food_before": 5,
+    "food_after": 4,
+    "food_building_component_before_after": 1,
+    "worked_plot_food_before_after": 3,
+    "food_city_center_component_before": 1,
+    "food_city_center_component_after": 0,
+    "desert_neighbors": 1,
+    "primary_source": {
+      "path": "DLC/Expansion2/Data/Expansion2_Civilizations_Major.xml",
+      "sha256": "a067c7edadaaaaf7d066ed6f35f3ebbd5149d74cab1f905b531ae18ceb04f79c",
+      "lines": "212–225,440–445,867–914"
+    },
+    "food_interpretation": "Mali owner-specific city-center desert adjacency food+1 disappears with owner change; granary food remains+1. No building loss.",
+    "culture_before": 2.25390625,
+    "culture_after": 2.0703125,
+    "native_tooltip_difference": "Before includes +8% modifier absent after. Both show monument+1 and amenities-10%. Exact +8% modifier ID not identified; do not name a guessed cause.",
+    "happiness_before_after": 3,
+    "growth_percent_before_after": -15,
+    "nonfood_percent_before_after": -10,
+    "before_tooltips_independently_reloaded": true
+  },
+  "continuation": {
+    "turn_start": 1,
+    "turn_end": 3,
+    "actual_normal_endturn_clicks": 2,
+    "manual_domestic_choices": 0,
+    "production_type": "UNIT_BUILDER",
+    "production_hash": 299201842,
+    "builder_progress_start": 0,
+    "builder_progress_end": 3,
+    "builder_cost": 50,
+    "production_yield": 1.80078125,
+    "builder_completed": false,
+    "owner_end": 0,
+    "city_id_end": 131073,
+    "occupied_end": false,
+    "loyalty_start": 100,
+    "loyalty_end": 98.96875,
+    "loyalty_per_turn": -0.515625,
+    "retained_both_buildings": true,
+    "military_test_player_moves": [
+      "196610:16,3→17,2",
+      "262147:16,4→16,3"
+    ],
+    "information_closes_after_continuation_reload": 1,
+    "harness_interruptions": "First two drivers stopped turn1 at legitimate unit blocker. Old fixture warrior had no empty land exit: one friendly and one foreign unit plus water/city. Initial asserted move found no safe path and sent no order; after player army clearance, exactly one normal move freed it. No forced game turn or domestic rescue."
+  },
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261101_Cold27_OrdinaryReady1.Civ6Save",
+      "sha256": "a610436a70ab9c10fce20730f40d562112c648ef29d30e57208587733c266b0e",
+      "bytes": 641184
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold27_OrdinaryCaptured1.Civ6Save",
+      "sha256": "5f054bdac19452150a15490b72a9cfcc16737afa5931d0b693a545090a845b8b",
+      "bytes": 642432
+    },
+    {
+      "name": "Baiqi_P6_20261101_Cold27_OrdinaryRetained3.Civ6Save",
+      "sha256": "e6bab31479d284b65ad96c932bb127d48094e789b5a70fd774cc44457e8523d1",
+      "bytes": 845276
+    }
+  ],
+  "receipts": [
+    {
+      "receipt": "20261101T033433219159Z.json",
+      "sha256": "3a38d6a88bd9dee355298631c1f8383517283004925d32152577ba3f61ec56e6",
+      "observations": [
+        "P6_ORDINARY49_CREATED\t131073\t11\t6\t327684\t10\t7"
+      ]
+    },
+    {
+      "receipt": "20261101T033434897566Z.json",
+      "sha256": "e8c662fad3c1a81490261a776fb3a58323c243faed0d93453759dc7a0dc1aaa7",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t1\t11\t6\tfalse\tfalse\t1\t1\t500\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t5\t2.25390625",
+        "P6_ORDINARY49_QUEUE\t0\t0",
+        "P6_ORDINARY49_HEALTH\t200\t150\t0\t0",
+        "P6_ORDINARY49_QUOTE\ttrue\teligible\t300"
+      ]
+    },
+    {
+      "receipt": "20261101T033713630687Z.json",
+      "sha256": "cce4e3a48ad3a411dab4392cbcaf36e3c76b43c8f4bc206e7e840ba59755c178",
+      "observations": [
+        "P6_ORDINARY49_READY_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T034210619108Z.json",
+      "sha256": "6c5d1ea8dfae04324e1be5a0c1fec9c26b1cb06c0c0c55ee1f6b1b4d925fb94f",
+      "observations": [
+        "P6_CAPTURE27_PHYSICAL_CURSOR\t275\t11\t6\t11\t6\t327684"
+      ]
+    },
+    {
+      "receipt": "20261101T034444817498Z.json",
+      "sha256": "0a44a6eb20d4f627a01b688ec386c8d946e7924c58ba77591aef30b150df75d8",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T034957644234Z.json",
+      "sha256": "bc67929e72dcf406c2afb1128d8021e80b9f24b782d9e9ee0a6cf5c14bd96f0e",
+      "observations": [
+        "P6_ORDINARY49_AMENITIES\t3\t-15\t-10",
+        "P6_ORDINARY49_TERRAIN\t319\tTERRAIN_PLAINS",
+        "P6_ORDINARY49_TERRAIN\t276\tTERRAIN_COAST",
+        "P6_ORDINARY49_TERRAIN\t231\tTERRAIN_TUNDRA_HILLS",
+        "P6_ORDINARY49_TERRAIN\t230\tTERRAIN_TUNDRA_HILLS",
+        "P6_ORDINARY49_TERRAIN\t274\tTERRAIN_PLAINS",
+        "P6_ORDINARY49_TERRAIN\t318\tTERRAIN_DESERT",
+        "P6_ORDINARY49_DESERT_ADJACENCY\t1",
+        "P6_ORDINARY49_ORIGINAL_CAPITAL\t65536\t1\ttrue\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T034958022997Z.json",
+      "sha256": "284303f971b1bdc03df63b2f935b3feae3c28d420dd33abde38a3cf45cb96a39",
+      "observations": [
+        "P6_ORDINARY49_OWNED_SAVE\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T035711671037Z.json",
+      "sha256": "82a62eb87502b361d20434355d734d60c6e17978202e55e1fa2c44971f5ecfe2",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t1\t11\t6\tfalse\tfalse\t1\t1\t500\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t5\t2.25390625",
+        "P6_ORDINARY49_QUEUE\t0\t0",
+        "P6_ORDINARY49_HEALTH\t200\t150\t0\t0",
+        "P6_ORDINARY49_QUOTE\ttrue\teligible\t300"
+      ]
+    },
+    {
+      "receipt": "20261101T035713330648Z.json",
+      "sha256": "e9389667505ff632bd1844c2d980a4b8b25cf67c03b094cb7dbcda21e984ff40",
+      "observations": [
+        "P6_ORDINARY49_AMENITIES\t3\t-15\t-10",
+        "P6_ORDINARY49_TERRAIN\t319\tTERRAIN_PLAINS",
+        "P6_ORDINARY49_TERRAIN\t276\tTERRAIN_COAST",
+        "P6_ORDINARY49_TERRAIN\t231\tTERRAIN_TUNDRA_HILLS",
+        "P6_ORDINARY49_TERRAIN\t230\tTERRAIN_TUNDRA_HILLS",
+        "P6_ORDINARY49_TERRAIN\t274\tTERRAIN_PLAINS",
+        "P6_ORDINARY49_TERRAIN\t318\tTERRAIN_DESERT",
+        "P6_ORDINARY49_DESERT_ADJACENCY\t1",
+        "P6_ORDINARY49_ORIGINAL_CAPITAL\t65536\t1\ttrue\ttrue"
+      ]
+    },
+    {
+      "receipt": "20261101T041342433969Z.json",
+      "sha256": "a489eb18607170c1b4aa183d2efbfc2e56580b0f06efc50f94e3c5c2c1c6bf09",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041342858695Z.json",
+      "sha256": "0a672327093723d4b101b95d78f3440e9a5c033df12979a1197304b0bce558f1",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041344064370Z.json",
+      "sha256": "6a4a369f0ffc2adb28eab6dad3914ff9a0055ad4bb4e15d5a4ff031c3f5b3319",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041345230436Z.json",
+      "sha256": "8c93e5846051ee0f7ff5990224266ad852ed7bb5a5b1a3d54d67918335836739",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041346470779Z.json",
+      "sha256": "c3c33b581fdf6963e76c5d112535ce50321cd88b13cbf97bf96aca9d349658aa",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041349661497Z.json",
+      "sha256": "53f0f3466004f53e22fc95d3f000a709feb6df0a7400d56200cf72039a05ea96",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041352859049Z.json",
+      "sha256": "ad18749cc9865e82cae19409c545a6f03189614aa4b006af2fb1b74ffc9aa643",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041356065858Z.json",
+      "sha256": "ee994c21f52c9c9ee1190dcf333e741ff85a485441510fe700cc5181782bead1",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041359309588Z.json",
+      "sha256": "6d8cc0dd053ca686722efa0629060f2b267e591efc98600750992e9812d5d42a",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041402576177Z.json",
+      "sha256": "87ec83e38a0dc4365a73a5b019b1c8b609e652a71688552f8eb15f4e27e0c972",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041405889299Z.json",
+      "sha256": "f2c4c386f81bc0a798e02a0552a0c4866d2c61f77c23f0aa70039e37ce57b704",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041409098017Z.json",
+      "sha256": "23acbf6a85ab9bbe59adede320258c2c0cdac0d79a8ee9766cce0e89001ec7d9",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041412407095Z.json",
+      "sha256": "0a3adf3fa911f2f710edda353956f91cfadcf24da51b996233dba8aa55546b16",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041415685252Z.json",
+      "sha256": "8ce81ee9c571505a9632d2b2484cd1a781ab20fdad86574123e20ef3e9b74314",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041419182382Z.json",
+      "sha256": "bf0844a64453c2c79d50083258399bfb7b4a82136b70f8b09c47bdca955a742d",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041422523104Z.json",
+      "sha256": "21df9fbfaafd916d770f202492cc01e817400dee4bd5e774664ecdc73526cb1a",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041425720204Z.json",
+      "sha256": "7d8218faf14209739537cc2a7db64ca1ea3a8ac9f5719a81a9a39f65d00c42ee",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041428910082Z.json",
+      "sha256": "9fec0c67f121dd6ca8977f42e61365eab6f8cf87a96408ff09cab73b8a50cb2a",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041432652666Z.json",
+      "sha256": "ef0d56c5b34606d936df1cc20b97ce4d22ee55dde1fe4fb2b3a721fe2917d250",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041436007872Z.json",
+      "sha256": "8187d6bde87b1f2e980c8f838261fbb019e529b1adf3d3a64214babd95de161d",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041439308514Z.json",
+      "sha256": "fe0d1c2aea75a7678219e8ecaca8fddda996794eae2a43df7b73a75f88c14fa1",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041442571323Z.json",
+      "sha256": "f4a9c2d3e3c1360e54a4831e80170d67f82e9f8c93dfb636d20f7a9a86528ab6",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041522053034Z.json",
+      "sha256": "695d20868db205ab9c236dc630793687f471039bf16ea93f1ccd71e94365f34e",
+      "observations": [
+        "P6_ORDINARY49_DRIVER\tfalse\tfalse\ttrue\ttrue",
+        "P6_ORDINARY49_DRIVER_UNIT\t131073\tfalse\t2\t1\tnil\tfalse\t1",
+        "P6_ORDINARY49_DRIVER_UNIT\t196610\tfalse\t2\t1\tnil\tfalse\t1",
+        "P6_ORDINARY49_DRIVER_UNIT\t262147\ttrue\t2\t1\tnil\tfalse\tnil",
+        "P6_ORDINARY49_DRIVER_UNIT\t327684\tfalse\t0\t1\tnil\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T041649649108Z.json",
+      "sha256": "9b36c5be568b4f1281e577111a9da3a5b3d33036b62503c244a8f531e96c30e3",
+      "observations": [
+        "P6_ORDINARY49_DRIVER\tfalse\tfalse\ttrue\ttrue",
+        "P6_ORDINARY49_DRIVER_UNIT\t131073\tfalse\t2\t1\tnil\tfalse\tfalse\t1",
+        "P6_ORDINARY49_DRIVER_UNIT\t196610\tfalse\t2\t1\tnil\tfalse\tfalse\t1",
+        "P6_ORDINARY49_DRIVER_UNIT\t262147\ttrue\t2\t1\tnil\tfalse\tfalse\tnil",
+        "P6_ORDINARY49_DRIVER_UNIT\t327684\tfalse\t0\t1\tnil\tfalse\tfalse\t1"
+      ]
+    },
+    {
+      "receipt": "20261101T041704730301Z.json",
+      "sha256": "60abc8d2c431347300d7f925242b8b5e77e631f07f9cfab9bfa3cdde8482e1d8",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041705922848Z.json",
+      "sha256": "c6e26512f47a61960d7dbd24778a7aa145d3d63ef5378a0da85685b738e8e4b6",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041707123311Z.json",
+      "sha256": "2311b70a61f630d5245f01579a4eaea0cf3b07115e61a64e6d2e5d83ef75ecfc",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041708377303Z.json",
+      "sha256": "023664dabaf330b96ec5e857be02cbebaeb24d290b951f0fe74bb55a3bb42618",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041711640019Z.json",
+      "sha256": "6fe78bf197496a3b9ce410a981f8c00ab55e9ce8bc44265c1683b8979dbd21e7",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041715141559Z.json",
+      "sha256": "2e60995f0ed0a784be8c9c263f435ac1d96e111d0bc8cae72c1a1aa963570dd7",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041718356451Z.json",
+      "sha256": "0426f1a5c551a4e641817327980923b3d78e3f3d212a6143099aba528ad789d7",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041721614131Z.json",
+      "sha256": "5d0a65d132cbfa00c9d5628aa415e66b4fcdebac76f6067dc9983bac4a345ffe",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041724848703Z.json",
+      "sha256": "a96ffe90a694ec0f9142b2229fe88237428e1a3b39481e7dbb4273c90e9cacc6",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041728094783Z.json",
+      "sha256": "5ed583d237c2611e5d821aee3de602daa3b78465b7ca40aa927f8551c5f84b23",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041731368198Z.json",
+      "sha256": "e4477e62b649325b01a7f8d5334c51632642593ff59258a5e5b3ac96ff21dd25",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041734651232Z.json",
+      "sha256": "e4d626d0955969524efbf308f3c5487d4c81719dd3fe7067f1ee46062c9f3379",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041737797294Z.json",
+      "sha256": "fd011d14fd6a36e8377e7d6a1830bf19129032809e6b2af86a3ab6ccb370dab3",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041741186991Z.json",
+      "sha256": "49da61c139cba95d3571f8d5c76494915406146d870393ce98721ff7fc265257",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041744632392Z.json",
+      "sha256": "9c4b015ebe9f261efdffedeae06cb00d2a37914f562dcf5b130eb3442e2d23f9",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041747877150Z.json",
+      "sha256": "999fb4e06a791271048923838907dd1794a83a45939f854fddd1654dd4a5704d",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041751135802Z.json",
+      "sha256": "74ad28bacb53c402a9dad8132b6ba477d681d860ba60cfdc7f354c1d472d079f",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041754544374Z.json",
+      "sha256": "497ba1340b1368885922ac6a92f76ced0686e244920881ef64bab1a8a248a398",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041757842090Z.json",
+      "sha256": "5243513f335d393d2ef69cb75eef665b08ef851a20d5455b01aea5d4d187bd94",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041801063031Z.json",
+      "sha256": "17e086be2e4fc5a361493926be681c0a0bf8b8f0447a6bb137f280dbf5a2d398",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041804505070Z.json",
+      "sha256": "0bf20db8f56988aa77b76620fd61ea986ee57a72fb624d79f5db3e3f4276a07c",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041824853383Z.json",
+      "sha256": "b739afd5eede0acd577c3c88973f62855e631edd257ce6474f029f120a1a7396",
+      "observations": [
+        "P6_ORDINARY49_ARMY_CAN\tUNITOPERATION_SKIP_TURN\tfalse",
+        "P6_ORDINARY49_ARMY_REASON\t1000687715\t2",
+        "P6_ORDINARY49_ARMY_CAN\tUNITOPERATION_FORTIFY\tfalse",
+        "P6_ORDINARY49_ARMY_REASON\t1000687715\t2",
+        "P6_ORDINARY49_ARMY_CAN\tUNITOPERATION_MOVE_TO\ttrue",
+        "P6_ORDINARY49_ARMY_REASON\t1000687715\t2",
+        "P6_ORDINARY49_ARMY_PLOT\t192\t1\t9\tfalse\tfalse",
+        "P6_ORDINARY49_ARMY_ADJ\t0\t236\t16\t5\t1\tfalse\tfalse\ttrue\t0\t0",
+        "P6_ORDINARY49_ARMY_ADJ\t1\t193\t17\t4\t1\ttrue\tfalse\tfalse\t0\t0",
+        "P6_ORDINARY49_ARMY_ADJ\t2\t148\t16\t3\t-1\tfalse\tfalse\tfalse\t1\t0",
+        "P6_ORDINARY49_ARMY_ADJ_UNIT\t148\t0\t196610",
+        "P6_ORDINARY49_ARMY_ADJ\t3\t147\t15\t3\t-1\tfalse\tfalse\tfalse\t1\t0",
+        "P6_ORDINARY49_ARMY_ADJ_UNIT\t147\t13\t131073",
+        "P6_ORDINARY49_ARMY_ADJ\t4\t191\t15\t4\t-1\ttrue\tfalse\tfalse\t0\t0",
+        "P6_ORDINARY49_ARMY_ADJ\t5\t235\t15\t5\t1\ttrue\tfalse\tfalse\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041851192334Z.json",
+      "sha256": "db83a231d12a5008603803a20cafc7e39af3d07b06bb0cdb7a5251864a24a9d4",
+      "observations": [
+        "P6_PLAYER_TEST_ORDINARY49_CLEAR_MOVE\t196610\t16\t3\t17\t2"
+      ]
+    },
+    {
+      "receipt": "20261101T041857729876Z.json",
+      "sha256": "62c3424a43bba8365c9b3531ff64c6ee8cea19952482722eaafae7177ca591b0",
+      "observations": [
+        "P6_ORDINARY49_ARMY_CAN\tUNITOPERATION_SKIP_TURN\tfalse",
+        "P6_ORDINARY49_ARMY_REASON\t1000687715\t2",
+        "P6_ORDINARY49_ARMY_CAN\tUNITOPERATION_FORTIFY\tfalse",
+        "P6_ORDINARY49_ARMY_REASON\t1000687715\t2",
+        "P6_ORDINARY49_ARMY_CAN\tUNITOPERATION_MOVE_TO\ttrue",
+        "P6_ORDINARY49_ARMY_REASON\t1000687715\t2",
+        "P6_ORDINARY49_ARMY_PLOT\t192\t1\t9\tfalse\tfalse",
+        "P6_ORDINARY49_ARMY_ADJ\t0\t236\t16\t5\t1\tfalse\tfalse\ttrue\t0\t0",
+        "P6_ORDINARY49_ARMY_ADJ\t1\t193\t17\t4\t1\ttrue\tfalse\tfalse\t0\t0",
+        "P6_ORDINARY49_ARMY_ADJ\t2\t148\t16\t3\t-1\tfalse\tfalse\tfalse\t0\t2",
+        "P6_ORDINARY49_ARMY_ADJ\t3\t147\t15\t3\t-1\tfalse\tfalse\tfalse\t1\t0",
+        "P6_ORDINARY49_ARMY_ADJ_UNIT\t147\t13\t131073",
+        "P6_ORDINARY49_ARMY_ADJ\t4\t191\t15\t4\t-1\ttrue\tfalse\tfalse\t0\t0",
+        "P6_ORDINARY49_ARMY_ADJ\t5\t235\t15\t5\t1\ttrue\tfalse\tfalse\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041858207524Z.json",
+      "sha256": "c79002bb56d232a28345da093a8c2121c1122d6db1be2c9e395a525046edb809",
+      "observations": [
+        "P6_PLAYER_TEST_ORDINARY49_ARMY_MOVE\t262147\t16\t4\t16\t3"
+      ]
+    },
+    {
+      "receipt": "20261101T041905461174Z.json",
+      "sha256": "f30e2898895bee62c3e1151728cfd683112630f6caca9035296497526ef01d66",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041906839313Z.json",
+      "sha256": "8487db7d3d85d288645ffa3dfa3177263138f93f1c1be9c2e97d9ef785d09a4b",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041908067677Z.json",
+      "sha256": "616813ba244e333049eb0ed85da498dcd31ff72b8a845442813b8dcbc7ca54f9",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041909410134Z.json",
+      "sha256": "cc7be6fd423550a13620a527c12fe51ae137a925b3c865503d382f4a03fb4d84",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041912606881Z.json",
+      "sha256": "59b4aeaab6de30098ecf4e580a4c5e97bc604c19d28c91e6826e22646832d3d3",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041913815982Z.json",
+      "sha256": "32b1b5b0f934ec7d03a98111db15ef9482a23528bbb3aef7dfe66bc7ad0ae573",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t100\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041915164552Z.json",
+      "sha256": "74f820b4cec14b79ad7cb227cfca184a7b89b57362a7363541b1c14a86e32139",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t200\t327684\t0\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t2.0703125",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t80\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041916369019Z.json",
+      "sha256": "4156c77047efe53b57fb5015cf3fc7e90611184922645fe4312bdfadb4cd9b83",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t205\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t80\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041917583283Z.json",
+      "sha256": "7281b29da6e9fce992dbabfc4c29a10eca822eee490a5dd60182f08912853374",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t205\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t80\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041918763212Z.json",
+      "sha256": "aa5e5a19d2786d3847ce02e7c4812f212c9608b0838f77e063bdbd7141d91b56",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t205\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t80\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041922136823Z.json",
+      "sha256": "788e4f9bea6d9dba0863addc92a0a78580368e1856c4dd44401c9391ec773e17",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t205\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t80\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041923392010Z.json",
+      "sha256": "c794bea2792cbb28376fa07a40838f068a963fcaf8f2fa0cd4bcbaacfffed1d1",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t205\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041924632664Z.json",
+      "sha256": "7560eeffd368665f11b57b80e484f9b5f1e2b3e1edf216751a705faa62a468c2",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t205\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041925875940Z.json",
+      "sha256": "2e325afbe3179b34c4ed732c657f849207312fc334decf5de6f0d745d010c8a4",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t210\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041927285384Z.json",
+      "sha256": "9d35c84149635a589bd2ef232e888a938b9da9969430d4431c8dc1944c8a1543",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t210\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041928501628Z.json",
+      "sha256": "e5055bbf82f8bc77e2d2d49ac18aa480f924adae704073a9395e9971118fb999",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t210\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041929838214Z.json",
+      "sha256": "01ef3a6727b7ff8f1a01fa1fa3cf06fb5103c8e16d6897a7f12e86a6df82511f",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t210\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041931287559Z.json",
+      "sha256": "2e00d902ffb8ce6bcba9a12075ac11cabaaef83e7833b24def4941708baf157d",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t210\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T041932537935Z.json",
+      "sha256": "11181b89ee72adc865f337468309ce83d4816c21988a2030253f1cd9b096df08",
+      "observations": [
+        "P6_ORDINARY49_STATE\t131073\t0\t11\t6\tfalse\tfalse\t1\t1\t210\t327684\t2\t1",
+        "P6_ORDINARY49_BUILDING\tBUILDING_PALACE\tfalse\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_GRANARY\ttrue\tfalse",
+        "P6_ORDINARY49_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse",
+        "P6_ORDINARY49_YIELDS\t7\t4\t1.16796875",
+        "P6_ORDINARY49_QUEUE\t1\t299201842",
+        "P6_ORDINARY49_HEALTH\t200\t60\t0\t0"
+      ]
+    },
+    {
+      "receipt": "20261101T042007078379Z.json",
+      "sha256": "4b968b9719ca7947166b6bcc67e071a1a525cba767c75c45589e307734541533",
+      "observations": [
+        "P6_ORDINARY49_CONTINUE\t3\t0\t131073\tfalse\t98.96875\t-0.515625\t3\t50\t1.80078125",
+        "P6_ORDINARY49_END_SAVE\ttrue"
+      ]
+    }
+  ],
+  "logs": {
+    "Database.log": "d0bd2910d81b89c380c165e3f0dfcb3cfea52244be6ee46b324f31536f2c757a",
+    "Lua.log": "b02f27feaf2ec24d19f12fa4d20ff0009a405df16b9f849640b00dbc32ed993f",
+    "Modding.log": "baf427c06239c0b29fb0600f2bcbf91f9bc9f7c257c7d6f33c3a6f02e8e7b561"
+  },
+  "driver_sha256": "ff6aedc6f559e5db48ec3066152994be1e68e2ce0f462c96b8871efacc9820a0",
+  "models": {
+    "p6_cumulative_http": 54,
+    "p6_complete_stop_json": 53,
+    "p6_length_discarded": 1,
+    "p6_transient_retries": 0,
+    "p6_client_peak": 12,
+    "latest_batch_count": 5,
+    "latest_batch_client_peak": 5,
+    "server_inference_concurrency": null,
+    "items": [
+      {
+        "task": "ordinary49",
+        "request_sha256": "ed602faa5bfb726cc7710ab34ad4e8b9080af2bb686fc02c46d2411fc1992279",
+        "response_sha256": "13437afd050319f888e0732ce1c49bf42548ddfd2dc26468737e8307294f8eaa",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "usage": {
+          "prompt_tokens": 6255,
+          "completion_tokens": 534,
+          "total_tokens": 6789
+        },
+        "total_ms": 4318.363900005352,
+        "first_nonempty_content_delta_ms": 949.9899000074947,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Limited fixture/asset assertions used; owner added all-city distance, no-feature/no-resource safety, staged preparation intent and independent native yield attribution."
+      },
+      {
+        "task": "boundary50",
+        "request_sha256": "33a5676f0aa1c673f2759a6df0699ba7d2c1bd79f492cd43f753b057f776d9b7",
+        "response_sha256": "6447ed6b7a9881ffcf1e89349c4482c138da130730796a4b0ef654d869fe2052",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "usage": {
+          "prompt_tokens": 5544,
+          "completion_tokens": 1985,
+          "total_tokens": 7529
+        },
+        "total_ms": 23172.03710001195,
+        "first_nonempty_content_delta_ms": 3773.4339000016917,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Rejected candidate: wrong local player, population13 instead of1, wrong threshold arithmetic and invented reject reason. Owner derives 69/70/71 remaining HP from actual source."
+      },
+      {
+        "task": "attack51",
+        "request_sha256": "ecc23ce6ac319056cf4368dfba0a2235e8d7d60bc264cadf040d8b751aef342d",
+        "response_sha256": "746da89bb9da840192371b5d100582a10e2f5065cc09b9367c8ff06c842bf80d",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "usage": {
+          "prompt_tokens": 3322,
+          "completion_tokens": 402,
+          "total_tokens": 3724
+        },
+        "total_ms": 13380.387299999711,
+        "first_nonempty_content_delta_ms": 5438.231799998903,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Used closure binding/revalidation analysis only; rejected guaranteed movement/capture assertions and journal-key wording. Actual battle outcome must be read back."
+      },
+      {
+        "task": "escort52",
+        "request_sha256": "5ca01f33dc016fe249f30dc8d6fb1095ea0677327e61626feff7760728e4e700",
+        "response_sha256": "20246d1a8612a5a57d5a588689436be6f759b65a13784eaa4818fbdd1bce08a9",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "usage": {
+          "prompt_tokens": 18841,
+          "completion_tokens": 678,
+          "total_tokens": 19519
+        },
+        "total_ms": 16257.229800001369,
+        "first_nonempty_content_delta_ms": 6602.174599989667,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Rejected fake native test: replaced formation snapshot with2, assert(true), unavailable local functions and wrong API name. Need actual native formation and player command evidence."
+      },
+      {
+        "task": "performance53",
+        "request_sha256": "cc57bb6caed7f2126806388cf0523ac469e03a751ad327228d7a58df69a64abb",
+        "response_sha256": "32ff0c49a6d919ffa944c81b67ea7966ffec700a45a51258b06463964ee3d5ca",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "usage": {
+          "prompt_tokens": 23624,
+          "completion_tokens": 543,
+          "total_tokens": 24167
+        },
+        "total_ms": 14862.971800001105,
+        "first_nonempty_content_delta_ms": 7620.087400006014,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "No budget adopted: all actual budgets/warmup/samples left TBD; misleading Admin=PLAYER classification and baseline subtraction not accepted. Timing-source caveats retained from prior actual probe."
+      },
+      {
+        "task": "building54",
+        "request_sha256": "eb63e24f266e9c4fa7e29665a18d314a9be8b6b1bf23cf0e2b43318f63300403",
+        "response_sha256": "e366611916f57ba2e0b9d7f7e5d210c79cb2c7b80c7178421c279406d56ea506",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "usage": {
+          "prompt_tokens": 7425,
+          "completion_tokens": 640,
+          "total_tokens": 8065
+        },
+        "total_ms": 16505.62940000964,
+        "first_nonempty_content_delta_ms": 3772.602700002608,
+        "cached_prompt_tokens_if_reported": null,
+        "review": "Rejected: reintroduced forbidden granary, suggested transfer API with no support and fallthrough after cancel. Original independent-building requirement remains unfinished."
+      }
+    ]
+  },
+  "result": "PASS sampled ordinary noncapital paid capture, original-place ownership, listed buildings, automatic normal production progression and two-turn retention. Not full special assets, full TC031, builder completion, independent building rights or permanent loyalty guarantee.",
+  "full_game_acceptance": false
+}
