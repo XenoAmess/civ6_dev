@@ -1,0 +1,482 @@
+{
+  "schema": "civ6.baiqi.p6-ordinary-repair-native47/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "1c63cd5cdcc158e64439e2dd2915762168df4c52",
+  "runtime_version": 47,
+  "runtime_pid": 17288,
+  "steam": {
+    "pid": 13620,
+    "prelaunch_confirmed_offline_at_utc": "2026-11-02T11:03:19.461254+00:00",
+    "online_switches": 0
+  },
+  "scope": "TC-012 ordinary native operation/cost baseline only; fresh Baiqi47 repair automation still pending.",
+  "fixture": {
+    "player": 0,
+    "leader": "LEADER_GORGO",
+    "human": true,
+    "multiplayer": false,
+    "turns": [
+      1,
+      10
+    ],
+    "city_id": 65536,
+    "city_xy": [
+      2,
+      16
+    ],
+    "farm_plot": 707,
+    "farm_xy": [
+      3,
+      16
+    ],
+    "campus_id": 131073,
+    "campus_xy": [
+      1,
+      17
+    ],
+    "builder_id": 196610,
+    "warrior_unit_id": 131073,
+    "identity_note": "Component IDs are scoped: warrior unit131073 and campus district131073 are distinct objects.",
+    "debug_setup": [
+      "Granted Pottery and Writing prerequisites explicitly for fixture, not natural research.",
+      "Created completed granary/campus/farm and builder on distinct visible owned clear land; not normal construction/training.",
+      "Preserved original Monument queue size1/hash-2025065568/progress0 through initial preparation; only then damaged assets."
+    ],
+    "effective_speed": {
+      "native_getter": "GameConfiguration.GetGameSpeedType",
+      "hash": 327976177,
+      "type": "GAMESPEED_STANDARD",
+      "cost_multiplier": 100,
+      "generic_GAME_SPEED_value": "GAMESPEED_ONLINE",
+      "warning": "Generic setup label does not prove effective rule; earlier Baiqi ONLINE50 prices cannot be compared as identical absolute costs."
+    }
+  },
+  "native_actions": {
+    "farm": {
+      "input": "Physical native UnitPanel repair button",
+      "operation_hash": 147469951,
+      "requests": 1,
+      "other_requests": 0,
+      "builder_moves": [
+        2,
+        0
+      ],
+      "builder_charges": [
+        3,
+        3
+      ],
+      "pillaged": [
+        true,
+        false
+      ],
+      "xy_unchanged": true,
+      "core_effect_confirmed": true
+    },
+    "granary": {
+      "input": "Physical native production row",
+      "city_requests": 1,
+      "player_requests": 0,
+      "native_prefill": 48,
+      "normal_cost": 65,
+      "remaining_production": 17,
+      "turn_progress": [
+        [
+          1,
+          48
+        ],
+        [
+          2,
+          53
+        ],
+        [
+          3,
+          56
+        ],
+        [
+          4,
+          59
+        ],
+        [
+          5,
+          62
+        ],
+        [
+          6,
+          65
+        ]
+      ],
+      "repaired_turn": 6,
+      "core_effect_confirmed": true,
+      "housing": [
+        3,
+        5
+      ],
+      "food_breakdown_at_6": "Granary explicitly contributes +1; total food8 also includes changed population/worked tiles.",
+      "completed_queue_at_6": {
+        "size": 1,
+        "hash": 0
+      }
+    },
+    "campus": {
+      "input": "Physical native production row at6",
+      "city_requests": 1,
+      "player_requests": 0,
+      "native_prefill": 47,
+      "normal_cost": 63,
+      "remaining_production": 16,
+      "turn_progress": [
+        [
+          6,
+          47
+        ],
+        [
+          7,
+          52
+        ],
+        [
+          8,
+          57
+        ],
+        [
+          9,
+          62
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "final_progress_note": "Native completion clears progress to0, not observed63/63 or67.",
+      "repaired_turn": 10,
+      "core_effect_confirmed": true,
+      "production_per_turn": 5,
+      "overflow": null,
+      "completed_queue_at_10": {
+        "size": 0,
+        "hash": 0
+      },
+      "positive_science_delta_proven": false
+    },
+    "turn_driver": {
+      "source": "Explicit test-player native callbacks; not Baiqi automation or physical end-turn credit",
+      "end_turns": 9,
+      "skips": 17,
+      "limits": "Ordinary Gorgo only,90s bound/target<=10, exact military+builder SKIP once per turn, fresh active/idle/no-modal/blocker checks. Never used on Baiqi.",
+      "manual_research": "TECH_MINING chosen physically; no automatic player choice or free progress during repair window."
+    }
+  },
+  "snapshots": [
+    {
+      "turn": "1",
+      "queue_size": "1",
+      "queue_hash": "-764771404",
+      "granary_progress": "48",
+      "granary_cost": "65",
+      "granary_pillaged": "true",
+      "campus_progress": "47",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "4",
+      "production": "5",
+      "population": "1",
+      "housing": "3",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "0",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "2",
+      "queue_size": "1",
+      "queue_hash": "-764771404",
+      "granary_progress": "53",
+      "granary_cost": "65",
+      "granary_pillaged": "true",
+      "campus_progress": "47",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "6",
+      "production": "3",
+      "population": "1",
+      "housing": "3",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "3",
+      "queue_size": "1",
+      "queue_hash": "-764771404",
+      "granary_progress": "56",
+      "granary_cost": "65",
+      "granary_pillaged": "true",
+      "campus_progress": "47",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "6",
+      "production": "3",
+      "population": "1",
+      "housing": "3",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "4",
+      "queue_size": "1",
+      "queue_hash": "-764771404",
+      "granary_progress": "59",
+      "granary_cost": "65",
+      "granary_pillaged": "true",
+      "campus_progress": "47",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "6",
+      "production": "3",
+      "population": "1",
+      "housing": "3",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "5",
+      "queue_size": "1",
+      "queue_hash": "-764771404",
+      "granary_progress": "62",
+      "granary_cost": "65",
+      "granary_pillaged": "true",
+      "campus_progress": "47",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "6",
+      "production": "3",
+      "population": "1",
+      "housing": "3",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "6",
+      "queue_size": "1",
+      "queue_hash": "0",
+      "granary_progress": "65",
+      "granary_cost": "65",
+      "granary_pillaged": "false",
+      "campus_progress": "47",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "8",
+      "production": "5",
+      "population": "2",
+      "housing": "5",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "6",
+      "queue_size": "1",
+      "queue_hash": "1910099296",
+      "granary_progress": "0",
+      "granary_cost": "65",
+      "granary_pillaged": "false",
+      "campus_progress": "47",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "8",
+      "production": "5",
+      "population": "2",
+      "housing": "5",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "7",
+      "queue_size": "1",
+      "queue_hash": "1910099296",
+      "granary_progress": "0",
+      "granary_cost": "65",
+      "granary_pillaged": "false",
+      "campus_progress": "52",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "8",
+      "production": "5",
+      "population": "2",
+      "housing": "5",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "8",
+      "queue_size": "1",
+      "queue_hash": "1910099296",
+      "granary_progress": "0",
+      "granary_cost": "65",
+      "granary_pillaged": "false",
+      "campus_progress": "57",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "8",
+      "production": "5",
+      "population": "2",
+      "housing": "5",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "9",
+      "queue_size": "1",
+      "queue_hash": "1910099296",
+      "granary_progress": "0",
+      "granary_cost": "65",
+      "granary_pillaged": "false",
+      "campus_progress": "62",
+      "campus_cost": "63",
+      "campus_pillaged": "true",
+      "food": "8",
+      "production": "5",
+      "population": "2",
+      "housing": "5",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    },
+    {
+      "turn": "10",
+      "queue_size": "0",
+      "queue_hash": "0",
+      "granary_progress": "0",
+      "granary_cost": "65",
+      "granary_pillaged": "false",
+      "campus_progress": "0",
+      "campus_cost": "63",
+      "campus_pillaged": "false",
+      "food": "8",
+      "production": "5",
+      "population": "2",
+      "housing": "5",
+      "warrior_x": "1",
+      "warrior_y": "16",
+      "warrior_moves": "2",
+      "builder_x": "3",
+      "builder_y": "16",
+      "builder_moves": "2",
+      "charges": "3",
+      "effective_speed": "GAMESPEED_STANDARD"
+    }
+  ],
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261102_V47_RepairVanillaPrepared1",
+      "bytes": 624987,
+      "sha256": "eb6da2a6322e5a39f5351d8f0c45550a74b457ae391d6b1f042d8e4cca557341",
+      "reloaded_in_this_window": false
+    },
+    {
+      "name": "Baiqi_P6_20261102_V47_RepairVanillaFinal10",
+      "bytes": 903265,
+      "sha256": "da1e3ca5de8bff0424bf0723730f08263351831094c8ce4866d3d2e43c2a706a",
+      "reloaded_in_this_window": false
+    }
+  ],
+  "log": {
+    "bytes": 29177,
+    "sha256": "4821b8b782c43157407cb20d18b29b1cca004556675c91b8105846289ef3b549",
+    "error_lines": []
+  },
+  "owner_corrections": [
+    "Core queue readers are unavailable; initial preflight errored before mutations, preserved receipt; UI readers used thereafter. Core independently verifies all three repaired flags and identities. Reader absence is not a Core gameplay failure.",
+    "Native CanStartOperation returns multiple values; passing whole call to native assert can fail on table message argument. Capture first boolean before assert.",
+    "Short physical Check clicks did not register; held250ms physical clicks opened native chooser, without altering guards.",
+    "First generic speed label was misleading; subsequent actual native getter establishes STANDARD100.",
+    "Model171 falsely described observed campus63/63 and treated missing Core queue getters as missing Core effects; prose rejected. Model172 copied old IDs, missing phase/human checks and invented plot visibility/table Members calls; not executed."
+  ],
+  "status": {
+    "ordinary_farm": "PASS",
+    "ordinary_granary": "PASS",
+    "ordinary_campus": "PASS",
+    "baiqi47_repair": "PENDING",
+    "tc012_full": "PARTIAL"
+  },
+  "historical_baiqi": [
+    {
+      "version": 17,
+      "evidence": "baiqi-p6-repair-evidence-2026-11-01.json",
+      "result": "Actual camp repaired with charges3→3, granary repair normal production; queue continuation failed then."
+    },
+    {
+      "version": 18,
+      "evidence": "baiqi-p6-recovery18-evidence-2026-11-01.json",
+      "result": "Actual campus repaired and science5.5→7.5; historical version only."
+    },
+    {
+      "version": 19,
+      "evidence": "baiqi-p6-replacement-native19-evidence-2026-11-01.json",
+      "result": "Historical completed-repair queue continuation evidence; not source47 retest."
+    }
+  ],
+  "limits": [
+    "No new production code or install change; previous390 software PASS not rerun or credited to rejected candidates.",
+    "Not identical-speed absolute price comparison with old Baiqi records.",
+    "Initial Debug assets/research and explicit ordinary civilian commands cannot count as autonomous production.",
+    "No direct paired instantaneous farm yield delta; actual farm unpillaged and food3 at6.",
+    "New save bytes/hashes verified, not reloaded in this window.",
+    "Full40 cases, positive campus yield delta in this fixture and current47 Baiqi repair continuation remain incomplete."
+  ]
+}
