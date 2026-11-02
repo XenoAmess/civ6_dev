@@ -42,6 +42,9 @@ class PathRankingTests(unittest.TestCase):
     def test_builder_unreachable_nearest_checks_next_in_rank_order(self):
         self.lua.execute('TestWorld.builderRecommendations={45,44,43};TestWorld.paths[43]=false')
         self.c.RunNow()
+        self.assertEqual(self.paths(), [(3, 43)])
+        self.assertEqual(len(self.w.unitRequests), 0)
+        self.c.RunNow()
         self.assertEqual(self.packet(), (3, 10, 2, 4))
         self.assertEqual(self.paths(), [(3, 43), (3, 44)])
 
@@ -53,6 +56,9 @@ class PathRankingTests(unittest.TestCase):
 
     def test_builder_visible_enemy_causes_wait_without_native_path_or_move(self):
         self.lua.execute('TestWorld.builderRecommendations={43,44};TestWorld.enemyPlot=43')
+        self.c.RunNow()
+        self.assertEqual(self.paths(), [])
+        self.assertEqual(len(self.w.unitRequests), 0)
         self.c.RunNow()
         self.assertEqual(self.paths(), [])
         self.assertEqual((self.w.unitRequests[1].unit, self.w.unitRequests[1].op), (3, 17))

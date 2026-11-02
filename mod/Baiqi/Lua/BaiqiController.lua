@@ -8,6 +8,7 @@ local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
+local builderSearches={}
 local districtPersonPlans = {}
 local missionaryPlans = {}
 local stopped, running = false, false
@@ -1040,10 +1041,29 @@ local function ProcessBuilder(ctx, player, state, unit)
     end
   end
   table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
-  for _,target in ipairs(targets) do
-    local step=PathStep(unit,target.plot,player,state)
-    if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+  local id,key=unit:GetID(),UnitKey(unit)
+  local search=builderSearches[id]
+  if not search or search.player~=ctx.player or search.turn~=turn or search.key~=key then
+    search={player=ctx.player,turn=turn,key=key,tested={}}
+    builderSearches[id]=search
   end
+  for i,target in ipairs(targets) do
+    if not search.tested[target.index] then
+      search.tested[target.index]=true
+      local step=PathStep(unit,target.plot,player,state)
+      if step then
+        builderSearches[id]=nil
+        return RequestCivilian(ctx,state,unit,"MOVE_TO",step)
+      end
+      -- One candidate (at most one native path) per planner invocation. Keep
+      -- only failed target indices; rebuild and rank current hints on resume.
+      for j=i+1,#targets do
+        if not search.tested[targets[j].index] then return false,true end
+      end
+      break
+    end
+  end
+  builderSearches[id]=nil
   return false
 end
 
@@ -1462,15 +1482,15 @@ end
 local function Tick(allowOrders)
   if stopped then return end
   local ctx,player,state=PlayerContext()
-  if ctx==nil then return end
+  if ctx==nil then builderSearches={};return end
   contextID=ctx.player
-  if not BaiqiPolicy.Context(ctx) then return end
+  if not BaiqiPolicy.Context(ctx) then builderSearches={};return end
   visibility=PlayersVisibility[ctx.player]
-  if visibility==nil then return end
+  if visibility==nil then builderSearches={};return end
   local current=type(Game.GetCurrentGameTurn)=="function" and Game.GetCurrentGameTurn()
   if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
-    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}
+    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
     -- turn; retaining that pending slot would strand the civilian indefinitely.
     for id,pending in pairs(pendingUnits) do
@@ -1486,6 +1506,13 @@ local function Tick(allowOrders)
     end
   end
   ReadBack(player)
+  for id,search in pairs(builderSearches) do
+    local unit=player:GetUnits():FindID(id)
+    local row=unit and GameInfo.Units[unit:GetUnitType()]
+    if not BaiqiPolicy.MatchesID(unit,id) or not row or row.UnitType~="UNIT_BUILDER"
+      or search.player~=ctx.player or search.turn~=turn or UnitKey(unit)~=search.key
+      or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) then builderSearches[id]=nil end
+  end
   -- Existing factual receipts may reconcile while the core is busy. New
   -- gameplay orders wait until both native processing readers report idle.
   if allowOrders==false or not CoreIdle() then return end
@@ -1500,7 +1527,13 @@ local function Tick(allowOrders)
       if snapshot.type=="UNIT_SETTLER" then
         if ProcessSettler(ctx,player,state,unit) then status="已提交移民操作，等待实际结果"; return end
       elseif snapshot.type=="UNIT_BUILDER" then
-        if ProcessBuilder(ctx,player,state,unit) then status="已提交建造者操作，等待实际结果"; return end
+        local submitted,continuing=ProcessBuilder(ctx,player,state,unit)
+        if submitted then status="已提交建造者操作，等待实际结果"; return end
+        if continuing==true then
+          unitEvaluated[unitKey]=nil
+          status="建造者继续检查安全路线；军队由你指挥"
+          return
+        end
       elseif snapshot.type=="UNIT_TRADER" then
         if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
       elseif snapshot.type=="UNIT_MISSIONARY" then

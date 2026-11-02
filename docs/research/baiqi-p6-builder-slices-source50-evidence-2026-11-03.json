@@ -1,0 +1,49 @@
+{
+  "schema": "civ6.baiqi-builder-slices-source50/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_parent": "88f632bcb19a9973c541497f3901d8311e27e96e",
+  "manifest_version": 50,
+  "diagnosis": "https://github.com/XenoAmess/civ6_dev/blob/88f632bcb19a9973c541497f3901d8311e27e96e/docs/research/baiqi-p6-performance-native48-evidence-2026-11-03.json",
+  "change": "ProcessBuilder validates at most one new recommendation per invocation (at most one nativeGetMoveToPathEx). Failed target indices plus player/turn/fullID-position-moves key survive only unfinishedsearch. Rebuild currenthints and sort distance/index on resume, allowingnewhigherpriorityhint. No plot/unit/authority objects retained. FinalMOVE revalidation from49 retained.",
+  "lifecycle": "Prune missing/recycled/nonbuilder/escort/ineligible units by exactfullID and freshsnapshot. Reset newturn/invalidcontext/visibility; changedmoves/position invalidateskey. Continuing search bypasses SKIP and clears unitEvaluated only for this builder. Exhaustion performs normal wait. Failed finalwrite is not alternative retry.",
+  "model193": {
+    "decision": "rejected-code",
+    "why": [
+      "Generatedloop still traversesalltargets; no failurecursoradvance/boundedreturn.",
+      "Tick leavesunitEvaluated set, so unfinishedsearchcannotresume; newturnreset restarts.",
+      "Cursor keyedonlyID, lacks requiredposition/moves/context/fullidentity lifecycle.",
+      "Proposednewturntest returns1 wheninitialturnalready1, notactualnewturn."
+    ],
+    "owner_takeover": "Owner wrote currenttypedcontinuation, testedindices and lifecycle. No candidatecodeadopted."
+  },
+  "software": {
+    "new_methods": 9,
+    "source49_new_failures": 9,
+    "source50_new": "9PASS",
+    "existing_path_ranking": "12PASS; unreachable/unsafe choicesnow requirelatercallback, resultingpriority/outcome assertions retained.",
+    "full_tests": 440,
+    "full_seconds": 83.851,
+    "full_exit": 0,
+    "owner_correction": "InitialownerTick treated RequestCivilian failure-reasonstring as continuation. First440run1FAIL3ERROR exposedlostnormalwait. Strict continuing==true fixed it; visibleenemyoldtestalso updatedforsecondcallback. Final12ranking/existingController/full440PASS. Raw failedlogs retained."
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "584e78249ebc1e7dea5301a72c9c0af80155c2459c85b55d9c22cd5b6ac2aab2",
+    "mod/Baiqi/Baiqi.modinfo": "7b9d1850a4ab432b0dd6eb0c3815aaeb289ca8da705778c9244e1c8ea1e4a386",
+    "tests/test_baiqi_builder_slices.py": "76657b7dc1de8ff255c95007afda4b57df94c159d5ea7fe6d0a5b1f4f04bec89",
+    "tests/test_baiqi_path_ranking.py": "c6f0a9aa67826f3d759bc4787ef440cdfd3b6d633b2e55ac0a3c5e9c2d267faf"
+  },
+  "package": {
+    "filename": "Baiqi-v50-final.zip",
+    "sha256": "a29ae2d61871f75ee67d248ada11e54acc44b5c2743a2317793347e5b01a78ab",
+    "installed": false
+  },
+  "runtime": "Owned48/source56c22c7 completed5windows andnormalexitrequestedaftercheckpoint.50notinstalled; source49alsohasnotbeenruninnative. Nextinstallmustincludelatestguards andnewperformancefixes withfreshSteamofflineconfirmation.",
+  "limits": [
+    "No native50 performance or lateMOVE effectPASS.",
+    "Traderfullroutevalidation still costly; current192candidate violates safealternativepriority and has not beenadopted.",
+    "One nativepathmayitselfexceed50ms; candidatecountbound doesnotguaranteealllatencybudgets.",
+    "InitialhereSafe/repair/buildqualificationsstillrerun on resume; theircostnotprovenfixed.",
+    "TC036/full40incomplete."
+  ]
+}
