@@ -9,6 +9,7 @@ local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local builderSearches={}
+local settlerSearches={}
 local districtPersonPlans = {}
 local missionaryPlans = {}
 local stopped, running = false, false
@@ -957,26 +958,44 @@ local function CreatedWorkObserved(player,pending)
   return false
 end
 
-local function SettlementSites(player, state, firstOnly)
-  local result = {}
+local function SettlementSites(player, state, firstOnly, excluded, unitID)
+  local result,candidates = {},{}
   local ai = player:GetGrandStrategicAI()
   if ai == nil then return result end
   for rank, recommendation in pairs(ai:GetSettlementRecommendations(12) or {}) do
-    local plot = Map.GetPlotByIndex(recommendation.SettlingLocation)
-    if plot and Revealed(plot) and not plot:IsWater() and not plot:IsImpassable() and not plot:IsCity()
-      and plot:GetFeatureType() == -1
-      and (plot:GetOwner() == -1 or plot:GetOwner() == contextID) and Safe(plot, player) then
-      -- Recommendations are hints. FOUND_CITY legality is checked at the destination.
-      local distantEnough = true
-      for _, owner in pairs(PlayerManager.GetAliveIDs()) do
-        for _, city in Players[owner]:GetCities():Members() do
-          if Revealed(Map.GetPlot(city:GetX(),city:GetY())) and Map.GetPlotDistance(plot:GetX(),plot:GetY(),city:GetX(),city:GetY()) <= 3 then distantEnough=false end
+    local index=recommendation.SettlingLocation
+    local reserved=reservations[index]
+    if BaiqiPolicy.Number(index) and index>=0 and index%1==0 and not (excluded and excluded[index])
+      and (unitID==nil or reserved==nil or reserved==unitID) then
+      candidates[#candidates+1]={index=index,score=100-(tonumber(rank) or 0)}
+    end
+  end
+  table.sort(candidates,function(a,b) if a.score~=b.score then return a.score>b.score end return a.index<b.index end)
+  local knownCities
+  for i,candidate in ipairs(candidates) do
+    local plot=Map.GetPlotByIndex(candidate.index)
+    if plot and plot:GetIndex()==candidate.index and Revealed(plot) and not plot:IsWater()
+      and not plot:IsImpassable() and not plot:IsCity() and plot:GetFeatureType()==-1
+      and (plot:GetOwner()==-1 or plot:GetOwner()==contextID) and Safe(plot,player) then
+      -- These coordinates are planning data for this invocation, never command
+      -- authority or a cache shared by later callbacks.
+      if knownCities==nil then
+        knownCities={}
+        for _,owner in pairs(PlayerManager.GetAliveIDs()) do
+          for _,city in Players[owner]:GetCities():Members() do
+            local x,y=city:GetX(),city:GetY()
+            if Revealed(Map.GetPlot(x,y)) then knownCities[#knownCities+1]={x=x,y=y} end
+          end
         end
       end
+      local distantEnough = true
+      for _,city in ipairs(knownCities) do
+        if Map.GetPlotDistance(plot:GetX(),plot:GetY(),city.x,city.y)<=3 then distantEnough=false;break end
+      end
       if distantEnough then
-        result[#result+1] = {index=plot:GetIndex(), score=100-(tonumber(rank) or 0), legal=true, revealed=true, safe=true,
+        result[#result+1] = {index=candidate.index, score=candidate.score, legal=true, revealed=true, safe=true,
           protected=false, plot=plot}
-        if firstOnly then return result end
+        if firstOnly then return result,i<#candidates end
       end
     end
   end
@@ -995,28 +1014,36 @@ end
 local function ProcessSettler(ctx, player, state, unit)
   local here = UnitPlot(unit)
   if here==nil then return false end -- Consumed/removed units may remain in a transient collection snapshot.
-  local sites=SettlementSites(player,state)
-  local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
-  -- Keep native hint rank and reservations, but path only the first eligible
-  -- destination. Each rejected hint is removed from this callback's local list.
-  while target and target.index~=here:GetIndex() do
-    target.step=PathStep(unit,target.plot,player,state)
-    if target.step then break end
-    target.legal=false
-    target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
+  local id,key=unit:GetID(),UnitKey(unit)
+  local search=settlerSearches[id]
+  if not search or search.player~=ctx.player or search.turn~=turn or search.key~=key then
+    search={player=ctx.player,turn=turn,key=key,tested={}}
+    settlerSearches[id]=search
   end
-  local mayFound = player:GetCities():GetCount() == 0
-    or settlementTargets[unit:GetID()] == here:GetIndex()
-    or (target ~= nil and target.index == here:GetIndex())
-  if mayFound and Safe(here, player)
+  local mayFound=player:GetCities():GetCount()==0 or settlementTargets[id]==here:GetIndex()
+  if mayFound and Safe(here,player) and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
+    settlerSearches[id]=nil
+    return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
+  end
+  local sites,more=SettlementSites(player,state,true,search.tested,id)
+  local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
+  if not mayFound and target and target.index==here:GetIndex() and Safe(here, player)
     and UnitManager.CanStartOperation(unit, UnitOperationTypes.FOUND_CITY) == true then
+    settlerSearches[id]=nil
     return RequestCivilian(ctx, state, unit, "FOUND_CITY", here)
   end
-  if target and target.step then
-    reservations[target.index] = unit:GetID()
-    settlementTargets[unit:GetID()] = target.index
-    return RequestCivilian(ctx, state, unit, "MOVE_TO", target.step)
+  if target and target.index~=here:GetIndex() then
+    search.tested[target.index]=true
+    local step=PathStep(unit,target.plot,player,state)
+    if step then
+      reservations[target.index] = id
+      settlementTargets[id] = target.index
+      settlerSearches[id]=nil
+      return RequestCivilian(ctx, state, unit, "MOVE_TO", step)
+    end
+    if more==true then return false,true end
   end
+  settlerSearches[id]=nil
   Reason("settler:"..unit:GetID(), "移民等待已探明的安全城址或路线")
   return false
 end
@@ -1503,15 +1530,15 @@ end
 local function Tick(allowOrders)
   if stopped then return end
   local ctx,player,state=PlayerContext()
-  if ctx==nil then builderSearches={};return end
+  if ctx==nil then builderSearches={};settlerSearches={};return end
   contextID=ctx.player
-  if not BaiqiPolicy.Context(ctx) then builderSearches={};return end
+  if not BaiqiPolicy.Context(ctx) then builderSearches={};settlerSearches={};return end
   visibility=PlayersVisibility[ctx.player]
-  if visibility==nil then builderSearches={};return end
+  if visibility==nil then builderSearches={};settlerSearches={};return end
   local current=type(Game.GetCurrentGameTurn)=="function" and Game.GetCurrentGameTurn()
   if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
-    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}
+    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}; settlerSearches={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
     -- turn; retaining that pending slot would strand the civilian indefinitely.
     for id,pending in pairs(pendingUnits) do
@@ -1534,6 +1561,13 @@ local function Tick(allowOrders)
       or search.player~=ctx.player or search.turn~=turn or UnitKey(unit)~=search.key
       or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) then builderSearches[id]=nil end
   end
+  for id,search in pairs(settlerSearches) do
+    local unit=player:GetUnits():FindID(id)
+    local row=unit and GameInfo.Units[unit:GetUnitType()]
+    if not BaiqiPolicy.MatchesID(unit,id) or not row or row.UnitType~="UNIT_SETTLER"
+      or search.player~=ctx.player or search.turn~=turn or UnitKey(unit)~=search.key
+      or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) then settlerSearches[id]=nil end
+  end
   -- Existing factual receipts may reconcile while the core is busy. New
   -- gameplay orders wait until both native processing readers report idle.
   if allowOrders==false or not CoreIdle() then return end
@@ -1546,7 +1580,13 @@ local function Tick(allowOrders)
     if snapshot.plot~=nil and not unitEvaluated[unitKey] and pendingUnits[unit:GetID()]==nil and BaiqiPolicy.CanCivilian(ctx,snapshot) then
       unitEvaluated[unitKey]=true
       if snapshot.type=="UNIT_SETTLER" then
-        if ProcessSettler(ctx,player,state,unit) then status="已提交移民操作，等待实际结果"; return end
+        local submitted,continuing=ProcessSettler(ctx,player,state,unit)
+        if submitted then status="已提交移民操作，等待实际结果"; return end
+        if continuing==true then
+          unitEvaluated[unitKey]=nil
+          status="移民继续检查安全路线；军队由你指挥"
+          return
+        end
       elseif snapshot.type=="UNIT_BUILDER" then
         local submitted,continuing=ProcessBuilder(ctx,player,state,unit)
         if submitted then status="已提交建造者操作，等待实际结果"; return end

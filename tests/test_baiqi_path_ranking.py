@@ -81,6 +81,9 @@ class PathRankingTests(unittest.TestCase):
         self.settler()
         self.lua.execute('TestWorld.paths[46]=false;TestWorld.settlementRecommendations={46,47,48}')
         self.c.RunNow()
+        self.assertEqual(self.paths(), [(2, 46)])
+        self.assertEqual(len(self.w.unitRequests), 0)
+        self.c.RunNow()
         self.assertEqual(self.packet(), (2, 10, 2, 4))
         self.assertEqual(self.paths(), [(2, 46), (2, 47)])
 

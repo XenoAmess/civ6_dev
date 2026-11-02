@@ -1,0 +1,65 @@
+{
+  "schema": "civ6.baiqi-settler-slices-source52/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_parent": "0b5c313f0713458809b9d0737ba41127010cb555",
+  "version": 52,
+  "native_trigger": "https://github.com/XenoAmess/civ6_dev/blob/0b5c313f0713458809b9d0737ba41127010cb555/docs/research/baiqi-p6-performance-native51-evidence-2026-11-03.json",
+  "change": "Atmostone selectedsettlementcandidate/path per ProcessSettler invocation; index-onlyfailedtargets andplayer/turn/fullID-position-moves searchkey. Strictbooleancontinuation bypasses prematureSKIP. Prune missing/recycled/ineligible/escort/currentcontext changes. Reserveonlyafteractualvalidpathchoice. Existingplannedtarget/startingcapitalfoundinglegalhere checkedbeforeanydistanthintpath.",
+  "site_producer": "Sort cheap nativeindex/score metadata first; fetch/validateplots lazily. Excludedfailedindices/currentmodule reservations filteredbeforeNativeplot/safetyreads. Reveal/terrain/owner/safety/distance validated before output. Revealedcitycoordinates retained onlywithinoneinvocation. firstOnly stopsatfirstvalid; optionalsecondbool onlysignalsunvisitedproposals, neverauthority. Current request/founding guards remainfresh.",
+  "model195": {
+    "decision": "rejected-code",
+    "why": "whileloop still checksallnewcandidates inoneinvocation; testedtopcanstopprogressonresume, requiredcontextlifecyclemissing. Max1 narrative notimplemented. No generatedcodeapplied/no claimedcandidate execution."
+  },
+  "model196": {
+    "decision": "rejected-analysis",
+    "why": "Narrativeonly, wronglycallsTradeParams localmemo crossinvocation/crossroute; sourceorderingSafe/TradeParamsmisread, no exactedits. Source52doesnotchangeRequestCivilian/TradeParams basedonit."
+  },
+  "model197": {
+    "decision": "partial-owner-corrected",
+    "adopted": "Cheapcandidategather/rank and oneinvocationknowncityreuse direction/structure.",
+    "candidate_corrected_consumer_methods": 4,
+    "candidate_corrected_failures": 2,
+    "candidate_errors": 0,
+    "owner_changes": [
+      "Use actualmodule reservations, not nonexistentstate.reservations.",
+      "Do notreturnearlywhenfirsthintunsafe/hidden; keep looking forfirstvalid.",
+      "DeferMap.GetPlotByIndex untilrankedcandidatevalidation; productionexistencequerymustnotreadlosers.",
+      "Cacheknowncitycoordinates once, notjustrevealedbooleanswhile rereadingcoordinatesforeachhint.",
+      "Structuredconditionals; nativegoto supportnotclaimed orneeded."
+    ],
+    "owner_fixture_correction": "Firstcounterincludedmockvisibility internalMaplookup asproducerNativecall, addingone falsecandidatefailure. Preserve3FAILraw, correctedvisibilityfixtureseparatesNativebinding and yields2actualcandidateFAIL. Oldproducer corrected4cases3FAIL."
+  },
+  "software": {
+    "new_settler_methods": 10,
+    "source51_settler_failures": 10,
+    "new_site_methods": 4,
+    "source51_site_failures": 3,
+    "final_new": "14PASS",
+    "existing_path_ranking": "12PASS withunreachable fallbackover2callbacks; same finalpriority/outcome.",
+    "existing_settlement_queries": "6PASS includingno loserplotlookup forproductionexistencegate.",
+    "full_tests": 463,
+    "full_seconds": 88.249,
+    "full_exit": 0,
+    "owner_integration_correction": "Initial463run1FAIL productionexistence queriedsecondplot whilegatheringproposals. ShiftedactualNativeplotlookup afterrankedmetadata, reranaffectedmethods/full463PASS. Earliercommentarymisattributedthisasinitialfoundingrejection; actualfailurewasrecruitmentexistencegate."
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "ff0043bac82dbfe5c5180560b0830f29f76e9393aa6fea605ca26461e7d43108",
+    "mod/Baiqi/Baiqi.modinfo": "06f5561361f8d02adcedcd2774672f25cdc1001ce176b5e570d3d98394bc4997",
+    "tests/test_baiqi_settler_slices.py": "5b244229c0e460cf729fe8ce564e015cbe0b8cfc8e6539f4a04bdd1a72c11723",
+    "tests/test_baiqi_settlement_sites.py": "f669389e874e80fdf38b143d078d803b3fccf3c8d879a208de85154e452c6ab9",
+    "tests/test_baiqi_path_ranking.py": "32b95608c13838e5b211a672b6d14ea95fdfe8c98fd53ee1823b580d6cfbbb81"
+  },
+  "package": {
+    "filename": "Baiqi-v52-final.zip",
+    "sha256": "8b8b96b4e0bdf4c8f70513b01f4ed80dd6aa7baf4245574deac8289e3a7132e1",
+    "installed": false
+  },
+  "runtime": "51owned5892 completedq4/normalexitrequest; remainingwindowlessprocess verified andfinished.52notinstalled/nativeverified. Native51sourcea086remainslastrun.",
+  "limits": [
+    "B_plan/TC036/full40stillincomplete.",
+    "Candidatebound appliesProcessSettler invocation, notallpossibleControllerfallback/otherunitplanners.",
+    "FirstcandidateNativepath itselfmayexceedbudget; RequestCivilian repeatedguards andtradefreshness stillnext.",
+    "Singlecallbackcitycoordinate snapshot isplanningonly; no persistentnativeobjects orauthoritycache."
+  ]
+}
