@@ -1,6 +1,6 @@
 # 外部计时工具的语义验证
 
-tools/lua/diagnostic_profile.lua 是开发者外部诊断模块，不进入可安装模组；当前游戏代码仍为47版。它返回 NewProfile(clock, capacity)，由负责人在独立诊断中选择包装对象，没有玩家入口或托管开关。
+tools/lua/diagnostic_profile.lua 是开发者外部诊断模块，不进入可安装模组；首次验证时游戏代码为47版。它返回 NewProfile(clock, capacity)，由负责人在独立诊断中选择包装对象，没有玩家入口或托管开关。
 
 state:Wrap(name, fn) 返回包装函数：原函数只调用一次，参数、所有返回值和错误对象保持原样，包括 false、中间及尾部 nil。调用计数持续增加，样本容量固定；时钟异常、非数、非有限值、倒退或差值溢出只记无效区间，不制造零耗时，也不阻断原函数。invalidClock 按调用区间计数，dropped 只记录超过容量的有效样本。
 
@@ -20,3 +20,11 @@ state:Wrap(name, fn) 返回包装函数：原函数只调用一次，参数、�
 源码指纹、实际原生标记与采用边界见[工具证据](../research/baiqi-p6-profile-tool-evidence-2026-11-02.json)。
 
 TC-036仍未通过。下一步须冻结预算／样本窗口，补齐模块覆盖及去重计时，建立匹配的十城行为关闭对照；当前11城终态和早前32／34版的Controller单独计时不能替代这些条件。历史包装会丢失 allowOrders 参数，不能直接复用到47版。
+
+## 2026-11-03：资格查询分项
+
+[diagnostic_qualification.lua](../../tools/lua/diagnostic_qualification.lua) 复用上述工厂，在负责人创建的计数代理上一次性包装 CanStartOperation／CanStartCommand。仅在实际规划观测记录存在时计时；其他调用直接透传。它不安装全局代理、不注册回调、不发送游戏操作，也不进入69文件的玩家版模组。
+
+每条规划记录分别保留查询包含耗时、有效样本数和未知区间数，状态的 qualProfile 提供无效时钟及容量丢弃统计。原函数参数、零／多返回值、中间和尾部nil及错误身份保持，原生异常不重试。时钟失败仍执行查询，记录未知；这些分项可能嵌套，不能与规划包含时间相加当作总开销。额外诊断计时本身的原生开销尚未校准，不能与旧观测器的数值换算成因果提速。
+
+10项新模块测试与10项既有工厂测试通过；本地模型203的原始绑定遗漏报告所用的qualProfile，原9项消费者测试出现1FAIL／1ERROR。负责人补接统计状态、使模块自行提供pack后，同一9项报告消费者通过。软件通过尚不代表原生54性能通过。[采用与验证证据](../research/baiqi-p6-qualification-tool-evidence-2026-11-03.json)。
