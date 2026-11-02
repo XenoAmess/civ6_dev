@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-02T01:58:52.824959+00:00",
+  "machine": "BF-202609141645",
+  "manifest_version": 42,
+  "mod_source_commit": "76a41d8d2c23806a20a4d98aa3ba251d598f054b",
+  "repository_commit_before_this_evidence": "44f7c7c7b5be6cc9548a4b6c62bb9ac855ef5ce8",
+  "pid": 3868,
+  "turn": 38,
+  "local_player": 0,
+  "primary_source": {
+    "path": "Base/Assets/UI/Panels/UnitPanel.lua",
+    "input_action": "Input.GetActionId(\"DeleteUnit\") ==15",
+    "dispatch": "Captured OnInputActionTriggered at2934 calls global OnPromptToDeleteUnit at2948; guarded CanStartCommand DELETE at2735 precedes native yes/no at2742.",
+    "cancel": "PopupDialogInGame.ShowYesNoDialog uses native cancel button/callback; physical No at627,414."
+  },
+  "native_positive_control": {
+    "warrior_full_id": 131073,
+    "builder_full_id": 1048576,
+    "raw_native_delete_eligible": {
+      "warrior": true,
+      "builder": true
+    },
+    "builder_moves": 0,
+    "interpretation": "DELETE is natively legal even with zero moves; this is not a movement-denied negative."
+  },
+  "actual_input": {
+    "extended_delete_key_events": 2,
+    "native_input_action_events": 2,
+    "native_prompt_function_entries": 2,
+    "native_confirmation_dialogs": 1,
+    "warrior_guarded_delete_eligible": true,
+    "builder_guarded_delete_eligible": false,
+    "physical_native_No_clicks": 1,
+    "target_unit_command_calls_in_UnitPanel": 0,
+    "target_unit_operation_calls_in_UnitPanel": 0,
+    "physical_shortcut_not_direct_callback": true
+  },
+  "state_unchanged": {
+    "warrior": {
+      "id": 131073,
+      "owner": 0,
+      "x": 15,
+      "y": 14,
+      "moves": 2
+    },
+    "builder": {
+      "id": 1048576,
+      "owner": 0,
+      "x": 11,
+      "y": 5,
+      "moves": 0
+    }
+  },
+  "cleanup": {
+    "all_five_function_pointers_restored_before_assertions": true,
+    "input_action_observer_removed": true
+  },
+  "fixture_failure_preserved": {
+    "first_PyDirectInput_delete_press": {
+      "native_action_events": 0,
+      "prompt_entries": 0,
+      "confirmation_dialogs": 0
+    },
+    "diagnosis": "Installed library maps delete to1235 and keyDown only adds EXTENDEDKEY for arrow keys; first attempt is not a military denial or acceptance pass.",
+    "correction": "Owned PID/exe/birth/foreground verified; Win32 extended VK_DELETE/scan0x53 down/up yields actual native action15. No model/Native business action auto-retry.",
+    "early_snapshot_label": "input134-warrior-delete-prompt misleading label retained; image actually has no prompt.",
+    "game_focus_helper_transient_assertion": 1,
+    "interpretation": "Activation assertion preceded a fresh owned foreground capture; no key was sent until focus verified."
+  },
+  "runtime": {
+    "lua_classifier_faults": 0,
+    "baiqi_error_records": 0,
+    "turns_advanced": 0
+  },
+  "steam": {
+    "online_switches_by_this_task": 0,
+    "current_client_pid": 13620,
+    "mode_change_requested": false,
+    "last_fresh_prelaunch_confirmation": "2026-11-01T20:54:26.899095+00:00"
+  },
+  "evidence": {
+    "private_log_sha256": "eac6c85f42ba03b80390f38c45af8f1dce9cecbeffc24eb2313c5ad5f36c8ca6",
+    "native_warrior_confirmation_snapshot_sha256": "69b06c20db6b60e394f2e583ded9290876267bbcd7519ceaa9d7e59cb724c3fe",
+    "builder_denied_snapshot_sha256": "0e9bdae1fd4a2fecd5e323748c3dd191877a8447e89f6a6c1f8e58578b8a48cb",
+    "raw_files_public": false
+  },
+  "local_models": {
+    "batch": "134-136",
+    "http_attempts": 3,
+    "complete_json_objects": 1,
+    "length_discarded_whole": 2,
+    "transport_retries": 0,
+    "client_peak": 3,
+    "server_concurrency": null,
+    "cache_tokens": null,
+    "134": "Length3200: whole response discarded, not read for semantic adoption; owner implemented observer from primary sources.",
+    "135": "Only exact control categories retained as analysis; vague success claims, missing requested observations and treating callback registration as complete verification not adopted. Actual primary callbacks and native steps reviewed by owner.",
+    "136": "Length3600: whole response discarded, religious scope still incomplete; no semantic failure attribution."
+  },
+  "result": "PASS: military Delete shortcut opens native confirmation, owned delegated builder shortcut does not; cancel leaves both units unchanged.",
+  "limitations": [
+    "Only this warrior/builder pair and DELETE shortcut.",
+    "No actual unit deleted.",
+    "Not full formation/military/keyboard or other-leader native matrix.",
+    "UnitPanel wrapper counts do not prove all other contexts have zero military commands.",
+    "No new gameplay source or software regression rerun needed for evidence-only package."
+  ]
+}

@@ -1,5 +1,7 @@
 # 白绮全功能状态及更新：2026-11-02（北京时间）
 
+版本42新增真实Delete快捷键对照：同档战士131073与建造者1048576原生解散资格均true，受保护UnitPanel分别true／false。实际键盘输入产生2次原生action15及2次原版提示函数进入，但只有军队打开1次原生确认框；手动点“否”后命令／操作均0，两单位身份、位置、行动力不变，全部代理／事件已先还原。首次输入工具没有产生原生事件，修正扩展Delete键后才取证，不能把首次无反应算作军队禁用。[实机证据](../research/baiqi-p6-unit-delete-native42-evidence-2026-11-02.json)。
+
 版本42冷启动同档对照通过：金币／信仰的真实控件均可见且禁用，物理点击625,512与670,512后购买面板均不出现，事件计数gold0／faith0，观察器已在断言前移除。原生水磨坊购买资格true、受保护ProductionPanel为false；金币1502.82421875、信仰53.828125、人口6、队列1／建筑7进度26及六项市民焦点不变。旧41同档两次点击各开一次空页；此次只证明购买入口修正，完整鼠标／快捷键与其他领袖原生对照仍未完成。[实机证据](../research/baiqi-p6-city-purchase-native42-evidence-2026-11-02.json)。
 
 版本42修正城市金币／信仰购买入口的真实控件名：旧41禁用名单中的PurchaseGoldCheck／PurchaseFaithCheck实际不存在，ProduceWithGoldCheck／ProduceWithFaithCheck仍启用，物理点击各打开一次空购买页。原版水磨坊金币购买资格true、受保护界面false，金币／信仰／队列进度／市民焦点均未变化；这是入口显示缺口，不是已证明的购买绕过。4项真实消费者新增后333软件通过，42冷启动同档对照待验。[源码与旧版实机证据](../research/baiqi-p6-city-purchase-source42-evidence-2026-11-02.json)。
