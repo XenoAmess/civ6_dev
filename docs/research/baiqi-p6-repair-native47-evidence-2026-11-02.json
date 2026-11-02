@@ -1,0 +1,454 @@
+{
+  "schema": "civ6.baiqi.p6-repair-native47/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "1c63cd5cdcc158e64439e2dd2915762168df4c52",
+  "runtime_version": 47,
+  "runtime_pid": 17288,
+  "steam": {
+    "pid": 13620,
+    "prelaunch_confirmed_offline_at_utc": "2026-11-02T11:03:19.461254+00:00",
+    "online_switches": 0
+  },
+  "fixture": {
+    "source_save": "Baiqi_P6_20261101_V32_TenCities85_BeforeProfile",
+    "source_save_bytes": 503809,
+    "source_save_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "local_player": 0,
+    "leader": "LEADER_BAIQI",
+    "human": true,
+    "multiplayer": false,
+    "initial_cities": 10,
+    "turns": [
+      85,
+      90
+    ],
+    "effective_speed": "GAMESPEED_ONLINE",
+    "cost_multiplier": 50,
+    "capital_id": 65536,
+    "campus_id": 458758,
+    "campus_xy": [
+      17,
+      15
+    ],
+    "camp_plot_id": 236,
+    "camp_xy": [
+      16,
+      5
+    ],
+    "builder_id": 3801095,
+    "builder_charges_before": 3,
+    "builder_moves_before": 0,
+    "builder_formation_count": 1,
+    "setup": "Only damaged three actual preexisting owned assets after full Core preflight. No new units/assets, tech/resource grants, queue/progress/move/charge resets. Intent and per-asset damage stage persisted before each setter.",
+    "original_queue": {
+      "type": "UNIT_SETTLER",
+      "hash": -798712536,
+      "size": 1,
+      "progress": 0,
+      "cost": 130,
+      "progress_after_normal_turns": [
+        [
+          85,
+          0
+        ],
+        [
+          86,
+          66
+        ],
+        [
+          87,
+          114
+        ]
+      ],
+      "completed_turn": 88,
+      "population": [
+        10,
+        9
+      ],
+      "next_settler_cost": 145,
+      "cost_note": "Next settler native cost changes after completion; no price or progress modification by fixture."
+    }
+  },
+  "ordinary_native_baseline": {
+    "evidence": "baiqi-p6-repair-baseline-native47-evidence-2026-11-02.json",
+    "commit": "ac1411446a6528375b95f546246fe8efcf0649b8",
+    "effective_speed": "GAMESPEED_STANDARD",
+    "cost_multiplier": 100,
+    "comparison": "Generic improvement repair operation and normal city-production repair behavior, using each actual native cost. Different speeds, tech state and improvement types are explicit; no identical absolute-price claim.",
+    "improvement": {
+      "type": "IMPROVEMENT_FARM",
+      "moves": [
+        2,
+        0
+      ],
+      "charges": [
+        3,
+        3
+      ]
+    },
+    "granary": {
+      "native_prefill": 48,
+      "native_cost": 65,
+      "remaining": 17
+    },
+    "campus": {
+      "native_prefill": 47,
+      "native_cost": 63,
+      "remaining": 16
+    }
+  },
+  "automatic_repair": {
+    "camp": {
+      "turn": 86,
+      "operation": 147469951,
+      "requests": 1,
+      "builder_moves": [
+        2,
+        0
+      ],
+      "builder_charges": [
+        3,
+        3
+      ],
+      "xy_unchanged": [
+        16,
+        5
+      ],
+      "pillaged": [
+        true,
+        false
+      ],
+      "ui_and_core_verified": true,
+      "plot_yields_before_reloaded85": {
+        "food": 1,
+        "production": 1,
+        "gold": 0
+      },
+      "plot_yields_after86_and90": {
+        "food": 1,
+        "production": 1,
+        "gold": 2
+      }
+    },
+    "granary": {
+      "requested_turn": 88,
+      "requests": 1,
+      "native_prefill": 24,
+      "native_cost": 32,
+      "remaining_at_queue": 8,
+      "completed_turn": 89,
+      "raw_completed_progress_before_replacement": 73,
+      "raw_completed_cost": 32,
+      "overflow": null,
+      "progress_note": "73/32 is the actual native completed progress reader before next selection; no inferred overflow amount or free-grant claim.",
+      "restored_food_tooltip": "+1来自粮仓",
+      "same_turn_before_after": {
+        "turn": 89,
+        "population": [
+          9,
+          9
+        ],
+        "food": [
+          27,
+          28
+        ],
+        "housing": [
+          10,
+          12
+        ]
+      },
+      "ui_and_core_verified": true
+    },
+    "campus": {
+      "requested_turn": 89,
+      "requests": 1,
+      "native_prefill": 45,
+      "native_cost": 61,
+      "remaining_at_queue": 16,
+      "completed_turn": 90,
+      "final_progress": 0,
+      "production_at89": 32.40234375,
+      "district_science_yield": [
+        0,
+        2
+      ],
+      "district_adjacency_science_yield": [
+        0,
+        2
+      ],
+      "city_science": [
+        12.15234375,
+        13.953125
+      ],
+      "population": [
+        9,
+        9
+      ],
+      "ui_and_core_verified": true
+    },
+    "continuation": {
+      "actual_city_requests": 3,
+      "repair_complete_head": {
+        "turn": 89,
+        "size": 1,
+        "hash": 0,
+        "mode": "VALUE_REPLACE_AT",
+        "destination": 0
+      },
+      "next_paid_item": {
+        "turn": 90,
+        "type": "BUILDING_LIGHTHOUSE",
+        "hash": -46510675,
+        "progress": 0,
+        "cost": 60,
+        "size": 1
+      },
+      "manual_domestic_orders": 0
+    },
+    "later_builder_work": {
+      "turn": 90,
+      "operation": 492889976,
+      "kind": "BUILD_IMPROVEMENT",
+      "xy": [
+        14,
+        3
+      ],
+      "charges": [
+        3,
+        2
+      ],
+      "note": "This separate later construction consumes a charge; repair at86 retained3. Never attribute final2 to repair cost."
+    }
+  },
+  "military_and_manual_inputs": {
+    "end_turns": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "army_skips": 92,
+    "first_unattributed_sink_pairs_verified": 18,
+    "later_exact_tagged_sink_pairs_verified": 74,
+    "knight_worldinput_moves": 1,
+    "diplomacy_farewell_physical": 1,
+    "raw_military_sink_calls": 92,
+    "post_tag_explicit_calls": 74,
+    "pre_tag_calls_matching_explicit_ledger": 18,
+    "post_tag_background_military_operations": 0,
+    "military_commands": 0,
+    "limits": "First observer prefix BACKGROUND was overbroad; raw18 preserved and independently paired to actual explicit test-player requests. Later narrow marker matches exact turn/id/op around one native API call, cleared on failure. No raw count reset or prefix-only zero claim."
+  },
+  "observer": {
+    "actual_update_callbacks_at_restore": 24077,
+    "builder_operations": 6,
+    "builder_commands": 0,
+    "city_operations": 3,
+    "all_original_namespaces_and_update_restored": true
+  },
+  "snapshots": [
+    {
+      "turn": "85",
+      "queue_size": "1",
+      "queue_hash": "-798712536",
+      "granary_progress": "0",
+      "granary_cost": "32",
+      "granary_exists": "true",
+      "granary_pillaged": "true",
+      "campus_progress": "0",
+      "campus_cost": "61",
+      "settler_progress": "0",
+      "settler_cost": "130",
+      "food": "30",
+      "production": "31.5",
+      "science": "12.6015625",
+      "population": "10",
+      "housing": "10"
+    },
+    {
+      "turn": "86",
+      "queue_size": "1",
+      "queue_hash": "-798712536",
+      "granary_progress": "24",
+      "granary_cost": "32",
+      "granary_exists": "true",
+      "granary_pillaged": "true",
+      "campus_progress": "45",
+      "campus_cost": "61",
+      "settler_progress": "66",
+      "settler_cost": "130",
+      "food": "30",
+      "production": "32.40234375",
+      "science": "12.6015625",
+      "population": "10",
+      "housing": "10"
+    },
+    {
+      "turn": "87",
+      "queue_size": "1",
+      "queue_hash": "-798712536",
+      "granary_progress": "24",
+      "granary_cost": "32",
+      "granary_exists": "true",
+      "granary_pillaged": "true",
+      "campus_progress": "45",
+      "campus_cost": "61",
+      "settler_progress": "114",
+      "settler_cost": "130",
+      "food": "30",
+      "production": "32.40234375",
+      "science": "12.6015625",
+      "population": "10",
+      "housing": "10"
+    },
+    {
+      "turn": "88",
+      "queue_size": "1",
+      "queue_hash": "-764771404",
+      "granary_progress": "24",
+      "granary_cost": "32",
+      "granary_exists": "true",
+      "granary_pillaged": "true",
+      "campus_progress": "45",
+      "campus_cost": "61",
+      "settler_progress": "0",
+      "settler_cost": "145",
+      "food": "27",
+      "production": "32.40234375",
+      "science": "12.15234375",
+      "population": "9",
+      "housing": "10"
+    },
+    {
+      "turn": "89",
+      "queue_size": "1",
+      "queue_hash": "-764771404",
+      "granary_progress": "24",
+      "granary_cost": "32",
+      "granary_exists": "true",
+      "granary_pillaged": "true",
+      "campus_progress": "45",
+      "campus_cost": "61",
+      "settler_progress": "0",
+      "settler_cost": "145",
+      "food": "27",
+      "production": "32.40234375",
+      "science": "12.15234375",
+      "population": "9",
+      "housing": "10"
+    },
+    {
+      "turn": "89",
+      "queue_size": "1",
+      "queue_hash": "1910099296",
+      "granary_progress": "0",
+      "granary_cost": "32",
+      "granary_exists": "true",
+      "granary_pillaged": "false",
+      "campus_progress": "45",
+      "campus_cost": "61",
+      "settler_progress": "0",
+      "settler_cost": "145",
+      "food": "28",
+      "production": "32.40234375",
+      "science": "12.15234375",
+      "population": "9",
+      "housing": "12"
+    },
+    {
+      "turn": "90",
+      "queue_size": "1",
+      "queue_hash": "-46510675",
+      "granary_progress": "0",
+      "granary_cost": "32",
+      "granary_exists": "true",
+      "granary_pillaged": "false",
+      "campus_progress": "0",
+      "campus_cost": "61",
+      "settler_progress": "0",
+      "settler_cost": "145",
+      "food": "28",
+      "production": "32.40234375",
+      "science": "13.953125",
+      "population": "9",
+      "housing": "12"
+    }
+  ],
+  "native_log": {
+    "bytes": 56483,
+    "sha256": "7f34a4f0c9cd298f43fe049efd8d4affc0bb351d0b6442fe20e0d8c226b9919c",
+    "production_error_lines": [],
+    "actual_city_requests": [
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_REQUEST\t88\t65536\t739199558\t0\t0\t24\t32\t45\t61",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_PARAM\t88\t-1254747886\t-764771404",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_PARAM\t88\t-1406149623\t369690394",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_REQUEST\t89\t65536\t739199558\t1\t0\t73\t32\t45\t61",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_PARAM\t89\t-1406149623\t-1382837362",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_PARAM\t89\t-1606574950\t0",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_PARAM\t89\t1605245423\t1910099296",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_REQUEST\t90\t65536\t739199558\t0\t0\t0\t32\t0\t61",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_PARAM\t90\t-1254747886\t-46510675",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_CITY_PARAM\t90\t-1406149623\t369690394"
+    ],
+    "actual_builder_requests": [
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_OPERATION\t86\tbuilder\t3801095\t147469951\t16\t5\t2\t3\tnil\tnil",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_OPERATION\t87\tbuilder\t3801095\t1477390184\t16\t5\t2\t3\t16\t4",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_OPERATION\t88\tbuilder\t3801095\t1477390184\t16\t4\t2\t3\t15\t3",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_OPERATION\t88\tbuilder\t3801095\t1477390184\t15\t3\t1\t3\t14\t3",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_OPERATION\t89\tbuilder\t3801095\t1477390184\t15\t3\t2\t3\t14\t3",
+      "BaiqiExecutor: P6_REPAIR173_BACKGROUND_OPERATION\t90\tbuilder\t3801095\t492889976\t14\t3\t4\t3\t14\t3"
+    ]
+  },
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261102_V47_RepairBaiqiPrepared85",
+      "bytes": 503814,
+      "sha256": "25f210d727c5ded5d4ec326865e5c5264b240ec3316e4e093df01b3d446cef03",
+      "reloaded": false
+    },
+    {
+      "name": "Baiqi_P6_20261102_V47_RepairBaiqiDamaged85",
+      "bytes": 504226,
+      "sha256": "582e6fca226913e6774e20c5f7689a36d2224990c0600d7e1167faa21f30f7bc",
+      "reloaded": true
+    },
+    {
+      "name": "Baiqi_P6_20261102_V47_RepairBaiqiFinal90",
+      "bytes": 518415,
+      "sha256": "878ce411e62d86e19bf4b437a801bdaa5ecec369793783bf2d1c95a34ef73c7b",
+      "reloaded": true
+    }
+  ],
+  "owner_corrections": [
+    "Readonly preflight called unavailable UnitManager.GetUnitFromFormation before save; corrected to actual GetFormationUnitCount, no gameplay action occurred.",
+    "Readonly status diagnostic treated actual GetStatus string as table; corrected print, no gameplay action occurred.",
+    "Owner driver initially stopped at transient research/commemoration blockers; actual automation later settled without manual selection. Revised bound waits12s with no writes on unresolved blockers and3s continuous idle; preserves120s overall cap.",
+    "Diplomacy farewell stopped driver, physically closed by test player. New military stack at88 required one WorldInput knight move275→274, readback10,6; no automatic army movement credited."
+  ],
+  "local_models": {
+    "range": [
+      173,
+      178
+    ],
+    "http_complete": 6,
+    "retries": 0,
+    "code_candidates_173_174": "Rejected invented numeric UnitType methods/city getters, invalid governance and visibility/formation methods, absent real guards; never executed.",
+    "diagnosis_175_176": "Partially adopted source attribution and transient blocker diagnosis; owner exact marker+rollback and bounded wait differ from candidate advice; no unavailable call-stack APIs.",
+    "review_177": "Overflow/no absolute-speed-price overclaim cautions retained, rejects unsupported demand for synthetic negative markers or denial of already Core-verified effects.",
+    "audit_178": "Managed whitelist list useful only after source read; unsupported merchant-settlement/trader-pillage/fisher-farmer suggestions rejected, no scope change."
+  },
+  "status": {
+    "tc012": "PASS for ordinary improvement/campus/granary sample and repair continuation in source47",
+    "full40": "INCOMPLETE"
+  },
+  "limits": [
+    "No production code change since source47; historical390 software PASS not rerun or credited to rejected model code.",
+    "Paired yield readback uses actual saved damaged85 and live86/90; no reapplication of damage or repeated repair action.",
+    "Whole-engine overflow allocation and every other improvement/unique district/wonder not inferred.",
+    "Military92 are explicit test-player operations, not autonomous military actions; first18 require ledger provenance.",
+    "Prepared85 save not reloaded; damaged85 and final90 actually warm reloaded, not cold-process reload evidence.",
+    "General performance, full input matrix and all40 cases remain unfinished."
+  ]
+}
