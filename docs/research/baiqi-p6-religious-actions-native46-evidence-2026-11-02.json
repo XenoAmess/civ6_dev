@@ -1,0 +1,207 @@
+{
+  "schema": "civ6.baiqi-religious-actions-native46/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "4411cf55526bf6393c7be18578056c6c3aa600cc",
+  "manifest_version": 46,
+  "owned_pid": 2392,
+  "installed_equal_files": 69,
+  "steam": {
+    "same_process": true,
+    "prelaunch_offline_utc": "2026-11-02T08:13:56.440747+00:00",
+    "online_switches": 0
+  },
+  "fixture": {
+    "original_own_units": "Earlier explicit Debug grants, prior physical movement package968d904.",
+    "enemy": "Only met alive major AI1, existing diplomacy warfalse, no foundedreligion. Owner Debug InitUnit created enemyapostle2293773@17,7 and set actual religion2, a valid standard row; immediately persisted custody before setter/assertions. Synthetic affiliation is not natural AI founding/acquisition proof.",
+    "precombat_ui_religion": "Core2/UI-1 initially; actual native religious preview valid and after actual combat UI2. No setterACK synchronization claim."
+  },
+  "apostle_combat": {
+    "turn": 78,
+    "unit": 4063264,
+    "enemy": 2293773,
+    "actual_native_preview_combat_type": 1580168296,
+    "equals_CombatTypes_RELIGIOUS": true,
+    "preview_damage_to_attacker": 34,
+    "preview_damage_to_defender": 27,
+    "actual_input": "Physical rightdown250ms/up, actual rightdown/up1each and1WorldInput.MoveUnitToPlot entry. No direct callback for this combat.",
+    "actual_ui_and_core": {
+      "own_xy": [
+        17,
+        6
+      ],
+      "own_moves_before": 2,
+      "own_moves_after": 0,
+      "own_damage_before": 0,
+      "own_damage_after": 27,
+      "enemy_xy": [
+        17,
+        7
+      ],
+      "enemy_damage_before": 0,
+      "enemy_damage_after": 28
+    },
+    "war_before_after": false,
+    "verdict": "PASS actual religious combat/cost sample; simulation damage not equated to actual result."
+  },
+  "inquisitor": {
+    "turn": 78,
+    "unit": 4128801,
+    "xy": [
+      16,
+      5
+    ],
+    "operation": "UNITOPERATION_REMOVE_HERESY",
+    "actual_hash": -498124375,
+    "native_eligible": true,
+    "input": "Physical native UnitPanel button680,538; tooltip visually confirmed. Observer installation failed before any pointer mutation, so no operation sink receipt. Action was not repeated.",
+    "core_before_after": {
+      "moves": [
+        3,
+        0
+      ],
+      "charges": [
+        3,
+        2
+      ],
+      "city": 393221,
+      "city_own_religion_followers": [
+        0,
+        2
+      ],
+      "city_religion0_followers": [
+        0,
+        0
+      ],
+      "city_religion2_followers": [
+        0,
+        0
+      ],
+      "city_majority": [
+        -1,
+        -1
+      ]
+    },
+    "later_ui_T79_charges": 2,
+    "verdict": "Native operation/cost/city-faith sample observed, instrumentation partial; actual foreign follower removal NOT verified."
+  },
+  "guru": {
+    "unit": 4194338,
+    "T78_reposition": {
+      "physical_attempts": 2,
+      "physical_right_messages": 0,
+      "physical_effect": "none",
+      "actual_player_action": "One explicit actual guarded MoveUnitToCursorPlot callback, not physical PASS. Normal path stopped atowncity15,5,moves3→0, retained3heals.",
+      "no_movement_reset": true
+    },
+    "normal_next_turn": "Native OnEndTurnClicked once78→79; no manual domestic/diplomacy choice. Natural guru4moves, apostledamage27 retained.",
+    "T79_reposition": {
+      "action": "Explicit actual guarded native player MoveUnitToCursorPlot callback, not physical PASS.",
+      "from": [
+        15,
+        5
+      ],
+      "to": [
+        16,
+        6
+      ],
+      "moves": [
+        4,
+        3
+      ]
+    },
+    "T79_heal": {
+      "native_hash": -1296191372,
+      "native_full_eligible": true,
+      "input": "Physical native UnitPanel treatmentbutton680,538",
+      "actual_sink_requests": 1,
+      "other_requests": 0,
+      "global_action_wrapper_entries": 0,
+      "why_wrapper0": "Registered original UI closure was already captured; sink request and physical input are actual evidence, wrapper entry is not claimed.",
+      "guru_heal_charges_ui_and_core": [
+        3,
+        2
+      ],
+      "guru_moves": [
+        3,
+        0
+      ],
+      "apostle_damage_ui_and_core": [
+        27,
+        0
+      ],
+      "apostle_moves_unchanged": 4
+    },
+    "verdict": "PASS actual player native treatment/effect/cost sample; route was normal player callback, not physical movement credit."
+  },
+  "background_windows": [
+    {
+      "turn": 78,
+      "controller_callbacks": 13621,
+      "watched_ids": [
+        4063264,
+        4128801,
+        4194338,
+        4259875,
+        4325412
+      ],
+      "operations": 0,
+      "commands": 0
+    },
+    {
+      "turn": 79,
+      "controller_callbacks": 3879,
+      "watched_ids": [
+        4063264,
+        4128801,
+        4194338
+      ],
+      "operations": 0,
+      "commands": 0
+    }
+  ],
+  "cleanup": "All WorldInput, UnitPanel, Executor pointers restored before final assertions/save; callback varargs forwarded. No production patch, war request, resource or movement reset during action tests.",
+  "owner_errors": [
+    "Observer asserted native multi-return directly; native assert rejected table secondarg before custody/wrapping. Root erroneously still ran following physical click, restore failed because no active observer. Preserved failure; no action replay.",
+    "Later readonly UI city follower query used Core-only GetNumFollowers and failed without actions. Core actual before/after plus later UI unit charges retained.",
+    "Model source excerpt initially exceeded actual XML line count before requests, preserved and bounded."
+  ],
+  "new_defect": {
+    "confirmed": "Default Units.GetUnitsInPlot returns0 on4visible religiousoccupiedplots, explicit RELIGIOUS returns1 each, same Core/UI.",
+    "layers": {
+      "PRIMARY": 0,
+      "TRADE": 1,
+      "SPY": 2,
+      "RELIGIOUS": 3,
+      "ANY": -1
+    },
+    "impact": "Controller primary-only reads miss religious unit presence for overlap/parking and at-war threat checks. Exact overlap recovery reproduction pending.",
+    "fix_status": "Under development via162/163 real local-model candidates; no source47 installed or native fix claimed.",
+    "privacy": "Do not replace background query withANY/SPY/TRADE; use primary+religious only on permitted visible plots."
+  },
+  "models160_161": "Both candidate code rejected, not executed:160 copied unavailable local helpers, wrongapostleMISSIONARY, square-neighbor loops;161 Units[id],CoreGetType inUI/unitIsHuman and no requiredfullidentity/visiblecityguards. Owner actual diagnosis/actionseparate.",
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261102_V46_ReligiousBattle78",
+      "bytes": 488935,
+      "sha256": "4497f2a58179618b933fd29074885b2ef90bfef918b520871267b02b29bf1dba",
+      "reloaded": false
+    },
+    {
+      "name": "Baiqi_P6_20261102_V46_ReligiousActions79",
+      "bytes": 489243,
+      "sha256": "e2d785ddcd1d09afd2242c1b699fcfbe20b319270a9475793d68c9df198a338d",
+      "reloaded": false
+    }
+  ],
+  "private_log_sha256": "0498ebf84e86a900bc24a002265bac6a7c3f0e3192c3bb19f317be6e4d9243ba",
+  "raw_published": false,
+  "result": "PARTIAL: actual religious combat and guru healing passed; inquisitor native effect/cost observed with instrument failure retained. New layer query defect being fixed; full40 incomplete.",
+  "limits": [
+    "No normal faith purchase/acquisition proof.",
+    "No actual enemyfaith follower purge sample.",
+    "No missionaryescort sample yet.",
+    "New saved actionresult not reloaded.",
+    "No full keyboard/input/otherleader matrix or full40 PASS."
+  ]
+}
