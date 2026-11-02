@@ -1,0 +1,86 @@
+{
+  "schema": "civ6.baiqi-fresh-newgame-native45/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "7445555bd2830e6e04c2c92473ee40e87cfd4cf5",
+  "manifest_version": 45,
+  "owned_process_pid": 6540,
+  "installed_equal_files": 65,
+  "zip_sha256": "33829b7a023afaae9c495c38702059493a5fd2006af657aeddc6708eb8c0501a",
+  "steam": {
+    "client_pid": 13620,
+    "fresh_prelaunch_offline_utc": "2026-11-02T05:59:18.302823+00:00",
+    "mode_online_switches": 0,
+    "method": "Background readonly official visible Go Online; no input/focus/move/screenshot in confirmation."
+  },
+  "setup": {
+    "saved_game": false,
+    "leader": "LEADER_BAIQI",
+    "civilization": "CIVILIZATION_CHINA",
+    "ruleset": "RULESET_EXPANSION_2",
+    "speed": "GAMESPEED_ONLINE",
+    "map_size": "MAPSIZE_DUEL",
+    "seed": 2026110245,
+    "turn": 1,
+    "debug_unit_city_or_resource_grants": 0,
+    "manual_domestic_orders": 0,
+    "endturns": 0
+  },
+  "native_sequence": [
+    "UI initial0cities/settler65536 ready/warrior131073 ready, executor waits whilebusy",
+    "Actual local PlayerTurnActivated acknowledged atT1",
+    "One backgroundFOUND_CITY atplot956",
+    "ActualUI city65536/pop1/owner0 and no settler",
+    "BackgroundMonument request then nativequeue observation",
+    "ActualCore GetCapitalCity()65536 and live settlercount0"
+  ],
+  "capital": {
+    "id": 65536,
+    "owner": 0,
+    "xy": [
+      32,
+      21
+    ],
+    "population": 1,
+    "actual_capital_binding": "Players[0]:GetCities():GetCapitalCity()",
+    "production": "BUILDING_MONUMENT",
+    "production_hash": -2025065568,
+    "production_index": 0,
+    "queue_size": 1
+  },
+  "army": {
+    "id": 131073,
+    "type": "UNIT_WARRIOR",
+    "xy_before_and_after": [
+      32,
+      22
+    ],
+    "moves_before_and_after": 2,
+    "ready": true
+  },
+  "setup_inputs": [
+    "PhysicalEsc closes actual ready LoadScreen",
+    "One verified physicalclick closes ExpansionIntro informationalwelcome; no city/productionaction"
+  ],
+  "observation_limit": "Core Members()/FindID retains consumed settler65536 with IsDelayedDeath=true, xy[-9999,-9999], moves2. UI correctlyexcludes it. Initialownerfixture incorrectly countedthis tombstone and failed; correctedlive-count predicate and actualcapitalassertions PASS. No gamefix attributed.",
+  "existing_log_limit": "unit_request_not_observed reason=unit_unavailable after actualconsumption; conservative missing-unit observation is not cityfailure. Actualcity and capital independentlyverified; no duplicatefounding.",
+  "observers": "No testobserver installed for this newgame; readonlyprobes and one native save only.",
+  "save": {
+    "name": "Baiqi_P6_20261102_V45_NewCapital1",
+    "bytes": 620371,
+    "sha256": "b9d40824b38448b73e0626ac22716bdd1148498fba92f859696453288121a59e"
+  },
+  "private_evidence": {
+    "world_scope_start": "Last MainMenu:P6_NEW45_CONFIG, excluding earlier cost76 world in same appended Lua.log",
+    "scoped_log_sha256": "0acf57ce3c1d059b60403ffd6668939f474b102f8b00b7198f782b9312cd5106",
+    "snapshot_sha256": "be3e814e531c5e6e78c6f244e8286be850e4e76727614a5cc0f279c96e047ca9",
+    "raw_published": false
+  },
+  "result": "PASS for freshBaiqi T1 automaticcapital and production with unchanged initialarmy; actualnewgame activation releasesbackgroundorders.",
+  "limits": [
+    "Not whole40 acceptance.",
+    "Otherleader nativecontrol and staticdiplomacy stillpending.",
+    "No latergrowth/expansion/productioncompletion inferred from initialqueue.",
+    "Religiouscombat actualmovement andcombat stillpending."
+  ]
+}
