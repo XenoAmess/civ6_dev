@@ -1,0 +1,153 @@
+{
+  "schema": "civ6.baiqi.p6-query-counter/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "files": {
+    "tools/lua/diagnostic_queries.lua": {
+      "bytes": 1572,
+      "sha256": "d95c3d3e869948f11c02c08c483cce34b10eba62585f57d7095330c0015d02bc"
+    },
+    "tests/test_diagnostic_queries.py": {
+      "bytes": 4996,
+      "sha256": "448c68379e24df1d74d1d30c4fd2c80f1e4b1f1c99d658056042175ebe25fca1"
+    }
+  },
+  "adoption": {
+    "model_case": 187,
+    "mode": "http-candidate",
+    "decision": "partial-owner-corrected",
+    "retained": "Native table inheritance, per-name closure binding, explicit module export, direct original-function forwarding.",
+    "owner_corrections": [
+      "Protect entire getter/counter access, including bucketmetamethod exceptions.",
+      "Reject nonfinite counter and values that cannot increase exactly; do not fabricate increments.",
+      "Precompute qualifiedkey instead ofconcatenating at everyquery."
+    ]
+  },
+  "software": {
+    "candidate_base_methods": 9,
+    "candidate_base_result": {
+      "failures": 0,
+      "errors": 2
+    },
+    "candidate_failures": "Infinity and throwing counter metamethods.",
+    "owner_final_methods": 9,
+    "owner_final_result": "PASS",
+    "fixture_change": "Finalowner run adds1e308 precisioncounter after candidate test; notclaimedidenticalconsumerbytes.",
+    "harness": "lupa.lua53 with native-unavailable table.pack/table.unpack/debug removed."
+  },
+  "native_compatibility": {
+    "runtime_source": "1c63cd5cdcc158e64439e2dd2915762168df4c52",
+    "version": 47,
+    "pid": 17288,
+    "turn": 86,
+    "context": "BaiqiExecutor",
+    "at_utc": "20261102T155319339818Z",
+    "marker": "BaiqiExecutor: P6_QUERY187_NATIVE_COMPATIBILITY_PASS\t5\t5\t2\t4",
+    "values": [
+      5,
+      5,
+      2,
+      4
+    ],
+    "scope": "Dummy native-shaped namespace and counterfaults only; all variableslocal. No realquerytables replaced, no gameplayfunction/action.",
+    "actual_game_performance_measurement": false
+  },
+  "owner_intervals": {
+    "events": [
+      {
+        "at_utc": "2026-11-02T15:31:50.927321+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "PREP_FRAGMENT_BEGIN",
+        "machine_id": "BF-202609141645",
+        "scope": "assembly-only-earlier-design-unmeasured",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:31:52.189749+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "PREP_FRAGMENT_END",
+        "machine_id": "BF-202609141645",
+        "scope": "assembly-only-earlier-design-unmeasured",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:34:47.564831+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "REVIEW_BEGIN",
+        "machine_id": "BF-202609141645",
+        "scope": "candidate-source-only",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:38:59.851331+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "REVIEW_END",
+        "machine_id": "BF-202609141645",
+        "scope": "partial-adopt-needs-finite-counter-and-protected-counter-access",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:49:48.087663+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "CORRECTION_FRAGMENT_BEGIN",
+        "machine_id": "BF-202609141645",
+        "scope": "file-edit-only-earlier-design-unmeasured",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:49:48.323825+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "CORRECTION_FRAGMENT_END",
+        "machine_id": "BF-202609141645",
+        "scope": "file-edit-only-earlier-design-unmeasured",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:49:48.523979+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "VALIDATION_BEGIN",
+        "machine_id": "BF-202609141645",
+        "scope": "software-only",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:49:53.679551+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "VALIDATION_END",
+        "machine_id": "BF-202609141645",
+        "scope": "software-only",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:53:14.971819+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "CORRECTION_FRAGMENT_BEGIN",
+        "machine_id": "BF-202609141645",
+        "scope": "exact-increment-check",
+        "exclusive_active_seconds": null
+      },
+      {
+        "at_utc": "2026-11-02T15:53:16.732903+00:00",
+        "task_id": "HTTP-CIV6-QUERYCOUNTER187",
+        "event": "CORRECTION_FRAGMENT_END",
+        "machine_id": "BF-202609141645",
+        "scope": "exact-increment-check",
+        "exclusive_active_seconds": null
+      }
+    ],
+    "review_wall_seconds": 252.2865,
+    "preparation_fragment_seconds": 1.262428,
+    "software_validation_wall_seconds": 5.155572,
+    "complete_preparation_seconds": null,
+    "complete_correction_seconds": null,
+    "exclusive_active_seconds": null,
+    "note": "Assembly/file-edit fragments exclude earlierdesign/discovery. Softwarewallincludesprocess/tooloverhead; nativechecklaterseparate. No netbenefit orcostsavinginference."
+  },
+  "limits": [
+    "Factory andsoftware/nativecompatibility notfullprofileintegration or TC036PASS.",
+    "Totalproxycalls includeoutsideRootscope and cannotstandforgamecommandN_req.",
+    "No userdata/objectboxing, originalnamespace mutation or authorityresult fabrication.",
+    "No production modfilechanged; actualMap/Units/UnitManager observation stillnext.",
+    "Earlier390mod/10profile/7manifesttests are separate actualruns, notnew416fullsuite."
+  ]
+}
