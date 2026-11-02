@@ -1,0 +1,157 @@
+{
+  "schema": "civ6.baiqi-religious-layers-native47/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "1c63cd5cdcc158e64439e2dd2915762168df4c52",
+  "manifest_version": 47,
+  "owned_pid": 17288,
+  "installed_equal_files": 69,
+  "archive_sha256": "eebb66e021a568fa25b778df5945942329822bd0df0a2569bfcf780ef7aefda4",
+  "steam": {
+    "client_pid": 13620,
+    "prelaunch_readonly_offline_utc": "2026-11-02T11:03:19.461254+00:00",
+    "confirmation_inputs_or_focus_changes_or_screenshots": false,
+    "mode_switches": 0,
+    "preparation": "Background officialmenu navigation ACK did not expose live UIA menu; physical officialheader preparation on already foreground Steam opened childpopup. Separate readonly confirmation then succeeded. Preparation was not mode evidence."
+  },
+  "cold_reload": {
+    "save": "Baiqi_P6_20261102_V46_ReligiousActions79",
+    "turn": 79,
+    "actual_ui_core": [
+      "apostle4063264@17,6/m4/damage0/spread3/religion1",
+      "inquisitor4128801@16,5/m4/spread2/religion1",
+      "guru4194338@16,6/m0/heal2/religion1"
+    ],
+    "old_unknown": "3735581 remainsARMED/religion:0:3/charges1/turn78; no replay."
+  },
+  "own_religion_overlap": {
+    "debug_creation": "Two explicit missionary grants4390941 and4456485 atsameownvisibleempty9,2, affiliation1,initial4moves/3spreads/solo. Setup notnaturalacquisitionproof.",
+    "actual_background_requests": [
+      {
+        "unit": 4390941,
+        "operation": "MOVE_TO",
+        "to": [
+          8,
+          2
+        ]
+      },
+      {
+        "unit": 4390941,
+        "operation": "MOVE_TO",
+        "to": [
+          8,
+          3
+        ]
+      },
+      {
+        "unit": 4390941,
+        "operation": "SPREAD_RELIGION"
+      },
+      {
+        "unit": 4456485,
+        "operation": "MOVE_TO",
+        "to": [
+          9,
+          3
+        ]
+      },
+      {
+        "unit": 4456485,
+        "operation": "MOVE_TO",
+        "to": [
+          10,
+          4
+        ]
+      },
+      {
+        "unit": 4456485,
+        "operation": "MOVE_TO",
+        "to": [
+          10,
+          5
+        ]
+      },
+      {
+        "unit": 4456485,
+        "operation": "MOVE_TO",
+        "to": [
+          11,
+          6
+        ]
+      }
+    ],
+    "actual_ui_core_final": [
+      "4390941@8,3/m0/spread2/religion1",
+      "4456485@11,6/m0/spread3/religion1"
+    ],
+    "journal": "4390941 OBSERVED/religion:0:5/baselinecharges3/T79",
+    "fallback_branch": "Not independently captured for this normal routing window; not credited as specific ClearCivilianOverlap branch proof."
+  },
+  "synthetic_other_religion_overlap": {
+    "debug_creation": "Two additional own missionarygrants4522022 and4587559 atsame9,2,assignedvalidstandardreligion2 notfoundedinthisworld; initial4moves/3charges. No initialmovement/charge reset or productionpatch.",
+    "actual_native_wait_eligibility": "Both false before movement; nativeMOVE_TO true. Later bothremainready3moves withSKIPloose/fullfalse/no failuretable; origin ofthiseligibility unknown, syntheticunfoundedaffiliation cannot establish naturalforeignfaithwaitbehavior.",
+    "actual_ui_core_final": [
+      "4522022@8,2/m3/spread3/religion2",
+      "4587559@9,3/m3/spread3/religion2"
+    ],
+    "requests": "Exactly2 background MOVE_TO,0spread,0commands.",
+    "specific_branch": "Actual real Update post-call for4587559 captured MOVE_TO and exact Controllerstatus automaticoverlaprelocation. Firstunit operated via anotherentry (likelyplayback); no post-Updatestatus captured forit.",
+    "verdict": "PASS actual religious-layer overlap fallback sample; native wait and natural foreignfaith acquisition/effects not validated."
+  },
+  "observer_windows": [
+    {
+      "scope": "ownfaith2missionaries plus3protectedreligiouscombat",
+      "controller_updates": 7626,
+      "primary_queries": 1435,
+      "religious_queries": 1435,
+      "other_layer_queries": 0,
+      "fixture_operations": 7,
+      "fixture_commands": 0,
+      "protected_combat_operations": 0,
+      "protected_combat_commands": 0
+    },
+    {
+      "scope": "syntheticfaith2missionaries plus3protectedreligiouscombat",
+      "controller_updates": 10372,
+      "primary_queries": 753,
+      "religious_queries": 753,
+      "other_layer_queries": 0,
+      "fixture_operations": 2,
+      "fixture_commands": 0,
+      "protected_combat_operations": 0,
+      "protected_combat_commands": 0
+    }
+  ],
+  "cleanup": "Global Units/UnitManager forwarding proxies and Controller.Update restored before assertions/saves, no native table mutation or event proxy. Allcallbackargs/returns forwarded. No direct civil move/spread action sent by owner; all4newmissionary requests came from actual background. No productionhotpatch.",
+  "other_controls": "Threeplayerreligiouscombatunits exactCorexy/moves/damageunchanged atfinalcheck; diplomacywarfalse. Othermilitarynotgloballywatchedinthiswindow.",
+  "runtime_lua_errors": 0,
+  "models164_165": {
+    "164": "Code rejected: staleT78 despiteactualT79, no primary+religious actualoccupancy query, onlyownunit snapshot; ownerpreparednewrealfixture.",
+    "165": "Code rejected: no actualphase/fullID/protected3 guards, copiednative/proxytables ratherthaninherit, custodyatend, no rollbackorprintedcounts, drops readerargs. Ownerforwardingobserverseparate."
+  },
+  "saves": [
+    {
+      "name": "Baiqi_P6_20261102_V47_ReligiousLayers79",
+      "bytes": 489347,
+      "sha256": "b6a40d887d8e438f00e02ac2d288be7fd62d6f01eb94af77ea962ad2d4052e83",
+      "reloaded": false
+    },
+    {
+      "name": "Baiqi_P6_20261102_V47_ForeignOverlap79",
+      "bytes": 489762,
+      "sha256": "ccb6d1cb5616a7372c4c0cb175237d47a8879a63d931545f9ad6895944b0357c",
+      "reloaded": false
+    }
+  ],
+  "private_scoped_log_sha256": "edda0483ff73be615125658d3a14da9490666ce79ca87b08025b4c942094650f",
+  "raw_published": false,
+  "result": "PASS bounded47coldreload, primary+religious nativequery, actualbackgroundoverlapfallback and ownfaith missionaryroute/spread; full40 incomplete.",
+  "limits": [
+    "No natural training/faithpurchase proof.",
+    "No actual missionary/army two-unit formation.",
+    "No foreignfaithnativewait conclusion from unfounded syntheticaffiliation.",
+    "At-peace theologicalthreat policy unchanged.",
+    "Saved47fixtures not yet reloaded; source46finalactions did coldreload.",
+    "No full40 completion or globalmilitary/performanceclaim."
+  ]
+}
