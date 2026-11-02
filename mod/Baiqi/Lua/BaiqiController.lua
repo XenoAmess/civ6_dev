@@ -1674,6 +1674,19 @@ local function Tick(allowOrders)
       if not BaiqiPolicy.MatchesID(unit,id) or unit:GetOwner()~=ctx.player then missionaryPlans[id]=nil end
     end
   end
+  -- Passive initialization and effect receipts still reconcile while busy.
+  -- Only ordinary movement, route and queue receipts may await an idle tick.
+  if allowOrders~=false and not CoreIdle() then
+    local effectPending=false
+    for _,pending in pairs(pendingUnits) do
+      local kind=pending.kind
+      if kind=="ACTIVATE_GREAT_PERSON" or kind=="CREATE_GREAT_WORK"
+        or kind=="FOUND_RELIGION" or kind=="SPREAD_RELIGION" then
+        effectPending=true;break
+      end
+    end
+    if not effectPending then return end
+  end
   ReadBack(player)
   for id,search in pairs(builderSearches) do
     local unit=player:GetUnits():FindID(id)
@@ -1696,53 +1709,56 @@ local function Tick(allowOrders)
     if ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
   end
   for _,unit in player:GetUnits():Members() do
-    local snapshot=UnitSnapshot(unit,state)
-    local unitKey=UnitKey(unit)
-    if snapshot.plot~=nil and not unitEvaluated[unitKey] and pendingUnits[unit:GetID()]==nil and BaiqiPolicy.CanCivilian(ctx,snapshot) then
-      unitEvaluated[unitKey]=true
-      if snapshot.type=="UNIT_SETTLER" then
-        local submitted,continuing=ProcessSettler(ctx,player,state,unit)
-        if submitted then status="已提交移民操作，等待实际结果"; return end
-        if continuing==true then
-          unitEvaluated[unitKey]=nil
-          status="移民继续检查安全路线；军队由你指挥"
-          return
+    local def=GameInfo.Units[unit:GetUnitType()]
+    if def and BaiqiPolicy.CivilianType(def.UnitType) then
+      local snapshot=UnitSnapshot(unit,state)
+      local unitKey=UnitKey(unit)
+      if snapshot.plot~=nil and not unitEvaluated[unitKey] and pendingUnits[unit:GetID()]==nil and BaiqiPolicy.CanCivilian(ctx,snapshot) then
+        unitEvaluated[unitKey]=true
+        if snapshot.type=="UNIT_SETTLER" then
+          local submitted,continuing=ProcessSettler(ctx,player,state,unit)
+          if submitted then status="已提交移民操作，等待实际结果"; return end
+          if continuing==true then
+            unitEvaluated[unitKey]=nil
+            status="移民继续检查安全路线；军队由你指挥"
+            return
+          end
+        elseif snapshot.type=="UNIT_BUILDER" then
+          local submitted,continuing=ProcessBuilder(ctx,player,state,unit)
+          if submitted then status="已提交建造者操作，等待实际结果"; return end
+          if continuing==true then
+            unitEvaluated[unitKey]=nil
+            status="建造者继续检查安全路线；军队由你指挥"
+            return
+          end
+        elseif snapshot.type=="UNIT_TRADER" then
+          if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
+        elseif snapshot.type=="UNIT_MISSIONARY" then
+          if ProcessMissionary(ctx,player,state,unit) then status="已登记传教士国内任务；等待实际结果";return end
+        elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
+          if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
+        elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
+          if ProcessCreative(ctx,player,state,unit) then status="已提交自动创作，等待实际作品";return end
+        elseif snapshot.type=="UNIT_GREAT_PROPHET" then
+          if ProcessProphet(ctx,player,state,unit) then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
         end
-      elseif snapshot.type=="UNIT_BUILDER" then
-        local submitted,continuing=ProcessBuilder(ctx,player,state,unit)
-        if submitted then status="已提交建造者操作，等待实际结果"; return end
-        if continuing==true then
-          unitEvaluated[unitKey]=nil
-          status="建造者继续检查安全路线；军队由你指挥"
-          return
+        local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
+          or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
+          or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
+        local here=not held and UnitPlot(unit)
+        if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
+          status="文职单位本回合等待安全任务；军队由你指挥";return
         end
-      elseif snapshot.type=="UNIT_TRADER" then
-        if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
-      elseif snapshot.type=="UNIT_MISSIONARY" then
-        if ProcessMissionary(ctx,player,state,unit) then status="已登记传教士国内任务；等待实际结果";return end
-      elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
-        if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
-      elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
-        if ProcessCreative(ctx,player,state,unit) then status="已提交自动创作，等待实际作品";return end
-      elseif snapshot.type=="UNIT_GREAT_PROPHET" then
-        if ProcessProphet(ctx,player,state,unit) then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
+        if not held and ClearCivilianOverlap(ctx,player,state,unit) then
+          status="文职单位自动移出重叠地块；军队由你指挥";return
+        end
       end
-      local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
-        or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
-        or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
-      local here=not held and UnitPlot(unit)
-      if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
-        status="文职单位本回合等待安全任务；军队由你指挥";return
-      end
-      if not held and ClearCivilianOverlap(ctx,player,state,unit) then
-        status="文职单位自动移出重叠地块；军队由你指挥";return
-      end
-    end
-    local waiting=pendingUnits[unit:GetID()]
-    if (not waiting and unitEvaluated[UnitKey(unit)])
-      or (waiting and waiting.persistent and (waiting.elapsed or 0)>=C.productionObservationSeconds) then
-      if RequestCivilianStandby(unit) then
-        status="文职单位本回合自动待命；原能力回执继续保留";return
+      local waiting=pendingUnits[unit:GetID()]
+      if (not waiting and unitEvaluated[UnitKey(unit)])
+        or (waiting and waiting.persistent and (waiting.elapsed or 0)>=C.productionObservationSeconds) then
+        if RequestCivilianStandby(unit) then
+          status="文职单位本回合自动待命；原能力回执继续保留";return
+        end
       end
     end
   end
