@@ -90,9 +90,10 @@ end
 -- and ordinary callers omit the cache and always read the native layers again.
 local function Safe(plot, player, cache)
   if not Revealed(plot) then return false end
+  local x,y=plot:GetX(),plot:GetY()
   for dx=-C.threatRadius,C.threatRadius do
     for dy=-C.threatRadius,C.threatRadius do
-      local near = Map.GetPlotXYWithRangeCheck(plot:GetX(), plot:GetY(), dx, dy, C.threatRadius)
+      local near = Map.GetPlotXYWithRangeCheck(x, y, dx, dy, C.threatRadius)
       if near and visibility:IsVisible(near:GetX(), near:GetY()) then
         local index=near:GetIndex()
         local safe
@@ -1066,6 +1067,40 @@ local function ProcessSettler(ctx, player, state, unit)
   return false
 end
 
+-- Match shipped UnitPanel's detailed build query. These are proposals only:
+-- resolve native indices/hashes to actual rows, then qualify the chosen Hash.
+-- Unknown shapes fall back to the original metadata scan, never to empty.
+local function BuilderImprovementCandidates(unit, plot)
+  if not UnitManager or type(UnitManager.CanStartOperation)~="function"
+    or not UnitOperationTypes or UnitOperationTypes.BUILD_IMPROVEMENT==nil
+    or UnitOperationTypes.PARAM_X==nil or UnitOperationTypes.PARAM_Y==nil
+    or not UnitOperationResults or UnitOperationResults.IMPROVEMENTS==nil
+    or not GameInfo or not GameInfo.Improvements then return nil end
+  local params={[UnitOperationTypes.PARAM_X]=plot:GetX(),[UnitOperationTypes.PARAM_Y]=plot:GetY()}
+  local ok,canStart,results=pcall(UnitManager.CanStartOperation,unit,UnitOperationTypes.BUILD_IMPROVEMENT,nil,params,true)
+  if not ok or canStart~=true or type(results)~="table" then return nil end
+  local values=results[UnitOperationResults.IMPROVEMENTS]
+  if type(values)~="table" then return nil end
+  local count,maximum=0,0
+  for key in pairs(values) do
+    if not BaiqiPolicy.Number(key) or key%1~=0 or key<1 then return nil end
+    count=count+1
+    if key>maximum then maximum=key end
+  end
+  if maximum~=count then return nil end
+  local rows,seen={},{}
+  for i=1,count do
+    local value=values[i]
+    if not BaiqiPolicy.Number(value) or value%1~=0 then return nil end
+    local row=GameInfo.Improvements[value]
+    if type(row)~="table" or not BaiqiPolicy.Number(row.Index) or row.Index<0 or row.Index%1~=0
+      or not BaiqiPolicy.Number(row.Hash) or row.Hash%1~=0 then return nil end
+    if not seen[row.Index] then rows[#rows+1]=row;seen[row.Index]=true end
+  end
+  table.sort(rows,function(a,b) return a.Index<b.Index end)
+  return rows
+end
+
 local function ProcessBuilder(ctx, player, state, unit)
   local here = UnitPlot(unit)
   if here==nil then return false end
@@ -1074,12 +1109,21 @@ local function ProcessBuilder(ctx, player, state, unit)
       return RequestCivilian(ctx, state, unit, "REPAIR", here)
     end
     local best
-    for row in GameInfo.Improvements() do
-      if here:GetImprovementType() == -1 then
-        local params = {[UnitOperationTypes.PARAM_X]=unit:GetX(), [UnitOperationTypes.PARAM_Y]=unit:GetY(),
-          [UnitOperationTypes.PARAM_IMPROVEMENT_TYPE]=row.Hash}
-        if UnitManager.CanStartOperation(unit, UnitOperationTypes.BUILD_IMPROVEMENT, nil, params) == true
-          and (best == nil or row.Index < best.Index) then best=row end
+    if here:GetImprovementType() == -1 then
+      local candidates=BuilderImprovementCandidates(unit,here)
+      if candidates then
+        for _,row in ipairs(candidates) do
+          local params={[UnitOperationTypes.PARAM_X]=unit:GetX(),[UnitOperationTypes.PARAM_Y]=unit:GetY(),
+            [UnitOperationTypes.PARAM_IMPROVEMENT_TYPE]=row.Hash}
+          if UnitManager.CanStartOperation(unit,UnitOperationTypes.BUILD_IMPROVEMENT,nil,params)==true then best=row;break end
+        end
+      else
+        for row in GameInfo.Improvements() do
+          local params = {[UnitOperationTypes.PARAM_X]=unit:GetX(), [UnitOperationTypes.PARAM_Y]=unit:GetY(),
+            [UnitOperationTypes.PARAM_IMPROVEMENT_TYPE]=row.Hash}
+          if UnitManager.CanStartOperation(unit, UnitOperationTypes.BUILD_IMPROVEMENT, nil, params) == true
+            and (best == nil or row.Index < best.Index) then best=row end
+        end
       end
     end
     if best then return RequestCivilian(ctx, state, unit, "BUILD_IMPROVEMENT", here, best.Hash) end
