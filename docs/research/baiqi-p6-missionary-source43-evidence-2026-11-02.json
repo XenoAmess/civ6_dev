@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-02T03:27:14.673863+00:00",
+  "machine": "BF-202609141645",
+  "manifest_version": 43,
+  "base_commit": "aca65dac032ca6ca7dc9995697805bd39522be3a",
+  "native_status": "Pending installation/cold launch/native functional verification.",
+  "user_clarification": "Missionary domestic spread delegated to AI. Apostles/inquisitors/gurus are player-controlled religious combat units; do not automate or block their native commands.",
+  "implementation": {
+    "scope": "Owned missionaries with own founded religion, positive native charges, unescorted, safe visible own city targets only.",
+    "planning": "Persistent city purpose across path steps, current owner/full-ID/religion/majority/visibility/native eligibility rechecked; native spread only on exact own city center.",
+    "native_operation": "GameInfo.UnitOperations.UNITOPERATION_SPREAD_RELIGION.Hash; no target params, matching actual native caller. Enum SPREAD_RELIGION is absent.",
+    "journal": "Separate BAIQI_RELIGIOUS_INTENTS_V1, strict bounded metadata, fresh Core persisted ARMED acknowledgement before sole UI RequestOperation.",
+    "proof": "Same full unit/religion with reduced actual Core and UI charges; unknown does not replay on timeout, exception or cold reload.",
+    "legacy": "Existing charged missionaries in saves lacking journal remain LEGACY_UNKNOWN, no guessed replay.",
+    "last_charge": "Disappearance without charge proof remains unknown, never fabricated OBSERVED. No segment-event completion is assumed.",
+    "manual_boundary": "Missionary added to explicit UI guard whitelist; apostle/inquisitor/guru excluded and remain native."
+  },
+  "software": {
+    "total_tests_passed": 354,
+    "reported_seconds": 73.799,
+    "new_missionary_consumer_methods": 14,
+    "new_religious_combat_guard_method": 1,
+    "preexisting_adapter_additional_methods_vs_old333": 6,
+    "scope": [
+      "Real Gameplay provider and real Controller in distinct mocked native environments, UI journal property lag, Core religion component only.",
+      "Actual Core receipt before native operation; exact hash/no params; normal charge decrement and next-turn distinct token.",
+      "Cross-context reload unknown hold; last-charge missing unit unknown; property errors/raw schema retention/256-257 bounds/legacy hold.",
+      "Post-grant changes injected inside actual successful Prepare hook: formation, city owner, recycled cityID and unit class, then reload and zero replay.",
+      "Stable route purpose, hidden/foreign/converted target rejection, missing Core binding and ID bounds.",
+      "Missionary manual sinks denied; apostle/inquisitor/guru native operation/command sinks preserved and background zero operations."
+    ],
+    "not_native_game_result": true,
+    "private_full_log_sha256": "41f4bf13354ddbf53c4dbc0f67041f6e31f7f549035972744cd7b6e468ae7cbc"
+  },
+  "local_models": {
+    "exact_method_adoptions": [
+      {
+        "task": "137",
+        "level": "one exact full method; owner supplied interface/design/contract",
+        "code_sha256": "64ffd534f128b3f5fd21c6b2540822fa92bb8fb23bc77466106d62fbcc1ed56b"
+      },
+      {
+        "task": "139",
+        "level": "one exact full method; owner supplied interface/design/contract",
+        "code_sha256": "f836fe17d75334b3f113d874984d27f761813709a352a9745dec540454af92e4"
+      }
+    ],
+    "138": "Partial Core snapshot method adoption plus owner missing-native-member checks; privately native-verified before integration.",
+    "140": "Complete stop/JSON but rejected code: Core-only unit:GetReligion used in UI, native call placed outside function while valid path always returns held, missing exact post-grant comparisons. Owner rewrote request method; model code adoption0.",
+    "141": "Complete stop/JSON but rejected: directly called Prepare before Controller rather than hooking actual internal grant boundary, would only retest preexisting ARMED hold. Owner wrote real grant hook and asserted hook count1; model code adoption0.",
+    "source_tasks137_to141": {
+      "http_attempts": 5,
+      "complete_json_objects": 5,
+      "transport_retries": 0,
+      "peak_client_in_flight": 2,
+      "server_concurrency": null,
+      "cached_tokens": null
+    },
+    "limits": "Owner supplied exact design/contracts; no independent design or owner-efficiency claim."
+  },
+  "remaining": [
+    "Cold source43 normal missionary spread/route and manual denial need native verification.",
+    "Unknown-intent cold case and last-use behavior need native evidence.",
+    "No automatic missionary production/faith purchase implemented by this package.",
+    "Other special civilian conditions and full40/performance/capture matrices remain incomplete."
+  ],
+  "files": {
+    "mod/Baiqi/Baiqi.modinfo": "e6fac2049a2ff94182e1ef14944f5a01cad542ded8f636095c8c29f908f2f645",
+    "mod/Baiqi/Lua/BaiqiPolicy.lua": "245a59677b085c5a899841e8e6bb083b30e8d2ba7eff5bf98a91e938a8b8675c",
+    "mod/Baiqi/Lua/BaiqiController.lua": "b195ddc6740e5cd6cbd5153155e76651f0d8207f1c2750d1153041969b9a582e",
+    "mod/Baiqi/Lua/BaiqiReligiousJournal.lua": "456faee0547984145ff5f83f2c6778a96161bfffb99edf252780e4e612e601a3",
+    "mod/Baiqi/Lua/BaiqiReligiousIntentGameplay.lua": "a6ed409c34fb84b50de87d8d05df0cdc706e2713c5e497d061869799b2af80c7",
+    "tests/test_baiqi_missionary.py": "9c4555e328a21e60a3fdcd70d901b5af966db4f7cfccd5bca5a513b8065abebc",
+    "tests/religious_intent_harness.py": "08d40f8c31ee076ab5c76cb609e4cff5512d92fd2beec056d33c5b24ddabbee5",
+    "tests/lua/mock_missionary.lua": "2a079e027d1de898df16872a964d9ab885d8c13d3dd13bc6ae66516fb65498dc"
+  }
+}

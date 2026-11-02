@@ -16,7 +16,7 @@ class UIGuardTests(unittest.TestCase):
         self.g, self.w = self.lua.globals(), self.lua.globals().TestGuard
 
     def test_builder_settler_trader_all_manual_command_sinks_and_hotkey_capability_blocked(self):
-        for kind in (1, 2, 3, 4, 7, 8, 9, 10, 11, 12):
+        for kind in (1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13):
             unit = self.g.TestUnit(kind, 7, kind)
             for name in ('RequestOperation', 'RequestCommand', 'CanStartOperation', 'CanStartCommand'):
                 self.assertFalse(self.g.UnitManager[name](unit, 99, self.lua.table()))
@@ -33,6 +33,13 @@ class UIGuardTests(unittest.TestCase):
             unit = self.g.TestUnit(kind, 7, kind)
             self.assertEqual(self.g.UnitManager.RequestCommand(unit, 55), (True, 'native'))
         self.assertEqual(self.w.unitCalls, 2)
+
+    def test_religious_combat_units_keep_player_native_operations_and_commands(self):
+        for kind in (14, 15, 16):
+            unit = self.g.TestUnit(kind, 7, kind)
+            for name in ('RequestOperation', 'RequestCommand', 'CanStartOperation', 'CanStartCommand'):
+                self.assertEqual(self.g.UnitManager[name](unit, 55, self.lua.table()), (True, 'native'))
+        self.assertEqual(self.w.unitCalls, 12)
 
     def test_civilian_escort_join_cannot_bypass_guard_via_army(self):
         army = self.g.TestUnit(0, 7, 9)

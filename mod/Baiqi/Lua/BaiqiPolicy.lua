@@ -65,12 +65,14 @@ end
 
 function BaiqiPolicy.CivilianType(unitType)
   return unitType=="UNIT_SETTLER" or unitType=="UNIT_BUILDER" or unitType=="UNIT_TRADER"
+    or unitType=="UNIT_MISSIONARY"
     or unitType=="UNIT_GREAT_PROPHET"
     or BaiqiPolicy.DistrictGreatPersonClass(unitType)~=nil or BaiqiPolicy.CreativeGreatPersonClass(unitType)~=nil
 end
 
 function BaiqiPolicy.ActionAllowed(unitType, operation)
   if operation=="SKIP_TURN" then return BaiqiPolicy.CivilianType(unitType) end
+  if unitType=="UNIT_MISSIONARY" then return operation=="MOVE_TO" or operation=="SPREAD_RELIGION" end
   if unitType=="UNIT_GREAT_PROPHET" then return operation=="MOVE_TO" or operation=="FOUND_RELIGION" end
   if BaiqiPolicy.DistrictGreatPersonClass(unitType) then return operation=="MOVE_TO" or operation=="ACTIVATE_GREAT_PERSON" end
   if BaiqiPolicy.CreativeGreatPersonClass(unitType) then return operation=="MOVE_TO" or operation=="ACTIVATE_GREAT_PERSON" end
@@ -80,6 +82,19 @@ function BaiqiPolicy.ActionAllowed(unitType, operation)
     return operation == "MOVE_TO" or operation == "BUILD_IMPROVEMENT" or operation == "REPAIR"
   end
   return false
+end
+
+function BaiqiPolicy.MissionaryTarget(pid, religion, unitReligion, cityOwner, cityMajority, revealed, visible)
+  if not BaiqiPolicy.Number(pid) or pid < 0 or pid % 1 ~= 0 or pid > 2147483647 then return false end
+  if not BaiqiPolicy.Number(religion) or religion < 0 or religion % 1 ~= 0 or religion > 2147483647 then return false end
+  if not BaiqiPolicy.Number(unitReligion) or unitReligion < 0 or unitReligion % 1 ~= 0 or unitReligion > 2147483647 then return false end
+  if not BaiqiPolicy.Number(cityOwner) or cityOwner < 0 or cityOwner % 1 ~= 0 or cityOwner > 2147483647 then return false end
+  if not BaiqiPolicy.Number(cityMajority) or cityMajority < -1 or cityMajority % 1 ~= 0 or cityMajority > 2147483647 then return false end
+  if revealed ~= true or visible ~= true then return false end
+  if unitReligion ~= religion then return false end
+  if cityOwner ~= pid then return false end
+  if cityMajority == religion then return false end
+  return true
 end
 
 function BaiqiPolicy.CanCivilian(ctx, unit)

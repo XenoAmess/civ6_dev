@@ -9,6 +9,7 @@ local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local districtPersonPlans = {}
+local missionaryPlans = {}
 local stopped, running = false, false
 local status = "内政托管开启；军队等待你的命令"
 local contextID, visibility
@@ -297,6 +298,142 @@ end
 local function CreativeHeld(unit)
   local stage=CreativeBridge("Inspect",contextID,unit:GetID())
   return stage~="OPEN" and stage~="OBSERVED"
+end
+
+local function ReligiousBridge(method,...)
+  local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiReligiousIntentBridge
+  if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-religious-intent-v1"
+    or type(bridge[method])~="function" then return nil,nil,"bridge_unavailable" end
+  local ok,a,b,c=pcall(bridge[method],...)
+  if ok then return a,b,c end
+  return nil,nil,"bridge_error"
+end
+local function MissionaryHeld(unit)
+  local stage=ReligiousBridge("Inspect",contextID,unit:GetID())
+  return stage~="OPEN" and stage~="OBSERVED"
+end
+
+local function MissionaryData(unit)
+  local def=GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType~="UNIT_MISSIONARY" or type(unit.GetReligionType)~="function"
+    or type(unit.GetSpreadCharges)~="function" then return nil end
+  local religion,charges=unit:GetReligionType(),unit:GetSpreadCharges()
+  if not BaiqiPolicy.Number(religion) or religion<0 or religion%1~=0 or religion>2147483647
+    or not BaiqiPolicy.Number(charges) or charges<=0 or charges%1~=0 or charges>1000000 then return nil end
+  return religion,charges
+end
+
+local function MissionaryCity(ctx,player,unit,city)
+  if not city or city:GetOwner()~=ctx.player then return nil end
+  local found=player:GetCities():FindID(city:GetID())
+  if not BaiqiPolicy.MatchesID(found,city:GetID()) or found:GetOwner()~=ctx.player then return nil end
+  local religion=MissionaryData(unit)
+  local pr,cr=player:GetReligion(),found:GetReligion()
+  local plot=Map.GetPlot(found:GetX(),found:GetY())
+  if religion==nil or not pr or not cr or not plot or not Safe(plot,player)
+    or type(pr.GetReligionTypeCreated)~="function" or type(cr.GetMajorityReligion)~="function"
+    or not BaiqiPolicy.MissionaryTarget(ctx.player,pr:GetReligionTypeCreated(),religion,found:GetOwner(),
+      cr:GetMajorityReligion(),visibility:IsRevealed(plot:GetX(),plot:GetY()),visibility:IsVisible(plot:GetX(),plot:GetY())) then
+    return nil
+  end
+  return plot
+end
+
+local function RequestMissionary(unit,city)
+  local ctx,player,state=PlayerContext()
+  if not ctx or not unit or not city then return false end
+  local religion,charges=MissionaryData(unit)
+  local here=UnitPlot(unit)
+  if religion==nil or not here or pendingUnits[unit:GetID()] then return false end
+  local unitID,cityID,x,y=unit:GetID(),city:GetID(),here:GetX(),here:GetY()
+  local operation=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SPREAD_RELIGION
+  if not operation or not BaiqiPolicy.Number(operation.Hash) or operation.Hash%1~=0 then return false end
+  local function StillEligible()
+    local freshCtx,freshPlayer,freshState=PlayerContext()
+    if not freshCtx or freshCtx.player~=ctx.player then return nil end
+    local fresh=freshPlayer:GetUnits():FindID(unitID)
+    local target=freshPlayer:GetCities():FindID(cityID)
+    if not BaiqiPolicy.MatchesID(fresh,unitID) or fresh:GetOwner()~=ctx.player
+      or not BaiqiPolicy.MatchesID(target,cityID) or target:GetOwner()~=ctx.player
+      or not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(fresh,freshState))
+      or not BaiqiPolicy.ActionAllowed("UNIT_MISSIONARY","SPREAD_RELIGION")
+      or fresh:IsReadyToMove()~=true then return nil end
+    local currentReligion,currentCharges=MissionaryData(fresh)
+    local current=UnitPlot(fresh)
+    local targetPlot=MissionaryCity(freshCtx,freshPlayer,fresh,target)
+    if currentReligion~=religion or currentCharges~=charges or not current or not targetPlot
+      or current:GetX()~=x or current:GetY()~=y or target:GetX()~=x or target:GetY()~=y
+      or not Safe(current,freshPlayer) or UnitManager.CanStartOperation(fresh,operation.Hash,nil)~=true then return nil end
+    return fresh
+  end
+  local fresh=StillEligible()
+  if not fresh then return false end
+  local id=NextRequest("missionary:"..unitID..":"..religion..":"..charges..":"..cityID)
+  if not id then return false end
+  local granted,token=ReligiousBridge("Prepare",ctx.player,unitID,religion,charges,x,y,cityID)
+  if granted~=true or type(token)~="string" then return false end
+  pendingUnits[unitID]={id=id,kind="SPREAD_RELIGION",persistent=true,token=token,religion=religion,
+    charges=charges,unitType="UNIT_MISSIONARY",cityID=cityID,from=here:GetIndex(),moves=fresh:GetMovesRemaining(),elapsed=0}
+  fresh=StillEligible()
+  if not fresh then
+    Log("missionary_intent_held","id="..id.."|unit="..unitID.."|reason=eligibility_changed_after_intent")
+    return true
+  end
+  Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=SPREAD_RELIGION|city="..cityID.."|charges="..charges)
+  -- Native row has no target mode: exact own city-center checks above are the
+  -- target boundary. Supplying arbitrary x/y does not authorize a native city.
+  local ok,err=pcall(UnitManager.RequestOperation,fresh,operation.Hash)
+  if not ok then Log("missionary_operation_unknown","id="..id.."|unit="..unitID.."|reason="..tostring(err)) end
+  return true
+end
+
+local function ProcessMissionary(ctx,player,state,unit)
+  if MissionaryHeld(unit) then
+    Reason("missionary:"..unit:GetID(),"传教士等待持久化回执；其他内政继续执行")
+    return false
+  end
+  local religion=MissionaryData(unit)
+  local here=UnitPlot(unit)
+  if religion==nil or not here then
+    Reason("missionary:"..unit:GetID(),"传教士等待合法宗教归属与传播次数")
+    return false
+  end
+  local id=unit:GetID()
+  local prior=missionaryPlans[id]
+  local city=prior and prior.religion==religion and player:GetCities():FindID(prior.cityID)
+  local target=city and BaiqiPolicy.MatchesID(city,prior.cityID) and MissionaryCity(ctx,player,unit,city)
+  if not target then
+    missionaryPlans[id]=nil
+    local candidates={}
+    for _,candidate in player:GetCities():Members() do
+      local plot=MissionaryCity(ctx,player,unit,candidate)
+      if plot then candidates[#candidates+1]={city=candidate,plot=plot,
+        distance=Map.GetPlotDistance(here:GetX(),here:GetY(),plot:GetX(),plot:GetY())} end
+    end
+    table.sort(candidates,function(a,b)
+      if a.distance~=b.distance then return a.distance<b.distance end
+      return a.city:GetID()<b.city:GetID()
+    end)
+    for _,candidate in ipairs(candidates) do
+      if candidate.plot:GetIndex()==here:GetIndex() or PathStep(unit,candidate.plot,player,state) then
+        city,target=candidate.city,candidate.plot
+        missionaryPlans[id]={cityID=city:GetID(),religion=religion}
+        break
+      end
+    end
+  end
+  if not target then
+    Reason("missionary:"..id,"传教士等待安全可见、尚需本教的国内城市")
+    return false
+  end
+  if target:GetIndex()==here:GetIndex() then
+    if RequestMissionary(unit,city) then missionaryPlans[id]=nil;return true end
+  else
+    local step=PathStep(unit,target,player,state)
+    if step and RequestCivilian(ctx,state,unit,"MOVE_TO",step) then return true end
+  end
+  Reason("missionary:"..id,"传教士等待安全国内路径或原生传播资格")
+  return false
 end
 
 local function RequestDistrictPerson(unit)
@@ -1069,6 +1206,19 @@ local function ReadBack(player)
         Log("prophet_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_and_earned_beliefs=true")
         pending.unresolvedLogged=true
       end
+    elseif pending.kind=="SPREAD_RELIGION" then
+      local stage,token=ReligiousBridge("Inspect",contextID,unitID)
+      local religion,charges
+      if unit and unit:GetOwner()==contextID then religion,charges=MissionaryData(unit) end
+      if stage=="OBSERVED" and token==pending.token and religion==pending.religion
+        and charges and charges<pending.charges then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=SPREAD_RELIGION|proof=core_and_ui_charge_decrease|charges="..charges)
+        pendingUnits[unitID]=nil
+        unitEvaluated[UnitKey(unit)]=nil
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+        Log("missionary_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_current_charge_proof=true")
+        pending.unresolvedLogged=true
+      end
     elseif pending.kind=="CREATE_GREAT_WORK" then
       local stage,token=CreativeBridge("Inspect",contextID,unitID)
       if stage=="OBSERVED" and token==pending.token and CreatedWorkObserved(player,pending) then
@@ -1227,6 +1377,10 @@ local function Tick()
       local unit=player:GetUnits():FindID(id)
       if not BaiqiPolicy.MatchesID(unit,id) or unit:GetOwner()~=ctx.player then districtPersonPlans[id]=nil end
     end
+    for id in pairs(missionaryPlans) do
+      local unit=player:GetUnits():FindID(id)
+      if not BaiqiPolicy.MatchesID(unit,id) or unit:GetOwner()~=ctx.player then missionaryPlans[id]=nil end
+    end
   end
   ReadBack(player)
   for _,city in player:GetCities():Members() do
@@ -1243,6 +1397,8 @@ local function Tick()
         if ProcessBuilder(ctx,player,state,unit) then status="已提交建造者操作，等待实际结果"; return end
       elseif snapshot.type=="UNIT_TRADER" then
         if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
+      elseif snapshot.type=="UNIT_MISSIONARY" then
+        if ProcessMissionary(ctx,player,state,unit) then status="已登记传教士国内任务；等待实际结果";return end
       elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
         if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
       elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
@@ -1252,6 +1408,7 @@ local function Tick()
       end
       local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
         or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
+        or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
       local here=not held and UnitPlot(unit)
       if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
         status="文职单位本回合等待安全任务；军队由你指挥";return
