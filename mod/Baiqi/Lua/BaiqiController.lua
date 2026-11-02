@@ -164,7 +164,7 @@ end
 
 -- Provisional route facts rank alternatives; they never authorize a command.
 -- Call again for the chosen route and validate every plot at the write boundary.
-local function TradePath(ctx,player,unit,plot)
+local function TradeEndpoints(ctx,player,unit,plot)
   if UnitManager.GetActivityType(unit)~=ActivityTypes.ACTIVITY_AWAKE then return nil end
   local trade=player:GetTrade()
   local reserved=0
@@ -174,6 +174,12 @@ local function TradePath(ctx,player,unit,plot)
   local dest=plot and Cities.GetCityInPlot(plot:GetX(),plot:GetY())
   if not origin or not dest or origin:GetOwner()~=ctx.player or dest:GetOwner()~=ctx.player
     or origin:GetID()==dest:GetID() then return nil end
+  return origin,dest
+end
+
+local function TradePath(ctx,player,unit,plot)
+  local origin,dest=TradeEndpoints(ctx,player,unit,plot)
+  if not origin then return nil end
   local path,entrances,exits=Game.GetTradeManager():GetTradeRoutePath(ctx.player,origin:GetID(),ctx.player,dest:GetID())
   if type(path)~="table" or next(path)==nil then return nil end
   local length=0
@@ -182,25 +188,32 @@ local function TradePath(ctx,player,unit,plot)
 end
 
 local function TradeParams(ctx,player,unit,plot)
+  if not Revealed(plot) then return nil end
+  local origin,dest=TradeEndpoints(ctx,player,unit,plot)
+  if not origin then return nil end
+  local originID,destID=origin:GetID(),dest:GetID()
+  local params={[UnitOperationTypes.PARAM_X0]=dest:GetX(),[UnitOperationTypes.PARAM_Y0]=dest:GetY(),
+    [UnitOperationTypes.PARAM_X1]=unit:GetX(),[UnitOperationTypes.PARAM_Y1]=unit:GetY()}
+  if UnitManager.CanStartOperation(unit,UnitOperationTypes.MAKE_TRADE_ROUTE,nil,params)~=true then return nil end
+  -- Re-read endpoints, idle/capacity and the actual native path after the last
+  -- qualification query. Earlier provisional paths never authorize this write.
   local route=TradePath(ctx,player,unit,plot)
-  if not route then return nil end
-  local origin,dest,path,entrances,exits=route.origin,route.dest,route.path,route.entrances,route.exits
-  -- Native route retrieval precedes this one-validation-only threat memo.
-  -- Each subsequent candidate or command recheck starts with new native facts.
+  if not route or route.origin:GetID()~=originID or route.dest:GetID()~=destID
+    or route.dest:GetX()~=params[UnitOperationTypes.PARAM_X0] or route.dest:GetY()~=params[UnitOperationTypes.PARAM_Y0]
+    or unit:GetX()~=params[UnitOperationTypes.PARAM_X1] or unit:GetY()~=params[UnitOperationTypes.PARAM_Y1] then return nil end
   local cache={}
-  for _,index in pairs(path) do
+  -- A native path may omit an endpoint; always validate the destination itself.
+  if not Safe(plot,player,cache) then return nil end
+  for _,index in pairs(route.path) do
     local p=Map.GetPlotByIndex(index)
     if not Safe(p,player,cache) or (p:GetOwner()~=-1 and p:GetOwner()~=ctx.player) then return nil end
   end
-  for _,portals in pairs({entrances or {},exits or {}}) do
+  for _,portals in pairs({route.entrances or {},route.exits or {}}) do
     for _,index in pairs(portals) do
       if index>=0 and not Safe(Map.GetPlotByIndex(index),player,cache) then return nil end
     end
   end
-  local params={[UnitOperationTypes.PARAM_X0]=dest:GetX(),[UnitOperationTypes.PARAM_Y0]=dest:GetY(),
-    [UnitOperationTypes.PARAM_X1]=unit:GetX(),[UnitOperationTypes.PARAM_Y1]=unit:GetY()}
-  if UnitManager.CanStartOperation(unit,UnitOperationTypes.MAKE_TRADE_ROUTE,nil,params)~=true then return nil end
-  return params,origin,dest,route.length
+  return params,route.origin,route.dest,route.length
 end
 
 local function CivilianMoveTarget(here, plot, unit, playerID)
@@ -231,7 +244,11 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local def = GameInfo.Units[unit:GetUnitType()]
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
   local unitID,unitType=unit:GetID(),def.UnitType
-  if operation~="SKIP_TURN" and not Safe(plot, Players[ctx.player]) then return false, "unsafe" end
+  if operation=="MOVE_TO" or operation=="MAKE_TRADE_ROUTE" then
+    -- Full safety follows qualification for these operations. Preserve the
+    -- cheap explored-target gate before any native qualification query.
+    if not Revealed(plot) then return false,"unsafe" end
+  elseif operation~="SKIP_TURN" and not Safe(plot, Players[ctx.player]) then return false, "unsafe" end
   local params,origin,dest = {}
   local action = UnitOperationTypes[operation]
   if operation=="SKIP_TURN" and action==nil then
@@ -254,7 +271,8 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
       params[UnitOperationTypes.PARAM_IMPROVEMENT_TYPE] = improvement
     elseif operation == "REPAIR" and plot:GetOwner() ~= ctx.player then return false, "foreign_repair" end
   end
-  if UnitManager.CanStartOperation(unit, action, nil, params) ~= true then return false, "engine_rejected" end
+  -- TradeParams already qualified and then freshly validated this exact route.
+  if operation~="MAKE_TRADE_ROUTE" and UnitManager.CanStartOperation(unit, action, nil, params) ~= true then return false, "engine_rejected" end
   local latest=PlayerContext()
   local actual=GameInfo.Units[unit:GetUnitType()]
   if not latest or not CoreIdle() or latest.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)

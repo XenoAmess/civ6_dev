@@ -15,7 +15,7 @@ class PathSafetyCacheTests(unittest.TestCase):
                      'mod/Baiqi/Lua/BaiqiPolicy.lua', 'mod/Baiqi/Lua/BaiqiPlanner.lua'):
             self.lua.execute((ROOT / name).read_text(encoding='utf-8'))
         source = (ROOT / 'mod/Baiqi/Lua/BaiqiController.lua').read_text(encoding='utf-8')
-        self.private = self.lua.execute(source + '\nreturn {Safe=Safe,PathStep=PathStep}\n')
+        self.private = self.lua.execute(source + '\nreturn {Safe=Safe,PathStep=PathStep,RequestCivilian=RequestCivilian}\n')
         self.w = self.lua.globals().TestWorld
         self.c = self.lua.globals().BaiqiController
         self.c.RunNow(False)

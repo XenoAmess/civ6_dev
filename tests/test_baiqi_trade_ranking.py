@@ -62,15 +62,19 @@ class TradeRankingTests(unittest.TestCase):
         self.assertEqual(self.routes(), [])
         self.assertEqual(len(self.w.tradePathQueries), 0)
 
-    def test_late_enemy_in_fresh_command_route_blocks_write(self):
+    def test_late_visibility_in_fresh_command_route_blocks_write(self):
         self.lua.execute('''
             TestWorld.latePathMutationCount=0
+            local chosen=0
             TestWorld.tradeOnQualify=function(q)
                 if q.x==5 and q.y==3 then
-                    TestWorld.tradeOnPath=function(dest)
-                        if dest==67 then
-                            TestWorld.tradeEnemy=45
-                            TestWorld.latePathMutationCount=TestWorld.latePathMutationCount+1
+                    chosen=chosen+1
+                    if chosen==2 then
+                        TestWorld.tradeOnPath=function(dest)
+                            if dest==67 then
+                                TestWorld.tradeHidden[43]=true
+                                TestWorld.latePathMutationCount=TestWorld.latePathMutationCount+1
+                            end
                         end
                     end
                 end
@@ -88,7 +92,7 @@ class TradeRankingTests(unittest.TestCase):
             TestWorld.tradeOnQualify=function(q)
                 if q.x==5 and q.y==3 then
                     chosen=chosen+1
-                    if chosen==3 then return false end
+                    if chosen==2 then return false end
                 end
                 return true
             end

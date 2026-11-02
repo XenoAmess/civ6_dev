@@ -1,0 +1,47 @@
+{
+  "schema": "civ6.baiqi-fresh-command-source53/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_parent": "00617cbbd60fd66e348063105f5bc3d758992978",
+  "version": 53,
+  "change": {
+    "move": "Keep explored-target/adjacency/border/visibleoccupancy beforequery, latestcontext/fullID/type/position and fullSafe/targetguard afterqualification. Remove earlierduplicate neighborhoodSafe, not the finalguard.",
+    "trade": "Split cheapTradeEndpoints fromnativeTradePath. TradeParams qualifiesonce, then rereads idle/capacity/endpoints/nativepath and comparescapturednumericcityIDs/parametercoords, verifiesexplicitdestination/wholepath/portals withonevalidation-localknownbooleanmemo. RequestCivilian skipsduplicateoutertradequalification, then retainslatestcontext/unit/position. No earlierpath/authoritygrantswrite."
+  },
+  "software_defects": "Controlledsource52 qualification mutation exposedenemy/capacity/pathchange/missing-endpointdestination safety stale atsubmission. Actualnativeoccurrence notwitnessed; softwareseam only.",
+  "model196": "Rejectedanalysis, no generatedcodeadopted. Ownerreordering/freshnessimplementation; unprovedcacheviolation narrative notused.",
+  "software": {
+    "new_methods": 7,
+    "source52_new_failures": 6,
+    "failure_classification": "4controlledunsafe-trade writes plus2intended read/qualificationcostcontracts; hiddenpreflightalreadyPASS. Not6wronggameoutcomes.",
+    "new_final": "7PASS",
+    "existing_late_move": "7PASS",
+    "existing_trade": "14PASS",
+    "existing_trade_ranking": "9PASS",
+    "full_tests": 470,
+    "full_seconds": 78.209,
+    "full_exit": 0,
+    "fixture_updates": "Test-onlyRequestCivilian export appendedtoLua consumer, notproduction. Existinglatepathfixture now injectshiddenroutecell onfreshquery aftercommandqualification toretainsemanticboundary; finalqualificationrejection now2ndselectedquery asduplicateouterremoved. Originalfailedlogs kept; no native testupgrade."
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "5f7f8d790d7f441ab74e3208779b9705fc7019be008c6bc3560c1560c3ec8600",
+    "mod/Baiqi/Baiqi.modinfo": "d1f4cbf3b46465de43725937ceb46af896a90f41fb271a4249cc98f8155b5ecc",
+    "tests/test_baiqi_command_boundaries.py": "e75dbab254a802f11e9e42ec05c6944a301729ee15e02487f2e8c806e815e143",
+    "tests/test_baiqi_path_safety_cache.py": "b769426fc47ad43b7b30af1eeea03f6423dc8734a4558b6cc3356850f207a8a8",
+    "tests/test_baiqi_trade_ranking.py": "a38d2944a1cedfe5c7891ebd19329d15fcaee09bb72ca0c5994e7895b9d23558"
+  },
+  "install": {
+    "files": 69,
+    "equal": true,
+    "zip_sha256": "8e0186786ac16f24d2ca337f0130dcc02ba0606b20c51463609f87c4bff79f0c",
+    "package_only_zip_sha256": "8e0186786ac16f24d2ca337f0130dcc02ba0606b20c51463609f87c4bff79f0c"
+  },
+  "native53": "PENDING coldstart; includes52settler/sitework nevernativeverified. Lastnative51q4remainsFAIL. No onlineSteam switches.",
+  "limits": [
+    "No native53speedup/B_plan/TC036/full40PASS.",
+    "Readonlyqualification reordered; allactualcommand submissions stillnormalcost/normalnative APIs.",
+    "Nativegetpath itselfmay exceedbudget; no fixedpercentgain.",
+    "CurrentnativeRenderer/Steam menu confirmation unavailability mustnotbeclaimedmodechange.",
+    "Otherability/build/repair commandflows notpromotedtofullpostqualificationmatrix."
+  ]
+}
