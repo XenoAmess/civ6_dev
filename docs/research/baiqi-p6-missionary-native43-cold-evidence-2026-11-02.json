@@ -1,0 +1,84 @@
+{
+  "schema": "civ6.baiqi-missionary-native43-cold/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "437030cfdf93a85e64b1c3955c45dab91b3e00fd",
+  "manifest_version": 43,
+  "previous_run": "https://github.com/XenoAmess/civ6_dev/blob/7cf7a687192e81fe469e1fbe762e4b3370032458/docs/research/baiqi-p6-missionary-native43-precold-evidence-2026-11-02.json",
+  "cold_process": {
+    "old_pid": 17156,
+    "new_pid": 16700,
+    "new_process_birth_epoch": 1793593170.306078,
+    "source_hot_patch": false,
+    "installed_files_byte_equal_source": 65
+  },
+  "steam": {
+    "client_pid": 13620,
+    "fresh_prelaunch_offline_utc": "2026-11-02T04:18:15.241610+00:00",
+    "method": "background readonly visible official Go Online menu, no input/focus/window move/screenshot in confirmation",
+    "online_switches": 0,
+    "navigation": "After old game normal exit, official menu click on already foreground verified Steam main; measured rectangle unchanged, no activation or screenshot. Unavailable prior queries retained, not interpreted online/offline."
+  },
+  "fixture_fingerprints": [
+    {
+      "fixture": "Baiqi_P6_20261101_Cold26_AutoReligion75",
+      "bytes": 482559,
+      "sha256": "40883010bc7e2cc0514289f080a8797c1d66bfa3a87bb732ed1fde3e8b4d33f1"
+    },
+    {
+      "fixture": "Baiqi_P6_20261102_V43_MissionarySetup75",
+      "bytes": 483801,
+      "sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88"
+    },
+    {
+      "fixture": "Baiqi_P6_20261102_V43_MissionaryArmed76",
+      "bytes": 484934,
+      "sha256": "58d570248fa8917acd6f364e4dbb3c6f68e1722eef8933bfcbc555852a92ff9f"
+    }
+  ],
+  "turn": 76,
+  "single_player": true,
+  "leader": "LEADER_BAIQI",
+  "owner": 0,
+  "before_and_after": {
+    "unit_full_id": 3735581,
+    "city_full_id": 65536,
+    "xy": [
+      16,
+      14
+    ],
+    "faith": 1,
+    "charges": 3,
+    "moves": 4,
+    "city_faith_followers": 0,
+    "journal": {
+      "version": 1,
+      "owner": 0,
+      "serial": 1,
+      "stage": "ARMED",
+      "token": "religion:0:1",
+      "baseline_charges": 3
+    }
+  },
+  "observed_window": {
+    "real_controller_update_callbacks": 621,
+    "target_unit_operations": 0,
+    "target_unit_commands": 0,
+    "repeat_prepare_granted": false,
+    "repeat_prepare_reason": "prior_intent",
+    "repeat_prepare_token": "religion:0:1",
+    "serial_after_repeat_prepare": 1,
+    "city_nonempty_production_hashes": 9
+  },
+  "cleanup": "3 background observer function pointers restored before assertions; actual Core metadata, charges and followers and actual UI9queues checked independently. No synthetic event, metadata reset, refunded cost, force end-turn, unit movement or spread was injected.",
+  "result": "PASS for this actual persisted unknown missionary intent across a new game process, same unit and baseline preserved; target native commands not replayed.",
+  "log_sha256": "0bfb64f7bc8e8811afa797b84c68cb6ae21a19a47418a77acb28975c77e9d36c",
+  "private_raw_public": false,
+  "limits": [
+    "Actual automatic spread/movement happy-path effect still pending at this freeze.",
+    "No full40 case pass or all-unit input matrix.",
+    "No last-charge disappearance completion inferred.",
+    "Fixture created with Debug and initial activity restored naturally by one native turn; not ordinary unit training or faith-purchase proof."
+  ],
+  "next": "Load independent Setup75 and run native75to76 with pass-through observer; require actual charges and followers plus Core OBSERVED before success."
+}

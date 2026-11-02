@@ -117,3 +117,7 @@ python tools\build_mod.py --install
 ## 2026-11-02：43版传教士原生边界初验
 
 43版实机已验证两个窄边界：原生允许Delete／传播的传教士，实际物理Delete触发1个原生输入和提示入口，但guard拒绝、0确认框／0写命令；一次真实后台传播在Core先取得ARMED回执后被测试拦截，1458次实际回调无重发，次数3／行动4／本城信徒0及token不变，9城生产仍非空。Debug新单位的HOLD状态在正常75→76回合后解除，没有改活动状态或移动力。ARMED已保存；冷重启防重、真正自动传播效果与宗教战斗单位原生对照仍待验。[原生初验证据](../research/baiqi-p6-missionary-native43-precold-evidence-2026-11-02.json)。
+
+## 2026-11-02：43版传教士冷恢复原生通过
+
+43版未知传播意图已完成真正冷重启验收：新进程16700加载实际ARMED存档，621次真实Controller更新中该传教士0操作／0命令；完整ID、宗教1、次数3、行动4、城市信徒0、ARMED及religion:0:1／serial1全部保持。再次Prepare明确prior_intent拒绝，9城生产Hash仍非零；三个观察代理先还原再断言。正常传播效果、自动移动及全40项仍未完成。[冷重启证据及存档指纹](../research/baiqi-p6-missionary-native43-cold-evidence-2026-11-02.json)。
