@@ -32,7 +32,12 @@ function plot:IsImprovementPillaged() return false end
 function plot:GetImprovementType() return -1 end
 Map={GetPlotByIndex=function() return plot end,GetPlot=function() return plot end,
   GetPlotXYWithRangeCheck=function() return nil end,GetCityPlots=function() return {GetPurchasedPlots=function() return {} end} end}
-Units={GetUnitsInPlot=function() return {} end}
+MapLayers={PRIMARY=0,TRADE=1,SPY=2,RELIGIOUS=3,ANY=-1}
+Units={GetUnitsInPlot=function() return {} end,
+ GetUnitsInPlotLayerID=function(plot,layer)
+  assert(layer==MapLayers.RELIGIOUS,"Background read a private map layer")
+  return {}
+ end}
 local queue={}
 function queue:GetSize() return W.queueSize or 0 end
 function queue:GetCurrentProductionTypeHash() return 0 end

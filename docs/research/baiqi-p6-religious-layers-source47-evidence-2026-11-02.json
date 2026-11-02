@@ -1,0 +1,45 @@
+{
+  "schema": "civ6.baiqi-religious-layers-source47/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_parent": "77489d4cb4ab05e9105467bb7ced5eea80d1dcff",
+  "manifest_version": 47,
+  "source_file_sha256": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "2100c95e46e92ee9ad8e9cfbf95562026940a8c5ff7c0e64878c0f411e12fc17",
+    "mod/Baiqi/Baiqi.modinfo": "68d7ea8201738b5c59f283e502ab971cb793669c413ac3237c345b2dac98359f",
+    "tests/lua/mock_world.lua": "266b3709a248af9ae9ec0703ade839edc824925c8b85640933917f9fdf49df08",
+    "tests/test_baiqi_religious_layers.py": "01020c7dd16eeb6fc9506ab9c19575ce87f050b0df09f259ea0e28182bc81025"
+  },
+  "native_defect_source46": "https://github.com/XenoAmess/civ6_dev/blob/77489d4cb4ab05e9105467bb7ced5eea80d1dcff/docs/research/baiqi-p6-religious-actions-native46-evidence-2026-11-02.json",
+  "change": "Four Controller threat, MOVE_TO occupancy, overlap and empty parking consumers use combined primary+religious queries on currently visible revealed plots. Native lists unchanged. Missing binding/enum or non-table result is unknown and cannot authorize movement. No ANY/SPY/TRADE query or religiouscombat/diplomacy automation.",
+  "software": {
+    "new_behavior_methods": 10,
+    "before_fix": "10 methods,9 reported assertion failures including subtests; religious-only overlap missed, occupied parking/threat/missing-query conditions erroneously authorize relocation. Four methods passed.",
+    "after_fix": "10/10 new behavior methods PASS and7/7 existing overlap methods PASS.",
+    "full_suite_tests": 390,
+    "full_suite_seconds": 65.711,
+    "full_suite_exit": 0,
+    "scope": "Mock native seam exercises real Controller; not native game effects."
+  },
+  "model162": {
+    "adoption": "partial-owner-corrected",
+    "actual_consumer_replacements": 4,
+    "owner_changes": "Rewrote helper with actualvisible, bindingtype, missingMapLayers/numericenum, table-result guards and pairs merge; removed ID-only dedup (same ID on other owners must not hide a threat); named emptyplot helper instead of anonymous percheck closure."
+  },
+  "model163": {
+    "adoption": "rejected",
+    "why": "Python nil/undefined Lua self.w, zero-based Lua indexing, invalid unit row, old primary overlap confounds targetnewcase, wrong expectations. Not executed. Owner new10behavior methods separately authored."
+  },
+  "install": {
+    "files": 69,
+    "all_equal": true,
+    "archive_sha256": "eebb66e021a568fa25b778df5945942329822bd0df0a2569bfcf780ef7aefda4"
+  },
+  "native47": "PENDING cold load and actual religious overlap/occupancy regression; source46 action proof is historical, not upgraded to47.",
+  "steam": "Old owned PID2392 exited naturally via native OnExitGame; no forced termination. Fresh readonly current instance offline confirmation11:01:15UTC obtained, no mode change.47 game not launched at evidence creation.",
+  "limits": [
+    "Full40 incomplete.",
+    "No at-peace theologicalthreat policy added; existing at-war threat semantics retained.",
+    "No missionaryescort or foreignfaith removal conclusion."
+  ]
+}

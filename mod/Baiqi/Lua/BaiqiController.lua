@@ -62,6 +62,27 @@ local function Revealed(plot)
   return plot ~= nil and visibility ~= nil and visibility:IsRevealed(plot:GetX(), plot:GetY()) == true
 end
 
+-- Default native plot queries omit the religious layer. Never query spy/trade
+-- layers or hidden plots, and do not interpret unavailable layer data as empty.
+local function GetVisibleUnits(plot)
+  if not Revealed(plot) or not visibility:IsVisible(plot:GetX(),plot:GetY()) then return nil end
+  if not Units or type(Units.GetUnitsInPlot)~="function"
+    or type(Units.GetUnitsInPlotLayerID)~="function"
+    or not MapLayers or type(MapLayers.RELIGIOUS)~="number" then return nil end
+  local primary=Units.GetUnitsInPlot(plot)
+  local religious=Units.GetUnitsInPlotLayerID(plot,MapLayers.RELIGIOUS)
+  if type(primary)~="table" or type(religious)~="table" then return nil end
+  local result={}
+  for _,unit in pairs(primary) do result[#result+1]=unit end
+  for _,unit in pairs(religious) do result[#result+1]=unit end
+  return result
+end
+
+local function EmptyVisiblePlot(plot)
+  local units=GetVisibleUnits(plot)
+  return units~=nil and next(units)==nil
+end
+
 -- Safety reads only currently visible units. No hidden-unit threat information.
 local function Safe(plot, player)
   if not Revealed(plot) then return false end
@@ -69,7 +90,9 @@ local function Safe(plot, player)
     for dy=-C.threatRadius,C.threatRadius do
       local near = Map.GetPlotXYWithRangeCheck(plot:GetX(), plot:GetY(), dx, dy, C.threatRadius)
       if near and visibility:IsVisible(near:GetX(), near:GetY()) then
-        for _, other in pairs(Units.GetUnitsInPlot(near) or {}) do
+        local units = GetVisibleUnits(near)
+        if units == nil then return false end
+        for _, other in ipairs(units) do
           if other:GetOwner() ~= contextID and player:GetDiplomacy():IsAtWarWith(other:GetOwner()) then return false end
         end
       end
@@ -182,7 +205,9 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     if Map.GetPlotDistance(here:GetX(), here:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
     if plot:GetOwner() ~= -1 and plot:GetOwner() ~= ctx.player then return false, "foreign_border" end
     if visibility:IsVisible(plot:GetX(),plot:GetY()) then
-      for _,other in pairs(Units.GetUnitsInPlot(plot) or {}) do
+      local units = GetVisibleUnits(plot)
+      if units == nil then return false, "unit_query_unavailable" end
+      for _,other in ipairs(units) do
         local row=GameInfo.Units[other:GetUnitType()]
         if other:GetOwner()==ctx.player and other:GetID()~=unit:GetID() and row
           and (row.UnitType=="UNIT_SETTLER" or row.UnitType=="UNIT_BUILDER") then
@@ -282,7 +307,9 @@ local function ClearCivilianOverlap(ctx,player,state,unit)
     or here:GetOwner()~=ctx.player or not visibility:IsVisible(here:GetX(),here:GetY())
     or not Safe(here,player) then return false end
   local overlap=false
-  for _,other in pairs(Units.GetUnitsInPlot(here) or {}) do
+  local units = GetVisibleUnits(here)
+  if units == nil then return false end
+  for _,other in ipairs(units) do
     local row=GameInfo.Units[other:GetUnitType()]
     if other:GetID()~=unit:GetID() and other:GetOwner()==ctx.player and row
       and (BaiqiPolicy.CivilianType(row.UnitType) or row.FormationClass=="FORMATION_CLASS_CIVILIAN") then overlap=true;break end
@@ -293,7 +320,7 @@ local function ClearCivilianOverlap(ctx,player,state,unit)
     local plot=Map.GetAdjacentPlot(here:GetX(),here:GetY(),direction)
     if plot and plot:GetOwner()==ctx.player and not plot:IsWater() and not plot:IsImpassable()
       and visibility:IsVisible(plot:GetX(),plot:GetY()) and Safe(plot,player)
-      and next(Units.GetUnitsInPlot(plot) or {})==nil then
+      and EmptyVisiblePlot(plot) then
       local reserved=false
       for _,pending in pairs(pendingUnits) do
         if pending.kind=="MOVE_TO" and pending.plot==plot:GetIndex() then reserved=true;break end
