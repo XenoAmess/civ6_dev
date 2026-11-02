@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-02T02:03:59.540620+00:00",
+  "machine": "BF-202609141645",
+  "manifest_version": 42,
+  "mod_source_commit": "76a41d8d2c23806a20a4d98aa3ba251d598f054b",
+  "repository_commit_before_this_evidence": "a12176abbd57266539a7c7d1cbeb5fd21261a7d8",
+  "pid": 3868,
+  "turn": 38,
+  "local_player": 0,
+  "city_id": 65536,
+  "actual_disabled_controls_and_screen_clicks": {
+    "ChangeProductionCheck": [
+      716,
+      512
+    ],
+    "PurchaseTileCheck": [
+      528,
+      512
+    ],
+    "ManageCitizensCheck": [
+      575,
+      512
+    ],
+    "FoodCheck": [
+      487,
+      551
+    ],
+    "ProductionCheck": [
+      565,
+      551
+    ],
+    "GoldCheck": [
+      785,
+      551
+    ],
+    "ScienceCheck": [
+      639,
+      551
+    ],
+    "CultureCheck": [
+      407,
+      551
+    ],
+    "FaithCheck": [
+      710,
+      551
+    ]
+  },
+  "negative_observations": {
+    "physical_clicks": 9,
+    "CityPanel_ProductionOpen": 0,
+    "CityPanel_ProductionClose": 0,
+    "OnCheckYield_calls": 0,
+    "SetInterfaceMode_CITY_MANAGEMENT_calls": 0,
+    "own_city_RequestCommand_calls": 0,
+    "production_panel_visible_before": false,
+    "production_panel_visible_after": false,
+    "interface_mode_before": -1615000917,
+    "interface_mode_after": -1615000917
+  },
+  "independent_inspection_positive": {
+    "control": "ToggleOverviewPanel",
+    "disabled": false,
+    "screen_click": [
+      471,
+      512
+    ],
+    "physical_clicks": 2,
+    "CityPanel_ShowOverviewPanel_events": [
+      true,
+      false
+    ],
+    "actual_visual_content": "City details population growth, food, housing and amenities visible.",
+    "private_snapshot_sha256": "c4c722c067eac749ffa069d0ce0a3721ccd454138b1725fa8fa8697e18d43714"
+  },
+  "state_unchanged": {
+    "gold": 1502.82421875,
+    "faith": 53.828125,
+    "population": 6,
+    "queue_size": 1,
+    "head_hash": 90525320,
+    "head_kind": "building",
+    "head_index": 7,
+    "head_progress": 26,
+    "all_six_favored_disfavored_yield_flags": true
+  },
+  "cleanup": {
+    "three_function_pointers_restored_before_assertions": true,
+    "three_event_observers_removed": true
+  },
+  "runtime": {
+    "lua_classifier_faults": 0,
+    "baiqi_error_records": 0,
+    "external_probe_errors_this_city_window": 0,
+    "turn_advances": 0
+  },
+  "steam": {
+    "online_switches_by_this_task": 0,
+    "client_pid": 13620,
+    "last_prelaunch_offline_confirmation": "2026-11-01T20:54:26.899095+00:00",
+    "later_background_check_utc": "2026-11-02T01:59:06.818467+00:00",
+    "later_background_status": "unavailable: no visible mode menu, not evidence of online or offline"
+  },
+  "local_model135": {
+    "finish": "stop",
+    "json_object_complete": true,
+    "review": "Only control-category analysis reference; owner read exact primary registration/event paths and wrote observation/cleanup. No model code adopted; no model native outcome claims accepted."
+  },
+  "evidence": {
+    "private_log_sha256": "d2effd67f793aa6e0f043a4cbc7c202c067d2697e21908479819b45f9cab256b",
+    "raw_log_or_image_published": false
+  },
+  "result": "PASS: nine physical domestic control clicks unavailable, real city inspection still opens/closes, independent resources/queue/focus unchanged.",
+  "limits": [
+    "Does not prove every other UI context or keyboard entry is blocked.",
+    "No native other-leader comparison in this window.",
+    "Gold/faith purchase checks from earlier sample not repeated.",
+    "Checkbox checked state is not treated as panel visibility; actual ProductionPanel visibility read independently.",
+    "No gameplay source changes or broad old-green software reruns."
+  ]
+}
