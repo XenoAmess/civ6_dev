@@ -84,17 +84,27 @@ local function EmptyVisiblePlot(plot)
 end
 
 -- Safety reads only currently visible units. No hidden-unit threat information.
-local function Safe(plot, player)
+-- Only one completed path validation may share known booleans. Command guards
+-- and ordinary callers omit the cache and always read the native layers again.
+local function Safe(plot, player, cache)
   if not Revealed(plot) then return false end
   for dx=-C.threatRadius,C.threatRadius do
     for dy=-C.threatRadius,C.threatRadius do
       local near = Map.GetPlotXYWithRangeCheck(plot:GetX(), plot:GetY(), dx, dy, C.threatRadius)
       if near and visibility:IsVisible(near:GetX(), near:GetY()) then
-        local units = GetVisibleUnits(near)
-        if units == nil then return false end
-        for _, other in ipairs(units) do
-          if other:GetOwner() ~= contextID and player:GetDiplomacy():IsAtWarWith(other:GetOwner()) then return false end
+        local index=near:GetIndex()
+        local safe
+        if type(cache)=="table" then safe=cache[index] end
+        if type(safe)~="boolean" then
+          local units = GetVisibleUnits(near)
+          if units == nil then return false end
+          safe=true
+          for _, other in ipairs(units) do
+            if other:GetOwner() ~= contextID and player:GetDiplomacy():IsAtWarWith(other:GetOwner()) then safe=false; break end
+          end
+          if type(cache)=="table" then cache[index]=safe end
         end
+        if not safe then return false end
       end
     end
   end
@@ -289,9 +299,10 @@ local function PathStep(unit, target, player, state)
   local path = UnitManager.GetMoveToPathEx(unit, target:GetIndex())
   if type(path) ~= "table" or type(path.plots) ~= "table" or #path.plots < 2 or #path.plots > C.pathLimit then return nil end
   if path.plots[1] ~= start or path.plots[#path.plots] ~= target:GetIndex() or UnitIndex(unit)~=start then return nil end
+  local cache={}
   for _, index in ipairs(path.plots) do
     local p = Map.GetPlotByIndex(index)
-    if p == nil or not Revealed(p) or not Safe(p, player)
+    if p == nil or not Revealed(p) or not Safe(p, player, cache)
       or (p:GetOwner() ~= -1 and p:GetOwner() ~= contextID) then return nil end
   end
   return Map.GetPlotByIndex(path.plots[2])

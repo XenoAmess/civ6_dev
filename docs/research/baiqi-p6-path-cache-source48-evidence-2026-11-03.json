@@ -1,0 +1,267 @@
+{
+  "schema": "civ6.baiqi-path-read-cache-source48/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_parent": "410df86fc1292cc54659de3b2aca304c13365852",
+  "manifest_version": 48,
+  "source_files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "0896e4a41086316eafea2941b2088e7de599628118270c400de45381491c2f55",
+    "mod/Baiqi/Baiqi.modinfo": "214f2724f6dac9d3b1f893741bbda610807894562755e6bb31e6e46fb70f6aaa",
+    "tests/test_baiqi_path_safety_cache.py": "bb64c1835d635c7d9fd34e9d9275207cad39ef6d486b17d501411c5ab817b7b0"
+  },
+  "native_diagnosis47": {
+    "runtime_source": "1c63cd5cdcc158e64439e2dd2915762168df4c52",
+    "pid": 17288,
+    "turn": 86,
+    "city_count": 10,
+    "original_save_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "receipt": "20261102T163455661864Z.json",
+    "groups": {
+      "Controller.RunNow": {
+        "n": 30,
+        "p50_ms": 9.999990463256799,
+        "p95_ms": 48.00009727478,
+        "max_ms": 54.999828338623
+      },
+      "Admin.Run": {
+        "n": 21,
+        "p50_ms": 3.000020980835,
+        "p95_ms": 5.000114440918,
+        "max_ms": 5.000114440918
+      }
+    },
+    "metadata": [
+      "P6_PERF_Q2_RESTORED\ttrue\ttrue\ttrue\ttrue\ttrue\ttrue\ttrue\t51\t0\t0\t0\t4\t0\t0\t0\t0",
+      "P6_PERF_Q2_COUNTER_STATS\t1488\t0\t60073\t0\t189\t0",
+      "P6_PERF_Q2_WINDOW\t86\t1793637080.478\t1793637080.512\t1793637080.478"
+    ],
+    "slowest_roots": [
+      {
+        "id": "12",
+        "parent": "nil",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "started": "1793637082.551",
+        "seconds": "0.054999828338623",
+        "failed": "false",
+        "allow_orders": "true",
+        "path_seconds": "0.016000032424927",
+        "path_samples": "1",
+        "path_unknown": "0",
+        "status_after": "已提交建造者操作，等待实际结果",
+        "counts": {
+          "Map.GetPlot": 65,
+          "Map.GetPlotByIndex": 17,
+          "Map.GetPlotXYWithRangeCheck": 250,
+          "UnitManager.GetMoveToPathEx": 1,
+          "UnitManager.CanStartOperation": 1,
+          "Map.GetPlotDistance": 9,
+          "Units.GetUnitsInPlotLayerID": 191,
+          "Units.GetUnitsInPlot": 191
+        },
+        "actions": [
+          {
+            "kind": "unit",
+            "id": "4325394",
+            "owner": "0",
+            "op": "1477390184",
+            "unit_type": "UNIT_BUILDER",
+            "x": "9",
+            "y": "11",
+            "script": "nil"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "parent": "nil",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "started": "1793637081.78",
+        "seconds": "0.04800009727478",
+        "failed": "false",
+        "allow_orders": "true",
+        "path_seconds": "0.010999917984009",
+        "path_samples": "1",
+        "path_unknown": "0",
+        "status_after": "已提交建造者操作，等待实际结果",
+        "counts": {
+          "Units.GetUnitsInPlot": 305,
+          "Map.GetPlotByIndex": 22,
+          "Map.GetPlotXYWithRangeCheck": 400,
+          "UnitManager.GetMoveToPathEx": 1,
+          "UnitManager.CanStartOperation": 60,
+          "Map.GetPlotDistance": 9,
+          "Map.GetPlot": 50,
+          "Units.GetUnitsInPlotLayerID": 305
+        },
+        "actions": [
+          {
+            "kind": "unit",
+            "id": "3538957",
+            "owner": "0",
+            "op": "1477390184",
+            "unit_type": "UNIT_BUILDER",
+            "x": "10",
+            "y": "15",
+            "script": "nil"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "parent": "nil",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "started": "1793637080.699",
+        "seconds": "0.034999847412109",
+        "failed": "false",
+        "allow_orders": "nil",
+        "path_seconds": "0",
+        "path_samples": "0",
+        "path_unknown": "0",
+        "status_after": "已安排生产；军队等待你的命令",
+        "counts": {
+          "Map.GetCityPlots": 1,
+          "Map.GetPlotByIndex": 143
+        },
+        "actions": [
+          {
+            "kind": "city",
+            "id": "393221",
+            "owner": "0",
+            "op": "739199558",
+            "unit_type": "nil",
+            "x": "15",
+            "y": "5",
+            "script": "nil"
+          }
+        ]
+      },
+      {
+        "id": "1",
+        "parent": "nil",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "started": "1793637080.478",
+        "seconds": "0.032000064849854",
+        "failed": "false",
+        "allow_orders": "nil",
+        "path_seconds": "0",
+        "path_samples": "0",
+        "path_unknown": "0",
+        "status_after": "已安排生产；军队等待你的命令",
+        "counts": {
+          "Map.GetCityPlots": 1,
+          "Map.GetPlotByIndex": 168
+        },
+        "actions": [
+          {
+            "kind": "city",
+            "id": "131073",
+            "owner": "0",
+            "op": "739199558",
+            "unit_type": "nil",
+            "x": "11",
+            "y": "6",
+            "script": "nil"
+          }
+        ]
+      },
+      {
+        "id": "14",
+        "parent": "nil",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "started": "1793637082.964",
+        "seconds": "0.026999950408936",
+        "failed": "false",
+        "allow_orders": "true",
+        "path_seconds": "0",
+        "path_samples": "0",
+        "path_unknown": "0",
+        "status_after": "已提交建造者操作，等待实际结果",
+        "counts": {
+          "Units.GetUnitsInPlot": 38,
+          "Map.GetPlotXYWithRangeCheck": 50,
+          "UnitManager.CanStartOperation": 60,
+          "Map.GetPlot": 63,
+          "Units.GetUnitsInPlotLayerID": 38
+        },
+        "actions": [
+          {
+            "kind": "unit",
+            "id": "4325394",
+            "owner": "0",
+            "op": "492889976",
+            "unit_type": "UNIT_BUILDER",
+            "x": "9",
+            "y": "10",
+            "script": "nil"
+          }
+        ]
+      }
+    ],
+    "raw_log_sha256": "62ef532b58f48490a0092de799af2adb3100b378d880eed893df79d48cdee507",
+    "interpretation": "Slowest observed Controller55ms contains16ms native path,250 neighborhood lookups and191 primary+191 religious queries. Overlapping safety reads are an optimization hypothesis, not proved sole cause. Changed observer/conditions prohibit speedup percentage versus earlier86ms.",
+    "scope": "Only one observed active ten-city86 window; firsteligible starts34ms before activation event callback. Initializationfalse excluded; all7 pointers restored, observation/clock/drop errors0. Not full5pairs/100samples/globalexclusive/modulebudget proof.",
+    "command_attribution": "Driver explicit manual militarySKIP/endturn only, no manual interior. Global proxy call totals include outside roots/window and are not N_req.",
+    "errors": "Observer metadata errors0; raw native Lua archive retained. Whole log not claimed error-free; previous owner Tuner probes had errors."
+  },
+  "implementation": "One PathStep-local table allocated after native path query and path/unit position checks. Only known visible-cell threat booleans reused during this path validation; visibility still read. All two-argument Safe callers and command guards remain uncached. No unit/object/authority/turn cache.",
+  "model188": {
+    "decision": "partial-owner-corrected",
+    "candidate_tests": {
+      "methods": 8,
+      "failures": 2,
+      "errors": 0
+    },
+    "adopted": "Optional visible-cell boolean cache and single PathStep-local lifetime.",
+    "owner_corrections": [
+      "No implicit cache for ordinary Safe callers.",
+      "Only actual boolean cache values accepted; malformed values re-read.",
+      "Unavailable native layers fail closed without caching an asserted threat."
+    ],
+    "owner_implementation_correction": "Initial owner optional-cache expression yielded booleanfalse when cache absent and blocked ordinary safety. The8tests immediately caught3FAIL/2ERROR; fixed to explicit optional table read before any native use."
+  },
+  "model189": {
+    "decision": "partial-review-only",
+    "adopted": "Uncached command safety/context/unit reads and mutation test directions.",
+    "limits": "Generic reminders; not proof of freshness after every CanStartOperation or complete command audit."
+  },
+  "software": {
+    "source47_red": "8methods,1expected read-countFAIL: visiblecell repeated6times vs atmost2 including independent targetprecheck.",
+    "source48_targeted": "8PASS",
+    "full_tests": 424,
+    "full_seconds": 101.472,
+    "full_exit": 0,
+    "scope": "Actual Controller with independent hex coordinates/native path and late mutations. Test-only appended private exports; production adds no debug API. No native speedup inference."
+  },
+  "install": {
+    "files": 69,
+    "equal": true,
+    "archive_sha256": "501327a00540ce588952329c6c3a2fdd627342db4854e54711ac1c06aab0f57e"
+  },
+  "native48": "PENDING cold restart; source47 measurement is not upgraded to48 effect proof.",
+  "limits": [
+    "TC036 remains NOT_PASS; budgets unchanged.",
+    "Full40 acceptance incomplete.",
+    "Cached planning data never authorizes writes; actual path movement and military boundaries need native48 regression.",
+    "No quantified local-model net savings or hardware/cache assumptions."
+  ]
+}
