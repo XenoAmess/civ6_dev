@@ -46,3 +46,7 @@ TC-036仍未通过。下一步须冻结预算／样本窗口，补齐模块覆�
 ## 2026-11-03：内部调用计时绑定的软件验证
 
 [内部绑定](../../tools/lua/diagnostic_child_profile.lua)只在已有测量根调用内记录，保留原参数、返回值、错误和只执行一次。模型213部分结构沿用，负责人补根快照、错误回执、元数据计数和无效外层时钟的同名嵌套隔离；原10项4错误，修正10项通过。尚未生成、安装或运行内部诊断副本，当前55轻量性能仍FAIL，不把该工具当成修复或完整覆盖。[证据](../research/baiqi-p6-child-profile-source213-evidence-2026-11-03.json)。
+
+## 2026-11-03：五内部函数诊断副本已构建
+
+`python tools/build_profiled_mod.py --output-dir .local-model/diagnostic-builds/新的独占目录`生成单独的55诊断包，目标目录必须不存在，普通源码与安装均不改。69文件清单保持，68文件字节一致，控制器仅末尾附加词法绑定，原正文为精确前缀。ReadBack、ProcessCity、ProcessBuilder、ProcessSettler、ProcessTrader仅在q9已有正式根调用内计时，所有权匹配才恢复原函数；不覆盖后来的外部替换。4项包装／恢复检查、实际诊断控制器编译及现有4组消费者共60项通过。这是软件与制品证据，尚未安装、冷启动或取得原生内部计时，不能判性能通过。[制品证据](../research/baiqi-p6-internal-diagnostic-build-evidence-2026-11-03.json)。
