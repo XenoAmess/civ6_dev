@@ -1,0 +1,102 @@
+{
+  "schema": "civ6.baiqi-standby-native44/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "4857b04058ed6690d6b07c70a29652ecd2a79bac",
+  "manifest_version": 44,
+  "owned_process": {
+    "pid": 17164,
+    "birth_epoch": 1793595570.1602683,
+    "cold": true,
+    "hot_source_patch": false,
+    "installed_source_equal_files": 65,
+    "zip_sha256": "a82c3ad66b5889c042c3a8b190b054c76a0bbd6a8158b2e691af4abe8623677d"
+  },
+  "steam": {
+    "client_pid": 13620,
+    "fresh_prelaunch_offline_utc": "2026-11-02T04:58:24.782066+00:00",
+    "mode_online_switches": 0,
+    "confirmation": "Independent background readonly visible official Go Online menu; no input, activation, movement or screenshot in confirmation.",
+    "menu_preparation": "Actual supported UIA InvokePattern on official Steam header, no mode item. No explicit activation API or window move; rectangle unchanged BUT native Invoke changed foreground from another app to Steam. This preparation is not claimed focus-preserving and its ACK is not mode proof."
+  },
+  "fixture": "Independent Setup75 reload from source43 preparation:9cities,ownfaith1,missionary3735581,3charges4moves,saved journalversion1owner0serial0.",
+  "normal_progress": {
+    "from": 75,
+    "to": 78,
+    "native_end_turn_clicks": [
+      75,
+      76,
+      77
+    ],
+    "forced_core_turns": 0,
+    "human_domestic_commands": 0,
+    "military_test_input": "Explicit player army/admiral SKIP for ordinary unit orders, and one normal WorldInput army-unstack movement. Not mod background military control.",
+    "T77_blocker": "Initial driver without unstack stopped at77. Independent native GetFirstReadyUnit/ready enumeration identified ONLY horseman2424851 and newly trained crouching tiger3866654 sharing11,6; entrusted civilians alreadyheld. Thus this pause is retained as test-player military handling, not reclassified domestic regression.",
+    "unstack_receipt": [
+      "P6_PLAYER_TEST_ARMY_UNSTACK_REQ|77|3866654|275|231"
+    ]
+  },
+  "actual_domestic_spread": {
+    "unit": 3735581,
+    "city": 65536,
+    "faith": 1,
+    "background_calls": 3,
+    "hash": 1592408602,
+    "target_param_count": 0,
+    "background_moves": 0,
+    "background_unit_commands": 0,
+    "tokens": [
+      "religion:0:1",
+      "religion:0:2",
+      "religion:0:3"
+    ],
+    "charge_sequence": [
+      3,
+      2,
+      1,
+      0
+    ],
+    "capital_followers": {
+      "T75": 0,
+      "T77": 3,
+      "T78": 4
+    },
+    "majority_at78": -1,
+    "first_two_confirmations": "Actual Core+UI charge decreases; Core OBSERVED serial2/token2 at77. No completion invented from timeout.",
+    "last_charge": "UI unit missing after exactly third native spread. Core FindID still yielded same fullID tombstone with0charges and invalid coordinates(-9999,-9999). Core persisted ARMED serial3/token3/baseline1; invalid/missing live position did not authorize synthetic OBSERVED."
+  },
+  "standby": {
+    "watched_update_callbacks": 20118,
+    "native_skip_calls": 8,
+    "total_watched_native_operations": 11,
+    "native_great_person_commands": 0,
+    "great_person_after": "Actual scientist3211274 and musician2621462 moves4,IsReadyToSelectfalse,ACTIVITY_HOLD. Their Core LEGACY_UNKNOWN receipts gp:0:1/creative:0:1 retained. No activation/create replay.",
+    "missionary_after_spread": "Native movement readback0 then same-turn refresh4; one explicit standby then actual HOLD/unselectable, enabling next normal turn."
+  },
+  "ordering_still_open": {
+    "idle_flags": "Before actual78 spread, Busyfalse and Processingfalse; idle flags alone do not establish completed turn initialization.",
+    "actual78_order": [
+      "LocalPlayerTurnBegin78",
+      "Background last-charge spread while own unit at4moves",
+      "UI missionary missing",
+      "PlayerTurnActivated(0,true)78"
+    ],
+    "interpretation": "Actual request preceded native local PlayerTurnActivated, which installed primary CityBannerManager identifies as postDoTurn. Next change will gate new orders on actual local activation, with saved-load initialization and passive receipt readback; not claimed fixed by44."
+  },
+  "cleanup": "3 observer pointers plus PlayerTurnActivated and LocalPlayerTurnBegin handlers restored before all final assertions/save. No journal cleanup/reset or move/charge override.",
+  "input_fixture_notes": "Continue pointer/Enter ACKs did not prove load page closure; fresh-owned window respondedWM_NULL. Only after verified physical Esc (supported in actual LoadScreen OnInput) did page close and actual4318 Tuner states become available. Early connection-refused/noaction and one4319 readonlyAPP/LSQ noresponse probe retained; no blind game-command retry.",
+  "save": {
+    "name": "Baiqi_P6_20261102_V44_MissionaryLast78",
+    "bytes": 487236,
+    "sha256": "ee22f5cac75b1492425ad92bf4b7e1b83c02a142e0271a04b587ffa1e28f681c"
+  },
+  "private_log_sha256": "0f7e390269fb711aacf166b42de41612d30a8df91161e90cde8dd4931aad6c49",
+  "raw_published": false,
+  "result": "PASS for this source44 normal75to78 domestic waiting recovery,3actual domestic spreads and last-charge conservative tombstone handling. Not full normal movement-cost/phase proof or full40 acceptance.",
+  "next": [
+    "Gate pre-activation orders on actual local native event and cold-retest costs.",
+    "Religious combat native player-control contrast.",
+    "Unknown ARMED reload44 may skipidle but mustnot repeat ability/movement.",
+    "Other-leader and static diplomacy art contrast."
+  ]
+}
