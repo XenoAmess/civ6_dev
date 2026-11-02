@@ -1,0 +1,167 @@
+{
+  "schema": "civ6.baiqi-dualprofile211/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "case": {
+    "sequence": 211,
+    "case_id": "HTTP-CIV6-DUALPROFILE211",
+    "mode_id": "http-candidate",
+    "shared_commit": "f311b51c1ccc2465c402c71d7786a0bd97eb8cdc",
+    "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+    "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+    "max_tokens": 1200,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-02T22:03:36.778555+00:00",
+    "attempt_end_utc": "2026-11-02T22:03:40.837070+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 4050.1113000209443,
+      "first_nonempty_content_delta_ms": 1501.9892000127584,
+      "usage": {
+        "prompt_tokens": 2339,
+        "completion_tokens": 287,
+        "total_tokens": 2626
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "adoption": "rejected-owner-rewrite",
+    "review": "Colonconsumer dual:Wrap shifts self into name because returned Wrap lacks self. Body w(c(...)) executes fn through cpu and then invokes fn again with its results, rather than wall wrapping cpu. Original8tests7ERROR,1PASS invalidcapacity; no original candidate installed or actualgameactions. Owner rewrote factory,0modelLua adopted.8testsPASS0.066s plusactualNativepureconsumer.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "implementation": {
+    "path": "tools/lua/diagnostic_dual_profile.lua",
+    "sha256": "f201e5d66e732e1099ec7c4c3ec4183ba456b621b4548d83713e072bc7c4fefa",
+    "model_source_adopted": 0,
+    "owner": "Canonicalfactorycomposition: wall:Wrap(name,cpu:Wrap(name,fn)); propercolonmethod. Clocksremainseparatedomains, no clock meaning inferred."
+  },
+  "validation": {
+    "candidate_tests": 8,
+    "candidate_errors": 7,
+    "candidate_failures": 0,
+    "owner_tests": 8,
+    "owner_tests_seconds": 0.066,
+    "native_pid": 16024,
+    "native_turn": 85,
+    "native_context": "BaiqiExecutor",
+    "compat": [
+      [
+        "4",
+        "1",
+        "0.0069999694824219",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "noop_batches": [
+      [
+        "plain",
+        "1",
+        "1000",
+        "0.00099992752075195",
+        "0"
+      ],
+      [
+        "single",
+        "1",
+        "1000",
+        "0.041000127792358",
+        "0"
+      ],
+      [
+        "dual",
+        "1",
+        "1000",
+        "0.085999965667725",
+        "0"
+      ],
+      [
+        "plain",
+        "2",
+        "1000",
+        "0.0010001659393311",
+        "0"
+      ],
+      [
+        "single",
+        "2",
+        "1000",
+        "0.03600001335144",
+        "0"
+      ],
+      [
+        "dual",
+        "2",
+        "1000",
+        "0.078999996185303",
+        "0"
+      ],
+      [
+        "plain",
+        "3",
+        "1000",
+        "0.002000093460083",
+        "0"
+      ],
+      [
+        "single",
+        "3",
+        "1000",
+        "0.039999961853027",
+        "0"
+      ],
+      [
+        "dual",
+        "3",
+        "1000",
+        "0.079999923706055",
+        "0"
+      ]
+    ],
+    "profiles": [
+      [
+        "9001",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "gameplay_writes": 0,
+    "scope": "ActualprivateNewProfile/NewDual factories andboundedno-op calls, exactfourreturnsincludingfalse/nilholes/trailingnil, originalonce. 1000noopcalls each plain/single/dual in3trials;9001total,profilesnoinvalid/drop. Not normalgameplay performance samples."
+  },
+  "clock_result": {
+    "wall_plain_batch_ms": "~1–2",
+    "wall_single_batch_ms": "~36–41",
+    "wall_dual_batch_ms": "~79–86",
+    "cpu_delta_all_batches": 0,
+    "cpu_usability": "UNKNOWN: os.clock hasfunctiontype but all measured increments zero; do not treat zero aszero CPUwork or infer scheduler/GC/renderer causes.",
+    "limits": "Pureloop limitedobservercost sample, no calibrationforNativequery proxies or crosscontextclocks. Do not subtractmeanoverhead fromactual callback times or claimcausal speedup."
+  },
+  "current_native": "Originalten85q8warmup113.542s complete, sameoriginalreloaded forupcomingwall-onlyq8. NewCPUmetadatafactoryNOT usedasCPUevidence; upcomingobserverdoesnotwrapMap/Units/query/write APIs. Installed5569gamefiles unchanged.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null,
+    "exclusive_active": null
+  },
+  "phases": "Contemporaneousphaseevents locallyheld; authoring/tests/warmup/sharedpublishing interleaved. No netownerbenefitclaim.",
+  "next": "Continueminimalwall-onlyactual86–90window, provepointerrestoration andactualoutcomes. Morefinegrainedsourcecoverage/matchedcontrols remain;TC036 stillNOT_PASS."
+}
