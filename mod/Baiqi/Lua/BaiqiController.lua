@@ -24,6 +24,11 @@ local function Reason(key, text)
   if lastReasons[key] ~= text then Log("wait", "key="..key.."|reason="..text); lastReasons[key] = text end
 end
 
+local function CoreIdle()
+  return type(UI.IsGameCoreBusy)=="function" and UI.IsGameCoreBusy()==false
+    and type(UI.IsProcessingMessages)=="function" and UI.IsProcessingMessages()==false
+end
+
 local function PlayerContext()
   local id = Game.GetLocalPlayer()
   if id == nil or id < 0 or GameConfiguration.IsAnyMultiplayer()
@@ -37,7 +42,7 @@ end
 
 function BaiqiController.IsAvailable()
   local ctx=PlayerContext()
-  return ctx~=nil and ctx.activeTurn==true
+  return ctx~=nil and ctx.activeTurn==true and CoreIdle()
 end
 
 -- Internal invalidation only: retain pending requests, attempts and turn budget.
@@ -145,7 +150,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   -- Re-read ownership and active player at the write boundary. No takeover flags.
   local freshCtx, freshPlayer, freshState = PlayerContext()
   ctx, state = freshCtx, freshState
-  if ctx == nil then return false, "context_changed" end
+  if ctx == nil or not CoreIdle() then return false, "context_changed_or_core_busy" end
   local here=UnitPlot(unit)
   if not here then return false,"position_unavailable" end
   local allowed, reason = BaiqiPolicy.CanCivilian(ctx, UnitSnapshot(unit, state))
@@ -187,7 +192,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if UnitManager.CanStartOperation(unit, action, nil, params) ~= true then return false, "engine_rejected" end
   local latest=PlayerContext()
   local actual=GameInfo.Units[unit:GetUnitType()]
-  if not latest or latest.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)
+  if not latest or not CoreIdle() or latest.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)
     or not actual or actual.UnitType~=unitType or not BaiqiPolicy.CanCivilian(latest,UnitSnapshot(unit,{})) then
     return false,"unit_or_context_changed"
   end
@@ -200,6 +205,46 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex().."|from="..here:GetIndex())
   UnitManager.RequestOperation(unit, action, params)
   return true, "submitted"
+end
+
+-- Waiting does not replay an ability or replace its persistent receipt. The
+-- native HOLD activity prevents an entrusted idle unit blocking the next turn.
+local function RequestCivilianStandby(unit)
+  if not unit or type(unit.GetID)~="function" then return false end
+  local unitID=unit:GetID()
+  if not BaiqiPolicy.Number(unitID) or unitID<0 or unitID%1~=0 or unitID>2147483647 then return false end
+  local def=GameInfo.Units[unit:GetUnitType()]
+  local unitType=def and def.UnitType
+  if not BaiqiPolicy.CivilianType(unitType) then return false end
+  local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN
+  local operation=row and row.Hash
+  if not BaiqiPolicy.Number(operation) or operation%1~=0 then return false end
+  local function Eligible()
+    local ctx,player,state=PlayerContext()
+    if not ctx or not BaiqiPolicy.Context(ctx) or not CoreIdle()
+      or turn~=Game.GetCurrentGameTurn() then return nil end
+    local fresh=player:GetUnits():FindID(unitID)
+    local actual=fresh and GameInfo.Units[fresh:GetUnitType()]
+    if not BaiqiPolicy.MatchesID(fresh,unitID) or fresh:GetOwner()~=ctx.player
+      or not actual or actual.UnitType~=unitType
+      or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(fresh,state))
+      or type(fresh.IsReadyToSelect)~="function" or fresh:IsReadyToSelect()~=true
+      or type(fresh.IsReadyToMove)~="function" or fresh:IsReadyToMove()~=true
+      or type(UnitManager.GetActivityType)~="function" or not ActivityTypes
+      or ActivityTypes.ACTIVITY_AWAKE==nil
+      or UnitManager.GetActivityType(fresh)~=ActivityTypes.ACTIVITY_AWAKE then return nil end
+    return fresh
+  end
+  local fresh=Eligible()
+  if not fresh or UnitManager.CanStartOperation(fresh,operation,nil,{})~=true then return false end
+  fresh=Eligible()
+  if not fresh then return false end
+  local id=NextRequest("standby:"..unitID..":"..turn)
+  if not id then return false end
+  Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=SKIP_TURN|reason=entrusted_standby")
+  local ok,err=pcall(UnitManager.RequestOperation,fresh,operation,{})
+  if not ok then Log("standby_unknown","id="..id.."|unit="..unitID.."|reason="..tostring(err)) end
+  return true
 end
 
 local function PathStep(unit, target, player, state)
@@ -350,7 +395,7 @@ local function RequestMissionary(unit,city)
   if not operation or not BaiqiPolicy.Number(operation.Hash) or operation.Hash%1~=0 then return false end
   local function StillEligible()
     local freshCtx,freshPlayer,freshState=PlayerContext()
-    if not freshCtx or freshCtx.player~=ctx.player then return nil end
+    if not freshCtx or not CoreIdle() or freshCtx.player~=ctx.player then return nil end
     local fresh=freshPlayer:GetUnits():FindID(unitID)
     local target=freshPlayer:GetCities():FindID(cityID)
     if not BaiqiPolicy.MatchesID(fresh,unitID) or fresh:GetOwner()~=ctx.player
@@ -452,7 +497,7 @@ local function RequestDistrictPerson(unit)
   local freshGP,freshInfo,freshRequired,freshClass,freshDef=DistrictPersonData(unit)
   local freshHere=UnitPlot(unit)
   local found=freshPlayer and freshPlayer:GetUnits():FindID(unitID)
-  if not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
+  if not CoreIdle() or not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
     or not BaiqiPolicy.MatchesID(found,unitID) or found:GetOwner()~=ctx.player
     or unit:IsReadyToMove()~=true or not BaiqiPolicy.MatchesID(unit,unitID) or unit:GetOwner()~=freshCtx.player
     or not freshGP or freshInfo.Index~=individual or freshClass.Index~=class.Index or freshDef.UnitType~=def.UnitType
@@ -775,7 +820,7 @@ local function ProcessCreative(ctx,player,state,unit)
       local freshGP,freshIndividual,freshClass,freshDef=CreativeData(unit)
       local freshHere=UnitPlot(unit)
       local found=freshPlayer and freshPlayer:GetUnits():FindID(unitID)
-      if not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
+      if not CoreIdle() or not BaiqiPolicy.CanCivilian(freshCtx,UnitSnapshot(unit,freshState)) or freshCtx.player~=ctx.player
         or not BaiqiPolicy.MatchesID(found,unitID) or found:GetOwner()~=ctx.player
         or not BaiqiPolicy.MatchesID(unit,unitID) or unit:GetOwner()~=ctx.player or unit:IsReadyToMove()~=true
         or not freshGP or freshIndividual.Index~=individual.Index or freshClass.Index~=class.Index
@@ -954,11 +999,6 @@ local function ProcessTrader(ctx,player,state,unit)
   if best then return RequestCivilian(ctx,state,unit,"MAKE_TRADE_ROUTE",Map.GetPlot(best:GetX(),best:GetY())) end
   Reason("trader:"..unit:GetID(),"商人等待有容量、已探明且安全的国内商路")
   return false
-end
-
-local function CoreIdle()
-  return UI.IsGameCoreBusy and not UI.IsGameCoreBusy()
-    and UI.IsProcessingMessages and not UI.IsProcessingMessages()
 end
 
 local function QueueHeadSignature(q)
@@ -1383,6 +1423,9 @@ local function Tick()
     end
   end
   ReadBack(player)
+  -- Existing factual receipts may reconcile while the core is busy. New
+  -- gameplay orders wait until both native processing readers report idle.
+  if not CoreIdle() then return end
   for _,city in player:GetCities():Members() do
     if ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
   end
@@ -1417,6 +1460,13 @@ local function Tick()
         status="文职单位自动移出重叠地块；军队由你指挥";return
       end
     end
+    local waiting=pendingUnits[unit:GetID()]
+    if (not waiting and unitEvaluated[UnitKey(unit)])
+      or (waiting and waiting.persistent and (waiting.elapsed or 0)>=C.productionObservationSeconds) then
+      if RequestCivilianStandby(unit) then
+        status="文职单位本回合自动待命；原能力回执继续保留";return
+      end
+    end
   end
 end
 
@@ -1429,7 +1479,8 @@ function BaiqiController.RunNow()
 end
 
 function BaiqiController.Update(delta)
-  if not BaiqiController.IsAvailable() then return end
+  local ctx=PlayerContext()
+  if not ctx or ctx.activeTurn~=true then return end
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
   elapsed=elapsed+delta

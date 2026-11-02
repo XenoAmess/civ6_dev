@@ -39,6 +39,9 @@ class BaiqiTradeTests(unittest.TestCase):
         self.lua.execute('TestWorld.routes={{TraderUnitID=99,DestinationCityPlayer=7,DestinationCityID=67}}')
         self.w.busy = True
         self.c.Update(0.35)
+        self.assertEqual([v.op for v in self.w.unitRequests.values()], [18])
+        self.w.busy = False
+        self.c.Update(0.35)
         self.assertEqual([self.w.unitRequests[i].op for i in range(1, len(self.w.unitRequests)+1)], [18, 17])
 
     def test_native_idle_rejection_waits_without_same_turn_replay_and_replans_next_turn(self):
