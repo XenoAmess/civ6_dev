@@ -1,0 +1,99 @@
+{
+  "schema": "civ6.baiqi-religious-physical-native46/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "4411cf55526bf6393c7be18578056c6c3aa600cc",
+  "manifest_version": 46,
+  "owned_pid": 2392,
+  "installed_equal_files": 69,
+  "steam": {
+    "same_process": true,
+    "prelaunch_offline_utc": "2026-11-02T08:13:56.440747+00:00",
+    "online_switches": 0
+  },
+  "reload": {
+    "loaded": "Baiqi_P6_20261102_V46_ReligiousControl78",
+    "turn": 78,
+    "actual_core_three_units": [
+      "4063264 apostle16,6 moves3 religion1",
+      "4128801 inquisitor16,5 moves3 religion1",
+      "4194338 guru13,5 moves3 religion1"
+    ],
+    "journal": "Missing3735581 remains ARMED/religion:0:3/baseline1/T78; no new request in scoped log.",
+    "replay_requests_for_old_unit": 0
+  },
+  "first_input_diagnostic": {
+    "physical_right_xy": [
+      512,
+      376
+    ],
+    "intent_plot": [
+      15,
+      6
+    ],
+    "actual_input_messages": {
+      "12": 7
+    },
+    "rightdown": 0,
+    "rightup": 0,
+    "move_entries": 0,
+    "effect": "None; cursor plot matched but no right messages reached actual WorldInput. Screenshot shows city banner near point; exact interception cause not independently proven."
+  },
+  "physical_success": {
+    "unit": 4063264,
+    "type": "UNIT_APOSTLE",
+    "from": [
+      16,
+      6
+    ],
+    "to": [
+      17,
+      6
+    ],
+    "input": "Owned physical rightbutton down250ms/up at512,376 after native camera/selection to a different legal visible empty own plot. No direct callback or fabricated input.",
+    "actual_worldinput_messages": {
+      "12": 7,
+      "16": 1,
+      "17": 1
+    },
+    "rightdown": 1,
+    "rightup": 1,
+    "MoveUnitToPlot_entries": 1,
+    "ui_and_core_moves_before": 3,
+    "ui_and_core_moves_after": 2,
+    "actual_owner": 0,
+    "actual_religion": 1,
+    "actual_formation": 1,
+    "guard_civilian": false
+  },
+  "other_units_unchanged": [
+    "inquisitor4128801@16,5 moves3 damage0 religion1 spread3",
+    "guru4194338@13,5 moves3 damage0 religion1 actual UI religious heal charges3"
+  ],
+  "cleanup": "ContextPtr original input handler and original guarded MoveUnitToPlot restored before assertions; active observer nil. No production patch, cost reset or diplomacy action.",
+  "religion_scan157": {
+    "met_alive_major_other_founded_religion_count": 0,
+    "scope": "Readonly actual religion metadata for already met alive major players only; no hidden locations or actions. This is not proof no other religion globally exists."
+  },
+  "models": {
+    "156": "Rejected code, owner diagnostic replaces invented property/missing custody and cleanup/dropped args.",
+    "157": "Partial after owner human/SP/full-ID and failclosed actual status corrections; readonly actual scan succeeded."
+  },
+  "save": {
+    "name": "Baiqi_P6_20261102_V46_ReligiousPhysical78",
+    "bytes": 488318,
+    "sha256": "d979ef86d16bb0f7a4da41349aff0f8eabc04cd69048ba9a8d4edcc4819e8c86",
+    "new_save_reloaded": false
+  },
+  "private_scoped_log_sha256": "cc7d96d5a016ff68bf7aefa4869eb445cffb03432ba9220fe15d3b048c2498eb",
+  "raw_published": false,
+  "result": "Actual apostle physical movement/cost sample PASS. All three religious combat types now have physical move samples, from two source46 windows. Complete input and religious battle/heal/inquisition matrix remains incomplete.",
+  "limits": [
+    "Five units were explicit earlier Debug grants, not natural acquisition proof.",
+    "Do not rewrite prior failed physical inputs as successful.",
+    "No actual religious combat/heal/inquisition effect yet.",
+    "Missionary escort still PRECONDITION_NOT_MET in exhausted setup.",
+    "This saved physical result has not itself been reloaded.",
+    "Full40 incomplete."
+  ]
+}
