@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-02",
+  "recorded_utc": "2026-11-02T02:35:23.509984+00:00",
+  "machine": "BF-202609141645",
+  "manifest_version": 42,
+  "mod_source_commit": "76a41d8d2c23806a20a4d98aa3ba251d598f054b",
+  "repository_commit_at_probe": "e1d4f9bbe6fb78e9e3588edbac8136a5b26f6d40",
+  "pid": 3868,
+  "turn": 75,
+  "result": {
+    "BR013_missionary_mandatory_delegation": "FAIL: owned missionary is outside current guard/automation whitelist; manual native spread remains possible.",
+    "native_spread_binding_and_effect": "Interface proof only, not automatic gameplay acceptance.",
+    "new_model_leaf_native_verification": "Two owner-contracted candidate methods pass narrow private Core verification; not production integration."
+  },
+  "fixture": {
+    "base": "Previously saved automatic religion75 branch, player0 founded religion1 with2 beliefs.",
+    "owned_debug_unit_full_id": 3735581,
+    "unit_type": "UNIT_MISSIONARY",
+    "created_at": [
+      8,
+      10
+    ],
+    "initial_InitUnit_religion": -1,
+    "initial_charges": 3,
+    "initial_moves": 4,
+    "setup_only_changes": [
+      "Core SetReligionType(1) on this Debug unit; initially UI getter remained-1, same-process save/load made both getters1.",
+      "PlaceUnit(unit,16,14) moved only this Debug unit to own unconverted capital, reducing its moves to0.",
+      "ChangeMovesRemaining(unit,4) restored its initial4 moves once for the interface test."
+    ],
+    "primary_signatures": [
+      "Official AustraliaScenario.lua729: InitUnit(player,type,x,y).",
+      "AustraliaScenario.lua854: PlaceUnit(unit,x,y).",
+      "AustraliaScenario.lua1429: ChangeMovesRemaining(unit,delta)."
+    ],
+    "normal_production_movement_or_cost_proof": false
+  },
+  "native_bindings": {
+    "UI_unit": [
+      "GetReligionType",
+      "GetSpreadCharges",
+      "GetUnitType"
+    ],
+    "Core_unit_missing": [
+      "GetReligionType",
+      "GetSpreadCharges",
+      "GetUnitType"
+    ],
+    "Core_unit_uses": "GetType and GetReligion():GetReligionType()/GetSpreadCharges()",
+    "Core_city": "GetReligion():GetMajorityReligion()/GetNumFollowers(religion)",
+    "UI_city": "GetReligion():GetReligionsInCity() actual Religion/Followers rows",
+    "UnitOperationTypes_SPREAD_RELIGION": null,
+    "actual_GameInfo_operation_hash": 1592408602,
+    "native_call": "UnitPanel.lua2535: RequestOperation(selectedUnit, actionHash), no target params for this row with no interface mode.",
+    "target_warning": "CanStartOperation returnedtrue even when arbitrary far-city x/y params were supplied. Those parameters are not independent target authorization."
+  },
+  "actual_manual_input": {
+    "selected_owned_city": 65536,
+    "city_center": [
+      16,
+      14
+    ],
+    "city_owner": 0,
+    "unit_religion": 1,
+    "BaiqiUIGuard_Civilian": false,
+    "native_spread_eligible_before": true,
+    "physical_button_xy": [
+      683,
+      535
+    ],
+    "tooltip": "Spread religion; projected2 followers in this city.",
+    "native_UnitPanel_RequestOperation_calls": 1,
+    "operation_hash": 1592408602,
+    "before": {
+      "charges": 3,
+      "moves": 4,
+      "religion1_city_followers": 0,
+      "city_population": 8
+    },
+    "after": {
+      "charges": 2,
+      "moves": 0,
+      "religion1_city_followers": 2,
+      "city_population": 8,
+      "city_majority": -1
+    },
+    "automatic_execution": false
+  },
+  "event_observation": {
+    "event": "UnitOperationSegmentComplete",
+    "UI_count": 0,
+    "Core_count": 0,
+    "conclusion": "This actual spread does not provide a usable receipt from these two observers. Do not substitute a fabricated event; positive charge decrement and actual follower change are independent proof."
+  },
+  "cleanup": {
+    "UnitPanel_writer_restored": true,
+    "UI_event_handler_removed": true,
+    "Core_event_handler_removed": true,
+    "cleanup_preceded_assertions": true
+  },
+  "fixture_error": {
+    "external_assertion_errors": 1,
+    "cause": "Owner incorrectly expected spread to leave2 moves; native actual remaining moves0. UI observer was already removed before assertion.",
+    "correction": "Independent readonly actual charge2/moves0/followers2 assertion passed. Not a gameplay fault."
+  },
+  "local_models": {
+    "137": {
+      "task": "Owner-designed pure domestic-target boolean filter, one bounded function.",
+      "candidate_code_sha256": "64ffd534f128b3f5fd21c6b2540822fa92bb8fb23bc77466106d62fbcc1ed56b"
+    },
+    "138": {
+      "task": "Owner-designed private Core missionary snapshot, one bounded function using actual religion component.",
+      "candidate_code_sha256": "897beffd93fc19d5745132f865b32d99f215bb1bd9bd55c05d482d1f67490f5b"
+    },
+    "transport": "Two real parallel HTTP,2stop/DONE/JSONobjects,0retries; metadata retained privately.",
+    "adoption_scope": "Exact functions verified privately in Core after individual owner source review; neither is a production-installed feature yet. Caller/context design supplied by owner; no independent design claim.",
+    "native_check": "Target own/foreign owner, majority, visibility, malformed numeric cases; exact live snapshot includes zero moves for reconciliation, wrong owner and invalid IDs rejected."
+  },
+  "evidence": {
+    "private_log_sha256": "3e15ee8385107f1661eca39a311b75a7977f3d652e0b47d4e072df4111025ec3",
+    "private_after_snapshot_sha256": "83789da512d47033e7118d5a92729f4f7768d4d4f40912026e43c045fed74d3f",
+    "private_save_or_game_assets_published": false
+  },
+  "next": "Implement missionary domestic automation, mandatory UI denial, durable unknown-intent handling and actual native followup. Religious combat-unit control clarification pending; no automatic combat or diplomacy authorized.",
+  "limits": [
+    "Not missionary production/cost/pathing acceptance.",
+    "No last-charge or cold unknown-intent proof.",
+    "Source42 religious gap stays FAIL until actual fix and retest."
+  ]
+}
