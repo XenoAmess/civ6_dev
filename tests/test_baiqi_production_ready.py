@@ -93,12 +93,14 @@ class ExecutorRecoveryTests(unittest.TestCase):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lua.execute(EVENT + '''
 include=function() end
-W={allowed=false,hidden=false,available=false,requests={},refresh=0,runs=0}
-BaiqiConfig={interval=0.35};BaiqiAdmin={Run=function() end}
-BaiqiController={IsAvailable=function() return W.allowed end,
+W={allowed=false,hidden=false,available=false,requests={},refresh=0,runs=0,turn=1,saved=true,updates=0,adminRuns=0}
+BaiqiConfig={interval=0.35};BaiqiAdmin={Run=function() W.adminRuns=W.adminRuns+1 end}
+BaiqiController={IsAvailable=function() return W.allowed and (not W.turnGuard or W.turnGuard()) end,
+ SetTurnGuard=function(fn) W.turnGuard=fn end,
  RefreshProduction=function() W.refresh=W.refresh+1 end,
- RunNow=function() W.runs=W.runs+1 end,Update=function() end,Shutdown=function() end}
-Game={GetLocalPlayer=function() return 7 end}
+ RunNow=function() W.runs=W.runs+1 end,Update=function(_,allow) W.updates=W.updates+1;W.allowOrders=allow end,Shutdown=function() end}
+Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end}
+GameConfiguration={IsSavedGame=function() return W.saved end}
 GameInfo={Projects={PROJECT_BAIQI_STANDBY={Hash=302}}}
 Players={[7]={GetCities=function() return {Members=function()
  return ipairs({{GetBuildQueue=function() return {CanProduce=function() return W.available end} end}})
@@ -135,6 +137,76 @@ Events={LoadGameViewStateDone=TestEvent(),PlayerTurnActivated=TestEvent(),GameCo
         self.lua.execute('Events.LoadGameViewStateDone.Fire()')
         self.assertEqual(len(self.w.requests), 1)
         self.assertIsNone(self.w.requests[1].standbyUnlockNeeded)
+
+    def test_new_game_requires_actual_local_activation_before_any_new_order(self):
+        self.w.allowed, self.w.available, self.w.saved = True, True, False
+        self.lua.execute('Events.LoadGameViewStateDone.Fire()')
+        self.w.update(.35)
+        self.assertFalse(self.w.allowOrders)
+        self.assertEqual((len(self.w.requests), self.w.runs, self.w.adminRuns), (0, 0, 0))
+        self.lua.execute('Events.PlayerTurnActivated.Fire(8,true);Events.GameCoreEventPlaybackComplete.Fire()')
+        self.w.update(.35)
+        self.assertEqual((len(self.w.requests), self.w.runs, self.w.adminRuns), (0, 0, 0))
+        self.lua.execute('Events.PlayerTurnActivated.Fire(7,true)')
+        self.w.update(.35)
+        self.assertTrue(self.w.allowOrders)
+        self.assertEqual((len(self.w.requests), self.w.runs, self.w.adminRuns), (1, 1, 1))
+
+    def test_saved_acknowledgement_does_not_cover_next_turn_or_foreign_activation(self):
+        self.w.allowed, self.w.available = True, True
+        self.lua.execute('Events.LoadGameViewStateDone.Fire()')
+        before = self.w.runs
+        self.w.turn = 2
+        self.lua.execute('Events.PlayerTurnActivated.Fire(8,true);Events.GameCoreEventPlaybackComplete.Fire()')
+        self.w.update(.35)
+        self.assertFalse(self.w.allowOrders)
+        self.assertEqual((len(self.w.requests), self.w.runs, self.w.adminRuns), (1, before, 0))
+        self.lua.execute('Events.PlayerTurnActivated.Fire(7,true)')
+        self.w.update(.35)
+        self.assertTrue(self.w.allowOrders)
+        self.assertEqual(len(self.w.requests), 2)
+
+    def test_local_activation_before_view_ready_is_retained_for_new_game(self):
+        self.w.allowed, self.w.available, self.w.saved = True, True, False
+        self.lua.execute('Events.PlayerTurnActivated.Fire(7,true)')
+        self.assertEqual((len(self.w.requests), self.w.runs), (0, 0))
+        self.lua.execute('Events.LoadGameViewStateDone.Fire()')
+        self.w.update(.35)
+        self.assertEqual((len(self.w.requests), self.w.runs), (1, 1))
+        self.assertTrue(self.w.allowOrders)
+
+    def test_missing_saved_load_proof_waits_for_real_activation(self):
+        self.w.allowed = True
+        self.lua.execute('GameConfiguration.IsSavedGame=nil;Events.LoadGameViewStateDone.Fire()')
+        self.w.update(.35)
+        self.assertEqual((len(self.w.requests), self.w.runs), (0, 0))
+        self.assertFalse(self.w.allowOrders)
+        self.lua.execute('Events.PlayerTurnActivated.Fire(7,true)')
+        self.assertEqual(len(self.w.requests), 1)
+
+    def test_invalid_or_missing_current_turn_never_acknowledges(self):
+        for value in (-1, 1.5, float('inf'), float('nan'), False, '1', None):
+            with self.subTest(value=value):
+                self.setUp()
+                self.w.allowed = True
+                self.w.turn = value
+                self.lua.execute('Events.LoadGameViewStateDone.Fire();Events.PlayerTurnActivated.Fire(7,true)')
+                self.w.update(.35)
+                self.assertFalse(self.w.allowOrders)
+                self.assertEqual((len(self.w.requests), self.w.runs, self.w.adminRuns), (0, 0, 0))
+        self.setUp()
+        self.w.allowed = True
+        self.lua.execute('Game.GetCurrentGameTurn=nil;Events.LoadGameViewStateDone.Fire();Events.PlayerTurnActivated.Fire(7,true)')
+        self.w.update(.35)
+        self.assertFalse(self.w.allowOrders)
+        self.assertEqual((len(self.w.requests), self.w.runs), (0, 0))
+
+    def test_invalid_local_owner_cannot_acknowledge_matching_invalid_event(self):
+        self.w.allowed, self.w.saved = True, False
+        self.lua.execute('Game.GetLocalPlayer=function() return -1 end;Events.LoadGameViewStateDone.Fire();Events.PlayerTurnActivated.Fire(-1,true)')
+        self.w.update(.35)
+        self.assertFalse(self.w.allowOrders)
+        self.assertEqual((len(self.w.requests), self.w.runs), (0, 0))
 
 
 class GameplayMigrationTests(unittest.TestCase):

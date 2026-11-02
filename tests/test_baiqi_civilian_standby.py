@@ -142,6 +142,53 @@ TestWorld.onCanSkip=function()
                 self.assertEqual((len(self.skips()), len(self.w.unitRequests), len(self.w.spreadRequests)), (0, 0, 1))
                 self.assertEqual((self.entry().unitID, self.entry().stage, self.entry().token, self.entry().charges), (4, 'ARMED', token, 3))
 
+    def test_observation_only_update_keeps_actual_confirmation_without_new_order(self):
+        self.w.autoSpread = True
+        self.c.RunNow()
+        self.c.Update(3, False)
+        self.assertEqual((self.entry().stage, self.w.spreadCharges), ('OBSERVED', 2))
+        self.w.missionaryMoves = 4
+        self.c.Update(3, False)
+        self.assertEqual((len(self.skips()), len(self.w.spreadRequests)), (0, 1))
+        self.c.Update(3, True)
+        self.assertEqual((len(self.skips()), len(self.w.spreadRequests)), (1, 1))
+
+    def test_guard_false_throw_or_missing_callback_fails_closed_for_new_orders(self):
+        for code in ('function() return false end', "function() error('unavailable native phase') end", 'nil'):
+            with self.subTest(code=code):
+                self.setUp()
+                self.lua.execute('BaiqiController.SetTurnGuard(' + code + ')')
+                self.c.RunNow()
+                self.c.Update(3)
+                self.assertFalse(self.c.IsAvailable())
+                self.assertEqual((len(self.skips()), len(self.w.spreadRequests)), (0, 0))
+                self.assertIsNone(self.entry())
+
+    def test_native_callback_phase_loss_prevents_standby_and_preserves_intent(self):
+        self.lua.execute('TestWorld.phaseReady=true;BaiqiController.SetTurnGuard(function() return TestWorld.phaseReady end)')
+        self.c.RunNow()
+        token = self.entry().token
+        self.lua.execute('TestWorld.phaseHookCalls=0;TestWorld.onCanSkip=function() TestWorld.phaseHookCalls=TestWorld.phaseHookCalls+1;TestWorld.phaseReady=false end')
+        self.c.Update(3)
+        self.assertEqual(self.w.phaseHookCalls, 1)
+        self.assertEqual((len(self.skips()), len(self.w.spreadRequests)), (0, 1))
+        self.assertEqual((self.entry().stage, self.entry().token), ('ARMED', token))
+
+    def test_city_native_eligibility_callback_phase_loss_prevents_production(self):
+        self.w.withMissionary, self.w.queueSize = False, 0
+        self.lua.execute('''
+TestWorld.phaseReady=true;TestWorld.cityPhaseHookCalls=0
+BaiqiController.SetTurnGuard(function() return TestWorld.phaseReady end)
+CityManager.CanStartOperation=function(...)
+ TestWorld.cityPhaseHookCalls=TestWorld.cityPhaseHookCalls+1
+ TestWorld.phaseReady=false
+ return true
+end
+''')
+        self.c.RunNow()
+        self.assertGreaterEqual(self.w.cityPhaseHookCalls, 1)
+        self.assertEqual(len(self.w.cityRequests), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

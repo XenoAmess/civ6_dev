@@ -1,0 +1,57 @@
+{
+  "schema": "civ6.baiqi-turn-ack-source45/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "base_commit": "72f3426",
+  "manifest_version": 45,
+  "native_trigger": "Actual44 T78 LocalPlayerTurnBegin, new orders and last spread, then localPlayerTurnActivated(0,true). UI busy/processing were false at actual early native requests;44 idle flags alone insufficient.",
+  "implementation": [
+    "Executor retains acknowledged currentturn only from actual LOCAL PlayerTurnActivated. Foreign/invalidowner events neverack; integer currentturn required. New game waits real activation, savedGameViewStateDone may initialize actual savedturn. Early local event before viewready is preserved.",
+    "Private phase predicate registered with Controller; every CoreIdle permission check reads current acknowledgement, including post-native eligibility callbacks. Empty and completed city queues both recheck at final boundary.",
+    "Controller.Update(delta,false) andRunNow(false) age/reconcile existing facts but issue no neworders; preserved oldpending andbudget. Nativephase missing/invalid/throw fails closed for orders.",
+    "One diagnostic turn_acknowledged marker precedes activated-turn orders. No delay heuristic, movegrant, forcedturn, manualtakeover, military or diplomatic authority change."
+  ],
+  "software": {
+    "new_methods": 10,
+    "full_suite": {
+      "tests": 373,
+      "seconds": 57.679,
+      "status": "PASS"
+    },
+    "final_diagnostic_marker": "Only one diagnostic print added after fullsuite;17 production/executor tests rerun andpassed on finalsource. No gameplay logic changed after fullsuite.",
+    "new_boundaries": [
+      "New game no orders until actuallocalactivation; foreign andplayback cannotack.",
+      "Savedack doesnotcover nextturn; localactivation resumes.",
+      "Early native localactivation retained throughUIviewready.",
+      "Missing savedload getter waits real activation.",
+      "Invalid/missing turn andinvalidowner failclosed.",
+      "Observation-only update confirms actualdecreasedcharge, no extraorders.",
+      "False/throw/missing phase callback stops neworders.",
+      "Nativecallback phase loss preserves unknown intent andstops standby.",
+      "City nativeeligibility callback phase loss preventsproduction."
+    ]
+  },
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "ed8ac0b725a7a557ab08093cad0487320a27ade1bb571a896e4c739f54e9c6d9",
+    "mod/Baiqi/Lua/BaiqiController.lua": "637a1b9747750b059a9c38e7788c369235ea5f09ad2182cca4c0aaaab48a96cf",
+    "mod/Baiqi/UI/BaiqiExecutor.lua": "9a917545cffb45b508482b61e035a27c58573492b690a510a5605c954d352761",
+    "tests/test_baiqi_production_ready.py": "20e64150aecab3054d40d9d0c7587132bb544e3062f75500aaef2200279380b4",
+    "tests/test_baiqi_civilian_standby.py": "d83bd2442d0722c580a47e89d77a8f53c88e6485e373b2a8f5fcd9ef7b9ecd25"
+  },
+  "build": {
+    "files": 65,
+    "zip_sha256": "33829b7a023afaae9c495c38702059493a5fd2006af657aeddc6708eb8c0501a",
+    "installed": true,
+    "native45_status": "PENDING"
+  },
+  "model148": {
+    "transport": "200/stop/DONE/JSON complete",
+    "adoption": "0 code; owner rewritten Executor andController bridge",
+    "rejection": "Candidate Activate ignores actual eventplayerID and still acknowledges foreign events despiteproseclaim; omitted required includes, savedload recoveryNeeded/initialRecover and integer/nonnegative turn checks. Owner-specified forward Update2ndarg was in prompt; no missing interface excuse."
+  },
+  "limits": [
+    "Actual45 native command ordering/movementcost not yet verified.",
+    "Actual45 freshnewgame/nativeinitialsettler gate not yet verified.",
+    "Cold unknown/otherleader/art/full40 still incomplete."
+  ]
+}

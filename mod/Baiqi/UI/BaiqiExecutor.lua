@@ -6,6 +6,16 @@ local adminStopped=false
 local adminElapsed=0
 local recoveryNeeded=false
 local awaitingStandby=false
+local acknowledgedTurn
+local function CurrentTurn()
+  if not Game or type(Game.GetCurrentGameTurn)~="function" then return nil end
+  local ok,value=pcall(Game.GetCurrentGameTurn)
+  if ok and type(value)=="number" and value>=0 and value<=2147483647 and value==math.floor(value) then return value end
+end
+local function TurnReady()
+  return acknowledgedTurn~=nil and CurrentTurn()==acknowledgedTurn
+end
+BaiqiController.SetTurnGuard(TurnReady)
 local function Visible()
   local hud=ContextPtr:LookUpControl("/InGame/HUD")
   return ready and hud~=nil and not hud:IsHidden()
@@ -23,7 +33,7 @@ local function StandbyAvailable()
   if count>0 then return false end
 end
 local function Recover()
-  if not Visible() or not BaiqiController.IsAvailable() then return end
+  if not Visible() or not TurnReady() or not BaiqiController.IsAvailable() then return end
   local available=StandbyAvailable()
   if awaitingStandby and available==true then
     awaitingStandby=false
@@ -38,7 +48,7 @@ local function Recover()
 end
 local function Update(delta)
   if Visible() then
-    if BaiqiController.IsAvailable() then
+    if TurnReady() and BaiqiController.IsAvailable() then
       Recover()
       adminElapsed=adminElapsed+delta
       if not adminStopped and adminElapsed>=BaiqiConfig.interval then
@@ -47,18 +57,36 @@ local function Update(delta)
         if not ok then adminStopped=true;print("BAIQI|admin_error|"..tostring(err)) end
       end
     end
-    BaiqiController.Update(delta)
+    BaiqiController.Update(delta,TurnReady())
   end
 end
-local function Activate()
-  if not ready then return end
+local function RunIfReady()
+  if not Visible() or not TurnReady() or not BaiqiController.IsAvailable() then return end
+  Recover()
+  if TurnReady() and BaiqiController.IsAvailable() then BaiqiController.RunNow() end
+end
+local function Activate(playerID)
+  local localPlayer=Game.GetLocalPlayer()
+  if type(localPlayer)~="number" or localPlayer<0 or localPlayer>2147483647 or localPlayer%1~=0
+    or playerID~=localPlayer then return end
+  local current=CurrentTurn()
+  if current==nil then return end
+  acknowledgedTurn=current
+  print("BAIQI|turn_acknowledged|turn="..current.."|player="..localPlayer.."|source=native_player_turn_activated")
+  recoveryNeeded=true
+  if ready then ContextPtr:SetHide(false);RunIfReady() end
+end
+local function OnViewReady()
+  ready=true
+  if type(GameConfiguration)=="table" and type(GameConfiguration.IsSavedGame)=="function"
+    and GameConfiguration.IsSavedGame()==true then acknowledgedTurn=CurrentTurn() end
   recoveryNeeded=true
   ContextPtr:SetHide(false)
-  Recover()
-  if Visible() then BaiqiController.RunNow() end
+  RunIfReady()
 end
-local function OnViewReady() ready=true; Activate() end
-local function OnPlayback() if Visible() then BaiqiController.RunNow() end end
+local function OnPlayback()
+  if Visible() and TurnReady() and BaiqiController.IsAvailable() then BaiqiController.RunNow() end
+end
 ContextPtr:SetUpdate(Update)
 Events.LoadGameViewStateDone.Add(OnViewReady)
 Events.PlayerTurnActivated.Add(Activate)

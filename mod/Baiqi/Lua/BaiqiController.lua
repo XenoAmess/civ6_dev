@@ -11,6 +11,7 @@ local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local districtPersonPlans = {}
 local missionaryPlans = {}
 local stopped, running = false, false
+local turnGuard
 local status = "内政托管开启；军队等待你的命令"
 local contextID, visibility
 local lastReasons = {}
@@ -25,8 +26,17 @@ local function Reason(key, text)
 end
 
 local function CoreIdle()
+  if turnGuard then
+    local ok,allowed=pcall(turnGuard)
+    if not ok or allowed~=true then return false end
+  end
   return type(UI.IsGameCoreBusy)=="function" and UI.IsGameCoreBusy()==false
     and type(UI.IsProcessingMessages)=="function" and UI.IsProcessingMessages()==false
+end
+
+-- The invisible executor supplies the native local-turn acknowledgement.
+function BaiqiController.SetTurnGuard(guard)
+  turnGuard=type(guard)=="function" and guard or function() return false end
 end
 
 local function PlayerContext()
@@ -1120,9 +1130,9 @@ end
 
 local function QueueReady(city,q,completedHead)
   if completedHead then
-    return q:GetSize()==1 and CoreIdle() and CompletedIdleHead(city,q)==completedHead
+    return q:GetSize()==1 and CompletedIdleHead(city,q)==completedHead and CoreIdle()
   end
-  return q:GetSize()==0 and q:GetCurrentProductionTypeHash()==0
+  return q:GetSize()==0 and q:GetCurrentProductionTypeHash()==0 and CoreIdle()
 end
 
 local function ProcessCity(ctx, player, state, city)
@@ -1397,7 +1407,7 @@ local function ReadBack(player)
   end
 end
 
-local function Tick()
+local function Tick(allowOrders)
   if stopped then return end
   local ctx,player,state=PlayerContext()
   if ctx==nil then return end
@@ -1405,7 +1415,8 @@ local function Tick()
   if not BaiqiPolicy.Context(ctx) then return end
   visibility=PlayersVisibility[ctx.player]
   if visibility==nil then return end
-  local current=Game.GetCurrentGameTurn()
+  local current=type(Game.GetCurrentGameTurn)=="function" and Game.GetCurrentGameTurn()
+  if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
     turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
@@ -1425,7 +1436,7 @@ local function Tick()
   ReadBack(player)
   -- Existing factual receipts may reconcile while the core is busy. New
   -- gameplay orders wait until both native processing readers report idle.
-  if not CoreIdle() then return end
+  if allowOrders==false or not CoreIdle() then return end
   for _,city in player:GetCities():Members() do
     if ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
   end
@@ -1470,21 +1481,21 @@ local function Tick()
   end
 end
 
-function BaiqiController.RunNow()
+function BaiqiController.RunNow(allowOrders)
   if running or stopped then return end
   running=true
-  local ok,err=pcall(Tick)
+  local ok,err=pcall(Tick,allowOrders)
   running=false
   if not ok then stopped=true; status="托管因脚本错误停止，请查看 Lua.log"; Log("error",tostring(err)) end
 end
 
-function BaiqiController.Update(delta)
+function BaiqiController.Update(delta,allowOrders)
   local ctx=PlayerContext()
   if not ctx or ctx.activeTurn~=true then return end
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
   elapsed=elapsed+delta
-  if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow() end
+  if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow(allowOrders) end
 end
 
 function BaiqiController.GetStatus() return status end
