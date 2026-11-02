@@ -1,0 +1,802 @@
+{
+  "schema": "civ6.baiqi-native55-performance-q7/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source": "4c7501e075125c15febc7f956f7b8a2ef0599afe",
+  "diagnostic_source": "8dad938c292d0c2f36af34cfba7fd08a377c7dfd",
+  "version": 55,
+  "pid": 16024,
+  "install": {
+    "files": 69,
+    "equal_to_source": true,
+    "zip_sha256": "6c8fa0b74b93ef0fe5bcfa59371845de3462d06817a79f641cc59165bf09f185"
+  },
+  "steam": {
+    "pid": 13620,
+    "fresh_confirmation_utc": "2026-11-02T21:23:38.846025+00:00",
+    "status": "offline",
+    "online_switches": 0,
+    "confirmation": "Independent readonly actual GoOnline menu query; no screenshots/input/focuschange in confirmation. Earlier owner official Steamheader InvokePattern did bring foreground toSteam; navigation and confirmation separate."
+  },
+  "fixture": {
+    "original_bytes": 503809,
+    "original_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "warmup_seconds": 124.34299993515,
+    "reload_same_original_after_warmup": true,
+    "manual_interior": 0,
+    "debug_resources_or_production": 0
+  },
+  "sampling": {
+    "root_records": 243,
+    "pure_ten_records": 227,
+    "other_city_counts_records": 16,
+    "groups_ten": {
+      "Controller.RunNow": {
+        "n": 136,
+        "p50_ms": 13.999938964844,
+        "p95_ms": 70.000171661377,
+        "max_ms": 190.99998474121
+      },
+      "Admin.Run": {
+        "n": 91,
+        "p50_ms": 3.000020980835,
+        "p95_ms": 6.000041961669901,
+        "max_ms": 11.000156402588
+      }
+    },
+    "by_turn_ten": {
+      "86": {
+        "Controller.RunNow": {
+          "n": 31,
+          "p50_ms": 13.000011444092,
+          "p95_ms": 42.000055313109996,
+          "max_ms": 85.999965667725
+        },
+        "Admin.Run": {
+          "n": 23,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 4.9998760223389,
+          "max_ms": 5.000114440918
+        }
+      },
+      "87": {
+        "Controller.RunNow": {
+          "n": 28,
+          "p50_ms": 14.999866485596,
+          "p95_ms": 82.000017166138,
+          "max_ms": 151.00002288818
+        },
+        "Admin.Run": {
+          "n": 22,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 5.000114440918,
+          "max_ms": 6.000041961669901
+        }
+      },
+      "88": {
+        "Controller.RunNow": {
+          "n": 30,
+          "p50_ms": 15.000104904175,
+          "p95_ms": 59.999942779541,
+          "max_ms": 64.99981880188
+        },
+        "Admin.Run": {
+          "n": 18,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 11.000156402588,
+          "max_ms": 11.000156402588
+        }
+      },
+      "89": {
+        "Controller.RunNow": {
+          "n": 28,
+          "p50_ms": 15.000104904175,
+          "p95_ms": 26.999950408936,
+          "max_ms": 190.99998474121
+        },
+        "Admin.Run": {
+          "n": 20,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 5.999803543090801,
+          "max_ms": 6.000041961669901
+        }
+      },
+      "90": {
+        "Controller.RunNow": {
+          "n": 19,
+          "p50_ms": 9.0000629425049,
+          "p95_ms": 74.00012016296401,
+          "max_ms": 74.00012016296401
+        },
+        "Admin.Run": {
+          "n": 8,
+          "p50_ms": 2.000093460083,
+          "p95_ms": 9.0000629425049,
+          "max_ms": 9.0000629425049
+        }
+      }
+    },
+    "action_families": {
+      "UNIT_BUILDER": {
+        "observed_action_roots": 27,
+        "p95_ms": 82.000017166138,
+        "max_ms": 85.999965667725,
+        "max_paths": 1,
+        "max_qualification_count": 12,
+        "roots": [
+          "5",
+          "6",
+          "7",
+          "9",
+          "11",
+          "13",
+          "55",
+          "56",
+          "59",
+          "61",
+          "63",
+          "65",
+          "109",
+          "113",
+          "114",
+          "117",
+          "153",
+          "154",
+          "157",
+          "160",
+          "207",
+          "208",
+          "212",
+          "214",
+          "220",
+          "222",
+          "227"
+        ]
+      },
+      "UNIT_SETTLER": {
+        "observed_action_roots": 5,
+        "p95_ms": 64.99981880188,
+        "max_ms": 64.99981880188,
+        "max_paths": 1,
+        "max_qualification_count": 3,
+        "roots": [
+          "120",
+          "124",
+          "162",
+          "166",
+          "224"
+        ]
+      },
+      "UNIT_TRADER": {
+        "observed_action_roots": 4,
+        "p95_ms": 151.00002288818,
+        "max_ms": 151.00002288818,
+        "max_paths": 0,
+        "max_qualification_count": 5,
+        "roots": [
+          "68",
+          "119",
+          "132",
+          "219"
+        ]
+      }
+    },
+    "qualification_inclusive_totals": {
+      "CanStartOperation": {
+        "seconds": 0.04800081253051801,
+        "samples": 160,
+        "unknown": 0
+      },
+      "CanStartCommand": {
+        "seconds": 0.0019998550415039,
+        "samples": 8,
+        "unknown": 0
+      }
+    },
+    "metadata": [
+      "P6_PERF_Q7_RESTORED\ttrue\ttrue\ttrue\ttrue\ttrue\ttrue\ttrue\t243\t0\t0\t0\t42\t0\t0\t0\t0",
+      "P6_PERF_Q7_COUNTER_STATS\t7492\t0\t87897\t0\t203\t0",
+      "P6_PERF_Q7_WINDOW\t88\t1793655868.786\t1793655868.791\t1793655868.786",
+      "P6_PERF_Q7_WINDOW\t89\t1793655989.918\t1793655989.92\t1793655989.918",
+      "P6_PERF_Q7_WINDOW\t90\t1793656020.815\t1793656020.849\t1793656020.815",
+      "P6_PERF_Q7_WINDOW\t86\t1793655729.865\t1793655729.907\t1793655729.865",
+      "P6_PERF_Q7_WINDOW\t87\t1793655763.123\t1793655763.177\t1793655763.123",
+      "P6_PERF_Q7_QUAL_PROFILE\t0\t0"
+    ],
+    "receipt": "20261102T214852260642Z.json",
+    "facts_sha256": "63087e92635473cbb692fdbc21197d87f54e679d8839cc61f412232642c0efe7",
+    "lua_sha256": "7fc933f5fbf00aeae95e19d4334da06ed7722b6c4af94d4bfd50b3b5dea0c94b",
+    "runtime_errors": 0,
+    "baiqi_error_markers": 0,
+    "limits": "First planner precedes observer activation by 5–54ms; 42 false initialization records excluded. Observer cost and clockgranularity uncalibrated. Inclusive query/path/root timings not exclusive/additive. No allmodule B_turn/global N_req/matched controls, no causal speedup/regression percentage. Currentq7 embeds oldfactory; later207 exact endpoints are not present in this run."
+  },
+  "result": {
+    "B_plan": "FAIL: Controller136 p95~70ms>20/max191ms>50; Admin91 p95~6/max11ms within observed function budget.",
+    "TC036": "NOT_PASS"
+  },
+  "slowest_roots": [
+    {
+      "id": "164",
+      "parent": "nil",
+      "name": "Controller.RunNow",
+      "turn_before": "89",
+      "turn_after": "89",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793655993.176",
+      "seconds": "0.19099998474121",
+      "failed": "false",
+      "allow_orders": "true",
+      "path_seconds": "0.002000093460083",
+      "path_samples": "1",
+      "path_unknown": "0",
+      "status_after": "移民继续检查安全路线；军队由你指挥",
+      "counts": {
+        "Map.GetPlot": 110,
+        "Units.GetUnitsInPlotLayerID": 38,
+        "Map.GetPlotByIndex": 39,
+        "Units.GetUnitsInPlot": 38,
+        "UnitManager.GetMoveToPathEx": 1,
+        "Map.GetPlotDistance": 17
+      },
+      "actions": [],
+      "qualification": {}
+    },
+    {
+      "id": "68",
+      "parent": "nil",
+      "name": "Controller.RunNow",
+      "turn_before": "87",
+      "turn_after": "87",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793655766.342",
+      "seconds": "0.15100002288818",
+      "failed": "false",
+      "allow_orders": "true",
+      "path_seconds": "0",
+      "path_samples": "0",
+      "path_unknown": "0",
+      "status_after": "已提交国内商路，等待实际结果",
+      "counts": {
+        "Map.GetPlot": 99,
+        "UnitManager.CanStartOperation": 3,
+        "Units.GetUnitsInPlotLayerID": 88,
+        "Map.GetPlotByIndex": 100,
+        "Units.GetUnitsInPlot": 88,
+        "Map.GetPlotXYWithRangeCheck": 100
+      },
+      "actions": [
+        {
+          "kind": "unit",
+          "id": "3080218",
+          "owner": "0",
+          "op": "-2089494188",
+          "unit_type": "UNIT_TRADER",
+          "x": "11",
+          "y": "6",
+          "script": "nil"
+        }
+      ],
+      "qualification": {
+        "CanStartOperation": {
+          "seconds": 0.0010001659393311,
+          "samples": 3,
+          "unknown": 0
+        }
+      }
+    },
+    {
+      "id": "6",
+      "parent": "nil",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793655730.897",
+      "seconds": "0.085999965667725",
+      "failed": "false",
+      "allow_orders": "true",
+      "path_seconds": "0.028000116348267",
+      "path_samples": "1",
+      "path_unknown": "0",
+      "status_after": "已提交建造者操作，等待实际结果",
+      "counts": {
+        "UnitManager.GetMoveToPathEx": 1,
+        "Map.GetPlot": 50,
+        "UnitManager.CanStartOperation": 11,
+        "Units.GetUnitsInPlotLayerID": 137,
+        "Map.GetPlotByIndex": 157,
+        "Units.GetUnitsInPlot": 137,
+        "Map.GetPlotDistance": 10,
+        "Map.GetPlotXYWithRangeCheck": 325
+      },
+      "actions": [
+        {
+          "kind": "unit",
+          "id": "3538957",
+          "owner": "0",
+          "op": "1477390184",
+          "unit_type": "UNIT_BUILDER",
+          "x": "10",
+          "y": "15",
+          "script": "nil"
+        }
+      ],
+      "qualification": {
+        "CanStartOperation": {
+          "seconds": 0.0050003528594971,
+          "samples": 11,
+          "unknown": 0
+        }
+      }
+    },
+    {
+      "id": "61",
+      "parent": "nil",
+      "name": "Controller.RunNow",
+      "turn_before": "87",
+      "turn_after": "87",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793655764.621",
+      "seconds": "0.082000017166138",
+      "failed": "false",
+      "allow_orders": "true",
+      "path_seconds": "0.027000188827515",
+      "path_samples": "1",
+      "path_unknown": "0",
+      "status_after": "已提交建造者操作，等待实际结果",
+      "counts": {
+        "Map.GetPlot": 50,
+        "UnitManager.CanStartOperation": 11,
+        "Units.GetUnitsInPlotLayerID": 123,
+        "Map.GetPlotByIndex": 139,
+        "Units.GetUnitsInPlot": 123,
+        "UnitManager.GetMoveToPathEx": 1,
+        "Map.GetPlotDistance": 9
+      },
+      "actions": [
+        {
+          "kind": "unit",
+          "id": "3538957",
+          "owner": "0",
+          "op": "1477390184",
+          "unit_type": "UNIT_BUILDER",
+          "x": "10",
+          "y": "13",
+          "script": "nil"
+        }
+      ],
+      "qualification": {
+        "CanStartOperation": {
+          "seconds": 0.005000114440918,
+          "samples": 11,
+          "unknown": 0
+        }
+      }
+    },
+    {
+      "id": "227",
+      "parent": "nil",
+      "name": "Controller.RunNow",
+      "turn_before": "90",
+      "turn_after": "90",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793656026.57",
+      "seconds": "0.074000120162964",
+      "failed": "false",
+      "allow_orders": "true",
+      "path_seconds": "0.014999866485596",
+      "path_samples": "1",
+      "path_unknown": "0",
+      "status_after": "已提交建造者操作，等待实际结果",
+      "counts": {
+        "UnitManager.GetMoveToPathEx": 1,
+        "Map.GetPlot": 100,
+        "UnitManager.CanStartOperation": 12,
+        "Units.GetUnitsInPlotLayerID": 113,
+        "Map.GetPlotByIndex": 130,
+        "Units.GetUnitsInPlot": 113,
+        "Map.GetPlotDistance": 12,
+        "Map.GetPlotXYWithRangeCheck": 175
+      },
+      "actions": [
+        {
+          "kind": "unit",
+          "id": "4653085",
+          "owner": "0",
+          "op": "1477390184",
+          "unit_type": "UNIT_BUILDER",
+          "x": "16",
+          "y": "14",
+          "script": "nil"
+        }
+      ],
+      "qualification": {
+        "CanStartOperation": {
+          "seconds": 0.0030002593994141,
+          "samples": 12,
+          "unknown": 0
+        }
+      }
+    }
+  ],
+  "diagnosis": {
+    "root164": "T89 settler status,191ms,no submitted action,one path~2ms,0range enumeration; primary38/religious38reads. Cannot attribute residual to any named source or geometry from these counters.",
+    "root68": "T87 domestic trader request151ms,0paths,3qualifications inclusive~1ms,100rangequeries and88primary+88religiousreads.",
+    "builder_scope": "27pureten actionroots,max86ms,at most1path/max12qualificationqueries. No all NoAction classification or exclusive attribution."
+  },
+  "outcomes": {
+    "turn": 90,
+    "cities_ui_core": 11,
+    "city_ids_owners_coords_match": true,
+    "queues": [
+      [
+        "65536",
+        "0",
+        "16",
+        "14",
+        "1",
+        "-46510675"
+      ],
+      [
+        "131073",
+        "0",
+        "11",
+        "6",
+        "1",
+        "1547024909"
+      ],
+      [
+        "196610",
+        "0",
+        "10",
+        "13",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "262147",
+        "0",
+        "13",
+        "16",
+        "1",
+        "101426179"
+      ],
+      [
+        "327684",
+        "0",
+        "8",
+        "10",
+        "1",
+        "806902947"
+      ],
+      [
+        "393221",
+        "0",
+        "15",
+        "5",
+        "1",
+        "1738306535"
+      ],
+      [
+        "458758",
+        "0",
+        "19",
+        "6",
+        "1",
+        "1738306535"
+      ],
+      [
+        "524295",
+        "0",
+        "14",
+        "9",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "589832",
+        "0",
+        "8",
+        "3",
+        "1",
+        "-2025065568"
+      ],
+      [
+        "655369",
+        "0",
+        "11",
+        "1",
+        "1",
+        "-764771404"
+      ],
+      [
+        "720906",
+        "0",
+        "16",
+        "18",
+        "1",
+        "-764771404"
+      ]
+    ],
+    "all_queues_nonempty_and_hash_nonzero": true,
+    "routes": [
+      [
+        "65536",
+        "3932190",
+        "0",
+        "65536",
+        "0",
+        "393221"
+      ],
+      [
+        "65536",
+        "2752532",
+        "0",
+        "65536",
+        "0",
+        "524295"
+      ],
+      [
+        "65536",
+        "2883608",
+        "0",
+        "65536",
+        "0",
+        "196610"
+      ],
+      [
+        "65536",
+        "851970",
+        "0",
+        "65536",
+        "0",
+        "262147"
+      ],
+      [
+        "131073",
+        "3080218",
+        "0",
+        "131073",
+        "0",
+        "327684"
+      ],
+      [
+        "131073",
+        "3145753",
+        "0",
+        "131073",
+        "0",
+        "524295"
+      ],
+      [
+        "131073",
+        "3473422",
+        "0",
+        "131073",
+        "0",
+        "589832"
+      ],
+      [
+        "131073",
+        "4587555",
+        "0",
+        "131073",
+        "0",
+        "196610"
+      ],
+      [
+        "458758",
+        "2228241",
+        "0",
+        "458758",
+        "0",
+        "393221"
+      ]
+    ],
+    "new_route_trader_ids_matched": [
+      "3080218",
+      "3145753",
+      "4587555",
+      "2228241"
+    ],
+    "build_submissions": [
+      {
+        "root": "11",
+        "turn": "86",
+        "kind": "unit",
+        "id": "4325394",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "9",
+        "y": "10",
+        "script": "nil"
+      },
+      {
+        "root": "13",
+        "turn": "86",
+        "kind": "unit",
+        "id": "3670044",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "20",
+        "y": "6",
+        "script": "nil"
+      },
+      {
+        "root": "117",
+        "turn": "88",
+        "kind": "unit",
+        "id": "4325394",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "8",
+        "y": "9",
+        "script": "nil"
+      },
+      {
+        "root": "153",
+        "turn": "89",
+        "kind": "unit",
+        "id": "3801095",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "14",
+        "y": "3",
+        "script": "nil"
+      },
+      {
+        "root": "160",
+        "turn": "89",
+        "kind": "unit",
+        "id": "4325394",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "9",
+        "y": "8",
+        "script": "nil"
+      },
+      {
+        "root": "214",
+        "turn": "90",
+        "kind": "unit",
+        "id": "3538957",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "11",
+        "y": "12",
+        "script": "nil"
+      },
+      {
+        "root": "222",
+        "turn": "90",
+        "kind": "unit",
+        "id": "4325394",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "10",
+        "y": "8",
+        "script": "nil"
+      },
+      {
+        "root": "240",
+        "turn": "90",
+        "kind": "unit",
+        "id": "4784165",
+        "owner": "0",
+        "op": "492889976",
+        "unit_type": "UNIT_BUILDER",
+        "x": "9",
+        "y": "10",
+        "script": "nil"
+      }
+    ],
+    "final_build_plot_readbacks": [
+      [
+        "11",
+        "4325394",
+        "9",
+        "10",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false"
+      ],
+      [
+        "13",
+        "3670044",
+        "20",
+        "6",
+        "4",
+        "IMPROVEMENT_FISHING_BOATS",
+        "false"
+      ],
+      [
+        "117",
+        "4325394",
+        "8",
+        "9",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false"
+      ],
+      [
+        "153",
+        "3801095",
+        "14",
+        "3",
+        "2",
+        "IMPROVEMENT_MINE",
+        "false"
+      ],
+      [
+        "160",
+        "4325394",
+        "9",
+        "8",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false"
+      ],
+      [
+        "214",
+        "3538957",
+        "11",
+        "12",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false"
+      ],
+      [
+        "222",
+        "4325394",
+        "10",
+        "8",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false"
+      ],
+      [
+        "240",
+        "4784165",
+        "9",
+        "10",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false"
+      ]
+    ],
+    "unique_build_plot_positions": 7,
+    "build_scope": "8observed BUILD submissions over7positions; finalCore own0/nonpillaged Farm/Mine/FishingBoats. Repeated9,10 cannot prove both submissions separately succeeded or full charge/cost matrix.",
+    "sampled_root_military_actions": 0,
+    "military_scope": "Observed Controller/Admin roots only; explicit player inputs separate, not fullmodule coverage.",
+    "save_bytes": 518948,
+    "save_sha256": "801a0f3f58daf503c1109da7d8931704b222b9ced2a10578fda3d50d2d516996",
+    "save_reloaded": false
+  },
+  "player_actions": {
+    "endturns": [
+      "P6_PERF_Q7_EXPLICIT_PLAYER_ENDTURN\t85",
+      "P6_PERF_Q7_EXPLICIT_PLAYER_ENDTURN\t86",
+      "P6_PERF_Q7_EXPLICIT_PLAYER_ENDTURN\t87",
+      "P6_PERF_Q7_EXPLICIT_PLAYER_ENDTURN\t88",
+      "P6_PERF_Q7_EXPLICIT_PLAYER_ENDTURN\t89"
+    ],
+    "military_skips": 92,
+    "unstack": "Explicit player WorldInput at88,knight4456482from11,6to10,6;finalreadbackmatches.",
+    "diplomacy": "Alexanderfarewell halteddriver;freshownedgameimage confirmed then physical playerEsc; no auto diplomacy.",
+    "recovery": "Resume after diplomacy and military stack, no endturn replay. Initial wrong context BaiqiAutomatic lookup failed before final readback/save; corrected to actual BaiqiExecutor once."
+  },
+  "restore": "All7namespace/planner pointers restored, event removed,statecleared; profile/query callback errors anddrops0.",
+  "next": "Investigate actual slow no-action/trade roots, calibrate clock/observer cost and add fullmodule intervals/write coverage. Preserve safety and manual army/diplomacy. This FAIL does not stop development."
+}
