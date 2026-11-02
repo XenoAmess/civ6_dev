@@ -1,0 +1,870 @@
+{
+  "schema": "civ6.baiqi.p6-performance-first-window47/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "1c63cd5cdcc158e64439e2dd2915762168df4c52",
+  "protocol_commit": "e0e779949a32aedcb964a885ed577409adf52ea0",
+  "pid": 17288,
+  "exe_name": "CivilizationVI_DX12.exe",
+  "cpu_affinity_at_evidence": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "fixture": {
+    "save": "Baiqi_P6_20261101_V32_TenCities85_BeforeProfile",
+    "bytes": 503809,
+    "sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "warmup_seconds": 146.50599980354,
+    "formal_reload_after_warmup": true,
+    "turn": 86,
+    "cities": 10,
+    "effective_speed": "GAMESPEED_ONLINE",
+    "steam_online_switches": 0,
+    "graphics_settings": "Not independently queried in this diagnostic; no matching-control claim."
+  },
+  "observed": {
+    "groups_ms_nearest_rank": {
+      "Controller.RunNow": {
+        "n": 31,
+        "p50_ms": 3.000020980835,
+        "p95_ms": 41.000127792358,
+        "max_ms": 85.999965667725,
+        "over_50ms": 1
+      },
+      "Admin.Run": {
+        "n": 18,
+        "p50_ms": 2.000093460083,
+        "p95_ms": 5.000114440918,
+        "max_ms": 5.000114440918,
+        "over_50ms": 0
+      }
+    },
+    "sample_count": 49,
+    "invalid_clock": 0,
+    "dropped": 0,
+    "metadata_errors": 0,
+    "original_pointers_restored": true,
+    "max_call": {
+      "index": 11,
+      "name": "Controller.RunNow",
+      "milliseconds": 85.999965667725,
+      "allow_orders": "true",
+      "after_observed_activation": true
+    },
+    "status": "Observed covered planning maximum exceeds frozen50ms; stopped for diagnosis, TC036 notpassed."
+  },
+  "window_defect": {
+    "first_planner_clock": 1793632327.817,
+    "observed_native_activation_clock": 1793632329.663,
+    "early_seconds": 1.846,
+    "pre_activation_false_allow_orders_calls": 5,
+    "consequence": "This is not a complete10s postactivation B_turn window. All raw samples retained; next sampler must keep preactivation separate. Covered86ms allowedtrue call remains a valid latency observation, not proof of algorithmic cause."
+  },
+  "calibration": {
+    "kind": "1000 no-op calls through helper with actual nativeclock; not matched gameplaycontrol",
+    "calls": 1000,
+    "samples": 1000,
+    "invalid_clock": 0,
+    "dropped": 0,
+    "total_seconds": 0.039000034332275,
+    "p50_ms": 0.0,
+    "p95_ms": 0.0,
+    "max_ms": 2.000093460083,
+    "subtracted_from_game_samples": false,
+    "limits": "No-op clock calibration does not exclude OS scheduling/native engine variation or identify hotspot."
+  },
+  "core_clock_bindings": {
+    "Automation": "table",
+    "Automation.GetTime": "function",
+    "unpack": "function",
+    "table.pack": "nil",
+    "table.unpack": "nil",
+    "debug": "nil",
+    "cross_context_clock_calibration": "PENDING"
+  },
+  "control_manifest": {
+    "files": {
+      "tools/control_manifest.py": {
+        "bytes": 1473,
+        "sha256": "e94bf6d62286edadcb82239ef377e6b68136e14772bd110d150f69a7b89379eb"
+      },
+      "tests/test_control_manifest.py": {
+        "bytes": 4338,
+        "sha256": "c7e19df7d90b4ee2ae41a6eba6f330919984f3e41d523d1ea37f56d23c86b438"
+      }
+    },
+    "candidate183": {
+      "adoption": "partial-owner-corrected",
+      "software_methods": 7,
+      "original_candidate_failures": 4,
+      "original_candidate_errors": 0,
+      "owner_result": "7PASS",
+      "corrections": [
+        "RequireModroot",
+        "RequireexactlyoneInGameActions",
+        "Validateexecutiontagsanywhereoutsidedirectallowedchildren"
+      ]
+    },
+    "candidate185": "Rejected wrongreporttuplemembership, hardcodedidentity, deletingwholeInGameActions and non-isolated negativefixtures.",
+    "report": {
+      "mod_id": "7d682641-0673-4c3a-8d1d-d28aff0b614a",
+      "mod_version": "47",
+      "removed_count": 31,
+      "removed": [
+        [
+          "AddGameplayScripts",
+          "BaiqiGameplay"
+        ],
+        [
+          "AddUserInterfaces",
+          "BaiqiExecutor"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardWorldInput"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiStaticDiplomacyView"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiStaticLeaderScene"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardUnitPanel"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardProductionPanel"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardCityPanel"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardCityPanelOverview"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardPlotInfo"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardTechTree"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardCivicsTree"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardGovernmentScreen"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardGovernorPanel"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardGovernorDetailsPanel"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardGovernorAssignmentChooser"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardTradeRouteChooser"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardGreatPeoplePopup"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardCityStates"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardResearchChooser"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardCivicsChooser"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardUnitFlagManager"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardReligionScreen"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardPantheonChooser"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardDedicationPopup"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiGuardNaturalDisasterPopup"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiQuietTechCivicCompletedPopup"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiQuietNotificationPanel"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiQuietNaturalWonderPopup"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiQuietHistoricMoments"
+        ],
+        [
+          "ReplaceUIScript",
+          "BaiqiQuietGreatWorkShowcase"
+        ]
+      ]
+    },
+    "original_manifest_sha256": "68d7ea8201738b5c59f283e502ab971cb793669c413ac3237c345b2dac98359f",
+    "diagnostic_manifest_sha256": "674b615efe7253e6750bea45864a0b0cd86424a447275521a3b04d1f09172b2e",
+    "installed": false,
+    "native_control_load": "NOT_RUN"
+  },
+  "source_audit184": {
+    "adoption": "partial-source-inventory",
+    "verified_native_apis": [
+      "UI.RequestPlayerOperation",
+      "culture:RequestChangeGovernment",
+      "culture:RequestPolicyChanges",
+      "UnitManager.RequestOperation",
+      "UnitManager.RequestCommand",
+      "CityManager.RequestOperation",
+      "player:AttachModifierByID"
+    ],
+    "owner_verified_consumers": "Admin localGovernment line303 and Run policy line380; Core standbyRecovery attach; intentCore player:SetProperty ledger, not ordinary action command.",
+    "rejected": "No requestsPerTurn reference in currentAdmin; candidate claim that64capalreadycoversAdmin unsupported. Qualified publicfunction names were corrected to actual localfunctions.",
+    "next": "Unified submission counting must include directculture methods as well as UI/Unit/City submissions; persistentledgerwrites separately accounted."
+  },
+  "model186": "length2200 with DONE, incomplete repetitive list; no candidate content adopted or stitched.",
+  "native_log": {
+    "bytes": 12003,
+    "sha256": "9e76f783b481f3bb7ac828c5978dac23902cf66a601721ec6333e60891a3702e"
+  },
+  "samples": [
+    {
+      "index": "1",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632327.817",
+      "seconds": "0",
+      "failed": "false",
+      "allow_orders": "false"
+    },
+    {
+      "index": "2",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632328.208",
+      "seconds": "0",
+      "failed": "false",
+      "allow_orders": "false"
+    },
+    {
+      "index": "3",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632328.608",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "false"
+    },
+    {
+      "index": "4",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632329.005",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "false"
+    },
+    {
+      "index": "5",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632329.349",
+      "seconds": "0",
+      "failed": "false",
+      "allow_orders": "false"
+    },
+    {
+      "index": "6",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632329.66",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "7",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632329.692",
+      "seconds": "0.0039999485015869",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "8",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632329.73",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "9",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632329.761",
+      "seconds": "0.0019998550415039",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "10",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632329.824",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "11",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632330.136",
+      "seconds": "0.085999965667725",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "12",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632330.402",
+      "seconds": "0.004000186920166",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "13",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632330.598",
+      "seconds": "0.017999887466431",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "14",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632330.95",
+      "seconds": "0",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "15",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632331.203",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "16",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632331.32",
+      "seconds": "0.041000127792358",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "17",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632331.682",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "18",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632331.717",
+      "seconds": "0.011000156402588",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "19",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632332.07",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "20",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632332.135",
+      "seconds": "0.0010001659393311",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "21",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632332.422",
+      "seconds": "0.004000186920166",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "22",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632332.583",
+      "seconds": "0.0010001659393311",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "23",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632333.232",
+      "seconds": "0.0060000419616699",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "24",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632333.323",
+      "seconds": "0",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "25",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632333.516",
+      "seconds": "0.0039999485015869",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "26",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632333.676",
+      "seconds": "0.0019998550415039",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "27",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632333.678",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "28",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632334.042",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "29",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632334.045",
+      "seconds": "0.011999845504761",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "30",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632334.399",
+      "seconds": "0.002000093460083",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "31",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632334.402",
+      "seconds": "0.005000114440918",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "32",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632334.764",
+      "seconds": "0.0010001659393311",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "33",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632334.765",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "34",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632335.119",
+      "seconds": "0",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "35",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632335.12",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "36",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632335.487",
+      "seconds": "0.005000114440918",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "37",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632335.492",
+      "seconds": "0.013999938964844",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "38",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632335.874",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "39",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632335.877",
+      "seconds": "0.0079998970031738",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "40",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632336.253",
+      "seconds": "0.0039999485015869",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "41",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632336.259",
+      "seconds": "0.01200008392334",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "42",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632336.604",
+      "seconds": "0.003000020980835",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "43",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632336.608",
+      "seconds": "0.01200008392334",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "44",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632336.955",
+      "seconds": "0.002000093460083",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "45",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632336.957",
+      "seconds": "0.010999917984009",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "46",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632337.319",
+      "seconds": "0",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "47",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632337.319",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "true"
+    },
+    {
+      "index": "48",
+      "name": "Admin.Run",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632337.672",
+      "seconds": "0.0010001659393311",
+      "failed": "false",
+      "allow_orders": "nil"
+    },
+    {
+      "index": "49",
+      "name": "Controller.RunNow",
+      "turn_before": "86",
+      "turn_after": "86",
+      "cities_before": "10",
+      "cities_after": "10",
+      "started": "1793632337.673",
+      "seconds": "0.00099992752075195",
+      "failed": "false",
+      "allow_orders": "true"
+    }
+  ],
+  "limits": [
+    "Not full5pair run or minimum100pure10city samples; no TC036PASS.",
+    "No all-module exclusive CPU, N_req proof, matchedcontrol, B_delta or causal speedup.",
+    "First49includesinitializationfalseallowOrders; no post-hoc deletion to improve percentiles.",
+    "Instrumentation/game-source/OS scheduling causes notisolated; continue diagnosis and repeatvalidwindow.",
+    "Only7new control-manifest software tests run; prior10profiletests and390modtests remain their separate actual scopes.",
+    "No control installed, no game modsource change, no new coldrestart/Steamonline.",
+    "All rawSSE/requests/receipt/logs ignored."
+  ]
+}
