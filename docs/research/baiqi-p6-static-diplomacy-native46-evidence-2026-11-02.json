@@ -1,0 +1,104 @@
+{
+  "schema": "civ6.baiqi-static-diplomacy-native46/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "4411cf55526bf6393c7be18578056c6c3aa600cc",
+  "manifest_version": 46,
+  "owned_cold_pid": 2392,
+  "installed_source_equal_files": 69,
+  "zip_sha256": "ddf714e817e8bf68b0fd140a14b0580857b0361e20d6fc3691d97c9bca143031",
+  "steam": {
+    "client_pid": 13620,
+    "prelaunch_readonly_offline_utc": "2026-11-02T08:13:56.440747+00:00",
+    "mode_online_switches": 0,
+    "confirmation": "VisibleofficialGoOnline; backgroundreadonly/noinput/focus/move/screenshot.",
+    "menu_preparation": "UIA headerunavailable; officialmainrequested, Steamalreadyforeground thenactualheaderclickopenedmenupopup. Foregroundchangedtochildpopup duringpreparation, notduringreadonlyconfirmation."
+  },
+  "fixture": {
+    "name": "Baiqi_P6_20261102_V45_StaticDiplomacyFail1",
+    "sha256": "c9efe5cc7243fc885bb4ad193c2758fa5f2fd780e4193a1923b5600eb7cf4061",
+    "human0": "LEADER_GORGO",
+    "ai1": "LEADER_BAIQI",
+    "turn": 1,
+    "window_outer_pixels": [
+      1024,
+      728
+    ],
+    "view_pixels": [
+      1008,
+      689
+    ],
+    "old_contact_debug_setup": true,
+    "new_debug_mutations": 0
+  },
+  "native_actual": {
+    "source_modart": "Modding.log actuallyLoadingBaiqi.dep andapplyingUpdateArt plus2ReplaceUIScripts.",
+    "initial_static": "PhysicalBaiqiribbonclickopensnativeheaderBaiqi/ChineseEmpire, correctbackground/portrait, noCleopatra3D.",
+    "baiqi_readback": {
+      "player_id": 1,
+      "anchor_hidden": true,
+      "top_bar_hidden": true,
+      "bottom_bar_hidden": true,
+      "native_ShowLeaderScreen_type": "table"
+    },
+    "manual_trade": "Physicaltradeclick→actualnativeDealView, visibleBaiqiresponse/offers/availablegold. PhysicalCancel→overview; noofferssubmitted, noautomaticchoice.",
+    "ordinary_readback": {
+      "player_id": 4,
+      "type": "LEADER_AMBIORIX",
+      "anchor_hidden": false,
+      "top_bar_hidden": false,
+      "bottom_bar_hidden": false,
+      "actual_3d_visible": true
+    },
+    "return_and_reopen": "Ambiorix→Baiqi, thenEscapeclose→physicalBaiqiribbonreopen succeeded; no runtimeprototype or observer installed."
+  },
+  "after_cancel_and_close": {
+    "turn": 1,
+    "gold_before_and_after": 10,
+    "at_war_with_baiqi": false,
+    "warrior": {
+      "id": 131073,
+      "xy": [
+        1,
+        16
+      ],
+      "moves": 2
+    },
+    "city": 65536,
+    "production_hash": -2025065568,
+    "queue_size": 1,
+    "hud_visible": true,
+    "core_busy": false,
+    "processing_messages": false,
+    "nonbaiqi_controller_available": false
+  },
+  "log_review": {
+    "lua_runtime_errors": 0,
+    "database_severity_error_lines": 70,
+    "database_context": "Localization duplicate tags in native CurrentClickouts/HallOfFame; firststartup duplicate hasno adjacentfileattribution. GameplayandConfiguration PassedValidation. Do notclaimgloballyemptyDatabase.log. No Baiqifileattributederrorseen.",
+    "private_log_sha256": {
+      "Lua.log": "a430e0ff8ca9459d05d7d9c3fe12e7a86a683638949c66d3d5301a92ee915940",
+      "Database.log": "0b51fc0845389b18b3a289884b32229c0f3d68ac549e5ddd22f4dad19ae103a1",
+      "Modding.log": "6583d110040185048c2938047bdbfe21ca63fa5a42e98d23912ae3bfb319e03c"
+    }
+  },
+  "save": {
+    "name": "Baiqi_P6_20261102_V46_StaticDiplomacy1",
+    "bytes": 623967,
+    "sha256": "0271425b3720a502e3fe15c4311ec38850060927df5c90ddc15e0764e16ffce2"
+  },
+  "private_snapshot_sha256": {
+    "art46-cold-baiqi-static-visible": "6475175fde3ad6fc1246795136f322d1386f89e34027bfa81fffab605af8e67a",
+    "art46-cold-native-trade-open": "cba5ed2a66617637b58778027e848745d3ef255c4e64095c72c28c235456572d",
+    "art46-cold-switch-ambiorix-native": "9cf685b0f12e506bcc4ae5a9186d0ae804c1b1d46f7712f92a54259cdb413acd",
+    "art46-cold-baiqi-reopen": "07343901f695b4803241f039dfbf8a8fa4c855290f08c387c0b0da204b976959"
+  },
+  "raw_published": false,
+  "result": "PASS for actualcold46 staticdiplomacy, manualtradewindow/cancel, ordinary3D transition, returnandclose/reopen atthiswindow. Repairsmeasured45failure.",
+  "limits": [
+    "No fullall-diplomacychoices/AIvisit/cinema/war/peace/exchange settlement matrix.",
+    "Only1024x728outer/1008x689view; otherresolutions/scale stillpending.",
+    "Darknativegradientsremain; limbsunderleftnativepanel notclaimedfullbodynounocclusion.",
+    "No full40acceptanceclaim or pairedperformance/savingsmeasure."
+  ]
+}
