@@ -25,7 +25,9 @@ local function plot(index,x)
 end
 local plots={[42]=plot(42,2),[43]=plot(43,3)}
 Map.GetPlotByIndex=function(i) return plots[i] end
-Map.GetPlot=function(x) return plots[x==2 and 42 or 43] end
+Map.GetPlot=function(x,y)
+ for _,p in pairs(plots) do if p:GetX()==x and p:GetY()==y then return p end end
+end
 local city=o.city
 local destination=setmetatable({GetID=function() return 67 end,GetX=function() return 3 end,
  GetOwner=function() return w.destForeign and 8 or 7 end},{__index=city})

@@ -31,7 +31,11 @@ function plot:GetOwner() return 7 end
 function plot:IsImprovementPillaged() return false end
 function plot:GetImprovementType() return -1 end
 Map={GetPlotByIndex=function() return plot end,GetPlot=function() return plot end,
-  GetPlotXYWithRangeCheck=function() return nil end,GetCityPlots=function() return {GetPurchasedPlots=function() return {} end} end}
+  -- The minimal world contains its queried center only. More detailed fixtures
+  -- replace this oracle; zero native offset must still return the current plot.
+  GetPlotXYWithRangeCheck=function(x,y,dx,dy,r)
+    if dx==0 and dy==0 then return Map.GetPlot(x,y) end
+  end,GetCityPlots=function() return {GetPurchasedPlots=function() return {} end} end}
 MapLayers={PRIMARY=0,TRADE=1,SPY=2,RELIGIOUS=3,ANY=-1}
 Units={GetUnitsInPlot=function() return {} end,
  GetUnitsInPlotLayerID=function(plot,layer)

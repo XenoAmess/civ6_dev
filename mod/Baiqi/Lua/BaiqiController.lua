@@ -85,30 +85,89 @@ local function EmptyVisiblePlot(plot)
   return units~=nil and next(units)==nil
 end
 
--- Safety reads only currently visible units. No hidden-unit threat information.
--- Only one completed path validation may share known booleans. Command guards
--- and ordinary callers omit the cache and always read the native layers again.
+-- Immutable native topology only; no visibility, threats or native objects.
+-- A changed binding invalidates every center, not just the first one revisited.
+local neighborhoodCache,neighborhoodCount={},0
+local neighborhoodXY,neighborhoodByIndex
+local function ClearNeighborhoods()
+  neighborhoodCache,neighborhoodCount={},0
+end
+local function ForgetNeighborhood(key)
+  if key and neighborhoodCache[key] then
+    neighborhoodCache[key]=nil;neighborhoodCount=neighborhoodCount-1
+  end
+end
+local function GeometryInteger(value)
+  return BaiqiPolicy.Number(value) and value>=0 and value%1==0
+end
+local function NeighborhoodGeometry(plot,radius)
+  local xy=Map and Map.GetPlotXYWithRangeCheck
+  local byIndex=Map and Map.GetPlotByIndex
+  if xy~=neighborhoodXY or byIndex~=neighborhoodByIndex then
+    neighborhoodCache,neighborhoodCount={},0
+    neighborhoodXY,neighborhoodByIndex=xy,byIndex
+  end
+  if type(xy)~="function" or type(byIndex)~="function" or not plot or not GeometryInteger(radius) then return nil end
+  local ok,index,x,y=pcall(function() return plot:GetIndex(),plot:GetX(),plot:GetY() end)
+  if not ok or not GeometryInteger(index) or not GeometryInteger(x) or not GeometryInteger(y) then return nil end
+  local key=index..":"..x..":"..y..":"..radius
+  if neighborhoodCache[key] then return neighborhoodCache[key],key end
+  local valid,cells=pcall(function()
+    local result,seen,anchor={},{},false
+    for dx=-radius,radius do
+      for dy=-radius,radius do
+        local near=xy(x,y,dx,dy,radius)
+        if near then
+          local i,nx,ny=near:GetIndex(),near:GetX(),near:GetY()
+          if not GeometryInteger(i) or not GeometryInteger(nx) or not GeometryInteger(ny) then return nil end
+          if dx==0 and dy==0 then
+            if i~=index or nx~=x or ny~=y then return nil end
+            anchor=true
+          end
+          if seen[i] then
+            if seen[i].x~=nx or seen[i].y~=ny then return nil end
+          else
+            local cell={index=i,x=nx,y=ny}
+            result[#result+1]=cell;seen[i]=cell
+          end
+        elseif dx==0 and dy==0 then return nil end
+      end
+    end
+    if anchor then return result end
+  end)
+  if not valid or not cells or Map.GetPlotXYWithRangeCheck~=xy or Map.GetPlotByIndex~=byIndex then return nil end
+  -- Count string keys explicitly. Resetting at capacity changes cost, not facts.
+  if neighborhoodCount>=256 then neighborhoodCache,neighborhoodCount={},0 end
+  neighborhoodCache[key]=cells;neighborhoodCount=neighborhoodCount+1
+  return cells,key
+end
+
+-- Safety reads only currently visible units. Only one path validation may share
+-- known threat booleans. Topology is separate; ordinary/write checks stay fresh.
 local function Safe(plot, player, cache)
   if not Revealed(plot) then return false end
-  local x,y=plot:GetX(),plot:GetY()
-  for dx=-C.threatRadius,C.threatRadius do
-    for dy=-C.threatRadius,C.threatRadius do
-      local near = Map.GetPlotXYWithRangeCheck(x, y, dx, dy, C.threatRadius)
-      if near and visibility:IsVisible(near:GetX(), near:GetY()) then
-        local index=near:GetIndex()
-        local safe
-        if type(cache)=="table" then safe=cache[index] end
-        if type(safe)~="boolean" then
-          local units = GetVisibleUnits(near)
-          if units == nil then return false end
-          safe=true
-          for _, other in ipairs(units) do
-            if other:GetOwner() ~= contextID and player:GetDiplomacy():IsAtWarWith(other:GetOwner()) then safe=false; break end
-          end
-          if type(cache)=="table" then cache[index]=safe end
+  local geometry,key=NeighborhoodGeometry(plot,C.threatRadius)
+  if not geometry then return false end
+  for _,cell in ipairs(geometry) do
+    if visibility:IsVisible(cell.x,cell.y) then
+      local safe
+      if type(cache)=="table" then safe=cache[cell.index] end
+      if type(safe)~="boolean" then
+        local ok,near=pcall(Map.GetPlotByIndex,cell.index)
+        local matches=false
+        if ok and near then
+          ok,matches=pcall(function() return near:GetIndex()==cell.index and near:GetX()==cell.x and near:GetY()==cell.y end)
         end
-        if not safe then return false end
+        if not ok or not matches then ForgetNeighborhood(key);return false end
+        local units=GetVisibleUnits(near)
+        if units==nil then return false end
+        safe=true
+        for _,other in ipairs(units) do
+          if other:GetOwner()~=contextID and player:GetDiplomacy():IsAtWarWith(other:GetOwner()) then safe=false;break end
+        end
+        if type(cache)=="table" then cache[cell.index]=safe end
       end
+      if not safe then return false end
     end
   end
   return true
@@ -1712,6 +1771,8 @@ local function OnCityCompleted(playerID,cityID)
   if playerID==Game.GetLocalPlayer() then BaiqiController.RefreshProduction() end
 end
 Events.CityProductionCompleted.Add(OnCityCompleted)
+-- Loading another world may reuse the same native function bindings.
+if Events.LoadGameViewStateDone then Events.LoadGameViewStateDone.Add(ClearNeighborhoods) end
 local function OnUnitCountChanged(playerID)
   if playerID==Game.GetLocalPlayer() then BaiqiController.RefreshProduction() end
 end
@@ -1749,7 +1810,9 @@ end
 if Events.GreatWorkCreated then Events.GreatWorkCreated.Add(OnGreatWorkCreated) end
 function BaiqiController.Shutdown()
   stopped=true
+  ClearNeighborhoods()
   Events.CityProductionCompleted.Remove(OnCityCompleted)
+  if Events.LoadGameViewStateDone then Events.LoadGameViewStateDone.Remove(ClearNeighborhoods) end
   if Events.UnitAddedToMap then Events.UnitAddedToMap.Remove(OnUnitCountChanged) end
   if Events.UnitRemovedFromMap then Events.UnitRemovedFromMap.Remove(OnUnitCountChanged) end
   if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Remove(OnGreatPersonActivated) end
