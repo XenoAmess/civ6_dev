@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="45">
+<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="46">
   <Properties>
     <Name>白绮：为我前驱</Name>
     <Description>白绮领袖原型：自动内政，军队由玩家指挥。开发版本。</Description>
@@ -38,6 +38,9 @@
     </UpdateColors>
   </FrontEndActions>
   <InGameActions>
+    <UpdateArt id="BaiqiStaticLeaderArt">
+      <File>Baiqi.dep</File>
+    </UpdateArt>
     <ImportFiles id="BaiqiGameArt">
       <File>Art/Baiqi_SelectionForeground.dds</File>
       <File>Art/Baiqi_Leader32.dds</File>
@@ -65,6 +68,8 @@
       <File>Data/BaiqiColors.xml</File>
     </UpdateColors>
     <ImportFiles id="BaiqiScripts">
+      <File>UI/BaiqiDiplomacyActionView.lua</File>
+      <File>UI/BaiqiLeaderScene.lua</File>
       <File>Lua/BaiqiConfig.lua</File>
       <File>Lua/BaiqiPolicy.lua</File>
       <File>Lua/BaiqiPlanner.lua</File>
@@ -126,6 +131,12 @@
         <LuaContext>WorldInput</LuaContext>
         <LuaReplace>UI/BaiqiWorldInput.lua</LuaReplace>
       </Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiStaticDiplomacyView">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>DiplomacyActionView</LuaContext><LuaReplace>UI/BaiqiDiplomacyActionView.lua</LuaReplace></Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiStaticLeaderScene">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>LeaderScene</LuaContext><LuaReplace>UI/BaiqiLeaderScene.lua</LuaReplace></Properties>
     </ReplaceUIScript>
     <ReplaceUIScript id="BaiqiGuardUnitPanel">
       <Properties>
@@ -294,6 +305,10 @@
     </ReplaceUIScript>
   </InGameActions>
   <Files>
+    <File>Baiqi.dep</File>
+    <File>ArtDefs/Leaders.artdef</File>
+    <File>UI/BaiqiDiplomacyActionView.lua</File>
+    <File>UI/BaiqiLeaderScene.lua</File>
     <File>Art/Baiqi_SelectionForeground.dds</File>
     <File>Art/Baiqi_Leader32.dds</File>
     <File>Art/Baiqi_Leader45.dds</File>

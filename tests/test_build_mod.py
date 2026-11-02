@@ -5,6 +5,7 @@ import unittest
 import zipfile
 import json
 import struct
+import xml.etree.ElementTree as ET
 
 from tools.build_mod import ROOT, MARKER, contained, digest, install, manifest_files, package
 
@@ -51,6 +52,22 @@ class ModPackageTests(unittest.TestCase):
         (copy / "Lua/BaiqiPolicy.lua").write_bytes(b"\xff")
         with self.assertRaises(UnicodeDecodeError):
             manifest_files(copy)
+
+    def test_invalid_art_metadata_rejected_before_install_changes(self):
+        target = install(self.source, self.base / 'mods')
+        marker_before = (target / MARKER).read_bytes()
+        copy = self.base / 'source'
+        shutil.copytree(self.source, copy)
+        for name in ('Baiqi.dep', 'ArtDefs/Leaders.artdef'):
+            with self.subTest(name=name):
+                path = copy / name
+                before = path.read_bytes()
+                path.write_text('<broken>', encoding='utf-8')
+                with self.assertRaises(ET.ParseError):
+                    install(copy, self.base / 'mods')
+                self.assertEqual((target / MARKER).read_bytes(), marker_before)
+                self.assertEqual((target / name).read_bytes(), before)
+                path.write_bytes(before)
 
     def test_texture_binary_survives_package_and_install_unchanged(self):
         relative = "Art/Baiqi_Leader32.dds"

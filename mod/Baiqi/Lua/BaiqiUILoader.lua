@@ -1,8 +1,8 @@
 -- Include only the most derived installed ruleset script. Its own includes load
 -- its parents; including them again would duplicate Initialize and event handlers.
 BaiqiUILoader={}
-local xp1={WorldInput=true,UnitPanel=true,CityPanel=true,CityPanelOverview=true,TechTree=true,GovernmentScreen=true,CityStates=true,GreatPeoplePopup=true,ResearchChooser=true}
-local xp2={WorldInput=true,UnitPanel=true,CityPanel=true,CityPanelOverview=true,TechTree=true,CivicsTree=true,GovernmentScreen=true,CityStates=true,GreatPeoplePopup=true}
+local xp1={WorldInput=true,UnitPanel=true,CityPanel=true,CityPanelOverview=true,TechTree=true,GovernmentScreen=true,CityStates=true,GreatPeoplePopup=true,ResearchChooser=true,DiplomacyActionView=true}
+local xp2={WorldInput=true,UnitPanel=true,CityPanel=true,CityPanelOverview=true,TechTree=true,CivicsTree=true,GovernmentScreen=true,CityStates=true,GreatPeoplePopup=true,DiplomacyActionView=true}
 function BaiqiUILoader.Load(name)
   local ruleset=GameConfiguration.GetValue("RULESET")
   if ruleset=="RULESET_EXPANSION_2" and xp2[name] then include(name.."_Expansion2")

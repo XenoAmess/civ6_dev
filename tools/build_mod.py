@@ -64,13 +64,13 @@ def manifest_files(source: Path) -> list[str]:
                 raise ValueError(f"Action references a file outside Files: {entry.text}")
     for relative in files:
         path = contained(source, relative)
-        if not path.is_file() or path.suffix.lower() not in {".sql", ".xml", ".lua", ".dds"}:
+        if not path.is_file() or path.suffix.lower() not in {".sql", ".xml", ".lua", ".dds", ".dep", ".artdef"}:
             raise ValueError(f"Missing or unsupported source file: {relative}")
         if path.suffix.lower() == ".dds":
             validate_dds(path)
             continue
         text = path.read_text(encoding="utf-8-sig")
-        if path.suffix.lower() == ".xml":
+        if path.suffix.lower() in {".xml", ".dep", ".artdef"}:
             ET.fromstring(text)
     return ["Baiqi.modinfo", *files]
 
