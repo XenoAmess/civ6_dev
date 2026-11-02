@@ -26,7 +26,7 @@ local function NewProfile(clock,capacity)
       local seconds=started and ended and ended-started
       if Finite(seconds) and seconds>=0 then
         if #state.samples<capacity then
-          state.samples[#state.samples+1]={name=name,seconds=seconds,failed=not result[1]}
+          state.samples[#state.samples+1]={name=name,seconds=seconds,failed=not result[1],started=started,ended=ended}
         else
           state.dropped=state.dropped+1
         end
