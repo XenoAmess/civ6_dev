@@ -1,0 +1,98 @@
+{
+  "schema": "civ6.baiqi-source51-startup-recovery/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source": "a086347a3e2a09e6febaedd9d1a9602d503188f5",
+  "version": 51,
+  "installed_files": 69,
+  "software_tests": 449,
+  "failed_start": {
+    "pid": 648,
+    "elapsed_seconds_at_owner_close": 400.0893805027008,
+    "cpu": {
+      "user": 209.71875,
+      "system": 317.75,
+      "children_user": 0.0,
+      "children_system": 0.0
+    },
+    "io": {
+      "read_count": 50249,
+      "write_count": 79327,
+      "read_bytes": 3720359290,
+      "write_bytes": 150533901,
+      "other_count": 482583,
+      "other_bytes": 12786526
+    },
+    "host_memory_available_bytes": 17072844800,
+    "window": 6030744,
+    "log_sha256": {
+      "Startup.log": "03376ed3a553a44d803c09641ff180ff4668a8a1e3571576366a1ed8257f4446",
+      "Lua.log": "3d04ddf46385e820085eae3bada7fc261555cc10bc3880501bc47b1953eb91fd",
+      "Modding.log": "32b9d4dc2f495a313dcba28fa4690e133d58a99a4a74127708cce6700f7f29d1",
+      "Database.log": "03652e437ece6063e0c837efb9bb0da08fba212d1496b027a6ed5d1fc6657903",
+      "Renderer.log": "014cae1fc09b4b4562458c7c08ddd6fbaadc194fed50f468df66e2bf4b7d8dc2",
+      "UserInterface.log": "9b69acfc9ce0191cdb06cecdade43535e15be332c19d87fe7307342d6f5db9fc"
+    },
+    "observed": "Mainmenu hadnotloaded; Lua.log42bytesonlyDebugHotloadCache. Originalwindow hung, foregroundDWMGhost. APP/LSQ timedout, rejectedownedEsc sentnoinput, subsequentMainMenu request nevergotLSQ/noCMDsent. Do not classifyBaiqigameplayLua failure; frontend/staticcontentmayloadbeforeLua, rootcauseunknown.",
+    "owner_correction": "Firstcaptureattempt after missingwindow triednonexistentimage; nostaleimageused. FirstTunerclient timeoutwasnotawaitedbeforesecondclient; bothretainedtimeoutreceipts,noCMDsent. FutureTuneroperationsmustbe sequentialandrequirecompletepreviousreturn. Bothwerefinishedbeforeanynewnativecall.",
+    "cleanup": {
+      "at_utc": "2026-11-02T18:03:28.013350+00:00",
+      "pid": 648,
+      "result": "Terminated exactowned hung startup after unchangedlogs and normalclose timeout",
+      "steam_affected": false,
+      "other_game_affected": false
+    },
+    "guards": "ExactownedPID648/exe/birth; >300selapsed; currentLua<200bytes/noBAIQI; startuplogstale>180s; originalIsHungAppWindow; archivebeforeWM_CLOSE; onlyterminateownedoriginalafterclose timeoutandunchangedLua. NoSteam/othergame termination."
+  },
+  "retry": {
+    "pid": 5892,
+    "steam_confirmation_utc": "2026-11-02T18:07:48.382684+00:00",
+    "steam_instance": 13620,
+    "steam_state": "offline",
+    "online_switches": 0,
+    "config_changes": 0,
+    "source_changes": 0,
+    "status": "Started sameDX12/affinity1..8, awaitingMainMenu, no loadedworld/acceptanceresult yet."
+  },
+  "model194": {
+    "sequence": 194,
+    "case_id": "HTTP-CIV6-STARTUPDIAG194",
+    "mode_id": "http-candidate",
+    "shared_commit": "b2e5b8cd14aace59ed0ffe20773145eb104b9b70",
+    "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+    "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+    "max_tokens": 2200,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-02T18:07:21.659847+00:00",
+    "attempt_end_utc": "2026-11-02T18:07:30.077118+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 8417.484400008107,
+      "first_nonempty_content_delta_ms": 1378.6734000022989,
+      "usage": {
+        "prompt_tokens": 6998,
+        "completion_tokens": 1008,
+        "total_tokens": 8006
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "adoption": "partial-observations-only",
+    "review": "Retain startupstage/resourceobservations as auditdirection; nativebytesverifiedindependently. GPU/overlay/network/filelockhypothesesunproved. Reject unverifiedsoftwarerenderer/networkdisableflags and changingexperimentconfiguration. No modelcommand/configactionexecuted.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "model_limits": "Hypothesesnotcausalproof; unsupportedsoftwareRenderer/networkdisableflagsnotused. NoBaiqiLua doesnotproveallfrontendSQL/artuninvolved.",
+  "status": "Native51pending, TC036NOTPASS; continue samerepro or controlleddiagnosis ifretryfails."
+}
