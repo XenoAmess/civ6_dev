@@ -1,0 +1,105 @@
+{
+  "schema": "civ6.baiqi-missionary-native43-precold/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "437030cfdf93a85e64b1c3955c45dab91b3e00fd",
+  "manifest_version": 43,
+  "owned_pid": 17156,
+  "package": {
+    "installed_files_byte_equal_source": 65,
+    "zip_sha256": "ead98005358e5ad60ca8fe12a09feef40fd3ba3194700dedbb0af4cc7416f64d"
+  },
+  "steam": {
+    "client_pid": 13620,
+    "fresh_prelaunch_confirmation_utc": "2026-11-02T03:43:09.886603+00:00",
+    "status": "offline",
+    "mode_switches_online": 0,
+    "confirmation": "background readonly live visible official Go Online menu; no input, activation, window movement or screenshot in confirmation"
+  },
+  "fixture": {
+    "save": "Baiqi_P6_20261101_Cold26_AutoReligion75",
+    "single_player": true,
+    "leader": "LEADER_BAIQI",
+    "player": 0,
+    "cities": 9,
+    "created_religion": 1,
+    "initial_journal": {
+      "version": 1,
+      "owner": 0,
+      "serial": 0,
+      "operations": 0
+    },
+    "debug_setup": "New missionary3735581 at own capital16,14 and religion component set1 in same Core command; initial3charges/4moves/form1. This is not normal training, faith cost or automated movement proof.",
+    "initial_hold": "New debug unit had native ACTIVITY_HOLD, IsReadyToMovefalse although native spread eligible.2410 real callbacks0 background requests. Same-process save/reload retained HOLD. Actual native next-turn75to76 woke unit and allowed automatic intent, without modifying activity/moves or source."
+  },
+  "unknown_intent": {
+    "turn": 76,
+    "missionary_full_id": 3735581,
+    "city_full_id": 65536,
+    "xy": [
+      16,
+      14
+    ],
+    "religion": 1,
+    "native_operation_hash": 1592408602,
+    "background_request_attempts": 1,
+    "native_target_parameter_count": 0,
+    "before_native_core_read": {
+      "stage": "ARMED",
+      "token": "religion:0:1",
+      "serial": 1,
+      "baseline_charges": 3
+    },
+    "fault": "One otherwise eligible spread suppressed by owner-only native observer after real Controller prepared intent, before original native request; no synthetic completion/event.",
+    "suppressed": 1,
+    "actual_native_spread_calls": 0,
+    "followup_update_callbacks": 1458,
+    "repeat_spread_attempts": 0,
+    "core_after": {
+      "stage": "ARMED",
+      "token": "religion:0:1",
+      "serial": 1,
+      "charges": 3,
+      "moves": 4,
+      "faith_followers_in_capital": 0
+    },
+    "other_administration": "9 city production hashes independently read nonzero in UI; builders continued actual normal requests while missionary unknown was held.",
+    "observer_other_operations": 26,
+    "classification": "14 same-context army/admiral SKIP calls were explicit test-player end-turn preparation from private strict driver; remaining observed calls were ordinary civilian activity. Do not label all26 automatic army control.",
+    "saved": "Baiqi_P6_20261102_V43_MissionaryArmed76",
+    "save_ack": true,
+    "result": "PASS for this running-process unknown-intent hold only; cold restart persistence pending at this snapshot."
+  },
+  "manual_guard": {
+    "raw_background_delete_eligible": true,
+    "raw_background_spread_eligible": true,
+    "input": "actual physical Windows extended Delete; native Input.GetActionId(DeleteUnit)=15",
+    "native_input_events": 1,
+    "native_prompt_entries": 1,
+    "guarded_delete_eligible": false,
+    "yes_no_popups": 0,
+    "unit_commands": 0,
+    "unit_operations": 0,
+    "unchanged": "Same fullID/owner/type,16,14/moves4; charges3 independently checked. Actual selected UnitPanel action row empty.",
+    "snapshot_sha256": "94cc1235cb4b8ca6b7710975c48a13b527365baec63df6d94f3a8ca23f0f0257",
+    "result": "PASS actual Delete shortcut denial despite native-positive eligibility; not full input matrix or religious combat native contrast."
+  },
+  "cleanup": "All3 background function pointers restored before assertions/save. All5 UnitPanel references and input event restored before assertions. Saved actual ARMED then normal native exit; only exact owned process terminated after visible windows closed.",
+  "owner_fixture_errors": [
+    "Initial Core readonly assertion attempted UI-only build queue GetCurrentProductionTypeHash; preceding intent/charge/follower checks had passed, then probe failed. Removed that call in Core, used actual UI queue consumer for independent9 nonempty readbacks; source unchanged.",
+    "Immediate process-finalizer refused while normal native exit still had visible window; later exact owned windowless process exit confirmed."
+  ],
+  "private_archive": {
+    "log_sha256": "8b933a2f5e9d6a5ff477810e6d8239713aeec2ea09beb9258ab4ad7f26923512",
+    "public_raw": false
+  },
+  "models": "137/139 whole narrow methods,138partial Core snapshot adopted in published43;140/141 code rejected.142 readonly probe partial after owner fixed invented leader getter and nil guard. Separate shared6case receipt, no native-opencode generation.",
+  "shared_receipt": "https://github.com/XenoAmess/local-model-operations/blob/8975e297a6ca884abd6bcc519ea3c32b15453eb9/docs/evidence/2026-11-02-civ6-missionary-delivery.json",
+  "pending": [
+    "Cold-process save persistence and no replay.",
+    "Actual automatic missionary movement and native charge/follower effect.",
+    "Next and last charge lifecycle.",
+    "Native apostle/inquisitor/guru player-control contrast.",
+    "Full40 acceptance matrix remains incomplete."
+  ]
+}
