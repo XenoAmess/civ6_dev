@@ -1,0 +1,40 @@
+{
+  "schema": "civ6.baiqi-lazy-trade-source51/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_parent": "c1709cc04ac9b68dc9f556ca9ae3591fab7f82a7",
+  "manifest_version": 51,
+  "change": "Separate provisional TradePath facts from full TradeParams validation. Gather native route lengths, sort length/cityID, fully validate candidates in rank order until first safe/legal. Invalid planning alternatives still fall back. Chosen command repeats fresh route/capacity/idle/owner/path/portal checks; rejected finalwrite returns without alternate submissions. Each full validation has one local knownboolean threat memo after native route query; no crosscandidate/callback/command memo or retained authority.",
+  "model192": "Original candidate rejected because unsafe shortest winner discarded longer safe alternatives and no exactimplementation. Owner implementation preserves planningfallback; no generatedcodeadopted.",
+  "software": {
+    "new_methods": 9,
+    "corrected_source50_failures": 3,
+    "source51_new": "9PASS",
+    "existing_trade": "14existingmethodsPASS",
+    "full_tests": 449,
+    "full_seconds": 44.771,
+    "full_exit": 0,
+    "actual_behavior": "Unsorted cityiteration/tieorder, unsafe/foreign/hidden shorterroute fallback, capacity0, no losingremotevisibleunit reads, pervalidation readbound3 versus old21, lateenemy afterqualification caughtbyfreshcommandroute, finalqualificationrejection has no alternate routewrite.",
+    "owner_fixture_correction": "Firstredtest injectedon3rdselectedpathread, which oldsourceonlycalledtwice; changedtoexplicitqualificationeventthenfreshpathmutation withexactcounter. First9red4FAIL includesfixturefault, corrected9red3FAIL; notclaimed4productbugs. Other3FAIL are intendedoptimizationread/qualificationcontracts, notwrongoldroutechoice."
+  },
+  "files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "a387d2f9616c2e1c3fde0f84a100ded28a6f4f645bc9d581164ce22c7c5662b9",
+    "mod/Baiqi/Baiqi.modinfo": "f13ae86f3456ffd1a682ea295d0cb355dcac6797a68661ed47c8498b940ffea8",
+    "tests/test_baiqi_trade_ranking.py": "fb9cf9a655075c72084aa1811772cc899f8ac72199ebd721362a1def560d41b3",
+    "tests/lua/mock_trade_ranking.lua": "9697b93343e37c26a2fcc5c2142e71572d904eeaeedd2237135c48b88ddbb48d"
+  },
+  "install": {
+    "files": 69,
+    "all_equal": true,
+    "zip_sha256": "7d5049afdda5f5359f2104ef0220f68a17cc87f8f059886b83efae767b5b794d",
+    "package_only_zip_sha256": "7d5049afdda5f5359f2104ef0220f68a17cc87f8f059886b83efae767b5b794d"
+  },
+  "native51": "PENDING coldstart. Includes49lateMOVE and50builder-slicechanges notyetnativeverified; source48metricsnotupgraded.",
+  "steam": "Freshreadonlycurrent13620offline17:55:28.495703UTC viaactualGoOnline menu. Headernavigationseparate, noonline switch. Owned48normalexitclosedwindow, exactownedresidual14292laterfinishedbeforeinstall; noothergame/Steamkill.",
+  "limits": [
+    "Allunsafe routes may still requiremultiplefullroutechecks inonecallback; no native51thresholdPASS yet.",
+    "Nativepath/route retrieval costs notprovedbounded.",
+    "No completealloperationpostqualificationfreshness proof;51 preservescurrentMAKE_TRADE_ROUTE flow.",
+    "TC036/full40 remainincomplete."
+  ]
+}

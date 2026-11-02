@@ -161,7 +161,9 @@ local function UnitSnapshot(unit, state)
     moves=unit:GetMovesRemaining(), plot=UnitIndex(unit)}
 end
 
-local function TradeParams(ctx,player,unit,plot)
+-- Provisional route facts rank alternatives; they never authorize a command.
+-- Call again for the chosen route and validate every plot at the write boundary.
+local function TradePath(ctx,player,unit,plot)
   if UnitManager.GetActivityType(unit)~=ActivityTypes.ACTIVITY_AWAKE then return nil end
   local trade=player:GetTrade()
   local reserved=0
@@ -174,20 +176,30 @@ local function TradeParams(ctx,player,unit,plot)
   local path,entrances,exits=Game.GetTradeManager():GetTradeRoutePath(ctx.player,origin:GetID(),ctx.player,dest:GetID())
   if type(path)~="table" or next(path)==nil then return nil end
   local length=0
+  for _ in pairs(path) do length=length+1 end
+  return {origin=origin,dest=dest,path=path,entrances=entrances,exits=exits,length=length}
+end
+
+local function TradeParams(ctx,player,unit,plot)
+  local route=TradePath(ctx,player,unit,plot)
+  if not route then return nil end
+  local origin,dest,path,entrances,exits=route.origin,route.dest,route.path,route.entrances,route.exits
+  -- Native route retrieval precedes this one-validation-only threat memo.
+  -- Each subsequent candidate or command recheck starts with new native facts.
+  local cache={}
   for _,index in pairs(path) do
     local p=Map.GetPlotByIndex(index)
-    if not Safe(p,player) or (p:GetOwner()~=-1 and p:GetOwner()~=ctx.player) then return nil end
-    length=length+1
+    if not Safe(p,player,cache) or (p:GetOwner()~=-1 and p:GetOwner()~=ctx.player) then return nil end
   end
   for _,portals in pairs({entrances or {},exits or {}}) do
     for _,index in pairs(portals) do
-      if index>=0 and not Safe(Map.GetPlotByIndex(index),player) then return nil end
+      if index>=0 and not Safe(Map.GetPlotByIndex(index),player,cache) then return nil end
     end
   end
   local params={[UnitOperationTypes.PARAM_X0]=dest:GetX(),[UnitOperationTypes.PARAM_Y0]=dest:GetY(),
     [UnitOperationTypes.PARAM_X1]=unit:GetX(),[UnitOperationTypes.PARAM_Y1]=unit:GetY()}
   if UnitManager.CanStartOperation(unit,UnitOperationTypes.MAKE_TRADE_ROUTE,nil,params)~=true then return nil end
-  return params,origin,dest,length
+  return params,origin,dest,route.length
 end
 
 local function CivilianMoveTarget(here, plot, unit, playerID)
@@ -1070,15 +1082,24 @@ end
 local function Military(row) return (row.Combat or 0) > 0 or (row.RangedCombat or 0) > 0 or row.FormationClass == "FORMATION_CLASS_SUPPORT" end
 
 local function ProcessTrader(ctx,player,state,unit)
-  local best,bestLength
+  local choices={}
   for _,city in player:GetCities():Members() do
     local plot=Map.GetPlot(city:GetX(),city:GetY())
-    local params,origin,dest,length=TradeParams(ctx,player,unit,plot)
-    if params and (not best or length<bestLength or (length==bestLength and city:GetID()<best:GetID())) then
-      best,bestLength=city,length
+    local route=TradePath(ctx,player,unit,plot)
+    if route then
+      choices[#choices+1]={id=city:GetID(),x=city:GetX(),y=city:GetY(),length=route.length}
     end
   end
-  if best then return RequestCivilian(ctx,state,unit,"MAKE_TRADE_ROUTE",Map.GetPlot(best:GetX(),best:GetY())) end
+  table.sort(choices,function(a,b) if a.length~=b.length then return a.length<b.length end return a.id<b.id end)
+  for _,choice in ipairs(choices) do
+    local plot=Map.GetPlot(choice.x,choice.y)
+    local params,origin,dest=TradeParams(ctx,player,unit,plot)
+    if params and dest:GetID()==choice.id then
+      -- Unsafe/unavailable planning alternatives may fall back. Once a valid
+      -- choice reaches the command boundary, a rejected write ends this search.
+      return RequestCivilian(ctx,state,unit,"MAKE_TRADE_ROUTE",plot)
+    end
+  end
   Reason("trader:"..unit:GetID(),"商人等待有容量、已探明且安全的国内商路")
   return false
 end
