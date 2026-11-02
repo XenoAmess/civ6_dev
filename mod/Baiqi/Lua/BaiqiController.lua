@@ -189,6 +189,23 @@ local function TradeParams(ctx,player,unit,plot)
   return params,origin,dest,length
 end
 
+local function CivilianMoveTarget(here, plot, unit, playerID)
+  if Map.GetPlotDistance(here:GetX(), here:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
+  if plot:GetOwner() ~= -1 and plot:GetOwner() ~= playerID then return false, "foreign_border" end
+  if visibility:IsVisible(plot:GetX(),plot:GetY()) then
+    local units = GetVisibleUnits(plot)
+    if units == nil then return false, "unit_query_unavailable" end
+    for _,other in ipairs(units) do
+      local row=GameInfo.Units[other:GetUnitType()]
+      if other:GetOwner()==playerID and other:GetID()~=unit:GetID() and row
+        and (row.UnitType=="UNIT_SETTLER" or row.UnitType=="UNIT_BUILDER") then
+        return false,"civilian_target_occupied"
+      end
+    end
+  end
+  return true
+end
+
 local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   -- Re-read ownership and active player at the write boundary. No takeover flags.
   local freshCtx, freshPlayer, freshState = PlayerContext()
@@ -212,19 +229,8 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     params,origin,dest=TradeParams(ctx,freshPlayer,unit,plot)
     if not params then return false,"no_safe_domestic_route" end
   elseif operation == "MOVE_TO" then
-    if Map.GetPlotDistance(here:GetX(), here:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
-    if plot:GetOwner() ~= -1 and plot:GetOwner() ~= ctx.player then return false, "foreign_border" end
-    if visibility:IsVisible(plot:GetX(),plot:GetY()) then
-      local units = GetVisibleUnits(plot)
-      if units == nil then return false, "unit_query_unavailable" end
-      for _,other in ipairs(units) do
-        local row=GameInfo.Units[other:GetUnitType()]
-        if other:GetOwner()==ctx.player and other:GetID()~=unit:GetID() and row
-          and (row.UnitType=="UNIT_SETTLER" or row.UnitType=="UNIT_BUILDER") then
-          return false,"civilian_target_occupied"
-        end
-      end
-    end
+    local legal,why=CivilianMoveTarget(here,plot,unit,ctx.player)
+    if not legal then return false,why end
     params[UnitOperationTypes.PARAM_X], params[UnitOperationTypes.PARAM_Y] = plot:GetX(), plot:GetY()
   else
     if plot:GetIndex() ~= here:GetIndex() then return false, "not_current_plot" end
@@ -242,6 +248,14 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     return false,"unit_or_context_changed"
   end
   if UnitIndex(unit)~=here:GetIndex() then return false,"position_changed" end
+  if operation=="MOVE_TO" then
+    -- Qualification is a native boundary: re-read target facts after it rather
+    -- than letting either path memoization or an earlier legal target authorize
+    -- a now hidden, hostile, foreign, or newly occupied destination.
+    if not Safe(plot,Players[latest.player]) then return false,"unsafe_after_qualification" end
+    local legal,why=CivilianMoveTarget(here,plot,unit,latest.player)
+    if not legal then return false,why end
+  end
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end

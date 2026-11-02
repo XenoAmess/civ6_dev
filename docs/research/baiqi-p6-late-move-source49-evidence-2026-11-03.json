@@ -1,0 +1,49 @@
+{
+  "schema": "civ6.baiqi-late-move-source49/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_parent": "56c22c72247c4ad45ce18d6cf390335b53638b48",
+  "manifest_version": 49,
+  "source_files": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "6a32433af2e120e6ad49bd36b7899633e7a075d75e86a9ca87e650ff36ed63b9",
+    "mod/Baiqi/Baiqi.modinfo": "66ef24410ab3f74297487d74ddfe4270d040dd196768a51652e471f77884ef32",
+    "tests/test_baiqi_late_move.py": "d63ed208a3246bb8019eb92fd8e0ce08ed3648286c7c8a969b85b01fa08b19e0"
+  },
+  "defect": "Source48 real Controller mock native qualification mutates target facts. Visible enemy, newly unrevealed target, foreign border and new own civilian occupancy each still led to MOVE_TO submission. This is controlled software mutation evidence, not a witnessed native game race or proof CanStartOperation intrinsically mutates.",
+  "change": "Extract existing MOVE_TO adjacency/border/visibleoccupancy guard into shared local helper. After native qualification and existing context/unit/fullID/position checks, reread uncached Safe and exact same move-target guard before NextRequest. No new readiness requirement or changes to SKIP/otheroperation semantics.",
+  "model190": {
+    "decision": "partial-review-only",
+    "adopted": "Correct observation that Safe precedes qualification and should be reread for target changes.",
+    "rejected": "Candidate unconditional Safe also affected SKIP_TURN; mandatory readiness method was not supported for all currentunits. Initial state was in fact reread, not stale as candidate claimed. Native qualification called a firstwrite/preparingstate without native evidence. No generated edit applied."
+  },
+  "model191": {
+    "decision": "partial-owner-corrected-tests",
+    "candidate_methods": 5,
+    "candidate_failures": 3,
+    "candidate_errors": 0,
+    "interpretation": "Enemy/hidden mutations expose actual MOVE bug; position mutation correctly blocksMOVE but safeSKIP exists, making candidate zero-all-requests assertion falsepositive. Core/context cases passed.",
+    "owner_changes": "Assert no MOVE and no militaryrequest instead of no commands, assert exactmutation call/path, add foreignowner/civilianoccupancy. Import module rather than TestCase symbol to avoid discovery of8old importedmethods. Firstowner diagnostic15included8duplicates; corrected7newcases retained separately."
+  },
+  "software": {
+    "new_methods": 7,
+    "source48_failures": 4,
+    "source49_new": "7PASS",
+    "full_tests": 431,
+    "full_seconds": 84.341,
+    "full_exit": 0,
+    "limits": "Actual Controller consumer with synchronous mockmutation. No native race frequency/performance improvement proof."
+  },
+  "package": {
+    "files": 69,
+    "filename": "Baiqi-v49.zip",
+    "sha256": "6c366a95464dd6a22000601edc12af4be3617caa57914a62a99ea581767eedb4",
+    "installed": false
+  },
+  "runtime": "Native owned14292 still installed48/source56c22c7, started after freshSteamoffline17:09:38UTC. 49 package not installed yet, pending48 frozen diagnostic window completion and normalexit.",
+  "limits": [
+    "TC036 still NOT_PASS.",
+    "No claim every operation/trade boundary is fully refreshed; change limited to civilianMOVE_TO.",
+    "No modelcodeexecutedbycaller or gameplayactionfromcandidate.",
+    "Full40 acceptance incomplete."
+  ]
+}
