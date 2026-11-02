@@ -1,0 +1,139 @@
+{
+  "schema": "civ6.baiqi-diagnostic-interval209/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "case209": {
+    "sequence": 209,
+    "case_id": "HTTP-CIV6-INTERVALUNION209",
+    "mode_id": "http-candidate",
+    "shared_commit": "4fe16f43c42471c69723d4c13e7a19d0c101e8b4",
+    "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+    "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+    "max_tokens": 1800,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-02T21:54:11.416191+00:00",
+    "attempt_end_utc": "2026-11-02T21:54:21.305079+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 9885.164499981329,
+      "first_nonempty_content_delta_ms": 1102.7311999932863,
+      "usage": {
+        "prompt_tokens": 739,
+        "completion_tokens": 614,
+        "total_tokens": 1353
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "adoption": "partial-owner-corrected",
+    "review": "Retain merge/sort algorithm. Candidate accepts UserDict/mappingproxy, sets and generatorpairs despite sequence contract; owner replaced type/finite validation. Owner additional floatoverflow boundary added. Original12tests6subtestfailures1error; corrected12PASS0.482s,3375integer-grid oracle combinations. No native performance or fullmodule coverage claim.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "case210": {
+    "sequence": 210,
+    "case_id": "HTTP-CIV6-SLOWDIAG210",
+    "mode_id": "http-candidate",
+    "shared_commit": "4fe16f43c42471c69723d4c13e7a19d0c101e8b4",
+    "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+    "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+    "max_tokens": 1300,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-02T21:57:53.538767+00:00",
+    "attempt_end_utc": "2026-11-02T21:57:58.418709+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 4873.984399950132,
+      "first_nonempty_content_delta_ms": 1061.3663999829441,
+      "usage": {
+        "prompt_tokens": 34152,
+        "completion_tokens": 392,
+        "total_tokens": 34544
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "adoption": "rejected-analysis",
+    "review": "Tick is local, not BaiqiController.Tick; ReadBack does contain Native calls, and CanCivilian does not create UnitSnapshot internally. These factual errors rejected. Generic need finer timing alreadyownerpending; no code adopted or CPU attribution.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "case208": {
+    "case_id": "HTTP-CIV6-SLOWROOT208",
+    "budget": 2500,
+    "finish_reason": "length",
+    "sse_done": true,
+    "total_ms": 23047.577399993315,
+    "ttft_ms": 5618.881499976851,
+    "usage": {
+      "prompt_tokens": 34137,
+      "completion_tokens": 2500,
+      "total_tokens": 36637
+    },
+    "candidate_content_read": false,
+    "candidate_decoded": false,
+    "adopted": false,
+    "response_disposition": "Retained original whole truncated stream, no拼接; narrowed to analysis-only210, no repeatbusiness action."
+  },
+  "adoption": {
+    "path": "tools/profile_intervals.py",
+    "sha256": "28f05f06adc748e042a0aa6807e95f588e387ea8e5d378d3488462a40973517d",
+    "scope": "Partial209 merge algorithm, owner imports/strict Sequence+Mapping/type/finite checks and finite result. Not full original method adoption. Endpoint207 alreadypublished196a645, currentq7 frozenoldfactory unchanged."
+  },
+  "verification": {
+    "candidate_tests": 12,
+    "candidate_failures": 6,
+    "candidate_errors": 1,
+    "candidate_failure_scope": "Four shape-contract subtestfailures plus generatorpair; owner additional floatoverflow check adds onefailure/oneerror. Six failures are not six independent methods.",
+    "corrected_tests": 12,
+    "corrected_seconds": 0.482,
+    "independent_integer_cell_oracle_combinations": 3375,
+    "full_game_suite_rerun": false,
+    "reason": "Externalpuretoolonly, installed69gamefiles unchanged."
+  },
+  "native_clock55": {
+    "context": "BaiqiExecutor",
+    "turn": 90,
+    "pid": 16024,
+    "Automation_GetTime_consecutive_reads": 4096,
+    "positive_steps": 7,
+    "zero_steps": 4089,
+    "negative_steps": 0,
+    "minimum_observed_positive_seconds": 0.00099992752075195,
+    "os_clock_type": "function",
+    "limits": "Read-only consecutive-call sample, not universal clockresolution, overheadcalibration, CPU-vs-wall correlation, crosscontextcalibration or performancepass. No gameplaywrite."
+  },
+  "coverage": "Union requires caller establishedsameclockdomain andcompleteintervals. No collector yet, no fullmodule/Nativewrite budget or matchedcontrols. Native55B_planFAIL remains.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null,
+    "exclusive_active": null
+  },
+  "phases": "ContemporaneousPREP/REVIEW/CORRECTION JSONLevents held locally; ownerintervals interleaved with Native55/readback/publication. No nettimebenefit claim.",
+  "next": "Measure observer cost, same-clock CPU/wall outliers and fineractualbranch timing without weakening current command authority/safety."
+}
