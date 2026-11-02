@@ -1,0 +1,68 @@
+{
+  "schema": "civ6.baiqi.p6-profile-tool/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "files": {
+    "tools/lua/diagnostic_profile.lua": {
+      "bytes": 1515,
+      "sha256": "e7f7904d372bb0308fb26eacd439e61937b400b875b056fce00610a6ce7e80a0"
+    },
+    "tests/test_diagnostic_profile.py": {
+      "bytes": 4904,
+      "sha256": "bf6f4d4374fecdc39d6080f6d4af3a14008f23f53e5807eed95ed569918fc9f9"
+    }
+  },
+  "scope": "External diagnostic helper only; no mod files changed, runtime source47 unchanged. No actual game performance samples collected.",
+  "software": {
+    "owner_helper_tests": 10,
+    "owner_helper_result": "PASS",
+    "runtime": "lupa.lua53 with native-missing table.pack/table.unpack/debug removed and globalunpack supplied",
+    "model182_tests": 10,
+    "model182_result": {
+      "failures": 0,
+      "errors": 10
+    },
+    "candidate_adaptation": "Only appended return BaiqiProfileFactory.new to expose original local candidate factory; body unchanged. No candidate code executed in native game."
+  },
+  "native_compatibility": {
+    "runtime_version": 47,
+    "runtime_source": "1c63cd5cdcc158e64439e2dd2915762168df4c52",
+    "pid": 17288,
+    "turn": 90,
+    "cities": 11,
+    "context": "BaiqiExecutor",
+    "at_utc": "20261102T143424071345Z",
+    "marker": "BaiqiExecutor: P6_PROFILE182_NATIVE_COMPATIBILITY_PASS\t3\t4\t2\t2\t1",
+    "expected_marker_values": [
+      3,
+      4,
+      2,
+      2,
+      1
+    ],
+    "subjects": "Dummy functions and dummy clock only; no native game function wrapped or gameplay request. All probe variables local.",
+    "actual_bindings": {
+      "Automation.GetTime": "function",
+      "unpack": "function",
+      "table.unpack": "nil",
+      "table.pack": "nil",
+      "debug": "nil",
+      "ContextPtr.GetUpdate": "nil"
+    },
+    "current_clock_resolution_seconds": null
+  },
+  "models": {
+    "179": "Rejected incomplete length2500 with DONE, no candidate adoption or continuation of partial output.",
+    "180": "Control proposal incomplete: only Controller no-op leaves Admin/other UI/Core behavior, and hypothetical missing-content save prerequisite must not become observed invalidity. No control installed.",
+    "181": "Rejected budget values without threshold units; B_delta0.35s confuses scheduling interval with a measured delta budget.",
+    "182": "Complete JSON but loses first return, truncates return arity, loses nil arguments and does not validate invalid intervals/capacity; isolated consumers reject all10. Owner takes over factory implementation."
+  },
+  "owner_preparation": "An invalid newline argument created an empty ignored probe file; retained it, abandoned a file-exists followup and wrote a fresh v2 file. No native query/action was sent by either failed preparation.",
+  "limits": [
+    "Targeted10 PASS is not a new full400 test run; prior390 mod software results remain source47 historical scope.",
+    "Compatibility test uses fake clock, so its durations are not performance measurements.",
+    "Current11city snapshot not10city performance sample.",
+    "No frozen performance budget, full-module exclusive timing, matching control or TC036PASS yet.",
+    "Clock read absence/invalidity yields unknown duration, not zero; nested inclusive samples cannot be summed."
+  ]
+}
