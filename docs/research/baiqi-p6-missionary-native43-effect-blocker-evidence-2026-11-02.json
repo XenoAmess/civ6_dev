@@ -1,0 +1,80 @@
+{
+  "schema": "civ6.baiqi-missionary-native43-effect-and-blocker/v1",
+  "date": "2026-11-02",
+  "machine_id": "BF-202609141645",
+  "source_commit": "437030cfdf93a85e64b1c3955c45dab91b3e00fd",
+  "manifest_version": 43,
+  "owned_pid": 16700,
+  "steam_offline_prelaunch_utc": "2026-11-02T04:18:15.241610+00:00",
+  "online_switches": 0,
+  "fixture": "Independent reload of Setup75 empty existing V1 journal; debug created missionary from prior preparation, no model/game action injection and no metadata/move rewrite.",
+  "native_turn_progress": "One normal native OnEndTurnClicked75; reached actual76 with test-player army/admiral SKIP only. No forced game turn.",
+  "actual_automatic_effect": {
+    "unit_full_id": 3735581,
+    "city_full_id": 65536,
+    "owner": 0,
+    "xy": [
+      16,
+      14
+    ],
+    "faith": 1,
+    "native_spread_calls": 1,
+    "suppressed_spreads": 0,
+    "native_hash": 1592408602,
+    "target_params": 0,
+    "before_native": "Actual Core ARMEd religion:0:1 before native RequestOperation.",
+    "charges_before": 3,
+    "charges_after": 2,
+    "capital_followers_before": 0,
+    "capital_followers_after": 2,
+    "core_stage_after": "OBSERVED",
+    "serial": 1,
+    "real_update_callbacks": 4996,
+    "repeat_native_spread_calls": 0,
+    "result": "PASS for actual autonomous domestic spread effect and charge-based persistent confirmation only."
+  },
+  "movement_ordering_unresolved": {
+    "before": 4,
+    "first_T76_UI_readback": 0,
+    "later_same_T76_UI_and_Core": 4,
+    "certainty": "Both state transitions directly observed; exact native event/refresh ordering and Busy/Processing flags at initial spread not measured. No mod/debug move grant occurred. Suspected turn initialization ordering is an inference, not established cause.",
+    "owner_fixture_error": "Initial proof asserted final movement0 and failed after logging actual charges2/followers2/OBSERVED/moves4; failure preserved, expectation corrected to observed4 and explicitly restricted effect-only result. Not a full cost PASS."
+  },
+  "normal_next_turn": {
+    "target": 77,
+    "actual": 76,
+    "result": "FAIL/BLOCKED ENDTURN_BLOCKING_UNITS after60s driver window; no native end-turn click76 emitted.",
+    "ready_owned_civilians": [
+      {
+        "unit": 3211274,
+        "type": "UNIT_GREAT_SCIENTIST",
+        "moves": 4
+      },
+      {
+        "unit": 2621462,
+        "type": "UNIT_GREAT_MUSICIAN",
+        "moves": 4
+      },
+      {
+        "unit": 3735581,
+        "type": "UNIT_MISSIONARY",
+        "charges": 2,
+        "moves": 4
+      }
+    ],
+    "native_readiness": "All3 actual IsReadyToSelecttrue,ACTIVITY_AWAKE; player cannot manually command entrusted civilian types. Current held/evaluated branches have no safe native waiting action.",
+    "timing_probe": "2297 real updates,0 missionaryoperations,0 PlayerTurnActivated events; IdleBusy transient false/true sampled atT76. Since driver never reached77, no start-of77 flags measured."
+  },
+  "cleanup": "All3 happy observer pointers restored before assertions/save; separate timing2pointers+PlayerTurnActivated handler restored before assertions. Never cleared/repaired pending Core journal or forged completion.",
+  "save": {
+    "name": "Baiqi_P6_20261102_V43_MissionaryObserved76",
+    "bytes": 484906,
+    "sha256": "000ec0cb4be84e0b34c548608d6c06c7b1737b3ced28497379fe62b65c13d12d"
+  },
+  "private_log_sha256": {
+    "happy_effect": "2def3938fde64fffe44469e0b093026cf502abf7213adcef448453f6048c5eab",
+    "next_turn_blocker": "810f875d44d984fc1fd277394fd1a11ecf9155c257a9317c886ba7f82bf6b82e"
+  },
+  "private_raw_public": false,
+  "next": "Fix idle entrusted civilian waiting without replaying ability, overwriting unknown intent or touching military; gate unsafe Core writes using actual measurements, then cold revalidate native next-turn progress. Models144/145 supplied candidates, owner review required."
+}

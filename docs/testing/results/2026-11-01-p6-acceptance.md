@@ -593,3 +593,7 @@ C：金币300时先在原生确认框物理取消，仍敌城／300金币／2行
 ### 2026-11-02：43版传教士未知意图冷重启
 
 43版未知传播意图已完成真正冷重启验收：新进程16700加载实际ARMED存档，621次真实Controller更新中该传教士0操作／0命令；完整ID、宗教1、次数3、行动4、城市信徒0、ARMED及religion:0:1／serial1全部保持。再次Prepare明确prior_intent拒绝，9城生产Hash仍非零；三个观察代理先还原再断言。正常传播效果、自动移动及全40项仍未完成。[冷重启证据及存档指纹](../../research/baiqi-p6-missionary-native43-cold-evidence-2026-11-02.json)。
+
+### 2026-11-02：43版自动传教实效与下一回合阻断
+
+43版传教士已真正自动国内传播：唯一原生请求前Core为ARMED，实际次数3→2、首都本教信徒0→2、Core变OBSERVED，4996次实际更新无重复传播。但行动力在T76先读0、同回合后读4，回合刷新顺序尚未定位；下一轮正常推进76→77被ENDTURN_BLOCKING_UNITS阻断，实际仍76，待命中的旧科学家／音乐家及传教士均ReadyToSelect且4行动。故仅传播效果子项通过，正常继续回合明确FAIL，正在修复，不能记全流程或正常行动成本通过。[实际效果与失败证据](../../research/baiqi-p6-missionary-native43-effect-blocker-evidence-2026-11-02.json)。
