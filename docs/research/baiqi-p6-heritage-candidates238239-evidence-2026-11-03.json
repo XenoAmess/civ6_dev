@@ -1,0 +1,183 @@
+{
+  "schema": "civ6.baiqi-heritage-candidates238239/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "3246933b123bb1250d1e4c4133a6888a19665a56",
+  "cases": [
+    {
+      "sequence": 238,
+      "case_id": "CIV6-heritage238",
+      "mode_id": "http-candidate",
+      "shared_commit": "fe196cafd795b76b7d859690a82a55aec290dcce",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "be78cdc02276efe3ccc6e24a9d0c9c875ced3df07340d91003c1990610df2369",
+      "max_tokens": 4000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T06:28:27.229437+00:00",
+      "attempt_end_utc": "2026-11-03T06:28:48.836554+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 21601.651099976152,
+        "first_nonempty_content_delta_ms": 13183.94169997191,
+        "usage": {
+          "prompt_tokens": 48829,
+          "completion_tokens": 1132,
+          "total_tokens": 49961
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "rejected-owner-module-rewrite",
+      "review": "Explicit returned-function contract not followed: global namespace assignment/nil return, adds receiver to two static dot APIs, unseen ownership before visibility, partial-error status ok.0exactbody adoption. Owner rewrote narrow read-only collector and7realmodule tests. Native actualparkprovider returnedok/0; no Archaeologistpresent, not fullautomation/Nativeactionproof.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 239,
+      "case_id": "CIV6-heritagetest239",
+      "mode_id": "http-candidate",
+      "shared_commit": "fe196cafd795b76b7d859690a82a55aec290dcce",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "be78cdc02276efe3ccc6e24a9d0c9c875ced3df07340d91003c1990610df2369",
+      "max_tokens": 5000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T06:28:27.254097+00:00",
+      "attempt_end_utc": "2026-11-03T06:28:52.154612+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 24903.558299993165,
+        "first_nonempty_content_delta_ms": 12174.578199977987,
+        "usage": {
+          "prompt_tokens": 48853,
+          "completion_tokens": 1739,
+          "total_tokens": 50592
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "rejected-owner-seven-method-rewrite",
+      "review": "Actual2candidate methods, correctownerreturnedmodulefixture, raw compilationfilename points to frozen raw. FirstLuaSyntaxError(extraend); secondcalls undefinedCollect instead ofdeclaredself.collect. Other masked bugs: Lua locals later read asglobals, Python{}wrongnativeobjectkind and extraMapreceiver.0exactmethodadoption. Owner7testsvalidateactualdot/colonarity,hiddenownerneverread,dedupe/order,failurediscard,andmanualunittypesunsupported.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "gap": "Current installednormal60 Policy excludes UNIT_NATURALIST and UNIT_ARCHAEOLOGIST; UIGuard delegates samewhitelist, so source confirms missingmandatorydomesticunitclassification. No Native manual-actionbypass claimed yet.",
+  "source_scope": "New returned-function proposal collector only. NOT registeredinmodinfo, NOTinstalledandNOTreferencedbyruntimeController; normal60 remains69manifestfiles. No whitelist/blockingchange until actualautomaticplannerconnected. No save/gameproperty/nativewrite.",
+  "software": {
+    "tests": 7,
+    "seconds": 0.011,
+    "pass": true,
+    "module_sha256": "b12fcbaf8fb0bd27c4e42c0f2aafddc0ad6d68e61ee107e68ed36940197b4091",
+    "tests_sha256": "9102c099aff69ed984bb193f5b00015409932c590f533e25c4894273e66c7a4e",
+    "first_run": {
+      "tests": 7,
+      "subtest_failures": 2,
+      "seconds": 0.184,
+      "cause": "Owner expected9 distinct valid-index lookups but list has8; corrected only assertion, runtime unchanged."
+    },
+    "normal60_full603_separate": true,
+    "complete_full_suite_rerun": false
+  },
+  "raw_review": {
+    "model238_returned_type": "NoneType",
+    "model238_findings": [
+      "Writes global BaiqiHeritageCandidates and returns nil instead of required callable module.",
+      "Passes game receiver to dot GetNationalParks and map receiver to dot GetPlotByIndex.",
+      "Reads plot owner before visibility then again after; violates unseen-ownership guard.",
+      "Dependency errors during candidate iteration are swallowed into status ok instead of discarding partial results.",
+      "Accepts userdata collections instead of required table and field access can escape pcall."
+    ],
+    "model239_tests": 2,
+    "model239_errors": 2,
+    "model239_failure_types": [
+      "LuaSyntaxError",
+      "LuaError: undefined global Collect"
+    ],
+    "raw_review_sha256": "e249f22669673fff8c65491ba8ec45e4b737a91cd8cd6d600bbeadc7171efcf1"
+  },
+  "native_readonly": {
+    "version": 60,
+    "pid": 2376,
+    "same_offline_game_instance": true,
+    "online_switches": 0,
+    "observer_states_clear_before_after": true,
+    "module_was_locally_wrapped_as_returnedfunction": true,
+    "park_candidate_status": "ok",
+    "park_candidate_count": 0,
+    "existing_naturalists": 0,
+    "existing_archaeologists": 0,
+    "operation_enums": {
+      "UnitOperationTypes.DESIGNATE_PARK": "nil",
+      "UnitOperationTypes.EXCAVATE": "nil"
+    },
+    "receipt": {
+      "name": "20261103T063621870378Z.json",
+      "context": "BaiqiExecutor",
+      "sha256": "d45973387f7cd1dd768da44ce62a43560b93bf5ce6f45de0c44f2cbf3aef097f",
+      "lines": [
+        "P6_HERITAGE238_NATIVE_API\tfunction\tnil\tnil",
+        "P6_HERITAGE238_NATIVE_PARK_CANDIDATES\tok\t0",
+        "P6_HERITAGE238_NATIVE_EXISTING_UNITS\t0\t0",
+        "P6_HERITAGE238_NATIVE_READONLY_DONE\ttrue\ttrue"
+      ]
+    },
+    "meaning": "Actual native Lua executescollector with actualGame/Map/Visibility andactualparkprovider. Emptysetonly; Archaeologist/provider/nonemptytargets/actions notNativevalidated. InstalledUnitOperations definesoperationtypesbutUIenumsnil; genericUnitPanelusesrowactionHash, so futuredispatcher mustverifyactualGameInfoHashandqualification, neverinventenum."
+  },
+  "primary_source_pins": {
+    "Base/Assets/UI/WorldView/SelectedUnit.lua": "cb01be1cad79fa848fdc35528280050a9ba0ad43953cd12b7d84a84617934c40",
+    "Base/Assets/UI/Popups/ChooseArtifact.lua": "eb5b623341c6d58b05908303eb7fc162d2ab47e3978634adf26750b4da4e694e",
+    "Base/Assets/Gameplay/Data/UnitOperations.xml": "00c3c77e74f571471299564c4f6c1a277c9f09d650420dbb01314c27ba8b698f",
+    "Base/Assets/Gameplay/Data/Units.xml": "f7d9d5e7658c6024e131722d957ad13b9665b34a7ffdb374b095a502bc3a6ebe"
+  },
+  "batch": {
+    "logical": 2,
+    "complete": 2,
+    "length": 0,
+    "retries": 0,
+    "actual_peak": 2,
+    "actual_overlap_seconds": 21.582457,
+    "cached_tokens": null,
+    "server_concurrency": null
+  },
+  "cumulative_civ6_through239": {
+    "logical_requests": 239,
+    "complete": 228,
+    "length": 11,
+    "http_attempts": 242,
+    "transport_retries": 3,
+    "historical_peak": 13,
+    "historical_peak_duration_seconds": null
+  },
+  "maintenance": "Nov3same-machine/user canonicaldailyOpenCode1.19.5 cache confirmed; actualcaller/configprovenance saved percase.0newOpenCode-nativegeneration.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null
+  },
+  "cost_limits": "Real independentPREP/REVIEW/CORRECTIONevents; interleaved q17publicationandNativequeries. Exclusiveactivecost/netbenefitunknown, not model latency saving.",
+  "next": "VerifyGameInfooperationHashandnativeunitcomponents/readback, thenconnect safe freshplanner/persistentintent/automaticartifactchoice/manualguards andnativefixtures. Park/excavate/chooseartifacteffects requireseparateevidence. Do not lockusersoutwithoutautomationorcallproposalcollectioncomplete."
+}
