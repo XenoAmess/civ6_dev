@@ -2,7 +2,7 @@ BaiqiArchaeologyJournal={}
 local J=BaiqiArchaeologyJournal
 local MAX=2147483647
 local top={version=true,owner=true,serial=true,operations=true}
-local fields={token=true,sequence=true,unitID=true,unitType=true,homeCityID=true,cityX=true,cityY=true,buildingIndex=true,x=true,y=true,resourceIndex=true,resourceType=true,turn=true,stage=true,baselineWorkIDs=true,works=true,artifactIndex=true,artifactType=true,actingPlayerID=true,choicePlayerID=true,choiceTurn=true,targetPlayerID=true,newWorkID=true}
+local fields={token=true,sequence=true,unitID=true,unitType=true,homeCityID=true,cityX=true,cityY=true,buildingIndex=true,x=true,y=true,resourceIndex=true,resourceType=true,turn=true,stage=true,baselineWorkIDs=true,works=true,artifactIndex=true,artifactType=true,actingPlayerID=true,choicePlayerID=true,choiceTurn=true,targetPlayerID=true,newWorkID=true,legacy=true}
 local function Plain(value) return type(value)=="table" and getmetatable(value)==nil end
 local function Number(value) return type(value)=="number" and value==value and value>-math.huge and value<math.huge end
 local function Integer(value,maximum) if not Number(maximum) or maximum<0 or maximum>MAX or maximum%1~=0 then return false end return Number(value) and value>=0 and value<=maximum and value%1==0 end
@@ -27,8 +27,14 @@ local function Validate(state,owner)
     sequences[op.sequence]=true
     if op.token~=Token(owner,op.sequence) then return false end
     if op.unitType~="UNIT_ARCHAEOLOGIST" then return false end
-    if not Integer(op.homeCityID,MAX) or not Integer(op.cityX,MAX) or not Integer(op.cityY,MAX) or not Integer(op.buildingIndex,MAX) or not Integer(op.x,MAX) or not Integer(op.y,MAX) or not Integer(op.resourceIndex,MAX) or not Integer(op.turn,MAX) then return false end
-    if op.resourceType~="RESOURCE_ANTIQUITY_SITE" and op.resourceType~="RESOURCE_SHIPWRECK" then return false end
+    if not Integer(op.homeCityID,MAX) or not Integer(op.cityX,MAX) or not Integer(op.cityY,MAX) or not Integer(op.buildingIndex,MAX) or not Integer(op.x,MAX) or not Integer(op.y,MAX) or not Integer(op.turn,MAX) then return false end
+    if op.legacy~=nil and op.legacy~=true then return false end
+    if op.legacy==true then
+      if op.stage=="EXCAVATE_ARMED" or op.resourceIndex~=nil or op.resourceType~=nil or op.choiceTurn~=op.turn then return false end
+    else
+      if not Integer(op.resourceIndex,MAX) then return false end
+      if op.resourceType~="RESOURCE_ANTIQUITY_SITE" and op.resourceType~="RESOURCE_SHIPWRECK" then return false end
+    end
     if op.stage~="EXCAVATE_ARMED" and op.stage~="CHOICE_ARMED" and op.stage~="OBSERVED" then return false end
     if not Plain(op.baselineWorkIDs) then return false end
     local n=0

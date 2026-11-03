@@ -14,6 +14,7 @@ local MAX=2147483647
 local BRIDGE_MARKER="baiqi-archaeology-intent-v1"
 local proposalFields={homeCityID=true,cityX=true,cityY=true,buildingIndex=true,x=true,y=true,
   resourceIndex=true,resourceType=true,baselineWorkIDs=true}
+local pendingProposalFields={homeCityID=true,cityX=true,cityY=true,buildingIndex=true,x=true,y=true,baselineWorkIDs=true}
 local choiceFields={unitID=true,unitType=true,homeCityID=true,x=true,y=true,artifactIndex=true,
   artifactType=true,actingPlayerID=true,choicePlayerID=true,targetPlayerID=true}
 local function Object(value) return type(value)=="table" or type(value)=="userdata" end
@@ -88,6 +89,20 @@ local function Facts(pid,id,op,excavating)
   if not Object(row) or row.ResourceType~=op.resourceType then return nil end
   return player
 end
+-- A historical engine choice has no known original resource. This permits only
+-- the internal choice, including a legacy site outside the current border.
+local function PendingFacts(pid,id,op)
+  local player=Owner(pid,true)
+  if not player or op.legacy~=true then return nil end
+  local live=U.Read(player,pid,id)
+  if not live or live.unitID~=id or live.unitType~="UNIT_ARCHAEOLOGIST" or live.formation~=1
+    or live.x~=op.x or live.y~=op.y or not Museum(pid,op) then return nil end
+  local vis=PlayersVisibility[pid]
+  if Method(vis,"IsRevealed")(vis,op.x,op.y)~=true or Method(vis,"IsVisible")(vis,op.x,op.y)~=true then return nil end
+  local plot=Map.GetPlot(op.x,op.y)
+  if Method(plot,"GetX")(plot)~=op.x or Method(plot,"GetY")(plot)~=op.y then return nil end
+  return player
+end
 local function Busy(state)
   for _,op in pairs(state.operations) do if op.stage~="OBSERVED" then return true end end
   return false
@@ -141,6 +156,30 @@ local function PrepareChoice(pid,id,token,descriptor)
   if not Persist(fresh,pid,state,wasNil,after) then return false,nil,"persist_unconfirmed" end
   return true,token,"persisted"
 end
+local function PreparePendingChoice(pid,id,proposal,descriptor)
+  local player=Owner(pid,true);local key=J.UnitKey(id)
+  if not player or not key or not PlainFields(proposal,pendingProposalFields) or not PlainFields(descriptor,choiceFields) then return false,nil,"owner_or_packet" end
+  if descriptor.unitID~=id or descriptor.unitType~="UNIT_ARCHAEOLOGIST" or descriptor.homeCityID~=proposal.homeCityID or descriptor.x~=proposal.x or descriptor.y~=proposal.y then return false,nil,"identity_mismatch" end
+  local state,wasNil=Load(player,pid)
+  if not state or Busy(state) then return false,nil,"journal_or_busy" end
+  if state.operations[key]~=nil then return false,nil,"prior_intent" end
+  if state.serial>=MAX or Count(state.operations)>=256 then return false,nil,"journal_limit" end
+  local at=Turn()
+  if not at then return false,nil,"turn" end
+  local nextState=J.Clone(state,pid);nextState.serial=nextState.serial+1
+  local op={unitID=id,unitType="UNIT_ARCHAEOLOGIST",sequence=nextState.serial,token=J.Token(pid,nextState.serial),stage="CHOICE_ARMED",turn=at,choiceTurn=at,legacy=true,works={}}
+  for field in pairs(pendingProposalFields) do op[field]=proposal[field] end
+  for _,field in ipairs({"artifactIndex","artifactType","actingPlayerID","choicePlayerID","targetPlayerID"}) do op[field]=descriptor[field] end
+  nextState.operations[key]=op
+  nextState=J.Clone(nextState,pid)
+  if not nextState then return false,nil,"schema_invalid" end
+  op=nextState.operations[key]
+  if not PendingFacts(pid,id,op) or Turn()~=at then return false,nil,"facts_changed" end
+  local fresh=PendingFacts(pid,id,op)
+  if not fresh or Turn()~=at then return false,nil,"facts_changed" end
+  if not Persist(fresh,pid,state,wasNil,nextState) then return false,nil,"persist_unconfirmed" end
+  return true,op.token,"persisted"
+end
 local function Inspect(pid,id)
   local player=Owner(pid,false);local key=J.UnitKey(id)
   if not player or not key then return "UNAVAILABLE",nil,"owner_or_id" end
@@ -175,7 +214,8 @@ local function Protected(fn,failure)
   end
 end
 local bridge={version=1,marker=BRIDGE_MARKER,PrepareExcavation=Protected(PrepareExcavation,false),
-  PrepareChoice=Protected(PrepareChoice,false),Inspect=Protected(Inspect,"UNAVAILABLE")}
+  PrepareChoice=Protected(PrepareChoice,false),PreparePendingChoice=Protected(PreparePendingChoice,false),
+  Inspect=Protected(Inspect,"UNAVAILABLE")}
 local function ProtectedObservation(...)
   local ok,observed=pcall(ObserveCreated,...)
   return ok and observed==true

@@ -1008,6 +1008,7 @@ local function ArchaeologyBridge(method,...)
     if method=="Inspect" then return bridge.Inspect(args[1],args[2]) end
     if method=="PrepareExcavation" then return bridge.PrepareExcavation(args[1],args[2],args[3]) end
     if method=="PrepareChoice" then return bridge.PrepareChoice(args[1],args[2],args[3],args[4]) end
+    if method=="PreparePendingChoice" then return bridge.PreparePendingChoice(args[1],args[2],args[3],args[4]) end
     return nil,nil,"method_unavailable"
   end)
   if ok then return a,b,c end
@@ -1041,7 +1042,7 @@ local function ArchaeologySameDescriptor(a,b)
     "actingPlayerID","choicePlayerID","targetPlayerID"}) do if a[key]~=b[key] then return false end end
   return true
 end
-local function ArchaeologyGuard(ctx,unitID,x,y)
+local function ArchaeologyGuard(ctx,unitID,x,y,legacyChoice)
   local ok,unit,home,here=pcall(function()
     local current,player=PlayerContext()
     if not current or not BaiqiPolicy.Context(current) or current.player~=ctx.player or not CoreIdle() then return nil end
@@ -1051,8 +1052,9 @@ local function ArchaeologyGuard(ctx,unitID,x,y)
       or not row or row.UnitType~="UNIT_ARCHAEOLOGIST" or not BaiqiPolicy.CivilianType(row.UnitType)
       or type(fresh.GetFormationUnitCount)~="function" or fresh:GetFormationUnitCount()~=1 then return nil end
     local plot=UnitPlot(fresh)
-    if not plot or plot:GetX()~=x or plot:GetY()~=y or plot:GetOwner()~=ctx.player
-      or not Revealed(plot) or visibility:IsVisible(x,y)~=true or not Safe(plot,player) then return nil end
+    if not plot or plot:GetX()~=x or plot:GetY()~=y or (not legacyChoice and plot:GetOwner()~=ctx.player)
+      or not Revealed(plot) or visibility:IsVisible(x,y)~=true
+      or (not legacyChoice and not Safe(plot,player)) then return nil end
     local snapshot=ArchaeologyHomeSnapshot(current,player,unitID)
     if snapshot then return fresh,snapshot,plot end
   end)
@@ -1137,21 +1139,22 @@ local function RequestArchaeologyChoice(descriptor)
     local ctx,player=PlayerContext()
     if not ctx or type(descriptor)~="table" then return false end
     local unitID,x,y=descriptor.unitID,descriptor.x,descriptor.y
-    local fresh,home=ArchaeologyGuard(ctx,unitID,x,y)
-    if not fresh or home.homeCityID~=descriptor.homeCityID then return false end
     local stage,token=ArchaeologyBridge("Inspect",ctx.player,unitID)
+    local legacy=stage=="OPEN" and token==nil
+    if not legacy and (stage~="EXCAVATE_ARMED" or type(token)~="string") then return false end
+    local fresh,home=ArchaeologyGuard(ctx,unitID,x,y,legacy)
+    if not fresh or home.homeCityID~=descriptor.homeCityID then return false end
     local pending=pendingUnits[unitID]
-    if stage~="EXCAVATE_ARMED" or type(token)~="string" or
-      (pending and (pending.kind~="EXCAVATE" or pending.token~=token)) then return false end
+    if pending and (legacy or pending.kind~="EXCAVATE" or pending.token~=token) then return false end
     local operation,paramKey=PlayerOperations.CHOOSE_ARTIFACT_PLAYER,PlayerOperations.PARAM_PLAYER_ONE
     local request=UI.RequestPlayerOperation
     local function Signed(value)
       return BaiqiPolicy.Number(value) and value%1==0 and value>=-2147483648 and value<=2147483647
     end
     if not Signed(operation) or not Signed(paramKey) or type(request)~="function" then return false end
-    local stamp,phase=Game.GetCurrentGameTurn(),"EXCAVATE_ARMED"
+    local stamp,phase=Game.GetCurrentGameTurn(),legacy and "OPEN" or "EXCAVATE_ARMED"
     local function Guard()
-      local unit,current=ArchaeologyGuard(ctx,unitID,x,y)
+      local unit,current=ArchaeologyGuard(ctx,unitID,x,y,legacy)
       if not unit or not ArchaeologySameHome(home,current) or Game.GetCurrentGameTurn()~=stamp
         or PlayerOperations.CHOOSE_ARTIFACT_PLAYER~=operation or PlayerOperations.PARAM_PLAYER_ONE~=paramKey
         or UI.RequestPlayerOperation~=request then return nil end
@@ -1161,11 +1164,16 @@ local function RequestArchaeologyChoice(descriptor)
       if currentStage==phase and currentToken==token then return unit end
     end
     if not Guard() then return false end
-    local id=NextRequest("archaeology_choice:"..unitID..":"..token..":"..descriptor.artifactIndex)
+    local id=NextRequest("archaeology_choice:"..unitID..":"..(token or "pending")..":"..descriptor.artifactIndex)
     if not id then return false end
-    local granted,prepared=ArchaeologyBridge("PrepareChoice",ctx.player,unitID,token,descriptor)
-    if granted~=true or prepared~=token then return false end
-    persisted,phase=true,"CHOICE_ARMED"
+    local granted,prepared
+    if legacy then
+      granted,prepared=ArchaeologyBridge("PreparePendingChoice",ctx.player,unitID,
+        {homeCityID=home.homeCityID,cityX=home.cityX,cityY=home.cityY,buildingIndex=home.buildingIndex,
+         x=x,y=y,baselineWorkIDs=home.workIndices},descriptor)
+    else granted,prepared=ArchaeologyBridge("PrepareChoice",ctx.player,unitID,token,descriptor) end
+    if granted~=true or type(prepared)~="string" or (not legacy and prepared~=token) then return false end
+    persisted,phase,token=true,"CHOICE_ARMED",prepared
     pendingUnits[unitID]={id=id,kind="CHOOSE_ARTIFACT_PLAYER",persistent=true,token=token,unitType="UNIT_ARCHAEOLOGIST",
       artifactIndex=descriptor.artifactIndex,choicePlayerID=descriptor.choicePlayerID,homeCityID=home.homeCityID,
       cityX=home.cityX,cityY=home.cityY,buildingIndex=home.buildingIndex,baselineWorkIDs=home.workIndices,x=x,y=y,elapsed=0}

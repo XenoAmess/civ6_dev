@@ -1,0 +1,288 @@
+{
+  "schema": "civ6.baiqi-archaeology-legacy-source67/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T16:22:05.000500+00:00",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "40c1566f6a1dec052db49c43aa407ffbe7d5cda5",
+  "source_version": 67,
+  "installed_running_at_freeze": 66,
+  "cases": [
+    {
+      "sequence": 277,
+      "case_id": "civ6-archaeology-legacy-journal277",
+      "mode_id": "http-candidate",
+      "shared_commit": "861909b5d38a67e3a5c4ad5a58d25b77fd1431c5",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T15:41:04.638980+00:00",
+      "attempt_end_utc": "2026-11-03T15:41:12.423773+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 7785.145099973306,
+        "first_nonempty_content_delta_ms": 3101.7822999856435,
+        "usage": {
+          "prompt_tokens": 12302,
+          "completion_tokens": 610,
+          "total_tokens": 12912
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T15:41:04.638980+00:00",
+          "end_utc": "2026-11-03T15:41:12.423773+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 7785.145099973306
+        }
+      ],
+      "adoption": "partial_code_adopted",
+      "review": "Candidate added legacy field and conditional legacy guards but kept unconditional common resourceIndex integer requirement, so every legacy op rejected. Raw new6methods3failures. Owner moves integerresource requirement into normalbranch; preserves exactfieldmap addition andguardlogic. Owner6legacyJournal0.127 plusoriginal12backcompat0.104 pass.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 278,
+      "case_id": "civ6-archaeology-legacy-core278",
+      "mode_id": "http-candidate",
+      "shared_commit": "861909b5d38a67e3a5c4ad5a58d25b77fd1431c5",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2900,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T15:41:04.639013+00:00",
+      "attempt_end_utc": "2026-11-03T15:41:13.027269+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 8388.368699990679,
+        "first_nonempty_content_delta_ms": 3386.6753000183962,
+        "usage": {
+          "prompt_tokens": 12300,
+          "completion_tokens": 647,
+          "total_tokens": 12947
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T15:41:04.639013+00:00",
+          "end_utc": "2026-11-03T15:41:13.027269+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 8388.368699990679
+        }
+      ],
+      "adoption": "partial_code_adopted",
+      "review": "Bounded Coremethod mostlyadopted, final Persist originally used stale initialplayer instead of freshplayer returned by second PendingFacts. Raw9methods1failure under actual receiverchange port; owner uses lastfreshplayer, actual Core PendingFacts and bridgeexport supplied separately. Owner9PASS0.113.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 279,
+      "case_id": "civ6-archaeology-popup-lifetime279",
+      "mode_id": "http-candidate",
+      "shared_commit": "861909b5d38a67e3a5c4ad5a58d25b77fd1431c5",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 1400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T15:55:30.224285+00:00",
+      "attempt_end_utc": "2026-11-03T15:55:33.777539+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 3548.512000008486,
+        "first_nonempty_content_delta_ms": 972.892599995248,
+        "usage": {
+          "prompt_tokens": 6309,
+          "completion_tokens": 375,
+          "total_tokens": 6684
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T15:55:30.224285+00:00",
+          "end_utc": "2026-11-03T15:55:33.777539+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 3548.512000008486
+        }
+      ],
+      "adoption": "exact_edit_adopted",
+      "review": "Exact single popupedit adopted. Native OnOpen onlyhides inOnButton handlers, so disabledBaiqibuttons couldleave staleview when solebackgroundwriter resolves queue; sourcefinding, not physicallyopenedNativepopupfailure. Owner independent popupconsumer oldsource1error, exactcandidate1PASS0.0287; suppressBaiqiOpenbeforeNative and restoreotherleaderbuttons, guard remainsbeforecapturedcallbacks.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 7.78476,
+    "longest_seconds_at_peak": 7.78476,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through279": {
+    "logical": 279,
+    "complete": 264,
+    "length": 12,
+    "final_transport_failed": 3,
+    "http_attempts": 309,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance_newday": {
+    "date_local": "2026-11-04",
+    "actual_checked_at_local": "2026-11-04T00:03:02.687097+08:00",
+    "cached": false,
+    "installed_before": "1.19.5",
+    "installed_after": "1.19.5",
+    "registry_latest": "1.19.5",
+    "updated": false,
+    "passed": true,
+    "scope": "Actual shared dailychecker, no newmodelPOST orOpenCode-nativegeneration;277/278/279 POSTs all occurred priorlocalday2026-11-03."
+  },
+  "software": {
+    "raw277": {
+      "methods": 6,
+      "failures": 3,
+      "errors": 0,
+      "seconds": 0.10048189997905865,
+      "scope": "Exact one-module/function projection with reviewed actual dependencies/consumers. Pure software, no game action; popup old-source counterexample distinct from actual Native panel."
+    },
+    "raw278": {
+      "methods": 9,
+      "failures": 1,
+      "errors": 0,
+      "seconds": 0.36508040002081543,
+      "scope": "Exact one-module/function projection with reviewed actual dependencies/consumers. Pure software, no game action; popup old-source counterexample distinct from actual Native panel."
+    },
+    "old_popup_counterexample": {
+      "methods": 1,
+      "failures": 0,
+      "errors": 1,
+      "seconds": 0.08816069999011233,
+      "scope": "Exact one-module/function projection with reviewed actual dependencies/consumers. Pure software, no game action; popup old-source counterexample distinct from actual Native panel."
+    },
+    "exact_popup_candidate": {
+      "methods": 1,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 0.028693600033875555,
+      "scope": "Exact one-module/function projection with reviewed actual dependencies/consumers. Pure software, no game action; popup old-source counterexample distinct from actual Native panel."
+    },
+    "owner_new_journal_methods": 6,
+    "owner_new_journal_seconds": 0.127,
+    "owner_original_journal_methods": 12,
+    "owner_original_journal_seconds": 0.104,
+    "owner_pending_core_methods": 9,
+    "owner_pending_core_seconds": 0.113,
+    "owner_pending_ui_methods": 7,
+    "owner_pending_ui_seconds": 0.185,
+    "owner_existing_ui_methods": 10,
+    "owner_existing_ui_seconds": 1.527,
+    "full_methods": 820,
+    "full_unittest_seconds": 65.984,
+    "full_record": {
+      "returncode": 0,
+      "wall_seconds": 73.24203010002384,
+      "tail": "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n.BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n.BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n.BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\nBAIQI|ui_controller_loaded|version=2|mandatory_admin=true\nBAIQI|ui_controller_loaded|version=2|mandatory_admin=true\nBAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n..............................................................................................................\n----------------------------------------------------------------------\nRan 820 tests in 65.984s\n\nOK"
+    },
+    "passed": true
+  },
+  "artifact": {
+    "files": 85,
+    "sha256": "60d754474054483564e72d420d81667a59fde134fd605360ca640ae8a3b23017",
+    "source_version": 67,
+    "installed": false
+  },
+  "native_parse_only": [
+    {
+      "name": "20261103T161735664475Z.json",
+      "sha256": "8dccf58530b7da01f8b7907c05a5b964a57ea35dbbbb9132c1773fc6945275f6",
+      "context": "InGame",
+      "lines": [
+        "P6_ARCHLEGACY67_NATIVE_PARSE_ONLY\ttrue"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "Lua/BaiqiArchaeologyJournal.lua": "e1f1f2a7521fa6c0871e092a891194401ad60a3cf58ebc0257c14b3f43bfdf8e",
+    "Lua/BaiqiArchaeologyIntentGameplay.lua": "47e8f1239649dd27957caf9adeb2353716e9a3c515ecc4f71bf8a67a91e336df",
+    "Lua/BaiqiController.lua": "6570f499bc55fcbcd7681f92119d77e1d4516a8c7266aea92412e9ec3e866c76",
+    "UI/BaiqiChooseArtifact.lua": "6ac97af2e09ac19d65100528de73035d4dcbf2e531b96b5c16befe868e71b792"
+  },
+  "changes": [
+    "Optional legacy=true only onCHOICE_ARMED/OBSERVED, no unknown originalresource claim, same turn/choiceTurn, exact normalresource contract remains; schema version1 backcompat maintained.",
+    "Core PreparePendingChoice requires currentownedunit/type/home/museum/visibleposition, freshtrustedUI enginequeue/homeproposal, no anypriorunitoperation or unresolvedjournal, expectedoldproperty andexactreadback; no fake priorEXCAVATE stage, reset/refund/nativeoperation.",
+    "Sole UI writer onlyactualfreshenginepending queue with CoreOPEN/nil may uselegacyroute, freshsamehome/descriptor/metadata/context before/aftergrant. Freshsavedtoken changesguardtoCHOICE_ARMED, persistslocalpendingbeforeNativecall; coldCHOICE_ARMED neverreplays. ExistingnormalEXCARroute unchanged.",
+    "Legacyalreadydug foreignsite may complete onlyinternalartifactchoice with actualownedhome andvisibleunit; it doesnot grant foreignunitmovement/dig/army/diplomacy or resourceknowledge.",
+    "Baiqi internalchoicepopup Open hidesbeforecallingNative; otherleaders retainoriginalview/callbacks andenabledbuttons. No newtimer/update/foreignlistener removal."
+  ],
+  "owner_corrections": [
+    "Attempted versionline patch used wrong guessedModUUID andfailed verification with0edit; actualversion66attribute changedonce bychecked helper, UUID neverchanged.",
+    "277 resourceIndex commonrequirement fix is ownercorrection, not exactwholecandidate adoption. 278 helper andUIconsumer areowner, modelmethodpartial;279 exactsingleedit only, independenttestsowner."
+  ],
+  "cost_limits": "277/278 UTC preparation paused for actualWorldCongress save andresumed beforeposts; review/correction interleavedNativepurchase/dig/save/reload/documentation. Exclusiveactiveowner time unknown.279review/correction notseparatelytimed; candidate1testtiming isnotfullownercost or nettimesaving.",
+  "native66_followup": "baiqi-p6-native66-actual-artifact-evidence-2026-11-03.json",
+  "limits": [
+    "67 source/software/realengineparse/archive only, notinstalledorNativelyinitializedatfreeze. No actuallegacyqueue migration or67nativepopupbehavior demonstrated yet.",
+    "Actual66firstartifact plus sameprocessreload alreadypassed separately, no67retroactiveclaim. Actualprocesscoldreload of savedartifact101 remainsnext.",
+    "Thirdartifactunitconsumption, shipwreck, fullphysicalUIkeyboard/otherleader/performance/full40 notpassed; priorperformanceFAIL retained."
+  ],
+  "next": "Deliver67, normalexit66 with actualartifact101save verified, freshcurrentSteamofflineproof/coldlaunch67. Verify oldnormaljournal/workslot survive processrestart, stageandcoldload actuallegacyenginepending choice without clearingpriorreceipts, thenremainingNativearchaeology/fullacceptance."
+}

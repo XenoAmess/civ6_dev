@@ -161,11 +161,12 @@ class ArchaeologyUITests(unittest.TestCase):
             Add=function(fn) Popup.listeners[fn]=true end,Remove=function(fn) Popup.listeners[fn]=nil end}}
           Controls={Button1={SetDisabled=function(_,value) Popup.disabled1=value end},
             Button2={SetDisabled=function(_,value) Popup.disabled2=value end}}
+          ContextPtr={SetHide=function(_,value) Popup.hidden=value;Popup.hideCalls=(Popup.hideCalls or 0)+1 end}
           BaiqiUILoader={Load=function(name)
             assert(name=='ChooseArtifact')
             local captured=UI.RequestPlayerOperation
             Popup.button1=function() return captured(7,71,{[72]=2}) end
-            OnOpen=function() Popup.opens=Popup.opens+1 end
+            OnOpen=function() Popup.opens=Popup.opens+1;Popup.hidden=false end
             Popup.native=OnOpen;LuaEvents.NotificationPanel_OpenArtifactPanel.Add(OnOpen)
           end}
           Popup.Emit=function() for callback in pairs(Popup.listeners) do callback() end end
@@ -185,10 +186,10 @@ class ArchaeologyUITests(unittest.TestCase):
           assert(Popup.listeners[Popup.native]==nil and Popup.listeners[Popup.foreign]==true)
           assert(Popup.includes[1]=='BaiqiUIGuard' and Popup.includes[#Popup.includes]=='BaiqiUILoader')
           Popup.Emit()
-          assert(Popup.opens==1 and Popup.foreignCalls==1 and Popup.disabled1 and Popup.disabled2)
+          assert(Popup.opens==0 and Popup.foreignCalls==1 and Popup.hidden==true and Popup.hideCalls==1)
           assert(Popup.button1()==false and TestGuard.playerCalls==0)
           TestGuard.leader='LEADER_OTHER';Popup.Emit()
-          assert(Popup.opens==2 and Popup.disabled1==false and Popup.disabled2==false)
+          assert(Popup.opens==1 and Popup.hidden==false and Popup.disabled1==false and Popup.disabled2==false)
           assert(Popup.button1()==true and TestGuard.playerCalls==1)
         ''')
 
