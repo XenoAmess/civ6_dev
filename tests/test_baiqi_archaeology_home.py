@@ -42,7 +42,7 @@ class ArchaeologyHomeTests(unittest.TestCase):
             GetCities=function() return {FindID=function(_,id) if id==66 then return city end end} end}
           GameInfo={Units=setmetatable({},{__index=function(_,key) if key==19 then return {UnitType=h.unitType} end end}),
             Buildings=setmetatable({},{__index=function(_,key)
-              if key=='BUILDING_ARCHAEOLOGICAL_MUSEUM' then
+              if key=='BUILDING_MUSEUM_ARTIFACT' then
                 return {BuildingType=h.buildingType or key,Index=h.buildingIndex}
               end
             end}),GreatWorkSlotTypes={[0]={GreatWorkSlotType='GREATWORKSLOT_ARTIFACT'},

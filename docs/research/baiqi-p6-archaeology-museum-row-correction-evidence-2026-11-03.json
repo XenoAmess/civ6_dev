@@ -1,0 +1,79 @@
+{
+  "schema": "civ6.baiqi-archaeology-native-museum-row-correction/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "8aecdac6108249e93976f52d037df79de982468b",
+  "native_normal_version": 63,
+  "facts": {
+    "museum_type": "BUILDING_MUSEUM_ARTIFACT",
+    "index": 24,
+    "hash": 1182236625,
+    "wrong_owner_contract_type": "BUILDING_ARCHAEOLOGICAL_MUSEUM",
+    "wrong_row_native": null,
+    "ui_slots": "GetNumGreatWorkSlots/GetGreatWorkInSlot/GetGreatWorkSlotType/GetGreatWorkTypeFromIndex functions",
+    "core_slots": "All four absent; HasBuilding function remains",
+    "core_GreatWorkCreated_event": "table with Add function, no event delivery/payload proof",
+    "current_debug_archaeologist_home": -1,
+    "actual_home_snapshot": "nil/unavailable, prior diagnostic namespace restored",
+    "owned_cities_with_museum": 0,
+    "owned_cities_queried": 11
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T124019879469Z.json",
+      "sha256": "06f387069df27d58a9b36adb9b6b17672896115aa7f7202c3a282c4db7cd3a38",
+      "context": "InGame",
+      "lines": [
+        "P6_ARCHHOME_NATIVE_BUILDING_CATALOG\tBUILDING_MUSEUM_ART\t23\t-99886926",
+        "P6_ARCHHOME_NATIVE_BUILDING_CATALOG\tBUILDING_MUSEUM_ARTIFACT\t24\t1182236625",
+        "P6_ARCHHOME_NATIVE_SLOT_BINDINGS\t262147\tfunction\tfunction\tfunction\tfunction\tfunction"
+      ]
+    },
+    {
+      "name": "20261103T124022046401Z.json",
+      "sha256": "f48cbb613e25ad9a3d0eb86d38052a190130fc716c47aae52e2d4941956b8794",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCHHOME_NATIVE_BUILDING_CATALOG\tBUILDING_MUSEUM_ART\t23\t-99886926",
+        "P6_ARCHHOME_NATIVE_BUILDING_CATALOG\tBUILDING_MUSEUM_ARTIFACT\t24\t1182236625",
+        "P6_ARCHHOME_NATIVE_SLOT_BINDINGS\t262147\tfunction\tnil\tnil\tnil\tnil"
+      ]
+    },
+    {
+      "name": "20261103T124123635644Z.json",
+      "sha256": "98f598082303d5f5a65f5145e2f873b808a7de1a4b611bc72d677e45589862ff",
+      "context": "InGame",
+      "lines": [
+        "P6_ARCHHOME_NATIVE_MUSEUM_ROW\t24\tBUILDING_MUSEUM_ARTIFACT"
+      ]
+    },
+    {
+      "name": "20261103T124124084990Z.json",
+      "sha256": "6dfce9884c79fd562dc8d64db7d91c58393cc34fd6ea1c34b889b4c932ad39af",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCHHOME_CORE_BINDINGS\t262147\t24\tfalse\tnil\tnil\tnil\tnil",
+        "P6_ARCHHOME_CORE_CREATED_EVENT\ttable\tfunction"
+      ]
+    }
+  ],
+  "owner_input_correction": "264/265 input explicitly supplied incorrect museum enum. Model use of that enum was owner input error, distinct from264 chained-equality/out-of-scope/duplicate-ID defects. Frozen original evidence remains unchanged; corrected actual source and fixture now use Native catalogue row. Ten DATA cases remain unchanged.",
+  "owner_diagnostic_errors": "First temporary UI helper restored namespace and printed nil/unavailable/home-1, then its extra unguarded wrong-row.Index print failed; initial Core extra wrong-row.Index print also failed. Corrected separate diagnostics succeeded. No game action/property write/mod runtime patch.",
+  "software": {
+    "corrected_binding_methods": 10,
+    "seconds": 0.032,
+    "passed": true,
+    "source64_full742_before_this_unregistered_constant_correction": true,
+    "no_full_rerun": true
+  },
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiArchaeologyHome.lua": "0eb1d8a022aced7fc81887a6d76383fc0f6a50fdf51dd292a994bb61b5391044",
+    "tests/test_baiqi_archaeology_home.py": "353d0963202055f6478a187618dd62166a1cd04ece4fed776a91f104a3bf7c4d"
+  },
+  "limits": [
+    "Unregistered helper, no normal home/museum positive Native snapshot or archaeology action.",
+    "No new model HTTP; not another semantic attempt or model-case denominator.",
+    "Core cannot independently reread slot inventory; future receipt must use actual Native Core event with separately verified payload or another verified boundary."
+  ],
+  "next": "Use actual museum row for normal production and UI home snapshot; implement persistent excavation/choice authorization and verify Core created-event payload on real archaeology effect."
+}

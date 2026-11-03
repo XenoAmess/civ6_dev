@@ -26,8 +26,8 @@ local function Identity(player,pid,id)
   assert(Method(city,"GetID")(city)==home and Method(city,"GetOwner")(city)==pid)
   local x,y=Method(city,"GetX")(city),Method(city,"GetY")(city)
   assert(Integer(x,MAX) and Integer(y,MAX))
-  local building=GameInfo.Buildings.BUILDING_ARCHAEOLOGICAL_MUSEUM
-  assert(Object(building) and building.BuildingType=="BUILDING_ARCHAEOLOGICAL_MUSEUM"
+  local building=GameInfo.Buildings.BUILDING_MUSEUM_ARTIFACT
+  assert(Object(building) and building.BuildingType=="BUILDING_MUSEUM_ARTIFACT"
     and Integer(building.Index,MAX))
   return {unitID=id,unitType="UNIT_ARCHAEOLOGIST",homeCityID=home,
     cityX=x,cityY=y,buildingIndex=building.Index},city
