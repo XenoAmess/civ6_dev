@@ -1,0 +1,150 @@
+import collections.abc, statistics, math
+
+def _finite(value):
+    if type(value) not in (int,float):return False
+    try:return math.isfinite(value)
+    except (OverflowError,ValueError):return False
+
+
+def analyze_pairs(pairs, fixture_sha256):
+    if not isinstance(pairs, collections.abc.Sequence) or isinstance(pairs, (str, bytes, bytearray, collections.abc.Mapping)):
+        raise ValueError('pairs must be a sequence of 5 mappings')
+    if len(pairs) != 5:
+        raise ValueError('pairs must contain exactly 5 items')
+    if not isinstance(fixture_sha256, str) or len(fixture_sha256) != 64 or not all(c in '0123456789abcdef' for c in fixture_sha256):
+        raise ValueError('fixture_sha256 must be 64 lowercase hex chars')
+
+    all_records = []
+    pair_medians = []
+    seen_run_ids = set()
+
+    for idx, pair in enumerate(pairs):
+        if not isinstance(pair, collections.abc.Mapping):
+            raise ValueError('pair must be a mapping')
+        if type(pair.get('pair')) is not int or pair.get('pair') != idx + 1:
+            raise ValueError('pair index mismatch')
+        order = pair.get('order')
+        if not isinstance(order, collections.abc.Sequence) or isinstance(order, (str, bytes, bytearray)) or len(order) != 2:
+            raise ValueError('order must be a sequence of 2 strings')
+        if order[0] not in ('enabled', 'control') or order[1] not in ('enabled', 'control') or order[0] == order[1]:
+            raise ValueError('order must be [enabled, control] or [control, enabled]')
+        expected_order = ['enabled', 'control'] if (idx + 1) % 2 == 1 else ['control', 'enabled']
+        if list(order) != expected_order:
+            raise ValueError('order does not match alternating protocol')
+
+        for variant in ('enabled', 'control'):
+            capture = pair.get(variant)
+            if not isinstance(capture, collections.abc.Mapping):
+                raise ValueError('capture must be a mapping')
+            if capture.get('variant') != variant:
+                raise ValueError('variant mismatch')
+            run_id = capture.get('run_id')
+            if not isinstance(run_id, str) or not run_id:
+                raise ValueError('run_id must be non-empty string')
+            if run_id in seen_run_ids:
+                raise ValueError('run_id must be unique across all 10 runs')
+            seen_run_ids.add(run_id)
+            if capture.get('fixture_sha256') != fixture_sha256:
+                raise ValueError('fixture_sha256 mismatch')
+            if type(capture.get('source_version')) is not int or capture.get('source_version') != 67:
+                raise ValueError('source_version must be 67')
+            if any(type(capture.get(k)) is not int or capture.get(k)!=0 for k in ('errors','refused')):
+                raise ValueError('errors and refused must be 0')
+            records = capture.get('records')
+            if not isinstance(records, collections.abc.Sequence) or isinstance(records, (str, bytes, bytearray)) or len(records) != 5:
+                raise ValueError('records must be a sequence of 5 items')
+
+            for i, rec in enumerate(records):
+                if not isinstance(rec, collections.abc.Mapping):
+                    raise ValueError('record must be a mapping')
+                ft = rec.get('from_turn')
+                tt = rec.get('to_turn')
+                pid = rec.get('pid')
+                started = rec.get('started')
+                ended = rec.get('ended')
+                seconds = rec.get('seconds')
+
+                if not isinstance(ft, int) or isinstance(ft, bool) or ft != 85 + i:
+                    raise ValueError('from_turn mismatch')
+                if not isinstance(tt, int) or isinstance(tt, bool) or tt != 86 + i:
+                    raise ValueError('to_turn mismatch')
+                if not isinstance(pid, int) or isinstance(pid, bool) or pid != 0:
+                    raise ValueError('pid must be 0')
+                if not isinstance(started, (int, float)) or isinstance(started, bool) or not _finite(started) or started < 0:
+                    raise ValueError('started invalid')
+                if not isinstance(ended, (int, float)) or isinstance(ended, bool) or not _finite(ended) or ended < started:
+                    raise ValueError('ended invalid')
+                if not isinstance(seconds, (int, float)) or isinstance(seconds, bool) or not _finite(seconds) or seconds < 0:
+                    raise ValueError('seconds invalid')
+                if abs(seconds - (ended - started)) > 1e-6:
+                    raise ValueError('seconds does not match ended-started')
+
+                if i > 0:
+                    prev = records[i - 1]
+                    prev_ended = prev.get('ended')
+                    if not isinstance(prev_ended, (int, float)) or isinstance(prev_ended, bool):
+                        raise ValueError('previous ended invalid')
+                    if started < prev_ended + 10:
+                        raise ValueError('interval violation: started < previous ended + 10')
+
+                all_records.append({
+                    'pair': idx + 1,
+                    'turn': i+86,
+                    'variant': variant,
+                    'seconds': seconds
+                })
+
+    # Match pairs by turn index (0..4) within each pair
+    matched_deltas = []
+    for p_idx in range(5):
+        pair_records = [r for r in all_records if r['pair'] == p_idx + 1]
+        enabled_secs = [r['seconds'] for r in pair_records if r['variant'] == 'enabled']
+        control_secs = [r['seconds'] for r in pair_records if r['variant'] == 'control']
+        if len(enabled_secs) != 5 or len(control_secs) != 5:
+            raise ValueError('missing records for pair')
+        for i in range(5):
+            e_s = enabled_secs[i]
+            c_s = control_secs[i]
+            delta = e_s - c_s
+            ratio = None if c_s == 0 else (delta / c_s) * 100.0
+            delta_ms=delta*1000.0
+            if not _finite(delta_ms) or (ratio is not None and not _finite(ratio)):
+                raise ValueError('Derived timing metric overflow')
+            matched_deltas.append({
+                'pair': p_idx + 1,
+                'turn': i+86,
+                'enabled_seconds': e_s,
+                'control_seconds': c_s,
+                'delta_ms': delta_ms,
+                'ratio_percent': ratio
+            })
+
+    # Per-pair medians
+    for p_idx in range(5):
+        p_deltas = [d['delta_ms'] for d in matched_deltas if d['pair'] == p_idx + 1]
+        p_ratios = [d['ratio_percent'] for d in matched_deltas if d['pair'] == p_idx + 1 and d['ratio_percent'] is not None]
+        med_delta = statistics.median(p_deltas)
+        med_ratio = statistics.median(p_ratios) if len(p_ratios)==5 else None
+        pair_medians.append({
+            'pair': p_idx + 1,
+            'median_delta_ms': med_delta,
+            'median_ratio_percent': med_ratio
+        })
+
+    # Global medians
+    all_deltas = [d['delta_ms'] for d in matched_deltas]
+    all_ratios = [d['ratio_percent'] for d in matched_deltas if d['ratio_percent'] is not None]
+    top_median_delta = statistics.median(all_deltas)
+    top_median_ratio = statistics.median(all_ratios) if len(all_ratios)==25 else None
+    ratio_known = len(all_ratios) == 25
+    budget_ok = ratio_known and top_median_delta <= 500 and (top_median_ratio is not None and top_median_ratio <= 10)
+
+    return {
+        'matched_rows': matched_deltas,
+        'pair_medians': pair_medians,
+        'median_delta_ms': top_median_delta,
+        'median_ratio_percent': top_median_ratio,
+        'ratio_known': ratio_known,
+        'observed_b_delta_budget_ok': budget_ok,
+        'limits': ['Input arithmetic only; physical execution/order, Native AI, operator input, clock precision and assets require separate evidence.']
+    }

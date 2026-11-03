@@ -1,0 +1,144 @@
+{
+  "schema": "civ6.baiqi-paired-build-analyzer318/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T22:49:48.257845+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 318,
+      "case_id": "civ6-pairedanalyzer318",
+      "mode_id": "http-candidate",
+      "shared_commit": "26bf4d43bf59c64123ee06a24907dd3c2f342682",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T22:40:06.722668+00:00",
+      "attempt_end_utc": "2026-11-03T22:40:17.741879+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 11010.405600012746,
+        "first_nonempty_content_delta_ms": 515.2071000193246,
+        "usage": {
+          "prompt_tokens": 2696,
+          "completion_tokens": 1883,
+          "total_tokens": 4579
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T22:40:06.722668+00:00",
+          "end_utc": "2026-11-03T22:40:17.741879+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 11010.405600012746
+        }
+      ],
+      "adoption": "partial",
+      "review": "Valid full Python body partly adopted. Raw accepts pairTrue/67.0version/Falseerrors/0.0refused, labels turns0..4, computes partial median excluding zero-control ratios despite ratio_knownfalse, hugeint raisesOverflowError. Owner exacttypes/actual86..90/unknownratios/finiteinput+derivedoverflow/outputkeys/limits corrected.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_counterexamples": {
+    "raw_accepts_bool_pair_and_float_version_false_errors_float_refused": true,
+    "raw_turn_labels": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "raw_zero_control_ratio_known": false,
+    "raw_zero_control_top_ratio": 5.0,
+    "raw_zero_control_pair1_ratio": 5.0,
+    "raw_huge_integer_exception": "OverflowError",
+    "adoption": "partial",
+    "owner_fixes": [
+      "Strict int metadata and explicit Mapping exclusion",
+      "Any zero control duration makes respective pair/top ratio unknown; never partial median",
+      "Report actual86..90 turns",
+      "Finite numeric validation catches integer conversion overflow; reject derived ms/ratio overflow",
+      "Exact consumer output keys and limits"
+    ]
+  },
+  "paired_builds": {
+    "enabled": {
+      "mode": "baiqi67-paired-enabled-c2",
+      "variant": "enabled",
+      "files": 85,
+      "changed_files": [
+        "UI/BaiqiExecutor.lua"
+      ],
+      "clock_prefix_sha256": "f0090d6adb97164f457506ef6d96601e6e0b6f0a073eb53e5db7a75ab583eb1b",
+      "clock_source_sha256": "43c456509162745f0a4efbec4e8572cd5d715e71ac02d5d1216d33da4665690f",
+      "archive_sha256": "1d6e0e17435d8a353cb5944ba30f820e6c565aa3ed682616edf3719dde59ca6e",
+      "installed": false
+    },
+    "control": {
+      "mode": "baiqi67-paired-control-c2",
+      "variant": "control",
+      "files": 85,
+      "changed_files": [
+        "Lua/BaiqiController.lua",
+        "Lua/BaiqiGPIntentGameplay.lua",
+        "Lua/BaiqiCreativeIntentGameplay.lua",
+        "Lua/BaiqiReligiousIntentGameplay.lua",
+        "Lua/BaiqiNaturalistIntentGameplay.lua",
+        "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+        "Lua/BaiqiArchaeologyIntentGameplay.lua",
+        "UI/BaiqiExecutor.lua",
+        "Lua/BaiqiAdmin.lua"
+      ],
+      "clock_prefix_sha256": "f0090d6adb97164f457506ef6d96601e6e0b6f0a073eb53e5db7a75ab583eb1b",
+      "clock_source_sha256": "43c456509162745f0a4efbec4e8572cd5d715e71ac02d5d1216d33da4665690f",
+      "archive_sha256": "11cd51b41edcf39d4368abee8911a22127dbb0908aeac61d4424700338d2a91c",
+      "installed": false
+    }
+  },
+  "software": {
+    "new_assembler_tests": 3,
+    "assembler_seconds": 21.724,
+    "affected_default_builder_tests": 1,
+    "affected_seconds": 12.071,
+    "new_analyzer_tests": 9,
+    "analyzer_seconds": 0.008,
+    "scope": "Both actual85-file copies compile all63Lua, identical stopwatch prefix before original Executor event capture. Enabled original source exact suffix and onlyExecutor changes; control nine static targets. Defaults preserve c1 behavior. Actual Lua event-order/reload-ownedRemove witnesses. Analyzer5pairs25durations strict metadata/cooldown/identity/arithmetic, zero control ratio unknown, thresholds500ms AND10%, no fake Native data."
+  },
+  "prospective_pairing_contract": "Five pairs, odd enabled/control and even control/enabled. Each run exactoriginal85 then sample86..90 endpoints(end85..89), at least10seconds local activity before each nextsubmission; stop90 after10seconds, no end90. Median all25 same-turn enabled-control deltas and median all25 individual relative deltas, per-pair medians separately. Any zero control ratio unknown =>noPASS. Raw operator/diplomacy/NativeAI durations retained, no subtraction/filter/cherrypick. First formal paired sample not yet collected; numeric budgets unchanged.",
+  "scope": "Assembly/arithmetic software only. Not installed or Native sampled at this pin. Actual timing hook and static control compatibility still to verify. Full TC036 not passed.",
+  "cumulative_through318": {
+    "logical": 318,
+    "complete": 297,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 348,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "unknown_costs": {
+    "exclusive_owner_seconds": null,
+    "cache_hit_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null
+  }
+}
