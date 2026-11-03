@@ -1,0 +1,142 @@
+{
+  "schema": "civ6.baiqi-lazy-snapshot-source57/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "version": 57,
+  "source_parent": "c1e23d2a4d8b601597cf04ff53dbbf5e85057e7a",
+  "controller_sha256": "580c61599bd3bec85bad1134d77cae4da42bef71772010d9e850f7c8d8d24e47",
+  "cases": [
+    {
+      "sequence": 220,
+      "case_id": "HTTP-CIV6-LAZYCIVILIAN220",
+      "mode_id": "http-candidate",
+      "shared_commit": "6b1702a0f4dbcc3740473e6406090d793f193fca",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+      "max_tokens": 2300,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T00:39:23.422715+00:00",
+      "attempt_end_utc": "2026-11-03T00:39:43.435603+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 20008.684500004165,
+        "first_nonempty_content_delta_ms": 9138.24390002992,
+        "usage": {
+          "prompt_tokens": 34260,
+          "completion_tokens": 1692,
+          "total_tokens": 35952
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "partial-indent-corrected",
+      "review": "Candidatewholeoldhunk0exactmatchesbecauseeverylinehas2excessleading_spaces. Strip2fromold/newonly:oldthenmatchesexactlyonce,Luareorderingbodyadoptedunchanged. MainSnapshotnowafterfreshUnitKey/evaluated/pendingguard;allCanCivilian/held/skip/overlapinsideoldeligibility;standbytailunchanged. Ownerbefore/after4methodwitnessplusfull568PASS, notNativegain.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 221,
+      "case_id": "HTTP-CIV6-LAZYWITNESS221",
+      "mode_id": "http-candidate",
+      "shared_commit": "6b1702a0f4dbcc3740473e6406090d793f193fca",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+      "max_tokens": 3200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T00:39:23.417099+00:00",
+      "attempt_end_utc": "2026-11-03T00:39:37.431298+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 14007.335899979807,
+        "first_nonempty_content_delta_ms": 7417.946700006723,
+        "usage": {
+          "prompt_tokens": 34349,
+          "completion_tokens": 624,
+          "total_tokens": 34973
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "export-idea-only-owner-test-rewrite",
+      "review": "Returnedonly2methodnames,nobodies. ProposesglobalUnitSnapshotwrapperafterexecutingcontrollerbutfunctionislexicallocal, cannotobserveactualcalls. Noexecutabletestbodyadopted. Evaluatedexportideausefulforownerfixture;owner4actualbehaviorchecksmeasureexistingNativeformationgetter, notglobalmock;old56fails4points,new57passes,finalstandbyfreshguardsandpositionkeyverified.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "source_scope": "OnlyTickmain-loopSnapshotreorderedunderexistingcivilianfreshkey/pending/evaluatedguards,manifest56→57. NoUnitSnapshotAPIchange,ReadBackchange,newpermission,cacheacrosscallbacks orfinalguardweakening. FreshUnitKeyeachTickretained,standbytailkeepsOWNfreshSnapshottwicearoundnativequalification.",
+  "new_behavior_tests": {
+    "methods": 4,
+    "before56": {
+      "methods": 4,
+      "failures": 4,
+      "errors": 0,
+      "seconds": 0.05457490001572296
+    },
+    "after57": {
+      "methods": 4,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 0.07276760000968352
+    },
+    "coverage": "Evaluatedwithoutstandbybinding0formationreads,pendingMOVEretained0reads,freshmovedpositionkeyreplans,standby2freshsnapshotsandformationmutationafterCanStartrejectswrite. Fourfailingbeforepointsin3methods,onefreshkeypositivealreadygreen. Counterswrapactualmock-nativegetters, notlocalSnapshotreplacement.",
+    "before_log_sha256": "449e3372e9f7bc39948a27ed0175311501975de79ffe5753626cb962750fec9c",
+    "after_log_sha256": "8c0109e3f64661b8194e466ba361df6ecff7f270b2eb89b6d68a4e6e91c513dd"
+  },
+  "software": {
+    "full_tests": 568,
+    "seconds": 90.808,
+    "passed": true,
+    "log_sha256": "6ee76edfeb0c7b4b77b5df68b3fe2b1730bde3369171b1324e1e9f207e05934f"
+  },
+  "artifact": {
+    "files": 69,
+    "all_zip_bytes_match_source": true,
+    "zip_sha256": "6cfdad11fe8d73593b9935c5af16b5cfed8e7a4aa526aa242b12580a589b0fb0",
+    "normal_latest_zip_equal": true,
+    "installed": false,
+    "native_loaded": false
+  },
+  "running": "Actual10740installed/runningseparate56-q11diagnosticcopy(hash54f8cd1b);noneof57installedfileschangedwhilegameruns. Q11coldofflineconfirmation00:38:42UTC,warmstarted85,formalwindowsnotyetstartedatthisfreeze.",
+  "performance": "UNKNOWNfor57; normal56q10p9537/max59msFAILremainslatestminimalNative. Softwaregettercountreductionnotwall-speeduporCPUcause. B_turn/globalN_req/matchedpairsstillopen.",
+  "batch": {
+    "logical": 2,
+    "complete": 2,
+    "length": 0,
+    "retries": 0,
+    "actual_peak": 2,
+    "actual_overlap_seconds": 14.008583,
+    "cached_tokens": null,
+    "server_concurrency": null
+  },
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null
+  },
+  "phase_limits": "220/221PREP_BEGINwasexecutedinsameexecbatchasalreadydraftedpreparer;shortintervalcoversmechanicalapplyonly,earlierauthoringunknown. Cannotclaimfullprepcomplianceorexclusiveactivecost;allinterleavedphasewall/netgainunknown.",
+  "next": "Finishactual56q11timingandrestoreall9pointers;thenpropernormalexit/freshSteamoffline/cold57formalverification. No budgetloweringorclaimfull40casesPASS."
+}
