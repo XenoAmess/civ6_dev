@@ -3,6 +3,7 @@ include("BaiqiPolicy")
 include("BaiqiPlanner")
 include("BaiqiHeritageCandidates")
 include("BaiqiHeritageActions")
+include("BaiqiNaturalistPurchase")
 
 BaiqiController = {}
 local C = BaiqiConfig
@@ -16,6 +17,8 @@ local settlerSearches={}
 local districtPersonPlans = {}
 local missionaryPlans = {}
 local naturalistSearches = {}
+local pendingPurchase,purchaseSearch=nil,nil
+local purchaseDoneTurn,purchaseResumeStreak=-1,0
 local stopped, running = false, false
 local turnGuard
 local status = "内政托管开启；军队等待你的命令"
@@ -645,6 +648,161 @@ local function ProcessMissionary(ctx,player,state,unit)
   end
   Reason("missionary:"..id,"传教士等待安全国内路径或原生传播资格")
   return false
+end
+
+local function NaturalistPurchaseBridge(method,...)
+  local function Invoke(...)
+    local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiNaturalistPurchaseBridge
+    if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-naturalist-purchase-v1"
+      or type(bridge[method])~="function" then return nil,nil,"bridge_unavailable" end
+    return bridge[method](...)
+  end
+  local ok,a,b,c=pcall(Invoke,...)
+  if ok then return a,b,c end
+  return nil,nil,"bridge_unavailable"
+end
+
+local function NaturalistPurchaseDemand(ctx,player,grantedToken)
+  local ok,demand=pcall(function()
+    local current,owner=PlayerContext()
+    if not ctx or not current or current.player~=ctx.player or not BaiqiPolicy.Context(current)
+      or not CoreIdle() then return false end
+    local stage,token=NaturalistPurchaseBridge("Inspect",current.player,grantedToken)
+    if grantedToken==nil then
+      if stage~="OPEN" then return false end
+    elseif type(grantedToken)~="string" or stage~="ARMED" or token~=grantedToken then return false end
+    local function EmptyStock()
+      local count,seen=0,{}
+      for _,unit in owner:GetUnits():Members() do
+        count=count+1
+        if count>4096 then return false end
+        local id=unit:GetID()
+        if not BaiqiPolicy.Number(id) or id<0 or id>2147483647 or id%1~=0 or seen[id]
+          or unit:GetOwner()~=current.player then return false end
+        seen[id]=true
+        local row=GameInfo.Units[unit:GetUnitType()]
+        if not row or type(row.UnitType)~="string" then return false end
+        if row.UnitType=="UNIT_NATURALIST" then
+          if type(unit.IsDelayedDeath)~="function" then return false end
+          local dead=unit:IsDelayedDeath()
+          if type(dead)~="boolean" or not dead then return false end
+        end
+      end
+      return true
+    end
+    if not EmptyStock() then return false end
+    local indices,why=BaiqiHeritageCandidates.Collect("UNIT_NATURALIST",current.player,nil,Game,Map,visibility)
+    if why~="ok" then return false end
+    for _,index in ipairs(indices) do
+      local plot=Map.GetPlotByIndex(index)
+      if plot and plot:GetIndex()==index and Revealed(plot)
+        and visibility:IsVisible(plot:GetX(),plot:GetY())==true and plot:GetOwner()==current.player
+        and not plot:IsWater() and not plot:IsImpassable() and plot:IsNationalPark()==false
+        and Safe(plot,owner) then return EmptyStock() end
+    end
+    return false
+  end)
+  return ok and demand==true
+end
+
+local function RequestNaturalistPurchase(city)
+  local armedToken
+  local function Attempt()
+    local ctx,player=PlayerContext()
+    if not ctx or not BaiqiPolicy.Context(ctx) or not CoreIdle() or pendingPurchase then return false end
+    local reserve=C.naturalistFaithReserve
+    if not BaiqiPolicy.Number(reserve) or reserve<0 then return false end
+    local pid,at=ctx.player,turn
+    local cityID,x,y=city:GetID(),city:GetX(),city:GetY()
+    if not NaturalistPurchaseDemand(ctx,player) then return false end
+    local quote=BaiqiNaturalistPurchase.Quote(player,pid,city,reserve)
+    if not quote or quote.cityID~=cityID or quote.owner~=pid or quote.x~=x or quote.y~=y then return false end
+    local function Signature()
+      local sig={operation=CityCommandTypes.PURCHASE,unitKey=CityCommandTypes.PARAM_UNIT_TYPE,
+        yieldKey=CityCommandTypes.PARAM_YIELD_TYPE,formationKey=CityCommandTypes.PARAM_MILITARY_FORMATION_TYPE,
+        writer=CityManager.RequestCommand}
+      if type(sig.writer)~="function" then return nil end
+      for _,key in ipairs({"operation","unitKey","yieldKey","formationKey"}) do
+        local value=sig[key]
+        if not BaiqiPolicy.Number(value) or value<-2147483648 or value>4294967295 or value%1~=0 then return nil end
+      end
+      if sig.unitKey==sig.yieldKey or sig.unitKey==sig.formationKey or sig.yieldKey==sig.formationKey then return nil end
+      return sig
+    end
+    local signature=Signature()
+    if not signature then return false end
+    local function Guard(token)
+      local current,owner=PlayerContext()
+      if not current or current.player~=pid or not BaiqiPolicy.Context(current) or not CoreIdle()
+        or turn~=at or Game.GetCurrentGameTurn()~=at or C.naturalistFaithReserve~=reserve then return nil end
+      if not NaturalistPurchaseDemand(current,owner,token) then return nil end
+      local fresh=owner:GetCities():FindID(cityID)
+      if not BaiqiPolicy.MatchesID(fresh,cityID) or fresh:GetOwner()~=pid
+        or fresh:GetX()~=x or fresh:GetY()~=y then return nil end
+      local sig=Signature()
+      if not sig then return nil end
+      for key,value in pairs(signature) do if sig[key]~=value then return nil end end
+      local row=GameInfo.Units.UNIT_NATURALIST
+      if not row or row.UnitType~="UNIT_NATURALIST" or row.Hash~=quote.unitHash
+        or GameInfo.Yields.YIELD_FAITH.Index~=quote.faithYieldIndex
+        or MilitaryFormationTypes.STANDARD_MILITARY_FORMATION~=quote.formationType then return nil end
+      if fresh:GetGold():GetPurchaseCost(quote.faithYieldIndex,quote.unitHash,quote.formationType)~=quote.cost
+        or owner:GetReligion():GetFaithBalance()~=quote.faithBalance then return nil end
+      return fresh
+    end
+    if not Guard(nil) then return false end
+    local id=NextRequest("naturalist_purchase:"..cityID..":"..at)
+    if not id then return false end
+    local granted,token=NaturalistPurchaseBridge("Prepare",pid,cityID,x,y,quote.unitHash,quote.cost,quote.faithBalance,reserve)
+    if granted~=true or type(token)~="string" or #token==0 then return false end
+    armedToken=token
+    pendingPurchase={id=id,token=token,persistent=true,cityID=cityID,x=x,y=y,unitHash=quote.unitHash,
+      cost=quote.cost,faithBefore=quote.faithBalance,turn=at,elapsed=0}
+    local after=BaiqiNaturalistPurchase.Quote(player,pid,city,reserve)
+    local same=after~=nil
+    if same then for key,value in pairs(quote) do if after[key]~=value then same=false end end end
+    local fresh=same and Guard(token)
+    if not fresh then
+      Log("naturalist_purchase_held","id="..id.."|city="..cityID.."|reason=eligibility_changed_after_intent")
+      return true
+    end
+    local params={[signature.unitKey]=quote.unitHash,[signature.yieldKey]=quote.faithYieldIndex,
+      [signature.formationKey]=quote.formationType}
+    Log("request","id="..id.."|source=BACKGROUND|city="..cityID.."|operation=PURCHASE|unit=UNIT_NATURALIST|cost="..quote.cost)
+    local ok=pcall(CityManager.RequestCommand,fresh,signature.operation,params)
+    if not ok then Log("naturalist_purchase_unknown","id="..id.."|city="..cityID) end
+    return true
+  end
+  local ok,submitted=pcall(Attempt)
+  if ok then return submitted==true end
+  if armedToken then Log("naturalist_purchase_held","token="..armedToken.."|reason=read_unavailable_after_intent");return true end
+  return false
+end
+
+local function ProcessNaturalistPurchase(ctx,player)
+  if pendingPurchase or purchaseDoneTurn==turn then return false,false end
+  if not NaturalistPurchaseDemand(ctx,player) then purchaseDoneTurn=turn;purchaseSearch=nil;return false,false end
+  if not purchaseSearch or purchaseSearch.turn~=turn or purchaseSearch.player~=ctx.player then
+    purchaseSearch={turn=turn,player=ctx.player,failed={}}
+  end
+  local cities={}
+  for _,city in player:GetCities():Members() do
+    local id=city:GetID()
+    if BaiqiPolicy.Number(id) and id>=0 and id<=2147483647 and id%1==0
+      and city:GetOwner()==ctx.player and not purchaseSearch.failed[id] then cities[#cities+1]={id=id,city=city} end
+  end
+  table.sort(cities,function(a,b) return a.id<b.id end)
+  local choice=cities[1]
+  if not choice then purchaseDoneTurn=turn;purchaseSearch=nil;return false,false end
+  purchaseSearch.failed[choice.id]=true
+  local plot=Map.GetPlot(choice.city:GetX(),choice.city:GetY())
+  if plot and Revealed(plot) and visibility:IsVisible(plot:GetX(),plot:GetY())==true
+    and plot:GetOwner()==ctx.player and Safe(plot,player) and RequestNaturalistPurchase(choice.city) then
+    purchaseDoneTurn=turn;purchaseSearch=nil;return true,false
+  end
+  if #cities>1 then return false,true end
+  purchaseDoneTurn=turn;purchaseSearch=nil
+  return false,false
 end
 
 local function NaturalistDetour(ctx, player, unit, target)
@@ -1910,6 +2068,14 @@ local function ProcessCity(ctx, player, state, city)
 end
 
 local function ReadBack(player)
+  if pendingPurchase then
+    local stage,token=NaturalistPurchaseBridge("Inspect",contextID,pendingPurchase.token)
+    if stage=="OBSERVED" and token==pendingPurchase.token then
+      Log("observed","id="..pendingPurchase.id.."|city="..pendingPurchase.cityID
+        .."|kind=PURCHASE|unit=UNIT_NATURALIST|proof=core_new_unit_and_exact_faith_debit")
+      pendingPurchase=nil
+    end
+  end
   for unitID, pending in pairs(pendingUnits) do
     local unit=player:GetUnits():FindID(unitID)
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
@@ -2098,6 +2264,7 @@ local function Tick(allowOrders)
   if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
     builderResumeStreak=0
+    purchaseSearch=nil;purchaseDoneTurn=-1;purchaseResumeStreak=0
     turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}; settlerSearches={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
     -- turn; retaining that pending slot would strand the civilian indefinitely.
@@ -2116,7 +2283,7 @@ local function Tick(allowOrders)
   -- Passive initialization and effect receipts still reconcile while busy.
   -- Only ordinary movement, route and queue receipts may await an idle tick.
   if allowOrders~=false and not CoreIdle() then
-    local effectPending=false
+    local effectPending=pendingPurchase~=nil
     for _,pending in pairs(pendingUnits) do
       local kind=pending.kind
       if kind=="ACTIVATE_GREAT_PERSON" or kind=="CREATE_GREAT_WORK"
@@ -2163,6 +2330,14 @@ local function Tick(allowOrders)
   for _,city in player:GetCities():Members() do
     if ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
   end
+  -- One city's quote per callback, at most two purchase continuations before
+  -- normal unit scheduling. Scalar failed IDs never authorize a later command.
+  if purchaseResumeStreak<2 then
+    local submitted,continuing=ProcessNaturalistPurchase(ctx,player)
+    if submitted then purchaseResumeStreak=0;status="已登记自然学家购买；等待实际扣费与新单位";return end
+    if continuing then purchaseResumeStreak=purchaseResumeStreak+1;return end
+  end
+  purchaseResumeStreak=0
   for _,unit in player:GetUnits():Members() do
     local def=GameInfo.Units[unit:GetUnitType()]
     if def and BaiqiPolicy.CivilianType(def.UnitType) then
@@ -2243,6 +2418,7 @@ function BaiqiController.Update(delta,allowOrders)
   if not ctx or ctx.activeTurn~=true then return end
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
+  if pendingPurchase then pendingPurchase.elapsed=(pendingPurchase.elapsed or 0)+delta end
   elapsed=elapsed+delta
   if elapsed>=C.interval then elapsed=0; BaiqiController.RunNow(allowOrders) end
 end
