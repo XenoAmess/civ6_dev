@@ -1,0 +1,178 @@
+{
+  "schema": "civ6.baiqi-native64-known-unknown-purchase-hold/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "normal_version": 64,
+  "source_commit": "075a4606339b519fb0579c6e2e3ca94f8ca71db4",
+  "same_offline_owned_process": 18192,
+  "offline_proof_utc": "2026-11-03T12:54:11.556940+00:00",
+  "setup": {
+    "base98_save": {
+      "name": "Baiqi_P6_20261103_V63_FaithReady98.Civ6Save",
+      "bytes": 528676,
+      "sha256": "faba044ef4467e113d7966b0e42e781cea98e91d62bc2066eb1575433c547d9a",
+      "reloaded": false,
+      "scope": "Normal63 loaded prior actual62 park92 save; faith accumulated through six ordinary yields, first demand fixture rebuilt by AI; no normal purchase yet."
+    },
+    "actual_UI_quote_then_Core_Prepare": true,
+    "quote_cityID": 196610,
+    "quote_cost": 300,
+    "actual_permission": "ARMED purchase:0:1 serial1",
+    "Native_purchase_deliberately_not_called": true,
+    "debug_actions": [
+      "Mine716 removed once in isolated98 branch after actual Core permission",
+      "InitUnit naturalist5767205 at saved purchase-city10,13, bornmoves4/parkcharge1/form1"
+    ],
+    "unit_is_not_normal_purchase": true,
+    "faith_unchanged": 416.75390625,
+    "proxies_installed_before_debug_unit": true
+  },
+  "observation": {
+    "elapsed_seconds": 99.352999925613,
+    "actual_Controller_Update_calls": 2983,
+    "diagnostic_errors": 0,
+    "naturalist_UnitManager_RequestOperation_calls": 1,
+    "operation_native_row": {
+      "OperationType": "UNITOPERATION_SKIP_TURN",
+      "hash": 745019656,
+      "index": 36,
+      "enum_member": null
+    },
+    "permitted_standby_calls": 1,
+    "naturalist_movement_or_park_calls": 0,
+    "naturalist_UnitManager_RequestCommand_calls": 0,
+    "naturalist_CityManager_purchase_calls": 0,
+    "actual_native_MOVE_TO_qualification_true": true,
+    "actual_park_candidate_count": 4,
+    "all11_production_queues_nonempty": true,
+    "final_full_unitID": 5767205,
+    "position": [
+      10,
+      13
+    ],
+    "moves": 4,
+    "parkCharges": 1,
+    "isDelayedDeath": false,
+    "isReadyToMove_after_standby": false,
+    "faithBalance": 416.75390625,
+    "core_purchase_stage": "ARMED",
+    "core_purchase_token": "purchase:0:1",
+    "core_purchase_serial": 1,
+    "newUnitID_or_faithAfter_receipt_fields": null,
+    "new_park_intent": null,
+    "all4_forwarding_proxies_restored": true,
+    "scope": "Actual BaiqiExecutor Controller updates and filtered UI SDK entrypoints only; not whole Native N_req or other-context player writes."
+  },
+  "owner_oracle_failure": "First observer asserted zero ALL naturalist RequestOperation calls, incorrectly counting allowed standby as failure. Failure and complete prints retained; Stop ran before assertion escaped and restored all4 bindings. Subsequent read-only classification of SAME frozen trace confirmed the sole745019656 call is native UNITOPERATION_SKIP_TURN. No test action/probe/unit/permission replay; corrected acceptance is zero movement/park/purchase with one allowed standby.",
+  "native_receipts": [
+    {
+      "name": "20261103T133152774586Z.json",
+      "sha256": "273ce873b01b303bf335619763c9020119897e132178c5434157792f4a6a675e",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE64_UNKNOWN_ACTUAL_PERMISSION\ttrue\tpurchase:0:1\tarmed"
+      ]
+    },
+    {
+      "name": "20261103T133153110991Z.json",
+      "sha256": "6bc48cfee12a3c22679908ece51ff1a51a7d0c0771d302c37906c1dcb708d225",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_SOURCE64_UNKNOWN_DEBUG_UNIT_CREATED\t5767205\t10\t13\t4\t1\t1\t416.75390625"
+      ]
+    },
+    {
+      "name": "20261103T133332075053Z.json",
+      "sha256": "0a58fba9f3d809490d19532c1b7a9f1a35b973969dab4c8e382745b453560e39",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE64_UNKNOWN_UI_OBSERVED\t99.352999925613\t2983\t0\t1\t0\t0\t4\ttrue\t11",
+        "P6_SOURCE64_UNKNOWN_UI_UNIT\t5767205\t10\t13\t4\t1\t1\tfalse\t75236491\t416.75390625",
+        "P6_SOURCE64_UNKNOWN_OPERATION\t5767205\t745019656",
+        "P6_SOURCE64_UNKNOWN_PROBE_RESTORED\ttrue\ttrue\tfalse\tassertion failed\nstack traceback:\n\t[C]: in function 'assert'\n\t[string \"local w=P6Source64UnknownWitness...\"]:17: in function '(anonymous)'\n\t[C]: in function 'pcall'\n\t[string \"local w=P6Source64UnknownWitness...\"]:3: in function '(main chunk)'"
+      ]
+    },
+    {
+      "name": "20261103T133333189506Z.json",
+      "sha256": "8449514a109f3850f21b08270541171da5b1bb9cbb91006f738dec42a5421b71",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_SOURCE64_UNKNOWN_CORE_JOURNAL\t1\tpurchase:0:1\tARMED\t196610\t300\t416.75390625\tnil\tnil",
+        "P6_SOURCE64_UNKNOWN_CORE_UNIT\t5767205\t10\t13\t4\t1\tfalse\t416.75390625",
+        "P6_SOURCE64_UNKNOWN_CORE_PARK_INTENT\t1\tnil"
+      ]
+    },
+    {
+      "name": "20261103T133621059135Z.json",
+      "sha256": "f249899da79da1bfdcc4b31bea913f85fcab997f24824a3da3601b89b908453a",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE64_UNKNOWN_SKIP_METADATA\tUNITOPERATION_SKIP_TURN\t745019656\t36\tnil",
+        "P6_SOURCE64_UNKNOWN_CLASSIFIED_TRACE\t1\tstandby_only\t0\t0\t2983\t0\ttrue"
+      ]
+    }
+  ],
+  "isolated_unknown_save": {
+    "name": "Baiqi_P6_20261103_V64_UnknownPurchase98.Civ6Save",
+    "bytes": 529226,
+    "sha256": "3d7329ca9ec80743896a65653910fdbbdab0dfbdbb631d1a9a7c40ff1adb8975",
+    "reloaded": false,
+    "scope": "Normal64 isolated98: actual purchase permission ARMED, native purchase withheld, Debug unit5767205+mine716 removal; unchanged416.75390625 faith, 4moves/charge1, standby-only witness, not a normally paid unit."
+  },
+  "unknown_save_reloaded": false,
+  "restore_normal100": {
+    "official_once": true,
+    "normal100_save_preserved": {
+      "name": "Baiqi_P6_20261103_V63_PaidPark100.Civ6Save",
+      "bytes": 536371,
+      "sha256": "3b501f024432783901b0367edfbf7b8ce4e6fcef1227e1b3f0a37fddcfc8af1a",
+      "reloaded": false,
+      "scope": "Normal63 loaded prior actual62 park92 save; normal paid naturalist5767181 automatically built park628/671/672/716, observed park:0:2 and purchase:0:1; mine-removal/Conservation setup labelled."
+    },
+    "physical_continue_once": true,
+    "actual_UI_and_Core_4park_tiles_restored": true,
+    "purchase_OBSERVED1_and_park_OBSERVED2_restored": true,
+    "receipts": [
+      {
+        "name": "20261103T135017807248Z.json",
+        "sha256": "3f012b39838c093cd3c6e756c40b0ec302910ad03055f715fbf571770631f0f0",
+        "context": "GameCore_Tuner",
+        "lines": [
+          "P6_SOURCE64_PAID_PARK_CORE_TURN\t100",
+          "P6_SOURCE64_PAID_PARK_CORE_TILE\t628\t0\ttrue\t-1",
+          "P6_SOURCE64_PAID_PARK_CORE_TILE\t671\t0\ttrue\t-1",
+          "P6_SOURCE64_PAID_PARK_CORE_TILE\t672\t0\ttrue\t-1",
+          "P6_SOURCE64_PAID_PARK_CORE_TILE\t716\t0\ttrue\t-1",
+          "P6_SOURCE64_PAID_PARK_JOURNAL\ttable\t2\tpark:0:2\tOBSERVED\t5767181\t1\t12\t16",
+          "P6_SOURCE64_PAID_NATURALIST_CORE_FINAL\ttable\t5767181\t0\t0\ttrue\t-9999\t-9999",
+          "P6_SOURCE64_PAID_PARK_PURCHASE_REMAINS\t1\tpurchase:0:1\tOBSERVED\t5767181"
+        ]
+      },
+      {
+        "name": "20261103T135018715785Z.json",
+        "sha256": "e9987edd31420aab63ce73131eb3a584c26866ed9538a68eb8f5cda653401887",
+        "context": "InGame",
+        "lines": [
+          "P6_SOURCE64_PAID_PARK_UI_TURN\t100",
+          "P6_SOURCE64_PAID_PARK_UI_TILE\t628\t0\ttrue\t-1",
+          "P6_SOURCE64_PAID_PARK_UI_TILE\t671\t0\ttrue\t-1",
+          "P6_SOURCE64_PAID_PARK_UI_TILE\t672\t0\ttrue\t-1",
+          "P6_SOURCE64_PAID_PARK_UI_TILE\t716\t0\ttrue\t-1"
+        ]
+      }
+    ],
+    "no_manual_refund_or_journal_clear": true
+  },
+  "runtime_log": {
+    "sha256": "200d9f549be4684617996f5bd1f908d9aad9b8f671e90dc73a5cf60c2f7d15bb",
+    "bytes": 12773,
+    "mod_error_lines": [],
+    "owner_tuner_assertion_recorded_separately": true
+  },
+  "limits": [
+    "Known unresolved Native hold sample passes; deliberately withheld command + Debug unit is not a real partial-payment incident or normal paid purchase.",
+    "Unknown98 save file verified but not cold-reloaded at freeze; normal100 was restored instead.",
+    "Archaeology, complete UI/keyboard matrix, global performance/matched-control and all40 acceptance still unfinished."
+  ],
+  "next": "Continue archaeology Core permission/actual Native receipt and sole UI writer implementation; retain unknown98 fixture for next cold persistence coverage without replaying its permission or Debug action."
+}
