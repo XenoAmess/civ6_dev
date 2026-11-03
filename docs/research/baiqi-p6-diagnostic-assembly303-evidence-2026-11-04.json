@@ -1,0 +1,212 @@
+{
+  "schema": "civ6.baiqi-diagnostic-assembly303/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T20:22:26.514042+00:00",
+  "machine_id": "BF-202609141645",
+  "case": {
+    "sequence": 303,
+    "case_id": "civ6-p6-context-registry-303",
+    "mode_id": "http-candidate",
+    "shared_commit": "87a2a4b28f7f410f542010a617620417761ad7b8",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "max_tokens": 3400,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T20:11:21.111754+00:00",
+    "attempt_end_utc": "2026-11-03T20:11:38.710485+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 17593.15820003394,
+      "first_nonempty_content_delta_ms": 564.9196000304073,
+      "usage": {
+        "prompt_tokens": 2625,
+        "completion_tokens": 1369,
+        "total_tokens": 3994
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T20:11:21.111754+00:00",
+        "end_utc": "2026-11-03T20:11:38.710485+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 17593.15820003394
+      }
+    ],
+    "adoption": "rejected",
+    "review": "Raw overwrites all handle methods with self-recursive wrappers -> actual SetEnabled stack overflow. Required ExposedMembers registry entirely missing; env.GetTime wrong, unused separate profile and alwaysenabled leaves. All candidate code rejected. Owner context helper composes canonical modules with bounded owned registry, anchors and cleanup.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "raw_counterexamples": {
+    "raw_code_adopted": false,
+    "seconds": 0.364633799996227,
+    "raw_counterexamples": [
+      {
+        "case": "SetEnabled actual complete candidate",
+        "error": "[string \"<python>\"]:71: stack overflow",
+        "expected": "bounded actualbool control, one root flag update"
+      },
+      {
+        "case": "Required owned registry",
+        "observed": "never created or read",
+        "expected": "register owned entry preserving foreignnamespace"
+      }
+    ],
+    "other": [
+      "Recursive overwritten Wrap/Snapshot/Reset/Retire too, everypublicmethod selfcalls itself.",
+      "Wrong env.GetTime not env.Automation.GetTime, unused second profile reported rather than roots.profile.",
+      "Leaves enabled based on existence of roots.profile, so no real recording flag.",
+      "Repeated limits text not evidence, no candidate sent to Native."
+    ]
+  },
+  "software": {
+    "context_tests": 8,
+    "context_seconds": 0.034,
+    "assembly_tests": 4,
+    "assembly_seconds": 0.057,
+    "actual_final_assembled_existing_consumers": {
+      "tests": 83,
+      "errors": 0,
+      "failures": 0,
+      "seconds": 3.4224395000492223,
+      "actually_transformed_unique_sources": 12,
+      "actual_transformed_executions": 458,
+      "modules": [
+        "test_baiqi_controller",
+        "test_baiqi_admin",
+        "test_baiqi_guard",
+        "test_baiqi_archaeology_intents",
+        "test_baiqi_archaeology_events",
+        "test_baiqi_actions"
+      ],
+      "leaf_writes_also_enabled": false,
+      "full_actual_assembler": true,
+      "scope": "Actual existing software consumers use source transform. --assembly uses full real builder prefix/default disabled and metadata fallback where mocks lack Native SDK; --writes earlier enabled root/leaf recording. Native include chunks not transformed. Not game-engine result."
+    },
+    "critical": "Blocked civilian creates0 Nativecalls/counter, player army forwardingcreates1 actual Nativecall countedonce (publicGuard reference skipped, Nativeforward counted). Late top-level chunk early return/varargs/tailnil preserved.",
+    "all_original_and_final63_assembled_Lua_compile": true
+  },
+  "build": {
+    "mode": "baiqi67-q19",
+    "normal_source_version": 67,
+    "files": 85,
+    "changed_owned_lua_files": 63,
+    "owned_function_definitions": 507,
+    "top_level_chunks": 63,
+    "source_write_positions": 58,
+    "expected_entry_keys": [
+      "Lua/BaiqiGameplay.lua",
+      "UI/BaiqiChooseArtifact.lua",
+      "UI/BaiqiCityPanel.lua",
+      "UI/BaiqiCityPanelOverview.lua",
+      "UI/BaiqiCityStates.lua",
+      "UI/BaiqiCivicsChooser.lua",
+      "UI/BaiqiCivicsTree.lua",
+      "UI/BaiqiDedicationPopup.lua",
+      "UI/BaiqiDiplomacyActionView.lua",
+      "UI/BaiqiExecutor.lua",
+      "UI/BaiqiGovernmentScreen.lua",
+      "UI/BaiqiGovernorAssignmentChooser.lua",
+      "UI/BaiqiGovernorDetailsPanel.lua",
+      "UI/BaiqiGovernorPanel.lua",
+      "UI/BaiqiGreatPeoplePopup.lua",
+      "UI/BaiqiGreatWorkShowcase.lua",
+      "UI/BaiqiHistoricMoments.lua",
+      "UI/BaiqiLeaderScene.lua",
+      "UI/BaiqiNaturalDisasterPopup.lua",
+      "UI/BaiqiNaturalWonderPopup.lua",
+      "UI/BaiqiNotificationPanel.lua",
+      "UI/BaiqiPantheonChooser.lua",
+      "UI/BaiqiPlotInfo.lua",
+      "UI/BaiqiProductionPanel.lua",
+      "UI/BaiqiReligionScreen.lua",
+      "UI/BaiqiResearchChooser.lua",
+      "UI/BaiqiTechCivicCompletedPopup.lua",
+      "UI/BaiqiTechTree.lua",
+      "UI/BaiqiTradeRouteChooser.lua",
+      "UI/BaiqiUnitFlagManager.lua",
+      "UI/BaiqiUnitPanel.lua",
+      "UI/BaiqiWorldInput.lua"
+    ],
+    "helper_hashes": {
+      "diagnostic_profile": "ac6c00676c9886176bd03c0410b20db22f861e7bd8d1ead56fff9c1ff698d6ba",
+      "diagnostic_owned_roots": "0ca4f7da45b58f3e5b0935aa72223c6d5c3cdad7b5d7df74636db166238183a5",
+      "diagnostic_queries": "d95c3d3e869948f11c02c08c483cce34b10eba62585f57d7095330c0015d02bc",
+      "diagnostic_write_leaves": "ac5f9db82334dc4897e37ce1e2bf5ee5abf10d307482ef77893759549ad31c42",
+      "diagnostic_context": "5fd089ebe112259ea2f1cf26effe5ac10b8419cf68654af5d7da1acade183101"
+    },
+    "archive_sha256": "d27df24d04612edda988802683f035694743101a8db64fc3df504ec14acf32b6",
+    "installed": false,
+    "release_source_unchanged": true,
+    "earlier_private_archives": "first/ready were invalidated by subsequent subscription/top-levelchunk changes and are not installation candidates. Only diagnostic67-q19-install final hash current."
+  },
+  "native_helper_only": {
+    "normal_game_pid": 16888,
+    "turn": 90,
+    "contexts": [
+      "BaiqiExecutor",
+      "GameCore_Tuner"
+    ],
+    "per_context_profiled_read_only_calls": 1,
+    "native_writes": 0,
+    "activation_events_emitted": 0,
+    "actual_temporary_anchor_add_remove": true,
+    "reset_actual_profile_object": true,
+    "registry_namespace_cleaned": true,
+    "scope": "Complete helper ran in actual contexts but not full source diagnostic package. No writer/policy/property mutation claimed."
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T201840737333Z.json",
+      "sha256": "3976259ed9c4f70682fc16490a27c399503aa0fff7a7032a1ccd48daeee556e0",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_CONTEXT303_NATIVE_READ_LIFECYCLE\t1\t0\t0\ttrue\ttrue\t90"
+      ]
+    },
+    {
+      "name": "20261103T201841512049Z.json",
+      "sha256": "92c871c58940b7ac5b192718893a4d7229edb71606fc1f1ac977eea9b6ce97d2",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_CONTEXT303_NATIVE_READ_LIFECYCLE\t1\t0\t0\ttrue\ttrue\t90"
+      ]
+    }
+  ],
+  "limits": [
+    "Private sourcecopy only; no runtime product pause/takeover added. Registry recording controls affect diagnostic counters/timers only.",
+    "Inclusive own entry envelopes include original Native/vanilla child time, not exclusive modCPU. Merge cross-context overlaps using actual clock evidence and preserve precision assumptions.",
+    "Top-level own chunks also wrapped so late-loaded own initialization is observed; diagnostic-prefix overhead excluded. Expected32contextkeys are static expectations, not proof all actually loaded.",
+    "All budget/matchedcontrol acceptance remains pending actual package installation and windows. Original normal67 source is unchanged; no Steam online switch."
+  ],
+  "cumulative_through303": {
+    "logical": 303,
+    "complete": 286,
+    "length": 14,
+    "final_transport_failed": 3,
+    "http_attempts": 333,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "next": "Exit owned game formally, install only final diagnostic copy, obtain fresh current-instance Steam offline confirmation, start and verify actual context registry before real benchmark windows."
+}
