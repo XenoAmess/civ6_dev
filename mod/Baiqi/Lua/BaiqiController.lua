@@ -2164,7 +2164,7 @@ local function Economy(player)
 end
 
 local buildingPriority = {BUILDING_GRANARY=110,BUILDING_MONUMENT=100,BUILDING_WATER_MILL=95,
-  BUILDING_WORKSHOP=90,BUILDING_MARKET=85,BUILDING_LIBRARY=80,BUILDING_BARRACKS=75,BUILDING_LIGHTHOUSE=85}
+  BUILDING_WORKSHOP=90,BUILDING_MARKET=85,BUILDING_LIBRARY=80,BUILDING_BARRACKS=75,BUILDING_LIGHTHOUSE=85,BUILDING_MUSEUM_ARTIFACT=78}
 local districtPriority = {DISTRICT_INDUSTRIAL_ZONE=72,DISTRICT_COMMERCIAL_HUB=70,DISTRICT_HARBOR=70,
   DISTRICT_CAMPUS=68,DISTRICT_ENCAMPMENT=65,DISTRICT_AQUEDUCT=60,DISTRICT_NEIGHBORHOOD=55}
 
@@ -2191,6 +2191,91 @@ local function QueueReady(city,q,completedHead)
     return q:GetSize()==1 and CompletedIdleHead(city,q)==completedHead and CoreIdle()
   end
   return q:GetSize()==0 and q:GetCurrentProductionTypeHash()==0 and CoreIdle()
+end
+
+-- Fresh supply eligibility only; actual production is still the city's sole writer.
+local function ArchaeologistDemand(ctx,player,city)
+  local ok,needed=pcall(function()
+    local function Integer(value,max)
+      return BaiqiPolicy.Number(value) and value>=0 and value<=max and value%1==0
+    end
+    if not BaiqiPolicy.Context(ctx) then return false end
+    local cityID=city:GetID()
+    local owned=player:GetCities():FindID(cityID)
+    if not Integer(cityID,2147483647) or not BaiqiPolicy.MatchesID(owned,cityID)
+      or city:GetOwner()~=ctx.player or owned:GetOwner()~=ctx.player then return false end
+    local row=GameInfo.Buildings.BUILDING_MUSEUM_ARTIFACT
+    if not row or row.BuildingType~="BUILDING_MUSEUM_ARTIFACT" or not Integer(row.Index,2147483647) then return false end
+    local buildings=owned:GetBuildings()
+    if buildings:HasBuilding(row.Index)~=true or buildings:IsPillaged(row.Index)~=false then return false end
+    local slots=buildings:GetNumGreatWorkSlots(row.Index)
+    if not Integer(slots,64) or slots<1 then return false end
+    local empty,works=false,{}
+    for slot=0,slots-1 do
+      local kind=buildings:GetGreatWorkSlotType(row.Index,slot)
+      local definition=Integer(kind,2147483647) and GameInfo.GreatWorkSlotTypes[kind]
+      if not definition or definition.GreatWorkSlotType~="GREATWORKSLOT_ARTIFACT" then return false end
+      local work=buildings:GetGreatWorkInSlot(row.Index,slot)
+      if work==-1 then empty=true
+      elseif not Integer(work,2147483647) or works[work] then return false
+      else works[work]=true end
+    end
+    if not empty then return false end
+    local unitCount=0
+    for _,unit in player:GetUnits():Members() do
+      unitCount=unitCount+1
+      if unitCount>4096 or not Integer(unit:GetID(),2147483647) or unit:GetOwner()~=ctx.player then return false end
+      local definition=GameInfo.Units[unit:GetUnitType()]
+      if not definition then return false end
+      if definition.UnitType=="UNIT_ARCHAEOLOGIST" then
+        local home=unit:GetArchaeologyHomeCity()
+        if not Integer(home,2147483647) or home==cityID then return false end
+      end
+    end
+    local q=owned:GetBuildQueue()
+    local size=q:GetSize()
+    if not Integer(size,64) or q:GetCurrentProductionTypeHash()~=0 then return false end
+    for i=0,size-1 do
+      local entry=q:GetAt(i)
+      if type(entry)~="table" then return false end
+      if entry.UnitType~=nil then
+        local definition=GameInfo.Units[entry.UnitType]
+        if not definition or definition.UnitType=="UNIT_ARCHAEOLOGIST" then return false end
+      end
+    end
+    local pending=pendingCities[cityID]
+    if pending and pending.kind=="unit" then
+      local definition=GameInfo.Units[pending.hash]
+      if not definition or definition.UnitType=="UNIT_ARCHAEOLOGIST" then return false end
+    end
+    for hash in pairs(submittedUnits[cityID] or {}) do
+      local definition=GameInfo.Units[hash]
+      if not definition or definition.UnitType=="UNIT_ARCHAEOLOGIST" then return false end
+    end
+    local checked=0
+    for _,ownerCity in player:GetCities():Members() do
+      if ownerCity:GetOwner()~=ctx.player then return false end
+      local plots=Map.GetCityPlots():GetPurchasedPlots(ownerCity)
+      if type(plots)~="table" then return false end
+      for _,index in pairs(plots) do
+        checked=checked+1
+        if checked>512 or not Integer(index,2147483647) then return false end
+        local plot=Map.GetPlotByIndex(index)
+        if not plot or plot:GetIndex()~=index then return false end
+        if Revealed(plot) and visibility:IsVisible(plot:GetX(),plot:GetY())==true and plot:GetOwner()==ctx.player then
+          local resource=plot:GetResourceType()
+          if resource~=-1 then
+            local definition=GameInfo.Resources[resource]
+            if not definition then return false end
+            if (definition.ResourceType=="RESOURCE_ANTIQUITY_SITE" or definition.ResourceType=="RESOURCE_SHIPWRECK")
+              and Safe(plot,player) then return true end
+          end
+        end
+      end
+    end
+    return false
+  end)
+  return ok and needed==true
 end
 
 local function ProcessCity(ctx, player, state, city)
@@ -2247,12 +2332,14 @@ local function ProcessCity(ctx, player, state, city)
   economy.cityPopulation=city:GetPopulation()
   for row in GameInfo.Units() do
     local role=row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler"
-      or (row.UnitType=="UNIT_TRADER" and "trader" or (Military(row) and "military" or nil)))
+      or (row.UnitType=="UNIT_TRADER" and "trader" or (row.UnitType=="UNIT_ARCHAEOLOGIST" and "archaeologist" or (Military(row) and "military" or nil))))
     if role then
       economy.maintenance=row.Maintenance or 0
       economy.resourceAffordable=q:CanProduce(row.Hash,false,true)==true
+      economy.archaeologistDemand=role=="archaeologist" and economy.resourceAffordable and ArchaeologistDemand(ctx,player,city) or false
       if RecruitAllowed(role,economy,player,state) then
         local priority=role=="settler" and 105 or (role=="builder" and 95 or (role=="trader" and 75 or 55))
+        if role=="archaeologist" then priority=73 end
         if role=="military" then priority=BaiqiPlanner.MilitaryScore(row,economy,C) end
         if priority then Add("unit",row,priority,false) end
       end
@@ -2273,11 +2360,12 @@ local function ProcessCity(ctx, player, state, city)
   if choice.kind=="unit" then
     local row=GameInfo.Units[choice.hash]
     local role=row and (row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler"
-      or (row.UnitType=="UNIT_TRADER" and "trader" or (Military(row) and "military" or nil))))
+      or (row.UnitType=="UNIT_TRADER" and "trader" or (row.UnitType=="UNIT_ARCHAEOLOGIST" and "archaeologist" or (Military(row) and "military" or nil)))))
     local actual=Economy(freshPlayer)
     actual.cityPopulation=city:GetPopulation()
     actual.maintenance=row and row.Maintenance or 0
     actual.resourceAffordable=q:CanProduce(choice.hash,false,true)==true
+    actual.archaeologistDemand=role=="archaeologist" and actual.resourceAffordable and ArchaeologistDemand(freshCtx,freshPlayer,city) or false
     if not role or not RecruitAllowed(role,actual,freshPlayer,freshState)
       or (role=="military" and not BaiqiPlanner.MilitaryScore(row,actual,C)) then
       cityEvaluated[cityID]=nil

@@ -34,6 +34,8 @@ function BaiqiPlanner.AllowRecruit(role, s, c)
   elseif role == "trader" then
     return s.cities>=2 and number(s.traders) and number(s.queuedTraders) and number(s.tradeCapacity)
       and s.traders+s.queuedTraders<s.tradeCapacity
+  elseif role == "archaeologist" then
+    return s.archaeologistDemand==true
   elseif role == "military" then
     return number(s.army) and number(s.queuedArmy)
       and s.army + s.queuedArmy < math.max(2, s.cities * c.armyPerCity)

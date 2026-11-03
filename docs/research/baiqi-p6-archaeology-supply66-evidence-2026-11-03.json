@@ -1,0 +1,208 @@
+{
+  "schema": "civ6.baiqi-archaeologist-production-source66/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "35f20c0e8f8d82015bb6681952735933ed894a8f",
+  "source_version": 66,
+  "installed_running_at_freeze": 65,
+  "cases": [
+    {
+      "sequence": 276,
+      "case_id": "civ6-archaeology-supply276",
+      "mode_id": "http-candidate",
+      "shared_commit": "6a4b5e5d913fc0dbc6ac91d05e1cf143dce393a1",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T14:56:41.247609+00:00",
+      "attempt_end_utc": "2026-11-03T14:56:56.827014+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 15572.83900002949,
+        "first_nonempty_content_delta_ms": 6378.280800010543,
+        "usage": {
+          "prompt_tokens": 43259,
+          "completion_tokens": 1597,
+          "total_tokens": 44856
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T14:56:41.247609+00:00",
+          "end_utc": "2026-11-03T14:56:56.827014+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 15572.83900002949
+        }
+      ],
+      "adoption": "rejected_owner_implemented",
+      "review": "Raw actual ProcessCity consumer6 methods5failed assertions/subcases. Requires IsPillaged==true, confuses pcall success boolean with returned slotcount/home/entry/plot, supplies extra Map self to static GetPlotByIndex; most getters unprotected despite claim. Owner fresh demand helper and actual city writer/Planner integration6PASS0.851 plus full798PASS95.015.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 1,
+    "seconds_at_peak": 15.579405,
+    "longest_seconds_at_peak": 15.579405,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through276": {
+    "logical": 276,
+    "complete": 261,
+    "length": 12,
+    "final_transport_failed": 3,
+    "http_attempts": 306,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software": {
+    "raw276": {
+      "methods": 6,
+      "failures": 5,
+      "errors": 0,
+      "seconds": 0.6759699999820441,
+      "scope": "Private exact demand-function projection into actual66Controller with real ProcessCity consumer and known UI/Core ports, no game action."
+    },
+    "owner_supply_methods": 6,
+    "owner_supply_seconds": 0.851,
+    "full_methods": 798,
+    "full_unittest_seconds": 95.015,
+    "full_record": {
+      "returncode": 0,
+      "wall_seconds": 100.9411218999885,
+      "tail": "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n.BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n.BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n.BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\nBAIQI|ui_controller_loaded|version=2|mandatory_admin=true\nBAIQI|ui_controller_loaded|version=2|mandatory_admin=true\nBAIQI|ui_controller_loaded|version=2|mandatory_admin=true\n..............................................................................................................\n----------------------------------------------------------------------\nRan 798 tests in 95.015s\n\nOK"
+    },
+    "passed": true
+  },
+  "changes": [
+    "Existing sole city production writer and financial reserve now support archaeologist role; no new Native writer/purchase/debug unit supply in runtime.",
+    "Fresh intact actual artifact museum and artifactslots with capacity, no live own-home/unknown-home archaeologist, no queued/current/pending/submitted equivalent, and visible owned safe real archaeologyresource required. No hidden resource read, bounded512 plots/64 queue/4096 units, API errors deny this candidate and other city production continues.",
+    "Actual city supply eligibility reruns after last Native production qualification, before existing exact Context/queue/budget boundary. Army/religcombat/diplomacy remain untouched.",
+    "Artifact museum priority78 before generic artmuseum40 so normal AI may choose artifact capacity when native prerequisites are legal."
+  ],
+  "artifact": {
+    "files": 85,
+    "sha256": "2d918fb59f397c77568ed170c86177eeea0e53d73f79136c18bdd18d18a94da9",
+    "source_version": 66,
+    "installed": false
+  },
+  "native_parse_only": [
+    {
+      "name": "20261103T151504210931Z.json",
+      "sha256": "4cca7d0356708c28d87f8011d07f67120f4805a8d2d343d92bb73cb8a33d2a95",
+      "context": "InGame",
+      "lines": [
+        "P6_ARCHSUPPLY66_NATIVE_PARSE_ONLY\ttrue"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "BaiqiController": "d2eb7b8c376990e64d938aa3801fa961fb85454129a8c58293acb82debde7993",
+    "BaiqiPlanner": "92854053d06ee1d523cead303e2b97cd07570ea8dac11607ebd177b7defd32f9"
+  },
+  "native65_cold": {
+    "source_commit": "35f20c0e8f8d82015bb6681952735933ed894a8f",
+    "normal_files": 85,
+    "steam_fresh_offline_utc": "2026-11-03T15:01:47.748459+00:00",
+    "steam_query_input_focus_screenshot": false,
+    "steam_online_switches": 0,
+    "official_load_ack_separate_from_effect": true,
+    "physical_continue_once": true,
+    "actual_turn": 100,
+    "actual_archaeology_core_bridge": "OPEN / nil / no_prior_intent",
+    "new_archaeology_property": null,
+    "old_purchase_park_receipts": "serial1 OBSERVED / serial2 OBSERVED",
+    "old_paid_park4_ui_true": true,
+    "actual_fixture_arch_home": -1,
+    "actual_fixture_arch_id": 5046313,
+    "museum_reader": "unavailable",
+    "pending_reader": "none",
+    "all11cities_no_artifact_museum": true,
+    "actual_gold": 3923.046875,
+    "actual_arch_purchase_quote": 800,
+    "all11_native_arc_purchase_qualifications": false,
+    "actual_owned_visible_sites_seen": 0,
+    "receipts": [
+      {
+        "name": "20261103T150833587702Z.json",
+        "sha256": "dcef72530e8edf5ededf021e9fb6a0747d28c658d482439a9c60bf5b3a011cf1",
+        "context": "BaiqiExecutor",
+        "lines": [
+          "P6_SOURCE65_UI_MODULES\ttable\ttable\ttable",
+          "P6_SOURCE65_UI_ARCH\t-1\t11\t7\t4\tnil\tunavailable\tnil\tnone"
+        ]
+      },
+      {
+        "name": "20261103T150911136581Z.json",
+        "sha256": "8b79f777c50284a9d5ae60637b370dfeca4b43876bbdcbde77e7092b04beba86",
+        "context": "BaiqiExecutor",
+        "lines": [
+          "P6_SOURCE65_ACTUAL_CORE_BRIDGE\tOPEN\tnil\tno_prior_intent"
+        ]
+      },
+      {
+        "name": "20261103T150912903577Z.json",
+        "sha256": "6cab30fbfe95c68b8e6bb8945487b984e83b59f3e505f72e48f5dda6b873c166",
+        "context": "GameCore_Tuner",
+        "lines": [
+          "P6_SOURCE65_PERSISTED\t1\tOBSERVED\t2\tOBSERVED"
+        ]
+      },
+      {
+        "name": "20261103T151122364456Z.json",
+        "sha256": "4378ba65f1095fb2139c9e34c823691249c4f1314887d50732a221d6992ac5d2",
+        "context": "BaiqiExecutor",
+        "lines": [
+          "P6_SOURCE65_ARCH_CATALOGUE\t24\t23\t14\t8\t8\t1011336245\t3923.046875",
+          "P6_SOURCE65_ARCH_CITY\t65536\t16\t14\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t131073\t11\t6\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t196610\t10\t13\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t262147\t13\t16\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t327684\t8\t10\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t393221\t15\t5\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t458758\t19\t6\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t524295\t14\t9\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t589832\t8\t3\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t655369\t11\t1\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse",
+          "P6_SOURCE65_ARCH_CITY\t720906\t16\t18\tfalse\tfalse\tfalse\tfalse\t1\tfalse\tfalse\t800\tfalse"
+        ]
+      }
+    ],
+    "lua_sha256": "776b6682454e593f27cd9758855a1bbe1cac402c51244b6129fbbd06a9b6f6e7",
+    "mod_error_lines": []
+  },
+  "owner_corrections": [
+    "First supply6 run1teardownfailure: missing entire buildingport also removed IsPillaged used by existing generic buildingloop before new helper. Narrow fixture now removes only slotcountAPI, actual newhelper contains failure; no production workaround.",
+    "65 runtime diagnostic wrongly expected Gameplay private BaiqiConfig global in separate GameCore_Tuner; stopped onnil withouteffect. Corrected readonly UIbridgecall plus Coreliteralpropertyread passed.",
+    "Second readonlyfixturequery used UI-only Map.GetCityPlots in Core and failed beforeeffect; corrected to UI plotcatalogue and separate Core method-type read. These are owner context mistakes, not mod errors."
+  ],
+  "cost_limits": "276 preparation measured as interleaved wall interval, first source review occurred before short bookkeeping REVIEW markers; complete review authoring time unknown. Correction interleaved65 game load/Continue and runtime checks; not exclusive active owner time or net model saving.",
+  "limits": [
+    "66 software/Native parse/archive only, not installed atfreeze. Normal AI archaeologist production/paid cost/time/home assignment and actual archaeology eventpayload/slot/3uses/save-load require Native sample.",
+    "65 cold bridge/negative home evidence is not archaeology success. No Debug resource/museum/unit or civic mutation performed for new archaeology fixture atfreeze.",
+    "Pending historical artifact without priorCoreEXCmetadata migration stillunfinished.",
+    "Prior performanceFAIL, fullUI/keyboard/otherleader/full40 acceptance remain open."
+  ],
+  "next": "Deliver66, normalexit65 preservingactual100save, freshSteamofflineproof/coldlaunch66, then isolatedmuseum/civic fixture with real production/home and Native archaeological event sample. Continue fixing actual failures."
+}
