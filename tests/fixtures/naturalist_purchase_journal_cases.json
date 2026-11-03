@@ -1,0 +1,240 @@
+{
+  "source_case": "CIV6-purchasejournalcases256",
+  "cases": [
+    {
+      "name": "valid_armed",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "ARMED",
+            "baselineUnitIDs": []
+          }
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "valid_observed",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "OBSERVED",
+            "baselineUnitIDs": [],
+            "newUnitID": 5046313,
+            "faithAfter": 100
+          }
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "invalid_unknown_field",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "ARMED",
+            "baselineUnitIDs": [],
+            "unknownField": 1
+          }
+        }
+      },
+      "valid": false
+    },
+    {
+      "name": "invalid_duplicate_baseline",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "ARMED",
+            "baselineUnitIDs": [
+              100,
+              100
+            ]
+          }
+        }
+      },
+      "valid": false
+    },
+    {
+      "name": "invalid_insufficient_reserve",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 350,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "ARMED",
+            "baselineUnitIDs": []
+          }
+        }
+      },
+      "valid": false
+    },
+    {
+      "name": "invalid_observed_id_already_baseline",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "OBSERVED",
+            "baselineUnitIDs": [
+              5046313
+            ],
+            "newUnitID": 5046313,
+            "faithAfter": 100
+          }
+        }
+      },
+      "valid": false
+    },
+    {
+      "name": "invalid_two_armed_entries",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 2,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "ARMED",
+            "baselineUnitIDs": []
+          },
+          "2": {
+            "token": "purchase:0:2",
+            "sequence": 2,
+            "cityID": 65537,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270221,
+            "x": 17,
+            "y": 15,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "ARMED",
+            "baselineUnitIDs": []
+          }
+        }
+      },
+      "valid": false
+    },
+    {
+      "name": "invalid_wrong_observed_faith_delta",
+      "state": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "1": {
+            "token": "purchase:0:1",
+            "sequence": 1,
+            "cityID": 65536,
+            "unitType": "UNIT_NATURALIST",
+            "unitHash": 1877270220,
+            "x": 16,
+            "y": 14,
+            "cost": 300,
+            "faithBefore": 400,
+            "reserve": 100,
+            "turn": 92,
+            "stage": "OBSERVED",
+            "baselineUnitIDs": [],
+            "newUnitID": 5046313,
+            "faithAfter": 101
+          }
+        }
+      },
+      "valid": false
+    }
+  ]
+}
