@@ -1,0 +1,181 @@
+{
+  "schema": "civ6.baiqi-purchase-boundaries262263/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "d4d267f51e88ebd3dd6e7a5a8e84b0eba2199ff0",
+  "cases": [
+    {
+      "sequence": 262,
+      "case_id": "civ6-purchase-posteffect262",
+      "mode_id": "http-candidate",
+      "shared_commit": "7b502dafe7165c01211fbab3020ce443b618f873",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 2200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T11:34:41.936270+00:00",
+      "attempt_end_utc": "2026-11-03T11:35:05.341045+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 23404.80389998993,
+        "first_nonempty_content_delta_ms": 12048.756499949377,
+        "usage": {
+          "prompt_tokens": 52158,
+          "completion_tokens": 1198,
+          "total_tokens": 53356
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T11:34:41.936270+00:00",
+          "end_utc": "2026-11-03T11:35:05.341045+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 23404.80389998993
+        }
+      ],
+      "adoption": "rejected_owner_implemented",
+      "review": "Raw two new methods both fail. Mock throwPurchase throws BEFORE autoPurchase; candidate assumed after-effect, asserted newUnitID while ARMED and wrong write counter across bridge reload. Direct TestCase import also exposes inherited methods to discovery. Owner wraps actual native port after original returns, uses module alias and explicit actual effect/receipt/reload assertions.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 263,
+      "case_id": "civ6-purchase-scheduling263",
+      "mode_id": "http-candidate",
+      "shared_commit": "7b502dafe7165c01211fbab3020ce443b618f873",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 2600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T11:34:41.936968+00:00",
+      "attempt_end_utc": "2026-11-03T11:35:09.945980+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 28001.383299997542,
+        "first_nonempty_content_delta_ms": 13643.899900023825,
+        "usage": {
+          "prompt_tokens": 52199,
+          "completion_tokens": 1841,
+          "total_tokens": 54040
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T11:34:41.936968+00:00",
+          "end_utc": "2026-11-03T11:35:09.945980+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 28001.383299997542
+        }
+      ],
+      "adoption": "rejected_owner_implemented",
+      "review": "Raw three methods: one failure, one error, one empty pass. Invented city66/67 per-city park-demand semantics though demand is global, assigned Python lists into Lua iterator, read index0 and table.get as Python dict, and claimed bounded multi-city ports impossible. Owner extends actual Native city/map/unit ports, preserves actual Controller and Core bridge, tests six cities and real builder skip order after two purchase continuations.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 23.404077,
+    "longest_seconds_at_peak": 23.404077,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "software": {
+    "raw262": {
+      "methods": [
+        "test_native_effect_then_throw_observed_once_no_replay",
+        "test_reload_before_readback_reconciles_persisted_armed"
+      ],
+      "ran": 2,
+      "failures": 2,
+      "errors": 0,
+      "seconds": 0.04081989999394864,
+      "only_new_methods_selected": true,
+      "empty_method_263_not_meaningful": false
+    },
+    "raw263": {
+      "methods": [
+        "test_first_city_ineligible_second_eligible",
+        "test_many_denied_cities_bounded",
+        "test_normal_civilian_scheduling_reachable"
+      ],
+      "ran": 3,
+      "failures": 1,
+      "errors": 1,
+      "seconds": 0.06099899997934699,
+      "only_new_methods_selected": true,
+      "empty_method_263_not_meaningful": true
+    },
+    "owner_methods": 4,
+    "owner_seconds": 0.078,
+    "owner_passed": true,
+    "last_full_source63_methods": 725,
+    "last_full_unittest_seconds": 97.949,
+    "full_not_repeated_for_test_only_change": true
+  },
+  "owner_fixture_corrections": "First owner fairness fixture lacked actual builder IsImprovementPillaged/GetImprovementType and city GetCityAI ports; two runs failed at these missing ports, then corrected. No production source change was required or made. These failures belong to owner fixture setup, not model or game.",
+  "cumulative_through263": {
+    "logical": 263,
+    "complete": 249,
+    "length": 11,
+    "final_transport_failed": 3,
+    "http_attempts": 293,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "source_sha256": {
+    "tests/test_baiqi_naturalist_purchase_boundaries.py": "4d122be61f7b082abace2908d18af0052766e72c5375d554527a753247ee7163"
+  },
+  "cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Preparation/review/validation overlap normal63 build, exit, install and offline cold launch. Exclusive active owner time and cached tokens unknown.",
+  "native_status": "Normal63 installed with78 source-equal files, current-instance background Steam offline proof11:42:44UTC, cold launch PID18352. MainMenu read-only readiness pending at freeze; no actual purchase/debit/new unit or game event proof.",
+  "limits": [
+    "Tests use explicit native ports, not game effects or real concurrency/atomicity.",
+    "No source63 performance/global ledger/matched-control pass, archaeology still incomplete."
+  ],
+  "next": "Complete normal63 save load, actual park demand fixture and ordinary faith accumulation, then observe purchase effect/receipt/persistence without replay."
+}
