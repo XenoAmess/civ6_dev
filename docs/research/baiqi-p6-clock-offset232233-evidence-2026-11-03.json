@@ -1,0 +1,345 @@
+{
+  "schema": "civ6.baiqi-clock-offset232233/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_parent": "178293205a067a945a0f9a6424be7b50cb3bdec5",
+  "cases": [
+    {
+      "sequence": 232,
+      "case_id": "HTTP-CIV6-CLOCKBOUND232",
+      "mode_id": "http-candidate",
+      "shared_commit": "0d2cdd55d4f94e8cc8534e51228e2b372977ea07",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+      "max_tokens": 3500,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T04:07:14.579235+00:00",
+      "attempt_end_utc": "2026-11-03T04:07:28.815779+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 14251.223500003107,
+        "first_nonempty_content_delta_ms": 9809.013399994,
+        "usage": {
+          "prompt_tokens": 34178,
+          "completion_tokens": 593,
+          "total_tokens": 34771
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "partial-body-adoption-two-line-owner-guard",
+      "review": "Owner-defined API/math/contract. Complete function body retained with explicit two-line outer Mapping/text/bytes/bytearray guard. Raw accepts mapping with valid tuple keys as fake samples; actual counterexample saved. Existing raw endpoint before-conversion ordering,nonfinite/overflow checks and interval math retained. Pure offline helper, no native bridge code/model orchestration credit.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 233,
+      "case_id": "HTTP-CIV6-CLOCKBOUNDTEST233",
+      "mode_id": "http-candidate",
+      "shared_commit": "0d2cdd55d4f94e8cc8534e51228e2b372977ea07",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+      "max_tokens": 3500,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T04:07:14.604970+00:00",
+      "attempt_end_utc": "2026-11-03T04:07:36.149446+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 21546.452399983536,
+        "first_nonempty_content_delta_ms": 8131.241400027648,
+        "usage": {
+          "prompt_tokens": 34217,
+          "completion_tokens": 1830,
+          "total_tokens": 36047
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "rejected-owner-seven-test-rewrite",
+      "review": "4raw methods:3FAIL1ERROR. Adding only math/UserDict/MappingProxyType harness imports leaves3FAIL: expected lower -10 vs actual intersection -7; disjoint lower179upper90 then asserts179<90; valid raw ordered2**53 to2**53+1 incorrectly expected ValueError.0 exact methods adopted. Owner7methods include all5625 small integer sample pairs checked by independently enumerated feasible offset values,plusbinary fractions/outer Mapping/raw reversed integers/numeric boundary checks.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_review": {
+    "minimal": {
+      "methods": 4,
+      "failures": 3,
+      "errors": 1,
+      "wall_seconds": 0.10420830000657588
+    },
+    "imports-only": {
+      "methods": 4,
+      "failures": 3,
+      "errors": 0,
+      "wall_seconds": 0.05618660000618547
+    },
+    "outer_mapping_counterexample": {
+      "accepted": {
+        "samples": 1,
+        "lower_seconds": -1.0,
+        "upper_seconds": 1.0,
+        "consistent": true
+      },
+      "required": "ValueError; an outer Mapping is not a sequence of measured sample records"
+    }
+  },
+  "software": {
+    "methods": 7,
+    "passed": true,
+    "seconds": 0.095,
+    "independent_integer_pairs": 5625,
+    "result_source": "Actual unittest command output; no separate file log was saved for this7-method run. Prior complete normal59 suite594PASS remains separate, not a rerun601 claim.",
+    "log_sha256": null,
+    "producer_sha256": "6c1e544590a70f6ad4675bfdfed47b6e6eda8e6fcd4e4f3892af4d824763d5b7",
+    "tests_sha256": "8ee57c6bac53d79638a7e91df654742bffbd084657dec81b6966ea7591633412"
+  },
+  "native_burst": {
+    "pid": 14784,
+    "source": "Private59 q15 selected-function diagnostic copy, normal prefix unchanged. Core captures Automation.GetTime in temporary ExposedMembers read function; UI surrounds synchronous call with own clock reads. All diagnostic scripts owner-written.",
+    "triples": [
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.542,
+        1793679152.542,
+        1793679152.542
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ],
+      [
+        1793679152.543,
+        1793679152.543,
+        1793679152.543
+      ]
+    ],
+    "apparent_bounds": {
+      "samples": 32,
+      "lower_seconds": 0.0,
+      "upper_seconds": 0.0,
+      "consistent": true
+    },
+    "distinct_displayed_ui_values": 2,
+    "observed_span_seconds": 0.0009999275207519531,
+    "bridge_restored": true,
+    "no_game_state_or_orders_written": true,
+    "receipts": {
+      "install": {
+        "name": "20261103T041231168938Z.json",
+        "sha256": "74fd663c0e0d163e4aa83658cf1aa66909fa229327267a95df94e8fca44aef36",
+        "context": "GameCore_Tuner",
+        "code_sha256": "2b461734e7ef88b14c90ebeb45bc2fc3fb159c9d5eb9af62fae44089f2468216"
+      },
+      "read": {
+        "name": "20261103T041232262691Z.json",
+        "sha256": "ec0f31d468f289cd57d34b080a782e334d2c7acd37ed2945ec9df6bae3bd9332",
+        "context": "BaiqiExecutor",
+        "code_sha256": "2ae69966f969fa7951adba9d27d897591c296491c334c795d96af8f9eae2c0fd"
+      },
+      "restore": {
+        "name": "20261103T041233840559Z.json",
+        "sha256": "552858701c3a41ffa43b01750674f4181ee673bea1569982e2868b89e546b2e9",
+        "context": "GameCore_Tuner",
+        "code_sha256": "326c3f70a74fb2e3d8fa8f773d447317d6365e6322a20ca75ca6327d96d196d2"
+      }
+    },
+    "limits": "One32-read burst across2 displayed time values/~1ms. Apparent zero-width bounds are quantized observations, NOT submillisecond physical offset proof, drift/stable-offset guarantee or full cross-context calibration. No B_turn/N_req/performance grant. Probe removed before reloading original85."
+  },
+  "batch": {
+    "logical": 2,
+    "complete": 2,
+    "length": 0,
+    "retries": 0,
+    "actual_peak": 2,
+    "actual_overlap_seconds": 14.210809,
+    "cached_tokens": null,
+    "server_concurrency": null
+  },
+  "cumulative_civ6_through233": {
+    "logical_requests": 233,
+    "complete": 222,
+    "length": 11,
+    "http_attempts": 236,
+    "transport_retries": 3,
+    "historical_peak": 13,
+    "historical_peak_duration_seconds": null
+  },
+  "maintenance": "Nov3 same machine/user canonical daily1.19.5 cache, ordinaryHTTP,0newOpenCode-native generation.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null
+  },
+  "cost_limits": "PREP_BEGIN separate completed call before preparer. Review began while HTTP completing and interleaved native warm/reload; wall intervals are not exclusive active costs or net saving.",
+  "next": "Publish bounded offline helper and narrow actual burst evidence. q15 formal12-child run still pending at freeze; keep normal59 max50.999880ms FAIL. Continue complete callback/native-write coverage and calibrated sampling over actual formal windows, no permanent alignment assumption."
+}

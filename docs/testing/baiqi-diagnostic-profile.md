@@ -54,3 +54,7 @@ TC-036仍未通过。下一步须冻结预算／样本窗口，补齐模块覆�
 ## 2026-11-03：56七内部函数诊断副本
 
 普通56五窗口性能仍FAIL，准备q11诊断ReadBack、UnitSnapshot、PathStep、Safe、TradePath、ProcessBuilder、ProcessTrader。仅扩展既有`diagnostic_suffix`关键字参数`stage`／`children`；三参默认仍q9／原五函数，既有CLI构建器仍明确只支持55。新阶段和1–12个唯一Lua标识符严格校验，禁止关键字与无效类型，包装／自身指针恢复规则不变。模型218并未实现快照延迟且改动能力边界，拒绝；219动态绑定部分采用，负责人补类型顺序与true／then关键字。50项针对检查及实际q11控制器60项消费者检查通过，69文件中68字节一致、原控制器为精确前缀。此刻未安装／冷启动，不授原生通过；4096容量及原20／50ms验收线不改。[候选、修正及制品证据](../research/baiqi-p6-selected-diagnostic218219-evidence-2026-11-03.json)。
+
+## 2026-11-03：偏移区间工具与短时实机对照
+
+新增[离线偏移边界工具](baiqi-clock-offsets.md)，7项针对检查及5625组独立整数对照通过。Core／UI临时桥32次短时读数表观一致，桥已撤除；只有约1ms内两个显示值，不授长期同步／全模块B_turn。232部分主体采用、233错误测试未采用；正常59完整594项及最大值性能FAIL分账。[逐案证据](../research/baiqi-p6-clock-offset232233-evidence-2026-11-03.json)。
