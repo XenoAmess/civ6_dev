@@ -141,3 +141,8 @@
 普通64新鲜离线冷启动后加载100实际存档，八格公园及purchase:0:1／park:0:2、serial1／2、已消耗完整单位保持，无新相关请求日志。第一次Continue因图像陈旧在输入前拒绝，随后新鲜画面只按一次Esc；之前只读连接拒绝没有派发游戏动作，进程一直存活，不误报崩溃。[冷载证据与未完边界](../research/baiqi-p6-native64-cold-persistence-evidence-2026-11-03.json)。
 
 268回执主体经修正全局sequence、字符串work键及负零规范化后部分采用，原12项9失败，负责人12项0.057秒通过；269实际只返回7条且其中“合法”状态重复全局work，采用其余6条，负责人补2条正向阶段。实际游戏编译器与纯表roundtrip通过并恢复命名空间，仅是格式诊断，没有挖掘或文物效果，模块未注册。[逐案、真实并发、采用与限制](../research/baiqi-p6-archaeology-journal268269-evidence-2026-11-03.json)。
+
+
+## 待选文物读取器的include接入
+
+270两处生产导出改动原样采用，现同时返回同一Read函数并导出BaiqiPendingArtifact.Read。原稿把exported、returned同时传给“==...”时只比较首参数，身份检查恒等；负责人以不同返回函数作实际Lua反例，修正为唯一returned参数并拆两项，原描述符／依赖计数断言保留，9项0.059秒通过。读取语义不变，仍未注册或执行选文物。[采用、反例与限定](../research/baiqi-p6-pending-artifact-export270-evidence-2026-11-03.json)。

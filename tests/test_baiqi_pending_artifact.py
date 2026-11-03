@@ -13,6 +13,22 @@ class PendingArtifactTests(unittest.TestCase):
         _, inspect, player, game, game_info, configurations, _, _ = values
         return inspect(4, player, game, game_info, configurations)
 
+    def test_exported_read_is_same_as_returned_reader(self):
+        values = self.fixture()
+        lua, reader, *_ = values
+        self.assertTrue(lua.execute('return BaiqiPendingArtifact.Read == ...', reader))
+
+    def test_exported_read_preserves_descriptor_and_dependency_trace(self):
+        values = self.fixture()
+        lua, _, player, game, game_info, configurations, _, trace = values
+        exported = lua.globals().BaiqiPendingArtifact.Read
+        descriptor, status = exported(4, player, game, game_info, configurations)
+        self.assertEqual(status, 'pending')
+        self.assertEqual(dict(descriptor), {'unitID': 100001, 'unitType': 'UNIT_ARCHAEOLOGIST',
+            'homeCityID': 65536, 'x': 8, 'y': 9, 'artifactIndex': 7,
+            'artifactType': 3, 'actingPlayerID': 2, 'choicePlayerID': 2, 'targetPlayerID': 3})
+        self.assertEqual((trace.component, trace.index, trace.artifact), (1, 1, 1))
+
     def test_actual_numeric_unit_type_and_complete_scalar_descriptor(self):
         values = self.fixture()
         descriptor, status = self.inspect(values)

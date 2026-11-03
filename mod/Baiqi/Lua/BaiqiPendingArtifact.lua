@@ -9,7 +9,7 @@ local function Method(object,name)
   assert(Object(object) and type(object[name])=="function")
   return object[name]
 end
-return function(pid,player,game,gameInfo,configurations)
+local function Read(pid,player,game,gameInfo,configurations)
   if not Integer(pid) then return nil,"unavailable" end
   local ok,descriptor,status=pcall(function()
     local units=Method(player,"GetUnits")(player)
@@ -55,3 +55,5 @@ return function(pid,player,game,gameInfo,configurations)
   if not ok then return nil,"unavailable" end
   return descriptor,status
 end
+BaiqiPendingArtifact={Read=Read}
+return Read

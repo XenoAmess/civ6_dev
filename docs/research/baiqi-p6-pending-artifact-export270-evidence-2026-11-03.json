@@ -1,0 +1,104 @@
+{
+  "schema": "civ6.baiqi-pending-artifact-export270/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "e28804e39fb56246f02f931ae9e39fc93968d39c",
+  "case": {
+    "sequence": 270,
+    "case_id": "civ6-pending-artifact-export270",
+    "mode_id": "http-candidate",
+    "shared_commit": "7fab07062c6b30cdd135124fea1809db60f16298",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "max_tokens": 1800,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T13:22:37.978318+00:00",
+    "attempt_end_utc": "2026-11-03T13:22:41.955312+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 3983.234299987089,
+      "first_nonempty_content_delta_ms": 570.9620999987237,
+      "usage": {
+        "prompt_tokens": 3050,
+        "completion_tokens": 583,
+        "total_tokens": 3633
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T13:22:37.978318+00:00",
+        "end_utc": "2026-11-03T13:22:41.955312+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 3983.234299987089
+      }
+    ],
+    "adoption": "partial_code_and_test_adopted",
+    "review": "Two production export edits adopted exactly. Candidate combined one test, requested two; identity comparison passes exported then returned reader as varargs, so it compares export to itself. Owner corrects identity to sole returned-reader argument and splits two methods; descriptor/trace assertions retained. Nine actual consumer methods pass0.059 seconds.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "batch": {
+    "actual_peak": 1,
+    "seconds_at_peak": 3.976994,
+    "longest_seconds_at_peak": 3.976994,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "software": {
+    "affected_methods": 9,
+    "seconds": 0.059,
+    "passed": true,
+    "model_raw_full_test_not_run": true,
+    "identity_oracle_counterexample": {
+      "different_actual_returned_function": true,
+      "raw_model_comparison_result": true,
+      "owner_corrected_comparison_result": false,
+      "scope": "Actual Lua53 vararg consumer witness, no production replacement or game action."
+    }
+  },
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiPendingArtifact.lua": "86e38d3a421a610826cc6a1da3880950461f8cf87bf731137103d0adc0e70d6a",
+    "tests/test_baiqi_pending_artifact.py": "adf34ebb19b94b871ab62b6b5ec78964f960ba0f85fbab5c1c7af0dee93775b1"
+  },
+  "scope": "Names existing read-only function Read, exports BaiqiPendingArtifact.Read and returns same callable for legacy Python consumers. Guard/API/phase/descriptor/early-return behavior unchanged. Unregistered; future Controller include can access actual callable without anonymous-return dependency.",
+  "cumulative_through270": {
+    "logical": 270,
+    "complete": 255,
+    "length": 12,
+    "final_transport_failed": 3,
+    "http_attempts": 300,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Interleaved Native64 unknown-permission setup and observation; exclusive active time/cache unknown.",
+  "limits": [
+    "No Native artifact choice, source65 registration, excavation or complete archaeology acceptance claim.",
+    "Last full742 plus separate12 journal and this affected9; full756 not rerun."
+  ],
+  "next": "Implement actual Core archaeology permission/receipt consumers and event binding, then UI sole native writers and forced read-only protection with real Native artifact effect."
+}
