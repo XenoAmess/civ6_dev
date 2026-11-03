@@ -1,0 +1,97 @@
+{
+  "schema": "civ6.baiqi-test-player-role292/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T18:49:24.085538+00:00",
+  "machine_id": "BF-202609141645",
+  "case": {
+    "sequence": 292,
+    "case_id": "civ6-clarified-test-player-role292",
+    "mode_id": "http-candidate",
+    "shared_commit": "14976bd7541eaa206e691668ff7a16bc60987439",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "max_tokens": 1300,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T18:42:18.039082+00:00",
+    "attempt_end_utc": "2026-11-03T18:43:28.530698+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 70485.5821999954,
+      "first_nonempty_content_delta_ms": 2134.3751999665983,
+      "usage": {
+        "prompt_tokens": 9289,
+        "completion_tokens": 180,
+        "total_tokens": 9469
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T18:42:18.039082+00:00",
+        "end_utc": "2026-11-03T18:43:28.530698+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 70485.5821999954
+      }
+    ],
+    "adoption": "exact_paragraphs_adopted",
+    "review": "TwoCHINESEroleparagraphs retainedexactly, onlyAGENTSbullet/listplacementowner. Distinguish TEST_PLAYER ordinaryQA diplomatic/army/turn/UIinputs fromBACKGROUND modautomation; no humanuserclickrequirement, no missinginteriorbypass/newcontrolswitch. Ownercheckedsemanticboundsandactualuserclarification; textvalidationnotcodeorNativegeneration.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "adopted_paragraphs": {
+    "agents_paragraph": "验证记录环境：验收代理扮演测试玩家，完成普通外交、军队、回合及UI操作，无需用户逐次点击。区分TEST_PLAYER输入与BACKGROUND模组动作，后者仍禁止自动外交或军队。测试输入不补装缺失内政，不冒充AI实效。",
+    "acceptance_paragraph": "执行角色：测试玩家（TEST_PLAYER）手动操作外交、军队、结束回合及UI，作为普通验收步骤。模组后台（BACKGROUND）不得自动执行外交或军队命令。玩家操作不替代AI内政自动化，不伪造AI效果，不新增权限或暂停入口。"
+  },
+  "authority": "Userclarifiedthatall diplomacyisforPLAYER actor, notthehumanuserperson; QAagent actsasTEST_PLAYER underexistingacceptanceauthorization. RuntimeBACKGROUND diplomacy/armyprohibitionunchanged.",
+  "owner_error": "Earlierq18manualfarewellhold incorrectlyrequiredhumanuserclick. Thiswasoperatorinterpretationerror, notuserrequirement, game/modfailureorlocalmodelerror.",
+  "actual_correction": {
+    "test_player_farewell_once": {
+      "at_utc": "2026-11-03T18:40:27.659254+00:00",
+      "pid": 16888,
+      "hwnd": 15860566,
+      "action": "ExplicitplayerphysicalEscapeafterfreshownedimage",
+      "label": "alexander-farewell-87",
+      "image_sha256": "811fef36c25e0050e99fd3a9120acfd40a1ea830b21e456ca4cad504773fbe54",
+      "status": "ARMED-noautomaticreplay"
+    },
+    "actual_continuation_target90_reached": true,
+    "real_native_continuation_windows": [
+      88,
+      89,
+      90
+    ],
+    "continuation_observers_restored": true,
+    "runtime_mod_diplomacy_enabled": false,
+    "public_pause_takeover_toggle_added": false
+  },
+  "cumulative_through292": {
+    "logical": 292,
+    "complete": 276,
+    "length": 13,
+    "final_transport_failed": 3,
+    "http_attempts": 322,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "limits": "NormativeQAroleclarificationanddocumentadoption; doesnotclaimwholeperformance/full40pass orauthorizeBACKGROUND diplomaticchoices. OnePOST70.486s, TTFT2.134s, no retry; backendqueue/cache/exclusiveowner/netbenefitunknown.",
+  "next": "Publishcompletedfive-window67metricsseparatelywithtwoepochs/manualpause/tenvs11counts, thencontinuefullmodulebudget/matchedcontrols andremainingacceptanceasTEST_PLAYER."
+}
