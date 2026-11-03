@@ -113,5 +113,27 @@ class PathSafetyCacheTests(unittest.TestCase):
         self.assertFalse(self.private.Safe(plot, self.w.objects.player))
 
 
+    def test_enemy_appearing_during_native_path_query_is_rejected(self):
+        self.lua.execute('''
+            local original=UnitManager.GetMoveToPathEx
+            UnitManager.GetMoveToPathEx=function(...)
+                TestWorld.enemyPlot=43
+                return original(...)
+            end
+        ''')
+        self.assertIsNone(self.path())
+        self.assertGreater(len(self.w.pathQueries), 0)
+
+    def test_hidden_node_after_native_path_query_is_rejected(self):
+        self.lua.execute('''
+            local original=UnitManager.GetMoveToPathEx
+            UnitManager.GetMoveToPathEx=function(...)
+                TestWorld.hidden[43]=true
+                return original(...)
+            end
+        ''')
+        self.assertIsNone(self.path())
+        self.assertGreater(len(self.w.pathQueries), 0)
+
 if __name__ == '__main__':
     unittest.main()
