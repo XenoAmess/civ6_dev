@@ -1,0 +1,111 @@
+[
+  {
+    "name": "Baseline Valid Museum",
+    "overrides": {},
+    "expectedStatus": "ok",
+    "expectedEmptySlots": [
+      0,
+      2
+    ],
+    "expectedWorkIndices": [
+      101
+    ]
+  },
+  {
+    "name": "Full Museum No Empty Slots",
+    "overrides": {
+      "slotWorks": [
+        101,
+        102,
+        103
+      ]
+    },
+    "expectedStatus": "ok",
+    "expectedEmptySlots": [],
+    "expectedWorkIndices": [
+      101,
+      102,
+      103
+    ]
+  },
+  {
+    "name": "Owner Mismatch Unit",
+    "overrides": {
+      "unitOwner": 8
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  },
+  {
+    "name": "Owner Mismatch City",
+    "overrides": {
+      "cityOwner": 9
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  },
+  {
+    "name": "Wrong Unit Type",
+    "overrides": {
+      "unitType": "UNIT_SETTLER"
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  },
+  {
+    "name": "Wrong Slot Type",
+    "overrides": {
+      "slotTypes": [
+        "GREATWORKSLOT_ARTIFACT",
+        "GREATWORKSLOT_PAINTING",
+        "GREATWORKSLOT_ARTIFACT"
+      ]
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  },
+  {
+    "name": "Building Pillaged",
+    "overrides": {
+      "buildingPillaged": true
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  },
+  {
+    "name": "Duplicate Work Indices",
+    "overrides": {
+      "slotWorks": [
+        101,
+        101,
+        -1
+      ]
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  },
+  {
+    "name": "Invalid Slot Count Zero",
+    "overrides": {
+      "slotCount": 0
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  },
+  {
+    "name": "Invalid Slot Count Exceeds Limit",
+    "overrides": {
+      "slotCount": 65
+    },
+    "expectedStatus": "unavailable",
+    "expectedEmptySlots": null,
+    "expectedWorkIndices": null
+  }
+]

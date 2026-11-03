@@ -1,0 +1,171 @@
+{
+  "schema": "civ6.baiqi-archaeology-home264265/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "d05aac8e17b6f7ebd71d9da6d0967df13a7afd96",
+  "cases": [
+    {
+      "sequence": 264,
+      "case_id": "civ6-archaeology-home264",
+      "mode_id": "http-candidate",
+      "shared_commit": "df3f25939754fe5f06f6b3ddd7a4f3de597ab3a0",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 3000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T11:50:56.965468+00:00",
+      "attempt_end_utc": "2026-11-03T11:51:15.096840+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 18130.910000007134,
+        "first_nonempty_content_delta_ms": 1890.8004999975674,
+        "usage": {
+          "prompt_tokens": 6064,
+          "completion_tokens": 1885,
+          "total_tokens": 7949
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T11:50:56.965468+00:00",
+          "end_utc": "2026-11-03T11:51:15.096840+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 18130.910000007134
+        }
+      ],
+      "adoption": "rejected_owner_implemented",
+      "review": "Raw10 methods:3 failures,1 error. Chained type/index equality in second pass cannot satisfy artifact slot contract and references out-of-scope stIdx; silently deduplicates occupied IDs instead of rejecting; does not compare exact current building identity. Owner implements bounded repeated inventories, exact per-slot kind/work comparison and final unit/city/building identity.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 265,
+      "case_id": "civ6-archaeology-home-data265",
+      "mode_id": "http-candidate",
+      "shared_commit": "df3f25939754fe5f06f6b3ddd7a4f3de597ab3a0",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 2200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T11:50:56.965278+00:00",
+      "attempt_end_utc": "2026-11-03T11:51:08.457297+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 11492.739000008442,
+        "first_nonempty_content_delta_ms": 1586.7569000110961,
+        "usage": {
+          "prompt_tokens": 6214,
+          "completion_tokens": 953,
+          "total_tokens": 7167
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T11:50:56.965278+00:00",
+          "end_utc": "2026-11-03T11:51:08.457297+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 11492.739000008442
+        }
+      ],
+      "adoption": "exact_data_adopted",
+      "review": "Ten finite cases reviewed and adopted unchanged: baseline/full museum, unit/city owner, unit/slot type, pillage, duplicate work IDs and slot limits. No executable model tests/code adopted.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 11.491829,
+    "longest_seconds_at_peak": 11.491829,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiArchaeologyHome.lua": "b6ee378fc4a79e5edf020bf963b7c38febe99166b07312c19f8964e7112c9a9f",
+    "tests/test_baiqi_archaeology_home.py": "e48175e13e1ee8e700581b76819e40a26fb88486b982cd18f401cc0e86b3350d",
+    "tests/fixtures/archaeology_home_cases.json": "f1f6cd7f88f9f83f303c0950bfd1eb70dfddf963cd7fd6c144c61bb4f8cfa104"
+  },
+  "software": {
+    "raw264": {
+      "methods": 10,
+      "failures": 3,
+      "errors": 1,
+      "seconds": 0.4668072999920696,
+      "source_projection": "Private reader projection only, no production file overwritten."
+    },
+    "owner_methods": 10,
+    "owner_seconds": 0.062,
+    "passed": true,
+    "last_full_source63_methods": 725,
+    "later_purchase_boundary_methods": 4,
+    "full_739_not_run": true
+  },
+  "scope": "Unregistered UI-only archaeologist home city/museum inventory snapshot. Exact full unit ID, UI GetUnitType, home city ownership, archaeological museum identity, intact artifact slots, bounded 1..64 slots, unique occupied work IDs, plain scalar descriptor. Reads full inventory twice and checks exact slot positions, then fresh final identity. Full museum is valid metadata but no excavation permission.",
+  "primary_local_sources": [
+    "Installed Base/Assets/UI/GreatWorksOverview.lua lines150-225 zero-based building slot API",
+    "Installed Base/Assets/UI/Popups/ChooseArtifact.lua pending queue and PlayerOperations choice flow",
+    "Installed Base/Assets/UI/UnitFlagManager.lua GetArchaeologyHomeCity call sites"
+  ],
+  "source_limits": "Primary sources inspected locally, not redistributed. Actual current Debug archaeologist has home -1; no normal museum or positive Native snapshot proof. Core lacks home/archaeology UI component.",
+  "cumulative_through265": {
+    "logical": 265,
+    "complete": 251,
+    "length": 11,
+    "final_transport_failed": 3,
+    "http_attempts": 295,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Interleaved native boot diagnosis/cleanup/retry and shared publication; exclusive active owner time/cache/server queue unknown.",
+  "limits": [
+    "Helper is not in63 manifest/Gameplay/Controller; no autonomous dig, artifact choice, protection or ordinary archaeology production claimed.",
+    "Native parse/bindings remain pending because game boot unavailable; software mocks do not grant Native success.",
+    "Naturalist actual purchase and full performance remain incomplete."
+  ],
+  "next": "Finish normal63 actual purchase acceptance and Native museum binding facts; add persistent excavation/choice journal and sole UI writer with no-replay actual work proof."
+}
