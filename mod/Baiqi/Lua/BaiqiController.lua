@@ -1377,16 +1377,16 @@ local function QueueReady(city,q,completedHead)
 end
 
 local function ProcessCity(ctx, player, state, city)
-  local q=city:GetBuildQueue()
   local cityID=city:GetID()
+  if cityEvaluated[cityID]==turn then return false end
+  local q=city:GetBuildQueue()
   local completedHead
   if q:GetSize()==1 and CoreIdle() and CityOperationTypes.VALUE_REPLACE_AT~=nil
     and CityOperationTypes.PARAM_QUEUE_DESTINATION_LOCATION~=nil then
     completedHead=CompletedIdleHead(city,q)
   end
   if not QueueReady(city,q,completedHead) or pendingCities[cityID] then return false end
-  if cityEvaluated[city:GetID()]==turn then return false end
-  cityEvaluated[city:GetID()]=turn
+  cityEvaluated[cityID]=turn
   local candidates, checked = {}, 0
   local function Add(kind,row,score,repair,placement)
     if checked >= C.candidatesPerCity then return end
