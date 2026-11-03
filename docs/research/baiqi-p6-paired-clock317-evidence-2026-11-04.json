@@ -1,0 +1,106 @@
+{
+  "schema": "civ6.baiqi-paired-clock317/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T22:38:14.563789+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 317,
+      "case_id": "civ6-pairedclock317",
+      "mode_id": "http-candidate",
+      "shared_commit": "17fcd19135e3e9bede9ed5d65896ad73fd3d59b2",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2100,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T22:32:41.721919+00:00",
+      "attempt_end_utc": "2026-11-03T22:32:47.485111+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 5763.4809000301175,
+        "first_nonempty_content_delta_ms": 732.7305000508204,
+        "usage": {
+          "prompt_tokens": 3908,
+          "completion_tokens": 834,
+          "total_tokens": 4742
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T22:32:41.721919+00:00",
+          "end_utc": "2026-11-03T22:32:47.485111+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 5763.4809000301175
+        }
+      ],
+      "adoption": "partial",
+      "review": "Finite complete Lua body partially adopted. Raw declares callback but never assigns OnTurn, Add receivesnil and subscribedfalse/errors1. Isolated callbackfix exposes Retire skipping ownedRemove after Add stored callback then threw. Owner fixes assignment, exactlyonce cleanup evenambiguousAdd, persistent cleanup failure status and exact Native integer bounds.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_counterexamples": {
+    "raw_add_arg_type": "nil",
+    "raw_subscribed": false,
+    "raw_errors": 1,
+    "isolated_callback_fix_add_after_registration_error": "Raw Retire reports success but0Remove and ownedcallback remains",
+    "adoption": "partial",
+    "owner_fixes": [
+      "Assign actual OnTurn to callback before Add",
+      "Retire attempts capturedRemove exactlyonce even ifAdd returned error after storing callback",
+      "Retire failure status persistent/no retry, subscribed false and errors retained",
+      "Bound Native turn/pid integers and fromturn to preserve exact next-turn arithmetic"
+    ]
+  },
+  "software": {
+    "new_tests": 9,
+    "seconds": 0.021,
+    "cases": [
+      "Constructor no domain clock/turn/player reads and exact one static Add",
+      "Matchinglocal Native event captures raw interval once, otherpid/extra args ignored",
+      "Pending/full capacity refuses without new observation",
+      "Bad start/end/turn/pid/clock exception/backwards poison, no fakezero",
+      "Zero legitimate interval retained",
+      "Retire pending preserved, foreigncallback untouched, no second Remove",
+      "Add stores then throws cleaned once",
+      "Remove unknown remains inert, failure status persistent, no retry",
+      "Exact Native integer and capacity bounds rejectbool/string/nonfinite"
+    ]
+  },
+  "scope": "External developer stopwatch only. Receives exact static Native event/clock/turn/player functions, bounded128maximum. It never issues game actions or changes product AI control. Not assembled/installed or Native measured; actual matched pairs still pending.",
+  "cumulative_through317": {
+    "logical": 317,
+    "complete": 296,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 347,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "unknown_costs": {
+    "exclusive_owner_seconds": null,
+    "cache_hit_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null
+  }
+}
