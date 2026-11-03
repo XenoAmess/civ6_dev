@@ -6,7 +6,7 @@ local function InstallWrites(env, newCounter, getBucket)
 
   local specs = {
     {name="UnitManager", methods={"RequestOperation","RequestCommand"}},
-    {name="CityManager", methods={"RequestOperation"}},
+    {name="CityManager", methods={"RequestOperation","RequestCommand"}},
     {name="UI", methods={"RequestPlayerOperation"}}
   }
 

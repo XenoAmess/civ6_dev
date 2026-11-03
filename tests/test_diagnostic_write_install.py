@@ -14,7 +14,7 @@ class WriteInstallTests(unittest.TestCase):
         self.lua.globals().InstallForTest=self.install
         self.lua.execute('''
 TestErrorObject={tag='native-error-object'}
-TestCalls={unitOperation=0,unitCommand=0,cityOperation=0,playerOperation=0}
+TestCalls={unitOperation=0,unitCommand=0,cityOperation=0,cityCommand=0,playerOperation=0}
 TestBucket={};TestBucketCalls=0;TestFactoryCalls=0
 TestFailBucket=false;TestNativeError=false
 local function native(name)
@@ -26,7 +26,7 @@ local function native(name)
  end
 end
 Env={UnitManager={RequestOperation=native('unitOperation'),RequestCommand=native('unitCommand')},
- CityManager={RequestOperation=native('cityOperation')},
+ CityManager={RequestOperation=native('cityOperation'),RequestCommand=native('cityCommand')},
  UI={RequestPlayerOperation=native('playerOperation')},extra='keep'}
 Originals={UnitManager=Env.UnitManager,CityManager=Env.CityManager,UI=Env.UI}
 GetBucket=function()
@@ -56,7 +56,7 @@ assert(Env.extra=='keep' and TestBucketCalls==0)
 for _,n in pairs(TestCalls) do assert(n==0) end
 """)
 
-    def test_all_four_dispatches_preserve_arguments_nil_returns_and_exact_counts(self):
+    def test_all_five_dispatches_preserve_arguments_nil_returns_and_exact_counts(self):
         self.installed()
         self.lua.execute("""
 local function pack(...) return {n=select('#',...),...} end
@@ -65,12 +65,14 @@ assert(r.n==4 and r[1]==false and r[2]==nil and r[3]=='tail' and r[4]==nil)
 assert(TestLastArgs.n==3 and TestLastArgs[1]=='unit' and TestLastArgs[2]==99 and TestLastArgs[3]==nil)
 Env.UnitManager.RequestCommand('command')
 Env.CityManager.RequestOperation('city')
+Env.CityManager.RequestCommand('city-command')
 Env.UI.RequestPlayerOperation('player')
 for _,n in pairs(TestCalls) do assert(n==1) end
-assert(State.stats.UnitManager.totalCalls==2 and State.stats.CityManager.totalCalls==1 and State.stats.UI.totalCalls==1)
+assert(State.stats.UnitManager.totalCalls==2 and State.stats.CityManager.totalCalls==2 and State.stats.UI.totalCalls==1)
 assert(TestBucket['UnitManager.RequestOperation']==1 and TestBucket['UnitManager.RequestCommand']==1)
 assert(TestBucket['CityManager.RequestOperation']==1 and TestBucket['UI.RequestPlayerOperation']==1)
-local count=0;for _ in pairs(TestBucket) do count=count+1 end;assert(count==4)
+assert(TestBucket['CityManager.RequestCommand']==1)
+local count=0;for _ in pairs(TestBucket) do count=count+1 end;assert(count==5)
 """)
 
     def test_bucket_error_still_dispatches_once_and_reports_callback_failure(self):
@@ -151,7 +153,7 @@ assert(TestBucketCalls==0 and Env.extra=='keep')
 """)
 
     def test_missing_native_api_members_fail_before_any_environment_assignment(self):
-        for group,method in (('UnitManager','RequestCommand'),('CityManager','RequestOperation'),('UI','RequestPlayerOperation')):
+        for group,method in (('UnitManager','RequestCommand'),('CityManager','RequestOperation'),('CityManager','RequestCommand'),('UI','RequestPlayerOperation')):
             with self.subTest(group=group):
                 self.setUp();self.lua.globals().BadGroup=group;self.lua.globals().BadMethod=method
                 self.lua.execute("""
@@ -159,6 +161,28 @@ Env[BadGroup][BadMethod]=nil
 local ok=pcall(InstallForTest,Env,TestCanonicalCounter,GetBucket);assert(not ok)
 for _,name in ipairs({'UnitManager','CityManager','UI'}) do assert(Env[name]==Originals[name]) end
 assert(TestBucketCalls==0 and Env.extra=='keep')
+""")
+
+    def test_city_command_counted_forwarded_and_restored(self):
+        self.installed()
+        self.lua.execute("""
+local function pack(...) return {n=select('#',...),...} end
+local r=pack(Env.CityManager.RequestCommand('cmd',10,nil))
+assert(r.n==4 and r[1]==false and r[2]==nil and r[3]=='tail' and r[4]==nil)
+assert(TestLastArgs.n==3 and TestLastArgs[1]=='cmd' and TestLastArgs[2]==10 and TestLastArgs[3]==nil)
+assert(TestCalls.cityCommand==1 and TestCalls.cityOperation==0)
+assert(State.stats.CityManager.totalCalls==1)
+assert(TestBucket['CityManager.RequestCommand']==1)
+local original=Originals.CityManager.RequestCommand
+local restored=State:Restore()
+assert(restored.CityManager and Env.CityManager==Originals.CityManager)
+assert(Env.CityManager.RequestCommand==original)
+State=InstallForTest(Env,TestCanonicalCounter,GetBucket)
+local foreign={RequestOperation=function() return 'op' end,RequestCommand=function() return 'cmd' end}
+Env.CityManager=foreign
+local res=State:Restore()
+assert(not res.CityManager)
+assert(Env.CityManager==foreign)
 """)
 
     def test_unselected_members_forward_without_being_counted_as_writes(self):

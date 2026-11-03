@@ -1,0 +1,101 @@
+{
+  "schema": "civ6.baiqi-city-write-command261/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "a5d6bf796dcac5ae99e6402d784ea2ba37156d98",
+  "case": {
+    "sequence": 261,
+    "case_id": "CIV6-citycommand261",
+    "mode_id": "http-candidate",
+    "shared_commit": "862a8f44ad95ee14d899bbf4e277558b9a405221",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+    "max_tokens": 2500,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T11:00:30.910429+00:00",
+    "attempt_end_utc": "2026-11-03T11:00:35.377047+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 4466.371199989226,
+      "first_nonempty_content_delta_ms": 675.1211999799125,
+      "usage": {
+        "prompt_tokens": 3308,
+        "completion_tokens": 630,
+        "total_tokens": 3938
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T11:00:30.910429+00:00",
+        "end_utc": "2026-11-03T11:00:35.377047+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 4466.371199989226
+      }
+    ],
+    "adoption": "partial_code_and_test_adopted",
+    "review": "Installer family and two fixture edits adopted exactly; new forwarding test retained with owner original-binding restore addition. Raw12 tests had1 error because existing four-call test iterated the new fifth counter. Owner updates five-family assertion, missing-member atomic case and shared native mock. Affected12+4 profile tests pass; no game diagnostic installed.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "software": {
+    "raw_candidate_methods": 12,
+    "raw_candidate_errors": 1,
+    "raw_candidate_seconds": 0.055,
+    "corrected_affected_methods": 12,
+    "corrected_seconds": 0.028,
+    "profile_build_consumer_methods": 4,
+    "profile_build_seconds": 0.022,
+    "passed": true,
+    "last_full675_separate": true
+  },
+  "source_sha256": {
+    "tools/lua/diagnostic_write_install.lua": "5ae5734038c4a7f12d2281a8fdd98d91d35cc0d35f5c8c68d7d75d7033a2a0ce",
+    "tests/test_diagnostic_write_install.py": "e98e59239136153bcc23d7f421af35a45fdeaafd8b60a5800106e3f1c2f2ff38",
+    "tests/lua/mock_world.lua": "f21cc407f5d3a6f00a8998b179b5476efdc83f4aef19d197c44725386173f222"
+  },
+  "scope": "Static API installer adds CityManager.RequestCommand to UnitManager.RequestOperation/RequestCommand, CityManager.RequestOperation and UI.RequestPlayerOperation, five methods over three namespaces. Exact argument/false/nil/trailing nil forwarding, original restore/foreign binding and atomic missing API cases tested. External diagnostic only, no runtime/game install or request.",
+  "sequence_note": "Case261 was genuinely dispatched before later case260. IDs are not chronological POST order; no260 request was made to fill a gap. 260 is a separate real same-turn receipt/lifetime task and its final review is pending.",
+  "cumulative_http_through_ids260261": {
+    "logical": 261,
+    "complete": 247,
+    "length": 11,
+    "final_transport_failed": 3,
+    "http_attempts": 291,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0,
+    "adoption_review_260_not_closed_here": true
+  },
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Owner stages interleaved purchase integration; exclusive active cost/cache unknown.",
+  "limits": [
+    "Five static UI API families are still not global Native N_req; Core properties/object writes/other namespaces remain outside this installer.",
+    "No performance or actual purchase/effect upgrade; existing normal62 park and source60 FAIL boundaries unchanged.",
+    "Source63 purchase UI/config integration is a separate unfinished working unit."
+  ],
+  "next": "Integrate normal63 purchase, add event receipt/lifetime tests and complete necessary full checks; offline cold-load then actual normal faith debit/new-unit proof and remaining archaeology/performance acceptance."
+}

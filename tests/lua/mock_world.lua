@@ -87,6 +87,11 @@ Players={[7]=player}
 PlayerConfigurations={[7]={IsHuman=function() return true end,GetLeaderTypeName=function() return "LEADER_BAIQI" end}}
 PlayersVisibility={[7]={IsRevealed=function() return true end,IsVisible=function() return true end}}
 CityManager={CanStartOperation=function() return true end,RequestOperation=function(c,op,params) W.cityRequests[#W.cityRequests+1]=params end}
+CityManager.RequestCommand=function(c,op,params)
+ W.cityCommandRequests=W.cityCommandRequests or {}
+ W.cityCommandRequests[#W.cityCommandRequests+1]={city=c:GetID(),op=op,params=params}
+ return false,nil,'tail',nil
+end
 UnitManager={CanStartOperation=function() return true end,RequestOperation=function(u,op,params) W.unitRequests[#W.unitRequests+1]={unit=u:GetID(),op=op,params=params} end}
 UI={GetHeadSelectedCity=function() return nil end,GetHeadSelectedUnit=function() return nil end,
  IsGameCoreBusy=function() return W.busy or false end,IsProcessingMessages=function() return W.processing or false end}
