@@ -1,0 +1,399 @@
+{
+  "schema": "civ6.baiqi-static-control316/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T22:33:34.439610+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 316,
+      "case_id": "civ6-staticcontrol316",
+      "mode_id": "http-candidate",
+      "shared_commit": "17fcd19135e3e9bede9ed5d65896ad73fd3d59b2",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T22:26:32.564312+00:00",
+      "attempt_end_utc": "2026-11-03T22:26:54.149202+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 21581.665300007444,
+        "first_nonempty_content_delta_ms": 2599.420899990946,
+        "usage": {
+          "prompt_tokens": 19325,
+          "completion_tokens": 3239,
+          "total_tokens": 22564
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T22:26:32.564312+00:00",
+          "end_utc": "2026-11-03T22:26:54.149202+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 21581.665300007444
+        }
+      ],
+      "adoption": "rejected",
+      "review": "Complete outer JSON VALID, but raw four tests all setup errors: LuaRuntime.eval given statements. No actual file/transform loaded; fake bridge/journal algorithms, Add not Fire, local state lost across chunks, cleanup marker not persisted. Code adopted0; owner actual-source tests replace it.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_counterexamples": {
+    "tests": 4,
+    "errors": 4,
+    "failures": 0,
+    "adoption": "rejected",
+    "reason": "LuaRuntime.eval expects expression, raw starts function statement so four setup errors. Independently no actual source file or transform loaded; six fake bridge tables, stub journal algorithms, Add not Fire, local variables in separate chunks, cleanup mock never persists marker. No code adopted or Native actions."
+  },
+  "owner_implementation": {
+    "tools": [
+      "tools/static_control_source.py",
+      "tools/build_static_control.py"
+    ],
+    "behavior": "Private static copy suppresses Controller.RunNow/Update, Admin.Run, Executor lexical Recover, Core mutation bridges and Bootstrap/receipt/unit callbacks before function capture. Same manifest/database/art/readonly UI guards. Imported factories and event registration remain valid. Legacy granary/plot/player cleanup remains original. No runtime switch or product AI-off control. Explicit player requisition remains; benchmark issues no such requests.",
+    "build": {
+      "mode": "baiqi67-static-control-c1",
+      "source_version": 67,
+      "files": 85,
+      "changed_files": [
+        "Lua/BaiqiController.lua",
+        "Lua/BaiqiGPIntentGameplay.lua",
+        "Lua/BaiqiCreativeIntentGameplay.lua",
+        "Lua/BaiqiReligiousIntentGameplay.lua",
+        "Lua/BaiqiNaturalistIntentGameplay.lua",
+        "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+        "Lua/BaiqiArchaeologyIntentGameplay.lua",
+        "UI/BaiqiExecutor.lua",
+        "Lua/BaiqiAdmin.lua"
+      ],
+      "coverage": {
+        "Lua/BaiqiController.lua": [
+          {
+            "anchor": "print(\"BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\")",
+            "insert_before": "BaiqiController.RunNow=function(...) return false,nil,\"private_static_control\" end\nBaiqiController.Update=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated) end",
+            "insert_before": "OnGreatPersonActivated=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if Events.GreatWorkCreated then Events.GreatWorkCreated.Add(OnGreatWorkCreated) end",
+            "insert_before": "OnGreatWorkCreated=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiGPIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,\"UNAVAILABLE\")",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\nObserve=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if type(ExposedMembers)==\"table\" and (ExposedMembers.BaiqiGreatPersonIntentBridge==nil",
+            "insert_before": "Bootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiCreativeIntentGameplay.lua": [
+          {
+            "anchor": "BaiqiCreativeIntentGameplay={}",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\nOnCreated=function(...) return false,nil,\"private_static_control\" end\nBootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiReligiousIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,\"UNAVAILABLE\")",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if type(ExposedMembers)==\"table\" and (ExposedMembers.BaiqiReligiousIntentBridge==nil",
+            "insert_before": "Bootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiNaturalistIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,\"UNAVAILABLE\")",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if type(ExposedMembers)==\"table\" and (ExposedMembers.BaiqiNaturalistIntentBridge==nil",
+            "insert_before": "Bootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER}",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "for _,name in ipairs({\"UnitAddedToMap\",\"PlayerTurnDeactivated\"}) do",
+            "insert_before": "ObserveEvent=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiArchaeologyIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=BRIDGE_MARKER,PrepareExcavation=Protected(PrepareExcavation,false),",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepareExcavation=function(...) return false,nil,\"private_static_control\" end\nPrepareChoice=function(...) return false,nil,\"private_static_control\" end\nPreparePendingChoice=function(...) return false,nil,\"private_static_control\" end\nObserveCreated=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "UI/BaiqiExecutor.lua": [
+          {
+            "anchor": "local function Update(delta)",
+            "insert_before": "Recover=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiAdmin.lua": [
+          {
+            "anchor": "@EOF",
+            "insert_before": "\nBaiqiAdmin.Run=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ]
+      },
+      "source_hashes": {
+        "Baiqi.modinfo": "6f7f8b0838142cd2059ff289427d60d4fcf604b46fc53b00a2a7cad9005ac9f2",
+        "Baiqi.dep": "a33cdf8c5797db4ba59608d2947e7bcc7c6bb00fe2ba4ff14c96c0423e2706ae",
+        "ArtDefs/Leaders.artdef": "08ba8547d0eb8e9df3a6e52409ceabf868758224aa5510102d50e7eca84898de",
+        "UI/BaiqiDiplomacyActionView.lua": "0019d52dcf8de5f779d75b826fd1557ff09e5929fe238cd248518fb153bccb7d",
+        "UI/BaiqiLeaderScene.lua": "b471425795db905107e69b8514776fcae0b2420b728bba8d542a66ab372600f6",
+        "Art/Baiqi_SelectionForeground.dds": "6eb8ed45aeebfb7c21724c6dc4fb99883264897a4afb30a30d754741e4c03f48",
+        "Art/Baiqi_Leader32.dds": "0771f1085c62f9e80a2b4f11077cab8f9750d964b50d5e443561b651b010aef7",
+        "Art/Baiqi_Leader45.dds": "843d73803c98e4bde8a989fdc24c096347bcdbc8d290e64c49c1da1b203516c4",
+        "Art/Baiqi_Leader50.dds": "1da2b41dad44ea67ec53e3e41bab9d0eed4e0a36a4bcdb538b1f935502c44ab8",
+        "Art/Baiqi_Leader55.dds": "5a61cf5cfac4587111f411d8486a85342eb892be29a5abf178d639dab44fe015",
+        "Art/Baiqi_Leader64.dds": "f852cb618d3d097f98fcef9bac652fb86303a1b712ceb1ad7fd90f32011ee669",
+        "Art/Baiqi_Leader80.dds": "ac71912d96de3cfc0336fad7d9fe59100a4bf47ea9707c58836dac4fa7d198cf",
+        "Art/Baiqi_Leader256.dds": "38d8d855a1223b9cda89688b739098030f67cd319d739a6a598a61c887eccb1d",
+        "Art/Baiqi_LeaderForeground.dds": "50aaf785bebe196b74772bc923036b75b0d7f51b5a838ffccc3c31d6094c4fac",
+        "Art/Baiqi_LoadingBackground.dds": "a4cdbf3e7284d5e34e5023b71c733cf5e0c4cf7a5717fc9577ba09420e96f5eb",
+        "Art/Baiqi_DiplomacyBackground.dds": "1e230dfcd3700ec97f8710130287e00d9da56b7f09375b767652b640a958fc84",
+        "Config/BaiqiConfig.sql": "0d819aeba0cd8c9fed3a2192091aa2a8e047292f8c8312c8b899283ecb9cbc7f",
+        "Data/Baiqi.sql": "cf0ff7715623b1a539cf4ddff4de4bf19d60ac56f69d04e320225bf70ae41c45",
+        "Data/BaiqiStandby.sql": "6f56df4c8f6355dd4d073dd102a591c88b2789dc92218d0ec463818230bda4fa",
+        "Data/BaiqiIcons.sql": "0658fc841559108ed1b86a2a82ab8410d0423d6539d6b5075e77a6d0ba66c333",
+        "Data/BaiqiColors.xml": "f9972697780b70ec1f40fe4a4ed30a933aeaba0094198e8cc169296936a94f74",
+        "Text/BaiqiText.xml": "c3456c808b0f6886f361dd3b14cb464287708f5b22847af4844ec9f058f4534d",
+        "Lua/BaiqiConfig.lua": "b00a1585a80eb4f82ba950f18f1c1d18b1b189fa16519411d8e8e6925135739a",
+        "Lua/BaiqiPolicy.lua": "c83c86ac77ab4109442d00e08ba8c57ff8bf47ce94dc6380d9a0ed6edeaa45db",
+        "Lua/BaiqiPlanner.lua": "92854053d06ee1d523cead303e2b97cd07570ea8dac11607ebd177b7defd32f9",
+        "Lua/BaiqiController.lua": "6570f499bc55fcbcd7681f92119d77e1d4516a8c7266aea92412e9ec3e866c76",
+        "Lua/BaiqiGameplay.lua": "86e10ba2b1dd7f7c13a336444b2048cd6479f049de3e6c136c4352320518b64b",
+        "Lua/BaiqiRequisition.lua": "dbc2b638b4bae15b05ea18e33ebba50a7c31ae3437752b1baa496de7847b1af9",
+        "Lua/BaiqiCapture.lua": "d4eea324d7f6bb9790a9d6e9126b72bcc2be3fa57bb53ab3f5fecb6c17e4ac67",
+        "Lua/BaiqiGPIntentGameplay.lua": "6b16b8f54453b66ce56bd47a7e01aeb3362f6f3d2bbb51865dc2efb7ca3c0dc9",
+        "Lua/BaiqiGPJournal.lua": "596486c712e919db42eb45648ee111dd736e2c9f547d87ddaef1601846fedd49",
+        "Lua/BaiqiCreativeJournal.lua": "6399ec11de6a7647a259e1088b4de86751e31b9cc06e54a691b32e2bb3cb6731",
+        "Lua/BaiqiCreativeIntentGameplay.lua": "429d160b05be5c1c65d2a0da440b00243ee217bf8a0fffbec2fde0762ff128a7",
+        "Lua/BaiqiReligiousJournal.lua": "456faee0547984145ff5f83f2c6778a96161bfffb99edf252780e4e612e601a3",
+        "Lua/BaiqiReligiousIntentGameplay.lua": "a6ed409c34fb84b50de87d8d05df0cdc706e2713c5e497d061869799b2af80c7",
+        "Lua/BaiqiHeritageCandidates.lua": "0204da5155562803ebbfadc4553369746f80c7f48baf4f9be20e65ce4d85bbcf",
+        "Lua/BaiqiHeritageActions.lua": "f432cbc9afb7d8ef8f75d78c3c497bc8a5b27c816f7903ba63ace5cdc01eca2a",
+        "Lua/BaiqiNaturalistUnit.lua": "f8620415fa70c297aa4fe01a8b7e5debcdfc88f2b972e94afc0126615a79943b",
+        "Lua/BaiqiNaturalistJournal.lua": "2da1476d35b4a53fb5a41e008741e43cf292091ee6c628d97ab0bf52ee779346",
+        "Lua/BaiqiNaturalistIntentGameplay.lua": "7120e88f59993d61bba0d7194bc316b4ef3f9cf37655f629bdd9709265c849d3",
+        "Lua/BaiqiNaturalistPurchase.lua": "c066f33c53821c47d8151bb31dc1bebd0beb139e9df3c49f551c57d87977573e",
+        "Lua/BaiqiNaturalistPurchaseSnapshot.lua": "916f0c2579f11e9b9486dd3f0344cbc175a16c6824567bf3681a66903db6bf3e",
+        "Lua/BaiqiNaturalistPurchaseJournal.lua": "0ae422ec87b7aae019e2beacbf11b0dc68684a7232434ec306bef005c089bc7f",
+        "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": "cf8940ae4b05f7d5f8d2c1fdaf959a821d985e2f729ea592bd7884988da512e2",
+        "Lua/BaiqiArchaeologistUnit.lua": "4adbe0cd7f3cad6a3bd3a1938f772677c6d9c53b1617fe8e9aa95c067f01c848",
+        "Lua/BaiqiArchaeologyHome.lua": "0eb1d8a022aced7fc81887a6d76383fc0f6a50fdf51dd292a994bb61b5391044",
+        "Lua/BaiqiPendingArtifact.lua": "86e38d3a421a610826cc6a1da3880950461f8cf87bf731137103d0adc0e70d6a",
+        "Lua/BaiqiArchaeologyJournal.lua": "e1f1f2a7521fa6c0871e092a891194401ad60a3cf58ebc0257c14b3f43bfdf8e",
+        "Lua/BaiqiArchaeologyIntentGameplay.lua": "47e8f1239649dd27957caf9adeb2353716e9a3c515ecc4f71bf8a67a91e336df",
+        "Lua/BaiqiArchaeologyReceiptEvents.lua": "c5a490b95b4ee2786b400f30f076bb121b1542dd65aea114ae3bdde1efd93731",
+        "Lua/BaiqiActions.lua": "7e99e2b438501990663418e4adb00979f0a55bd59895dc547e0d7552155d79fd",
+        "UI/BaiqiExecutor.xml": "4503fe229775d340a07eac1c2c074d560e5364808cb87d6c4ecfc9cdb7bbf712",
+        "UI/BaiqiExecutor.lua": "9a917545cffb45b508482b61e035a27c58573492b690a510a5605c954d352761",
+        "Lua/BaiqiUIGuard.lua": "a97c063499d1d3ccbc345195969fa51f77cc5019d041a11cacc3901fb6133660",
+        "Lua/BaiqiUILoader.lua": "1d9326c3418918d68d50f50d1ace45ab2cf313c39e75afa997fa034e2ffc9c80",
+        "Lua/BaiqiAdmin.lua": "e69760bfb335df79597fe8a14348563cda563dd657d522024c8223dfad304c18",
+        "UI/BaiqiWorldInput.lua": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+        "UI/BaiqiUnitPanel.lua": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+        "UI/BaiqiProductionPanel.lua": "7d8b522f88992ac4d090d046344d16165b0705a846926257c7fafd63e2c10a70",
+        "UI/BaiqiCityPanel.lua": "79a1665fd65750e2b2e28e9e5e0a9cd9843186635c7d157775c307b6cd009faa",
+        "UI/BaiqiCityPanelOverview.lua": "c6e0b7cd06ee5286b1e7cb78eae30a522db5eb4538955af4f2bb9b75ce708d40",
+        "UI/BaiqiPlotInfo.lua": "7f182a626cb5aac88201892bd96b2488ba3f275bed2af6e6ba60e385a3656510",
+        "UI/BaiqiTechTree.lua": "e8da4c900af8415906aae5738f24c83e2708ca15346a4d7380c680aadc27a6d1",
+        "UI/BaiqiCivicsTree.lua": "8aec1b387759b0b9d02f7621697bf5c630b16381ddf475188b095a40406ee528",
+        "UI/BaiqiGovernmentScreen.lua": "4114156af941fdd9ba83c220168f477cb7b812e36ae8e2b60b384259abea0485",
+        "UI/BaiqiGovernorPanel.lua": "8f9c4716f4caff8f1c11fe034552bc241f1f760bbfd69a107845aa3c1ae45acf",
+        "UI/BaiqiGovernorDetailsPanel.lua": "c33ef6f055743a18f126f1ca949751b9dce2f16c16718fdace817ce8c810babc",
+        "UI/BaiqiGovernorAssignmentChooser.lua": "bffca192849acc5809d4fc6ae0d92256759ba8f48e1408f8af55aa4ae54255f3",
+        "UI/BaiqiTradeRouteChooser.lua": "7b1f586b22d9a4edad0b0d1c02f858e75bcabe52365c9be19e6a3f8da36f1411",
+        "UI/BaiqiGreatPeoplePopup.lua": "7fab94fc3b286fe0e0b50c9b39475f12da4bc3c96ab84b2a3254a9f2620013e3",
+        "UI/BaiqiCityStates.lua": "d5f7e1b7ffb5f7b367fbaefb41ff39252f0391745486df08148644dafea9e35f",
+        "Data/BaiqiRetiredEffects.sql": "edda554efc4cd788bf180e92e96ec5fca4b980ae0f698b95a482793efdfaab3c",
+        "UI/BaiqiResearchChooser.lua": "6ad9590926f657f67b409ecbc87e3a2deef2bbe682a5d3bcc0a7a2c2597728e6",
+        "UI/BaiqiCivicsChooser.lua": "ff84d26c3b108a986ca48fae5f242d250866004dc13725d2da4746b065bb00ff",
+        "UI/BaiqiUnitFlagManager.lua": "62a36c89329abdd25fc658acd44d2ac1b1128050448cf0baf30557233fffd9e1",
+        "UI/BaiqiReligionScreen.lua": "d3ed6b098b24e32c53883960ed2be16d59a23e01078712e0a0ee36c36d92c588",
+        "UI/BaiqiPantheonChooser.lua": "6f1253713e96729e799b2f8f553de0433d60a08534c8801a8559183aae198733",
+        "UI/BaiqiDedicationPopup.lua": "a08653f2e7f3a68e928fcda373ecf9ac84b3443ec89f2c492ccf655e43199672",
+        "UI/BaiqiNaturalDisasterPopup.lua": "2177294ae0104ec0b7737d185899c640e012091cfbc42658fe041438a9198f67",
+        "UI/BaiqiTechCivicCompletedPopup.lua": "08de0946713b4204cfbcf4ce3e1ff8cd3a380d096b5ae99b5228bf812da924f1",
+        "UI/BaiqiNotificationPanel.lua": "6f7b0c259d97075a8f3bf1485aca4b3db6dacfeacf053bd87b20fa8e159e532b",
+        "UI/BaiqiNaturalWonderPopup.lua": "db572e935b114e171ce29369abecef5dbf8ce0b944ce71b6c54ed9b6afc9b320",
+        "UI/BaiqiHistoricMoments.lua": "e8019bcfafbe524ebb26af9aa81a1f477b0e31050dfe3935eba12f5ff188ccae",
+        "UI/BaiqiChooseArtifact.lua": "6ac97af2e09ac19d65100528de73035d4dcbf2e531b96b5c16befe868e71b792",
+        "UI/BaiqiGreatWorkShowcase.lua": "48f6b7d88d09edbe6026114dcb1a6e276fb1662b847e012117831e4beb216eb8"
+      },
+      "control_hashes": {
+        "Baiqi.modinfo": "6f7f8b0838142cd2059ff289427d60d4fcf604b46fc53b00a2a7cad9005ac9f2",
+        "Baiqi.dep": "a33cdf8c5797db4ba59608d2947e7bcc7c6bb00fe2ba4ff14c96c0423e2706ae",
+        "ArtDefs/Leaders.artdef": "08ba8547d0eb8e9df3a6e52409ceabf868758224aa5510102d50e7eca84898de",
+        "UI/BaiqiDiplomacyActionView.lua": "0019d52dcf8de5f779d75b826fd1557ff09e5929fe238cd248518fb153bccb7d",
+        "UI/BaiqiLeaderScene.lua": "b471425795db905107e69b8514776fcae0b2420b728bba8d542a66ab372600f6",
+        "Art/Baiqi_SelectionForeground.dds": "6eb8ed45aeebfb7c21724c6dc4fb99883264897a4afb30a30d754741e4c03f48",
+        "Art/Baiqi_Leader32.dds": "0771f1085c62f9e80a2b4f11077cab8f9750d964b50d5e443561b651b010aef7",
+        "Art/Baiqi_Leader45.dds": "843d73803c98e4bde8a989fdc24c096347bcdbc8d290e64c49c1da1b203516c4",
+        "Art/Baiqi_Leader50.dds": "1da2b41dad44ea67ec53e3e41bab9d0eed4e0a36a4bcdb538b1f935502c44ab8",
+        "Art/Baiqi_Leader55.dds": "5a61cf5cfac4587111f411d8486a85342eb892be29a5abf178d639dab44fe015",
+        "Art/Baiqi_Leader64.dds": "f852cb618d3d097f98fcef9bac652fb86303a1b712ceb1ad7fd90f32011ee669",
+        "Art/Baiqi_Leader80.dds": "ac71912d96de3cfc0336fad7d9fe59100a4bf47ea9707c58836dac4fa7d198cf",
+        "Art/Baiqi_Leader256.dds": "38d8d855a1223b9cda89688b739098030f67cd319d739a6a598a61c887eccb1d",
+        "Art/Baiqi_LeaderForeground.dds": "50aaf785bebe196b74772bc923036b75b0d7f51b5a838ffccc3c31d6094c4fac",
+        "Art/Baiqi_LoadingBackground.dds": "a4cdbf3e7284d5e34e5023b71c733cf5e0c4cf7a5717fc9577ba09420e96f5eb",
+        "Art/Baiqi_DiplomacyBackground.dds": "1e230dfcd3700ec97f8710130287e00d9da56b7f09375b767652b640a958fc84",
+        "Config/BaiqiConfig.sql": "0d819aeba0cd8c9fed3a2192091aa2a8e047292f8c8312c8b899283ecb9cbc7f",
+        "Data/Baiqi.sql": "cf0ff7715623b1a539cf4ddff4de4bf19d60ac56f69d04e320225bf70ae41c45",
+        "Data/BaiqiStandby.sql": "6f56df4c8f6355dd4d073dd102a591c88b2789dc92218d0ec463818230bda4fa",
+        "Data/BaiqiIcons.sql": "0658fc841559108ed1b86a2a82ab8410d0423d6539d6b5075e77a6d0ba66c333",
+        "Data/BaiqiColors.xml": "f9972697780b70ec1f40fe4a4ed30a933aeaba0094198e8cc169296936a94f74",
+        "Text/BaiqiText.xml": "c3456c808b0f6886f361dd3b14cb464287708f5b22847af4844ec9f058f4534d",
+        "Lua/BaiqiConfig.lua": "b00a1585a80eb4f82ba950f18f1c1d18b1b189fa16519411d8e8e6925135739a",
+        "Lua/BaiqiPolicy.lua": "c83c86ac77ab4109442d00e08ba8c57ff8bf47ce94dc6380d9a0ed6edeaa45db",
+        "Lua/BaiqiPlanner.lua": "92854053d06ee1d523cead303e2b97cd07570ea8dac11607ebd177b7defd32f9",
+        "Lua/BaiqiController.lua": "12ab9f189ff444efd9a2979f7992eaeb68b918bd0e67d8dba001e614e321bcd2",
+        "Lua/BaiqiGameplay.lua": "86e10ba2b1dd7f7c13a336444b2048cd6479f049de3e6c136c4352320518b64b",
+        "Lua/BaiqiRequisition.lua": "dbc2b638b4bae15b05ea18e33ebba50a7c31ae3437752b1baa496de7847b1af9",
+        "Lua/BaiqiCapture.lua": "d4eea324d7f6bb9790a9d6e9126b72bcc2be3fa57bb53ab3f5fecb6c17e4ac67",
+        "Lua/BaiqiGPIntentGameplay.lua": "925a2ba93267d3784c326dc727960db98c08b101c40efd20166ad63eb71ce50a",
+        "Lua/BaiqiGPJournal.lua": "596486c712e919db42eb45648ee111dd736e2c9f547d87ddaef1601846fedd49",
+        "Lua/BaiqiCreativeJournal.lua": "6399ec11de6a7647a259e1088b4de86751e31b9cc06e54a691b32e2bb3cb6731",
+        "Lua/BaiqiCreativeIntentGameplay.lua": "823f622d0964d8404c520018182a11cb4dedc75d72c4b6490abd989b4e38b8d0",
+        "Lua/BaiqiReligiousJournal.lua": "456faee0547984145ff5f83f2c6778a96161bfffb99edf252780e4e612e601a3",
+        "Lua/BaiqiReligiousIntentGameplay.lua": "48117168de383c7199e7326341df6c74abacbef12841ffec9e721efa1cf19f2e",
+        "Lua/BaiqiHeritageCandidates.lua": "0204da5155562803ebbfadc4553369746f80c7f48baf4f9be20e65ce4d85bbcf",
+        "Lua/BaiqiHeritageActions.lua": "f432cbc9afb7d8ef8f75d78c3c497bc8a5b27c816f7903ba63ace5cdc01eca2a",
+        "Lua/BaiqiNaturalistUnit.lua": "f8620415fa70c297aa4fe01a8b7e5debcdfc88f2b972e94afc0126615a79943b",
+        "Lua/BaiqiNaturalistJournal.lua": "2da1476d35b4a53fb5a41e008741e43cf292091ee6c628d97ab0bf52ee779346",
+        "Lua/BaiqiNaturalistIntentGameplay.lua": "038f57533ec8f1deeb083cef5a8c35f5f7a6d7ce21399caad1a5948f0b91ce44",
+        "Lua/BaiqiNaturalistPurchase.lua": "c066f33c53821c47d8151bb31dc1bebd0beb139e9df3c49f551c57d87977573e",
+        "Lua/BaiqiNaturalistPurchaseSnapshot.lua": "916f0c2579f11e9b9486dd3f0344cbc175a16c6824567bf3681a66903db6bf3e",
+        "Lua/BaiqiNaturalistPurchaseJournal.lua": "0ae422ec87b7aae019e2beacbf11b0dc68684a7232434ec306bef005c089bc7f",
+        "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": "ca1079e110740eb91f3500c56cc0a6f70835a8512707d608b657fb6a1b65cd1d",
+        "Lua/BaiqiArchaeologistUnit.lua": "4adbe0cd7f3cad6a3bd3a1938f772677c6d9c53b1617fe8e9aa95c067f01c848",
+        "Lua/BaiqiArchaeologyHome.lua": "0eb1d8a022aced7fc81887a6d76383fc0f6a50fdf51dd292a994bb61b5391044",
+        "Lua/BaiqiPendingArtifact.lua": "86e38d3a421a610826cc6a1da3880950461f8cf87bf731137103d0adc0e70d6a",
+        "Lua/BaiqiArchaeologyJournal.lua": "e1f1f2a7521fa6c0871e092a891194401ad60a3cf58ebc0257c14b3f43bfdf8e",
+        "Lua/BaiqiArchaeologyIntentGameplay.lua": "4e862216b31402ca36bfe981245e82e9361aa3786ad30a3dace4d6ff4ea79c28",
+        "Lua/BaiqiArchaeologyReceiptEvents.lua": "c5a490b95b4ee2786b400f30f076bb121b1542dd65aea114ae3bdde1efd93731",
+        "Lua/BaiqiActions.lua": "7e99e2b438501990663418e4adb00979f0a55bd59895dc547e0d7552155d79fd",
+        "UI/BaiqiExecutor.xml": "4503fe229775d340a07eac1c2c074d560e5364808cb87d6c4ecfc9cdb7bbf712",
+        "UI/BaiqiExecutor.lua": "886662c2c75de68f854b2868a15301abf18edba859c1bfcb56ac2b9adab7dea6",
+        "Lua/BaiqiUIGuard.lua": "a97c063499d1d3ccbc345195969fa51f77cc5019d041a11cacc3901fb6133660",
+        "Lua/BaiqiUILoader.lua": "1d9326c3418918d68d50f50d1ace45ab2cf313c39e75afa997fa034e2ffc9c80",
+        "Lua/BaiqiAdmin.lua": "10c2bbff3a33dec9ca6ff68722377e51a604be71ed302d00ee950623a66ee889",
+        "UI/BaiqiWorldInput.lua": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+        "UI/BaiqiUnitPanel.lua": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+        "UI/BaiqiProductionPanel.lua": "7d8b522f88992ac4d090d046344d16165b0705a846926257c7fafd63e2c10a70",
+        "UI/BaiqiCityPanel.lua": "79a1665fd65750e2b2e28e9e5e0a9cd9843186635c7d157775c307b6cd009faa",
+        "UI/BaiqiCityPanelOverview.lua": "c6e0b7cd06ee5286b1e7cb78eae30a522db5eb4538955af4f2bb9b75ce708d40",
+        "UI/BaiqiPlotInfo.lua": "7f182a626cb5aac88201892bd96b2488ba3f275bed2af6e6ba60e385a3656510",
+        "UI/BaiqiTechTree.lua": "e8da4c900af8415906aae5738f24c83e2708ca15346a4d7380c680aadc27a6d1",
+        "UI/BaiqiCivicsTree.lua": "8aec1b387759b0b9d02f7621697bf5c630b16381ddf475188b095a40406ee528",
+        "UI/BaiqiGovernmentScreen.lua": "4114156af941fdd9ba83c220168f477cb7b812e36ae8e2b60b384259abea0485",
+        "UI/BaiqiGovernorPanel.lua": "8f9c4716f4caff8f1c11fe034552bc241f1f760bbfd69a107845aa3c1ae45acf",
+        "UI/BaiqiGovernorDetailsPanel.lua": "c33ef6f055743a18f126f1ca949751b9dce2f16c16718fdace817ce8c810babc",
+        "UI/BaiqiGovernorAssignmentChooser.lua": "bffca192849acc5809d4fc6ae0d92256759ba8f48e1408f8af55aa4ae54255f3",
+        "UI/BaiqiTradeRouteChooser.lua": "7b1f586b22d9a4edad0b0d1c02f858e75bcabe52365c9be19e6a3f8da36f1411",
+        "UI/BaiqiGreatPeoplePopup.lua": "7fab94fc3b286fe0e0b50c9b39475f12da4bc3c96ab84b2a3254a9f2620013e3",
+        "UI/BaiqiCityStates.lua": "d5f7e1b7ffb5f7b367fbaefb41ff39252f0391745486df08148644dafea9e35f",
+        "Data/BaiqiRetiredEffects.sql": "edda554efc4cd788bf180e92e96ec5fca4b980ae0f698b95a482793efdfaab3c",
+        "UI/BaiqiResearchChooser.lua": "6ad9590926f657f67b409ecbc87e3a2deef2bbe682a5d3bcc0a7a2c2597728e6",
+        "UI/BaiqiCivicsChooser.lua": "ff84d26c3b108a986ca48fae5f242d250866004dc13725d2da4746b065bb00ff",
+        "UI/BaiqiUnitFlagManager.lua": "62a36c89329abdd25fc658acd44d2ac1b1128050448cf0baf30557233fffd9e1",
+        "UI/BaiqiReligionScreen.lua": "d3ed6b098b24e32c53883960ed2be16d59a23e01078712e0a0ee36c36d92c588",
+        "UI/BaiqiPantheonChooser.lua": "6f1253713e96729e799b2f8f553de0433d60a08534c8801a8559183aae198733",
+        "UI/BaiqiDedicationPopup.lua": "a08653f2e7f3a68e928fcda373ecf9ac84b3443ec89f2c492ccf655e43199672",
+        "UI/BaiqiNaturalDisasterPopup.lua": "2177294ae0104ec0b7737d185899c640e012091cfbc42658fe041438a9198f67",
+        "UI/BaiqiTechCivicCompletedPopup.lua": "08de0946713b4204cfbcf4ce3e1ff8cd3a380d096b5ae99b5228bf812da924f1",
+        "UI/BaiqiNotificationPanel.lua": "6f7b0c259d97075a8f3bf1485aca4b3db6dacfeacf053bd87b20fa8e159e532b",
+        "UI/BaiqiNaturalWonderPopup.lua": "db572e935b114e171ce29369abecef5dbf8ce0b944ce71b6c54ed9b6afc9b320",
+        "UI/BaiqiHistoricMoments.lua": "e8019bcfafbe524ebb26af9aa81a1f477b0e31050dfe3935eba12f5ff188ccae",
+        "UI/BaiqiChooseArtifact.lua": "6ac97af2e09ac19d65100528de73035d4dcbf2e531b96b5c16befe868e71b792",
+        "UI/BaiqiGreatWorkShowcase.lua": "48f6b7d88d09edbe6026114dcb1a6e276fb1662b847e012117831e4beb216eb8"
+      },
+      "archive_sha256": "447d58ec7b3e7dab683951f640128279da3f363fea30eb01f81469f822d1dabb",
+      "installed": false,
+      "limits": "Private candidate comparison only. Same manifest/assets/readonly UI guards; UI planners/recovery and Core mutation bridges/automatic bootstrap closed lexically before capture. Legacy withdrawn-effect cleanup kept. Compile is not software/Native validity or B_delta evidence."
+    }
+  },
+  "software": {
+    "Core_new_tests": 4,
+    "Core_seconds": 0.697,
+    "UI_builder_new_tests": 5,
+    "UI_builder_seconds": 13.319,
+    "actual_sources": "Recursively include real Config/Policy/journals/factories/Gameplay and receipt event registrar; no copied bridge or journal algorithm. Normal counterparts provide positive controller/admin/recovery/bootstrap witnesses.",
+    "cases": [
+      "Six actual bridges unavailable/false with0domainreads/writes",
+      "Captured actual receipt/unit callbacks no journal writes, real normal bootstrap reads/writes proves live fixture",
+      "Two plot oldmarkers + withdrawn global/playerstate cleaned once:4plot/2global/1player writes,0benefit/command",
+      "Actual receipt module removes only own callback, foreign callback retained",
+      "Actual controller/admin suppressed while unmodified counterparts submit real fixture requests",
+      "Executor Recover replaced before callback capture; normal executor emits1recovery while static0 withsameclosedcontroller/admin",
+      "85fileinventory/exactmanifest/assets/otherreadonlyUI bytes preserved,63Lua compile",
+      "Missing/duplicate exact anchor fails, unknownsource unchanged"
+    ]
+  },
+  "owner_fixture_correction": "First Core negative counterpart loaded GP child without its actual parent Config/Policy/Requisition, one of4owner tests errored. Supplied actual parents then4pass; this is owner fixture error, not model or Native failure.",
+  "scope": "Built and software checked only. Not installed, not loaded in Native, no actual B_delta pairs. Product mod67 unchanged and still mandatory AI. Prior normal/observed67 evidence not relabeled as static-control engine proof.",
+  "remaining": "Thin same-context native activation stopwatch before callbacks in both private variants; actual compatibility load/warmup; five alternating matched enabled/control pairs with exact per-pair timing, diplomacy/playerinput separately logged.",
+  "cumulative_through316": {
+    "logical": 316,
+    "complete": 295,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 346,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "unknown_costs": {
+    "exclusive_owner_seconds": null,
+    "cache_hit_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null
+  }
+}
