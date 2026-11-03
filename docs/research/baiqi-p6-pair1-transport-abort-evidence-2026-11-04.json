@@ -1,0 +1,116 @@
+{
+  "schema": "civ6.baiqi-pair1-read-transport-abort/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T23:13:24.163348+00:00",
+  "machine_id": "BF-202609141645",
+  "model_cases": [],
+  "scope": "First enabled matched-run attempt incomplete and invalid; retained all original failure/partial receipts. No fullpair or B_delta PASS. Native code67/prefix unchanged; first retry officially reloads exact original85, no prior action replay.",
+  "native_first_enabled": {
+    "pid": 16644,
+    "archive_sha256": "1d6e0e17435d8a353cb5944ba30f820e6c565aa3ed682616edf3719dde59ca6e",
+    "clock_prefix_sha256": "f0090d6adb97164f457506ef6d96601e6e0b6f0a073eb53e5db7a75ab583eb1b",
+    "driver_commit": "2faeb63f86ffb5f3717d5d9cef96d6b80cc66e50",
+    "online_switches": 0,
+    "ends_submitted_and_acknowledged": [
+      85,
+      86,
+      87
+    ],
+    "not_submitted": [
+      88,
+      89,
+      90
+    ],
+    "QA_diplomacy_close": "One externalTEST_PLAYER official OnClose (same CloseFocusedState(false) handler as Esc); ACK observed then subsequent readonly query confirmed hidden. NoBACKGROUND diplomacy and no request to human.",
+    "failure": "Response envelope assertion after a readonly BaiqiExecutor state poll, immediately after QA close. Prior first client did not retain rejected header, so size/tag/root cause UNKNOWN. No assumption zero-size control packet valid.",
+    "confirmed_after_abort": {
+      "turn": 88,
+      "phase": "ABORTED",
+      "clock_errors": 0,
+      "clock_refused": 0,
+      "clock_records": 3,
+      "pending": false,
+      "clock_retired": true,
+      "clock_subscribed": false,
+      "diplomacy_visible": false
+    },
+    "partial_records_not_valid_full_run": [
+      {
+        "from_turn": 85,
+        "to_turn": 86,
+        "started": 1793747061.872,
+        "ended": 1793747067.716,
+        "seconds": 5.8440001010894775
+      },
+      {
+        "from_turn": 86,
+        "to_turn": 87,
+        "started": 1793747078.401,
+        "ended": 1793747081.763,
+        "seconds": 3.361999988555908
+      },
+      {
+        "from_turn": 87,
+        "to_turn": 88,
+        "started": 1793747093.164,
+        "ended": 1793747097.559,
+        "seconds": 4.394999980926514
+      }
+    ]
+  },
+  "owner_private_client_change": "Sole owned-PID client keeps same1..16777215 response bound. Rejected envelopes now explicit TunerFrameError(OSError), with exact header size/tag logged before rejection. Only canonical readonly poll already catches OSError and reconnects. End/QA-close failures still abort without retry; no relaxing frame validation or speculative decoding.",
+  "software": {
+    "private_header_guard_no_IO_cases": [
+      {
+        "size": 1,
+        "tag": -1,
+        "valid": true
+      },
+      {
+        "size": 1,
+        "tag": 3,
+        "valid": true
+      },
+      {
+        "size": 16777215,
+        "tag": 4,
+        "valid": true
+      },
+      {
+        "size": 0,
+        "tag": 0,
+        "valid": false,
+        "exception": "TunerFrameError"
+      },
+      {
+        "size": 0,
+        "tag": 3,
+        "valid": false,
+        "exception": "TunerFrameError"
+      },
+      {
+        "size": 16777216,
+        "tag": -1,
+        "valid": false,
+        "exception": "TunerFrameError"
+      },
+      {
+        "size": -1,
+        "tag": 4,
+        "valid": false,
+        "exception": "TunerFrameError"
+      },
+      {
+        "size": true,
+        "tag": 3,
+        "valid": false,
+        "exception": "TunerFrameError"
+      }
+    ],
+    "new_actual_Lua_driver_test": 1,
+    "new_test_seconds": 0.033,
+    "scope": "Rejected readonly envelope after executed poll/QAclose reconnects; fiveends85..89 exactlyonce, oneQAclose, fiveactualfakeeventclock intervals. Existing8driverchecks remain prior separate pass; not claimed9simultaneous nor Native transport fixed."
+  },
+  "private_client_sha256": "182c3bee7990eeef15feaf0225ced5dba75d2515410639ff99a23047c3ed02dc",
+  "next": "Retry2 official sameoriginal85 reload ACK received; repeat completeenabled run with new ledger/nonce, retain invalidfirstattempt. Need actual new envelope evidence and controlcompatibility/fivepairs.319metadata-probe HTTP complete pendingreview not counted as adopted or Nativeeffect here."
+}

@@ -31,6 +31,12 @@ class PairedDriverTests(unittest.TestCase):
         self.assertTrue(h.lua.globals().P6PairClock.Snapshot(h.lua.globals().P6PairClock).retired)
         self.assertEqual(len(list(h.ledger.glob('end-*.json'))),1)
 
+    def test_readonly_poll_fault_after_close_reconnects_without_replaying_actions(self):
+        h=Harness(visit=True,poll_fault_after_close=True);result=execute(h)
+        self.assertEqual(result['requested_turns'],[85,86,87,88,89]);self.assertEqual(list(h.t.actions.values()),[85,86,87,88,89])
+        self.assertEqual(h.close_calls,1);self.assertEqual(len(result['records']),5)
+        self.assertIn('PAIR_READONLY_POLL OSError',h.messages)
+
     def test_unknown_qa_close_does_not_retry_or_issue_end88(self):
         h=Harness(visit=True,close_unknown=True)
         with self.assertRaises(OSError):execute(h)

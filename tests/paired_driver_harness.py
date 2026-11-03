@@ -7,9 +7,10 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 class Harness:
-    def __init__(self,*,visit=False,lose_end=None,close_unknown=False,never_activate=False):
+    def __init__(self,*,visit=False,lose_end=None,close_unknown=False,never_activate=False,poll_fault_after_close=False):
         self.lua=LuaRuntime(unpack_returned_tuples=True);self.lose_end=lose_end;self.close_unknown=close_unknown;self.never_activate=never_activate
         self.close_calls=0;self.messages=[];self.ledger=ROOT/'.local-model/paired-driver-tests'/uuid.uuid4().hex
+        self.poll_fault_after_close=poll_fault_after_close
         self.lua.execute('''
 T={time=1000,turn=85,actions={},logs={},callbacks={},diplomacy=false,clockCalls=0}
 Events={PlayerTurnActivated={Add=function(fn) T.callbacks[#T.callbacks+1]=fn end,Remove=function(fn) for i=#T.callbacks,1,-1 do if T.callbacks[i]==fn then table.remove(T.callbacks,i) end end end}}
@@ -27,6 +28,8 @@ print=function(...) local a={...};for i=1,select('#',...) do a[i]=tostring(a[i])
     def query(self,context,code):
         assert context=='BaiqiExecutor';self.t.logs=self.lua.table()
         self.lua.execute(code)
+        if self.poll_fault_after_close and self.close_calls and 'P6_PAIR_STATE' in code:
+            self.poll_fault_after_close=False;raise OSError('Unusable response envelope after readonly execution')
         if self.lose_end is not None and 'UI.RequestAction' in code and self.t.actions[len(self.t.actions)]==self.lose_end:
             self.lose_end=None;raise OSError('Native action executed but ACK unknown')
         return [{'tag':-1,'payload':'O\0BaiqiExecutor: '+line} for line in self.t.logs.values()]+[{'tag':3,'payload':''}]
