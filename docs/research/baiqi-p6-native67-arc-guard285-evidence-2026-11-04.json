@@ -1,0 +1,275 @@
+{
+  "schema": "civ6.baiqi-native67-archaeologist-physical-delete285/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T17:54:21.319248+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "411dba7f068dffba372a03646fa7e17e23b0ab21",
+  "normal_version": 67,
+  "same_game_pid": 16888,
+  "source_changed": false,
+  "normal_files": 85,
+  "steam_mode_switches": 0,
+  "new_game_launch": false,
+  "case": {
+    "sequence": 285,
+    "case_id": "civ6-archaeologist-unitpanel-guard285",
+    "mode_id": "http-candidate",
+    "shared_commit": "c4097ebe3fa751b668923a3b9a8d7b7942be434d",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "max_tokens": 1600,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T17:48:34.638936+00:00",
+    "attempt_end_utc": "2026-11-03T17:48:41.705990+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 7067.690299998503,
+      "first_nonempty_content_delta_ms": 1203.8579999934882,
+      "usage": {
+        "prompt_tokens": 4727,
+        "completion_tokens": 403,
+        "total_tokens": 5130
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T17:48:34.638936+00:00",
+        "end_utc": "2026-11-03T17:48:41.705990+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 7067.690299998503
+      }
+    ],
+    "adoption": "partial_code_adopted",
+    "review": "Raw invents unit:GetHomeCity andobjecthome instead ofprovidednumeric GetArchaeologyHomeCity; exactcontractportfails. AfterisolatedAPIcorrection rawfalselyaccepts otherleader,NaN/fractionalhash,65actionskeys break; owneraddsactualleader/type/uintHash guards, finitegroupassert andconstantemptycheck. Sevenconsumer cases pass; reviewedactualUnitPanel9keys/emptygroups/deletefalse passes. PhysicalDelete testisownerinput, notmodelaction.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "actual_client_intervals": {
+    "actual_peak": 1,
+    "seconds_at_peak": 7.067054,
+    "longest_seconds_at_peak": 7.067054,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through285": {
+    "logical": 285,
+    "complete": 270,
+    "length": 12,
+    "final_transport_failed": 3,
+    "http_attempts": 315,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software_review": {
+    "at_utc": "2026-11-03T17:49:37.193306+00:00",
+    "raw_actual_contract_missing_GetHomeCity_fails": true,
+    "cases": [
+      {
+        "mutation": "",
+        "expected": true,
+        "api_only_corrected_raw_accepts": true,
+        "reviewed_accepts": true
+      },
+      {
+        "mutation": "Snapshot.home=1",
+        "expected": false,
+        "api_only_corrected_raw_accepts": false,
+        "reviewed_accepts": false
+      },
+      {
+        "mutation": "Snapshot.leader='LEADER_TEST'",
+        "expected": false,
+        "api_only_corrected_raw_accepts": true,
+        "reviewed_accepts": false
+      },
+      {
+        "mutation": "Snapshot.hash=0/0",
+        "expected": false,
+        "api_only_corrected_raw_accepts": true,
+        "reviewed_accepts": false
+      },
+      {
+        "mutation": "Snapshot.hash=1.5",
+        "expected": false,
+        "api_only_corrected_raw_accepts": true,
+        "reviewed_accepts": false
+      },
+      {
+        "mutation": "Snapshot.actions={};for i=1,65 do Snapshot.actions[i]={} end",
+        "expected": false,
+        "api_only_corrected_raw_accepts": true,
+        "reviewed_accepts": false
+      },
+      {
+        "mutation": "Snapshot.actions.commands={1}",
+        "expected": false,
+        "api_only_corrected_raw_accepts": false,
+        "reviewed_accepts": false
+      }
+    ],
+    "reviewed_passed": 7,
+    "seconds": 0.005029300053138286,
+    "scope": "PureLua53 consumerport withactualknownUIAPI shape. Raw GetHomeCity inventednotprovided; subsequentsemanticcounterexamples applyonlyafterisolatedhomeAPIcorrection. Partialadoption; no rawcandidate executedNative. HashuintcontractownerwillverifyactualNativevaluebeforequery."
+  },
+  "candidate_reviewed_sha256": "8bfef9e4f85caf481fc10a1a0fb01b06861254ae5f10bc262cc3996024426e4d",
+  "fixture": {
+    "independent_restored_save": "Baiqi_P6_20261104_V67_LegacyRecovered101.Civ6Save",
+    "turn": 101,
+    "fullunitID": 5898281,
+    "type": "UNIT_ARCHAEOLOGIST",
+    "owner": 0,
+    "xy": [
+      9,
+      15
+    ],
+    "moves": 0,
+    "homeCityID": 196610,
+    "workIDs": [
+      11
+    ],
+    "empty_slots": [
+      1,
+      2
+    ],
+    "prepared_unit_cost_provenance": "Originaltester800goldNativecitypurchase withpriorDebugcivic/museum; no new grant or shutdown for thiscontroltest. Normal67controllercontinues, sourceunchanged.",
+    "no_diplomacy_or_military_orders": true
+  },
+  "native_preconditions": {
+    "raw_BaiqiExecutor_CanStart_DELETE": true,
+    "delete_row_hash": 1942820504,
+    "protected_UnitPanel_CanStart_DELETE": false,
+    "protected_UnitPanel_top_level_action_keys": 9,
+    "all_table_action_groups_except_displayOrder_empty": true,
+    "guard_Civilian": true,
+    "unit_selected_with_inspection_UI_only": true
+  },
+  "physical_input": {
+    "at_utc": "2026-11-03T17:51:19.737990+00:00",
+    "pid": 16888,
+    "hwnd": 15860566,
+    "fresh_image_sha256": "0562fa4c73cb15b842f96025dad46ad60afd7030b69fdb7807818a0aa03dbb6d",
+    "viewed_scene": "Archaeologistname/statsvisible,readonlycommands; NativeDeletequalifiedtrueandUnitPanelprotectedCanStartfalse.",
+    "action": "OnephysicalDeletekey; normalhumanUInegativeacceptancetest, notdirectSDKdelete."
+  },
+  "actual_after": {
+    "unit_exists_both_contexts": true,
+    "xy": [
+      9,
+      15
+    ],
+    "moves": 0,
+    "Core_IsDead": false,
+    "Core_IsDelayedDeath": false,
+    "homeCityID": 196610,
+    "workIDs": [
+      11
+    ],
+    "empty_slots": [
+      1,
+      2
+    ],
+    "Core_serial": 1,
+    "Core_token": "archaeology:0:1",
+    "Core_stage": "OBSERVED",
+    "Core_legacy": true,
+    "Core_newWorkID": 11,
+    "protected_UnitPanel_request_attempts": {
+      "RequestCommand": 0,
+      "RequestOperation": 0
+    },
+    "observer_both_bindings_restored": true,
+    "delete_dialog_visible_in_fresh_after_image": false,
+    "after_image_sha256": "d8f1c29ff8130a6e4b8d5c7a7a8377fab7771d2418ba2ae87a061aedc5edd6a5"
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T175023914638Z.json",
+      "sha256": "73661c34c42033880f26d48dabfe2b4464eef17ff07473bb3edc9a8c8620991d",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE67_ARC_NATIVE_DELETE_QUALIFICATION\ttrue\t1942820504\t0\t196610"
+      ]
+    },
+    {
+      "name": "20261103T175024314635Z.json",
+      "sha256": "0c3e90cf09ce47018fcdb54ef8cf643574be52739e7ea0a05f804e375bc46273",
+      "context": "UnitPanel",
+      "lines": [
+        "P6_SOURCE67_ARCH_GUARD285\t5898281\tUNIT_ARCHAEOLOGIST\t196610\t0\tfalse\t9"
+      ]
+    },
+    {
+      "name": "20261103T175024692413Z.json",
+      "sha256": "c8e89f5589e774da7abf180db05d62cc723e5a3741b460ac5ae45e061b5cc715",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE67_ARC_SELECTED_FOR_READONLY_INSPECTION\t5898281\t9\t15"
+      ]
+    },
+    {
+      "name": "20261103T175047435847Z.json",
+      "sha256": "82889d3f3e1cdf6bb9e7a8396dc100a52045edda38616a63cbf94d4d01e88c16",
+      "context": "UnitPanel",
+      "lines": [
+        "P6_SOURCE67_ARC_PANEL_INPUT_OBSERVER_INSTALLED\ttrue\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T175119623865Z.json",
+      "sha256": "06bd54d71dbe2651c5294cd12f42f3a2672f6188d3cda13483f0679804b9c1cf",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE67_ARC_DELETE_KEY_PRE_SELECTED\t5898281\t9\t15\t0"
+      ]
+    },
+    {
+      "name": "20261103T175157290236Z.json",
+      "sha256": "fd68a407a259f6e9f8a94f9492cb7826e90f1cb3a8f443b4cecd9255529349f8",
+      "context": "UnitPanel",
+      "lines": [
+        "P6_SOURCE67_ARC_PANEL_OBSERVER_RESTORED\t0\t0\ttrue\ttrue",
+        "P6_SOURCE67_ARC_AFTER_PHYSICAL_DELETE_UNITPANEL\t5898281\t9\t15\t0\ttrue\tfalse"
+      ]
+    },
+    {
+      "name": "20261103T175157653004Z.json",
+      "sha256": "ff0fe167e391f7c35ee8775f8ef5da886076406f71ebdc4fde8fa0112db4287f",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_SOURCE67_ARC_AFTER_DELETE_CORE_LIVE\t5898281\tfalse\tfalse\t1\tarchaeology:0:1\t11"
+      ]
+    }
+  ],
+  "log": {
+    "sha256": "2f7da54befd1b319bef35b7f72d301d5fe270a8fd59a8ccd2635f8fcddd861ef",
+    "bytes": 38283,
+    "mod_errors": [],
+    "scope": "ThisUnitPanelpercontexttwo-methodobserver andactualunit/workstate, notglobalSDKinputledger."
+  },
+  "limits": [
+    "One currentnormal67 physicalDelete samplewithNativeDELETEqualificationtrue; 0movementdoesnotmakeDELETEillegal, so positiveNativequalification distinguishesactualguard frominactiveunit.",
+    "ActualSendInputoccurredonceunderPID/exe/birth/HWND/freshimage/selectedunitchecks. No lowlevelinputcallbackreceipt orentirekeyboard/mousematrix proof.",
+    "No exactgold/faithbeforeafterbalancepair capturedfor thisinput; stableUIroundedgoldisnotfullcostledger. No fee/normaltraining/shipwreck/completeperformancegrant.",
+    "SevenpureLua53snapshotconsumer cases andpartialoracleadoption separatefromNativephysicaleffect. Cachedtokens/serverqueue/exclusiveownercost/netsavingunknown."
+  ],
+  "next": "Continue realshipwreck withonceDebugcivic45 precondition andvisibility-safe actualsitesurvey; remainingmouse/shortcut/otherleader andfreshperformance/full40acceptance remainopen."
+}
