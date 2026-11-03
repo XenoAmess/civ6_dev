@@ -1,0 +1,81 @@
+{
+  "source_case": "CIV6-naturepurchasecases253",
+  "adoption": "11 unchanged data cases; one unknown-key case rejected",
+  "cases": [
+    {
+      "name": "baseline_exact_reserve_affordability",
+      "changes": {},
+      "expect": true
+    },
+    {
+      "name": "below_reserve_insufficient",
+      "changes": {
+        "reserve": 101
+      },
+      "expect": false
+    },
+    {
+      "name": "above_reserve_sufficient",
+      "changes": {
+        "reserve": 99
+      },
+      "expect": true
+    },
+    {
+      "name": "valid_negative_unit_hash",
+      "changes": {
+        "unitHash": -1000
+      },
+      "expect": true
+    },
+    {
+      "name": "valid_negative_formation_param",
+      "changes": {
+        "formationParam": -1
+      },
+      "expect": true
+    },
+    {
+      "name": "aliased_unit_yield_params",
+      "changes": {
+        "unitParam": 730511874
+      },
+      "expect": false
+    },
+    {
+      "name": "aliased_yield_formation_params",
+      "changes": {
+        "yieldParam": 2126768863
+      },
+      "expect": false
+    },
+    {
+      "name": "invalid_unit_hash_range",
+      "changes": {
+        "unitHash": 4294967296
+      },
+      "expect": false
+    },
+    {
+      "name": "late_faith_drop_insufficient",
+      "changes": {
+        "lateFaith": 399
+      },
+      "expect": false
+    },
+    {
+      "name": "late_cost_increase_insufficient",
+      "changes": {
+        "lateCost": 301
+      },
+      "expect": false
+    },
+    {
+      "name": "late_owner_mismatch",
+      "changes": {
+        "lateOwner": 1
+      },
+      "expect": false
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "schema": "civ6.baiqi-naturalist-purchase-quote252253/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "5933e77ae96ff7775471b8495b915107a7fca306",
+  "installed_running_version": 62,
+  "new_module_registered": false,
+  "cases": [
+    {
+      "sequence": 252,
+      "case_id": "CIV6-naturepurchase252",
+      "mode_id": "http-candidate",
+      "shared_commit": "74fd905b6a37b775ae6e037fc1650cdb041849ea",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 4200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T09:52:56.188797+00:00",
+      "attempt_end_utc": "2026-11-03T09:53:26.061107+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 29871.012299961876,
+        "first_nonempty_content_delta_ms": 8818.324499996379,
+        "usage": {
+          "prompt_tokens": 6879,
+          "completion_tokens": 1623,
+          "total_tokens": 8502
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T09:52:56.188797+00:00",
+          "end_utc": "2026-11-03T09:53:26.061107+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 29871.012299961876
+        }
+      ],
+      "adoption": "rejected",
+      "review": "Raw quote misses initial fresh-city resolution, metadata re-read after native qualification and outer fail-closed guard for metamethod/static lookups. Private projection 8 methods: 8 failing assertions/subcases and3 errors; owner rewrote module, zero generated code adopted.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 253,
+      "case_id": "CIV6-naturepurchasecases253",
+      "mode_id": "http-candidate",
+      "shared_commit": "74fd905b6a37b775ae6e037fc1650cdb041849ea",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 2200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T09:52:56.189644+00:00",
+      "attempt_end_utc": "2026-11-03T09:53:19.306279+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 23111.245699983556,
+        "first_nonempty_content_delta_ms": 13975.692500011064,
+        "usage": {
+          "prompt_tokens": 6879,
+          "completion_tokens": 633,
+          "total_tokens": 7512
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T09:52:56.189644+00:00",
+          "end_utc": "2026-11-03T09:53:19.306279+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 23111.245699983556
+        }
+      ],
+      "adoption": "partial_data_adopted",
+      "review": "11 unchanged finite JSON case objects adopted; one cityID mutation outside explicitly allowed schema rejected. Owner tests separately cover ID bounds, late metadata, throwing providers, fresh caller resolution and exact scalar output. Data adoption is not generated executable test code.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 23.116635,
+    "longest_seconds_at_peak": 23.116635,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_civ6_through253": {
+    "logical": 253,
+    "complete": 239,
+    "length": 11,
+    "final_transport_failed": 3,
+    "http_attempts": 283,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software": {
+    "owner_methods": 8,
+    "passed": true,
+    "seconds": 0.068,
+    "model_data_cases_adopted": 11,
+    "raw252": {
+      "methods": 8,
+      "failures": 8,
+      "errors": 3,
+      "passed": false,
+      "seconds": 0.3481071999995038,
+      "private_candidate_projection": true,
+      "public_source_unchanged": true
+    },
+    "last_full675_separate": true
+  },
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiNaturalistPurchase.lua": "c066f33c53821c47d8151bb31dc1bebd0beb139e9df3c49f551c57d87977573e",
+    "tests/test_baiqi_naturalist_purchase.py": "72af84bae0376f03159754098cd7da4e084a2780eb870bb2e4af958e36b653e8",
+    "tests/fixtures/naturalist_purchase_cases.json": "9ae53156a75a14438d30c0d489fd0354a6ceddeed552108c22fb17ee13b54088"
+  },
+  "native_readonly": [
+    {
+      "name": "20261103T100358888238Z.json",
+      "sha256": "1c970bd0034e239bfd62ad9f1803f15d481b3ae8ab70ff05c18caa6d079d81d6",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_PURCHASE252_NATIVE_QUOTE_UNAVAILABLE\t65536",
+        "P6_PURCHASE252_NATIVE_QUOTE_UNAVAILABLE\t131073",
+        "P6_PURCHASE252_NATIVE_QUOTE\t196610\t10\t13\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_QUOTE\t262147\t13\t16\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_QUOTE_UNAVAILABLE\t327684",
+        "P6_PURCHASE252_NATIVE_QUOTE\t393221\t15\t5\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_QUOTE\t458758\t19\t6\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_QUOTE\t524295\t14\t9\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_QUOTE\t589832\t8\t3\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_QUOTE\t655369\t11\t1\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_QUOTE\t720906\t16\t18\t1877270220\t5\t0\t300\t315.92578125",
+        "P6_PURCHASE252_NATIVE_READONLY\t11\t8\tnamespace_restored_no_purchase_request"
+      ]
+    },
+    {
+      "name": "20261103T100555566678Z.json",
+      "sha256": "50523ef713bd8eb9daafcf34484ac99f9b859ebb50bd80d0a654f15d1a134c7f",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_PURCHASE254_CORE_FAITH_MEMBER\tfunction",
+        "P6_PURCHASE254_CORE_FAITH_BALANCE\t315.92578125",
+        "P6_PURCHASE254_CORE_CITY_GOLD_MEMBER\t65536\tnil"
+      ]
+    }
+  ],
+  "native_scope": {
+    "ui_cities": 11,
+    "ui_positive_quotes": 8,
+    "cost": 300,
+    "faith_balance": 315.92578125,
+    "reserve_positive_sample": 0,
+    "huge_reserve_quotes": 0,
+    "namespace_restored": true,
+    "purchase_or_property_or_gameplay_request": false,
+    "core_faith_reader_available": true,
+    "core_city_getgold_available": false,
+    "meaning": "UI actual quote/cost and qualification only; Core independently reads balance but lacks the UI city cost component. Do not invent Core GetGold or claim independent Core quote validation."
+  },
+  "owner_corrections": "Fixture data directory initially absent; created after zero-write open failure. FoundID rejection fixture originally changed both caller and lookup ID, so owner separated original caller identity from fresh lookup; first patch hit wrong test block, corrected. Production owner module unchanged by those fixture repairs.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Preparation/review/correction intervals interleaved native62 park persistence and publication; no exclusive active cost or cache estimate.",
+  "additive_native62_business_evidence": "https://github.com/XenoAmess/civ6_dev/blob/5933e77ae96ff7775471b8495b915107a7fca306/docs/research/baiqi-p6-naturalist-native62-park-evidence-2026-11-03.json",
+  "limits": [
+    "Quote is read-only proposal, not purchase permission, actual charge or new Naturalist. Module unregistered, normal62 unchanged.",
+    "Automatic faith purchase demand/budget/persistent Core permission/once-only UI command/effect cost readback not integrated.",
+    "Source62 isolated park sample already actual-pass; ordinary cost purchase and archaeology/full acceptance remain unfinished."
+  ],
+  "next": "Implement persistent purchase intent and UI final fresh quote/one command with actual Core balance and explicit UI-only cost boundary; Native normal faith debit/new full-ID unit proof, then archaeology and remaining acceptance."
+}
