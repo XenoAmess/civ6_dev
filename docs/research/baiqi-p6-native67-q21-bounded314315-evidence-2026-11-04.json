@@ -1,0 +1,829 @@
+{
+  "schema": "civ6.baiqi-native67-q21-bounded314315/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T22:23:21.114894+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 314,
+      "case_id": "civ6-control314",
+      "mode_id": "http-candidate",
+      "shared_commit": "12d2c3f005986c378082974281f7d28fa986680b",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2700,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T22:06:40.078545+00:00",
+      "attempt_end_utc": "2026-11-03T22:07:09.866573+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 29787.125599978026,
+        "first_nonempty_content_delta_ms": 9317.58799997624,
+        "usage": {
+          "prompt_tokens": 47592,
+          "completion_tokens": 2700,
+          "total_tokens": 50292
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T22:06:40.078545+00:00",
+          "end_utc": "2026-11-03T22:07:09.866573+00:00",
+          "failure": "finish_reason_length",
+          "finish_reason": "length",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 29787.125599978026
+        }
+      ],
+      "adoption": "rejected-truncated",
+      "review": "2700token length; whole candidate discarded unread, not spliced, no semantic rating or code adoption. Owner continues static private-control design.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 315,
+      "case_id": "civ6-control315",
+      "mode_id": "http-candidate",
+      "shared_commit": "12d2c3f005986c378082974281f7d28fa986680b",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2700,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T22:06:40.083998+00:00",
+      "attempt_end_utc": "2026-11-03T22:07:10.886900+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 30798.55890001636,
+        "first_nonempty_content_delta_ms": 3762.5113999820314,
+        "usage": {
+          "prompt_tokens": 18325,
+          "completion_tokens": 2700,
+          "total_tokens": 21025
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T22:06:40.083998+00:00",
+          "end_utc": "2026-11-03T22:07:10.886900+00:00",
+          "failure": "finish_reason_length",
+          "finish_reason": "length",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 30798.55890001636
+        }
+      ],
+      "adoption": "rejected-truncated",
+      "review": "2700token length; whole candidate discarded unread, not spliced, no semantic rating or code adoption. Owner continues static private-control design.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "model_concurrency": {
+    "actual_peak": 2,
+    "seconds_at_peak": 29.782575,
+    "longest_seconds_at_peak": 29.782575,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "actual_capture": {
+    "package": "baiqi67-q21-bounded",
+    "archive_sha256": "97cc5f89fbb35732dd6228cca0dac986a28c64ac67bf0e26180790eeab0215df",
+    "source_commit": "cf7e76a3465b275ecafc31e6165ce5bd65ba5807",
+    "pid": 8228,
+    "process_birth": 1793743932.9039524,
+    "Steam_pid": 13620,
+    "online_switches": 0,
+    "offline_proof_utc": "2026-11-03T22:11:58.563434+00:00",
+    "proof_age_at_launch_seconds": 14.337532,
+    "offline_confirmation_input_focus_screenshot": false,
+    "warmup_seconds": 70.852999925613,
+    "original85_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "formal_reload": true,
+    "status": {
+      "contexts": 32,
+      "samples": 1804,
+      "anchors": 768,
+      "write_rows": 31,
+      "export_errors": 0
+    },
+    "capture_ui_bounds": [
+      1793744304.491,
+      1793744447.747
+    ],
+    "capture_wall_seconds_includes_AI_operator": 143.25600004196167,
+    "driver_result": {
+      "at_utc": "2026-11-03T22:20:47.766298+00:00",
+      "phase": "COMPLETE",
+      "turn": 91,
+      "requested_turns": [
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "samples": 34435,
+      "cities": 11,
+      "token": "dee7894b6d714e9a8a443ff6765a01e1"
+    },
+    "all32_recording_continuous_until91": true
+  },
+  "storage_accounting": {
+    "global_retained_capacity": 4096,
+    "contexts": 32,
+    "context_quotas": {
+      "UI/BaiqiWorldInput.lua": 16,
+      "UI/BaiqiDiplomacyActionView.lua": 16,
+      "UI/BaiqiLeaderScene.lua": 16,
+      "UI/BaiqiUnitPanel.lua": 64,
+      "UI/BaiqiProductionPanel.lua": 16,
+      "UI/BaiqiCityPanel.lua": 64,
+      "UI/BaiqiCityPanelOverview.lua": 16,
+      "UI/BaiqiPlotInfo.lua": 16,
+      "UI/BaiqiTechTree.lua": 192,
+      "UI/BaiqiCivicsTree.lua": 16,
+      "UI/BaiqiGovernmentScreen.lua": 384,
+      "UI/BaiqiGovernorPanel.lua": 16,
+      "UI/BaiqiGovernorDetailsPanel.lua": 16,
+      "UI/BaiqiGovernorAssignmentChooser.lua": 16,
+      "UI/BaiqiTradeRouteChooser.lua": 16,
+      "UI/BaiqiGreatPeoplePopup.lua": 16,
+      "UI/BaiqiCityStates.lua": 16,
+      "UI/BaiqiResearchChooser.lua": 64,
+      "UI/BaiqiCivicsChooser.lua": 16,
+      "UI/BaiqiUnitFlagManager.lua": 768,
+      "UI/BaiqiReligionScreen.lua": 16,
+      "UI/BaiqiPantheonChooser.lua": 16,
+      "UI/BaiqiDedicationPopup.lua": 16,
+      "UI/BaiqiNaturalDisasterPopup.lua": 16,
+      "UI/BaiqiTechCivicCompletedPopup.lua": 16,
+      "UI/BaiqiNotificationPanel.lua": 16,
+      "UI/BaiqiNaturalWonderPopup.lua": 16,
+      "UI/BaiqiHistoricMoments.lua": 16,
+      "UI/BaiqiGreatWorkShowcase.lua": 16,
+      "UI/BaiqiChooseArtifact.lua": 16,
+      "UI/BaiqiExecutor.lua": 2048,
+      "Lua/BaiqiGameplay.lua": 128
+    },
+    "retained_intervals": 1804,
+    "measured_zero_normal_calls_aggregated": 33038,
+    "total_calls_final": 34842,
+    "exact_identity": true,
+    "drops_invalid_clock_errors": 0,
+    "scope": "All positive and failed intervals retained; only measured-zero successful calls aggregate. Strict explicit ZERO metadata and global/per-context quota validation passed. q20 remains historically nonconforming, no retrospective relabel."
+  },
+  "analysis": {
+    "windows": [
+      {
+        "turn": 86,
+        "start_ui": 1793744313.124,
+        "end_ui": 1793744323.124,
+        "observed_union_ms": 258.00156593322754,
+        "clipped_inclusive_sum_ms_not_cpu": 263.0016803741455,
+        "sample_rows_intersecting": 140
+      },
+      {
+        "turn": 87,
+        "start_ui": 1793744327.888,
+        "end_ui": 1793744337.888,
+        "observed_union_ms": 379.000186920166,
+        "clipped_inclusive_sum_ms_not_cpu": 381.9999694824219,
+        "sample_rows_intersecting": 190
+      },
+      {
+        "turn": 88,
+        "start_ui": 1793744383.024,
+        "end_ui": 1793744393.024,
+        "observed_union_ms": 567.9981708526611,
+        "clipped_inclusive_sum_ms_not_cpu": 578.9980888366699,
+        "sample_rows_intersecting": 211
+      },
+      {
+        "turn": 89,
+        "start_ui": 1793744405.249,
+        "end_ui": 1793744415.249,
+        "observed_union_ms": 266.9987678527832,
+        "clipped_inclusive_sum_ms_not_cpu": 268.9988613128662,
+        "sample_rows_intersecting": 138
+      },
+      {
+        "turn": 90,
+        "start_ui": 1793744425.709,
+        "end_ui": 1793744435.709,
+        "observed_union_ms": 661.9994640350342,
+        "clipped_inclusive_sum_ms_not_cpu": 661.9994640350342,
+        "sample_rows_intersecting": 194
+      }
+    ],
+    "complete_turn_writes": [
+      {
+        "turn": 86,
+        "calls": 11,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 11
+        }
+      },
+      {
+        "turn": 87,
+        "calls": 10,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 10
+        }
+      },
+      {
+        "turn": 88,
+        "calls": 21,
+        "by_context": {
+          "Lua/BaiqiGameplay.lua": 2,
+          "UI/BaiqiExecutor.lua": 19
+        }
+      },
+      {
+        "turn": 89,
+        "calls": 12,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 12
+        }
+      },
+      {
+        "turn": 90,
+        "calls": 24,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 24
+        }
+      }
+    ],
+    "partial_turn_writes": [
+      {
+        "turn": 91,
+        "calls": 7,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 7
+        }
+      }
+    ],
+    "clock_bounds": {
+      "UI/BaiqiTechCivicCompletedPopup.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiChooseArtifact.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiGovernmentScreen.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiNaturalDisasterPopup.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiNotificationPanel.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiDiplomacyActionView.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiResearchChooser.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiGreatWorkShowcase.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiLeaderScene.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiExecutor.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiUnitPanel.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiGovernorDetailsPanel.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiCivicsTree.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiUnitFlagManager.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiWorldInput.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "Lua/BaiqiGameplay.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiNaturalWonderPopup.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiDedicationPopup.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiPantheonChooser.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiCityPanel.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiTechTree.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiReligionScreen.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiPlotInfo.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiProductionPanel.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiCivicsChooser.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiTradeRouteChooser.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiGovernorPanel.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiHistoricMoments.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiCityPanelOverview.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiGreatPeoplePopup.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiCityStates.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      },
+      "UI/BaiqiGovernorAssignmentChooser.lua": {
+        "samples": 6,
+        "lower_seconds": 0.0,
+        "upper_seconds": 0.0,
+        "consistent": true
+      }
+    },
+    "local_anchor_counts": {
+      "86": {
+        "UI/BaiqiTechCivicCompletedPopup.lua": 1,
+        "UI/BaiqiChooseArtifact.lua": 1,
+        "UI/BaiqiGovernmentScreen.lua": 1,
+        "UI/BaiqiNaturalDisasterPopup.lua": 1,
+        "UI/BaiqiNotificationPanel.lua": 1,
+        "UI/BaiqiDiplomacyActionView.lua": 1,
+        "UI/BaiqiResearchChooser.lua": 1,
+        "UI/BaiqiGreatWorkShowcase.lua": 1,
+        "UI/BaiqiLeaderScene.lua": 1,
+        "UI/BaiqiExecutor.lua": 1,
+        "UI/BaiqiUnitPanel.lua": 1,
+        "UI/BaiqiGovernorDetailsPanel.lua": 1,
+        "UI/BaiqiCivicsTree.lua": 1,
+        "UI/BaiqiUnitFlagManager.lua": 1,
+        "UI/BaiqiWorldInput.lua": 1,
+        "Lua/BaiqiGameplay.lua": 1,
+        "UI/BaiqiNaturalWonderPopup.lua": 1,
+        "UI/BaiqiDedicationPopup.lua": 1,
+        "UI/BaiqiPantheonChooser.lua": 1,
+        "UI/BaiqiCityPanel.lua": 1,
+        "UI/BaiqiTechTree.lua": 1,
+        "UI/BaiqiReligionScreen.lua": 1,
+        "UI/BaiqiPlotInfo.lua": 1,
+        "UI/BaiqiProductionPanel.lua": 1,
+        "UI/BaiqiCivicsChooser.lua": 1,
+        "UI/BaiqiTradeRouteChooser.lua": 1,
+        "UI/BaiqiGovernorPanel.lua": 1,
+        "UI/BaiqiHistoricMoments.lua": 1,
+        "UI/BaiqiCityPanelOverview.lua": 1,
+        "UI/BaiqiGreatPeoplePopup.lua": 1,
+        "UI/BaiqiCityStates.lua": 1,
+        "UI/BaiqiGovernorAssignmentChooser.lua": 1
+      },
+      "87": {
+        "UI/BaiqiTechCivicCompletedPopup.lua": 1,
+        "UI/BaiqiChooseArtifact.lua": 1,
+        "UI/BaiqiGovernmentScreen.lua": 1,
+        "UI/BaiqiNaturalDisasterPopup.lua": 1,
+        "UI/BaiqiNotificationPanel.lua": 1,
+        "UI/BaiqiDiplomacyActionView.lua": 1,
+        "UI/BaiqiResearchChooser.lua": 1,
+        "UI/BaiqiGreatWorkShowcase.lua": 1,
+        "UI/BaiqiLeaderScene.lua": 1,
+        "UI/BaiqiExecutor.lua": 1,
+        "UI/BaiqiUnitPanel.lua": 1,
+        "UI/BaiqiGovernorDetailsPanel.lua": 1,
+        "UI/BaiqiCivicsTree.lua": 1,
+        "UI/BaiqiUnitFlagManager.lua": 1,
+        "UI/BaiqiWorldInput.lua": 1,
+        "Lua/BaiqiGameplay.lua": 1,
+        "UI/BaiqiNaturalWonderPopup.lua": 1,
+        "UI/BaiqiDedicationPopup.lua": 1,
+        "UI/BaiqiPantheonChooser.lua": 1,
+        "UI/BaiqiCityPanel.lua": 1,
+        "UI/BaiqiTechTree.lua": 1,
+        "UI/BaiqiReligionScreen.lua": 1,
+        "UI/BaiqiPlotInfo.lua": 1,
+        "UI/BaiqiProductionPanel.lua": 1,
+        "UI/BaiqiCivicsChooser.lua": 1,
+        "UI/BaiqiTradeRouteChooser.lua": 1,
+        "UI/BaiqiGovernorPanel.lua": 1,
+        "UI/BaiqiHistoricMoments.lua": 1,
+        "UI/BaiqiCityPanelOverview.lua": 1,
+        "UI/BaiqiGreatPeoplePopup.lua": 1,
+        "UI/BaiqiCityStates.lua": 1,
+        "UI/BaiqiGovernorAssignmentChooser.lua": 1
+      },
+      "88": {
+        "UI/BaiqiTechCivicCompletedPopup.lua": 1,
+        "UI/BaiqiChooseArtifact.lua": 1,
+        "UI/BaiqiGovernmentScreen.lua": 1,
+        "UI/BaiqiNaturalDisasterPopup.lua": 1,
+        "UI/BaiqiNotificationPanel.lua": 1,
+        "UI/BaiqiDiplomacyActionView.lua": 1,
+        "UI/BaiqiResearchChooser.lua": 1,
+        "UI/BaiqiGreatWorkShowcase.lua": 1,
+        "UI/BaiqiLeaderScene.lua": 1,
+        "UI/BaiqiExecutor.lua": 1,
+        "UI/BaiqiUnitPanel.lua": 1,
+        "UI/BaiqiGovernorDetailsPanel.lua": 1,
+        "UI/BaiqiCivicsTree.lua": 1,
+        "UI/BaiqiUnitFlagManager.lua": 1,
+        "UI/BaiqiWorldInput.lua": 1,
+        "Lua/BaiqiGameplay.lua": 1,
+        "UI/BaiqiNaturalWonderPopup.lua": 1,
+        "UI/BaiqiDedicationPopup.lua": 1,
+        "UI/BaiqiPantheonChooser.lua": 1,
+        "UI/BaiqiCityPanel.lua": 1,
+        "UI/BaiqiTechTree.lua": 1,
+        "UI/BaiqiReligionScreen.lua": 1,
+        "UI/BaiqiPlotInfo.lua": 1,
+        "UI/BaiqiProductionPanel.lua": 1,
+        "UI/BaiqiCivicsChooser.lua": 1,
+        "UI/BaiqiTradeRouteChooser.lua": 1,
+        "UI/BaiqiGovernorPanel.lua": 1,
+        "UI/BaiqiHistoricMoments.lua": 1,
+        "UI/BaiqiCityPanelOverview.lua": 1,
+        "UI/BaiqiGreatPeoplePopup.lua": 1,
+        "UI/BaiqiCityStates.lua": 1,
+        "UI/BaiqiGovernorAssignmentChooser.lua": 1
+      },
+      "89": {
+        "UI/BaiqiTechCivicCompletedPopup.lua": 1,
+        "UI/BaiqiChooseArtifact.lua": 1,
+        "UI/BaiqiGovernmentScreen.lua": 1,
+        "UI/BaiqiNaturalDisasterPopup.lua": 1,
+        "UI/BaiqiNotificationPanel.lua": 1,
+        "UI/BaiqiDiplomacyActionView.lua": 1,
+        "UI/BaiqiResearchChooser.lua": 1,
+        "UI/BaiqiGreatWorkShowcase.lua": 1,
+        "UI/BaiqiLeaderScene.lua": 1,
+        "UI/BaiqiExecutor.lua": 1,
+        "UI/BaiqiUnitPanel.lua": 1,
+        "UI/BaiqiGovernorDetailsPanel.lua": 1,
+        "UI/BaiqiCivicsTree.lua": 1,
+        "UI/BaiqiUnitFlagManager.lua": 1,
+        "UI/BaiqiWorldInput.lua": 1,
+        "Lua/BaiqiGameplay.lua": 1,
+        "UI/BaiqiNaturalWonderPopup.lua": 1,
+        "UI/BaiqiDedicationPopup.lua": 1,
+        "UI/BaiqiPantheonChooser.lua": 1,
+        "UI/BaiqiCityPanel.lua": 1,
+        "UI/BaiqiTechTree.lua": 1,
+        "UI/BaiqiReligionScreen.lua": 1,
+        "UI/BaiqiPlotInfo.lua": 1,
+        "UI/BaiqiProductionPanel.lua": 1,
+        "UI/BaiqiCivicsChooser.lua": 1,
+        "UI/BaiqiTradeRouteChooser.lua": 1,
+        "UI/BaiqiGovernorPanel.lua": 1,
+        "UI/BaiqiHistoricMoments.lua": 1,
+        "UI/BaiqiCityPanelOverview.lua": 1,
+        "UI/BaiqiGreatPeoplePopup.lua": 1,
+        "UI/BaiqiCityStates.lua": 1,
+        "UI/BaiqiGovernorAssignmentChooser.lua": 1
+      },
+      "90": {
+        "UI/BaiqiTechCivicCompletedPopup.lua": 1,
+        "UI/BaiqiChooseArtifact.lua": 1,
+        "UI/BaiqiGovernmentScreen.lua": 1,
+        "UI/BaiqiNaturalDisasterPopup.lua": 1,
+        "UI/BaiqiNotificationPanel.lua": 1,
+        "UI/BaiqiDiplomacyActionView.lua": 1,
+        "UI/BaiqiResearchChooser.lua": 1,
+        "UI/BaiqiGreatWorkShowcase.lua": 1,
+        "UI/BaiqiLeaderScene.lua": 1,
+        "UI/BaiqiExecutor.lua": 1,
+        "UI/BaiqiUnitPanel.lua": 1,
+        "UI/BaiqiGovernorDetailsPanel.lua": 1,
+        "UI/BaiqiCivicsTree.lua": 1,
+        "UI/BaiqiUnitFlagManager.lua": 1,
+        "UI/BaiqiWorldInput.lua": 1,
+        "Lua/BaiqiGameplay.lua": 1,
+        "UI/BaiqiNaturalWonderPopup.lua": 1,
+        "UI/BaiqiDedicationPopup.lua": 1,
+        "UI/BaiqiPantheonChooser.lua": 1,
+        "UI/BaiqiCityPanel.lua": 1,
+        "UI/BaiqiTechTree.lua": 1,
+        "UI/BaiqiReligionScreen.lua": 1,
+        "UI/BaiqiPlotInfo.lua": 1,
+        "UI/BaiqiProductionPanel.lua": 1,
+        "UI/BaiqiCivicsChooser.lua": 1,
+        "UI/BaiqiTradeRouteChooser.lua": 1,
+        "UI/BaiqiGovernorPanel.lua": 1,
+        "UI/BaiqiHistoricMoments.lua": 1,
+        "UI/BaiqiCityPanelOverview.lua": 1,
+        "UI/BaiqiGreatPeoplePopup.lua": 1,
+        "UI/BaiqiCityStates.lua": 1,
+        "UI/BaiqiGovernorAssignmentChooser.lua": 1
+      },
+      "91": {
+        "UI/BaiqiTechCivicCompletedPopup.lua": 1,
+        "UI/BaiqiChooseArtifact.lua": 1,
+        "UI/BaiqiGovernmentScreen.lua": 1,
+        "UI/BaiqiNaturalDisasterPopup.lua": 1,
+        "UI/BaiqiNotificationPanel.lua": 1,
+        "UI/BaiqiDiplomacyActionView.lua": 1,
+        "UI/BaiqiResearchChooser.lua": 1,
+        "UI/BaiqiGreatWorkShowcase.lua": 1,
+        "UI/BaiqiLeaderScene.lua": 1,
+        "UI/BaiqiExecutor.lua": 1,
+        "UI/BaiqiUnitPanel.lua": 1,
+        "UI/BaiqiGovernorDetailsPanel.lua": 1,
+        "UI/BaiqiCivicsTree.lua": 1,
+        "UI/BaiqiUnitFlagManager.lua": 1,
+        "UI/BaiqiWorldInput.lua": 1,
+        "Lua/BaiqiGameplay.lua": 1,
+        "UI/BaiqiNaturalWonderPopup.lua": 1,
+        "UI/BaiqiDedicationPopup.lua": 1,
+        "UI/BaiqiPantheonChooser.lua": 1,
+        "UI/BaiqiCityPanel.lua": 1,
+        "UI/BaiqiTechTree.lua": 1,
+        "UI/BaiqiReligionScreen.lua": 1,
+        "UI/BaiqiPlotInfo.lua": 1,
+        "UI/BaiqiProductionPanel.lua": 1,
+        "UI/BaiqiCivicsChooser.lua": 1,
+        "UI/BaiqiTradeRouteChooser.lua": 1,
+        "UI/BaiqiGovernorPanel.lua": 1,
+        "UI/BaiqiHistoricMoments.lua": 1,
+        "UI/BaiqiCityPanelOverview.lua": 1,
+        "UI/BaiqiGreatPeoplePopup.lua": 1,
+        "UI/BaiqiCityStates.lua": 1,
+        "UI/BaiqiGovernorAssignmentChooser.lua": 1
+      }
+    },
+    "contexts": 32,
+    "samples": 1804,
+    "aggregate_zero_success_calls": 33038,
+    "configured_retained_sample_budget": 4096,
+    "observed_b_turn_budget_ok": true,
+    "observed_n_req_budget_ok": true,
+    "limits": [
+      "Observed numbers assume constant context offsets; midpoint alignment is not exact synchronization.",
+      "Clock granularity and timing uncertainty remain unknown.",
+      "Inclusive envelopes contain Native/vanilla callees; they are not exclusive mod CPU.",
+      "Source coverage and city-history classification require separate evidence.",
+      "Matched B_delta and full TC-036 acceptance are not established."
+    ],
+    "at_utc": "2026-11-03T22:21:59.620861+00:00",
+    "facts_sha256": "ef9e8716ea5b6b6b36cbea555b6023defd9942af5c5b7af604cef2b8bba1997e",
+    "analyzer_sha256": "aa9022c9445cce20f8d507ef43e18775cc5e1daee7c4a7e71c989f4531f511d1",
+    "scope": "Actualnewboundedq21 fivewindows/fullturnbuckets. Explicit global4096 budget, all retained positive/failed plus aggregateZero accounting. Conditional constant-offset clocks, not exclusiveCPU/fullTC036. Driver result.samples is historical label for totalCalls, not retained rows."
+  },
+  "stageB_scope": "Observed five ten-second whole-owned-script windows and complete86..90 Native write attempts meet numeric budgets with global4096 compliance. Conditional constant-offset alignment/unknown clock precision and inclusive Native/vanilla callees remain; B_delta missing means fullTC036 NOT_PASSED.",
+  "diplomacy_TEST_PLAYER": {
+    "actual": "Alexander farewell after end87 physically closed once by QA agent, no human click request or background mod diplomacy.",
+    "activation87_to88_seconds": 55.13599991798401,
+    "scope": "Entire interval includes10second window/playerhold/NativeAI. Not exact diplomacy duration or mod overhead."
+  },
+  "native_final": {
+    "turn": 91,
+    "UI_cities": 11,
+    "Core_cities": 11,
+    "UI_empty_queues": 0,
+    "baseline_player_controlled_units_same_xy": 19,
+    "moved": 0,
+    "missing": 0,
+    "new_knights": {
+      "ids": [
+        4456482,
+        4718628
+      ],
+      "xy": [
+        11,
+        6
+      ],
+      "moves_each": 4,
+      "own_city_center": true
+    },
+    "new_great_admiral": {
+      "id": 4849702,
+      "xy": [
+        18,
+        14
+      ],
+      "moves": 7,
+      "scope": "Native GP spawn, not inferred as autonomous army move."
+    },
+    "all32_observation_flags_disabled": true
+  },
+  "save": {
+    "at_utc": "2026-11-03T22:22:02.757009+00:00",
+    "name": "Baiqi_P6_20261104_V67_Q21Continuous91.Civ6Save",
+    "bytes": 520897,
+    "sha256": "d305209bc24fba5176b6b03ace36dd57d9e2c1ff234f7ac7537b837fc166d4f1",
+    "reloaded": false,
+    "turn": 91,
+    "cities": 11
+  },
+  "owner_tooling_notes": [
+    "Driver historically labels profile.totalCalls as samples; its34435 poll value is NOT retained rows. Final export1804 retained+33038 aggregate=34842 calls after final frame before stop. Raw receipts preserved, no fake capacity overflow or changed frozen budget.",
+    "First direct OnExitGame ACK fired UserConfirmedClose; prior game visible for longer than1second. Later verified same-owned windowless residue and finished it; no visible game/Steam killed. A WM_CLOSE helper rejected missing HWND before any input.",
+    "Menu absent yielded unavailable; installation completed but fresh-offline launch gate stopped before process spawn. Official Steam header-only UIA navigation followed by independent background read confirmed offline, then launch-only path reverified85file hashes.",
+    "MainMenu absent during startup caused LSQ context lookup failures before any CMD. After actual ready proof, first load CMD submitted once with original guard; unknown game actions never replayed."
+  ],
+  "native_receipts": [
+    {
+      "name": "20261103T221713399310Z.json",
+      "sha256": "9578cd8d5785f7bdad021d106eead6b100ebd2027a888531ebbee322c8c3b7e1",
+      "context": "BaiqiExecutor",
+      "selected_lines": [
+        "P6_Q21_WARMUP_FINISHED\t70.852999925613\t32"
+      ]
+    },
+    {
+      "name": "20261103T222159482952Z.json",
+      "sha256": "8570492fe6c983eeb9bda8b74cba62cf06dd88f64db08994b5a58272adc11d16",
+      "context": "BaiqiExecutor",
+      "selected_lines": [
+        "P6_Q21_NEW_ARMY\t4456482\tUNIT_KNIGHT\t11\t6\t4",
+        "P6_Q21_NEW_ARMY\t4718628\tUNIT_KNIGHT\t11\t6\t4",
+        "P6_Q21_NEW_ARMY\t4849702\tUNIT_GREAT_ADMIRAL\t18\t14\t7",
+        "P6_Q21_FINAL_UI\t91\t11\t0\t19\t0\t0\t3\t32\t1804\t33038\t34842"
+      ]
+    },
+    {
+      "name": "20261103T222159655176Z.json",
+      "sha256": "883a67d12fe41a34c23169202290e76a079731c506fabd6638fed7453b671c34",
+      "context": "GameCore_Tuner",
+      "selected_lines": [
+        "P6_Q21_FINAL_CORE\t91\t11"
+      ]
+    },
+    {
+      "name": "20261103T222202258415Z.json",
+      "sha256": "90cbc68a163deed2cee246ba1bb6df917ec8e548f43d730276a7a7177b013354",
+      "context": "BaiqiExecutor",
+      "selected_lines": [
+        "P6_Q21_FINAL91_SAVE_ACK\ttrue"
+      ]
+    }
+  ],
+  "raw_hashes": {
+    "facts": "ef9e8716ea5b6b6b36cbea555b6023defd9942af5c5b7af604cef2b8bba1997e",
+    "summary": "5676acb6fb1f9ff09751d6a5a8db2f415f24c532685787f78864b49cd16fafe9",
+    "Lua_log": "c47d410d950e70022571bd933795a0172193bb338febe85bfc1911ef0dc2ea2d"
+  },
+  "cumulative_through315": {
+    "logical": 315,
+    "complete": 294,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 345,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "limits": [
+    "No q20/q21 causal speedup claim; diagnostic storage representation and engine/operator timing differ.",
+    "90window observed10to11cities, not pure-ten window; no per-root city count invented.",
+    "91write7 is partial and excluded from full-turn86..90 budget.",
+    "Clock intersection observations not exact synchronization; no CPU attribution or measured profiler-cost subtraction.",
+    "B_plan pure-ten evidence remains separate q18; B_delta private control and five alternating matched pairs still pending.",
+    "Save actually written/hash verified, not reloaded. Mod full function acceptance not complete."
+  ]
+}
