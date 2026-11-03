@@ -1,0 +1,177 @@
+{
+  "schema": "civ6.baiqi-stageb-entry-review294295/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T19:54:10.951662+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 294,
+      "case_id": "civ6-stageB-corecoverage294",
+      "mode_id": "http-candidate",
+      "shared_commit": "ae9ec0db83227f14bbc3f7f967f2075b00178d1a",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4500,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T19:08:44.183325+00:00",
+      "attempt_end_utc": "2026-11-03T19:09:35.984861+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 51804.655999992974,
+        "first_nonempty_content_delta_ms": 8645.12769994326,
+        "usage": {
+          "prompt_tokens": 22396,
+          "completion_tokens": 2942,
+          "total_tokens": 25338
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T19:08:44.183325+00:00",
+          "end_utc": "2026-11-03T19:09:35.984861+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 51804.655999992974
+        }
+      ],
+      "adoption": "partial-analysis",
+      "review": "Adopt reviewed Core entry families only. 24 rows despite claimed22; captured Add/Remove aliases flattened as direct registration, validation mixed with export, speculative leak hazards not adopted. Not executable manifest/runtime count.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 295,
+      "case_id": "civ6-stageB-uicoverage295",
+      "mode_id": "http-candidate",
+      "shared_commit": "ae9ec0db83227f14bbc3f7f967f2075b00178d1a",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T19:08:44.206642+00:00",
+      "attempt_end_utc": "2026-11-03T19:09:34.453525+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 50240.865500003565,
+        "first_nonempty_content_delta_ms": 13082.070600008592,
+        "usage": {
+          "prompt_tokens": 55405,
+          "completion_tokens": 2558,
+          "total_tokens": 57963
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T19:08:44.206642+00:00",
+          "end_utc": "2026-11-03T19:09:34.453525+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 50240.865500003565
+        }
+      ],
+      "adoption": "partial-analysis",
+      "review": "Adopt verified UI families only. Actual assignment-defined names including ViewMain,OnChooseCivic,OnConfirm,ShowLeader,GenerateLayers exist. Reject Actions wrong UI path and global-across-Core proxy claim; UIGuard is per importing UI context, executor excludes it. No runtime coverage/pass claim.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_source_checks": {
+    "mod/Baiqi/UI/BaiqiCityPanel.lua": {
+      "sha256": "79a1665fd65750e2b2e28e9e5e0a9cd9843186635c7d157775c307b6cd009faa",
+      "verified_fragments": [
+        "ViewMain=function"
+      ]
+    },
+    "mod/Baiqi/UI/BaiqiCivicsChooser.lua": {
+      "sha256": "ff84d26c3b108a986ca48fae5f242d250866004dc13725d2da4746b065bb00ff",
+      "verified_fragments": [
+        "OnChooseCivic=function"
+      ]
+    },
+    "mod/Baiqi/UI/BaiqiDedicationPopup.lua": {
+      "sha256": "a08653f2e7f3a68e928fcda373ecf9ac84b3443ec89f2c492ccf655e43199672",
+      "verified_fragments": [
+        "OnConfirm=function"
+      ]
+    },
+    "mod/Baiqi/UI/BaiqiDiplomacyActionView.lua": {
+      "sha256": "0019d52dcf8de5f779d75b826fd1557ff09e5929fe238cd248518fb153bccb7d",
+      "verified_fragments": [
+        "ShowLeader=function"
+      ]
+    },
+    "mod/Baiqi/UI/BaiqiLeaderScene.lua": {
+      "sha256": "b471425795db905107e69b8514776fcae0b2420b728bba8d542a66ab372600f6",
+      "verified_fragments": [
+        "GenerateLayers=function"
+      ]
+    },
+    "mod/Baiqi/UI/BaiqiUnitPanel.lua": {
+      "sha256": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+      "verified_fragments": [
+        "MoveUnitToPlot=BaiqiActions.WrapMove",
+        "GetUnitActionsTable=function"
+      ]
+    },
+    "mod/Baiqi/UI/BaiqiWorldInput.lua": {
+      "sha256": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+      "verified_fragments": [
+        "MoveUnitToPlot=BaiqiActions.WrapMove"
+      ]
+    },
+    "mod/Baiqi/Lua/BaiqiActions.lua": {
+      "sha256": "7e99e2b438501990663418e4adb00979f0a55bd59895dc547e0d7552155d79fd",
+      "verified_fragments": [
+        "function BaiqiActions"
+      ]
+    },
+    "mod/Baiqi/Lua/BaiqiUIGuard.lua": {
+      "sha256": "a97c063499d1d3ccbc345195969fa51f77cc5019d041a11cacc3901fb6133660",
+      "verified_fragments": [
+        "-- Per UI context only. The invisible AI executor does not import this module."
+      ]
+    }
+  },
+  "owner_review_correction": "A handoff summary had incorrectly described several UI names as invented. Direct current source shows real assignment-defined overrides; they were not rejected. Only actual documented path/scope/registration errors rejected. Text search for line-start function alone is insufficient.",
+  "adopted_scope": "Reviewed static entry-family reference document only, not raw generated inventory/code or full diagnostic build.",
+  "runtime_effect": "None. Normal67 unchanged; no Native action or timing pass attributed to source analysis.",
+  "next": "Implement source-definition wrapper without rewriting Native include chunks, prove arity/identity/error and actual compiled consumers before private diagnostic installation."
+}
