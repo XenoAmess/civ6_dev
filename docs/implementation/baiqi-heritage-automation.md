@@ -127,3 +127,10 @@
 ## 考古接口更正：实际馆名与UI／Core边界
 
 原生目录实测馆名为BUILDING_MUSEUM_ARTIFACT／Index24／Hash1182236625；此前264／265输入中的BUILDING_ARCHAEOLOGICAL_MUSEUM是负责人提供的错误合同，不能归为模型自行发明。未注册快照及夹具已更正，十条数据保持，10项0.032秒通过。临时UI诊断完整恢复命名空间，当前Debug单位home=-1返回unavailable；11城均无考古馆，没有正向馆快照证明。UI四个槽位读取接口存在，Core均nil，Core只有HasBuilding及GreatWorkCreated事件形状可确认；未来不能向Core发明槽位查询。[原生目录、负责人错误与限制](../research/baiqi-p6-archaeology-museum-row-correction-evidence-2026-11-03.json)。
+
+
+## 63正常购入后建园通过；64补已知购买回执守卫
+
+正常购入的5767181在100回合自行移动并建成628／671／672／716四格公园，UI与Core为true，次数1→0、同完整ID延迟死亡，park:0:2／serial2为OBSERVED，purchase:0:1／serial1保持。536371字节100存档已核实，尚待下次冷载；不把单位消失单独当成功。[实际建园与消耗](../research/baiqi-p6-native63-paid-park-evidence-2026-11-03.json)。
+
+266测试候选未按独立Core环境设置，未采用；267修复输出length，整份丢弃。负责人真实双桥注入用例在63的2项中1失败：不完整扣费／额外行动的新单位仍可移动，正常实机购入行动0与成功回执另计。64在原有移动入口资格前后、自然学家规划及建园末端守卫持有本地待确认或Core明确ARMED购买；冷UI同样阻挡，其他生产继续。三项0.067秒及完整742项86.586秒通过，原生仅解析／78文件包通过，安装／运行仍63。[采用、注入范围与64验证](../research/baiqi-p6-purchase-receipt-preservation-source64-evidence-2026-11-03.json)。

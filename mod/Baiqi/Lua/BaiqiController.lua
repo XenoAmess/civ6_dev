@@ -18,6 +18,7 @@ local districtPersonPlans = {}
 local missionaryPlans = {}
 local naturalistSearches = {}
 local pendingPurchase,purchaseSearch=nil,nil
+local NaturalistPurchaseHeld
 local purchaseDoneTurn,purchaseResumeStreak=-1,0
 local stopped, running = false, false
 local turnGuard
@@ -317,6 +318,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local def = GameInfo.Units[unit:GetUnitType()]
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
   local unitID,unitType=unit:GetID(),def.UnitType
+  if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   if operation=="MOVE_TO" or operation=="MAKE_TRADE_ROUTE" then
     -- Full safety follows qualification for these operations. Preserve the
     -- cheap explored-target gate before any native qualification query.
@@ -361,6 +363,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     local legal,why=CivilianMoveTarget(here,plot,unit,latest.player)
     if not legal then return false,why end
   end
+  if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
@@ -662,6 +665,12 @@ local function NaturalistPurchaseBridge(method,...)
   return nil,nil,"bridge_unavailable"
 end
 
+NaturalistPurchaseHeld=function()
+  if pendingPurchase~=nil then return true end
+  local stage=NaturalistPurchaseBridge("Inspect",contextID)
+  return stage=="ARMED"
+end
+
 local function NaturalistPurchaseDemand(ctx,player,grantedToken)
   local ok,demand=pcall(function()
     local current,owner=PlayerContext()
@@ -858,6 +867,7 @@ local function NaturalistBridge(method,...)
   return nil,nil,"bridge_error"
 end
 local function NaturalistHeld(unit)
+  if NaturalistPurchaseHeld() then return true end
   local stage=NaturalistBridge("Inspect",contextID,unit:GetID())
   return stage~="OPEN" and stage~="OBSERVED"
 end
@@ -888,7 +898,8 @@ local function RequestNaturalist(unit)
   if why~="ok" then return false end
   local function Guard()
     local current,owner,snapshot=PlayerContext()
-    if not current or not BaiqiPolicy.Context(current) or not CoreIdle() or current.player~=ctx.player then return nil end
+    if not current or not BaiqiPolicy.Context(current) or not CoreIdle() or current.player~=ctx.player
+      or NaturalistPurchaseHeld() then return nil end
     local fresh=owner:GetUnits():FindID(unitID)
     if not BaiqiPolicy.MatchesID(fresh,unitID) or fresh:GetOwner()~=ctx.player
       or not BaiqiPolicy.CanCivilian(current,UnitSnapshot(fresh,snapshot))
@@ -929,7 +940,7 @@ end
 local function ProcessNaturalist(ctx,player,state,unit)
   local id=unit:GetID()
   if NaturalistHeld(unit) then
-    Reason("naturalist:"..id,"自然学家等待持久化公园回执；其他内政继续执行")
+    Reason("naturalist:"..id,"自然学家等待持久化购买或公园回执；其他内政继续执行")
     return false,false
   end
   local charges,here=NaturalistData(unit),UnitPlot(unit)

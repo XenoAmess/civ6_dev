@@ -1,0 +1,295 @@
+{
+  "schema": "civ6.baiqi-purchase-receipt-preservation-source64/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "56e708b970287e0f501abb4d01aeda373cd6f496",
+  "source_version": 64,
+  "installed_and_running_at_freeze": 63,
+  "changes": [
+    "Known local pending purchase or actual protected Core purchase Inspect(nil)==ARMED holds autonomous naturalist movement/park use.",
+    "Forward local helper preserves lexical scope for earlier sole movement writer; checks before and after Native qualification and inside existing park Guard. Existing park fallback overlap also respects hold.",
+    "ReadBack alone clears local pending on exact OBSERVED token. Cold UI reads persisted ARMED; no clear/refund/replay, no cache, no takeover or new unit/military/diplomacy action.",
+    "Missing purchase bridge does not introduce a dependency to previously valid existing-naturalist actions; this narrow hold applies only to known unresolved receipt. New purchase still fails closed on unavailable/unknown through existing Core permit."
+  ],
+  "cases": [
+    {
+      "sequence": 266,
+      "case_id": "civ6-purchase-park-coupling266",
+      "mode_id": "http-candidate",
+      "shared_commit": "53a10edce27cd27b08c12dd36b2d8d8d4bc81424",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T12:18:17.921743+00:00",
+      "attempt_end_utc": "2026-11-03T12:19:04.712120+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 46789.88699999172,
+        "first_nonempty_content_delta_ms": 8196.94980001077,
+        "usage": {
+          "prompt_tokens": 53540,
+          "completion_tokens": 1941,
+          "total_tokens": 55481
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T12:18:17.921743+00:00",
+          "end_utc": "2026-11-03T12:19:04.712120+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 46789.88699999172
+        }
+      ],
+      "adoption": "rejected_owner_witness",
+      "review": "Candidate loaded Core modules into UI instead of supplied separate environment, omitted actual partial-debit/moves4 setup and did not verify both bridges. Static rejection; raw test not executed. Owner real two-bridge witness on63:two methods,one failure; fully observed positive control moved, incomplete debit leftARMED but moved unit900.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 267,
+      "case_id": "civ6-purchase-park-receiptfix267",
+      "mode_id": "http-candidate",
+      "shared_commit": "53a10edce27cd27b08c12dd36b2d8d8d4bc81424",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2300,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T12:28:22.272416+00:00",
+      "attempt_end_utc": "2026-11-03T12:28:41.235397+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 18971.386799996253,
+        "first_nonempty_content_delta_ms": 5697.686500032432,
+        "usage": {
+          "prompt_tokens": 42291,
+          "completion_tokens": 2300,
+          "total_tokens": 44591
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T12:28:22.272416+00:00",
+          "end_utc": "2026-11-03T12:28:41.235397+00:00",
+          "failure": "finish_reason_length",
+          "finish_reason": "length",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 18971.386799996253
+        }
+      ],
+      "adoption": "length_discarded",
+      "review": "SSE terminated with length at2300 output tokens, candidate incomplete, strict JSONsyntaxUNKNOWN. Entire output discarded, not inspected/adopted or concatenated; owner implemented bounded guard.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 1,
+    "seconds_at_peak": 65.75335799999999,
+    "longest_seconds_at_peak": 46.790377,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through267": {
+    "logical": 267,
+    "complete": 252,
+    "length": 12,
+    "final_transport_failed": 3,
+    "http_attempts": 297,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software": {
+    "owner_old63_methods": 2,
+    "owner_old63_failures": 1,
+    "owner_old63_seconds": 1.862472,
+    "owner_corrected_methods": 3,
+    "owner_corrected_seconds": 0.067,
+    "full_methods": 742,
+    "full_unittest_seconds": 86.586,
+    "full_record": {
+      "started_utc": "2026-11-03T12:37:27.430610+00:00",
+      "returncode": 0,
+      "elapsed_seconds": 89.86728250002488,
+      "tail": [
+        "test_all_lua_keywords_and_duplicates (test_profile_selection.ProfileSelectionTests.test_all_lua_keywords_and_duplicates) ... ok",
+        "test_children_container_and_count (test_profile_selection.ProfileSelectionTests.test_children_container_and_count) ... ok",
+        "test_default_matches_explicit_selection (test_profile_selection.ProfileSelectionTests.test_default_matches_explicit_selection) ... ok",
+        "test_invalid_elements_rejected_before_hashing (test_profile_selection.ProfileSelectionTests.test_invalid_elements_rejected_before_hashing) ... ok",
+        "test_q11_selection_preserves_calls_root_gate_and_restore (test_profile_selection.ProfileSelectionTests.test_q11_selection_preserves_calls_root_gate_and_restore) ... ok",
+        "test_stage_type_and_boundary (test_profile_selection.ProfileSelectionTests.test_stage_type_and_boundary) ... ok",
+        "test_all_five_lexical_functions_have_actual_root_identity (test_profiled_build.DiagnosticBuildTests.test_all_five_lexical_functions_have_actual_root_identity) ... ok",
+        "test_outside_q9_does_not_profile_or_change_returns (test_profiled_build.DiagnosticBuildTests.test_outside_q9_does_not_profile_or_change_returns) ... ok",
+        "test_restore_preserves_foreign_replacement (test_profiled_build.DiagnosticBuildTests.test_restore_preserves_foreign_replacement) ... ok",
+        "test_restore_returns_original_functions (test_profiled_build.DiagnosticBuildTests.test_restore_returns_original_functions) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 742 tests in 86.586s",
+        "",
+        "OK"
+      ],
+      "log_sha256": "6beb7550005a5be39a77e6f099cb696f46a3cc4e0d9007d6b2e62948855d3deb",
+      "version": 64,
+      "files": 78,
+      "zip_sha256": "9c89fff5f77d48a107b7e845421c07bcc2dcd6f152bd5946aff958eb5dd6b66b"
+    },
+    "unregistered_museum_literal_later_corrected_separately": {
+      "affected_methods": 10,
+      "seconds": 0.032,
+      "source64_packaged_files_unchanged": true
+    }
+  },
+  "artifact": {
+    "version": 64,
+    "files": 78,
+    "zip_sha256": "9c89fff5f77d48a107b7e845421c07bcc2dcd6f152bd5946aff958eb5dd6b66b",
+    "all_zip_bytes_match_source": true,
+    "installed": false,
+    "native_loaded": false,
+    "source_sha256": {
+      "Baiqi.modinfo": "51b4f37162214ca53526e9c71b41f988e45941f5cf5040ef3d0c9ce35401615a",
+      "Baiqi.dep": "a33cdf8c5797db4ba59608d2947e7bcc7c6bb00fe2ba4ff14c96c0423e2706ae",
+      "ArtDefs/Leaders.artdef": "08ba8547d0eb8e9df3a6e52409ceabf868758224aa5510102d50e7eca84898de",
+      "UI/BaiqiDiplomacyActionView.lua": "0019d52dcf8de5f779d75b826fd1557ff09e5929fe238cd248518fb153bccb7d",
+      "UI/BaiqiLeaderScene.lua": "b471425795db905107e69b8514776fcae0b2420b728bba8d542a66ab372600f6",
+      "Art/Baiqi_SelectionForeground.dds": "6eb8ed45aeebfb7c21724c6dc4fb99883264897a4afb30a30d754741e4c03f48",
+      "Art/Baiqi_Leader32.dds": "0771f1085c62f9e80a2b4f11077cab8f9750d964b50d5e443561b651b010aef7",
+      "Art/Baiqi_Leader45.dds": "843d73803c98e4bde8a989fdc24c096347bcdbc8d290e64c49c1da1b203516c4",
+      "Art/Baiqi_Leader50.dds": "1da2b41dad44ea67ec53e3e41bab9d0eed4e0a36a4bcdb538b1f935502c44ab8",
+      "Art/Baiqi_Leader55.dds": "5a61cf5cfac4587111f411d8486a85342eb892be29a5abf178d639dab44fe015",
+      "Art/Baiqi_Leader64.dds": "f852cb618d3d097f98fcef9bac652fb86303a1b712ceb1ad7fd90f32011ee669",
+      "Art/Baiqi_Leader80.dds": "ac71912d96de3cfc0336fad7d9fe59100a4bf47ea9707c58836dac4fa7d198cf",
+      "Art/Baiqi_Leader256.dds": "38d8d855a1223b9cda89688b739098030f67cd319d739a6a598a61c887eccb1d",
+      "Art/Baiqi_LeaderForeground.dds": "50aaf785bebe196b74772bc923036b75b0d7f51b5a838ffccc3c31d6094c4fac",
+      "Art/Baiqi_LoadingBackground.dds": "a4cdbf3e7284d5e34e5023b71c733cf5e0c4cf7a5717fc9577ba09420e96f5eb",
+      "Art/Baiqi_DiplomacyBackground.dds": "1e230dfcd3700ec97f8710130287e00d9da56b7f09375b767652b640a958fc84",
+      "Config/BaiqiConfig.sql": "0d819aeba0cd8c9fed3a2192091aa2a8e047292f8c8312c8b899283ecb9cbc7f",
+      "Data/Baiqi.sql": "cf0ff7715623b1a539cf4ddff4de4bf19d60ac56f69d04e320225bf70ae41c45",
+      "Data/BaiqiStandby.sql": "6f56df4c8f6355dd4d073dd102a591c88b2789dc92218d0ec463818230bda4fa",
+      "Data/BaiqiIcons.sql": "0658fc841559108ed1b86a2a82ab8410d0423d6539d6b5075e77a6d0ba66c333",
+      "Data/BaiqiColors.xml": "f9972697780b70ec1f40fe4a4ed30a933aeaba0094198e8cc169296936a94f74",
+      "Text/BaiqiText.xml": "c3456c808b0f6886f361dd3b14cb464287708f5b22847af4844ec9f058f4534d",
+      "Lua/BaiqiConfig.lua": "f240a88edc68099d7838dde06fae35a9843d9235fa079eb01c50aed6ab2ed0c2",
+      "Lua/BaiqiPolicy.lua": "e28cb809027ba2b5c6e976679af699cabc59260fc20b473378f39c1797ba4661",
+      "Lua/BaiqiPlanner.lua": "7e57bcd224c4c8b5dccd8e541fc2fd7c528b5117e4dc861e376d4e90b24f9e76",
+      "Lua/BaiqiController.lua": "034430c2db426809837df31f140dac2a099b3afdbc844c385d66cec6119dead0",
+      "Lua/BaiqiGameplay.lua": "960d5b00fd608a218e8cdefb21fc44e19f76bede450004e1f08e7073cd4021f8",
+      "Lua/BaiqiRequisition.lua": "dbc2b638b4bae15b05ea18e33ebba50a7c31ae3437752b1baa496de7847b1af9",
+      "Lua/BaiqiCapture.lua": "d4eea324d7f6bb9790a9d6e9126b72bcc2be3fa57bb53ab3f5fecb6c17e4ac67",
+      "Lua/BaiqiGPIntentGameplay.lua": "6b16b8f54453b66ce56bd47a7e01aeb3362f6f3d2bbb51865dc2efb7ca3c0dc9",
+      "Lua/BaiqiGPJournal.lua": "596486c712e919db42eb45648ee111dd736e2c9f547d87ddaef1601846fedd49",
+      "Lua/BaiqiCreativeJournal.lua": "6399ec11de6a7647a259e1088b4de86751e31b9cc06e54a691b32e2bb3cb6731",
+      "Lua/BaiqiCreativeIntentGameplay.lua": "429d160b05be5c1c65d2a0da440b00243ee217bf8a0fffbec2fde0762ff128a7",
+      "Lua/BaiqiReligiousJournal.lua": "456faee0547984145ff5f83f2c6778a96161bfffb99edf252780e4e612e601a3",
+      "Lua/BaiqiReligiousIntentGameplay.lua": "a6ed409c34fb84b50de87d8d05df0cdc706e2713c5e497d061869799b2af80c7",
+      "Lua/BaiqiHeritageCandidates.lua": "0204da5155562803ebbfadc4553369746f80c7f48baf4f9be20e65ce4d85bbcf",
+      "Lua/BaiqiHeritageActions.lua": "f432cbc9afb7d8ef8f75d78c3c497bc8a5b27c816f7903ba63ace5cdc01eca2a",
+      "Lua/BaiqiNaturalistUnit.lua": "f8620415fa70c297aa4fe01a8b7e5debcdfc88f2b972e94afc0126615a79943b",
+      "Lua/BaiqiNaturalistJournal.lua": "2da1476d35b4a53fb5a41e008741e43cf292091ee6c628d97ab0bf52ee779346",
+      "Lua/BaiqiNaturalistIntentGameplay.lua": "7120e88f59993d61bba0d7194bc316b4ef3f9cf37655f629bdd9709265c849d3",
+      "Lua/BaiqiNaturalistPurchase.lua": "c066f33c53821c47d8151bb31dc1bebd0beb139e9df3c49f551c57d87977573e",
+      "Lua/BaiqiNaturalistPurchaseSnapshot.lua": "916f0c2579f11e9b9486dd3f0344cbc175a16c6824567bf3681a66903db6bf3e",
+      "Lua/BaiqiNaturalistPurchaseJournal.lua": "0ae422ec87b7aae019e2beacbf11b0dc68684a7232434ec306bef005c089bc7f",
+      "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": "cf8940ae4b05f7d5f8d2c1fdaf959a821d985e2f729ea592bd7884988da512e2",
+      "Lua/BaiqiActions.lua": "7e99e2b438501990663418e4adb00979f0a55bd59895dc547e0d7552155d79fd",
+      "UI/BaiqiExecutor.xml": "4503fe229775d340a07eac1c2c074d560e5364808cb87d6c4ecfc9cdb7bbf712",
+      "UI/BaiqiExecutor.lua": "9a917545cffb45b508482b61e035a27c58573492b690a510a5605c954d352761",
+      "Lua/BaiqiUIGuard.lua": "a97c063499d1d3ccbc345195969fa51f77cc5019d041a11cacc3901fb6133660",
+      "Lua/BaiqiUILoader.lua": "1d9326c3418918d68d50f50d1ace45ab2cf313c39e75afa997fa034e2ffc9c80",
+      "Lua/BaiqiAdmin.lua": "e69760bfb335df79597fe8a14348563cda563dd657d522024c8223dfad304c18",
+      "UI/BaiqiWorldInput.lua": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+      "UI/BaiqiUnitPanel.lua": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+      "UI/BaiqiProductionPanel.lua": "7d8b522f88992ac4d090d046344d16165b0705a846926257c7fafd63e2c10a70",
+      "UI/BaiqiCityPanel.lua": "79a1665fd65750e2b2e28e9e5e0a9cd9843186635c7d157775c307b6cd009faa",
+      "UI/BaiqiCityPanelOverview.lua": "c6e0b7cd06ee5286b1e7cb78eae30a522db5eb4538955af4f2bb9b75ce708d40",
+      "UI/BaiqiPlotInfo.lua": "7f182a626cb5aac88201892bd96b2488ba3f275bed2af6e6ba60e385a3656510",
+      "UI/BaiqiTechTree.lua": "e8da4c900af8415906aae5738f24c83e2708ca15346a4d7380c680aadc27a6d1",
+      "UI/BaiqiCivicsTree.lua": "8aec1b387759b0b9d02f7621697bf5c630b16381ddf475188b095a40406ee528",
+      "UI/BaiqiGovernmentScreen.lua": "4114156af941fdd9ba83c220168f477cb7b812e36ae8e2b60b384259abea0485",
+      "UI/BaiqiGovernorPanel.lua": "8f9c4716f4caff8f1c11fe034552bc241f1f760bbfd69a107845aa3c1ae45acf",
+      "UI/BaiqiGovernorDetailsPanel.lua": "c33ef6f055743a18f126f1ca949751b9dce2f16c16718fdace817ce8c810babc",
+      "UI/BaiqiGovernorAssignmentChooser.lua": "bffca192849acc5809d4fc6ae0d92256759ba8f48e1408f8af55aa4ae54255f3",
+      "UI/BaiqiTradeRouteChooser.lua": "7b1f586b22d9a4edad0b0d1c02f858e75bcabe52365c9be19e6a3f8da36f1411",
+      "UI/BaiqiGreatPeoplePopup.lua": "7fab94fc3b286fe0e0b50c9b39475f12da4bc3c96ab84b2a3254a9f2620013e3",
+      "UI/BaiqiCityStates.lua": "d5f7e1b7ffb5f7b367fbaefb41ff39252f0391745486df08148644dafea9e35f",
+      "Data/BaiqiRetiredEffects.sql": "edda554efc4cd788bf180e92e96ec5fca4b980ae0f698b95a482793efdfaab3c",
+      "UI/BaiqiResearchChooser.lua": "6ad9590926f657f67b409ecbc87e3a2deef2bbe682a5d3bcc0a7a2c2597728e6",
+      "UI/BaiqiCivicsChooser.lua": "ff84d26c3b108a986ca48fae5f242d250866004dc13725d2da4746b065bb00ff",
+      "UI/BaiqiUnitFlagManager.lua": "62a36c89329abdd25fc658acd44d2ac1b1128050448cf0baf30557233fffd9e1",
+      "UI/BaiqiReligionScreen.lua": "d3ed6b098b24e32c53883960ed2be16d59a23e01078712e0a0ee36c36d92c588",
+      "UI/BaiqiPantheonChooser.lua": "6f1253713e96729e799b2f8f553de0433d60a08534c8801a8559183aae198733",
+      "UI/BaiqiDedicationPopup.lua": "a08653f2e7f3a68e928fcda373ecf9ac84b3443ec89f2c492ccf655e43199672",
+      "UI/BaiqiNaturalDisasterPopup.lua": "2177294ae0104ec0b7737d185899c640e012091cfbc42658fe041438a9198f67",
+      "UI/BaiqiTechCivicCompletedPopup.lua": "08de0946713b4204cfbcf4ce3e1ff8cd3a380d096b5ae99b5228bf812da924f1",
+      "UI/BaiqiNotificationPanel.lua": "6f7b0c259d97075a8f3bf1485aca4b3db6dacfeacf053bd87b20fa8e159e532b",
+      "UI/BaiqiNaturalWonderPopup.lua": "db572e935b114e171ce29369abecef5dbf8ce0b944ce71b6c54ed9b6afc9b320",
+      "UI/BaiqiHistoricMoments.lua": "e8019bcfafbe524ebb26af9aa81a1f477b0e31050dfe3935eba12f5ff188ccae",
+      "UI/BaiqiGreatWorkShowcase.lua": "48f6b7d88d09edbe6026114dcb1a6e276fb1662b847e012117831e4beb216eb8"
+    }
+  },
+  "native_parse_only": [
+    {
+      "name": "20261103T123834550501Z.json",
+      "sha256": "1ed158dcb9d18766a25b56353e1f833a46a3cac7f4e9962aa650ffa28de380e4",
+      "context": "InGame",
+      "lines": [
+        "P6_SOURCE64_NATIVE_PARSE_ONLY\ttrue\ttrue"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "034430c2db426809837df31f140dac2a099b3afdbc844c385d66cec6119dead0",
+    "mod/Baiqi/Baiqi.modinfo": "51b4f37162214ca53526e9c71b41f988e45941f5cf5040ef3d0c9ce35401615a",
+    "tests/test_baiqi_naturalist_purchase_coupling.py": "a38d3c5e57e58339f5b8b5b2de220280895da17e99d54dcb4535a0519d9b5dac"
+  },
+  "cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Interleaved Native63 actual purchase/park/save/reload and museum binding correction; exclusive owner time/cache unknown.",
+  "limits": [
+    "64 not installed or cold-loaded; no native incomplete-debit/moves4 scenario reproduced. Normal63 actual purchased naturalist startsmoves0 and succeeds separately.",
+    "Archaeology helper remains unregistered; Native museum binding correction is separate owner input error, not a new model request.",
+    "No64 performance/global ledger/matched controls or full40 pass."
+  ],
+  "next": "Publish source64 after required checks, normal exit63 with verified paidpark100 save, fresh Steam offline proof and normal64 cold-load. Verify park/purchase persistence and known unresolved receipt hold, continue archaeology/full acceptance."
+}
