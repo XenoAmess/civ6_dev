@@ -1,0 +1,187 @@
+{
+  "schema": "civ6.baiqi-archaeology-core-intent271272/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "9e3b03f4dcca592f9f9971c338fa458c1f2374d9",
+  "cases": [
+    {
+      "sequence": 271,
+      "case_id": "civ6-archaeology-intent271",
+      "mode_id": "http-candidate",
+      "shared_commit": "7fab07062c6b30cdd135124fea1809db60f16298",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 7000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T13:49:14.446402+00:00",
+      "attempt_end_utc": "2026-11-03T13:49:56.078941+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 41632.30450003175,
+        "first_nonempty_content_delta_ms": 3996.9834000221454,
+        "usage": {
+          "prompt_tokens": 13960,
+          "completion_tokens": 6091,
+          "total_tokens": 20051
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T13:49:14.446402+00:00",
+          "end_utc": "2026-11-03T13:49:56.078941+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 41632.30450003175
+        }
+      ],
+      "adoption": "rejected_owner_implemented",
+      "review": "Raw16 methods20 failing assertions/subcases and2 errors. Missing ExposedMembers export/protected bridge/foreign-root preservation; Persist compares proposed changed state with previous state, preventing all subsequent phase transitions; missing getters/visibility fail open and fresh checks incomplete; choice accepts unrelated resource as removed. Owner rewrites actual Core boundary,18 methods pass1.601 seconds.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 272,
+      "case_id": "civ6-archaeology-receipt-event272",
+      "mode_id": "http-candidate",
+      "shared_commit": "7fab07062c6b30cdd135124fea1809db60f16298",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T13:49:14.447205+00:00",
+      "attempt_end_utc": "2026-11-03T13:49:24.740823+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 10290.328300034162,
+        "first_nonempty_content_delta_ms": 3101.7756000510417,
+        "usage": {
+          "prompt_tokens": 13971,
+          "completion_tokens": 767,
+          "total_tokens": 14738
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T13:49:14.447205+00:00",
+          "end_utc": "2026-11-03T13:49:24.740823+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 10290.328300034162
+        }
+      ],
+      "adoption": "rejected_owner_implemented",
+      "review": "Raw8 methods2failures5errors. Resets global before reading priorroot, sees new unmarked table asforeign and returns immediately, never subscribes/preserves prior root. Missing Core include and callback guard protection. Owner lifetime-safe binder8PASS0.099 with actual ownerCore consumer, static API, original remover and foreign preservation.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 10.293618,
+    "longest_seconds_at_peak": 10.293618,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "software": {
+    "raw271": {
+      "methods": 16,
+      "failures": 20,
+      "errors": 2,
+      "seconds": 1.842894500005059,
+      "scope": "Private exact-source reader projection; other dependencies are reviewed actual owner modules, no production overwritten or Native game action."
+    },
+    "raw272": {
+      "methods": 8,
+      "failures": 2,
+      "errors": 5,
+      "seconds": 0.31046609999611974,
+      "scope": "Private exact-source reader projection; other dependencies are reviewed actual owner modules, no production overwritten or Native game action."
+    },
+    "owner_core_methods": 18,
+    "owner_core_seconds": 1.601,
+    "owner_event_methods": 8,
+    "owner_event_seconds": 0.099,
+    "passed": true,
+    "last_full_source64_methods": 742,
+    "full782_not_run": true
+  },
+  "owner_corrections": "First owner16 Core run had3 failures because generic protected wrapper returned three values for boolean ObserveCreated; fixed single strict boolean result, not a model error. First owner8 event run had1 failure because include-failure guard was inserted into prior-shutdown pcall instead of binding pcall; moved to correct scope, not a model error. Final18+8 pass.",
+  "native_parse_only": [
+    {
+      "name": "20261103T142024677741Z.json",
+      "sha256": "efb38cb1b4dd9b1b80f3f3cc315abeef36e104be3f7f76724f694eb309a17664",
+      "context": "InGame",
+      "lines": [
+        "P6_ARCHINTENT271272_NATIVE_PARSE_ONLY\ttrue"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiArchaeologyIntentGameplay.lua": "e0600b74d501fdaef61fa8db471ee509ccaf764d47ebbbfb7e100e9d3139632a",
+    "mod/Baiqi/Lua/BaiqiArchaeologyReceiptEvents.lua": "c5a490b95b4ee2786b400f30f076bb121b1542dd65aea114ae3bdde1efd93731",
+    "tests/archaeology_intent_harness.py": "2f4d3f756fdfe658ed6eb7356b68c466f64e226058fe55b4cb27fb012a416ea7",
+    "tests/test_baiqi_archaeology_intents.py": "28cb0eb57f50b8e53337c011db2e0930829c0bfbf8b1f8fc2a77e1e9ee04b3a5",
+    "tests/test_baiqi_archaeology_events.py": "1aba4eae199846470356c5f057d2fecf88c8ba8e8009b891df387ee99f2ffa3a"
+  },
+  "scope": "Unregistered Core metadata permission for excavation/choice, expected-before property comparison and exact readback, strict owned unit/home/resource/freshness, unique Core created-event work receipt, separate lifetime-owned static event binder. No Native unit/player operation, UI slot API inCore, bootstrap reset/refund or timeout success.",
+  "trusted_boundary": "UI supplies real current home/inventory and pending queue descriptor because Core lacks these APIs. Core independently checks owned unit/city/museum/resource facts. Actual archaeology GreatWorkCreated payload/delivery is still unproven; proposed handler requires full unit ID, saved home-city XY, actual museum index and new unique work ID. Software event ports are not Native evidence.",
+  "cumulative_through272": {
+    "logical": 272,
+    "complete": 257,
+    "length": 12,
+    "final_transport_failed": 3,
+    "http_attempts": 302,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Stages interleaved normal100 restore and Native unknown-hold evidence; exclusive active owner time/cache/server queue unknown.",
+  "limits": [
+    "Current config has no archaeologyIntentKey, both modules outside64 manifest/Gameplay; no actual archaeology authorization or event subscription initialized in game.",
+    "Native compiler only parses false branches; actual context/slots/home/artifact/dig/choice/created effect not executed.",
+    "Missing key/corrupt/readfailure fail closed; save/load of new schema and Native event contract still require acceptance."
+  ],
+  "next": "Implement sole UI excavation/choice writers, pending recovery and forced manual-action guards, normal production supply and source65 registration. Then actual museum/home/Native event payload test and actual work receipt; continue full acceptance."
+}
