@@ -1,0 +1,294 @@
+{
+  "schema": "civ6.baiqi-native67-archaeologist-physical-map289/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T18:13:59.291246+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "411dba7f068dffba372a03646fa7e17e23b0ab21",
+  "normal_version": 67,
+  "same_game_pid": 16888,
+  "normal_files": 85,
+  "source_changed": false,
+  "new_launch": false,
+  "steam_mode_switches": 0,
+  "case": {
+    "sequence": 289,
+    "case_id": "civ6-arc-physical-map-observer289",
+    "mode_id": "http-candidate",
+    "shared_commit": "eb7b462b0f34b37192294a9db55c323bde9e6ed8",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "max_tokens": 2700,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T18:09:05.578732+00:00",
+    "attempt_end_utc": "2026-11-03T18:09:11.440959+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 5860.044699977152,
+      "first_nonempty_content_delta_ms": 747.1746999653988,
+      "usage": {
+        "prompt_tokens": 4045,
+        "completion_tokens": 869,
+        "total_tokens": 4914
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T18:09:05.578732+00:00",
+        "end_utc": "2026-11-03T18:09:11.440959+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 5860.044699977152
+      }
+    ],
+    "adoption": "partial_code_adopted",
+    "review": "Rawobserver RequestOperation/Command formalparams insertnilthirdarg fortwoargcalls; Lua53 rawforwards3vsoriginal2. Ownerchangesvarargs, boundsrightprints/removesunboundedmessages, addscontext/wrapperreferences/foreignbinding-awarecleanup. Fivewitnessrows includesrawcounterexample, reviewedforward+fullrestore,20events2prints,partialinstallrollback,foreignbindingpreservation. ReviewedactualNativephysicalinput/restorepasses.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "actual_client_interval": {
+    "actual_peak": 1,
+    "seconds_at_peak": 5.862227,
+    "longest_seconds_at_peak": 5.862227,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through289": {
+    "logical": 289,
+    "complete": 273,
+    "length": 13,
+    "final_transport_failed": 3,
+    "http_attempts": 319,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software_review": {
+    "at_utc": "2026-11-03T18:10:52.794109+00:00",
+    "cases": [
+      {
+        "case": "raw-forward-and-full-restore",
+        "op_args": 3,
+        "cmd_args": 3,
+        "expected_original_arity": 2,
+        "preserves_original_arity": false
+      },
+      {
+        "case": "reviewed-forward-and-full-restore",
+        "op_args": 2,
+        "cmd_args": 2,
+        "expected_original_arity": 2,
+        "preserves_original_arity": true
+      },
+      {
+        "case": "reviewed-bounded-right-prints",
+        "events": 20,
+        "prints": 2
+      },
+      {
+        "case": "reviewed-partial-install-rollback",
+        "passed": true
+      },
+      {
+        "case": "reviewed-foreign-binding-preserved-after-own-cleanup",
+        "passed": true
+      }
+    ],
+    "seconds": 0.0037794000236317515,
+    "scope": "Actualcandidate/reviewed transientobserver ports underLua53, noNativeinput/gameeffect. Raw addsimplicitnil thirdarg to2-argRequest calls; reviewed varargs preserveexactarity. Addedboundedtwo-rightprints, actualcontext, ownedwrapperrefs andforeignbinding-aware cleanup, partialadoption."
+  },
+  "reviewed_hashes": {
+    "install": "091b69a238df18d3e731a208efe90e75714a8d192674ec71c0b4d55a676a8707",
+    "restore": "355d329830829fab27ff4972ec34026ee091fa7fb462ef3fefa7a0cbc9c74380"
+  },
+  "fixture": {
+    "preserved_baseline_save": "Baiqi_P6_20261104_V67_Shipwreck101.Civ6Save",
+    "QA_single_unit_movement_grant": 4,
+    "unitID": 5898281,
+    "formation": 1,
+    "normal_controller_active": true,
+    "unit_or_resource_or_history_or_property_setter": false,
+    "no_SDK_movement_order": true,
+    "no_army_diplomacy_or_end101_input": true
+  },
+  "actual_preconditions": {
+    "local_player": 0,
+    "turn": 101,
+    "selected_unit": 5898281,
+    "from_xy": [
+      7,
+      13
+    ],
+    "moves": 4,
+    "IsEmbarked": true,
+    "target_plot": 578,
+    "target_xy": [
+      6,
+      13
+    ],
+    "target_IsWater": true,
+    "target_visible_empty_nocity": true,
+    "raw_BaiqiExecutor_MOVE_qualified": true,
+    "protected_WorldInput_MOVE_qualified": false,
+    "camera_snap_and_unit_selection": "InspectionUIonly, notmovementcommand"
+  },
+  "physical_input": {
+    "at_utc": "2026-11-03T18:11:47.081010+00:00",
+    "pid": 16888,
+    "hwnd": 15860566,
+    "fresh_image_sha256": "9f947def5874498e2fe77e979f68e271c19960c33e814afd71930df2daf5aca0",
+    "selected_unit": 5898281,
+    "target_xy": [
+      6,
+      13
+    ],
+    "screen_xy": [
+      512,
+      376
+    ],
+    "method": "One physicalrightdown250ms/up-finally afterfreshownedgame/selectedfullID/currentmoves4/actualcursor6,13/protectedqualificationfalse. NativepositiveMOVE independentlycaptured. No SDKmove/turn/army/diplomacy command."
+  },
+  "actual_input_observer": {
+    "input_total": 39,
+    "right_down": 1,
+    "right_up": 1,
+    "guarded_MoveUnitToPlot_entries": 1,
+    "protected_RequestOperation_attempts": 0,
+    "protected_RequestCommand_attempts": 0,
+    "last_selected_ID": 5898281,
+    "last_cursor_xy": [
+      6,
+      13
+    ],
+    "original_MoveUnitToPlot_restored": true,
+    "original_RequestOperation_restored": true,
+    "original_RequestCommand_restored": true,
+    "original_input_handler_restored_via_SetInputHandler": true,
+    "input_handler_no_native_getter_limit": true,
+    "active_observer_cleared": true
+  },
+  "actual_after": {
+    "UI_and_Core_xy": [
+      7,
+      13
+    ],
+    "UI_and_Core_moves": 4,
+    "formation": 1,
+    "IsEmbarked": true,
+    "actual_workIDs": [
+      11,
+      12
+    ],
+    "empty_slots": [
+      2
+    ],
+    "journal_serial": 2,
+    "journal_token": "archaeology:0:2",
+    "journal_stage": "OBSERVED",
+    "new_background_target_requests_in_scope": [
+      "BaiqiExecutor: BAIQI|request|turn=101|id=0:101:5|source=BACKGROUND|unit=5898281|operation=SKIP_TURN|plot=579|from=579"
+    ],
+    "new_move_dig_choice_background_requests": 0,
+    "original_target_still_raw_MOVE_qualified": true
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T180934687493Z.json",
+      "sha256": "3bf7a614bba8418be91167ce0ce38262381f89acc0ee7c654ce1123563f5c08d",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_SOURCE67_ARC_MAP_QA_MOVES_ONCE\t5898281\t4\t1"
+      ]
+    },
+    {
+      "name": "20261103T180936063331Z.json",
+      "sha256": "37b79a2f7f8c64f7f5aa83e83fcd3eb57fdbf8edeb145adf4ff0bb844cd4a2e1",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE67_ARC_MAP_NATIVE_CURRENT\t5898281\t4\ttrue\t75236491",
+        "P6_SOURCE67_ARC_MAP_NATIVE_NEIGHBOR\t624\t8\t14\t-1\ttrue\tfalse\ttrue\ttrue",
+        "P6_SOURCE67_ARC_MAP_NATIVE_NEIGHBOR\t580\t8\t13\t0\tfalse\tfalse\ttrue\ttrue",
+        "P6_SOURCE67_ARC_MAP_NATIVE_NEIGHBOR\t536\t8\t12\t0\tfalse\tfalse\ttrue\ttrue",
+        "P6_SOURCE67_ARC_MAP_NATIVE_NEIGHBOR\t535\t7\t12\t0\tfalse\tfalse\ttrue\ttrue",
+        "P6_SOURCE67_ARC_MAP_NATIVE_NEIGHBOR\t578\t6\t13\t-1\ttrue\tfalse\ttrue\ttrue",
+        "P6_SOURCE67_ARC_MAP_NATIVE_NEIGHBOR\t623\t7\t14\t-1\ttrue\tfalse\ttrue\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T181133131805Z.json",
+      "sha256": "fca90d017101a856e0f9fff8d6009416af781a11a67f3946e5bd7966ddf4b6e0",
+      "context": "WorldInput",
+      "lines": [
+        "P6_SOURCE67_ARC_MAP_CAMERA_ONLY_AND_GUARD\t5898281\t4\t6\t13\tfalse"
+      ]
+    },
+    {
+      "name": "20261103T181134444730Z.json",
+      "sha256": "be017e23b3e677230af4835bd7339ba3d2caa4b7bc6e102d9e832a80c20744cb",
+      "context": "WorldInput",
+      "lines": [
+        "P6_ARC289_OBSERVER_INSTALLED\t5898281"
+      ]
+    },
+    {
+      "name": "20261103T181146746277Z.json",
+      "sha256": "5c93c876b348af5a6684e1276f4a32b1ee0b4aa39772b0af5945df53718e9bc3",
+      "context": "WorldInput",
+      "lines": [
+        "P6_SOURCE67_ARC_MAP_PREPHYSICAL_CURSOR\t5898281\t6\t13\t4\t0\t0"
+      ]
+    },
+    {
+      "name": "20261103T181149161159Z.json",
+      "sha256": "f2328d2339f5bd0da709bc214f965d647ff01ac2b1e6e53c86ea3532811ed5df",
+      "context": "WorldInput",
+      "lines": [
+        "P6_SOURCE67_ARC_MAP289_RESTORED\t5898281\t39\t1\t1\t1\t0\t0\t5898281\t6\t13\ttrue\ttrue\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T181313001408Z.json",
+      "sha256": "8dfeabb65ccad7e238b6462878362c2b7268a180933350e0830399c7f578d6c3",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_SOURCE67_ARC_MAP_AFTER_UI\t5898281\t7\t13\t4\t1\ttrue\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T181313593815Z.json",
+      "sha256": "638f23f77a83ee40258e720f376a21e5a7b7235b2e291d18a40f0a7f9de717ba",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_SOURCE67_ARC_MAP_AFTER_CORE\t5898281\t7\t13\t4\t1\ttrue\t2\tarchaeology:0:2"
+      ]
+    }
+  ],
+  "log": {
+    "sha256": "d6e4f3c31ae23c59933af0fd33834b21b9a2a88439ec8150c224bc1dbf72a9ec",
+    "bytes": 46140,
+    "mod_errors": [],
+    "scope": "ActualWorldInputcallbacks, threepercontextbindings andunit/persistedfacts, notentireSDKledger."
+  },
+  "limits": [
+    "One actualqualifiedphysicalrightclickblockedforARC; no entiremouse/keyboard/otherleader matrixclaim. Nativepositivequalification andfullinputcallback/moveentryreceipt distinguish thisfrommissedmouseclick ornoactionpoints.",
+    "QA+4movesnotnormalturncostproof. No savecreatedfortheextraQAmoves; priorwatersavepreserved. Normalproduction200/performance/full40 remainopen.",
+    "Modelpartialobserver noteffectwriter, originalarity/tailnil/returns verified. HTTPcomplete/portchecks/Nativecallbacks/physicalstate distinct; exclusiveownercost/backendqueue/cache/netsavingunknown."
+  ],
+  "next": "Publishrightclickguardandevidence/shared289; preservewatersave andcontinuefreshnormal67ten-cityperformance orremainingUI/normaltrainingacceptance, no stopafterthiscommit."
+}
