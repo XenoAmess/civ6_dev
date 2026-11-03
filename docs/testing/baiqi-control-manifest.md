@@ -11,3 +11,7 @@ tools/control_manifest.py 提供纯函数 make_control_manifest(source)，只转
     python -m unittest discover -s tests -p test_control_manifest.py -v
 
 测试包含实际47版清单的静态内容等价和独立的结构反例，没有在游戏安装该对照。[对应证据](../research/baiqi-p6-performance-first-window47-evidence-2026-11-02.json)同时记录当前首次规划窗口的超限与剩余测量边界。正式对照还须冻结全部文件指纹、可载入性和相同玩家指令／游戏状态，并按[性能协议](baiqi-performance-protocol.md)执行。
+
+## 2026-11-03：保留现有接口，记录重复任务错误
+
+负责人未先检索现有实现，向模型217重复派发了清单转换任务，并用AddFile覆盖原测试。工具应用前的存在性检查阻止覆盖现有工具；本轮新增测试原件保存在忽略目录，原测试恢复为当前Git提交字节，现有bytes／报告接口与7项检查保留，普通模组未改。该POST是负责人重复工作，217源码采用0，不能算对照包新进展；新的10项候选检查有5处失败也不属于既有接口回归。覆盖前未提交原像未单独持有，不倒推额外原件。实际对照包安装、可载入性与配对仍待完成。[记录](../research/baiqi-p6-steam-and-duplicate216217-evidence-2026-11-03.json)。
