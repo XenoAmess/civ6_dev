@@ -1,0 +1,3394 @@
+{
+  "schema": "civ6.baiqi-native67-q18-fivewindows/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T18:57:03.499285+00:00",
+  "machine_id": "BF-202609141645",
+  "normal_version": 67,
+  "normal_files": 85,
+  "source_commit": "411dba7f068dffba372a03646fa7e17e23b0ab21",
+  "same_game_pid": 16888,
+  "source_changed": false,
+  "steam_mode_switches": 0,
+  "new_game_launch": false,
+  "same_original_save": {
+    "bytes": 503809,
+    "sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "warmup_at_formal_reload_seconds": 115.32999992371
+  },
+  "summary": {
+    "roots": 280,
+    "pure_ten": 256,
+    "groups_ten": {
+      "Controller.RunNow": {
+        "n": 144,
+        "p95_ms": 12.000083923339844,
+        "max_ms": 29.000043869018555
+      },
+      "Admin.Run": {
+        "n": 112,
+        "p95_ms": 4.999876022338867,
+        "max_ms": 11.00015640258789
+      }
+    },
+    "transition_roots": 0,
+    "eleven_roots": 24,
+    "per_turn_ten": {
+      "86": {
+        "Controller.RunNow": {
+          "n": 33,
+          "p95_ms": 5.000114440917969,
+          "max_ms": 6.999969482421875
+        },
+        "Admin.Run": {
+          "n": 27,
+          "p95_ms": 3.000020980834961,
+          "max_ms": 3.999948501586914
+        }
+      },
+      "87": {
+        "Controller.RunNow": {
+          "n": 31,
+          "p95_ms": 3.999948501586914,
+          "max_ms": 5.000114440917969
+        },
+        "Admin.Run": {
+          "n": 28,
+          "p95_ms": 0.9999275207519531,
+          "max_ms": 0.9999275207519531
+        }
+      },
+      "88": {
+        "Controller.RunNow": {
+          "n": 33,
+          "p95_ms": 22.00007438659668,
+          "max_ms": 29.000043869018555
+        },
+        "Admin.Run": {
+          "n": 25,
+          "p95_ms": 3.999948501586914,
+          "max_ms": 4.999876022338867
+        }
+      },
+      "89": {
+        "Controller.RunNow": {
+          "n": 29,
+          "p95_ms": 26.000022888183594,
+          "max_ms": 26.999950408935547
+        },
+        "Admin.Run": {
+          "n": 23,
+          "p95_ms": 4.999876022338867,
+          "max_ms": 6.000041961669922
+        }
+      },
+      "90": {
+        "Controller.RunNow": {
+          "n": 18,
+          "p95_ms": 20.999908447265625,
+          "max_ms": 20.999908447265625
+        },
+        "Admin.Run": {
+          "n": 9,
+          "p95_ms": 11.00015640258789,
+          "max_ms": 11.00015640258789
+        }
+      }
+    },
+    "B_plan_strict_numerical_within_budget": true,
+    "five_real_windows": [
+      "86",
+      "87",
+      "88",
+      "89",
+      "90"
+    ],
+    "all_observers_restored": true,
+    "scope": "Twoactualepochs splitbytestoperator diplomacyhold, sameoriginal/normal67; IDsqualifiedbyephoch. Combinedinclusivewallstats, notwholemodCPU/performanceTC036pass orcausalversioncomparison."
+  },
+  "B_plan_result": "WITHIN_FROZEN_NUMERICAL_BUDGET forcombinedfive-windowpuretenrootdata; notfullTC036PASS.",
+  "per_turn_caution": "PuretenControllerper-turnp95 at88/89/90approximately22/26/21ms; combined5-windowp95is12ms. Preserveper-turndataand11city36msmaximumseparately; aggregatepassdoesnoteraseheavierlaterwindows.",
+  "B_turn_result": "UNKNOWN wholemod; onlyController/AdminintervalunionplusUIstaticmethodsubset.",
+  "B_delta_result": "NOT_RUN five matchedbehavior-closedpairs.",
+  "N_req_result": "UNKNOWN wholemod: onlyfiveBaiqiExecutorstaticmethods; Core/object/othercontexts notcovered.",
+  "epochs": [
+    {
+      "epoch": "q18",
+      "sample_receipt": "20261103T183143011965Z.json",
+      "private_facts_sha256": "f9e4c40475cb4f9fa5dc0e5084f6434172a445f4931a1599c4958714cfab1b4e",
+      "root_count": 119,
+      "native_path_ten": {
+        "n": 9,
+        "p50_ms": 0.9999275207519531,
+        "p95_ms": 2.000093460083008,
+        "max_ms": 2.000093460083008
+      },
+      "static_write_calls": 21,
+      "write_stats": {
+        "UnitManager": {
+          "total_calls": 17,
+          "callback_errors": 0
+        },
+        "CityManager": {
+          "total_calls": 2,
+          "callback_errors": 0
+        },
+        "UI": {
+          "total_calls": 2,
+          "callback_errors": 0
+        }
+      },
+      "recovery": {
+        "86": 1,
+        "87": 1
+      },
+      "api_restore": [
+        "P6_PERF_Q18_WRITE_RESTORED",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      "query_metadata": [
+        "P6_PERF_Q18_QUERY_PROFILE",
+        "9",
+        "9",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "epoch": "q18-cont",
+      "sample_receipt": "20261103T184406294863Z.json",
+      "private_facts_sha256": "8ffd1ddbfeda2728b69c87bff54496f7d0642540d5161505a16ca81af1b6b9ac",
+      "root_count": 161,
+      "native_path_ten": {
+        "n": 15,
+        "p50_ms": 0.9999275207519531,
+        "p95_ms": 4.999876022338867,
+        "max_ms": 4.999876022338867
+      },
+      "static_write_calls": 59,
+      "write_stats": {
+        "UnitManager": {
+          "total_calls": 40,
+          "callback_errors": 0
+        },
+        "CityManager": {
+          "total_calls": 8,
+          "callback_errors": 0
+        },
+        "UI": {
+          "total_calls": 11,
+          "callback_errors": 0
+        }
+      },
+      "recovery": {
+        "88": 1,
+        "89": 1,
+        "90": 1
+      },
+      "api_restore": [
+        "P6_PERF_Q18_CONT_WRITE_RESTORED",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      "query_metadata": [
+        "P6_PERF_Q18_CONT_QUERY_PROFILE",
+        "19",
+        "19",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "five_real_windows": {
+    "86": {
+      "observed_planner_union_ms": 86.00091934204102,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793730470.843,
+      "activation_observer": 1793730470.845,
+      "first_planner": 1793730470.843,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "87": {
+      "observed_planner_union_ms": 43.00045967102051,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793730484.791,
+      "activation_observer": 1793730484.794,
+      "first_planner": 1793730484.791,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "88": {
+      "observed_planner_union_ms": 251.9998550415039,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793731232.502,
+      "activation_observer": 1793731232.506,
+      "first_planner": 1793731232.502,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "89": {
+      "observed_planner_union_ms": 208.9993953704834,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793731252.014,
+      "activation_observer": 1793731252.016,
+      "first_planner": 1793731252.014,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "90": {
+      "observed_planner_union_ms": 291.0006046295166,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793731267.277,
+      "activation_observer": 1793731267.282,
+      "first_planner": 1793731267.277,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    }
+  },
+  "partial_prior_evidence": "https://github.com/XenoAmess/civ6_dev/blob/26dc9d564062c60a762468c655e5923d296d7a3d/docs/research/baiqi-p6-native67-performance-q18-partial290291-evidence-2026-11-04.json",
+  "user_role_clarification_evidence": "https://github.com/XenoAmess/civ6_dev/blob/b408b4add13cd263ecf9954e8fe039b7d3188690/docs/research/baiqi-p6-test-player-role292-evidence-2026-11-04.json",
+  "operator_correction": {
+    "original_human_click_request_was_misinterpretation": true,
+    "userclarified_PLAYER_not_human_person": true,
+    "test_player_closed_farewell_once": {
+      "at_utc": "2026-11-03T18:40:27.659254+00:00",
+      "pid": 16888,
+      "hwnd": 15860566,
+      "action": "ExplicitplayerphysicalEscapeafterfreshownedimage",
+      "label": "alexander-farewell-87",
+      "image_sha256": "811fef36c25e0050e99fd3a9120acfd40a1ea830b21e456ca4cad504773fbe54",
+      "status": "ARMED-noautomaticreplay"
+    },
+    "test_player_native_endturns": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "turn90_not_ended": true,
+    "army_skip_or_move_commands_by_tester": 0,
+    "modAI_diplomacy_commands": 0,
+    "interactivation87to88_gap_seconds": 747.712000131607,
+    "exact_diplomacy_pause_seconds": null,
+    "gap_scope": "SameNativeclock interactivationgap includes87activewindow/AI/operatorhold, notexactdialogpause ormodoverhead. Twoobserverepochs separated; rootIDsqualifiedbyephoch.",
+    "all_observers_now_restored_and_cleared": true
+  },
+  "final_state": {
+    "turn": 90,
+    "UI_and_Core_city_count": 11,
+    "city_ID_XY_owner": [
+      [
+        "65536",
+        "16",
+        "14",
+        "0"
+      ],
+      [
+        "131073",
+        "11",
+        "6",
+        "0"
+      ],
+      [
+        "196610",
+        "10",
+        "13",
+        "0"
+      ],
+      [
+        "262147",
+        "13",
+        "16",
+        "0"
+      ],
+      [
+        "327684",
+        "8",
+        "10",
+        "0"
+      ],
+      [
+        "393221",
+        "15",
+        "5",
+        "0"
+      ],
+      [
+        "458758",
+        "19",
+        "6",
+        "0"
+      ],
+      [
+        "524295",
+        "14",
+        "9",
+        "0"
+      ],
+      [
+        "589832",
+        "8",
+        "3",
+        "0"
+      ],
+      [
+        "655369",
+        "11",
+        "1",
+        "0"
+      ],
+      [
+        "720906",
+        "16",
+        "18",
+        "0"
+      ]
+    ],
+    "UI_queues": [
+      [
+        "65536",
+        "16",
+        "14",
+        "0",
+        "1",
+        "-46510675"
+      ],
+      [
+        "131073",
+        "11",
+        "6",
+        "0",
+        "1",
+        "1547024909"
+      ],
+      [
+        "196610",
+        "10",
+        "13",
+        "0",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "262147",
+        "13",
+        "16",
+        "0",
+        "1",
+        "101426179"
+      ],
+      [
+        "327684",
+        "8",
+        "10",
+        "0",
+        "1",
+        "806902947"
+      ],
+      [
+        "393221",
+        "15",
+        "5",
+        "0",
+        "1",
+        "1738306535"
+      ],
+      [
+        "458758",
+        "19",
+        "6",
+        "0",
+        "1",
+        "1738306535"
+      ],
+      [
+        "524295",
+        "14",
+        "9",
+        "0",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "589832",
+        "8",
+        "3",
+        "0",
+        "1",
+        "-2025065568"
+      ],
+      [
+        "655369",
+        "11",
+        "1",
+        "0",
+        "1",
+        "-764771404"
+      ],
+      [
+        "720906",
+        "16",
+        "18",
+        "0",
+        "1",
+        "-764771404"
+      ]
+    ],
+    "all_queues_nonempty": true,
+    "actual_knight_UI_and_Core": [
+      "4456482",
+      "11",
+      "6",
+      "4"
+    ],
+    "mod_logged_requests_for_two_known_knights": [],
+    "save": {
+      "at_utc": "2026-11-03T18:53:56.966216+00:00",
+      "name": "Baiqi_P6_20261104_V67_Q18FiveWindows90.Civ6Save",
+      "bytes": 518864,
+      "sha256": "ebda0072cd217e55d46642dfebf1f40bacb74b0f210dbaa5ca241c12200f474a",
+      "reloaded": false,
+      "actual_turn": 90,
+      "actual_cities": 11
+    }
+  },
+  "owner_oracle_correction": "Initialfinalqueuecheckcorrectlyprintedall11nonemptyqueues butthenassertedknight10,6 fromdifferentoldq17AFTERmanualunstack. Actualq18UI/Core knight11,6moves4. Oldq17 unstacksourceexplicitlymoved11,6to10,6, soownerremovedwrongcross-runuiexpectation; noarmymovedtosatisfyassert, no modFAILclaimed. Failedreadonlyreceiptretained.",
+  "samples_for_reproduction": {
+    "q18": [
+      {
+        "id": "1",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "2",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "3",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "4",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0049998760223388672",
+        "failed": "false"
+      },
+      {
+        "id": "5",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "6",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "7",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "8",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "9",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "10",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "11",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "12",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "13",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "14",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "15",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "16",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "17",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "18",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "19",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "20",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "21",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "22",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "23",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "24",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "25",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "26",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "27",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "28",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.006999969482421875",
+        "failed": "false"
+      },
+      {
+        "id": "29",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "30",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "31",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "32",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0049998760223388672",
+        "failed": "false"
+      },
+      {
+        "id": "33",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "34",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "35",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "36",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "37",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "38",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "39",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "40",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "41",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "42",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "43",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "44",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "45",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "46",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "47",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "48",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "49",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0019998550415039063",
+        "failed": "false"
+      },
+      {
+        "id": "50",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "51",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "52",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0049998760223388672",
+        "failed": "false"
+      },
+      {
+        "id": "53",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "54",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "55",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "56",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "57",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "58",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "59",
+        "name": "Admin.Run",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "60",
+        "name": "Controller.RunNow",
+        "turn_before": "86",
+        "turn_after": "86",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "61",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "62",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "63",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "64",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0019998550415039063",
+        "failed": "false"
+      },
+      {
+        "id": "65",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "66",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "67",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "68",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "69",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "70",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "71",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "72",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "73",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "74",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "75",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "76",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "77",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "78",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "79",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "80",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "81",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "82",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "83",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "84",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "85",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "86",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "87",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "88",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "89",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "90",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "91",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "92",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "93",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "94",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "95",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "96",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "97",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "98",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "99",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "100",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "101",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "102",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "103",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "104",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "105",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "106",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "107",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "108",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "109",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "110",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "111",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "112",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "113",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "114",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "115",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "116",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "117",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "118",
+        "name": "Controller.RunNow",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "119",
+        "name": "Admin.Run",
+        "turn_before": "87",
+        "turn_after": "87",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      }
+    ],
+    "q18-cont": [
+      {
+        "id": "1",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "2",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "3",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "4",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "5",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "6",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "7",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "8",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0070002079010009766",
+        "failed": "false"
+      },
+      {
+        "id": "9",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0049998760223388672",
+        "failed": "false"
+      },
+      {
+        "id": "10",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.011999845504760742",
+        "failed": "false"
+      },
+      {
+        "id": "11",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "12",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0099999904632568359",
+        "failed": "false"
+      },
+      {
+        "id": "13",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "14",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "15",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.011999845504760742",
+        "failed": "false"
+      },
+      {
+        "id": "16",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "17",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "18",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "19",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0040001869201660156",
+        "failed": "false"
+      },
+      {
+        "id": "20",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "21",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "22",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "23",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.029000043869018555",
+        "failed": "false"
+      },
+      {
+        "id": "24",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "25",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.02200007438659668",
+        "failed": "false"
+      },
+      {
+        "id": "26",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.006999969482421875",
+        "failed": "false"
+      },
+      {
+        "id": "27",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "28",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0019998550415039063",
+        "failed": "false"
+      },
+      {
+        "id": "29",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "30",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "31",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "32",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "33",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "34",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "35",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "36",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0099999904632568359",
+        "failed": "false"
+      },
+      {
+        "id": "37",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "38",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.006999969482421875",
+        "failed": "false"
+      },
+      {
+        "id": "39",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "40",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0089998245239257813",
+        "failed": "false"
+      },
+      {
+        "id": "41",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "42",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0090000629425048828",
+        "failed": "false"
+      },
+      {
+        "id": "43",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "44",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "45",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "46",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "47",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "48",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "49",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0090000629425048828",
+        "failed": "false"
+      },
+      {
+        "id": "50",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "51",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0090000629425048828",
+        "failed": "false"
+      },
+      {
+        "id": "52",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "53",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0080001354217529297",
+        "failed": "false"
+      },
+      {
+        "id": "54",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "55",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0060000419616699219",
+        "failed": "false"
+      },
+      {
+        "id": "56",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "57",
+        "name": "Controller.RunNow",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0090000629425048828",
+        "failed": "false"
+      },
+      {
+        "id": "58",
+        "name": "Admin.Run",
+        "turn_before": "88",
+        "turn_after": "88",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "59",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "60",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0060000419616699219",
+        "failed": "false"
+      },
+      {
+        "id": "61",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "62",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "63",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "64",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "65",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "66",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "67",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "68",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0019998550415039063",
+        "failed": "false"
+      },
+      {
+        "id": "69",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.026999950408935547",
+        "failed": "false"
+      },
+      {
+        "id": "70",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0060000419616699219",
+        "failed": "false"
+      },
+      {
+        "id": "71",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.026000022888183594",
+        "failed": "false"
+      },
+      {
+        "id": "72",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "73",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.015999794006347656",
+        "failed": "false"
+      },
+      {
+        "id": "74",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.006999969482421875",
+        "failed": "false"
+      },
+      {
+        "id": "75",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0049998760223388672",
+        "failed": "false"
+      },
+      {
+        "id": "76",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "77",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "78",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0090000629425048828",
+        "failed": "false"
+      },
+      {
+        "id": "79",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "80",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0060000419616699219",
+        "failed": "false"
+      },
+      {
+        "id": "81",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0099999904632568359",
+        "failed": "false"
+      },
+      {
+        "id": "82",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "83",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "84",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "85",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "86",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "87",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0099999904632568359",
+        "failed": "false"
+      },
+      {
+        "id": "88",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "89",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "90",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "91",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "92",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "93",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "94",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "95",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "96",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "97",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "98",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "99",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "100",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "101",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "102",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0049998760223388672",
+        "failed": "false"
+      },
+      {
+        "id": "103",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0080001354217529297",
+        "failed": "false"
+      },
+      {
+        "id": "104",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "105",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "106",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "107",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "108",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "109",
+        "name": "Controller.RunNow",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0090000629425048828",
+        "failed": "false"
+      },
+      {
+        "id": "110",
+        "name": "Admin.Run",
+        "turn_before": "89",
+        "turn_after": "89",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "111",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "112",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.019999980926513672",
+        "failed": "false"
+      },
+      {
+        "id": "113",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "114",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "115",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0019998550415039063",
+        "failed": "false"
+      },
+      {
+        "id": "116",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0040001869201660156",
+        "failed": "false"
+      },
+      {
+        "id": "117",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "118",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "119",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "120",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0070002079010009766",
+        "failed": "false"
+      },
+      {
+        "id": "121",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.011000156402587891",
+        "failed": "false"
+      },
+      {
+        "id": "122",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0099999904632568359",
+        "failed": "false"
+      },
+      {
+        "id": "123",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "124",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0099999904632568359",
+        "failed": "false"
+      },
+      {
+        "id": "125",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0019998550415039063",
+        "failed": "false"
+      },
+      {
+        "id": "126",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0099999904632568359",
+        "failed": "false"
+      },
+      {
+        "id": "127",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "128",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "129",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "130",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "131",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0019998550415039063",
+        "failed": "false"
+      },
+      {
+        "id": "132",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "133",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "134",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.020999908447265625",
+        "failed": "false"
+      },
+      {
+        "id": "135",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0.012000083923339844",
+        "failed": "false"
+      },
+      {
+        "id": "136",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "137",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "10",
+        "cities_after": "10",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "138",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.03600001335144043",
+        "failed": "false"
+      },
+      {
+        "id": "139",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "140",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0010001659393310547",
+        "failed": "false"
+      },
+      {
+        "id": "141",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "142",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0040001869201660156",
+        "failed": "false"
+      },
+      {
+        "id": "143",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0",
+        "failed": "false"
+      },
+      {
+        "id": "144",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.010999917984008789",
+        "failed": "false"
+      },
+      {
+        "id": "145",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "146",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.006999969482421875",
+        "failed": "false"
+      },
+      {
+        "id": "147",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0050001144409179688",
+        "failed": "false"
+      },
+      {
+        "id": "148",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0090000629425048828",
+        "failed": "false"
+      },
+      {
+        "id": "149",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0020000934600830078",
+        "failed": "false"
+      },
+      {
+        "id": "150",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "151",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.00099992752075195313",
+        "failed": "false"
+      },
+      {
+        "id": "152",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "153",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "154",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.013000011444091797",
+        "failed": "false"
+      },
+      {
+        "id": "155",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0030000209808349609",
+        "failed": "false"
+      },
+      {
+        "id": "156",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.006999969482421875",
+        "failed": "false"
+      },
+      {
+        "id": "157",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0039999485015869141",
+        "failed": "false"
+      },
+      {
+        "id": "158",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.006999969482421875",
+        "failed": "false"
+      },
+      {
+        "id": "159",
+        "name": "Admin.Run",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.0029997825622558594",
+        "failed": "false"
+      },
+      {
+        "id": "160",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0.015000104904174805",
+        "failed": "false"
+      },
+      {
+        "id": "161",
+        "name": "Controller.RunNow",
+        "turn_before": "90",
+        "turn_after": "90",
+        "cities_before": "11",
+        "cities_after": "11",
+        "seconds": "0",
+        "failed": "false"
+      }
+    ]
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T184043065613Z.json",
+      "sha256": "b6a52a38b3785dc01b13614c88ad30e4bccec64e1bdf8f25eb4e8f39207dee20",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_PERF_Q18_CONT_EXPLICIT_PLAYER_ENDTURN\t88"
+      ],
+      "query_errors": []
+    },
+    {
+      "name": "20261103T184102309078Z.json",
+      "sha256": "2939716b4aa93449b5056eab6eca3666557fe67bb0cd4c23758af9e3933e4dee",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_PERF_Q18_CONT_EXPLICIT_PLAYER_ENDTURN\t89"
+      ],
+      "query_errors": []
+    },
+    {
+      "name": "20261103T184406294863Z.json",
+      "sha256": "e4053901323c315c0762cac433679a39896431df237d94709f93e032d4f2b644",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_PERF_Q18_CONT_RESTORED\ttrue\ttrue\t161\t0\t0\t20\t0\t0",
+        "P6_PERF_Q18_CONT_WINDOW\t88\t1793731232.502\t1793731232.506\t1793731232.502",
+        "P6_PERF_Q18_CONT_WINDOW\t89\t1793731252.014\t1793731252.016\t1793731252.014",
+        "P6_PERF_Q18_CONT_WINDOW\t90\t1793731267.277\t1793731267.282\t1793731267.277",
+        "P6_PERF_Q18_CONT_WRITE_RESTORED\ttrue\ttrue\ttrue\ttrue",
+        "P6_PERF_Q18_CONT_QUERY_PROFILE\t19\t19\t0\t0\t0\t0"
+      ],
+      "query_errors": []
+    },
+    {
+      "name": "20261103T185049515810Z.json",
+      "sha256": "a05f89c6eb511b68d2ff4b5cd650904bb626ffebb0232b9cba890137c7570fc4",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_PERF_Q18_FINAL_QUEUE\t65536\t16\t14\t0\t1\t-46510675",
+        "P6_PERF_Q18_FINAL_QUEUE\t131073\t11\t6\t0\t1\t1547024909",
+        "P6_PERF_Q18_FINAL_QUEUE\t196610\t10\t13\t0\t1\t-1698135861",
+        "P6_PERF_Q18_FINAL_QUEUE\t262147\t13\t16\t0\t1\t101426179",
+        "P6_PERF_Q18_FINAL_QUEUE\t327684\t8\t10\t0\t1\t806902947",
+        "P6_PERF_Q18_FINAL_QUEUE\t393221\t15\t5\t0\t1\t1738306535",
+        "P6_PERF_Q18_FINAL_QUEUE\t458758\t19\t6\t0\t1\t1738306535",
+        "P6_PERF_Q18_FINAL_QUEUE\t524295\t14\t9\t0\t1\t-1698135861",
+        "P6_PERF_Q18_FINAL_QUEUE\t589832\t8\t3\t0\t1\t-2025065568",
+        "P6_PERF_Q18_FINAL_QUEUE\t655369\t11\t1\t0\t1\t-764771404",
+        "P6_PERF_Q18_FINAL_QUEUE\t720906\t16\t18\t0\t1\t-764771404"
+      ],
+      "query_errors": [
+        "ERR:Runtime Error: assertion failed\nstack traceback:\n\t[C]: in function 'assert'\n\t[string \"assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()==90)...\"]:9: in function '(main chunk)'\r\nLua callstack:\r\n"
+      ]
+    },
+    {
+      "name": "20261103T185353024806Z.json",
+      "sha256": "eb14c6c767fd6157fa79cbd4afa40aa08f11308be242d9b7baf74e71788da09f",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_PERF_Q18_FINAL_QUEUE\t65536\t16\t14\t0\t1\t-46510675",
+        "P6_PERF_Q18_FINAL_QUEUE\t131073\t11\t6\t0\t1\t1547024909",
+        "P6_PERF_Q18_FINAL_QUEUE\t196610\t10\t13\t0\t1\t-1698135861",
+        "P6_PERF_Q18_FINAL_QUEUE\t262147\t13\t16\t0\t1\t101426179",
+        "P6_PERF_Q18_FINAL_QUEUE\t327684\t8\t10\t0\t1\t806902947",
+        "P6_PERF_Q18_FINAL_QUEUE\t393221\t15\t5\t0\t1\t1738306535",
+        "P6_PERF_Q18_FINAL_QUEUE\t458758\t19\t6\t0\t1\t1738306535",
+        "P6_PERF_Q18_FINAL_QUEUE\t524295\t14\t9\t0\t1\t-1698135861",
+        "P6_PERF_Q18_FINAL_QUEUE\t589832\t8\t3\t0\t1\t-2025065568",
+        "P6_PERF_Q18_FINAL_QUEUE\t655369\t11\t1\t0\t1\t-764771404",
+        "P6_PERF_Q18_FINAL_QUEUE\t720906\t16\t18\t0\t1\t-764771404",
+        "P6_PERF_Q18_FINAL_KNIGHT_UI\t4456482\t11\t6\t4",
+        "P6_PERF_Q18_FINAL_OBSERVERS_CLEARED\ttrue"
+      ],
+      "query_errors": []
+    },
+    {
+      "name": "20261103T185353716128Z.json",
+      "sha256": "f97fd79e001e582230eaecce7178635e7b6b4d10aa01da1487243b1db2ff4022",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_PERF_Q18_FINAL_CORE_CITY\t65536\t16\t14\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t131073\t11\t6\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t196610\t10\t13\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t262147\t13\t16\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t327684\t8\t10\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t393221\t15\t5\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t458758\t19\t6\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t524295\t14\t9\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t589832\t8\t3\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t655369\t11\t1\t0",
+        "P6_PERF_Q18_FINAL_CORE_CITY\t720906\t16\t18\t0",
+        "P6_PERF_Q18_FINAL_KNIGHT_CORE\t4456482\t11\t6\t4"
+      ],
+      "query_errors": []
+    },
+    {
+      "name": "20261103T185355172424Z.json",
+      "sha256": "abb833b594d61198888275e38fe30b0fc51182ad6c87b98dea6e4c05ee6041da",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_PERF_Q18_FINAL90_SAVE_ACK\ttrue"
+      ],
+      "query_errors": []
+    }
+  ],
+  "log": {
+    "sha256": "ac4c9a5a91bfc9c13792f6987a88d01902250845baed1139a0814dc45e1325a9",
+    "bytes": 155128,
+    "mod_errors": []
+  },
+  "model_requests_for_completion": 0,
+  "cumulative_through292": {
+    "logical": 292,
+    "complete": 276,
+    "length": 13,
+    "final_transport_failed": 3,
+    "http_attempts": 322,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "limits": [
+    "Thiscompletesactualfive-windowphaseAplanningdata, notcompleteTC036/full40. Historical60FAILkept; differentactions/coverage/windowscannotproveversioncausalspeedup.",
+    "24eleven-cityrootsexcludedfromtenpercentiles, no10to11transitionrootcaptured(citychangebetweenrootcalls).",
+    "PlanningclockinclusiveNativewallintervals, notCPUorallmodulecost; actorTEST_PLAYERversusBACKGROUND separated.",
+    "290/291/292adoption remainsinpriorpinnedrecords; completingthreeNativewindowsaddsno modelrequestorOpenCode-generationcredit."
+  ],
+  "next": "Extend actualentrypoint/clock/writecoverage forwholemodB_turn/N_req andprepareconcreteprivatebehaviorclosedpairedcontrol, preservingnormalgame/source andTEST_PLAYERcontrolrole. Continueindependentacceptance."
+}
