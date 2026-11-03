@@ -5,7 +5,13 @@ include("BaiqiNaturalistPurchaseJournal")
 
 -- The UI supplies the current engine quote. Core independently checks the
 -- balance, city and stock; Core has no UI city:GetGold() price component.
-BaiqiNaturalistPurchaseIntentGameplay={}
+local EVENT_MARKER="baiqi-naturalist-purchase-events-v1"
+local previousModule=BaiqiNaturalistPurchaseIntentGameplay
+if previousModule~=nil then
+  local ok,owned=pcall(function() return type(previousModule)=="table" and previousModule.marker==EVENT_MARKER end)
+  if not ok or not owned then return previousModule end
+end
+BaiqiNaturalistPurchaseIntentGameplay={marker=EVENT_MARKER}
 local MARKER="baiqi-naturalist-purchase-v1"
 local MAX=2147483647
 local function Object(value)
@@ -149,10 +155,42 @@ function bridge.Inspect(...)
   if ok then return a,b,c end
   return "UNAVAILABLE",nil,"inspect_unavailable"
 end
-if type(ExposedMembers)=="table" then
-  local prior=ExposedMembers.BaiqiNaturalistPurchaseBridge
-  if prior==nil or (type(prior)=="table" and prior.version==1 and prior.marker==MARKER) then
-    ExposedMembers.BaiqiNaturalistPurchaseBridge=bridge
+pcall(function()
+  if type(ExposedMembers)=="table" then
+    local prior=ExposedMembers.BaiqiNaturalistPurchaseBridge
+    if prior==nil or (type(prior)=="table" and prior.version==1 and prior.marker==MARKER) then
+      ExposedMembers.BaiqiNaturalistPurchaseBridge=bridge
+    end
   end
+end)
+local subscriptions={}
+local stopped=false
+local function Shutdown()
+  if stopped then return end
+  stopped=true
+  for _,owned in ipairs(subscriptions) do pcall(owned.remove,owned.callback) end
+  subscriptions={}
+end
+pcall(function()
+  if previousModule and type(previousModule.Shutdown)=="function" then previousModule.Shutdown() end
+end)
+BaiqiNaturalistPurchaseIntentGameplay.Shutdown=Shutdown
+local function ObserveEvent(playerID)
+  if stopped then return end
+  pcall(function()
+    if playerID==Game.GetLocalPlayer() then bridge.Inspect(playerID) end
+  end)
+end
+for _,name in ipairs({"UnitAddedToMap","PlayerTurnDeactivated"}) do
+  pcall(function()
+    if type(Events)~="table" or type(ExposedMembers)~="table"
+      or ExposedMembers.BaiqiNaturalistPurchaseBridge~=bridge then return end
+    local event=Events[name]
+    if not Object(event) or type(event.Add)~="function" or type(event.Remove)~="function" then return end
+    local add,remove=event.Add,event.Remove
+    if pcall(add,ObserveEvent) then
+      subscriptions[#subscriptions+1]={event=event,remove=remove,callback=ObserveEvent}
+    end
+  end)
 end
 return BaiqiNaturalistPurchaseIntentGameplay

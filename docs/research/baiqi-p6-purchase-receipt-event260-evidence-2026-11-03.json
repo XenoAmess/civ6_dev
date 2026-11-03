@@ -1,0 +1,100 @@
+{
+  "schema": "civ6.baiqi-purchase-receipt-event260/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "17bc1754bea58f0b66f817038c8eaed0959599b2",
+  "case": {
+    "sequence": 260,
+    "case_id": "CIV6-receiptevent260",
+    "mode_id": "http-candidate",
+    "shared_commit": "418fccb9934a0339eb2ba949a6728b8decd44ce4",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+    "max_tokens": 2600,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T11:09:18.442965+00:00",
+    "attempt_end_utc": "2026-11-03T11:09:28.111818+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 9660.030500032008,
+      "first_nonempty_content_delta_ms": 977.7800000156276,
+      "usage": {
+        "prompt_tokens": 5643,
+        "completion_tokens": 839,
+        "total_tokens": 6482
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T11:09:18.442965+00:00",
+        "end_utc": "2026-11-03T11:09:28.111818+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 9660.030500032008
+      }
+    ],
+    "adoption": "rejected_owner_implemented",
+    "review": "Candidate used self argument for static Event.Add/Remove, subscribed through foreign bridge, did not retain original removers, and failed malformed namespace/lifetime cases. Raw seven methods: five failures and two errors, 0.1103656 seconds. Owner implemented protected lifetime-owned subscriptions; seven methods pass in 0.310 seconds.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": "cf8940ae4b05f7d5f8d2c1fdaf959a821d985e2f729ea592bd7884988da512e2",
+    "tests/purchase_intent_harness.py": "18156d0530c4ef21b328e5f5581cf94aec883421de6e0465c1be064df19c5ed9",
+    "tests/test_baiqi_naturalist_purchase_events.py": "dc595c2a051faf6a276528d094f312038673be18d45c1767cbdc77ed7eb01a44"
+  },
+  "software": {
+    "raw_methods": 7,
+    "raw_failures": 5,
+    "raw_errors": 2,
+    "raw_seconds": 0.1103656,
+    "owner_methods": 7,
+    "owner_seconds": 0.31,
+    "passed": true,
+    "core_regression_methods": 10,
+    "core_regression_seconds": 1.325,
+    "core_regression_before_final_bootstrap_hardening": true
+  },
+  "native_readonly_facts": {
+    "context": "GameCore_Tuner",
+    "UnitAddedToMap": "table; Add and Remove functions",
+    "PlayerTurnDeactivated": "table; Add and Remove functions",
+    "PlayerTurnStartComplete": "nil",
+    "actual_subscription_or_event_delivery_tested": false
+  },
+  "adoption": "No model code adopted. Owner retains one shared callback and exact original remover, shuts down only prior owned subscriptions, preserves foreign bindings, isolates malformed event/namespace providers, and reconciles actual receipt even on inactive turn. No Native purchase or effect dispatched by this component unit.",
+  "owner_input_conflict_258": "Separate frozen case258 requested OPEN before and after Prepare while Prepare creates ARMED. Owner corrected contract for UI integration: OPEN before grant, exact freshly granted ARMED token after grant. Not a model fault.",
+  "cost_seconds": {
+    "exclusive_preparation": null,
+    "exclusive_review": null,
+    "exclusive_correction": null,
+    "validation": null,
+    "publication": null
+  },
+  "cost_limits": "Stages interleaved other work. Correction begin timestamp was not captured; no fabricated exclusive duration. Cache and server queue unknown.",
+  "limits": [
+    "Software event delivery is mocked; real Native order and receipt delivery remain unverified.",
+    "The module is still outside source62 registration. Source63 UI/config integration is a separate working unit.",
+    "No new OpenCode-native generation or performance pass."
+  ],
+  "next": "Register normal source63, run required suite/package/native parse, then offline cold-load and prove actual purchase debit/new-unit/receipt without replay."
+}

@@ -5,7 +5,7 @@ ROOT = snapshots.ROOT
 KEY = 'BAIQI_NATURALIST_PURCHASE_INTENTS_V1'
 
 
-def make_purchase_core(inject_key=True, stored=None):
+def make_purchase_core(inject_key=True, stored=None, with_receipt_events=False):
     host = SimpleNamespace()
     snapshots.PurchaseSnapshotTests.setUp(host)
     lua = host.lua
@@ -56,6 +56,26 @@ def make_purchase_core(inject_key=True, stored=None):
         lua.globals().BaiqiConfig.naturalistPurchaseIntentKey = KEY
     else:
         lua.globals().BaiqiConfig.naturalistPurchaseIntentKey = None
+    if with_receipt_events:
+        lua.execute('''
+          H.listeners={UnitAddedToMap={},PlayerTurnDeactivated={}}
+          H.adds=0;H.removes=0
+          Events={}
+          for name,listeners in pairs(H.listeners) do
+            Events[name]={Add=function(...)
+              assert(select('#',...)==1 and type((...))=='function','Event.Add is static Add(callback)')
+              listeners[(...)]=true;H.adds=H.adds+1
+            end,Remove=function(...)
+              assert(select('#',...)==1 and type((...))=='function','Event.Remove is static Remove(callback)')
+              listeners[(...)]=nil;H.removes=H.removes+1
+            end}
+          end
+          H.Fire=function(name,playerID,unitID)
+            local snapshot={};for callback in pairs(H.listeners[name]) do snapshot[#snapshot+1]=callback end
+            for _,callback in ipairs(snapshot) do callback(playerID,unitID) end
+          end
+          H.ListenerCount=function(name) local n=0;for _ in pairs(H.listeners[name]) do n=n+1 end;return n end
+        ''')
     if stored is not None:
         def plain(value):
             if hasattr(value, 'items'):
