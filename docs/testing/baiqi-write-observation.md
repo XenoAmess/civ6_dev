@@ -15,3 +15,10 @@
 ## 2026-11-03：静态写入子集实际接入，性能仍失败
 
 60普通包同进程另行预热198.566秒、重载原始十城85后推进至90。242根回调／234纯十城：Controller143次p95约31ms、最大41ms，Admin91次p95约6ms、最大12ms，B_plan仍FAIL。25次原生寻路中23次纯十城，最大31ms；120次无该寻路调用的Controller回调仍p95约30ms，不能把超限全归因于寻路。四类静态API共80次调用，含精确标识的5次规划根外恢复请求；86—89只覆盖该UI子集的活动回合，90尚未结束，全模块N_req仍未知。两根入口与三张静态API绑定、原生寻路函数均已恢复，状态／事件已清理，0丢弃／计时／运行错误。UI／Core11城匹配、队列均非空、9条国内商路；实际519090字节存档哈希留证，未重载。[实机证据](../research/baiqi-p6-performance-native60-query-write-evidence-2026-11-03.json)。这补充此前“安装器尚未接入”的历史记录，不把当时的软件见证追认为实机结果。
+
+
+## 2026-11-04：政体／政策对象方法适配器
+
+新增[外部适配器](../../tools/lua/diagnostic_culture_write_install.lua)，复用既有NewQueryCounter，只包装选定玩家的GetCulture及RequestChangeGovernment／SetGovernmentChangeConsidered／RequestPolicyChanges。对象方法始终绑定真实原生接收者，保留getter和写入的参数、尾nil及返回值；其他玩家原样通过。缓存最多16个玩家／128个文化对象，缺接口／包装失败／溢出保留原行为并标覆盖未知，不能因此判预算通过。
+
+Restore只替换自己拥有的Players绑定，外来替换保留；已被调用者持有的旧facade随后直通原生并停止计数，避免只让getBucket返回nil却继续累计totalCalls。9项必要行为检查0.016秒通过，真实67／90回合隔离环境只读返回原生政体4且正确恢复，未调用任何原生政体／政策写入。这补齐可接入的工具，不是完整请求账本已实机通过。[原稿拒绝、独立实现与实测边界](../research/baiqi-p6-culture-write-adapter293-evidence-2026-11-04.json)。
