@@ -22,3 +22,10 @@
 新增[外部适配器](../../tools/lua/diagnostic_culture_write_install.lua)，复用既有NewQueryCounter，只包装选定玩家的GetCulture及RequestChangeGovernment／SetGovernmentChangeConsidered／RequestPolicyChanges。对象方法始终绑定真实原生接收者，保留getter和写入的参数、尾nil及返回值；其他玩家原样通过。缓存最多16个玩家／128个文化对象，缺接口／包装失败／溢出保留原行为并标覆盖未知，不能因此判预算通过。
 
 Restore只替换自己拥有的Players绑定，外来替换保留；已被调用者持有的旧facade随后直通原生并停止计数，避免只让getBucket返回nil却继续累计totalCalls。9项必要行为检查0.016秒通过，真实67／90回合隔离环境只读返回原生政体4且正确恢复，未调用任何原生政体／政策写入。这补齐可接入的工具，不是完整请求账本已实机通过。[原稿拒绝、独立实现与实测边界](../research/baiqi-p6-culture-write-adapter293-evidence-2026-11-04.json)。
+
+
+## 2026-11-04：只包装本模组订阅的事件入口
+
+新增[事件适配器](../../tools/lua/diagnostic_event_facade.lua)，按实际原生事件和原始回调保留稳定包装身份，兼容重复Add、捕获Remove和考古收据模块的重载／Shutdown。默认最多128个事件、512个回调；溢出或包装失败直通原生并标覆盖未知，不改变游戏行为。未知字段、调用、只读错误和尾nil均透传。
+
+9项行为检查通过；正常67／90回合在UI和Core各实际添加并移除一次临时空回调，添加／移除身份相同、处理器执行0次、原生Add／Remove未改。适配器按上下文存续，不能中途注销重订；原版脚本绕过适配器Remove是明确边界，需要构建器另行处理命名绑定。此工具尚未组成完整诊断包。[模型原稿拒绝、负责人实现及双上下文实证](../research/baiqi-p6-event-facade296-evidence-2026-11-04.json)。

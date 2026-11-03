@@ -1,0 +1,141 @@
+{
+  "schema": "civ6.baiqi-event-facade296/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T19:47:14.413271+00:00",
+  "machine_id": "BF-202609141645",
+  "case": {
+    "sequence": 296,
+    "case_id": "civ6-stageB-event-facade296",
+    "mode_id": "http-candidate",
+    "shared_commit": "ae9ec0db83227f14bbc3f7f967f2075b00178d1a",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "max_tokens": 4300,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T19:18:11.139628+00:00",
+    "attempt_end_utc": "2026-11-03T19:19:06.088811+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 54949.641400016844,
+      "first_nonempty_content_delta_ms": 927.232299989555,
+      "usage": {
+        "prompt_tokens": 5773,
+        "completion_tokens": 793,
+        "total_tokens": 6566
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T19:18:11.139628+00:00",
+        "end_utc": "2026-11-03T19:19:06.088811+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 54949.641400016844
+      }
+    ],
+    "adoption": "rejected",
+    "review": "Raw module omits returnfactory and proxy metatable, isolated minimal ports expose unbounded string-keyed caches; native callable/readonly/error semantics missing. All model code rejected. Owner independently implemented bounded transparent event subscription facade, 9 necessary tests and actual UI/Core Native Add/Remove binding-only proof.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "raw_counterexamples": {
+    "at_utc": "2026-11-03T19:36:55.344536+00:00",
+    "adoption": "rejected",
+    "cases": [
+      {
+        "case": "raw-module-no-export",
+        "actual": "nil",
+        "expected": "factory function"
+      },
+      {
+        "case": "export-only-isolates-uninstalled-metatable",
+        "event_lookup": "nil",
+        "expected": "event facade"
+      },
+      {
+        "case": "export-and-metatable-only-isolate-map-length-cap",
+        "second_event_wrapped_despite_limit1": true
+      }
+    ],
+    "seconds": 0.0009179000044241548,
+    "additional_static_defects": [
+      "eventCache hasstringkeys so#eventCache neverenforceslimit.",
+      "Overflowhandlersarestoredunbounded inwrappersmap.",
+      "Eventfacadeno__call/delegatingfields/__newindex, nativefamilynoncallable swallowedasnil.",
+      "Wrapfailuresnotcounted, limitsclaimimplementedboundsincorrect."
+    ],
+    "scope": "Rawmodulecompile/contractport; export-onlyandexport+metatablehybridsONLYisolatefurtherdefects, notadoptedcode/Nativeexecution. Ownerfactoryimplementationnext."
+  },
+  "source_hashes": {
+    "tools/lua/diagnostic_event_facade.lua": "f39dc7a798cd1b0dc1339bdcde88b58d0f2b1c7301bf33f5cd82c1276a2ff7b3",
+    "tests/test_diagnostic_event_facade.py": "057c014475f1200e6d379712a0e148ce73c39694500dd2239932ea70ef63ca09"
+  },
+  "software": {
+    "new_tests": 9,
+    "seconds_reported": 0.01,
+    "actual_consumer": "BaiqiArchaeologyReceiptEvents captured Add/Remove, reload and Shutdown",
+    "owner_fixture_correction": "Initial fake readonly event rejected its own newly-created addArgs/removeArgs/emitArgs fields, causing 7 test errors. Predeclared those fake state fields; production adapter unchanged, then 9 tests executed and passed. Not a model or Native SDK failure."
+  },
+  "native": {
+    "normal_version": 67,
+    "pid": 16888,
+    "turn": 90,
+    "contexts": [
+      "BaiqiExecutor",
+      "GameCore_Tuner"
+    ],
+    "per_context": {
+      "events": 1,
+      "callback_mappings": 1,
+      "wrapped_callbacks": 1,
+      "handler_runs": 0,
+      "same_wrapped_identity_added_removed": true,
+      "native_Add_Remove_unchanged": true
+    },
+    "scope": "One temporary no-op callback added and removed in same command per context; no event emitted, game order, input, or persistent namespace changed. Not full timing/whole-mod coverage."
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T194229336559Z.json",
+      "sha256": "e6209b73aeaa13545b90c00f288e027e5cad4531b24bb6166003adc0178bb481",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_STAGEB_EVENT296_NATIVE_BINDING\t1\t1\t1\t0\ttrue\ttrue\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T194230447883Z.json",
+      "sha256": "6b06e556d84c23e61808b6ce4f08c663988f13c53b9fd84daea05ebaabe44a42",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_STAGEB_EVENT296_NATIVE_BINDING\t1\t1\t1\t0\ttrue\ttrue\ttrue"
+      ]
+    }
+  ],
+  "limits": [
+    "Facade must remain for context lifetime. Disabling timing does not remove and re-add handlers; corresponding Remove must use facade/captured facade Remove.",
+    "Native Base using a raw global Remove on a separately named callback bypasses translation. Builder must prewrap named binding or choose other owned boundary; do not instrument an included vanilla chunk indiscriminately.",
+    "Event/cache overflow or missing/probe/wrap failure forwards Native behavior and marks coverage unknown. No success inference from fallbacks.",
+    "Source67 normal game package unchanged; external diagnostic component not a complete StageB build or TC-036 pass."
+  ],
+  "next": "Use the module only at proven owned subscription boundaries, add real Core/UI clock bracket and Core/object write coverage, then run private diagnostic whole-mod windows."
+}
