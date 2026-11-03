@@ -63,6 +63,10 @@ local function Dump(registry,keys,emit)
     meta[13]=ce;meta[14]=ct;meta[15]=snap.subscribed;meta[16]=snap.retired
     if not Emit('META',key,unpack(meta,1,16)) then return end
     status.contexts=status.contexts+1
+    if p.aggregateZero==true then
+      if not Integer(p.zeroSuccess) or not Integer(p.capacity) or p.capacity<1 then Bad();return end
+      if not Emit('ZERO',key,p.zeroSuccess,p.capacity) then return end
+    end
     local n=Array(p.samples,30000)
     if n then for i=1,n do
       local row=p.samples[i]

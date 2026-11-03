@@ -24,7 +24,9 @@ def _payload(messages,marker):
     return found[0]
 
 
-def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path):
+def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budget=None):
+    if sample_budget is not None and (type(sample_budget) is not int or sample_budget<1):
+        raise ValueError('Expected positive retained-sample budget')
     token=uuid.uuid4().hex
     quoted=json.dumps(token)
     requested=[]
@@ -63,6 +65,15 @@ UI.RequestAction(ActionTypes.ACTION_ENDTURN,{{REASON='UserForced'}})
 print('P6_Q20_END',{turn})
 '''
 
+    budget_start=''
+    budget_each=''
+    budget_finish=''
+    if sample_budget is not None:
+        budget_start='local sampleQuotaTotal=0\n'
+        budget_each='''assert(clean.profile.aggregateZero==true and clean.profile.zeroSuccess==0 and type(clean.profile.capacity)=='number' and clean.profile.capacity>=1 and clean.profile.capacity==math.floor(clean.profile.capacity))
+ sampleQuotaTotal=sampleQuotaTotal+clean.profile.capacity
+'''
+        budget_finish=f'assert(sampleQuotaTotal<={sample_budget})\n'
     setup=f'''
 assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()==85 and Players[0]:GetCities():GetCount()==10)
 assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and P6Q20StageB==nil)
@@ -71,6 +82,7 @@ assert(registry.marker=='baiqi67-q19' and registry.enabled==false)
 local keys={{}};for key in pairs(registry.entries) do keys[#keys+1]=key end;table.sort(keys);assert(#keys==32)
 local s={{keys=keys,token={quoted},phase='PREPARING',ends={{}},baseline={{}},start=Automation.GetTime()}}
 P6Q20StageB=s
+{budget_start}
 for _,key in ipairs(keys) do
  local e=registry.entries[key];local v=e.Snapshot()
  assert(v.marker=='baiqi67-q19' and v.enabled==false and v.retired==false and v.subscribed and v.stats.registryErrors==0 and v.stats.anchorErrors==0)
@@ -80,10 +92,12 @@ for _,key in ipairs(keys) do
  assert(clean.stats.registryErrors==0 and clean.stats.anchorErrors==0 and clean.stats.anchorDropped==0 and clean.stats.bucketErrors==0 and clean.stats.bucketDropped==0)
  assert(clean.leaves.dropped==0 and clean.leaves.wrapErrors==0 and clean.leaves.enabledErrors==0)
  for _,counter in ipairs(clean.leaves.counters) do assert(counter.totalCalls==0 and counter.callbackErrors==0) end
+ {budget_each}
  for i=1,3 do local a=Automation.GetTime();local c=e.ReadClock();local z=Automation.GetTime()
   print('P6_Q20_CLOCK_BEFORE',key,i,string.format('%.17g',a),string.format('%.17g',c),string.format('%.17g',z))
  end
 end
+{budget_finish}
 for _,u in Players[0]:GetUnits():Members() do
  local row=GameInfo.Units[u:GetUnitType()]
  if row and not BaiqiPolicy.CivilianType(row.UnitType) then

@@ -14,6 +14,7 @@ if __package__ in (None,''):
 from tools.build_mod import contained,digest,manifest_files,package
 from tools.lua_function_instrument import instrument,lua_string
 from tools.lua_write_instrument import instrument_writes
+from tools.diagnostic_quotas import bounded_quotas,MAX_RETAINED_SAMPLES
 
 MARKER='baiqi67-q19'
 HELPERS={'NewProfile':'diagnostic_profile','NewRoots':'diagnostic_owned_roots',
@@ -21,13 +22,16 @@ HELPERS={'NewProfile':'diagnostic_profile','NewRoots':'diagnostic_owned_roots',
          'NewContext':'diagnostic_context'}
 
 
-def prelude(key: str) -> str:
+def prelude(key: str,quotas: dict | None = None) -> str:
     lines=['-- BAIQI_DIAGNOSTIC_ONLY: source67 owned definitions and Native leaves.',
            'if P6OwnDiag==nil then']
     for name,stem in HELPERS.items():
         text=(ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8')
         lines.append(f' local {name}=(function()\n{text}\nend)()')
-    lines.append(f' P6OwnDiag=NewContext({lua_string(key)},{{Game=Game,Automation=Automation,Events=Events,ExposedMembers=ExposedMembers}},NewProfile,NewRoots,NewCounter,NewLeaves)')
+    settings=''
+    if quotas is not None:
+        settings=f',SampleQuota={quotas.get(key,1)},AggregateZero=true,UnknownQuota={str(key not in quotas).lower()}'
+    lines.append(f' P6OwnDiag=NewContext({lua_string(key)},{{Game=Game,Automation=Automation,Events=Events,ExposedMembers=ExposedMembers{settings}}},NewProfile,NewRoots,NewCounter,NewLeaves)')
     lines+=['end','local P6Context=P6OwnDiag',
             f'local P6Owned=type(P6Context)=="table" and P6Context.marker=="{MARKER}"',
             'local P6OwnWrap=function(label,fn) if not P6Owned then return fn end;return P6Context:Wrap(label,fn) end',
@@ -40,20 +44,23 @@ def prelude(key: str) -> str:
     return '\n'.join(lines)
 
 
-def transform(source: str,key: str) -> tuple[str,dict]:
+def transform(source: str,key: str,quotas: dict | None = None) -> tuple[str,dict]:
     writes,write_manifest=instrument_writes(source,key)
     text,function_manifest=instrument(writes,key)
     chunk=f'return P6OwnWrap({lua_string(key+":$chunk")},function(...)\n'+text+'\nend)(...)\n'
-    return prelude(key)+chunk,{'functions':function_manifest,'write_sites':write_manifest,'top_level_chunk_wrapped':True}
+    return prelude(key,quotas)+chunk,{'functions':function_manifest,'write_sites':write_manifest,'top_level_chunk_wrapped':True}
 
 
-def build(output_dir: Path) -> dict:
+def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
     from lupa.lua53 import LuaRuntime
     source=ROOT/'mod/Baiqi'
     files=manifest_files(source)
     info=ET.fromstring((source/'Baiqi.modinfo').read_bytes())
     if info.get('version')!='67':
         raise ValueError('Diagnostic assembler requires actual source67')
+    expected=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
+    expected+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
+    quotas=bounded_quotas(expected) if bounded_zero else None
     output_dir=output_dir.resolve()
     if output_dir==source.resolve() or output_dir.is_relative_to(source.resolve()) or source.resolve().is_relative_to(output_dir):
         raise ValueError('Diagnostic output must be separate from release source')
@@ -68,7 +75,7 @@ def build(output_dir: Path) -> dict:
         if name.endswith('.lua'):
             raw=contained(source,name).read_text(encoding='utf-8-sig')
             compile_lua(raw,name)
-            text,coverage[name]=transform(raw,name)
+            text,coverage[name]=transform(raw,name,quotas)
             compile_lua(text,name+'-q19')
             prepared[name]=text.encode('utf-8')
     if hashes!={name:digest(contained(source,name)) for name in files}:
@@ -85,12 +92,13 @@ def build(output_dir: Path) -> dict:
     changed=[name for name in files if digest(contained(target,name))!=hashes[name]]
     if set(changed)!=set(prepared):
         raise ValueError('Unexpected diagnostic source differences')
-    archive=output_dir/'Baiqi-diagnostic67-q19.zip'
+    mode='baiqi67-q21-bounded' if bounded_zero else MARKER
+    archive=output_dir/('Baiqi-diagnostic67-q21-bounded.zip' if bounded_zero else 'Baiqi-diagnostic67-q19.zip')
     package(target,archive)
-    expected=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
-    expected+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
-    result={'mode':MARKER,'source_version':67,'files':len(files),'changed_files':changed,
+    result={'mode':mode,'source_version':67,'files':len(files),'changed_files':changed,
             'expected_entry_keys':sorted(expected),'source_hashes':hashes,
+            'aggregate_zero':bounded_zero,'context_quotas':quotas,
+            'global_retained_sample_capacity':MAX_RETAINED_SAMPLES if bounded_zero else None,
             'instrumented_hashes':{name:digest(contained(target,name)) for name in files},
             'helper_hashes':{stem:digest(ROOT/f'tools/lua/{stem}.lua') for stem in HELPERS.values()},
             'coverage':coverage,'archive_sha256':digest(archive),'installed':False,
@@ -102,6 +110,7 @@ def build(output_dir: Path) -> dict:
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',required=True,type=Path)
+    parser.add_argument('--bounded-zero',action='store_true',help='Aggregate measured-zero normal calls; explicit 32-context quotas sum to frozen global4096')
     args=parser.parse_args()
-    result=build(args.output_dir)
+    result=build(args.output_dir,bounded_zero=args.bounded_zero)
     print(json.dumps({k:result[k] for k in ('mode','source_version','files','changed_files','expected_entry_keys','archive_sha256','installed')},ensure_ascii=False))

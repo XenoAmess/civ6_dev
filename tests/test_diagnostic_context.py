@@ -81,5 +81,21 @@ local h=Make('UI/Overflow.lua');assert(h.stats.registryErrors==1 and Adds==1)
 Env.ExposedMembers={};Env.Events={};h=Make('UI/Missing.lua')
 assert(h.stats.anchorErrors==1 and h:Wrap('body',function() return 1 end)()==1)''')
 
+    def test_explicit_quota_aggregation_and_reset_keep_exact_accounting(self):
+        self.lua.execute('''Env.SampleQuota=2;Env.AggregateZero=true
+local h=Make('UI/Bound.lua');h:SetEnabled(true)
+local z=h:Wrap('zero',function() return 9 end);for i=1,1000 do assert(z()==9) end
+local positive=h:Wrap('positive',function() Clock=Clock+0.01 end)
+for i=1,3 do positive() end
+local p=h:Snapshot().profile
+assert(p.capacity==2 and p.aggregateZero and p.zeroSuccess==1000 and #p.samples==2 and p.dropped==1 and p.totalCalls==1003)
+h:SetEnabled(false);h:Reset()
+assert(p.zeroSuccess==0 and p.totalCalls==0 and #p.samples==0 and p.dropped==0 and p.capacity==2 and p.aggregateZero)''')
+
+    def test_unknown_quota_cannot_enable_recording_but_original_body_runs(self):
+        self.lua.execute('''Env.SampleQuota=1;Env.AggregateZero=true;Env.UnknownQuota=true
+local h=Make('Unknown.lua');assert(h.stats.registryErrors==1 and not h:SetEnabled(true))
+assert(h:Wrap('body',function() return 8 end)()==8 and not h:Snapshot().enabled and h.profile.totalCalls==0)''')
+
 
 if __name__=='__main__':unittest.main()

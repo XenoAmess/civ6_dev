@@ -10,11 +10,16 @@ local function NewContext(key,env,NewProfile,NewRoots,NewCounter,NewLeaves)
   assert(type(key)=='string' and key~='' and type(env)=='table','Invalid diagnostic context')
   local clock=env.Automation and env.Automation.GetTime
   local getTurn=env.Game and env.Game.GetCurrentGameTurn
-  local root=NewRoots(NewProfile,clock,30000)
+  local capacity=env.SampleQuota
+  if capacity==nil then capacity=30000 end
+  local aggregate=env.AggregateZero==true
+  local root=NewRoots(NewProfile,clock,capacity,{aggregate_zero=aggregate})
+  local quotaAllowed=env.UnknownQuota~=true
   local enabled,retired=false,false
   local buckets,anchors={},{}
   local bucketCount=0
   local stats={registryErrors=0,anchorErrors=0,anchorDropped=0,bucketErrors=0,bucketDropped=0}
+  if not quotaAllowed then stats.registryErrors=stats.registryErrors+1 end
   local function Bucket()
     local ok,turn=pcall(getTurn)
     if not ok or not Integer(turn) then stats.bucketErrors=stats.bucketErrors+1;return nil end
@@ -31,6 +36,7 @@ local function NewContext(key,env,NewProfile,NewRoots,NewCounter,NewLeaves)
   function h:SetEnabled(value)
     assert(type(value)=='boolean','Invalid diagnostic record flag')
     if retired then return false end
+    if value and not quotaAllowed then return false end
     enabled=value;root:SetEnabled(value);return true
   end
   function h:Snapshot()
@@ -41,6 +47,7 @@ local function NewContext(key,env,NewProfile,NewRoots,NewCounter,NewLeaves)
     assert(not enabled,'Disable diagnostic recording before Reset')
     local p=root.profile
     p.samples={};p.totalCalls=0;p.dropped=0;p.invalidClock=0
+    p.zeroSuccess=0
     buckets={};anchors={};bucketCount=0
     stats.anchorErrors=0;stats.anchorDropped=0;stats.bucketErrors=0;stats.bucketDropped=0
     for _,c in ipairs(leaves.stats.counters) do c.totalCalls=0;c.callbackErrors=0 end

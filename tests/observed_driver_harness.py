@@ -41,7 +41,7 @@ ExposedMembers={P6BaiqiOwnRegistry={marker='baiqi67-q19',entries={},enabled=fals
 print=function(...) CapturePrint(...) end
 function AddFakeContext(key)
  local enabled=false
- local p={samples={},totalCalls=0,dropped=0,invalidClock=0}
+ local p={samples={},totalCalls=0,dropped=0,invalidClock=0,capacity=128,aggregateZero=true,zeroSuccess=0}
  local stats={registryErrors=0,anchorErrors=0,anchorDropped=0,bucketErrors=0,bucketDropped=0}
  local leaves={entries=0,dropped=0,wrapErrors=0,enabledErrors=0,counters={}}
  local entry={marker='baiqi67-q19'}

@@ -21,3 +21,11 @@ def make_capture(ui_calls=50,core_calls=20):
         for phase,at in [('before',0),('after',120)]:
             for _ in range(3):brackets.append({'key':key,'phase':phase,'triple':[at,at+offset,at]})
     return {'rows':rows,'brackets':brackets,'expected_keys':keys,'capture_bounds':[0,120]}
+
+
+def make_bounded_capture(ui_calls=50,core_calls=20):
+    data=make_capture(ui_calls,core_calls)
+    data['rows']=[r for r in data['rows'] if not (r[0]=='SAMPLE' and r[1]=='UI' and r[2]=='2')]
+    data['rows']+=[['ZERO','Core','0','1'],['ZERO','UI','1','1']]
+    data['sample_budget']=2
+    return data

@@ -36,7 +36,7 @@ def _number(value,*,exported=False):
     return result
 
 
-def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,89,90),closing_turn=91,pid=0):
+def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,89,90),closing_turn=91,pid=0,*,sample_budget=None):
     if not _sequence(expected_keys) or not expected_keys or len(expected_keys)>80:
         raise ValueError('Expected explicit context keys')
     if any(not isinstance(k,str) or not k for k in expected_keys) or len(set(expected_keys))!=len(expected_keys):
@@ -50,6 +50,8 @@ def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,8
     cap_start,cap_stop=(_number(x) for x in capture_bounds)
     if cap_stop<cap_start:raise ValueError('Capture bounds reversed')
     if not _sequence(rows):raise ValueError('Expected exported row array')
+    if sample_budget is not None and (type(sample_budget) is not int or sample_budget<1):
+        raise ValueError('Expected explicit positive retained-sample budget')
     keys=set(expected_keys)
     meta={}
     samples=[]
@@ -57,6 +59,7 @@ def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,8
     anchors=[]
     anchor_ids={k:set() for k in keys}
     writes={}
+    zeros={}
     for row in rows:
         if not _sequence(row) or len(row)<2 or not isinstance(row[1],str) or row[1] not in keys:
             raise ValueError('Malformed row or unknown context')
@@ -86,13 +89,25 @@ def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,8
             if identity in writes or turn<turns[0]-1 or turn>closing_turn:
                 raise ValueError('Duplicate or out-of-capture write bucket')
             writes[identity]=count
+        elif kind=='ZERO':
+            if sample_budget is None or len(f)!=2 or key in zeros:
+                raise ValueError('Unexpected or duplicate aggregate-zero record')
+            zero,capacity=(_integer(x) for x in f)
+            if capacity<1:raise ValueError('Invalid context sample quota')
+            zeros[key]=(zero,capacity)
         else:
             raise ValueError('Unknown exported row kind')
     if set(meta)!=keys:raise ValueError('Missing context metadata')
+    if sample_budget is not None:
+        if set(zeros)!=keys or sum(cap for _,cap in zeros.values())>sample_budget:
+            raise ValueError('Incomplete or over-budget global sample allocation')
     for key in keys:
         ids=sample_ids[key]
-        if len(ids)!=meta[key][0] or ids!=set(range(1,len(ids)+1)):
+        zero=0 if sample_budget is None else zeros[key][0]
+        if len(ids)+zero!=meta[key][0] or ids!=set(range(1,len(ids)+1)):
             raise ValueError('Incomplete context sample sequence')
+        if sample_budget is not None and len(ids)>zeros[key][1]:
+            raise ValueError('Retained samples exceed context quota')
         aids=anchor_ids[key]
         if aids!=set(range(1,len(aids)+1)):raise ValueError('Incomplete anchor sequence')
         if sum(n for (k,_,_),n in writes.items() if k==key)!=meta[key][13]:
@@ -152,6 +167,8 @@ def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,8
     partial=[write_turn(t) for t in sorted({t for _,t,_ in writes if t not in turns})]
     return {'windows':windows,'complete_turn_writes':complete,'partial_turn_writes':partial,
             'clock_bounds':bounds,'local_anchor_counts':anchor_counts,'contexts':len(keys),'samples':len(samples),
+            'aggregate_zero_success_calls':sum(n for n,_ in zeros.values()) if sample_budget is not None else None,
+            'configured_retained_sample_budget':sum(cap for _,cap in zeros.values()) if sample_budget is not None else None,
             'observed_b_turn_budget_ok':all(w['observed_union_ms']<=1000 for w in windows),
             'observed_n_req_budget_ok':all(t['calls']<=64 for t in complete),
             'limits':['Observed numbers assume constant context offsets; midpoint alignment is not exact synchronization.',

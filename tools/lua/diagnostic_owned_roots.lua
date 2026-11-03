@@ -4,9 +4,9 @@ local function Pack(...)
   return {n=select('#',...),...}
 end
 
-local function NewOwnedRoots(NewProfile,clock,capacity)
+local function NewOwnedRoots(NewProfile,clock,capacity,options)
   assert(type(NewProfile)=='function','Missing canonical profiler')
-  local profile=NewProfile(clock,capacity)
+  local profile=NewProfile(clock,capacity,options)
   local enabled=false
   local active=false
   local handle={profile=profile}

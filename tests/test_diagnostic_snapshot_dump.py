@@ -67,5 +67,14 @@ for _,row in ipairs(Rows) do if row[1]=='WRITE' then writes[#writes+1]=row end e
 assert(status.errors==0 and status.writes==4 and writes[1][3]==2 and writes[2][3]==85)
 assert(writes[3][3]==86 and writes[3][4]=='A' and writes[3][5]==2 and writes[4][4]=='Z' and writes[4][5]==7)''')
 
+    def test_explicit_zero_aggregate_and_quota_export_without_raw_zero_rows(self):
+        self.lua.execute('''Env.SampleQuota=1;Env.AggregateZero=true
+local h=NewContext('UI/Bound.lua',Env,NewProfile,NewRoots,NewCounter,NewLeaves)
+local fn=h:Wrap('zero',function() return 4 end);h:SetEnabled(true);fn();fn();h:SetEnabled(false)
+Rows={};local status=Dump(R,{'UI/Bound.lua'},Emit)
+assert(status.errors==0 and status.contexts==1 and status.samples==0 and #Rows==2)
+assert(Rows[1][1]=='META' and Rows[1][3]==2 and Rows[2][1]=='ZERO' and Rows[2][3]==2 and Rows[2][4]==1)
+h.profile.zeroSuccess=nil;Rows={};assert(Dump(R,{'UI/Bound.lua'},Emit).errors==1)''')
+
 
 if __name__=='__main__':unittest.main()
