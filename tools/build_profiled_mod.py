@@ -18,30 +18,42 @@ from tools.build_mod import contained, digest, manifest_files, package
 CHILDREN = ('ReadBack', 'ProcessCity', 'ProcessBuilder', 'ProcessSettler', 'ProcessTrader')
 
 
-def diagnostic_suffix(profile_source: str, child_source: str, controller_hash: str) -> str:
+def diagnostic_suffix(profile_source: str, child_source: str, controller_hash: str, *,
+                      stage: str = 'q9', children: tuple | list = CHILDREN) -> str:
     if not re.fullmatch(r'[0-9a-f]{64}', controller_hash):
         raise ValueError('Invalid controller digest')
+    if not isinstance(stage, str) or not re.fullmatch(r'q[1-9][0-9]{0,2}', stage):
+        raise ValueError('Invalid stage')
+    if not isinstance(children, (list, tuple)) or not 1 <= len(children) <= 12:
+        raise ValueError('Invalid children count')
+    lua_reserved = set('and break do else elseif end false for function goto if in local nil '
+                       'not or repeat return then true until while'.split())
+    for name in children:
+        if not isinstance(name, str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', name) or name in lua_reserved:
+            raise ValueError('Invalid child name')
+    if len(set(children)) != len(children):
+        raise ValueError('Duplicate children')
     lines = [
-        '\n-- BAIQI_DIAGNOSTIC_ONLY: five internal functions; no gameplay switch.\ndo',
+        '\n-- BAIQI_DIAGNOSTIC_ONLY: internal functions; no gameplay switch.\ndo',
         "assert(P6BaiqiInternalProfile==nil,'Existing diagnostic owner')",
-        "local diagnostic={source='q9-internal',active=true,bindings={},controllerSha256='" + controller_hash + "'}",
+        f"local diagnostic={{source='{stage}-internal',active=true,bindings={{}},controllerSha256='{controller_hash}'}}",
         'diagnostic.NewProfile=(function()\n' + profile_source + '\nend)()',
         'diagnostic.WrapChild=(function()\n' + child_source + '\nend)()',
         'diagnostic.profile=diagnostic.NewProfile(Automation.GetTime,4096)',
-        '''diagnostic.getRoot=function()
- if diagnostic.active and P6PerfStageA and P6PerfStageA.source=='q9' and P6PerfStageA.enabled then
+        f'''diagnostic.getRoot=function()
+ if diagnostic.active and P6PerfStageA and P6PerfStageA.source=='{stage}' and P6PerfStageA.enabled then
   return P6PerfStageA.currentEntry
  end
 end''',
     ]
-    for name in CHILDREN:
+    for name in children:
         lines += [
             f'diagnostic.bindings.{name}={{original={name}}}',
             f"diagnostic.bindings.{name}.wrapped=diagnostic.WrapChild(diagnostic.profile,'{name}',{name},diagnostic.getRoot)",
             f'{name}=diagnostic.bindings.{name}.wrapped',
         ]
     lines += ['diagnostic.Restore=function()', ' local same={}']
-    for index, name in enumerate(CHILDREN, 1):
+    for index, name in enumerate(children, 1):
         lines += [
             f' same[{index}]={name}==diagnostic.bindings.{name}.wrapped',
             f' if same[{index}] then {name}=diagnostic.bindings.{name}.original end',

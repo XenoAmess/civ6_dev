@@ -50,3 +50,7 @@ TC-036仍未通过。下一步须冻结预算／样本窗口，补齐模块覆�
 ## 2026-11-03：五内部函数诊断副本已构建
 
 `python tools/build_profiled_mod.py --output-dir .local-model/diagnostic-builds/新的独占目录`生成单独的55诊断包，目标目录必须不存在，普通源码与安装均不改。69文件清单保持，68文件字节一致，控制器仅末尾附加词法绑定，原正文为精确前缀。ReadBack、ProcessCity、ProcessBuilder、ProcessSettler、ProcessTrader仅在q9已有正式根调用内计时，所有权匹配才恢复原函数；不覆盖后来的外部替换。4项包装／恢复检查、实际诊断控制器编译及现有4组消费者共60项通过。这是软件与制品证据，尚未安装、冷启动或取得原生内部计时，不能判性能通过。[制品证据](../research/baiqi-p6-internal-diagnostic-build-evidence-2026-11-03.json)。
+
+## 2026-11-03：56七内部函数诊断副本
+
+普通56五窗口性能仍FAIL，准备q11诊断ReadBack、UnitSnapshot、PathStep、Safe、TradePath、ProcessBuilder、ProcessTrader。仅扩展既有`diagnostic_suffix`关键字参数`stage`／`children`；三参默认仍q9／原五函数，既有CLI构建器仍明确只支持55。新阶段和1–12个唯一Lua标识符严格校验，禁止关键字与无效类型，包装／自身指针恢复规则不变。模型218并未实现快照延迟且改动能力边界，拒绝；219动态绑定部分采用，负责人补类型顺序与true／then关键字。50项针对检查及实际q11控制器60项消费者检查通过，69文件中68字节一致、原控制器为精确前缀。此刻未安装／冷启动，不授原生通过；4096容量及原20／50ms验收线不改。[候选、修正及制品证据](../research/baiqi-p6-selected-diagnostic218219-evidence-2026-11-03.json)。
