@@ -1,0 +1,168 @@
+{
+  "schema": "civ6.baiqi-archaeologist-snapshot248249/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "e9e97f3b474f4fc2aa2ca1b879b2e1ffdee295dd",
+  "running_version": 61,
+  "source_module_registered": false,
+  "cases": [
+    {
+      "sequence": 248,
+      "case_id": "CIV6-archunit248",
+      "mode_id": "http-candidate",
+      "shared_commit": "f0e1d63525a001195f2f0bb99f86b0f400115f6e",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 2400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T09:10:23.252534+00:00",
+      "attempt_end_utc": "2026-11-03T09:10:54.556919+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 31303.215600026306,
+        "first_nonempty_content_delta_ms": 12827.52699998673,
+        "usage": {
+          "prompt_tokens": 7306,
+          "completion_tokens": 625,
+          "total_tokens": 7931
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T09:10:23.252534+00:00",
+          "end_utc": "2026-11-03T09:10:54.556919+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 31303.215600026306
+        }
+      ],
+      "adoption": "exact_code_adopted",
+      "review": "Complete Core-only archaeologist snapshot adopted byte-for-byte after owner 10 tests and actual Core read-only sample. Future consumer is not registered or authorized yet; no excavation or museum proof.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 249,
+      "case_id": "CIV6-archtests249",
+      "mode_id": "http-candidate",
+      "shared_commit": "f0e1d63525a001195f2f0bb99f86b0f400115f6e",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 4800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T09:10:23.277742+00:00",
+      "attempt_end_utc": "2026-11-03T09:11:08.001212+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 44717.25310001057,
+        "first_nonempty_content_delta_ms": 12801.064500003122,
+        "usage": {
+          "prompt_tokens": 7309,
+          "completion_tokens": 1689,
+          "total_tokens": 8998
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T09:10:23.277742+00:00",
+          "end_utc": "2026-11-03T09:11:08.001212+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 44717.25310001057
+        }
+      ],
+      "adoption": "rejected",
+      "review": "Raw tests keep player local but invoke lua.globals().player=nil: 12 methods, 3 errors, other negative cases falsely pass with nil player. Uses default lupa rather than required lua53; late-owner mutation happens on first owner read, no exact plain fields/metatable/zero-move evidence. Owner replaced tests, no model test code adopted.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 31.279177,
+    "longest_seconds_at_peak": 31.279177,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_civ6_through249": {
+    "logical": 249,
+    "complete": 235,
+    "length": 11,
+    "final_transport_failed": 3,
+    "http_attempts": 279,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software": {
+    "owner_tests": 10,
+    "passed": true,
+    "seconds": 0.118,
+    "raw249": {
+      "tests": 12,
+      "failures": 0,
+      "errors": 3,
+      "passed": false,
+      "seconds": 0.26951790001476184,
+      "private_projection_only": true
+    },
+    "last_full658_separate": true
+  },
+  "source_sha256": "4adbe0cd7f3cad6a3bd3a1938f772677c6d9c53b1617fe8e9aa95c067f01c848",
+  "native_readonly": [
+    {
+      "name": "20261103T092359256430Z.json",
+      "sha256": "6c6e0eaf53c35fe90856b002435a51ea2ca8605befed37afd12a685a8fe2c2ed",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH248_NATIVE_READONLY\t5046313\tUNIT_ARCHAEOLOGIST\t11\t7\t4\t1\tnamespace_restored"
+      ]
+    }
+  ],
+  "native_owner_error": "Initial wrapper restored namespace then called assert(ok,table); native engine requires a string error argument even on success. Corrected tostring(result), reran read-only snapshot; production module unchanged, no game action or metadata write.",
+  "scope": "Snapshot reads actual Core GetType identity, position, finite moves and formation only. Zero moves and formation>1 valid observations, not permissions. UI archaeology/home-museum APIs absent in Core; no invented home city. Actual Debug archaeologist homecity remains -1. Namespace restored, no gameplay integration/excavation/artifact/effect claim.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Phase wall intervals interleaved native61 acceptance, shared publication and model250/251 preparation; no exclusive active cost inferred.",
+  "next": "Integrate excavation permission, UI native eligibility, actual museum/slot evidence, persistent choices and final input guards; continue naturalist occupied-route repair without waiting."
+}
