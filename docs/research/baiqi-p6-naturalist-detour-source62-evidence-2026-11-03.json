@@ -1,0 +1,218 @@
+{
+  "schema": "civ6.baiqi-naturalist-detour-source62/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "33818775d5beadb839d9230cf2f4a4b52630575a",
+  "source_version": 62,
+  "installed_version_at_freeze": 61,
+  "running_version_at_freeze": 61,
+  "changes": [
+    "Naturalist MOVE_TO rejects own civilian-class occupied landing tiles before and after Native qualification; unknown occupant definition fails closed. Existing builder/settler blocker retained; missionary/manual combat rights unchanged.",
+    "Only a safe original path with a known civilian-occupied first step permits bounded read-only adjacent detour: owned, visible, land/passable/safe, unreserved, strict distance progress, deterministic distance/index order. No new path query or other unit order.",
+    "Final original RequestCivilian still owns context/ID/formation/native qualification/position/safety/occupancy. No new UI, switches, gameplay hotpatch or direct park effect."
+  ],
+  "software": {
+    "full": {
+      "started_utc": "2026-11-03T09:31:38.848994+00:00",
+      "returncode": 0,
+      "elapsed_seconds": 107.50972730002832,
+      "tail": [
+        "test_stage_type_and_boundary (test_profile_selection.ProfileSelectionTests.test_stage_type_and_boundary) ... ok",
+        "test_all_five_lexical_functions_have_actual_root_identity (test_profiled_build.DiagnosticBuildTests.test_all_five_lexical_functions_have_actual_root_identity) ... ok",
+        "test_outside_q9_does_not_profile_or_change_returns (test_profiled_build.DiagnosticBuildTests.test_outside_q9_does_not_profile_or_change_returns) ... ok",
+        "test_restore_preserves_foreign_replacement (test_profiled_build.DiagnosticBuildTests.test_restore_preserves_foreign_replacement) ... ok",
+        "test_restore_returns_original_functions (test_profiled_build.DiagnosticBuildTests.test_restore_returns_original_functions) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 675 tests in 103.841s",
+        "",
+        "OK"
+      ],
+      "log_sha256": "9cc386be06571d6ff03f62c881c8ac0b578dba0d3cbcfb05ed268a692ac3779c"
+    },
+    "full_methods": 675,
+    "full_unittest_seconds": 103.841,
+    "owner_new_detour_methods": 6,
+    "owner_new_detour_seconds": 0.14,
+    "affected_ui_methods": 10,
+    "affected_ui_seconds": 0.531,
+    "old61_regression": "Initial run discovered 16 methods because an imported TestCase exposed 10 prior methods; six actual new methods contained eight expected old61 assertion failures. Owner removed imported-class discovery, fixed strict fixture colon receiver, no production behavior relaxed.",
+    "raw251": {
+      "methods": 6,
+      "failures": 1,
+      "errors": 2,
+      "passed": false,
+      "seconds": 0.5320079000084661,
+      "candidate_body_unchanged": true,
+      "private_import_alias": true,
+      "includes_empty_reservation_test": true
+    }
+  },
+  "native_parse_only": [
+    {
+      "name": "20261103T093138850656Z.json",
+      "sha256": "9ff5f390c0f367a6d24acfd8fd99df7e779a5fd061274d5d5e2013966bf0ba2c",
+      "lines": [
+        "P6_SOURCE62_NATIVE_PARSE_ONLY\ttrue\ttrue"
+      ],
+      "context": "BaiqiExecutor"
+    }
+  ],
+  "artifact": {
+    "version": 62,
+    "files": 74,
+    "zip_sha256": "45efd853f55e72477100046204e78948f47ade76732aed62ea8db25efa1f0c12",
+    "controller_sha256": "a419d5d437a4487f9a9d2073a8fc28915b8a3cdea2fb19b22fa12ccf0c2259a0",
+    "all_zip_bytes_match_source": true,
+    "latest_still61": true,
+    "installed": false,
+    "native_loaded": false,
+    "owner_helper_error": "Mechanical broad version replacement altered private evidence directory date. Full tests and parse had not started. Package was already created and verified before receipt-path failure; this read-only follow-up confirms exact bytes without rebuilding or replaying install."
+  },
+  "save_before_normal_exit": {
+    "name": "Baiqi_P6_20261103_V61_ParkRouteFailure91.Civ6Save",
+    "bytes": 523229,
+    "sha256": "723829236af5468328fae781929c58eac5d8f453cb07140a79b0dfa267acac15",
+    "reloaded": false,
+    "scope": "61 failed isolated park fixture at turn91; conservation+one terrain+one mine Debug setup, not normal purchase/development proof."
+  },
+  "cases": [
+    {
+      "sequence": 250,
+      "case_id": "CIV6-naturalistdetour250",
+      "mode_id": "http-candidate",
+      "shared_commit": "89fb4dd69fabce0322060a4fffb65d555dbe31bb",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 2400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T09:20:58.779345+00:00",
+      "attempt_end_utc": "2026-11-03T09:21:14.235115+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 15454.225899942685,
+        "first_nonempty_content_delta_ms": 9230.23209994426,
+        "usage": {
+          "prompt_tokens": 40842,
+          "completion_tokens": 616,
+          "total_tokens": 41458
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T09:20:58.779345+00:00",
+          "end_utc": "2026-11-03T09:21:14.235115+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 15454.225899942685
+        }
+      ],
+      "adoption": "partial_code_adopted",
+      "review": "One read-only detour helper adopted after removing blanket unreserved-goal exclusion and requiring visibility==true. Owner integrates occupied-step blocker/fresh checks and caller. Helper uses no Native path or command; one existing path per callback retained.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 251,
+      "case_id": "CIV6-naturalistdetourtests251",
+      "mode_id": "http-candidate",
+      "shared_commit": "89fb4dd69fabce0322060a4fffb65d555dbe31bb",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "ad5d74b5f2552b7120cd13ac8b6b770ad696eb13cfffd299183febb6368e5ec6",
+      "max_tokens": 4800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T09:20:58.789410+00:00",
+      "attempt_end_utc": "2026-11-03T09:21:26.966170+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 28164.027000020724,
+        "first_nonempty_content_delta_ms": 10882.780700048897,
+        "usage": {
+          "prompt_tokens": 40842,
+          "completion_tokens": 2559,
+          "total_tokens": 43401
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T09:20:58.789410+00:00",
+          "end_utc": "2026-11-03T09:21:26.966170+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 28164.027000020724
+        }
+      ],
+      "adoption": "rejected",
+      "review": "Raw six methods via private import alias: one failure and two errors. Sparse plot dictionary iterated with ipairs becomes empty; queueSize=0 changes scheduling, request index0 and undefined W invalid; reservation test is empty/pass. No model tests adopted; owner real Controller tests replace it.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 15.445705,
+    "longest_seconds_at_peak": 15.445705,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_civ6_through251": {
+    "logical": 251,
+    "complete": 237,
+    "length": 11,
+    "final_transport_failed": 3,
+    "http_attempts": 281,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Recorded phase walls overlap native work and publication; exclusive active cost and cache unknown. Owner helper date replacement error is in artifact record, not model generation failure.",
+  "steam": "Same offline-owned native61 instance; fresh background query at09:33 unavailable, not evidence of online. Must get fresh current-instance offline proof before launching62. No mode toggle or client restart performed.",
+  "limits": [
+    "62 not installed or cold loaded at freeze; native61 positive park FAIL retained.",
+    "No automatic faith purchase, normal faith/charge cost, archaeology automation, full performance/global ledger/matched-control or all UI/keyboard matrix claim.",
+    "Archaeologist Core snapshot remains a separately validated unregistered helper, not excavation implementation."
+  ],
+  "next": "Commit/push source62, normal exit61 after verified save, install exact package, obtain current Steam offline proof, cold62 load same failed fixture, observe actual self-reroute and park effect/UI+Core receipt. Continue any FAIL repair and remaining real acceptance."
+}

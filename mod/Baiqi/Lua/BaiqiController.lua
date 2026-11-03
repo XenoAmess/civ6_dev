@@ -286,10 +286,16 @@ local function CivilianMoveTarget(here, plot, unit, playerID)
   if visibility:IsVisible(plot:GetX(),plot:GetY()) then
     local units = GetVisibleUnits(plot)
     if units == nil then return false, "unit_query_unavailable" end
+    local mover=GameInfo.Units[unit:GetUnitType()]
     for _,other in ipairs(units) do
       local row=GameInfo.Units[other:GetUnitType()]
+      if other:GetOwner()==playerID and other:GetID()~=unit:GetID()
+        and mover and mover.UnitType=="UNIT_NATURALIST" and not row then
+        return false,"unit_query_unavailable"
+      end
       if other:GetOwner()==playerID and other:GetID()~=unit:GetID() and row
-        and (row.UnitType=="UNIT_SETTLER" or row.UnitType=="UNIT_BUILDER") then
+        and (row.UnitType=="UNIT_SETTLER" or row.UnitType=="UNIT_BUILDER"
+          or (mover and mover.UnitType=="UNIT_NATURALIST" and row.FormationClass=="FORMATION_CLASS_CIVILIAN")) then
         return false,"civilian_target_occupied"
       end
     end
@@ -641,6 +647,50 @@ local function ProcessMissionary(ctx,player,state,unit)
   return false
 end
 
+local function NaturalistDetour(ctx, player, unit, target)
+  if not ctx or not player or not unit or not target then return nil end
+  local here = UnitPlot(unit)
+  if not here then return nil end
+  local def = GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType ~= "UNIT_NATURALIST" then return nil end
+  if not BaiqiPolicy.CanCivilian(ctx, UnitSnapshot(unit, {})) then return nil end
+  local hereX, hereY = here:GetX(), here:GetY()
+  local targetX, targetY = target:GetX(), target:GetY()
+  local currentDist = Map.GetPlotDistance(hereX, hereY, targetX, targetY)
+  local candidates = {}
+  for direction = 0, 5 do
+    local plot = Map.GetAdjacentPlot(hereX, hereY, direction)
+    if plot then
+      if Revealed(plot) and visibility:IsVisible(plot:GetX(), plot:GetY()) == true
+        and plot:GetOwner() == ctx.player and not plot:IsWater() and not plot:IsImpassable()
+        and Safe(plot, player) then
+        local legal, reason = CivilianMoveTarget(here, plot, unit, ctx.player)
+        if legal then
+          local dist = Map.GetPlotDistance(plot:GetX(), plot:GetY(), targetX, targetY)
+          if dist < currentDist then
+            local reserved = false
+            for _, pending in pairs(pendingUnits) do
+              if pending.kind == "MOVE_TO" and pending.plot == plot:GetIndex() then
+                reserved = true
+                break
+              end
+            end
+            if not reserved then
+              candidates[#candidates + 1] = { plot = plot, distance = dist, index = plot:GetIndex() }
+            end
+          end
+        end
+      end
+    end
+  end
+  if #candidates == 0 then return nil end
+  table.sort(candidates, function(a, b)
+    if a.distance ~= b.distance then return a.distance < b.distance end
+    return a.index < b.index
+  end)
+  return candidates[1].plot
+end
+
 local function NaturalistBridge(method,...)
   local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiNaturalistIntentBridge
   if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-naturalist-intent-v1"
@@ -759,6 +809,12 @@ local function ProcessNaturalist(ctx,player,state,unit)
     if RequestNaturalist(unit) then naturalistSearches[id]=nil;return true,false end
   else
     local step=PathStep(unit,target.plot,player,state)
+    if step then
+      local legal,reason=CivilianMoveTarget(here,step,unit,ctx.player)
+      if not legal then
+        step=reason=="civilian_target_occupied" and NaturalistDetour(ctx,player,unit,target.plot) or nil
+      end
+    end
     if step and RequestCivilian(ctx,state,unit,"MOVE_TO",step) then return true,false end
   end
   search.failed[target.index]=true
