@@ -96,6 +96,24 @@ class NaturalistUITests(unittest.TestCase):
         self.assertEqual(list(self.w.pathTargets.values()), [43, 44], self.logs)
         self.assertEqual((len(self.w.unitRequests), self.w.unitRequests[1].params[14]), (1, 3))
 
+    def test_native_qualification_lost_after_grant_is_held_without_replay(self):
+        self.lua.execute('''
+          local bridge=ExposedMembers.BaiqiNaturalistIntentBridge
+          local prepare=bridge.Prepare
+          bridge.Prepare=function(...)
+            local granted,token,reason=prepare(...)
+            assert(granted);TestWorld.parkLegal=false
+            return granted,token,reason
+          end
+        ''')
+        self.c.RunNow()
+        self.assertEqual((len(self.w.parkRequests), self.entry().stage), (0, 'ARMED'))
+        self.w.parkLegal = True
+        self.reload()
+        self.w.turn += 1
+        self.c.RunNow()
+        self.assertEqual((len(self.w.parkRequests), self.entry().stage), (0, 'ARMED'))
+
     def test_formation_hidden_or_foreign_targets_have_no_paths_or_parks(self):
         for field, value in (('missionaryFormation', 2), ('visible', False), ('plotOwner', 8)):
             with self.subTest(field=field):
