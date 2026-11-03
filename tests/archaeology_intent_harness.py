@@ -69,6 +69,8 @@ def archaeology_runtime(inject_key=True, with_events=False, before_module=None):
         lua.execute((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
     if inject_key:
         lua.globals().BaiqiConfig.archaeologyIntentKey = KEY
+    else:
+        lua.globals().BaiqiConfig.archaeologyIntentKey = None
     if with_events:
         lua.execute('''
           Events={GreatWorkCreated={Add=function(...)

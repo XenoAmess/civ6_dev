@@ -4,6 +4,8 @@ include("BaiqiPlanner")
 include("BaiqiHeritageCandidates")
 include("BaiqiHeritageActions")
 include("BaiqiNaturalistPurchase")
+include("BaiqiArchaeologyHome")
+include("BaiqiPendingArtifact")
 
 BaiqiController = {}
 local C = BaiqiConfig
@@ -17,6 +19,8 @@ local settlerSearches={}
 local districtPersonPlans = {}
 local missionaryPlans = {}
 local naturalistSearches = {}
+local archaeologySearches = {}
+local ArchaeologyHeld
 local pendingPurchase,purchaseSearch=nil,nil
 local NaturalistPurchaseHeld
 local purchaseDoneTurn,purchaseResumeStreak=-1,0
@@ -319,6 +323,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
   local unitID,unitType=unit:GetID(),def.UnitType
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
+  if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   if operation=="MOVE_TO" or operation=="MAKE_TRADE_ROUTE" then
     -- Full safety follows qualification for these operations. Preserve the
     -- cheap explored-target gate before any native qualification query.
@@ -364,6 +369,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     if not legal then return false,why end
   end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
+  if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
@@ -989,6 +995,222 @@ local function ProcessNaturalist(ctx,player,state,unit)
   search.failed[target.index]=true
   if #candidates>1 then return false,true end
   naturalistSearches[id]=nil
+  return false,false
+end
+
+-- Archaeology metadata is read in this UI context; Core has no slot/queue API.
+local function ArchaeologyBridge(method,...)
+  local args={...}
+  local ok,a,b,c=pcall(function()
+    local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiArchaeologyBridge
+    if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-archaeology-intent-v1"
+      or type(bridge[method])~="function" then return nil,nil,"bridge_unavailable" end
+    if method=="Inspect" then return bridge.Inspect(args[1],args[2]) end
+    if method=="PrepareExcavation" then return bridge.PrepareExcavation(args[1],args[2],args[3]) end
+    if method=="PrepareChoice" then return bridge.PrepareChoice(args[1],args[2],args[3],args[4]) end
+    return nil,nil,"method_unavailable"
+  end)
+  if ok then return a,b,c end
+  return nil,nil,"bridge_error"
+end
+local function ArchaeologyPendingRead(ctx,player)
+  if type(BaiqiPendingArtifact)~="table" or type(BaiqiPendingArtifact.Read)~="function" then return nil,"unavailable" end
+  local ok,descriptor,status=pcall(BaiqiPendingArtifact.Read,ctx.player,player,Game,GameInfo,PlayerConfigurations)
+  if ok then return descriptor,status=="pending" and "ok" or status end
+  return nil,"unavailable"
+end
+local function ArchaeologyHomeSnapshot(ctx,player,unitID)
+  if type(BaiqiArchaeologyHome)~="table" or type(BaiqiArchaeologyHome.Read)~="function" then return nil end
+  local ok,home,status=pcall(BaiqiArchaeologyHome.Read,player,ctx.player,unitID)
+  if ok and status=="ok" and home and #home.emptySlots>0 then return home end
+end
+local function ArchaeologySameHome(a,b)
+  if type(a)~="table" or type(b)~="table" then return false end
+  for _,key in ipairs({"unitID","unitType","homeCityID","cityX","cityY","buildingIndex","slotCount"}) do
+    if a[key]~=b[key] then return false end
+  end
+  for _,key in ipairs({"emptySlots","workIndices"}) do
+    if type(a[key])~="table" or type(b[key])~="table" or #a[key]~=#b[key] then return false end
+    for i,value in ipairs(a[key]) do if b[key][i]~=value then return false end end
+  end
+  return true
+end
+local function ArchaeologySameDescriptor(a,b)
+  if type(a)~="table" or type(b)~="table" then return false end
+  for _,key in ipairs({"unitID","unitType","homeCityID","x","y","artifactIndex","artifactType",
+    "actingPlayerID","choicePlayerID","targetPlayerID"}) do if a[key]~=b[key] then return false end end
+  return true
+end
+local function ArchaeologyGuard(ctx,unitID,x,y)
+  local ok,unit,home,here=pcall(function()
+    local current,player=PlayerContext()
+    if not current or not BaiqiPolicy.Context(current) or current.player~=ctx.player or not CoreIdle() then return nil end
+    local fresh=player:GetUnits():FindID(unitID)
+    local row=fresh and GameInfo.Units[fresh:GetUnitType()]
+    if not BaiqiPolicy.MatchesID(fresh,unitID) or fresh:GetOwner()~=ctx.player
+      or not row or row.UnitType~="UNIT_ARCHAEOLOGIST" or not BaiqiPolicy.CivilianType(row.UnitType)
+      or type(fresh.GetFormationUnitCount)~="function" or fresh:GetFormationUnitCount()~=1 then return nil end
+    local plot=UnitPlot(fresh)
+    if not plot or plot:GetX()~=x or plot:GetY()~=y or plot:GetOwner()~=ctx.player
+      or not Revealed(plot) or visibility:IsVisible(x,y)~=true or not Safe(plot,player) then return nil end
+    local snapshot=ArchaeologyHomeSnapshot(current,player,unitID)
+    if snapshot then return fresh,snapshot,plot end
+  end)
+  if ok then return unit,home,here end
+end
+ArchaeologyHeld=function(unit)
+  local stage=ArchaeologyBridge("Inspect",contextID,unit:GetID())
+  return stage~="OPEN" and stage~="OBSERVED"
+end
+
+local function RequestArchaeologyExcavation(unit)
+  local persisted=false
+  local ok,result=pcall(function()
+    local ctx,player=PlayerContext()
+    local unitID=unit and unit:GetID()
+    if not ctx or not BaiqiPolicy.MatchesID(unit,unitID) or pendingUnits[unitID] then return false end
+    local here=UnitPlot(unit)
+    if not here then return false end
+    local x,y,stamp=here:GetX(),here:GetY(),Game.GetCurrentGameTurn()
+    local action,why=BaiqiHeritageActions.Resolve("UNIT_ARCHAEOLOGIST","EXCAVATE",GameInfo.UnitOperations)
+    local qualify,request=UnitManager.CanStartOperation,UnitManager.RequestOperation
+    if why~="ok" or type(qualify)~="function" or type(request)~="function" then return false end
+    local home=ArchaeologyHomeSnapshot(ctx,player,unitID)
+    local resource=here:GetResourceType()
+    local row=GameInfo.Resources[resource]
+    if not home or not row or (row.ResourceType~="RESOURCE_ANTIQUITY_SITE" and row.ResourceType~="RESOURCE_SHIPWRECK") then return false end
+    local resourceType,phase=row.ResourceType,nil
+    local function Guard()
+      local fresh,current,plot=ArchaeologyGuard(ctx,unitID,x,y)
+      if not fresh or not ArchaeologySameHome(home,current) or Game.GetCurrentGameTurn()~=stamp
+        or UnitManager.CanStartOperation~=qualify or UnitManager.RequestOperation~=request
+        or not BaiqiPolicy.ActionAllowed("UNIT_ARCHAEOLOGIST","EXCAVATE")
+        or not BaiqiPolicy.Number(fresh:GetMovesRemaining()) or fresh:GetMovesRemaining()<=0
+        or type(fresh.IsReadyToMove)~="function" or fresh:IsReadyToMove()~=true then return nil end
+      local currentAction,currentWhy=BaiqiHeritageActions.Resolve("UNIT_ARCHAEOLOGIST","EXCAVATE",GameInfo.UnitOperations)
+      local currentRow=GameInfo.Resources[plot:GetResourceType()]
+      if currentAction~=action or currentWhy~="ok" or plot:GetResourceType()~=resource
+        or not currentRow or currentRow.ResourceType~=resourceType then return nil end
+      local _,status=ArchaeologyPendingRead(ctx,player)
+      if status~="none" then return nil end
+      local stage,token=ArchaeologyBridge("Inspect",ctx.player,unitID)
+      if phase then
+        if stage~="EXCAVATE_ARMED" or token~=phase then return nil end
+      elseif stage~="OPEN" and stage~="OBSERVED" then return nil end
+      local indices,candidateWhy=BaiqiHeritageCandidates.Collect("UNIT_ARCHAEOLOGIST",ctx.player,fresh,Game,Map,visibility)
+      if candidateWhy~="ok" then return nil end
+      for _,index in ipairs(indices) do if index==plot:GetIndex() then return fresh,plot end end
+    end
+    local function Qualified()
+      local fresh=Guard()
+      if not fresh then return nil end
+      local eligible,legal=pcall(qualify,fresh,action,nil)
+      if not eligible or legal~=true then return nil end
+      return Guard()
+    end
+    local fresh=Qualified()
+    if not fresh then return false end
+    local id=NextRequest("archaeology:"..unitID..":"..stamp..":"..x..":"..y)
+    if not id then return false end
+    local granted,token=ArchaeologyBridge("PrepareExcavation",ctx.player,unitID,
+      {homeCityID=home.homeCityID,cityX=home.cityX,cityY=home.cityY,buildingIndex=home.buildingIndex,
+       x=x,y=y,resourceIndex=resource,resourceType=resourceType,baselineWorkIDs=home.workIndices})
+    if granted~=true or type(token)~="string" then return false end
+    persisted,phase=true,token
+    pendingUnits[unitID]={id=id,kind="EXCAVATE",persistent=true,token=token,unitType="UNIT_ARCHAEOLOGIST",
+      homeCityID=home.homeCityID,cityX=home.cityX,cityY=home.cityY,buildingIndex=home.buildingIndex,
+      baselineWorkIDs=home.workIndices,x=x,y=y,from=here:GetIndex(),moves=fresh:GetMovesRemaining(),elapsed=0}
+    fresh=Qualified()
+    if not fresh then Log("archaeology_intent_held","id="..id.."|unit="..unitID.."|reason=eligibility_changed_after_intent");return true end
+    Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=EXCAVATE")
+    local sent,err=pcall(request,fresh,action)
+    if not sent then Log("archaeology_operation_unknown","id="..id.."|reason="..tostring(err)) end
+    return true
+  end)
+  if not ok then Log("archaeology_request_unavailable",tostring(result)) end
+  return persisted or (ok and result==true)
+end
+
+local function RequestArchaeologyChoice(descriptor)
+  local persisted=false
+  local ok,result=pcall(function()
+    local ctx,player=PlayerContext()
+    if not ctx or type(descriptor)~="table" then return false end
+    local unitID,x,y=descriptor.unitID,descriptor.x,descriptor.y
+    local fresh,home=ArchaeologyGuard(ctx,unitID,x,y)
+    if not fresh or home.homeCityID~=descriptor.homeCityID then return false end
+    local stage,token=ArchaeologyBridge("Inspect",ctx.player,unitID)
+    local pending=pendingUnits[unitID]
+    if stage~="EXCAVATE_ARMED" or type(token)~="string" or
+      (pending and (pending.kind~="EXCAVATE" or pending.token~=token)) then return false end
+    local operation,paramKey=PlayerOperations.CHOOSE_ARTIFACT_PLAYER,PlayerOperations.PARAM_PLAYER_ONE
+    local request=UI.RequestPlayerOperation
+    local function Signed(value)
+      return BaiqiPolicy.Number(value) and value%1==0 and value>=-2147483648 and value<=2147483647
+    end
+    if not Signed(operation) or not Signed(paramKey) or type(request)~="function" then return false end
+    local stamp,phase=Game.GetCurrentGameTurn(),"EXCAVATE_ARMED"
+    local function Guard()
+      local unit,current=ArchaeologyGuard(ctx,unitID,x,y)
+      if not unit or not ArchaeologySameHome(home,current) or Game.GetCurrentGameTurn()~=stamp
+        or PlayerOperations.CHOOSE_ARTIFACT_PLAYER~=operation or PlayerOperations.PARAM_PLAYER_ONE~=paramKey
+        or UI.RequestPlayerOperation~=request then return nil end
+      local actual,status=ArchaeologyPendingRead(ctx,player)
+      if status~="ok" or not ArchaeologySameDescriptor(actual,descriptor) then return nil end
+      local currentStage,currentToken=ArchaeologyBridge("Inspect",ctx.player,unitID)
+      if currentStage==phase and currentToken==token then return unit end
+    end
+    if not Guard() then return false end
+    local id=NextRequest("archaeology_choice:"..unitID..":"..token..":"..descriptor.artifactIndex)
+    if not id then return false end
+    local granted,prepared=ArchaeologyBridge("PrepareChoice",ctx.player,unitID,token,descriptor)
+    if granted~=true or prepared~=token then return false end
+    persisted,phase=true,"CHOICE_ARMED"
+    pendingUnits[unitID]={id=id,kind="CHOOSE_ARTIFACT_PLAYER",persistent=true,token=token,unitType="UNIT_ARCHAEOLOGIST",
+      artifactIndex=descriptor.artifactIndex,choicePlayerID=descriptor.choicePlayerID,homeCityID=home.homeCityID,
+      cityX=home.cityX,cityY=home.cityY,buildingIndex=home.buildingIndex,baselineWorkIDs=home.workIndices,x=x,y=y,elapsed=0}
+    if not Guard() then Log("archaeology_choice_held","id="..id.."|unit="..unitID);return true end
+    Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=CHOOSE_ARTIFACT_PLAYER")
+    local sent,err=pcall(request,ctx.player,operation,{[paramKey]=descriptor.choicePlayerID})
+    if not sent then Log("archaeology_choice_unknown","id="..id.."|reason="..tostring(err)) end
+    return true
+  end)
+  if not ok then Log("archaeology_choice_unavailable",tostring(result)) end
+  return persisted or (ok and result==true)
+end
+
+local function ProcessArchaeologist(ctx,player,state,unit)
+  local id=unit:GetID()
+  if ArchaeologyHeld(unit) then Reason("archaeology:"..id,"考古学家等待实际发掘、文物选择或入藏回执");return false,false end
+  local home=ArchaeologyHomeSnapshot(ctx,player,id)
+  local here=UnitPlot(unit)
+  if not home or not here then return false,false end
+  local indices,why=BaiqiHeritageCandidates.Collect("UNIT_ARCHAEOLOGIST",ctx.player,unit,Game,Map,visibility)
+  if why~="ok" then return false,false end
+  local key=UnitKey(unit)
+  local search=archaeologySearches[id]
+  if not search or search.key~=key or search.turn~=turn then search={key=key,turn=turn,failed={}};archaeologySearches[id]=search end
+  local candidates={}
+  for _,index in ipairs(indices) do
+    if not search.failed[index] then
+      local plot=Map.GetPlotByIndex(index)
+      if plot and plot:GetOwner()==ctx.player and Safe(plot,player) then
+        candidates[#candidates+1]={index=index,plot=plot,distance=Map.GetPlotDistance(here:GetX(),here:GetY(),plot:GetX(),plot:GetY())}
+      end
+    end
+  end
+  table.sort(candidates,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end;return a.index<b.index end)
+  local target=candidates[1]
+  if not target then archaeologySearches[id]=nil;return false,false end
+  if target.index==here:GetIndex() then
+    if RequestArchaeologyExcavation(unit) then archaeologySearches[id]=nil;return true,false end
+  else
+    local step=PathStep(unit,target.plot,player,state)
+    if step and RequestCivilian(ctx,state,unit,"MOVE_TO",step) then return true,false end
+  end
+  search.failed[target.index]=true
+  if #candidates>1 then return false,true end
+  archaeologySearches[id]=nil
   return false,false
 end
 
@@ -2111,6 +2333,16 @@ local function ReadBack(player)
         Log("naturalist_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_actual_park_proof=true")
         pending.unresolvedLogged=true
       end
+    elseif pending.kind=="EXCAVATE" or pending.kind=="CHOOSE_ARTIFACT_PLAYER" then
+      local stage,token=ArchaeologyBridge("Inspect",contextID,unitID)
+      if stage=="OBSERVED" and token==pending.token then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=ARCHAEOLOGY|proof=core_created_work_receipt")
+        pendingUnits[unitID]=nil;archaeologySearches[unitID]=nil
+        if unit then unitEvaluated[UnitKey(unit)]=nil end
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+        Log("archaeology_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_actual_artifact_receipt=true")
+        pending.unresolvedLogged=true
+      end
     elseif pending.kind=="SPREAD_RELIGION" then
       local stage,token=ReligiousBridge("Inspect",contextID,unitID)
       local religion,charges
@@ -2298,7 +2530,8 @@ local function Tick(allowOrders)
     for _,pending in pairs(pendingUnits) do
       local kind=pending.kind
       if kind=="ACTIVATE_GREAT_PERSON" or kind=="CREATE_GREAT_WORK"
-        or kind=="FOUND_RELIGION" or kind=="SPREAD_RELIGION" or kind=="DESIGNATE_PARK" then
+        or kind=="FOUND_RELIGION" or kind=="SPREAD_RELIGION" or kind=="DESIGNATE_PARK"
+        or kind=="EXCAVATE" or kind=="CHOOSE_ARTIFACT_PLAYER" then
         effectPending=true;break
       end
     end
@@ -2322,6 +2555,12 @@ local function Tick(allowOrders)
   -- Existing factual receipts may reconcile while the core is busy. New
   -- gameplay orders wait until both native processing readers report idle.
   if allowOrders==false or not CoreIdle() then return end
+  -- Only the engine's actual extraction queue permits an artifact choice.
+  -- This runs before ordinary scheduling because a pending artifact can block it.
+  local artifact,artifactStatus=ArchaeologyPendingRead(ctx,player)
+  if artifactStatus=="ok" and RequestArchaeologyChoice(artifact) then
+    status="已提交文物归属选择，等待实际入藏";return
+  end
   -- At most two continuation callbacks before normal city/unit scheduling.
   if builderResumeStreak<2 then
     for id,search in pairs(builderSearches) do
@@ -2385,6 +2624,10 @@ local function Tick(allowOrders)
               status="自然学家继续检查安全路线；军队由你指挥"
               return
             end
+          elseif snapshot.type=="UNIT_ARCHAEOLOGIST" then
+            local submitted,continuing=ProcessArchaeologist(ctx,player,state,unit)
+            if submitted then status="已提交国内考古任务，等待实际文物";return end
+            if continuing then unitEvaluated[unitKey]=nil;return end
           elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
             if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
           elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
@@ -2396,6 +2639,7 @@ local function Tick(allowOrders)
             or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
             or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
             or (snapshot.type=="UNIT_NATURALIST" and NaturalistHeld(unit))
+            or (snapshot.type=="UNIT_ARCHAEOLOGIST" and ArchaeologyHeld(unit))
           local here=not held and UnitPlot(unit)
           if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
             status="文职单位本回合等待安全任务；军队由你指挥";return
