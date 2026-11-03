@@ -8,9 +8,17 @@ local function Finite(value)
   return type(value)=="number" and value==value and value>-math.huge and value<math.huge
 end
 
-local function NewProfile(clock,capacity)
+local function NewProfile(clock,capacity,options)
   assert(Finite(capacity) and capacity>=1 and capacity==math.floor(capacity),"Invalid sample capacity")
-  local state={samples={},totalCalls=0,dropped=0,invalidClock=0,capacity=capacity}
+  local aggregateZero=false
+  if options~=nil then
+    assert(type(options)=="table","Invalid options")
+    if options.aggregate_zero~=nil then
+      assert(type(options.aggregate_zero)=="boolean","Invalid aggregate_zero flag")
+      aggregateZero=options.aggregate_zero
+    end
+  end
+  local state={samples={},totalCalls=0,dropped=0,invalidClock=0,capacity=capacity,aggregateZero=aggregateZero,zeroSuccess=0}
   local function ReadClock()
     if type(clock)~="function" then return nil end
     local ok,value=pcall(clock)
@@ -25,10 +33,14 @@ local function NewProfile(clock,capacity)
       local ended=ReadClock()
       local seconds=started and ended and ended-started
       if Finite(seconds) and seconds>=0 then
-        if #state.samples<capacity then
-          state.samples[#state.samples+1]={name=name,seconds=seconds,failed=not result[1],started=started,ended=ended}
+        if aggregateZero and seconds==0 and result[1] then
+          state.zeroSuccess=state.zeroSuccess+1
         else
-          state.dropped=state.dropped+1
+          if #state.samples<capacity then
+            state.samples[#state.samples+1]={name=name,seconds=seconds,failed=not result[1],started=started,ended=ended}
+          else
+            state.dropped=state.dropped+1
+          end
         end
       else
         state.invalidClock=state.invalidClock+1

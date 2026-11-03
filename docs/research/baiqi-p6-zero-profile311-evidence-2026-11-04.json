@@ -1,0 +1,149 @@
+{
+  "schema": "civ6.baiqi-zero-profile311/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T21:53:16.278011+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 310,
+      "case_id": "civ6-p6-source67-private-control-boundaries-310",
+      "mode_id": "http-candidate",
+      "shared_commit": "7b4d39f6c6efe37f4505ba6317b330d6f76f33e4",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3300,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T21:41:08.511472+00:00",
+      "attempt_end_utc": "2026-11-03T21:41:36.882177+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 28364.279699977487,
+        "first_nonempty_content_delta_ms": 8316.591199953109,
+        "usage": {
+          "prompt_tokens": 64359,
+          "completion_tokens": 3300,
+          "total_tokens": 67659
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T21:41:08.511472+00:00",
+          "end_utc": "2026-11-03T21:41:36.882177+00:00",
+          "failure": "finish_reason_length",
+          "finish_reason": "length",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 28364.279699977487
+        }
+      ],
+      "adoption": "rejected-truncated",
+      "review": "3300token length, incomplete inventory not read/spliced/adopted. Privatecontroltask remains unimplemented; ownercontinuesindependently.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 311,
+      "case_id": "civ6-p6-global-budget-zero-profile-311",
+      "mode_id": "http-candidate",
+      "shared_commit": "90511a28096e8b00391581049c2007ddf0ab9356",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 1800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T21:48:21.156174+00:00",
+      "attempt_end_utc": "2026-11-03T21:48:24.776872+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 3620.308900019154,
+        "first_nonempty_content_delta_ms": 722.7969000232406,
+        "usage": {
+          "prompt_tokens": 3617,
+          "completion_tokens": 532,
+          "total_tokens": 4149
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T21:48:21.156174+00:00",
+          "end_utc": "2026-11-03T21:48:24.776872+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 3620.308900019154
+        }
+      ],
+      "adoption": "partial",
+      "review": "Aggregation/default/capacity/forwarding body adopted. RawusesillegalLua !=; isolatedsyntaxfixalsoacceptsoptionsfalse contrarycontract. Owner fixes~= and options~=nil,6newaggregationtests +10existingcanonicaltests pass. No candidate codeNativeexecuted.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_counterexamples311": {
+    "raw_compile_error": "error loading code: [string \"<python>\"]:23: 'then' expected near '!'",
+    "isolated_syntax_only_false_options_accepted": true,
+    "counterexample_seconds": 0.0627546000177972
+  },
+  "owner_review_error": "Ownerfirstreviewmissed!= andwrotecandidatewithonlyfalse-optionfix totoolbeforecompilation. 6new+10oldtestsallfailedatLuaload; noNativeorpubliccommit. Correctsyntax+optionboundary then16tests pass, notinitialcandidate16functionalpasses.",
+  "software": {
+    "new_tests": 6,
+    "new_seconds": 0.009,
+    "existing_affected_tests": 10,
+    "existing_seconds": 0.008,
+    "cases": [
+      "1000measuredzero-normalcalls aggregated,1nativebodycallperwrapperinvocation andexacttailnil",
+      "default/explicitfalse retainoldrawzerosandcapacitydrop",
+      "tinypositive1e-12neverroundedtozero",
+      "failed0retainedordropped, originalerrorobject",
+      "invalid/backwardclockoneinvalidpercall noaggregation",
+      "optionsfalse/string/number reject"
+    ]
+  },
+  "new_tool_behavior": "Optionaloptions.aggregate_zero=true skipsretainingonlymeasured0-duration normallyreturnedcalls, trackszeroSuccess. totalCalls=#samples+zeroSuccess+dropped+invalidClock. Positiveandallfailedincluding0retainrawintervals orflagdrop. Originalfn/clock/returns/errorsemantics preserved. Defaultall-samplesunchanged.",
+  "scope": "Canonicalexternaltoolonly, notnewdiagnosticassembly/installation/rerun. Currentliveprivateq19stillold30000capacity, itsq20staysdiagnostic/nonconforming. Zero-countauditdoesnotretroactivelylegitimizeq20.",
+  "frozen_global_sample_cap": 4096,
+  "remaining": "Forwardoptionsviaownedroot/context; assignexplicit32quotas sum4096, exportZEROcount/capacitywithstrictvalidation, source-integritytests andnewcoldNativecapture. No release/playerAIpauseflag. B_deltaprivatecontrolandfivepairsstillpending.",
+  "cumulative_through311": {
+    "logical": 311,
+    "complete": 292,
+    "length": 16,
+    "final_transport_failed": 3,
+    "http_attempts": 341,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  }
+}
