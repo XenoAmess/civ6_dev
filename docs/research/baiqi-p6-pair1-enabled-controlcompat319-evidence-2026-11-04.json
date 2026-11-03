@@ -1,0 +1,245 @@
+{
+  "schema": "civ6.baiqi-pair1-enabled-controlcompat319/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T23:21:45.151498+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 319,
+      "case_id": "civ6-controlcompat319",
+      "mode_id": "http-candidate",
+      "shared_commit": "34f229e26502bce77317b9a86619fa0cf86824d0",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 1100,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T23:06:19.966091+00:00",
+      "attempt_end_utc": "2026-11-03T23:06:27.199161+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 7236.918400041759,
+        "first_nonempty_content_delta_ms": 2417.987200024072,
+        "usage": {
+          "prompt_tokens": 17242,
+          "completion_tokens": 732,
+          "total_tokens": 17974
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T23:06:19.966091+00:00",
+          "end_utc": "2026-11-03T23:06:27.199161+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 7236.918400041759
+        }
+      ],
+      "adoption": "rejected",
+      "review": "Outer JSON VALID/rawLua compiles. Wrong records=N(table) printsunknown, S(fn) prints functionaddress rather than type, Snapshot/field errors escape/no pcall, wrong-turn/pid doesnotreturn before scope/Playersindex. Allcode rejected. Owner readonly dump emits actual arraycount/types, handlesfield/Snapshot errors/earlywrongcontext;5tests pass.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw319": {
+    "raw_records_array_printed_unknown": true,
+    "raw_function_value_printed_as_type": true,
+    "raw_snapshot_error_escapes": true,
+    "adoption": "rejected",
+    "other_source_findings": "No pcall for userdata field index, no early return on wrong turn/pid, Players[pid] indexed before guard, no explicit clock unavailable handling. Candidate never Native executed; owner rewrites actual readonly metadata dump."
+  },
+  "native_enabled_side1": {
+    "pid": 16644,
+    "package": "baiqi67-paired-enabled-c2",
+    "archive_sha256": "1d6e0e17435d8a353cb5944ba30f820e6c565aa3ed682616edf3719dde59ca6e",
+    "clock_prefix_sha256": "f0090d6adb97164f457506ef6d96601e6e0b6f0a073eb53e5db7a75ab583eb1b",
+    "driver_commit": "53016ee85b1d856802dacaa2e04b86d0e92c3f0d",
+    "capture": {
+      "variant": "enabled",
+      "run_id": "enabled-349a8973b85042b7b42a146b3bacd545",
+      "fixture_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+      "source_version": 67,
+      "errors": 0,
+      "refused": 0,
+      "records": [
+        {
+          "from_turn": 85,
+          "to_turn": 86,
+          "pid": 0,
+          "started": 1793747677.897,
+          "ended": 1793747681.8930001,
+          "seconds": 3.996000051498413
+        },
+        {
+          "from_turn": 86,
+          "to_turn": 87,
+          "pid": 0,
+          "started": 1793747692.739,
+          "ended": 1793747696.094,
+          "seconds": 3.3550000190734863
+        },
+        {
+          "from_turn": 87,
+          "to_turn": 88,
+          "pid": 0,
+          "started": 1793747707.17,
+          "ended": 1793747713.881,
+          "seconds": 6.710999965667725
+        },
+        {
+          "from_turn": 88,
+          "to_turn": 89,
+          "pid": 0,
+          "started": 1793747725.374,
+          "ended": 1793747732.647,
+          "seconds": 7.273000001907349
+        },
+        {
+          "from_turn": 89,
+          "to_turn": 90,
+          "pid": 0,
+          "started": 1793747743.705,
+          "ended": 1793747748.365,
+          "seconds": 4.6600000858306885
+        }
+      ],
+      "requested_turns": [
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "cities": 11,
+      "phase": "COMPLETE",
+      "token": "349a8973b85042b7b42a146b3bacd545",
+      "at_utc": "2026-11-03T23:15:59.950827+00:00",
+      "pid": 16644,
+      "pair": 1,
+      "driver_commit": "53016ee85b1d856802dacaa2e04b86d0e92c3f0d",
+      "archive_sha256": "1d6e0e17435d8a353cb5944ba30f820e6c565aa3ed682616edf3719dde59ca6e",
+      "qa_diplomacy_close_requests": 1
+    },
+    "warmup_seconds": 147.9449999332428,
+    "same_original85_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "retry_policy": "Firstattempt3records incomplete preserved in53016ee. After officialoriginal85reload newledger/nonce, full5records accepted; no timing-based cherry-pick or previous worldaction replay.",
+    "SDK_UI_and_Core_final_cities": 11,
+    "UI_empty_queues": 0,
+    "baseline19_same_xy": true,
+    "moved": 0,
+    "missing": 0,
+    "final_fact_scope": "After capture beforeexit, normal AI continues within90; not invented per-root city count. No end90.",
+    "save": {
+      "name": "Baiqi_P6_20261104_V67_Pair1Enabled90.Civ6Save",
+      "bytes": 518959,
+      "sha256": "5e25d496f36161c0fb877e91495f9beb4c87b37dcc958e0007881ea02bc2c8b4",
+      "reloaded": false,
+      "turn": 90
+    },
+    "online_switches": 0
+  },
+  "new_wire_observation": {
+    "formal_run_frames": 434,
+    "rejected_headers": [],
+    "scope": "This run only observed valid logged headers and completed. Prior fault didnotrecur; notproof of cause or live reconnect after a malformed header.8headerchecks/1fakeLua readonly-reconnect witness are separate earlier evidence."
+  },
+  "control_metadata_software": {
+    "new_tests": 5,
+    "seconds": 0.069,
+    "scope": "Actual six control Core factories plus actual317clock in software binding. Metadata only, invokes no bridgefunc, no event/clockBegin/Reset/Retire/property/Gameaction; context/Snapshot/getter failures explicit unavailable, emitterfailure stops. Not Nativecontrol compatibility or closed behavior proof."
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T231436933070Z.json",
+      "sha256": "563b5d0b8095a5241c4317ec8766fbebfc350034a68866e2c692dc8d6f306579",
+      "selected": [
+        "P6_PAIR_END\t85"
+      ]
+    },
+    {
+      "name": "20261103T231452092420Z.json",
+      "sha256": "f9da63a25ae7f9f548286d0345cf52548b0cef4853f8070f894469b037047ec3",
+      "selected": [
+        "P6_PAIR_END\t86"
+      ]
+    },
+    {
+      "name": "20261103T231506522785Z.json",
+      "sha256": "3b2c7e4827fc45a7be41c0e3042e4aad9f368e8481473519a85acaaf5a7d1831",
+      "selected": [
+        "P6_PAIR_END\t87"
+      ]
+    },
+    {
+      "name": "20261103T231509967927Z.json",
+      "sha256": "3641a979b1137a5b55e806e298bdf4d3dd7b52dc53a1e4ba9dc0f506bfa16252",
+      "selected": [
+        "P6_PAIR_QA_CLOSE_ACK\t3d18d7bf5cfe48a3a81b6cb09dc0b128:1\t87"
+      ]
+    },
+    {
+      "name": "20261103T231524722754Z.json",
+      "sha256": "15b0178a200f8cfa116fbff59b5571f1d4b7d4addde1f8f3e8b4a6322e4248b0",
+      "selected": [
+        "P6_PAIR_END\t88"
+      ]
+    },
+    {
+      "name": "20261103T231543060724Z.json",
+      "sha256": "b78df4c8f6bdd4944586e10df05785fed9fa093387939ff00a4ccc3ebc5ca333",
+      "selected": [
+        "P6_PAIR_END\t89"
+      ]
+    },
+    {
+      "name": "20261103T231559286535Z.json",
+      "sha256": "d17fb34346149ade2ea90c9801661292593fbc73c21f4dd833c5990736dbcc09",
+      "selected": [
+        "P6_PAIR_RECORD\t85\t86\t0\t1793747677.8970001\t1793747681.8930001\t3.9960000514984131",
+        "P6_PAIR_RECORD\t86\t87\t0\t1793747692.7390001\t1793747696.0940001\t3.3550000190734863",
+        "P6_PAIR_RECORD\t87\t88\t0\t1793747707.1700001\t1793747713.881\t6.7109999656677246",
+        "P6_PAIR_RECORD\t88\t89\t0\t1793747725.3740001\t1793747732.6470001\t7.2730000019073486",
+        "P6_PAIR_RECORD\t89\t90\t0\t1793747743.7049999\t1793747748.365\t4.6600000858306885",
+        "P6_PAIR_META\t0\t0\ttrue\tfalse\t90\t11"
+      ]
+    }
+  ],
+  "accepted_complete_sides": 1,
+  "required_sides": 10,
+  "completed_full_pairs": 0,
+  "B_delta": "UNKNOWN until samepaircontrol plus all5alternatingpairs. Singleenabledside cannot prove500ms/10% or fullTC036.",
+  "remaining": "Cold install control counterpart with sameclockprefix, freshofflineproof, actualcompatmetadata/warmup/formalreload; then controlside1 and remaining alternatingpairs.",
+  "cumulative_through319": {
+    "logical": 319,
+    "complete": 298,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 349,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "unknown_costs": {
+    "exclusive_owner_seconds": null,
+    "cache_hit_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null
+  }
+}
