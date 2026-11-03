@@ -1,0 +1,196 @@
+"""Continuous private diagnostic experiment using an injected, owned Tuner client.
+
+All end-turn actions belong to TEST_PLAYER. This tool never commands units,
+chooses diplomacy, or changes the mod's mandatory domestic delegation.
+"""
+from datetime import datetime,timezone
+import hashlib
+import json
+from pathlib import Path
+import uuid
+
+
+def _payload(messages,marker):
+    found=[]
+    for message in messages:
+        if message['tag']==3 and message['payload'].startswith('ERR:'):
+            raise RuntimeError(message['payload'])
+        if message['tag']==-1:
+            line=message['payload'].split(': ',1)[-1]
+            if line.startswith(marker+'\t'):
+                found.append(line.split('\t')[1:])
+    if len(found)!=1:
+        raise RuntimeError(f'Expected one {marker} receipt, got {len(found)}')
+    return found[0]
+
+
+def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path):
+    token=uuid.uuid4().hex
+    quoted=json.dumps(token)
+    requested=[]
+    attempted=False
+    ledger_dir=Path(ledger_dir)
+    ledger_dir.mkdir(parents=True,exist_ok=True)
+
+    def diplomacy():
+        visible=is_diplomacy_visible()
+        if type(visible) is not bool:
+            raise RuntimeError('Diplomacy visibility unavailable')
+        return visible
+
+    def action(turn,code):
+        nonlocal attempted
+        record={'at_utc':datetime.now(timezone.utc).isoformat(),'role':'TEST_PLAYER',
+                'turn':turn,'token':token,'status':'ABOUT_TO_SUBMIT_ONCE',
+                'lua_sha256':hashlib.sha256(code.encode('utf-8')).hexdigest()}
+        with (ledger_dir/f'end{turn}.json').open('x',encoding='utf-8',newline='\n') as stream:
+            json.dump(record,stream,indent=2);stream.write('\n')
+        attempted=True
+        result=_payload(query('BaiqiExecutor',code),'P6_Q20_END')
+        if result!=[str(turn)]:
+            raise RuntimeError('Unexpected end-turn receipt')
+        requested.append(turn)
+        emit(f'TEST_PLAYER_END_REQUESTED_ONCE {turn}')
+
+    def end_code(turn):
+        return f'''
+local s=P6Q20StageB;assert(s and s.token=={quoted} and s.phase=='RECORDING')
+assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()=={turn})
+assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and not s.ends[{turn}])
+assert(type(UI.RequestAction)=='function' and ActionTypes.ACTION_ENDTURN~=nil)
+s.ends[{turn}]=true
+UI.RequestAction(ActionTypes.ACTION_ENDTURN,{{REASON='UserForced'}})
+print('P6_Q20_END',{turn})
+'''
+
+    setup=f'''
+assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()==85 and Players[0]:GetCities():GetCount()==10)
+assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and P6Q20StageB==nil)
+local registry=ExposedMembers.P6BaiqiOwnRegistry
+assert(registry.marker=='baiqi67-q19' and registry.enabled==false)
+local keys={{}};for key in pairs(registry.entries) do keys[#keys+1]=key end;table.sort(keys);assert(#keys==32)
+local s={{keys=keys,token={quoted},phase='PREPARING',ends={{}},baseline={{}},start=Automation.GetTime()}}
+P6Q20StageB=s
+for _,key in ipairs(keys) do
+ local e=registry.entries[key];local v=e.Snapshot()
+ assert(v.marker=='baiqi67-q19' and v.enabled==false and v.retired==false and v.subscribed and v.stats.registryErrors==0 and v.stats.anchorErrors==0)
+ e.Reset()
+ local clean=e.Snapshot()
+ assert(clean.profile.totalCalls==0 and clean.profile.dropped==0 and clean.profile.invalidClock==0 and #clean.profile.samples==0 and #clean.anchors==0)
+ assert(clean.stats.registryErrors==0 and clean.stats.anchorErrors==0 and clean.stats.anchorDropped==0 and clean.stats.bucketErrors==0 and clean.stats.bucketDropped==0)
+ assert(clean.leaves.dropped==0 and clean.leaves.wrapErrors==0 and clean.leaves.enabledErrors==0)
+ for _,counter in ipairs(clean.leaves.counters) do assert(counter.totalCalls==0 and counter.callbackErrors==0) end
+ for i=1,3 do local a=Automation.GetTime();local c=e.ReadClock();local z=Automation.GetTime()
+  print('P6_Q20_CLOCK_BEFORE',key,i,string.format('%.17g',a),string.format('%.17g',c),string.format('%.17g',z))
+ end
+end
+for _,u in Players[0]:GetUnits():Members() do
+ local row=GameInfo.Units[u:GetUnitType()]
+ if row and not BaiqiPolicy.CivilianType(row.UnitType) then
+  s.baseline[#s.baseline+1]={{id=u:GetID(),kind=row.UnitType,x=u:GetX(),y=u:GetY(),moves=u:GetMovesRemaining()}}
+  print('P6_Q20_ARMY_BEFORE',u:GetID(),row.UnitType,u:GetX(),u:GetY(),u:GetMovesRemaining())
+ end
+end
+registry.enabled=true
+for _,key in ipairs(keys) do assert(registry.entries[key].SetEnabled(true)) end
+s.phase='RECORDING'
+'''
+    poll=f'''
+local s=P6Q20StageB;assert(s and s.token=={quoted} and s.phase=='RECORDING')
+local registry=ExposedMembers.P6BaiqiOwnRegistry
+local errors,total=0,0
+local function Integer(v) return type(v)=='number' and v>=0 and v<math.huge and v==math.floor(v) end
+for _,key in ipairs(s.keys) do
+ local e=registry.entries[key]
+ local ok,v=pcall(e and e.Snapshot)
+ if not ok or type(v)~='table' or type(v.profile)~='table' or type(v.stats)~='table' or type(v.leaves)~='table' then errors=errors+1
+ else
+  if v.enabled~=true or v.retired~=false or v.subscribed~=true then errors=errors+1 end
+  if Integer(v.profile.totalCalls) then total=total+v.profile.totalCalls else errors=errors+1 end
+  for _,pair in ipairs({{{{v.profile,'dropped'}},{{v.profile,'invalidClock'}},{{v.stats,'registryErrors'}},{{v.stats,'anchorErrors'}},
+   {{v.stats,'anchorDropped'}},{{v.stats,'bucketErrors'}},{{v.stats,'bucketDropped'}},{{v.leaves,'dropped'}},{{v.leaves,'wrapErrors'}},{{v.leaves,'enabledErrors'}}}}) do
+   local value=pair[1][pair[2]];if Integer(value) then errors=errors+value else errors=errors+1 end
+  end
+  if type(v.leaves.counters)~='table' then errors=errors+1
+  else for _,counter in ipairs(v.leaves.counters) do
+   local value=counter.callbackErrors;if Integer(value) then errors=errors+value else errors=errors+1 end
+  end end
+ end
+end
+if registry.enabled~=true then errors=errors+1 end
+local turn=Game.GetCurrentGameTurn()
+local ui=registry.entries['UI/BaiqiExecutor.lua'].Snapshot()
+local anchor
+for _,a in ipairs(ui.anchors) do if a.pid==0 and a.turn==turn then anchor=a.time;break end end
+local age=anchor and Automation.GetTime()-anchor or -1
+print('P6_Q20_STATE',turn,string.format('%.17g',age),anchor~=nil,errors,total,Players[0]:GetCities():GetCount(),not UI.IsGameCoreBusy() and not UI.IsProcessingMessages())
+'''
+    def stop_code(phase,calibrate):
+        code=f'''
+local s=P6Q20StageB
+if not s or s.token~={quoted} then print('P6_Q20_STOP','SKIPPED_FOREIGN');return end
+local registry=ExposedMembers.P6BaiqiOwnRegistry
+assert(registry.marker=='baiqi67-q19')
+registry.enabled=false
+for _,key in ipairs(s.keys) do assert(registry.entries[key].SetEnabled(false)) end
+s.phase={json.dumps(phase)};s.stop=Automation.GetTime()
+'''
+        if calibrate:
+            code+='''
+for _,key in ipairs(s.keys) do local e=registry.entries[key]
+ for i=1,3 do local a=Automation.GetTime();local c=e.ReadClock();local z=Automation.GetTime()
+  print('P6_Q20_CLOCK_AFTER',key,i,string.format('%.17g',a),string.format('%.17g',c),string.format('%.17g',z))
+ end
+end
+'''
+        return code+"print('P6_Q20_STOP',s.phase,Game.GetCurrentGameTurn())\n"
+
+    try:
+        if diplomacy():
+            raise RuntimeError('Close current diplomacy as TEST_PLAYER before starting')
+        action(85,setup+end_code(85))
+        deadline=now()+180
+        last_turn=85
+        waiting_diplomacy=False
+        while now()<deadline:
+            try:
+                fields=_payload(query('BaiqiExecutor',poll),'P6_Q20_STATE')
+            except (OSError,EOFError) as error:
+                emit(f'READONLY_POLL_TRANSPORT {type(error).__name__}')
+                sleep(1);continue
+            if len(fields)!=7:
+                raise RuntimeError('Malformed state receipt')
+            turn,age=int(fields[0]),float(fields[1])
+            anchored=fields[2]=='true'
+            errors,samples,cities=int(fields[3]),int(fields[4]),int(fields[5])
+            ready=fields[6]=='true'
+            emit(f'Q20_STATE turn={turn} age={age:.3f} samples={samples} cities={cities} errors={errors}')
+            if errors:
+                raise RuntimeError('Diagnostic coverage error; budget remains unknown')
+            if turn<last_turn or turn>91:
+                raise RuntimeError('Unexpected game turn')
+            if turn!=last_turn:
+                last_turn=turn;deadline=now()+180
+            if turn==91 and anchored:
+                stopped=_payload(query('BaiqiExecutor',stop_code('COMPLETE',True)),'P6_Q20_STOP')
+                if stopped!=['COMPLETE','91']:
+                    raise RuntimeError('Completion stop not confirmed')
+                return {'phase':'COMPLETE','turn':91,'requested_turns':requested,'samples':samples,'cities':cities,'token':token}
+            if 86<=turn<=90 and anchored and age>=10 and ready and turn not in requested:
+                visible=diplomacy()
+                if visible:
+                    if not waiting_diplomacy:emit(f'TEST_PLAYER_DIPLOMACY_ACTIVE turn={turn}')
+                    waiting_diplomacy=True
+                else:
+                    waiting_diplomacy=False
+                    action(turn,end_code(turn));deadline=now()+180
+            sleep(1)
+        raise TimeoutError('Activation or TEST_PLAYER diplomacy wait exceeded 180 seconds')
+    except BaseException:
+        if attempted:
+            try:
+                result=_payload(query('BaiqiExecutor',stop_code('ABORTED',False)),'P6_Q20_STOP')
+                emit('ABORT_RECORDING_STOP '+json.dumps(result))
+            except BaseException as error:
+                emit('ABORT_RECORDING_STOP_UNCONFIRMED '+type(error).__name__)
+        raise
