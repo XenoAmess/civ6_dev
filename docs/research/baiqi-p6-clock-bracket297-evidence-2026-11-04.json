@@ -1,0 +1,236 @@
+{
+  "schema": "civ6.baiqi-clock-bracket297/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T19:51:05.732229+00:00",
+  "machine_id": "BF-202609141645",
+  "case": {
+    "sequence": 297,
+    "case_id": "civ6-p6-clock-bracket-297",
+    "mode_id": "http-candidate",
+    "shared_commit": "042a85954cc9f45d0afa83ee0388f59285ad4eb9",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "max_tokens": 1600,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "model_alias": "qwen38-coder",
+    "post_begin_utc": "2026-11-03T19:46:43.446940+00:00",
+    "attempt_end_utc": "2026-11-03T19:46:46.643363+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 3196.1685999995098,
+      "first_nonempty_content_delta_ms": 419.9953000061214,
+      "usage": {
+        "prompt_tokens": 1069,
+        "completion_tokens": 446,
+        "total_tokens": 1515
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "success": true,
+    "attempt_count": 1,
+    "retry_count": 0,
+    "attempt_windows": [
+      {
+        "attempt": 1,
+        "begin_utc": "2026-11-03T19:46:43.446940+00:00",
+        "end_utc": "2026-11-03T19:46:46.643363+00:00",
+        "failure": null,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "http_status": 200,
+        "total_ms": 3196.1685999995098
+      }
+    ],
+    "adoption": "partial",
+    "review": "Clock validation/call order/error isolation body adopted. Raw declares global Sample and omits returning module, contradicts no-global claim. Owner localizes function and adds return Sample; 5 meaningful tests with real Python offset consumer, actual 16 Native synchronous brackets and bridge cleanup.",
+    "owner_cost_seconds": {
+      "preparation": null,
+      "review": null,
+      "correction": null,
+      "validation": null,
+      "publication": null
+    }
+  },
+  "owner_changes": [
+    "function Sample -> local function Sample",
+    "append return Sample"
+  ],
+  "software": {
+    "tests": 5,
+    "seconds_reported": 0.005,
+    "actual_consumer": "tools.clock_offsets.intersect_offsets, offset signs positive/negative/zero",
+    "cases": [
+      "invalid parameter no clocks",
+      "UI/Core/UI strict call order and partial throw stops",
+      "all stages nil/string/bool/table/NaN/infinity/negative",
+      "UI backwards rejected",
+      "no stale result/global pollution"
+    ]
+  },
+  "native": {
+    "version": 67,
+    "pid": 16888,
+    "turn": 90,
+    "samples": [
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ],
+      [
+        1793735400.171,
+        1793735400.171,
+        1793735400.171
+      ]
+    ],
+    "computed_constant_offset_intersection": {
+      "samples": 16,
+      "lower_seconds": 0.0,
+      "upper_seconds": 0.0,
+      "consistent": true
+    },
+    "temporary_readonly_Core_bridge_removed_in_both_contexts": true,
+    "events_or_game_orders": 0,
+    "observation": "All 16 same-command triples equal 1793735400.171. Consistent at observed clock precision only; constant-offset assumption and unresolved timer granularity prohibit claiming exact synchronization/zero measurement uncertainty or full B_turn coverage."
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T194959451915Z.json",
+      "sha256": "b2cb6d7a74645de5c024a398da68a2a455b9985f00daad9bafa1d6e6d965abb2",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_CLOCK297_CORE_INSTALLED\towner-clock297-readonly\tfunction\t90"
+      ]
+    },
+    {
+      "name": "20261103T194959962791Z.json",
+      "sha256": "c3811a6b28a410be4da53262a94560c51d03fc4c813eba0a0bb51c388a8c364b",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_CLOCK297_BRACKET\t1\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t2\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t3\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t4\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t5\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t6\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t7\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t8\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t9\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t10\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t11\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t12\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t13\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t14\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t15\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_BRACKET\t16\t1793735400.171\t1793735400.171\t1793735400.171",
+        "P6_CLOCK297_READ_DONE\t90"
+      ]
+    },
+    {
+      "name": "20261103T195000344379Z.json",
+      "sha256": "e1eaf5a6c20b18989d0f39c8cf9f321307e950bc3405bc0b44765e317963ee88",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_CLOCK297_CORE_REMOVED\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T195000734030Z.json",
+      "sha256": "d39cb733e1d08e50782e82df1b16bfe7c3615a86838de1c4830f63f765c406a5",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_CLOCK297_UI_REMOVED\ttrue"
+      ]
+    }
+  ],
+  "cumulative_through297": {
+    "logical": 297,
+    "complete": 281,
+    "length": 13,
+    "final_transport_failed": 3,
+    "http_attempts": 327,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "limits": [
+    "Sampler does not synchronize clocks or install persistent bridge. Equal same-command observations do not prove exact offset0, submillisecond precision or stability across turns.",
+    "No full diagnostic window, Core/object write inventory or matched on/off budget result yet.",
+    "One 3.196s HTTP candidate, 0 retries; exclusiveowner/backendqueue/cache/netsaving remain unknown."
+  ]
+}
