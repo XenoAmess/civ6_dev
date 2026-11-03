@@ -1,0 +1,680 @@
+{
+  "schema": "civ6.baiqi-native60-query-write-q17/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_commit": "deb826685e669cd94d324066d428b5ee1414b35a",
+  "version": 60,
+  "pid": 2376,
+  "install": {
+    "version": 60,
+    "files": 69,
+    "source_commit": "deb826685e669cd94d324066d428b5ee1414b35a",
+    "zip_sha256": "2f826b83b5b5f256e1b0aaab1d3de336a66d476648e096d6196210cc4afe2c9b",
+    "controller_sha256": "ad8da05e8a3af7bdb3bbd87a686232b697b6da11dba2a5d9ede4a616aaad8678",
+    "actual_installed_equal_to_normal_source": true,
+    "diagnostic_suffix_present": false,
+    "native_loaded": true
+  },
+  "steam": {
+    "same_game_process_as_q16": true,
+    "launch_offline_confirmation_utc": "2026-11-03T04:47:28.338630+00:00",
+    "new_launch_this_run": false,
+    "online_switches": 0,
+    "client_restarts": 0,
+    "limits": "Continued same owned game PID2376/client13620; no new mode query asserted for q17. Original fresh background offline proof preceded that game launch."
+  },
+  "fixture": {
+    "original_bytes": 503809,
+    "original_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "warmup_seconds": 198.56599998474,
+    "reload_same_original_after_warmup": true,
+    "formal_turns": [
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "manual_interior": 0,
+    "debug_resources_or_production": 0
+  },
+  "observer": {
+    "family": "wall-plus-native-path-and-static-write-subset",
+    "roots": [
+      "Controller.RunNow",
+      "Admin.Run"
+    ],
+    "path_api": "UnitManager.GetMoveToPathEx",
+    "static_api_families": [
+      "UnitManager.RequestOperation",
+      "UnitManager.RequestCommand",
+      "CityManager.RequestOperation",
+      "UI.RequestPlayerOperation"
+    ],
+    "context": "BaiqiExecutor",
+    "model236_exact_installer_body": true,
+    "installer_source_commit": "9b4c69cd408fb089a248053ccecede0484992e6f",
+    "owner_glue": "Explicit context facade because native _G=nil; canonical counter factory prepares all proxies, caller adds one path-child wrapper and metadata-only recovery classification. Not a mod source change.",
+    "six_effective_bindings_restored": true,
+    "state_cleared": true,
+    "activation_handler_removed": true,
+    "root_metadata": [
+      "P6_PERF_Q17_RESTORED\ttrue\ttrue\t242\t0\t0\t42\t0\t0",
+      "P6_PERF_Q17_WINDOW\t88\t1793686006.19\t1793686006.212\t1793686006.19",
+      "P6_PERF_Q17_WINDOW\t89\t1793686239.329\t1793686239.331\t1793686239.329",
+      "P6_PERF_Q17_WINDOW\t90\t1793686272.382\t1793686272.424\t1793686272.382",
+      "P6_PERF_Q17_WINDOW\t86\t1793685787.646\t1793685787.651\t1793685787.646",
+      "P6_PERF_Q17_WINDOW\t87\t1793685814.625\t1793685814.629\t1793685814.625"
+    ],
+    "extra_metadata": {
+      "api_restore": [
+        "P6_PERF_Q17_WRITE_RESTORED",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      "query_profile": [
+        "P6_PERF_Q17_QUERY_PROFILE",
+        "25",
+        "25",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "recovery": {
+        "88": 1,
+        "89": 1,
+        "90": 1,
+        "86": 1,
+        "87": 1
+      }
+    },
+    "initialization_excluded": 42,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "metadata_errors": 0,
+    "window_errors": 0,
+    "counter_callback_errors": 0,
+    "all_path_children_root_joined_and_contained": true,
+    "install_lua_sha256": "2f583be631a92ea977a62455022da9077e565c62ba92d227cee303f81cca5807",
+    "restore_lua_sha256": "676a942e2fe9f39d153ceb339e6e895907cde9aac8948047453ee003749a82b7",
+    "software_smoke": {
+      "actual_q17_install_stop_chunks": true,
+      "native_calls_in_software_fixture": 6,
+      "outside_timed_root_ui_calls": 1,
+      "matched_recovery_param_calls": 2,
+      "native_path_children": 1,
+      "root_entries": 2,
+      "all_api_roots_and_event_restored": true,
+      "native_game_run": false,
+      "install_sha256": "5fc82c7aa280ebae1c51e67628a551497f02fca6d1b6054412735af83f369f1d",
+      "stop_sha256": "676a942e2fe9f39d153ceb339e6e895907cde9aac8948047453ee003749a82b7"
+    },
+    "label_only_correction": {
+      "before_sha256": "5fc82c7aa280ebae1c51e67628a551497f02fca6d1b6054412735af83f369f1d",
+      "after_sha256": "2f583be631a92ea977a62455022da9077e565c62ba92d227cee303f81cca5807",
+      "only_change": "Diagnostic install label corrected before live use; functional smoke used original bytes, behavior unchanged; no test rerun for literal-only change."
+    }
+  },
+  "sampling": {
+    "roots": 242,
+    "pure_ten": 234,
+    "other_city_counts": 8,
+    "groups_ten": {
+      "Controller.RunNow": {
+        "n": 143,
+        "p50_ms": 7.999897003173828,
+        "p95_ms": 30.99989891052246,
+        "max_ms": 40.9998893737793
+      },
+      "Admin.Run": {
+        "n": 91,
+        "p50_ms": 3.000020980834961,
+        "p95_ms": 6.000041961669922,
+        "max_ms": 12.000083923339844
+      }
+    },
+    "by_turn_ten": {
+      "86": {
+        "Controller.RunNow": {
+          "n": 33,
+          "p50_ms": 6.999969482421875,
+          "p95_ms": 27.9998779296875,
+          "max_ms": 39.00003433227539
+        },
+        "Admin.Run": {
+          "n": 21,
+          "p50_ms": 3.000020980834961,
+          "p95_ms": 4.999876022338867,
+          "max_ms": 5.000114440917969
+        }
+      },
+      "87": {
+        "Controller.RunNow": {
+          "n": 32,
+          "p50_ms": 6.999969482421875,
+          "p95_ms": 29.999971389770508,
+          "max_ms": 34.00015830993652
+        },
+        "Admin.Run": {
+          "n": 24,
+          "p50_ms": 3.000020980834961,
+          "p95_ms": 6.000041961669922,
+          "max_ms": 6.999969482421875
+        }
+      },
+      "88": {
+        "Controller.RunNow": {
+          "n": 29,
+          "p50_ms": 9.999990463256836,
+          "p95_ms": 32.99999237060547,
+          "max_ms": 39.00003433227539
+        },
+        "Admin.Run": {
+          "n": 19,
+          "p50_ms": 3.000020980834961,
+          "p95_ms": 4.999876022338867,
+          "max_ms": 4.999876022338867
+        }
+      },
+      "89": {
+        "Controller.RunNow": {
+          "n": 26,
+          "p50_ms": 7.999897003173828,
+          "p95_ms": 16.99995994567871,
+          "max_ms": 19.999980926513672
+        },
+        "Admin.Run": {
+          "n": 17,
+          "p50_ms": 4.000186920166016,
+          "p95_ms": 7.000207901000977,
+          "max_ms": 7.000207901000977
+        }
+      },
+      "90": {
+        "Controller.RunNow": {
+          "n": 23,
+          "p50_ms": 6.000041961669922,
+          "p95_ms": 32.99999237060547,
+          "max_ms": 40.9998893737793
+        },
+        "Admin.Run": {
+          "n": 10,
+          "p50_ms": 4.999876022338867,
+          "p95_ms": 12.000083923339844,
+          "max_ms": 12.000083923339844
+        }
+      }
+    },
+    "native_path_total": 25,
+    "native_path_ten": {
+      "n": 23,
+      "p50_ms": 2.000093460083008,
+      "p95_ms": 21.999835968017578,
+      "max_ms": 31.000137329101562
+    },
+    "controller_partition": {
+      "with_native_path": {
+        "n": 23,
+        "p95_ms": 32.99999237060547,
+        "max_ms": 39.00003433227539
+      },
+      "without_native_path": {
+        "n": 120,
+        "p95_ms": 29.999971389770508,
+        "max_ms": 40.9998893737793
+      }
+    },
+    "facts_sha256": "ea70179e6947bfba41cf31cd6ca6eafd45bca4484bf4a3f5b919c0dc0a743a0e",
+    "native_lua_sha256": "b3d50237bf34711a7bad6224d00bf3f206bb14b49b39daa31b2f8288cfa4d8da",
+    "runtime_errors": 0,
+    "baiqi_error_markers": 0
+  },
+  "partial_observed_root_union": {
+    "88": {
+      "observed_planner_union_ms": 464.0004634857178,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793686006.19,
+      "activation_observer": 1793686006.212,
+      "first_planner": 1793686006.19,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "89": {
+      "observed_planner_union_ms": 277.9996395111084,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793686239.329,
+      "activation_observer": 1793686239.331,
+      "first_planner": 1793686239.329,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "90": {
+      "observed_planner_union_ms": 377.99930572509766,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793686272.382,
+      "activation_observer": 1793686272.424,
+      "first_planner": 1793686272.382,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "86": {
+      "observed_planner_union_ms": 329.9999237060547,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793685787.646,
+      "activation_observer": 1793685787.651,
+      "first_planner": 1793685787.646,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "87": {
+      "observed_planner_union_ms": 397.0012664794922,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793685814.625,
+      "activation_observer": 1793685814.629,
+      "first_planner": 1793685814.625,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    }
+  },
+  "static_api_subset": {
+    "total_calls": 80,
+    "write_stats": {
+      "UnitManager": {
+        "total_calls": 57,
+        "callback_errors": 0
+      },
+      "CityManager": {
+        "total_calls": 10,
+        "callback_errors": 0
+      },
+      "UI": {
+        "total_calls": 13,
+        "callback_errors": 0
+      }
+    },
+    "writes_by_turn": {
+      "85": {
+        "static_api_calls": 0,
+        "outside_timed_root_calls": 0,
+        "recovery_script_calls": 0,
+        "observed_active_turn_complete": false,
+        "scope": "FourstaticAPIsinBaiqiExecutoronly,notfullmodN_req;85initialization/90activepartial."
+      },
+      "86": {
+        "static_api_calls": 11,
+        "outside_timed_root_calls": 1,
+        "recovery_script_calls": 1,
+        "observed_active_turn_complete": true,
+        "scope": "FourstaticAPIsinBaiqiExecutoronly,notfullmodN_req;85initialization/90activepartial."
+      },
+      "87": {
+        "static_api_calls": 10,
+        "outside_timed_root_calls": 1,
+        "recovery_script_calls": 1,
+        "observed_active_turn_complete": true,
+        "scope": "FourstaticAPIsinBaiqiExecutoronly,notfullmodN_req;85initialization/90activepartial."
+      },
+      "88": {
+        "static_api_calls": 19,
+        "outside_timed_root_calls": 1,
+        "recovery_script_calls": 1,
+        "observed_active_turn_complete": true,
+        "scope": "FourstaticAPIsinBaiqiExecutoronly,notfullmodN_req;85initialization/90activepartial."
+      },
+      "89": {
+        "static_api_calls": 12,
+        "outside_timed_root_calls": 1,
+        "recovery_script_calls": 1,
+        "observed_active_turn_complete": true,
+        "scope": "FourstaticAPIsinBaiqiExecutoronly,notfullmodN_req;85initialization/90activepartial."
+      },
+      "90": {
+        "static_api_calls": 28,
+        "outside_timed_root_calls": 10,
+        "recovery_script_calls": 1,
+        "observed_active_turn_complete": false,
+        "scope": "FourstaticAPIsinBaiqiExecutoronly,notfullmodN_req;85initialization/90activepartial."
+      }
+    },
+    "static_writes": [
+      {
+        "turn": 88,
+        "source": "OutsideTimedRoot",
+        "key": "UI.RequestPlayerOperation",
+        "count": 1
+      },
+      {
+        "turn": 88,
+        "source": "Controller.RunNow",
+        "key": "UnitManager.RequestOperation",
+        "count": 12
+      },
+      {
+        "turn": 88,
+        "source": "Controller.RunNow",
+        "key": "CityManager.RequestOperation",
+        "count": 3
+      },
+      {
+        "turn": 88,
+        "source": "Controller.RunNow",
+        "key": "UnitManager.RequestCommand",
+        "count": 1
+      },
+      {
+        "turn": 88,
+        "source": "Admin.Run",
+        "key": "UI.RequestPlayerOperation",
+        "count": 2
+      },
+      {
+        "turn": 89,
+        "source": "OutsideTimedRoot",
+        "key": "UI.RequestPlayerOperation",
+        "count": 1
+      },
+      {
+        "turn": 89,
+        "source": "Controller.RunNow",
+        "key": "UnitManager.RequestOperation",
+        "count": 8
+      },
+      {
+        "turn": 89,
+        "source": "Admin.Run",
+        "key": "UI.RequestPlayerOperation",
+        "count": 3
+      },
+      {
+        "turn": 90,
+        "source": "OutsideTimedRoot",
+        "key": "UnitManager.RequestOperation",
+        "count": 8
+      },
+      {
+        "turn": 90,
+        "source": "OutsideTimedRoot",
+        "key": "UI.RequestPlayerOperation",
+        "count": 1
+      },
+      {
+        "turn": 90,
+        "source": "OutsideTimedRoot",
+        "key": "UnitManager.RequestCommand",
+        "count": 1
+      },
+      {
+        "turn": 90,
+        "source": "Controller.RunNow",
+        "key": "CityManager.RequestOperation",
+        "count": 5
+      },
+      {
+        "turn": 90,
+        "source": "Controller.RunNow",
+        "key": "UnitManager.RequestOperation",
+        "count": 10
+      },
+      {
+        "turn": 90,
+        "source": "Admin.Run",
+        "key": "UI.RequestPlayerOperation",
+        "count": 3
+      },
+      {
+        "turn": 86,
+        "source": "Controller.RunNow",
+        "key": "CityManager.RequestOperation",
+        "count": 2
+      },
+      {
+        "turn": 86,
+        "source": "Controller.RunNow",
+        "key": "UnitManager.RequestOperation",
+        "count": 8
+      },
+      {
+        "turn": 86,
+        "source": "OutsideTimedRoot",
+        "key": "UI.RequestPlayerOperation",
+        "count": 1
+      },
+      {
+        "turn": 87,
+        "source": "Controller.RunNow",
+        "key": "UnitManager.RequestOperation",
+        "count": 9
+      },
+      {
+        "turn": 87,
+        "source": "OutsideTimedRoot",
+        "key": "UI.RequestPlayerOperation",
+        "count": 1
+      }
+    ],
+    "recovery_script_calls": 5,
+    "recovery_selector": "UI.RequestPlayerOperation(pid0, EXECUTE_SCRIPT, params.OnStart == BaiqiRequisitionRecover), exact caller metadata; not inferred from OutsideTimedRoot.",
+    "limits": "OutsideTimedRoot includes plannercallsafter10s aswellasRecover;onlyexactOnStart=BaiqiRequisitionRecover metadata identifiesrecoverysubmits.90partial,Core/object/othercontexts notcounted;no globalN_req/pass.",
+    "turn90_complete": false,
+    "global_N_req": null,
+    "accepted_or_effects_from_counts": false
+  },
+  "result": {
+    "B_plan": "FAIL: Controller143 p95=30.999899ms >20ms; max40.999889ms within50ms. Admin91 p95=6.000042ms/max12.000084ms. Diagnostic family differs from q16; no causal comparison.",
+    "B_turn": "UNKNOWN",
+    "B_delta": "NOT_RUN",
+    "N_req": "UNKNOWN: four static API families in one UI context only, Core/object methods/other contexts missing",
+    "TC036": "NOT_PASS"
+  },
+  "outcomes": {
+    "turn": 90,
+    "cities_ui_core": 11,
+    "ids_owners_coords_match": true,
+    "queues": [
+      [
+        "65536",
+        "0",
+        "16",
+        "14",
+        "1",
+        "-46510675"
+      ],
+      [
+        "131073",
+        "0",
+        "11",
+        "6",
+        "1",
+        "1547024909"
+      ],
+      [
+        "196610",
+        "0",
+        "10",
+        "13",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "262147",
+        "0",
+        "13",
+        "16",
+        "1",
+        "101426179"
+      ],
+      [
+        "327684",
+        "0",
+        "8",
+        "10",
+        "1",
+        "806902947"
+      ],
+      [
+        "393221",
+        "0",
+        "15",
+        "5",
+        "1",
+        "1738306535"
+      ],
+      [
+        "458758",
+        "0",
+        "19",
+        "6",
+        "1",
+        "1738306535"
+      ],
+      [
+        "524295",
+        "0",
+        "14",
+        "9",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "589832",
+        "0",
+        "8",
+        "3",
+        "1",
+        "-2025065568"
+      ],
+      [
+        "655369",
+        "0",
+        "11",
+        "1",
+        "1",
+        "-764771404"
+      ],
+      [
+        "720906",
+        "0",
+        "16",
+        "18",
+        "1",
+        "-764771404"
+      ]
+    ],
+    "all_queues_nonempty_and_hash_nonzero": true,
+    "domestic_routes": [
+      [
+        "65536",
+        "3932190",
+        "0",
+        "65536",
+        "0",
+        "393221"
+      ],
+      [
+        "65536",
+        "2752532",
+        "0",
+        "65536",
+        "0",
+        "524295"
+      ],
+      [
+        "65536",
+        "2883608",
+        "0",
+        "65536",
+        "0",
+        "196610"
+      ],
+      [
+        "65536",
+        "851970",
+        "0",
+        "65536",
+        "0",
+        "262147"
+      ],
+      [
+        "131073",
+        "3080218",
+        "0",
+        "131073",
+        "0",
+        "327684"
+      ],
+      [
+        "131073",
+        "3145753",
+        "0",
+        "131073",
+        "0",
+        "524295"
+      ],
+      [
+        "131073",
+        "3473422",
+        "0",
+        "131073",
+        "0",
+        "589832"
+      ],
+      [
+        "131073",
+        "4587555",
+        "0",
+        "131073",
+        "0",
+        "196610"
+      ],
+      [
+        "458758",
+        "2228241",
+        "0",
+        "458758",
+        "0",
+        "393221"
+      ]
+    ],
+    "knight_readback": [
+      "4456482",
+      "10",
+      "6",
+      "4"
+    ],
+    "save_bytes": 519090,
+    "save_sha256": "e9d0e1713166660d93031b0558b756292ade5aa152754b0dda8773f5d9eebffa",
+    "save_reloaded": false,
+    "receipt_pins": [
+      {
+        "name": "20261103T061811076488Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "494db28824e262160e9392efa8bd4abf28fee570c0513582af290419cb7d62c5"
+      },
+      {
+        "name": "20261103T061812804636Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "361d53ad0d1a1a0752963613b945c4269d453b82f1c54cffab26ec67dc8729c9"
+      },
+      {
+        "name": "20261103T061814998147Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "97f7fe8f4c12f78718de71ea18bec335325a13acf57cc4a08a47accf9d771e95"
+      }
+    ]
+  },
+  "player_actions": {
+    "endturns": [
+      "P6_PERF_Q17_EXPLICIT_PLAYER_ENDTURN\t85",
+      "P6_PERF_Q17_EXPLICIT_PLAYER_ENDTURN\t86",
+      "P6_PERF_Q17_EXPLICIT_PLAYER_ENDTURN\t87",
+      "P6_PERF_Q17_EXPLICIT_PLAYER_ENDTURN\t88",
+      "P6_PERF_Q17_EXPLICIT_PLAYER_ENDTURN\t89"
+    ],
+    "military_skips": 92,
+    "manual_diplomacy": "Fresh owned image/physical Esc once for Alexander farewell, driver stopped.",
+    "unstack": "ReadonlyT88horseman2424851/knight4456482 overlap11,6 moves4 formation1; explicit player WorldInput knightto10,6 once.",
+    "loading": "Fresh Continue image then guarded Esc, two loads; no manual domestic choices."
+  },
+  "limits": "Inclusive wall clock only, native path31ms is a measured child, not CPU attribution. 120 pure-ten Controller roots without this API still p95~30/max41ms, so path alone does not explain slow roots. First root2-42ms before appended activation observer; two-root union~278-464ms not whole-module B_turn. Counts are invocations, not accepted effects. 86-89 local active periods observed for the named subset,85initialization/90partial, not global turn64budget proof. Full603normal60 software and11newdiagnosticinstaller checks are separate, not full614.",
+  "owner_errors": "Initial first-load helper was intended for post-warmup85 but current turn90; guard failed BEFORE Network.LoadGame. Correct from90 helper used once, no replay. Software smoke preceded a literal-only observer-label correction; both hashes preserved; no logic change claimed. Read-only discovery helper initially assumed non-DX12 executable and refused before reading installed files, then matched recorded owned DX12 identity.",
+  "local_model_followup": "No new HTTP for q17. Exact236 installer body was actually used in Native with owner context glue, all3static proxies restored; additive follow-up to frozen236237 record, not retroactive success of model237 tests.",
+  "next": "Continue actual non-path planning cost/fair time-sliced scheduling and whole-module write coverage; separately close confirmed Naturalist/Archaeologist automation/guard gaps. Frozen TC036 thresholds unchanged."
+}
