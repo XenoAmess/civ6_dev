@@ -1,0 +1,809 @@
+{
+  "schema": "civ6.baiqi-native66-normal-archaeology-queue/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_commit": "836f296b880c8d722f379be7228b490ac79ca6e6",
+  "normal_version": 66,
+  "actual_install_files": 85,
+  "running_pid": 4064,
+  "steam_fresh_offline_utc": "2026-11-03T15:20:05.526742+00:00",
+  "offline_proof_age_at_launch_seconds": 3.155171,
+  "steam_query_input_focus_screenshot": false,
+  "steam_online_switches": 0,
+  "native": {
+    "start_turn": 100,
+    "actual_queue_turn": 101,
+    "cityID": 196610,
+    "unitIndex": 8,
+    "unitHash": 1011336245,
+    "native_production_cost": 200,
+    "native_progress": 0,
+    "native_queue_size": 1,
+    "real_ordinary_workshop_before": {
+      "index": 18,
+      "type": "BUILDING_WORKSHOP",
+      "progress": 78,
+      "cost": 97
+    },
+    "ordinary_workshop_completed_then_ai_selected_arc": true,
+    "actual_auto_queue_log": [
+      "BaiqiExecutor: BAIQI|request|turn=101|id=0:101:2|source=BACKGROUND|city=196610|type=UNIT_ARCHAEOLOGIST"
+    ],
+    "new_live_arc_unit_observed": false,
+    "owned_actual_site": {
+      "index": 669,
+      "xy": [
+        9,
+        15
+      ],
+      "resourceIndex": 47,
+      "type": "RESOURCE_ANTIQUITY_SITE",
+      "source": "Native engine generated after isolated Debug NaturalHistory civic31 unlock; no site/resource setter used"
+    },
+    "museum": {
+      "city": 196610,
+      "theaterPlot": 584,
+      "theaterIndex": 8,
+      "amphIndex": 14,
+      "museumIndex": 24,
+      "actualSlots": 3,
+      "actualWorks": [
+        -1,
+        -1,
+        -1
+      ]
+    },
+    "old_debug_fixture_removed": {
+      "fullID": 5046313,
+      "owner": 0,
+      "typeIndex": 8,
+      "xy": [
+        11,
+        7
+      ],
+      "moves": 4,
+      "home_before": -1,
+      "provenance": "baiqi-p6-pending-artifact242243-evidence-2026-11-03.json",
+      "native_single_Kill_unit": true,
+      "ui_absence_confirmed": true,
+      "scope": "Isolated cleanup only documented Debug-created unit; original normal100 preserved."
+    },
+    "world_congress_block": {
+      "turn": 101,
+      "strategic_commands_allowed": false,
+      "block": "ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION",
+      "driver_stopped": true,
+      "no_votes_or_diplomacy_actions": true
+    },
+    "great_work_observers": {
+      "core_bound_once": true,
+      "ui_bound_once": true,
+      "actual_created_events": 0,
+      "both_original_removers_called": true,
+      "both_stopped_before_next_branch": true
+    }
+  },
+  "fixture_limits": [
+    "Debug culturalunlock31 bypassed normalresearch, WorldBuilder theater584/amph14/museum24 each100% bypassed constructioncost/time/requirements. Those are not normalconstructionorunlockpasses.",
+    "Ordinary turns100/101 explicit tester Shift+Enter equivalent only; no production progressgrant, cityunitqueuecommand, newunitcreation, gold/faith/work/receiptsetter used inthis normalqueuewindow. AI itselfselectedproduction afterordinaryWorkshop completion.",
+    "Only normalAIqueue established; cost200 is displayedNativecost, not yetpaidproduction/unitborn/home/archaeologyproof.",
+    "Driver stopped on usercontrolledWorldCongress without voting/closing/bypassing session; pendingbranch saved separately. Next isolatedprepared100 branch may accelerateproduction, separatelylabelled, neverupgradeoriginalnormalcostproof."
+  ],
+  "saves": {
+    "normal_paidpark100": {
+      "name": "Baiqi_P6_20261103_V63_PaidPark100.Civ6Save",
+      "bytes": 536371,
+      "sha256": "3b501f024432783901b0367edfbf7b8ce4e6fcef1227e1b3f0a37fddcfc8af1a",
+      "reloaded": false,
+      "scope": "Normal63 loaded prior actual62 park92 save; normal paid naturalist5767181 automatically built park628/671/672/716, observed park:0:2 and purchase:0:1; mine-removal/Conservation setup labelled."
+    },
+    "archaeology_prepared100": {
+      "at_utc": "2026-11-03T15:31:52.563134+00:00",
+      "name": "Baiqi_P6_20261103_V66_ArchaeologyPrepared100.Civ6Save",
+      "bytes": 536438,
+      "sha256": "229740627ff4b2453673fdaaef963c843ac4ea481a48403a4e788908143f46d9",
+      "cold_reloaded": false
+    },
+    "real_queue_congress101": {
+      "at_utc": "2026-11-03T15:35:25.778917+00:00",
+      "name": "Baiqi_P6_20261103_V66_NormalArcQueueCongress101.Civ6Save",
+      "bytes": 539400,
+      "sha256": "d702498eeb56fe7de4f41ed929af035547db2f63ec5e925feebc8d0773d370d4",
+      "cold_reloaded": false,
+      "world_congress_vote_untouched": true
+    }
+  },
+  "native_receipts": [
+    {
+      "name": "20261103T152247210031Z.json",
+      "sha256": "a9f5ef98f76d62872c32979a3dd610caa7007d06ae43a142f54eb7e16103cf2c",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_CIVIC\t31\tfalse\tCIVIC_NATURAL_HISTORY\tCIVIC_HUMANISM\tfunction"
+      ]
+    },
+    {
+      "name": "20261103T152306833277Z.json",
+      "sha256": "b5ba5f86d4148bbfc8dc490090c7363d18a5153586308f1650c13235eae2dc0f",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_PRODUCTION_PORT_TYPES\tfunction\tnil\tnil\tnil\tnil",
+        "P6_ARCH66_THEATER_PREFLIGHT\t14\t6\t0\t-1\t-1\t-1\t5\tfalse\tfalse"
+      ]
+    },
+    {
+      "name": "20261103T152427941809Z.json",
+      "sha256": "7c477b701e4cc21369b28d2e2d9e4f05be1a81db44e9db23aeaeb5f0119a15a3",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_CREATED_OBSERVER_BOUND\tGameCore_Tuner"
+      ]
+    },
+    {
+      "name": "20261103T152428368598Z.json",
+      "sha256": "065c3507ec36924230a74ef70adcc140f109a05463504e209657983c8c5014c1",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_CREATED_OBSERVER_BOUND\tBaiqiExecutor"
+      ]
+    },
+    {
+      "name": "20261103T152445653991Z.json",
+      "sha256": "3c63243931acb264bbcebbbe1519861e566141b980afb545256e163c5c06615f",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_DEBUG_NATURAL_HISTORY_ONCE\t31\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T152516658597Z.json",
+      "sha256": "a4a2db93241aa304cd5da38f654e433164d2afa16d97a0e27e75c965695a3378",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_NEAR_SITE_PLOT\t670\t10\t15\t0\t6\t-1\t-1\t-1\tfalse\tfalse\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t669\t9\t15\t0\t-1\t-1\t47\t2\tfalse\tfalse\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t627\t11\t14\t0\t-1\t-1\t-1\t-1\tfalse\ttrue\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t626\t10\t14\t0\t-1\t7\t31\t2\tfalse\tfalse\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t625\t9\t14\t0\t9\t-1\t-1\t-1\tfalse\tfalse\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t584\t12\t13\t0\t-1\t-1\t-1\t2\tfalse\tfalse\ttrue",
+        "P6_ARCH66_NEAR_SITE_PLOT\t583\t11\t13\t0\t-1\t3\t8\t-1\tfalse\tfalse\ttrue",
+        "P6_ARCH66_NEAR_SITE_PLOT\t582\t10\t13\t0\t0\t-1\t-1\t-1\tfalse\tfalse\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t581\t9\t13\t0\t-1\t7\t31\t2\tfalse\tfalse\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t580\t8\t13\t0\t-1\t8\t-1\t3\tfalse\tfalse\ttrue",
+        "P6_ARCH66_NEAR_SITE_PLOT\t540\t12\t12\t0\t-1\t-1\t-1\t2\tfalse\tfalse\ttrue",
+        "P6_ARCH66_NEAR_SITE_PLOT\t539\t11\t12\t0\t-1\t1\t-1\t31\tfalse\tfalse\ttrue",
+        "P6_ARCH66_NEAR_SITE_PLOT\t538\t10\t12\t0\t-1\t1\t-1\t31\tfalse\tfalse\ttrue",
+        "P6_ARCH66_NEAR_SITE_PLOT\t495\t11\t11\t0\t-1\t5\t42\t-1\tfalse\tfalse\tfalse",
+        "P6_ARCH66_NEAR_SITE_PLOT\t494\t10\t11\t0\t-1\t1\t-1\t32\tfalse\tfalse\ttrue",
+        "P6_ARCH66_SITE669\t9\t15\t0\t47\t-1\t-1",
+        "P6_ARCH66_ACTUAL_HEAD\t1\t1738306535\tnil\t18\tnil\tnil",
+        "P6_ARCH66_OLD_DEBUG_ARCH\t5046313\t0\t8\t-1\t11\t7\t4"
+      ]
+    },
+    {
+      "name": "20261103T152736899746Z.json",
+      "sha256": "dd3cf686ded83188d262dfa484d23ae025870cec8af43ac0db08eec234a391e9",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_DEBUG_THEATER_ONCE\t196610\t584\ttrue\ttable\t8"
+      ]
+    },
+    {
+      "name": "20261103T152806535976Z.json",
+      "sha256": "d05168642e728923fff5847e577f2a826a91c5086a5bef2b969ea4a44f26ebf1",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_DEBUG_AMPH_ONCE\ttrue\ttrue",
+        "P6_ARCH66_DEBUG_MUSEUM_ONCE\ttrue\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T152858727562Z.json",
+      "sha256": "b03607a7f8cd7467dffc3c3da3f6b2b9f1d28d36f25a446eeca5a06efeb83cc2",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_CURRENT_PRODUCTION\tBUILDING_WORKSHOP\t78\t97",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_GRANARY\ttrue\tfalse\tfalse\tnil",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_MONUMENT\ttrue\tfalse\tfalse\tnil",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_WATER_MILL\ttrue\tfalse\tfalse\tnil",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_WORKSHOP\tfalse\ttrue\ttrue\tnil",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_MARKET\ttrue\tfalse\tfalse\tnil",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_LIBRARY\tfalse\tfalse\tfalse\ttable: 00000002189F9A90",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_BARRACKS\tfalse\tfalse\tfalse\ttable: 00000002189F9950",
+        "P6_ARCH66_HIGHER_BUILDING\tBUILDING_LIGHTHOUSE\tfalse\tfalse\tfalse\ttable: 00000002189F9D60",
+        "P6_ARCH66_REAL_SLOTS\t3\t-1\t-1\t-1"
+      ]
+    },
+    {
+      "name": "20261103T153004107063Z.json",
+      "sha256": "3b1bd23918a6de53528632a944a62be6535ecc933def542544532422e0993ad2",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_OLD_DEBUG_UNIT_REMOVE_ONCE\t5046313\t11\t7"
+      ]
+    },
+    {
+      "name": "20261103T153004469317Z.json",
+      "sha256": "2761e10c9dc885fe2cf7dffd2e51c882836564359754352b6935a25417fb70fd",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_OLD_DEBUG_UI_ABSENT\ttrue",
+        "P6_ARCH66_ACTUAL_PENDING_STATUS\tnone"
+      ]
+    },
+    {
+      "name": "20261103T153152131038Z.json",
+      "sha256": "2cb42fe53f57df20f1eeda5350b2ad58cb86e5cda69e24f864d3deb95bef7b3b",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_PREPARED100_SAVE_ACK\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T153236088162Z.json",
+      "sha256": "1f46535db02a4d7b5e4ec6759dba133f92c91efcf2170d02bad8fe4444b5ea66",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153236981348Z.json",
+      "sha256": "027d7e1fc856ee077f750992fbc78c7f61382afc2729bf7a2fcb70c8fd36433f",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153237934854Z.json",
+      "sha256": "1bfb788e346a9b1c76b12fcacaed62f1ef4ccd3b738887004b99ed0da9b278a3",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153238882839Z.json",
+      "sha256": "d350781c8b8ec44a7b4808c214a89deaedea2e06e3d36d9fcce48a7cd555cd23",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153239835195Z.json",
+      "sha256": "f1c70582b90ac0599d201750acace5aaa2736c88605b194c45e8347cdb01cd84",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153240775877Z.json",
+      "sha256": "a58e1766371bb4ada30ad894ef0613e91473ff405eccfecbbda9179ade5577e4",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153241776178Z.json",
+      "sha256": "59ca0bebd3c06dad478f4b5b97a6221ee25d9f61309b70116293552b98389541",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153242778657Z.json",
+      "sha256": "bb94ef7c486a0db76f31ca0acfbf5f3ce86f291cc4cc78843dfcd96a852185e3",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153243877480Z.json",
+      "sha256": "669f41328a95bbc9667ae38666da09cf755aea9b5e05f6c3361059be64bed324",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153244810282Z.json",
+      "sha256": "6badb81630a84fe444e2cc6c8805394ddc647e7f65a57aef035eb805237c199c",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153245774392Z.json",
+      "sha256": "635a24916c60ad4accca960322a776dec8ede2aceffc3bd464556f36afc55df7",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153246683117Z.json",
+      "sha256": "9e6855d6f0001c6cc8e3eb1cf21eaf1369673bfece77e40860141e106106cb64",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153246813877Z.json",
+      "sha256": "1fab6ed7ef18ded77d37a12b82f57dc6a912f288e730ea9dc8c9a206c16b9af5",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_EXPLICIT_PLAYER_ENDTURN\t100\tNativeShiftEnterEquivalent_NotModAI"
+      ]
+    },
+    {
+      "name": "20261103T153248281245Z.json",
+      "sha256": "485d5a0a4cfc0ad4215690acd23382d199e4347bf969d3df6a9cb67846091764",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|false|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153249214026Z.json",
+      "sha256": "9aea660cb09be02d5c5696dc3cbd1f66267a72e947a59e6d9d7846e7306a9fb9",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|100|false|true|true|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153250150248Z.json",
+      "sha256": "bd121b443e65dc326cb3ac5876b4b227545f68e38a26a99957f80ede587dc20e",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|true|false|NO_ENDTURN_BLOCKING|true|false|false|false|true|0|-1|-1|-1|1738306535|nil|18"
+      ]
+    },
+    {
+      "name": "20261103T153251080023Z.json",
+      "sha256": "1255babb538e75d0ec8b68964ce688797ab8bf2c2349719b649f853506ef948e",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153251995321Z.json",
+      "sha256": "33ac435e2615cc0bc5cfe4ade48eeb3cdee050138e192a476ad8795da6c67bc1",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153252944508Z.json",
+      "sha256": "304f174664e0a94cf3a0b873253aa60da7f6879bd4c49840c31d437c54b39dfc",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153253896912Z.json",
+      "sha256": "07e15c5e443f65ade108d4e0a7ab4bb084095897ea34f053c206e3c1e0623c67",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153254828736Z.json",
+      "sha256": "d99473df4803d256b8c1e02e118b97391471ebe4fd6efa8936d192df71d995ec",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153255761707Z.json",
+      "sha256": "86dcf50d3d90128cf07aa08ec55dffa99e89b3c3275838d87ea62753e928ef7b",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153256698870Z.json",
+      "sha256": "00fd5aca198818bde946910908e47b9f2b0fee5c9eff8d70c23401b03c03c496",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153257627567Z.json",
+      "sha256": "bf824ddec23552992a5eaed42ae8685a62d22005e4df10ccdc36384495a7c23d",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153258576080Z.json",
+      "sha256": "f595cac5a7964af098213cbdee9954ee3d14faec390b6124fb4a8a2494d1bf2a",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153259614893Z.json",
+      "sha256": "0c75e82322b81ab24fb29a5ce20101ef741406265c876fec3a763bb7926d59d4",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153300689493Z.json",
+      "sha256": "fe3b48b3a2e8d84dd18baefe99e06d233bca4cd08fe0dc6a37987026e28ff3d6",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|true|false|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153301283037Z.json",
+      "sha256": "5a91b6ef5acf1a9de4bd8b240dc318d3d22d5eb7af82548186c00ab7f53ae822",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_EXPLICIT_PLAYER_ENDTURN\t101\tNativeShiftEnterEquivalent_NotModAI"
+      ]
+    },
+    {
+      "name": "20261103T153302750736Z.json",
+      "sha256": "64acc25c601e76018e77c8de7948b0a40fc8bdc0162471cd5f5752afab8b1a01",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|false|true|true|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153304030276Z.json",
+      "sha256": "ef640413b7a40617418b8f664d5486c0c576913bb8eb12cdde9183fc35e66e69",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|false|true|true|false|ENDTURN_BLOCKING_UNITS|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153305333004Z.json",
+      "sha256": "ba5c78b13bf5fa7d1f979b061b8d38b2948b55fffcf5e1b0b92bbab242f2dfe0",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153306563422Z.json",
+      "sha256": "8cd61ea2e7fe37111b3bac3a992c2927165833f247db6e06cc090b462b0ba844",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153307781861Z.json",
+      "sha256": "90a5895cdae61332de1f1735e5ecbf32cd0afec4f93fecb2ae78d50da672e3ca",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153308895038Z.json",
+      "sha256": "ef06c36abe21b96bd9c548347eaf28d366df48e8c3e8b0e7c3c4c915d9f77017",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153309840036Z.json",
+      "sha256": "621e563fc911f00045606b160a6f323718d2244fcd0d387bc49d3b00dcc0ccf9",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153310993447Z.json",
+      "sha256": "e8660c5e59280cda28c5ec3baf083cd6603a1a31427a1ab5aade7b803dadf0ca",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153312003719Z.json",
+      "sha256": "3fd096b2d0cda6ae39a400dc39f3d2d6a35bf27964322db2259ab577905fc4cc",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153312949460Z.json",
+      "sha256": "703a298e495ebe1401216f4a6ecc2a93c8e57dbd83dab08b7ea965464caa7201",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153313896320Z.json",
+      "sha256": "949548460043446ace3eb598d3c8965b49510d69ae7096fad17b90cfd337ff78",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153314825542Z.json",
+      "sha256": "b152c269f7fafcdef7c265514bc09057b74da00ce99ae80d319c89124e48f12a",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153315758281Z.json",
+      "sha256": "be138884fc9f6a8e5d2e0a38a071017b5d6052ef35d2660f3738a57df7db9b3d",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153316708061Z.json",
+      "sha256": "09abbbb884ca0f433b88642aef9e86ea9574c9b49914a1b8953b43faed1c8e0e",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153317706963Z.json",
+      "sha256": "07d9eb2b6ca91f1e8bf969d3ac1f5768c198e73d5767a1e712cb15caca4ee84c",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153318621418Z.json",
+      "sha256": "f7e0e6f97d5b613732dfb97c97518791cfc400620b3b7ee694360c7b6e0f752e",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153319583256Z.json",
+      "sha256": "f2e353d84a5ecc794738eee3b68dacf9a6d7a98669a69c072c737af3a3c0f002",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153320731815Z.json",
+      "sha256": "7f0c8fa54995a53ae465d320c5fcdbf984f2aae170d5ae8288f732c760dc1fd6",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153321685061Z.json",
+      "sha256": "7719955df6c6faeffd679c9280c812316e490dbd2c632fd3ef034cf009bee2a1",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153322590683Z.json",
+      "sha256": "878ce739094b4f01bb9665b0a02da31587131adf737e416c1f6c619e42660236",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153323553640Z.json",
+      "sha256": "3ed4e79baf129dccc54491aa7166245ee176caf33400ff8a0f26d3b89ce0ef0d",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153324549109Z.json",
+      "sha256": "348e34d7f8bf6e7f69da30407697254929783ef97cc2c8bbc61f4930ee4bb5f2",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153325442624Z.json",
+      "sha256": "a5bae04aa59e67246548c98678c9c1728d196805351d1e57ecee8a06f8356d7a",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153326404932Z.json",
+      "sha256": "582f7e8ecf237a2693ad001c74f6120a75b65d7a32aeb30c44e87fbdbd33aa77",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153327352172Z.json",
+      "sha256": "d6199a27d309d32d8c6829abc40aec1693fc0c484f7d34efc8a9d82621fbf952",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153328299736Z.json",
+      "sha256": "e4dc3847fcfdc83dddb6e79f9acf8ef8f5a67982a162a1ea13ea0731816127e0",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153329468855Z.json",
+      "sha256": "6b8e475b0dd820bcd0de90241bb64308700d73937764951d1179a4a6f3092097",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153330436689Z.json",
+      "sha256": "36e3f5403131756884828b1056f1991f489f655cfddd096c5adab53f12adfa7c",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153331595706Z.json",
+      "sha256": "e589ad33c097a74171c85b2ce6aa11e933e47cff4164b937769a88e56eed9118",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153332621730Z.json",
+      "sha256": "deedc7bf6513f24c295e57243c6baa295e3b218d2fd632b1b31bc53b129b40d6",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153333585419Z.json",
+      "sha256": "a850d5a3771eb6113993453544ff7c50618a0d07e53542292215d7fcdd501269",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153334814720Z.json",
+      "sha256": "b6cdae7ff31e205bfca08dd911d4622410c047c65544ccedbb8302c62d177dda",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153335836507Z.json",
+      "sha256": "6ccb5761d742286cd9fbf93cb090168324f66fa0241152822f042b8ca6a9a943",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153336923220Z.json",
+      "sha256": "9089676435e38e9524663b45d8c2423317394f1f30c09e10112cfad83e82c170",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153337881248Z.json",
+      "sha256": "a16010815e9c2e25d8a2a5d262b9ade2e89be49dc0d4f1ffe8ae4a7a139c94c6",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153338829978Z.json",
+      "sha256": "3e306401d5d4f7b44ed4e24f9598e80276594ce2f10baf40fc6d5054369aae25",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153339762506Z.json",
+      "sha256": "731eb4176597e151ebab5afb96f5eb7c4c19d050a616bf67e2f1a013ddaf88e0",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153340904799Z.json",
+      "sha256": "9f1883e8a0fedd4125510bd5076dab1b770f50f3b888d70187b7b061f0eb6fa1",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_GROWTH_STATE|101|true|false|false|false|ENDTURN_BLOCKING_WORLD_CONGRESS_SESSION|true|false|false|false|true|0|-1|-1|-1|1011336245|8|nil"
+      ]
+    },
+    {
+      "name": "20261103T153525509051Z.json",
+      "sha256": "74129fbfa823d3e5512606f5b4eabaff22497c3ee09d528ae0b2b961a3c6ae21",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_NORMAL_AI_QUEUE\t196610\t1\t8\t1011336245\t0\t200",
+        "P6_ARCH66_CONGRESS101_SAVE_ACK\ttrue"
+      ]
+    },
+    {
+      "name": "20261103T153640222407Z.json",
+      "sha256": "459b27f773ea13f7e22df84205f4a26a485e911c05d487ec2c7089d0e0fa384d",
+      "context": "GameCore_Tuner",
+      "lines": [
+        "P6_ARCH66_CREATED_OBSERVER_STOPPED\tGameCore_Tuner\t0"
+      ]
+    },
+    {
+      "name": "20261103T153640615441Z.json",
+      "sha256": "eb9b2b0f72d80f40052f100aa19abf6e9f55f36f15e74ab89de8f6e6338005d1",
+      "context": "BaiqiExecutor",
+      "lines": [
+        "P6_ARCH66_CREATED_OBSERVER_STOPPED\tBaiqiExecutor\t0"
+      ]
+    }
+  ],
+  "log": {
+    "sha256": "b3e0eb2f4a4d900802e5d524b171ba7a5f942e0fad65539386275b4ca7f508ef",
+    "bytes": 24363,
+    "mod_error_lines": [],
+    "scope": "Selected Controller queue log andNative state, notwholeSDKrequestledger."
+  },
+  "owner_diagnostic_errors": [
+    "CoreBuildQueue lacks UI GetCurrentProductionTypeHash; first readonlypreflightfailed after civicHasfalse print, beforeanyeffect.",
+    "Native missing GetProperty returnszero Lua results; direct tostring(call) failed after successful port/plot prints. Fixed actualpropertyconsumers assignlocal first; productionCoreLoadalreadydoes this. No modcodechange needed."
+  ],
+  "new_model_calls": 0,
+  "cumulative_http_logical": 276,
+  "next": "PublishboundednormalAIqueue evidence; restoreprepared100 in independentbranch after preservingcongress101. Label anyproductionacceleration, then actualNativebornhome/movement/dig/choice/createdevent/slot/savevalidation; no votingonuserbehalf."
+}
