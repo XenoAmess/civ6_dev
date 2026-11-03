@@ -1,0 +1,170 @@
+{
+  "schema": "civ6.baiqi-builder-phases-source59/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "version": 59,
+  "source_parent": "c07a569a42aa2af3eb4d0863b13618cd6e905298",
+  "controller_sha256": "0b4994eb8b1101f3db7b50b97f7905ead45244e652fa4a4c8af8a41604d73869",
+  "cases": [
+    {
+      "sequence": 228,
+      "case_id": "HTTP-CIV6-BUILDERCLOCK228",
+      "mode_id": "http-candidate",
+      "shared_commit": "def89745703a5ccdf4b0a85e04892e06075cb15e",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+      "max_tokens": 2000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T02:46:50.883184+00:00",
+      "attempt_end_utc": "2026-11-03T02:47:02.105485+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 11215.020000003278,
+        "first_nonempty_content_delta_ms": 7376.73730001552,
+        "usage": {
+          "prompt_tokens": 34114,
+          "completion_tokens": 278,
+          "total_tokens": 34392
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "exact-two-helper-adoption",
+      "review": "PlanningTime and BuilderBudgetExpired adopted unchanged into actual normal59 controller. Owner supplies finite query/validate/write router, original permissions and native submission consumer. Clock unavailable/invalid/backwards returns sync fallback, never action authority. Actual clock type/availability read before task is API evidence only, not normal59 execution.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 229,
+      "case_id": "HTTP-CIV6-BUILDERCLOCKTEST229",
+      "mode_id": "http-candidate",
+      "shared_commit": "def89745703a5ccdf4b0a85e04892e06075cb15e",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "ff66e0415c7768c59417f4c2a5bb0e1096f975754e076d50d033e34c0fe5ad28",
+      "max_tokens": 3000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T02:46:50.883297+00:00",
+      "attempt_end_utc": "2026-11-03T02:47:07.957406+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 17068.66980000632,
+        "first_nonempty_content_delta_ms": 9079.887499974575,
+        "usage": {
+          "prompt_tokens": 34172,
+          "completion_tokens": 1133,
+          "total_tokens": 35305
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "rejected-owner-test-rewrite",
+      "review": "Raw three methods:2ERROR from indexing scalar Lua return. Scalar-index-only owner correction:1FAIL because clock counter never increments despite expected3. No exact test code retained. Owner three actual-controller methods add live changing/incrementing clock,zero,binary-exact boundary,NaN/Inf and invalid argument zero-read assertions. Ideas already specified in prompt; no independent design credit.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "implementation": "Owner-written finite builder query/validate/write continuations. Reuses owner-corrected packet226 query/copy/scan functions;228 supplies only exact clock helpers. Each tick captures fresh Automation.GetTime;6ms soft budget yields between actual work phases. No timing guarantee for one native call. Query copies path IDs; validation checks fresh entire route; write refreshes priority/identity/key/turn/authority and calls original RequestCivilian. Clears search before write; rejected write not replayed. At most2 prioritized builder continuations before normal city/unit scheduling. Missing clock falls back to legacy synchronous path. Existing unsafe target zero-native-query precheck preserved.",
+  "permissions": "Only actual eligible owned builder, no escort, manual military/religious combat units untouched. No UI control, takeover, diplomacy/war command or new player toggle. Missionary domestic automation and player religious combat boundary unchanged.",
+  "software": {
+    "first_full": {
+      "methods": 579,
+      "passed": true,
+      "seconds": 67.076,
+      "log_sha256": "c962916b17349252855d3adfbe1f9f189796f608d3f3133041894aa045d4f431"
+    },
+    "clock": {
+      "methods": 3,
+      "passed": true,
+      "seconds": 0.036,
+      "log_sha256": "ebc21c0fad487200a41fc75d18451ba00aacd360257f0700d83a19ffe27298ef"
+    },
+    "phases": {
+      "methods": 12,
+      "passed": true,
+      "seconds": 1.623,
+      "log_sha256": "946c1dbf2c7711fd932fac6d3b30fc49d19b6f15d6aa0162c66320538d848f49"
+    },
+    "final_full": {
+      "methods": 594,
+      "passed": true,
+      "seconds": 82.932,
+      "log_sha256": "3fb9f32362ab6da04b628698c941a6c9e160aa97814506f31d31fe0d2d9162a2"
+    }
+  },
+  "raw229": {
+    "raw": {
+      "methods": 3,
+      "failures": 0,
+      "errors": 2,
+      "seconds": 0.05057479999959469
+    },
+    "scalarfixonly": {
+      "methods": 3,
+      "failures": 1,
+      "errors": 0,
+      "seconds": 0.08597269997699186
+    }
+  },
+  "phase_coverage": "12 actual-controller methods:3 real query/validate/write phases, one native path/one move and no replay;missing clock sync fallback;escort interruption;moves key invalidation and fresh query;enemy after query;enemy during final native qualification;new higher-priority hint;city scheduling fairness;clock failure with pending route;new turn cancellation;pending native move cancellation;final qualification formation/core busy/owner/type changes. These are software fixtures, not game timing/effects.",
+  "owner_failures": "First apply scope guard found same PathStep literal in builder and settler and stopped before writes; restricted replacement to ProcessBuilder region. Initial9-method phase run:1ERROR in owner fixture expecting fresh packet immediately after moves change, but local validation correctly exhausted current callback budget and left query phase queued. Corrected fixture to assert new key first and fresh packet after next callback; runtime unchanged. Expanded suite12PASS.",
+  "artifact": {
+    "files": 69,
+    "all_zip_bytes_match_source": true,
+    "zip_sha256": "c1127bd202c0c1f2b26222b91fabdbee650907edc6286ad5dde99ef35de4dd41",
+    "normal_latest_zip_equal": true,
+    "installed": false,
+    "native_loaded": false
+  },
+  "performance": "Normal59 Native UNKNOWN. Normal58 actual q13 p95~29ms/max73ms remains FAIL. Software budget/fairness does not grant frozen20/50ms B_plan, whole-module B_turn, global N_req or matched-pair B_delta. Soft6ms slice cannot interrupt native calls. No CPU or causal speedup claim.",
+  "batch": {
+    "logical": 2,
+    "complete": 2,
+    "length": 0,
+    "retries": 0,
+    "actual_peak": 2,
+    "actual_overlap_seconds": 11.222188,
+    "cached_tokens": null,
+    "server_concurrency": null
+  },
+  "cumulative_civ6_through229": {
+    "logical_requests": 229,
+    "complete": 218,
+    "length": 11,
+    "http_attempts": 232,
+    "transport_retries": 3,
+    "historical_peak": 13,
+    "historical_peak_duration_seconds": null
+  },
+  "maintenance": "Same Nov3 machine/user daily OpenCode1.19.5 successful cache; ordinary HTTP candidates,0 new OpenCode-native generation.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null
+  },
+  "cost_limits": "PREP_BEGIN independently completed before task preparer. Phase walls include interleaved owner/native waits and are not exclusive active cost or net saving. Cached/server data unknown null.",
+  "next": "Publish normal59, archive normal58 final logs and normal owned game exit, install69 exact files with no Civ process, fresh current Steam offline proof, cold launch/warm>=60/reload original85 and formal86-90 minimal root profile. Continue failures without relaxing budgets."
+}

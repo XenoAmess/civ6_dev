@@ -8,6 +8,7 @@ local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
+local planningStarted,builderResumeStreak=nil,0
 local builderSearches={}
 local settlerSearches={}
 local districtPersonPlans = {}
@@ -1160,7 +1161,254 @@ local function BuilderImprovementCandidates(unit, plot)
   return rows
 end
 
+local function PlanningTime()
+  if type(Automation)~="table" or type(Automation.GetTime)~="function" then return nil end
+  local ok,value=pcall(Automation.GetTime)
+  if not ok or not BaiqiPolicy.Number(value) or value<0 then return nil end
+  return value
+end
+
+local function BuilderBudgetExpired(started,limit)
+  if not BaiqiPolicy.Number(started) or started<0 then return false end
+  if not BaiqiPolicy.Number(limit) or limit<=0 then return false end
+  local current=PlanningTime()
+  if current==nil or current<started then return false end
+  return current-started>=limit
+end
+
+local function PrepareBuilderPathPacket(ctx, player, state, unit, target)
+  if not ctx or not player or not unit or not target then return nil end
+  local currentCtx,currentPlayer,currentState=PlayerContext()
+  if not currentCtx or currentCtx.player~=ctx.player then return nil end
+  ctx,player,state=currentCtx,currentPlayer,currentState
+  if not CoreIdle() then return nil end
+  if not BaiqiPolicy.Context(ctx) then return nil end
+  if turn ~= Game.GetCurrentGameTurn() then return nil end
+  local unitID = unit:GetID()
+  if pendingUnits[unitID] then return nil end
+  local def = GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType ~= 'UNIT_BUILDER' then return nil end
+  local snapshot = UnitSnapshot(unit, state)
+  if not BaiqiPolicy.CanCivilian(ctx, snapshot) then return nil end
+  local initialKey,expectedTurn=UnitKey(unit),turn
+  if not Revealed(target) then return nil end
+  if not Safe(target, player) then return nil end
+  local targetIndex = target:GetIndex()
+  if not BaiqiPolicy.Number(targetIndex) or targetIndex < 0 or targetIndex % 1 ~= 0 then return nil end
+  local start = UnitIndex(unit)
+  if start == nil then return nil end
+  local latest,latestPlayer,latestState=PlayerContext()
+  local currentDef=GameInfo.Units[unit:GetUnitType()]
+  if not latest or latest.player~=ctx.player or not BaiqiPolicy.Context(latest)
+    or not currentDef or currentDef.UnitType~='UNIT_BUILDER'
+    or not BaiqiPolicy.CanCivilian(latest,UnitSnapshot(unit,latestState))
+    or UnitKey(unit)~=initialKey or pendingUnits[unitID]
+    or Game.GetCurrentGameTurn()~=expectedTurn or not CoreIdle() then return nil end
+  local ok, path = pcall(UnitManager.GetMoveToPathEx, unit, targetIndex)
+  if not ok or type(path) ~= 'table' or type(path.plots) ~= 'table' then return nil end
+  local plots = path.plots
+  local count = 0
+  for _ in pairs(plots) do count = count + 1 end
+  if count < 2 or count > C.pathLimit then return nil end
+  local copied = {}
+  for i = 1, count do
+    local index = plots[i]
+    if not BaiqiPolicy.Number(index) or index < 0 or index % 1 ~= 0 then return nil end
+    copied[i] = index
+  end
+  if copied[1] ~= start or copied[count] ~= targetIndex then return nil end
+  if UnitIndex(unit) ~= start then return nil end
+  local freshCtx, freshPlayer, freshState = PlayerContext()
+  if not freshCtx or freshCtx.player ~= ctx.player then return nil end
+  if not BaiqiPolicy.Context(freshCtx) then return nil end
+  local freshUnit = freshPlayer:GetUnits():FindID(unitID)
+  if not BaiqiPolicy.MatchesID(freshUnit, unitID) or freshUnit:GetOwner() ~= ctx.player then return nil end
+  local freshDef = GameInfo.Units[freshUnit:GetUnitType()]
+  if not freshDef or freshDef.UnitType ~= 'UNIT_BUILDER' then return nil end
+  local freshSnapshot = UnitSnapshot(freshUnit, freshState)
+  if not BaiqiPolicy.CanCivilian(freshCtx, freshSnapshot) then return nil end
+  if freshSnapshot.formationCount ~= 1 then return nil end
+  if not BaiqiPolicy.Number(freshSnapshot.moves) or freshSnapshot.moves <= 0 then return nil end
+  if UnitIndex(freshUnit) ~= start then return nil end
+  if UnitKey(unit)~=initialKey or UnitKey(freshUnit)~=initialKey
+    or pendingUnits[unitID] or Game.GetCurrentGameTurn()~=expectedTurn
+    or turn~=expectedTurn or not CoreIdle() then return nil end
+  return {
+    version = 1,
+    player = ctx.player,
+    turn = turn,
+    unitID = unitID,
+    unitType = 'UNIT_BUILDER',
+    key = initialKey,
+    targetIndex = targetIndex,
+    path = copied
+  }
+end
+
+local function ValidateBuilderPathPacket(ctx, player, state, unit, packet)
+  if not ctx or not player or not unit or type(packet)~='table' then return nil end
+  local currentCtx,currentPlayer,currentState=PlayerContext()
+  if not currentCtx or currentCtx.player~=ctx.player then return nil end
+  ctx,player,state=currentCtx,currentPlayer,currentState
+  if not CoreIdle() then return nil end
+  if not BaiqiPolicy.Context(ctx) then return nil end
+  if turn ~= Game.GetCurrentGameTurn() then return nil end
+  if packet.version ~= 1 then return nil end
+  if packet.player ~= ctx.player then return nil end
+  if packet.turn ~= turn then return nil end
+  local unitID = unit:GetID()
+  if packet.unitID ~= unitID then return nil end
+  if packet.unitType ~= 'UNIT_BUILDER' then return nil end
+  if packet.key ~= UnitKey(unit) then return nil end
+  if pendingUnits[unitID] then return nil end
+  local def = GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType ~= 'UNIT_BUILDER' then return nil end
+  local snapshot = UnitSnapshot(unit, state)
+  if not BaiqiPolicy.CanCivilian(ctx, snapshot) then return nil end
+  if snapshot.formationCount ~= 1 then return nil end
+  if not BaiqiPolicy.Number(snapshot.moves) or snapshot.moves <= 0 then return nil end
+  local start = UnitIndex(unit)
+  if start == nil then return nil end
+  local path = packet.path
+  if type(path) ~= 'table' then return nil end
+  local count = 0
+  for _ in pairs(path) do count = count + 1 end
+  if count < 2 or count > C.pathLimit then return nil end
+  local targetIndex = packet.targetIndex
+  if not BaiqiPolicy.Number(targetIndex) or targetIndex < 0 or targetIndex % 1 ~= 0 then return nil end
+  if path[1] ~= start or path[count] ~= targetIndex then return nil end
+  local cache = {}
+  for i = 1, count do
+    local index = path[i]
+    if not BaiqiPolicy.Number(index) or index < 0 or index % 1 ~= 0 then return nil end
+    local ok, plot = pcall(Map.GetPlotByIndex, index)
+    if not ok or not plot then return nil end
+    if not Revealed(plot) then return nil end
+    if not Safe(plot, player, cache) then return nil end
+    if plot:GetOwner() ~= -1 and plot:GetOwner() ~= ctx.player then return nil end
+  end
+  local ok,nextPlot=pcall(Map.GetPlotByIndex,path[2])
+  if not ok or not nextPlot or nextPlot:GetIndex()~=path[2] then return nil end
+  local freshCtx, freshPlayer, freshState = PlayerContext()
+  if not freshCtx or freshCtx.player ~= ctx.player then return nil end
+  if not BaiqiPolicy.Context(freshCtx) then return nil end
+  local freshUnit = freshPlayer:GetUnits():FindID(unitID)
+  if not BaiqiPolicy.MatchesID(freshUnit, unitID) or freshUnit:GetOwner() ~= ctx.player then return nil end
+  local freshDef = GameInfo.Units[freshUnit:GetUnitType()]
+  if not freshDef or freshDef.UnitType ~= 'UNIT_BUILDER' then return nil end
+  local freshSnapshot = UnitSnapshot(freshUnit, freshState)
+  if not BaiqiPolicy.CanCivilian(freshCtx, freshSnapshot) then return nil end
+  if freshSnapshot.formationCount ~= 1 then return nil end
+  if not BaiqiPolicy.Number(freshSnapshot.moves) or freshSnapshot.moves <= 0 then return nil end
+  if UnitIndex(freshUnit) ~= start then return nil end
+  if UnitKey(unit)~=packet.key or UnitKey(freshUnit)~=packet.key
+    or pendingUnits[unitID] or Game.GetCurrentGameTurn()~=packet.turn
+    or turn~=packet.turn or not CoreIdle() then return nil end
+  return nextPlot
+end
+
+
+local function BuilderTargets(ctx,player,unit)
+  local targets,seen={},{}
+  for _,city in player:GetCities():Members() do
+    local ai=city:GetCityAI()
+    if ai then
+      for _,rec in pairs(ai:GetImprovementRecommendationsForBuilder(unit:GetComponentID()) or {}) do
+        local plot=Map.GetPlotByIndex(rec.ImprovementLocation)
+        if plot and Revealed(plot) and plot:GetOwner()==ctx.player and not seen[plot:GetIndex()] then
+          seen[plot:GetIndex()]=true
+          targets[#targets+1]={plot=plot,index=plot:GetIndex(),distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
+        end
+      end
+    end
+  end
+  table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
+  return targets
+end
+
+local function BuilderRouteValid(ctx,state,unit,search)
+  local row=unit and GameInfo.Units[unit:GetUnitType()]
+  return search and row and row.UnitType=="UNIT_BUILDER" and search.player==ctx.player
+    and search.turn==turn and turn==Game.GetCurrentGameTurn()
+    and UnitKey(unit)==search.key and not pendingUnits[unit:GetID()]
+    and BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) and CoreIdle()
+end
+
+local function WaitBuilderRoute(ctx,player,state,unit,search)
+  builderSearches[unit:GetID()]=nil
+  if not BuilderRouteValid(ctx,state,unit,search) then return false,false end
+  unitEvaluated[UnitKey(unit)]=true
+  local here=UnitPlot(unit)
+  if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then return true,false end
+  if ClearCivilianOverlap(ctx,player,state,unit) then return true,false end
+  return false,false
+end
+
+local function BuilderRouteTarget(targets,search)
+  for _,target in ipairs(targets) do
+    if target.index==search.activeTarget or not search.tested[target.index] then return target end
+  end
+end
+
+local function AdvanceBuilderRoute(ctx,player,state,unit,search)
+  local id=unit:GetID()
+  if not BuilderRouteValid(ctx,state,unit,search) then builderSearches[id]=nil;return false,false end
+  if BuilderBudgetExpired(planningStarted,C.builderSliceSeconds) then return false,true end
+  if search.phase=="query" then
+    local targets=BuilderTargets(ctx,player,unit)
+    local target=BuilderRouteTarget(targets,search)
+    if not target then return WaitBuilderRoute(ctx,player,state,unit,search) end
+    if search.activeTarget and search.activeTarget~=target.index then search.tested[search.activeTarget]=nil end
+    search.activeTarget=target.index
+    search.tested[target.index]=true
+    search.hasMore=false
+    for _,other in ipairs(targets) do if not search.tested[other.index] then search.hasMore=true;break end end
+    local packet=PrepareBuilderPathPacket(ctx,player,state,unit,target.plot)
+    if not packet then
+      search.activeTarget=nil
+      if search.hasMore then return false,true end
+      return WaitBuilderRoute(ctx,player,state,unit,search)
+    end
+    search.packet=packet;search.phase="validate"
+    if BuilderBudgetExpired(planningStarted,C.builderSliceSeconds) then return false,true end
+  end
+  if search.phase=="validate" then
+    local step=ValidateBuilderPathPacket(ctx,player,state,unit,search.packet)
+    if not step then
+      search.packet=nil;search.activeTarget=nil;search.phase="query"
+      if search.hasMore then return false,true end
+      return WaitBuilderRoute(ctx,player,state,unit,search)
+    end
+    search.nextIndex=step:GetIndex();search.phase="write"
+    if BuilderBudgetExpired(planningStarted,C.builderSliceSeconds) then return false,true end
+  end
+  if search.phase=="write" then
+    local target=BuilderRouteTarget(BuilderTargets(ctx,player,unit),search)
+    if not target then return WaitBuilderRoute(ctx,player,state,unit,search) end
+    if target.index~=search.activeTarget then
+      search.tested[search.activeTarget]=nil;search.activeTarget=target.index
+      search.packet=nil;search.phase="query";return false,true
+    end
+    local packet=search.packet
+    local step=Map.GetPlotByIndex(search.nextIndex)
+    if not step or not packet or packet.unitID~=id or packet.key~=search.key
+      or packet.turn~=turn or packet.player~=ctx.player or not BuilderRouteValid(ctx,state,unit,search) then
+      builderSearches[id]=nil;return false,false
+    end
+    -- The packet is a suggestion. The original writer rechecks current safety,
+    -- adjacency, identity and native qualification; a rejected write ends search.
+    builderSearches[id]=nil
+    unitEvaluated[UnitKey(unit)]=true
+    if RequestCivilian(ctx,state,unit,"MOVE_TO",step) then return true,false end
+    return WaitBuilderRoute(ctx,player,state,unit,search)
+  end
+  builderSearches[id]=nil
+  return false,false
+end
+
 local function ProcessBuilder(ctx, player, state, unit)
+  local current=builderSearches[unit:GetID()]
+  if current and current.phase then return AdvanceBuilderRoute(ctx,player,state,unit,current) end
   local here = UnitPlot(unit)
   if here==nil then return false end
   if here:GetOwner() == ctx.player and Safe(here, player) then
@@ -1187,20 +1435,7 @@ local function ProcessBuilder(ctx, player, state, unit)
     end
     if best then return RequestCivilian(ctx, state, unit, "BUILD_IMPROVEMENT", here, best.Hash) end
   end
-  local targets,seen = {},{}
-  for _, city in player:GetCities():Members() do
-    local ai = city:GetCityAI()
-    if ai then
-      for _, rec in pairs(ai:GetImprovementRecommendationsForBuilder(unit:GetComponentID()) or {}) do
-        local plot = Map.GetPlotByIndex(rec.ImprovementLocation)
-        if plot and Revealed(plot) and plot:GetOwner() == ctx.player and not seen[plot:GetIndex()] then
-          seen[plot:GetIndex()]=true
-          targets[#targets+1]={plot=plot,index=plot:GetIndex(),distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
-        end
-      end
-    end
-  end
-  table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
+  local targets=BuilderTargets(ctx,player,unit)
   local id,key=unit:GetID(),UnitKey(unit)
   local search=builderSearches[id]
   if not search or search.player~=ctx.player or search.turn~=turn or search.key~=key then
@@ -1210,6 +1445,10 @@ local function ProcessBuilder(ctx, player, state, unit)
   for i,target in ipairs(targets) do
     if not search.tested[target.index] then
       search.tested[target.index]=true
+      if planningStarted~=nil then
+        search.activeTarget=target.index;search.phase="query"
+        return AdvanceBuilderRoute(ctx,player,state,unit,search)
+      end
       local step=PathStep(unit,target.plot,player,state)
       if step then
         builderSearches[id]=nil
@@ -1649,6 +1888,7 @@ local function ReadBack(player)
 end
 
 local function Tick(allowOrders)
+  planningStarted=PlanningTime()
   if stopped then return end
   local ctx,player,state=PlayerContext()
   if ctx==nil then builderSearches={};settlerSearches={};return end
@@ -1659,6 +1899,7 @@ local function Tick(allowOrders)
   local current=type(Game.GetCurrentGameTurn)=="function" and Game.GetCurrentGameTurn()
   if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
+    builderResumeStreak=0
     turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}; settlerSearches={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
     -- turn; retaining that pending slot would strand the civilian indefinitely.
@@ -1705,6 +1946,22 @@ local function Tick(allowOrders)
   -- Existing factual receipts may reconcile while the core is busy. New
   -- gameplay orders wait until both native processing readers report idle.
   if allowOrders==false or not CoreIdle() then return end
+  -- At most two continuation callbacks before normal city/unit scheduling.
+  if builderResumeStreak<2 then
+    for id,search in pairs(builderSearches) do
+      if search.phase then
+        local unit=player:GetUnits():FindID(id)
+        if unit and BuilderRouteValid(ctx,state,unit,search) then
+          builderResumeStreak=builderResumeStreak+1
+          local submitted,continuing=AdvanceBuilderRoute(ctx,player,state,unit,search)
+          status=submitted and "已提交建造者操作，等待实际结果" or (continuing and "建造者继续检查安全路线；军队由你指挥" or "建造者按当前状态重新规划；军队由你指挥")
+          return
+        end
+        builderSearches[id]=nil
+      end
+    end
+  end
+  builderResumeStreak=0
   for _,city in player:GetCities():Members() do
     if ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
   end
