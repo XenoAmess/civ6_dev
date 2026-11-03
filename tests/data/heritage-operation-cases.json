@@ -1,0 +1,157 @@
+[
+  {
+    "name": "naturalist_designate_park_valid_hash",
+    "unitType": "UNIT_NATURALIST",
+    "operation": "DESIGNATE_PARK",
+    "row": {
+      "OperationType": "UNITOPERATION_DESIGNATE_PARK",
+      "Hash": 1031611255,
+      "Index": 7
+    },
+    "expected_hash": 1031611255,
+    "expected_status": "ok"
+  },
+  {
+    "name": "archaeologist_excavate_valid_hash",
+    "unitType": "UNIT_ARCHAEOLOGIST",
+    "operation": "EXCAVATE",
+    "row": {
+      "OperationType": "UNITOPERATION_EXCAVATE",
+      "Hash": 1548958412,
+      "Index": 11
+    },
+    "expected_hash": 1548958412,
+    "expected_status": "ok"
+  },
+  {
+    "name": "naturalist_excavate_unsupported",
+    "unitType": "UNIT_NATURALIST",
+    "operation": "EXCAVATE",
+    "row": {
+      "OperationType": "UNITOPERATION_EXCAVATE",
+      "Hash": 1548958412
+    },
+    "expected_hash": null,
+    "expected_status": "unsupported"
+  },
+  {
+    "name": "archaeologist_designate_park_unsupported",
+    "unitType": "UNIT_ARCHAEOLOGIST",
+    "operation": "DESIGNATE_PARK",
+    "row": {
+      "OperationType": "UNITOPERATION_DESIGNATE_PARK",
+      "Hash": 1031611255
+    },
+    "expected_hash": null,
+    "expected_status": "unsupported"
+  },
+  {
+    "name": "hash_zero_valid",
+    "unitType": "UNIT_NATURALIST",
+    "operation": "DESIGNATE_PARK",
+    "row": {
+      "OperationType": "UNITOPERATION_DESIGNATE_PARK",
+      "Hash": 0
+    },
+    "expected_hash": 0,
+    "expected_status": "ok"
+  },
+  {
+    "name": "hash_negative_valid",
+    "unitType": "UNIT_ARCHAEOLOGIST",
+    "operation": "EXCAVATE",
+    "row": {
+      "OperationType": "UNITOPERATION_EXCAVATE",
+      "Hash": -1
+    },
+    "expected_hash": -1,
+    "expected_status": "ok"
+  },
+  {
+    "name": "hash_min_int_valid",
+    "unitType": "UNIT_NATURALIST",
+    "operation": "DESIGNATE_PARK",
+    "row": {
+      "OperationType": "UNITOPERATION_DESIGNATE_PARK",
+      "Hash": -2147483648
+    },
+    "expected_hash": -2147483648,
+    "expected_status": "ok"
+  },
+  {
+    "name": "hash_max_uint_valid",
+    "unitType": "UNIT_ARCHAEOLOGIST",
+    "operation": "EXCAVATE",
+    "row": {
+      "OperationType": "UNITOPERATION_EXCAVATE",
+      "Hash": 4294967295
+    },
+    "expected_hash": 4294967295,
+    "expected_status": "ok"
+  },
+  {
+    "name": "hash_out_of_range_unavailable",
+    "unitType": "UNIT_NATURALIST",
+    "operation": "DESIGNATE_PARK",
+    "row": {
+      "OperationType": "UNITOPERATION_DESIGNATE_PARK",
+      "Hash": 4294967296
+    },
+    "expected_hash": null,
+    "expected_status": "unavailable"
+  },
+  {
+    "name": "hash_fraction_unavailable",
+    "unitType": "UNIT_ARCHAEOLOGIST",
+    "operation": "EXCAVATE",
+    "row": {
+      "OperationType": "UNITOPERATION_EXCAVATE",
+      "Hash": 1.5
+    },
+    "expected_hash": null,
+    "expected_status": "unavailable"
+  },
+  {
+    "name": "hash_boolean_unavailable",
+    "unitType": "UNIT_NATURALIST",
+    "operation": "DESIGNATE_PARK",
+    "row": {
+      "OperationType": "UNITOPERATION_DESIGNATE_PARK",
+      "Hash": true
+    },
+    "expected_hash": null,
+    "expected_status": "unavailable"
+  },
+  {
+    "name": "hash_string_unavailable",
+    "unitType": "UNIT_ARCHAEOLOGIST",
+    "operation": "EXCAVATE",
+    "row": {
+      "OperationType": "UNITOPERATION_EXCAVATE",
+      "Hash": "1548958412"
+    },
+    "expected_hash": null,
+    "expected_status": "unavailable"
+  },
+  {
+    "name": "wrong_operation_type_unavailable",
+    "unitType": "UNIT_NATURALIST",
+    "operation": "DESIGNATE_PARK",
+    "row": {
+      "OperationType": "UNITOPERATION_WRONG",
+      "Hash": 1031611255
+    },
+    "expected_hash": null,
+    "expected_status": "unavailable"
+  },
+  {
+    "name": "missing_operation_type_unavailable",
+    "unitType": "UNIT_ARCHAEOLOGIST",
+    "operation": "EXCAVATE",
+    "row": {
+      "Hash": 1548958412
+    },
+    "expected_hash": null,
+    "expected_status": "unavailable"
+  }
+]

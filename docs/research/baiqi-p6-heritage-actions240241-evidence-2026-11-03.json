@@ -1,0 +1,234 @@
+{
+  "schema": "civ6.baiqi-heritage-actions240241/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "0597ad75ec86200e4ad31fa3a48962c51a08fd54",
+  "cases": [
+    {
+      "sequence": 240,
+      "case_id": "CIV6-heritageops240",
+      "mode_id": "http-candidate",
+      "shared_commit": "01491b4a5c7763a643aa693b4203e8127f109117",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "be78cdc02276efe3ccc6e24a9d0c9c875ced3df07340d91003c1990610df2369",
+      "max_tokens": 2500,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T06:43:27.027115+00:00",
+      "attempt_end_utc": "2026-11-03T06:43:39.528895+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 12495.44169998262,
+        "first_nonempty_content_delta_ms": 7389.711199968588,
+        "usage": {
+          "prompt_tokens": 33896,
+          "completion_tokens": 444,
+          "total_tokens": 34340
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "partial-body-adopted-one-owner-type-guard",
+      "review": "Modelreturnedfunctionbodyretainedexceptoneexplicitprovider table/userdata guard plusownercomment. Raw14modelJSONcasesPASSbutLua primitive stringprovider canresolve stringlibrary row=>123/ok, violatingdeclaredproviderkind. OwnerisolatedLupawitnesspreserved;corrected6testsPASS. ActualNative DB resolutionspark1031611255/excavate1548958412, noaction/qualificationeffectclaims.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 241,
+      "case_id": "CIV6-heritageopcases241",
+      "mode_id": "http-candidate",
+      "shared_commit": "01491b4a5c7763a643aa693b4203e8127f109117",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "be78cdc02276efe3ccc6e24a9d0c9c875ced3df07340d91003c1990610df2369",
+      "max_tokens": 3500,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T06:43:27.025053+00:00",
+      "attempt_end_utc": "2026-11-03T06:43:45.162476+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 18125.30070001958,
+        "first_nonempty_content_delta_ms": 9067.046699987259,
+        "usage": {
+          "prompt_tokens": 33929,
+          "completion_tokens": 1518,
+          "total_tokens": 35447
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "exact-fourteen-json-case-data-adopted",
+      "review": "All14caseobjectsreviewedagainstindependentcontractandadoptedunchangedasJSONtestdata, notgeneratedtestcode. Bothproper HashvsIndexrows,legalendpoints/0/negative,wrongpairs,bool/string/fraction/range/rowname. NoIndex-onlymissingHashcase;owner adds that andmetamethod/primitive/nonfinite/manualunit exclusions.6ownerunittestmethodsactualresolverPASS. Native actioneffectsnotvalidated.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_review": {
+    "raw240_model_cases": [
+      {
+        "name": "naturalist_designate_park_valid_hash",
+        "passed": true
+      },
+      {
+        "name": "archaeologist_excavate_valid_hash",
+        "passed": true
+      },
+      {
+        "name": "naturalist_excavate_unsupported",
+        "passed": true
+      },
+      {
+        "name": "archaeologist_designate_park_unsupported",
+        "passed": true
+      },
+      {
+        "name": "hash_zero_valid",
+        "passed": true
+      },
+      {
+        "name": "hash_negative_valid",
+        "passed": true
+      },
+      {
+        "name": "hash_min_int_valid",
+        "passed": true
+      },
+      {
+        "name": "hash_max_uint_valid",
+        "passed": true
+      },
+      {
+        "name": "hash_out_of_range_unavailable",
+        "passed": true
+      },
+      {
+        "name": "hash_fraction_unavailable",
+        "passed": true
+      },
+      {
+        "name": "hash_boolean_unavailable",
+        "passed": true
+      },
+      {
+        "name": "hash_string_unavailable",
+        "passed": true
+      },
+      {
+        "name": "wrong_operation_type_unavailable",
+        "passed": true
+      },
+      {
+        "name": "missing_operation_type_unavailable",
+        "passed": true
+      }
+    ],
+    "raw240_primitive_string_provider": {
+      "actual_hash": 123,
+      "actual_status": "ok",
+      "expected_hash": null,
+      "expected_status": "unavailable",
+      "meaning": "Lua string index delegates to string library table. No sourcegame/API modification; isolated Lupa environment."
+    },
+    "owner_correction": "One explicit table/userdata guard, remainder exact model240 body. Owner comment only.",
+    "model241_cases": 14,
+    "model241_exact_data_adopted": true,
+    "model241_coverage_limits": "No missing-Hash/Index-only case; owner adds explicit regression.14validcases is not comprehensive/nativeactionevidence."
+  },
+  "software": {
+    "owner_methods": 6,
+    "model_data_cases": 14,
+    "passed": true,
+    "seconds": 0.059,
+    "scope": "Actual returnedmodule, exact14datacases plusownerfailurecounterexamples; notfullsuite orNativeactionproof.",
+    "module_sha256": "22459beac3e52e7e00dcc6ea82af841807ae4b07dbee3568cd05137b441314eb",
+    "tests_sha256": "70e34f275261c50f0925b7dd0db53fb26d3a246e03ff4fc89f1a23eeea5eba9b",
+    "data_sha256": "7de449667eb0eb937cfd6b3c200023865b4e9521b5d11025bb60e1d1880edc4a"
+  },
+  "native_readonly": {
+    "pid": 2376,
+    "version": 60,
+    "same_offline_game_instance": true,
+    "online_switches": 0,
+    "receipts": [
+      {
+        "name": "20261103T064123002088Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "4b3906850830acab68d69bbf7551ca839a9d6a18fcb42813825c467a85d204ec",
+        "lines": [
+          "P6_HERITAGE240_OPERATION_ROW\tUNITOPERATION_DESIGNATE_PARK\ttable\t1031611255\t7\tUNITOPERATION_DESIGNATE_PARK",
+          "P6_HERITAGE240_OPERATION_ROW\tUNITOPERATION_EXCAVATE\ttable\t1548958412\t11\tUNITOPERATION_EXCAVATE",
+          "P6_HERITAGE240_PARK_APIS\ttable\tfunction\tfunction\tfunction",
+          "P6_HERITAGE240_ARTIFACT_APIS\tfunction\tfunction\tnumber\tnumber",
+          "P6_HERITAGE240_NATIVE_UNIT_FACTORY\tnil"
+        ]
+      },
+      {
+        "name": "20261103T064836749185Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "739ec4afe7fc9cb200ce42ed03089bbdaba7b76865eb8052d8afa83275bd4ddb",
+        "lines": [
+          "P6_HERITAGE240_RESOLVED_NATIVE\tUNIT_NATURALIST\tDESIGNATE_PARK\t1031611255\tok",
+          "P6_HERITAGE240_RESOLVED_NATIVE\tUNIT_ARCHAEOLOGIST\tEXCAVATE\t1548958412\tok",
+          "P6_HERITAGE240_RESOLVE_READONLY_DONE\ttrue\ttrue"
+        ]
+      }
+    ],
+    "resolved_hashes": {
+      "UNITOPERATION_DESIGNATE_PARK": 1031611255,
+      "UNITOPERATION_EXCAVATE": 1548958412
+    },
+    "hashes_are_observations_not_constants_in_code": true,
+    "no_operation_or_order_submitted": true,
+    "qualification_or_effects_tested": false
+  },
+  "runtime_scope": "Twoheritagemodulesnotregisteredinmodinfo/notimportedbyController; installed/runningnormal60still69manifestfiles, noPolicypermissionschanged. No claim autoPark/excavate/choice/manuallock complete.",
+  "batch": {
+    "logical": 2,
+    "complete": 2,
+    "length": 0,
+    "retries": 0,
+    "actual_peak": 2,
+    "actual_overlap_seconds": 12.50178,
+    "cached_tokens": null,
+    "server_concurrency": null
+  },
+  "cumulative_civ6_through241": {
+    "logical_requests": 241,
+    "complete": 230,
+    "length": 11,
+    "http_attempts": 244,
+    "transport_retries": 3,
+    "historical_peak": 13,
+    "historical_peak_duration_seconds": null
+  },
+  "maintenance": "SameNov3machine/usercanonicalOpenCode1.19.5 dailycache;0newOpenCode-nativegeneration. Actualsharedcaller/configprovenance percase preserved.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null
+  },
+  "cost_limits": "IndependentBEGIN/ENDevents;interleavedshared239publication/Nativequeries. Exclusiveactive/netbenefitunknown; notHTTPduration savings.",
+  "next": "BuildisolatedNativeunitfixture/readactualcharge/components and effectreceipts, connectplanner/persistentintent/artifactchoice/manualguards. No imaginaryenum/runtimeauthority fromresolver."
+}
