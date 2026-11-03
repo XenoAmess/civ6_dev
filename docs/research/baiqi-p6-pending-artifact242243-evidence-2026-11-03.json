@@ -1,0 +1,462 @@
+{
+  "schema": "civ6.baiqi-pending-artifact242243/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "cf65595d94659fca102d1d25d8394977cacaaf5d",
+  "cases": [
+    {
+      "sequence": 242,
+      "case_id": "CIV6-pendingartifact242",
+      "mode_id": "http-candidate",
+      "shared_commit": "d295760306ef08d50651b9a1d572af83370d8a78",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "be78cdc02276efe3ccc6e24a9d0c9c875ced3df07340d91003c1990610df2369",
+      "max_tokens": 4500,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T07:01:39.333914+00:00",
+      "attempt_end_utc": "2026-11-03T07:14:46.733241+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 533230.6422999827,
+        "first_nonempty_content_delta_ms": 60596.49939998053,
+        "usage": {
+          "prompt_tokens": 14162,
+          "completion_tokens": 1456,
+          "total_tokens": 15618
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 3,
+      "retry_count": 2,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T07:01:39.333914+00:00",
+          "end_utc": "2026-11-03T07:04:39.776237+00:00",
+          "failure": "TimeoutError('timed out')",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 180435.49960001837
+        },
+        {
+          "attempt": 2,
+          "begin_utc": "2026-11-03T07:04:50.782604+00:00",
+          "end_utc": "2026-11-03T07:05:36.481405+00:00",
+          "failure": "ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 45703.01759999711
+        },
+        {
+          "attempt": 3,
+          "begin_utc": "2026-11-03T07:05:53.493845+00:00",
+          "end_utc": "2026-11-03T07:14:46.733241+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 533230.6422999827
+        }
+      ],
+      "adoption": "rejected-owner-module-rewrite",
+      "review": "ThirdHTTPattemptcomplete stop/DONE/strictJSON aftertimeout/reset. RawLuaSyntaxError:returnfunctionInspect invalid;0codeadoption. Maskedstatic:pcallnotpacked/resultnil-index,statuslost;numericGetUnitTypecomparedtostringinsteadprovidedGameInfo.Units lookup. Owner7actualmodulechecksPASSplusNativepending-none/zeroartifactlookup sample.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 243,
+      "case_id": "CIV6-pendingartifactcases243",
+      "mode_id": "http-candidate",
+      "shared_commit": "d295760306ef08d50651b9a1d572af83370d8a78",
+      "config_sha256": "226c71f4b200de192461968da123e633ad74865b9d72c061a4e88a9856472f40",
+      "caller_sha256": "be78cdc02276efe3ccc6e24a9d0c9c875ced3df07340d91003c1990610df2369",
+      "max_tokens": 4000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T07:01:39.354396+00:00",
+      "attempt_end_utc": "2026-11-03T07:19:28.337228+00:00",
+      "result": {
+        "http_status": null,
+        "finish_reason": null,
+        "sse_done": false,
+        "total_ms": 180042.56600001827,
+        "first_nonempty_content_delta_ms": null,
+        "usage": null,
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 6,
+      "retry_count": 5,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T07:01:39.354396+00:00",
+          "end_utc": "2026-11-03T07:04:39.773267+00:00",
+          "failure": "TimeoutError('timed out')",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 180419.72899995744
+        },
+        {
+          "attempt": 2,
+          "begin_utc": "2026-11-03T07:04:51.368098+00:00",
+          "end_utc": "2026-11-03T07:05:36.488428+00:00",
+          "failure": "ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 45121.43150001066
+        },
+        {
+          "attempt": 3,
+          "begin_utc": "2026-11-03T07:05:57.241958+00:00",
+          "end_utc": "2026-11-03T07:08:57.281033+00:00",
+          "failure": "TimeoutError('timed out')",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 180037.6940999995
+        },
+        {
+          "attempt": 4,
+          "begin_utc": "2026-11-03T07:09:38.431296+00:00",
+          "end_utc": "2026-11-03T07:12:38.462992+00:00",
+          "failure": "TimeoutError('timed out')",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 180028.36559998104
+        },
+        {
+          "attempt": 5,
+          "begin_utc": "2026-11-03T07:13:27.517329+00:00",
+          "end_utc": "2026-11-03T07:15:35.896499+00:00",
+          "failure": "ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 128374.96109999483
+        },
+        {
+          "attempt": 6,
+          "begin_utc": "2026-11-03T07:16:28.289965+00:00",
+          "end_utc": "2026-11-03T07:19:28.337228+00:00",
+          "failure": "TimeoutError('timed out')",
+          "finish_reason": null,
+          "sse_done": false,
+          "http_status": null,
+          "total_ms": 180042.56600001827
+        }
+      ],
+      "adoption": "transport-failed-no-candidate-owner-tests",
+      "review": "Sixattempts alltimeout/resetwithoutcompleteSSE;0completeJSONcases,0adoption. Transportfailure, notmodelsemanticverdict. Failedattemptoriginalsretained;noGame/save/factoryactionsreplayed. Owner7methodscoveractualmodulecontract independently.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_review": {
+    "raw242_exact_code_adopted": false,
+    "json_syntax": "VALID",
+    "raw_lua_parse": {
+      "error_class": "LuaSyntaxError",
+      "message": "error loading code: [string \"<python>\"]:1: '(' expected near 'Inspect'"
+    },
+    "masked_static_findings": [
+      "Lua return function Inspect is invalid anonymous-function syntax.",
+      "pcall returns not packed; code keeps only ok/result then indexes result[1]/[2], losing status or indexing nil.",
+      "GetUnitType returns numeric UnitType index, not UNIT_ARCHAEOLOGIST string; suppliedGameInfo.Units lookup ignored."
+    ],
+    "model243": "No completecandidate after6transportattempts; no JSON casesgenerated/adopted, notmodelsemanticfailure."
+  },
+  "software": {
+    "owner_methods": 7,
+    "passed": true,
+    "seconds": 0.085,
+    "module_sha256": "f0e8ba0eb7154ae90e787ce1290a83fef94863bc56a75ea50f9a623f2027006a",
+    "harness_sha256": "9ea634cfc9b8f6b31bda5ae5f7ef1db7912c6e53f7d8b1ef580eb04801ff7076",
+    "tests_sha256": "fe44c6ebf739856172377c5d011e0505af5d47f0d1e889c27a3c0e47a806f653",
+    "scope": "Actualreturnedmodule:pendingqueuegate,numericunitdefinition,fullID/owner/homevalidation,scalaronlydescriptor,nochoice-targethandling,errorsfailclosed. No nativechoice/excavationeffect/fullsuite grant."
+  },
+  "native_fixture": {
+    "version": 60,
+    "pid": 2376,
+    "same_offline_game_instance": true,
+    "online_switches": 0,
+    "client_restarts": 0,
+    "before_save": {
+      "save_name": "Baiqi_P6_20261103_V60_BeforeHeritage24290.Civ6Save",
+      "bytes": 519104,
+      "sha256": "76d3be9fbdd6d48f54d75614e644c0baed53dc55dbf47eb092e5aecbf0eadad3",
+      "reloaded": false
+    },
+    "debug_unit_creation_only": true,
+    "units": {
+      "UNIT_NATURALIST": {
+        "id": 4980776,
+        "x": 16,
+        "y": 15,
+        "moves": 4,
+        "formation": 1,
+        "park_charges": 1
+      },
+      "UNIT_ARCHAEOLOGIST": {
+        "id": 5046313,
+        "x": 11,
+        "y": 7,
+        "moves": 4,
+        "formation": 1,
+        "home_city": -1
+      }
+    },
+    "factory_calls": 2,
+    "park_excavate_choose_requests": 0,
+    "normal_production_proof": false,
+    "current_fixture_retained_for_api_work": true,
+    "observations": "UIArchaeologycomponentexists evenNaturalist andGetArtifactIndexreturnednumbersdespiteGetNextExtractingArchaeologistnil: notpendingproof. CorehasGetType/GetParkCharges, lacksUIGetUnitType/GetArchaeology/GetArchaeologyHomeCity. CoreGameGetNationalParks/GetArtifactByIndex/CanStartOperationmissingbutPlot:IsNationalParkexistsandtwoownedtargetsactualfalse. IsNationalParktrueeffectstilluntested. Syntheticarchhome-1isnotvalidnormalmuseumfixture. Existingcandidatecollector nowalsoexecutesactualArchaeologistprovider:bothnewunitsreturnedok/0, nonempty/actionproofstillmissing.",
+    "pending_module_native": "Localownerreturnedfunction, actualUIplayer/gameInfo/configs;callerlocalGamefacadecountsONLYthismoduleGetArtifactByIndexcalls. Returnednil/none,0lookup, no global binding change or request. No realpending-choice sample.",
+    "receipts": [
+      {
+        "name": "20261103T064839062622Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "1f025ab8b1d9a99f8fe5efb14f1a3b25974010a0ceddf62779808fcbbf5aa0a5",
+        "lines": [
+          "P6_HERITAGE242_CORE_FACTORY\tfunction\tfunction",
+          "P6_HERITAGE242_CORE_UNIT_ROW\tUNIT_NATURALIST\t19\t1877270220\t1\tfalse",
+          "P6_HERITAGE242_CORE_UNIT_ROW\tUNIT_ARCHAEOLOGIST\t8\t1011336245\t0\ttrue"
+        ]
+      },
+      {
+        "name": "20261103T065156884279Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "4cec9c79124d329a97ca398c2eb1dca2db3785b5682f51d5a8e136b931699ed0",
+        "lines": [
+          "P6_HERITAGE242_CANDIDATE_PLOT\t676\t16\t15\t65536",
+          "P6_HERITAGE242_CANDIDATE_PLOT\t319\t11\t7\t131073",
+          "P6_HERITAGE242_CANDIDATE_PLOT\t318\t10\t7\t131073",
+          "P6_HERITAGE242_CANDIDATE_PLOT\t581\t9\t13\t196610",
+          "P6_HERITAGE242_CANDIDATE_DONE\t4"
+        ]
+      },
+      {
+        "name": "20261103T065321170074Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "abb04652cc518a9bbcf9eb914dcfaa7d0ff44549cd056cc7a45d4c6ece711d14",
+        "lines": [
+          "P6_HERITAGE242_BEFORE_SAVE_ACK\ttrue"
+        ]
+      },
+      {
+        "name": "20261103T065350153928Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "ab0545d894effbfff5910c2668217328d94d32043c83f2d6a29e4078d974cefa",
+        "lines": [
+          "P6_HERITAGE242_OWNER_METHODS\tnil\tfunction",
+          "P6_HERITAGE242_PRIOR_UNIT_COUNT\t0"
+        ]
+      },
+      {
+        "name": "20261103T065404399777Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "acb22e50d10c15df3cf3de995b9306d32c92f6a543f0318784a40f516ae900f4",
+        "lines": [
+          "P6_HERITAGE242_CREATED\tUNIT_NATURALIST\t4980776\t16\t15\t4",
+          "P6_HERITAGE242_CREATED\tUNIT_ARCHAEOLOGIST\t5046313\t11\t7\t4",
+          "P6_HERITAGE242_FACTORY_DONE\tCREATED"
+        ]
+      },
+      {
+        "name": "20261103T065503271170Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "b13990778f4e2cdad048f9dc0eb3186aeec30f1f8fa7106e7d6b2e3a63c6279a",
+        "lines": [
+          "P6_HERITAGE242_COMPONENT_UNIT\t4980776\t16\t15\t4\t1",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetUnitType\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetType\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetBuildCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t4980776\tGetBuildCharges\ttrue\t0",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetParkCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t4980776\tGetParkCharges\ttrue\t1",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetArchaeology\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetArchaeologyHomeCity\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t4980776\tGetArchaeologyHomeCity\ttrue\t-1",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetProperty\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tSetProperty\tnil",
+          "P6_HERITAGE242_ARCH_COMPONENT\t4980776\ttable",
+          "P6_HERITAGE242_ARCH_MEMBER\t4980776\tGetArtifactIndex\tfunction",
+          "P6_HERITAGE242_ARCH_READ\t4980776\tGetArtifactIndex\ttrue\t1065353216",
+          "P6_HERITAGE242_ARCH_MEMBER\t4980776\tGetActivationHighlightPlots\tfunction",
+          "P6_HERITAGE242_ARCH_READ\t4980776\tGetActivationHighlightPlots\ttrue\t0",
+          "P6_HERITAGE242_ARCH_MEMBER\t4980776\tGetCharges\tnil",
+          "P6_HERITAGE242_ARCH_MEMBER\t4980776\tGetExcavationsRemaining\tnil",
+          "P6_HERITAGE242_ARCH_MEMBER\t4980776\tGetArtifactsExtracted\tnil",
+          "P6_HERITAGE242_COMPONENT_UNIT\t5046313\t11\t7\t4\t1",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetUnitType\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetType\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetBuildCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t5046313\tGetBuildCharges\ttrue\t0",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetParkCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t5046313\tGetParkCharges\ttrue\t0",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetArchaeology\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetArchaeologyHomeCity\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t5046313\tGetArchaeologyHomeCity\ttrue\t-1",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetProperty\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tSetProperty\tnil",
+          "P6_HERITAGE242_ARCH_COMPONENT\t5046313\ttable",
+          "P6_HERITAGE242_ARCH_MEMBER\t5046313\tGetArtifactIndex\tfunction",
+          "P6_HERITAGE242_ARCH_READ\t5046313\tGetArtifactIndex\ttrue\t713752651",
+          "P6_HERITAGE242_ARCH_MEMBER\t5046313\tGetActivationHighlightPlots\tfunction",
+          "P6_HERITAGE242_ARCH_READ\t5046313\tGetActivationHighlightPlots\ttrue\t0",
+          "P6_HERITAGE242_ARCH_MEMBER\t5046313\tGetCharges\tnil",
+          "P6_HERITAGE242_ARCH_MEMBER\t5046313\tGetExcavationsRemaining\tnil",
+          "P6_HERITAGE242_ARCH_MEMBER\t5046313\tGetArtifactsExtracted\tnil"
+        ]
+      },
+      {
+        "name": "20261103T065504982695Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "3308101838bfdcba267be4304283c3d756c25ecfdf2e0a734bd03f5efe5d84a0",
+        "lines": [
+          "P6_HERITAGE242_COMPONENT_UNIT\t4980776\t16\t15\t4\t1",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetUnitType\tnil",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetType\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetBuildCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t4980776\tGetBuildCharges\ttrue\t0",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetParkCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t4980776\tGetParkCharges\ttrue\t1",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetArchaeology\tnil",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetArchaeologyHomeCity\tnil",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tGetProperty\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t4980776\tSetProperty\tfunction",
+          "P6_HERITAGE242_COMPONENT_UNIT\t5046313\t11\t7\t4\t1",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetUnitType\tnil",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetType\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetBuildCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t5046313\tGetBuildCharges\ttrue\t0",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetParkCharges\tfunction",
+          "P6_HERITAGE242_UNIT_READ\t5046313\tGetParkCharges\ttrue\t0",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetArchaeology\tnil",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetArchaeologyHomeCity\tnil",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tGetProperty\tfunction",
+          "P6_HERITAGE242_UNIT_MEMBER\t5046313\tSetProperty\tfunction"
+        ]
+      },
+      {
+        "name": "20261103T065807888456Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "26c4f70e0b2f3d2aac2dc9b009f21e8c7fe342607407384b1153b57646191352",
+        "lines": [
+          "P6_HERITAGE242_CORE_EFFECT_APIS\tnil\tnil\tnil\tnil\tfunction"
+        ]
+      },
+      {
+        "name": "20261103T065808257412Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "f358be6e33be0e0a17b61f46df5df99cf9d8ade4979c078e2237763c31dd5186",
+        "lines": [
+          "P6_HERITAGE242_PENDING_EXTRACTION\tfalse\tnil"
+        ]
+      },
+      {
+        "name": "20261103T070711473284Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "90f557025ee15b6ce29ebf047579530ddffe91fbded60ac3cad38424a549ef37",
+        "lines": [
+          "P6_HERITAGE242_CORE_PLOT_MEMBER\tIsNationalPark\tfunction",
+          "P6_HERITAGE242_CORE_PLOT_MEMBER\tGetNationalParkID\tnil",
+          "P6_HERITAGE242_CORE_PLOT_MEMBER\tGetNationalParkId\tnil",
+          "P6_HERITAGE242_CORE_PLOT_MEMBER\tGetProperty\tfunction",
+          "P6_HERITAGE242_CORE_PLOT_MEMBER\tGetResourceType\tfunction"
+        ]
+      },
+      {
+        "name": "20261103T071003177668Z.json",
+        "context": "GameCore_Tuner",
+        "sha256": "0057d25c830ee3dd08f219ddee9ac5348b1e75fc002e12437d47c09751e649ad",
+        "lines": [
+          "P6_HERITAGE242_CORE_PARK_BASELINE\t16\t15\tfalse",
+          "P6_HERITAGE242_CORE_PARK_BASELINE\t11\t7\tfalse"
+        ]
+      },
+      {
+        "name": "20261103T072214660676Z.json",
+        "context": "BaiqiExecutor",
+        "sha256": "afa41bf6b45dad95d64ec5d904f3e658c39c4369b7e89b075633aab91815c0ce",
+        "lines": [
+          "P6_PENDING242_NATIVE_RESULT\tnil\tnone\t0",
+          "P6_PENDING242_NATIVE_DONE\ttrue\ttrue"
+        ]
+      }
+    ]
+  },
+  "owner_fixture_error": "InitialCorepreconditioncalledconfig:IsHuman, absentinCore; failedbeforeGameproperty/factory. Readonlyconfirmednilfixtureand0newunits. Preservedoriginalandusedactualplayer:IsHumanfallbackinnewscript;save/hashnotreplayed,eachfactorycalledonce. Subsequentfactoriespersistedintent/returnedfullIDs beforefurtherchecks. This isownerAPI mistake, notmodelerror.",
+  "runtime_scope": "Pendingdescriptoronly, notregisteredinmodinfo/notcalledbycurrentController. Normal60continues69manifestfiles; noArchmanualguardorautochoiceyet. SeparateunregisteredNaturalistCoreconsumerinprogressnotpartofthisvalidatedworkunit.",
+  "batch": {
+    "logical": 2,
+    "complete": 1,
+    "length": 0,
+    "transport_failed": 1,
+    "http_attempts": 9,
+    "transport_retries": 7,
+    "actual_peak": 2,
+    "seconds_at_peak": 664.818861,
+    "longest_seconds_at_peak": 180.418871,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference.",
+    "cached_tokens": null,
+    "server_concurrency": null
+  },
+  "cumulative_civ6_through243": {
+    "logical_requests": 243,
+    "complete": 231,
+    "length": 11,
+    "transport_failed": 1,
+    "http_attempts": 253,
+    "transport_retries": 10,
+    "historical_peak": 13,
+    "historical_peak_duration_seconds": null
+  },
+  "health_sample": {
+    "at_utc": "2026-11-03T07:18:43.284591+00:00",
+    "purpose": "One read-only health sample after observed repeated model transport timeouts/resets; no chat/restart/config change.",
+    "running": null,
+    "waiting": null,
+    "http_status": 200,
+    "error_class": "JSONDecodeError",
+    "elapsed_seconds": 0.4730254000169225
+  },
+  "transport_limits": "OnehealthGET gotHTTP200butbodyJSONparsefailed,statusunknown. Rawhealthbodynotsaved;nohealth/rootcauseinference. Canonicalauditofclosed242foundlaststop/DONE/validouterJSONand0discrepancies;failedemptyattemptsnotrevieweligibleandnotadopted. Timeoutand10054donotidentifyqueue/timer/restart/backendcause. Configread180/total900notchanged;actual243logicaldurationexceeds900becausecallerlinechecksarenothardblockingdeadline.",
+  "maintenance": "SameNov3machine/usercanonicalOpenCode1.19.5dailycache;0newOpenCode-nativegeneration. Per-caseactualsharedcaller/configversionspreserved.",
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "validation": null,
+    "publication": null
+  },
+  "cost_limits": "BEGIN/ENDeventsinterleavedlongHTTPwait,Nativefixture/sharedpublishing/Core61authoring;exclusiveactivecostunknown. Earlyreviewintervalincludedwait,notclaimedactivereview.",
+  "next": "Connectpendingdescriptorwithpersistentexcavation/choiceintentandmanualguards;completeNaturalistCore/AIplanner/nativeparkpositivecase. Keepactualeffectandunknownresultseparate;do notstopbecausetransportfailed."
+}
