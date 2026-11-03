@@ -1,6 +1,8 @@
 include("BaiqiConfig")
 include("BaiqiPolicy")
 include("BaiqiPlanner")
+include("BaiqiHeritageCandidates")
+include("BaiqiHeritageActions")
 
 BaiqiController = {}
 local C = BaiqiConfig
@@ -13,6 +15,7 @@ local builderSearches={}
 local settlerSearches={}
 local districtPersonPlans = {}
 local missionaryPlans = {}
+local naturalistSearches = {}
 local stopped, running = false, false
 local turnGuard
 local status = "内政托管开启；军队等待你的命令"
@@ -636,6 +639,132 @@ local function ProcessMissionary(ctx,player,state,unit)
   end
   Reason("missionary:"..id,"传教士等待安全国内路径或原生传播资格")
   return false
+end
+
+local function NaturalistBridge(method,...)
+  local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiNaturalistIntentBridge
+  if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-naturalist-intent-v1"
+    or type(bridge[method])~="function" then return nil,nil,"bridge_unavailable" end
+  local ok,a,b,c=pcall(bridge[method],...)
+  if ok then return a,b,c end
+  return nil,nil,"bridge_error"
+end
+local function NaturalistHeld(unit)
+  local stage=NaturalistBridge("Inspect",contextID,unit:GetID())
+  return stage~="OPEN" and stage~="OBSERVED"
+end
+local function NaturalistData(unit)
+  local def=unit and GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType~="UNIT_NATURALIST" or type(unit.GetParkCharges)~="function" then return nil end
+  local charges=unit:GetParkCharges()
+  if BaiqiPolicy.Number(charges) and charges>=1 and charges<=1000000 and charges%1==0 then return charges end
+end
+local function NaturalistTarget(ctx,player,unit,plot)
+  if not ctx or not player or not unit or not plot or not NaturalistData(unit)
+    or not Revealed(plot) or visibility:IsVisible(plot:GetX(),plot:GetY())~=true then return false end
+  local indices,why=BaiqiHeritageCandidates.Collect("UNIT_NATURALIST",ctx.player,unit,Game,Map,visibility)
+  if why~="ok" then return false end
+  for _,index in ipairs(indices) do
+    if index==plot:GetIndex() then return plot:GetOwner()==ctx.player and Safe(plot,player) end
+  end
+  return false
+end
+
+local function RequestNaturalist(unit)
+  local ctx,player,state=PlayerContext()
+  local charges=NaturalistData(unit)
+  local here=unit and UnitPlot(unit)
+  if not ctx or not charges or not here or pendingUnits[unit:GetID()] then return false end
+  local unitID,x,y=unit:GetID(),here:GetX(),here:GetY()
+  local action,why=BaiqiHeritageActions.Resolve("UNIT_NATURALIST","DESIGNATE_PARK",GameInfo.UnitOperations)
+  if why~="ok" then return false end
+  local function Guard()
+    local current,owner,snapshot=PlayerContext()
+    if not current or not BaiqiPolicy.Context(current) or not CoreIdle() or current.player~=ctx.player then return nil end
+    local fresh=owner:GetUnits():FindID(unitID)
+    if not BaiqiPolicy.MatchesID(fresh,unitID) or fresh:GetOwner()~=ctx.player
+      or not BaiqiPolicy.CanCivilian(current,UnitSnapshot(fresh,snapshot))
+      or not BaiqiPolicy.ActionAllowed("UNIT_NATURALIST","DESIGNATE_PARK")
+      or type(fresh.IsReadyToMove)~="function" or fresh:IsReadyToMove()~=true
+      or NaturalistData(fresh)~=charges then return nil end
+    local currentPlot=UnitPlot(fresh)
+    local currentAction,currentWhy=BaiqiHeritageActions.Resolve("UNIT_NATURALIST","DESIGNATE_PARK",GameInfo.UnitOperations)
+    if not currentPlot or currentPlot:GetX()~=x or currentPlot:GetY()~=y
+      or currentAction~=action or currentWhy~="ok"
+      or not NaturalistTarget(current,owner,fresh,currentPlot) then return nil end
+    return fresh
+  end
+  local function Qualified()
+    local fresh=Guard()
+    if not fresh or UnitManager.CanStartOperation(fresh,action,nil)~=true then return nil end
+    return Guard()
+  end
+  local fresh=Qualified()
+  if not fresh then return false end
+  local id=NextRequest("naturalist:"..unitID..":"..charges..":"..x..":"..y)
+  if not id then return false end
+  local granted,token=NaturalistBridge("Prepare",ctx.player,unitID,charges,x,y)
+  if granted~=true or type(token)~="string" then return false end
+  pendingUnits[unitID]={id=id,kind="DESIGNATE_PARK",persistent=true,token=token,
+    charges=charges,unitType="UNIT_NATURALIST",x=x,y=y,from=here:GetIndex(),moves=fresh:GetMovesRemaining(),elapsed=0}
+  fresh=Qualified()
+  if not fresh then
+    Log("naturalist_intent_held","id="..id.."|unit="..unitID.."|reason=eligibility_changed_after_intent")
+    return true
+  end
+  Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=DESIGNATE_PARK|plot="..here:GetIndex())
+  local ok,err=pcall(UnitManager.RequestOperation,fresh,action)
+  if not ok then Log("naturalist_operation_unknown","id="..id.."|unit="..unitID.."|reason="..tostring(err)) end
+  return true
+end
+
+local function ProcessNaturalist(ctx,player,state,unit)
+  local id=unit:GetID()
+  if NaturalistHeld(unit) then
+    Reason("naturalist:"..id,"自然学家等待持久化公园回执；其他内政继续执行")
+    return false,false
+  end
+  local charges,here=NaturalistData(unit),UnitPlot(unit)
+  if not charges or not here or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) then return false,false end
+  local indices,why=BaiqiHeritageCandidates.Collect("UNIT_NATURALIST",ctx.player,unit,Game,Map,visibility)
+  if why~="ok" then naturalistSearches[id]=nil;return false,false end
+  local key=UnitKey(unit)
+  local search=naturalistSearches[id]
+  if not search or search.key~=key or search.turn~=turn or search.charges~=charges then
+    search={key=key,turn=turn,charges=charges,failed={}};naturalistSearches[id]=search
+  end
+  local candidates={}
+  for _,index in ipairs(indices) do
+    if not search.failed[index] then
+      local plot=Map.GetPlotByIndex(index)
+      if plot and plot:GetIndex()==index and Revealed(plot)
+        and visibility:IsVisible(plot:GetX(),plot:GetY())==true
+        and plot:GetOwner()==ctx.player and Safe(plot,player) then
+        candidates[#candidates+1]={index=index,plot=plot,
+          distance=Map.GetPlotDistance(here:GetX(),here:GetY(),plot:GetX(),plot:GetY())}
+      end
+    end
+  end
+  table.sort(candidates,function(a,b)
+    if a.distance~=b.distance then return a.distance<b.distance end
+    return a.index<b.index
+  end)
+  local target=candidates[1]
+  if not target then
+    naturalistSearches[id]=nil
+    Reason("naturalist:"..id,"自然学家等待安全可见、符合原版规则的国内公园地点")
+    return false,false
+  end
+  if target.index==here:GetIndex() then
+    if RequestNaturalist(unit) then naturalistSearches[id]=nil;return true,false end
+  else
+    local step=PathStep(unit,target.plot,player,state)
+    if step and RequestCivilian(ctx,state,unit,"MOVE_TO",step) then return true,false end
+  end
+  search.failed[target.index]=true
+  if #candidates>1 then return false,true end
+  naturalistSearches[id]=nil
+  return false,false
 end
 
 local function RequestDistrictPerson(unit)
@@ -1738,6 +1867,17 @@ local function ReadBack(player)
         Log("prophet_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_and_earned_beliefs=true")
         pending.unresolvedLogged=true
       end
+    elseif pending.kind=="DESIGNATE_PARK" then
+      local stage,token=NaturalistBridge("Inspect",contextID,unitID)
+      if stage=="OBSERVED" and token==pending.token then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=DESIGNATE_PARK|proof=core_owned_visible_national_park")
+        pendingUnits[unitID]=nil
+        naturalistSearches[unitID]=nil
+        if unit then unitEvaluated[UnitKey(unit)]=nil end
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+        Log("naturalist_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_actual_park_proof=true")
+        pending.unresolvedLogged=true
+      end
     elseif pending.kind=="SPREAD_RELIGION" then
       local stage,token=ReligiousBridge("Inspect",contextID,unitID)
       local religion,charges
@@ -1924,7 +2064,7 @@ local function Tick(allowOrders)
     for _,pending in pairs(pendingUnits) do
       local kind=pending.kind
       if kind=="ACTIVATE_GREAT_PERSON" or kind=="CREATE_GREAT_WORK"
-        or kind=="FOUND_RELIGION" or kind=="SPREAD_RELIGION" then
+        or kind=="FOUND_RELIGION" or kind=="SPREAD_RELIGION" or kind=="DESIGNATE_PARK" then
         effectPending=true;break
       end
     end
@@ -1995,6 +2135,14 @@ local function Tick(allowOrders)
             if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
           elseif snapshot.type=="UNIT_MISSIONARY" then
             if ProcessMissionary(ctx,player,state,unit) then status="已登记传教士国内任务；等待实际结果";return end
+          elseif snapshot.type=="UNIT_NATURALIST" then
+            local submitted,continuing=ProcessNaturalist(ctx,player,state,unit)
+            if submitted then status="已登记自然学家公园任务；等待实际公园";return end
+            if continuing then
+              unitEvaluated[unitKey]=nil
+              status="自然学家继续检查安全路线；军队由你指挥"
+              return
+            end
           elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
             if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
           elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
@@ -2005,6 +2153,7 @@ local function Tick(allowOrders)
           local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
             or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
             or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
+            or (snapshot.type=="UNIT_NATURALIST" and NaturalistHeld(unit))
           local here=not held and UnitPlot(unit)
           if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
             status="文职单位本回合等待安全任务；军队由你指挥";return

@@ -12,4 +12,5 @@ BaiqiConfig = {
   greatPersonIntentKey = "BAIQI_GREAT_PERSON_INTENTS_V1",
   creativeIntentKey = "BAIQI_CREATIVE_INTENTS_V1",
   religiousIntentKey = "BAIQI_RELIGIOUS_INTENTS_V1",
+  naturalistIntentKey = "BAIQI_NATURALIST_INTENTS_V1",
 }

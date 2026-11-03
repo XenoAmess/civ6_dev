@@ -66,12 +66,14 @@ end
 function BaiqiPolicy.CivilianType(unitType)
   return unitType=="UNIT_SETTLER" or unitType=="UNIT_BUILDER" or unitType=="UNIT_TRADER"
     or unitType=="UNIT_MISSIONARY"
+    or unitType=="UNIT_NATURALIST"
     or unitType=="UNIT_GREAT_PROPHET"
     or BaiqiPolicy.DistrictGreatPersonClass(unitType)~=nil or BaiqiPolicy.CreativeGreatPersonClass(unitType)~=nil
 end
 
 function BaiqiPolicy.ActionAllowed(unitType, operation)
   if operation=="SKIP_TURN" then return BaiqiPolicy.CivilianType(unitType) end
+  if unitType=="UNIT_NATURALIST" then return operation=="MOVE_TO" or operation=="DESIGNATE_PARK" end
   if unitType=="UNIT_MISSIONARY" then return operation=="MOVE_TO" or operation=="SPREAD_RELIGION" end
   if unitType=="UNIT_GREAT_PROPHET" then return operation=="MOVE_TO" or operation=="FOUND_RELIGION" end
   if BaiqiPolicy.DistrictGreatPersonClass(unitType) then return operation=="MOVE_TO" or operation=="ACTIVATE_GREAT_PERSON" end

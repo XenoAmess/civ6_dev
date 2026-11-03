@@ -83,10 +83,10 @@ def core_runtime(initial_state=None, inject_config_key=True):
 
     def include(name):
         lua.execute((SOURCE / (name + '.lua')).read_text(encoding='utf-8'))
-        if name == 'BaiqiConfig' and inject_config_key:
-            # Explicit future consumer configuration; source60 has no registered
-            # naturalist entry. This fixture does not claim package integration.
-            lua.globals().BaiqiConfig.naturalistIntentKey = 'BAIQI_NATURALIST_INTENTS_V1'
+        if name == 'BaiqiConfig':
+            # Explicit unavailable-configuration fault injection. The first
+            # frozen core-only case injected the future key before integration.
+            lua.globals().BaiqiConfig.naturalistIntentKey = 'BAIQI_NATURALIST_INTENTS_V1' if inject_config_key else None
 
     lua.globals().include = include
     include('BaiqiNaturalistIntentGameplay')

@@ -9,7 +9,7 @@ local function Method(object,name)
   assert(Object(object) and type(object[name])=="function")
   return object[name]
 end
-return function(unitType,pid,unit,game,map,visibility)
+local function Collect(unitType,pid,unit,game,map,visibility)
   if unitType~="UNIT_NATURALIST" and unitType~="UNIT_ARCHAEOLOGIST" then return {},"unsupported" end
   if not Integer(pid) then return {},"invalid" end
   local ok,result=pcall(function()
@@ -44,3 +44,5 @@ return function(unitType,pid,unit,game,map,visibility)
   if not ok then return {},"unavailable" end
   return result,"ok"
 end
+BaiqiHeritageCandidates={Collect=Collect}
+return Collect

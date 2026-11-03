@@ -1,5 +1,5 @@
 -- Data-row lookup only; caller must still qualify the exact native operation.
-return function(unitType,operation,unitOperations)
+local function Resolve(unitType,operation,unitOperations)
   local valid = (unitType=="UNIT_NATURALIST" and operation=="DESIGNATE_PARK") or (unitType=="UNIT_ARCHAEOLOGIST" and operation=="EXCAVATE")
   if not valid then return nil,"unsupported" end
   if type(unitOperations)~="table" and type(unitOperations)~="userdata" then return nil,"unavailable" end
@@ -12,3 +12,5 @@ return function(unitType,operation,unitOperations)
   if not okHash or type(hash)~="number" or hash~=hash or math.abs(hash)>=math.huge or hash<-2147483648 or hash>4294967295 or hash%1~=0 then return nil,"unavailable" end
   return hash,"ok"
 end
+BaiqiHeritageActions={Resolve=Resolve}
+return Resolve
