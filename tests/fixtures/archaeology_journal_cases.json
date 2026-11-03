@@ -1,0 +1,318 @@
+[
+  {
+    "name": "valid_excavate_armed",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 1,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "EXCAVATE_ARMED",
+          "baselineWorkIDs": [],
+          "works": {}
+        }
+      }
+    },
+    "valid": true
+  },
+  {
+    "name": "invalid_missing_required_field",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 1,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "EXCAVATE_ARMED",
+          "baselineWorkIDs": []
+        }
+      }
+    },
+    "valid": false
+  },
+  {
+    "name": "invalid_phase_field_violation",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 1,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "EXCAVATE_ARMED",
+          "baselineWorkIDs": [],
+          "works": {},
+          "artifactIndex": 5
+        }
+      }
+    },
+    "valid": false
+  },
+  {
+    "name": "invalid_duplicate_global_work",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 2,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "OBSERVED",
+          "baselineWorkIDs": [],
+          "works": {
+            "101": true
+          },
+          "artifactIndex": 5,
+          "artifactType": 0,
+          "actingPlayerID": 7,
+          "choicePlayerID": 7,
+          "choiceTurn": 92,
+          "targetPlayerID": 7,
+          "newWorkID": 101
+        },
+        "5": {
+          "token": "archaeology:7:2",
+          "sequence": 2,
+          "unitID": 5,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 10,
+          "resourceType": "RESOURCE_SHIPWRECK",
+          "turn": 93,
+          "stage": "OBSERVED",
+          "baselineWorkIDs": [],
+          "works": {
+            "101": true
+          },
+          "artifactIndex": 6,
+          "artifactType": 1,
+          "actingPlayerID": 7,
+          "choicePlayerID": 7,
+          "choiceTurn": 93,
+          "newWorkID": 101
+        }
+      }
+    },
+    "valid": false
+  },
+  {
+    "name": "invalid_multiple_unresolved",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 2,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "EXCAVATE_ARMED",
+          "baselineWorkIDs": [],
+          "works": {}
+        },
+        "5": {
+          "token": "archaeology:7:2",
+          "sequence": 2,
+          "unitID": 5,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 10,
+          "resourceType": "RESOURCE_SHIPWRECK",
+          "turn": 93,
+          "stage": "CHOICE_ARMED",
+          "baselineWorkIDs": [],
+          "works": {},
+          "artifactIndex": 6,
+          "artifactType": 1,
+          "actingPlayerID": 7,
+          "choicePlayerID": 7,
+          "choiceTurn": 93
+        }
+      }
+    },
+    "valid": false
+  },
+  {
+    "name": "invalid_baseline_new_work_conflict",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 1,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "OBSERVED",
+          "baselineWorkIDs": [
+            101
+          ],
+          "works": {
+            "101": true
+          },
+          "artifactIndex": 5,
+          "artifactType": 0,
+          "actingPlayerID": 7,
+          "choicePlayerID": 7,
+          "choiceTurn": 92,
+          "targetPlayerID": 7,
+          "newWorkID": 101
+        }
+      }
+    },
+    "valid": false
+  },
+  {
+    "name": "owner_valid_choice_armed",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 1,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "CHOICE_ARMED",
+          "baselineWorkIDs": [],
+          "works": {},
+          "artifactIndex": 5,
+          "artifactType": 0,
+          "actingPlayerID": 7,
+          "choicePlayerID": 7,
+          "choiceTurn": 92,
+          "targetPlayerID": 8
+        }
+      }
+    },
+    "valid": true
+  },
+  {
+    "name": "owner_valid_observed",
+    "state": {
+      "version": 1,
+      "owner": 7,
+      "serial": 1,
+      "operations": {
+        "4": {
+          "token": "archaeology:7:1",
+          "sequence": 1,
+          "unitID": 4,
+          "unitType": "UNIT_ARCHAEOLOGIST",
+          "homeCityID": 66,
+          "cityX": 2,
+          "cityY": 3,
+          "buildingIndex": 24,
+          "x": 4,
+          "y": 3,
+          "resourceIndex": 9,
+          "resourceType": "RESOURCE_ANTIQUITY_SITE",
+          "turn": 92,
+          "stage": "OBSERVED",
+          "baselineWorkIDs": [],
+          "works": {
+            "101": true
+          },
+          "artifactIndex": 5,
+          "artifactType": 0,
+          "actingPlayerID": 7,
+          "choicePlayerID": 7,
+          "choiceTurn": 92,
+          "targetPlayerID": 8,
+          "newWorkID": 101
+        }
+      }
+    },
+    "valid": true
+  }
+]

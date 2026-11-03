@@ -1,0 +1,179 @@
+{
+  "schema": "civ6.baiqi-archaeology-journal268269/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "parent_commit": "075a4606339b519fb0579c6e2e3ca94f8ca71db4",
+  "cases": [
+    {
+      "sequence": 268,
+      "case_id": "civ6-archaeology-journal268",
+      "mode_id": "http-candidate",
+      "shared_commit": "7fab07062c6b30cdd135124fea1809db60f16298",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T12:57:42.976311+00:00",
+      "attempt_end_utc": "2026-11-03T12:58:02.379787+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 19395.01969999401,
+        "first_nonempty_content_delta_ms": 2540.438099997118,
+        "usage": {
+          "prompt_tokens": 9515,
+          "completion_tokens": 2298,
+          "total_tokens": 11813
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T12:57:42.976311+00:00",
+          "end_utc": "2026-11-03T12:58:02.379787+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 19395.01969999401
+        }
+      ],
+      "adoption": "partial_code_adopted",
+      "review": "Raw12 methods9 failures. Candidate used unitID instead of sequence for uniqueness, numeric works keys instead of canonical decimal strings, and signed-zero key formatting. Owner corrects those boundaries and token formatting, removes redundant initializer. Main pure validator/clone/equality adopted after fixes;12PASS0.057 and actual Native pure roundtrip/restoration pass.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 269,
+      "case_id": "civ6-archaeology-journal-data269",
+      "mode_id": "http-candidate",
+      "shared_commit": "7fab07062c6b30cdd135124fea1809db60f16298",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T12:57:42.976380+00:00",
+      "attempt_end_utc": "2026-11-03T12:58:03.943935+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 20960.901400016155,
+        "first_nonempty_content_delta_ms": 2812.8604000085033,
+        "usage": {
+          "prompt_tokens": 9589,
+          "completion_tokens": 2731,
+          "total_tokens": 12320
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T12:57:42.976380+00:00",
+          "end_utc": "2026-11-03T12:58:03.943935+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 20960.901400016155
+        }
+      ],
+      "adoption": "partial_data_adopted",
+      "review": "Returned7 cases, not requested8. Claimed valid_choice_armed duplicates work101 across two operations, violates global uniqueness and is rejected. Six remaining complete data cases adopted unchanged; owner adds two real positive phase cases. No generated executable tests adopted.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "batch": {
+    "actual_peak": 2,
+    "seconds_at_peak": 19.403407,
+    "longest_seconds_at_peak": 19.403407,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "software": {
+    "raw268": {
+      "methods": 12,
+      "failures": 9,
+      "errors": 0,
+      "seconds": 0.6050568999489769,
+      "source_projection": "Private reader projection, no production source overwritten."
+    },
+    "owner_methods": 12,
+    "owner_seconds": 0.057,
+    "passed": true,
+    "data_adopted_exact": 6,
+    "data_returned": 7,
+    "data_requested": 8,
+    "owner_added_data": 2,
+    "last_full_source64_methods": 742,
+    "full754_not_run": true
+  },
+  "native_pure_only": [
+    {
+      "name": "20261103T131041456572Z.json",
+      "sha256": "7d0e1befaf25f20f7f39ee64e5d0c05d71692ed9873af4df301641d4304c6eaf",
+      "context": "InGame",
+      "lines": [
+        "P6_ARCHJOURNAL_NATIVE_PURE\ttrue\tnil\ttrue"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "mod/Baiqi/Lua/BaiqiArchaeologyJournal.lua": "c9e689deff46420e1b02ced18b5f52151b9dc947c8d73bd3149368a97e8e9287",
+    "tests/archaeology_journal_harness.py": "f0b27f5c26295db797e7e792b9407dbcc8ef529812d12a971fb2846d7424bba7",
+    "tests/test_baiqi_archaeology_journal.py": "3bd862562de2d71b04377d5a9b123a918433c756345409295446e9206e42f0c2",
+    "tests/fixtures/archaeology_journal_cases.json": "543920a10576cb5009ded9ba6f841c97e7fc624f1ad23169434c2fc63906eaec"
+  },
+  "scope": "Unregistered pure archaeology metadata for EXCAVATE_ARMED/CHOICE_ARMED/OBSERVED, globally unique sequence/work IDs, one unresolved operation, strict bounded baseline/history, clone/equality. No property writes, permission bridge, dig, choice or GreatWork effect. Native diagnostic uses synthetic metadata, restores previous namespace; not actual Native archaeology effect.",
+  "cumulative_through269": {
+    "logical": 269,
+    "complete": 254,
+    "length": 12,
+    "final_transport_failed": 3,
+    "http_attempts": 299,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "owner_cost_seconds": {
+    "preparation": null,
+    "review": null,
+    "correction": null,
+    "publication": null
+  },
+  "cost_limits": "Stages overlap64 cold load/persistence checks; exclusive active owner time/cache/server queue unknown.",
+  "limits": [
+    "Core museum slot readers absent, GreatWorkCreated shape known but actual archaeology payload/delivery unproven.",
+    "Helper not registered into64, no complete automated archaeology claim.",
+    "Pure format and Native parser/roundtrip do not prove actual receipt semantics or save persistence of this new schema."
+  ],
+  "next": "Implement actual Core excavation/choice permission and event receipt consumers, UI sole writers/guard, then real museum/home/archaeology fixture and actual generated artifact proof."
+}
