@@ -1,0 +1,104 @@
+{
+  "schema": "civ6.baiqi-timing-limits320/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T23:51:55.689046+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 320,
+      "case_id": "civ6-timinglimits320",
+      "mode_id": "http-candidate",
+      "shared_commit": "2cd553fec23637c72c31f2ccc6438306b640b22a",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 1200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T23:47:33.605402+00:00",
+      "attempt_end_utc": "2026-11-03T23:47:41.387676+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 7781.5410000039265,
+        "first_nonempty_content_delta_ms": 1776.9686000538059,
+        "usage": {
+          "prompt_tokens": 11521,
+          "completion_tokens": 872,
+          "total_tokens": 12393
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T23:47:33.605402+00:00",
+          "end_utc": "2026-11-03T23:47:41.387676+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 7781.5410000039265
+        }
+      ],
+      "adoption": "rejected-analysis",
+      "review": "Computedstatistics repeat suppliedsummary, but central strictlowerbound andCPU>=662ms/CPU<=10000ms claims invalid withunknownclockerror/inclusiveNativewait/parallelism. Callsnotboundedbyretainedcapacity; subtractempty-wrapperbenchmark andAPIcallcountB_delta suggestions invalid. Zero-placement unknown is validscope reminder, not new fulltrace proof. Owner retains measuredSDKmetric and unknownphysicalclaims, no newacceptancegate/budgetchange.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "math_counterexamples": {
+    "recorded_at_utc": "2026-11-03T23:50:34.037416+00:00",
+    "adoption": "rejected-analysis",
+    "cases": [
+      {
+        "name": "quantized_overstatement",
+        "hypothetical_quantum_seconds": 0.001,
+        "started_true": 0.000999,
+        "ended_true": 0.001001,
+        "measured_seconds": 0.001,
+        "true_seconds": 1.9999999999998318e-06
+      },
+      {
+        "name": "zero_does_not_mean_no_time",
+        "hypothetical_quantum_seconds": 0.001,
+        "started_true": 0.0001,
+        "ended_true": 0.0009,
+        "measured_seconds": 0.0,
+        "true_seconds": 0.0007999999999999999
+      }
+    ],
+    "scope": "Hypothetical math counterexamples only, NOT real Civ6 SDK clock model or Native tests. Clockunknown means measuredunion not a guaranteed physical lowerbound; no positive CPU bound from inclusivewalltime. Empty-function microbench cannot be subtracted as proven correction for arbitrary Native/UI callbacks.",
+    "owner_review": "Some computed statistics merely repeat supplied facts; central strictlowerbound/CPU>=662ms andCPU<=10000ms claims invalid, total34842calls not boundedby4096retainedcapacity, subtraction/callcountB_delta advice wrong. Unknown-zero temporal placement point valid but no new independent fulltrace result. No code adopted, no new acceptancegate or frozenbudget change."
+  },
+  "owner_scope": "Observed SDK-time interval union and threshold comparison remain calculable exactly as recorded/algorithm float arithmetic. Unknown clock error/rounding means no guaranteed physical lowerbound or exclusiveCPU statement. Successful measuredzero does not mean zero realcost; global zero aggregate lacks placement for physical-window reconstruction. No correction by subtracting unrelated empty-function overhead. Existing frozen operational budgets unchanged, no retrospective data relabel.",
+  "actual_readonly_export_metadata": "During pair2enabled warmup, enumeration of named time/clock/frame entries only printed Automation.GetTime and Automation.LogDateAndTime; no methods invoked, no clock changed. Other API namespaces may be opaque/dynamic (old direct os.clock was known), so this is NOTproof no other timers exist and NOTclockprecision calibration.",
+  "scope": "Mathematical counterexamples hypothetical quantization only, not new Civ6 clock facts or Native performance tests. PairedNativework continues independently; source67 unchanged.",
+  "cumulative_through320": {
+    "logical": 320,
+    "complete": 299,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 350,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "unknown_costs": {
+    "exclusive_owner_seconds": null,
+    "cache_hit_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null
+  }
+}
