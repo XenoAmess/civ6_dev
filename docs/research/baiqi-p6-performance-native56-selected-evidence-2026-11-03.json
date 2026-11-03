@@ -1,0 +1,965 @@
+{
+  "schema": "civ6.baiqi-native56-selected-q11/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "normal_source_commit": "914440cc7da23be365e420c8dfc29bc2fca94b1f",
+  "diagnostic_tool_commit": "c1e23d2a4d8b601597cf04ff53dbbf5e85057e7a",
+  "version": 56,
+  "pid": 10740,
+  "install": {
+    "source_version": 56,
+    "files": 69,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "normal_controller_prefix_unchanged": true,
+    "normal_controller_sha256": "438bf195ffa3727f5a0154036c5800e48caeede95c9fcba42c4be135cd007190",
+    "instrumented_sha256": "54f8cd1b9da83b8ca44a5f52cec24e91242294c6256a693bf36dd26dc8dc5110",
+    "archive_sha256": "cd7a27b13a0fcbaa73c158fe2ea683e29f13f3b98d6f6c12d934c065588ebe48",
+    "children": [
+      "ReadBack",
+      "UnitSnapshot",
+      "PathStep",
+      "Safe",
+      "TradePath",
+      "ProcessBuilder",
+      "ProcessTrader"
+    ],
+    "stage": "q11",
+    "compiled": true,
+    "installed": true,
+    "native_loaded": true,
+    "actual_69_bytes_equal_to_private_copy": true,
+    "normal_release_source_modified": false
+  },
+  "steam": {
+    "client_pid": 13620,
+    "status": "offline",
+    "fresh_confirmation_utc": "2026-11-03T00:38:42.195311+00:00",
+    "online_switches": 0,
+    "client_restarts": 0,
+    "navigation": "EarlierBGmodequeryunavailable,headerInvoke0matches/foregroundguardrefused,backgroundWMmenuACKalsoinsufficient. Reuseofficialsteam://open/mainnavigation(currentclient,norestart/noWin32activation/move),thenalreadyforegroundheadermenuclick44,10. SeparatefreshbackgroundreadonlyvisibleGoOnlineproofbeforecold10740. No screenshot/activation/inputinconfirmation."
+  },
+  "lifecycle": "Owned9024OnExitGameat90/11,visiblewindowremainedtemporarily,install/windowlessguardsrefused. AfterwindowgoneonlyexactPID/exe/birth9024residualterminated;othergames/Steamuntouched.4finallogsarchived. Private69managedinstallwhenCivabsent. FreshMainMenuresponsebeforeoriginal85load,ContinueimagebeforeEscbothloads.",
+  "fixture": {
+    "original_bytes": 503809,
+    "original_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "warmup_seconds": 132.25699996948,
+    "reload_same_original": true,
+    "manual_interior": 0,
+    "debug_resources_or_production": 0
+  },
+  "observer": {
+    "roots": 2,
+    "children": [
+      "ReadBack",
+      "UnitSnapshot",
+      "PathStep",
+      "Safe",
+      "TradePath",
+      "ProcessBuilder",
+      "ProcessTrader"
+    ],
+    "pointers_restored": 9,
+    "all_own_pointers_restored": true,
+    "state_cleared": true,
+    "root_dropped": 0,
+    "child_dropped": 0,
+    "invalid_clock": 0,
+    "metadata_errors": 0,
+    "window_errors": 0,
+    "initialization_excluded": 32,
+    "native_action_proxies": false,
+    "cpu_clock": false
+  },
+  "sampling": {
+    "roots": 248,
+    "pure_ten": 223,
+    "other_city_counts": 25,
+    "children": 2162,
+    "groups_ten": {
+      "Controller.RunNow": {
+        "n": 133,
+        "p50_ms": 9.999990463256836,
+        "p95_ms": 41.0001277923584,
+        "max_ms": 60.99987030029297
+      },
+      "Admin.Run": {
+        "n": 90,
+        "p50_ms": 3.000020980834961,
+        "p95_ms": 6.000041961669922,
+        "max_ms": 12.000083923339844
+      }
+    },
+    "by_turn_ten": {
+      "86": {
+        "Controller.RunNow": {
+          "n": 30,
+          "p50_ms": 9.000062942504883,
+          "p95_ms": 41.0001277923584,
+          "max_ms": 49.99995231628418
+        },
+        "Admin.Run": {
+          "n": 20,
+          "p50_ms": 2.000093460083008,
+          "p95_ms": 4.999876022338867,
+          "max_ms": 5.000114440917969
+        }
+      },
+      "87": {
+        "Controller.RunNow": {
+          "n": 28,
+          "p50_ms": 13.000011444091797,
+          "p95_ms": 40.000200271606445,
+          "max_ms": 60.99987030029297
+        },
+        "Admin.Run": {
+          "n": 23,
+          "p50_ms": 3.999948501586914,
+          "p95_ms": 6.000041961669922,
+          "max_ms": 6.000041961669922
+        }
+      },
+      "88": {
+        "Controller.RunNow": {
+          "n": 29,
+          "p50_ms": 9.999990463256836,
+          "p95_ms": 42.00005531311035,
+          "max_ms": 46.000003814697266
+        },
+        "Admin.Run": {
+          "n": 19,
+          "p50_ms": 3.999948501586914,
+          "p95_ms": 6.000041961669922,
+          "max_ms": 6.000041961669922
+        }
+      },
+      "89": {
+        "Controller.RunNow": {
+          "n": 28,
+          "p50_ms": 8.00013542175293,
+          "p95_ms": 13.99993896484375,
+          "max_ms": 22.00007438659668
+        },
+        "Admin.Run": {
+          "n": 21,
+          "p50_ms": 2.000093460083008,
+          "p95_ms": 6.000041961669922,
+          "max_ms": 6.000041961669922
+        }
+      },
+      "90": {
+        "Controller.RunNow": {
+          "n": 18,
+          "p50_ms": 5.000114440917969,
+          "p95_ms": 43.99991035461426,
+          "max_ms": 43.99991035461426
+        },
+        "Admin.Run": {
+          "n": 7,
+          "p50_ms": 3.999948501586914,
+          "p95_ms": 12.000083923339844,
+          "max_ms": 12.000083923339844
+        }
+      }
+    },
+    "child_groups_pure_ten": {
+      "ReadBack": {
+        "n": 120,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 3.000020980834961
+      },
+      "UnitSnapshot": {
+        "n": 1430,
+        "p50_ms": 0.0,
+        "p95_ms": 0.9999275207519531,
+        "max_ms": 2.000093460083008
+      },
+      "PathStep": {
+        "n": 27,
+        "p50_ms": 9.000062942504883,
+        "p95_ms": 31.000137329101562,
+        "max_ms": 37.000179290771484
+      },
+      "Safe": {
+        "n": 254,
+        "p50_ms": 1.0001659393310547,
+        "p95_ms": 4.000186920166016,
+        "max_ms": 9.000062942504883
+      },
+      "TradePath": {
+        "n": 48,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 2.000093460083008
+      },
+      "ProcessBuilder": {
+        "n": 30,
+        "p50_ms": 9.999990463256836,
+        "p95_ms": 47.99985885620117,
+        "max_ms": 51.999807357788086
+      },
+      "ProcessTrader": {
+        "n": 4,
+        "p50_ms": 9.000062942504883,
+        "p95_ms": 32.99999237060547,
+        "max_ms": 32.99999237060547
+      }
+    },
+    "metadata": [
+      "P6_PERF_Q11_RESTORED\ttrue\ttrue\t248\t0\t0\t32\t0\t0",
+      "P6_PERF_Q11_WINDOW\t88\t1793667305.278\t1793667305.32\t1793667305.278",
+      "P6_PERF_Q11_WINDOW\t89\t1793667444.88\t1793667444.892\t1793667444.88",
+      "P6_PERF_Q11_WINDOW\t90\t1793667471.357\t1793667471.361\t1793667471.357",
+      "P6_PERF_Q11_WINDOW\t86\t1793667195.393\t1793667195.425\t1793667195.393",
+      "P6_PERF_Q11_WINDOW\t87\t1793667223.613\t1793667223.633\t1793667223.613"
+    ],
+    "child_metadata": [
+      [
+        "P6_PERF_Q11_CHILDREN_RESTORED",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "P6_PERF_Q11_CHILD_PROFILE",
+        "2162",
+        "2162",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "all_children_parent_joined_and_contained": true,
+    "slow_roots": [
+      {
+        "root": {
+          "id": "59",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "87",
+          "turn_after": "87",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793667225.374",
+          "seconds": "0.060999870300292969",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793667225.3740001",
+          "exact_ended": "1793667225.4349999",
+          "status_after": "已提交建造者操作，等待实际结果"
+        },
+        "child_union_ms": 54.99982833862305,
+        "uncovered_by_selected_ms": 6.000041961669922,
+        "inclusive_by_name_ms": {
+          "ReadBack": 0.9999275207519531,
+          "UnitSnapshot": 2.000093460083008,
+          "Safe": 32.99975395202637,
+          "PathStep": 30.99989891052246,
+          "ProcessBuilder": 51.999807357788086
+        },
+        "children_count": 22,
+        "slowest_children": [
+          {
+            "index": "458",
+            "name": "ProcessBuilder",
+            "seconds": "0.051999807357788086",
+            "failed": "false",
+            "started": "1793667225.3830001",
+            "ended": "1793667225.4349999",
+            "root_id": "59",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "454",
+            "name": "PathStep",
+            "seconds": "0.030999898910522461",
+            "failed": "false",
+            "started": "1793667225.3970001",
+            "ended": "1793667225.428",
+            "root_id": "59",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "444",
+            "name": "Safe",
+            "seconds": "0.0079998970031738281",
+            "failed": "false",
+            "started": "1793667225.3830001",
+            "ended": "1793667225.391",
+            "root_id": "59",
+            "root_turn": "87",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "224",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "90",
+          "turn_after": "90",
+          "cities_before": "11",
+          "cities_after": "11",
+          "snapshot_started": "1793667476.6",
+          "seconds": "0.060999870300292969",
+          "failed": "false",
+          "allow_orders": "nil",
+          "exact_started": "1793667476.6000001",
+          "exact_ended": "1793667476.661",
+          "status_after": "已安排生产；军队等待你的命令"
+        },
+        "child_union_ms": 0.9999275207519531,
+        "uncovered_by_selected_ms": 59.999942779541016,
+        "inclusive_by_name_ms": {
+          "ReadBack": 0.9999275207519531
+        },
+        "children_count": 1,
+        "slowest_children": [
+          {
+            "index": "1914",
+            "name": "ReadBack",
+            "seconds": "0.00099992752075195313",
+            "failed": "false",
+            "started": "1793667476.6000001",
+            "ended": "1793667476.6010001",
+            "root_id": "224",
+            "root_turn": "90",
+            "root_cities": "11"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "8",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "86",
+          "turn_after": "86",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793667196.697",
+          "seconds": "0.04999995231628418",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793667196.697",
+          "exact_ended": "1793667196.747",
+          "status_after": "已提交建造者操作，等待实际结果"
+        },
+        "child_union_ms": 47.99985885620117,
+        "uncovered_by_selected_ms": 2.000093460083008,
+        "inclusive_by_name_ms": {
+          "ReadBack": 0.0,
+          "UnitSnapshot": 0.0,
+          "Safe": 19.999980926513672,
+          "PathStep": 37.000179290771484,
+          "ProcessBuilder": 47.99985885620117
+        },
+        "children_count": 24,
+        "slowest_children": [
+          {
+            "index": "40",
+            "name": "ProcessBuilder",
+            "seconds": "0.047999858856201172",
+            "failed": "false",
+            "started": "1793667196.6990001",
+            "ended": "1793667196.747",
+            "root_id": "8",
+            "root_turn": "86",
+            "root_cities": "10"
+          },
+          {
+            "index": "36",
+            "name": "PathStep",
+            "seconds": "0.037000179290771484",
+            "failed": "false",
+            "started": "1793667196.7049999",
+            "ended": "1793667196.7420001",
+            "root_id": "8",
+            "root_turn": "86",
+            "root_cities": "10"
+          },
+          {
+            "index": "22",
+            "name": "Safe",
+            "seconds": "0.0030000209808349609",
+            "failed": "false",
+            "started": "1793667196.7049999",
+            "ended": "1793667196.7079999",
+            "root_id": "8",
+            "root_turn": "86",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "120",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "88",
+          "turn_after": "88",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793667309.442",
+          "seconds": "0.046000003814697266",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793667309.4430001",
+          "exact_ended": "1793667309.4890001",
+          "status_after": "已提交移民操作，等待实际结果"
+        },
+        "child_union_ms": 25.999784469604492,
+        "uncovered_by_selected_ms": 20.000219345092773,
+        "inclusive_by_name_ms": {
+          "ReadBack": 0.0,
+          "UnitSnapshot": 0.9999275207519531,
+          "Safe": 18.999814987182617,
+          "PathStep": 17.999887466430664
+        },
+        "children_count": 24,
+        "slowest_children": [
+          {
+            "index": "986",
+            "name": "PathStep",
+            "seconds": "0.017999887466430664",
+            "failed": "false",
+            "started": "1793667309.4620001",
+            "ended": "1793667309.48",
+            "root_id": "120",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "982",
+            "name": "Safe",
+            "seconds": "0.0049998760223388672",
+            "failed": "false",
+            "started": "1793667309.4720001",
+            "ended": "1793667309.477",
+            "root_id": "120",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "980",
+            "name": "Safe",
+            "seconds": "0.0039999485015869141",
+            "failed": "false",
+            "started": "1793667309.4560001",
+            "ended": "1793667309.46",
+            "root_id": "120",
+            "root_turn": "88",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "218",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "90",
+          "turn_after": "90",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793667474.485",
+          "seconds": "0.043999910354614258",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793667474.4850001",
+          "exact_ended": "1793667474.529",
+          "status_after": "已提交建造者操作，等待实际结果"
+        },
+        "child_union_ms": 36.99994087219238,
+        "uncovered_by_selected_ms": 6.999969482421875,
+        "inclusive_by_name_ms": {
+          "ReadBack": 1.9998550415039062,
+          "UnitSnapshot": 0.9999275207519531,
+          "Safe": 22.00007438659668,
+          "PathStep": 19.00005340576172,
+          "ProcessBuilder": 35.00008583068848
+        },
+        "children_count": 16,
+        "slowest_children": [
+          {
+            "index": "1884",
+            "name": "ProcessBuilder",
+            "seconds": "0.035000085830688477",
+            "failed": "false",
+            "started": "1793667474.493",
+            "ended": "1793667474.5280001",
+            "root_id": "218",
+            "root_turn": "90",
+            "root_cities": "10"
+          },
+          {
+            "index": "1880",
+            "name": "PathStep",
+            "seconds": "0.019000053405761719",
+            "failed": "false",
+            "started": "1793667474.5009999",
+            "ended": "1793667474.52",
+            "root_id": "218",
+            "root_turn": "90",
+            "root_cities": "10"
+          },
+          {
+            "index": "1877",
+            "name": "Safe",
+            "seconds": "0.0080001354217529297",
+            "failed": "false",
+            "started": "1793667474.5009999",
+            "ended": "1793667474.5090001",
+            "root_id": "218",
+            "root_turn": "90",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "113",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "88",
+          "turn_after": "88",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793667307.849",
+          "seconds": "0.042000055313110352",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793667307.849",
+          "exact_ended": "1793667307.891",
+          "status_after": "已提交国内商路，等待实际结果"
+        },
+        "child_union_ms": 35.00008583068848,
+        "uncovered_by_selected_ms": 6.999969482421875,
+        "inclusive_by_name_ms": {
+          "ReadBack": 1.0001659393310547,
+          "UnitSnapshot": 0.9999275207519531,
+          "TradePath": 3.000020980834961,
+          "Safe": 24.99985694885254,
+          "ProcessTrader": 32.99999237060547
+        },
+        "children_count": 41,
+        "slowest_children": [
+          {
+            "index": "929",
+            "name": "ProcessTrader",
+            "seconds": "0.032999992370605469",
+            "failed": "false",
+            "started": "1793667307.858",
+            "ended": "1793667307.891",
+            "root_id": "113",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "912",
+            "name": "Safe",
+            "seconds": "0.0050001144409179688",
+            "failed": "false",
+            "started": "1793667307.862",
+            "ended": "1793667307.8670001",
+            "root_id": "113",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "913",
+            "name": "Safe",
+            "seconds": "0.0030000209808349609",
+            "failed": "false",
+            "started": "1793667307.8670001",
+            "ended": "1793667307.8700001",
+            "root_id": "113",
+            "root_turn": "88",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "117",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "88",
+          "turn_after": "88",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793667308.655",
+          "seconds": "0.042000055313110352",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793667308.655",
+          "exact_ended": "1793667308.697",
+          "status_after": "已提交移民操作，等待实际结果"
+        },
+        "child_union_ms": 27.00018882751465,
+        "uncovered_by_selected_ms": 14.999866485595703,
+        "inclusive_by_name_ms": {
+          "ReadBack": 1.0001659393310547,
+          "UnitSnapshot": 0.9999275207519531,
+          "Safe": 16.99995994567871,
+          "PathStep": 19.00005340576172
+        },
+        "children_count": 25,
+        "slowest_children": [
+          {
+            "index": "951",
+            "name": "PathStep",
+            "seconds": "0.019000053405761719",
+            "failed": "false",
+            "started": "1793667308.6730001",
+            "ended": "1793667308.6920002",
+            "root_id": "117",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "946",
+            "name": "Safe",
+            "seconds": "0.0040001869201660156",
+            "failed": "false",
+            "started": "1793667308.6819999",
+            "ended": "1793667308.6860001",
+            "root_id": "117",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "944",
+            "name": "Safe",
+            "seconds": "0.0030000209808349609",
+            "failed": "false",
+            "started": "1793667308.668",
+            "ended": "1793667308.671",
+            "root_id": "117",
+            "root_turn": "88",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "11",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "86",
+          "turn_after": "86",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793667197.404",
+          "seconds": "0.041000127792358398",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793667197.405",
+          "exact_ended": "1793667197.4460001",
+          "status_after": "已提交建造者操作，等待实际结果"
+        },
+        "child_union_ms": 37.000179290771484,
+        "uncovered_by_selected_ms": 3.999948501586914,
+        "inclusive_by_name_ms": {
+          "ReadBack": 1.0001659393310547,
+          "UnitSnapshot": 0.9999275207519531,
+          "Safe": 13.999700546264648,
+          "PathStep": 27.9998779296875,
+          "ProcessBuilder": 35.00008583068848
+        },
+        "children_count": 21,
+        "slowest_children": [
+          {
+            "index": "70",
+            "name": "ProcessBuilder",
+            "seconds": "0.035000085830688477",
+            "failed": "false",
+            "started": "1793667197.411",
+            "ended": "1793667197.4460001",
+            "root_id": "11",
+            "root_turn": "86",
+            "root_cities": "10"
+          },
+          {
+            "index": "66",
+            "name": "PathStep",
+            "seconds": "0.0279998779296875",
+            "failed": "false",
+            "started": "1793667197.4130001",
+            "ended": "1793667197.441",
+            "root_id": "11",
+            "root_turn": "86",
+            "root_cities": "10"
+          },
+          {
+            "index": "61",
+            "name": "Safe",
+            "seconds": "0.0020000934600830078",
+            "failed": "false",
+            "started": "1793667197.4349999",
+            "ended": "1793667197.437",
+            "root_id": "11",
+            "root_turn": "86",
+            "root_cities": "10"
+          }
+        ]
+      }
+    ],
+    "facts_sha256": "edacf5223ad50ff37dc44438f8a7caee12c616ff0fe1a3f0e6eb3af28ed7c3de",
+    "lua_sha256": "d7b8c4b413f0d43f7c326ff1777f86630f20def3406c8d0bd91eb191835625a6",
+    "runtime_errors": 0,
+    "baiqi_error_markers": 0
+  },
+  "partial_observed_root_union": {
+    "88": {
+      "observed_planner_union_ms": 507.9998970031738,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793667305.278,
+      "activation_observer": 1793667305.32,
+      "first_planner": 1793667305.278,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "89": {
+      "observed_planner_union_ms": 271.00062370300293,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793667444.88,
+      "activation_observer": 1793667444.892,
+      "first_planner": 1793667444.88,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "90": {
+      "observed_planner_union_ms": 429.0003776550293,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793667471.357,
+      "activation_observer": 1793667471.361,
+      "first_planner": 1793667471.357,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "86": {
+      "observed_planner_union_ms": 395.0004577636719,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793667195.393,
+      "activation_observer": 1793667195.425,
+      "first_planner": 1793667195.393,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "87": {
+      "observed_planner_union_ms": 514.9991512298584,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793667223.613,
+      "activation_observer": 1793667223.633,
+      "first_planner": 1793667223.613,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    }
+  },
+  "result": {
+    "B_plan": "FAIL: diagnostic56Controller133p95~41/max61ms;Admin90p95~6/max12ms. Ordinary56minimalq10p95~37/max59msremainsindependentFAIL.",
+    "B_turn": "UNKNOWN",
+    "B_delta": "NOT_RUN",
+    "N_req": "NOT_COVERED",
+    "TC036": "NOT_PASS"
+  },
+  "diagnosis": "Puretenroot59~61ms:Builder52ms,containsPathStep31ms;sevenchildunion55ms/uncovered6ms. Safeinclusive33msnestedinsideBuilder/PathStep, do notsumasCPU. UnitSnapshot1430puretenmax2ms;ReadBack120max3ms,notmatchingprior55peak68msso no universalcause. Eleven-cityroot224~61ms,onlyReadBack1msselected;~60msunnamed andnoProcessCityselected. Statustextnotcommandproof. Differentobserver/trajectoryno causalpercentgain.",
+  "outcomes": {
+    "turn": 90,
+    "cities_ui_core": 11,
+    "queues": [
+      [
+        "65536",
+        "0",
+        "16",
+        "14",
+        "1",
+        "-46510675"
+      ],
+      [
+        "131073",
+        "0",
+        "11",
+        "6",
+        "1",
+        "1547024909"
+      ],
+      [
+        "196610",
+        "0",
+        "10",
+        "13",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "262147",
+        "0",
+        "13",
+        "16",
+        "1",
+        "101426179"
+      ],
+      [
+        "327684",
+        "0",
+        "8",
+        "10",
+        "1",
+        "806902947"
+      ],
+      [
+        "393221",
+        "0",
+        "15",
+        "5",
+        "1",
+        "1738306535"
+      ],
+      [
+        "458758",
+        "0",
+        "19",
+        "6",
+        "1",
+        "1738306535"
+      ],
+      [
+        "524295",
+        "0",
+        "14",
+        "9",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "589832",
+        "0",
+        "8",
+        "3",
+        "1",
+        "-2025065568"
+      ],
+      [
+        "655369",
+        "0",
+        "11",
+        "1",
+        "1",
+        "-764771404"
+      ],
+      [
+        "720906",
+        "0",
+        "16",
+        "18",
+        "1",
+        "-764771404"
+      ]
+    ],
+    "all_queues_nonempty": true,
+    "domestic_routes": [
+      [
+        "65536",
+        "3932190",
+        "0",
+        "65536",
+        "0",
+        "393221"
+      ],
+      [
+        "65536",
+        "2752532",
+        "0",
+        "65536",
+        "0",
+        "524295"
+      ],
+      [
+        "65536",
+        "2883608",
+        "0",
+        "65536",
+        "0",
+        "196610"
+      ],
+      [
+        "65536",
+        "851970",
+        "0",
+        "65536",
+        "0",
+        "262147"
+      ],
+      [
+        "131073",
+        "3080218",
+        "0",
+        "131073",
+        "0",
+        "327684"
+      ],
+      [
+        "131073",
+        "3145753",
+        "0",
+        "131073",
+        "0",
+        "524295"
+      ],
+      [
+        "131073",
+        "3473422",
+        "0",
+        "131073",
+        "0",
+        "589832"
+      ],
+      [
+        "131073",
+        "4587555",
+        "0",
+        "131073",
+        "0",
+        "196610"
+      ],
+      [
+        "458758",
+        "2228241",
+        "0",
+        "458758",
+        "0",
+        "393221"
+      ]
+    ],
+    "knight_readback": [
+      "4456482",
+      "10",
+      "6",
+      "4"
+    ],
+    "save_bytes": 518959,
+    "save_sha256": "270f802242aab0e8742742ea4309a10ad7eb2bfd32ba052677f6617f7f123776",
+    "save_reloaded": false
+  },
+  "player_actions": {
+    "endturns": [
+      "P6_PERF_Q11_EXPLICIT_PLAYER_ENDTURN\t85",
+      "P6_PERF_Q11_EXPLICIT_PLAYER_ENDTURN\t86",
+      "P6_PERF_Q11_EXPLICIT_PLAYER_ENDTURN\t87",
+      "P6_PERF_Q11_EXPLICIT_PLAYER_ENDTURN\t88",
+      "P6_PERF_Q11_EXPLICIT_PLAYER_ENDTURN\t89"
+    ],
+    "military_skips": 92,
+    "diplomacy": "FreshAlexanderfarewellimage,physicalEsconceafterdriverpaused;noautomaticdiplomacy.",
+    "unstack": "At88readonlyhorseman2424851+knight4456482at11,6,moves4,formation1;explicitplayerWorldInputknightto10,6once,ledgerpreventsreplay."
+  },
+  "owner_context_error": "FinalCorequeryfirstusedliteralcontextname-1,actualLSQ0matchesfailedBEFORECMDso0gameplaywrites/noactionreplay. ReadactualcontextlistGameCore_TunerthenexactreadonlycitychunkexecutedonceandmatchedUI. Notmodelerror.",
+  "source57_boundary": "Separatepublic75d3aa4source57has568softwarePASSand69packet,notinstalled/Native57tested. Q11isactual56diagnosticONLY.",
+  "next": "Review222PathStepredundantpre-nativeSafetyqualification/223newbehaviorwitness, preservingpost-pathandpost-CanStartfreshguards. 57orintegratedlaternormalversionmustpropercoldNativeverify; wholemodule/budget/matchedcontrolsremain."
+}
