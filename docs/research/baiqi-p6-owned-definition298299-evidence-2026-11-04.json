@@ -1,0 +1,253 @@
+{
+  "schema": "civ6.baiqi-owned-definition298299/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-03T20:01:51.502013+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 298,
+      "case_id": "civ6-p6-luascope-298",
+      "mode_id": "http-candidate",
+      "shared_commit": "042a85954cc9f45d0afa83ee0388f59285ad4eb9",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T19:52:34.945808+00:00",
+      "attempt_end_utc": "2026-11-03T19:53:21.642691+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 46698.95499997074,
+        "first_nonempty_content_delta_ms": 12289.555499970447,
+        "usage": {
+          "prompt_tokens": 43377,
+          "completion_tokens": 4200,
+          "total_tokens": 47577
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T19:52:34.945808+00:00",
+          "end_utc": "2026-11-03T19:53:21.642691+00:00",
+          "failure": "finish_reason_length",
+          "finish_reason": "length",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 46698.95499997074
+        }
+      ],
+      "adoption": "rejected-truncated",
+      "review": "4200token length, complete stream but incomplete candidate; body not read/spliced/adopted. Owner implements lexical definition transformer independently.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 299,
+      "case_id": "civ6-p6-rootwrap-299",
+      "mode_id": "http-candidate",
+      "shared_commit": "042a85954cc9f45d0afa83ee0388f59285ad4eb9",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2300,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-03T19:52:34.901286+00:00",
+      "attempt_end_utc": "2026-11-03T19:52:58.250687+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 23361.448400013614,
+        "first_nonempty_content_delta_ms": 1674.7689000330865,
+        "usage": {
+          "prompt_tokens": 2913,
+          "completion_tokens": 669,
+          "total_tokens": 3582
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-03T19:52:34.901286+00:00",
+          "end_utc": "2026-11-03T19:52:58.250687+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 23361.448400013614
+        }
+      ],
+      "adoption": "rejected",
+      "review": "Raw uses invalid Lua != and duplicates profiler. Syntax-only isolated port still profiles disabled and nested calls; no raw code adopted. Owner implements outer-entry gate reusing actual canonical NewProfile.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "raw_counterexamples299": {
+    "raw_code_adopted": false,
+    "minimal_port_not_candidate_pass": true,
+    "seconds": 0.0019417000003159046,
+    "rows": [
+      {
+        "case": "raw actual Lua53 compile",
+        "result": "FAIL",
+        "error": "error loading code: [string \"<python>\"]:13: 'then' expected near '!'"
+      },
+      {
+        "case": "isolated syntax-only fix disabled bypass",
+        "observed_calls": 2,
+        "expected_calls": 0
+      },
+      {
+        "case": "isolated syntax-only fix nested owned root",
+        "observed_calls": 2,
+        "expected_calls": 1
+      }
+    ],
+    "other": "Duplicated canonical NewProfile despite reuse contract and no handle.profile export. Owner independently implements root gate around canonical wrapper."
+  },
+  "owner_source": {
+    "tools/lua_function_instrument.py": "23f9bbaf6fd26166bbebb9bd6e506fb59c3f0f9652582a58efddd95a5b205504",
+    "tools/lua/diagnostic_owned_roots.lua": "0ca4f7da45b58f3e5b0935aa72223c6d5c3cdad7b5d7df74636db166238183a5",
+    "tests/test_lua_function_instrument.py": "c64a119b418a0a28706d7151b9728da8f6745acd0d97d5f9b3f6bd9c6b5eca72",
+    "tests/test_diagnostic_owned_roots.py": "91544ba865d59c342acf3564fc60957ca9af81c076805c12a06a8565bf22eba3"
+  },
+  "software": {
+    "transformer_tests": 9,
+    "transformer_seconds": 0.46,
+    "root_tests": 6,
+    "root_seconds": 0.008,
+    "both_original_and_transformed_compile": "All current own Lua sources, Native include chunks are not transformed. Actual Lua53 load, not regex syntax guess.",
+    "source_functions": {
+      "mod/Baiqi/Lua/BaiqiActions.lua": 9,
+      "mod/Baiqi/Lua/BaiqiAdmin.lua": 41,
+      "mod/Baiqi/Lua/BaiqiArchaeologistUnit.lua": 5,
+      "mod/Baiqi/Lua/BaiqiArchaeologyHome.lua": 8,
+      "mod/Baiqi/Lua/BaiqiArchaeologyIntentGameplay.lua": 22,
+      "mod/Baiqi/Lua/BaiqiArchaeologyJournal.lua": 16,
+      "mod/Baiqi/Lua/BaiqiArchaeologyReceiptEvents.lua": 6,
+      "mod/Baiqi/Lua/BaiqiCapture.lua": 12,
+      "mod/Baiqi/Lua/BaiqiConfig.lua": 0,
+      "mod/Baiqi/Lua/BaiqiController.lua": 151,
+      "mod/Baiqi/Lua/BaiqiCreativeIntentGameplay.lua": 13,
+      "mod/Baiqi/Lua/BaiqiCreativeJournal.lua": 5,
+      "mod/Baiqi/Lua/BaiqiGameplay.lua": 5,
+      "mod/Baiqi/Lua/BaiqiGPIntentGameplay.lua": 13,
+      "mod/Baiqi/Lua/BaiqiGPJournal.lua": 7,
+      "mod/Baiqi/Lua/BaiqiHeritageActions.lua": 4,
+      "mod/Baiqi/Lua/BaiqiHeritageCandidates.lua": 5,
+      "mod/Baiqi/Lua/BaiqiNaturalistIntentGameplay.lua": 10,
+      "mod/Baiqi/Lua/BaiqiNaturalistJournal.lua": 11,
+      "mod/Baiqi/Lua/BaiqiNaturalistPurchase.lua": 8,
+      "mod/Baiqi/Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": 21,
+      "mod/Baiqi/Lua/BaiqiNaturalistPurchaseJournal.lua": 16,
+      "mod/Baiqi/Lua/BaiqiNaturalistPurchaseSnapshot.lua": 6,
+      "mod/Baiqi/Lua/BaiqiNaturalistUnit.lua": 5,
+      "mod/Baiqi/Lua/BaiqiPendingArtifact.lua": 6,
+      "mod/Baiqi/Lua/BaiqiPlanner.lua": 7,
+      "mod/Baiqi/Lua/BaiqiPolicy.lua": 13,
+      "mod/Baiqi/Lua/BaiqiReligiousIntentGameplay.lua": 12,
+      "mod/Baiqi/Lua/BaiqiReligiousJournal.lua": 7,
+      "mod/Baiqi/Lua/BaiqiRequisition.lua": 6,
+      "mod/Baiqi/Lua/BaiqiUIGuard.lua": 19,
+      "mod/Baiqi/Lua/BaiqiUILoader.lua": 3,
+      "mod/Baiqi/UI/BaiqiChooseArtifact.lua": 1,
+      "mod/Baiqi/UI/BaiqiCityPanel.lua": 1,
+      "mod/Baiqi/UI/BaiqiCityPanelOverview.lua": 0,
+      "mod/Baiqi/UI/BaiqiCityStates.lua": 0,
+      "mod/Baiqi/UI/BaiqiCivicsChooser.lua": 1,
+      "mod/Baiqi/UI/BaiqiCivicsTree.lua": 0,
+      "mod/Baiqi/UI/BaiqiDedicationPopup.lua": 1,
+      "mod/Baiqi/UI/BaiqiDiplomacyActionView.lua": 1,
+      "mod/Baiqi/UI/BaiqiExecutor.lua": 12,
+      "mod/Baiqi/UI/BaiqiGovernmentScreen.lua": 1,
+      "mod/Baiqi/UI/BaiqiGovernorAssignmentChooser.lua": 0,
+      "mod/Baiqi/UI/BaiqiGovernorDetailsPanel.lua": 0,
+      "mod/Baiqi/UI/BaiqiGovernorPanel.lua": 0,
+      "mod/Baiqi/UI/BaiqiGreatPeoplePopup.lua": 0,
+      "mod/Baiqi/UI/BaiqiGreatWorkShowcase.lua": 1,
+      "mod/Baiqi/UI/BaiqiHistoricMoments.lua": 1,
+      "mod/Baiqi/UI/BaiqiLeaderScene.lua": 1,
+      "mod/Baiqi/UI/BaiqiNaturalDisasterPopup.lua": 1,
+      "mod/Baiqi/UI/BaiqiNaturalWonderPopup.lua": 1,
+      "mod/Baiqi/UI/BaiqiNotificationPanel.lua": 6,
+      "mod/Baiqi/UI/BaiqiPantheonChooser.lua": 1,
+      "mod/Baiqi/UI/BaiqiPlotInfo.lua": 0,
+      "mod/Baiqi/UI/BaiqiProductionPanel.lua": 0,
+      "mod/Baiqi/UI/BaiqiReligionScreen.lua": 0,
+      "mod/Baiqi/UI/BaiqiResearchChooser.lua": 1,
+      "mod/Baiqi/UI/BaiqiTechCivicCompletedPopup.lua": 1,
+      "mod/Baiqi/UI/BaiqiTechTree.lua": 0,
+      "mod/Baiqi/UI/BaiqiTradeRouteChooser.lua": 0,
+      "mod/Baiqi/UI/BaiqiUnitFlagManager.lua": 0,
+      "mod/Baiqi/UI/BaiqiUnitPanel.lua": 2,
+      "mod/Baiqi/UI/BaiqiWorldInput.lua": 1
+    },
+    "total_functions": 507,
+    "actual_existing_consumer_run": {
+      "tests": 83,
+      "errors": 0,
+      "failures": 0,
+      "seconds": 0.7387791000073776,
+      "actually_transformed_unique_sources": 12,
+      "actual_transformed_executions": 458,
+      "modules": [
+        "test_baiqi_controller",
+        "test_baiqi_admin",
+        "test_baiqi_guard",
+        "test_baiqi_archaeology_intents",
+        "test_baiqi_archaeology_events",
+        "test_baiqi_actions"
+      ],
+      "scope": "Actual existing software consumers run with owned-source definition rewrite and enabled canonical profiling. Native include chunks not transformed. Not game-engine result."
+    },
+    "owner_fixture_correction": "First root tests omitted Native global unpack in Lua53 fixture (6 errors). Added actual Native shape unpack=table.unpack then table.unpack/pack=nil, production helper unchanged; 6 tests then pass."
+  },
+  "runtime": "No diagnostic installed; normal67 untouched. This commit supplies definition instrumentation and root-gate components, not full StageB assembly or Native performance result.",
+  "limits": [
+    "Source transformer is a keyword lexer, not complete Lua parser; caller must compile original and output. Strings, long comments, nested headers, recursion, colon self and callback identity tested.",
+    "Only outermost same-context own function enters canonical timer; original error object/tailnil preserved and error unwinds root gate. Inclusive envelopes include Native/vanilla callees and cross-context overlap.",
+    "Top-level module initialization is outside planned post-warmup windows; future chunks dynamically loaded inside window need explicit coverage treatment.",
+    "Native timer granularity/cross-turn stability, source-level write coverage, per-context registry and full B_turn/N_req/matchedcontrol remain pending."
+  ],
+  "cumulative_through299": {
+    "logical": 299,
+    "complete": 282,
+    "length": 14,
+    "final_transport_failed": 3,
+    "http_attempts": 329,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "next": "Compose separate private diagnostic copy with explicit per-context state and actual leaf write instrumentation, test assembly/consumers, then install only after owned game exit and fresh Steam offline proof."
+}
