@@ -433,7 +433,7 @@ local function ClearCivilianOverlap(ctx,player,state,unit)
       and (BaiqiPolicy.CivilianType(row.UnitType) or row.FormationClass=="FORMATION_CLASS_CIVILIAN") then overlap=true;break end
   end
   if not overlap then return false end
-  local targets={}
+  local candidates={}
   for direction=0,5 do
     local plot=Map.GetAdjacentPlot(here:GetX(),here:GetY(),direction)
     if plot and plot:GetOwner()==ctx.player and not plot:IsWater() and not plot:IsImpassable()
@@ -444,14 +444,16 @@ local function ClearCivilianOverlap(ctx,player,state,unit)
         if pending.kind=="MOVE_TO" and pending.plot==plot:GetIndex() then reserved=true;break end
       end
       if not reserved then
-        local step=PathStep(unit,plot,player,state)
-        if step and step:GetIndex()==plot:GetIndex() then targets[#targets+1]=plot end
+        candidates[#candidates+1]=plot
       end
     end
   end
-  table.sort(targets,function(a,b) return a:GetIndex()<b:GetIndex() end)
-  for _,plot in ipairs(targets) do
-    if RequestCivilian(ctx,state,unit,"MOVE_TO",plot) then return true end
+  table.sort(candidates,function(a,b) return a:GetIndex()<b:GetIndex() end)
+  for _,plot in ipairs(candidates) do
+    local step=PathStep(unit,plot,player,state)
+    if step and step:GetIndex()==plot:GetIndex() then
+      if RequestCivilian(ctx,state,unit,"MOVE_TO",plot) then return true end
+    end
   end
   return false
 end
