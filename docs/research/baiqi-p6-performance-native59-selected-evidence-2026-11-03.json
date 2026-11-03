@@ -1,0 +1,866 @@
+{
+  "schema": "civ6.baiqi-native59-selected-q15/v1",
+  "date_local": "2026-11-03",
+  "machine_id": "BF-202609141645",
+  "source_commit": "6b246ee6d2ad8da926aaa03ac8d5dae557bb2f19",
+  "version": 59,
+  "pid": 14784,
+  "diagnostic_build": {
+    "source_version": 59,
+    "files": 69,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "normal_controller_prefix_unchanged": true,
+    "normal_controller_sha256": "0b4994eb8b1101f3db7b50b97f7905ead45244e652fa4a4c8af8a41604d73869",
+    "instrumented_sha256": "d748e4f8eed53fb0f9cd06aee157185f1dd5ac0b34e6020b91e60c34a2409bba",
+    "archive_sha256": "646b33e4e102d61470fadaf1d6038fa56e8cff7e884ed9112255f4f5e2814761",
+    "children": [
+      "ReadBack",
+      "UnitSnapshot",
+      "PathStep",
+      "Safe",
+      "TradePath",
+      "ProcessBuilder",
+      "ProcessTrader",
+      "ProcessCity",
+      "AdvanceBuilderRoute",
+      "PrepareBuilderPathPacket",
+      "ValidateBuilderPathPacket",
+      "BuilderTargets"
+    ],
+    "stage": "q15",
+    "compiled": true,
+    "installed": false,
+    "native_loaded": false
+  },
+  "diagnostic_software": {
+    "files": 69,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "normal_prefix_unchanged": true,
+    "actual_instrumented_controller_lua53_compiled": true,
+    "consumer_tests": 75,
+    "failures": 0,
+    "errors": 0,
+    "fixture": "Actualinstrumentedcontroller replacingonlyPathreadtext atactualsourcepath; existing6consumer suites;preserve preconfigured Automation or supply constant0 fallback;phase/clock fixtures keep actual changing clock, notNativegameplay. Normaldiskmodfilesunchanged.",
+    "controller_sha256": "d748e4f8eed53fb0f9cd06aee157185f1dd5ac0b34e6020b91e60c34a2409bba"
+  },
+  "install": {
+    "files": 69,
+    "actual_installed_equal_to_diagnostic": true,
+    "normal_source_files_changed": false,
+    "controller_sha256": "d748e4f8eed53fb0f9cd06aee157185f1dd5ac0b34e6020b91e60c34a2409bba",
+    "archive_sha256": "646b33e4e102d61470fadaf1d6038fa56e8cff7e884ed9112255f4f5e2814761",
+    "native_loaded": true
+  },
+  "steam": {
+    "pid": 13620,
+    "status": "offline",
+    "fresh_offline_confirmation_utc": "2026-11-03T04:03:23.719823+00:00",
+    "online_switches": 0,
+    "client_restarts": 0,
+    "method": "Separate official main/menu navigation, then fresh background read visible Go Online; no query input/focus/move/screenshot."
+  },
+  "fixture": {
+    "original_bytes": 503809,
+    "original_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "warmup_seconds": 129.54999995232,
+    "reload_same_original_after_warmup": true,
+    "manual_interior": 0,
+    "debug_resources_or_production": 0
+  },
+  "sampling": {
+    "roots": 269,
+    "pure_ten": 243,
+    "other_city_counts": 26,
+    "groups_ten": {
+      "Controller.RunNow": {
+        "n": 142,
+        "p50_ms": 6.000041961669922,
+        "p95_ms": 29.000043869018555,
+        "max_ms": 56.999921798706055
+      },
+      "Admin.Run": {
+        "n": 101,
+        "p50_ms": 2.9997825622558594,
+        "p95_ms": 5.000114440917969,
+        "max_ms": 6.000041961669922
+      }
+    },
+    "by_turn_ten": {
+      "86": {
+        "Controller.RunNow": {
+          "n": 33,
+          "p50_ms": 4.000186920166016,
+          "p95_ms": 13.99993896484375,
+          "max_ms": 29.000043869018555
+        },
+        "Admin.Run": {
+          "n": 25,
+          "p50_ms": 1.9998550415039062,
+          "p95_ms": 3.000020980834961,
+          "max_ms": 3.999948501586914
+        }
+      },
+      "87": {
+        "Controller.RunNow": {
+          "n": 32,
+          "p50_ms": 9.999990463256836,
+          "p95_ms": 36.00001335144043,
+          "max_ms": 40.9998893737793
+        },
+        "Admin.Run": {
+          "n": 24,
+          "p50_ms": 3.000020980834961,
+          "p95_ms": 5.000114440917969,
+          "max_ms": 6.000041961669922
+        }
+      },
+      "88": {
+        "Controller.RunNow": {
+          "n": 32,
+          "p50_ms": 4.999876022338867,
+          "p95_ms": 34.999847412109375,
+          "max_ms": 56.999921798706055
+        },
+        "Admin.Run": {
+          "n": 24,
+          "p50_ms": 1.0001659393310547,
+          "p95_ms": 4.999876022338867,
+          "max_ms": 5.000114440917969
+        }
+      },
+      "89": {
+        "Controller.RunNow": {
+          "n": 28,
+          "p50_ms": 9.999990463256836,
+          "p95_ms": 19.999980926513672,
+          "max_ms": 30.99989891052246
+        },
+        "Admin.Run": {
+          "n": 19,
+          "p50_ms": 3.000020980834961,
+          "p95_ms": 6.000041961669922,
+          "max_ms": 6.000041961669922
+        }
+      },
+      "90": {
+        "Controller.RunNow": {
+          "n": 17,
+          "p50_ms": 5.99980354309082,
+          "p95_ms": 30.99989891052246,
+          "max_ms": 30.99989891052246
+        },
+        "Admin.Run": {
+          "n": 9,
+          "p50_ms": 3.000020980834961,
+          "p95_ms": 5.000114440917969,
+          "max_ms": 5.000114440917969
+        }
+      }
+    },
+    "children": 3517,
+    "child_groups_pure_ten": {
+      "ReadBack": {
+        "n": 132,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 6.000041961669922
+      },
+      "UnitSnapshot": {
+        "n": 1448,
+        "p50_ms": 0.0,
+        "p95_ms": 0.9999275207519531,
+        "max_ms": 2.000093460083008
+      },
+      "PathStep": {
+        "n": 7,
+        "p50_ms": 3.000020980834961,
+        "p95_ms": 25.00009536743164,
+        "max_ms": 25.00009536743164
+      },
+      "Safe": {
+        "n": 263,
+        "p50_ms": 0.0,
+        "p95_ms": 3.000020980834961,
+        "max_ms": 5.99980354309082
+      },
+      "TradePath": {
+        "n": 48,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 3.999948501586914
+      },
+      "ProcessBuilder": {
+        "n": 29,
+        "p50_ms": 4.000186920166016,
+        "p95_ms": 12.000083923339844,
+        "max_ms": 12.000083923339844
+      },
+      "ProcessTrader": {
+        "n": 4,
+        "p50_ms": 11.999845504760742,
+        "p95_ms": 23.000001907348633,
+        "max_ms": 23.000001907348633
+      },
+      "ProcessCity": {
+        "n": 1140,
+        "p50_ms": 0.0,
+        "p95_ms": 0.9999275207519531,
+        "max_ms": 29.999971389770508
+      },
+      "AdvanceBuilderRoute": {
+        "n": 32,
+        "p50_ms": 3.000020980834961,
+        "p95_ms": 34.00015830993652,
+        "max_ms": 37.999868392944336
+      },
+      "PrepareBuilderPathPacket": {
+        "n": 17,
+        "p50_ms": 1.9998550415039062,
+        "p95_ms": 34.00015830993652,
+        "max_ms": 34.00015830993652
+      },
+      "ValidateBuilderPathPacket": {
+        "n": 17,
+        "p50_ms": 1.0001659393310547,
+        "p95_ms": 22.00007438659668,
+        "max_ms": 22.00007438659668
+      },
+      "BuilderTargets": {
+        "n": 51,
+        "p50_ms": 0.0,
+        "p95_ms": 2.000093460083008,
+        "max_ms": 3.000020980834961
+      }
+    },
+    "root_metadata": [
+      "P6_PERF_Q15_RESTORED\ttrue\ttrue\t269\t0\t0\t31\t0\t0",
+      "P6_PERF_Q15_WINDOW\t88\t1793679525.057\t1793679525.061\t1793679525.057",
+      "P6_PERF_Q15_WINDOW\t89\t1793679700.465\t1793679700.474\t1793679700.465",
+      "P6_PERF_Q15_WINDOW\t90\t1793679723.34\t1793679723.345\t1793679723.34",
+      "P6_PERF_Q15_WINDOW\t86\t1793679372.795\t1793679372.799\t1793679372.795",
+      "P6_PERF_Q15_WINDOW\t87\t1793679401.003\t1793679401.011\t1793679401.003"
+    ],
+    "child_metadata": [
+      [
+        "P6_PERF_Q15_CHILDREN_RESTORED",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "P6_PERF_Q15_CHILD_PROFILE",
+        "3517",
+        "3517",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "slow_root_breakdown": [
+      {
+        "root": {
+          "id": "139",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "88",
+          "turn_after": "88",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793679529.275",
+          "seconds": "0.056999921798706055",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793679529.2750001",
+          "exact_ended": "1793679529.332",
+          "status_after": "文职单位本回合自动待命；原能力回执继续保留"
+        },
+        "child_union_ms": 40.000200271606445,
+        "uncovered_by_twelve_children_ms": 16.99972152709961,
+        "largest_children": [
+          {
+            "index": "1832",
+            "name": "PathStep",
+            "seconds": "0.025000095367431641",
+            "failed": "false",
+            "started": "1793679529.3",
+            "ended": "1793679529.325",
+            "root_id": "139",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1793",
+            "name": "ReadBack",
+            "seconds": "0.0060000419616699219",
+            "failed": "false",
+            "started": "1793679529.2750001",
+            "ended": "1793679529.2810001",
+            "root_id": "139",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1818",
+            "name": "Safe",
+            "seconds": "0.0030000209808349609",
+            "failed": "false",
+            "started": "1793679529.2920001",
+            "ended": "1793679529.2950001",
+            "root_id": "139",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1820",
+            "name": "Safe",
+            "seconds": "0.0030000209808349609",
+            "failed": "false",
+            "started": "1793679529.2969999",
+            "ended": "1793679529.3",
+            "root_id": "139",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1821",
+            "name": "Safe",
+            "seconds": "0.0030000209808349609",
+            "failed": "false",
+            "started": "1793679529.3",
+            "ended": "1793679529.303",
+            "root_id": "139",
+            "root_turn": "88",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "73",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "87",
+          "turn_after": "87",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793679403.426",
+          "seconds": "0.040999889373779297",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793679403.4260001",
+          "exact_ended": "1793679403.467",
+          "status_after": "建造者继续检查安全路线；军队由你指挥"
+        },
+        "child_union_ms": 37.999868392944336,
+        "uncovered_by_twelve_children_ms": 3.000020980834961,
+        "largest_children": [
+          {
+            "index": "907",
+            "name": "AdvanceBuilderRoute",
+            "seconds": "0.037999868392944336",
+            "failed": "false",
+            "started": "1793679403.4290001",
+            "ended": "1793679403.467",
+            "root_id": "73",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "906",
+            "name": "PrepareBuilderPathPacket",
+            "seconds": "0.034000158309936523",
+            "failed": "false",
+            "started": "1793679403.4319999",
+            "ended": "1793679403.4660001",
+            "root_id": "73",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "903",
+            "name": "Safe",
+            "seconds": "0.0030000209808349609",
+            "failed": "false",
+            "started": "1793679403.4330001",
+            "ended": "1793679403.4360001",
+            "root_id": "73",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "901",
+            "name": "BuilderTargets",
+            "seconds": "0.0019998550415039063",
+            "failed": "false",
+            "started": "1793679403.4300001",
+            "ended": "1793679403.4319999",
+            "root_id": "73",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "897",
+            "name": "ReadBack",
+            "seconds": "0",
+            "failed": "false",
+            "started": "1793679403.427",
+            "ended": "1793679403.427",
+            "root_id": "73",
+            "root_turn": "87",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "67",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "87",
+          "turn_after": "87",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793679402.304",
+          "seconds": "0.03600001335144043",
+          "failed": "false",
+          "allow_orders": "nil",
+          "exact_started": "1793679402.3040001",
+          "exact_ended": "1793679402.3400002",
+          "status_after": "建造者继续检查安全路线；军队由你指挥"
+        },
+        "child_union_ms": 34.00015830993652,
+        "uncovered_by_twelve_children_ms": 1.9998550415039062,
+        "largest_children": [
+          {
+            "index": "837",
+            "name": "AdvanceBuilderRoute",
+            "seconds": "0.034000158309936523",
+            "failed": "false",
+            "started": "1793679402.306",
+            "ended": "1793679402.3400002",
+            "root_id": "67",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "836",
+            "name": "PrepareBuilderPathPacket",
+            "seconds": "0.032000064849853516",
+            "failed": "false",
+            "started": "1793679402.3080001",
+            "ended": "1793679402.3400002",
+            "root_id": "67",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "833",
+            "name": "Safe",
+            "seconds": "0.0050001144409179688",
+            "failed": "false",
+            "started": "1793679402.309",
+            "ended": "1793679402.3140001",
+            "root_id": "67",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "831",
+            "name": "BuilderTargets",
+            "seconds": "0.0020000934600830078",
+            "failed": "false",
+            "started": "1793679402.306",
+            "ended": "1793679402.3080001",
+            "root_id": "67",
+            "root_turn": "87",
+            "root_cities": "10"
+          },
+          {
+            "index": "827",
+            "name": "ReadBack",
+            "seconds": "0",
+            "failed": "false",
+            "started": "1793679402.3040001",
+            "ended": "1793679402.3040001",
+            "root_id": "67",
+            "root_turn": "87",
+            "root_cities": "10"
+          }
+        ]
+      },
+      {
+        "root": {
+          "id": "138",
+          "parent": "nil",
+          "name": "Controller.RunNow",
+          "turn_before": "88",
+          "turn_after": "88",
+          "cities_before": "10",
+          "cities_after": "10",
+          "snapshot_started": "1793679528.877",
+          "seconds": "0.034999847412109375",
+          "failed": "false",
+          "allow_orders": "true",
+          "exact_started": "1793679528.8770001",
+          "exact_ended": "1793679528.9119999",
+          "status_after": "已提交文职伟人内政任务，等待实际结果"
+        },
+        "child_union_ms": 17.999887466430664,
+        "uncovered_by_twelve_children_ms": 16.99995994567871,
+        "largest_children": [
+          {
+            "index": "1790",
+            "name": "Safe",
+            "seconds": "0.0050001144409179688",
+            "failed": "false",
+            "started": "1793679528.8989999",
+            "ended": "1793679528.904",
+            "root_id": "138",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1788",
+            "name": "Safe",
+            "seconds": "0.0039999485015869141",
+            "failed": "false",
+            "started": "1793679528.8940001",
+            "ended": "1793679528.898",
+            "root_id": "138",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1792",
+            "name": "Safe",
+            "seconds": "0.0020000934600830078",
+            "failed": "false",
+            "started": "1793679528.9089999",
+            "ended": "1793679528.911",
+            "root_id": "138",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1763",
+            "name": "ReadBack",
+            "seconds": "0.0019998550415039063",
+            "failed": "false",
+            "started": "1793679528.8770001",
+            "ended": "1793679528.8789999",
+            "root_id": "138",
+            "root_turn": "88",
+            "root_cities": "10"
+          },
+          {
+            "index": "1764",
+            "name": "ProcessCity",
+            "seconds": "0.0010001659393310547",
+            "failed": "false",
+            "started": "1793679528.8789999",
+            "ended": "1793679528.8800001",
+            "root_id": "138",
+            "root_turn": "88",
+            "root_cities": "10"
+          }
+        ]
+      }
+    ],
+    "facts_sha256": "b89d8fc48bf05bd9b040d52af7f6426dcf9a561a700c85de31fcb797dd15a219",
+    "lua_sha256": "443f6031df0499c982fc84f14560a9cdba13aa2543e67eba4e3def9c5af5e06d",
+    "runtime_errors": 0,
+    "baiqi_errors": 0
+  },
+  "observer": {
+    "roots_restored": 2,
+    "children_restored": 12,
+    "state_cleared": true,
+    "child_rows_all_joined_to_parent_and_contained": true,
+    "initialization_excluded": 31,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "metadata_errors": 0,
+    "query_proxies": false,
+    "action_proxies": false,
+    "cpu_clock_used": false
+  },
+  "partial_observed_root_union": {
+    "88": {
+      "observed_planner_union_ms": 341.9995307922363,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793679525.057,
+      "activation_observer": 1793679525.061,
+      "first_planner": 1793679525.057,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "89": {
+      "observed_planner_union_ms": 310.0004196166992,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793679700.465,
+      "activation_observer": 1793679700.474,
+      "first_planner": 1793679700.465,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "90": {
+      "observed_planner_union_ms": 361.9999885559082,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793679723.34,
+      "activation_observer": 1793679723.345,
+      "first_planner": 1793679723.34,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "86": {
+      "observed_planner_union_ms": 238.00063133239746,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793679372.795,
+      "activation_observer": 1793679372.799,
+      "first_planner": 1793679372.795,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    },
+    "87": {
+      "observed_planner_union_ms": 459.99956130981445,
+      "clock": "sameBaiqiExecutorAutomation.GetTime",
+      "window_start": 1793679401.003,
+      "activation_observer": 1793679401.011,
+      "first_planner": 1793679401.003,
+      "B_turn": "UNKNOWN: only2entrypoints, notallmodules; observeractivationtimestampfollowsalreadyregisteredhandlers."
+    }
+  },
+  "result": {
+    "B_plan": "FAIL in diagnostic copy:Controller142 p95~29ms/max~57ms;Admin101 p95~5/max~6ms. Normal59 earlier minimal q14 p95~19/max50.999880ms stillFAIL.",
+    "B_turn": "UNKNOWN",
+    "N_req": "NOT_COVERED",
+    "B_delta": "NOT_RUN",
+    "TC036": "NOT_PASS"
+  },
+  "attribution": "Actual slowest root139@88~57ms contains PathStep~25ms and selected-child union~40ms,~17ms outside12children. Root73@87~41ms contains AdvanceBuilderRoute~38ms with PrepareBuilderPathPacket~34ms;Root67~36ms contains packet~32ms. ValidateBuilderPathPacket max~22ms and ProcessCity max~30ms. Inclusive nested times must not be added. This does not prove normal q14 max cause, CPU cause, native-query-only duration or exact caller of PathStep. Cross-run trajectories and added observers differ, overhead uncalibrated.",
+  "outcomes": {
+    "turn": 90,
+    "cities_ui_core": 11,
+    "ids_owners_coords_match": true,
+    "queues": [
+      [
+        "65536",
+        "0",
+        "16",
+        "14",
+        "1",
+        "-46510675"
+      ],
+      [
+        "131073",
+        "0",
+        "11",
+        "6",
+        "1",
+        "1547024909"
+      ],
+      [
+        "196610",
+        "0",
+        "10",
+        "13",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "262147",
+        "0",
+        "13",
+        "16",
+        "1",
+        "101426179"
+      ],
+      [
+        "327684",
+        "0",
+        "8",
+        "10",
+        "1",
+        "806902947"
+      ],
+      [
+        "393221",
+        "0",
+        "15",
+        "5",
+        "1",
+        "1738306535"
+      ],
+      [
+        "458758",
+        "0",
+        "19",
+        "6",
+        "1",
+        "1738306535"
+      ],
+      [
+        "524295",
+        "0",
+        "14",
+        "9",
+        "1",
+        "-1698135861"
+      ],
+      [
+        "589832",
+        "0",
+        "8",
+        "3",
+        "1",
+        "-2025065568"
+      ],
+      [
+        "655369",
+        "0",
+        "11",
+        "1",
+        "1",
+        "-764771404"
+      ],
+      [
+        "720906",
+        "0",
+        "16",
+        "18",
+        "1",
+        "-764771404"
+      ]
+    ],
+    "all_queues_nonempty": true,
+    "domestic_routes": [
+      [
+        "65536",
+        "3932190",
+        "0",
+        "65536",
+        "0",
+        "393221"
+      ],
+      [
+        "65536",
+        "2752532",
+        "0",
+        "65536",
+        "0",
+        "524295"
+      ],
+      [
+        "65536",
+        "2883608",
+        "0",
+        "65536",
+        "0",
+        "196610"
+      ],
+      [
+        "65536",
+        "851970",
+        "0",
+        "65536",
+        "0",
+        "262147"
+      ],
+      [
+        "131073",
+        "3080218",
+        "0",
+        "131073",
+        "0",
+        "327684"
+      ],
+      [
+        "131073",
+        "3145753",
+        "0",
+        "131073",
+        "0",
+        "524295"
+      ],
+      [
+        "131073",
+        "3473422",
+        "0",
+        "131073",
+        "0",
+        "589832"
+      ],
+      [
+        "131073",
+        "4587555",
+        "0",
+        "131073",
+        "0",
+        "196610"
+      ],
+      [
+        "458758",
+        "2228241",
+        "0",
+        "458758",
+        "0",
+        "393221"
+      ]
+    ],
+    "knight_readback": [
+      "4456482",
+      "10",
+      "6",
+      "4"
+    ],
+    "save_bytes": 518962,
+    "save_sha256": "a6268e4dd3d7c05e341e35d0ce7e6b166e2ab6af93e409341f1b4f329c7dd8fe",
+    "save_reloaded": false
+  },
+  "player_actions": {
+    "endturns": [
+      "P6_PERF_Q15_EXPLICIT_PLAYER_ENDTURN\t85",
+      "P6_PERF_Q15_EXPLICIT_PLAYER_ENDTURN\t86",
+      "P6_PERF_Q15_EXPLICIT_PLAYER_ENDTURN\t87",
+      "P6_PERF_Q15_EXPLICIT_PLAYER_ENDTURN\t88",
+      "P6_PERF_Q15_EXPLICIT_PLAYER_ENDTURN\t89"
+    ],
+    "military_skips": 92,
+    "diplomacy": "Driver stopped atAlexander farewell, fresh image+explicit physicalEsc once.",
+    "unstack": "Readonly88 showed two player cavalry at11,6,moves4,formation1;explicit player knight4456482 to10,6 once.",
+    "loading": "Fresh owned Continue image before each Esc."
+  },
+  "clock_burst": "Separate owner32-read pre-formal clock burst/bridge restoration at a9173b6;2 displayed values/~1ms, not persistent clock alignment or full coverage.",
+  "owner_preinstall_errors": {
+    "scope": "Owner diagnostic preparation only, not normal59 runtime or local-model candidates",
+    "early_verifier_dispatch": "Builder returned running session53886; owner attempted dependent verifier before checking completion. File not yet written, Python exit2 before any verification/body. Waited53886 exit0, then actual verifier ran. No build replay/install/game action followed missing file.",
+    "first_actual_verification": {
+      "methods": 75,
+      "failures": 3,
+      "errors": 10,
+      "seconds": 3.297,
+      "cause": "Owner prefix unconditionally replaced preconfigured Automation clock, causing real phase fixtures to stay at constant0 and finish in one callback."
+    },
+    "correction": "New exclusive log/report paths; preserve existing Automation or provide constant0 only if absent. Original failure artifacts retained. Actual diagnostic controller/suffix unchanged.",
+    "corrected_verification": {
+      "methods": 75,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 5.147
+    },
+    "instrumented_controller_sha256": "d748e4f8eed53fb0f9cd06aee157185f1dd5ac0b34e6020b91e60c34a2409bba",
+    "normal_controller_sha256": "0b4994eb8b1101f3db7b50b97f7905ead45244e652fa4a4c8af8a41604d73869",
+    "installed_at_record": false,
+    "native_loaded_at_record": false
+  },
+  "next": "Continue real source-level scheduling improvements and current-consumer tests before new normal build/cold run. Do not remove unsafe-target precheck, change permissions/budgets, infer cause from status or count static inventory as runtime coverage. Full-module/native-write ledger/matched pairs remain open."
+}
