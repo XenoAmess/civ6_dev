@@ -1,0 +1,122 @@
+{
+  "schema": "civ6.p6-normal-training-snapshot322/v1",
+  "date_local": "2026-11-04",
+  "at_utc": "2026-11-04T00:26:25.652791+00:00",
+  "machine_id": "BF-202609141645",
+  "cases": [
+    {
+      "sequence": 322,
+      "case_id": "civ6-training322",
+      "mode_id": "http-candidate",
+      "shared_commit": "729bee7b4999e2cb486212bc4a369ff2a4c9e763",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T00:22:35.028552+00:00",
+      "attempt_end_utc": "2026-11-04T00:22:45.339918+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 10311.49049999658,
+        "first_nonempty_content_delta_ms": 1245.8488999982364,
+        "usage": {
+          "prompt_tokens": 6783,
+          "completion_tokens": 1509,
+          "total_tokens": 8292
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T00:22:35.028552+00:00",
+          "end_utc": "2026-11-04T00:22:45.339918+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 10311.49049999658
+        }
+      ],
+      "adoption": "PARTIAL_CODE_OWNER_CORRECTED",
+      "review": {
+        "adopted": "Partial read-order/data shape/API selection; owner-corrected implementation. No candidate game action.",
+        "issues": [
+          "env/getter exceptions escape instead of returning nil/fixedreason; no outer protected read.",
+          "head indices unvalidated; home_city not validated; other-unit unreadable type silently skipped.",
+          "isInt rejects negative hashes indiscriminately but signed integer hashes are observations; moves/progress/cost accept negative finite numbers.",
+          "Missing full city-ID alias check, owner consistency and duplicate unit checks.",
+          "Candidate limits incorrectly claim strict all-field validation and exception-safe failure."
+        ],
+        "owner_changes": [
+          "Protect entire read and return fixed READ_FAILED without raw provider error.",
+          "Validate complete finite/integer data, optional head fields, home -1 and signed hash/coordinates; retain legitimate zeros, negative gold and rule-modified cost.",
+          "Verify exact returned full city ID, local owner and unique archaeologist IDs.",
+          "Read-only Lua module is owner-invoked UI observer, not installed mod or cost/causality verdict."
+        ]
+      },
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 1,
+    "seconds_at_peak": 10.311366,
+    "longest_seconds_at_peak": 10.311366,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "current_inflight": 0,
+  "target_http_inflight": 60,
+  "target_reached": false,
+  "cumulative_through322": {
+    "logical": 322,
+    "complete": 301,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 352,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "owned_files_sha256": {
+    "tools/lua/normal_training_snapshot.lua": "3689e481abd068e08355c0e2c1d6f8b510f706a80c4cfa7f24c1842952529e23",
+    "tests/test_normal_training_snapshot.py": "3eb546d1480aace4a7e6df75c831b678201dafce35e782d07fd8aabe9b2b461f"
+  },
+  "validation": {
+    "command": "python -X utf8 -m unittest discover -s tests -p test_normal_training_snapshot.py -v",
+    "passed": 6,
+    "seconds": 0.029,
+    "scope": "Actual new Lua module through Lua5.3 interpreter, synthetic read providers and fault branches; proxy table indexing is not actual Native userdata. No Native game effect or normal production completion yet."
+  },
+  "normal_training_fixture": {
+    "save_name": "Baiqi_P6_20261103_V66_NormalArcQueueCongress101.Civ6Save",
+    "bytes": 539400,
+    "sha256": "d702498eeb56fe7de4f41ed929af035547db2f63ec5e925feebc8d0773d370d4",
+    "city_id": 196610,
+    "queue_progress": 0,
+    "read_cost": 200,
+    "limits": "Historical confirmed queue only, congress pending, no paid200production completion. Restore normal67 before this next functional run."
+  },
+  "maintenance": "LocalNov4 same-client OpenCode1.19.5 successful cache reused; not native-tool generation.",
+  "costs": {
+    "exclusive_owner_seconds": null,
+    "cache_hit_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null,
+    "interleaving": "Owner phases interleaved with sole-owner paired run4 Native work; elapsed spans not exclusive active time."
+  }
+}
