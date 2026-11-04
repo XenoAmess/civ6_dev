@@ -1,0 +1,148 @@
+{
+  "schema": "civ6.post-workshop74-cold-restore/v1",
+  "at_utc": "2026-11-04T23:08:02.487022+00:00",
+  "machine_id": "BF-202609141645",
+  "product_build": 74,
+  "product_file_count": 87,
+  "product_changes": 0,
+  "source_at_launch": "9a769db6dfa566aea2c3afaa004e474484e9f3ff",
+  "offline_gate": {
+    "steam_pid": 19252,
+    "steam_birth": 1793825984.0549335,
+    "confirmed_at_utc": "2026-11-04T22:26:22.406805+00:00",
+    "proof_age_at_launch_seconds": 25.969658,
+    "method": "Fresh current Steam MenuItem read-only point query: 上线..., no input/focus/activation/move/screenshot; not friend state or cached config.",
+    "acceptance_online_switches": 0
+  },
+  "owned_game": {
+    "pid": 18760,
+    "birth": 1793831208.9333148
+  },
+  "restored": {
+    "normal_checkpoint_sha256": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6",
+    "turn": 114,
+    "player": 0,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "city_196610_population": 9,
+    "queue_size": 1,
+    "queue_hash": 101426179,
+    "farm_plot": 539,
+    "builder": {
+      "id": 5832733,
+      "charges": 1,
+      "moves": 0
+    },
+    "horse": {
+      "id": 2162700,
+      "x": 10,
+      "y": 12,
+      "moves": 4,
+      "requisition_cooldown": null
+    },
+    "requisition_journal": null,
+    "artifact_work_id": 15,
+    "archaeology_stage": "OBSERVED",
+    "prophet_stage": "LEGACY_UNKNOWN"
+  },
+  "readonly_wonder_inventory": {
+    "cities_read": 20,
+    "unknown_building_collections": 0,
+    "wonder_count": 5,
+    "wonders": [
+      {
+        "owner": 1,
+        "city_id": 65536,
+        "x": 40,
+        "y": 11,
+        "population": 21,
+        "building_index": 91,
+        "building_type": "BUILDING_TEMPLE_ARTEMIS",
+        "pillaged": false
+      },
+      {
+        "owner": 1,
+        "city_id": 131073,
+        "x": 39,
+        "y": 15,
+        "population": 11,
+        "building_index": 50,
+        "building_type": "BUILDING_PYRAMIDS",
+        "pillaged": false
+      },
+      {
+        "owner": 1,
+        "city_id": 131073,
+        "x": 39,
+        "y": 15,
+        "population": 11,
+        "building_index": 121,
+        "building_type": "BUILDING_GREAT_BATH",
+        "pillaged": false
+      },
+      {
+        "owner": 1,
+        "city_id": 196610,
+        "x": 38,
+        "y": 8,
+        "population": 6,
+        "building_index": 122,
+        "building_type": "BUILDING_MACHU_PICCHU",
+        "pillaged": false
+      },
+      {
+        "owner": 1,
+        "city_id": 262147,
+        "x": 37,
+        "y": 12,
+        "population": 11,
+        "building_index": 136,
+        "building_type": "BUILDING_ETEMENANKI",
+        "pillaged": false
+      }
+    ],
+    "retention_acceptance": false,
+    "military_or_diplomatic_orders": 0
+  },
+  "raw_evidence_sha256": {
+    "post-workshop74-cold-launch-receipt.json": "8536008f48c568f05112d0beec3fbe319f5a2cb3a4b168bb172aaa487e663ad2",
+    "post-workshop74-load-response.json": "2568eaffaa2c2039520eff5a3433789fd3afffd2ffec8fc1e86920548da72da4",
+    "post-workshop74-continue-attempt.json": "8ab06c9ad27799beb895735c8bc9b57b6be6e8b0f7571bb3317353815308c1e9",
+    "post-workshop74-status-ready-response.json": "da43056116dde0ef3d27f1886613c7caf19a9a64e53e15e0f7f6ce91017a3bf2",
+    "post-workshop74-own-assets-response.json": "a2596f7d199d8a2edb165170a2bf5dd420ebd13a8606485728dd11e85485189e",
+    "post-workshop74-baseline-contexts-response.json": "f6b60e515cc3db71ea701773a739e3509af991723247b4e02385e74d9a1c813d",
+    "post-workshop74-world-wonders-core-response.json": "7dc052c765ad9fdf26c86239e17b2f0cef811781007c34b2af47b7daf76aa26f",
+    "post-workshop74-core-api-response.json": "7af9f809021abea2751830fa8cec889246da18c69f930486363af7242808fcb5",
+    "post-workshop74-wonder-targets-ui-response.json": "0e803c3c71569d1c3c9c4ba6fd6c1901805b334fcb288087476707952c141a28"
+  },
+  "owner_diagnostic_limits": [
+    "Official load ACK was recorded separately from actual ready-state and independent checkpoint readback.",
+    "4318 refused during loading/Continue; two owned4319 read-only LSQ attempts timed out, no CMD sent. Confirmed Continue page Esc once restored4318 and valid unique ingame contexts. No action replay or endpoint fallback.",
+    "One owner baseline probe used UI queue methods in GameCore; stopped at missing method. Corrected by splitting GameCore persistent state and ProductionPanel queue/work reads, without game mutation.",
+    "Broad foreign UI inventory failed; no partial list treated as complete. GameCore bounded0..63player-slot existing wonder inventory completed20cities/0unknown/5wonders.",
+    "GameCore per-city district Members is unavailable despite UI consumer support; target preflight stopped without mutation. Foreign UI district and loyalty reads remain next qualification.",
+    "UI nil-property value is not used to prove persisted journal state; actual GameCore nil requisition journal was independently verified.",
+    "Later visible-target UI read completed all four city district/loyalty/building/great-work inventories. Foreign GameCore unit Members is also unavailable; stationed-unit inventory remains open. No QA diplomacy or military mutation yet."
+  ],
+  "model_calls_since401": 0,
+  "software_suite_rerun": false,
+  "full_40_game_cases_complete": false,
+  "readonly_visible_target_assets": {
+    "cities": 4,
+    "district_counts": [
+      7,
+      6,
+      4,
+      6
+    ],
+    "loyalty": [
+      100,
+      100,
+      100,
+      100
+    ],
+    "complete_building_and_great_work_slots_read": true,
+    "retention_acceptance": false
+  }
+}
