@@ -1,0 +1,296 @@
+{
+  "schema": "civ6.baiqi-native74-cold387388/v1",
+  "at_utc": "2026-11-04T16:22:14.893977+00:00",
+  "date_local": "2026-11-05",
+  "machine_id": "BF-202609141645",
+  "source_commit": "6e8467ccbdbaff699a95e05de1403de0e1b3fb30",
+  "source_version": 74,
+  "installed_version": 74,
+  "running_version": 74,
+  "pid": 9348,
+  "game_birth": 1793808012.6585147,
+  "turn": 114,
+  "install": {
+    "files": 87,
+    "all_bytes_equal": true,
+    "package": {
+      "bytes": 8743523,
+      "sha256": "e55137dbc88c07c77f060fba6aff6d8d038972d3203f7b56d2e1fbb7e5128b2d"
+    },
+    "normal_package": true
+  },
+  "startup": {
+    "proof_age_seconds": 0.972989,
+    "steam_mode_changes": 0,
+    "proof": {
+      "timestamp_utc": "2026-11-04T16:00:11.669454+00:00",
+      "client_pid": 13620,
+      "client_started_utc": "2026-10-31T14:01:46.127500+00:00",
+      "status": "offline",
+      "input_sent": false,
+      "focus_changed": false,
+      "screenshot_used": false
+    },
+    "visible_mode_action": "上线...",
+    "same_steam_instance": true,
+    "scope": "IndependentbackgroundreadonlyUIAconfirmation afterofficialheadernavigation; menuInvokeitselfnotmodeproof. Someinitialunavailablequeriespreserved."
+  },
+  "prior73_exit": {
+    "official_exit_once": true,
+    "first_visible-window_confirmation_failed_beforecleanup": true,
+    "later_readonly_seconds_since_exit": 72.705892,
+    "later_cpu_percent": 0,
+    "later_visible_windows": [],
+    "owned_windowless_residual_terminated_after_identity_check": true,
+    "steam_untouched": true
+  },
+  "initial114": {
+    "five_context_verification": "PASS",
+    "city": 196610,
+    "gold": "4524.2734375",
+    "faith": "397.94140625",
+    "queue_size": 1,
+    "queue_hash": 101426179,
+    "farm_plot": 539,
+    "builder": 5832733,
+    "builder_charges": 1,
+    "builder_moves": 0,
+    "artifact_work": 15,
+    "archaeology_serial": 1,
+    "archaeology_stage": "OBSERVED",
+    "prophet_stage": "LEGACY_UNKNOWN",
+    "requisition_journal": null,
+    "horse_moves": 4,
+    "horse_cooldown": null,
+    "production_and_citizen_controls_disabled": true,
+    "observers_absent": true
+  },
+  "finance_preflight": {
+    "only_readonly": true,
+    "building_yield_rows": 97,
+    "gold_building_instances": 6,
+    "commerce_harbor_districts": 7,
+    "no_pressure_setup_performed": true,
+    "full_financial_case_passed": false
+  },
+  "model_isolation_preflight": {
+    "MpsSvc_running": true,
+    "BFE_running": true,
+    "ordinary_firewall_profiles_all_off": true,
+    "network_policy_changes": 0,
+    "wholemachine_profiles_not_changed": true,
+    "SDK": "10.0.26100.0",
+    "compiler": "VisualStudio18Community",
+    "no_implemented_isolation_or_selftest_yet": true
+  },
+  "cases": [
+    {
+      "sequence": 387,
+      "case_id": "civ6-isolation387-native74-financial-isolation",
+      "mode_id": "http-candidate",
+      "shared_commit": "e0f394c55eb83aaeb5e7fa2390d33368f1c689a5",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 6400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T16:18:42.557300+00:00",
+      "attempt_end_utc": "2026-11-04T16:19:24.452902+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 42047.74670000188,
+        "first_nonempty_content_delta_ms": 4722.0238000154495,
+        "usage": {
+          "prompt_tokens": 20555,
+          "completion_tokens": 6400,
+          "total_tokens": 26955
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T16:18:42.557300+00:00",
+          "end_utc": "2026-11-04T16:19:24.452902+00:00",
+          "failure": "finish_reason_length",
+          "finish_reason": "length",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 42047.74670000188
+        }
+      ],
+      "adoption": "0wholelengthdiscard",
+      "review": "6400tokenslength; nohalfCPPextraction/compilation/adoption. CurrentFirewallprofilesOFF, no policychanges; scopedselftestnotyetimplemented.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 388,
+      "case_id": "civ6-finance388-native74-financial-isolation",
+      "mode_id": "http-candidate",
+      "shared_commit": "e0f394c55eb83aaeb5e7fa2390d33368f1c689a5",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T16:18:42.823964+00:00",
+      "attempt_end_utc": "2026-11-04T16:18:59.020231+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 16198.183999978937,
+        "first_nonempty_content_delta_ms": 5721.522799984086,
+        "usage": {
+          "prompt_tokens": 20587,
+          "completion_tokens": 1426,
+          "total_tokens": 22013
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T16:18:42.823964+00:00",
+          "end_utc": "2026-11-04T16:18:59.020231+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 16198.183999978937
+        }
+      ],
+      "adoption": "0plan",
+      "review": "Confusesdistrict/cityIDswithbuildingindicesandwrongcityowners throughout; allCity65536incorrect, PalaceIDalsofake. Rejectwholeactionlist. No damageperformed.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 16.196267,
+    "longest_seconds_at_peak": 16.196267,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through388": {
+    "logical_requests": 388,
+    "complete_stop_json": 361,
+    "length_whole_discarded": 24,
+    "final_transport_failed": 3,
+    "http_attempts": 418,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": {
+    "date_local": "2026-11-05",
+    "machine_id": "BF-202609141645",
+    "installed_version": "1.19.5",
+    "registry_latest": "1.19.5",
+    "updated": false,
+    "actual_check_event_before_HTTP": true,
+    "388_reused_success_cache": true,
+    "new_opencode_native_generation": 0
+  },
+  "owner_cost_seconds": null,
+  "cached_tokens_if_unreported": null,
+  "server_queue_wait": null,
+  "net_savings": null,
+  "limits": [
+    "Cold74ordinaryFarm114restoreonly, notNativepaid-buildingincome-race/financialshockPASS.",
+    "NoGameeconomicshock/noGameisolationleaseyet; originalFarm114fileuntouched.",
+    "CurrentprofilesOFFcannotaddordinaryruleandclaimmodelaccessblocked; no machineprofiles/Steam/sharedmodelsservicechanges.",
+    "Software1029fromsource74earlierfullsuite, notrerunforcolddocumentation.",
+    "TC036pressureandremainingTC031/TC038matrixstillopen."
+  ],
+  "next_real": "OwnercorrecttypedassetfixtureandbuildnarrowWFPselftestagainstOWNQAexeonlybeforeanyGameisolation; keepactualnetGold/effectsseparateandrestoreFarm114.",
+  "fingerprints": {
+    "source74-prior73-exit-receipt.json": {
+      "bytes": 236,
+      "sha256": "9b7d6d465e2ceb31462c3d9d428162ced066b15cf07910878e53036b93da36f3"
+    },
+    "source74-owned73-exit-readonly-status.json": {
+      "bytes": 209,
+      "sha256": "9d80ad44bd3a3e05e1fa7edfa5b4838e0fab45a863f1834cf8ad663778fc70f1"
+    },
+    "source74-normal-install-receipt.json": {
+      "bytes": 10013,
+      "sha256": "0c895f84d607a28d2426a4ebf5889bf300e7550d38a43b3a7e636f27e635da28"
+    },
+    "source74-cold-launch-receipt.json": {
+      "bytes": 579,
+      "sha256": "24f330e2977b872dfd53ab980cb3dc8bed876da17a8b75a4c43e878b719e4bc7"
+    },
+    "source74-cold-load-farm114-attempt.json": {
+      "bytes": 439,
+      "sha256": "313230c8885b2e96e4e0a5f543e96b5c86fd2b367dc55f23ab608202c9ec91f2"
+    },
+    "source74-cold-load-farm114-response.json": {
+      "bytes": 1071,
+      "sha256": "3684a59c6b7b424b5678bfb88748d790d95d844df5ba3448904ea16125c0ee89"
+    },
+    "source74-farm114-continue-physical-attempt.json": {
+      "bytes": 430,
+      "sha256": "b49198a0daab6957b4948eba635bf37ebf17de2b8e148fe5f620b3a998be5843"
+    },
+    "source74-initial114-verified.json": {
+      "bytes": 21275,
+      "sha256": "05469ae1d515194289b9d33102d8ada4ade6f726dc3f96cab59638100138e11a"
+    },
+    "native74-initial-install-log-check.json": {
+      "bytes": 237,
+      "sha256": "2288fc63c2f787065481802f07b8711759f6ddae948a9ea61acc1ba3f607f7c8"
+    },
+    "finance388-gold-assets-preflight.json": {
+      "bytes": 7559,
+      "sha256": "5e6cbcb8f38e50845bbd78782fde7c3bba9c54895a118c80580f5a82a850cf64"
+    },
+    "isolation387-toolchain-preflight.json": {
+      "bytes": 416,
+      "sha256": "edca020e07112d14121b353f2cf373c9c1aa722809b68f3f78e51ffd86ba2191"
+    },
+    "native74-cold-initial-Modding.log": {
+      "bytes": 234945,
+      "sha256": "2646475e5e00d18dc297718956c51b433678c88e8ccfd09a4b413c1379bd0bc4"
+    },
+    "native74-cold-initial-Database.log": {
+      "bytes": 25071,
+      "sha256": "2f0c5225e8cf926c5c27035a377b37b17acf257c54e4291885593e5d4737c2b2"
+    },
+    "native74-cold-initial-Lua.log": {
+      "bytes": 6090,
+      "sha256": "08290f0754518da2671c9723b7d319a7d478c0a72b3a7268fea4a2feedb1aa89"
+    },
+    "live-offline-20261104T160011.json": {
+      "bytes": 934,
+      "sha256": "99453d5681500155042d728e7473a33acda5e85af093ad50f3457a81cc290ef0"
+    }
+  }
+}
