@@ -1,6 +1,6 @@
 # 白绮：为我前驱开发原型
 
-当前源码清单／安装／运行版本70，更新于2026-11-04。完整999项软件及87文件安装通过；68／69真实故障档已在70冷载自动收尾，新人物完整链继续验收。[70范围](../testing/baiqi-prophet-bootstrap-recovery-70.md)及[全部功能状态](../testing/baiqi-feature-status-2026-11-01.md)为当前入口。**完整40项游戏验收尚未完成**；下文按版本保留历史记录，以[需求](../requirements/baiqi-requirements.md)、[持续验收](../testing/results/2026-11-01-p6-acceptance.md)及证据为准。
+当前源码清单／安装／运行版本70，更新于2026-11-04。完整999项软件及87文件安装通过；先知真实故障冷恢复、Debug新人物移动／建教／信条／回执、完成记录重载及持久旧未知记录保留均有窄样本。[70范围](../testing/baiqi-prophet-bootstrap-recovery-70.md)及[全部功能状态](../testing/baiqi-feature-status-2026-11-01.md)为当前入口。**完整40项游戏验收尚未完成**；下文按版本保留历史记录，以[需求](../requirements/baiqi-requirements.md)、[持续验收](../testing/results/2026-11-01-p6-acceptance.md)及证据为准。
 
 版本35减少真正执行中的文职重复寻路：建造者先对已探明自有推荐点去重并保持距离／编号排序，再逐个验路；移民先按原生推荐分数及预留选址，再验所选路径，不可达才换下一项，已站在目标地直接核验建城。完整路径安全及下单前重验保留，不缓存跨回调结果，首次可达目标写入被拒不会换另一个目标下单。新增12项及全套257项软件通过。[源码验证](../research/baiqi-p6-lazy-path-source35-evidence-2026-11-01.json)。
 
