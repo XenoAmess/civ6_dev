@@ -2471,6 +2471,19 @@ local function ProcessCity(ctx, player, state, city)
       Reason("budget_changed:"..cityID,"生产预算已变化，重新安排合法任务")
       return false
     end
+  elseif choice.kind=="building" then
+    local row=GameInfo.Buildings[choice.hash]
+    local maintenance=row and (row.Maintenance or 0)
+    local affordable=row~=nil and BaiqiPolicy.Number(maintenance) and maintenance>=0
+    if affordable and maintenance>0 and city:GetBuildings():IsPillaged(row.Index)~=true then
+      local actual=Economy(freshPlayer)
+      affordable=actual.netGold-actual.committedMaintenance-maintenance>=C.netGoldMin
+    end
+    if not affordable then
+      cityEvaluated[cityID]=nil
+      Reason("budget_changed:"..cityID,"生产预算已变化，重新安排合法任务")
+      return false
+    end
   end
   local latest=PlayerContext()
   if not BaiqiPolicy.Context(latest) or latest.player~=freshCtx.player or not BaiqiPolicy.MatchesID(city,cityID)

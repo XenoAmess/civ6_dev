@@ -1,0 +1,407 @@
+{
+  "schema": "civ6.baiqi-building-dispatch-budget74/v1",
+  "at_utc": "2026-11-04T15:48:05.751017+00:00",
+  "date_local": "2026-11-04",
+  "machine_id": "BF-202609141645",
+  "source_base_commit": "b43feff40e00de6bd47cc6de0a5c01fc302745e9",
+  "source_version": 74,
+  "installed_version": 73,
+  "running_version": 73,
+  "running_pid": 4656,
+  "source_change": "Fresh paid-buildingbudget/actualrepair atdispatch afterCanStartOperation. Candidate maintenance preserved. Rejection releasesonlycityevaluationforfreshsame-turnretry; no pending/attempt/request created. Freebuilding/actualrepair exemptionpreserved.",
+  "software": {
+    "full": {
+      "returncode": 0,
+      "elapsed_seconds": 86.89918880001642,
+      "tests": 1029,
+      "tail": [
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|admin_request|turn=1|key=tech:0",
+        "BAIQI|admin_request|turn=1|key=civic:0",
+        "BAIQI|admin_request|turn=1|key=policies",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|request|turn=1|id=7:1:1|source=BACKGROUND|city=66|type=BUILDING_MONUMENT",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "----------------------------------------------------------------------",
+        "Ran 1029 tests in 83.975s",
+        "",
+        "OK"
+      ],
+      "frozen67_73_edits_unchanged": true,
+      "static74_equal73": true,
+      "clock_prelude_unchanged": true,
+      "installed_running_version": 73,
+      "source_version": 74
+    },
+    "regression": {
+      "source73": {
+        "tests": 8,
+        "failures": 5,
+        "errors": 0,
+        "failed_cases": [
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_current_maintenance_rises_after_selection",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_definition_disappears_before_dispatch",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_income_falls_at_validation_then_same_turn_retry_uses_restored_budget",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_other_city_queue_commitment_is_refreshed_before_dispatch",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_repaired_elsewhere_cannot_keep_stale_repair_exemption"
+        ]
+      },
+      "raw385": {
+        "tests": 8,
+        "failures": 6,
+        "errors": 0,
+        "failed_cases": [
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_candidate_maintenance_is_not_removed_from_initial_budget",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_current_maintenance_rises_after_selection",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_definition_disappears_before_dispatch",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_income_falls_at_validation_then_same_turn_retry_uses_restored_budget",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_other_city_queue_commitment_is_refreshed_before_dispatch",
+          "budget385_owner_regression.BuildingDispatchBudgetTests.test_repaired_elsewhere_cannot_keep_stale_repair_exemption"
+        ]
+      },
+      "owner74_isolated": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "seconds": 0.133,
+        "source": "Prior owner terminal unittest run after real dispatch guard inserted; not rerun in this script"
+      },
+      "source73_sha256": "8c0ff4e0e5f3eb28d747cccc1841fa8a79de546b803e67119241ba7b1f506430",
+      "owner_sha256": "907703d61d54f99782bb2b63a4e4bbb40557fe3c2260f9db98aabbea3aa780d3"
+    },
+    "raw386": {
+      "tests": 6,
+      "failures": 6,
+      "errors": 0,
+      "no_code_adopted": true
+    }
+  },
+  "package": {
+    "files": 87,
+    "bytes": 8743523,
+    "sha256": "e55137dbc88c07c77f060fba6aff6d8d038972d3203f7b56d2e1fbb7e5128b2d",
+    "installed": false
+  },
+  "native_preflight": {
+    "turn": 114,
+    "cities": 11,
+    "gold": "4524.2734375",
+    "gold_yield": "95.7109375",
+    "maintenance": "54",
+    "net_gold": "41.7109375",
+    "native_hint_count": 8,
+    "known_revealed_city_count": 20,
+    "existing_settler": 6684713,
+    "settler_moves": 0,
+    "nonempty_queues": 11,
+    "no_pressure_action_performed": true,
+    "not_Native74": true
+  },
+  "cases": [
+    {
+      "sequence": 383,
+      "case_id": "civ6-stress383-remaining-pressure",
+      "mode_id": "http-candidate",
+      "shared_commit": "205ed2ad48775385d2b095cbed084f2e4da5adcf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T15:23:00.634799+00:00",
+      "attempt_end_utc": "2026-11-04T15:23:42.470018+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 41832.30469998671,
+        "first_nonempty_content_delta_ms": 11692.180199956056,
+        "usage": {
+          "prompt_tokens": 44466,
+          "completion_tokens": 1225,
+          "total_tokens": 45691
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T15:23:00.634799+00:00",
+          "end_utc": "2026-11-04T15:23:42.470018+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 41832.30469998671
+        }
+      ],
+      "adoption": "Partialscopefactsonly",
+      "review": "Current8nativehints/11cities/settler0movesnotTC036stress; rejectproductioncandidatecaptreatedassetlementbound,512syntheticNativeclaimandCoreUITurnRewriterinvention.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 384,
+      "case_id": "civ6-finance384-remaining-pressure",
+      "mode_id": "http-candidate",
+      "shared_commit": "205ed2ad48775385d2b095cbed084f2e4da5adcf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T15:23:00.635010+00:00",
+      "attempt_end_utc": "2026-11-04T15:23:43.876612+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 43241.46049999399,
+        "first_nonempty_content_delta_ms": 10385.106600006111,
+        "usage": {
+          "prompt_tokens": 44507,
+          "completion_tokens": 1325,
+          "total_tokens": 45832
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T15:23:00.635010+00:00",
+          "end_utc": "2026-11-04T15:23:43.876612+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 43241.46049999399
+        }
+      ],
+      "adoption": "Partialcapacity/preconditionfactsonly",
+      "review": "0completeplan: inventedSetGoldBalance/QueueReadygloss, roundsactualgold, puremock/noHTTPcallsnotNativeunavailabilityproof. Sourceunitfreshguardalreadyexists; buildinggapmissed.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 385,
+      "case_id": "civ6-budget385-building-budget-dispatch",
+      "mode_id": "http-candidate",
+      "shared_commit": "205ed2ad48775385d2b095cbed084f2e4da5adcf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T15:31:02.987140+00:00",
+      "attempt_end_utc": "2026-11-04T15:31:23.301299+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 20314.257100049872,
+        "first_nonempty_content_delta_ms": 13580.317200045101,
+        "usage": {
+          "prompt_tokens": 55525,
+          "completion_tokens": 717,
+          "total_tokens": 56242
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T15:31:02.987140+00:00",
+          "end_utc": "2026-11-04T15:31:23.301299+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 20314.257100049872
+        }
+      ],
+      "adoption": "0code",
+      "review": "Falseowned-buildingcommitmentfact; removescandidateownmaintenanceinsteadfreshdispatch. Owner8testsraw6fail vs73fivefail.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 386,
+      "case_id": "civ6-budgettests386-building-budget-dispatch",
+      "mode_id": "http-candidate",
+      "shared_commit": "205ed2ad48775385d2b095cbed084f2e4da5adcf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T15:31:02.987751+00:00",
+      "attempt_end_utc": "2026-11-04T15:31:28.973031+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 25985.182200034615,
+        "first_nonempty_content_delta_ms": 14691.480899986345,
+        "usage": {
+          "prompt_tokens": 55534,
+          "completion_tokens": 1720,
+          "total_tokens": 57254
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T15:31:02.987751+00:00",
+          "end_utc": "2026-11-04T15:31:28.973031+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 25985.182200034615
+        }
+      ],
+      "adoption": "0code/0tests",
+      "review": "Raw6allfail, militaryinsteadofbuilding, noafterselectionshock, ignoredmockfields/wrongpillagedindex; owneractualController8behaviorchecks.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 62.148556,
+    "longest_seconds_at_peak": 41.835008,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through386": {
+    "logical_requests": 386,
+    "complete_stop_json": 360,
+    "length_whole_discarded": 23,
+    "final_transport_failed": 3,
+    "http_attempts": 416,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": "Nov4successfulOpenCode1.19.5cache/currentcanonicalDIRECTHTTP;fixed3messages.",
+  "owner_cost_seconds": null,
+  "cached_tokens_if_unreported": null,
+  "server_queue_wait": null,
+  "net_savings": null,
+  "limits": [
+    "8behaviorcheckssoftwareonly; actualNativeincomeshock/modelserviceunavailable/TC038notpassed.",
+    "TC036no-legal/many-candidatepressurestillmissing; productioncandidatecapnotsettlementcap, fabricated512hintsnotactualNativefixture.",
+    "Product74packageonlyatpublication, installed/running73separate. PriorNative73minorcapture/artifactcasekeepsitsoriginalscope.",
+    "Publicstaticbenchmarkversion74supported; 67through73frozeneditsandclockpreludeunchanged, no baseline rerun needed forunchangedprotocol."
+  ],
+  "next_real": "Officialowned73exit,verifygone,installnormal74, freshliveSteamofflineconfirmation,coldloadFarm114,thenrealfinancialfixturewithverifiedAPIs andfrozenpressurebounds.",
+  "fingerprints": {
+    "mod/Baiqi/Lua/BaiqiController.lua": {
+      "bytes": 156791,
+      "sha256": "907703d61d54f99782bb2b63a4e4bbb40557fe3c2260f9db98aabbea3aa780d3"
+    },
+    "mod/Baiqi/Baiqi.modinfo": {
+      "bytes": 17521,
+      "sha256": "8338f241118cb8d8073c5f596644fe72686d190619ef15564ecbf3f6c2e8291e"
+    },
+    "tests/test_baiqi_building_dispatch_budget.py": {
+      "bytes": 4807,
+      "sha256": "c4121cc5b0b01a4f17ae47933c479f361f17788e760817d1553b406827a0c422"
+    },
+    "tools/static_control_source.py": {
+      "bytes": 4104,
+      "sha256": "bdf04018bab61fe92bfd4215ecd67cc70d168e5a6672459277d091c7f18fd86f"
+    },
+    "tools/build_static_control.py": {
+      "bytes": 5298,
+      "sha256": "4d89569ca0889b029f00fff83c623d5d6b4846bdf6710a054a7bfbde62547de5"
+    },
+    "budget383386-owner-raw-review.json": {
+      "bytes": 916,
+      "sha256": "ee5ea0aefb8aae5401aaf391e1dc738d9a5882ac0234b978629ad3bee1ab3135"
+    },
+    "budget385-source73-eight-tests.log": {
+      "bytes": 4680,
+      "sha256": "84de95d6f49ea9893365a633e10a26f5e614d292d580f012f40ea182e81af525"
+    },
+    "budget385-raw385-eight-tests.log": {
+      "bytes": 5321,
+      "sha256": "9769c8c98c03593e206918143bf588389a3b9dde4d8487d5ec902074324203c1"
+    },
+    "budgettests386-raw-results.log": {
+      "bytes": 4260,
+      "sha256": "39ac2a7611eb8394e27df8c0c2108e6ef61730ea732ee8df9931f9e36267e4d6"
+    },
+    "budget74-full-software.log": {
+      "bytes": 86156,
+      "sha256": "c277d7e1d3ed51cc0c4aa9a34bf3b8ac1941eca317d4eeb196ea0d18ebd104a0"
+    },
+    "budget74-full-software-receipt.json": {
+      "bytes": 1551,
+      "sha256": "8f9f450a115f8c795b906c0f51f2c92fc396d021cc3c92627610d1ffb196f8e0"
+    },
+    "pressure383384-readonly-preflight.json": {
+      "bytes": 13622,
+      "sha256": "283048290115111d610dfb72f90360eb66066756c99d0e97bfe3b8d80e2df2ce"
+    }
+  }
+}
