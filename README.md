@@ -6,7 +6,7 @@
 
 - [最新开发与验收交接（2026-11-04）](docs/handoff/2026-11-04.md)：当前构建、游戏／存档现场、已验范围、剩余任务及本地模型续接。
 - [全部功能状态快照](docs/testing/baiqi-feature-status-2026-11-01.md)、[安装与当前实现](docs/implementation/baiqi-prototype.md)、[持续验收](docs/testing/results/2026-11-01-p6-acceptance.md)、[P5 历史记录](docs/testing/results/2026-11-01-p5-acceptance.md)。
-- [68版先知防重修复与待验范围](docs/testing/baiqi-prophet-durable-intent-68.md)：991项软件检查通过，已安装及冷载旧先知隔离样本，新建教与恢复链继续验收。
+- [69版先知回执修复与待验范围](docs/testing/baiqi-prophet-delayed-consumption-69.md)：68实机发现原生残留对象导致回执FAIL；69已通过995项软件，待冷载复测。
 - [需求](docs/requirements/baiqi-requirements.md)、[验收方案](docs/testing/baiqi-acceptance-plan.md)、[40 项用例](docs/testing/baiqi-test-cases.md)。
 - [能力设计](docs/design/baiqi-delegate-execution.md)、[征城设计](docs/design/baiqi-requisition.md)。
 - [协作规则](AGENTS.md)、[Steam 离线流程](docs/steam-offline-workflow.md)：每个完整改动提交推送，普通开发与实测保持 Steam 离线。

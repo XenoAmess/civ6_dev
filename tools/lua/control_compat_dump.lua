@@ -11,7 +11,7 @@ local BRIDGES={
 }
 local function Specs(version)
   if version==nil then version=67 end
-  assert(type(version)=='number' and version%1==0 and (version==67 or version==68),'Invalid SourceVersion')
+  assert(type(version)=='number' and version%1==0 and (version==67 or version==68 or version==69),'Invalid SourceVersion')
   if version==67 then return BRIDGES end
   local list={}
   for i,spec in ipairs(BRIDGES) do list[i]=spec end

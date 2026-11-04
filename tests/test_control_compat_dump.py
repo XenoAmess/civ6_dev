@@ -17,7 +17,7 @@ UI={IsGameCoreBusy=function() return false end,IsProcessingMessages=function() r
 ''')
         new=lua.execute((ROOT/'tools/lua/benchmark_turn_clock.lua').read_text(encoding='utf-8'))
         g=lua.globals();clock=new(lua.eval('function() return 1 end'),g.Game.GetCurrentGameTurn,g.Game.GetLocalPlayer,g.Events.PlayerTurnActivated,16)
-        env=lua.table_from({'Game':g.Game,'Players':g.Players,'UI':g.UI,'Clock':clock,'ExposedMembers':g.ExposedMembers,'SourceVersion':68})
+        env=lua.table_from({'Game':g.Game,'Players':g.Players,'UI':g.UI,'Clock':clock,'ExposedMembers':g.ExposedMembers,'SourceVersion':69})
         return h,lua.execute(SOURCE),env
 
     def test_seven_actual_factories_metadata_only_no_bridge_calls_or_addresses(self):
@@ -50,6 +50,7 @@ UI={IsGameCoreBusy=function() return false end,IsProcessingMessages=function() r
 
     def test_explicit_legacy_and_nil_default_do_not_inherit_seventh_spec(self):
         h,dump,env=self.setup_context();emit=h.lua.eval('function(...) end')
+        self.assertEqual(dump(env,emit).available,7)
         env.SourceVersion=68
         self.assertEqual(dump(env,emit).available,7)
         env.SourceVersion=67
@@ -60,7 +61,7 @@ UI={IsGameCoreBusy=function() return false end,IsProcessingMessages=function() r
 
     def test_invalid_source_versions_are_rejected(self):
         h,dump,env=self.setup_context();emit=h.lua.eval('function(...) end')
-        for value in (False,True,'68',0,67.5,69):
+        for value in (False,True,'68',0,67.5,70):
             with self.subTest(value=value):
                 env.SourceVersion=value
                 with self.assertRaises(LuaError):dump(env,emit)

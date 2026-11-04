@@ -1,0 +1,473 @@
+{
+  "schema": "civ6.baiqi-prophet-delayed-source69/v1",
+  "date_local": "2026-11-04",
+  "at_utc": "2026-11-04T06:33:12.357843+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 69,
+  "installed_version": 68,
+  "running_version": 68,
+  "native69": "NOT_STARTED",
+  "native68": {
+    "source_commit": "f6bcba8cd07467be20ee54a95488499f1d030e8e",
+    "turn": 75,
+    "pid": 17464,
+    "pre_acquisition_journal": {
+      "version": 1,
+      "owner": 0,
+      "serial": 0,
+      "operations": 0
+    },
+    "fixture": "One explicit QA_DEBUG CreatePerson(0,113,8,12), same known completed HolySite327684 at7,12. No earned recruitment/cost proof, manual movement/founding/religion choice/endturn/qualification gift.",
+    "unit_full_id": 3670044,
+    "class": 4,
+    "individual": 113,
+    "background_move": {
+      "from_plot": 536,
+      "to_plot": 535,
+      "from": [
+        8,
+        12
+      ],
+      "to": [
+        7,
+        12
+      ],
+      "native_observed": true
+    },
+    "actual_forwarding_observer": {
+      "moves": 1,
+      "founding": 1,
+      "matching_activation_events": 1,
+      "errors": 0,
+      "event_unit_id": 3670044,
+      "original_pointer_restored": true,
+      "event_callback_removed": true,
+      "own_state_nil": true,
+      "scope": "Executor RequestOperation observer forwards once unchanged; not independent lower engine implementation trace."
+    },
+    "actual_religion": 1,
+    "earned_beliefs": 2,
+    "founding_flag": true,
+    "actual_beliefs": [
+      {
+        "index": 27,
+        "type": "BELIEF_WORK_ETHIC",
+        "class": "BELIEF_CLASS_FOLLOWER"
+      },
+      {
+        "index": 44,
+        "type": "BELIEF_TITHE",
+        "class": "BELIEF_CLASS_FOUNDER"
+      }
+    ],
+    "ui_unit_count": 0,
+    "core_retained_identity": {
+      "full_id": 3670044,
+      "position": [
+        -9999,
+        -9999
+      ],
+      "moves": 2,
+      "class": 4,
+      "individual": 113,
+      "formation": 1,
+      "actual_created_religion": 1
+    },
+    "receipt": {
+      "serial": 1,
+      "token": "prophet:0:1",
+      "unit_id": 3670044,
+      "eventSeen": true,
+      "expected_stage": "OBSERVED",
+      "actual_stage": "ARMED",
+      "result": "FAIL"
+    },
+    "unknown_action_replayed": false,
+    "failure_checkpoint": {
+      "at_utc": "2026-11-04T06:28:46.378328+00:00",
+      "pid": 17464,
+      "name": "Baiqi_P6_20261104_V68_ProphetDelayed75.Civ6Save",
+      "bytes": 483739,
+      "sha256": "27dd443fe837aee2ad95e5796f7f752e1fae6469d0ead93cda68a8465e1e47e1",
+      "turn": 75,
+      "actual_religion": 1,
+      "actual_beliefs": [
+        27,
+        44
+      ],
+      "receipt_stage": "ARMED",
+      "eventSeen": true,
+      "not_replayed": true
+    },
+    "native_receipts": [
+      {
+        "receipt": "20261104T062207913160Z.json",
+        "bytes": 5198,
+        "sha256": "5aaa6db7d5b435a206948264c2c274f993f34a21a4508ef7b5945bdcd7d40658",
+        "lines": [
+          "O\u0000GameCore_Tuner: P6_NATIVE68_QA_DEBUG_CREATE_PROPHET_ONCE"
+        ]
+      },
+      {
+        "receipt": "20261104T062208275809Z.json",
+        "bytes": 7239,
+        "sha256": "15b45bdc2550a16e09212e7f6fb8813476d4841d5f8fe7cda4f10c3d6193ff21",
+        "lines": [
+          "O\u0000BaiqiExecutor: P6_NATIVE68_FOUND_OBSERVER\t1\t3670044",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE\t75\t0",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_JOURNAL\ttable\t1\t0\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_OP\t3670044\tprophet:0:1\t3670044\t4\t113\tARMED\tfalse\t7\t12",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_OP_COUNT\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE_CREATED\ttrue\t-1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE_UNIT\t3670044\t-9999\t-9999\t2\t4\t113\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE_UNIT_COUNT\t1"
+        ]
+      },
+      {
+        "receipt": "20261104T062208673446Z.json",
+        "bytes": 7280,
+        "sha256": "eff1bd7380da517c63351fa24fbd2c30d5ba3d41308aebe6fe4f982205756d17",
+        "lines": [
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI\t75\t0\tfalse\tfalse",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_CONTROLLER\t先知自动前往圣地并取得建教资格，等待实际结果",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_RELIGION\tGetReligionTypeCreated\ttrue\t1",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_RELIGION\tGetNumBeliefsEarned\ttrue\t2",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_RELIGION\tHasReligiousFoundingUnit\ttrue\ttrue",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_UNIT_COUNT\t0",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_HOLY_SITE\t327684\t535\t7\t12\t0\ttrue\ttrue",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_HOLY_SITE_COUNT\t1"
+        ]
+      },
+      {
+        "receipt": "20261104T062233494336Z.json",
+        "bytes": 6654,
+        "sha256": "e9c6f262826fa402931426088e7c3f899c5a03cd83638956004a3f07421a8a98",
+        "lines": [
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE\t75\t0",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_JOURNAL\ttable\t1\t0\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_OP\t3670044\tprophet:0:1\t3670044\t4\t113\tARMED\ttrue\t7\t12",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_OP_COUNT\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE_CREATED\ttrue\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE_UNIT\t3670044\t-9999\t-9999\t2\t4\t113\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET68_CORE_UNIT_COUNT\t1"
+        ]
+      },
+      {
+        "receipt": "20261104T062233986246Z.json",
+        "bytes": 7280,
+        "sha256": "b858bb30e0a18e9650ccb62a4f43c83ec98d8f7b8296881b8304ccf2f1e6d77b",
+        "lines": [
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI\t75\t0\tfalse\tfalse",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_CONTROLLER\t先知自动前往圣地并取得建教资格，等待实际结果",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_RELIGION\tGetReligionTypeCreated\ttrue\t1",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_RELIGION\tGetNumBeliefsEarned\ttrue\t2",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_RELIGION\tHasReligiousFoundingUnit\ttrue\ttrue",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_UI_UNIT_COUNT\t0",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_HOLY_SITE\t327684\t535\t7\t12\t0\ttrue\ttrue",
+          "O\u0000BaiqiExecutor: P6_PROPHET68_HOLY_SITE_COUNT\t1"
+        ]
+      },
+      {
+        "receipt": "20261104T062321102857Z.json",
+        "bytes": 4600,
+        "sha256": "0fcde8582b75144a919e98b0effcc67b77d09dd3a3d55c40df412db6f2d09996",
+        "lines": [
+          "O\u0000BaiqiExecutor: P6_NATIVE68_OBSERVER_FINAL\t1\t1\t1\t0\t3670044\t3670044"
+        ]
+      },
+      {
+        "receipt": "20261104T062532990833Z.json",
+        "bytes": 5394,
+        "sha256": "f2d0a12d819401dd4b0b94a5b1ba5d06d17b09d64c8dd8577154010b8e0313ca",
+        "lines": [
+          "O\u0000BaiqiExecutor: P6_NATIVE68_ACTUAL_RELIGION\t1\t2\ttrue",
+          "O\u0000BaiqiExecutor: P6_NATIVE68_ACTUAL_BELIEF\t27\tBELIEF_WORK_ETHIC\tBELIEF_CLASS_FOLLOWER",
+          "O\u0000BaiqiExecutor: P6_NATIVE68_ACTUAL_BELIEF\t44\tBELIEF_TITHE\tBELIEF_CLASS_FOUNDER",
+          "O\u0000BaiqiExecutor: P6_NATIVE68_ACTUAL_BELIEF_COUNT\t2"
+        ]
+      },
+      {
+        "receipt": "20261104T062843801732Z.json",
+        "bytes": 4811,
+        "sha256": "552117ee4276a73a3cd1ccb3eb720f30b5e5a954baeaf1a94676434f0bd37e90",
+        "lines": [
+          "O\u0000GameCore_Tuner: P6_NATIVE68_DELAYED_RECEIPT_FAIL_CONFIRMED\tprophet:0:1\tARMED\ttrue\t-9999\t-9999"
+        ]
+      },
+      {
+        "receipt": "20261104T062843939342Z.json",
+        "bytes": 4744,
+        "sha256": "e75e656b944ec49bdc5ad236cac00653e824b0dc5ecd427f68798dee0c56f41d",
+        "lines": [
+          "O\u0000BaiqiExecutor: P6_NATIVE68_DELAYED_SAVE_ACK\ttrue"
+        ]
+      }
+    ],
+    "founding_request_log_lines": [
+      "BaiqiExecutor: BAIQI|request|turn=75|id=0:75:2|source=BACKGROUND|unit=3670044|operation=FOUND_RELIGION|individual=113"
+    ],
+    "unresolved_log_lines": [
+      "BaiqiExecutor: BAIQI|prophet_request_unresolved|turn=75|id=0:75:2|unit=3670044|awaiting_bridge_observed_and_earned_qualification=true"
+    ],
+    "observer_cleanup_log_lines": [
+      "BaiqiExecutor: P6_NATIVE68_OBSERVER_FINAL\t1\t1\t1\t0\t3670044\t3670044"
+    ],
+    "runtime_error_matching_lines": [],
+    "log_fingerprints": {
+      "Lua.log": {
+        "bytes": 11901,
+        "sha256": "06229b1395a458678d138882e11b0469025ac117c5e843fd21480f5d0230464d"
+      },
+      "Database.log": {
+        "bytes": 31030,
+        "sha256": "f7015e4bfd60fdf46e352e693274410ee6274b6cfdbc44fadf92f77ec2a92d92"
+      },
+      "Modding.log": {
+        "bytes": 396840,
+        "sha256": "f989ac36bd9f10fd28a976d0bfd5900f56732119328deee82b74f9a0b33e0d58"
+      },
+      "Startup.log": {
+        "bytes": 2650,
+        "sha256": "308b17b28bf4917c1f282730dcaf7412a22ee600e74e1a4aec060b40766fd8a6"
+      }
+    }
+  },
+  "fix69": "Exact full identity+matching event+actual created religion reconciles despite retained off-map native coordinates. New permission and legacy record still require valid nonnegative coordinates; no invalid Map query, no event fabrication or regrant. Core/UI API separation unchanged.",
+  "software": {
+    "owner_regression_red68": {
+      "source_version": 68,
+      "new_methods": 4,
+      "result": "EXPECTED_RED_OFFMAP_REPRODUCED",
+      "exit_code": 1,
+      "failure": "Exact retained full identity plus actualcreated/matchingevent staysARMED due positionvalidation; mirrors Native68 failure, not API/fixtureexception."
+    },
+    "model346_raw_green68": {
+      "source_version": 68,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "result": "GREEN_ON_UNFIXED68_NOT_REGRESSION",
+      "adoption": "0; never sets invalid coordinates, alias only after terminal OBSERVED so not a negative proof. Owner writes actual retained-offmap regression; full-source closure given."
+    },
+    "targeted_prophet_passed": 31,
+    "owner_new_methods": 4,
+    "negative_cases": "No event / alias fullID / wrong owner / wrong class / wrong individual remain ARMED; invalid position never enters Map for Prepare; offmap untracked legacy remains unavailable with zero writes.",
+    "full": {
+      "at_utc": "2026-11-04T06:30:33.231943+00:00",
+      "begin_utc": "2026-11-04T06:28:34.845493+00:00",
+      "tests": 995,
+      "suite_seconds": 113.71,
+      "wall_seconds": 118.38652699999511,
+      "exit_code": 0,
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "frozen67_and68_transform_maps_exact": true,
+      "paired_clock_prefix_unchanged": true,
+      "scope": "Source69 software only; installed/running68 Native receipt FAIL recorded, no fix via gameplay replay."
+    }
+  },
+  "package": {
+    "files": 87,
+    "bytes": 8742680,
+    "sha256": "62a2738e6533818c15a8854caa620c8a6835e8b49e34f9029c751cbfb4eefe57",
+    "all_source_bytes_equal": true,
+    "installed": false
+  },
+  "cases": [
+    {
+      "sequence": 346,
+      "case_id": "civ6-prophet346-delayed-core-consumption",
+      "mode_id": "http-candidate",
+      "shared_commit": "546755aa5bcc5dd4a6dca36d4301a34c04ac181c",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2300,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T06:24:10.683510+00:00",
+      "attempt_end_utc": "2026-11-04T06:24:22.746912+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 12068.288700014818,
+        "first_nonempty_content_delta_ms": 5098.964700009674,
+        "usage": {
+          "prompt_tokens": 13170,
+          "completion_tokens": 681,
+          "total_tokens": 13851
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T06:24:10.683510+00:00",
+          "end_utc": "2026-11-04T06:24:22.746912+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 12068.288700014818
+        }
+      ],
+      "adoption": "zero; raw generated method rejected",
+      "review": "Actual raw method GREEN on unfixed68: never overrides off-map coordinates, alias only after terminal OBSERVED. Not regression. Owner four actual boundary methods reproduced expected RED then GREEN69.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 347,
+      "case_id": "civ6-prophet347-delayed-core-consumption",
+      "mode_id": "http-candidate",
+      "shared_commit": "546755aa5bcc5dd4a6dca36d4301a34c04ac181c",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2300,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T06:24:10.682666+00:00",
+      "attempt_end_utc": "2026-11-04T06:24:34.926333+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 24247.80410004314,
+        "first_nonempty_content_delta_ms": 5094.10069999285,
+        "usage": {
+          "prompt_tokens": 13092,
+          "completion_tokens": 2300,
+          "total_tokens": 15392
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": false,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T06:24:10.682666+00:00",
+          "end_utc": "2026-11-04T06:24:34.926333+00:00",
+          "failure": "finish_reason_length",
+          "finish_reason": "length",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 24247.80410004314
+        }
+      ],
+      "adoption": "zero; whole length discarded unread",
+      "review": "2300-token length. No CONTENT display, parse, splice or adoption. Owner minimal producer fix plus explicit69 control tooling support. All full source closures supplied; no invented API or Native order. ",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 12.063402,
+    "longest_seconds_at_peak": 12.063402,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through347": {
+    "logical_requests": 347,
+    "complete_stop_json": 323,
+    "length_whole_discarded": 21,
+    "final_transport_failed": 3,
+    "http_attempts": 377,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": "Same local Nov4 successful OpenCode1.19.5 cache; canonical caller/current DIRECT configuration; ordinary HTTP only.",
+  "owner_notes": [
+    "Native68 demonstrated a missed engine lifecycle state despite991software green. Keep Native FAIL and earlier67/68 narrow passes separately.",
+    "Observer actual Lua chunk verified forward exact args/returns and sensorerror does not swallow/double; Native cleanup1move1found1event0errors.",
+    "Owner shared344345 publisher shadowed function out with file handle: push succeeded then verification raised TypeError. Independent readonly revparse/lsremote proved identical b9f665cee48d182e279b2c899f0fed68aebb7c6d; no duplicate writer rerun.",
+    "Owner first progress read still pointed at frozen68 log, corrected to69 before reporting995 final. No tests replayed for that diagnostic mistake."
+  ],
+  "unknown_costs": {
+    "exclusive_owner_phases": null,
+    "cache_tokens_if_unreported": null,
+    "server_queue_wait": null,
+    "net_savings": null
+  },
+  "next_native": "Commit/push69, normal exit saved owned68, fresh actualSteam offline proof, install69/cold launch. Fresh pre-acquisition fixture validates actual retained offmap receipt; saved real68 completed-effect/ARMED checkpoint tests recovery with no second founding request. Legacy110 remains separate.",
+  "raw_fingerprints": {
+    "native68-new-prophet75-debug-create-attempt.json": {
+      "bytes": 336,
+      "sha256": "bf386e7eb99e6cb152f162b52ddbac25da8d3c6c6cc2d7cb289262e8ea2dcfd1"
+    },
+    "native68-delayed-prophet75-save-receipt.json": {
+      "bytes": 380,
+      "sha256": "f16da847490182eda3163d908defc562ad6bf74e658b5e25cf47b72f9003c9c0"
+    },
+    "native68-delayed-prophet75-save-attempt.json": {
+      "bytes": 4215,
+      "sha256": "c9e00aea8a03c5c63958ca543f7635356cca4f179079f127953b0a2b6a9375b6"
+    },
+    "prophet68-observe-install-owner.lua": {
+      "bytes": 1156,
+      "sha256": "4258d43a8b41a9b0f59a729b8ff776d50bff3f7ab3453b70156b563a904cd9f3"
+    },
+    "prophet68-observe-cleanup-owner.lua": {
+      "bytes": 377,
+      "sha256": "4957948707328ff506fa04f47f41633815562228ba1fd768565ce8328aca7fd2"
+    },
+    "prophet68-actual-beliefs-readonly-owner.lua": {
+      "bytes": 628,
+      "sha256": "72ecede1b8d68d7a2a79a46fe937aa47feb82e2a8b20b3ad92ce4e26202f316b"
+    },
+    "prophet346-raw-on68.log": {
+      "bytes": 267,
+      "sha256": "4c946d13e3752ea0159c5b624bb23c553a0f03df810b5748c697182d4398cc6d"
+    },
+    "prophet346-raw-on68-receipt.json": {
+      "bytes": 309,
+      "sha256": "cf1df7c594209704178b44ac61a37dd92d4673c84cd993b609e3d9f5a3c657bc"
+    },
+    "prophet69-owner-regression-red68.log": {
+      "bytes": 4197,
+      "sha256": "f1aedc869925c316760fe60defe17c0e6c2a5cba13ff4a195be3712a895c139c"
+    },
+    "prophet69-owner-regression-red68-receipt.json": {
+      "bytes": 276,
+      "sha256": "026957de153c6e61e20ef154f4e17156c0ed681646e8fb553982fa2943b11238"
+    },
+    "source69-full-final1.log": {
+      "bytes": 255714,
+      "sha256": "eb6072319feb07c6573282d6ac77f2c3cb1b35e36d4843fafb781cf9c231ab84"
+    },
+    "source69-full-final1-receipt.json": {
+      "bytes": 585,
+      "sha256": "eb3d7a2310c6c445f0c627db1a9d7720848fb3a635272ea7c189c5b5d69f6eef"
+    }
+  }
+}

@@ -42,15 +42,17 @@ local function ReadIdentity(player,pid,id)
   if not info or not class or info.GreatPersonClassType~="GREAT_PERSON_CLASS_PROPHET"
     or class.GreatPersonClassType~="GREAT_PERSON_CLASS_PROPHET"
     or not J.Integer(info.Index,2147483647) or not J.Integer(class.Index,2147483647) then return "UNKNOWN" end
+  -- Consumed native objects can retain their exact identity at (-9999,-9999).
+  -- World position is required for a new order, not for causal receipt proof.
   local x,y=unit:GetX(),unit:GetY()
-  if not J.Integer(x,2147483647) or not J.Integer(y,2147483647) then return "UNKNOWN" end
   local moves=type(unit.GetMovesRemaining)=="function" and unit:GetMovesRemaining() or nil
   local formation=type(unit.GetFormationUnitCount)=="function" and unit:GetFormationUnitCount() or nil
   return "LIVE",{id=id,unitType=def.UnitType,class=class.Index,individual=info.Index,x=x,y=y,moves=moves,formation=formation}
 end
 local function ReadLive(player,pid,id)
   local status,live=ReadIdentity(player,pid,id)
-  if status~="LIVE" or not BaiqiPolicy.Number(live.moves) or live.moves<=0 or live.formation~=1 then return nil end
+  if status~="LIVE" or not J.Integer(live.x,2147483647) or not J.Integer(live.y,2147483647)
+    or not BaiqiPolicy.Number(live.moves) or live.moves<=0 or live.formation~=1 then return nil end
   local plot=Map.GetPlot(live.x,live.y)
   local visibility=PlayersVisibility[pid]
   if not plot or plot:GetOwner()~=pid or type(plot.IsWater)~="function" or plot:IsWater()
@@ -69,6 +71,7 @@ local function Persist(player,pid,state)
   return J.Equal(state,player:GetProperty(KEY),pid)
 end
 local function Entry(pid,state,live,stage)
+  if not J.Integer(live.x,2147483647) or not J.Integer(live.y,2147483647) then return nil end
   if state.serial>=2147483647 or not J.Integer(Game.GetCurrentGameTurn(),2147483647) then return nil end
   local count=0;for _ in pairs(state.operations) do count=count+1 end
   local key=J.UnitKey(live.id)

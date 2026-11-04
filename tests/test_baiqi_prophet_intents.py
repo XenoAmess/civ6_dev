@@ -135,5 +135,75 @@ class ProphetIntentTests(unittest.TestCase):
         self.assertEqual(self.h.writes,writes)
 
 
+    def test_retained_offmap_identity_and_created_religion_confirm_matching_event(self):
+        granted, token, _ = self.prepare()
+        self.assertTrue(granted)
+        self.lua.execute("""
+local u=Players[7]:GetUnits():FindID(4)
+u.GetX=function() return -9999 end
+u.GetY=function() return -9999 end
+""")
+        self.w.createdReligion = 2
+        self.assertEqual(self.bridge.Observe(7, 4, 4, 70)[:2], ('OBSERVED', token))
+        self.assertTrue(self.operation().eventSeen)
+        self.h = install_prophet_bridge(self.lua, self.h.store, fresh=False)
+        self.bridge = self.lua.globals().ExposedMembers.BaiqiProphetIntentBridge
+        self.assertEqual(self.inspect()[:2], ('OBSERVED', token))
+        self.assertFalse(self.prepare()[0])
+        self.assertEqual(self.h.store[KEY].serial, 1)
+
+    def test_offmap_position_never_replaces_event_or_exact_identity(self):
+        for kind in ('no_event', 'alias', 'owner', 'class', 'individual'):
+            with self.subTest(kind=kind):
+                self.setUp()
+                self.assertTrue(self.prepare()[0])
+                self.lua.execute("""
+local u=Players[7]:GetUnits():FindID(4)
+u.GetX=function() return -9999 end
+u.GetY=function() return -9999 end
+""")
+                self.w.createdReligion = 2
+                if kind == 'alias':
+                    self.w.scientistID, self.w.findScientistAlias = 65540, True
+                elif kind == 'owner':
+                    self.w.scientistOwner = 8
+                elif kind == 'class':
+                    self.w.scientistClass = 5
+                elif kind == 'individual':
+                    self.w.scientistIndividual = 71
+                if kind != 'no_event':
+                    self.assertEqual(self.bridge.Observe(7, 4, 4, 70)[0], 'ARMED')
+                self.assertEqual(self.inspect()[0], 'ARMED')
+                self.assertFalse(self.prepare()[0])
+
+    def test_offmap_position_cannot_get_new_permission_or_enter_map_lookup(self):
+        self.lua.execute("""
+local u=Players[7]:GetUnits():FindID(4)
+u.GetX=function() return -9999 end
+u.GetY=function() return -9999 end
+TestWorld.negativeMapCalls=0
+TestPropBridge.core.Map.GetPlot=function()
+ TestWorld.negativeMapCalls=TestWorld.negativeMapCalls+1
+ error('invalid coordinates must be rejected before native Map call')
+end
+""")
+        self.assertFalse(self.prepare()[0])
+        self.assertEqual(self.h.store[KEY].serial, 0)
+        self.assertEqual(self.w.negativeMapCalls, 0)
+
+    def test_offmap_untracked_legacy_unit_is_unavailable_without_rewriting_store(self):
+        self.lua.execute("""
+local u=Players[7]:GetUnits():FindID(4)
+u.GetX=function() return -9999 end
+u.GetY=function() return -9999 end
+""")
+        self.h = install_prophet_bridge(self.lua, fresh=False)
+        self.bridge = self.lua.globals().ExposedMembers.BaiqiProphetIntentBridge
+        self.assertEqual(self.inspect()[0], 'UNAVAILABLE')
+        self.assertFalse(self.prepare()[0])
+        self.assertEqual(self.h.writes, 0)
+        self.assertIsNone(self.h.store[KEY])
+
+
 if __name__ == '__main__':
     unittest.main()

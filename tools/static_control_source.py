@@ -10,9 +10,9 @@ UNAVAILABLE = 'function(...) return "UNAVAILABLE",nil,"private_static_control" e
 def resolve_source_version(value: int | None = None) -> int:
     if value is None:
         text=ET.fromstring((Path(__file__).resolve().parents[1]/'mod/Baiqi/Baiqi.modinfo').read_bytes()).get('version')
-        if text not in ('67','68'):raise ValueError('Unsupported actual source version')
+        if text not in ('67','68','69'):raise ValueError('Unsupported actual source version')
         value=int(text)
-    if type(value) is not int or value not in (67,68):raise ValueError('Unsupported source version')
+    if type(value) is not int or value not in (67,68,69):raise ValueError('Unsupported source version')
     return value
 
 
@@ -45,7 +45,7 @@ def edits(source_version: int | None = None) -> dict[str,list[tuple[str,str]]]:
         exposed={'GP':'BaiqiGreatPersonIntentBridge','Religious':'BaiqiReligiousIntentBridge','Naturalist':'BaiqiNaturalistIntentBridge'}[stem]
         result[name]=[(bridge,body),
             (f'if type(ExposedMembers)=="table" and (ExposedMembers.{exposed}==nil',f'Bootstrap={NOOP}\n')]
-    if version==68:
+    if version>=68:
         result['Lua/BaiqiProphetIntentGameplay.lua']=[
             ('local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,"UNAVAILABLE")',
              f'Inspect={UNAVAILABLE}\nPrepare={NOOP}\nObserve={UNAVAILABLE}\n'),
