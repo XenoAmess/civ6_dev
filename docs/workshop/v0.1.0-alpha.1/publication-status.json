@@ -1,13 +1,13 @@
 {
   "schema": "civ6.workshop-publication-status/v1",
-  "recorded_at_utc": "2026-11-04T20:24:59.788846+00:00",
+  "recorded_at_utc": "2026-11-04T21:11:12.628917+00:00",
   "date_local": "2026-11-05",
   "machine": "BF-202609141645",
   "release": "v0.1.0-alpha.1",
-  "steam_workshop_published": false,
-  "published_file_id": null,
-  "workshop_url": null,
-  "status": "PREPARED_USER_CONFIRMED_REMOTE_IDLE",
+  "steam_workshop_published": true,
+  "published_file_id": 3833805495,
+  "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495",
+  "status": "PUBLIC_VERIFIED_OFFLINE_RESTORE_PENDING",
   "constraint": "User2026-11-05 requires checking other-device game activity before Steam upload; never kick another session.",
   "checks": [
     {
@@ -32,16 +32,49 @@
   ],
   "local_owned_test_game_distinguished": true,
   "actions": {
-    "steam_online_switches": 0,
-    "steam_logins": 0,
-    "steam_api_initializations": 0,
-    "sdk_downloads": 0,
-    "upload_attempts": 0,
-    "create_item_attempts": 0,
+    "online_requested_for_publication": true,
+    "forced_login": false,
+    "account_config_modified": false,
+    "steam_api_used": "Official SDK managed API, creator404350; verification download in consumer289070 context",
+    "sdk_installed": true,
+    "upload_creates": 1,
+    "upload_submits": 2,
     "other_games_closed": 0,
-    "client_restarts": 0
+    "steam_force_killed": false,
+    "normal_steam_restart": 1,
+    "own_test_game_exit": "Official WM_CLOSE+confirmation, then exact owned9348 windowless residue finished. Preexisting BugReporter6948 left untouched."
   },
-  "current_offline_claim": "No mode switch this preparation. Previous confirmed offline is historical, not a new query result.",
-  "next": "Proceed with official Steam mode switch and upload; no forced login or session override.",
-  "privacy": "No account identity, cookies, private UI labels or raw machine logs included."
+  "current_offline_claim": "Restoration still pending at this publication snapshot; new acceptance launch held.",
+  "next": "User requested shorter gameplay-focused description and more inline real screenshots. Prepare and publish a new page revision while finishing official offline restoration. No new game launch until fresh offline confirmation.",
+  "privacy": "No account identity, cookies, private UI labels or raw machine logs included.",
+  "publication": {
+    "created_private": true,
+    "create_calls": 1,
+    "draft_submit_calls": 1,
+    "public_visibility_submit_calls": 1,
+    "result": "k_EResultOK",
+    "legal_agreement_required": false,
+    "title_and5219byte_description_match": true,
+    "gallery_images": 2,
+    "primary_preview": true,
+    "downloaded_files": 87,
+    "download_hashes_match_alpha": true,
+    "tags": [
+      "AI",
+      "Gameplay",
+      "Leaders",
+      "Gathering Storm"
+    ],
+    "explicit_dlc_dependency": "Gathering Storm tagged and stated in text; old SDK has no AddAppDependency binding, no separate dependency API success claimed"
+  },
+  "steam_restoration": {
+    "mode": "unconfirmed",
+    "last_fresh_mode_item": "进入离线模式...",
+    "current_steam_pid": 19252,
+    "current_steam_birth": 1793825984.0549335,
+    "normal_client_exit_and_restart": 1,
+    "forced_steam_termination": 0,
+    "reason": "Formal mode actions ACK did not yield visible Go Online proof. New game acceptance not launched. Continue official UI diagnosis; do not infer offline from ACK/cache/friend status.",
+    "navigation_screenshots": "Private mode-switch navigation only; never used as mode or occupancy proof."
+  }
 }

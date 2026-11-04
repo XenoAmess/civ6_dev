@@ -6,7 +6,7 @@
 
 **公开Alpha：** [v0.1.0-alpha.1下载](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1)，内部构建74。先读[安装与真实实机图](docs/releases/v0.1.0-alpha.1/README.zh-CN.md)和[已知问题／未验收风险](docs/releases/v0.1.0-alpha.1/KNOWN_ISSUES.zh-CN.md)。这是预发布版，建议独立新局，不承诺长期主档可靠性。
 
-**Steam工坊准备：** [介绍与更新BBCode、实机解读及宣传图](docs/workshop/v0.1.0-alpha.1/README.md)已入库。是否实际发布以[工坊回执](docs/workshop/v0.1.0-alpha.1/publication-status.json)为准；上传前检查账号占用，禁止顶号。
+**Steam工坊：** [白绮 Alpha 1](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)已公开，含宣传封面、两张真实实机图、逐图解读和完整风险说明。[BBCode／宣传素材／上传源码](docs/workshop/v0.1.0-alpha.1/README.md)及[发布回执](docs/workshop/v0.1.0-alpha.1/publication-status.json)已入库；实际工坊下载的87个文件与Alpha哈希一致。上传前检查账号占用，禁止顶号。
 
 - [最新开发与验收交接（2026-11-05）](docs/handoff/2026-11-05.md)：当前构建、游戏／存档现场、已验范围、剩余任务及本地模型续接。
 - [全部功能状态快照](docs/testing/baiqi-feature-status-2026-11-01.md)、[安装与当前实现](docs/implementation/baiqi-prototype.md)、[持续验收](docs/testing/results/2026-11-01-p6-acceptance.md)、[P5 历史记录](docs/testing/results/2026-11-01-p5-acceptance.md)。

@@ -1,0 +1,91 @@
+{
+  "schema": "civ6.workshop398-sdk-publication/v1",
+  "date_local": "2026-11-05",
+  "at_utc": "2026-11-04T21:11:12.640907+00:00",
+  "machine": "BF-202609141645",
+  "published_file_id": 3833805495,
+  "model398": {
+    "mode_id": "http-candidate",
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "max_tokens": 2100,
+    "post_begin": "2026-11-04T20:34:18.275561+00:00",
+    "attempt_end": "2026-11-04T20:34:24.416594+00:00",
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 6142.0310999965295,
+      "first_nonempty_content_delta_ms": 783.6228999658488,
+      "usage": {
+        "prompt_tokens": 3330,
+        "completion_tokens": 779,
+        "total_tokens": 4109
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "provenance": {
+      "shared_commit": "cf9238a216f22df363539a36932de0d4eb50ab71",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea"
+    },
+    "adoption": "0 code and0 novel upload plan. Candidate mostly repeats supplied safeguards; fictitious SteamAPI_SteamUGC_GetItems/equivalent is not a verified API. Actual implementation uses inspected official SDK methods and typed callbacks, not guessed ctypes callback ABI.",
+    "owner_active_cost_seconds": null,
+    "net_savings": null
+  },
+  "client_inflight_peak": 1,
+  "new_http_attempts": 1,
+  "extra_retries": 0,
+  "cumulative_through398": {
+    "logical_requests": 398,
+    "complete_stop_json": 370,
+    "length_discarded": 25,
+    "final_transport_failed": 3,
+    "http_attempts": 428,
+    "extra_retries": 30
+  },
+  "maintenance": "Nov5 same-machine same-user1.19.5 successful cache reused.0 OpenCode native generation.",
+  "owner_corrections": [
+    "First compiler relative paths used slash syntax parsed incorrectly; absolute Windows argv fixed before any SDK action.",
+    "CallResult<T> in actual old SDK is not IDisposable; corrected to try/finally Cancel/KeepAlive. First read-only query used creator0 unlike currentSDK404350, invalid query refused before any mutation; corrected creator context.",
+    "Old SDK fixed string fields ANSI-marshalled valid remote UTF-8 as mojibake. Private draft remained private; native read via official struct Marshal.SizeOf/OffsetOf and strictUTF8 established exact correct title/body, no duplicate upload or text repair required.",
+    "SDK404350 verification download failed. Owner initial callback filter discarded its404350 failure; later cross-app289070 callback was seen but install-info under404350 unavailable. Corrected callback result/app validation and downloaded in consumer289070; successful actual87file match. Not Steam empty-content defect: legacy WebAPIfile_size0 differs from SDK and actual downloaded22609650bytes.",
+    "Mode menu and input ACK not reliable state proof; pending restoration documented, no new game launch."
+  ],
+  "validation": {
+    "official_sdk_build": 4892607,
+    "read_only_own_sdk_items_before_create": 0,
+    "create_result": {
+      "result": "k_EResultOK",
+      "published_file_id": 3833805495,
+      "needs_legal_agreement": false
+    },
+    "draft_submit_result": {
+      "result": "k_EResultOK",
+      "needs_legal_agreement": false
+    },
+    "public_submit_result": {
+      "result": "k_EResultOK",
+      "needs_legal_agreement": false
+    },
+    "public_anonymous_title_description_images": true,
+    "actual_steam_download": "87 exact Alpha hashes,22609650bytes,0 unexpected files; no subscription or high-priority override",
+    "python_syntax": "py_compile prepare_workshop.py and publish_workshop.py passed",
+    "missing_idle_flag": "CLI exit2 before SDK loading/init",
+    "game_code_changes": 0,
+    "all40_game_acceptance": false
+  }
+}

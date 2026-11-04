@@ -1,12 +1,12 @@
 # 白绮 Alpha 1 工坊发布包
 
-内容对应已发布的[GitHub v0.1.0-alpha.1](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1)，内部74。**Steam工坊尚未上传，也没有工坊条目ID。** 最初占用查询不可用，用户随后确认有人游戏，已暂停；现用户明确确认无人游戏并要求继续上传。具体进展见[状态回执](publication-status.json)，准备文件本身不代表已同步发布。
+内容对应已发布的[GitHub v0.1.0-alpha.1](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1)，内部74。**已同步公开到[Steam工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)**，条目ID `3833805495`。最初按用户报告的占用情况暂停；用户明确确认无人游戏后才继续。详见[发布回执](publication-status.json)。
 
 - [介绍BBCode](description.bbcode)：玩法、强制托管、实机解读、未验风险、安装及反馈。
 - [更新说明BBCode](changenotes.bbcode)：实际提交更新时使用，文件准备不代表已发布。
 - [实机图及逐图解读](screenshot-commentary.md)：两张原始游戏客户区图，画廊顺序／标题／说明见[上传清单](package.json)。
 - [宣传封面](media/preview.jpg)、[生成原图](media/cover-source.png)、[来源与压缩记录](art-provenance.json)。宣传插画与真实截图有明确标注。
-- [准备验证](verification.json)：描述标签、图片、87个核心文件与已发布Alpha哈希核对；不授Steam上传成功或游戏全验通过。
+- [准备验证](verification.json)仅记录上传前本地检查；[公开页读回](public-readback.json)核对完整中文正文、更新日志及三张图；[实际工坊下载验证](download-verification.json)确认87个文件与Alpha逐项哈希一致。这些不代表全部游戏用例通过。
 
 在仓库根目录用CMD执行：
 
@@ -16,6 +16,22 @@ python -X utf8 tools\prepare_workshop.py --stage dist\workshop\alpha1
 ```
 
 工具仅在本地验证和准备上传目录，不连接Steam、不登录、不初始化Steam API、不切换模式、不执行上传。`content/`仅含发布清单的87个游戏文件；宣传图与说明放旁边，避免把开发资料或私人记录装进游戏模组。已有目标仅在内容完全一致时复用，不覆盖不同文件、不清理其他目录。
+
+`package.json`是上传前冻结的准备清单，其中空条目ID、拟定标签和PREPARED状态不作为当前发布状态；实际ID、标签、结果以发布回执为准。已有工坊条目后不要重新创建。
+
+## 官方SDK上传源码
+
+[Python入口](../../../tools/publish_workshop.py)编译[C#桥接器](../../../tools/BaiqiWorkshopPublisher.cs)，引用用户本机正式安装的Civ6 SDK `ModUploader` 目录。SDK DLL只复制到忽略目录，不入库或随模组分发。运行这套开发上传工具需要Windows .NET Framework编译器；玩家游玩没有这一要求。
+
+仅在已核对远端无人游戏且通过Steam正式菜单上线后，才可初始化上传SDK。例如将 `CIV6_SDK_ROOT` 设置为本机SDK目录，再读取现有条目：
+
+```bat
+python -X utf8 tools\publish_workshop.py --sdk-dir "%CIV6_SDK_ROOT%" --remote-idle-confirmed --mode readback --item-id 3833805495
+```
+
+`--remote-idle-confirmed`记录操作者确认，工具本身不证明远端无人游戏。它不自动切上线、不登录、不强制夺取会话，也不接受法律条款。正式占用信息出现矛盾时应停止。`create-draft`会查询已有白绮条目，并在创建／提交前独占写入意图日志；结果未知时不得删除日志重跑。`publish`先读回完整标题、正文和两张附图再公开；`download`使用游戏消费端289070上下文、低优先级、无需订阅。私有回执在 `.local-model/steam/workshop-alpha1/`。
+
+本次官方图形上传器只允许首次设置封面、标签和可见性，不能填完整长正文和两张附图，因此最终使用其自带Steamworks.NET托管接口。旧SDK固定字符数组按Windows ANSI读回会产生中文乱码；桥接器按该SDK实际结构偏移读取原生UTF-8，未重传或改坏远端中文。独立匿名Web API也验证中文全文一致。
 
 ## 上传与核验流程
 
