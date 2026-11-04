@@ -6,7 +6,17 @@
 
 **公开Alpha：** [v0.1.0-alpha.1下载](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1)，内部构建74。先读[安装与真实实机图](docs/releases/v0.1.0-alpha.1/README.zh-CN.md)和[已知问题／未验收风险](docs/releases/v0.1.0-alpha.1/KNOWN_ISSUES.zh-CN.md)。这是预发布版，建议独立新局，不承诺长期主档可靠性。
 
-**Steam工坊：** [白绮 Alpha 1](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)已公开，含宣传封面、两张真实实机图、逐图解读和完整风险说明。[BBCode／宣传素材／上传源码](docs/workshop/v0.1.0-alpha.1/README.md)及[发布回执](docs/workshop/v0.1.0-alpha.1/publication-status.json)已入库；实际工坊下载的87个文件与Alpha哈希一致。上传前检查账号占用，禁止顶号。
+**Steam工坊：** [白绮 Alpha 1](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)已公开，介绍按实际玩法重写，7张真实实机图已内嵌正文，宣传封面与已知风险另有标注。[图文／BBCode／上传源码](docs/workshop/v0.1.0-alpha.1/README.md)及[发布回执](docs/workshop/v0.1.0-alpha.1/publication-status.json)已入库；实际工坊下载的87个文件与Alpha哈希一致。上传前检查账号占用，禁止顶号。
+
+白绮接管研究、政策、排产、建设和移民扩张。你用手头的军队和国库处理前线，决定外交，并结束回合；城市可以查看，但没有临时接管。
+
+![74版局内总览：军队由玩家指挥](docs/releases/v0.1.0-alpha.1/screenshots/overview.png)
+
+![74版城市查看：允许查看，不能手动改生产](docs/releases/v0.1.0-alpha.1/screenshots/city-readonly.png)
+
+![27版QA场景：地图右键后的征城、正常进攻与取消选项](docs/workshop/v0.1.0-alpha.1/screenshots/requisition-confirmation.png)
+
+征城图为27版QA敌城场景，人口1、报价300金币；不是74版重拍。[完整玩法介绍与7张实机图](docs/workshop/v0.1.0-alpha.1/README.md)逐图注明版本与场景。
 
 - [最新开发与验收交接（2026-11-05）](docs/handoff/2026-11-05.md)：当前构建、游戏／存档现场、已验范围、剩余任务及本地模型续接。
 - [全部功能状态快照](docs/testing/baiqi-feature-status-2026-11-01.md)、[安装与当前实现](docs/implementation/baiqi-prototype.md)、[持续验收](docs/testing/results/2026-11-01-p6-acceptance.md)、[P5 历史记录](docs/testing/results/2026-11-01-p5-acceptance.md)。

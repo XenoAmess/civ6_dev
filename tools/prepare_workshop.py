@@ -7,7 +7,10 @@ import json
 import re
 from pathlib import Path
 
-from build_mod import contained, manifest_files
+try:
+    from .build_mod import contained, manifest_files
+except ImportError:
+    from build_mod import contained, manifest_files
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs/workshop/v0.1.0-alpha.1"
@@ -18,13 +21,20 @@ def digest(path: Path) -> str:
 
 
 def bbcode(path: Path) -> dict:
+    from urllib.parse import urlsplit
+
     value = path.read_text(encoding="utf-8")
     stack = []
+    image_start = None
     for token in re.finditer(r"\[(/?)([^\]]+)\]", value):
         closing, raw = token.groups()
         tag = raw.split("=", 1)[0]
-        if tag not in {"h1", "h2", "b", "list", "*", "url"}:
+        if tag not in {"h1", "h2", "b", "list", "*", "url", "img"}:
             raise ValueError(f"Unsupported BBCode in {path.name}: {raw}")
+        if stack and stack[-1] == "img" and not (closing and tag == "img"):
+            raise ValueError("An image must contain a URL only")
+        if tag == "img" and raw != "img":
+            raise ValueError("Image attributes are not supported")
         if tag == "*":
             if closing or not stack or stack[-1] != "list":
                 raise ValueError("List item outside list")
@@ -32,10 +42,19 @@ def bbcode(path: Path) -> dict:
         if closing:
             if not stack or stack.pop() != tag:
                 raise ValueError(f"Unbalanced BBCode in {path.name}")
+            if tag == "img":
+                url = value[image_start:token.start()]
+                parsed = urlsplit(url)
+                if (not re.fullmatch(r"https://[^\s\x00-\x1f\x7f\[\]<>]+", url)
+                        or not parsed.hostname or parsed.username is not None or parsed.password is not None):
+                    raise ValueError("Expected an absolute HTTPS image URL without credentials or whitespace")
+                image_start = None
         else:
             if tag == "url" and not raw.startswith("url=https://"):
                 raise ValueError("Expected an explicit HTTPS link")
             stack.append(tag)
+            if tag == "img":
+                image_start = token.end()
     if stack or not value.strip():
         raise ValueError(f"Incomplete BBCode in {path.name}")
     return {"bytes": path.stat().st_size, "sha256": digest(path)}
@@ -52,7 +71,9 @@ def put_identical(target: Path, data: bytes) -> None:
 
 
 def prepare(stage: Path | None = None) -> dict:
-    plan = json.loads((DOCS / "package.json").read_text(encoding="utf-8"))
+    current = DOCS / "package-current.json"
+    plan_path = current if current.exists() else DOCS / "package.json"
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
     alpha = json.loads((ROOT / "docs/releases/v0.1.0-alpha.1/verification.json").read_text(encoding="utf-8"))
     source = ROOT / "mod/Baiqi"
     files = manifest_files(source)
@@ -62,7 +83,7 @@ def prepare(stage: Path | None = None) -> dict:
         raise ValueError("Product differs from the published Alpha 1 inventory")
     copy_map = {f"content/{name}": contained(source, name).read_bytes() for name in files}
     descriptions = {}
-    for name in ("description.bbcode", "changenotes.bbcode"):
+    for name in ("description.bbcode", plan.get("change_notes", "changenotes.bbcode")):
         descriptions[name] = bbcode(DOCS / name)
         copy_map[name] = (DOCS / name).read_bytes()
     media = []
@@ -74,9 +95,9 @@ def prepare(stage: Path | None = None) -> dict:
             raise ValueError("Upload image must be smaller than 1,000,000 bytes")
         media.append({key: entry[key] for key in ("role", "sha256", "upload")})
         if entry["upload"]:
-            name = "preview.jpg" if entry["role"] == "primary_preview" else f"gallery/{asset.name}"
+            name = "preview.jpg" if entry["role"] == "primary_preview" else f"gallery/{entry.get('upload_filename', asset.name)}"
             copy_map[name] = asset.read_bytes()
-    copy_map["package.json"] = (DOCS / "package.json").read_bytes()
+    copy_map["package.json"] = plan_path.read_bytes()
     if stage is not None:
         stage = stage.resolve()
         allowed = (ROOT / "dist/workshop").resolve()

@@ -1,44 +1,61 @@
-# 白绮 Alpha 1 工坊发布包
+# 白绮【为我前驱】
 
-内容对应已发布的[GitHub v0.1.0-alpha.1](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1)，内部74。**已同步公开到[Steam工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)**，条目ID `3833805495`。最初按用户报告的占用情况暂停；用户明确确认无人游戏后才继续。详见[发布回执](publication-status.json)。
+选择白绮，把内政交给她，把军队和外交留给自己。
 
-- [介绍BBCode](description.bbcode)：玩法、强制托管、实机解读、未验风险、安装及反馈。
-- [更新说明BBCode](changenotes.bbcode)：实际提交更新时使用，文件准备不代表已发布。
-- [实机图及逐图解读](screenshot-commentary.md)：两张原始游戏客户区图，画廊顺序／标题／说明见[上传清单](package.json)。
-- [宣传封面](media/preview.jpg)、[生成原图](media/cover-source.png)、[来源与压缩记录](art-provenance.json)。宣传插画与真实截图有明确标注。
-- [准备验证](verification.json)仅记录上传前本地检查；[公开页读回](public-readback.json)核对完整中文正文、更新日志及三张图；[实际工坊下载验证](download-verification.json)确认87个文件与Alpha逐项哈希一致。这些不代表全部游戏用例通过。
+研究什么、城里造什么、哪里修改良、移民去哪里建城，由模组安排。你仍能打开城市查看进度，但不能改排产，也没有暂停或临时接管。
 
-在仓库根目录用CMD执行：
+![选择白绮就采用这套分工。30版选人实机。](screenshots/leader-selection.png)
 
-```bat
-python -X utf8 tools\prepare_workshop.py
-python -X utf8 tools\prepare_workshop.py --stage dist\workshop\alpha1
-```
+选择白绮就采用这套分工。30版选人实机。
 
-工具仅在本地验证和准备上传目录，不连接Steam、不登录、不初始化Steam API、不切换模式、不执行上传。`content/`仅含发布清单的87个游戏文件；宣传图与说明放旁边，避免把开发资料或私人记录装进游戏模组。已有目标仅在内容完全一致时复用，不覆盖不同文件、不清理其他目录。
+## 一个回合，你做什么
 
-`package.json`是上传前冻结的准备清单，其中空条目ID、拟定标签和PREPARED状态不作为当前发布状态；实际ID、标签、结果以发布回执为准。已有工坊条目后不要重新创建。
+看地图和城市进度，决定军队往哪里走、打谁、何时停手；处理外交，再结束回合。新训练出来的军队等你的命令，模组不会替你调兵、宣战，或借护送文职把军队带走。
 
-## 官方SDK上传源码
+![74版，114回合：城市继续发展，选中的军队仍由玩家指挥。开发存档含历史QA准备。](../../releases/v0.1.0-alpha.1/screenshots/overview.png)
 
-[Python入口](../../../tools/publish_workshop.py)编译[C#桥接器](../../../tools/BaiqiWorkshopPublisher.cs)，引用用户本机正式安装的Civ6 SDK `ModUploader` 目录。SDK DLL只复制到忽略目录，不入库或随模组分发。运行这套开发上传工具需要Windows .NET Framework编译器；玩家游玩没有这一要求。
+74版，114回合：城市继续发展，选中的军队仍由玩家指挥。开发存档含历史QA准备。
 
-仅在已核对远端无人游戏且通过Steam正式菜单上线后，才可初始化上传SDK。例如将 `CIV6_SDK_ROOT` 设置为本机SDK目录，再读取现有条目：
+这套玩法要接受的取舍是：城市不再逐项按你的手法优化。你得用手头的兵力和国库作决定，让内政按它的节奏推进；发现排产不合心意，也不能临时接回来改。
 
-```bat
-python -X utf8 tools\publish_workshop.py --sdk-dir "%CIV6_SDK_ROOT%" --remote-idle-confirmed --mode readback --item-id 3833805495
-```
+![74版城市查看界面：可以看，不能手动改生产。](../../releases/v0.1.0-alpha.1/screenshots/city-readonly.png)
 
-`--remote-idle-confirmed`记录操作者确认，工具本身不证明远端无人游戏。它不自动切上线、不登录、不强制夺取会话，也不接受法律条款。正式占用信息出现矛盾时应停止。`create-draft`会查询已有白绮条目，并在创建／提交前独占写入意图日志；结果未知时不得删除日志重跑。`publish`先读回完整标题、正文和两张附图再公开；`download`使用游戏消费端289070上下文、低优先级、无需订阅。私有回执在 `.local-model/steam/workshop-alpha1/`。
+74版城市查看界面：可以看，不能手动改生产。
 
-本次官方图形上传器只允许首次设置封面、标签和可见性，不能填完整长正文和两张附图，因此最终使用其自带Steamworks.NET托管接口。旧SDK固定字符数组按Windows ANSI读回会产生中文乱码；桥接器按该SDK实际结构偏移读取原生UTF-8，未重传或改坏远端中文。独立匿名Web API也验证中文全文一致。
+![32版实机：从五城准备档推进20回合后的44回合，期间没有手动内政。历史开发样本，非74版重测。](screenshots/development-20turns.png)
 
-## 上传与核验流程
+32版实机：从五城准备档推进20回合后的44回合，期间没有手动内政。历史开发样本，非74版重测。
 
-1. 在任何Steam上线、下载SDK、启动上传器或Steam API初始化之前，先按用户2026-11-05要求获得新鲜、可靠的账号远端游戏占用状态。区分本机自有验收游戏与其他设备的游戏；未知或有人游戏均停止后续联网发布步骤。好友隐身、空的本机进程、缓存配置、缺失社区状态与HTTP错误均不证明无人游戏。
-2. 占用已可靠排除后，才通过Steam正式入口短暂上线。上传工具优先使用官方Civ6 Development Tools中的Workshop Uploader；本机尚未安装SDK，下载同样受第一步约束。不要通过启动游戏、SteamAPI_Init或强制登录来“试探”占用，不关闭他人游戏。
-3. 先核对已有条目和模组ID，避免重复创建。使用`content/`、`preview.jpg`、清单中的标题／标签、完整介绍及更新BBCode，添加两张真实图与逐图说明。选定《风云变幻》依赖；正式提交前核对工具实际可用字段。当前未验证上传器界面，清单字段不是已成功填写的证据。
-4. 提交一次后保存回执。若结果不明，先查询是否已经创建，禁止盲目重复创建／发布。新条目检查可见性、正文、缩略图、两张图、更新日志和依赖。用官方`GetPublishedFileDetails`读回标题／正文／文件信息，并独立访问公开详情及更新日志；只有真实订阅下载、核验文件哈希后才能宣称工坊安装文件验证通过。
-5. 发布步骤完成或中止后立即通过正式入口恢复离线，再以后台只读方法确认当前实例；不把菜单操作ACK或好友离线当作确认。随后继续独立游戏验收。
+## 破城之后，多一个选择
 
-上传规则依据[本项目Steam流程](../../steam-offline-workflow.md)及用户“不顶号”的明确限制。官方参考：[Civ6开发工具公告](https://steamcommunity.com/games/289070/announcements/detail/576861888092920827)、[Steam UGC接口](https://partner.steamgames.com/doc/api/isteamugc)、[Workshop实现说明](https://partner.steamgames.com/doc/features/workshop/implementation)。图片按官方UGC附加预览限制准备为小于1MB；具体上传器限制仍须以实际界面及成功回执验证。
+合格陆军贴近已经破防、生命不高于35%的敌城后，直接在地图上右键点城。你可以继续正常进攻，也可以确认报价，用金币接管整座城，或取消这次操作。
+
+![27版QA敌城场景：人口1，报价300金币。征取、正常进攻、取消，都在这一个地图确认框里。](screenshots/requisition-confirmation.png)
+
+27版QA敌城场景：人口1，报价300金币。征取、正常进攻、取消，都在这一个地图确认框里。
+
+当前报价是200＋100×人口金币。还须处于交战、相邻、部队可行动且没有护送编队；成功接管会结束该部队本回合行动。是否值得动用国库，由你决定。
+
+![27版QA场景：玩家选了正常进攻，勇士实际参战。该分支没有付征城费。](screenshots/normal-attack.png)
+
+27版QA场景：玩家选了正常进攻，勇士实际参战。该分支没有付征城费。
+
+## 外交仍由你拍板
+
+宣战、议和、交易、城邦使者和世界议会都留给玩家。和平扩张走移民建城；国内传教士由托管处理，使徒、审判官和上师仍由你指挥。
+
+![67版，101回合：测试玩家亲自选择并提交世界议会投票，模组不代投。](screenshots/world-congress.png)
+
+67版，101回合：测试玩家亲自选择并提交世界议会投票，模组不代投。
+
+## Alpha 1 试用说明
+
+内部构建74，全功能实机验收尚未完成。可能出现托管停滞；征城结果未知时会冻结后续冲突操作。特殊城市资产、长期忠诚度与经济、护送和兼容边界仍有未验范围。没有手动接管兜底。
+
+当前验收环境为Windows、Steam版DX12、单人《风云变幻》。建议新开一局并保留原档。正常游玩不需要在线模型服务。
+
+这里共7张真实游戏截图。27／30／32／67版图片是对应开发记录，已在图下注明；不是把旧图当作本次Alpha的新验收结果。部分场景含QA准备。宣传封面另为AI辅助插画，不计入实机图。
+
+[完整风险](../../releases/v0.1.0-alpha.1/KNOWN_ISSUES.zh-CN.md) · [安装说明](../../releases/v0.1.0-alpha.1/README.zh-CN.md) · [逐图来源与范围](screenshot-commentary.md) · [反馈问题](https://github.com/XenoAmess/civ6_dev/issues)
+
+[Steam工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495) · [GitHub下载](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1) · [BBCode](description.bbcode) · [发布与上传源码记录](PUBLISHING.md)

@@ -17,17 +17,25 @@ def main() -> None:
     parser.add_argument("--sdk-dir", type=Path, required=True, help="Official Civ6 SDK installation directory")
     parser.add_argument("--remote-idle-confirmed", action="store_true",
                         help="Only supply after a fresh reliable check or explicit user report; never override a Steam conflict")
-    parser.add_argument("--mode", choices=["list", "create-draft", "readback", "publish", "download"], default="list")
+    parser.add_argument("--mode", choices=["list", "create-draft", "readback", "publish", "download", "append-preview", "update-page"], default="list")
     parser.add_argument("--item-id", type=int)
     args = parser.parse_args()
     if not args.remote_idle_confirmed:
         parser.error("Remote game occupancy must be confirmed before initializing Steam; no login or override is performed")
-    if args.mode in {"readback", "publish", "download"} and (args.item_id is None or args.item_id <= 0):
+    if args.mode in {"readback", "publish", "download", "append-preview", "update-page"} and (args.item_id is None or args.item_id <= 0):
         parser.error("An explicit existing item ID is required")
     if args.mode in {"list", "create-draft"} and args.item_id is not None:
         parser.error("This mode does not accept an item ID")
     try:
-        stage = ROOT / "dist/workshop/alpha1"
+        plan_path = DOCS / "package-current.json"
+        if not plan_path.exists():
+            plan_path = DOCS / "package.json"
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+        if args.mode == "create-draft" and plan.get("published_file_id"):
+            raise ValueError("This package already has a published item; update its explicit existing ID instead of creating another")
+        page_revision = int(plan.get("page_revision", 1))
+        body_hash = hashlib.sha256((DOCS / "description.bbcode").read_bytes()).hexdigest()[:12]
+        stage = ROOT / "dist/workshop" / f"alpha1-page{page_revision}-{body_hash}"
         prepare(stage)
         sdk = args.sdk_dir.resolve() / "ModUploader"
         bridge = ROOT / ".local-model/tools/workshop-sdk-bridge"
@@ -48,14 +56,17 @@ def main() -> None:
         subprocess.run([str(csc), "/nologo", "/platform:x64", "/target:exe",
                         "/reference:" + str(bridge / "Steamworks.NET.dll"), "/reference:System.Web.Extensions.dll",
                         "/out:" + str(executable), str(ROOT / "tools/BaiqiWorkshopPublisher.cs")], check=True)
-        private = ROOT / ".local-model/steam/workshop-alpha1"
+        private = ROOT / ".local-model/steam/workshop-alpha1" / f"page-{page_revision}"
         private.mkdir(parents=True, exist_ok=True)
-        plan = json.loads((DOCS / "package.json").read_text(encoding="utf-8"))
+        gallery = [row for row in plan["media"] if row["upload"] and row["role"] != "primary_preview"]
         config = {"remote_occupancy_source": "user_explicit_idle", "mod_id": plan["mod_id"],
                   "title": plan["title"], "description": (DOCS / "description.bbcode").read_text(encoding="utf-8"),
-                  "change_notes": (DOCS / "changenotes.bbcode").read_text(encoding="utf-8"),
+                  "change_notes": (DOCS / plan.get("change_notes", "changenotes.bbcode")).read_text(encoding="utf-8"),
                   "content": str(stage / "content"), "preview": str(stage / "preview.jpg"),
                   "overview": str(stage / "gallery/overview.jpg"), "city": str(stage / "gallery/city-readonly.jpg")}
+        config["expected_previews"] = len(gallery)
+        config["new_gallery"] = [str(stage / "gallery" / row.get("upload_filename", Path(row["repository_path"]).name))
+                                 for row in gallery if row["role"] not in {"gameplay_overview", "gameplay_city"}]
         # Journal location is stable so a second create/publish refuses to overwrite an existing intent.
         config_path = private / "input.json"
         encoded = json.dumps(config, ensure_ascii=False, indent=2).encode("utf-8")

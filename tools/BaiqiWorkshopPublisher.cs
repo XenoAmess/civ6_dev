@@ -16,6 +16,8 @@ public static class BaiqiWorkshopPublisher {
     static string Journal;
     static Dictionary<string, object> Config;
     static uint RunningApp;
+    static List<string> LastPreviewNames = new List<string>();
+    static int ExpectedPreviews() { return Config.ContainsKey("expected_previews") ? Convert.ToInt32(Config["expected_previews"]) : 2; }
     static string Text(string key) { return (string)Config[key]; }
     [DllImport("CSteamworks", CallingConvention = CallingConvention.Cdecl)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -123,10 +125,12 @@ public static class BaiqiWorkshopPublisher {
                     "Workshop item ownership/consumer mismatch");
             uint previews = SteamUGC.GetQueryUGCNumAdditionalPreviews(query, 0);
             var media = new List<object>();
+            LastPreviewNames = new List<string>();
             for (uint i = 0; i < previews; i++) {
                 string url, original; EItemPreviewType type;
                 Require(SteamUGC.GetQueryUGCAdditionalPreview(query, 0, i, out url, 4096, out original, 1024, out type), "Preview read failed");
                 media.Add(new { index = i, url, original, type = type.ToString() });
+                LastPreviewNames.Add(original);
             }
             Emit("item_readback", new { published_file_id = id.m_PublishedFileId, visibility = item.m_eVisibility.ToString(),
                 title = item.m_rgchTitle, description_matches = item.m_rgchDescription == Text("description"), cached = result.m_bCachedData,
@@ -134,7 +138,7 @@ public static class BaiqiWorkshopPublisher {
             if (verifyFull) {
                 Require(item.m_rgchTitle == Text("title"), "Remote title differs");
                 Require(item.m_rgchDescription == Text("description"), "Remote description differs");
-                Require(previews == 2, "Expected exactly two gameplay gallery previews");
+                Require(previews == ExpectedPreviews(), "Unexpected gameplay gallery preview count");
                 Require(item.m_nFileSize > 0 && item.m_nPreviewFileSize > 0, "No content/primary preview bytes");
             }
             return item;
@@ -202,6 +206,36 @@ public static class BaiqiWorkshopPublisher {
             Emit("download_complete", new { published_file_id = id.m_PublishedFileId, bytes = size, folder, timestamp });
         } finally { callback.Unregister(); GC.KeepAlive(callback); }
     }
+    static void UpdatePage(PublishedFileId_t id) {
+        Session(); Details(id, false);
+        Require(LastPreviewNames.Count == ExpectedPreviews(), "Complete gallery must be uploaded before changing page");
+        var update = SteamUGC.StartItemUpdate(Consumer, id);
+        Require(SteamUGC.SetItemTitle(update, Text("title")), "Set page title failed");
+        Require(SteamUGC.SetItemDescription(update, Text("description")), "Set page description failed");
+        Record("page-revision2-submit-intent", new { utc = DateTime.UtcNow.ToString("o"), published_file_id = id.m_PublishedFileId, images_in_body = ExpectedPreviews(), content_changed = false });
+        var result = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(update, Text("change_notes")), "page_update");
+        Record("page-revision2-submit-result", new { result = result.m_eResult.ToString(), needs_legal_agreement = result.m_bUserNeedsToAcceptWorkshopLegalAgreement });
+        Require(result.m_eResult == EResult.k_EResultOK && !result.m_bUserNeedsToAcceptWorkshopLegalAgreement, "Page update failed or needs agreement");
+        Details(id, true);
+    }
+    static void AppendOnePreview(PublishedFileId_t id) {
+        Session(); Details(id, false);
+        var paths = ((System.Collections.IEnumerable)Config["new_gallery"]).Cast<object>().Select(Convert.ToString).ToList();
+        var allowed = new List<string> { "overview.jpg", "city-readonly.jpg" }; allowed.AddRange(paths.Select(Path.GetFileName));
+        Require(paths.Count == 5 && paths.All(File.Exists) && LastPreviewNames.Distinct().Count() == LastPreviewNames.Count &&
+                LastPreviewNames.All(allowed.Contains), "Unexpected gallery contents; no automatic alteration");
+        string next = paths.FirstOrDefault(path => !LastPreviewNames.Contains(Path.GetFileName(path)));
+        if (next == null) { Require(LastPreviewNames.Count == 7, "Unexpected final gallery count"); Emit("gallery_complete", new { images = 7 }); return; }
+        int previous = LastPreviewNames.Count; string name = Path.GetFileNameWithoutExtension(next);
+        Require(System.Text.RegularExpressions.Regex.IsMatch(name, "^page2-[a-z0-9-]+$"), "Unexpected preview staging filename");
+        var update = SteamUGC.StartItemUpdate(Consumer, id);
+        Require(SteamUGC.AddItemPreviewFile(update, next, EItemPreviewType.k_EItemPreviewType_Image), "Append preview refused");
+        Record(name + "-submit-intent", new { utc = DateTime.UtcNow.ToString("o"), published_file_id = id.m_PublishedFileId, preview = name, previous_count = previous, content_changed = false });
+        var result = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(update, null), "append_preview");
+        Record(name + "-submit-result", new { result = result.m_eResult.ToString(), needs_legal_agreement = result.m_bUserNeedsToAcceptWorkshopLegalAgreement });
+        Require(result.m_eResult == EResult.k_EResultOK && !result.m_bUserNeedsToAcceptWorkshopLegalAgreement, "Single preview update failed; inspect receipt before retry");
+        Details(id, false); Require(LastPreviewNames.Count == previous + 1 && LastPreviewNames.Contains(Path.GetFileName(next)), "Single preview readback differs");
+    }
     public static int Main(string[] args) {
         Console.OutputEncoding = new System.Text.UTF8Encoding(false);
         bool initialized = false;
@@ -221,6 +255,8 @@ public static class BaiqiWorkshopPublisher {
                 else if (args[2] == "readback") Details(id, true);
                 else if (args[2] == "inspect") Details(id, false);
                 else if (args[2] == "download") Download(id);
+                else if (args[2] == "update-page") UpdatePage(id);
+                else if (args[2] == "append-preview") AppendOnePreview(id);
                 else throw new InvalidOperationException("Unknown mode; refusing mutation");
             }
             return 0;
