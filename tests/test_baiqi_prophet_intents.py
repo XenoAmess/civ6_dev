@@ -205,5 +205,58 @@ u.GetY=function() return -9999 end
         self.assertIsNone(self.h.store[KEY])
 
 
+    def test_bootstrap_reconciles_persisted_event_without_consumer_call(self):
+        self.assertTrue(self.prepare()[0])
+        self.assertEqual(self.bridge.Observe(7, 4, 4, 70)[0], 'ARMED')
+        self.assertTrue(self.operation().eventSeen)
+        self.w.withScientist = False
+        self.w.createdReligion = 2
+        prior = self.h.store
+        self.h = install_prophet_bridge(self.lua, prior, fresh=False)
+        self.bridge = self.lua.globals().ExposedMembers.BaiqiProphetIntentBridge
+        op = self.h.store[KEY].operations['4']
+        self.assertEqual(op.stage, 'OBSERVED')
+        self.assertEqual(op.token, 'prophet:7:1')
+        self.assertEqual(self.h.store[KEY].serial, 1)
+        self.setUp()
+        self.assertTrue(self.prepare()[0])
+        self.w.withScientist = False
+        self.w.createdReligion = 2
+        self.h = install_prophet_bridge(self.lua, self.h.store, fresh=False)
+        self.assertEqual(self.h.store[KEY].operations['4'].stage, 'ARMED')
+
+    def test_bootstrap_alias_does_not_confirm_even_with_event_and_created_religion(self):
+        self.assertTrue(self.prepare()[0])
+        self.bridge.Observe(7, 4, 4, 70)
+        self.w.scientistID, self.w.findScientistAlias = 65540, True
+        self.w.createdReligion = 2
+        self.h = install_prophet_bridge(self.lua, self.h.store, fresh=False)
+        self.assertEqual(self.h.store[KEY].operations['4'].stage, 'ARMED')
+        self.assertTrue(self.h.store[KEY].operations['4'].eventSeen)
+
+    def test_bootstrap_preserves_corrupt_record_without_new_write(self):
+        self.assertTrue(self.prepare()[0])
+        self.bridge.Observe(7, 4, 4, 70)
+        self.h.store[KEY].unexpected = 'preserve'
+        self.w.withScientist = False
+        self.w.createdReligion = 2
+        self.h = install_prophet_bridge(self.lua, self.h.store, fresh=False)
+        self.assertEqual(self.h.writes, 0)
+        self.assertEqual(self.h.store[KEY].unexpected, 'preserve')
+        self.assertEqual(self.h.store[KEY].operations['4'].stage, 'ARMED')
+
+    def test_actual_registered_bootstrap_reconciles_once_without_consumer_call(self):
+        self.assertTrue(self.prepare()[0])
+        self.bridge.Observe(7, 4, 4, 70)
+        writes = self.h.writes
+        self.w.withScientist = False
+        self.w.createdReligion = 2
+        self.h.FireBootstrap()
+        self.assertEqual(self.h.store[KEY].operations['4'].stage, 'OBSERVED')
+        self.assertEqual(self.h.writes, writes + 1)
+        self.h.FireBootstrap()
+        self.assertEqual(self.h.writes, writes + 1)
+
+
 if __name__ == '__main__':
     unittest.main()

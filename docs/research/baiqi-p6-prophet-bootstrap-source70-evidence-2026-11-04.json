@@ -1,0 +1,341 @@
+{
+  "schema": "civ6.baiqi-prophet-bootstrap-source70/v1",
+  "date_local": "2026-11-04",
+  "at_utc": "2026-11-04T06:52:03.973847+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 70,
+  "installed_version": 69,
+  "running_version": 69,
+  "native70": "NOT_STARTED",
+  "native69": {
+    "source_commit": "915d7db971e9eca6aa6644894388858106810870",
+    "pid": 2072,
+    "files": 87,
+    "installed_source_equal_at_launch": true,
+    "offline_proof_age_at_launch_seconds": 46.309382,
+    "online_switches": 0,
+    "turn": 75,
+    "input_checkpoint": {
+      "name": "Baiqi_P6_20261104_V68_ProphetDelayed75.Civ6Save",
+      "bytes": 483739,
+      "sha256": "27dd443fe837aee2ad95e5796f7f752e1fae6469d0ead93cda68a8465e1e47e1"
+    },
+    "input_checkpoint_unchanged": true,
+    "observations": [
+      {
+        "at_utc": "2026-11-04T06:42:29.058428+00:00",
+        "context": "GameCore_Tuner",
+        "lines": [
+          "O\u0000GameCore_Tuner: P6_PROPHET69_CORE\t75\t0",
+          "O\u0000GameCore_Tuner: P6_PROPHET69_JOURNAL\ttable\t1\t0\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET69_OP\t3670044\tprophet:0:1\t3670044\t4\t113\tARMED\ttrue\t7\t12",
+          "O\u0000GameCore_Tuner: P6_PROPHET69_OP_COUNT\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET69_CORE_CREATED\ttrue\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET69_CORE_UNIT\t3670044\t-9999\t-9999\t2\t4\t113\t1",
+          "O\u0000GameCore_Tuner: P6_PROPHET69_CORE_UNIT_COUNT\t1"
+        ]
+      },
+      {
+        "at_utc": "2026-11-04T06:42:29.713726+00:00",
+        "context": "BaiqiExecutor",
+        "lines": [
+          "O\u0000BaiqiExecutor: P6_PROPHET69_UI\t75\t0\tfalse\tfalse",
+          "O\u0000BaiqiExecutor: P6_PROPHET69_CONTROLLER\t创作等待持久化回执；其他内政继续执行",
+          "O\u0000BaiqiExecutor: P6_PROPHET69_UI_RELIGION\tGetReligionTypeCreated\ttrue\t1",
+          "O\u0000BaiqiExecutor: P6_PROPHET69_UI_RELIGION\tGetNumBeliefsEarned\ttrue\t2",
+          "O\u0000BaiqiExecutor: P6_PROPHET69_UI_RELIGION\tHasReligiousFoundingUnit\ttrue\ttrue",
+          "O\u0000BaiqiExecutor: P6_PROPHET69_UI_UNIT_COUNT\t0",
+          "O\u0000BaiqiExecutor: P6_PROPHET69_HOLY_SITE\t327684\t535\t7\t12\t0\ttrue\ttrue",
+          "O\u0000BaiqiExecutor: P6_PROPHET69_HOLY_SITE_COUNT\t1"
+        ]
+      }
+    ],
+    "actual_belief_lines": [
+      "BaiqiExecutor: P6_NATIVE69_ACTUAL_BELIEF\t27\tBELIEF_WORK_ETHIC\tBELIEF_CLASS_FOLLOWER",
+      "BaiqiExecutor: P6_NATIVE69_ACTUAL_BELIEF\t44\tBELIEF_TITHE\tBELIEF_CLASS_FOUNDER",
+      "BaiqiExecutor: P6_NATIVE69_ACTUAL_BELIEF_COUNT\t2"
+    ],
+    "expected_stage": "OBSERVED",
+    "actual_stage": "ARMED",
+    "eventSeen": true,
+    "serial": 1,
+    "token": "prophet:0:1",
+    "ui_units": 0,
+    "core_retained_unit": [
+      3670044,
+      -9999,
+      -9999,
+      4,
+      113
+    ],
+    "actual_religion": 1,
+    "actual_beliefs": [
+      27,
+      44
+    ],
+    "result": "FAIL_AUTO_RECOVERY",
+    "cause": "Bootstrap only Load; localUIpending lost, UI unit absent so Inspect consumer not reached. No automatic reconciliation despite causal event persisted and actual effect.",
+    "observer_effect": "All evidence probes rawGetProperty/getters only. No Inspect/Observe/Prepare/Controller.RunNow calls, no manual native event/grant/replayed ability.",
+    "founding_request_log_lines": [],
+    "lower_native_sink_independently_counted": false,
+    "runtime_error_matching_lines": [],
+    "logs": {
+      "Lua.log": {
+        "bytes": 4585,
+        "sha256": "c12840c5842286976b1f42e476c89ceb01918cc0186ba2350e4c6a91c0d1163f"
+      },
+      "Database.log": {
+        "bytes": 25071,
+        "sha256": "476d34a7d7eb251c316f0bceb93331cb52d5b68db280e313421a2e72aafeffd4"
+      },
+      "Modding.log": {
+        "bytes": 234944,
+        "sha256": "645339443b5ee7c71eb732bede2fb30a7e20084594359e9996ee730975efd91b"
+      },
+      "Startup.log": {
+        "bytes": 2650,
+        "sha256": "2e9e2d2c996b9c6ea7626c727314e0ca5f574ce006a15e8d3dbeb25acc850e21"
+      }
+    }
+  },
+  "fix70": "Existing Bootstrap now loads strict journal and reconciles existing operations against already persisted event and current actual identity/effect, with event=false. On failure it stops; no regrant/order/event fabrication. Applied at initial Core bootstrap and existing turn/recovery events.",
+  "software": {
+    "raw348": {
+      "source_version": 69,
+      "tests": 1,
+      "failures": 0,
+      "errors": 1,
+      "result": "RAW_FIXTURE_ERROR_NOT_PRODUCT_REGRESSION",
+      "cause": "passed journal value as entire property store; correct argument is h.store. Owner corrects store container and no-event counterpart actualeffect flags before limited adoption."
+    },
+    "corrected_regression_red69": {
+      "source_version": 69,
+      "result": "EXPECTED_RED_BOOTSTRAP_NOT_RECONCILING",
+      "failures": 2,
+      "errors": 0,
+      "new_methods": 4,
+      "adopted348": "Partial method; fixed wrong property-store container and added actual consumed/created no-event counterpart. Owner3 additional methods.",
+      "native69": "Actual same real68 fault checkpoint remainsARMED/eventSeentrue after freshUI, because no active unit/pendingconsumer triggers Inspect."
+    },
+    "targeted_prophet_passed": 35,
+    "new_methods": 4,
+    "full": {
+      "at_utc": "2026-11-04T06:50:46.339420+00:00",
+      "begin_utc": "2026-11-04T06:48:33.056712+00:00",
+      "tests": 999,
+      "suite_seconds": 131.068,
+      "wall_seconds": 133.28289799997583,
+      "exit_code": 0,
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "frozen67_through69_transform_maps_exact": true,
+      "paired_clock_prefix_unchanged": true,
+      "scope": "Source70 software only; installed/running69 raw recovery NativeFAIL. No Inspect/Observe/ability/event action used to forge recovery."
+    },
+    "scope": "Direct raw property assertions after actualCore recreation/registered bootstrap without calling mutating Inspect from test; preserve event/alias/corrupt conditions and exactly one changed property write."
+  },
+  "package": {
+    "files": 87,
+    "bytes": 8742694,
+    "sha256": "d4825fc0ac19f194e3493b7c7e4439870855b3537b7c9241366462f28118b5fe",
+    "all_source_bytes_equal": true,
+    "installed": false
+  },
+  "cases": [
+    {
+      "sequence": 348,
+      "case_id": "civ6-prophet348-bootstrap-recovery",
+      "mode_id": "http-candidate",
+      "shared_commit": "071bd4f6123e16378d641d205363f02aab81b91b",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 1400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T06:40:13.218439+00:00",
+      "attempt_end_utc": "2026-11-04T06:40:18.963480+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 5745.2074000029825,
+        "first_nonempty_content_delta_ms": 3983.08720003115,
+        "usage": {
+          "prompt_tokens": 13899,
+          "completion_tokens": 276,
+          "total_tokens": 14175
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T06:40:13.218439+00:00",
+          "end_utc": "2026-11-04T06:40:18.963480+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 5745.2074000029825
+        }
+      ],
+      "adoption": "partial generated test method",
+      "review": "Raw passed journal value instead of whole property store to actual helper; actual run1ERROR NoneType, not product regression. Owner fixed prior=h.store, added actual consumed/created no-event flags; old69 raw-stage assertion then expected RED. Three further owner tests cover alias/corrupt/registered periodic callback.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 349,
+      "case_id": "civ6-prophet349-bootstrap-recovery",
+      "mode_id": "http-candidate",
+      "shared_commit": "071bd4f6123e16378d641d205363f02aab81b91b",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 1400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T06:40:13.226390+00:00",
+      "attempt_end_utc": "2026-11-04T06:40:18.234091+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 5003.413400030695,
+        "first_nonempty_content_delta_ms": 3056.480300030671,
+        "usage": {
+          "prompt_tokens": 13853,
+          "completion_tokens": 148,
+          "total_tokens": 14001
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T06:40:13.226390+00:00",
+          "end_utc": "2026-11-04T06:40:18.234091+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 5003.413400030695
+        }
+      ],
+      "adoption": "partial one actual Bootstrap body edit",
+      "review": "Exact unique old block matched; owner added stop on false Reconcile/persist readback instead of ignoring result. Existing producer helpers reused, no event/grant/order. Full999software green, Native70 not started.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 5.007701,
+    "longest_seconds_at_peak": 5.007701,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through349": {
+    "logical_requests": 349,
+    "complete_stop_json": 325,
+    "length_whole_discarded": 21,
+    "final_transport_failed": 3,
+    "http_attempts": 379,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": "Same localNov4 successful OpenCode1.19.5 cached check; canonical DIRECT ordinaryHTTP caller/currentconfig, no native generation.",
+  "unknown_costs": {
+    "exclusive_owner_phase_seconds": null,
+    "cached_tokens_if_unreported": null,
+    "server_queue_wait": null,
+    "net_savings": null
+  },
+  "limits": [
+    "Native69 offmap identity correction not separately accepted; recovery failed before an automatic consumer called it. Fresh70 chain must prove final combined behavior.",
+    "No claim new70 performance or full40cases; frozen67through69 static transformation and clock prefix kept.",
+    "Owner last349 source block only partial adoption because failure-stop extra guard.",
+    "Actual fresh69 had no new person grant/endturn/ability call; failed checkpoint hash unchanged."
+  ],
+  "next_native": "Commit/push70, normalclose owned69 after confirming original real68 checkpoint hash, fresh actual offline proof, cold70 original checkpoint raw journal must becomeOBSERVED without mutating diagnostic. Then fresh pre-acquisition75 Debugnewprophet automatic fullchain, persistence/reload and legacy separate.",
+  "raw_fingerprints": {
+    "source69-normal-install-receipt.json": {
+      "bytes": 9631,
+      "sha256": "e2d8a0b62625f70a75f7f6a410c43870699dde76a81e1ffe5ac3e1980530b59d"
+    },
+    "source69-cold-launch-receipt.json": {
+      "bytes": 578,
+      "sha256": "7420ca504dd59a6123c7ae283524f0ce0153c7d1816a2d8882a3d0b4e4c4a415"
+    },
+    "source69-cold-load-delayed75-attempt.json": {
+      "bytes": 361,
+      "sha256": "8e95cf37f86501510b95ac125afb8f143da262d7076d53df564f40405620cf51"
+    },
+    "native69-delayed75-continue-physical-escape.json": {
+      "bytes": 287,
+      "sha256": "b54627738a13f514fa07d51e7d9544aeb3b6f930e11ed343000e38e429b31e8e"
+    },
+    "native69-cold-delayed75-raw-state.json": {
+      "bytes": 10300,
+      "sha256": "1d258a3529055a342a539aa931be9fa346d6a54e4eb37d7eccb66a681ab96620"
+    },
+    "prophet348-raw-on69.log": {
+      "bytes": 758,
+      "sha256": "195ae229eedbc5601c0a732090d2f80cc38a27db0f1c824c6c27d1f54f780043"
+    },
+    "prophet348-raw-on69-receipt.json": {
+      "bytes": 319,
+      "sha256": "9056f1beabd5fceac6bf129fc9365404b59ad7baeaf7da737359e4979d917bfa"
+    },
+    "prophet349-owner-adoption.json": {
+      "bytes": 193,
+      "sha256": "e4d8f85b0afd5144361c847c9d09486dc787c4a80236ed9cb82210805324fa20"
+    },
+    "prophet70-bootstrap-regression-red69.log": {
+      "bytes": 5436,
+      "sha256": "26dd7474671b16fb60622e16f345912eea8a660998d81531df403137e7db0346"
+    },
+    "prophet70-bootstrap-regression-red69-receipt.json": {
+      "bytes": 440,
+      "sha256": "d03aa47e1d9cc9bf6dc55fdf241a9df1b50cbc98ccfed96b0033c85488575e52"
+    },
+    "source70-full-final1.log": {
+      "bytes": 256474,
+      "sha256": "e3ce6fe6dfa493f611aea353b23ca08c6cd01a9dd9245e586ffcdd837233c582"
+    },
+    "source70-full-final1-receipt.json": {
+      "bytes": 621,
+      "sha256": "cc0af23bfec2901b64ab14dea46be06688c7691d39fca78882823dfd714c49d2"
+    }
+  }
+}

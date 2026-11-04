@@ -178,7 +178,13 @@ BaiqiProphetIntentGameplay={}
 local function Bootstrap()
   local pid=Game.GetLocalPlayer()
   local player=Owner(pid,false)
-  if player then Load(player,pid) end
+  if not player then return end
+  local state=Load(player,pid)
+  if not state then return end
+  for _,op in pairs(state.operations) do
+    local ok=Reconcile(player,pid,state,op,false)
+    if not ok then return end
+  end
 end
 if type(ExposedMembers)=="table" and (ExposedMembers.BaiqiProphetIntentBridge==nil
   or (type(ExposedMembers.BaiqiProphetIntentBridge)=="table"
