@@ -2628,7 +2628,8 @@ local function ReadBack(player)
     elseif unit==nil or unit:GetOwner()~=contextID then
       Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=unit_unavailable")
       pendingUnits[unitID]=nil
-    elseif (UnitIndex(unit)~=nil and UnitIndex(unit)~=pending.from) or unit:GetMovesRemaining()~=pending.moves then
+    elseif (UnitIndex(unit)~=nil and UnitIndex(unit)~=pending.from)
+      or (pending.kind~="MOVE_TO" and unit:GetMovesRemaining()~=pending.moves) then
       Log("observed","id="..pending.id.."|unit="..unitID.."|kind="..pending.kind)
       pendingUnits[unitID]=nil
     elseif pending.kind=="MOVE_TO" and (pending.elapsed or 0)>=C.interval*2

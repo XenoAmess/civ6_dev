@@ -1,0 +1,201 @@
+{
+  "schema": "civ6.baiqi-source73-queued-move-observation/v1",
+  "at_utc": "2026-11-04T12:11:52.967365+00:00",
+  "date_local": "2026-11-04",
+  "machine_id": "BF-202609141645",
+  "source_base_commit": "5fd3600a0ae30b142c9b0c8389d80fcb4bb38fa8",
+  "source_version": 73,
+  "installed_version": 72,
+  "running_version": null,
+  "package": {
+    "bytes": 8743428,
+    "sha256": "55a8266d0384147dd2e03a1b050e05c062b853db1ba92e6ae7effa69e6fb932e"
+  },
+  "files": 87,
+  "change": "ReadBackMOVE_TOrequiresactualcoordinate-derivedpositionchange; mere moves change cannot markobserved. Otheroperationmovescriterionandidle_without_route/unknownpending/attemptsunchanged.",
+  "hypothesis_scope": "Native72queued452at407moves1then112newqueriesat407moves2supportsrefreshrisk; uniqueNativeordering/causeunproved. NoNative73effectPASS.",
+  "software": {
+    "private_before72": {
+      "tests": 4,
+      "failures": 3,
+      "errors": 0,
+      "failed_names": [
+        "test_same_turn_move_cost_change_does_not_complete_queued_route",
+        "test_turn_refresh_preserves_queued_move_until_coordinate_arrival",
+        "test_unknown_coordinates_and_changed_moves_do_not_complete_move"
+      ]
+    },
+    "raw367": {
+      "tests": 4,
+      "failures": 1,
+      "errors": 0,
+      "failed_names": [
+        "test_non_move_build_still_observes_consumed_movement"
+      ]
+    },
+    "owner73": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "failed_names": []
+    },
+    "full": {
+      "tests": 1017,
+      "failures": 0,
+      "errors": 0,
+      "test_seconds": 73.13,
+      "subprocess_elapsed_seconds": 76.04847849998623
+    },
+    "frozen67_72_editmaps_and_clock_unchanged": true
+  },
+  "cases": [
+    {
+      "sequence": 367,
+      "case_id": "civ6-builder367-queued-move-refresh",
+      "mode_id": "http-candidate",
+      "shared_commit": "638197d1689dc49b77ba448bd0e352bc4bcc3b56",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2100,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T12:04:30.157206+00:00",
+      "attempt_end_utc": "2026-11-04T12:04:50.376583+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 20219.097800028976,
+        "first_nonempty_content_delta_ms": 17021.100500016473,
+        "usage": {
+          "prompt_tokens": 66246,
+          "completion_tokens": 458,
+          "total_tokens": 66704
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T12:04:30.157206+00:00",
+          "end_utc": "2026-11-04T12:04:50.376583+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 20219.097800028976
+        }
+      ],
+      "adoption": "0rawpatch; diagnosisdirectiononly",
+      "review": "RemovesmovescriterionforALLgenericoperationsbutclaimsMOVE_TOonly. Actualnonmovecontrolfailsraw367. OwnernarrowsmovesexceptiontokindMOVE_TO; retainlegacyotheroperations.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 368,
+      "case_id": "civ6-builder368-queued-move-refresh",
+      "mode_id": "http-candidate",
+      "shared_commit": "638197d1689dc49b77ba448bd0e352bc4bcc3b56",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T12:04:30.145036+00:00",
+      "attempt_end_utc": "2026-11-04T12:04:47.853796+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 17708.770799974445,
+        "first_nonempty_content_delta_ms": 15326.157199975569,
+        "usage": {
+          "prompt_tokens": 66226,
+          "completion_tokens": 95,
+          "total_tokens": 66321
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T12:04:30.145036+00:00",
+          "end_utc": "2026-11-04T12:04:47.853796+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 17708.770799974445
+        }
+      ],
+      "adoption": "0code",
+      "review": "test_moduleholdsfilenameonlyagain, noTestCase/methods. OwnerfouractualControllerreceiptbehavioraltests.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 17.69659,
+    "longest_seconds_at_peak": 17.69659,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through368": {
+    "logical_requests": 368,
+    "complete_stop_json": 344,
+    "length_whole_discarded": 21,
+    "final_transport_failed": 3,
+    "http_attempts": 398,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": "Nov4successfulOpenCode1.19.5cache; canonicalDIRECTsharedcaller/currentconfig; fixed3messages.",
+  "owner_cost_seconds": null,
+  "cached_tokens_if_unreported": null,
+  "server_queue_wait": null,
+  "net_savings": null,
+  "limits": [
+    "Source/software/packageonly; Native73NOT_RUN.",
+    "Native72taskprogressFAILpreserved; noall40/performancePASS."
+  ],
+  "next_real": "Finishowned72officialexit,installnormal73,freshcurrentSteamofflineproof,coldloadsameoriginal110orpreciselylabelledsaved112,observequeuedmovementturnrefreshwithoutreplayandactualprogress.",
+  "raw_fingerprints": {
+    "builder367368-review-receipt.json": {
+      "bytes": 1027,
+      "sha256": "158bc95f3b5127c126b35e8e14ae4bfdff2942d8c2b8f392746e950980bb4643"
+    },
+    "builder73-full-software.log": {
+      "bytes": 84514,
+      "sha256": "67c484f572c96f1bc152ecba3c2929d2d036f3ee5e657cd3317e753401e0fc85"
+    },
+    "builder73-full-software-receipt.json": {
+      "bytes": 1266,
+      "sha256": "a1086bb9ab68f8dc0851f808cc93241a5b61b31b1f9edab82e6c4549a4919daf"
+    }
+  }
+}
