@@ -97,4 +97,17 @@ class StaticControlCoreTests(unittest.TestCase):
         self.assertEqual((g.T.foreign,g.T.playerWrites),(1,0))
 
 
+    def test_actual_prophet_bridge_static_control(self):
+        h=CoreHarness();h.load('BaiqiGameplay');g=h.lua.globals();t=g.T
+        bridge=g.ExposedMembers.BaiqiProphetIntentBridge
+        self.assertIsNotNone(bridge)
+        self.assertEqual(bridge.version,1)
+        self.assertEqual(bridge.marker,'baiqi-prophet-intent-v1')
+        self.assertEqual(bridge.Inspect(7,4),('UNAVAILABLE',None,'private_static_control'))
+        self.assertEqual(bridge.Prepare(7,4,1,1,0,0,0),(False,None,'private_static_control'))
+        self.assertEqual(bridge.Observe(7,4,1,1),('UNAVAILABLE',None,'private_static_control'))
+        self.assertEqual((t.reads,t.playerWrites,t.plotWrites,t.gameWrites),(0,0,0,0))
+        self.assertTrue({'BaiqiProphetJournal','BaiqiProphetIntentGameplay'}.issubset(h.seen))
+
+
 if __name__=='__main__':unittest.main()

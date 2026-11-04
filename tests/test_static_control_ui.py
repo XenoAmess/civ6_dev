@@ -58,14 +58,15 @@ UI.RequestPlayerOperation=function() T.recovery=T.recovery+1 end
 
     def test_builder_preserves_manifest_assets_and_other_readonly_ui(self):
         out=ROOT/'.local-model/static-control-tests'/uuid.uuid4().hex
-        result=build(out);self.assertEqual(result['files'],85);self.assertEqual(set(result['changed_files']),set(edits()))
+        result=build(out);self.assertEqual(result['files'],len(manifest_files(ROOT/'mod/Baiqi')));self.assertEqual(set(result['changed_files']),set(edits()))
+        self.assertEqual(result['source_version'],68)
         target=out/'Baiqi';source=ROOT/'mod/Baiqi'
         self.assertEqual(manifest_files(source),manifest_files(target))
         for name in manifest_files(source):
             raw=(source/name).read_bytes();self.assertEqual(hashlib.sha256(raw).hexdigest(),result['source_hashes'][name])
             if name not in edits():self.assertEqual((target/name).read_bytes(),raw,name)
         self.assertEqual((target/'Baiqi.modinfo').read_bytes(),(source/'Baiqi.modinfo').read_bytes())
-        receipt=ROOT/'.local-model/acceptance-p6-20261101/static-control-c1-tested-build.json'
+        receipt=ROOT/'.local-model/acceptance-p6-20261101'/f"static-control-v{result['source_version']}-{out.name}-tested-build.json"
         receipt.write_text(json.dumps({'output_dir':str(out.relative_to(ROOT)),'result':result},indent=2)+'\n',encoding='utf-8',newline='\n')
 
     def test_exact_anchor_rejects_drift_and_unknown_source_is_unchanged(self):

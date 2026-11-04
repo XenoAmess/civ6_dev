@@ -2,6 +2,7 @@
 from pathlib import Path
 import unittest
 from lupa.lua53 import LuaRuntime
+from prophet_intent_harness import install_prophet_bridge
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -12,6 +13,8 @@ class ProphetTests(unittest.TestCase):
         for path in ('tests/lua/mock_world.lua', 'tests/lua/mock_scientist.lua', 'tests/lua/mock_prophet.lua',
                      'mod/Baiqi/Lua/BaiqiConfig.lua', 'mod/Baiqi/Lua/BaiqiPolicy.lua',
                      'mod/Baiqi/Lua/BaiqiPlanner.lua', 'mod/Baiqi/Lua/BaiqiController.lua'):
+            if path.endswith('BaiqiController.lua'):
+                install_prophet_bridge(self.lua)
             self.lua.execute((ROOT/path).read_text(encoding='utf-8'))
         self.w, self.c = self.lua.globals().TestWorld, self.lua.globals().BaiqiController
         self.logs = []
@@ -151,6 +154,52 @@ end
         self.assertEqual(self.w.secondaryFoundChecks, 0)
         self.assertEqual(self.w.unitRequests[2].op, 17)
         self.assertNotIn('脚本错误', self.c.GetStatus())
+
+
+    def test_unknown_prophet_request_not_replayed_after_controller_recreation(self):
+        self.w.scientistPlot = 43
+        self.c.RunNow()
+        self.assertEqual(len(self.found_requests()), 1)
+        self.lua.execute((ROOT / 'mod/Baiqi/Lua/BaiqiController.lua').read_text(encoding='utf-8'))
+        self.c = self.lua.globals().BaiqiController
+        self.c.RunNow()
+        self.assertEqual(len(self.found_requests()), 1)
+
+    def test_late_native_event_after_controller_recreation_updates_durable_record(self):
+        self.w.scientistPlot = 43
+        self.c.RunNow()
+        self.c.Shutdown()
+        self.lua.execute((ROOT / 'mod/Baiqi/Lua/BaiqiController.lua').read_text(encoding='utf-8'))
+        self.c = self.lua.globals().BaiqiController
+        self.c.RunNow()
+        self.w.withScientist, self.w.earnedBeliefs, self.w.foundingUnit = False, 2, True
+        self.w.FireActivation(7, 4, 4, 70)
+        bridge = self.lua.globals().ExposedMembers.BaiqiProphetIntentBridge
+        self.assertEqual(bridge.Inspect(7, 4)[0], 'OBSERVED')
+        self.assertEqual(len(self.found_requests()), 1)
+
+    def test_changed_qualification_after_persisted_permission_blocks_native_dispatch(self):
+        self.w.scientistPlot = 43
+        self.lua.execute('TestPropBridge.afterWrite=function() TestWorld.earnedBeliefs=2 end')
+        self.c.RunNow()
+        self.assertEqual(self.found_requests(), [])
+        bridge = self.lua.globals().ExposedMembers.BaiqiProphetIntentBridge
+        self.assertEqual(bridge.Inspect(7, 4)[0], 'ARMED')
+        self.c.RunNow()
+        self.assertEqual(self.found_requests(), [])
+
+    def test_removed_or_recycled_unit_after_persisted_permission_is_not_dispatched(self):
+        for kind in ('removed','alias'):
+            with self.subTest(kind=kind):
+                self.setUp()
+                self.w.scientistPlot=43
+                if kind=='removed':
+                    self.lua.execute('TestPropBridge.afterWrite=function() TestWorld.withScientist=false end')
+                else:
+                    self.lua.execute('TestPropBridge.afterWrite=function() TestWorld.scientistID=65540;TestWorld.findScientistAlias=true end')
+                self.c.RunNow()
+                self.assertEqual(self.found_requests(),[])
+                self.assertNotIn('脚本错误',self.c.GetStatus())
 
 
 if __name__ == '__main__':

@@ -12,6 +12,7 @@ BaiqiConfig = {
   greatPersonIntentKey = "BAIQI_GREAT_PERSON_INTENTS_V1",
   creativeIntentKey = "BAIQI_CREATIVE_INTENTS_V1",
   religiousIntentKey = "BAIQI_RELIGIOUS_INTENTS_V1",
+  prophetIntentKey = "BAIQI_PROPHET_INTENTS_V1",
   naturalistIntentKey = "BAIQI_NATURALIST_INTENTS_V1",
   archaeologyIntentKey = "BAIQI_ARCHAEOLOGY_INTENTS_V1",
   naturalistPurchaseIntentKey = "BAIQI_NATURALIST_PURCHASE_INTENTS_V1",

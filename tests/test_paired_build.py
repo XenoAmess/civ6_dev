@@ -3,6 +3,7 @@ import unittest,uuid,json
 from lupa.lua53 import LuaRuntime
 from tools.build_static_control import build,clock_prelude,ROOT
 from tools.static_control_source import transform
+from tools.build_mod import manifest_files
 
 
 class PairedBuildTests(unittest.TestCase):
@@ -17,8 +18,10 @@ class PairedBuildTests(unittest.TestCase):
         prefix=clock_prelude()
         self.assertEqual((out/'enabled/Baiqi/UI/BaiqiExecutor.lua').read_text(encoding='utf-8'),prefix+raw)
         self.assertEqual((out/'control/Baiqi/UI/BaiqiExecutor.lua').read_text(encoding='utf-8'),prefix+transform(raw,'UI/BaiqiExecutor.lua')[0])
-        self.assertEqual(enabled['files'],85);self.assertEqual(control['files'],85)
-        receipt=ROOT/'.local-model/acceptance-p6-20261101/paired-c2-tested-builds.json'
+        expected=len(manifest_files(ROOT/'mod/Baiqi'))
+        self.assertEqual(enabled['files'],expected);self.assertEqual(control['files'],expected)
+        self.assertEqual((enabled['source_version'],control['source_version']),(68,68))
+        receipt=ROOT/'.local-model/acceptance-p6-20261101'/f"paired-c2-v68-{out.name}-tested-builds.json"
         receipt.write_text(json.dumps({'root':str(out.relative_to(ROOT)),'enabled':enabled,'control':control},indent=2)+'\n',encoding='utf-8',newline='\n')
 
     def test_prefix_subscribes_before_original_callback_and_reload_retires_own_only(self):

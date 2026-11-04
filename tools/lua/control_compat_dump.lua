@@ -9,9 +9,19 @@ local BRIDGES={
  {'BaiqiNaturalistPurchaseBridge',{'Inspect','Prepare'}},
  {'BaiqiArchaeologyBridge',{'Inspect','PrepareExcavation','PrepareChoice','PreparePendingChoice'}}
 }
+local function Specs(version)
+  if version==nil then version=67 end
+  assert(type(version)=='number' and version%1==0 and (version==67 or version==68),'Invalid SourceVersion')
+  if version==67 then return BRIDGES end
+  local list={}
+  for i,spec in ipairs(BRIDGES) do list[i]=spec end
+  list[#list+1]={'BaiqiProphetIntentBridge',{'Inspect','Prepare','Observe'}}
+  return list
+end
 local function Dump(env,emit)
   assert(type(env)=='table' and type(emit)=='function','Invalid metadata consumer')
-  local status={context_ok=false,clock_ok=false,available=0,unavailable=6,scope='metadata_only'}
+  local localSpec=Specs(env.SourceVersion)
+  local status={context_ok=false,clock_ok=false,available=0,unavailable=#localSpec,scope='metadata_only'}
   local function Summary() emit('SUMMARY',status.available,status.unavailable,status.context_ok,status.clock_ok,status.scope);return status end
   local ok,pid,turn,cities,idle=pcall(function()
     local pid,turn=env.Game.GetLocalPlayer(),env.Game.GetCurrentGameTurn()
@@ -30,7 +40,7 @@ local function Dump(env,emit)
     and s.subscribed==true and s.retired==false and s.errors==0 and s.refused==0
   if not status.clock_ok then return Summary() end
   status.unavailable=0
-  for _,spec in ipairs(BRIDGES) do
+  for _,spec in ipairs(localSpec) do
     local success,version,marker,types,qualified=pcall(function()
       local bridge=env.ExposedMembers[spec[1]];assert(Object(bridge))
       local version,marker=bridge.version,bridge.marker

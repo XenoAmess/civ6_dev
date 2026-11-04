@@ -1,11 +1,23 @@
 """Static suppression in private benchmark copies; never a product toggle."""
 from __future__ import annotations
+from pathlib import Path
+import xml.etree.ElementTree as ET
 
 NOOP = 'function(...) return false,nil,"private_static_control" end'
 UNAVAILABLE = 'function(...) return "UNAVAILABLE",nil,"private_static_control" end'
 
 
-def edits() -> dict[str,list[tuple[str,str]]]:
+def resolve_source_version(value: int | None = None) -> int:
+    if value is None:
+        text=ET.fromstring((Path(__file__).resolve().parents[1]/'mod/Baiqi/Baiqi.modinfo').read_bytes()).get('version')
+        if text not in ('67','68'):raise ValueError('Unsupported actual source version')
+        value=int(text)
+    if type(value) is not int or value not in (67,68):raise ValueError('Unsupported source version')
+    return value
+
+
+def edits(source_version: int | None = None) -> dict[str,list[tuple[str,str]]]:
+    version=resolve_source_version(source_version)
     result = {
         'Lua/BaiqiController.lua': [
             ('print("BAIQI|ui_controller_loaded|version=2|mandatory_admin=true")',
@@ -33,14 +45,20 @@ def edits() -> dict[str,list[tuple[str,str]]]:
         exposed={'GP':'BaiqiGreatPersonIntentBridge','Religious':'BaiqiReligiousIntentBridge','Naturalist':'BaiqiNaturalistIntentBridge'}[stem]
         result[name]=[(bridge,body),
             (f'if type(ExposedMembers)=="table" and (ExposedMembers.{exposed}==nil',f'Bootstrap={NOOP}\n')]
+    if version==68:
+        result['Lua/BaiqiProphetIntentGameplay.lua']=[
+            ('local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,"UNAVAILABLE")',
+             f'Inspect={UNAVAILABLE}\nPrepare={NOOP}\nObserve={UNAVAILABLE}\n'),
+            ('if type(ExposedMembers)=="table" and (ExposedMembers.BaiqiProphetIntentBridge==nil',
+             f'Bootstrap={NOOP}\n')]
     return result
 
 
-def transform(source: str,key: str) -> tuple[str,list[dict]]:
+def transform(source: str,key: str,source_version: int | None = None) -> tuple[str,list[dict]]:
     """Insert reviewed lexical assignments before consumers capture callbacks."""
     if not isinstance(source,str) or not isinstance(key,str):raise TypeError('Expected source/key strings')
     report=[]
-    for anchor,body in edits().get(key,[]):
+    for anchor,body in edits(source_version).get(key,[]):
         if anchor=='@EOF':
             source+=body
         else:

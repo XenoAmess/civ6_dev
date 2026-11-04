@@ -21,6 +21,7 @@ local missionaryPlans = {}
 local naturalistSearches = {}
 local archaeologySearches = {}
 local ArchaeologyHeld
+local ProphetHeld
 local pendingPurchase,purchaseSearch=nil,nil
 local NaturalistPurchaseHeld
 local purchaseDoneTurn,purchaseResumeStreak=-1,0
@@ -324,6 +325,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local unitID,unitType=unit:GetID(),def.UnitType
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
+  if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
   if operation=="MOVE_TO" or operation=="MAKE_TRADE_ROUTE" then
     -- Full safety follows qualification for these operations. Preserve the
     -- cheap explored-target gate before any native qualification query.
@@ -370,6 +372,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
+  if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
@@ -534,6 +537,19 @@ end
 local function MissionaryHeld(unit)
   local stage=ReligiousBridge("Inspect",contextID,unit:GetID())
   return stage~="OPEN" and stage~="OBSERVED"
+end
+
+local function ProphetBridge(method,...)
+  local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiProphetIntentBridge
+  if type(bridge)~="table" or bridge.version~=1 or bridge.marker~="baiqi-prophet-intent-v1"
+    or type(bridge[method])~="function" then return nil,nil,"bridge_unavailable" end
+  local ok,a,b,c=pcall(bridge[method],...)
+  if ok then return a,b,c end
+  return nil,nil,"bridge_error"
+end
+ProphetHeld=function(unit)
+  local stage=ProphetBridge("Inspect",contextID,unit:GetID())
+  return stage~="OPEN"
 end
 
 local function MissionaryData(unit)
@@ -1443,17 +1459,42 @@ local function RequestProphet(unit)
     or not ProphetQualification(freshPlayer) then return false end
   local id=NextRequest("prophet:"..unitID..":"..individual.Index)
   if not id then return false end
+  local granted,token=ProphetBridge("Prepare",ctx.player,unitID,class.Index,individual.Index,here:GetX(),here:GetY(),0)
+  if granted~=true or type(token)~="string" then return false,true end
+  -- A persisted grant is never replayed if this last UI observation changes.
+  local finalCtx,finalPlayer,finalState=PlayerContext()
+  local finalUnit=finalPlayer and finalPlayer:GetUnits():FindID(unitID)
+  if not finalCtx or finalCtx.player~=ctx.player or not BaiqiPolicy.MatchesID(finalUnit,unitID)
+    or finalUnit:GetOwner()~=ctx.player then return false,true end
+  local finalIndividual,finalClass=ProphetData(finalUnit)
+  if not BaiqiPolicy.CanCivilian(finalCtx,UnitSnapshot(finalUnit,finalState))
+    or not finalIndividual or finalIndividual.Index~=individual.Index or finalClass.Index~=class.Index
+    or UnitIndex(finalUnit)~=here:GetIndex() or here:GetOwner()~=finalCtx.player
+    or not ProphetQualification(finalPlayer)
+    or UnitManager.CanStartOperation(finalUnit,operation.Hash,nil,{})~=true then return false,true end
+  unit=finalUnit
   pendingUnits[unitID]={id=id,kind="FOUND_RELIGION",from=here:GetIndex(),moves=unit:GetMovesRemaining(),
-    individual=individual.Index,class=class.Index,unitType="UNIT_GREAT_PROPHET",earned=0,elapsed=0}
+    individual=individual.Index,class=class.Index,unitType="UNIT_GREAT_PROPHET",earned=0,elapsed=0,
+    persistent=true,token=token}
   Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=FOUND_RELIGION|individual="..individual.Index)
   UnitManager.RequestOperation(unit,operation.Hash)
   return true
 end
 
 local function ProcessProphet(ctx,player,state,unit)
+  if ProphetHeld(unit) then
+    Reason("prophet:"..unit:GetID(),"先知等待持久化建教回执；其他内政继续执行")
+    return false
+  end
   if not ProphetData(unit) or not ProphetQualification(player) then return false end
   for _,pending in pairs(pendingUnits) do if pending.kind=="FOUND_RELIGION" then return false end end
-  if RequestProphet(unit) then return true end
+  local unitID=unit:GetID()
+  local submitted,quarantined=RequestProphet(unit)
+  if submitted then return true end
+  if quarantined then
+    Reason("prophet:"..unitID,"先知等待持久化许可与新鲜身份核对；其他内政继续执行")
+    return false,true
+  end
   local required=GameInfo.Districts.DISTRICT_HOLY_SITE
   local targets={}
   if required then
@@ -2409,13 +2450,18 @@ local function ReadBack(player)
     local unit=player:GetUnits():FindID(unitID)
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
     if pending.kind=="FOUND_RELIGION" then
+      local stage,token=ProphetBridge("Inspect",contextID,unitID)
       local religion=player.GetReligion and player:GetReligion()
-      if pending.nativeActivated and religion and religion.GetNumBeliefsEarned and religion.HasReligiousFoundingUnit
-        and religion:GetNumBeliefsEarned()>pending.earned and religion:HasReligiousFoundingUnit()==true then
-        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=FOUND_RELIGION|proof=native_activation_and_earned_beliefs")
+      local earned=religion and religion.GetNumBeliefsEarned and religion:GetNumBeliefsEarned() or 0
+      local founding=religion and religion.HasReligiousFoundingUnit and religion:HasReligiousFoundingUnit() or false
+      local created=religion and religion.GetReligionTypeCreated and religion:GetReligionTypeCreated() or -1
+      if pending.persistent==true and type(pending.token)=="string" and stage=="OBSERVED" and token==pending.token
+        and BaiqiPolicy.Number(earned) and earned>pending.earned
+        and (founding==true or (BaiqiPolicy.Number(created) and created>=0)) then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=FOUND_RELIGION|proof=bridge_observed_and_earned_qualification")
         pendingUnits[unitID]=nil
       elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
-        Log("prophet_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_native_activation_and_earned_beliefs=true")
+        Log("prophet_request_unresolved","id="..pending.id.."|unit="..unitID.."|awaiting_bridge_observed_and_earned_qualification=true")
         pending.unresolvedLogged=true
       end
     elseif pending.kind=="DESIGNATE_PARK" then
@@ -2729,11 +2775,14 @@ local function Tick(allowOrders)
           elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
             if ProcessCreative(ctx,player,state,unit) then status="已提交自动创作，等待实际作品";return end
           elseif snapshot.type=="UNIT_GREAT_PROPHET" then
-            if ProcessProphet(ctx,player,state,unit) then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
+            local submitted,quarantined=ProcessProphet(ctx,player,state,unit)
+            if submitted then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
+            if quarantined then status="先知等待持久化许可与新鲜身份核对；其他内政继续执行";return end
           end
           local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
             or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
             or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
+            or (snapshot.type=="UNIT_GREAT_PROPHET" and ProphetHeld(unit))
             or (snapshot.type=="UNIT_NATURALIST" and NaturalistHeld(unit))
             or (snapshot.type=="UNIT_ARCHAEOLOGIST" and ArchaeologyHeld(unit))
           local here=not held and UnitPlot(unit)
@@ -2794,6 +2843,7 @@ local function OnGreatPersonActivated(playerID,unitID,classID,individualID)
   local individual=GameInfo.GreatPersonIndividuals and GameInfo.GreatPersonIndividuals[individualID]
   if ctx and ctx.player==playerID and class and individual then
     GPBridge("Observe",playerID,unitID,classID,individualID)
+    ProphetBridge("Observe",playerID,unitID,classID,individualID)
     if pending and pending.persistent then pending.receiptDirty=true end
   end
   local expected=pending and ((pending.kind=="FOUND_RELIGION" and "GREAT_PERSON_CLASS_PROPHET")
