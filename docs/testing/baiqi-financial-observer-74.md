@@ -1,5 +1,7 @@
 # 74版财政观察器与测试副本
 
+后到：[财政储备实机对照](baiqi-finance-native-pair-74.md)已完成114→115低／高库存两个分支，库存拒绝、恢复招募及数量承诺窄样本通过；此前“下一步”保留准备阶段口径。负收入和完整TC-038仍未闭。
+
 新增不进入87文件产品清单的[财政诊断模块](../../tools/lua/diagnostic_finance.lua)，[10项行为检查](../../tests/test_diagnostic_finance.py)通过（0.155秒）。此前完整1029项未重跑，不能称完整1039通过。[候选、软件、实机接入和准备数据](../research/baiqi-p6-finance-diagnostic389392-evidence-2026-11-05.json)。
 
 模块只包装Executor上下文的BaiqiPlanner.AllowRecruit、CityManager.RequestOperation、UnitManager.RequestOperation／RequestCommand。预算表在调用前复制为标量，记录真实布尔结果；参数和多返回值含末尾nil均保留，原函数异常照常传播。最多4096条共享样本，丢弃和未知字段单列；传感失败不能阻断原调用。安装失败只回滚自己的绑定；清理先核所有表和四个绑定，再恢复，不覆盖外来替换。它不发游戏命令，也不是全部上下文写入覆盖或TC-036通过证明。
