@@ -1,0 +1,537 @@
+{
+  "schema": "civ6.baiqi-native70-queue-trash355356/v1",
+  "date_local": "2026-11-04",
+  "at_utc": "2026-11-04T09:17:17.788340+00:00",
+  "machine_id": "BF-202609141645",
+  "source_commit": "9b9191b4f5d7451a58d63e1e30565c6a95d5af63",
+  "source_version": 70,
+  "installed_version": 70,
+  "running_version": 70,
+  "pid": 4368,
+  "ordinary_gorgo": {
+    "before": {
+      "meta": {
+        "turn": "1",
+        "city_id": "65536",
+        "size": "2",
+        "current_hash": "1872107673",
+        "gold": "10",
+        "faith": "0"
+      },
+      "items": {
+        "0": {
+          "UnitType": "20",
+          "Location": {
+            "x": "-9999",
+            "y": "-9999"
+          },
+          "Modifiers": "0",
+          "Directive": "0",
+          "MilitaryFormationType": "0"
+        },
+        "1": {
+          "BuildingType": "0",
+          "Modifiers": "0",
+          "Directive": "1",
+          "Location": {
+            "x": "-9999",
+            "y": "-9999"
+          }
+        }
+      },
+      "costs": {
+        "BUILDING_MONUMENT": [
+          "0",
+          "60"
+        ],
+        "BUILDING_CASTLE": [
+          "0",
+          "220"
+        ],
+        "UNIT_SCOUT": [
+          "0",
+          "30"
+        ],
+        "UNIT_BUILDER": [
+          "0",
+          "50"
+        ]
+      },
+      "observation": [
+        "0",
+        "0",
+        "0",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ],
+      "parameters": {}
+    },
+    "after": {
+      "meta": {
+        "turn": "1",
+        "city_id": "65536",
+        "size": "1",
+        "current_hash": "1872107673",
+        "gold": "10",
+        "faith": "0"
+      },
+      "items": {
+        "0": {
+          "UnitType": "20",
+          "Location": {
+            "x": "-9999",
+            "y": "-9999"
+          },
+          "Modifiers": "0",
+          "Directive": "0",
+          "MilitaryFormationType": "0"
+        }
+      },
+      "costs": {
+        "BUILDING_MONUMENT": [
+          "0",
+          "60"
+        ],
+        "BUILDING_CASTLE": [
+          "0",
+          "220"
+        ],
+        "UNIT_SCOUT": [
+          "0",
+          "30"
+        ],
+        "UNIT_BUILDER": [
+          "0",
+          "50"
+        ]
+      },
+      "observation": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "65536",
+        "nil",
+        "nil"
+      ],
+      "parameters": {
+        "-1406149623": "721464898",
+        "784264915": "1"
+      }
+    },
+    "result": "PASS_SCOPED_TRASH_REMOVES_SECOND_ITEM",
+    "fixture": "Prior naturalUIqueue saved Scout thenMonument, no newDebugorders/training/endturn."
+  },
+  "baiqi": {
+    "before": {
+      "meta": {
+        "turn": "110",
+        "city_id": "196610",
+        "size": "2",
+        "current_hash": "101426179",
+        "gold": "4354.41796875",
+        "faith": "322.11328125"
+      },
+      "items": {
+        "0": {
+          "BuildingType": "15",
+          "Modifiers": "0",
+          "Directive": "1",
+          "Location": {
+            "x": "-9999",
+            "y": "-9999"
+          }
+        },
+        "1": {
+          "MilitaryFormationType": "0",
+          "UnitType": "1",
+          "Modifiers": "0",
+          "Directive": "0",
+          "Location": {
+            "x": "-9999",
+            "y": "-9999"
+          }
+        }
+      },
+      "costs": {
+        "BUILDING_MONUMENT": [
+          "0",
+          "30"
+        ],
+        "BUILDING_CASTLE": [
+          "0",
+          "110"
+        ],
+        "UNIT_SCOUT": [
+          "0",
+          "15"
+        ],
+        "UNIT_BUILDER": [
+          "0",
+          "91"
+        ]
+      },
+      "observation": [
+        "0",
+        "0",
+        "0",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ],
+      "parameters": {}
+    },
+    "after": {
+      "meta": {
+        "turn": "110",
+        "city_id": "196610",
+        "size": "2",
+        "current_hash": "101426179",
+        "gold": "4354.41796875",
+        "faith": "322.11328125"
+      },
+      "items": {
+        "0": {
+          "BuildingType": "15",
+          "Modifiers": "0",
+          "Directive": "1",
+          "Location": {
+            "x": "-9999",
+            "y": "-9999"
+          }
+        },
+        "1": {
+          "MilitaryFormationType": "0",
+          "UnitType": "1",
+          "Modifiers": "0",
+          "Directive": "0",
+          "Location": {
+            "x": "-9999",
+            "y": "-9999"
+          }
+        }
+      },
+      "costs": {
+        "BUILDING_MONUMENT": [
+          "0",
+          "30"
+        ],
+        "BUILDING_CASTLE": [
+          "0",
+          "110"
+        ],
+        "UNIT_SCOUT": [
+          "0",
+          "15"
+        ],
+        "UNIT_BUILDER": [
+          "0",
+          "91"
+        ]
+      },
+      "observation": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "196610",
+        "nil",
+        "nil"
+      ],
+      "parameters": {
+        "-1406149623": "721464898",
+        "784264915": "1"
+      }
+    },
+    "result": "PASS_SCOPED_DEEP_TRASH_BLOCK",
+    "fixture": "Prior explicitQAonly Castle thenBuilder fixture, originalOpen()+OnTabChangeQueue presentation, no naturalaccess/productcontrol."
+  },
+  "actual_shared_route": "Physicalselectslot1thenTrash -> capturedOnTrashClicked -> globalRemoveQueueItem(1) -> protectedCityManager.RequestOperation(BUILD,VALUE_REMOVE_AT,PARAM_QUEUE_LOCATION=1). Requestcounter is outsideguard, notlowerNativecounter.",
+  "observer": {
+    "software_checks": 6,
+    "remove_calls_each": 1,
+    "protected_request_entries_each": 1,
+    "sensor_errors_each": 0,
+    "both_original_bindings_restored_each": true,
+    "namespace_cleared_each": true,
+    "game_orders_by_observer": 0
+  },
+  "final_restoration": {
+    "original_save_sha256_unchanged": "e7695bf418e35ebed02d6f7e2550a891b105d8c12c948bf6ef17fb9d076c7421",
+    "original_queue_size": 1,
+    "castle_only": true,
+    "gold": "4354.41796875",
+    "faith": "322.11328125",
+    "presentation_refreshed_then_production_and_citizen_disabled": true,
+    "production_panel_hidden": true,
+    "selection_mode": true,
+    "diagnostic_states_nil": true,
+    "units_and_journals": "6422556 at9,15 moves0 archaeologyserial1OBSERVED;131073 at15,13moves0;5111847 at8,9moves4 prophetserial1LEGACY_UNKNOWN/eventSeenfalse."
+  },
+  "source_route_review": {
+    "scope": "InstalledBase+Expansion1+Expansion2UIallLua/XML plusactualProductionPanelXML; sourceonly, notallDLCproof.",
+    "left": "Only definitionofOnMoveItemLeftButtonClicked andnilreadsof m_selectedQueueInstance, noassignedselection/binding/controlreferencefound. Not activeplayerroute in searchedclosure, nofakephysicalPASS.",
+    "move": "MoveQueueItem definitiononly in searchedclosure, notphysicalroute.",
+    "keyboard": "ProductionPanelKeyHandler onlyEsc forselectioncancel/close; no independentkeyboardqueueoperationfound.",
+    "globals_correction": "OnTrashClicked andOnItemClicked definedglobal. Trashregistrationcapturesfunction;queueclickclosurelooks upglobalOnItemClicked. Candidate assertionlocaliswrong.",
+    "remaining_actual_entry": "Queued-itemrightclick index1; current-productionrightclick andclickswap previouslynarrowclosed."
+  },
+  "cases": [
+    {
+      "sequence": 355,
+      "case_id": "civ6-queue355-trash-route",
+      "mode_id": "http-candidate",
+      "shared_commit": "067c3da74c28aae8678853182b4da50f7252dbf6",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T09:05:22.090373+00:00",
+      "attempt_end_utc": "2026-11-04T09:05:47.478404+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 25396.0787000251,
+        "first_nonempty_content_delta_ms": 15346.79820004385,
+        "usage": {
+          "prompt_tokens": 65512,
+          "completion_tokens": 1162,
+          "total_tokens": 66674
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T09:05:22.090373+00:00",
+          "end_utc": "2026-11-04T09:05:47.478404+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 25396.0787000251
+        }
+      ],
+      "adoption": "partial install; cleanup byte-for-byte unchanged",
+      "review": "Rawinstall actualLua5.3 compilefails nested nonvariadic Senseclosure usesoutervararg. Owner capturesparams beforeclosure and preservesremovevararg forwarding. Six meaningful softwarechecks then actualNativeTrashpair, no modelGameactions. Limits copiedoldsourcecontext are not currentNativefacts.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 356,
+      "case_id": "civ6-queue356-trash-route",
+      "mode_id": "http-candidate",
+      "shared_commit": "067c3da74c28aae8678853182b4da50f7252dbf6",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2800,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T09:05:22.067172+00:00",
+      "attempt_end_utc": "2026-11-04T09:05:51.000880+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 28943.09610000346,
+        "first_nonempty_content_delta_ms": 16996.224000002258,
+        "usage": {
+          "prompt_tokens": 65534,
+          "completion_tokens": 1506,
+          "total_tokens": 67040
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T09:05:22.067172+00:00",
+          "end_utc": "2026-11-04T09:05:51.000880+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 28943.09610000346
+        }
+      ],
+      "adoption": "partial verified route facts; no complete audit/text adoption",
+      "review": "Correct Trash/Remove/PARAM_QUEUE_LOCATION andclickswap facts. Incorrectly calls globalOnTrashClicked/OnItemClicked local despite complete source; calls alreadyclosedcurrentrightclick/swap unfinished. Owner exhaustiveBase+Expansion1+Expansion2UI search and fullXML independentlyfound noleftbuttonbinding/noassignment beyondnil for selectedQueueInstance; notphysicalleftpass orallDLCclosed.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 25.388031,
+    "longest_seconds_at_peak": 25.388031,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through356": {
+    "logical_requests": 356,
+    "complete_stop_json": 332,
+    "length_whole_discarded": 21,
+    "final_transport_failed": 3,
+    "http_attempts": 386,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": "Same localNov4 successfulOpenCode1.19.5cache; canonicalcurrentDIRECT config/currentcaller.",
+  "owner_notes": [
+    "Initial welcomeEsc gate rejected beforeinput due noselectedcity; selectedcity thenonephysicalEsc. No unknownaction replay.",
+    "AfterloadUI.SelectCity immediateCityPanelcheckboxstillfalse beforeRefresh. Thisisnotnaturalentrydisableproof; laterfinalexplicitRefresh thenreadbacktwo disabledtrue. Independent protectedProductionPanelCanStartOperation false andactualTrash blocked.",
+    "OwnerunexecutedfirstdraftUI.SelectCityID correctedtoactualUI.SelectCity beforedispatch.",
+    "Ownedgameforegroundactivation immediateassertfailed once; nextindependentmetadata found ownedforeground, no blindretry orSteamactivation.",
+    "Preparedmodelsource reused fulloldAPIbundle with stale historicaltaskpreamble: candidate copiedsomeoldstage statements. Thoseare notcurrentfact; futureclosures stripobsoletecontract.",
+    "Phaseeventsrecorded atreal entry; prep overlaps sharedpublication andpriorinitialinspectionunknown, notexclusivecostmeasurement."
+  ],
+  "unknown_costs": {
+    "exclusive_owner_phase_seconds": null,
+    "cached_tokens_if_unreported": null,
+    "server_queue_wait": null,
+    "net_savings": null
+  },
+  "steam": "Same4368 previouslyofflineconfirmedcoldlaunch; sameprocessofficialloads only,0modechanges/Steamactivation/screenshots. No newinstantproofclaimed.",
+  "limits": [
+    "Trashonly; no fullTC004/035/40pass.",
+    "Differentcities/turns/items/speeds so withinfixturechangesonly.",
+    "No productcodechange orfull999rerun for privateobserver/docs.",
+    "Globalinput/military/diplomacy/pressure andnormalearnedreligionmatricesremain."
+  ],
+  "next_real": "Actualqueued-itemrightclick and remainingunit/diplomacy/pressure boundaries; no repeatclosedTrash/swap requests.",
+  "raw_fingerprints": {
+    "queue355-baiqi-cleanup-response.json": {
+      "bytes": 4020,
+      "sha256": "52d379b36f3f06682351356019297d3ba99228dbe4510646bdd39504e56c6463"
+    },
+    "queue355-baiqi-close-forced-response.json": {
+      "bytes": 3913,
+      "sha256": "2b92678a8ca0f5de8e60cca305121fb1a1b6c57c8efb872af240f40b4c828c3b"
+    },
+    "queue355-baiqi-forced-presentation-response.json": {
+      "bytes": 3915,
+      "sha256": "c7967af317c5791d42e20cb998e960f185561d6ff275578ce53c08c2f257b76b"
+    },
+    "queue355-baiqi-install-response.json": {
+      "bytes": 3904,
+      "sha256": "fcf13821d7aab75ea3e292d3bd03699a5f69c26280f0157a1aaaa3c881b07883"
+    },
+    "queue355-baiqi-select-city-response.json": {
+      "bytes": 3923,
+      "sha256": "712228260d83b4500d15b96d721e2c0d1546c8083be569e09320393fa4f082e5"
+    },
+    "queue355-baiqi-snapshot-after-response.json": {
+      "bytes": 6137,
+      "sha256": "2bf47c8855d1f42488c01b0f0393567e4150af78ce674b04bb9048613dbbfa92"
+    },
+    "queue355-baiqi-snapshot-before-response.json": {
+      "bytes": 5907,
+      "sha256": "e0fb5dbe7eb7c0009c29542cd559895ee9e16161e5ce8c6bc602a88466b9b4fd"
+    },
+    "queue355-gorgo-cleanup-response.json": {
+      "bytes": 4019,
+      "sha256": "a8bf78a8321ee56f906d574bad27005c56811d1954bc247476bd54e8fa5d6fdc"
+    },
+    "queue355-gorgo-install-response.json": {
+      "bytes": 3904,
+      "sha256": "480a680be588ae7bdb73969bc99e48c1009cde397bbec53f6b9980cb1a705625"
+    },
+    "queue355-gorgo-select-city-response.json": {
+      "bytes": 3922,
+      "sha256": "367c7b91614ecc3f07c6cde41ecf77db0d519af2383227d8abbb8614c869452a"
+    },
+    "queue355-gorgo-snapshot-after-response.json": {
+      "bytes": 5547,
+      "sha256": "77790dc26c582bc3420df504cea25c371ab88a19fdee5ea264a679db95d03dbe"
+    },
+    "queue355-gorgo-snapshot-before-response.json": {
+      "bytes": 5883,
+      "sha256": "e2dcf3002333ca3b139d143519f3ebfa8495a53e5537c622ba9003f8597f13b6"
+    },
+    "queue355-load-baiqi110-response.json": {
+      "bytes": 3815,
+      "sha256": "83dcb6743016f91283d6658e2e77e84fd3cca052f51376092f6346b682a655af"
+    },
+    "queue355-load-gorgo1-response.json": {
+      "bytes": 3815,
+      "sha256": "83dcb6743016f91283d6658e2e77e84fd3cca052f51376092f6346b682a655af"
+    },
+    "queue355-load-original110-response.json": {
+      "bytes": 3815,
+      "sha256": "83dcb6743016f91283d6658e2e77e84fd3cca052f51376092f6346b682a655af"
+    },
+    "queue355-baiqi-select-slot-one-physical-attempt.json": {
+      "bytes": 4362,
+      "sha256": "81648f7f7f65b5d0cccaaaa5419a530f10015257f05d9d89c44f5404bddfda41"
+    },
+    "queue355-baiqi-trash-slot-one-physical-attempt.json": {
+      "bytes": 4361,
+      "sha256": "e6b28087a29384d60cbe709af8193bcf511219197e45b309cdb8eea783decde1"
+    },
+    "queue355-gorgo-close-welcome-physical-attempt.json": {
+      "bytes": 4337,
+      "sha256": "c8abb2963828fb60e9f4e4f94786ee82b13cf7d7210a0b8b40300a77c49e206a"
+    },
+    "queue355-gorgo-open-production-physical-attempt.json": {
+      "bytes": 4361,
+      "sha256": "5220c83e5e09762a47296baea505a31ec77bd462a58fde9f86c87dd79f9ecbe6"
+    },
+    "queue355-gorgo-prod-toggle-off-physical-attempt.json": {
+      "bytes": 4361,
+      "sha256": "b45ce8e65429a56c912e978af992c7c0f11dc677329e9bc38a7124372a475398"
+    },
+    "queue355-gorgo-select-slot-one-physical-attempt.json": {
+      "bytes": 4361,
+      "sha256": "19747f41efe3392c3d32e6e1d239ab8019ec4ae3aaaf7b639abdf0a61b0733aa"
+    },
+    "queue355-gorgo-trash-slot-one-physical-attempt.json": {
+      "bytes": 4360,
+      "sha256": "aa05426fbfdf9e9d8be0a85b89109e2cebaaa6f1f7a68356d7dcd146ad9648a5"
+    },
+    "queue355-owner-software-receipt.json": {
+      "bytes": 480,
+      "sha256": "e28492142cb7c7005c404bcf74a719f56c7bd0fd5654921d1fbdcadf5b3441e3"
+    },
+    "queue355-final-original110-verified.json": {
+      "bytes": 13114,
+      "sha256": "df29da13318f56e68c7236fb5d966b4ddf1ff0376511794326168e49aa1e201c"
+    },
+    "queue356-owner-all-ui-route-search.txt": {
+      "bytes": 66914,
+      "sha256": "70e9eb2cf42c67b93ff76f108ae1c95f0c6b9dee225763347f7e4c3a1fbfc9cc"
+    },
+    "queue355356-owner-phases.jsonl": {
+      "bytes": 880,
+      "sha256": "f9cab180ba29832305f2d80d5901538f186fc106ec6f616b7f9fbe64393d9e0c"
+    }
+  }
+}
