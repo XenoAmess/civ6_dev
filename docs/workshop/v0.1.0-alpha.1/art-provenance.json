@@ -1,0 +1,59 @@
+{
+  "schema": "civ6.workshop-promotional-art/v1",
+  "date_local": "2026-11-05",
+  "tool": "Built-in image_gen.imagegen, imagegen skill",
+  "type": "AI-assisted promotional illustration; not gameplay",
+  "reference": {
+    "repository": "https://github.com/XenoAmess/slay-the-spire-vivhite-mod",
+    "commit": "94559b5a80ef4bdec8ff8a58042256902d8df713",
+    "path": "assets/vivhite-ironclad/custom/character_select/sources/vivhite-character-select-hero-master-v1.png",
+    "source_record": "../../implementation/baiqi-art-sources.md"
+  },
+  "prompt_record_type": "Summary of generation direction; not an exact prompt transcript",
+  "prompt_summary": "Square Steam Workshop promotional cover matching the existing silver-haired, purple-eyed, golden-glasses Baiqi character with blue butterfly and white/navy/gold clothes. Navy/gold map/hex motifs. Chinese Baiqi and ability title, domestic automation and player military command, prominently ALPHA 1 and incomplete-acceptance testing notice. Promotional illustration separate from real gameplay screenshots.",
+  "output_original": {
+    "role": "generated_source",
+    "repository_path": "docs/workshop/v0.1.0-alpha.1/media/cover-source.png",
+    "sha256": "0ec9bc1af86b208eb2441106a59cefcb4033e496c61c2ea58cf3c623b6e37362",
+    "bytes": 2430140,
+    "width": 1254,
+    "height": 1254,
+    "upload": false,
+    "title": "宣传封面生成原图",
+    "caption": "imagegen原始返回，未作艺术修改。"
+  },
+  "upload_derivative": {
+    "role": "primary_preview",
+    "repository_path": "docs/workshop/v0.1.0-alpha.1/media/preview.jpg",
+    "sha256": "7c5f790e776f843dd8649ffb1186564f59e56919fdbe1489aa9f576da1f568c2",
+    "bytes": 436707,
+    "width": 1024,
+    "height": 1024,
+    "upload": true,
+    "title": "白绮【为我前驱】Alpha 1",
+    "caption": "AI辅助宣传插画，明确标示测试版与尚未全部验收；不是实机图。"
+  },
+  "derivative_processing": "Pillow RGB conversion, deterministic Lanczos resize1254x1254 to1024x1024, JPEG quality90 optimize=True subsampling=0. No artistic retouch or gameplay synthesis.",
+  "owner_visual_review": "Generated result visually reviewed for character identity, title and explicit Alpha/incomplete-acceptance notice.",
+  "screenshots_processing": "Source release PNGs preserved unchanged in repository. Workshop JPEG derivatives only use quality95 optimize=True subsampling=0 compression, original dimensions; no artistic retouch or recomposition.",
+  "screenshot_derivatives": [
+    {
+      "source": "docs/releases/v0.1.0-alpha.1/screenshots/overview.png",
+      "source_sha256": "ad9502ef38b81a81cd9cff2a56e5a062558f77ab0e48a0b491adb8717d5e212d",
+      "upload": "docs/workshop/v0.1.0-alpha.1/media/overview.jpg",
+      "upload_sha256": "2b9606124d69a7cd7bd1b6e875ffe25df1bf4f371dde1e0338937ae387110287",
+      "rgba_pixels_identical": false,
+      "dimensions_unchanged": true,
+      "processing": "JPEG quality95 optimize=True subsampling=0 compression only. Original release PNG remains public; no resizing, artistic retouch or recomposition."
+    },
+    {
+      "source": "docs/releases/v0.1.0-alpha.1/screenshots/city-readonly.png",
+      "source_sha256": "ad0cd4bded3bff331737ebac70bc05478494f7a08f41accb9c0d1c97a46b533b",
+      "upload": "docs/workshop/v0.1.0-alpha.1/media/city-readonly.jpg",
+      "upload_sha256": "6198634b267ee14e1aaf1b48586f571a7e62ef1d9150e32a018f16f807a2b1bd",
+      "rgba_pixels_identical": false,
+      "dimensions_unchanged": true,
+      "processing": "JPEG quality95 optimize=True subsampling=0 compression only. Original release PNG remains public; no resizing, artistic retouch or recomposition."
+    }
+  ]
+}

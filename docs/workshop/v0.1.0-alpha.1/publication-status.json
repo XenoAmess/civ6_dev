@@ -1,0 +1,47 @@
+{
+  "schema": "civ6.workshop-publication-status/v1",
+  "recorded_at_utc": "2026-11-04T20:24:59.788846+00:00",
+  "date_local": "2026-11-05",
+  "machine": "BF-202609141645",
+  "release": "v0.1.0-alpha.1",
+  "steam_workshop_published": false,
+  "published_file_id": null,
+  "workshop_url": null,
+  "status": "PREPARED_USER_CONFIRMED_REMOTE_IDLE",
+  "constraint": "User2026-11-05 requires checking other-device game activity before Steam upload; never kick another session.",
+  "checks": [
+    {
+      "at_utc": "2026-11-04T19:34:45.327650+00:00",
+      "source": "Anonymous read-only official Steam Community XML, bound to local active account without publishing identity",
+      "result": "HTTP429; remote game occupancy unavailable; no clearance",
+      "cached_or_missing_status_is_idle": false
+    },
+    {
+      "at_utc": "2026-11-04T19:35:40.961725+00:00",
+      "source": "Background read-only UI Automation, bound current Steam process generation",
+      "bound_windows": 1,
+      "nodes_seen": 4,
+      "positive_pattern_hits": 0,
+      "result": "No authoritative remote occupancy status exposed; absence is not clearance"
+    },
+    {
+      "source": "User explicit current-session statement after initial busy report",
+      "result": "现在没人在玩了，你来上传。",
+      "scope": "Remote occupancy user-confirmed idle; stop if Steam reports a conflicting active session."
+    }
+  ],
+  "local_owned_test_game_distinguished": true,
+  "actions": {
+    "steam_online_switches": 0,
+    "steam_logins": 0,
+    "steam_api_initializations": 0,
+    "sdk_downloads": 0,
+    "upload_attempts": 0,
+    "create_item_attempts": 0,
+    "other_games_closed": 0,
+    "client_restarts": 0
+  },
+  "current_offline_claim": "No mode switch this preparation. Previous confirmed offline is historical, not a new query result.",
+  "next": "Proceed with official Steam mode switch and upload; no forced login or session override.",
+  "privacy": "No account identity, cookies, private UI labels or raw machine logs included."
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "civ6.workshop396397-preparation/v1",
+  "date_local": "2026-11-05",
+  "machine": "BF-202609141645",
+  "model_cases": [
+    {
+      "sequence": 396,
+      "task_id": "civ6-bbcode396-workshop-alpha",
+      "mode_id": "http-candidate",
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "post_begin": "2026-11-04T19:34:35.428330+00:00",
+      "attempt_end": "2026-11-04T19:35:03.301795+00:00",
+      "max_tokens": 3000,
+      "result": {
+        "http_status": 200,
+        "finish_reason": "length",
+        "sse_done": true,
+        "total_ms": 27865.199099993333,
+        "first_nonempty_content_delta_ms": 2258.3919999888167,
+        "usage": {
+          "prompt_tokens": 10929,
+          "completion_tokens": 3000,
+          "total_tokens": 13929
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "json_syntax": {
+          "status": "UNKNOWN",
+          "top_level_type": "UNKNOWN",
+          "reason": "NON_STOP_FINISH",
+          "error": null,
+          "offset_units": "Unicode code points",
+          "max_utf8_bytes": 1048576,
+          "semantic_review": "OWNER_REVIEW_REQUIRED"
+        }
+      },
+      "review": "Length: entire candidate discarded, content/SSE body not read or extracted, 0 adoption. Owner wrote final BBCode from actual published docs.",
+      "provenance": {
+        "shared_commit": "cf9238a216f22df363539a36932de0d4eb50ab71",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea"
+      }
+    },
+    {
+      "sequence": 397,
+      "task_id": "civ6-occupancy397-workshop-alpha",
+      "mode_id": "http-candidate",
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "post_begin": "2026-11-04T19:34:35.438388+00:00",
+      "attempt_end": "2026-11-04T19:34:46.897754+00:00",
+      "max_tokens": 2300,
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 11453.577000007499,
+        "first_nonempty_content_delta_ms": 2256.9543000427075,
+        "usage": {
+          "prompt_tokens": 5097,
+          "completion_tokens": 886,
+          "total_tokens": 5983
+        },
+        "cached_prompt_tokens_if_reported": null,
+        "json_syntax": {
+          "status": "VALID",
+          "top_level_type": "object",
+          "reason": "COMPLETE_STOP_JSON",
+          "error": null,
+          "offset_units": "Unicode code points",
+          "max_utf8_bytes": 1048576,
+          "semantic_review": "OWNER_REVIEW_REQUIRED"
+        }
+      },
+      "review": "Complete JSON reviewed; no usable clearance method. Reject keyed alternative with wrong GetPlayerSummaries path, Busy persona-as-gameplay inference and contradictory stop condition. Supplied XML/registry methods merely repeated. At most reinforces absence-is-not-idle caution; 0 code/plan adoption.",
+      "provenance": {
+        "shared_commit": "cf9238a216f22df363539a36932de0d4eb50ab71",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea"
+      }
+    }
+  ],
+  "client_inflight": {
+    "peak": 2,
+    "seconds_at_peak": 11.459366,
+    "service_queue_or_parallel": null
+  },
+  "new_http_attempts": 2,
+  "extra_retries": 0,
+  "cumulative_through397": {
+    "logical_requests": 397,
+    "complete_stop_json": 369,
+    "length_discarded": 25,
+    "final_transport_failed": 3,
+    "http_attempts": 427,
+    "extra_retries": 30
+  },
+  "maintenance": "Nov5 same-machine same-user1.19.5 successful cache reused; no upgrade this invocation.",
+  "opencode_native_generation": 0,
+  "owner_active_cost_seconds": null,
+  "net_savings": null,
+  "adoption": "No model code or upload plan. Owner final prose and package validation; generated art is a separate imagegen task.",
+  "steam_publication": "Not attempted at preparation; remote occupancy subsequently confirmed idle by user. Publication receipt follows separately."
+}
