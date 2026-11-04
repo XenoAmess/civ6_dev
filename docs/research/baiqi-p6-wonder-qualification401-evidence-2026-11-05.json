@@ -1,0 +1,85 @@
+{
+  "schema": "civ6.assets401-qualification/v1",
+  "date_local": "2026-11-05",
+  "machine_id": "BF-202609141645",
+  "at_utc": "2026-11-04T22:44:38.887673+00:00",
+  "scope": "TC-031 source qualification only; no new capture or retained-wonder acceptance result.",
+  "product_build": 74,
+  "alpha_product_changes": 0,
+  "http": {
+    "sequence": 401,
+    "mode_id": "http-candidate",
+    "max_tokens": 3000,
+    "roles": [
+      "system",
+      "user",
+      "user"
+    ],
+    "result": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 4929.005799989682,
+      "first_nonempty_content_delta_ms": 2085.890299989842,
+      "usage": {
+        "prompt_tokens": 3838,
+        "completion_tokens": 504,
+        "total_tokens": 4342
+      },
+      "cached_prompt_tokens_if_reported": null,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "provenance": {
+      "schema": "civ6.local-model-adapter-provenance/v1",
+      "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+      "shared_commit": "5d7781e0c408a011c2e7bb23ff1666ce4ab4916a",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+      "overrides": {
+        "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+      },
+      "timeout_override": null,
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+    },
+    "post_attempts": 1,
+    "extra_retries": 0,
+    "client_inflight_peak": 1,
+    "code_adoption": 0,
+    "novel_plan_adoption": 0,
+    "owner_review": [
+      "The WorldBuilder-only caller does not prove ordinary GameCore availability; correct caution restates the supplied contract.",
+      "Rejected all candidate Lua: GameCore_Tuner is a Tuner context label, not the supplied env table; local env=GameCore_Tuner is unsupported.",
+      "if row.IsWonder is insufficient: Lua treats numeric0 as truthy. Existing adopted snapshot validates boolean or0/1 explicitly.",
+      "A prior QA city ID is not proof of a current city or wonder. Owner will independently qualify current native state after checkpoint load."
+    ],
+    "owner_cost_seconds": null,
+    "net_savings": null
+  },
+  "maintenance": "Nov5 same-machine same-user successful1.19.5 cache reused through canonical CLI;0 new OpenCode native generation.",
+  "cumulative_through401": {
+    "logical_requests": 401,
+    "complete_stop_json": 371,
+    "length_discarded": 27,
+    "final_transport_failed": 3,
+    "http_attempts": 431,
+    "extra_retries": 30
+  },
+  "next_gate": "After actual game load, use current-context globals and strict IsWonder flags to inventory existing assets read-only. A WorldBuilder construction call is not authorized by its presence in source, nor evidence of capture retention.",
+  "raw_evidence_sha256": {
+    "REQUEST.json": "d7604af5b05703e77830fdf1ac106c6b1c8a77176397d7f928afa316713671db",
+    "EVENTS.jsonl": "0c2ad3dc55c623126c3b6ed285e23b3b3c9105e691593985387f46bfdcfd118a",
+    "ATTEMPT1-RESULT.json": "a8df3e67bc50641dd3542adc455d2a050a5e395257c7cf570f63f7ecc34bd31b",
+    "ATTEMPT1-CONTENT.txt": "24a4ea81b7d2f7709a5bb02622f07e48d4f9dd5532541a76c024197f8642a942",
+    "assets401-actual-building-caller.txt": "7abffa1b4c2e0b62f47d7238c17071db13606ee485a6cddbdf499d5518138c49"
+  },
+  "owner_preparation_correction": "Reviewer initially required non-existent saw_done metadata key; failed before candidate read. Corrected to actual sse_done and verified stop/VALID before reading. No game action or model replay."
+}
