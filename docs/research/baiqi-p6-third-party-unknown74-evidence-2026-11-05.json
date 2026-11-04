@@ -1,0 +1,179 @@
+{
+  "schema": "civ6.third-party-unknown74/v1",
+  "date_local": "2026-11-05",
+  "utc": "2026-11-04T18:58:39.021203+00:00",
+  "machine": "BF-202609141645",
+  "internal_build": 74,
+  "alpha_release_tag": "v0.1.0-alpha.1",
+  "alpha_commit": "1bc680bb3e593cbfa7783868f6debd84331a292d",
+  "product_code_changed": false,
+  "prepared": {
+    "checkpoint_sha256": "4d6eb7fda5e29c1492d84984d4aecf8431e6e36828f8eaec4958cfac44dc3e0b",
+    "target_owner": 62,
+    "target_city": 131073,
+    "population": 9,
+    "unit": 2162700,
+    "unit_xy": [
+      10,
+      12
+    ],
+    "city_xy": [
+      10,
+      13
+    ],
+    "moves": 4,
+    "gold": 4524.2734375,
+    "quote": 1100,
+    "preexisting_journal": null
+  },
+  "input": {
+    "physical_right_attempts": 2,
+    "physical_right_pass": false,
+    "observed_down_up": 0,
+    "no_request_or_debit_from_failed_inputs": true,
+    "fallback": "TEST_PLAYER invokes actual product MoveUnitToPlot wrapper, then physically clicks actual1100 confirmation popup. Not direct Capture.Request or automatic background initiation.",
+    "semantic_map_wrapper_calls": 1,
+    "semantic_interact_calls": 1,
+    "sensor_errors": 0,
+    "sensor_drops": 0,
+    "unknown_physical_failure_cause": true
+  },
+  "QA_fault": {
+    "first_product_transfer_calls": 1,
+    "first_actual_owner": 0,
+    "first_actual_city_id": 851970,
+    "separate_QA_third_party_transfer_calls": 1,
+    "third_party_owner": 1,
+    "third_actual_city_id": 589832,
+    "third_party_leader": "LEADER_ALEXANDER",
+    "not_natural_military_capture": true,
+    "software_boundary_checks": 4,
+    "finish_moves_calls": 0
+  },
+  "actual_result": {
+    "request_id": "city:0:114:2162700:62:131073:10:13",
+    "stage": "UNKNOWN",
+    "phase": "TRANSFERRING",
+    "reason": "transfer_unresolved",
+    "transferObserved": null,
+    "newCityID": null,
+    "chargeObserved": null,
+    "cost": 1100,
+    "gold": 4524.2734375,
+    "moves": 4,
+    "cooldown": null,
+    "conflict_guard": true
+  },
+  "recovery": {
+    "explicit_actual_Recover_keeps_unknown_no_debit_or_move": true,
+    "unknown_checkpoint": {
+      "name": "Baiqi_P6_20261105_V74_ThirdPartyUnknown114.Civ6Save",
+      "bytes": 568988,
+      "sha256": "f76e0f0d72e46f4223cfb2a63fc39716c5533e7378063300baea044e60e257ec"
+    },
+    "same_process_official_save_reload": true,
+    "fresh_record_and_owner_gold_moves_verified": true,
+    "fault_namespace_absent_after_reload": true,
+    "no_Request_reissue": true
+  },
+  "cleanup": {
+    "input_four_bindings_restored": true,
+    "fault_two_bindings_restored_before_save": true,
+    "normal_checkpoint_final_verification": {
+      "utc": "2026-11-04T19:02:27.370239+00:00",
+      "cities": 11,
+      "traders": 11,
+      "gold": 4524.2734375,
+      "faith": 397.94140625,
+      "income": 95.7109375,
+      "maintenance": 54,
+      "farm539": true,
+      "builder5832733_charges": 1,
+      "horse2162700_moves": 4,
+      "requisition_journal": null,
+      "input_and_fault_namespaces_empty": true,
+      "normal_save_sha256_unchanged": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6"
+    }
+  },
+  "scope": "PASS narrow controlled third-party ownership change before product transfer post-read, unknown freeze and same-process reload. Not physical map route PASS, real third-party combat, full phase matrix, later-turn or cold-process recovery.",
+  "model395": "0code, only already-specified third-party test direction reference; false double-debit and unpaid-validation-order claims rejected. Owner fault implementation/4checks/Native orchestration independent.",
+  "new_model_calls_for_fault_or_recovery": 0,
+  "fingerprints": {
+    "third74-fault-install.lua": {
+      "bytes": 2791,
+      "sha256": "297d986c1907cbc66e4eae7abcbc8dc3c751bbef15a2d703e15b67974d167b5a"
+    },
+    "third74-fault-software.json": {
+      "bytes": 223,
+      "sha256": "69a464a471e13f93506d70d5495bf1ee2ec10ee7ec80c84b8d7de912f84a4e3a"
+    },
+    "third74-physical-right-attempt.json": {
+      "bytes": 296,
+      "sha256": "5ece6ce4e97f0a6d1d6e19650b1519d26a9d97c5fb9c6eafef8bc3a49034003f"
+    },
+    "third74-physical-rightv2-attempt.json": {
+      "bytes": 296,
+      "sha256": "a2e114179ad2a789e6d2f664579a49e3008b02711f0fea0dd920c92482f91354"
+    },
+    "third74-physical-confirm-attempt.json": {
+      "bytes": 298,
+      "sha256": "1e2efe903b1435f9b8903d6730990b3830ec9a54746e212ff1f21eb633a933b0"
+    },
+    "third74-prepared-gates-response.json": {
+      "bytes": 4114,
+      "sha256": "dd8796f499e43ca57c9b62a6e329865b0edee37add6196371c0c60b07d290ef5"
+    },
+    "third74-install-response.json": {
+      "bytes": 3931,
+      "sha256": "bb32f0bd72d88b3e185e0476a7ad50ba56ba16d9517c03daad1bc6eb5fcd8799"
+    },
+    "third74-before-confirm-response.json": {
+      "bytes": 4172,
+      "sha256": "873e818f9c55b85315fc7a00ed407096f503f13c24d66a14aacd9a01b96f0cd7"
+    },
+    "third74-semantic-entry-response.json": {
+      "bytes": 3998,
+      "sha256": "67cb831c59c1a6c88626eb33b63dc2322a1894ad824351489806ec9faf18c0d9"
+    },
+    "third74-after-confirm-response.json": {
+      "bytes": 4484,
+      "sha256": "9443aa295d97ea8333495282f92444d625fe589477efc0623c9cd5740822218c"
+    },
+    "third74-input-after-confirm-response.json": {
+      "bytes": 4201,
+      "sha256": "0c642d1748438c36ad7e6f62ffddc6dcf056bdde481f10b8844f6a8fa5c9a5c0"
+    },
+    "third74-recover-before-save-response.json": {
+      "bytes": 4011,
+      "sha256": "8636dadecd4c62c96fb166e0e378c80a4982823fe396bf5ba002741f70352157"
+    },
+    "third74-input-cleanup-response.json": {
+      "bytes": 3931,
+      "sha256": "d3ed19bf61fa304adca7d6d91cbbaaef7c753f8cec43bd5c604e93aac1540b0d"
+    },
+    "third74-fault-cleanup-response.json": {
+      "bytes": 4047,
+      "sha256": "b82acfb7678eaa8de5714e453e3aa6abad085a29968edb2fb19c48567d01aa8b"
+    },
+    "third74-unknown-save-response.json": {
+      "bytes": 3915,
+      "sha256": "8dec334f09506810ea2f13d5a9fb7e4dc22673030a7362e80cb1af6bdbfccb86"
+    },
+    "third74-unknown-load-response.json": {
+      "bytes": 3915,
+      "sha256": "f440eddd49e476bb8d15749555f088b0072bc243a71feadb373cfa2176694e65"
+    },
+    "third74-reload-verified-response.json": {
+      "bytes": 4012,
+      "sha256": "34a94590aeefa961ace6ed6e3bca0b4c882130134c7a5c6caec6448263398040"
+    },
+    "third74-normal114-verified.json": {
+      "bytes": 8173,
+      "sha256": "29501ca039762840d213be7875e8cf3565e646ba0695ae0a5f817be8f18773c2"
+    },
+    "third74-final-namespaces-verified.json": {
+      "bytes": 7887,
+      "sha256": "16f57c38745e0766d043d823b2fbdd00eaf1ec5b1caf13ee3c136ce8cf7ac97f"
+    }
+  }
+}
