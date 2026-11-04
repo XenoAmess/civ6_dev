@@ -15,6 +15,7 @@ local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
 local planningStarted,builderResumeStreak=nil,0
 local builderSearches={}
+local builderRejectedGoals={}
 local settlerSearches={}
 local districtPersonPlans = {}
 local missionaryPlans = {}
@@ -1980,6 +1981,32 @@ local function BuilderRouteValid(ctx,state,unit,search)
     and BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) and CoreIdle()
 end
 
+-- Failed planning goals are deferred only for this unit's current turn.
+-- These scalar indices never authorize a move or cache a safety decision.
+local function BuilderGoalRejected(ctx,unit,index)
+  local entry=builderRejectedGoals[unit:GetID()]
+  return entry~=nil and entry.player==ctx.player and entry.turn==turn
+    and entry.goals[index]==true
+end
+
+local function RejectBuilderGoal(ctx,state,unit,search,index)
+  if not BaiqiPolicy.Number(index) or index<0 or index%1~=0 then return end
+  local latest,player,actualState=PlayerContext()
+  if not latest or latest.player~=ctx.player then return end
+  local id=unit:GetID()
+  local fresh=player:GetUnits():FindID(id)
+  if not BaiqiPolicy.MatchesID(fresh,id) or fresh:GetOwner()~=latest.player
+    or not BuilderRouteValid(latest,actualState,fresh,search) then return end
+  local plot=Map.GetPlotByIndex(index)
+  if not plot or plot:GetIndex()~=index or not Revealed(plot) or plot:GetOwner()~=latest.player then return end
+  local entry=builderRejectedGoals[id]
+  if not entry or entry.player~=latest.player or entry.turn~=turn then
+    entry={player=latest.player,turn=turn,goals={}};builderRejectedGoals[id]=entry
+  end
+  -- At most the valid revealed owned map plots per live builder this turn.
+  entry.goals[index]=true
+end
+
 local function WaitBuilderRoute(ctx,player,state,unit,search)
   builderSearches[unit:GetID()]=nil
   if not BuilderRouteValid(ctx,state,unit,search) then return false,false end
@@ -1990,9 +2017,10 @@ local function WaitBuilderRoute(ctx,player,state,unit,search)
   return false,false
 end
 
-local function BuilderRouteTarget(targets,search)
+local function BuilderRouteTarget(targets,search,ctx,unit)
   for _,target in ipairs(targets) do
-    if target.index==search.activeTarget or not search.tested[target.index] then return target end
+    if not BuilderGoalRejected(ctx,unit,target.index)
+      and (target.index==search.activeTarget or not search.tested[target.index]) then return target end
   end
 end
 
@@ -2002,15 +2030,16 @@ local function AdvanceBuilderRoute(ctx,player,state,unit,search)
   if BuilderBudgetExpired(planningStarted,C.builderSliceSeconds) then return false,true end
   if search.phase=="query" then
     local targets=BuilderTargets(ctx,player,unit)
-    local target=BuilderRouteTarget(targets,search)
+    local target=BuilderRouteTarget(targets,search,ctx,unit)
     if not target then return WaitBuilderRoute(ctx,player,state,unit,search) end
     if search.activeTarget and search.activeTarget~=target.index then search.tested[search.activeTarget]=nil end
     search.activeTarget=target.index
     search.tested[target.index]=true
     search.hasMore=false
-    for _,other in ipairs(targets) do if not search.tested[other.index] then search.hasMore=true;break end end
+    for _,other in ipairs(targets) do if not search.tested[other.index] and not BuilderGoalRejected(ctx,unit,other.index) then search.hasMore=true;break end end
     local packet=PrepareBuilderPathPacket(ctx,player,state,unit,target.plot)
     if not packet then
+      RejectBuilderGoal(ctx,state,unit,search,target.index)
       search.activeTarget=nil
       if search.hasMore then return false,true end
       return WaitBuilderRoute(ctx,player,state,unit,search)
@@ -2021,6 +2050,7 @@ local function AdvanceBuilderRoute(ctx,player,state,unit,search)
   if search.phase=="validate" then
     local step=ValidateBuilderPathPacket(ctx,player,state,unit,search.packet)
     if not step then
+      RejectBuilderGoal(ctx,state,unit,search,search.activeTarget)
       search.packet=nil;search.activeTarget=nil;search.phase="query"
       if search.hasMore then return false,true end
       return WaitBuilderRoute(ctx,player,state,unit,search)
@@ -2029,7 +2059,7 @@ local function AdvanceBuilderRoute(ctx,player,state,unit,search)
     if BuilderBudgetExpired(planningStarted,C.builderSliceSeconds) then return false,true end
   end
   if search.phase=="write" then
-    local target=BuilderRouteTarget(BuilderTargets(ctx,player,unit),search)
+    local target=BuilderRouteTarget(BuilderTargets(ctx,player,unit),search,ctx,unit)
     if not target then return WaitBuilderRoute(ctx,player,state,unit,search) end
     if target.index~=search.activeTarget then
       search.tested[search.activeTarget]=nil;search.activeTarget=target.index
@@ -2089,7 +2119,7 @@ local function ProcessBuilder(ctx, player, state, unit)
     builderSearches[id]=search
   end
   for i,target in ipairs(targets) do
-    if not search.tested[target.index] then
+    if not search.tested[target.index] and not BuilderGoalRejected(ctx,unit,target.index) then
       search.tested[target.index]=true
       if planningStarted~=nil then
         search.activeTarget=target.index;search.phase="query"
@@ -2100,10 +2130,11 @@ local function ProcessBuilder(ctx, player, state, unit)
         builderSearches[id]=nil
         return RequestCivilian(ctx,state,unit,"MOVE_TO",step)
       end
+      RejectBuilderGoal(ctx,state,unit,search,target.index)
       -- One candidate (at most one native path) per planner invocation. Keep
       -- only failed target indices; rebuild and rank current hints on resume.
       for j=i+1,#targets do
-        if not search.tested[targets[j].index] then return false,true end
+        if not search.tested[targets[j].index] and not BuilderGoalRejected(ctx,unit,targets[j].index) then return false,true end
       end
       break
     end
@@ -2659,17 +2690,17 @@ local function Tick(allowOrders)
   planningStarted=PlanningTime()
   if stopped then return end
   local ctx,player,state=PlayerContext()
-  if ctx==nil then builderSearches={};settlerSearches={};return end
+  if ctx==nil then builderSearches={};builderRejectedGoals={};settlerSearches={};return end
   contextID=ctx.player
-  if not BaiqiPolicy.Context(ctx) then builderSearches={};settlerSearches={};return end
+  if not BaiqiPolicy.Context(ctx) then builderSearches={};builderRejectedGoals={};settlerSearches={};return end
   visibility=PlayersVisibility[ctx.player]
-  if visibility==nil then builderSearches={};settlerSearches={};return end
+  if visibility==nil then builderSearches={};builderRejectedGoals={};settlerSearches={};return end
   local current=type(Game.GetCurrentGameTurn)=="function" and Game.GetCurrentGameTurn()
   if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
     builderResumeStreak=0
     purchaseSearch=nil;purchaseDoneTurn=-1;purchaseResumeStreak=0
-    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}; settlerSearches={}
+    turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}; builderRejectedGoals={}; settlerSearches={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
     -- turn; retaining that pending slot would strand the civilian indefinitely.
     for id,pending in pairs(pendingUnits) do
@@ -2699,6 +2730,13 @@ local function Tick(allowOrders)
     if not effectPending then return end
   end
   ReadBack(player)
+  for id,entry in pairs(builderRejectedGoals) do
+    local unit=player:GetUnits():FindID(id)
+    local row=unit and GameInfo.Units[unit:GetUnitType()]
+    if entry.player~=ctx.player or entry.turn~=turn or not BaiqiPolicy.MatchesID(unit,id)
+      or unit:GetOwner()~=ctx.player or not row or row.UnitType~="UNIT_BUILDER"
+      or unit:GetFormationUnitCount()~=1 then builderRejectedGoals[id]=nil end
+  end
   for id,search in pairs(builderSearches) do
     local unit=player:GetUnits():FindID(id)
     local row=unit and GameInfo.Units[unit:GetUnitType()]

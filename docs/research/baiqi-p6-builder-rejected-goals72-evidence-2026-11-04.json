@@ -1,0 +1,565 @@
+{
+  "schema": "civ6.baiqi-builder-rejected-goals72/v1",
+  "at_utc": "2026-11-04T11:49:52.736751+00:00",
+  "date_local": "2026-11-04",
+  "machine_id": "BF-202609141645",
+  "source_base_commit": "9f973596e8be167e52b7828b6b98f31f6701eaea",
+  "source_version": 72,
+  "installed_version": 71,
+  "running_version": null,
+  "files": 87,
+  "package": {
+    "bytes": 8743422,
+    "sha256": "c42deaf0c73eb930eacc8f81d400545c30ce9e0e40b197c606037db8b761f9d6"
+  },
+  "source_file_fingerprints": {
+    "mod/Baiqi/Baiqi.modinfo": {
+      "bytes": 17521,
+      "sha256": "93c41283d2289a390d6fba163d595e738b19c1ac77dfea7989205cec1559d65c"
+    },
+    "mod/Baiqi/Lua/BaiqiController.lua": {
+      "bytes": 156129,
+      "sha256": "24365f6b303c305960d4ea0d24e61aee216e027d017ce2234ec5a81174f2c974"
+    },
+    "tests/test_baiqi_builder_rejected_goals.py": {
+      "bytes": 4860,
+      "sha256": "aa71dc57a0669bae7f29a94919566009d20d42e32d043e2fd4e6de2cb32b8253"
+    },
+    "tests/test_baiqi_builder_escort_invalidation.py": {
+      "bytes": 1092,
+      "sha256": "d66b1accc00ea5eca331dbb8d310daa932a43a788dad30aaade61bff81e31c0a"
+    },
+    "tests/test_baiqi_builder_slices.py": {
+      "bytes": 3924,
+      "sha256": "70448a523c17b1f3620ed0a557900663e3f7a240b19f2dd6bd01954aeb8e3aae"
+    },
+    "tools/static_control_source.py": {
+      "bytes": 4088,
+      "sha256": "c0ce9b40a7559d280ef99de1a2adf457395460ffbad711d0bb564ec08d8dcddf"
+    },
+    "tools/build_static_control.py": {
+      "bytes": 5288,
+      "sha256": "77cda0d0cb565e2396b62b853fde4222bb4174ca719a10da3fe5aa03778864b4"
+    }
+  },
+  "native71_trace": {
+    "turn": 111,
+    "unit": 5832733,
+    "samples": 12,
+    "errors": 0,
+    "drops": 0,
+    "queried_goal_before_move407": 493,
+    "path": [
+      364,
+      407,
+      451,
+      494,
+      538,
+      493
+    ],
+    "queried_goal_before_return364": 95,
+    "return_path": [
+      407,
+      364,
+      319,
+      275,
+      230,
+      186,
+      141,
+      140,
+      96,
+      95
+    ],
+    "association_limit": "Lastqueriedgoal+matchingfirstpathstep; observerdoesnotreadlocalactiveTarget. Exactfailureguardnottraced. Redactedmeansunavailable/malformed/hidden, notnecessarilyfog.",
+    "final_position": [
+      12,
+      8
+    ],
+    "final_plot": 364,
+    "final_UI_moves": 1,
+    "build_charges": 2,
+    "actual_build_improvement": false,
+    "plot451": "unownedempty",
+    "other_builder6291501": [
+      11,
+      11
+    ],
+    "both_bindings_restored": true,
+    "observer_namespace_cleared": true,
+    "actual_checkpoint": {
+      "name": "Baiqi_P6_20261104_V71_BuilderTrace111.Civ6Save",
+      "bytes": 551837,
+      "sha256": "576d86805e203404965244608a18a59b2fd467ccb824f1b465eefa3f9d033bbd"
+    },
+    "role": "Ownerreadonlysensor;TEST_PLAYERoneordinaryendturn110to111. NoQAgrants/domesticorders/armycommands."
+  },
+  "change": [
+    "Scalarfailedgoalindices only, scopedfullID/player/Builder/currentturn;surviveposition/moveschanges.",
+    "Onlyfreshplanningfailure; successfulgoalsnotrejected; budget/context/busy/escortinvaliditydoesnotcreatefailedgoal.",
+    "CaptureactualgoalbeforeclearingactiveTarget; synchronousandphaseconsumersbothfiltermemory.",
+    "Resetonturn/contextloss,pruneidentity/type/owner/escortloss; finalfreshwriter/unknownpending/attemptsunchanged.",
+    "Privatecontroltoolssupport72; frozen67to71editmapsandpairedclockprefixunchanged."
+  ],
+  "software": {
+    "first_full": {
+      "tests": 1012,
+      "failures": 2,
+      "seconds": 123.987,
+      "classification": "Oldchangedmovesexpectationconflictswithnewperturncontract; escorttransitionneededrejectionmapprune. HistoricalFAILpreserved."
+    },
+    "corrected_builder_subset": {
+      "tests": 57,
+      "failures": 0,
+      "errors": 0
+    },
+    "final_full": {
+      "tests": 1013,
+      "failures": 0,
+      "errors": 0,
+      "test_seconds": 37.122,
+      "subprocess_elapsed_seconds": 37.91403230000287
+    },
+    "candidate_tests": {
+      "before71": {
+        "tests": 7,
+        "failures": 2,
+        "errors": 0,
+        "failed_names": [
+          "test_failed_goal_is_not_retried_after_two_actual_moves",
+          "test_phased_planner_preserves_failed_goal_across_moves"
+        ],
+        "error_names": []
+      },
+      "raw363": {
+        "tests": 7,
+        "failures": 3,
+        "errors": 0,
+        "failed_names": [
+          "test_validation_failure_does_not_index_cleared_target",
+          "test_failed_goal_is_not_retried_after_two_actual_moves",
+          "test_phased_planner_preserves_failed_goal_across_moves"
+        ],
+        "error_names": []
+      },
+      "owner72": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "failed_names": [],
+        "error_names": []
+      }
+    },
+    "limits": "SoftwaremockusesactualControllerandindependentpaths/movementreceipts,notactualNative72effects."
+  },
+  "cases": [
+    {
+      "sequence": 361,
+      "case_id": "civ6-builder361-native71-backtrack",
+      "mode_id": "http-candidate",
+      "shared_commit": "283fbbb49bbcee4fb7bd81e94a7780a4ffea6d8d",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T10:59:20.035477+00:00",
+      "attempt_end_utc": "2026-11-04T10:59:50.754262+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 30725.60170001816,
+        "first_nonempty_content_delta_ms": 15196.504199993797,
+        "usage": {
+          "prompt_tokens": 64489,
+          "completion_tokens": 2018,
+          "total_tokens": 66507
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T10:59:20.035477+00:00",
+          "end_utc": "2026-11-04T10:59:50.754262+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 30725.60170001816
+        }
+      ],
+      "adoption": "0code",
+      "review": "IncorrectuniqueNativecause andgoal364(step); testedmapstilldiscardedaftermovement, nopersistentfailedgoalmemory.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 362,
+      "case_id": "civ6-builder362-native71-backtrack",
+      "mode_id": "http-candidate",
+      "shared_commit": "283fbbb49bbcee4fb7bd81e94a7780a4ffea6d8d",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T10:59:20.056362+00:00",
+      "attempt_end_utc": "2026-11-04T10:59:47.063068+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 27009.6315999981,
+        "first_nonempty_content_delta_ms": 16708.893400034867,
+        "usage": {
+          "prompt_tokens": 64499,
+          "completion_tokens": 1448,
+          "total_tokens": 65947
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T10:59:20.056362+00:00",
+          "end_utc": "2026-11-04T10:59:47.063068+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 27009.6315999981
+        }
+      ],
+      "adoption": "0code; ownerreplacementobserver",
+      "review": "Dropsnil/multireturns, copiesrawpathalias, unavailablevisibilityglobal/frozencounters/wrongcleanupidentity/missingnamespaceguard;owner8softwarechecks andactualNative12samples0errors0drops,bothbindingsrestored.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 363,
+      "case_id": "civ6-builder363-rejected-goals",
+      "mode_id": "http-candidate",
+      "shared_commit": "80faf06d7a8afccd4bde953eee21bf90a2b41e7d",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T11:24:40.457051+00:00",
+      "attempt_end_utc": "2026-11-04T11:25:18.993358+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 38528.28819997376,
+        "first_nonempty_content_delta_ms": 15301.007099973504,
+        "usage": {
+          "prompt_tokens": 59099,
+          "completion_tokens": 3835,
+          "total_tokens": 62934
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T11:24:40.457051+00:00",
+          "end_utc": "2026-11-04T11:25:18.993358+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 38528.28819997376
+        }
+      ],
+      "adoption": "Partial: exactmapdeclaration andturnresetonly",
+      "review": "Missinginitializedsearch.unitID, clearsactiveTargetbeforenilkeywrite, synchronouspatchidentical;raw7tests3failinclactualscriptstop. Ownerrewritesguards/readers/rejectioncapture/pruning.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 364,
+      "case_id": "civ6-builder364-rejected-goals",
+      "mode_id": "http-candidate",
+      "shared_commit": "80faf06d7a8afccd4bde953eee21bf90a2b41e7d",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4000,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T11:24:40.456605+00:00",
+      "attempt_end_utc": "2026-11-04T11:24:59.764389+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 19305.683100013994,
+        "first_nonempty_content_delta_ms": 13629.246300028171,
+        "usage": {
+          "prompt_tokens": 59103,
+          "completion_tokens": 602,
+          "total_tokens": 59705
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T11:24:40.456605+00:00",
+          "end_utc": "2026-11-04T11:24:59.764389+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 19305.683100013994
+        }
+      ],
+      "adoption": "0code",
+      "review": "test_modulecontainsfilenameonly, no TestCase/methods. Owner7actualControllerbehavioraltests, before71twofail/owner72sevenpass.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 365,
+      "case_id": "civ6-builder365-source72-review",
+      "mode_id": "http-candidate",
+      "shared_commit": "b500cfee60dec5dba849c149fa308949f106eaf3",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3200,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T11:44:31.891614+00:00",
+      "attempt_end_utc": "2026-11-04T11:44:56.999962+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 25108.388699998613,
+        "first_nonempty_content_delta_ms": 12207.819900009781,
+        "usage": {
+          "prompt_tokens": 53973,
+          "completion_tokens": 1330,
+          "total_tokens": 55303
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T11:44:31.891614+00:00",
+          "end_utc": "2026-11-04T11:44:56.999962+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 25108.388699998613
+        }
+      ],
+      "adoption": "0code/findings adopted",
+      "review": "StaticreviewmislocatesCoreIdleinsideSafe/Revealed, ignoresfreshRejectguard,andproposesclearingunknownmovebytimeoutwithoutidleproof. Thirdfindingexplicitnoissue. Noexecutedproof.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 366,
+      "case_id": "civ6-builder366-source72-review",
+      "mode_id": "http-candidate",
+      "shared_commit": "b500cfee60dec5dba849c149fa308949f106eaf3",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T11:44:31.892387+00:00",
+      "attempt_end_utc": "2026-11-04T11:44:56.200895+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 24302.673999976832,
+        "first_nonempty_content_delta_ms": 13963.305699988268,
+        "usage": {
+          "prompt_tokens": 54048,
+          "completion_tokens": 1234,
+          "total_tokens": 55282
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T11:44:31.892387+00:00",
+          "end_utc": "2026-11-04T11:44:56.200895+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 24302.673999976832
+        }
+      ],
+      "adoption": "Partialoneowner-correctedtest",
+      "review": "Raw2tests2fail: neverresetformation1beforeexpectingmove, interceptedfirstpathnotrecorded; wrongsecondtestassumescacheoninvalidformation. Ownerexplicitdetach+newmoves+logfirstquery; removeswrongsecondcase. NoASTunchangedclaim.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 70.622552,
+    "longest_seconds_at_peak": 27.006706,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "pair_inflight": {
+    "361": {
+      "actual_peak": 2,
+      "seconds_at_peak": 27.006706,
+      "longest_seconds_at_peak": 27.006706,
+      "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+    },
+    "363": {
+      "actual_peak": 2,
+      "seconds_at_peak": 19.307338,
+      "longest_seconds_at_peak": 19.307338,
+      "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+    },
+    "365": {
+      "actual_peak": 2,
+      "seconds_at_peak": 24.308508,
+      "longest_seconds_at_peak": 24.308508,
+      "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+    }
+  },
+  "cumulative_through366": {
+    "logical_requests": 366,
+    "complete_stop_json": 342,
+    "length_whole_discarded": 21,
+    "final_transport_failed": 3,
+    "http_attempts": 396,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": "Same-localNov4successcache/OpenCode1.19.5; canonicalDIRECT192.168.1.11/qwen38-coder;fixed3messages;0newnativegeneration.",
+  "owner_cost_seconds": null,
+  "cached_tokens_if_unreported": null,
+  "server_queue_wait": null,
+  "net_savings": null,
+  "limits": [
+    "NoNative72effectorperformancePASS;source/software/packageonly.",
+    "Noall40/BR009/013fullPASS. Native71backtrackFAILnoterased.",
+    "Nativeuniqueguardcauseunknown;failuregoalassociationdocumentedwithoutinventingblocker451."
+  ],
+  "next_real": "Installnormal72afterowned71gone;freshliveSteamofflineproof,coldloadunchangedoriginal110,observeractualtargetsandBuilderprogress/charges/otherunitsandjournals.",
+  "raw_fingerprints": {
+    "builder362-dump-final111-native-response.json": {
+      "bytes": 9800,
+      "sha256": "88059c6c292eabc2d3bba02cd17e8a1c999291168728639545e099bc7b3de837"
+    },
+    "builder362-cleanup-native-response.json": {
+      "bytes": 3917,
+      "sha256": "2cfd3795b5660f5fc4e479959dfe8b7221f3f7eb3093a5653d5826be585dc070"
+    },
+    "builder362-owner-software-receipt.json": {
+      "bytes": 340,
+      "sha256": "791dd785c771dfb85efd516b5a16885eba582871f27ab429c1a7fdd1569f20b5"
+    },
+    "builder362-trace111-save-receipt.json": {
+      "bytes": 4569,
+      "sha256": "3213d6f70ec38f4add641d29a22f471f872c26cf750869cca1250f5d509b6f05"
+    },
+    "builder72-owner-candidate-receipt.json": {
+      "bytes": 714,
+      "sha256": "2463db9f39223c0d56a8e057285d9bef233fe9fef8f92fda599aa8f7309faae1"
+    },
+    "builder72-full-software.log": {
+      "bytes": 85724,
+      "sha256": "5337552e2f204cd3060bb92a3913dda75e2deaf56bf81a5d1c5de7710586875d"
+    },
+    "builder72-full2-software.log": {
+      "bytes": 84282,
+      "sha256": "31829e7cb260c520a0506adfa12476ae05f9c8739c5a390fda717f2862a30cbe"
+    },
+    "builder365366-review-receipt.json": {
+      "bytes": 980,
+      "sha256": "8de2ad4fb6827547e01f7cd0eef2756fb03a7b6091bbf4e7063533420a99ecf2"
+    },
+    "builder366-raw-tests.log": {
+      "bytes": 1326,
+      "sha256": "b8b0019fccfeeab2182128cedc633e9244e4c4bf51c436457354dde83adad198"
+    }
+  }
+}

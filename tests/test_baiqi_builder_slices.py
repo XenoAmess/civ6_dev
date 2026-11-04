@@ -39,13 +39,13 @@ class BuilderSliceTests(unittest.TestCase):
         self.assertEqual(self.paths(), [(3, 43), (3, 43)])
         self.assertEqual(len(self.w.unitRequests), 0)
 
-    def test_changed_moves_restart_failed_target(self):
+    def test_changed_moves_preserve_failed_goal_until_next_turn(self):
         self.first_failure()
         self.w.builderMoves = 1
         self.lua.execute('TestWorld.paths[43]={42,43}')
         self.c.RunNow()
-        self.assertEqual(self.paths(), [(3, 43), (3, 43)])
-        self.assertEqual(self.packet(), (3, 10, 3, 3))
+        self.assertEqual(self.paths(), [(3, 43), (3, 44)])
+        self.assertEqual(self.packet(), (3, 10, 2, 4))
 
     def test_new_nearer_recommendation_keeps_current_priority(self):
         self.lua.execute('TestWorld.builderRecommendations={44,45};TestWorld.paths[44]=false')
