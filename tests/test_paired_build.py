@@ -20,8 +20,8 @@ class PairedBuildTests(unittest.TestCase):
         self.assertEqual((out/'control/Baiqi/UI/BaiqiExecutor.lua').read_text(encoding='utf-8'),prefix+transform(raw,'UI/BaiqiExecutor.lua')[0])
         expected=len(manifest_files(ROOT/'mod/Baiqi'))
         self.assertEqual(enabled['files'],expected);self.assertEqual(control['files'],expected)
-        self.assertEqual((enabled['source_version'],control['source_version']),(70,70))
-        receipt=ROOT/'.local-model/acceptance-p6-20261101'/f"paired-c2-v70-{out.name}-tested-builds.json"
+        self.assertEqual((enabled['source_version'],control['source_version']),(71,71))
+        receipt=ROOT/'.local-model/acceptance-p6-20261101'/f"paired-c2-v{enabled['source_version']}-{out.name}-tested-builds.json"
         receipt.write_text(json.dumps({'root':str(out.relative_to(ROOT)),'enabled':enabled,'control':control},indent=2)+'\n',encoding='utf-8',newline='\n')
 
     def test_prefix_subscribes_before_original_callback_and_reload_retires_own_only(self):

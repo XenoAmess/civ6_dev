@@ -1,0 +1,361 @@
+{
+  "schema": "civ6.baiqi-source71-primary-civilian-stack359360/v1",
+  "date_local": "2026-11-04",
+  "at_utc": "2026-11-04T10:38:24.580179+00:00",
+  "machine_id": "BF-202609141645",
+  "source_base_commit": "8f83aedb491a7e26bcaf0384e3845387f5b2f1cd",
+  "source_version": 71,
+  "installed_version": 71,
+  "running_version": null,
+  "native71_loaded": false,
+  "source_file_fingerprints": {
+    "mod/Baiqi/Baiqi.modinfo": {
+      "bytes": 17521,
+      "sha256": "7efe17cb7151e4cdc889facb947736c9cbd5e6b725f87fecb84118268674259b"
+    },
+    "mod/Baiqi/Lua/BaiqiController.lua": {
+      "bytes": 153884,
+      "sha256": "5c2d39b0750a43f81e72e07ffeba60f2e16d94d1aef7eacaecd063038aaa2135"
+    },
+    "tests/test_baiqi_civilian_stack_blocking.py": {
+      "bytes": 5152,
+      "sha256": "cc38e8c5662873fd7420d2874e9f69d96bc9eb88b9dbdd5da92d8157fe91dc70"
+    },
+    "tests/test_paired_build.py": {
+      "bytes": 3230,
+      "sha256": "38f1ffdacea0ccd427af207997f8e5e67c0592fabe8cf788e035631a230ce620"
+    },
+    "tests/test_static_control_ui.py": {
+      "bytes": 4885,
+      "sha256": "435d40f5da0fbd9f78f39b902805a34fdfcda6331f757959d2744521222dc5f9"
+    },
+    "tools/build_static_control.py": {
+      "bytes": 5283,
+      "sha256": "f5db8886a37dbbdd6ea0bc73b126470e3d9253e2f92fc2ff1ec435255f8aebf5"
+    },
+    "tools/static_control_source.py": {
+      "bytes": 4080,
+      "sha256": "1dc4660432f344a92bae8f272e10e7c4d25722a4ee6088412a2d13392173b952"
+    }
+  },
+  "original_native70_diagnosis": {
+    "builder": 5832733,
+    "position": [
+      11,
+      7
+    ],
+    "plot": 319,
+    "moves": 2,
+    "build_charges": 2,
+    "attempted_adjacent_plot": 275,
+    "attempted_target": [
+      11,
+      6
+    ],
+    "visible_own_primary_greatmerchant": 4194337,
+    "current_idle_activity": "HOLD75236491",
+    "actual_raw_move_qualification": true,
+    "actual_earlier_effect": "Noarrival/queuedroute, thenoneboundedstandby per independentload.",
+    "native_lines": [
+      "BaiqiExecutor: P6_BUILDER359_TARGET\t275\t11\t6\t0\tfalse\tfalse\t1\t-1\t0",
+      "BaiqiExecutor: P6_BUILDER359_TARGET_UNIT\t2424851\t0\tUNIT_HORSEMAN\tFORMATION_CLASS_LAND_COMBAT\t11\t6",
+      "BaiqiExecutor: P6_BUILDER359_TARGET_UNIT\t4194337\t0\tUNIT_GREAT_MERCHANT\tFORMATION_CLASS_CIVILIAN\t11\t6",
+      "BaiqiExecutor: P6_BUILDER359_TARGET_UNIT\t4718628\t0\tUNIT_KNIGHT\tFORMATION_CLASS_LAND_COMBAT\t11\t6",
+      "BaiqiExecutor: P6_BUILDER359_TARGET_UNIT\t5701675\t0\tUNIT_KNIGHT\tFORMATION_CLASS_LAND_COMBAT\t11\t6",
+      "BaiqiExecutor: P6_BUILDER359_QUAL\ttrue\t1797587246\t75236491"
+    ],
+    "limits": "Multipleoriginalsave reloads repeatlocalrequestIDs; notsamecontextinfiniteretry. Occupancyisobservedandsoftwareguardgapreproduced,notuniqueNativecausalproof; next71coldsamefixture required."
+  },
+  "change": {
+    "visible_unit_reader": "Preservemergedfirstresultforthreats; exposealreadyreadprimary/religiouslistsseparately, no newlayer/nativeAPI.",
+    "collision": "Managedprimaryciviliansreject ownotherprimaryFORMATION_CLASS_CIVILIAN endpoints; missionarylayerexemptfromnewbroadcheck, legacyNaturalistconservativechecks retained.",
+    "early_planning": "Builder-onlyPathStep andphasedValidateBuilderPathPacket rejectblockedfirststepbeforewrite, canadvanceexistingnext-native-hint machinery. FinalRequestCivilian rechecksafterqualification unchanged.",
+    "no_route_or_permission_expansion": "NoAstar/newmultistepNativeorder/AIarmycommand/toggle/replay/budgetchange."
+  },
+  "verification": {
+    "initial_raw360_three_errors": {
+      "tests": 3,
+      "failures": 0,
+      "errors": 3,
+      "failed_names": [],
+      "error_names": [
+        "test_primary_army_stack_allows_move",
+        "test_primary_civilian_stack_blocks_move",
+        "test_religious_civilian_does_not_block_primary_move"
+      ]
+    },
+    "corrected360_against70": {
+      "tests": 3,
+      "failures": 1,
+      "errors": 0,
+      "failed_names": [
+        "test_primary_civilian_stack_blocks_move"
+      ],
+      "error_names": []
+    },
+    "rejected359": {
+      "tests": 3,
+      "failures": 1,
+      "errors": 0,
+      "failed_names": [
+        "test_religious_civilian_does_not_block_primary_move"
+      ],
+      "error_names": []
+    },
+    "private_owner_six_before70": {
+      "tests": 6,
+      "failures": 4,
+      "errors": 0,
+      "failed_names": [
+        "test_primary_civilian_stack_blocks_move",
+        "test_new_primary_occupant_after_validation_is_blocked_at_final_write",
+        "test_phased_blocked_step_falls_back_without_submitting_or_requerying_it",
+        "test_blocked_first_step_checks_next_native_hint_before_write"
+      ]
+    },
+    "current_six_targeted": "PASS; finalcuratedfixture, original2controlmethodsASTunchanged,3ownerphase/earlytests.",
+    "first_full": {
+      "tests": 1005,
+      "failures": 3,
+      "seconds": 92.156,
+      "classification": "OwnerearlyfilterbrokeNaturalistdetour;twofixed70versionassertionsstale. Rawlogpreserved."
+    },
+    "owner_correction": "RestrictearlyPathStep collisionprefiltertoBuilder, preserveNaturalistconsumerdetour;updateactual71assemblyexpectations/receiptversionnaming.",
+    "second_full": {
+      "tests": 1005,
+      "failures": 0,
+      "errors": 0,
+      "test_seconds": 119.349,
+      "subprocess_elapsed_seconds": 122.44538729998749
+    },
+    "static_editmaps67_70_unchanged": true,
+    "new_static71_edits_equal70": true,
+    "paired_clock_prefix_unchanged": true,
+    "native71": "NOT_RUN"
+  },
+  "package": {
+    "bytes": 8742958,
+    "sha256": "c03d96364a2aceb010eb7d2685c51f3ff7dcc6c16e61332542d33a6e400d2454"
+  },
+  "installed_files": 87,
+  "all_installed_source_bytes_equal": true,
+  "normal70_backup": {
+    "bytes": 8742694,
+    "sha256": "d4825fc0ac19f194e3493b7c7e4439870855b3537b7c9241366462f28118b5fe"
+  },
+  "prior_game_exit": {
+    "at_utc": "2026-11-04T10:30:25.524680+00:00",
+    "pid": 4368,
+    "normal_exit_action_already_sent_once": true,
+    "visible_windows": [],
+    "windowless_owned_residual_finished": true,
+    "process_gone": true,
+    "steam_untouched": true
+  },
+  "original_preserved_resume_sha256": "e7695bf418e35ebed02d6f7e2550a891b105d8c12c948bf6ef17fb9d076c7421",
+  "cases": [
+    {
+      "sequence": 359,
+      "case_id": "civ6-builder359-primary-civilian-stack",
+      "mode_id": "http-candidate",
+      "shared_commit": "e93c9c74620c797f98d24b757a0788fc04ffc193",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 4400,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T10:09:10.534011+00:00",
+      "attempt_end_utc": "2026-11-04T10:09:35.105144+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 24563.597200030927,
+        "first_nonempty_content_delta_ms": 15271.45770000061,
+        "usage": {
+          "prompt_tokens": 58929,
+          "completion_tokens": 1125,
+          "total_tokens": 60054
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T10:09:10.534011+00:00",
+          "end_utc": "2026-11-04T10:09:35.105144+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 24563.597200030927
+        }
+      ],
+      "adoption": "verified diagnosis direction only;0patch adopted",
+      "review": "Fullsource/mocks supplied. Onefunctionpatch mergedprimary/religious CIVILIANclasses, actualcorrected360crosslayerregressionfails; omitsearlyPathStep/phasedvalidation checks andoverstatesNativecause. Ownerrejectsfullpatch, separatelyimplementsprimarylayerclassification+Builder-onlyearlyfilter.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 360,
+      "case_id": "civ6-builder360-primary-civilian-stack",
+      "mode_id": "http-candidate",
+      "shared_commit": "e93c9c74620c797f98d24b757a0788fc04ffc193",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 3100,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T10:09:10.534081+00:00",
+      "attempt_end_utc": "2026-11-04T10:09:36.758222+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 26224.52869999688,
+        "first_nonempty_content_delta_ms": 13672.915900009684,
+        "usage": {
+          "prompt_tokens": 58894,
+          "completion_tokens": 1524,
+          "total_tokens": 60418
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T10:09:10.534081+00:00",
+          "end_utc": "2026-11-04T10:09:36.758222+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 26224.52869999688
+        }
+      ],
+      "adoption": "two control methods unchanged AST;partial module",
+      "review": "Raw3tests allAttributeError:w/caliases missing despitefrozenactualworld/controllerAPI. Owneraliases/fixturecuration/distinctmocksunitType77vsfullID4194337 andallowonelegitimateBuilderstandby inblockedcase. Baseline70 corrected3tests:1actualfailure; candidate359:crosslayerfailure. Owneradds3early/phase/latewrite tests;6currentgreen. NoNativeexecutedbymodels.",
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 24.571063,
+    "longest_seconds_at_peak": 24.571063,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "cumulative_through360": {
+    "logical_requests": 360,
+    "complete_stop_json": 336,
+    "length_whole_discarded": 21,
+    "final_transport_failed": 3,
+    "http_attempts": 390,
+    "extra_retries": 30,
+    "current_http_inflight": 0,
+    "new_opencode_native_generation": 0
+  },
+  "maintenance": "Same localNov4successfulOpenCode1.19.5cache;canonicalcurrentDIRECTconfig/currentcaller;no nativegeneration.",
+  "owner_notes": [
+    "Raw360APIaliases/incorrectno-standbyassertion aremodel errors; ownerfixturecurationafterreviewispartialmoduleadoption, no false3originalmethodsclaim.",
+    "Ownerinitial71all-PathStep prefilterregressedNaturalistdetour; firstfullFAIL preserved, correctedBuilder-onlyscopepassednewandold6detourchecks thenfull1005. Notmodel359codefailure.",
+    "Two source70assemblyexpectedversionassertions updated71; frozen67—70editmapsandactualclockprefixunchanged, no performanceclaim.",
+    "Nativegetter/typeprobe foundGetLayerID/GetMapLayernil; exploratoryUnitLayerTypes/UnitLayersnamesalsonil. ActualsourceusesMapLayers.RELIGIOUS; no inventedgetter adopted.",
+    "Same70originalreloadlogs repeatlocalrequest0:110:1 acrosscontexts; retainedboundedwait not treatedasreplayloop.",
+    "CurrentSteamreadonlyquery atUTC10:30:28 unavailable; clientnotactivated/moved/screenshotted.71launchrequiresnewactualofflineconfirmation, notinferredfromold4368history."
+  ],
+  "unknown_costs": {
+    "exclusive_owner_phase_seconds": null,
+    "cached_tokens_if_unreported": null,
+    "server_queue_wait": null,
+    "net_savings": null
+  },
+  "limits": [
+    "Sourceandsoftware/installonly;71notyetloadedorNativeeffectvalidated.",
+    "Native70stackisnotuniqueprovenreasonforignoredmove;HOLDstateandnativeflags remainpossiblefactors untilcontrolled71test.",
+    "NofullBR009/013/all40ornewNativeperformancepass."
+  ],
+  "next_real": "FreshcurrentSteamofflineproof -> launchordinary71 -> loadoriginalQueueResume110 -> inspectactualBuilder5832733autonomouschosenpath/progress/otherunitsandjournals, withoutmanualdomestic/armyactionorunknownmove replay.",
+  "raw_fingerprints": {
+    "builder359-initial-readonly.json": {
+      "bytes": 6744,
+      "sha256": "3ace5d355552d96ba972771c73c992d8128ed3c2ac97d7cd7f9db978805dc2da"
+    },
+    "builder359360-candidate-review.json": {
+      "bytes": 1102,
+      "sha256": "128c560284d6d9f9e0c97c8ae61beded34c71364c87587a97102c1ddb3bdeac5"
+    },
+    "builder360-raw-vs-source70.log": {
+      "bytes": 2114,
+      "sha256": "1d072a3f6c28eb49cf46711fa65a44cc0d7608c25194d4f14592e39be5cb0535"
+    },
+    "builder360-corrected-vs-source70.log": {
+      "bytes": 1191,
+      "sha256": "551f7c94db42deee1507d3c266abc3a3e56d9dd077497125649f2c8640962693"
+    },
+    "builder360-corrected-vs-candidate359.log": {
+      "bytes": 1117,
+      "sha256": "6b0eb401976106dabfb0336be86fba8da01b4e12d7c3192b1258a370b56f75b5"
+    },
+    "builder71-private-six-tests-receipt.json": {
+      "bytes": 594,
+      "sha256": "372b7238496f2c00902715e2dbff6c556721566eadfba3c7dce53eb2dbcdb4ab"
+    },
+    "builder71-full-software.log": {
+      "bytes": 83693,
+      "sha256": "1200520cd7fb6755e26e40236e1946e6cf4b8ae7e61fb149992caf555031186c"
+    },
+    "builder71-full-software-receipt.json": {
+      "bytes": 1118,
+      "sha256": "e6871068a3cef6dc624ab4269c18395d045a1c710179c349fc5b4efd364a5c7f"
+    },
+    "builder71-full2-software.log": {
+      "bytes": 81391,
+      "sha256": "245664fc403a3b041f25b33a8190de632d80c489f1b69a480d0d1a62bd26bed8"
+    },
+    "builder71-full2-software-receipt.json": {
+      "bytes": 1236,
+      "sha256": "037eaa5b75cc0e3dfdb1b39c025c287f507bcf6b2d3652ef6cd2cac9d2b9c169"
+    },
+    "builder71-source-adoption-receipt.json": {
+      "bytes": 20094,
+      "sha256": "5796524ab16faef17a4f679bf60d28051815897835a3ebc99c8e3e4c62cfebed"
+    },
+    "source71-normal-install-receipt.json": {
+      "bytes": 10120,
+      "sha256": "578ff2b4a7f31e5c8e5a5daa59edf1d2cea8b1deb88d9f17ce699b281e97aa27"
+    },
+    "source71-exit-owned70-attempt.json": {
+      "bytes": 511,
+      "sha256": "7436ccb0f0c6785cbb32b4d48f68f0d228b5d1d3e6f224d8b1d847a805faab51"
+    },
+    "source71-prior70-exit-receipt.json": {
+      "bytes": 236,
+      "sha256": "9fc34738155db897ff986ff9206becd108066bcea17173929cb7df666f2efe2c"
+    }
+  }
+}

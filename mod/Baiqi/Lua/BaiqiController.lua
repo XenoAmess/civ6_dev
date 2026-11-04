@@ -90,7 +90,7 @@ local function GetVisibleUnits(plot)
   local result={}
   for _,unit in pairs(primary) do result[#result+1]=unit end
   for _,unit in pairs(religious) do result[#result+1]=unit end
-  return result
+  return result,primary,religious
 end
 
 local function EmptyVisiblePlot(plot)
@@ -293,9 +293,21 @@ local function CivilianMoveTarget(here, plot, unit, playerID)
   if Map.GetPlotDistance(here:GetX(), here:GetY(), plot:GetX(), plot:GetY()) ~= 1 then return false, "not_adjacent" end
   if plot:GetOwner() ~= -1 and plot:GetOwner() ~= playerID then return false, "foreign_border" end
   if visibility:IsVisible(plot:GetX(),plot:GetY()) then
-    local units = GetVisibleUnits(plot)
+    local units,primary = GetVisibleUnits(plot)
     if units == nil then return false, "unit_query_unavailable" end
     local mover=GameInfo.Units[unit:GetUnitType()]
+    -- A one-step primary civilian order must end on an available stack slot.
+    -- Religious units live on a different map layer despite their formation
+    -- metadata. Preserve the existing conservative naturalist checks below.
+    if mover and mover.UnitType~="UNIT_MISSIONARY" and BaiqiPolicy.CivilianType(mover.UnitType) then
+      for _,other in pairs(primary) do
+        local row=GameInfo.Units[other:GetUnitType()]
+        if other:GetOwner()==playerID and other:GetID()~=unit:GetID() and row
+          and row.FormationClass=="FORMATION_CLASS_CIVILIAN" then
+          return false,"civilian_target_occupied"
+        end
+      end
+    end
     for _,other in ipairs(units) do
       local row=GameInfo.Units[other:GetUnitType()]
       if other:GetOwner()==playerID and other:GetID()~=unit:GetID()
@@ -436,7 +448,12 @@ local function PathStep(unit, target, player, state)
     if p == nil or not Revealed(p) or not Safe(p, player, cache)
       or (p:GetOwner() ~= -1 and p:GetOwner() ~= contextID) then return nil end
   end
-  return Map.GetPlotByIndex(path.plots[2])
+  local step=Map.GetPlotByIndex(path.plots[2])
+  local here=UnitPlot(unit)
+  if not step or not here then return nil end
+  local row=GameInfo.Units[unit:GetUnitType()]
+  if row and row.UnitType=="UNIT_BUILDER" and not CivilianMoveTarget(here,step,unit,contextID) then return nil end
+  return step
 end
 
 -- A newly recruited civilian can share its spawn tile with an idle civilian,
@@ -1931,6 +1948,8 @@ local function ValidateBuilderPathPacket(ctx, player, state, unit, packet)
   if UnitKey(unit)~=packet.key or UnitKey(freshUnit)~=packet.key
     or pendingUnits[unitID] or Game.GetCurrentGameTurn()~=packet.turn
     or turn~=packet.turn or not CoreIdle() then return nil end
+  local here=UnitPlot(freshUnit)
+  if not here or not CivilianMoveTarget(here,nextPlot,freshUnit,ctx.player) then return nil end
   return nextPlot
 end
 
