@@ -1,13 +1,13 @@
 {
   "schema": "civ6.workshop-publication-status/v1",
-  "recorded_at_utc": "2026-11-04T21:59:48.278312+00:00",
+  "recorded_at_utc": "2026-11-04T22:10:59.419400+00:00",
   "date_local": "2026-11-05",
   "machine": "BF-202609141645",
   "release": "v0.1.0-alpha.1",
   "steam_workshop_published": true,
   "published_file_id": 3833805495,
   "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495",
-  "status": "PAGE_REVISION2_PUBLIC_VERIFIED_OFFLINE_RESTORE_PENDING",
+  "status": "PAGE_REVISION2_PUBLIC_VERIFIED_OFFLINE_RESTORED",
   "constraint": "User2026-11-05 requires checking other-device game activity before Steam upload; never kick another session.",
   "checks": [
     {
@@ -38,14 +38,22 @@
     "steam_api_used": "Official SDK managed API, creator404350; verification download in consumer289070 context",
     "sdk_installed": true,
     "upload_creates": 1,
-    "upload_submits": 2,
     "other_games_closed": 0,
     "steam_force_killed": false,
     "normal_steam_restart": 1,
-    "own_test_game_exit": "Official WM_CLOSE+confirmation, then exact owned9348 windowless residue finished. Preexisting BugReporter6948 left untouched."
+    "own_test_game_exit": "Official WM_CLOSE+confirmation, then exact owned9348 windowless residue finished. Preexisting BugReporter6948 left untouched.",
+    "upload_submits_initial_alpha": 2,
+    "page_revision2": {
+      "successful_preview_appends": 5,
+      "failed_preview_submits": 3,
+      "successful_body_updates": 1,
+      "new_create_item_calls": 0,
+      "game_content_uploads": 0,
+      "forced_login_or_account_config_edit": false
+    }
   },
-  "current_offline_claim": "First-cycle offline proof21:22:47 is historical after second online period; final state not inferred from prior proof or ACK.",
-  "next": "Commit/push page2 materials, restore offline through formal UI and continue game acceptance only after new current-instance proof.",
+  "current_offline_claim": "Confirmed offline at2026-11-04T22:08:41.706782+00:00",
+  "next": "Continue game acceptance in offline mode; obtain another fresh current-instance proof immediately before next game launch.",
   "privacy": "No account identity, cookies, private UI labels or raw machine logs included.",
   "publication": {
     "created_private": true,
@@ -74,16 +82,16 @@
     "page_revision2_change_note_visible": false
   },
   "steam_restoration": {
-    "mode": "restore_pending_after_page_revision2",
+    "mode": "offline",
     "last_fresh_mode_item": "进入离线模式...",
     "current_steam_pid": 19252,
     "current_steam_birth": 1793825984.0549335,
     "normal_client_exit_and_restart": 1,
     "forced_steam_termination": 0,
-    "reason": "User-requested page revision required another temporary online period; final independent offline confirmation must follow.",
+    "reason": "Final current-instance background point query confirms Go Online; input ACKs and historical first-cycle proof were not used instead.",
     "navigation_screenshots": "Private mode-switch navigation only; never used as mode or occupancy proof.",
-    "fresh_confirmation_utc": "2026-11-04T21:22:47.367892+00:00",
-    "source": "CurrentSteam19252 exact visible official Go Online MenuItem, independent background read-only UIA",
+    "fresh_confirmation_utc": "2026-11-04T22:08:41.706782+00:00",
+    "source": "Live UIA.from_point exact visible official Go Online MenuItem; current client process/birth and point-owner process bound",
     "input_sent_by_confirmation": false,
     "focus_change_by_confirmation": false,
     "screenshot_used_by_confirmation": false,
