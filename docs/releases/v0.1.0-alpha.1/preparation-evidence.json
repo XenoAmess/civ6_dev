@@ -1,0 +1,103 @@
+{
+  "schema": "civ6.alpha74-publication-preparation/v1",
+  "date_local": "2026-11-05",
+  "at_utc": "2026-11-04T18:41:51.215004+00:00",
+  "machine": "BF-202609141645",
+  "release": "v0.1.0-alpha.1",
+  "internal_build": 74,
+  "product_source_base": "4b54af35daf48cbee1575d45b6ed2253e66e0b94",
+  "game_code_changes_for_release": 0,
+  "screenshots": [
+    {
+      "path": "screenshots/overview.png",
+      "utc": "2026-11-04T18:38:30.341335+00:00",
+      "version": 74,
+      "turn": 114,
+      "pixels_modified": false,
+      "raw_sha256": "ad9502ef38b81a81cd9cff2a56e5a062558f77ab0e48a0b491adb8717d5e212d",
+      "bytes": 1156573,
+      "dimensions": [
+        1008,
+        689
+      ],
+      "scope": "Actual game client pixels; no desktop, Steam or taskbar. Existing development save includes historical QA, not pure natural acquisition proof."
+    },
+    {
+      "path": "screenshots/city-readonly.png",
+      "utc": "2026-11-04T18:39:09.689940+00:00",
+      "version": 74,
+      "turn": 114,
+      "pixels_modified": false,
+      "raw_sha256": "ad0cd4bded3bff331737ebac70bc05478494f7a08f41accb9c0d1c97a46b533b",
+      "bytes": 1145606,
+      "dimensions": [
+        1008,
+        689
+      ],
+      "scope": "Actual game client pixels; no desktop, Steam or taskbar. Existing development save includes historical QA, not pure natural acquisition proof."
+    }
+  ],
+  "model_cases": [
+    {
+      "sequence": 394,
+      "case_id": "civ6-release394-alpha-next-acceptance",
+      "mode_id": "http-candidate",
+      "post_begin": "2026-11-04T18:37:47.368795+00:00",
+      "attempt_end": "2026-11-04T18:38:09.118651+00:00",
+      "max_tokens": 2800,
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 21743.386299989652,
+        "first_nonempty_content_delta_ms": 8821.372499980498,
+        "usage": {
+          "prompt_tokens": 45451,
+          "completion_tokens": 1597,
+          "total_tokens": 47048
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "Partial outline only; owner rewrote all public prose.",
+      "review": "Reject invented manual escape entry, stale71/72 open-bug claims, mixed developer commands and unmeasured claims. Owner release docs explicitly say no takeover and distinguish versioned history/QA.",
+      "owner_cost_seconds": null,
+      "net_savings": null
+    },
+    {
+      "sequence": 395,
+      "case_id": "civ6-capture395-alpha-next-acceptance",
+      "mode_id": "http-candidate",
+      "post_begin": "2026-11-04T18:37:47.368404+00:00",
+      "attempt_end": "2026-11-04T18:38:10.858306+00:00",
+      "max_tokens": 3200,
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 23485.59400002705,
+        "first_nonempty_content_delta_ms": 3518.2029000134207,
+        "usage": {
+          "prompt_tokens": 15661,
+          "completion_tokens": 1793,
+          "total_tokens": 17454
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "adoption": "0 code; third-party ownership test direction only.",
+      "review": "Reject double-charge claim: CHARGING is persisted before debit and excluded from recovery. Reject unit invalidation leaves no debit: unit validation follows charge in supplied Settle. Third-party freeze is intended unknown handling, not itself a defect. Helper declarations Policy/Planner/Config omitted from owner prefix; all rejected order claims directly contradicted supplied Capture source.",
+      "owner_cost_seconds": null,
+      "net_savings": null
+    }
+  ],
+  "maintenance": "Same-machine same-user Nov5 1.19.5 successful cache reused. No OpenCode native generation.",
+  "cumulative_through395": {
+    "logical_requests": 395,
+    "complete_stop_json": 368,
+    "length_discarded": 24,
+    "final_transport_failed": 3,
+    "http_attempts": 425,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "publication_status": "Prepared; not yet a published Release. Artifact/software verification and release receipt follow separately."
+}
