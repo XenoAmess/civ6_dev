@@ -1,0 +1,102 @@
+{
+  "schema": "civ6.p6-backlog321/v1",
+  "date_local": "2026-11-04",
+  "recorded_at_utc": "2026-11-04T00:17:17.637068+00:00",
+  "machine_id": "BF-202609141645",
+  "baseline_commit": "2ba8a2c55cff0a21edd8944c1f9b251f164be541",
+  "cases": [
+    {
+      "sequence": 321,
+      "case_id": "civ6-backlog321",
+      "mode_id": "http-candidate",
+      "shared_commit": "73b2c9af18c8ab0520abdec81b20cf02bf3edb78",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 1100,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T00:04:38.414611+00:00",
+      "attempt_end_utc": "2026-11-04T00:04:53.095277+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 14680.659800011199,
+        "first_nonempty_content_delta_ms": 6859.17910002172,
+        "usage": {
+          "prompt_tokens": 53728,
+          "completion_tokens": 1061,
+          "total_tokens": 54789
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T00:04:38.414611+00:00",
+          "end_utc": "2026-11-04T00:04:53.095277+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 14680.659800011199
+        }
+      ],
+      "adoption": "PARTIAL_ANALYSIS_ONLY_OWNER_CORRECTED",
+      "review": {
+        "retained": "Partial analysis only: TC-031 unmeasured city-state/asset checks and TC-029 third-party causality remain real gaps; military/escort unknown branches are narrower follow-ups.",
+        "corrections": [
+          "Original capital already has a Native sample. Do not label all capital capture untested or add an unsupported-city ban to conceal a failure. Freeze actual eligibility/config before each case.",
+          "TC-025/027/030/032/033 have limited samples, not entire-case acceptance. Known save/load stages do not cover every interrupted settlement window.",
+          "Three religious-combat classes already have v46 physical movement, battle/healing samples; military navy/support/air/corps/army samples also exist. Limit new work to uncovered branches.",
+          "Actual final city ownership alone cannot establish causal reconciliation. A third-party capture must never be credited to the original Baiqi request; unprovable causality remains frozen.",
+          "Owner prioritizes the explicit normal archaeologist 200-production completion gap and remaining read-only UI inputs before broad matrices. No normal training result is claimed from gold purchase or Debug units."
+        ],
+        "code_adopted": 0,
+        "game_actions_from_candidate": 0,
+        "new_native_result": false
+      },
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 1,
+    "seconds_at_peak": 14.680666,
+    "longest_seconds_at_peak": 14.680666,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "current_inflight_after_task": 0,
+  "target_http_inflight": 60,
+  "target_reached": false,
+  "cumulative_through321": {
+    "logical": 321,
+    "complete": 300,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 351,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "plan_sha256": "1caa0639844a3dd581c61a3c9d5feec060bb23db7269932c0ce2e2d89b258d63",
+  "validation": "Documentation only; UTF-8/LF, local-link/requirements traceability checks recorded by owner separately. No new Native functional result.",
+  "maintenance": "Same-client same-user local 2026-11-04 successful OpenCode1.19.5 cache reused; not an OpenCode-native generation case.",
+  "unknown_costs": {
+    "exclusive_owner_seconds": null,
+    "cache_hit_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null
+  }
+}
