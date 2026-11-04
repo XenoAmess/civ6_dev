@@ -1,0 +1,274 @@
+{
+  "schema": "civ6.p6-inputs329331/v1",
+  "date_local": "2026-11-04",
+  "at_utc": "2026-11-04T04:19:14.759812+00:00",
+  "machine_id": "BF-202609141645",
+  "product_version": 67,
+  "product_source_commit": "411dba7f068dffba372a03646fa7e17e23b0ab21",
+  "cases": [
+    {
+      "sequence": 329,
+      "case_id": "civ6-queue329",
+      "mode_id": "http-candidate",
+      "shared_commit": "4894955381df47175f03703b6e0b9b94bef6dcfd",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T04:10:30.121893+00:00",
+      "attempt_end_utc": "2026-11-04T04:10:44.528870+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 14406.99930000119,
+        "first_nonempty_content_delta_ms": 9007.98210001085,
+        "usage": {
+          "prompt_tokens": 49068,
+          "completion_tokens": 635,
+          "total_tokens": 49703
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T04:10:30.121893+00:00",
+          "end_utc": "2026-11-04T04:10:44.528870+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 14406.99930000119
+        }
+      ],
+      "adoption": "PARTIAL_SOURCE_ANALYSIS_CODE_REJECTED",
+      "review": {
+        "adopted": "Partial route facts only; full exact source independently checked.",
+        "rejected": "Requested executable install/restore chunks replaced by prose instructions, references out-of-scope origReq, missing exception containment/owned state/guards. No model code adopted.",
+        "owner": "Full replacement diagnostic, software verified, not yet Native consumed."
+      },
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    },
+    {
+      "sequence": 330,
+      "case_id": "civ6-citizen330",
+      "mode_id": "http-candidate",
+      "shared_commit": "4894955381df47175f03703b6e0b9b94bef6dcfd",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "max_tokens": 2600,
+      "roles": [
+        "system",
+        "user",
+        "user"
+      ],
+      "model_alias": "qwen38-coder",
+      "post_begin_utc": "2026-11-04T04:10:30.120837+00:00",
+      "attempt_end_utc": "2026-11-04T04:10:45.115549+00:00",
+      "result": {
+        "http_status": 200,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "total_ms": 14994.391299958806,
+        "first_nonempty_content_delta_ms": 3280.9763999539427,
+        "usage": {
+          "prompt_tokens": 13749,
+          "completion_tokens": 737,
+          "total_tokens": 14486
+        },
+        "cached_prompt_tokens_if_reported": null
+      },
+      "success": true,
+      "attempt_count": 1,
+      "retry_count": 0,
+      "attempt_windows": [
+        {
+          "attempt": 1,
+          "begin_utc": "2026-11-04T04:10:30.120837+00:00",
+          "end_utc": "2026-11-04T04:10:45.115549+00:00",
+          "failure": null,
+          "finish_reason": "stop",
+          "sse_done": true,
+          "http_status": 200,
+          "total_ms": 14994.391299958806
+        }
+      ],
+      "adoption": "PARTIAL_SOURCE_ANALYSIS_CODE_REJECTED",
+      "review": {
+        "adopted": "Partial source route facts only; OnClickCitizen -> CityManager.MANAGE and CitizenButton registration independently checked.",
+        "rejected": "Install-local original unavailable in separately executed restore; actual raw restore nils function. Sensor error stops original, no pcall despite contrary written claim, foreign binding overwritten, no useful control names. Model code0.",
+        "owner": "Full replacement diagnostic, software verified, Native consumption pending."
+      },
+      "owner_cost_seconds": {
+        "preparation": null,
+        "review": null,
+        "correction": null,
+        "validation": null,
+        "publication": null
+      }
+    }
+  ],
+  "actual_client_inflight": {
+    "actual_peak": 2,
+    "seconds_at_peak": 14.406977,
+    "longest_seconds_at_peak": 14.406977,
+    "scope": "Client POST_BEGIN to ATTEMPT_END only, retries separate, backoff excluded; no server running/waiting inference."
+  },
+  "current_model_inflight": 0,
+  "shared_target_model_inflight": 60,
+  "target_reached": false,
+  "cumulative_through330": {
+    "logical": 330,
+    "complete": 309,
+    "length": 18,
+    "final_transport_failed": 3,
+    "http_attempts": 360,
+    "additional_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software": {
+    "raw_reproduced": [
+      "329 install/restore are prose placement instructions, not requested executable chunks; code adoption0.",
+      "330 separate restore cannot access install-local originalRequestCommand, sets binding nil.",
+      "330 sensor exception prevents original request forwarding, contradicting claimed pcall protection."
+    ],
+    "model_code_adopted": 0,
+    "analysis_adoption": "partial source route facts only, owner independently checks original source",
+    "owner_code": "Full replacement diagnostic chunks, no product code or generated Game requests",
+    "passed": 8,
+    "checks": [
+      "queue329: exact once original/all return values; normal restore clears namespace",
+      "queue329: own sensor error still forwards original once",
+      "queue329: original exception propagates",
+      "queue329: foreign replacement preserved; ownership failure remains explicit",
+      "citizen330: exact once original/all return values; normal restore clears namespace",
+      "citizen330: own sensor error still forwards original once",
+      "citizen330: original exception propagates",
+      "citizen330: foreign replacement preserved; ownership failure remains explicit"
+    ],
+    "scope": "Actual Lua5.3 synthetic fixtures only; not Native typing/callback reachability or game acceptance"
+  },
+  "gorgo_fixture": {
+    "name": "Baiqi_P6_20261102_V46_StaticDiplomacy1.Civ6Save",
+    "bytes": 623967,
+    "sha256": "0271425b3720a502e3fe15c4311ec38850060927df5c90ddc15e0764e16ffce2"
+  },
+  "preserved_live110": {
+    "name": "Baiqi_P6_20261104_V67_InputResume110.Civ6Save",
+    "bytes": 551269,
+    "sha256": "6a4457693848b1e330644ace54df328cb92421b5e2c7c060393d484c7a83e18b"
+  },
+  "gorgo_native": {
+    "same_owned_pid": 18116,
+    "cold_process_launch": false,
+    "leader": "LEADER_GORGO",
+    "local_player": 0,
+    "turn": 1,
+    "guard_player_id": null,
+    "unit": {
+      "id": 196610,
+      "type_index": 8,
+      "type": "UNIT_ARCHAEOLOGIST",
+      "setup": "Explicit one-unit QA_DEBUG creation, not normal production/cost/automation/artifact evidence. No tech/gold/city grants or Endturn.",
+      "before": {
+        "xy": [
+          3,
+          16
+        ],
+        "moves": 4
+      },
+      "after_ui_and_core": {
+        "xy": [
+          2,
+          15
+        ],
+        "moves": 2
+      }
+    },
+    "target": {
+      "plot_index": 662,
+      "xy": [
+        2,
+        15
+      ],
+      "visible": true,
+      "own": true,
+      "empty_before": true,
+      "land": true,
+      "city": false
+    },
+    "input": {
+      "actor": "TEST_PLAYER",
+      "physical_M": 1,
+      "physical_left_down": 1,
+      "physical_left_up": 1,
+      "SDK_set_MOVE_TO": false,
+      "actual_MOVE_TO_callback": 1,
+      "guarded_move_entry": 1,
+      "context_RequestOperation": 1,
+      "context_RequestCommand": 0,
+      "mode_before": -1615000917,
+      "mode_after_M": -1008159109,
+      "mode_after_move": -1615000917
+    },
+    "cleanup": {
+      "four_readable_bindings_restored": true,
+      "active_and_last_states_nil": true,
+      "input_slot_pointer": "UNOBSERVABLE_NO_NATIVE_GETTER; restored controlled source-known original"
+    },
+    "scope": "Ordinary-leader same-type civilian physical M+left positive, compared with protected Baiqi ARC and player-army samples. Not full TC004/035 or all40; different moves/terrain, no exact movement-cost comparison."
+  },
+  "steam": {
+    "new_offline_confirmation": "UNAVAILABLE",
+    "readonly_query_utc": "2026-11-04T04:11:50.797275+00:00",
+    "reason": "No visible official Steam header/menu in background UIA; no modes inferred from config/presence.",
+    "same_game_process_continued": true,
+    "online_switches_by_owner": 0,
+    "last_launch_proof": "Historical fresh offline proof00:43:05UTC before same18116 process; not relabeled current fresh confirmation."
+  },
+  "owner_notes": [
+    "One Esc was mistakenly sent while load screen still showed loading, before Continue was visible; no claim this was successful Continue. Separate later visible Continue + unique physicalEsc opened game; no LoadGame/Endturn/move replay.",
+    "Readonly Tuner LSQ timed out during loading; one subsequent read had an owner missing UIGuard-nil check in unguarded Executor, corrected read only. Neither is model HTTP failure or product failure.",
+    "REVIEW_BEGIN events were logged after initial raw candidate read; incomplete stage timing, exclusive owner costs remain unknown.",
+    "Mechanical reuse of mature move observer adds0model requests/generation credit. Raw Native/SDK/screens/save and OS messages private, public structured facts+hashes only."
+  ],
+  "private_receipt_sha256": {
+    "gorgo331-preserve-live-save-receipt.json": "afa35f1705a395ccdcb2a8bd1c73715bc203d86da747db5a79049150089f7484",
+    "gorgo331-load-once-attempt.json": "11bcb455d5502915f41d47299afbbd7916b71a7cf25a41bb9636ed64e634bae1",
+    "gorgo331-debug-arc-create-attempt.json": "a25e589336d88bed6a067509fc8f2dc6b4f3fb70439ec93dbd390b5d61d4749c",
+    "gorgo331-debug-arc-create-receipt.json": "b071be5116e58b4f35dc1df56411d8f6c33ef5cb08e7383d1bd9769b77d5a8c2",
+    "gorgo331-select-and-move-observer-receipt.json": "d10bc274267b0ad6a5051144b88a9533db0977216f5d4ee37229b4e037f08aca",
+    "gorgo331-M-physical-attempt.json": "e114e35f8faeff6be9dc33cae6f7a19c8068cf0488b46705c4cb877f6e68a0a5",
+    "gorgo331-leftmove-physical-attempt.json": "f3cad7dcf76ff278ab2d7099fbc6d0a0c037ec1c696249cdb1cf8340fc41a9b4",
+    "gorgo331-move-finished-receipt.json": "b8be8e8651c8b5bddb801e5a40e6a49bc9cb146516dc734a25259d896ddd3fe5",
+    "inputs329330-software-review.json": "1c013d8135396e63394037a4122889652808df1d179c3d13da7f55ba73e74335"
+  },
+  "owner_diagnostic_sha256": {
+    "queue329-install-owner.lua": "60b3a078f210d1f99b7e265470d814aa4531a534a6b32e82bfc4c88e0a411ed0",
+    "queue329-restore-owner.lua": "c55a23fd33bbf204040de3aa1386e580ff7cb88a6384c7a3ff50d85a69f3168c",
+    "citizen330-install-owner.lua": "11c4fb2ba0ef090b774261795a2c90fcc474731fab6ec6a8aa5dfa948c62bf9a",
+    "citizen330-restore-owner.lua": "86639e626f1377062730d9219ee65bef70614af036b3fea4e8fef5dceb9e1cce"
+  },
+  "unknown_costs": {
+    "exclusive_owner_seconds": null,
+    "cache_tokens": null,
+    "server_queue": null,
+    "net_owner_savings": null
+  },
+  "next": "City cancellation/reordering and PlotInfo citizen physical tests; owner diagnostics software-only until actual consumption."
+}
