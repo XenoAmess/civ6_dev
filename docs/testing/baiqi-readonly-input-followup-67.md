@@ -25,3 +25,11 @@
 110回合勇士131073，15,14／行动2。原版与受保护WorldInput移动资格都true；真实M进入MOVE_TO（没有SDK设置模式），再物理左键一次，实际MOVE_TO回调1／MoveUnitToPlot1／单位操作1，UI和独立Core均读到15,13／行动0。目标为可见、自有、空的相邻陆地，没有战斗、宣战、费用或结束回合。临时绑定和诊断状态均恢复，输入处理器getter缺失的限制保持。
 
 这证明此玩家军队的M及模式完成路径可用，与326文职零请求相对照；单位／地形不同，不比较固定移动成本。军队坐标变化明确来自TEST_PLAYER，不算后台越权；原正常训练存档保持，考古文物serial1／作品15也未变。普通领袖对照及受保护文职的物理M仍待补，不授全TC004／035。[实际原值及清理](../research/baiqi-p6-native67-military-leftmove-positive-evidence-2026-11-04.json)。
+
+## 托管文职物理M：327新增观察与正确资格读取
+
+在上述样本之后，实际对考古学家6422556按M一次：WorldInput原始按下／释放各1，Native键13等于Keys.M；UnitPanel的InputActionTriggered动作35一次，选中身份保持，模式仍为SELECTION，观察器自身错误0。NativeKeys不是Windows键码：VK_M不存在，77过滤计数0不能解释成M没有到达。
+
+原版UnitPanel精确调用为`UnitManager.CanStartOperation(u, UnitOperationTypes.MOVE_TO, nil, false, false)`。后续只读对照在行动力0时，原版对考古学家和勇士都返回true，受保护UnitPanel对考古学家false／勇士true。先前三参数探测对两类单位都报“Instance does not exist”，属于负责人错误签名，不能认作单位消失，更不能倒推它导致更早的M行为。
+
+327原稿传感器异常吞转发及静态Remove签名错误经有限Lua复现、负责人纠正和8项软件检查后才绑定Native；两个上下文已恢复并清空自有状态。输入槽getter仍不存在，恢复已知源码baseline不等于独立读取槽指针。本节补充文职物理M和资格样本，普通领袖及其余输入矩阵仍未完，不授全TC-004／035或全40项通过。[逐案审阅、实际观察和清理](../research/baiqi-p6-mkey327-handoff328-evidence-2026-11-04.json)；接手顺序见[本轮交接](../handoff/2026-11-04.md)。
