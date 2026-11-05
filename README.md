@@ -98,3 +98,5 @@ python tools\build_mod.py --install
 - [77新兵实际完成、玩家指挥与军费对账](docs/testing/baiqi-military-born-control-77.md)：炮兵146、步兵147出生，玩家移动炮兵实效与148正式读档通过；解释征兵政策淘汰带来的全军费用变化，新增3张内嵌实机图。低财政／缺资源分支继续。
 
 - [77低金币独立实机分支](docs/testing/baiqi-military-low-reserve-77.md)：69.754低于100储备、有缺兵且炮兵原生合法时，后台0单位请求、两座城继续合法建筑；受控夹具和主148恢复明确记录，资源不足分支继续。
+
+- [77资源短缺独立实机分支](docs/testing/baiqi-military-resource-shortage-77.md)：硝石9不足步兵费用10时改排胸甲骑兵；142自然恢复12后保留原队列51/165。3张实机图、派发前库存和主148恢复证据齐全，完整验收仍部分。
