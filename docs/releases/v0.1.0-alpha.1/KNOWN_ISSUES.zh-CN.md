@@ -1,5 +1,7 @@
 # Alpha 1 已知限制与未验收风险
 
+新增风险：[76正常新移民遇首路文职占格，有安全替代仍可能待命](../../testing/baiqi-settler-occupied-route-77.md)。77源码修复／1064软件通过，实机复测未闭；本轮76正式退出也有自有进程残留，原因未知。工坊Alpha74未更新，不追认其已修。
+
 76开发版补验[新移民正常训练／人口成本](../../testing/baiqi-natural-settler-training-76.md)：后台自产新移民，实读人口先扣1再增长1。仅此子项通过，新演员建城／消耗／重载继续；工坊Alpha74仍未更新。
 
 76开发版补验[城旗冻结提示／同回合恢复／未知档再加载](../../testing/baiqi-flag-unknown-recovery-76.md)，仅健康骑手FINISHING样本通过；Alpha74未更新，其他异常组合与完整内政链仍未闭。

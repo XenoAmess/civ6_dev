@@ -1,0 +1,299 @@
+{
+  "schema": "civ6.settler436437-occupied-first-route-source77/v1",
+  "utc": "2026-11-05T19:30:41.680204+00:00",
+  "date_local": "2026-11-06",
+  "machine_id": "BF-202609141645",
+  "failure_source_install_runtime": 76,
+  "failure_product_pin": "96b1797682141d01e8e2916a5386b873c8ec5e0b",
+  "source_now": 77,
+  "installed_at_cutoff": 76,
+  "native77_status": "PENDING_COLD_INSTALL_RETEST",
+  "owned76_pid": 22124,
+  "birth": 1793894919.90116,
+  "native_failure": {
+    "turn": 127,
+    "cities": 12,
+    "normal_produced_actor": [
+      0,
+      7274546,
+      13,
+      16,
+      2,
+      1
+    ],
+    "current_plot": [
+      717,
+      0,
+      true
+    ],
+    "readiness_moves_select": [
+      false,
+      false
+    ],
+    "queued": null,
+    "scope": "Normally produced125settler; no manual civilian/blocker/army operation or synthetic property patch in this failure.",
+    "recommendation_rows_observed": 7,
+    "top_hint862": "feature3filtered by current settlement rules",
+    "first_eligible": {
+      "target": [
+        776,
+        28,
+        17
+      ],
+      "unowned_bare_land_revealed_visible": true,
+      "minimum_known_city_distance": 4,
+      "path_length": 18,
+      "all_path_visibility_owner_endpoints_and_visible_threat_checks": true,
+      "next": [
+        718,
+        14,
+        16
+      ],
+      "next_units": [
+        [
+          0,
+          1114120,
+          "UNIT_SCOUT",
+          "FORMATION_CLASS_LAND_COMBAT"
+        ],
+        [
+          0,
+          6291501,
+          "UNIT_BUILDER",
+          "FORMATION_CLASS_CIVILIAN"
+        ]
+      ],
+      "civilian_slot_blocked": true,
+      "native_can_move_query": true
+    },
+    "independent_alternative": {
+      "target": [
+        846,
+        10,
+        19
+      ],
+      "unowned_bare_land_revealed_visible": true,
+      "minimum_known_city_distance": 4,
+      "path_length": 5,
+      "all_path_visibility_owner_endpoints_and_visible_threat_checks": true,
+      "next": [
+        760,
+        12,
+        17
+      ],
+      "civilian_slot_blocked": false,
+      "native_can_move_query": true
+    },
+    "safety_reader_errors": 0,
+    "reader_scope": "Invocation-only diagnostic cache, actual primary/religious visible unit layers; no fog unit reads or gameplay dispatch authority. NativeCanStart does not override civilian slot gate.",
+    "actual_requests": "126oneMOVE to717thenSKIP;127onlySKIP,0FOUND. Route observer started after125initial movement, no retrocount.",
+    "actual_failure": "Occupied first path fails at dispatch, scheduler waits rather than trying independent safe alternative.",
+    "saved": {
+      "utc": "2026-11-05T19:14:29.036790+00:00",
+      "name": "Baiqi_P6_20261106_V76_NaturalSettlerBlocked127.Civ6Save",
+      "bytes": 582016,
+      "sha256": "7203bd55dbe94437691d405791887203bf27c309415e69550a12826b2e2bf6d2",
+      "stable_repeated_read": true
+    }
+  },
+  "root_cause": "PathStep applied CivilianMoveTarget only to builders. Settler passed occupied next tile; RequestCivilian correctly rejected after ProcessSettler cleared its search, bypassing nil-step/more continuation.",
+  "reviewed_fix": {
+    "path": "mod/Baiqi/Lua/BaiqiController.lua",
+    "behavior": "Apply existing first-step slot gate to builder and settler; existing excluded-target/more continuation tries other sites. Fresh boundary safety and occupancy remain.",
+    "new_switch_or_manual_control": false,
+    "manual_blocker_or_army_move": false,
+    "no_native_safety_or_feature_distance_relaxation": true,
+    "new_tests": 6,
+    "old76_failures": 2,
+    "targeted_after_fix": [
+      6,
+      0,
+      0.081
+    ],
+    "existing_path_safety": [
+      10,
+      0,
+      0.119
+    ],
+    "full_suite": {
+      "started_utc": "2026-11-05T19:22:06.822235+00:00",
+      "ended_utc": "2026-11-05T19:24:34.327182+00:00",
+      "exit_code": 0,
+      "seconds": 147.492060700024,
+      "log_sha256": "ed91ec0aa18779bc69a5afe4e4778371f009d96fc74db2644f48b32f33c6da41",
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1064 tests in 141.997s",
+        "",
+        "OK"
+      ],
+      "product_version": 77
+    },
+    "test_runner_reported_seconds": 141.997,
+    "owner_process_wall_seconds": 147.492060700024,
+    "product_sha256": {
+      "mod/Baiqi/Baiqi.modinfo": "b705dc392579d8b671235a87e76394e8b3958203ab4baef421b09ddaeed648fb",
+      "mod/Baiqi/Lua/BaiqiController.lua": "c3d4d38522c4ba45fc98b6261793512214a2874c65486a10898737e5bf970203",
+      "tools/static_control_source.py": "ca68276fc39f7f66ce018a45f6d74371fb9cccaebc903bc8e3e7a198476acf95",
+      "tools/build_static_control.py": "aee5b1e152e1781b59261f5680a76301b44f3635e841eb5ed4628a9836d54c49",
+      "tests/test_paired_build.py": "444fb3119f4b552eedf59e4d632e6c33746480b5689ab6eb99b8113290789c0e",
+      "tests/test_static_control_ui.py": "43f6afcebfa3e9b6211a54bd7e9dc7a2ce3ca9caf6ac1d208a96c150994fe872",
+      "tests/test_baiqi_settler_occupied_route.py": "767afd406fc1c763da757f06b489aad44ed892919d2bdbf433a6a9f80ccf99e3"
+    }
+  },
+  "native77_not_granted": [
+    "Installation/runtime77",
+    "Same saved actor actually selects alternative",
+    "New city/actorconsumption/save-reload",
+    "WholeTC015orall40matrix"
+  ],
+  "formal76_exit": {
+    "called_once": true,
+    "ack_received": true,
+    "four_save_hashes_verified": true,
+    "observers_cleared_before_exit": true,
+    "read_only_state": {
+      "utc": "2026-11-05T19:25:09.876624+00:00",
+      "owner": {
+        "pid": 22124,
+        "created_at": 1793894919.90116,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "seconds_after_formal_exit": 252.348669,
+      "process_termination_calls": 0,
+      "game_or_steam_writes": 0,
+      "state": "OWNED_PROCESS_PRESENT",
+      "cpu_delta2s": 0.0,
+      "rss": 603095040,
+      "threads": 24,
+      "windows": [],
+      "listeners": []
+    },
+    "clean_exit_pass": false,
+    "cause": null,
+    "scope": "Atcutoff252.348669s owned22124windowless/listenerless,2sCPUdelta0. No Steam or other game termination; later owned cleanup separately recorded."
+  },
+  "model436437": {
+    "models": {
+      "436": {
+        "shared_commit": "496a7445ce53b710789d3b60a0a0c791957daebc",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 19876,
+          "completion_tokens": 835,
+          "total_tokens": 20711
+        },
+        "total_ms": 8158.186899963766,
+        "ttft_ms": 3367.754199949559,
+        "unreviewed_native_execution": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical CLI reuses successful Nov6OpenCode1.19.5 first-check429 cache.0new OpenCode native generation.",
+        "review": {
+          "raw_application": 0,
+          "rejected": "Only defines local Diagnose without invoking; inaccessible lexical PlayerContext/UnitPlot/Safe/visibility, omits path/distance evidence. Owner public-port bounded partial reader followed by two-path visible-threat and occupancy reader;0gamecommands."
+        }
+      },
+      "437": {
+        "shared_commit": "496a7445ce53b710789d3b60a0a0c791957daebc",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 52164,
+          "completion_tokens": 696,
+          "total_tokens": 52860
+        },
+        "total_ms": 11189.428100013174,
+        "ttft_ms": 6766.833800007589,
+        "unreviewed_native_execution": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical CLI reuses successful Nov6OpenCode1.19.5 first-check429 cache.0new OpenCode native generation.",
+        "review": {
+          "utc": "2026-11-05T19:22:06.817468+00:00",
+          "adopted": "One reviewed PathStep condition expands existing first-step civilian slot gate from builder to builder-or-settler. Owner line-wrap only.",
+          "raw_test_syntax_error": "invalid syntax (<unknown>, line 15)",
+          "raw_test_semantic_rejections": [
+            "withCityfalse would found current plot instead of testing another destination",
+            "Python lists and invalid Python/Lua mixture do not implement native fixture ports",
+            "Expected FOUND_CITY with remote target contradicts one adjacent MOVE_TO behavior"
+          ],
+          "raw_test_application": 0,
+          "raw_native_execution": 0,
+          "owner_six_regressions_before_fix": {
+            "tests": 6,
+            "failures": 2,
+            "failures_scope": "First blocked site incorrectly waits, all-blocked case never reaches second candidate."
+          },
+          "owner_six_after_fix": {
+            "tests": 6,
+            "failures": 0,
+            "seconds": 0.081
+          },
+          "existing_path_safety_after_fix": {
+            "tests": 10,
+            "failures": 0,
+            "seconds": 0.119
+          }
+        }
+      }
+    },
+    "unreviewed_native_execution": 0,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through437": {
+    "logical": 437,
+    "complete_stop_valid": 406,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 467,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "screenshot": {
+    "path": "docs/testing/screenshots/settler76/blocked127.png",
+    "sha256": "e822238a647629f1584e8922151d026f601b0645f63c1d4e8d8afd7a577cc9fd",
+    "raw_unedited": true,
+    "scope": "Actual76settler2/2waiting127; blocker/path from independent read, not unrelated hovered plot tooltip."
+  },
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "alpha74_changes": 0,
+  "raw_sha256": {
+    "settler436-read-waiting127-response.json": "b45d50471bf3e0560993fa4e61655e5d971dd436255588ee2a81e6033b65b435",
+    "settler436-safe-two-sites127-response.json": "2709a0f2c53f4dc06c1c8c39eb7dae920360fd30c991a0ee825e47c8a8c1fc2e",
+    "settler436-save-blocked-natural127-response.json": "c29ea870c6ad8685fe7dc08cb3a607c719381494c241ef6d0d23dd1a168872f7",
+    "settler436-actual-actor-log.txt": "1cc025ac4e830dee9de4ad92e82bd469aa1cdab351be64726b9310c1c021ed59",
+    "settler437-candidate-review.json": "18be858acd34869cda414fc9ed303f5d7182fbb51287942667009226fcf88718",
+    "settler437-full-suite-receipt.json": "7c185c2eff664b3caf4cec1b643de3de8c98b32a80f1e2c7fc238a9092caeab0",
+    "settler437-full-suite.log": "a7c8a1d839acca9020c3695905328940011e7add9601c26382b26ed7615658cf",
+    "settler437-official-exit-attempt.json": "32596e638a4087ad7597b9b748c68778000011c553a33e533dfe600cd55b68b9",
+    "settler437-official-exit-response.json": "5bd5e6af9beaffd6df84b89583577df2f7acfe633864da974ce5e1c7035ad898",
+    "settler437-shutdown-before-code-delivery-readonly.json": "231768fd3cf62da56837684844bcceec0d7c7d4c93b481cad030be0219255f8a",
+    "production433-cleanup-blocked127-saved-response.json": "65f8ecb1782bfe3f0ffd13edc820a2f147935ef5a817d16534fda85f829a1d27",
+    "production433-route-cleanup-blocked127-saved-response.json": "b6286201b35e456ef0317f32abf4c8a7814ff51d70f3cea86402b650f0c6362b",
+    "settler436-caller.log": "c95fbf258312dd8105f97477a7d6d30b666e76bf4497535ee9b286dd2ee736e0",
+    "settler436-model/ATTEMPT1-RESULT.json": "2a4188f79d9b963eab026826ed96dcc886e1b5e48786e48ccf58a838510d4695",
+    "settler436-model/ATTEMPT1-CONTENT.txt": "0411821c21f1e6881ee43f26f59c634d63af92264a67698bc3829a119f659559",
+    "settler436-model/ADAPTER-PROVENANCE.json": "d2b9c91c792f44a538b04b8fdc111db1f23d7866b1a9492597c5094c680b33c8",
+    "settler437-caller.log": "0d4729c44bcdc2ff79c6292a006c0c0e648b6823ddf931e049a44652eb912632",
+    "settler437-model/ATTEMPT1-RESULT.json": "a7ce86bd69dd738461d90913e6379e0ff49b34e0453cfbb3df78bf46369698fe",
+    "settler437-model/ATTEMPT1-CONTENT.txt": "038700d36ee683269a8bbcc782d5ccd5c7ff2eaeb5c35c1c3de9263991ee002e",
+    "settler437-model/ADAPTER-PROVENANCE.json": "d2b9c91c792f44a538b04b8fdc111db1f23d7866b1a9492597c5094c680b33c8"
+  }
+}

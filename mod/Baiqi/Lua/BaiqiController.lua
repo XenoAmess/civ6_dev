@@ -453,7 +453,8 @@ local function PathStep(unit, target, player, state)
   local here=UnitPlot(unit)
   if not step or not here then return nil end
   local row=GameInfo.Units[unit:GetUnitType()]
-  if row and row.UnitType=="UNIT_BUILDER" and not CivilianMoveTarget(here,step,unit,contextID) then return nil end
+  if row and (row.UnitType=="UNIT_BUILDER" or row.UnitType=="UNIT_SETTLER")
+    and not CivilianMoveTarget(here,step,unit,contextID) then return nil end
   return step
 end
 
