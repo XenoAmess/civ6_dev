@@ -345,3 +345,5 @@
 - TC-029／030冷进程补证：[74版两份真实中断存档](baiqi-cold-recovery-74.md)由旧18760保存、新12052加载；FINISHING自动完成、CHARGING维持未知。原同进程样本范围不变；其他阶段及跨正常回合尚未因此闭合。
 
 - TC-029／030正常回合补证：[74版未知扣款114→115](baiqi-debit-unknown-normal-turn-74.md)同一笔UNKNOWN／CHARGING保持、冲突守卫真，军队新回合4行动；跨回合与两次Recover均0转城／Finish。无UserForced，资金差值不代替直接扣款计数；其他阶段仍未闭。
+
+- 建造者补证：[74版最后一次劳动](baiqi-builder-final-charge-74.md)精确prepared114／saved115独立加载，538无改良→农场、原1次单位消失，原539农场保持；日志unit_unavailable缺口仍留，不把任何消失判成功，也不冒称pending卡死或全部改良矩阵通过。

@@ -1,0 +1,249 @@
+{
+  "schema": "civ6.native-builder409-final-charge/v1",
+  "utc": "2026-11-05T07:48:35.275022+00:00",
+  "date_local": "2026-11-05",
+  "machine_id": "BF-202609141645",
+  "build": 74,
+  "product_changes": 0,
+  "owner": {
+    "pid": 12052,
+    "birth": 1793861922.5603912
+  },
+  "status": "ACTUAL_NEW_FARM_AND_LAST_CHARGE_UNIT_DISAPPEARANCE_PERSIST; CONTROLLER_GENERIC_READBACK_GAP_RETAINED",
+  "flow": "115observed missing builder during408normal turn; preserve115save; officialload exactprepared114 for independent prestate; officialload exactsaved115 for independent poststate; normal114officialrestore independently verified. No repeat build or paid request.",
+  "before": {
+    "turn": 114,
+    "builder_id": 5832733,
+    "type": "UNIT_BUILDER",
+    "owner": 0,
+    "charges": 1,
+    "moves": 0,
+    "position": [
+      11,
+      12
+    ],
+    "plot": 539,
+    "plots": [
+      [
+        "538",
+        "10",
+        "12",
+        "0",
+        "-1",
+        "NONE_OR_UNKNOWN",
+        "false",
+        "true"
+      ],
+      [
+        "539",
+        "11",
+        "12",
+        "0",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false",
+        "true"
+      ],
+      [
+        "582",
+        "10",
+        "13",
+        "0",
+        "-1",
+        "NONE_OR_UNKNOWN",
+        "false",
+        "true"
+      ]
+    ]
+  },
+  "request_trace": [
+    "BaiqiExecutor: BAIQI|request|turn=115|id=0:115:7|source=BACKGROUND|unit=5832733|operation=MOVE_TO|plot=582|from=539",
+    "BaiqiExecutor: BAIQI|observed|turn=115|id=0:115:7|unit=5832733|kind=MOVE_TO",
+    "BaiqiExecutor: BAIQI|request|turn=115|id=0:115:8|source=BACKGROUND|unit=5832733|operation=MOVE_TO|plot=538|from=582",
+    "BaiqiExecutor: BAIQI|observed|turn=115|id=0:115:8|unit=5832733|kind=MOVE_TO",
+    "BaiqiExecutor: BAIQI|request|turn=115|id=0:115:9|source=BACKGROUND|unit=5832733|operation=BUILD_IMPROVEMENT|plot=538|from=538",
+    "BaiqiExecutor: BAIQI|unit_request_not_observed|turn=115|id=0:115:9|unit=5832733|reason=unit_unavailable"
+  ],
+  "after_and_reloaded": {
+    "turn": 115,
+    "builder_FindID_missing": true,
+    "builder_absent_on_three_inspected_plot_unit_lists": true,
+    "plots": [
+      [
+        "538",
+        "10",
+        "12",
+        "0",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false",
+        "true"
+      ],
+      [
+        "539",
+        "11",
+        "12",
+        "0",
+        "1",
+        "IMPROVEMENT_FARM",
+        "false",
+        "true"
+      ],
+      [
+        "582",
+        "10",
+        "13",
+        "0",
+        "-1",
+        "NONE_OR_UNKNOWN",
+        "false",
+        "true"
+      ]
+    ],
+    "new_farm538": true,
+    "original_farm539_unchanged": true,
+    "plot582_unchanged": true,
+    "native_unit_removed_event_direct_counter": null,
+    "consumption_limit": "Known1remaining charge, precise own request trace and new farm, unit disappears; consistent native final-charge consumption. No direct UnitRemoved reason/counter captured, do not generalize all missing units to success."
+  },
+  "automatic_diagnostic_gap": {
+    "actual_source": "BaiqiController.ReadBack first full-ID normalizes, then generic missing unit logs unit_request_not_observed/unit_unavailable and clears pending. RequestCivilian pending storeskind/plot/from/moves, no expected improvement/initial charges/pre-effect receipt.",
+    "functional_effect_passed_this_sample": true,
+    "no_persistent_pending_deadlock_awarded": true,
+    "log_not_rewritten_to_native_success": true,
+    "product_patch": false,
+    "scope": "Independent actual map effect is proven; auto diagnostic lacks consumed-builder positive effect confirmation. No blind clearing/replay/free unit introduced."
+  },
+  "model409": {
+    "shared_commit": "d7ad10682e381e5cdacf4a0969d5df737a780f29",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 24829,
+      "completion_tokens": 1379,
+      "total_tokens": 26208
+    },
+    "total_ms": 12467.297700000927,
+    "ttft_ms": 3437.099499977194,
+    "cached_prompt_tokens": null,
+    "readback_lines": 63,
+    "compile_lua53": true,
+    "raw_candidate_game_execution": 0,
+    "adoption": "Partial independent before/after plot/absence diagnosis direction. Owner rewrote actual API/protocol/context/fullidentity/plot-lists,0verbatim raw candidate execution.",
+    "rejected_issues": [
+      "GetCharges is not supplied actual GetBuildCharges; silent SafeGet would hide unavailable method",
+      "unit:GetIndex not the validated position API; owner uses actualXYtoMap index",
+      "Improvement.Name is localized key, not actual ImprovementType",
+      "Top-level returntable does not print evidence for actual NativeCMD consumer",
+      "Missing Baiqi/turn/active/idle gates; own collection used for plot units of arbitrary owners; lookup result can cease to represent original raw plot unit"
+    ],
+    "input_limit": "Controller excerpts were source-hashed; first packet omitted full-ID normalization lines2513-2514. Owner later directly reviewed those lines and does not adopt model speculation about that omitted consumer.",
+    "maintenance": "canonical CLI same-machine/user successfulNov5 1.19.5cache beforePOST;0new OpenCode native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through409": {
+    "logical": 409,
+    "complete_stop_valid": 379,
+    "length_discarded": 27,
+    "final_transport_failed": 3,
+    "http_attempts": 439,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "saves": {
+    "prepared": {
+      "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+      "bytes": 568863,
+      "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+    },
+    "saved115": {
+      "name": "Baiqi_P6_20261105_V74_DebitUnknown115.Civ6Save",
+      "bytes": 572522,
+      "sha256": "9b7c5ead58823e810e5f55b1b3101992d200c91aba090ec4c3c4f367bb2e47f5"
+    },
+    "normal": {
+      "name": "Baiqi_P6_20261104_V73_BuilderFarm114.Civ6Save",
+      "bytes": 569035,
+      "sha256": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6"
+    }
+  },
+  "normal_restore": {
+    "independent_ui_core_input": true,
+    "turn": 114,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "builder5832733_charges_moves": [
+      1,
+      0
+    ],
+    "farm539": true,
+    "plot538_unimproved": true,
+    "horse2162700_position_moves": [
+      10,
+      12,
+      4
+    ],
+    "enemy_city_owner_id": [
+      1,
+      524295
+    ],
+    "journal": null,
+    "all_checked_fault_observer_input_bindings_clear": true
+  },
+  "model408_shared_record": {
+    "commit": "3b5cd1bde4bc3cb673699b2d9f37e71b7424e8c2",
+    "url": "https://github.com/XenoAmess/local-model-operations/blob/3b5cd1bde4bc3cb673699b2d9f37e71b7424e8c2/docs/evidence/2026-11-05-civ6-recovery408.json"
+  },
+  "images": [
+    {
+      "stage": "before",
+      "path": "docs/testing/screenshots/baiqi-74-builder-last-charge-before114.png",
+      "sha256": "5ddcf2dc74c0cec22af2c804a0a0bd6251e11d9cb20cd172ee67486b8493ac3e",
+      "raw_bytes_unchanged": true
+    },
+    {
+      "stage": "after",
+      "path": "docs/testing/screenshots/baiqi-74-builder-last-charge-after115.png",
+      "sha256": "4c84d0e169925fb375c4514bcfeea76f2f83b2e36e0f5729b57dd9c52d049620",
+      "raw_bytes_unchanged": true
+    }
+  ],
+  "steam_online_switches": 0,
+  "software_suite_rerun": false,
+  "full40_native_complete": false,
+  "limits": [
+    "One actual last-charge farm, not all improvements/repair/terrain or builder-loss matrix",
+    "Original prepared114 includes earlier QA war, own military placement and citydamage, preserved as QA; no new building/charges/movement granted for this comparison",
+    "No direct build native call or removed event counter captured; actual request logs and independent exact saved states provided",
+    "Normal114restored at cutoff; product74 and Alpha assets/tag unchanged"
+  ],
+  "raw_evidence_sha256": {
+    "builder409-continue-normal-attempt.json": "855b5765f2b19436a9a3a8bdd0774bee013bc8bd2aa27bfcc6e243c804969246",
+    "builder409-continue-prepared-attempt.json": "24641c661ed24fbd86ef92f619146634ec71f2894b10fd4680f9381c913f7ec3",
+    "builder409-continue-saved-attempt.json": "1303381b8b74c1c60b23df8ced66dc54d315a06f076765c10bff984263fbe05d",
+    "builder409-load-normal-response.json": "13d42a5eb9031f1ae9aabed604c252290ebb334b750f2133de5b16b7203410bc",
+    "builder409-load-prepared-response.json": "ea5d6a5a3cfa716c41be9230aad3a6a334a73ba62c11881c2b44ffce6ff6b069",
+    "builder409-load-saved-response.json": "0e71ba3990896d26c2c063e1a38d53c15d36e3011a9e36025fcbae40ae0241cb",
+    "builder409-model/ADAPTER-PROVENANCE.json": "b921d5945343a20894638d3ef4529fad6aa4584de92163b822e8f95c66874d6b",
+    "builder409-model/ATTEMPT1-RESULT.json": "3be0009e224335092cbac988404ea5e129487666b77dabd960ce1ed6235f4939",
+    "builder409-model/SUMMARY.json": "663f9120ef5c9d9d64fa663137a24aefcc5dada14d3ec49771825859fc7bcd6c",
+    "builder409-normal-restored-response.json": "58f9e54691145100051a78b850a8d07931b1b079ec0969c406466f44d987c008",
+    "builder409-read-current115-response.json": "f3b45bcee391951d558cf4f6a3359b0ea481970a20cc94a97b6afcfd025df29f",
+    "builder409-read-prepared114-response.json": "4f0a9ae974f5b75bb5099b15b265b906e4aec9400c519d1020ec19ce0b77e3ef",
+    "builder409-read-saved115-response.json": "e0bf9bda7452007282373ab748e6f0ec3195a646e8d3d7bc0df722c16403b193",
+    "garrison74-save-prepared-response.json": "5085c382ad264e562875e04e9803266f5604f25126c39d1ba934213021443b10",
+    "recovery407-view-builder-after115-20261105T074159771091Z-receipt.json": "fd80c97183af60ed8a1084a7a67ad028f0a2d5e27f5238b9fcb59e50a2738e57",
+    "recovery407-view-builder-before114-20261105T073952833814Z-receipt.json": "7cec08796d387746909aa999855225327a49c6cae56895d0a23c37ef4ebe9dc1",
+    "recovery408-save-interrupted-response.json": "52ca9e7008565c52eed8d7bda36bc9d0ac420460f28d74b109e14f555c10d571",
+    "recovery408-snapshot-after-builder-comparison-reload115-response.json": "5bf7b8140a060e8c924cadb9d0bdbdd1429ebffed45b679b6b27327a3159f66c",
+    "source73-progress114-save-receipt.json": "9f2b2354ab90c88d0b4a82436f77299b12a800510ea6b1631cbb4871427beb6d"
+  },
+  "scoped_lua_log_sha256": "c97afed31b8ea8973244962e902743351a20b6906f415f43b77817fb456b81ca"
+}
