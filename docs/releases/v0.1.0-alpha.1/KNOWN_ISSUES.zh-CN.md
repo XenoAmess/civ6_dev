@@ -1,5 +1,7 @@
 # Alpha 1 已知限制与未验收风险
 
+76开发版补验[城旗冻结提示／同回合恢复／未知档再加载](../../testing/baiqi-flag-unknown-recovery-76.md)，仅健康骑手FINISHING样本通过；Alpha74未更新，其他异常组合与完整内政链仍未闭。
+
 76开发版已完成[同驻军旗帜冷启三选复测](../../testing/baiqi-garrison-flag-native-76.md)：取消无动作、确认300一笔、继续才原版战斗，付费存读档保持，关闭75该入口窄FAIL。四图及未验范围已公开；工坊Alpha74仍未包含76，两个自有75退出残留原因未定，完整验收尚未完成。
 
 76开发修复：[驻军旗帜确认](../../testing/baiqi-garrison-flag-confirmation-76.md)已通过新增10回归及完整1058项软件检查，尚未冷装／实机复测；75该入口FAIL仍保持。已发布Alpha74不包含76，风险补充BBCode尚未上传。

@@ -1,5 +1,7 @@
 # 白绮全功能状态及更新：2026-11-05（北京时间）
 
+76补验：[城旗UNKNOWN实际提示、同回合恢复及保存未知档再读回](baiqi-flag-unknown-recovery-76.md)通过此健康骑手FINISHING窄样本，连续费用／动作无重复；全矩阵仍部分。建造者[末次使用归因复核](baiqi-builder-final-charge-attribution-review.md)保持已有农场效果通过，未以缺失演员伪造消耗回执。下一步正常新移民训练成本／建城链。
+
 最新76：[驻军旗帜冷验三选](baiqi-garrison-flag-native-76.md)取消、一次确认300及独立原版续行通过，付费存读档保持，原正常114已恢复。75同入口窄FAIL关闭；全矩阵、旗帜UNKNOWN提示及退出原因仍待验，Alpha74未更新。
 
 最新源码76：[驻军旗帜确认修复](baiqi-garrison-flag-confirmation-76.md)完整1058软件通过，安装仍75／76冷启实机待做。75旗帜FAIL尚未关闭；执行军队升级后UNKNOWN冻结Live／读档窄验已完成。自有75正式退出残留待处理／归因，Alpha74未更新。

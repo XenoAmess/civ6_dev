@@ -377,3 +377,5 @@
 - TC-023／034：[76旗帜入口源码修复](baiqi-garrison-flag-confirmation-76.md)覆盖弹窗前0攻击、取消、原生继续、付费确认、原命令／文职边界，新增10软件回归和完整1058项通过。76尚未冷装／实机复测，75实际旗帜FAIL继续保留。
 
 - TC-023／029／034：[76同驻军旗帜三选实机](baiqi-garrison-flag-native-76.md)冷启后取消／付款／独立正常进攻及付费结果存读档通过，关闭75该特定确认绕过FAIL；续行1与实际战斗读回分账。其他旗帜／军队／城市矩阵和UNKNOWN新上下文提示未闭。
+
+- TC-023／029／034：[76城旗UNKNOWN提示与恢复](baiqi-flag-unknown-recovery-76.md)健康骑手FINISHING故障样本、实际提示／两次恢复／保存未知档同进程加载通过；不扩为全阶段或冷启通过。TC-015新正常训练移民与人口成本仍未闭；[末次建造者归因审阅](baiqi-builder-final-charge-attribution-review.md)未改既有农场效果通过。

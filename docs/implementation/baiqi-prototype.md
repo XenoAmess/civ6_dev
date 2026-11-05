@@ -311,3 +311,5 @@ python tools\build_mod.py --install
 ## 2026-11-04：67五窗口规划数据完成，完整性能仍待补齐
 
 67正常包现已完成86—90五个实际窗口（外交停留前后两个观察段）：280个根回调中256个纯十城，Controller144次合并p95约12ms／最大29ms，Admin112次约5ms／11ms，符合冻结B_plan数值预算；24个十一城样本另列。88／89／90单回合Controller p95约22／26／21ms仍保留，不能用合并值掩去较重窗口。测试代理以TEST_PLAYER关闭一次来访并结束85—89，模组未自动外交；先前要求用户本人点击是负责人理解错误，已写入协作／验收规则纠正。全部观察器已恢复，UI／Core11城、队列均非空，518864字节实际存档已核验。全模块B_turn／N_req和五组B_delta配对仍未完，TC-036仍未通过，不作相对60的因果提速结论。[五窗口、分段与真实终态](../research/baiqi-p6-native67-performance-q18-fivewindows-evidence-2026-11-04.json)。
+
+- [76城旗UNKNOWN提示与恢复](../testing/baiqi-flag-unknown-recovery-76.md)：实际冻结提示、健康骑手FINISHING恢复及未知结果保存点同进程加载窄验通过；未重复征取，原正常114已恢复。新正常移民生产／人口成本及完整矩阵继续。
