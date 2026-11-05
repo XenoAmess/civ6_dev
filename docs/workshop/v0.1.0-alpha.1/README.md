@@ -67,3 +67,5 @@
 风险补充稿另已加入[历史样本身份更正](../../testing/baiqi-free-city-classification-audit-75.md)：62是自由城市，撤回该样本城邦验收。BBCode仅本地入库，尚未更新工坊页面。
 
 [75真正城邦实机补验](../../testing/baiqi-vilnius-city-state-capture-75.md)与风险已加入待上传BBCode；含三张内嵌实机图。当前工坊与Alpha74仍未变更。
+
+2026-11-06：[76同驻军旗帜三选冷验](../../testing/baiqi-garrison-flag-native-76.md)四图及逐项解读入库，待上传风险BBCode已整理为玩家向的当前状态并内嵌76图；工坊仍74，尚未上传，禁止把草稿当已发布。
