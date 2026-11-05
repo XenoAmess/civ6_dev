@@ -1,0 +1,240 @@
+{
+  "schema": "civ6.native-cold407-recovery/v1",
+  "utc": "2026-11-05T07:11:57.613597+00:00",
+  "date_local": "2026-11-05",
+  "machine_id": "BF-202609141645",
+  "build": 74,
+  "product_changes": 0,
+  "installed_matches_alpha87_files": true,
+  "original_process": {
+    "pid": 18760,
+    "birth": 1793831208.9333148,
+    "normal_baseline_restored_before_official_exit": true,
+    "exit_method": "Official InGameTopOptionsMenu.OnExitGame once; independently observed process absent;0terminate/kill."
+  },
+  "new_process": {
+    "pid": 12052,
+    "birth": 1793861922.5603912,
+    "offline_proof_age_seconds": 15.843194,
+    "steam_mode": "Fresh current-instance official GoOnline point query, readonly flags allfalse",
+    "online_switches": 0,
+    "same_new_process_loads": "FINISHING first from MainMenu; CHARGING second from ingame. Both files produced by distinct earlier18760branches, not two fresh process launches."
+  },
+  "saves": {
+    "finish": {
+      "name": "Baiqi_P6_20261105_V74_FinishBefore114.Civ6Save",
+      "bytes": 568824,
+      "sha256": "403f92346d0c28fed5d48c09ae24757104eca4e273ea3e8cfb6c70025592cce5"
+    },
+    "debit": {
+      "name": "Baiqi_P6_20261105_V74_DebitUnknown114.Civ6Save",
+      "bytes": 568819,
+      "sha256": "00d7b6fbba1336c9c6519e5572419b06d4c589c906acb2826c1d8a32f39be90d"
+    },
+    "normal": {
+      "name": "Baiqi_P6_20261104_V73_BuilderFarm114.Civ6Save",
+      "bytes": 569035,
+      "sha256": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6"
+    }
+  },
+  "cold_results": {
+    "finish": {
+      "first_core_and_ui_state": [
+        "finish",
+        "4224.2734375",
+        "0",
+        "851979",
+        "1",
+        "2162700",
+        "42",
+        "19",
+        "0",
+        "114"
+      ],
+      "first_operation": [
+        "city:0:114:2162700:1:524295:41:19",
+        "COMMITTED",
+        "DONE",
+        "300",
+        "4524.2734375",
+        "4224.2734375",
+        "true",
+        "true",
+        "851979",
+        "recovered",
+        "1"
+      ],
+      "first_read_before_manual_recover": true,
+      "explicit_recover_probes": 2,
+      "post_bootstrap_transfer_finish_errors": [
+        0,
+        0,
+        0
+      ],
+      "bootstrap_native_call_counts": null,
+      "reason": "First read precedes observers; do not infer native bootstrap counts."
+    },
+    "debit": {
+      "first_core_and_ui_state": [
+        "debit",
+        "4224.2734375",
+        "0",
+        "851979",
+        "1",
+        "2162700",
+        "42",
+        "19",
+        "4",
+        "nil"
+      ],
+      "first_operation": [
+        "city:0:114:2162700:1:524295:41:19",
+        "UNKNOWN",
+        "CHARGING",
+        "300",
+        "4524.2734375",
+        "nil",
+        "true",
+        "nil",
+        "851979",
+        "execution_interrupted",
+        "1"
+      ],
+      "first_read_before_manual_recover": true,
+      "explicit_recover_probes": 2,
+      "post_bootstrap_transfer_finish_errors": [
+        0,
+        0,
+        0
+      ],
+      "bootstrap_native_call_counts": null,
+      "reason": "First read precedes observers; do not infer native bootstrap counts."
+    }
+  },
+  "unknown_conflict_guards": {
+    "same_actor": true,
+    "same_position": true,
+    "scope": "Real Conflict predicate readback; no new paid request retry."
+  },
+  "paid_request_replays": 0,
+  "manual_receipt_gold_or_unit_writes": 0,
+  "owner_tool_errors": [
+    {
+      "kind": "Prior normal restoration driver wrongly treated empty tag3 successful completion as error",
+      "effect": "UI readonly checks had passed; no Core/Input query yet. Fixed ERR contract, used new qualified labels;0gameplay actions."
+    },
+    {
+      "kind": "Second Continue reference was still Loading and failed fresh ROI comparison",
+      "effect": "0Esc input before write-once attempt. New inspected ready screen then exactly1Esc."
+    },
+    {
+      "kind": "Owner dispatch failed to gate dependent readonly probes after failed Continue/unfinished LSQ",
+      "effect": "One endpoint LSQ and another p6_native readonly probe timed out before receiving LSQ; raw receipts retained;0paid input/0Native CMD from failing probe. Both terminal sessions consumed before new qualified sequence. New chain stops on failed or running tools."
+    }
+  ],
+  "model407": {
+    "kind": "Ordinary canonical HTTP, not OpenCode native",
+    "shared_commit": "d228b946cfea6997f9c319ab7fd51433dc21c96d",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "http_attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 5462,
+      "completion_tokens": 1379,
+      "total_tokens": 6841
+    },
+    "total_ms": 9568.513700040057,
+    "ttft_ms": 942.6116000395268,
+    "cached_prompt_tokens": null,
+    "candidate_lines": 68,
+    "candidate_python_compile": true,
+    "candidate_sha256": "a59f45607424953ee3f3b5a342b485de66a9afe3092c7f7c71701c0cdc21902f",
+    "raw_candidate_execution": 0,
+    "owner_capture_sha256": "8bc484d5f62ca57b39b5e6b3ec9869753299c6b18db15f7640cc9ef7836a6e52",
+    "adoption": "Partial ownership/intent/geometry approach only;0verbatim candidate code execution. Owner corrected API, minimized/client checks, pre/post screenshot requalification, exclusive PNG and separate valid JSON intent/receipt.",
+    "candidate_issues": [
+      "Candidate invokes win32gui.IsHungAppWindow; actual module availability separately reported, owner uses existing qualified ctypes user32 route.",
+      "Missing minimized/client rectangle and post-screenshot ownership/foreground checks.",
+      "Appends two JSON objects to same manifest, invalid as a single JSON document; activated flag always true.",
+      "PNG save is not exclusive despite pre-existence check; owner uses openxb."
+    ],
+    "actual_win32gui_has_IsHungAppWindow": false,
+    "maintenance": "CLI pre-POST same-machine/user Nov5 successful1.19.5cache",
+    "new_opencode_native_generation": 0,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null,
+    "phase_duration_limit": "Review overlaps owner preparation; no reconstructed active timing or savings claim."
+  },
+  "cumulative_through407": {
+    "logical": 407,
+    "complete_stop_valid": 377,
+    "length_discarded": 27,
+    "final_transport_failed": 3,
+    "http_attempts": 437,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "model406_shared_record": {
+    "commit": "6febe5c66c1c89f6712319972a161903a11260c1",
+    "url": "https://github.com/XenoAmess/local-model-operations/blob/6febe5c66c1c89f6712319972a161903a11260c1/docs/evidence/2026-11-05-civ6-recovery406.json"
+  },
+  "images": [
+    {
+      "stage": "finish",
+      "path": "docs/testing/screenshots/baiqi-74-cold-finish114.png",
+      "sha256": "a427af871a43dc0b1c3814923a2df9ef4e0c921e9d3fa5fc5acc89e26f4503b2",
+      "raw_bytes_unchanged": true
+    },
+    {
+      "stage": "debit",
+      "path": "docs/testing/screenshots/baiqi-74-cold-debit114.png",
+      "sha256": "97c43a1da09bc8ddfed285d5cbc99bda6aa7efac3e38ac92c1ee398916d4dd4f",
+      "raw_bytes_unchanged": true
+    }
+  ],
+  "current_state": "New12052 remains at114 in loaded real debit-unknown branch, observer cleaned. Next independent work408 examines normal-turn boundary; normal archive unchanged, not yet restored after cold samples.",
+  "limits": [
+    "Controlled QA saves and prior QA war/own military placement/city damage, not spontaneous fault or natural battle",
+    "Only real FINISHING and ambiguous CHARGING at same game turn114 across old/new process",
+    "Native bootstrap call counts and direct treasury call counter unknown",
+    "No successful debit recovery/refund inferred from frozen unknown; TC029/030 overall partial",
+    "No product software suite rerun; existing1039pass remains historical baseline, not new cold test count"
+  ],
+  "raw_evidence_sha256": {
+    "recovery405-save-interrupted-response.json": "470337d21708832fe1690e4411c4cdf0bbe6b6257fcfa245dc830df5dd0e6a60",
+    "recovery406-normal-restored-qualified-response.json": "53e151d2f83c0e9b72aed6fc7614ca24e5feed5b2c0760920fd13fc7d148a9e4",
+    "recovery406-save-interrupted-response.json": "1f0b32532e58168a0c0d9adc61ccf319d3f74d2b1d67df46b4a3f4f66be46571",
+    "recovery407-cold-launch-receipt.json": "c02e657244790423b7f1c4869509730e27141637cc234d90fc5031dea124c64d",
+    "recovery407-continue-debit-attempt.json": "ff9bde9ae37cb7ae9451b9e189dd512a0585af2dbffb1fd6846422dd1b7be7ca",
+    "recovery407-continue-finish-attempt.json": "f453613453a8d602374f13ead55696d46c847c6ae65d5637c43e9dd0b6d86450",
+    "recovery407-debit-clear-final-response.json": "4af6b570aa035028ca89b110a1d07ccf9c8d17b1b51d3d05f68d40c9129126fc",
+    "recovery407-debit-conflict-after-two-response.json": "79a7b793046c96f2f3b0517c6932cbe0708c339a77da6094fadfc1c439031dbb",
+    "recovery407-debit-counts-after-two-response.json": "9bedf84ffbde6bec0d3b5c736aaf3eb8e66c4a5348ad2562c4666cca9bdef682",
+    "recovery407-debit-observer-cleanup-final-response.json": "32acd06aecde1004d6b09bcd1303ea8d07be63920acee9b82b0dff956796e292",
+    "recovery407-debit-observer-install-post-bootstrap-response.json": "8f95ca39cd5ee33db2448d3fd55212991709a63e18ad04efecdee474dd73c145",
+    "recovery407-debit-probe-once-response.json": "9575afabba586538de28d215605773451fd62949708095da0836cf40280c5da7",
+    "recovery407-debit-probe-twice-response.json": "33038a8801fbdd376f18d6964a92ea0ccd4c1d32b5e8b31a9a288f01be45045c",
+    "recovery407-debit-read-first-qualified-bootstrap-response.json": "81c4c6f1fd74c2c507c0d4892cae3c16801d7c1785ff77b473cba79e09bd1366",
+    "recovery407-finish-clear-before-next-response.json": "bc3dac3a1c066ffac499339293a32c28c37b06b934717727ffefb977c3edd6c2",
+    "recovery407-finish-counts-after-two-response.json": "bb77fd968fdc7a59b4c936b3c7b7759c1f63190e0b526ed0a0eaf70d657b1837",
+    "recovery407-finish-observer-cleanup-final-response.json": "d3630f0c8f847f3127f47afd93c3d640a9fb71e899fd6379c9f7eadbc87be01f",
+    "recovery407-finish-observer-install-post-bootstrap-response.json": "ce0702df80ae2d0323ecda7559302b38514a6bdb02466e08a0804c28d8dad1ac",
+    "recovery407-finish-probe-once-response.json": "0df076761d2ca151f438df61c9a269fa29f67ab07b0371f75ccffc440292d264",
+    "recovery407-finish-probe-twice-response.json": "437ab82f460fcd5ad56f7a7c1da53a0287699a4a50785bd73b1171e8c2f53c3a",
+    "recovery407-finish-read-first-bootstrap-response.json": "f3345b904072f80fafb8bd807fea898fc3fbfeb41a2ca06c6ab468bb3884a09d",
+    "recovery407-load-debit-response.json": "17b887a10b39080e6ae94622db32eecf1ebed839f09782b1e5d0b79f12ce75ff",
+    "recovery407-load-finish-response.json": "d69db9facea43312f141beeac3f0d75ede573192489933c1e0d476a7e9431d3b",
+    "recovery407-model/ADAPTER-PROVENANCE.json": "64add66d136d643ae93bb03fd9bf2b779ea655c048364c2c415418a057e9be4f",
+    "recovery407-model/ATTEMPT1-RESULT.json": "a23fd61b52506ba83a4f600dd198033855673a44a0853195cf5527b7945cf77e",
+    "recovery407-model/SUMMARY.json": "0d019d4169de7870398305c397ae7eba3761f8934a70a59c8b92a7e3309d08a5",
+    "recovery407-official-exit-attempt.json": "3a1690cd098f422a7778c72fd8124d2f82d0b2aa3461d07bcb1dd373dfb4d022",
+    "recovery407-official-exit-response.json": "136045b2accd7f807df98d17b16a8e9589a0fa4452ee07424d07681836eb2be9",
+    "recovery407-view-debit-frozen-20261105T070658084292Z-receipt.json": "e9ea2489452588b97771275b2fd4ead32284a67ac4b30818ac9f6a7d2daa7c37",
+    "recovery407-view-finish-recovered-20261105T070231967762Z-receipt.json": "2a15ed297b81ab96af7378b88066063e4044bc01811a5f2bcdbf0a0318e880c8",
+    "source73-progress114-save-receipt.json": "9f2b2354ab90c88d0b4a82436f77299b12a800510ea6b1631cbb4871427beb6d"
+  }
+}

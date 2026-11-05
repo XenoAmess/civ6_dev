@@ -22,3 +22,6 @@
 下一步仍需验证CHARGING等其他实际窗口、跨回合／跨进程和真实第三方战斗，不能由本例推完整TC-029／030通过。
 
 405的[HTTP／OpenCode分账及通用经验](https://github.com/XenoAmess/local-model-operations/blob/c5c8b86f9c2608c7d3c172691ab70b927f6636ca/docs/evidence/2026-11-05-civ6-recovery405.json)已推送；该记录固定链接本项目941d098切点，不把后续406结果追授给405。
+
+
+后续：[完整退出后的新进程加载](baiqi-cold-recovery-74.md)也自动完成，原同进程证据范围不改。

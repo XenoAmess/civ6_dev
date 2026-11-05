@@ -23,3 +23,6 @@
 406完整stop／DONE／合法JSON且两段Lua53编译，但原install把balanceBefore误作空；实际Capture／Gameplay软件见证中根本不命中、直接正常完成。负责人修正字段、作用范围和透传，8项钩子检查通过；cleanup六行原样采用，来自输入中已资格405参考，不宣称新颖能力。第一次恢复探针的负责人脚本拼接成niland，被原生解析器拒绝、0执行；修正并加发送前Lua53检查后才用新标签执行，失败原件保留，不归模型或产品故障。上述检查不是新增产品测试，产品74未改、完整套件未重跑。
 
 下一步仍是跨回合／冷进程、其他中断阶段、真实第三方战斗及完整特殊资产矩阵；本例冻结符合未知结果约束，不据此授稳定版通过。
+
+
+后续： [新进程读回](baiqi-cold-recovery-74.md)仍UNKNOWN／CHARGING；原本切点事实不改。模型406通用经验已[单独提交共享仓库](https://github.com/XenoAmess/local-model-operations/blob/6febe5c66c1c89f6712319972a161903a11260c1/docs/evidence/2026-11-05-civ6-recovery406.json)。
