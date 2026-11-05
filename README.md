@@ -31,6 +31,7 @@
 - [城邦自然征城与随城资产](docs/testing/baiqi-minor-city-capture-73.md)：地图右键确认后恰扣1100、转城一次，8栋建筑与文物保留，已恢复正常存档；完整特殊矩阵待验。[资产读取工具](docs/testing/baiqi-special-city-assets-73.md)。
 - [74版埃特曼安吉城征取](docs/testing/baiqi-etemenanki-capture-74.md)：1300金币、1次转城；未完工校园及87点进度撤去，后台建成纪念碑。正常114→118后城成自由城市，奇观／巨作随城转走，未重复收费或退款；含确认与叛离实机图。
 - [74版既有驻军城市征取](docs/testing/baiqi-garrison-city-74.md)：实际右键／确认300，转城及结束行动各1次；原守军完整ID／敌方归属／37伤害保持，被移到相邻水格并登船。含两张74版原图，完整驻军矩阵未闭。
+- [74版扣费后、结束行动前恢复](docs/testing/baiqi-finish-interruption-recovery-74.md)：实际FINISHING中断保存／加载后自动完成，未再扣300；完成后两次Recover均0转城／0Finish，其他恢复窗口待验。
 - [74版第三方归属与未知态](docs/testing/baiqi-third-party-unknown-74.md)：受控转给第三方后不误认成功、不扣款／退款，正式存读档保持冻结；真实第三方作战及完整中断矩阵仍待验。
 - [73版队列第二项右键](docs/testing/baiqi-queue-right-click-73.md)：普通领袖实际删除、白绮拦截，完整队列／费用核验并恢复114正常现场。
 - [70版两项生产队列换序](docs/testing/baiqi-two-item-queue-70.md)：普通领袖生效、白绮拦截的真实点击对照，完整队列／费用核验及原档恢复。

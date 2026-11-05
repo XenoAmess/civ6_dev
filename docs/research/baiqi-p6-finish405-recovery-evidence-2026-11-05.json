@@ -1,0 +1,229 @@
+{
+  "schema": "civ6.native-finish405-persisted-recovery/v1",
+  "utc": "2026-11-05T05:57:12.943693+00:00",
+  "date_local": "2026-11-05",
+  "machine_id": "BF-202609141645",
+  "build": 74,
+  "status": "REAL_FINISHING_INTERRUPTION_SAVE_LOAD_RECOVERED_ONCE_AND_COMPLETED_RECOVER_NOOPS",
+  "native_scope": "Same owned process18760/birth1793831208.9333148, same turn114, official Save/Load and Continue. No process-cold or later-turn pass.",
+  "source_prepare": "https://github.com/XenoAmess/civ6_dev/blob/1c661f540c0ea5bc4fc974cc7daf137fc6993e63/docs/research/baiqi-p6-garrison74-capture-evidence-2026-11-05.json",
+  "transaction_id": "city:0:114:2162700:1:524295:41:19",
+  "actual_input": {
+    "map_right": 1,
+    "physical_confirm": 1,
+    "ui_player_requisition_requests": 1,
+    "input_down_up_move_interact_each": 1,
+    "semantic_open_or_capture_calls": 0,
+    "paid_request_replays": 0
+  },
+  "fault": {
+    "scope": "Only complete unit2162700/owner0/turn114, BEFORE original Native FinishMoves. Persistent until owner cleanup, no ledger/treasury/unit-property mutation by fault.",
+    "blocked_calls": 2,
+    "forwarded_calls": 0,
+    "matcher_errors": 0,
+    "reason_for_two": "Actual OnRequisition performs one immediate Recover after ordinary ok/false UNKNOWN outcome. Both attempts held before original Native; not two UI confirmations.",
+    "software_safety_checks": 6,
+    "product_tests_added": 0,
+    "candidate_foreign_cleanup_counterexample": true
+  },
+  "before_save": {
+    "stage": "UNKNOWN",
+    "phase": "FINISHING",
+    "reason": "movement_unresolved",
+    "city_owner": 0,
+    "new_city_id": 851979,
+    "city_position": [
+      41,
+      19
+    ],
+    "population": 1,
+    "gold": 4224.2734375,
+    "balance_before": 4524.2734375,
+    "balance_after": 4224.2734375,
+    "cost": 300,
+    "transfer_observed": true,
+    "charge_observed": true,
+    "actor_position": [
+      42,
+      19
+    ],
+    "actor_moves": 4,
+    "actor_cooldown_turn": 114,
+    "native_transfer_calls": 1,
+    "native_finish_calls": 0,
+    "native_observer_errors": 0
+  },
+  "interrupted_save": {
+    "utc": "2026-11-05T05:38:16.970001+00:00",
+    "name": "Baiqi_P6_20261105_V74_FinishBefore114.Civ6Save",
+    "bytes": 568824,
+    "sha256": "403f92346d0c28fed5d48c09ae24757104eca4e273ea3e8cfb6c70025592cce5",
+    "stable_repeated_read": true
+  },
+  "cleanup_before_reload": "Fault first restores its original call-through observer; observer2bindings, UIrequest1binding and input4bindings then ownership-checked and restored. Saved pending record not manually changed.",
+  "after_official_load_before_manual_recover": {
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "reason": "recovered",
+    "operations": 1,
+    "same_transaction_id": true,
+    "same_owner_city_population": true,
+    "gold": 4224.2734375,
+    "actor_moves": 0,
+    "actor_position": [
+      42,
+      19
+    ],
+    "actor_cooldown_turn": 114,
+    "extra_charge_or_refund_observed": false,
+    "bootstrap_native_call_counts": null,
+    "bootstrap_counter_limit": "No diagnostic wrappers persisted across Load; do not claim observed exact Native call counts during bootstrap. Actual movement4->0 and completed receipt independently read in Core/UI."
+  },
+  "completed_recover_probes": {
+    "explicit_recover_calls": 2,
+    "native_transfer_calls": 0,
+    "native_finish_calls": 0,
+    "native_observer_errors": 0,
+    "gold_unchanged": true,
+    "actor_moves_unchanged": true,
+    "operations_unchanged": true,
+    "scope": "Fresh call-through counters installed after automatic completed readback, then two explicit Recover calls. No paid Request replay."
+  },
+  "guard_limit": "Original enemy guard1179657 still owner1 at40,19/moves0/damage37/embarkedtrue after restore; no manual guard action or new garrison behavior pass.",
+  "namespace_cleanup_after_probes_verified": true,
+  "original_normal_save_sha256_unchanged": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6",
+  "current_state": "Recovered QA branch retained at114,12cities/gold4224.2734375/actor0moves; next independent406candidate not executed yet. Original normal save remains separate.",
+  "image": {
+    "path": "docs/testing/screenshots/baiqi-74-finish-recovered114.png",
+    "sha256": "1e74aa33841671169bc83118e70711e98d29e7c6c53a4e9ce1b48a970353347e",
+    "raw_bytes_unchanged": true,
+    "scope": "Actual recovered114 frame: gold4224 and selected rider0/4 visible; receipt/Native counters proven separately by reads."
+  },
+  "model405": {
+    "mode_id": "http-candidate",
+    "logical": 405,
+    "shared_commit": "f22a5b5da2e3fb577b590a63b9487bd520002c51",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "max_tokens": 4500,
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 21881,
+      "completion_tokens": 834,
+      "total_tokens": 22715
+    },
+    "ttft_ms": 2980.9334999881685,
+    "total_ms": 8712.54430001136,
+    "cached_prompt_tokens": null,
+    "client_inflight_peak": 1,
+    "install_cleanup_lua53_compile": true,
+    "adoption": "Source phase and persistent-blocking direction partial reference;0verbatim code and0candidate game execution. Owner code separately qualified.",
+    "owner_corrections": [
+      "Game.GetCurrentGameTurn is called with dot/no arguments; candidate colon call not source-qualified",
+      "Model cleanup lacks wrapper/manager ownership reference and overwrites foreign slot",
+      "Model analysis incorrectly calls ordinary ok/false outcome handler_error and says phase!=CHARGING proves no debit; actual debit branch is phase==TRANSFERRED",
+      "Passed counter may remain0 in a target-only fixture; no forced unrelated operation to raise it"
+    ],
+    "owner_phase_events": [
+      {
+        "utc": "2026-11-05T05:23:39.152052+00:00",
+        "task": "recovery405",
+        "event": "PREP_BEGIN",
+        "earlier_selection_and_initial_read_seconds": null
+      },
+      {
+        "utc": "2026-11-05T05:25:10.061227+00:00",
+        "task": "recovery405",
+        "event": "PREP_END",
+        "earlier_selection_and_initial_read_seconds": null
+      },
+      {
+        "utc": "2026-11-05T05:26:27.084508+00:00",
+        "task": "recovery405",
+        "event": "REVIEW_BEGIN",
+        "earlier_selection_and_initial_read_seconds": null
+      },
+      {
+        "utc": "2026-11-05T05:28:27.253260+00:00",
+        "task": "recovery405",
+        "event": "REVIEW_END",
+        "earlier_selection_and_initial_read_seconds": null
+      },
+      {
+        "utc": "2026-11-05T05:28:27.431816+00:00",
+        "task": "recovery405",
+        "event": "CORRECTION_BEGIN",
+        "earlier_selection_and_initial_read_seconds": null
+      },
+      {
+        "utc": "2026-11-05T05:31:36.428863+00:00",
+        "task": "recovery405",
+        "event": "CORRECTION_END",
+        "earlier_selection_and_initial_read_seconds": null
+      }
+    ],
+    "earlier_selection_read_seconds": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null,
+    "maintenance": "Canonical CLI preflight before HTTP; Nov5 same-machine/user successful1.19.5cache, no OpenCode native generation."
+  },
+  "cumulative_through405": {
+    "logical": 405,
+    "complete_stop_valid": 375,
+    "length_discarded": 27,
+    "final_transport_failed": 3,
+    "http_attempts": 435,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "next406_status_at_cutoff": "Dispatched independently while this official load progressed; CLI returned, strict candidate gate/semantic review still pending. Not credited in frozen405 cumulative classification.",
+  "remaining": [
+    "After-debit before positive debit receipt CHARGING persistence and freeze",
+    "Other transfer/receipt interruption stages",
+    "Later-turn and owned cold-process recovery",
+    "Actual third-party battle cause and full asset matrix"
+  ],
+  "steam_online_switches": 0,
+  "product_changes": 0,
+  "software_suite_rerun": false,
+  "full40_native_complete": false,
+  "raw_evidence_sha256": {
+    "recovery405-baseline-response.json": "a9ef9e34f78812aa3e536a9ed8eea894d443f64b30911b64b3cc760234af79f4",
+    "recovery405-confirm-attempt.json": "e49c303ba8faec73ecb0a595fe86502e5b3c807da4fd61665fd5faab946c10ee",
+    "recovery405-continue-interrupted-attempt.json": "c909457d1cec323c3484b809db6d8d10b585c32bfb491944d7f2b2a3fdc58d6f",
+    "recovery405-continue-prepared-attempt.json": "460e0fd3a12a2deced753c7a4315e35f22a92a35a5562b2be25a9e6febe596f2",
+    "recovery405-fault-cleanup-response.json": "b622208d3e4bd313dfff693020cae8b120f7bacf940e04c748e3c61bdd457a27",
+    "recovery405-fault-read-after-confirm-response.json": "bacfebdac5687673b20bc5f240b073d4eb54818b241789883725fedb945b8fed",
+    "recovery405-fault-read-after-save-response.json": "22914ff623813e23335995ddd767bf0199f3d702dedddf0ed450c5e98873fb2e",
+    "recovery405-fault-software-witness.json": "ff26768a6aea957b4e09014b1027d698afc3285e29b9b3f85c5892c6401c166b",
+    "recovery405-input-cleanup-response.json": "f4930eb1059397d73e1612493dd795cc1ac5e4f512b9c7e89131e6475cc6c2bb",
+    "recovery405-input-read-opened-response.json": "07b1902bd9b5a756432907b80564f7b45e482adbd13b083b273656c159ab8e8a",
+    "recovery405-load-interrupted-response.json": "23570fb6731c34a2bf21395cfa2d067baac71efef4a9b43424b59b07148b8578",
+    "recovery405-load-prepared-response.json": "59ecf962add5cd09b131ea888545e0065c3c9c67a3027c9c66d78cc33dec1aec",
+    "recovery405-model/ADAPTER-PROVENANCE.json": "1d93b38683acf260b08b9196de02efac82f6d1cbda509b8c8628000f559dd12a",
+    "recovery405-model/ATTEMPT1-RESULT.json": "467a2d86285391e02994c7478e4a6720c7a52e5829b270faa781d435f85eed6b",
+    "recovery405-namespace-check-after-probes-response.json": "5cd11c254238a5ac1ce598dc5eaf4efc22a4837d8affbbd059409c72a463c605",
+    "recovery405-observer-cleanup-post-load-response.json": "e9e341cf9fb1b5791a0773f8618dd50b8197e70d0a48e5802c5954a0a9d87ce7",
+    "recovery405-observer-cleanup-response.json": "e86109014ada18b0c2a5a6c1a414a5a214054ca3df4e01870259d4b792212651",
+    "recovery405-observer-read-after-confirm-response.json": "efa9ade45ca3ca0cc54d8c07f04d05ef8b40062ece8cf1624731f9bd71ccfd3f",
+    "recovery405-observer-read-post-recover-response.json": "1987ae60b352656d3db83cd48a1bd51f654409ecb3e07971dbbb2005af7685ac",
+    "recovery405-prepared-read-response.json": "19e1e39c830ecb677f2d9fe654c621c329c3f23b2fc4a66c7556fbd2f9609ef8",
+    "recovery405-recover-probe-once-response.json": "f3d700eb5b791a28b2a794cbb05820b08dd7022be9bb7f04155f90814b0e7741",
+    "recovery405-recover-probe-twice-response.json": "b32595c83f49c2e21888512339333f5ada67ff49bbda59366990149d593ab433",
+    "recovery405-request-cleanup-response.json": "a9e68331217b29902743563917babebbd7c73c09652fcb08440c514efb974de1",
+    "recovery405-request-read-after-confirm-response.json": "7639ae5737cae01fe74ad7ee14c5f538bdb4eacb81e8d0b1cd4e129402cf8411",
+    "recovery405-save-interrupted-ack.json": "ad642d1f296a031409bf3a6095465e268f0d2a3df02b70092215d6a41f46a7e1",
+    "recovery405-save-interrupted-core-preflight-response.json": "587c71b3bca45daec5048d2b6051ec5c7401d463c6460a232d89b7d4e226ace5",
+    "recovery405-save-interrupted-response.json": "470337d21708832fe1690e4411c4cdf0bbe6b6257fcfa245dc830df5dd0e6a60",
+    "recovery405-select-response.json": "c06abd4220b525eb182da92c69b3b7d69416e99d3129645d98a781047a33e70a",
+    "recovery405-state-core-after-load-response.json": "f8f40c293619bb4c480c20aa7498d99dbdf2e693e2256771c4f2e7f0b8db6ae8",
+    "recovery405-state-core-before-load-response.json": "31f2ac6200596b46352674c69228a363e83df39b6f9115090c3cd651839582ce",
+    "recovery405-state-ui-after-load-response.json": "05a8c6cd7bfbccfa0cbb906b85aec008b978fc2d9f973c618a4fb968c3b6282f",
+    "source73-progress114-save-receipt.json": "9f2b2354ab90c88d0b4a82436f77299b12a800510ea6b1631cbb4871427beb6d"
+  }
+}
