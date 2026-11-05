@@ -1,0 +1,217 @@
+{
+  "schema": "civ6.capture417-positive-transferred75/v1",
+  "utc": "2026-11-05T12:22:09.055986+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 75,
+  "product_code_pin": "1961f9117028b7e0c4e67125e9d72b122ccd2040",
+  "product_changes": 0,
+  "initial_owned_pid": 13340,
+  "actual_pending": {
+    "independent_garrison114_qa": true,
+    "not_natural_combat": true,
+    "physical_map_right": 1,
+    "physical_confirm_300": 1,
+    "ui_paid_requests": 1,
+    "native_transfer_calls": 1,
+    "native_finish_calls": 0,
+    "fault_boundary": "Real Policy.Number(before) after positive persisted transfer and before any CHARGING/debit.",
+    "fault_blocked": 2,
+    "fault_passed": 35,
+    "matcher_errors": 0,
+    "stage": "UNKNOWN",
+    "phase": "TRANSFERRED",
+    "transfer_observed": true,
+    "new_city": [
+      0,
+      851979,
+      41,
+      19,
+      1
+    ],
+    "balance_before": null,
+    "balance_after": null,
+    "charge_observed": null,
+    "gold": 4524.2734375,
+    "army": [
+      0,
+      2162700,
+      42,
+      19,
+      4
+    ],
+    "cooldown": null
+  },
+  "saved_pending": {
+    "utc": "2026-11-05T11:58:25.617076+00:00",
+    "name": "Baiqi_P6_20261105_V75_TransferredBeforeDebit114.Civ6Save",
+    "bytes": 568777,
+    "sha256": "187584d43f7e2e8fdb38cc3436bd704bc7ebaed9cdf9232121bf977f5219debe",
+    "stable_repeated_read": true
+  },
+  "temporary_fault_held_during_official_save": true,
+  "fault_does_not_write_game_properties": true,
+  "input_and_native_observers_cleaned_before_save": true,
+  "fault_cleaned_before_load": true,
+  "actual_pending_reconfirmed_after_cleanup": true,
+  "independent_load_branches": {
+    "same_process13340": {
+      "official_load_once": true,
+      "stage": "COMMITTED",
+      "phase": "DONE",
+      "gold": 4224.2734375,
+      "positive_debit_receipt": {
+        "before": 4524.2734375,
+        "after": 4224.2734375,
+        "charge_observed": true
+      },
+      "army_moves": 0,
+      "cooldown": 114,
+      "fault_absent": true,
+      "post_bootstrap_two_recover": {
+        "transfer": 0,
+        "finish": 0,
+        "errors": 0
+      }
+    },
+    "new_process": {
+      "pid": 15788,
+      "birth": 1793880723.3621035,
+      "first_checkpoint_from_MainMenu": true,
+      "stage": "COMMITTED",
+      "phase": "DONE",
+      "gold": 4224.2734375,
+      "army_moves": 0,
+      "cooldown": 114,
+      "fault_absent": true,
+      "post_bootstrap_two_recover": {
+        "transfer": 0,
+        "finish": 0,
+        "errors": 0
+      }
+    },
+    "scope": "Each branch separately loads the same official uncharged positive-transfer checkpoint. Balance delta and positive debit receipt recorded; no direct Treasury native-call counter or bootstrap Transfer/Finish total."
+  },
+  "shutdown_anomaly": {
+    "formal_exit_once": true,
+    "old_owned_game_windows_and_listeners": [],
+    "readonly_seconds_after_exit": 370.584511,
+    "cpu_delta_over2s": 0,
+    "log_tail": "EOSSystemEventHandler Shutdown; Modding services released.",
+    "old_windowless_owned_qa_game_terminate_calls": 1,
+    "steam_and_other_game_termination_calls": 0,
+    "clean_shutdown_acceptance": false,
+    "causal_attribution": "Unresolved; no vanilla exit control, cannot attribute to mod or Steam. Official stable save verified before cleanup and reused. New-process restore is after explicit abnormal shutdown cleanup."
+  },
+  "new_offline_start": {
+    "proof_age_seconds": 0.067374,
+    "read_only_proof": true,
+    "screenshot_input_activation_focus_move": false,
+    "files_match_source75": 87,
+    "steam_online_switches": 0
+  },
+  "normal_restore": {
+    "new_owned_pid": 15788,
+    "turn": 114,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "horse_original_moves": 4,
+    "builder_charges": 1,
+    "journal": null,
+    "three_contexts_verified": true,
+    "diagnostic_bindings_clear": true
+  },
+  "owner_operational_correction": "Normal Continue glyph initially not ready;0input gate refused. Owner prematurely attempted only read-only verification which timed out. New fresh Continue then three-context qualified read succeeded; no paid-request or game-action replay. Initial shutdown launch gates also refused0spawn while old process existed.",
+  "model417": {
+    "shared_commit": "37083533958b5305d52bca3a35a36c3e3077619d",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 14433,
+      "completion_tokens": 660,
+      "total_tokens": 15093
+    },
+    "total_ms": 6117.717199958861,
+    "ttft_ms": 2077.162200002931,
+    "cached_prompt_tokens": null,
+    "candidate_lua_lines": 26,
+    "owner_diagnostic_checks": 6,
+    "raw_candidate_native_execution": 0,
+    "adoption": "Precise transfer-before-debit matcher direction and verbatim six-line cleanup. Owner added namespace protection, unique/full identity, argument forwarding and rollback.",
+    "raw_rejected_behaviors": {
+      "occupied_namespace": {
+        "installation_accepted": true,
+        "original_preserved": false
+      },
+      "publication_failure": {
+        "installation_accepted": false,
+        "original_preserved": false
+      },
+      "variadic_pass": {
+        "forwarded": [
+          1,
+          17
+        ]
+      }
+    },
+    "maintenance": "Nov5 same-user/machine successful1.19.5 canonical cache;0new OpenCode native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through417": {
+    "logical": 417,
+    "complete_stop_valid": 386,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 447,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/capture75/transferred-before-debit.png",
+      "sha256": "779f6f5204d2a41b9ef949df476da2c847208a0b8cd24f16b85bffd6fe30e293",
+      "version": 75,
+      "raw_unedited": true
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/transferred-recovered.png",
+      "sha256": "4d2ed077b970935b9c2eaa884dd2eaed1b9db881acf3858827b92008e4dbe881",
+      "version": 75,
+      "raw_unedited": true
+    }
+  ],
+  "software_suite_rerun": false,
+  "software_baseline": "75 full1048 passed132.939s; diagnostics and docs only since code1961f911.",
+  "alpha_and_workshop": "Fixed74 not changed or uploaded by this work. New known-issue BBCode notice prepared offline, unpublished.",
+  "remaining": [
+    "Native retained-ID delayed military removal",
+    "Clean-exit cold TRANSFERRED repetition",
+    "Remaining phase/city/asset/compatibility matrices"
+  ],
+  "raw_sha256": {
+    "capture417-fault-read-pending-response.json": "8cc242d64bfc1da5371d1511492216aade9ea70561e74d5d2348018189560909",
+    "capture417-fault-state-after-cleanup-response.json": "80f234d39f7b056fc81efab80660266bf011fbf1cc60805a5a740dbcac121f4b",
+    "capture417-request-read-once-response.json": "8649d19fc9833af54a60d91dca1d8b6f290b9fdf63737bf8135e95d7fa25f63d",
+    "capture417-input-read-once-response.json": "29759b6882ea603a7162463caccb0a9bc6f33ff4746d6e8f8926604bda67d38b",
+    "capture417-save-transferred114-response.json": "c675e6ea39c69d1b23d5f650e37e9adc2c8110715c2b4136fb266486fabbe01a",
+    "capture417-pending-save-held-fault.json": "42ea9f8d0a79abb6c656beb3433c22493aa49b8b19400ced62b773bf5293ac98",
+    "capture417-healthy-finish-read-transferred-first-response.json": "88cd1b1e7697622bcb51396f362025a4866f769dcddbff7a7de59ad75ad6b6da",
+    "capture417-healthy-finish-counts-completed-response.json": "396c9673791a8ad844f725c777b4b5dd35a0d10d778f90735100f861ebef0658",
+    "capture417-normal-restored-qualified-response.json": "745e831d80cd681282d853a5e192394bbdb57ad8e6fdd75bf65734898637c5a4",
+    "capture417-shutdown-readonly.json": "75cd72a7c4ee33b2be568c2964701435c63f3970ab48801d705a8a44f701d0a6",
+    "capture417-stop-owned-shutdown-receipt.json": "eb1fa4c946caa77f8eebf0883cc707a64fbf2d2820fe9fe55a8079c66dbebe0d",
+    "capture417-cold-launch-receipt.json": "1f8999de0eef5a367d73879dff142c0f8bbdcc5b05ec46cb0dcc05b8111d6f9d",
+    "capture417-cold-healthy-finish-read-first-load-response.json": "d90b6c75df1e388a9d84ccad34f6b9b6addb1dd08fbab65162293e65bc494f58",
+    "capture417-cold-healthy-finish-counts-completed-response.json": "ab08653c7ae3cde969a8e15e0620ba980b345ac1e1ce6d6cf292e5a5a793d5f5",
+    "capture417-cold-normal-restored-response.json": "6ee387e1ec56270b0f9ad706aa24e7337c4382fea60744d4186d0c7f60ebbdee",
+    "capture417-fault-software-witness.json": "4cfbb9b702ac9cdec8ed10c7300d742315952765de6dbca5ed2b287feb0b80bb",
+    "capture417-model/ATTEMPT1-RESULT.json": "914cc00fefb70056d4df918e33fb816f2c03705790a954ae52ba890a3e2ec239",
+    "capture417-model/ATTEMPT1-CONTENT.txt": "36b1661bceff872569f841147200cb78493bbd4432ba84169398f6ef3549e3e3"
+  }
+}

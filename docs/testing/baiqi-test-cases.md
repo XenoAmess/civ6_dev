@@ -359,3 +359,5 @@
 - TC-018／029／030补充：[75版实机复测](baiqi-capture-native-recovery-75.md)包含正常正回执恢复、未知扣款冻结、QA真实移除军队及同进程存读档；缺失单位样本未覆盖军队保留同ID的延迟销毁、自然战斗或过期FINISHING，相关用例仍部分验收。
 
 - TC-029／030：[75过期FINISHING](baiqi-expired-finishing-75.md)实际正常114→115、撤故障及同进程存读档后不扣新回合行动的窄样本通过。仅一个正回执阶段和一回合，全部恢复／冷进程／战斗矩阵仍部分。
+
+- TC-029／030：[75正TRANSFERRED](baiqi-transferred-before-debit-75.md)真实尚未扣款保存点同进程及新进程首载补齐结算，完成后各两次Recover0转城／Finish。新进程前正式退出出现残留、只清理自有QA游戏，故不授干净退出；完整矩阵仍部分。

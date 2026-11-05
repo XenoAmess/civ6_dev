@@ -68,3 +68,5 @@ python tools\build_mod.py --install
 - [75版征城恢复实机复测](docs/testing/baiqi-capture-native-recovery-75.md)：旧FINISHING恢复、未知扣款冻结、实际军队移除及重载已有窄样本和3张原图；同ID延迟销毁的军队实机窗口仍未验，正常114已恢复。
 
 - [75版过期FINISHING正常跨回合](docs/testing/baiqi-expired-finishing-75.md)：114正扣款中断到115，撤故障及存读档后骑手仍4行动，两组Recover均0转城／Finish；正常114已恢复。
+
+- [75版转城后、扣款前恢复](docs/testing/baiqi-transferred-before-debit-75.md)：真实TRANSFERRED保存点同进程／新进程恢复完成；附前后实机图。新进程前出现一次退出收尾残留，已如实记录，不授干净关机通过。

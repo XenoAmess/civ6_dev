@@ -59,3 +59,6 @@
 [完整风险](../../releases/v0.1.0-alpha.1/KNOWN_ISSUES.zh-CN.md) · [安装说明](../../releases/v0.1.0-alpha.1/README.zh-CN.md) · [逐图来源与范围](screenshot-commentary.md) · [反馈问题](https://github.com/XenoAmess/civ6_dev/issues)
 
 [Steam工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495) · [GitHub下载](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1) · [BBCode](description.bbcode) · [发布与上传源码记录](PUBLISHING.md)
+
+
+[2026-11-05新增风险BBCode准备稿](known-issues-update-2026-11-05.bbcode)已入库，尚未上传，不改写既有发布回执。包括74的软件恢复资格缺口、75有限修复证据及一次未归因的退出收尾残留；新的Steam联网／上传须先取得新鲜可靠占用状态。
