@@ -20,3 +20,5 @@
 模型405完整stop／DONE／合法JSON，install及cleanup都能在Lua53编译，但cleanup会覆盖外来绑定；隔离的软件反例已证实，0原稿游戏执行。只参考断点与持续阻断方向，负责人改正静态调用、初态检查和绑定所有权，另做6项故障钩子安全检查。它们不是新增6项产品测试；本次产品74未改，完整软件套件未重跑。普通HTTP与OpenCode原生生成分账，后者新增0。
 
 下一步仍需验证CHARGING等其他实际窗口、跨回合／跨进程和真实第三方战斗，不能由本例推完整TC-029／030通过。
+
+405的[HTTP／OpenCode分账及通用经验](https://github.com/XenoAmess/local-model-operations/blob/c5c8b86f9c2608c7d3c172691ab70b927f6636ca/docs/evidence/2026-11-05-civ6-recovery405.json)已推送；该记录固定链接本项目941d098切点，不把后续406结果追授给405。

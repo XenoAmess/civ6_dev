@@ -1,0 +1,260 @@
+{
+  "schema": "civ6.native-debit406-unknown-persistence/v1",
+  "utc": "2026-11-05T06:43:49.125445+00:00",
+  "date_local": "2026-11-05",
+  "machine_id": "BF-202609141645",
+  "build": 74,
+  "status": "ACTUAL_DEBIT_WITHOUT_POSITIVE_RECEIPT_STAYS_FROZEN_ACROSS_OFFICIAL_LOAD",
+  "scope": "Same owned18760/birth1793831208.9333148, same turn114; separate prepared branch from405. Same textual requestID is expected for independent restored checkpoint branches, not a twice-executed live ledger.",
+  "transaction_id": "city:0:114:2162700:1:524295:41:19",
+  "actual_input": {
+    "physical_right": 1,
+    "physical_confirm": 1,
+    "ui_player_requisition_requests": 1,
+    "down_up_move_interact_each": 1,
+    "semantic_open_or_capture_calls": 0,
+    "paid_request_replays": 0
+  },
+  "fault": {
+    "binding": "BaiqiGameplay BaiqiPolicy.Number only",
+    "condition": "One precise SUBMITTED/CHARGING call after actual debit with before4524.2734375, value/currentgold4224.2734375, transferObservedtrue, absentchargeObserved/balanceAfter, exact request/turn/player/actor/newcity identities. Unknown stages and further calls forward unchanged.",
+    "blocked": 1,
+    "passed": 29,
+    "matcher_errors": 0,
+    "ledger_or_gold_writes_by_hook": 0,
+    "cleanup": "Verbatim6line candidate cleanup, hash-qualified and ownership-checked; derived from supplied405reference. All8bindings restored before Save."
+  },
+  "observed_before_save_and_after_load": {
+    "stage": "UNKNOWN",
+    "phase": "CHARGING",
+    "reason": "execution_interrupted",
+    "operations": 1,
+    "city_owner": 0,
+    "new_city_id": 851979,
+    "city_position": [
+      41,
+      19
+    ],
+    "population": 1,
+    "gold_before_request": 4524.2734375,
+    "gold_current": 4224.2734375,
+    "gold_drop_observed": 300,
+    "cost": 300,
+    "balance_before_receipt": 4524.2734375,
+    "balance_after_receipt": null,
+    "transfer_observed": true,
+    "charge_observed": null,
+    "actor_id": 2162700,
+    "actor_position": [
+      42,
+      19
+    ],
+    "actor_moves": 4,
+    "actor_requisition_cooldown": null,
+    "extra_charge_or_refund_observed": false,
+    "same_actor_and_same_city_conflict_predicates": true,
+    "conflict_limit": "Pure real Conflict predicate readback only, not a second UI request attempt.",
+    "native_transfer_calls_before_save": 1,
+    "native_finish_calls_before_save": 0,
+    "native_treasury_debit_counter": null,
+    "treasury_counter_limit": "Actual300balance drop and exact source call site, not direct counter on treasury userdata.",
+    "bootstrap_native_counters": null
+  },
+  "save_interrupted": {
+    "utc": "2026-11-05T06:27:21.037399+00:00",
+    "name": "Baiqi_P6_20261105_V74_DebitUnknown114.Civ6Save",
+    "bytes": 568819,
+    "sha256": "00d7b6fbba1336c9c6519e5572419b06d4c589c906acb2826c1d8a32f39be90d",
+    "stable_repeated_read": true
+  },
+  "recovery_probes": {
+    "after_fault_cleanup_before_save": 2,
+    "after_load": 2,
+    "before_save_totals_native_transfer_finish": [
+      1,
+      0
+    ],
+    "post_load_fresh_native_transfer_finish": [
+      0,
+      0
+    ],
+    "phase_balance_moves_unchanged": true,
+    "paid_request_replays": 0
+  },
+  "owner_driver_error": {
+    "occurred": true,
+    "classification": "Owner Python-to-Lua projection separator, not model or product failure",
+    "failed_label": "before-save-once",
+    "result": "Whole chunk Native syntax rejection,0Recover or gameplay actions from failed chunk. Original attempt and parser failure retained.",
+    "repair": "Insert separator; Lua53 compile every prepared context chunk before Native query. New qualified label, no paid Request replay.",
+    "later_probe_label": "before-save-once-qualified"
+  },
+  "model406": {
+    "mode_id": "http-candidate",
+    "logical": 406,
+    "shared_commit": "cb18731a62535423c67acec5eb9c86d8c3f2d5e4",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "max_tokens": 4500,
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 20608,
+      "completion_tokens": 1441,
+      "total_tokens": 22049
+    },
+    "ttft_ms": 2743.359300016891,
+    "total_ms": 11707.46910001617,
+    "cached_prompt_tokens": null,
+    "compile_install_cleanup_lua53": true,
+    "raw_install_game_execution": 0,
+    "raw_cleanup_game_execution": 1,
+    "adoption": "Install structure partial with owner field/runtime/scope/varargs corrections; cleanup6lines verbatim (derived from supplied405owner reference), no novel cleanup credit.",
+    "raw_install_missed_in_actual_capture_gameplay_software_witness": true,
+    "raw_install_error": "balanceBefore must already be4524.2734375 in CHARGING, not nil.",
+    "owner_corrections": [
+      "balanceBefore is persisted4524.2734375 before debit, not nil",
+      "Thrown Number error is outside the treasury pcall and is caught by outer Execute as execution_interrupted",
+      "CHARGING is always rejected by Recoverable phase whitelist; chargeObserved cannot make that phase eligible",
+      "Runtime turn/localplayer guard added; actual record and city/actor identity rechecked",
+      "All varargs forwarded; exact value comparison avoids NaN passing a tolerance guard",
+      "One scoped SUBMITTED/CHARGING hit suffices: after UNKNOWN the product itself freezes, so remaining Number calls pass unchanged"
+    ],
+    "diagnostic_safety_checks": 8,
+    "product_tests_added": 0,
+    "owner_phase_events": [
+      {
+        "utc": "2026-11-05T05:44:37.330795+00:00",
+        "task": "recovery406",
+        "event": "PREP_BEGIN",
+        "earlier_selection_seconds": null
+      },
+      {
+        "utc": "2026-11-05T05:45:56.436844+00:00",
+        "task": "recovery406",
+        "event": "PREP_END",
+        "earlier_selection_seconds": null
+      },
+      {
+        "utc": "2026-11-05T06:01:10.911078+00:00",
+        "task": "recovery406",
+        "event": "REVIEW_BEGIN",
+        "earlier_selection_seconds": null
+      },
+      {
+        "utc": "2026-11-05T06:07:15.147525+00:00",
+        "task": "recovery406",
+        "event": "REVIEW_END",
+        "earlier_selection_seconds": null
+      },
+      {
+        "utc": "2026-11-05T06:07:26.312838+00:00",
+        "task": "recovery406",
+        "event": "CORRECTION_BEGIN",
+        "earlier_selection_seconds": null
+      },
+      {
+        "utc": "2026-11-05T06:16:10.037657+00:00",
+        "task": "recovery406",
+        "event": "CORRECTION_END",
+        "earlier_selection_seconds": null
+      }
+    ],
+    "later_owner_driver_repair_active_seconds": null,
+    "earlier_selection_seconds": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null,
+    "maintenance": "Canonical CLI same-machine/user Nov5 successful1.19.5cache before POST;0OpenCode native generation."
+  },
+  "http405406_post_intervals": [
+    {
+      "logical": 405,
+      "post_begin": "2026-11-05T05:25:12.669695+00:00",
+      "attempt_end": "2026-11-05T05:25:21.376027+00:00",
+      "seconds": 8.706332
+    },
+    {
+      "logical": 406,
+      "post_begin": "2026-11-05T05:45:56.925154+00:00",
+      "attempt_end": "2026-11-05T05:46:08.632702+00:00",
+      "seconds": 11.707548
+    }
+  ],
+  "client_inflight_peak": 1,
+  "peak_duration_seconds": 20.41388,
+  "peak_duration_scope": "Sum of two separated peak1POST intervals, not continuous concurrency or server-running/KV sample.",
+  "cumulative_through406": {
+    "logical": 406,
+    "complete_stop_valid": 376,
+    "length_discarded": 27,
+    "final_transport_failed": 3,
+    "http_attempts": 436,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "model405_shared_record": {
+    "commit": "c5c8b86f9c2608c7d3c172691ab70b927f6636ca",
+    "url": "https://github.com/XenoAmess/local-model-operations/blob/c5c8b86f9c2608c7d3c172691ab70b927f6636ca/docs/evidence/2026-11-05-civ6-recovery405.json"
+  },
+  "image": {
+    "path": "docs/testing/screenshots/baiqi-74-debit-unknown114.png",
+    "sha256": "e41363a51d852be42757169048a10c41ea526c5907bd82fd943e5bbd0c209cd9",
+    "raw_bytes_unchanged": true,
+    "scope": "Actual post-load unknown QA branch: gold4224 and rider4/4 visible. Internal phase/receipts proven by separate Core reads."
+  },
+  "namespace_cleanup_verified": true,
+  "original_normal_save_sha256_unchanged": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6",
+  "current_state": "Official normal Farm114 Load ACKtrue after preserved406unknown branch; independent in-game baseline restore still pending at this cutoff.",
+  "limits": [
+    "Controlled Number fault and QA war/own actor placement/city damage, not spontaneous retail fault or natural battle",
+    "Only one same-process/same-turn CHARGING branch; not full interruption/cold/third-party matrix",
+    "No automatic refund or successful settlement awarded; persistent conflict freeze is expected safety outcome",
+    "No manual receipt patch, balance adjustment, unknown-clear or military order used to complete settlement"
+  ],
+  "steam_online_switches": 0,
+  "product_changes": 0,
+  "software_suite_rerun": false,
+  "full40_native_complete": false,
+  "raw_evidence_sha256": {
+    "recovery406-confirm-attempt.json": "83bf5ab688fd6da6469c745314f04db0eb043994aeedbe5581cf1c28a70bd9ab",
+    "recovery406-conflict-read-after-load-response.json": "d8e1f84c9bf4275b6314bfed988b41a5e3b34ce01ba244a1a2d8bf1d55b044b4",
+    "recovery406-conflict-read-before-save-response.json": "cfc7b475a51ff65c8eaca2510fc52306d527f2907447a623125241068220c403",
+    "recovery406-continue-interrupted-attempt.json": "ac7593454806ab6add97cda9c4458cc337c616999c8780590cc9feceb77cb499",
+    "recovery406-continue-prepared-attempt.json": "cf2671a78f6f94221182c5c7aa6d4d5d96e9659b1d52549eaad93a8d0b1e913d",
+    "recovery406-fault-cleanup-response.json": "88c7bcc993e5ed2300bc60ef7ff2ccf9779e6f681b566d39278e63302275a079",
+    "recovery406-fault-read-after-confirm-response.json": "09e95654e551ed258bdcf4ebfabe8f4968b082d418961b3dc66df95d9b0e8efe",
+    "recovery406-fault-software-witness.json": "56d2def8e0fa62d621d0825e640510820e316055f33e21880055b4ecf43f357f",
+    "recovery406-input-cleanup-response.json": "9ae93de9c78fbff3b39293c6dad43922a998a9e4107ca7494ea132c4b262ce94",
+    "recovery406-input-read-opened-response.json": "ed67dc1c10e4b2b91e0b9a3715d3d02fd839b248a80ccead42e572130093b768",
+    "recovery406-load-interrupted-response.json": "7814a73ae43c64f43bdf573664dce6d6ef91a307184729b723949cbb6aff43c2",
+    "recovery406-load-normal-response.json": "9be883298272bf97a104c853cee8b8503c369092a6fd99af8e243291ee291b7e",
+    "recovery406-load-prepared-response.json": "23486cc685aa1695569961a331a3e6c114064ed3a7b4fbe3f41cb13b025a8644",
+    "recovery406-model/ADAPTER-PROVENANCE.json": "cdc281c51d6fc9ce66c43ce799ee0d6602ac266a699f98e16be397e40e303f09",
+    "recovery406-model/ATTEMPT1-RESULT.json": "2b3e64cafacf6534f72c3ba0fa9f2f333f22f4c15c7eec89a7a1db8c0349a5b2",
+    "recovery406-namespace-check-after-load-probes-response.json": "49cd5d9950c67768c82ca778e54ea3a0d17a39868a39aafaeea368b40ef411f8",
+    "recovery406-namespace-check-before-save-response.json": "009eb4eb948d3a8eac3dbd2aea6ef133fc3d15502dd55a3f8e3be5ae98a4e81c",
+    "recovery406-observer-cleanup-post-load-response.json": "28fc23e84f296ae6b687dea324aa3707323cf2fd381c6ec0b7f6f9fa77446271",
+    "recovery406-observer-cleanup-response.json": "d806ecfc2705f09e694530b266547838afedcd2b4c20bb5525c2da72deeeac74",
+    "recovery406-observer-read-after-confirm-response.json": "5af4fba5f1f50b0d870260f8221eb304dccacfae40ace45a46a1cac12dc249e3",
+    "recovery406-observer-read-after-fault-removed-response.json": "e9e02d63b9f6e84566f614e8c81c755168a95e235745169fb82b3892e0fb3a61",
+    "recovery406-observer-read-after-load-probes-response.json": "4792c73602139979a92e578b6b9d333b9bbb1557fcad648af70cd2f676f55ace",
+    "recovery406-owner-driver-syntax-repair.json": "b4fdd0c4d24aa37b7157023a24cd5b87e44e28d70592d2d50921edafc36e5d43",
+    "recovery406-prepared-read-response.json": "fa28b912dcee58430d194a57a4a3ef4ac0969ae595a836767456fb6027fee8e2",
+    "recovery406-recover-probe-after-load-once-response.json": "4bd4ce870f45b53f5fd3adc8902494ab4dd684c94541188cf0ccc410fc5ca062",
+    "recovery406-recover-probe-after-load-twice-response.json": "b716ddb4034bc2622ab0fe4075c7d5fc75a772e70957e115e7969285a020b798",
+    "recovery406-recover-probe-before-save-once-qualified-response.json": "d182230dfebbd837b82ce5dddf15a10a6ce42c80735c577d5cd008f6e5b9e7a5",
+    "recovery406-recover-probe-before-save-twice-response.json": "c9f5ae6c3ee0acaafbfee741d62e2863db74da6d8ef9b33eb91aac9826c351c0",
+    "recovery406-request-cleanup-response.json": "b702b066d9e2b10a3f90e1c10c4f74dcc78af5da326de444ef4b76519e7f3fd9",
+    "recovery406-request-read-after-confirm-response.json": "843b476511dbc52717e78a4c3761df579d6fb4e8804418b0b5b8953bda2b4895",
+    "recovery406-save-interrupted-ack.json": "4015f4a5ab4a6b78ec333e0a356c10a99dd64598c1606439083dfba27e6a3aa6",
+    "recovery406-save-interrupted-core-preflight-response.json": "24da00b5cc0be75cfe1f4a599eaac3d415afa0cf09bc27c709e2ee049f303fa6",
+    "recovery406-save-interrupted-response.json": "1f0b32532e58168a0c0d9adc61ccf319d3f74d2b1d67df46b4a3f4f66be46571",
+    "recovery406-state-core-after-load-response.json": "a05216ace2d65e373bb888846bf614202105593449c156bd752258ddc314796a",
+    "recovery406-state-ui-after-load-response.json": "4fe50076f3adf48f638e0dc050f6533fac65b47a5c04db83da708e41a809d1e9",
+    "source73-progress114-save-receipt.json": "9f2b2354ab90c88d0b4a82436f77299b12a800510ea6b1631cbb4871427beb6d"
+  }
+}
