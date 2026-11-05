@@ -86,3 +86,5 @@ python tools\build_mod.py --install
 - [76驻军旗帜确认修复](docs/testing/baiqi-garrison-flag-confirmation-76.md)：复用已有征取弹窗，新增10回归及完整1058项软件检查通过；安装／冷启实机复测待做，原75旗帜FAIL尚未关闭。
 
 - [76驻军旗帜冷启实机三选](docs/testing/baiqi-garrison-flag-native-76.md)：取消不扣费／不战斗，确认300只结算一次，继续进攻才发生原版战斗；四张原始实机图和存读档证据入库，关闭同一75入口的窄FAIL，Alpha74未更新。
+
+- [76正常训练新移民与人口成本](docs/testing/baiqi-natural-settler-training-76.md)：后台选生产、0→153／175进度、125回合新单位与人口10→9→10的有序事件，三张原始实机图已内嵌；新移民的完整建城链仍在继续。

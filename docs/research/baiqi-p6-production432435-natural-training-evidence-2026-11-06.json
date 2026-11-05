@@ -1,0 +1,480 @@
+{
+  "schema": "civ6.production432435-natural-settler-training/v1",
+  "utc": "2026-11-05T19:02:49.479042+00:00",
+  "date_local": "2026-11-06",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 76,
+  "product_code_pin": "96b1797682141d01e8e2916a5386b873c8ec5e0b",
+  "owned_pid": 22124,
+  "birth": 1793894919.90116,
+  "endpoint_port": 4318,
+  "product_changes": 0,
+  "initial119": {
+    "official_loaded_historical74_save": {
+      "utc": "2026-11-05T09:37:35.729788+00:00",
+      "name": "Baiqi_P6_20261105_V74_SiteRecoveredFounded119.Civ6Save",
+      "bytes": 578475,
+      "sha256": "546e22137ef99d10e3e7875dcd53029f072240dc44e89d5f997e6b234a530c5a",
+      "stable_repeated_read": true
+    },
+    "actual76_readback": true,
+    "cities": 12,
+    "live_settlers": 0,
+    "settler_queues": 0,
+    "gold": 4746.53125,
+    "faith": 494.46484375,
+    "ui_core_unit_counts": [
+      49,
+      50
+    ],
+    "core_retained_old_settler": [
+      6684713,
+      -9999,
+      -9999,
+      false,
+      true
+    ],
+    "scope": "Historical QA world and stock, not a fresh ordinary opening or balance test. Same-process official save load, not independent cold training launch."
+  },
+  "natural_queue": {
+    "source_city": [
+      0,
+      196610,
+      10,
+      13
+    ],
+    "bank_completed_turn": 120,
+    "background_request": "0:120:6",
+    "background_queue_observed": true,
+    "unit_index_hash": [
+      0,
+      -798712536
+    ],
+    "base_cost": 80,
+    "runtime_cost": 175,
+    "base_population_cost": 1,
+    "progress_by_turn": {
+      "120": 0,
+      "121": 40,
+      "122": 78,
+      "123": 115,
+      "124": 153
+    },
+    "population_before_completion": 10,
+    "all_other_settler_queues": 0,
+    "manual_production_resource_population_or_unit_creation_commands": 0
+  },
+  "actual125_events_in_order": {
+    "observer_count_dropped_errors": [
+      26,
+      0,
+      0
+    ],
+    "event20": {
+      "kind": "UnitAddedToMap",
+      "raw_args": [
+        0,
+        7274546,
+        10,
+        13
+      ],
+      "actual_unit": [
+        7274546,
+        0,
+        0,
+        10,
+        13,
+        false,
+        false
+      ]
+    },
+    "events21_22": {
+      "kind": "CityPopulationChanged",
+      "raw_args": [
+        0,
+        196610,
+        9
+      ],
+      "actual_population": 9,
+      "food_surplus_threshold": [
+        53.55859375,
+        16,
+        50
+      ],
+      "scope": "Two notifications of population9, not two separate population charges.",
+      "instant_settler_progress_cost": [
+        191,
+        175
+      ]
+    },
+    "event23": {
+      "kind": "CityProductionCompleted",
+      "raw_args": [
+        0,
+        196610,
+        0,
+        0,
+        false,
+        0
+      ],
+      "actual_population": 9,
+      "settler_progress_cost_after_clear": [
+        0,
+        190
+      ],
+      "scope": "raw fourth arg rowIndex0, not fullunitID; following future-unit cost190is not this training cost."
+    },
+    "event24": {
+      "kind": "CityPopulationChanged",
+      "raw_args": [
+        0,
+        196610,
+        10
+      ],
+      "actual_population": 10,
+      "food_surplus_threshold": [
+        17.18359375,
+        18,
+        57
+      ]
+    },
+    "conclusion": "One population consumed10to9, then natural growth9to10. Net10to10does not demonstrate zero population cost; duplicate9notification is not cost2. No global native production-debit API count or inferred overflow qualification."
+  },
+  "before124_rule_qualification": {
+    "governor_index_type_established": [
+      4,
+      "GOVERNOR_THE_BUILDER",
+      true
+    ],
+    "actual_provision_promotion_type_index_hash": [
+      "GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION",
+      20,
+      201364422
+    ],
+    "actual_has_provision": false,
+    "food_surplus_threshold": [
+      53.55859375,
+      18,
+      57
+    ],
+    "shipped_primary_rule": {
+      "Expansion1": {
+        "GovernorPromotionModifiers": [
+          {
+            "GovernorPromotionType": "GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION",
+            "ModifierId": "EXPEDITION_ADJUST_SETTLERS_CONSUME_POPULATION"
+          },
+          {
+            "GovernorPromotionType": "GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION",
+            "ModifierId": "EXPEDITION_FASTER_INDUSTRIAL_DISTRICT_BUILDING_CONSTRUCTION"
+          }
+        ],
+        "Modifiers": [
+          {
+            "ModifierId": "EXPEDITION_ADJUST_SETTLERS_CONSUME_POPULATION",
+            "ModifierType": "MODIFIER_CITY_ADJUST_SETTLER_CONSUME_POPULATION"
+          }
+        ],
+        "ModifierArguments": [
+          {
+            "ModifierId": "EXPEDITION_ADJUST_SETTLERS_CONSUME_POPULATION",
+            "Name": "Enabled",
+            "Value": "false"
+          }
+        ]
+      },
+      "Expansion2": {
+        "GovernorPromotionModifiers": [
+          {
+            "GovernorPromotionType": "GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION",
+            "ModifierId": "EXPEDITION_ADJUST_SETTLERS_CONSUME_POPULATION"
+          }
+        ],
+        "Modifiers": [
+          {
+            "ModifierId": "EXPEDITION_ADJUST_SETTLERS_CONSUME_POPULATION",
+            "ModifierType": "MODIFIER_CITY_ADJUST_SETTLER_CONSUME_POPULATION"
+          }
+        ],
+        "ModifierArguments": [
+          {
+            "ModifierId": "EXPEDITION_ADJUST_SETTLERS_CONSUME_POPULATION",
+            "Name": "Enabled",
+            "Value": "false"
+          }
+        ]
+      }
+    },
+    "scope": "Shipped XML rule chain alone not applied-effect proof; actual assigned governor and HasPromotion read checked before completion, plus ordered runtime population/unit/completion observations."
+  },
+  "produced125": {
+    "core_ui_agree": true,
+    "healthy_live_settlers": 1,
+    "actor": [
+      0,
+      7274546,
+      0,
+      12,
+      16,
+      0,
+      1,
+      false,
+      false
+    ],
+    "queued_settlers": 0,
+    "source_city_population": 10,
+    "source_city_next_head": "DISTRICT_CAMPUS",
+    "next_runtime_settler_cost": 190,
+    "gold": 5415.56640625,
+    "faith": 610.29296875,
+    "ui_core_raw_unit_counts": [
+      50,
+      51
+    ]
+  },
+  "official_saves": {
+    "precompletion124": {
+      "utc": "2026-11-05T18:39:17.439886+00:00",
+      "name": "Baiqi_P6_20261106_V76_NaturalSettlerPre124.Civ6Save",
+      "bytes": 579772,
+      "sha256": "c01c125818ce0324eea7611aaf6fe99a62710a80029b41f08355b1e7701def16",
+      "stable_repeated_read": true
+    },
+    "produced125": {
+      "utc": "2026-11-05T18:42:16.214817+00:00",
+      "name": "Baiqi_P6_20261106_V76_NaturalSettlerProduced125.Civ6Save",
+      "bytes": 580398,
+      "sha256": "b25922f2accce5cb806a141e5531273378be9fbe2e1a6eadf618bec95745bb4d",
+      "stable_repeated_read": true
+    },
+    "saved_bytes_and_repeated_hash_verified": true,
+    "reload_in_this_package": false
+  },
+  "normal_testplayer_inputs": {
+    "turn_end": "Official ACTION_ENDTURN without REASON/UserForced; actual turn/active/queue progress reread. Some actions execute queued movement and stay in turn, then fresh witnessed next action only.",
+    "military_skips119": [
+      1048576,
+      327683,
+      524292,
+      131073,
+      2686997
+    ],
+    "civilian_manual_operations": 0,
+    "selected_city_and_unit": "View only; actual production/citizen controls disabled, no manual domestic edit.",
+    "diplomacy": "Physical ordinary AI remark/embassy responses, including explicit rejection125 then Goodbye. TEST_PLAYER, not mod BACKGROUND.",
+    "world_congress121": {
+      "each_owned_proposal_votes": 1,
+      "review_total_favor_cost": 0,
+      "owned_selections": [
+        "A melee+5",
+        "A campusbuilding+100percent"
+      ],
+      "actual_adopted_results": [
+        "A melee+5",
+        "A theatersquarebuilding+100percent"
+      ],
+      "note": "AI changed final second target; not claim campus adopted. Reused qualified source presentation scroll only, physical vote submission once."
+    }
+  },
+  "owner_diagnostic_corrections": [
+    "432initial fixture incorrectly exposed Treasury.GetFaithBalance; Native readonly failure before output/actions. Corrected real Religion port and repeated6cases per reader; original preserved.",
+    "433metadata observer installed safely; Native read lacked table.unpack, stored events unaffected. Changed scalar-argument reader3cases, original error not a product script error.",
+    "Normal121followup gate refused because strategic commands false during Congress;0action. No bypass; TEST_PLAYERhandled Congress before continuing.",
+    "Two exact-pixel embassy rejection ROI gates refused before input. Actual fresh visually inspected owned screenshot physical choice then one rejection; no replay of a completed/unknown rejection.",
+    "Readiness maximum can expire while AI/modal/queued phases unfinished; qualifiedfalse explicitly stops dependent action, never counted as turn success."
+  ],
+  "ongoing_expansion127": {
+    "unit": 7274546,
+    "position": [
+      13,
+      16
+    ],
+    "cities": 12,
+    "found_city_count_in_route_observer": 0,
+    "route_observer_scope": "Installed125after initial background move to12,16; cannot retrocount that move. Reuses7existing call-through qualification checks with identity/range substitution, no new unique credit.",
+    "temporary_bindings_still_active": [
+      "P6Production433 event metadata observer",
+      "P6Production433Route call-through observer"
+    ],
+    "note": "Training and population-cost sample complete. New actor full route/founding/consumption/reload remain unfinished; no TC015full pass.127samepositionon one read not yet diagnosed as functionalFAIL."
+  },
+  "models432435": {
+    "models": {
+      "432": {
+        "shared_commit": "30d65635171e266f1f6d5f3c18b2f6022e438d56",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 8123,
+          "completion_tokens": 832,
+          "total_tokens": 8955
+        },
+        "total_ms": 7100.771000026725,
+        "ttft_ms": 1373.2146000256762,
+        "review": "Raw GetAll iteration, literal_TYPE_, inventedGetHash and pairs(GameInfo), no UI settlers/bounds/healthycount rejected. Owner Core/UI each6cases; corrected Treasury faith port after initial read-only Native failure, actualReligion port and same6cases repeated without extra credits.",
+        "raw_native_execution": 0,
+        "raw_product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical CLI reuses successful Nov6 OpenCode1.19.5 first-check429 daily cache.0new OpenCode native generation."
+      },
+      "433": {
+        "shared_commit": "9d682b2e4edc71f099e9f1f870fcc4b484a1f28c",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 12764,
+          "completion_tokens": 417,
+          "total_tokens": 13181
+        },
+        "total_ms": 4681.088900018949,
+        "ttft_ms": 1900.2669000183232,
+        "review": "Raw local h not persistent, mixed handlers/rows, no bound/pcall/atomic cleanup/nil tuples rejected. Owner8event observer cases, repeated after isolating select cityID. Native read lacked table.unpack; metadata stored safely, changed scalar reader3cases with both unpack ports absent, handlers unchanged.",
+        "raw_native_execution": 0,
+        "raw_product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical CLI reuses successful Nov6 OpenCode1.19.5 first-check429 daily cache.0new OpenCode native generation."
+      },
+      "434": {
+        "shared_commit": "9d682b2e4edc71f099e9f1f870fcc4b484a1f28c",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 18078,
+          "completion_tokens": 627,
+          "total_tokens": 18705
+        },
+        "total_ms": 6974.494699970819,
+        "ttft_ms": 2478.194799972698,
+        "review": "Raw unsupported Cities.GetCity/GetSettler and city growth APIs, wrong promotion fields, invented established state; food balance mislabeled surplus, cityID as unitIndex, production175as populationcost. Rejected, owner5guarded readonly cases and exact shippedXML rule chain.",
+        "raw_native_execution": 0,
+        "raw_product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical CLI reuses successful Nov6 OpenCode1.19.5 first-check429 daily cache.0new OpenCode native generation."
+      },
+      "435": {
+        "shared_commit": "9d682b2e4edc71f099e9f1f870fcc4b484a1f28c",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 26781,
+          "completion_tokens": 591,
+          "total_tokens": 27372
+        },
+        "total_ms": 8040.144200029317,
+        "ttft_ms": 3703.780900046695,
+        "review": "Candidate phase order only adopted. Owner rewrote player prose, corrected population sequence125instead of121-124, UNIT Index not QueueIndex, next unit cost not current training cost, prohibitions not untested promised features. No raw prose or code autoapplied.",
+        "raw_native_execution": 0,
+        "raw_product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical CLI reuses successful Nov6 OpenCode1.19.5 first-check429 daily cache.0new OpenCode native generation."
+      }
+    },
+    "raw_native_execution": 0,
+    "raw_product_application": 0,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through435": {
+    "logical": 435,
+    "complete_stop_valid": 404,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 465,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/settler76/queued120.png",
+      "raw_unedited": true,
+      "sha256": "a332a7ab41e2afc1f2dddd3a2f8e8c1ac068c02a5b4bd2126a1376d708e65b9c",
+      "caption": "120city readonly panel shows new settler training after background selected it,5turns remaining; native exact progress0/175and disabled controls independently read."
+    },
+    {
+      "path": "docs/testing/screenshots/settler76/precompletion124.png",
+      "raw_unedited": true,
+      "sha256": "5c8f973f48bed23c0bce174b87fba55a567160624ad37549b41bc363512e6c1c",
+      "caption": "124readonly city panel,1turn remaining/pop10. Actual progress153/175, growth and governor state independently read."
+    },
+    {
+      "path": "docs/testing/screenshots/settler76/produced125.png",
+      "raw_unedited": true,
+      "sha256": "64154387f96b909bd7280f6b65f6ebf9ac19f40f1635135f9cacdf10203a8345",
+      "caption": "125actual new settler selected for viewing only,0/2moves. Native exactfullID7274546and12,16read independently; camera beam/hovered tooltip does not prove unit coordinates or lineage."
+    }
+  ],
+  "software_baseline": "Source76full1058passed95.655s; product unchanged, no redundant suite rerun for private diagnostics/docs.",
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "alpha74_changes": 0,
+  "remaining": [
+    "New normal-produced actor full safe-route/founding/consumption/save-reload",
+    "No-provision sample only; immunity/other-speed/governor/compatibility population-cost combinations not all covered",
+    "Full40Native matrix, broader domestic/long-run/pressure, prior75exit residue cause"
+  ],
+  "raw_sha256": {
+    "production432-owner-qualification.json": "b98ace2869abf9f2012361e23db801755370dc1e0db52c667268b993724e03cc",
+    "production432-owner-qualification-v2.json": "34365a20ed5acda0a03caa0f4df28d84507b14427b67e01a69edc809c1f53f52",
+    "production433-owner-qualification-v2.json": "725e3f7f49d5843e94c730f3d595b7d87f837545ce46e49bcd40cc34038210c5",
+    "production433-read-v3-qualification.json": "0bdffb44f94183124ee0e5a94f713d4e15740c2bc8537a633ad5edd76f1b1447",
+    "production434-owner-qualification.json": "d8e81fe5f72f50d159ced1220b199ed4473c7b4a510200b1820b2c3e40680185",
+    "production434-exact-primary-rule.json": "7000647f58fe0690d86030564d7dda93f58acbe2f05777bbdae4e8182d591f24",
+    "production432-read-after-load119-v2-response.json": "c535a23244eeb0ced91acd6eb044ee22b9f563633a130f5647053c9c48a4f42b",
+    "production432-read-after-goodbye120-response.json": "1409fedb3961b1845b4050c28e34313b8abce01a8b2c2385550fb9b6fffbfc79",
+    "production434-read-before-end122-response.json": "1328e9a9f6bd528e2620c4f3dd737e3ec16b932dc41a0dc48febf77fd7390842",
+    "production434-read-before-end123-response.json": "318cac1db3902fe78e5a2568c1ed346bbb10970fbc5b5bed1e10462961e144ed",
+    "production434-read-before-natural-completion124-response.json": "488ee5303a98ce4be1706f7f111250796725774da9b9d82cb4d5ef0797299159",
+    "production433-read-actual-completed125-response.json": "85981f1551c99934fa441902a3f6f0baac801df1573ae1e5cb83706dcb059e5b",
+    "production432-read-naturally-produced125-response.json": "0d0a66d91583ea85cb1c082f3fb7e6756548ab3321e327d1f55ae18ca97e2663",
+    "production433-save-natural-precompletion124-response.json": "fc0e805c513c9b1bc244ebd431f32389b39d32195ba722ecacb4706a0e1acdc9",
+    "production433-save-natural-produced125-response.json": "9756fe14f186e4b2ef3331623e64fa2872278459aafb62d4245379c4ce0495a3",
+    "production433-log-natural-produced125-index.json": "329182f70cf7437fc5871519c75128f6fabc1ffe33738869b672725c910c5a7c",
+    "production433-gate121-refused-readback.json": "11d194869b1ee878f72096ab831f0e8715cf69d7197dd87faf5d18ffe95259fe",
+    "production433-route-read-natural126-response.json": "4fc3ff77b97eb38a99a1b5346b3001c6ff483dfc723b1f241416b34a98f277d4",
+    "production433-route-read-natural127-response.json": "2670176229e42b96410cd832f6db95d039f9b47443da4e29e1c0256b7ba494c7",
+    "production432-caller.log": "6cd94bc023cb00818113e0c80c12d4e650a3aadce9f072a1b869b2a00072eb04",
+    "production432-model/ATTEMPT1-RESULT.json": "ce4bfdf0904dfe92a13672b1d0e0afdea3c158c91e77e6eb2c435d03c22fe2c4",
+    "production432-model/ATTEMPT1-CONTENT.txt": "63e3e618ef157fdb5e50e224dc319efa2a4ac791d6d12a77a880fb21b99d11cf",
+    "production432-model/ADAPTER-PROVENANCE.json": "e093a39b7aeb0a4f7680f57c7ead98eb6052ae600d3383126cca4ff49c823bc6",
+    "production433-caller.log": "657e52d389c95b88755c01451a4f684884970d1d375324f044d41a61697e74e9",
+    "production433-model/ATTEMPT1-RESULT.json": "ee530aa673a301412540b76b47317119893fd0e9fe56afc0f07868ff4519744e",
+    "production433-model/ATTEMPT1-CONTENT.txt": "642a81d6b5f1e3b4ad0299044a83c9c4d5241b546d5a27958dffcbae886e3072",
+    "production433-model/ADAPTER-PROVENANCE.json": "a2da39c919c8f0723062779c8fc52b930f191a876a6bbbd623508bd81a4cf8aa",
+    "production434-caller.log": "00025566e1e9ef46ea9ab907d7248bdd5781aeafd3b9d324cf88f6a6716880a2",
+    "production434-model/ATTEMPT1-RESULT.json": "7901cc6a4545020ae322cf8d5375b83e09bd853d8fc2b5bab31d2dd24edd1c7e",
+    "production434-model/ATTEMPT1-CONTENT.txt": "a15a159546c1a4a48bdf87fb036aeb34a1c55e82ecb610df58d2bb971da2bcaa",
+    "production434-model/ADAPTER-PROVENANCE.json": "a2da39c919c8f0723062779c8fc52b930f191a876a6bbbd623508bd81a4cf8aa",
+    "production435-doc-caller.log": "b495eabf2509ec4bdc95f1d6080c23aa1eb6ef7bdebbdda711f21f3b00154892",
+    "production435-doc-model/ATTEMPT1-RESULT.json": "d4ab8b19d84b915dd08d396b1f8d7e68ae4406ef9482ecbe00ccccf2cc3e9659",
+    "production435-doc-model/ATTEMPT1-CONTENT.txt": "f22573831d5375fd0cccadc6c7a328ea72504a0c2cf53b159103c1be6880231f",
+    "production435-doc-model/ADAPTER-PROVENANCE.json": "a2da39c919c8f0723062779c8fc52b930f191a876a6bbbd623508bd81a4cf8aa"
+  }
+}
