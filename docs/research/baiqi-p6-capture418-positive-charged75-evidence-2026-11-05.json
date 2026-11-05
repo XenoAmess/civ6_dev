@@ -1,0 +1,169 @@
+{
+  "schema": "civ6.capture418-positive-charged75/v1",
+  "utc": "2026-11-05T12:45:44.765431+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 75,
+  "product_code_pin": "1961f9117028b7e0c4e67125e9d72b122ccd2040",
+  "product_changes": 0,
+  "owned_pid": 15788,
+  "birth": 1793880723.3621035,
+  "actual_pending": {
+    "independent_garrison114_qa": true,
+    "not_natural_combat": true,
+    "physical_right": 1,
+    "physical_confirm_300": 1,
+    "ui_paid_requests": 1,
+    "native_transfer_calls": 1,
+    "native_finish_calls": 0,
+    "fault_boundary": "Actual positive persisted CHARGED, MatchesID before settlement actor/cooldown. Immediate recovery hits same unit eligibility and fails closed.",
+    "fault_blocked": 2,
+    "passed": 4,
+    "matcher_errors": 0,
+    "stage": "UNKNOWN",
+    "phase": "CHARGED",
+    "transfer_observed": true,
+    "charge_observed": true,
+    "new_city": [
+      0,
+      851979,
+      41,
+      19,
+      1
+    ],
+    "balance_before": 4524.2734375,
+    "balance_after": 4224.2734375,
+    "gold": 4224.2734375,
+    "army": [
+      0,
+      2162700,
+      42,
+      19,
+      4
+    ],
+    "cooldown": null
+  },
+  "saved": {
+    "utc": "2026-11-05T12:33:17.044694+00:00",
+    "name": "Baiqi_P6_20261105_V75_ChargedBeforeCooldown114.Civ6Save",
+    "bytes": 568843,
+    "sha256": "a4b0db4ab59ff2d85acf3ca94d1b12010033b61bf09144d13131a5e29d09a21f",
+    "stable_repeated_read": true
+  },
+  "temporary_fault_held_during_official_save": true,
+  "fault_game_property_writes": 0,
+  "input_and_native_observers_cleaned_before_save": true,
+  "fault_cleaned_before_load": true,
+  "charged_no_cooldown_state_reconfirmed_after_cleanup": true,
+  "same_process_reload": {
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "gold_before_load": 4224.2734375,
+    "gold_after_load": 4224.2734375,
+    "charged_receipt_preserved": true,
+    "army_moves": 0,
+    "cooldown": 114,
+    "fault_absent": true,
+    "post_bootstrap_two_recover": {
+      "transfer": 0,
+      "finish": 0,
+      "errors": 0
+    },
+    "bootstrap_native_counts": null,
+    "direct_treasury_native_debit_refund_counts": null
+  },
+  "normal114_restored": {
+    "three_contexts": true,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "horse_original_moves": 4,
+    "builder_charges": 1,
+    "journal": null,
+    "diagnostic_bindings_clear": true
+  },
+  "model418": {
+    "shared_commit": "b90756dfe608984138739a38338e05ad861eae3f",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 15207,
+      "completion_tokens": 1055,
+      "total_tokens": 16262
+    },
+    "total_ms": 8437.792300013825,
+    "ttft_ms": 2198.713499994483,
+    "cached_prompt_tokens": null,
+    "candidate_lua_lines": 38,
+    "owner_diagnostic_checks": 7,
+    "raw_candidate_native_execution": 0,
+    "adoption": "Most protected binding/rollback and actual CHARGED predicate, verbatim6-line cleanup. Owner corrected dropped extra arguments and used object/method guards with single ID read.",
+    "raw_variadic_result": [
+      2,
+      true
+    ],
+    "owner_variadic_result": [
+      4,
+      true,
+      27
+    ],
+    "candidate_software_checks": "Suggestions only, not actual executed results.",
+    "owner_qualification_correction": "First assertion expected nil return slot from zero-value trailing Lua select; actual raw has only2returns. Original failed log retained; corrected Lua arity assertion passes7 cases. No Native action in qualification.",
+    "maintenance": "Nov5 successful1.19.5 same-user/machine canonical cache;0new OpenCode native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through418": {
+    "logical": 418,
+    "complete_stop_valid": 387,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 448,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "separate_pending419": "HTTP candidate completed stop/VALID; Lua installer compile fails,0raw Native. This unfinished next-case request is excluded from bounded through418 totals; owner reviewing dual-port after-effect fault.",
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/capture75/charged-before-cooldown.png",
+      "sha256": "0bd13a149ee921183d837ec0e853f6db78da8b0ac05c15b14a2996364f407b06",
+      "version": 75,
+      "raw_unedited": true
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/charged-recovered.png",
+      "sha256": "a60cf645c1ed3d47307bda19cb9b551e51f4c0f66c403bee64c3cdfff3512b72",
+      "version": 75,
+      "raw_unedited": true
+    }
+  ],
+  "software_suite_rerun": false,
+  "software_baseline": "75 full1048 passed132.939s; diagnostics/docs only since code1961f911.",
+  "steam_online_switches": 0,
+  "limits": [
+    "One same-process CHARGED checkpoint, not fresh cold CHARGED load or all interruption points.",
+    "Balances/receipt and post-bootstrap counters separately reported; no direct Treasury count or bootstrap total.",
+    "Earlier417exit residual cause remains unknown; no new exit in418.",
+    "Native retained-ID delayed military removal and full40-case matrix pending."
+  ],
+  "raw_sha256": {
+    "capture418-fault-read-pending-response.json": "d6e46b83762023575cf4c8ae57a3ef8d1e2d5d2cb95d4bb97b729752ee9bc2a1",
+    "capture418-fault-state-after-cleanup-response.json": "fc40e0b04ffdb3b04c1201a4dcb2f55b05c70260b514f54ad4cec0b5c90c92e4",
+    "capture418-request-read-once-response.json": "79e2822422e9d11a6c89b125801b33b3195a71c5827413263af3fa6d55e563b7",
+    "capture418-input-read-once-response.json": "5363c0f62f75233450fc54f43c57d9198cc21b943e87aea1939ca2071723d549",
+    "capture418-save-charged114-response.json": "7b6880d6a05982af89f4114b90e995f49f8aab0c0400c4ed962885f0a1b443b7",
+    "capture418-pending-save-held-fault.json": "7d94ab8566c64f34b6e6b22ceba317b67f0be9d9ef781e3a6b17592f529eadc3",
+    "capture418-healthy-finish-read-first-load-response.json": "5833804ee15318f613ce8be7298bac95683eb52ec63cc4771bd1d16aab15bd19",
+    "capture418-healthy-finish-counts-completed-response.json": "3ee500f34182f1d01bd7a46d2e2db858516ef94f93f6edde55f64c25e81e6e3c",
+    "capture418-normal-restored-response.json": "d3d1eca14578fdb8b81365fdbd3a4808565ded5e050ea7d6ca022f393fece082",
+    "capture418-fault-software-witness.json": "32b11d54ad89ad6610629348b259d4758887e0df013ba85a7e00ba7e0432af20",
+    "capture418-qualification.log": "5f5ea93c27cd8a753d44bd7cd1af3bd023e554e5e9e6e8e9b0d00eb27b4d33b8",
+    "capture418-qualification2.log": "09d888ce2a4292f246e4160b752752b60613f3211cecde5b3464380982e52892",
+    "capture418-model/ATTEMPT1-RESULT.json": "1df0c50a3d9e9bdd58bf65a2be22e06121a9cffeb5addef987b35c3682eeb38b",
+    "capture418-model/ATTEMPT1-CONTENT.txt": "17a47cfaad396ba3b5247d538c1cb9662d74ec7709e067ee94692ef72bef9147"
+  }
+}

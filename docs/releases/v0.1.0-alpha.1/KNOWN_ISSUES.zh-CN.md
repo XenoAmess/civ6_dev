@@ -40,3 +40,6 @@
 
 
 75开发验收补齐正TRANSFERRED保存点恢复；同机另出现一次正式退出关窗后游戏进程残留，原因未定位、没有原版对照，不能归因模组或授干净关机通过。核验存档后只清理自有QA残留，Steam客户端及他人游戏未终止，新进程加载恢复成功。[两张实机图与退出限制](../../testing/baiqi-transferred-before-debit-75.md)。已准备[工坊风险补充BBCode](../../workshop/v0.1.0-alpha.1/known-issues-update-2026-11-05.bbcode)，尚未上传；后续Steam联网／上传仍须新鲜可靠的账号占用状态。
+
+
+75开发验收另补真实CHARGED、军队冷却尚未写入的保存点同进程恢复：金币保持，行动结清。只覆盖该阶段，公开Alpha74及工坊内容未更新。[前后两张实机图](../../testing/baiqi-charged-before-cooldown-75.md)。
