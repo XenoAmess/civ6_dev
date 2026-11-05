@@ -96,3 +96,5 @@ python tools\build_mod.py --install
 - [77军队训练实机跟踪](docs/testing/baiqi-military-production-77.md)：武汉炮兵109/165、北京步兵77/180，两张内嵌实机图；24现有加2在训符合13城需求26，出生／军费及上限持续观察继续。
 
 - [77新兵实际完成、玩家指挥与军费对账](docs/testing/baiqi-military-born-control-77.md)：炮兵146、步兵147出生，玩家移动炮兵实效与148正式读档通过；解释征兵政策淘汰带来的全军费用变化，新增3张内嵌实机图。低财政／缺资源分支继续。
+
+- [77低金币独立实机分支](docs/testing/baiqi-military-low-reserve-77.md)：69.754低于100储备、有缺兵且炮兵原生合法时，后台0单位请求、两座城继续合法建筑；受控夹具和主148恢复明确记录，资源不足分支继续。
