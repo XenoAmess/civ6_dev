@@ -75,3 +75,34 @@ function BaiqiActions.WrapMove(nativeMove)
     return nativeMove(unit,x,y)
   end
 end
+
+-- UnitFlagManager sends attacks directly, without WorldInput.MoveUnitToPlot.
+-- Keep this wrapper in that context and share the existing quote/dialog flow.
+function BaiqiActions.WrapFlagOperation(nativeOperation)
+  local unpackArgs=table.unpack or unpack
+  local function Coordinate(value)
+    return type(value)=="number" and value==value and value>=0 and value%1==0
+  end
+  return function(unit,operation,params,...)
+    if BaiqiUIGuard and BaiqiUIGuard.Civilian(unit) then return false end
+    local ops=UnitOperationTypes
+    local targeted=ops and ((ops.MOVE_TO~=nil and operation==ops.MOVE_TO)
+      or (ops.RANGE_ATTACK~=nil and operation==ops.RANGE_ATTACK))
+    if targeted and type(params)=="table" then
+      local x=ops.PARAM_X~=nil and params[ops.PARAM_X]
+      local y=ops.PARAM_Y~=nil and params[ops.PARAM_Y]
+      if Coordinate(x) and Coordinate(y) and Map and type(Map.GetGridSize)=="function" then
+        local width,height=Map.GetGridSize()
+        if Coordinate(width) and Coordinate(height) and x<width and y<height then
+          local args={n=select("#",...),...}
+          local function Continue(current)
+            if params[ops.PARAM_X]~=x or params[ops.PARAM_Y]~=y then return false end
+            return nativeOperation(current,operation,params,unpackArgs(args,1,args.n))
+          end
+          if BaiqiActions.Interact(unit,x,y,Continue) then return true end
+        end
+      end
+    end
+    return nativeOperation(unit,operation,params,...)
+  end
+end

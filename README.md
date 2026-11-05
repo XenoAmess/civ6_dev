@@ -82,3 +82,5 @@ python tools\build_mod.py --install
 - [75城邦征取后的正常生产](docs/testing/baiqi-vilnius-production-turn3-75.md)：后台自动排纪念碑，正常2→3后进度0→1／60；忠诚100、金币按净收入增加、军队恢复待命。单回合证据与实机图入库，未授建筑完工或长期稳定。
 
 - [75执行军队升级后的中断恢复](docs/testing/baiqi-upgraded-actor-recovery-75.md)：实际Core保留离图旧骑手完整ID，撤故障与存读档均冻结、无误补Finish；三张图入库。另确认驻军旗帜可绕过城市征取弹窗，记FAIL并继续修复。
+
+- [76驻军旗帜确认修复](docs/testing/baiqi-garrison-flag-confirmation-76.md)：复用已有征取弹窗，新增10回归及完整1058项软件检查通过；安装／冷启实机复测待做，原75旗帜FAIL尚未关闭。

@@ -1,5 +1,7 @@
 # Alpha 1 已知限制与未验收风险
 
+76开发修复：[驻军旗帜确认](../../testing/baiqi-garrison-flag-confirmation-76.md)已通过新增10回归及完整1058项软件检查，尚未冷装／实机复测；75该入口FAIL仍保持。已发布Alpha74不包含76，风险补充BBCode尚未上传。
+
 新实机风险：[75驻军旗帜城市交互](../../testing/baiqi-upgraded-actor-recovery-75.md)可走原版攻击、绕过地图征取弹窗；没有扣征取费用，但会消耗军队行动并发生战斗，现记FAIL、修复待复测。相同报告补齐75执行军队升级后旧Core延迟对象的冻结窄验。已发布Alpha74不含后续修复，工坊尚未同步该补充。
 
 75开发补验：[征取后正常下一回合](../../testing/baiqi-vilnius-production-turn3-75.md)后台纪念碑0→1／60，忠诚100；只有单回合，未授建筑完工或长期稳定。Alpha74及工坊内容仍未更新。

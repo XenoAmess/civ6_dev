@@ -85,7 +85,11 @@ class UIContextTests(unittest.TestCase):
                   TestNativeIncludes[#TestNativeIncludes+1]='UnitFlagManager'
                   local request=UnitManager.RequestOperation
                   TestFlagClick=function(unit) return request(unit,99,{}) end
+                  Events={GameCoreEventPlaybackComplete=TestEvent()}
+                  ContextPtr={SetShutdown=function(_,fn) TestFlagShutdown=fn end}
                 ''')
+            elif module == 'PopupDialog':
+                pass
             elif module == 'NaturalDisasterPopup':
                 lua.execute('''
                   TestNativeIncludes[#TestNativeIncludes+1]='NaturalDisasterPopup'
