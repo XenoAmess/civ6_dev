@@ -355,3 +355,5 @@
 - TC-018／030新软件反例：[74地图外军队形状](baiqi-capture-removed-actor-software-74.md)完整ID仍匹配时CHARGED／FINISHING会对移出地图／延迟销毁对象调用动作并完成；已有正常对照。不是Native军队FAIL，资格修复和实机复测待完成，相关边界未闭。
 
 - TC-018／030软件修复：[75军队可用性检查](baiqi-capture-actor-guard-75.md)覆盖转城后各可恢复阶段、延迟移除、读值异常及正常对照；软件通过，实机军队移除仍待验证，用例整体不改为完成。
+
+- TC-018／029／030补充：[75版实机复测](baiqi-capture-native-recovery-75.md)包含正常正回执恢复、未知扣款冻结、QA真实移除军队及同进程存读档；缺失单位样本未覆盖军队保留同ID的延迟销毁、自然战斗或过期FINISHING，相关用例仍部分验收。

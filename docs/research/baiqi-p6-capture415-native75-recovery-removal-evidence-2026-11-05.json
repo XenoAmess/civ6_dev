@@ -1,0 +1,233 @@
+{
+  "schema": "civ6.capture415-native75-recovery-removal/v1",
+  "utc": "2026-11-05T11:34:22.131857+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime_version": 75,
+  "source_commit": "1961f9117028b7e0c4e67125e9d72b122ccd2040",
+  "files": 87,
+  "offline_cold_launch": {
+    "old_owned_pid": 12052,
+    "old_official_exit": "OnExitGame once; process naturally absent before installation;0terminate/kill process calls",
+    "new_owned_pid": 13340,
+    "new_birth": 1793877573.3264081,
+    "proof_age_seconds": 0.004046,
+    "proof_readonly": true,
+    "proof_screenshot_input_activation_focus_move": false,
+    "steam_online_switches": 0
+  },
+  "healthy_finishing": {
+    "original_version74_positive_checkpoint": "recovery405",
+    "cold75_first_load": true,
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "gold": 4224.2734375,
+    "unit_moves": 0,
+    "cooldown": 114,
+    "extra_recover_probes": 2,
+    "post_bootstrap_observer": {
+      "transfer": 0,
+      "finish": 0,
+      "errors": 0
+    },
+    "bootstrap_native_counts": null
+  },
+  "unknown_debit": {
+    "original_version74_checkpoint": "recovery406",
+    "stage": "UNKNOWN",
+    "phase": "CHARGING",
+    "gold": 4224.2734375,
+    "unit_moves": 4,
+    "cooldown": null,
+    "balance_after": null,
+    "charge_observed": null,
+    "actor_and_plot_conflicts": true,
+    "probes": 2,
+    "post_load_observer": {
+      "transfer": 0,
+      "finish": 0,
+      "errors": 0
+    }
+  },
+  "removed_army": {
+    "fixture": "Independent garrison114 archive with QA war, city damage and own army placement; not natural combat. Original enemy guard untouched by preparation.",
+    "input": {
+      "physical_right": 1,
+      "physical_confirm_300": 1,
+      "ui_paid_requests": 1,
+      "input_source": "TEST_PLAYER"
+    },
+    "before_removal": {
+      "stage": "UNKNOWN",
+      "phase": "FINISHING",
+      "transfer_observed": true,
+      "charge_observed": true,
+      "balance_before": 4524.2734375,
+      "balance_after": 4224.2734375,
+      "cost": 300,
+      "city": [
+        0,
+        851979,
+        41,
+        19,
+        1
+      ],
+      "army": [
+        0,
+        2162700,
+        42,
+        19,
+        4
+      ],
+      "cooldown": 114,
+      "native_transfer_calls": 1,
+      "native_finish_calls": 0,
+      "finish_fault_blocked": 2
+    },
+    "qa_removal": {
+      "method": "Actual GameCore UnitManager.Kill(owned QA unit) once; original shipped AustraliaScenario scripts confirm signature and prohibit reading old reference.",
+      "old_reference_post_kill_reads": 0,
+      "new_lookup_core": "MISSING",
+      "new_lookup_ui": "MISSING",
+      "fault_restored_before_probes": true
+    },
+    "after_removal": {
+      "stage": "UNKNOWN",
+      "phase": "FINISHING",
+      "gold": 4224.2734375,
+      "city_preserved": true,
+      "actor_and_plot_conflicts": true,
+      "probes": 2,
+      "whole_scoped_native_calls": {
+        "transfer": 1,
+        "finish": 0,
+        "errors": 0
+      }
+    },
+    "saved": {
+      "utc": "2026-11-05T11:30:05.974313+00:00",
+      "name": "Baiqi_P6_20261105_V75_RemovedArmyUnknown114.Civ6Save",
+      "bytes": 568786,
+      "sha256": "cf214d380922050bbaccb0a7335872d98bbb88e275a25dbf721b9d4deacabd7e",
+      "stable_repeated_read": true
+    },
+    "reload_same_owned75_process": true,
+    "after_reload": {
+      "stage": "UNKNOWN",
+      "phase": "FINISHING",
+      "gold": 4224.2734375,
+      "core_and_ui_unit_missing": true,
+      "conflicts": true,
+      "probes": 2,
+      "post_reload_native_calls": {
+        "transfer": 0,
+        "finish": 0,
+        "errors": 0
+      }
+    },
+    "limits": [
+      "Native removal yielded missing actor, not retained fullID/deferred-death actor. Existing74 missing-ID gate also covered this shape.",
+      "No natural battle, ownership change, all interruption windows or expired FINISHING pass claimed.",
+      "Treasury debit/refund direct counters absent; unchanged balance and positive receipt are separately reported.",
+      "Cannot read cooldown from removed old native object; no such access attempted."
+    ]
+  },
+  "normal_restore": {
+    "turn": 114,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "original_horse_moves": 4,
+    "builder_charges": 1,
+    "requisition_journal": null,
+    "three_contexts_verified": true,
+    "fault_observer_bindings_clear": true
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/capture75/healthy-recovery.png",
+      "sha256": "4bf98d53c1bd9051e8eff88d6fdcc16f1b1bbc0edcbf4ba24452a066c5ce790b",
+      "native_version": 75,
+      "raw_unedited": true,
+      "scope": "Owned game QA screenshot, not natural combat or fixed Alpha74 image."
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/quote-300.png",
+      "sha256": "16bd1199f15e2400e958cdd1bc88647a2fbcbe52f0881b63555e4eed9c5ddd97",
+      "native_version": 75,
+      "raw_unedited": true,
+      "scope": "Owned game QA screenshot, not natural combat or fixed Alpha74 image."
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/unknown-freeze.png",
+      "sha256": "503101dc25e88fc834d7904dcedd63c9a73da6441a4ad391ec432682c05d171a",
+      "native_version": 75,
+      "raw_unedited": true,
+      "scope": "Owned game QA screenshot, not natural combat or fixed Alpha74 image."
+    }
+  ],
+  "model415": {
+    "shared_commit": "2b9f4556f5a73123e8a1db84444d17f8579687e8",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 9783,
+      "completion_tokens": 474,
+      "total_tokens": 10257
+    },
+    "total_ms": 4710.720899980515,
+    "ttft_ms": 1665.623799955938,
+    "cached_prompt_tokens": null,
+    "candidate_lua_compile": true,
+    "diagnostic_software_cases": 6,
+    "raw_native_execution": 0,
+    "adoption": "Fresh lookup and readback direction only; owner rewrote protected reader, asserted positive receipts/unique record and independent conflicts.",
+    "rejected": [
+      "No IsDelayedDeath",
+      "False values printed unknown via and/or",
+      "No actual asserted receipt/uniqueness checks",
+      "Single combined Conflict insufficient",
+      "GetID errors propagate outside pcall"
+    ],
+    "maintenance": "Canonical CLI Nov5 successful1.19.5 same-user/machine cache;0new OpenCode native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through415": {
+    "logical": 415,
+    "complete_stop_valid": 384,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 445,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "product_changes_since414": 0,
+  "software_suite_rerun": false,
+  "software_baseline": "Source75 full1048 passed132.939s at1961f911; diagnostics/docs only since then.",
+  "alpha_and_workshop": "Fixed74 unchanged, no Steam upload.",
+  "raw_sha256": {
+    "capture415-healthy-finish-read-bootstrap-response.json": "916b41369172d05a52d4b6e36876e3be7ee14ae30aa6d450ac52e023bb2247b9",
+    "capture415-healthy-finish-counts-completed-response.json": "a2e69a31fcf80810187a0c57a9d64a04a0447c751bd0ffbc080d00d33f039342",
+    "capture415-healthy-debit-read-afterload-response.json": "fd322db3be038abc12dbc5e23a401efc0cee0135b25824b2a0654c7d52fe769e",
+    "capture415-healthy-debit-counts-frozen-response.json": "26722ec1148a2cf422f377479b2ed607fcaa27462971da9a139f62c10a031430",
+    "capture415-healthy-debit-conflict-frozen-response.json": "f438e6ed1722855fc2cbb312dc7f4de01f3c3171a2c68feb7c461d83cc80d059",
+    "capture415-request-read-once-response.json": "e304f9b466ef9efc024e09f545edb71477da08ca25b0980592c8c3bad8f8e16e",
+    "capture415-input-read-once-response.json": "3438686696a4fdb6de273a183088728639b003e3b4003934ea07049192e17b69",
+    "capture415-fault-read-before-kill-response.json": "9efbf61434ec898fe9a476dd5af3ff51dc568cf9c856e5cfc42c9aa3a0ed84e5",
+    "capture415-removed-kill-once-response.json": "d4497975f597efdc0bcb70e24de282b317f135d11d7c75b9546ea0f33f95b51e",
+    "capture415-removed-read-immediate-response.json": "00339e935e44f9e4f6dc59fb8cba3e9f18562987be4b12f199d3e650e951e917",
+    "capture415-removed-counts-frozen-response.json": "2e9c1a12cdc7bd1f59d60c0c0907d455d58c0664a67369be8fe1d2d3baded83e",
+    "capture415-removed-read-reloaded-response.json": "b671d352a8659de992a05849b666cb44b9ea9a8acf195f182dc43858e60d0b2f",
+    "capture415-removed-counts-reloaded-response.json": "cc9e6a1a7d62fb9b8acabc4d5ec84d984af3f475b90792d2b8172742ff41ca14",
+    "capture415-normal-restored-response.json": "f450e8f3c83e1e2b9ffe2c381d186b9a9b8fe61e94d7cc4076c8005dfdc8a906",
+    "capture415-save-removed114-response.json": "b11368e3de64f6c6a346bacf7fc455c0d3a7eb05df2f33a61fd061fddc6195c6",
+    "capture415-reader-owner-qualification.json": "432e8315e468ae59b4c8743b784705c8756a0ef302b8ab8ab40561108f688f06",
+    "capture415-model/ATTEMPT1-RESULT.json": "0e9fb267c2afd72ae4c6c714c97eda3ff10d55cf32369cfe0fe6f73c56c13abf",
+    "capture415-model/ATTEMPT1-CONTENT.txt": "aa0777749299f7c3dbad6bcd91d4b777a0646c42577e6042467e34bed50feaf6"
+  }
+}

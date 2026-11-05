@@ -1,5 +1,7 @@
 # 白绮全功能状态及更新：2026-11-05（北京时间）
 
+最新75已完成[恢复／实际军队移除窄实机复测](baiqi-capture-native-recovery-75.md)，附3张原图；源码／安装／运行75、87文件一致，完整1048项软件检查通过。已清理并恢复正常114。军队保留同ID延迟销毁、过期FINISHING等矩阵仍待验；以下74“当前”均为历史，公开Alpha／工坊仍固定74。
+
 最新：[74受控拒绝后的实际119建城、自动粮仓及119重载](baiqi-settler-recovery-founded-74.md)窄样本通过，Core延迟移除对象与UI缺失差异明说；当前已恢复正常114，测试绑定清。产品74未改，正常训练成本和全城址压力／护送不由此补授。
 
 最新离线74验收：[完整退出后的FINISHING／CHARGING](baiqi-cold-recovery-74.md)、[UNKNOWN正常114→115](baiqi-debit-unknown-normal-turn-74.md)及[最后一次建造效果](baiqi-builder-final-charge-74.md)已有窄实机读回和内嵌原图。当前owned12052已恢复正常Farm114，三上下文核验、测试绑定清除；Alpha发布时1039项软件通过仅作历史基线，本轮无产品改动／完整套件重跑。40项仍未全部完成，旧数字和“当前”不覆盖本段。
