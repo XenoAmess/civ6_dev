@@ -92,3 +92,5 @@ python tools\build_mod.py --install
 - [77移民占格后切换城址](docs/testing/baiqi-settler-occupied-route-77.md)：76实机暴露有安全替代却直接待命，77补规划检查；新增6回归、完整1064软件通过，同一正常移民保存点冷验继续。
 
 - [77实机：新移民绕路建成九江，读档后新城继续生产](docs/testing/baiqi-natural-settler-founded-77.md)：5张内嵌原始实机图；同一正常训练演员闭合76→77窄链，明确区分版本、未完成建筑和完整矩阵。
+
+- [77军队训练实机跟踪](docs/testing/baiqi-military-production-77.md)：武汉炮兵109/165、北京步兵77/180，两张内嵌实机图；24现有加2在训符合13城需求26，出生／军费及上限持续观察继续。

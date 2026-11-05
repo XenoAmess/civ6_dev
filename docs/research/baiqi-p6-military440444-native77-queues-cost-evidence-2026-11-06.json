@@ -1,0 +1,2682 @@
+{
+  "schema": "civ6.military440444-native77-queue-cost-cutoff143/v1",
+  "utc": "2026-11-05T21:18:18.035652+00:00",
+  "date_local": "2026-11-06",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 77,
+  "product_pin": "a5162e4365a985e6f64259d043aa766b7e9db0ff",
+  "owned_pid": 18360,
+  "owned_birth": 1793907267.1851747,
+  "cutoff_turn": 143,
+  "qualification138": {
+    "cities": 13,
+    "healthy_army": 24,
+    "offworld_or_unknown_army": 0,
+    "roles": {
+      "recon": 7,
+      "frontline": 9,
+      "ranged": 8
+    },
+    "army_cap": 26,
+    "recon_cap": 4,
+    "queued_army": 0,
+    "gold": 6516.9765625,
+    "net_gold": 68.77734375,
+    "visible_queue_maintenance": 3,
+    "complete_private_commitments_read": false
+  },
+  "fixed_probe_false_not_failure": {
+    "seven_old_unit_probes": false,
+    "full_definitions": 144,
+    "military_definitions": 123,
+    "dual_native_true_counts": {
+      "65536": 11,
+      "196610": 8,
+      "917516": 11
+    },
+    "actual_civilization": "CIVILIZATION_CHINA",
+    "inference_limit": "False for sampled oldtypes not a production/resource FAIL. Full scan proves contemporary native eligibility, not exact obsolescence reason for each oldtype."
+  },
+  "background_enqueue_provenance": [
+    "BaiqiExecutor: BAIQI|request|turn=139|id=0:139:26|source=BACKGROUND|city=327684|type=UNIT_FIELD_CANNON",
+    "BaiqiExecutor: BAIQI|queue_observed|turn=139|id=0:139:26|city=327684|hash=1806709152",
+    "BaiqiExecutor: BAIQI|request|turn=141|id=0:141:54|source=BACKGROUND|city=393221|type=UNIT_LINE_INFANTRY",
+    "BaiqiExecutor: BAIQI|queue_observed|turn=141|id=0:141:54|city=393221|hash=-1113193660"
+  ],
+  "native_training_partial": {
+    "city327684": {
+      "name": "武汉",
+      "unit": "UNIT_FIELD_CANNON",
+      "index": 58,
+      "hash": 1806709152,
+      "enqueue_turn": 139,
+      "actual_production_cost": 165,
+      "strategic_resource": "none",
+      "native_resource_cost": 0,
+      "native_base_maintenance": 5,
+      "progress": [
+        [
+          139,
+          0
+        ],
+        [
+          140,
+          32
+        ],
+        [
+          141,
+          57
+        ],
+        [
+          142,
+          82
+        ],
+        [
+          143,
+          109
+        ]
+      ]
+    },
+    "city393221": {
+      "name": "北京",
+      "unit": "UNIT_LINE_INFANTRY",
+      "index": 94,
+      "hash": -1113193660,
+      "enqueue_turn": 141,
+      "actual_production_cost": 180,
+      "strategic_resource": "RESOURCE_NITER",
+      "native_resource_cost": 10,
+      "native_base_maintenance": 5,
+      "progress": [
+        [
+          141,
+          0
+        ],
+        [
+          142,
+          51
+        ],
+        [
+          143,
+          77
+        ]
+      ]
+    },
+    "live_plus_queued": 26,
+    "manual_production_changes": 0,
+    "completion_granted_at_cutoff": false,
+    "both_city_manual_production_and_citizens_disabled": true
+  },
+  "resource_evidence": {
+    "niter_stock_by_turn": [
+      [
+        140,
+        25
+      ],
+      [
+        141,
+        18
+      ],
+      [
+        142,
+        21
+      ],
+      [
+        143,
+        24
+      ]
+    ],
+    "accumulation_per_turn": 3,
+    "native_quote_line_infantry": 10,
+    "claim": "25to18 matches10debit plus3income, supported by sole new lineinfantry queue and quote; not an instant debit event or insufficient-resource gate pass.",
+    "coal_18to13": "Not attributed to fieldcannon; fieldcannon native strategic cost0.",
+    "military_unit_maintenance138through143": 28,
+    "new_military_maintenance_effect": "PENDING_ACTUAL_BIRTH",
+    "buildings_and_districts_changed": "Track separately; total maintenance80→82 not new-army attribution."
+  },
+  "observer_at142": {
+    "executor_all_requests": 69,
+    "military": 0,
+    "noncivilian": 0,
+    "unknown": 0,
+    "errors": 0,
+    "overflow": 0,
+    "scope": "BaiqiExecutor UnitManager.RequestOperation installed138 continuously; not all contexts/globalcalls. TEST_PLAYER military actions in ActionPanel separately recorded.",
+    "active_at_cutoff": true,
+    "event_handlers": 3
+  },
+  "test_player": {
+    "normal_end_no_REASON_UserForced": true,
+    "owned_old_army_moves": [
+      [
+        2424851,
+        [
+          11,
+          6
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      [
+        4718628,
+        [
+          11,
+          6
+        ],
+        [
+          10,
+          4
+        ]
+      ],
+      [
+        5701675,
+        [
+          11,
+          6
+        ],
+        [
+          12,
+          8
+        ]
+      ]
+    ],
+    "moves_independently_settled": true,
+    "purpose": "Ordinary player military relocation, after actual fourunit samecity stack had nativeSKIPfalse. After3moves, remainingmusketSKIPbecameeligible; no generalrootcause overclaim.",
+    "no_civilian_actions_or_ready_property_changes": true,
+    "skip_and_selection": "One selected healthy own military eligible nativeSKIP per invocation, fullID/owner/formation/freshcontext/dedup; original DoEndTurn may only select a unit. New normal ends after actual known player progress are not unknown action replay.",
+    "congress141": "Physical original UI:1freevote each Apearls/Astealtech/B-Alexanderloses2/YESworldfair;0extra favor. Actual visible outcome luxuryAdyes/spyAbreachdams differ due AI votes. Ordinary TEST_PLAYER diplomacy, not BACKGROUND. Continue actual readback142.",
+    "owner_diagnostic_corrections": [
+      "Lua139and numeric token parse error refused before codeexecution; fixed spaces and fresh unique viewattempt, no gameorder replay.",
+      "pydirectinput.scroll missing; one mouse move only,0wheel, originalintent retained. Replaced with existing proven pyautogui wheel under fresh unique receipt.",
+      "Early NoNext disabled Congress click did not submit vote; inspected remaining resolution/competition and completed original review/Submit once.",
+      "Readiness false for idle-but-inactive diplomacy/congress stops dependent gameaction, not productFAIL."
+    ]
+  },
+  "snapshots138through143": {
+    "138": {
+      "treasury": [
+        [
+          "GetGoldBalance",
+          "6516.9765625"
+        ],
+        [
+          "GetGoldYield",
+          "148.77734375"
+        ],
+        [
+          "GetTotalMaintenance",
+          "80"
+        ],
+        [
+          "GetUnitMaintenance",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "15"
+        ]
+      ],
+      "army_counts": [
+        [
+          "50",
+          "50",
+          "24",
+          "24",
+          "0",
+          "0"
+        ]
+      ],
+      "visible_queues": [
+        [
+          "65536",
+          "0",
+          "project",
+          "9",
+          "-1938097113",
+          "PROJECT_ENHANCE_DISTRICT_HARBOR",
+          "103",
+          "112",
+          "0"
+        ],
+        [
+          "131073",
+          "0",
+          "district",
+          "2",
+          "1910099296",
+          "DISTRICT_CAMPUS",
+          "51",
+          "165",
+          "1"
+        ],
+        [
+          "196610",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "46",
+          "150",
+          "0"
+        ],
+        [
+          "262147",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "61",
+          "150",
+          "0"
+        ],
+        [
+          "327684",
+          "0",
+          "project",
+          "9",
+          "-1938097113",
+          "PROJECT_ENHANCE_DISTRICT_HARBOR",
+          "95",
+          "112",
+          "0"
+        ],
+        [
+          "393221",
+          "0",
+          "district",
+          "10",
+          "1105121556",
+          "DISTRICT_NEIGHBORHOOD",
+          "111",
+          "165",
+          "0"
+        ],
+        [
+          "458758",
+          "0",
+          "unit",
+          "0",
+          "-798712536",
+          "UNIT_SETTLER",
+          "0",
+          "190",
+          "0"
+        ],
+        [
+          "524295",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "0",
+          "107",
+          "0"
+        ],
+        [
+          "589832",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "61",
+          "121",
+          "1"
+        ],
+        [
+          "655369",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "0",
+          "107",
+          "0"
+        ],
+        [
+          "720906",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "24",
+          "158",
+          "1"
+        ],
+        [
+          "851979",
+          "0",
+          "district",
+          "4",
+          "-873674951",
+          "DISTRICT_HARBOR",
+          "87",
+          "165",
+          "0"
+        ],
+        [
+          "917516",
+          "0",
+          "building",
+          "3",
+          "-764771404",
+          "BUILDING_GRANARY",
+          "3",
+          "32",
+          "0"
+        ]
+      ],
+      "resources": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "-471399821",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "1693191901",
+          "18",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "-1823234744",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "1864536632",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "1807168256",
+          "25",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "-1504231670",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "332101523",
+          "0",
+          "0"
+        ]
+      ],
+      "environment": [
+        [
+          "138",
+          "true",
+          "false",
+          "false",
+          "13"
+        ]
+      ],
+      "scope": "Independent sequential read snapshot, not private pending/submitted state or atomic dispatch-time budget;143read noticed background busy race, later idle exact cityview and save guards reconfirm specific heads/progress."
+    },
+    "139": {
+      "treasury": [
+        [
+          "GetGoldBalance",
+          "6585.75390625"
+        ],
+        [
+          "GetGoldYield",
+          "148.77734375"
+        ],
+        [
+          "GetTotalMaintenance",
+          "80"
+        ],
+        [
+          "GetUnitMaintenance",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "15"
+        ]
+      ],
+      "army_counts": [
+        [
+          "49",
+          "49",
+          "24",
+          "24",
+          "0",
+          "0"
+        ]
+      ],
+      "visible_queues": [
+        [
+          "65536",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "0",
+          "107",
+          "0"
+        ],
+        [
+          "131073",
+          "0",
+          "district",
+          "2",
+          "1910099296",
+          "DISTRICT_CAMPUS",
+          "87",
+          "165",
+          "1"
+        ],
+        [
+          "196610",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "72",
+          "150",
+          "0"
+        ],
+        [
+          "262147",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "80",
+          "150",
+          "0"
+        ],
+        [
+          "327684",
+          "0",
+          "unit",
+          "58",
+          "1806709152",
+          "UNIT_FIELD_CANNON",
+          "0",
+          "165",
+          "5"
+        ],
+        [
+          "393221",
+          "0",
+          "district",
+          "10",
+          "1105121556",
+          "DISTRICT_NEIGHBORHOOD",
+          "137",
+          "165",
+          "0"
+        ],
+        [
+          "458758",
+          "0",
+          "unit",
+          "0",
+          "-798712536",
+          "UNIT_SETTLER",
+          "76",
+          "190",
+          "0"
+        ],
+        [
+          "524295",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "37",
+          "107",
+          "0"
+        ],
+        [
+          "589832",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "63",
+          "121",
+          "1"
+        ],
+        [
+          "655369",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "16",
+          "107",
+          "0"
+        ],
+        [
+          "720906",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "26",
+          "158",
+          "1"
+        ],
+        [
+          "851979",
+          "0",
+          "district",
+          "4",
+          "-873674951",
+          "DISTRICT_HARBOR",
+          "102",
+          "165",
+          "0"
+        ],
+        [
+          "917516",
+          "0",
+          "building",
+          "3",
+          "-764771404",
+          "BUILDING_GRANARY",
+          "7",
+          "32",
+          "0"
+        ]
+      ],
+      "resources": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "-471399821",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "1693191901",
+          "17",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "-1823234744",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "1864536632",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "1807168256",
+          "25",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "-1504231670",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "332101523",
+          "0",
+          "0"
+        ]
+      ],
+      "environment": [
+        [
+          "139",
+          "true",
+          "false",
+          "false",
+          "13"
+        ]
+      ],
+      "scope": "Independent sequential read snapshot, not private pending/submitted state or atomic dispatch-time budget;143read noticed background busy race, later idle exact cityview and save guards reconfirm specific heads/progress."
+    },
+    "140": {
+      "treasury": [
+        [
+          "GetGoldBalance",
+          "6654.53125"
+        ],
+        [
+          "GetGoldYield",
+          "138.40625"
+        ],
+        [
+          "GetTotalMaintenance",
+          "80"
+        ],
+        [
+          "GetUnitMaintenance",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "15"
+        ]
+      ],
+      "army_counts": [
+        [
+          "49",
+          "49",
+          "24",
+          "24",
+          "0",
+          "0"
+        ]
+      ],
+      "visible_queues": [
+        [
+          "65536",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "87",
+          "107",
+          "0"
+        ],
+        [
+          "131073",
+          "0",
+          "district",
+          "2",
+          "1910099296",
+          "DISTRICT_CAMPUS",
+          "123",
+          "165",
+          "1"
+        ],
+        [
+          "196610",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "100",
+          "150",
+          "0"
+        ],
+        [
+          "262147",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "99",
+          "150",
+          "0"
+        ],
+        [
+          "327684",
+          "0",
+          "unit",
+          "58",
+          "1806709152",
+          "UNIT_FIELD_CANNON",
+          "32",
+          "165",
+          "5"
+        ],
+        [
+          "393221",
+          "0",
+          "district",
+          "10",
+          "1105121556",
+          "DISTRICT_NEIGHBORHOOD",
+          "163",
+          "165",
+          "0"
+        ],
+        [
+          "458758",
+          "0",
+          "unit",
+          "0",
+          "-798712536",
+          "UNIT_SETTLER",
+          "121",
+          "190",
+          "0"
+        ],
+        [
+          "524295",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "66",
+          "107",
+          "0"
+        ],
+        [
+          "589832",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "66",
+          "121",
+          "1"
+        ],
+        [
+          "655369",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "27",
+          "107",
+          "0"
+        ],
+        [
+          "720906",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "28",
+          "158",
+          "1"
+        ],
+        [
+          "851979",
+          "0",
+          "district",
+          "4",
+          "-873674951",
+          "DISTRICT_HARBOR",
+          "118",
+          "165",
+          "0"
+        ],
+        [
+          "917516",
+          "0",
+          "building",
+          "3",
+          "-764771404",
+          "BUILDING_GRANARY",
+          "10",
+          "32",
+          "0"
+        ]
+      ],
+      "resources": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "-471399821",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "1693191901",
+          "16",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "-1823234744",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "1864536632",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "1807168256",
+          "25",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "-1504231670",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "332101523",
+          "0",
+          "0"
+        ]
+      ],
+      "environment": [
+        [
+          "140",
+          "true",
+          "false",
+          "false",
+          "13"
+        ]
+      ],
+      "scope": "Independent sequential read snapshot, not private pending/submitted state or atomic dispatch-time budget;143read noticed background busy race, later idle exact cityview and save guards reconfirm specific heads/progress."
+    },
+    "141": {
+      "treasury": [
+        [
+          "GetGoldBalance",
+          "6712.9375"
+        ],
+        [
+          "GetGoldYield",
+          "137.5078125"
+        ],
+        [
+          "GetTotalMaintenance",
+          "80"
+        ],
+        [
+          "GetUnitMaintenance",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "15"
+        ]
+      ],
+      "army_counts": [
+        [
+          "50",
+          "50",
+          "24",
+          "24",
+          "0",
+          "0"
+        ]
+      ],
+      "visible_queues": [
+        [
+          "65536",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "0",
+          "109",
+          "0"
+        ],
+        [
+          "131073",
+          "0",
+          "district",
+          "2",
+          "1910099296",
+          "DISTRICT_CAMPUS",
+          "159",
+          "165",
+          "1"
+        ],
+        [
+          "196610",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "127",
+          "150",
+          "0"
+        ],
+        [
+          "262147",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "118",
+          "150",
+          "0"
+        ],
+        [
+          "327684",
+          "0",
+          "unit",
+          "58",
+          "1806709152",
+          "UNIT_FIELD_CANNON",
+          "57",
+          "165",
+          "5"
+        ],
+        [
+          "393221",
+          "0",
+          "unit",
+          "94",
+          "-1113193660",
+          "UNIT_LINE_INFANTRY",
+          "0",
+          "180",
+          "5"
+        ],
+        [
+          "458758",
+          "0",
+          "unit",
+          "0",
+          "-798712536",
+          "UNIT_SETTLER",
+          "165",
+          "190",
+          "0"
+        ],
+        [
+          "524295",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "95",
+          "109",
+          "0"
+        ],
+        [
+          "589832",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "69",
+          "121",
+          "1"
+        ],
+        [
+          "655369",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "38",
+          "109",
+          "0"
+        ],
+        [
+          "720906",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "30",
+          "158",
+          "1"
+        ],
+        [
+          "851979",
+          "0",
+          "district",
+          "4",
+          "-873674951",
+          "DISTRICT_HARBOR",
+          "133",
+          "165",
+          "0"
+        ],
+        [
+          "917516",
+          "0",
+          "building",
+          "3",
+          "-764771404",
+          "BUILDING_GRANARY",
+          "14",
+          "32",
+          "0"
+        ]
+      ],
+      "resources": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "-471399821",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "1693191901",
+          "15",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "-1823234744",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "1864536632",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "1807168256",
+          "18",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "-1504231670",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "332101523",
+          "0",
+          "0"
+        ]
+      ],
+      "environment": [
+        [
+          "141",
+          "true",
+          "false",
+          "false",
+          "13"
+        ]
+      ],
+      "scope": "Independent sequential read snapshot, not private pending/submitted state or atomic dispatch-time budget;143read noticed background busy race, later idle exact cityview and save guards reconfirm specific heads/progress."
+    },
+    "142": {
+      "treasury": [
+        [
+          "GetGoldBalance",
+          "6770.4453125"
+        ],
+        [
+          "GetGoldYield",
+          "142.30859375"
+        ],
+        [
+          "GetTotalMaintenance",
+          "81"
+        ],
+        [
+          "GetUnitMaintenance",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "16"
+        ]
+      ],
+      "army_counts": [
+        [
+          "52",
+          "52",
+          "24",
+          "24",
+          "0",
+          "0"
+        ]
+      ],
+      "visible_queues": [
+        [
+          "65536",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "76",
+          "109",
+          "0"
+        ],
+        [
+          "131073",
+          "0",
+          "building",
+          "4",
+          "-468469791",
+          "BUILDING_LIBRARY",
+          "0",
+          "45",
+          "1"
+        ],
+        [
+          "196610",
+          "0",
+          "building",
+          "25",
+          "-1096470108",
+          "BUILDING_FACTORY",
+          "0",
+          "165",
+          "2"
+        ],
+        [
+          "262147",
+          "0",
+          "building",
+          "22",
+          "1271148420",
+          "BUILDING_STAR_FORT",
+          "137",
+          "150",
+          "0"
+        ],
+        [
+          "327684",
+          "0",
+          "unit",
+          "58",
+          "1806709152",
+          "UNIT_FIELD_CANNON",
+          "82",
+          "165",
+          "5"
+        ],
+        [
+          "393221",
+          "0",
+          "unit",
+          "94",
+          "-1113193660",
+          "UNIT_LINE_INFANTRY",
+          "51",
+          "180",
+          "5"
+        ],
+        [
+          "458758",
+          "0",
+          "building",
+          "29",
+          "-62084486",
+          "BUILDING_SEWER",
+          "0",
+          "100",
+          "2"
+        ],
+        [
+          "524295",
+          "0",
+          "building",
+          "21",
+          "1714821680",
+          "BUILDING_BANK",
+          "0",
+          "145",
+          "0"
+        ],
+        [
+          "589832",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "71",
+          "121",
+          "1"
+        ],
+        [
+          "655369",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "50",
+          "111",
+          "0"
+        ],
+        [
+          "720906",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "32",
+          "158",
+          "1"
+        ],
+        [
+          "851979",
+          "0",
+          "district",
+          "4",
+          "-873674951",
+          "DISTRICT_HARBOR",
+          "150",
+          "165",
+          "0"
+        ],
+        [
+          "917516",
+          "0",
+          "building",
+          "3",
+          "-764771404",
+          "BUILDING_GRANARY",
+          "18",
+          "32",
+          "0"
+        ]
+      ],
+      "resources": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "-471399821",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "1693191901",
+          "14",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "-1823234744",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "1864536632",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "1807168256",
+          "21",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "-1504231670",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "332101523",
+          "0",
+          "0"
+        ]
+      ],
+      "environment": [
+        [
+          "142",
+          "true",
+          "false",
+          "false",
+          "13"
+        ]
+      ],
+      "scope": "Independent sequential read snapshot, not private pending/submitted state or atomic dispatch-time budget;143read noticed background busy race, later idle exact cityview and save guards reconfirm specific heads/progress."
+    },
+    "143": {
+      "treasury": [
+        [
+          "GetGoldBalance",
+          "6833.55078125"
+        ],
+        [
+          "GetGoldYield",
+          "141.40625"
+        ],
+        [
+          "GetTotalMaintenance",
+          "82"
+        ],
+        [
+          "GetUnitMaintenance",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "38"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "16"
+        ]
+      ],
+      "army_counts": [
+        [
+          "53",
+          "53",
+          "24",
+          "24",
+          "0",
+          "0"
+        ]
+      ],
+      "visible_queues": [
+        [
+          "65536",
+          "0",
+          "building",
+          "29",
+          "-62084486",
+          "BUILDING_SEWER",
+          "0",
+          "100",
+          "2"
+        ],
+        [
+          "131073",
+          "0",
+          "building",
+          "16",
+          "-689809087",
+          "BUILDING_UNIVERSITY",
+          "0",
+          "125",
+          "2"
+        ],
+        [
+          "196610",
+          "0",
+          "building",
+          "25",
+          "-1096470108",
+          "BUILDING_FACTORY",
+          "33",
+          "165",
+          "2"
+        ],
+        [
+          "262147",
+          "0",
+          "building",
+          "25",
+          "-1096470108",
+          "BUILDING_FACTORY",
+          "0",
+          "165",
+          "2"
+        ],
+        [
+          "327684",
+          "0",
+          "unit",
+          "58",
+          "1806709152",
+          "UNIT_FIELD_CANNON",
+          "109",
+          "165",
+          "5"
+        ],
+        [
+          "393221",
+          "0",
+          "unit",
+          "94",
+          "-1113193660",
+          "UNIT_LINE_INFANTRY",
+          "77",
+          "180",
+          "5"
+        ],
+        [
+          "458758",
+          "0",
+          "building",
+          "29",
+          "-62084486",
+          "BUILDING_SEWER",
+          "60",
+          "100",
+          "2"
+        ],
+        [
+          "524295",
+          "0",
+          "building",
+          "21",
+          "1714821680",
+          "BUILDING_BANK",
+          "50",
+          "145",
+          "0"
+        ],
+        [
+          "589832",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "74",
+          "121",
+          "1"
+        ],
+        [
+          "655369",
+          "0",
+          "unit",
+          "1",
+          "299201842",
+          "UNIT_BUILDER",
+          "62",
+          "113",
+          "0"
+        ],
+        [
+          "720906",
+          "0",
+          "district",
+          "9",
+          "-1698135861",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "34",
+          "158",
+          "1"
+        ],
+        [
+          "851979",
+          "0",
+          "building",
+          "9",
+          "-46510675",
+          "BUILDING_LIGHTHOUSE",
+          "0",
+          "60",
+          "0"
+        ],
+        [
+          "917516",
+          "0",
+          "building",
+          "3",
+          "-764771404",
+          "BUILDING_GRANARY",
+          "22",
+          "32",
+          "0"
+        ]
+      ],
+      "resources": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "-471399821",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "1693191901",
+          "13",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "-1823234744",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "1864536632",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "1807168256",
+          "24",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "-1504231670",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "332101523",
+          "0",
+          "0"
+        ]
+      ],
+      "environment": [
+        [
+          "143",
+          "true",
+          "true",
+          "false",
+          "13"
+        ]
+      ],
+      "scope": "Independent sequential read snapshot, not private pending/submitted state or atomic dispatch-time budget;143read noticed background busy race, later idle exact cityview and save guards reconfirm specific heads/progress."
+    }
+  },
+  "formal_queue_save143": {
+    "utc": "2026-11-05T21:14:18.104384+00:00",
+    "name": "Baiqi_P6_20261106_V77_ArmyQueues143.Civ6Save",
+    "bytes": 600862,
+    "sha256": "7a5b1dff8377db21e09680b72fe2306a0f16d6a2eedd0995d358673add1d5b93",
+    "stable_repeated_read": true
+  },
+  "full_matrix_pending": [
+    "Actual militarybirths/fullID/completion row/cost/maintenance/playercontrol",
+    "Atcap subsequentproduction sustainedcycle",
+    "Reserve-low and resource-insufficient independentNative branches",
+    "WholeTC007 and40case matrix"
+  ],
+  "model440444": {
+    "models": {
+      "440": {
+        "shared_commit": "60e7f3f6e405594b2fa174424498ae235698506b",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 54605,
+          "completion_tokens": 1122,
+          "total_tokens": 55727
+        },
+        "total_ms": 14606.782699993346,
+        "ttft_ms": 7220.2536999830045,
+        "raw_native_execution": 0,
+        "product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical Nov6successful OpenCode1.19.5cache;0new native generation.",
+        "review": {
+          "utc": "2026-11-05T20:34:01.950210+00:00",
+          "seven_pure_identity_role_cases_passed": true,
+          "bounded_unit_city_queue_resource_loops": true,
+          "raw_nil_row_error": "[string \"<python>\"]:1: attempt to index a nil value (local 'row')\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk",
+          "raw_native_execution": 0,
+          "raw_product_application": 0,
+          "review": [
+            "Raw nil-row precedence dereferences nil; reject raw Native.",
+            "Raw queue loop not bounded64 despite claim.",
+            "Raw does not implement claimed budget/resource/queued military/role complete inventory.",
+            "Owner uses protected read ports, independent raw/healthy/unknown counts, exact bounds and queue Index/hash distinction.",
+            "Resources ports grounded in local original Expansion2 ReportScreen/CityStates Lua.",
+            "Independent visible queue counts do not reveal private pending/submitted or completed-idle-head adjustments; not dispatch authority."
+          ]
+        }
+      },
+      "441": {
+        "shared_commit": "efc3d48052bb4d1b01ce5ff92cff9364c99bf8a1",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 54731,
+          "completion_tokens": 2873,
+          "total_tokens": 57604
+        },
+        "total_ms": 25017.791800026316,
+        "ttft_ms": 7254.631300049368,
+        "raw_native_execution": 0,
+        "product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical Nov6successful OpenCode1.19.5cache;0new native generation.",
+        "review": {
+          "utc": "2026-11-05T20:36:32.856560+00:00",
+          "raw_native_execution": 0,
+          "raw_product_application": 0,
+          "review": [
+            "Raw copies Identity call without definition, unit loop would only report errors; reject rawNative.",
+            "Raw allmilitary rows loop and output lacked requested256bound and3cityscope.",
+            "Reject automatic claim that available candidate must outrank existing higherpriority building; current busy queues not interrupted.",
+            "Stock25 is not alone evidence of affordability; actual CanProduce dual flags separate."
+          ],
+          "owner": "Standalone bounded256unitdefinitions*3cities*2CanProduceflags=1536maximum queries, actual144definitions/123military=738CanProducequeries; old private prose504max was arithmetic typo, not executable bound.0dispatch."
+        }
+      },
+      "442": {
+        "shared_commit": "efc3d48052bb4d1b01ce5ff92cff9364c99bf8a1",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 5971,
+          "completion_tokens": 707,
+          "total_tokens": 6678
+        },
+        "total_ms": 5401.758900028653,
+        "ttft_ms": 973.5819000052288,
+        "raw_native_execution": 0,
+        "product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical Nov6successful OpenCode1.19.5cache;0new native generation.",
+        "review": {
+          "utc": "2026-11-05T20:40:26.259069+00:00",
+          "orders_nine_isolated_cases": {
+            "install-zero": true,
+            "forward-nils-returns": true,
+            "civilian-classification": true,
+            "military-classification": true,
+            "metadata-error-forwarded": true,
+            "overflow-forwarded": true,
+            "original-error-preserved": true,
+            "foreign-cleanup-preserved": true,
+            "unknown-row": true
+          },
+          "event_observer_reuses_eight433_cases": true,
+          "event_new_unique_case_credit": 0,
+          "events": {
+            "install": {
+              "source_sha256": "15811ddd3c344d5b246c662e837ed32e8249e34f1a08a6a072373b4e5de4d908",
+              "changed_namespace_and_turn_window_only": true
+            },
+            "read": {
+              "source_sha256": "d32e369ef19b58beb3ac41d4dd1f8a35ba3289680c72341f3e4fa5f02b44fc16",
+              "changed_namespace_and_turn_window_only": true
+            },
+            "cleanup": {
+              "source_sha256": "83db1320978b9b00de9a39b9e7733e79133d5df62c2634d8b38f52cb44a48b88",
+              "changed_namespace_and_turn_window_only": true
+            }
+          },
+          "raw_native_execution": 0,
+          "raw_product_application": 0,
+          "review": [
+            "Raw increments noncivilian for recognized CIVILIAN, reverses meaning; raw military not included in noncivilian and missing CivilianType can be hidden in errors.",
+            "Raw claimed138..145window absent implementation; scope is actualinstall/cleanupwindow.",
+            "Owner classification branches independent, fullvarargs/tailreturn/error preserved, exactcleanupconflict refuses overwrite.",
+            "Events reuse433v2/v3 behavior with namespace/range only; no rawgameplay or extra uniquecase credit."
+          ]
+        }
+      },
+      "443": {
+        "shared_commit": "efc3d48052bb4d1b01ce5ff92cff9364c99bf8a1",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 44384,
+          "completion_tokens": 1307,
+          "total_tokens": 45691
+        },
+        "total_ms": 14144.896599987987,
+        "ttft_ms": 5926.001299987547,
+        "raw_native_execution": 0,
+        "product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical Nov6successful OpenCode1.19.5cache;0new native generation.",
+        "review": {
+          "utc": "2026-11-05T20:46:17.795787+00:00",
+          "raw_native_execution": 0,
+          "raw_product_application": 0,
+          "rejected": [
+            "Raw reads primary/religious units before revealed/visible checks: fog access prohibited.",
+            "Raw omits ownterritory and fullID exactmatch gates, only excludes own occupancy, prints table pointer rather than candidate scalars.",
+            "No actualoriginblocker cause proven: overstack correlation only until ordinarymovesandSKIPchange read."
+          ],
+          "owner": "24maxadjacenttargetchecks only, targetownemptyland/noncity, allneighborvisiblebeforeunitread/nootherowner, fullID/alive/noescort, nativeMOVEtrue. Readonly candidate results do not authorize stale later move; future movement must recheck contract."
+        }
+      },
+      "444": {
+        "shared_commit": "efc3d48052bb4d1b01ce5ff92cff9364c99bf8a1",
+        "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "attempts": 1,
+        "extra_retries": 0,
+        "finish_reason": "stop",
+        "sse_done": true,
+        "json_syntax": "VALID",
+        "usage": {
+          "prompt_tokens": 62634,
+          "completion_tokens": 1192,
+          "total_tokens": 63826
+        },
+        "total_ms": 15998.783199989703,
+        "ttft_ms": 8105.177199991886,
+        "raw_native_execution": 0,
+        "product_application": 0,
+        "cached_prompt_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null,
+        "daily_maintenance": "Canonical Nov6successful OpenCode1.19.5cache;0new native generation.",
+        "review": {
+          "utc": "2026-11-05T21:00:26.548555+00:00",
+          "raw_native_execution": 0,
+          "raw_product_application": 0,
+          "raw_self_counterexample": [
+            false,
+            "[string \"<python>\"]:1: self_missing"
+          ],
+          "rejected": [
+            "Raw treasury and buildqueue methods omit receiver self, returningnil plus hiddenerrors; owner colon/self forwarding used.",
+            "CityProductionCompleted event has no sourceBACKGROUND field; correlate independently with actual product requestlog.",
+            "Other simultaneous nonmilitary births need not make militarymaintenance inference impossible, but must enumerateall and handle policy/discount/confounders.",
+            "Original cost query supplies current quote, not retroactive debit proof.",
+            "Do not treat resource-free FIELD_CANNON as resource-insufficient gate pass."
+          ],
+          "retained": [
+            "Birth fullID and actualxy/type, normal per-indexprogress/cost, completionrowIndex+canceledfalse, actual BACKGROUND enqueue source separate, treasurybreakdown and no BACKGROUND armyorders continuouswindow."
+          ],
+          "scope": "Software receiver counterexample only, not claimed Native counterexample. Owner Native protected readings and actual training continue."
+        }
+      }
+    },
+    "raw_native_execution": 0,
+    "product_application": 0,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through444": {
+    "logical": 444,
+    "complete_stop_valid": 413,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 474,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "images": [
+    {
+      "path": "docs/testing/screenshots/military77/cannon143.png",
+      "sha256": "aae6c26a0f5dfd757de6332ecccc50f04c7c71258b3e195c405b7685fb2a00a0",
+      "raw_unedited": true,
+      "owner_viewed": true
+    },
+    {
+      "path": "docs/testing/screenshots/military77/infantry143.png",
+      "sha256": "23312ece6efd43511644bddcf3c739dac1296a2d61594c1644bd61df57e78efb",
+      "raw_unedited": true,
+      "owner_viewed": true
+    }
+  ],
+  "software": "Unchanged77full1064priorpassed; no product changes or rerun for private readers/docs.",
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "alpha74_changes": 0,
+  "raw_sha256": {
+    "military440-owner-qualification.json": "d0e8981f019ac2f83eb537bb7eaa75a01d1c9943ae4a914d1fbcbd3419c084bf",
+    "military440-read-baseline138-attempt.json": "71bf4b1146ff90704f88f69539db9de57eca7e903dcd4ffbef5f8c62f91ff5f6",
+    "military440-read-baseline138-response.json": "68f5040e70c3d700ac93ae3bd8e0e0f88baee7ae676fbc9a40874db34972d1f0",
+    "military440-caller.log": "726ea0f524dda0eb4563b8cb657005a96b431efb30917ec73f37c1da0f8a534d",
+    "military440-model/ATTEMPT1-RESULT.json": "1c35793b093372b2121fca533bdb76a7170f4ed25e1ed328a4843a5af88205aa",
+    "military440-model/ATTEMPT1-CONTENT.txt": "17d4767860af0cbc7adab2d6a95b70a6ad28a8b47eeae3e6d510829a40e827be",
+    "military440-model/ADAPTER-PROVENANCE.json": "80847ee412392b2628d45314f1d016658382ea085dee595814d8c69c0e597a7c",
+    "military441-owner-qualification.json": "81992b6fec135ab256e9e0664c0b53d6e051f4e58e3d805dba1057d4392ba581",
+    "military441-read-baseline138-attempt.json": "487d2d54a75d529c8e8b0fd2b60b00f7aac3e9a2856ae4df31564454c1a5f4af",
+    "military441-read-baseline138-response.json": "152e5b69757d7bc9496f9d558dda6199d1252daa0499973aae28a337b8f700cb",
+    "military441-caller.log": "ae284f23cf3c7ea1f4e0e3afa00f61286461ed223df1d8e299fe8d2d2fd33f05",
+    "military441-model/ATTEMPT1-RESULT.json": "16fb2d4efa7ecbc729d62b08498f6422e2f7191228e068568499857624b3917a",
+    "military441-model/ATTEMPT1-CONTENT.txt": "f177ad87ee2aba85838bd738ac76f64b38fdef46b8affa824b5fcd14de37d600",
+    "military441-model/ADAPTER-PROVENANCE.json": "180acb3521273e5589c56b2c39044ebc58539b5dc1f25e0c2fb7f6badd5efd15",
+    "military442-city-view-cannon143-attempt.json": "45db4113010e73dcd24afd4a5bbbd85fa5bfce0c841c25e147d795e1f5b92e74",
+    "military442-city-view-cannon143-response.json": "08b693641739fb81b1b20f99d06ff3c25fdb60d57f414ff9ac246bf9afa2d517",
+    "military442-city-view-infantry143-attempt.json": "6245cfa05e88fd753ba7abeb105f44a69eb905d2ffd7a6d7aadfc3d6fb6766dc",
+    "military442-city-view-infantry143-response.json": "5e71df4b0c04ff57700255bb87b8b1d5834c71590d14a3fa3d602e3926159eb1",
+    "military442-congress-scroll-second-resolution141-attempt.json": "e1a15acab098a23842aa0ae6fdf8b15ea3fcb40b8e7fde90cc9484f51fcaa708",
+    "military442-congress-scroll-second-resolution141-v2-attempt.json": "217909261ae7f42f6284511d9b0f321d92e480d980fea3b28b3d558b322bc05c",
+    "military442-congress-scroll-third-resolution141-attempt.json": "90b28f1b9701bd382fcbd5b7f39332236e64f003a321f1a80457253e7cd5842b",
+    "military442-congress-scroll-victory-resolution141-attempt.json": "7d7cdde68a6ab477b488ae10ef583b7d3148ba58af93c70cb8eb559289e65db7",
+    "military442-congress-scroll-victory-targets141-attempt.json": "d4081388873531540c2f342342efe238d4583c31f3e564be0043761ddeedcd7f",
+    "military442-cycle-140-intent.json": "514572d1f75b75fd13a14d3cdf8ebcf775802da4a7741618244ea7ddc21eea86",
+    "military442-cycle-141-intent.json": "d77ba3c406c22a3893a39b6333a03d56ecdbc1d31b375eaef64a5006384c3b2f",
+    "military442-cycle-142-intent.json": "5ee55802b5b71a166a98ef08b5b91d51d730f9393b3cfdf3cb28df47c54add3a",
+    "military442-cycle-143-intent.json": "9410d4e06863beee3b039f282e34fdd41916403d4ccf22c6efef99b114681584",
+    "military442-diplomacy-congress-alexander141-attempt.json": "be07435a7f30b4bcbba850fe7845ffdd9c7b7a71e7a0853c4a3a02ca0ba81669",
+    "military442-diplomacy-congress-espionage-a141-attempt.json": "b916a903104872562ca8c1bfee4983f0cb97c04aa9975e55c26a16bfa14a80b7",
+    "military442-diplomacy-congress-leader-list141-attempt.json": "e868da0608a8f653100fc78e0e67bf7c061b88b130e2e569ffe17bf1cff5590d",
+    "military442-diplomacy-congress-luxury-a141-attempt.json": "9f262c6eaf4af9cadf5c63a98677f699c8035851306c42c390834e38852152b3",
+    "military442-diplomacy-congress-luxury-list141-attempt.json": "26ea67e8a28dd68f54778566d8f4c4cbdc23146ec7a8b6723a4764104558a63f",
+    "military442-diplomacy-congress-next-filled141-attempt.json": "3158b0289faf2acc84cb47e4b35c13c787d0c865f64627fed811d895b5e8aefe",
+    "military442-diplomacy-congress-next141-attempt.json": "ac1663c2d78ec510185c2bf660c8a3dc990d311154c944072ebf928fe5dd94ec",
+    "military442-diplomacy-congress-pearls141-attempt.json": "268919647104451d95f1b74d12475681c6c66f5591d2176bf6618bb893b5849d",
+    "military442-diplomacy-congress-return141-attempt.json": "bcf8bb60934fabd99e656082bc8c0575b6c1984f6cc54e6f9c3ff7ae1dbb8106",
+    "military442-diplomacy-congress-review-submit141-attempt.json": "0a407782430a5f98055f2710c1b20e9a04ff711446fa70a7eb699c24c7f45518",
+    "military442-diplomacy-congress-spy-list141-attempt.json": "25b98317e9811b2a8510063a5eb57328efc4e4700d9101a553f2703f084e3954",
+    "military442-diplomacy-congress-spy-tech141-attempt.json": "6585f7ee8950fc3975dfee891ac4b1a108f7b3600e0aba7eba758239156cd1dc",
+    "military442-diplomacy-congress-start141-attempt.json": "6ac4a2c267d38776bf36893c4a3aec9263c8519f4148ec0bed08efc58ca92697",
+    "military442-diplomacy-congress-submit141-attempt.json": "8c08ca3d3fd23a21793c553319373549c8796f1074334b08e164d08ff6a153c1",
+    "military442-diplomacy-congress-victory-b141-attempt.json": "9964e6974ebc92e1b9180c8b3cfaaa5572de26fb08a303fe69828d4e14f69423",
+    "military442-diplomacy-congress-worldfair-yes141-attempt.json": "500f3d93a6b310e39fbedcb285e66931fd27cdc03d6a45ffb7d83430f99fe621",
+    "military442-diplomacy-goodbye-after139-attempt.json": "9c37cf794ba2a7717ec1cb8ee2fce3a4ec04e817e60ca3939e0f338fc37c4f64",
+    "military442-diplomacy-goodbye-after142-attempt.json": "76754afa9a2e14bca07940250b435730401953b5bab6de1441731ee919c0599a",
+    "military442-end-after-military-skips-139-attempt.json": "4b0f032b6232ce3d7560c39f2423ea58217be276d4e97dd1eedabe262661de7b",
+    "military442-end-after-military-skips-139-response.json": "281907ffa588b2966b88e99e4e40213148e5bdebe91f209a3e24ad45e1c99dbd",
+    "military442-end-after-military-skips-140-attempt.json": "3469b63f6890269b843b46c70d46f77b8d0b397a733a60e82633f4838b1fd027",
+    "military442-end-after-military-skips-140-response.json": "deae2660feb378cd23986cd53929d34c03868e35d728893724f90b21879f7d68",
+    "military442-end-after-military-skips-141-attempt.json": "9f24f16a1a4b0d9156e3ff9479811d756333dfa784f53201f2d75552ae134233",
+    "military442-end-after-military-skips-141-response.json": "f9980c40ccc0c2bef47f859ffa66dad5ca34ad0108914d9d9718df010bda2080",
+    "military442-end-after-military-skips-142-attempt.json": "4d1024e424f79d7ef0f867375f54fc9fb329224cb062c7c7c72e09d2f4b13be1",
+    "military442-end-after-military-skips-142-response.json": "0cdb42f2754c54a244fb9f06dc42de8ca0e88006956d412b346d296041568fbe",
+    "military442-end-after-military-skips-143-attempt.json": "f842053f2f506b02cee1749614d5b22ebde1bba7ca935fd6301bbc0b9cba9e51",
+    "military442-end-after-military-skips-143-response.json": "a9bb020d0c533f3064eca2b79ac6c7afc84e93ebd2f2eee3f21a33e8086d15ae",
+    "military442-events-install-begin138-attempt.json": "a0d7cdbaa0f6a880f90340f28423cc2fb26391f2b0286f1b797cacfc40191416",
+    "military442-events-install-begin138-response.json": "2bd62c3972e7603bb7e3088d2c7ad3ce20b684eeb748f95b652644ba340e731f",
+    "military442-events-read-normal139-attempt.json": "1be29ea272990b532ad1a1c8af292d48f6f5f75014135a8f4ed5d5c87905caef",
+    "military442-events-read-normal139-response.json": "ff15e53fc9ea01187c477f08dfe6b9c53510be77a7b82bf409695b47636baf02",
+    "military442-events-read-normal140-attempt.json": "4a70357736d86c7444e81aea0b4fbaf5d412b177acf08d4be0f50bddfbca3fff",
+    "military442-events-read-normal140-response.json": "d8d0a07f497eb2fe320717501e76abbf5c1b42a8e249c0c4fb440c39cef3dd34",
+    "military442-log-queued141-index.json": "65ad8d46bab2a842458bd9ebdd18db1fce8a441fe121429707cd33b7ab148205",
+    "military442-normal-end-138-attempt.json": "3bf09ecd2a23f466f490b87f6be4cec47ee7c3b696e034d7aa742c7c2d079ff1",
+    "military442-normal-end-138-response.json": "0a3f5047d2b46197660958211eecfc3c080c8f85767122205578e5a6db7dfdb6",
+    "military442-normal-end-139-attempt.json": "f1417123547aebce79d60c59945e61a9ac8802f68377275832ec9766d8076df0",
+    "military442-normal-end-139-response.json": "7596ca48982b5235f6ef0729a042b38e42ee66ebcd6ac65f17a85ae1c3524b0b",
+    "military442-normal-end138-after-known-player-progress-attempt.json": "0c3d28a9646271bc1389ea7701303d778d3e9b840c354eb5b00b068f62b4a24c",
+    "military442-normal-end138-after-known-player-progress-response.json": "94733a38c30ff49f3237d10632c1aedf0949647ccc06014c589e184f4e986a0d",
+    "military442-normal-step-138-01-attempt.json": "2ff9514c969b7fd58057a470dcaa80be7cb0e73d1eddc338419427269ba8c293",
+    "military442-normal-step-138-01-response.json": "44b57bcc93411cc5d3422d922a97726e077e9a55224fff6a8637c89606c6a86a",
+    "military442-normal-step-138-02-attempt.json": "7809cd6aee91c0564d0c1acdb782e9757e776e49071e308d843c52856cf910a5",
+    "military442-normal-step-138-02-response.json": "4602fe1d5ae67216c16527ba1ac629c97845e6d33de07762904820f879279dd1",
+    "military442-normal-step-138-03-attempt.json": "ce19721f975cf33d4625bede52c74e89867a2a4d5ec104e4cb7b6bcc799d9693",
+    "military442-normal-step-138-03-response.json": "18e0850c8dd7650c11a9d391898741764107a7610c7ad8378a61dceea01fdd85",
+    "military442-normal-step-138-04-attempt.json": "b71304184554d95d765fae60aa13c15cc3084f007ece576e18655df014ee3912",
+    "military442-normal-step-138-04-response.json": "f21b32ddee9a451bc7cb49df477c176aeb76307869a759d85d1fb541ec809b7e",
+    "military442-normal-step-138-05-attempt.json": "da593dfda267bb15ed6460e4c83abe5639069788b40db2f33c4740b69d99ef19",
+    "military442-normal-step-138-05-response.json": "d6e81d0e0fe3afe3d2e865de5d843db3fcbcfe4b015bb20f99ad7e098333d62a",
+    "military442-normal-step-138-06-attempt.json": "56d51887614070934fd320fa41d5a3ef64fef51aeff31eb2e38e2dda9d568937",
+    "military442-normal-step-138-06-response.json": "86e484bbfb1c2891860d7a78ae3fceb141fd83d8063474cd08a97ac2fb446bcc",
+    "military442-normal-step-138-07-attempt.json": "4937ea427fe5c0adc8c66e3737642a92b785fbf59a8c22fecc56c880c1cba465",
+    "military442-normal-step-138-07-response.json": "b820c32e73563eb1bbdf5f6e52ca38df9e1fe5a58992602e7dcd0c761083f58b",
+    "military442-normal-step-138-08-attempt.json": "4d83440f29333ba023b8eb782fbd58a4d36800e2b65a408a3886f26b53a6ec70",
+    "military442-normal-step-138-08-response.json": "d1e5a28cafde6db8aaa31436b1970143ebfd29d619a86b39ee3b9cf3cac69c18",
+    "military442-normal-step-138-09-attempt.json": "12ec6d9c3f5eacb0b6b1f788424a4cca81cf3be9e944caee5784a8a455938006",
+    "military442-normal-step-138-09-response.json": "b24317884605509b771999b47f39942fe80edca6b01b2ae9987b1918d9b009b2",
+    "military442-normal-step-138-10-attempt.json": "c9b0bb2f6a76c4cf170f343bfa336b8dd8d9a9bd5e3152bd3a2e8684a570fd33",
+    "military442-normal-step-138-10-response.json": "e00bfca481959ca890b96c8df4d92f3a562e49a9aca523578754f9c98b31ba3a",
+    "military442-normal-step-138-11-attempt.json": "61e751105601b3dd4d7a2be715f86cf2f04cdfd7aee8b085a5bfa2d1c97666eb",
+    "military442-normal-step-138-11-response.json": "e9998c24fec01783687354be54238a0df0c181cf313975092f94475545d54a9d",
+    "military442-normal-step-138-12-attempt.json": "a08de595bbf029a74342ec77dce376741846ca9c039c0782aaf9e3d185e1d018",
+    "military442-normal-step-138-12-response.json": "bbbb9324c146f8ee6e8c8421cc969faa39308f083fd7fda17199b21e37d75f0f",
+    "military442-normal-step-138-13-attempt.json": "26f9247b8c7f9a0e7ac64cf5c450ccca9212f1e2bfcb08d3898412c1ee10884c",
+    "military442-normal-step-138-13-response.json": "87d070f6abea6faa5c11dc11cab6ad36e9e6e7a6b07b557c5937384eb49c3618",
+    "military442-normal-step-138-14-attempt.json": "51c64a2fd75505ca38040a5f236478cc1fffa02dbbc869c37cb6eb549b071cbe",
+    "military442-normal-step-138-14-response.json": "a1759acdc6a8896c05c5fc5deec5fce8b72a7684736ab220275d55cda9a64760",
+    "military442-normal-step-138-15-attempt.json": "37754f7ea6635e39f9f3ba81f9f74457d20b355a7f41bfec2209f4404d92b88f",
+    "military442-normal-step-138-15-response.json": "e452fcb1a1586d6691374c6e7a368e893c3871e10c6e70a1c35d7681a60f58e2",
+    "military442-normal-step-138-16-attempt.json": "a2e15acb5248d040d46b072d82eca08cb60157e4fe5c4e00437d3173952e899f",
+    "military442-normal-step-138-16-response.json": "a74b6f75837ec5673650eb8189fade7c6e2fbdcd903945b8e22a201483fa0d93",
+    "military442-normal-step-138-17-attempt.json": "c6eb7e96bb5467d0376ce4280560c9c5395baa3a3afe1f62dcd6db71c18342db",
+    "military442-normal-step-138-17-response.json": "20c90b5cf95d03d34bf146a7b2bcaa5e03fb25b296501e2b885cbd1a1864b9a1",
+    "military442-normal-step-138-18-attempt.json": "038436cb4b02bda928c1f11bd739ab69841d5b20dc52604de11219f629d11714",
+    "military442-normal-step-138-18-response.json": "b426331a1e50e23118c2a9a55c63df325b40def08f037a0c2d60080882f41d49",
+    "military442-normal-step-138-19-attempt.json": "ddb36f3930840e8207552fc889b5d409ede019314be4e30d16e71259fa744cae",
+    "military442-normal-step-138-19-response.json": "1a759116b5a03585f9be4c43028cc211d4cec6b8e344ca3e77fba081bca24585",
+    "military442-normal-step-138-20-attempt.json": "710c33897f63384604e68fbe89aa4ba012327df95cdfe498d6150422a64888f3",
+    "military442-normal-step-138-20-response.json": "25d0ef2d25698477657bf587a332e7faa07b1f60f7046b209566db17e8a3d3b0",
+    "military442-normal-step-138-21-attempt.json": "c3a968748b6a8ba429a4d603bd9f9b1925624eb4ccfa28ef51604e7981642b7f",
+    "military442-normal-step-138-21-response.json": "1bed18a9343cbab965f9a6e124c2dadafcf85acc60e0b0bfcab29b08e1f00297",
+    "military442-normal-step-138-22-attempt.json": "6e587bd1b984feb9ca99c3325a4c65c72f5d6550982f83f35f123b3ae1e7ff57",
+    "military442-normal-step-138-22-response.json": "71ead03b96d2ee1b03ab0bbde4031c2019410095faad24c7bd31867ea6ad5bfe",
+    "military442-normal-step-138-23-attempt.json": "aa9c1c6ccd369ed59cfef617a8173eb38d3f08a856b46e09c41cf582dd5792d0",
+    "military442-normal-step-138-23-response.json": "e050b5462bf0db73f7e838c6eaa7a3ac11c5a9bb6e197bbd9bfe33d07cc55f68",
+    "military442-normal-step-138-24-attempt.json": "303e0ffb31d066cc5eb0e4e6bbc10af0dacf3851e69e0f88f6fd183f8ddfeb1f",
+    "military442-normal-step-138-24-response.json": "0bcc08fd5d6b810400992e2ae2d821cf0817b89233932541f408bcbecbeaf0a7",
+    "military442-normal-step-138-25-attempt.json": "82c471eded8a69ed89a0a0b7a21bf3f1924298c321341ccd88cf71851b5a90d0",
+    "military442-normal-step-138-25-response.json": "1e9a1742a786badcfda04f5650d04187f1e480a3155f228e9439ba8c326ad063",
+    "military442-normal-step-138-26-attempt.json": "44e4c8392496d5cccbfdcdad3d0509cf147ae23adf1d41ed11fa6e920ba69c21",
+    "military442-normal-step-138-26-response.json": "50c44c011b99d8357c4e67ece2b5ffffb0ed1d15cdbaaaaa540e21008a2144b6",
+    "military442-normal-step-138-27-attempt.json": "c43c6efad6c6df2c7ecac601007a08a8098e2900dfb8ea9f2c6747e5d9226c0e",
+    "military442-normal-step-138-27-response.json": "e7b7b654b3bfbfd0877fcba699322d4e46b3bc2ebd8cd5998e87a65ad035fc3a",
+    "military442-normal-step-138-28-attempt.json": "8d1485f6d1d37bdd0456b925333e7828b6563f5e5b4664ae91c023d85f12479a",
+    "military442-normal-step-138-28-response.json": "818d561092dcdeb6ebba69c3833740217a88bf951b3af237a69b77d91ae2e8e9",
+    "military442-normal-step-138-29-attempt.json": "71194f529b299c20eab7b6412d6936924074357985d0fb2fae7321d97814f54f",
+    "military442-normal-step-138-29-response.json": "2ccd9bf20c2d710ad383cb596565158e3c9f43a1557c9f45537b6354d7c87203",
+    "military442-normal-step-138-30-attempt.json": "b56b461f9cb9dbc381dbd762bd014b0043e5f68ab9d05a37a809044ab8933365",
+    "military442-normal-step-138-30-response.json": "86df4227856acc0abd94f5a104c7d96ba39e03aaf103cd98ac2e6f864777a3a7",
+    "military442-normal-step-138-31-attempt.json": "9120303974f94b34f61af9b01e40eea03318e9cff2787378fb42577d62874085",
+    "military442-normal-step-138-31-response.json": "2338d6cb9a2c746e90d1ba94086b42513cfc3dceafda9bd9fda889474f73f1ae",
+    "military442-normal-step-138-32-attempt.json": "b0666eb03777bd3f71f8719d37e21457175d647924401ed8ab9480cae9484c0f",
+    "military442-normal-step-138-32-response.json": "e1e3f0b12d5fee0485a4fbf67af644edb4661a2998ce03ba0b499f96e30aee39",
+    "military442-normal-step-138-33-attempt.json": "b032bf1241e1123c3c34873b46f855f5e75df4aecb33ee4d895207620c8da53e",
+    "military442-normal-step-138-33-response.json": "cc9776447bd187506065a90ca0f16b6a0f0a75dd7750c2a6290a08e24b351b87",
+    "military442-normal-step-138-34-attempt.json": "ed8a2fc819f9dd9eca8e9a2d7f2cc4fa6428797239dd3c5e50af6075d4cfe5ab",
+    "military442-normal-step-138-34-response.json": "dcf127bec5f94687ce3bd7fb478084214ce2827a1cad1bf489709289575b9c7b",
+    "military442-normal-step-138-35-attempt.json": "8387e4b8ae57a2be3efb482967916292fec364be7f3f5faee336d72e86e97b70",
+    "military442-normal-step-138-35-response.json": "28c002cdeaa089ed36d3e7159ee84fc54c7b4a7d95131b8ff072145fc2fe7711",
+    "military442-normal-step-138-36-attempt.json": "177849ba3e60784dc3c7b02e4b95d36c61de1b6f91db45cfec38dcf51de86e08",
+    "military442-normal-step-138-36-response.json": "39a630ea6a289d9bbd713041cb1faccb183cdc8356dde5827ee4580501a5a9d5",
+    "military442-normal-step-138-37-attempt.json": "e8632313ec80d8f93c0f41aa6e52c01bae407aa8541fa5e821acef4e65a8f34c",
+    "military442-normal-step-138-37-response.json": "ab00da42d0f709b67f374d1edfd68a314b44c033eb17a79a0069df0eb5956828",
+    "military442-normal-step-138-38-attempt.json": "5607337dd15f64dad467557f18d03df57d2487651014477c77379eb97d5abe97",
+    "military442-normal-step-138-38-response.json": "7b41090d0cba096570148541471c6e8af7e4564d6bd314170fa4ca30a5bcc6b4",
+    "military442-normal-step-138-39-attempt.json": "c809ca4477c6250ab0056e76d54ac4158caa1792efeb7b667835745521976c26",
+    "military442-normal-step-138-39-response.json": "8f2635a662e9033db6542bf6362149d2fad1bb5deaead1868aff682ae9659a4b",
+    "military442-normal-step-138-40-attempt.json": "2832f4e129b5422d035e73213dd09de9d1bfa6d56bc9ff5df539c944fa573c48",
+    "military442-normal-step-138-40-response.json": "9885d6f2de7fc6abe7889279901814975a517312f91a85062c1d6e1abfd10fcc",
+    "military442-normal-step-138-41-attempt.json": "f55a8a3a277a346f69c7e802e421b3e20c14aed41dd4e94b4003466995906eca",
+    "military442-normal-step-138-41-response.json": "84893e3e7d5a5a3e8684799d37eb973baf068c79cd520904c721c4714273188f",
+    "military442-normal-step-138-42-attempt.json": "0994b9c6fdca4b04931d43f489c22d57c0973ba81d6e79f99b101f0e9e9eb06d",
+    "military442-normal-step-138-42-response.json": "2ae003e11205579594cfcdae6c22b46ce73c285f1f38d10d042726baacc4e570",
+    "military442-normal-step-138-43-attempt.json": "84234ab3ef99008e79b4f2206287b0325068a5c7c8a6c47b0a2aca2e466c366e",
+    "military442-normal-step-138-43-response.json": "362d999124dd6a66d9c2986558fb0f482d973520114675e6517ffca0721ef979",
+    "military442-normal-step-138-44-attempt.json": "eec847f89a63f6a1957499d6f6f96b51d6af925bc96344d5f40a908e7d185905",
+    "military442-normal-step-138-44-response.json": "1e6fcaeb9ac3cc5bd8ede83cc4e2db26c0fdfe911649281f9a984614d12018b8",
+    "military442-normal-step-138-45-attempt.json": "3ebd5e04f4471990eba837afec57ad7b7d41e4fa092f6d35b522e85c9de1b041",
+    "military442-normal-step-138-45-response.json": "6458c76f427bb70e8e1692d581da44c1f3bf570e17e28def19065d6d6080a770",
+    "military442-normal-step-138-46-attempt.json": "ffcdafd3ff5993cd84fdab0d02c29b019b5c21a0db7c630363bca4d355b86a86",
+    "military442-normal-step-138-46-response.json": "7b43de53f92e82bb20780b30adde3a8e9118276ecd713aa643daf261702ef43e",
+    "military442-normal-step-138-47-attempt.json": "4899caf6e22d53683b017cc97b58cc30f557e2607ca1fca10b0794c7e822b473",
+    "military442-normal-step-138-47-response.json": "7098bc4b87e23256a6ff3fb42f951ec8b29814f7fe6df5aff4961d0e5d0be475",
+    "military442-normal-step-138-48-attempt.json": "8c1552e4effe69d72a787b2120248b70ca1b0ca4e6654e52a175832f7ee861cc",
+    "military442-normal-step-138-48-response.json": "ab2ff6c143c0861e1fdbaa85465d4f0a546f8e1c3d4972abd98ec14f3541b3c7",
+    "military442-normal-step-138-49-attempt.json": "35eb62cbcec3c9fb2c72eabc9702367e4c4ad71cef9d7d159be931d483852f6a",
+    "military442-normal-step-138-49-response.json": "f883ec71e795d98ca743f41afca80f7a23fc24c0e09030d23b78df80c27176c3",
+    "military442-normal-step-138-50-attempt.json": "b4f309be8f1e9059c49accc29604a4aa2ea35a6a8048f5b37f7e7afec2bca4c0",
+    "military442-normal-step-138-50-response.json": "21b879fbd7ec2ea1038ddc6e787be4b5226ed030337b50d54d24ebcb250d7916",
+    "military442-normal-step-138-51-attempt.json": "ee50377c664d0f30e312bd5abd80e8e7896b8d9c1a162faef23655b52a1430ff",
+    "military442-normal-step-138-51-response.json": "9969394224e3674216bd079081765f81f8e62006e6f275a66d7a9fa4ebce5319",
+    "military442-normal-step-138-52-attempt.json": "bced449d99c137a3f5c87bdf68b375564ca7c38e2d7d8a3e3b2bc009626e0d16",
+    "military442-normal-step-138-52-response.json": "b59c2143949dc2d494b2ed4289062b88a336b204dbcf7b2394af011ac406bb07",
+    "military442-normal-step-138-53-attempt.json": "7cc398536f09cea193cdcabd3cc86999bc99457e76f96ddc41eaf761882b0904",
+    "military442-normal-step-138-53-response.json": "9a9024e87b39e0e3f235c1cde9ad9ab84183c575654933636070d366a9ded262",
+    "military442-normal-step-138-54-attempt.json": "d0961b8f56271de41402c511ff73a594a4ae989d304f12cbd8a82839ff438c24",
+    "military442-normal-step-138-54-response.json": "53a448e61f441a3fddd692d56fd3bb37425c179dbe5b28317f547b51e52f85fe",
+    "military442-normal-step-139-02-attempt.json": "475c7ad2de8eba83cf53ac0ed3ebe23218d67398626dd046b16121354c531881",
+    "military442-normal-step-139-02-response.json": "2dcc91e3e9eac16f19ea1608f60b40d1bb5dba58cecf6b88537e3495111a5b35",
+    "military442-normal-step-139-03-attempt.json": "be645b01a98f6674cfa5f1f83bffd90924d06a1ad45a197f70a56a624cc0f36e",
+    "military442-normal-step-139-03-response.json": "5090d05afa4bf8cead80108744f91eaf4915cc64ea5562611cf11caac6aaf538",
+    "military442-normal-step-139-04-attempt.json": "f0e67da84f516d7283581f9d1da71504cc8720b1825a21361050cb64a3c16ce8",
+    "military442-normal-step-139-04-response.json": "b5be64aef823e45c5e8c823eb3f536d6a419125fab65d7b27d076f444fa77037",
+    "military442-normal-step-139-05-attempt.json": "0e94e9485ba07e777051cdbd9d0c2378a7f552c90cd64ea04d4a394515cf1b30",
+    "military442-normal-step-139-05-response.json": "c13157a004358449629f934ea863b7e8a42d85c611bf4afd70937e1152963622",
+    "military442-normal-step-139-06-attempt.json": "1ff2f73ae54977412713b374981f8fcff21509839a7895e18cd15072d8aeb8f2",
+    "military442-normal-step-139-06-response.json": "63d163482714ee9780e70f350bd6ce074594f6d5afba07b75f841a698c036bfa",
+    "military442-normal-step-139-07-attempt.json": "340114f5b52fb9e355e8c3541464d9feac2c8214570e1eb1aaf3be403956e821",
+    "military442-normal-step-139-07-response.json": "c711b61898f4ed2a19bcd0a1bfb23f7d8dc0e7ea1de82cd0ce3a8be6e7f76dff",
+    "military442-normal-step-139-08-attempt.json": "e114fc93bd1d10abc5c5d10019ef08d920f0c6d03062f9bf4f6e727c2c126608",
+    "military442-normal-step-139-08-response.json": "118ce95a89ee178481e38a3ac37952dc45dd9060e49b33ad033aba5d8ed561a8",
+    "military442-normal-step-139-09-attempt.json": "d7755f47ec280d8c8f44c845da5d4c32c8f6ac66478a51a68a047c5105f156f8",
+    "military442-normal-step-139-09-response.json": "e4b77c26331736e8be4f045616121553ed2a475b137e5f9be5453d5ab3c2ebe0",
+    "military442-normal-step-139-10-attempt.json": "d679a7cc9fe159be4ad46d6222b2701aaf2c6352e2a38e41fb22748c5bdc280b",
+    "military442-normal-step-139-10-response.json": "2fe0456d4378b1daa02ad0e0a2f9e52b765711fe4f9fc229c08896c4f526a08b",
+    "military442-normal-step-139-11-attempt.json": "ac89f64a83892932973f0a3d3f4ace6da1835c44334ac630efd96c53f5ac6724",
+    "military442-normal-step-139-11-response.json": "7afc4a3118b461b6e4848b13b036f732a752bd9b02c43d0d246f55e09de9daed",
+    "military442-normal-step-139-12-attempt.json": "0f321ada4f6551137d42d720df74b876296160cf520e9b65607354b953f7e752",
+    "military442-normal-step-139-12-response.json": "31a39cfa1fa53be9ae07c848c3f946b47f7df0c63c044053e63764b018a7a426",
+    "military442-normal-step-139-13-attempt.json": "2c964575c18a987324781199ce2a1f33be6951469634c6d5c68d5d46ada44561",
+    "military442-normal-step-139-13-response.json": "105ec552b806669961f6485c4bf1967518d7f1583820bdf38e0a5b01fc1c170b",
+    "military442-normal-step-139-14-attempt.json": "d27bbcf0b1d80e23d152d3055db7b3192211d21cbd3d47a5ee989f82c058d467",
+    "military442-normal-step-139-14-response.json": "d42bd1d52b1877a1c5231add6da6eaa8c793b8ec93a47b28dc439f2e3ae5528d",
+    "military442-normal-step-139-15-attempt.json": "a0f65875da9f6bbd867299b575822deca2cde034f83207ae22635c5c94215ad7",
+    "military442-normal-step-139-15-response.json": "7268ff2ad871eb84feaf881b67afd0364259ffa1b11d03c754d51739c8899639",
+    "military442-normal-step-139-16-attempt.json": "dd226c72ebdc6973017b23467fa9580d4803b838e9be4c8ad884ac404823327f",
+    "military442-normal-step-139-16-response.json": "9d024ea948f7fc25d267b993701eecb6dce4427bd9c21e64c8d043992eca17f1",
+    "military442-normal-step-139-17-attempt.json": "bdaf5d18e222898e1d3b133d5a5127a47884527ea1aa6bed4c18421d7be7652c",
+    "military442-normal-step-139-17-response.json": "5734d7ceaec1a7d5a9cdcbfad4bd50b96612dbb92a31f728773a5e3303658f0d",
+    "military442-normal-step-139-18-attempt.json": "758c4336a88dedf9f263276094c954b901184cf114a2509a459c1212629c9671",
+    "military442-normal-step-139-18-response.json": "b8ffdc4fe850c60b201c359d880acc8989746fb73f11a77f01b221f70c6ae8a2",
+    "military442-normal-step-139-19-attempt.json": "710a9ff420fa3eb818119caa3958eb52617fc1ecc46a3af2a594346abb9fe8af",
+    "military442-normal-step-139-19-response.json": "d54cfdac01e0af37e31e1d399dc934f6afdc73c4df8500174a53aec4099a9148",
+    "military442-normal-step-139-20-attempt.json": "4121a60b2eb7f19f6a0134c6a7926da63b1b81da64c5c567e7d8488c36bc030a",
+    "military442-normal-step-139-20-response.json": "799198e671ac7d37caf600f55cd588d89ba955b8b0e59975192a20cc7345effd",
+    "military442-normal-step-139-21-attempt.json": "7eb5968c07e35b2afd4f864d2fcbc0a3403bc376b5d4860f16fd08b020f85d8c",
+    "military442-normal-step-139-21-response.json": "d1ee25d96325efa2f0a14891627e8e34d02d9c9f78b5449706135950bc4676e3",
+    "military442-normal-step-139-22-attempt.json": "00fd52a06546467eddb88a1e30f00224fa342ce348ba9e584e4baff4a460261c",
+    "military442-normal-step-139-22-response.json": "3d6dee01ad5d85d1535eef04dc6a0f89615365e0f4fe71b29446a23124287b26",
+    "military442-normal-step-139-23-attempt.json": "c80b3a22dca53978fd658e36bf872499884e2a3e9234860c5a8b34326a728432",
+    "military442-normal-step-139-23-response.json": "50ec1f74231cd4cbf21a9932f2aa383196833ef692390b9f6df63537197267c2",
+    "military442-normal-step-139-24-attempt.json": "6de1d08256d51d58f790463d4c2166c32e7a0c79ac2109892767d340e4f2cbb5",
+    "military442-normal-step-139-24-response.json": "bb0e77d4f1bb5f8ae088fc2dceb5c873c411a5e373ace2ff717b8acb0ce33cd3",
+    "military442-normal-step-139-25-attempt.json": "460feb4351cc73e5894503855548668fa337fe84cdc0bcb04b95194f0410a9d6",
+    "military442-normal-step-139-25-response.json": "31d01f732cc05366924f08be577df7081d377702558c33761f5597e70dd2a9d9",
+    "military442-normal-step-140-01-attempt.json": "064e1b5be16506dfb01880e688f12fbac10198ea792488136b4db3bc1aa04730",
+    "military442-normal-step-140-01-response.json": "b9945e815d816e23d1439821c7a5b4d7dc5b2256da664da778d7900d2d12e03c",
+    "military442-normal-step-140-02-attempt.json": "c55296f5f03a988bdf3aab450d4d35658d45ed949f083f2b93627eaf99d57703",
+    "military442-normal-step-140-02-response.json": "e01a690000277d6cffb3de8ad0b79c49c69f0738cac3351ad00f6fe50dc23e2c",
+    "military442-normal-step-140-03-attempt.json": "606a0b083ddfb3255f6cc727d4ed2f2419cf7988d9bea69240878501e313a0ce",
+    "military442-normal-step-140-03-response.json": "dc5bc49796d85d0ccdd287ac389f51e31f2862c40aab811c8971bdedf11ff5f6",
+    "military442-normal-step-140-04-attempt.json": "20343cd9074c08317dd269cc0504b3785618639809ef4cc23078a0f3d2dc0340",
+    "military442-normal-step-140-04-response.json": "1db7cabffda804b5bc7628fda28aca7c4ae2a14de74c0316ad05f67c7247b5e9",
+    "military442-normal-step-140-05-attempt.json": "a6caf52bf35f7d995003b5a74e5fd8a9e3936077625c0b20b9194952c209532d",
+    "military442-normal-step-140-05-response.json": "91e322569fe961ed69664edabdcea5b0428a95cc9d526a33aa57b076b3a48f5d",
+    "military442-normal-step-140-06-attempt.json": "2d32dc386187bf92887e85e4a652009a29654b57e722e9635383fc458192bbb2",
+    "military442-normal-step-140-06-response.json": "dca1deb7ffcad67f665af46a968a3b70e4828a62d0e86cf95eba0dd7c2167ca7",
+    "military442-normal-step-140-07-attempt.json": "e1147408db2169720a36d23b7ac5770fd7573ae9de6290b50d9957b4d80afff9",
+    "military442-normal-step-140-07-response.json": "8ca3220d33c6ce0995cb6327a83ffbb3a3518ea74e97a637ab675ceaedb12e27",
+    "military442-normal-step-140-08-attempt.json": "738f215421ac07a42817523c19223d795e677774a9b214f7850f3e312bbe086e",
+    "military442-normal-step-140-08-response.json": "a402cedd3d001731ddfcf5b574d352c3bca048f1d822db66fc8f75c88e785178",
+    "military442-normal-step-140-09-attempt.json": "fa9c567060234ebb1e6955dd4b65107ae1dc31e4cf728b24e8653744d3193c89",
+    "military442-normal-step-140-09-response.json": "8e5518b32725fb75597fea210a3b673acee9454b90cb8c14ef4e9faef45d1fcb",
+    "military442-normal-step-140-10-attempt.json": "2a5037f7813c8ae8ebf3dbcd9c072048f0ae09932c74c6109726c2fef2364241",
+    "military442-normal-step-140-10-response.json": "30821e7c0f5bb790f6ab52aeb7aab92ee758956191040cac3135f0e1f0ccdb45",
+    "military442-normal-step-140-11-attempt.json": "08f90859c65ce64d4ac2b5641137648d40c582fc0b08e98ca7f3b777e094812f",
+    "military442-normal-step-140-11-response.json": "8074120493103e640f332512450f5a99eecdac215b026913e0b0b8507a750586",
+    "military442-normal-step-140-12-attempt.json": "740732dbbb64a8f3ca00c0331f47d75f74e0add4915583477b7c1a0593a6cf5b",
+    "military442-normal-step-140-12-response.json": "b6c4e397dd806e047251af804f79c694992c21f4d3f53810c18977ec2c25dc3b",
+    "military442-normal-step-140-13-attempt.json": "eeff82601ce2a1877bfc5dea06429802dcee319cb945d4bbcfbfa05abd3e5df9",
+    "military442-normal-step-140-13-response.json": "4d68f70df11a2e159dc0738aa59e26012559864d5783ff196a67e0b4a901f4df",
+    "military442-normal-step-140-14-attempt.json": "560f838d72c649acf00be06fc4381a72acb719a894659379efec2a7d11c92002",
+    "military442-normal-step-140-14-response.json": "6b91a99eae240f0c247dda9a2991037054bc8d0551cdc1c5f8d9be5d166f844e",
+    "military442-normal-step-140-15-attempt.json": "3c874930cc85c923d7099c2adfb7f12c1d25129d2e36db83e5f21e5a32498c2c",
+    "military442-normal-step-140-15-response.json": "27b0b9711af74d52fe4aba1af132a0d5f26b48d5c482a5d9c2c4518ba49850e0",
+    "military442-normal-step-140-16-attempt.json": "6c9653b116fc0f4d8bcbd20058f593da647479bf714ef1d43de9d30c95475917",
+    "military442-normal-step-140-16-response.json": "bd6ac43496a8fd7b5bcff240b8279b844dc900213cbe247f0971f20c413e5d76",
+    "military442-normal-step-140-17-attempt.json": "d18be7d73c68c6b3af1c8350f71df4120210c3dc985123766f62e307de8d335e",
+    "military442-normal-step-140-17-response.json": "65aad9589fd916b1abec29d71db26a352f773c598d1cf9203a124816912c58aa",
+    "military442-normal-step-140-18-attempt.json": "4b530420e80c7bac3e87684a1bb93e35a18919f14fa19b72ad42107417538769",
+    "military442-normal-step-140-18-response.json": "662a1c38893f16b30d234310f6e283fbb67c27e0304ea2d5b2256f2711b4c83c",
+    "military442-normal-step-140-19-attempt.json": "d5528e5d97fc72afe463807ca673b6bc70e1d01f0ee7bc8c16d81cfddd39cc44",
+    "military442-normal-step-140-19-response.json": "b6ce175b9540c545de7f1890304aacb01b2844219229cd0d677c7df549e578ae",
+    "military442-normal-step-140-20-attempt.json": "4dc594bfeb3f9da5460fa18fb79edded607f668b46f072c3ec5061ec56972220",
+    "military442-normal-step-140-20-response.json": "a9064fd0f79d4a14ef19d4f3dccef7f338928a8eb07c6890ff1ae4c3bf5454c5",
+    "military442-normal-step-140-21-attempt.json": "0772d47e95bc5c225f4d8a35df43a61b1eb08e2eb7a2fdf7f3f031dc13b6248d",
+    "military442-normal-step-140-21-response.json": "36e64e830ac0203952182972543d70548df6393941c914ac66d4a30dae7403a0",
+    "military442-normal-step-140-22-attempt.json": "e846947dfe5f256414084909e475d1c17fa856161e14ea6b0c537c61b356eaa4",
+    "military442-normal-step-140-22-response.json": "1041b3c4e426d0803f35367eb9e0de7fab41e8b2171e78b7bdca06b400a84c8f",
+    "military442-normal-step-140-23-attempt.json": "5fd1b7469aee7275779253db1a92571def75528856de6460e8c9860332cde25f",
+    "military442-normal-step-140-23-response.json": "d972b08741791d95c3554f05a377ac1e6df62e798befa563505aa4f126f92743",
+    "military442-normal-step-140-24-attempt.json": "df254f2f547795387567b0a3dddec8a91ba10bba3b70854528056a26c7c867b5",
+    "military442-normal-step-140-24-response.json": "ea45b0e1242e6bb4f0f2d91ee66c443cf9afc0f57e9e35960a52f9cad3bb0c71",
+    "military442-normal-step-141-01-attempt.json": "576d7a101a37462abb3d828a4cbe81faff328decf3d3a814814462bac1e56b01",
+    "military442-normal-step-141-01-response.json": "c871a605af4d4cb2c571712289f071fa25e65a5b91f4926e91d985e3d3c548da",
+    "military442-normal-step-141-02-attempt.json": "14aed366b62691f62ce8d42fa8e915e632e9762826fea6f13eb14f4c2c85bf94",
+    "military442-normal-step-141-02-response.json": "fd70984a9b5d48076015199bb58872ae887f95a9d237aa33d9f6f871072abc2e",
+    "military442-normal-step-141-03-attempt.json": "21d0884af52d4c3a584988d398215e5c716199e490bf7d941309133804a86a0c",
+    "military442-normal-step-141-03-response.json": "c7f2fdc7adaf87959af4c80f836af708da462ebdb9d6cef47a79905759ca5294",
+    "military442-normal-step-141-04-attempt.json": "d3811649d575f291876d7f952e6d7da8ba1352b9b985fd44eccd0fab10ae32ce",
+    "military442-normal-step-141-04-response.json": "da6a701f9edcc2ca0a0dda51814a88800d25dc5c1983db46644db64ed1bd9ec5",
+    "military442-normal-step-141-05-attempt.json": "3f40432db5feed8cc5ce6daea4e6e2f0c972acd082be3ad1415b90ed5544f936",
+    "military442-normal-step-141-05-response.json": "6ee20c1f4fd8c72664255a68cd4978f977732db1b9a2dc35bf8a5f70eebb543e",
+    "military442-normal-step-141-06-attempt.json": "04ac02e6c341a089bd7b91c6baf311a5537e836d83762f755ae5f066c102b259",
+    "military442-normal-step-141-06-response.json": "04b2d35a6d5c18013ef04226209ddbbca7cc06855b94c81772e77fa41cb71a06",
+    "military442-normal-step-141-07-attempt.json": "cc4e318f3fed6ddf20d5c10a06fa2b487766a740c3b72ace32da7c30bdf234db",
+    "military442-normal-step-141-07-response.json": "bb068abc57fd5a60da5d50ffbd092735b05138cbdc0a17b13f18f48622837e53",
+    "military442-normal-step-141-08-attempt.json": "759fb639efedcb804bd68c4f3a31c552c805f81700ca15515898550ec7ae91d8",
+    "military442-normal-step-141-08-response.json": "fdfd6effa27ab53ddf8809b08fa5c4596e9743ff338c6db5d8c899b070c0bb30",
+    "military442-normal-step-141-09-attempt.json": "1db084cb782685e7418341883a384f034e283c13cca6205d80676891170b6e0a",
+    "military442-normal-step-141-09-response.json": "375e353dc07776006919a2fb50973b2380dea4e75e78088b7836c2553cfc09d7",
+    "military442-normal-step-141-10-attempt.json": "6c38a787e82acbd676d82f0ee85534ba7b9fa05420561cf4618442acfeb481da",
+    "military442-normal-step-141-10-response.json": "8fd3504b89ea5d19d27beb33620fa6a91e4613372d0e315870c0d1a6448092e8",
+    "military442-normal-step-141-11-attempt.json": "9fbfbe6ffb2b5a46520dbc1eaa6ec76b87025d8ff3c5eb8c234454b426b852e7",
+    "military442-normal-step-141-11-response.json": "e5f38d6f4563e1fd7bc3e7a038067e4113f31803b12600c7a661391308c029c7",
+    "military442-normal-step-141-12-attempt.json": "6d24d677e5c0ae39b8959cf137ef3f54c1c0e13d30f3a577b7b4b9d067784e18",
+    "military442-normal-step-141-12-response.json": "f4f83b52a75e5006716694b1e4beaa964cfb07c4d7bd17a68106a3f3481a6303",
+    "military442-normal-step-141-13-attempt.json": "a709fc9e3c29cc4f31d1551f566aa8cd81473efbac2f6bcc07ff1cc3b9ad0729",
+    "military442-normal-step-141-13-response.json": "ba3fb0a381add937a5b099954dbb56a68f07a4f960dda2e1a1809c33027bed3a",
+    "military442-normal-step-141-14-attempt.json": "0c6ac47dfbdfbf021d32baa35271ca9fb773b14ddcdbe710e2e30c84925d4864",
+    "military442-normal-step-141-14-response.json": "f90efa2cb5ec46c89e6e42911ec70cda1e49cf277d05cce05547d9eb26b42ec4",
+    "military442-normal-step-141-15-attempt.json": "4ae8a5c8fe2298763d05bf413e658b2ff99b846cd43d802e4cc8acf3eb8d086e",
+    "military442-normal-step-141-15-response.json": "ca679ebd79514a8a511417b48f9bf93ac6dc014309a585f218395b279086b26d",
+    "military442-normal-step-141-16-attempt.json": "e690cd93cd9bc1101bfd7024207dc696fd05d14970d1c7eb2dd82b67038c3c95",
+    "military442-normal-step-141-16-response.json": "32558f0585274dbaf2a2fc50dd104e39975aa3053428d46a1a525a0febcd798f",
+    "military442-normal-step-141-17-attempt.json": "1ed989159c19612f638863690a2e3ca79a5ae36cfdea50d4953e3d18ce73a342",
+    "military442-normal-step-141-17-response.json": "ac305a7603695be2ba129e511f325d2acfc896ed0ca8f115556bc8a54c8a8366",
+    "military442-normal-step-141-18-attempt.json": "65c96a65e663bd1a7f0e21cffdcb5c7f564cbf744d2a57439f93a39ddb5291e2",
+    "military442-normal-step-141-18-response.json": "aa1a345045b15e4feb69240ffd314e4ae2ba63e8e6376827de46ba1bd798bdae",
+    "military442-normal-step-141-19-attempt.json": "86638815b612558385866446b750c345c57ccf6c3cbce18c2767cc6ba27d3fed",
+    "military442-normal-step-141-19-response.json": "ac582b105bfbac59390518bbe6d400f2a6a58b89c5cfd41cc2af55a11345bb4f",
+    "military442-normal-step-141-20-attempt.json": "c1369f8fbd5ec88a4a9a448458ab77274f6248a0bb2edaded6543c80764df7b6",
+    "military442-normal-step-141-20-response.json": "ae136de311eee5b69cee4b86be22bf365a06086736a8bc14a661c810867c7e78",
+    "military442-normal-step-141-21-attempt.json": "53650a5e940e52c3a4128e748f5b11f51c643c3e8a742ae50e9b36c40f0c42e6",
+    "military442-normal-step-141-21-response.json": "49e4308ed67fd87ae471ca724b77d0f87ec7489db7aa6e8da9abe4fa1bba93e1",
+    "military442-normal-step-141-22-attempt.json": "86399b19c0c8fb2d986609541d1013fab75640429b65f7d6302dbe6b2debd177",
+    "military442-normal-step-141-22-response.json": "7df8b3787bf5f8c0981aeac6e4506fecc6c8265e4f30f0a3eca3952ee82558aa",
+    "military442-normal-step-141-23-attempt.json": "6298721e227631c9f731e649282bfdcc7ef0235a4183aec08aaa152518962c00",
+    "military442-normal-step-141-23-response.json": "e839781f21e3b2bab513472f803258ba8cc1577a233a39fc4a529141cfc14071",
+    "military442-normal-step-141-24-attempt.json": "0edb19cbe9821faa531a051eeb22062a8a0b38da2fad67d1b7e6b2aef9325b89",
+    "military442-normal-step-141-24-response.json": "147e327ce32e6cd0c272fdaa4e0aec3740084b0ee622e8c4624468d9b304bd08",
+    "military442-normal-step-142-01-attempt.json": "d317b5bfa883c024d356d81d7f63eb41932bc5c02e7e5fc899d608a5e29f2abf",
+    "military442-normal-step-142-01-response.json": "2f3f3d3f43b318b6dc77bec492add8044b1bb568dd885c1220dc0942a4200d93",
+    "military442-normal-step-142-02-attempt.json": "baf59c09b7964561c0fad6ce1b790d742a94c1bd8067501e501c66fc3cc256ab",
+    "military442-normal-step-142-02-response.json": "543398ebb2c772a8e874a5cc2825508b3d88643d6e02128ba4e13a8b65889d0b",
+    "military442-normal-step-142-03-attempt.json": "360a14b33af91e012d0d3aa4e31dabcb83c2d2f6521da4adc58fbcb0d8136603",
+    "military442-normal-step-142-03-response.json": "e1a0f7f02427befda9a3a795d9d56fc33f7e31f5f2f9b468a2a62455843d59d0",
+    "military442-normal-step-142-04-attempt.json": "78503c86894c148a04f58fde375e69faa18bc7d0f2d62866043dea7a7a231837",
+    "military442-normal-step-142-04-response.json": "682e20ae6471baf30265a2d68715b612189792b5e7491dfc1358ebc8fed85f6f",
+    "military442-normal-step-142-05-attempt.json": "fe8eca3a57a9e223f63d47c0bc6df1fdf4879b8cd3f745b46aa8e816f6525b91",
+    "military442-normal-step-142-05-response.json": "ec43474c760edd9fba773771e9c4b373e9ed2e7d27b4cd51b6b9167a1e8fb84d",
+    "military442-normal-step-142-06-attempt.json": "9551bb5266ee57f741d509689a26b3f7d655c683e49b1b5794e36e988fa58b3a",
+    "military442-normal-step-142-06-response.json": "074d9843632b517c6e335b0e08baa9fb80082c8b443c4fda8de47d9a14a926b9",
+    "military442-normal-step-142-07-attempt.json": "2a3e3d113561e5089823ca8b5ce1e338b97dff9ea15e6351450f27fa735de442",
+    "military442-normal-step-142-07-response.json": "7d6ddb9a4af555ec38640010beee5fbea485e06c709488e0591be50c274c9037",
+    "military442-normal-step-142-08-attempt.json": "3ab0005cee297acb09fbe6de9751a17d9cebf4aedbc5f97cc8db40c43aad5bdd",
+    "military442-normal-step-142-08-response.json": "0a4c2674c990170f0c2cb966a01620e97a7834d013c6027fb72e5400ece58bf3",
+    "military442-normal-step-142-09-attempt.json": "bb24d199c34da40e090134092d129e86be502747c8cbd2974beda9a863a86edb",
+    "military442-normal-step-142-09-response.json": "f85754a05f521ef340b4720f2a941d7da8d8a770ea903a668188410a5cbe6f2e",
+    "military442-normal-step-142-10-attempt.json": "bb1c8853a77bff62271bbc60c5b3f24753975c0182e8e97163ca164e76e43008",
+    "military442-normal-step-142-10-response.json": "3378dd7fb08f75b0b2b7eb63e2a3fb3442d62793363af740e1f274ce66184863",
+    "military442-normal-step-142-11-attempt.json": "30b1de7c6669b142b799ecfebcde71997a9978d7a5eb5c6e1ded893d0aabef8a",
+    "military442-normal-step-142-11-response.json": "4dc50a9a3d59023d938e817f02c9a2ea0a045021f2af060a631a5b4d58e0ee55",
+    "military442-normal-step-142-12-attempt.json": "415a9c3cadafa335f2b26836622b88b25dab6924d63b362432f9e42f63d52830",
+    "military442-normal-step-142-12-response.json": "a91e4cea4c43a64c8507244b320a982a87c31d736d2d22d0c010b1a66e5ff6fc",
+    "military442-normal-step-142-13-attempt.json": "10745d35191a395401b40a4db1291ad79d774d122f68603ca08170350b0232f2",
+    "military442-normal-step-142-13-response.json": "030f4f9704037d948eb05e5ee4a32ced9c67d63640a8c4d6f6b25a2baddd648d",
+    "military442-normal-step-142-14-attempt.json": "81b6a7821b454f28cfaa220050577055e8f8b55033cef1510616067bebf7fbbf",
+    "military442-normal-step-142-14-response.json": "adee57968e0d1ea07a2f79112c4ff5450f5ee7c9d26621df5ebb13c62177923a",
+    "military442-normal-step-142-15-attempt.json": "c2834b7d1d8f25f6b8fce26f4ce72cc40e6c7469d03e9f308ad5a83b03d740d2",
+    "military442-normal-step-142-15-response.json": "60ad5e44bf6938a2ad4958111c05e53180a477eecab090355f2026ec5c01e8c5",
+    "military442-normal-step-142-16-attempt.json": "8503563e02170fb8579e38061bf13a3065077b5a4b5f5809ae4f683bcab52bfe",
+    "military442-normal-step-142-16-response.json": "5c7cc548f8666d059e0c097b89acf0cbbac95e5e23e15b1d21d3da05853d5116",
+    "military442-normal-step-142-17-attempt.json": "339839b87e2db03272e6b29de8e5574b08ce8c2c9980f7a39498ccd9c8630b1b",
+    "military442-normal-step-142-17-response.json": "8fdfdc38958bea83fd602203d461eaf2b7f2b8e3358ee8196515edca0c60e246",
+    "military442-normal-step-142-18-attempt.json": "415fafff26666d7a5f41a9492d724716b4f0889dd6667b87c485454df050dbd1",
+    "military442-normal-step-142-18-response.json": "33628400fc1135aef7714a180fc5172d25919f557f165e64b93d377a0c75eb67",
+    "military442-normal-step-142-19-attempt.json": "fc29d0c43641d146e2108281b7968200f4285fa4aa6148c89716284d82b40bd6",
+    "military442-normal-step-142-19-response.json": "5c2275ffc3a5a14c669f2480a1027a3e4b51d313dfa81a7a81552b7da085ad65",
+    "military442-normal-step-142-20-attempt.json": "6c26937ff1ceba041ec9724c5f7317e7ed04cfc20b0f5f75799eb07ce6906539",
+    "military442-normal-step-142-20-response.json": "7d7f2dc6e38aa679be967daedeed7e155740d68729cae16a5f25779b7eed1e01",
+    "military442-normal-step-142-21-attempt.json": "b7f096c051fd9ef61e018d5679ac5a153986490c2806afbc397f61a6975db48e",
+    "military442-normal-step-142-21-response.json": "e379e9e78b536eb02ea0eee661fa2a9cf8a770b71581bb62cd3a418ef84bb678",
+    "military442-normal-step-142-22-attempt.json": "43c5a0a8f20baa5b4a336c3a75541ef693a90de3c7cc37c7c217e555c918b313",
+    "military442-normal-step-142-22-response.json": "07fbfe7c2225b1f51b7c068644ba2955f5f806d7a45e8db313bfb40b4598d465",
+    "military442-normal-step-142-23-attempt.json": "023e1d3771e891fb470b57a88c26963ba102abd33ebbdce0917b646523f82c97",
+    "military442-normal-step-142-23-response.json": "7def36a0b54c47e719fcc002210dca5aa90253129926439b506797c864b4d0cc",
+    "military442-normal-step-142-24-attempt.json": "2319b7dacd38559b744398a2a90fbb75f9b31bf1ee65225f8662c6e70f7cb026",
+    "military442-normal-step-142-24-response.json": "582c2e05e2a75f7208660a1d2d8cdc7c0e5949e155318d334a52747569bf64ed",
+    "military442-normal-step-143-01-attempt.json": "0235520b217d74d98241a55b866501e266e5f9d83050120975ad77bbf402b0f4",
+    "military442-normal-step-143-01-response.json": "2b6b85e9680983a09817b00d38aeb8794a578d102eb30485bc0b52ed6b7e0182",
+    "military442-normal-step-143-02-attempt.json": "899f98a1b489d2e6e8d81656efe4a67911c2ecba1335a078d5db0a778c7efa7b",
+    "military442-normal-step-143-02-response.json": "705af108bb8ec62b85af558aae24e44874f8218d7c0ead2fb457fda2fb240860",
+    "military442-normal-step-143-03-attempt.json": "0527ebb2fb2e71b391d743bacd13cca6f4a7078bd76818dbe4bf21b6f6bffc65",
+    "military442-normal-step-143-03-response.json": "23e1f350eb862afd88b9fdeca46f01faec10338a716961da49f57e1cfce51d5e",
+    "military442-normal-step-143-04-attempt.json": "1a78780b8a1b08d7e8d7bab5cee54b3f3fe469108b264eafc33dff8e57230c4c",
+    "military442-normal-step-143-04-response.json": "3b137409430ccef2e1607fc871978c2a460d7d3ec6fc45720feec39826a89406",
+    "military442-normal-step-143-05-attempt.json": "cd62070f1f2eff7ac5bbe0fffa6fe11f77af81fe53006c9d6afe725357cb2283",
+    "military442-normal-step-143-05-response.json": "d3c1deb3d494c530e6882a2c37a1c96fcd8a1d1bd6416521e587d07573180acf",
+    "military442-normal-step-143-06-attempt.json": "d5ea6b0d46550577180e2f5de7702a716a907795245fe1e8917cc76a27a5ebf5",
+    "military442-normal-step-143-06-response.json": "8a1909f18ef0254f66109d1569181fd9eb2bcdfbef8968e5950d53340424d539",
+    "military442-normal-step-143-07-attempt.json": "1111fd6859684d08c5f9684cf498a73c4548f02c33b17d6e26de939245263f4a",
+    "military442-normal-step-143-07-response.json": "4d6043e4b700a5160c4f065865269eb303afab062e73fe247bc215b7c117e18f",
+    "military442-normal-step-143-08-attempt.json": "e213473cbb15ecc89b3be4d3e5149c8c04883545006fb82e1f2388704cb65a07",
+    "military442-normal-step-143-08-response.json": "d64ed84ecd8bec304c2f75dcf8469a116cbc665531b02645901e6a4802080b44",
+    "military442-normal-step-143-09-attempt.json": "83123ec48ff1664ea091f7e37416656436b4e6713bee48041559d43f7df342b6",
+    "military442-normal-step-143-09-response.json": "75340ec38a38ef563db5d5084edf28bd15127e9e61315114e49d1ee11268e2b4",
+    "military442-normal-step-143-10-attempt.json": "1e6a0fa9c3bad4bff075de257b3081299758683b0faed6d2a5ebf728e975df57",
+    "military442-normal-step-143-10-response.json": "24d0b8154b3226027458af1af34d24b72641fb9f5abc65bfe56cbdfa97edbd4d",
+    "military442-normal-step-143-11-attempt.json": "5945931bdc4de07256f9e97d57c29881e78bfb87d476aefdd322054f97727df4",
+    "military442-normal-step-143-11-response.json": "2470cc92f17e977da2cb147b11a6a4ed60841ef88192148277783cc424c69059",
+    "military442-normal-step-143-12-attempt.json": "0326fb7cadb97c3b60c25780fca54e7dd518526f09766857d8bdca76e91b0a68",
+    "military442-normal-step-143-12-response.json": "1014225be688a02f0fa66de8431e10aeeb9e522b946ab7169c6ff170bf19303f",
+    "military442-normal-step-143-13-attempt.json": "346f5f521a72531fc7168539fa3b1ffbbc3e341d4fd6b0f0f34bf85badd52b34",
+    "military442-normal-step-143-13-response.json": "f968c35a10669fa264dfedd93b91665e660c622b29f232bf41bf0e199d3e3fb4",
+    "military442-normal-step-143-14-attempt.json": "25598173020a3af6e22b8be74f56e0f6fd4fe476918478b304bf42d3aad9b724",
+    "military442-normal-step-143-14-response.json": "5efc9e44dd40a589c4e34529aa2c663af6282e7d218a19352bc546d573bb3bf8",
+    "military442-normal-step-143-15-attempt.json": "f381dc0909e983bedb1fa050c1fcf7458dad22b599165cba5b9fff42895509a2",
+    "military442-normal-step-143-15-response.json": "5d6e67d706a981579d8cec333795e13307b556350a0ce719e315f524c09e6c20",
+    "military442-normal-step-143-16-attempt.json": "2f8ae9868f2170e70dc05b4dabd1947f653ac70fbb1ea9f61f246ab96a6872b6",
+    "military442-normal-step-143-16-response.json": "f1d47d541f5bb9443f41dcbd8e4d1f4fa7113ed9fa2dcd8a7aaca5a401cbe139",
+    "military442-normal-step-143-17-attempt.json": "ecbabbe9539e6c151e5f44b6588aa9a6124a10df9f5d8c32524b6092bbdefd9f",
+    "military442-normal-step-143-17-response.json": "90cfb874992414434b42a119521a89c02e09907ca36ecef470c230adb2e20df1",
+    "military442-normal-step-143-18-attempt.json": "29d1c822665bbf587763b963446111a8101b7826eeddcbb9b702833447ecc242",
+    "military442-normal-step-143-18-response.json": "470f808356451dcd86dc0bf8f8fa1e4fa7515f91f73846c171fef41ee7a583ba",
+    "military442-normal-step-143-19-attempt.json": "813e3e27714e8f2d8f6918405c67bcd52bd087ab9e8172881a3455d525c8060c",
+    "military442-normal-step-143-19-response.json": "2f4a410d42e8feb1fa432aacaa49d04ddf207cdaf8f7d6358aaf451c3266e745",
+    "military442-normal-step-143-20-attempt.json": "c1d549c1499d8386c4fb4cd03c10fc9c52adda22860891dca7ca261ce3e41c5f",
+    "military442-normal-step-143-20-response.json": "8094509113ff2f311efb0db09c4ce0300c8de18982b242f353d84802d3c6dc82",
+    "military442-normal-step-143-21-attempt.json": "27c0c95823e85fedd677c2edfb28d76fa59c1bdae68162ce714fae818ffca3a7",
+    "military442-normal-step-143-21-response.json": "bea98d2dc3628afbbf98f0fb317cf234cf560622d66db6efd0dabf4c5d7ad9e0",
+    "military442-normal-step-143-22-attempt.json": "dcebf2d72b3d8394f13dcaf06d229f7179e8753395bf83f64ababe15d19a59dc",
+    "military442-normal-step-143-22-response.json": "3f5ed77bef236ed186e57198f74c8a3c4a46a33b637e2d0830aa9ac9ed4ea112",
+    "military442-normal-step-143-23-attempt.json": "abc6db381b3d9610aa0e07439ab84531334f4e74b3a96f5b08e53591c1613aa0",
+    "military442-normal-step-143-23-response.json": "8bc3ec0342ecb05ad3b0d571a9962f2701a4ebb5148c21fd40f51b599803a8e6",
+    "military442-normal-step-143-24-attempt.json": "85f5e80c46718afeb30ae2ce30b016d738d993b294ec3a123e2fc1c53564bca9",
+    "military442-normal-step-143-24-response.json": "2465e46438d3ba99254d3b8ed5311e2126886eb3bd9cdb5d878fe1470711db2e",
+    "military442-orders-install-begin138-attempt.json": "a62dbedd042e1577e3fe84a26a49b0958cf5638a0989e8f824c54390e7b36a52",
+    "military442-orders-install-begin138-response.json": "d105f94ddc57411e74f241bbf1c259a1d284742f051333b5b6349f700fac47ee",
+    "military442-orders-read-blocked138-attempt.json": "6960d1d10cb8200c9385160826be12d559cc13e6f3186c17a1448430548137e9",
+    "military442-orders-read-blocked138-response.json": "0bfbd1e56adcbd6dc8492b88e3977c891609efa91fc42fb9fcba2cb0571d44ed",
+    "military442-orders-read-normal139-attempt.json": "26834bec595d610357b745ea0fdde0d00eb211e9db6c877e739ff4144e115782",
+    "military442-orders-read-normal139-response.json": "283ad4b94444f5548ab89b608df3fa85e9fbc3a411799d80959cac097e96031d",
+    "military442-orders-read-normal142-attempt.json": "6f4d55be6a9d24aea088fdc91b8cb8334691f54f6f8a1088f0391bb730f57c01",
+    "military442-orders-read-normal142-response.json": "cefd656ed543fb87c8c9c45264c3bd33636582ab359203441e576de969b912b9",
+    "military442-owner-qualification.json": "3017e7d5ad911c4aaf293cb5b571120f36ba4335cd494586182006e31f02d4db",
+    "military442-ready-after138-attempt.json": "30a1bc619314da669ff021cd44a42b559e1090e6391a2eea3d5e67c01013d20c",
+    "military442-ready-after138-player-resolved-attempt.json": "04a2b76e9f1d0111fe1b21c57d91f2007ae86469202f81e88eeed3c92c37194b",
+    "military442-ready-after138-player-resolved-response.json": "1d10c25ea997d6ed675eb100152ff44fdfefe7c9403a27d36dfefd00e2336e85",
+    "military442-ready-after138-response.json": "277a8f0216ccf3075890b310e8d46055e422018fbcd4bda0bef2a64c9512dd02",
+    "military442-ready-after139-attempt.json": "357133b2f1103805193b76fb36b42c1bb9ae9e9b6f142385f8369cd56875f978",
+    "military442-ready-after139-goodbye-attempt.json": "37a4bdf21367a70cb277b304a898e5679519f506236cc6b0d78208fbe6027253",
+    "military442-ready-after139-goodbye-response.json": "ed363e8e5499df26f7e48032a1bc1fd2a23a3c448655dbe1e359793e5292d720",
+    "military442-ready-after139-response.json": "b4d080e5730e7504b7ccfd4019be5800c298f8fa486bf3cbf89ebc7fc513d77e",
+    "military442-ready-after139-skips-attempt.json": "db35bba3a3a85e23dfeaca0013e5aa6e6dc567a78a941896b643e797804bd1aa",
+    "military442-ready-after139-skips-response.json": "011a0b36ea52b6d7eca97170c47bfb3456b2922a2616858b6cd9043e5baceed8",
+    "military442-ready-after142-goodbye-attempt.json": "cf0bb85541fb41451c311331f3f6b43a0f8aa160238f77d183e30a76934f3f1c",
+    "military442-ready-after142-goodbye-response.json": "3b3c10dd26b2de4fd17e6041e7579e0bec908443e1a6d10bf1dc3ba74ee39db5",
+    "military442-ready-congress-finished-attempt.json": "0134fd29ae41bf1cda587687ff1eac80baeac5ac4da3baec63359760d3b79166",
+    "military442-ready-congress-finished-response.json": "c4a6aa4bcef98bccb1d36a8d1e1f0da740a8fb6256cfc990d99b69cb5f71c9a0",
+    "military442-ready-cycle140-normal-attempt.json": "8b53fa249f68c4861ec6ecd45c60d8340f52d09918ea7aa1a7a1f8b1869aed3d",
+    "military442-ready-cycle140-normal-response.json": "e14d911d92d8cd5cbd88dbe7012a01e05691b89c3a9bf90b124e0dfe2227e8aa",
+    "military442-ready-cycle141-normal-attempt.json": "5f90cd9d9e32640e25df96722405ee4cc61cd1f9e78f5e01ee63c5a1964461e7",
+    "military442-ready-cycle141-normal-response.json": "603a36dc541d94110d8beac99efc2e14da8c439d61aeed9462c574df4da3dd76",
+    "military442-ready-cycle142-normal-attempt.json": "577de7a0fad6b09d09a4efc35a0c77c24fb70f0f66f36fc8d51c0f924379bb9e",
+    "military442-ready-cycle142-normal-response.json": "147dee4e88e81a3a2de1e4c7cf180b3763f3e7d08a103f04915b39f7f545c304",
+    "military442-ready-cycle143-normal-attempt.json": "f990c77c83398922b3ebae6f36c521a246f7a48926ac1f0c1579a74ff4ecb715",
+    "military442-ready-cycle143-normal-response.json": "0816edd68fa388caf743ec5bec5264637265f6f0bfdead0a6f1e335d2b3f843a",
+    "military442-save-queues143-ack.json": "04342942123dd11d133604fe42845d941d5829a830709bb17a6fa312b6a86bfb",
+    "military442-save-queues143-attempt.json": "66a991d534b54e6c847541895f217121eb6ae1e494fd4d3feb8360bd17f64de6",
+    "military442-save-queues143-response.json": "c5da19aaaf1d24d6b82abdcac4bf2ea2a251aeec87202151de78bf63d66254e5",
+    "military442-select-next-139-01-attempt.json": "538630a665a45952526491e8b03acd455480005be6622cd7d8bbc92fa2d1ce1b",
+    "military442-select-next-139-02-attempt.json": "84ef300f5e121337c24f7b7f63d4b7672fa8d24069b55602ede457aa2ff962fc",
+    "military442-select-next-139-02-response.json": "65d9ad8e4e19096e4a8fce315f73f5914a7d60d3d400bafafcb5462b762a644e",
+    "military442-select-next-139-03-attempt.json": "38e5f506d99460a04050aa00ec13edc4cb8327977773d47332b2b014ca0b4d9f",
+    "military442-select-next-139-03-response.json": "0cc29a4714a1f24ddee1552ca82cb9d3ce04924473433c984bcc3124c34b052a",
+    "military442-select-next-139-04-attempt.json": "e41bb9168b4e3c2e1bd5840606afdb4838429cbd60e238c8d4aeaea90f49563f",
+    "military442-select-next-139-04-response.json": "e79f44c4873fd0014e2c27a20070f65bc9bdad835de4a11b960db68d400dea4b",
+    "military442-select-next-139-05-attempt.json": "2d712dca464afed1f69c1945ee09352d3b561d2e584d4d84a45aebca82996af2",
+    "military442-select-next-139-05-response.json": "1d4c6e7cc638e254000d3208739e294cc332827b2a1e60ddda711e113f1a8051",
+    "military442-select-next-139-06-attempt.json": "bfb2cab4d23d5a170059c0f3ebb9f0992d51bf12852c26282a74995506f0210f",
+    "military442-select-next-139-06-response.json": "63367eced74f5ec955c970bb0600f15a4d58366f53f93ae63985e9552761d4a6",
+    "military442-select-next-139-07-attempt.json": "deec776e6ae719ba6a6a9bde392c79390b4cb62abee39e7d6550c74c6329d8e4",
+    "military442-select-next-139-07-response.json": "1f3c0070d8bc4869ca244aff4afbce3c9cb8a27c34be84395b5d2dc7b76aa1d7",
+    "military442-select-next-139-08-attempt.json": "4c4e331b746fc1ddb554c9f43b1d0427e39a3083c0dd63976776a9dbcd5f99f7",
+    "military442-select-next-139-08-response.json": "4ec7c7a7334fb9bff1b2aecf6f1bde8f005b37ffdb929d2ec698936a66221d80",
+    "military442-select-next-139-09-attempt.json": "39916e4fe904c2639e0815bad2a72d2517ddbae1ec8faec8da446d3164fdb796",
+    "military442-select-next-139-09-response.json": "82145678ee14e2ce27e690526777c459c17010155576fba74226766d1ec0b9e0",
+    "military442-select-next-139-10-attempt.json": "f7e7e837f8dd9e3957f79722679673820f01e9a01ed45a573ad9237927802409",
+    "military442-select-next-139-10-response.json": "30e11b5c60bbfbe4729e3e1430cba8ef231cae327bacabc0e1279a66dffdc2eb",
+    "military442-select-next-139-11-attempt.json": "306e095213b5a6b07447d828aa0314ac0f5c7fd5aca904e4577eee6d3566815b",
+    "military442-select-next-139-11-response.json": "decef2aafde27b35395f2c1e9c04dea73828eed847eb24a7e48829faa49245fa",
+    "military442-select-next-139-12-attempt.json": "09a1bec738f24fa9e352f40febf9165cf1df618f7bb90af97274f5a688495ee2",
+    "military442-select-next-139-12-response.json": "0876949d4b5bd6878af60543b9b47731fca7dadcc0c2fcac75df0c5338d1f7c6",
+    "military442-select-next-139-13-attempt.json": "8c6e11889e517f8b471357397de1a1f5384351fce19a9c982ea9a84f278986ed",
+    "military442-select-next-139-13-response.json": "6924afe2dc9624300f02f116bfffcca6ca2006503737c4bdd1c80b628b1b330f",
+    "military442-select-next-139-14-attempt.json": "8953fda85d23f8d64a8624223a99a91059583d5bff7b8d044f31adfc45464663",
+    "military442-select-next-139-14-response.json": "ebe0671437e96417bb4c26476797c194d4f40a46ad1e2a92c40185e89121b5c3",
+    "military442-select-next-139-15-attempt.json": "a1ab13c491aaed44a3652623189c481ea1496b19ec60307e28080880a053400d",
+    "military442-select-next-139-15-response.json": "1e42ed01ab437e6ce2bed34703bb937b569b9f82606bd6b7b925dd31f87f51a8",
+    "military442-select-next-139-16-attempt.json": "0a866d7c199a2cb9544ced49e0480205a20d2557e714bf7cce101c33a5ac5531",
+    "military442-select-next-139-16-response.json": "1f0d52b012e315c8e40efff20515ffa89288c61c9fe55291d78f910b058e63c1",
+    "military442-select-next-139-17-attempt.json": "10b056003a03e08954d2bf188b68a091685b6a11889a4b4904f4eb6ed13990f1",
+    "military442-select-next-139-17-response.json": "af55ad1c9c07a34f8b6e41fcd9b4f9312180a538f56df6a66654acf004d8daf4",
+    "military442-select-next-139-18-attempt.json": "597369a4d90507f127a95e68c80aaea9786c09ef0ad1da69cdb4f1353f1d9c8f",
+    "military442-select-next-139-18-response.json": "0ee965e9068cdf56e58f035ce5781a58934bee4c9bf441a31fa9660e2f4138eb",
+    "military442-select-next-139-19-attempt.json": "5da5667abcc9a52a52d165d420a551181985abcfe7af989ae402cb824946e29d",
+    "military442-select-next-139-19-response.json": "0e6dd3a2cc0e886674e689f2875f9c4b97c0fcf56577c492d4005703208935b6",
+    "military442-select-next-139-20-attempt.json": "4c12fb818d35f5eb2b74a51176e1da2195678ae19e2e96dbbf3c1a0480f9864f",
+    "military442-select-next-139-20-response.json": "42ae5b1b844ec821ae02893474921d7b80b538c14c8a9959ddc52c28351fdee4",
+    "military442-select-next-139-21-attempt.json": "40c707bca18938a9965edb152cf8a25cce41d817ef93fc6a1515db790f312c7e",
+    "military442-select-next-139-21-response.json": "49cdfd88c840d61d05b38116f7bd478aaedc9e2d1515ed9ade719f90681324f2",
+    "military442-select-next-139-22-attempt.json": "b35ddc490bc09bc0278216c06a08eb31aa9a4f39e776237a1b3520e4e96b96f0",
+    "military442-select-next-139-22-response.json": "b63d7b16f27d35e10f8cdd30295b721e8628e0153e5b9011c3ffc6df2c2c329e",
+    "military442-select-next-139-23-attempt.json": "5b69ded7422c2961d829f163185c09a7d12cb70b657b87d7ae0ef1efe3ef2ad2",
+    "military442-select-next-139-23-response.json": "53077091ecbeeb6e49d7436fe9be46e354c3fa3fe3a0e27af29721ef9b5eaa99",
+    "military442-select-next-139-24-attempt.json": "53c3602b406ac9126a5336e76032147daccfef0f051064f77c2f152a8f0ba4e3",
+    "military442-select-next-139-24-response.json": "50c8c9a729915ab6ba300867ae3ac7ceb7f90e1ac1441c8de83d8ffc12c968bc",
+    "military442-select-next-139-25-attempt.json": "c72cf741c961562914872d9d2e2839bd46e92476defcf1d1d705011e17a66869",
+    "military442-select-next-139-25-response.json": "e6fab1f61225af0cfbdd5e7b2c10178ea837da5a4003fbe21e86c14d8c0663fd",
+    "military442-select-next-139-26-attempt.json": "f26a036e69aa2ef80c3a902cbb4a132d6125968a08af1c1e158a54e63add3e13",
+    "military442-select-next-139-26-response.json": "7e3ab5437acf93a2feb1f9d995a5efa639c3e1c8be665c82fc6bf0cf055473bd",
+    "military442-select-next-140-01-attempt.json": "746591ec3a4f6a6df9730d2625947a057ba00d0b41ea9caa1a805a344f5f0195",
+    "military442-select-next-140-01-response.json": "4cb460771e11053179a104135ebce63750c7729af33edc21a799fbf76e33f516",
+    "military442-select-next-140-02-attempt.json": "b9efbd0bdba14913ca9d31e4aa7aab12886f58bfb911d46284f2e23b0e3803d2",
+    "military442-select-next-140-02-response.json": "457569ee0f284182c53f7c7972f763326f3638753430b3188ba652550b9ded0b",
+    "military442-select-next-140-03-attempt.json": "e2bfba1d3689be5a288408538097548325b21aa3b5a17d6e232f3001f73e2f5f",
+    "military442-select-next-140-03-response.json": "6de6da463417525ee4c6ac0ad25a53cb4bd29c72742c533565b297fda4737fb3",
+    "military442-select-next-140-04-attempt.json": "a1b77f5fc3c6bd1d772fabcb4c5e796cc31a985809e99e8f0517ec984bec7cbc",
+    "military442-select-next-140-04-response.json": "93da4bc42baf75174c3a4755d7bc10059b44242856dbdfcba6901f673d384c67",
+    "military442-select-next-140-05-attempt.json": "9451fef6ff1b9a229b8d50282fe3622ee37edfe28bc95b3d0ca5683ce5bed129",
+    "military442-select-next-140-05-response.json": "d4be085cc231af12e1886bb3f469da44a3d98f528541a13d0071d6f53efd5904",
+    "military442-select-next-140-06-attempt.json": "dc717c996b348aa0dd1e88e6dcdc7f0e3300ce47734407d2a632098a3eaaa86a",
+    "military442-select-next-140-06-response.json": "4da5f55b92832c3852393418d0e96cdc36f58476c31ef24d4124c95a5ce949a7",
+    "military442-select-next-140-07-attempt.json": "5e229f70fc8ed290ff77aac6e5649a920c4fa2c0ecd21d2f0f928c61a4790c82",
+    "military442-select-next-140-07-response.json": "a38e6fb0b3584de279c59b9dd2f5c6a807894f93357714d89f3518e144c76a3d",
+    "military442-select-next-140-08-attempt.json": "6378c235c46da3021ddcfedffa15586c9d3938926c9e58ea951953cbdc8bde1f",
+    "military442-select-next-140-08-response.json": "f99504bf68c160d51bbec15e4b798b6a832cdec922d8dbe58dcf9fe6b1db0a6e",
+    "military442-select-next-140-09-attempt.json": "0dabe885f923ae603ca6b71a769c71e75279235c4cf68d0e84ba06daf43de056",
+    "military442-select-next-140-09-response.json": "0b3ff52366535d9baedd73fa386b7195d2e4dd6cbcc00278bdf959c527b83867",
+    "military442-select-next-140-10-attempt.json": "f2bf7ea76d08a821818c2e68431d86e739657f9154b8219daace7022d00e9313",
+    "military442-select-next-140-10-response.json": "1f2d43b8405fadd588cabdf9942fad421c47048847e9f5f1aadef3fec20dac64",
+    "military442-select-next-140-11-attempt.json": "9004aebc87bb973008481576b44f218ee195dd0ee3ef14f20f3da36522ab16b9",
+    "military442-select-next-140-11-response.json": "8e330ec89b75ed1a3e2ace3891d2a9064a21dff5b1f6cca49d21a9043a8a6b0f",
+    "military442-select-next-140-12-attempt.json": "c7ca536200ba86d3bee15518ae2c553882767890f516ee04d52835d9cd37b3b8",
+    "military442-select-next-140-12-response.json": "50ecc85a67ee6c309ed4c747aee55e0551872d65a2d58c43da0152617453573d",
+    "military442-select-next-140-13-attempt.json": "2e768a89ce59e6387cfdb8b8727596092e6a9ef7c1349557305e18b19ae47bd3",
+    "military442-select-next-140-13-response.json": "045caac1d937d42daed315af18582f5788976fd5d717020727ea181a2bfce30c",
+    "military442-select-next-140-14-attempt.json": "0802ba340dbedb418cb92bf233a8c59febdcc2d8f79fdca37390d80f9b4340a7",
+    "military442-select-next-140-14-response.json": "993f6caeb01fd8af7273236e270fbc7c2c4776e4600c7fd91a5788b0294121b1",
+    "military442-select-next-140-15-attempt.json": "e7444803f8acecf8f27c7aa8df6bf6d35507456ac6d688cd61757f60a31dfed7",
+    "military442-select-next-140-15-response.json": "20b9b2ea64df2794b646f537e58fa9521e43c2b2fcdce1f68036cba45eb8da73",
+    "military442-select-next-140-16-attempt.json": "6eaab336e2de7a8ec9977ead03e7bfec26f23f26361303ee3bdee849ae66795b",
+    "military442-select-next-140-16-response.json": "0be035640b88bc02ad9e048ba72301eee509570d8ff4b3a777f18a121a44153b",
+    "military442-select-next-140-17-attempt.json": "d9986354e66cc15d6e4278e05c5a3756e1d7ba93d627616c414c50cdb474457d",
+    "military442-select-next-140-17-response.json": "77abff72881ea03dd38fa6ec89709b8b5908692f1229a8ef1bac611089041aa0",
+    "military442-select-next-140-18-attempt.json": "8768dd27de75698673cbd16ab53a88b78820ad46d77947677fc6e2200a796de6",
+    "military442-select-next-140-18-response.json": "9873afb3e1353d9cfcd6beeda7dbc6c7628fdc8c241bc4eb6f806a18f9f5feea",
+    "military442-select-next-140-19-attempt.json": "ce1b9cdbff4493dc5e05d32220c2a281ac8d4f4ffeefe3b86a1942fdcfb7fb4f",
+    "military442-select-next-140-19-response.json": "7810534069a763481baf8009c9a6684919dbe212d8ddae8fd83d06adedc9d181",
+    "military442-select-next-140-20-attempt.json": "15ce2ba7de1c22a9f0ff3652bb9566603796975654c6e5102f929e3905a2874e",
+    "military442-select-next-140-20-response.json": "d7113423a359f954b243c2f47963d13548a07f37e3f852a47dd197bd62ab77d8",
+    "military442-select-next-140-21-attempt.json": "01b8546887667d31062186df2e4e3d77913b521692458650798bb16ca1ef19f0",
+    "military442-select-next-140-21-response.json": "60379d8a490d704e46a864c81fbc2a01d6ad75e59f6560f500ac6bbc23e458e0",
+    "military442-select-next-140-22-attempt.json": "8adfa8f28ef1283dd83d45a0659d32eb032d093d12728b4185a185fd451674fa",
+    "military442-select-next-140-22-response.json": "26f48fa176567ad40ada850abbdeea59a6fc844db7f6b5839508665d92cef368",
+    "military442-select-next-140-23-attempt.json": "94949113003330c4e162f51881c48516da49c4b7a90468928d5402800aad3123",
+    "military442-select-next-140-23-response.json": "1217bc80c1842c4dcfaa3cd3bf558df1875aac69a21b81e7324260804ae7258e",
+    "military442-select-next-140-24-attempt.json": "4f30de4667e5dfa8bb8c4c1f1d8cc171362ba175e4f38d692b991b7bfa464a7a",
+    "military442-select-next-140-24-response.json": "d1cb51ebed424b13eb3d46c255cc9c0c8cdfba0e84fb99acded257841b40bd16",
+    "military442-select-next-140-25-attempt.json": "4ae5a8b3a19f5eece2412201c1bf76e36f89d4d439ee2584822d4629e489a8fe",
+    "military442-select-next-140-25-response.json": "4ccce99ef18f5d086c4c42ce3a0c2e48ddcd912a7554ec62859cad0142b9e65d",
+    "military442-select-next-141-01-attempt.json": "8845fecf4c9f553c9020d1b5b9bd0125c40234423b1527914f9b08a12ec6dafd",
+    "military442-select-next-141-01-response.json": "8f6ef0385d8b81a80a9db0d6a742306826570c3ec229cf36f48377a3e25c1766",
+    "military442-select-next-141-02-attempt.json": "53b2e41c9ec6dd97ecbe582c05ff49c94b735ebe8301f254c915a7389c6f182a",
+    "military442-select-next-141-02-response.json": "be035b8ff9f3de579869c9d8cb4d2de6776b95f69c09b3239519f97c0673b1ed",
+    "military442-select-next-141-03-attempt.json": "63fcd75cabc8b1f4478bfcc55fcc01a00c11ce316dd1d09677c14b5550677eb0",
+    "military442-select-next-141-03-response.json": "30a1bbe3b0f3e88406b3bc9c45cf8dec32407716e8c7c1c56773978413cbff06",
+    "military442-select-next-141-04-attempt.json": "84e5b979e1ee3d57063d957e6ef725dd1848f4f56e3253c709a62047ed0c19a7",
+    "military442-select-next-141-04-response.json": "5eef24f311c30779e9542ab2890ad94329e7897e211dd0a9bb16b5411a8a8cf2",
+    "military442-select-next-141-05-attempt.json": "7378ceb051fd0238d81a697d8fc95cde5262620e8fae8c31d6ae403f453d6668",
+    "military442-select-next-141-05-response.json": "6eb98fa70e6b5cd5ab9bd8b435139b5c855a9734e29f9a247831ec1c5b7b1526",
+    "military442-select-next-141-06-attempt.json": "77b138257ece1c3dfe341be4478016a94f52e154263c2ace51c83d54d76854ec",
+    "military442-select-next-141-06-response.json": "765af72cdf64a996c421b45b90ac5ab3cd210e685ca921bbd055bc6e81716290",
+    "military442-select-next-141-07-attempt.json": "bd73045eca932516b60afecde920d6eb0decbcac6de81391ce63a69132052067",
+    "military442-select-next-141-07-response.json": "c94dc971d90e925fdc9921300e137ee150db4d86ae6858378a4a485c6cbbe35c",
+    "military442-select-next-141-08-attempt.json": "0b94a04bcd3202bdba90e514ff0ea14c05c2d00546c5f42aebb6c4d118d9a776",
+    "military442-select-next-141-08-response.json": "d7e98ad866a8a9eb00e65124724a07e7a01c718aee2a37ae0d5d9bd535209971",
+    "military442-select-next-141-09-attempt.json": "2ed72977e2433a2b12b222b78853b05cd049de02b640b71fa882ea95c2c74327",
+    "military442-select-next-141-09-response.json": "e1c68e680240618200f7d60deb37aacdc98587cdae39bbe0c1c7faab945b2f36",
+    "military442-select-next-141-10-attempt.json": "215731c47821ac2a991bffae2900f6bc83ebb7c56c03e9a40ab2696520c5c279",
+    "military442-select-next-141-10-response.json": "f11c59941c81251df20f9fa9efd013d171e16665e19bbd06b2d5e106bc3b660b",
+    "military442-select-next-141-11-attempt.json": "6ceff20099df743f299ee189888a58a96ec04259e762cbaa3f74c85692a85f8f",
+    "military442-select-next-141-11-response.json": "4e1fe754bb5fa76bfbd2569544b94140386ab06f829766f8429539cf519083f8",
+    "military442-select-next-141-12-attempt.json": "1bdc9f30f4907db74405a48484121beae41092d15488b4ec91e763211b4b9194",
+    "military442-select-next-141-12-response.json": "b80b2c2fc74fa3c7bd1738020816f203663b084ec856489a325a4480338acb39",
+    "military442-select-next-141-13-attempt.json": "c124758afb07b9f22dbcbd467b60d77e03c54daaa5713fbc54b913161d9f6ae1",
+    "military442-select-next-141-13-response.json": "70ff751696770f7223cf4b85fd5de6b516fb6397a1465c15a842ce63bab4b13a",
+    "military442-select-next-141-14-attempt.json": "02d32c1a59a8a458ad41d5cdf5bc7dd9437bf839317408ee3a01b501f497c207",
+    "military442-select-next-141-14-response.json": "2de7680b3cb58c7cfbfc56d2513dc82b31629b344530316550ca2513a1e58f8c",
+    "military442-select-next-141-15-attempt.json": "b4c055ce5463fc742c46d24b8c0a4624a497ae70c1a2c9b0989fd18d2eaa92ac",
+    "military442-select-next-141-15-response.json": "fb357ffb6c2bc0e5f2ef9e776cca2a03a62ce107c3d9896718443c8d938c75f0",
+    "military442-select-next-141-16-attempt.json": "1b82bd3a10df4ab69c14b2f7f4cde7117ff698b5d5067aa102494e2e0279e26b",
+    "military442-select-next-141-16-response.json": "5c906bfbb17f865c7e5a501cb447004584a4d47f16f8730830dc6bf6172ee22d",
+    "military442-select-next-141-17-attempt.json": "52f54b36b05982484300f782d2abdd78db03c89c7fcbbe44ef79b6325739f859",
+    "military442-select-next-141-17-response.json": "92ea6ff1dcd6145c45b3dd6dd68d199bbec4220e1ea59c81fd34e5586e24d367",
+    "military442-select-next-141-18-attempt.json": "746bdebfa2c60174f1685160daa88f9ddabdc72a3ae875722ab23762e89566f3",
+    "military442-select-next-141-18-response.json": "8184b1c7f6940fe92a6231a230d41ff85eef7f59c4a0cc33ed1b4769c97b9487",
+    "military442-select-next-141-19-attempt.json": "bac5ecb99c504036c0aadd23fe05053539dbf427ab0991972ff115b4a7480b6a",
+    "military442-select-next-141-19-response.json": "d64f1ea9a1cc7c910877832f47b93e880de17e9861d70cc63bcdcc3cabd06618",
+    "military442-select-next-141-20-attempt.json": "cd936bb68cac63605d5c26710347dc9a00a7fdb0f6d628fae79e038df860259e",
+    "military442-select-next-141-20-response.json": "943ad1ac77601dae11e37ce9c35f2e84657535ae1aec7c38fdefd739243a8d16",
+    "military442-select-next-141-21-attempt.json": "a025798e9d8c3398c0eb7ad2ee7e11b0274300bb82ae0d76e16152538b1d07e4",
+    "military442-select-next-141-21-response.json": "30bcad291b9a5119142974c841ca0282c60f9b75bf12abe8beafbb1f60d06bbc",
+    "military442-select-next-141-22-attempt.json": "d21e09db3fa2354b0d745980efb07711fa0893a2f3985a0210e3779bd9cdb2d6",
+    "military442-select-next-141-22-response.json": "d258d5d575d248d1fdfb678b35202295e6d8b70f43b4300afcd94c8fa6b5225c",
+    "military442-select-next-141-23-attempt.json": "6482335860f71c2805fa7b9af2d2114fe1c251ebf93cbb3c29b5417a64529f09",
+    "military442-select-next-141-23-response.json": "2f4bbfcfaf2e6a58ca05e5d0730c048d1665ac6c03adb504fb69275566dedcd1",
+    "military442-select-next-141-24-attempt.json": "5ccd436a93ddbdd5fb3092fd98304b3a194d2e647807a42e802687f69a0278f5",
+    "military442-select-next-141-24-response.json": "8862d40203ea800fc8625b3e426bb33c6c5d2dd783c2a1ea80aef404a8177de6",
+    "military442-select-next-141-25-attempt.json": "d6207b47e798f6e7b329f6867c0de581f996643f7619ffab967095eb33e4b5b6",
+    "military442-select-next-141-25-response.json": "0e4d25a1587da4a39b4b45804e3156514a4174325d77d1e772e186109094beb4",
+    "military442-select-next-142-01-attempt.json": "c85fa251ea6774f85097cdc23f44e48fe7be07413cf3410794d038afbe83ee96",
+    "military442-select-next-142-01-response.json": "40ce113509d356891eb3056a1fcc758840be9b5cc00572a664f015e035d0686a",
+    "military442-select-next-142-02-attempt.json": "2f1039b75c68a62ab6d555b66c289a12e2fac56ed02421996357b0a5f60b8cf1",
+    "military442-select-next-142-02-response.json": "3c690d495a476cfdea0a3a4743441094245be2e4afa18531802c2c143dfb5c0f",
+    "military442-select-next-142-03-attempt.json": "fc46a29f8c910b3c48d914fb4880b1b55dd94944ee02b3d546ab936b0d9cd107",
+    "military442-select-next-142-03-response.json": "f8e12f6a14efffb93f83db9dfea2d1dce1a94bb7686a9e2543b7243f528ce947",
+    "military442-select-next-142-04-attempt.json": "13e6e0de9b6b96ad3dfe1062e4cb9c903edd7f233770dea4780848ff41044638",
+    "military442-select-next-142-04-response.json": "3cb48591c3026415b0978b9b94a9720f3825c255abf5f3ba9830a747fb98c864",
+    "military442-select-next-142-05-attempt.json": "448d71c4bbca7da0e07f42d26713b23d1e7587908800e20db7c8aa6e9068bf5d",
+    "military442-select-next-142-05-response.json": "7cb5f37c8d864a7fd40b937f0f00dde95f1fc11509073124685e8d16addd9c45",
+    "military442-select-next-142-06-attempt.json": "09e3a5fd47a9313346b428a88ca37f609d3706bd3d092f3d21e0acd47cd7f48f",
+    "military442-select-next-142-06-response.json": "15569f7bd5391170f320c1dc9c95110ba559fe052b0f43b38b89925b54cd9800",
+    "military442-select-next-142-07-attempt.json": "0f5c1f1881d4306839dbbf211b9d07dabba900e2a30c63aea31a9f287e445539",
+    "military442-select-next-142-07-response.json": "ba47996af246347ca3c3d19806b78ca0835f90824b62ee1aa908363b3203e185",
+    "military442-select-next-142-08-attempt.json": "90ad21a1f0ca6571a13393c57061a1fa44329a4fa8efee6eb0f40f0a7e086f13",
+    "military442-select-next-142-08-response.json": "0c6eab5eea153ae4596c8bee2893146065b282ebfba6b74857819450b2715a4e",
+    "military442-select-next-142-09-attempt.json": "97b35f4cd216442cc9b800b1800ff988e4d51a109d64153564a30dda40d9b471",
+    "military442-select-next-142-09-response.json": "5b348495eed4bc180f7eb8cf985b4060392b5068c1da80d8b59222b08d88121b",
+    "military442-select-next-142-10-attempt.json": "2ff8149d6bd1f25ef710d05a48a295b812b68906a8d02234ec2c874af44103a6",
+    "military442-select-next-142-10-response.json": "314fdfba4113a6d8e0219538ae6dff0776510767522b9cfe856ac13794a18ce9",
+    "military442-select-next-142-11-attempt.json": "23d787f1f79a5218605d58625b619dcc773419df1beb87726a87a010ecf65908",
+    "military442-select-next-142-11-response.json": "d4cbda46b604d16c5ef1b6b9f7b8358f58dbc73c513324697aa9e26534ce4cc6",
+    "military442-select-next-142-12-attempt.json": "a94bdd17c02199bee8bcad387e9d7b46804152e8a058ee5b66e1b7579a45ec86",
+    "military442-select-next-142-12-response.json": "2005d31a4d231de29fa0d984fe2ae0749b60073423616eae1e82a1e2c60a39e9",
+    "military442-select-next-142-13-attempt.json": "7e4930728c860ba9ec72b5cf4491cd29899833d49c66fdd7cc0d0eee3d584c06",
+    "military442-select-next-142-13-response.json": "c6c762eefd3340e9d4f18497a1469281ad91a1e4ad9bf8a5de0ac298ff5e7706",
+    "military442-select-next-142-14-attempt.json": "15ac014b8f985ef882e6821e2944c4eae4c53270526bbe110b974dd331d1c9ab",
+    "military442-select-next-142-14-response.json": "3cc2027f834a2caa8cfbcfaa7b7221696ff595ff7fa1ac61c00b9fe183ea6c24",
+    "military442-select-next-142-15-attempt.json": "b17abcf99baf37aad27dfef0e6fbb53e52f61b1d05f49f2e1ec0c3c7fc1e2d63",
+    "military442-select-next-142-15-response.json": "c5b153115330458524cc3aabc5228eb83ccd4cfbae805de5832b44c5958a162a",
+    "military442-select-next-142-16-attempt.json": "e62e3588db1acfde807140aca264fae102cc72af74de30645c10f9b0e36341f7",
+    "military442-select-next-142-16-response.json": "8a0c2b354f6cecc71e24e27dcc56dc596d23c20655b708ecaf95bc9a2399314d",
+    "military442-select-next-142-17-attempt.json": "26974f62001899a8745a57e9264c90a5fc1c4a2dd06737167bdd0b63f0fdca1d",
+    "military442-select-next-142-17-response.json": "7dd44a2d6500a59b281841a30f423d93fa58160ce29fb5128e1e9dc7431d0ad7",
+    "military442-select-next-142-18-attempt.json": "d1bb29c1ac9809823508b4cda13fda91067071c8638b284829646ee8ed50d14e",
+    "military442-select-next-142-18-response.json": "4e650db11590f019a506f9e1824809098f8916783462c81e0d69f679f473d550",
+    "military442-select-next-142-19-attempt.json": "84c7f2df2edae38725d2d7437f57426b6fe80b956010ad56274675113c7cb191",
+    "military442-select-next-142-19-response.json": "48b51832efb83fec2cc9565da0744e9866a3e7a698fb19959700a3a80b5cdf92",
+    "military442-select-next-142-20-attempt.json": "16972dbbee2e04b4c56d7a727552a79981b99977280db4796ffde22fd3470138",
+    "military442-select-next-142-20-response.json": "cc5786bf53e76e60f57a2a4f53c8b715e07eb4eefbc9b503134310bcb1e18fae",
+    "military442-select-next-142-21-attempt.json": "9d5a2b433fd6d33f381aecbe0e718c26db993643eba818622f35f62e049ee236",
+    "military442-select-next-142-21-response.json": "29278c6fccbe05e716c7e057ef306b516b06705ccd2013dd1fef4905648837cd",
+    "military442-select-next-142-22-attempt.json": "2a563cfc36b06bbb69fcf9c5df8f3244befbe67bf3384185b36982744fe454eb",
+    "military442-select-next-142-22-response.json": "2e7c04ee18b8aa0e9d163f0e84fd713c3fb53936665a185c645885ccd9f5b1eb",
+    "military442-select-next-142-23-attempt.json": "772929655b962838c29d69a4c9c9f5cf9d3fa09a97a0020420b30810fb459e89",
+    "military442-select-next-142-23-response.json": "745ae967861afef5cf84f1512d29679f150e18ce8adafa517b67eb4c03dfce6a",
+    "military442-select-next-142-24-attempt.json": "43e58f07895ad161d85d9dcb57a668d40b9d273ca59168a5a43898ed2b284f85",
+    "military442-select-next-142-24-response.json": "47980b3f028245215587a43cf8683099cad4eb4c5208d1a2bc9a81cb419ed406",
+    "military442-select-next-142-25-attempt.json": "3b7173e9184f568444f5837235f4590d5bd724f06928c97aa0fb2894bf06ff0e",
+    "military442-select-next-142-25-response.json": "5633f1e51e7f2e80fc63b6e55204fc1145861f5d0a0941d17d53041baf742f55",
+    "military442-select-next-143-01-attempt.json": "06ef9f0cd4ea47fdf83a4128a0fd8190821da62104d55e13044b57756547d074",
+    "military442-select-next-143-01-response.json": "d9aa51fb72b6352f992aac45a916e2697f03fdc77d8b8786e2ada9d2a2fcdf0d",
+    "military442-select-next-143-02-attempt.json": "316fcb864a56ad7980b23cd1a661ed2786e53595ffe41967dcef0e173c844d0a",
+    "military442-select-next-143-02-response.json": "1d46d35063502bffed24438a22374c0ff9bfff5f805775161b44247d5dcb967d",
+    "military442-select-next-143-03-attempt.json": "3a473912515541241213d06393c50c8f0acbb101940a6ae9d6b4771e18808549",
+    "military442-select-next-143-03-response.json": "e8ba074a6659b61f1f944e4fddf914be4eddb63e3905a83fa7729b88676572d1",
+    "military442-select-next-143-04-attempt.json": "f3b447d731ca541d1935e757d58f0bc66a6507f4236d45aa9ccb14c0c15dc122",
+    "military442-select-next-143-04-response.json": "630fbf97710a045d76e1ccc4abd40e9681c08b321f9076701bb1a20b6baa2276",
+    "military442-select-next-143-05-attempt.json": "2ea006707363bce52d3164398a8dd0d36e49233e375dad22a821f07d0ed24d75",
+    "military442-select-next-143-05-response.json": "130e1e49bf32eabc1ea96f68aa2922ffe514ff6f645e3dcd959dcba109bcf94e",
+    "military442-select-next-143-06-attempt.json": "8b7045bda352d5a9d899f37f8a85afd85b2a98b501db2c9b8a0adee567989f0e",
+    "military442-select-next-143-06-response.json": "47b06eeb4f25cb93d8bd447b9a9def2a81361143aaf2982a543434eb92d3818b",
+    "military442-select-next-143-07-attempt.json": "88f1445d51db80e012ff56c07c41e6281ed41193919ee6ce016ec87c76d3a370",
+    "military442-select-next-143-07-response.json": "8f48550cffcab8dfbf293e00d3a32c5f146ee5c55743ed6b89cac9a9b27244fe",
+    "military442-select-next-143-08-attempt.json": "6f6bab391b0367e43db51bc23976848227ccbdd9481d1a06851a16c419c0747d",
+    "military442-select-next-143-08-response.json": "b7ab76bb37210c083ae90d9f7b87e806328d3a270aee794dad4effd6d9d8df3a",
+    "military442-select-next-143-09-attempt.json": "31da0ca85d1481d2e742fa62da8af86bbfa88fc3ccb235cfac736953c1ed5e6b",
+    "military442-select-next-143-09-response.json": "238e4d64ae3d24ab02d5c7c9c6953aa24a325ab4537cbf03322591ed4b800bb6",
+    "military442-select-next-143-10-attempt.json": "e005ee3413724f3a9e90d5141bf48df40dca384a7c655fd21218ad9807adc6b2",
+    "military442-select-next-143-10-response.json": "a49c87ab86d7cc5722c2406627abceaf05cf2a7f8e156bf8fe6437e6c03524a6",
+    "military442-select-next-143-11-attempt.json": "702b8bf99c2f010928a1a8e7a949d039a2739242725ab982d19472261489bf08",
+    "military442-select-next-143-11-response.json": "9abc4c5d2b8fee85a077dd7d4b0c0c4fc2b0c6141dbf24f47472c96c002c300d",
+    "military442-select-next-143-12-attempt.json": "33cf4a2128c42bc9fe2cfa722a511a5c9d18cb82eff70c0dcbb4129127c04fa4",
+    "military442-select-next-143-12-response.json": "d1120974b271a95b7b7693bdd1f4f9bf8ce2a4f9722765643ec2dd32bbfd4982",
+    "military442-select-next-143-13-attempt.json": "36e2eff6a593be82c2b7a215ec75aff578111c079ae4591f405a7a41d61268d3",
+    "military442-select-next-143-13-response.json": "7c6e9b29e81cf18a6aca2db51fa5354670954f67550484df63fa1ffa06aec4e4",
+    "military442-select-next-143-14-attempt.json": "57b503a32d45c8577ae97f4069588fb15450d94e43d778ffc8507a3f46c27938",
+    "military442-select-next-143-14-response.json": "0153dfaa44ac0f50ec7e6339272521d9ff5e3669abbcba28f539b40af0863f7b",
+    "military442-select-next-143-15-attempt.json": "cc1df56a5da8f70b97bc9edfa5eb5d4ee203e1ad2cad633de6c67876068466c0",
+    "military442-select-next-143-15-response.json": "a34bb06b918480bc1fcd634b2eaea037c21e92a153a8b75f8883f2c1ade0ec49",
+    "military442-select-next-143-16-attempt.json": "d69cd48268f4bacbaeb075f18d53ffe8ee6f4a29f5826c213953d40f08c103f6",
+    "military442-select-next-143-16-response.json": "d963dccbb73499f6da04282157fd210f1c4c33e18b41148d1262411c2c1c8ee9",
+    "military442-select-next-143-17-attempt.json": "a8fd9aedba29f46810e1e8090ac7d5282b88a392e85913f7ce5b6f8d45f275c9",
+    "military442-select-next-143-17-response.json": "34a6ff98042b9c1437747ef853d0bdb31c7e9a673e38ac3c63fbd73b50e81275",
+    "military442-select-next-143-18-attempt.json": "5e4033fc3579abf3c639c36016667a7836f04d692c05b5ca3abd9f154088be0a",
+    "military442-select-next-143-18-response.json": "da64e65f2c29eaed1397f4f1bb6b5cfe41f9f937ada419debf57d0d41008ab1c",
+    "military442-select-next-143-19-attempt.json": "bc6f8a2d4f7301f7e0a6020e3b056859a4869a4741d8adc012c085f5172d5435",
+    "military442-select-next-143-19-response.json": "014f2bae4f5ff40b5eb80983e9240668df0b40b407387bb91cace858175917a1",
+    "military442-select-next-143-20-attempt.json": "45a18502afb1648e3cb944416da965b32d574c8972f5108b03cdb994d55bc698",
+    "military442-select-next-143-20-response.json": "186787a48ec073ff38a9f1317018bf444b8cf70019aca49ef9b20e75923c55a7",
+    "military442-select-next-143-21-attempt.json": "be5218c46355755ce93e8c4072e5c0d7c5a1f0eab531c3849bf5dd0efa438cb6",
+    "military442-select-next-143-21-response.json": "4425b86dcc6e5307584d0ba63287ceaaeef87db4c01dd22eab699928667ec94e",
+    "military442-select-next-143-22-attempt.json": "5d11e0854c401b1922966bd56800c502daaf4fce0148ad9405cdc5480988df1c",
+    "military442-select-next-143-22-response.json": "786377d5508f447abe14b915c39b1432771e3975f4dfe3f73ad04f5cad86f7fe",
+    "military442-select-next-143-23-attempt.json": "292e87c4a13c20efca2057a95177201430289504ff027307cbab89f54d70418d",
+    "military442-select-next-143-23-response.json": "b533ba12f1b708f834439a9db07c5342100dc8ebc9bde1f86aa2c360400a0954",
+    "military442-select-next-143-24-attempt.json": "dd7b6a47e743d7b2c51ba9f6408dbfd3d304a6a2b6767133f39bd8bc5d20f78a",
+    "military442-select-next-143-24-response.json": "93e68cdf84765a02ddb50838f744880df0f7271d4781b01b6b6d401ef7df4211",
+    "military442-select-next-143-25-attempt.json": "0e689d94ddeb3089662cc8c0ad40b42be89db647936a7c60827339e566cd7878",
+    "military442-select-next-143-25-response.json": "59eeedb23541f3280e52dd5aa2abf35bc70a9c5840ce6e8525ed29082c54d674",
+    "military442-state-after-player-moves138-attempt.json": "b447318ea9847df12f8d9ab4717ebd8af12ddbbe525f573e98451a68db4e5d1d",
+    "military442-state-after-player-moves138-response.json": "9978cd009ae57e39027de7e9590af497b59f4d9a62ef3d5e1f23d5b5bc867dc6",
+    "military442-state-baseline138-attempt.json": "7e453f42538f77cf973e381cf6b17ef4f74ab1a81f529a932a85806cd51df49c",
+    "military442-state-baseline138-response.json": "dcc3949dcffc81a3fec810c329a54d0e75b6049066953c3e7118bc1bff656ce2",
+    "military442-state-normal139-attempt.json": "4a9581fe2893be38968b53ef28f2eb55f82b78f358bfeaf6d55dd47ee88d1090",
+    "military442-state-normal139-response.json": "b3d02a17af1533f578f34d5e9fb90cc8699b83b774cd843771159a64db63ccd6",
+    "military442-state-normal140-attempt.json": "1fd7486606d9a016f0637d4f676016def26a11c7dfcc08e3a66bddccf82e63d2",
+    "military442-state-normal140-response.json": "e72cc72ede5df251d21254bd3d059715be9fec022bb48972607c13e24d2d3c0b",
+    "military442-state-normal141-attempt.json": "451f8350752e60a28f9f8c0177021e7b42eda4b94e49cc35da9bc7b17f740605",
+    "military442-state-normal141-response.json": "cf0132051a102a722b935af0255b8dbc9ef6e66ad0ae985e825639dae3aed5f9",
+    "military442-state-normal142-attempt.json": "f0de164cc0019f443911fab469791abea3fdab322fe0979c2880e17e23140668",
+    "military442-state-normal142-response.json": "c5be3b63b4cf88174664e18e69fac475ce5ea1a0cd6efd44b371f9eac1a1629b",
+    "military442-state-normal143-attempt.json": "70ace44fd84e6de5b7ab696b6360f8ee9ed8d5516764d23f9bede222f7a0536f",
+    "military442-state-normal143-response.json": "11873b7ee8ec1e899de8e0f695717bba48f0cb02259430b7f48d8dc9f2a4b433",
+    "military442-caller.log": "43fb979946dea82df7749deff3b3d73ee43bd4dddfb6ad147aca7c150afdad7e",
+    "military442-model/ATTEMPT1-RESULT.json": "5d5c1d75bbe270c9b95c580c67248a54f17fa7dc4519be69177e08251bdf1cf1",
+    "military442-model/ATTEMPT1-CONTENT.txt": "c318ed666480ce8c1a3c50f3ef040591c58324a7310ede70ca406bfc9afcdc7e",
+    "military442-model/ADAPTER-PROVENANCE.json": "180acb3521273e5589c56b2c39044ebc58539b5dc1f25e0c2fb7f6badd5efd15",
+    "military443-candidates-v2-138-attempt.json": "73f06553694905de85c10f713ecbbb280a0971769e3205fd1a226b3b30ac5176",
+    "military443-candidates-v2-138-response.json": "f876f096bd823ed6163ac4df2770df082da618dfd8e28ca013a95911294dd77d",
+    "military443-candidates138-attempt.json": "3895fe0be28d75c0b241ce2fb87d0f76027243a7ab00bc1831fe2346da05d9d6",
+    "military443-candidates138-response.json": "14412d0fa9ac186ac0721046b803b7c9dbdc4d2d0f2f29cbaa10ddd994da1171",
+    "military443-move-2424851-attempt.json": "5ed0ebd630e8a258cc856467fe5c5072c2dc4ca189921293921533f3cdc99248",
+    "military443-move-2424851-response.json": "37c25d9e98b8ad4c9a5d70a8eae674a7b226deb0b7a07b99726dde778278d005",
+    "military443-move-4718628-attempt.json": "fd8d2c1a085757b70c51c593d21ee79f19998f00804426fa59a46c3dd2b09b02",
+    "military443-move-4718628-response.json": "f886d1cacc88e34120c81882881076c7456ab3c8868501de2aa83ab51c25c77a",
+    "military443-move-5701675-attempt.json": "8564b3dda62e97c51bef50cd3a0b645cd77c9d141a757ee60576a138ae5e0855",
+    "military443-move-5701675-response.json": "8faa22f5e0433d51b991a305e83a1250d4b7b7261d1ed4624bfd7f804a9ca23c",
+    "military443-owner-review.json": "a141cc6ef78f4197f68cdac69e87a7ed7af34e3e9d9e291e0e20b1c5270c42e1",
+    "military443-read-blocked138-attempt.json": "b7127f85afdcec5e07eccaffe6bf779689b1599c3d056a3a826ac5faa7f55135",
+    "military443-read-blocked138-response.json": "a3ad0593abfe4009f5a5cd163886e1357ffbf5f7b7c8889a78c21d82d1efabcc",
+    "military443-rejections138-attempt.json": "a9ae00c9eb20e3497823bec295304542b78d40eb7b0287f8a59dfb53db518af6",
+    "military443-rejections138-response.json": "992b7ed39f277395cfe7e7440a2ed4d6af3973b588c2c4e2774db30dfefc1df4",
+    "military443-select-2424851-attempt.json": "a4ef67544a85317e3cc582a5df83298790cec95e63cb72bba5b67966250145ba",
+    "military443-select-2424851-response.json": "0937e594e4de5faefeed54a83857f65e5933a890388d8fd55538d81fe6769326",
+    "military443-select-4718628-attempt.json": "96a3916f0be27fe5aae1ccaa9a1b197508c5d174f28f7b076749616a0e6a1b2f",
+    "military443-select-4718628-response.json": "2915986c70ef564a0f182feee3b9fb059e2029a7d2ce3071130e482f3ec98ba2",
+    "military443-select-5701675-attempt.json": "25c934e1023fb05fbd3803e52230b58b0be5783148c6a4c4de8851368ed3517c",
+    "military443-select-5701675-response.json": "726db383b3bc2d901283cc3aed2a032b2c10feaed5b68a9da879967944028570",
+    "military443-settle-2424851-attempt.json": "b6d5d5a642974f3f64e4273ce5d29d4cef5f52ed9dd4e9dbfed97b1c6bacf13d",
+    "military443-settle-2424851-response.json": "fe60011f92feef84820517e6bfd13277cfebe6d2e573ae80eaec767263ab07df",
+    "military443-settle-4718628-attempt.json": "9cfb77d12abfeaa149a91fd499c3e09b1e6d98bb5c4761c8144fe01714e33148",
+    "military443-settle-4718628-response.json": "ce9efa0446e1eed4b530363b5a3cd6d4e9488f17db81c6ce024ee309a5451864",
+    "military443-settle-5701675-attempt.json": "14114b6edf7829a8db2bbfa959ec227c6ca718ac319f0c7ebca594c9b59b9bc9",
+    "military443-settle-5701675-response.json": "9ff5b8a40cfededb5f8be6832cae79fde8eed77a0342ecbe62c3a0aae464b17d",
+    "military443-caller.log": "2890b3d0efb5a856db41751167b8d41e4c57556f7b2ee74dcfe80f2323b098b7",
+    "military443-model/ATTEMPT1-RESULT.json": "13600d2513ea3c780b9bc48a0bbad7eef3d863e8d71625cdd8b8d344ab094547",
+    "military443-model/ATTEMPT1-CONTENT.txt": "245aa8429e559b322ce3bb98037525549fb54e0d96372e9c0f7bb543773b3ec5",
+    "military443-model/ADAPTER-PROVENANCE.json": "180acb3521273e5589c56b2c39044ebc58539b5dc1f25e0c2fb7f6badd5efd15",
+    "military444-cost-congress141-attempt.json": "6a1544e2505cc9f9052ad2cf01661f645da9c2b426dcd6bd6f5b5cb02d073bc4",
+    "military444-cost-congress141-response.json": "70a6b32583dce0aa420ef701bec3d02e958fdeafb680cf3797fa2ab96e5ac813",
+    "military444-owner-review.json": "a12696836c7d6016df91972370786c68fba57e47e417f40d853e01d625fba9b9",
+    "military444-caller.log": "82b304c5b0b97b14e1a5f80aa9286b90ae6bf1753e2affa8c1c37c412919b42e",
+    "military444-model/ATTEMPT1-RESULT.json": "3bb1b875bd138446d5d87b6aa12856a46b05ea1ecb96ac7042e3f193637607b4",
+    "military444-model/ATTEMPT1-CONTENT.txt": "368a28a67be6211dd5830cc8cc50d741df2c9050ab029c19d972ec8d3040d805",
+    "military444-model/ADAPTER-PROVENANCE.json": "180acb3521273e5589c56b2c39044ebc58539b5dc1f25e0c2fb7f6badd5efd15"
+  }
+}
