@@ -393,3 +393,5 @@
 - TC-007低金币子项：[77独立138→139夹具](baiqi-military-low-reserve-77.md)窄通过，69.75390625<100、24军队<26、炮兵native双true/资源0，实际2SewerBUILD、0unit；已清观察并恢复主148。资源不足、净收入下限2和精确100边界不随此通过，完整TC-007仍部分。
 
 - TC-007资源短缺子项：[77独立138→142夹具](baiqi-military-resource-shortage-77.md)窄通过。141beforecall硝石9/cost10/linevisibletrue/fullfalse，实际胸甲骑兵0/165；142硝石12、linefulltrue，原队列51/165保持。主148已恢复。仅入队与恢复窗口，未授该骑兵完成、精确资源边界或完整TC-007。
+
+- TC-009：[77只读容量盘点](baiqi-district-capacity-inventory-77.md)确认独立夹具条件。邯郸12人口4/4且圣地科技、合法地块满足，西安缺火箭研究，上海港口无合法同城可见地块；完整资格均false但原因分开。未授后台抑制、自然恢复与完成通过，矩阵仍部分。

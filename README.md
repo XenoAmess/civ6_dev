@@ -100,3 +100,5 @@ python tools\build_mod.py --install
 - [77低金币独立实机分支](docs/testing/baiqi-military-low-reserve-77.md)：69.754低于100储备、有缺兵且炮兵原生合法时，后台0单位请求、两座城继续合法建筑；受控夹具和主148恢复明确记录，资源不足分支继续。
 
 - [77资源短缺独立实机分支](docs/testing/baiqi-military-resource-shortage-77.md)：硝石9不足步兵费用10时改排胸甲骑兵；142自然恢复12后保留原队列51/165。3张实机图、派发前库存和主148恢复证据齐全，完整验收仍部分。
+
+- [77区域容量盘点](docs/testing/baiqi-district-capacity-inventory-77.md)：14城、18普通区域、252条Native记录，找出容量满／缺科技／缺地块的独立样本；只是夹具条件，后台行为和恢复建设继续验。

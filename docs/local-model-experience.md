@@ -92,3 +92,9 @@ Core原始单位51、UI50不可混用；首fixture门在BEGIN前拒0扣，实读
 BF-202609141645，[独立资源138→142](testing/baiqi-military-resource-shortage-77.md)。CoreIndex44先一次-1资格28→27/all54onlyNiter，再不同意图一次-27→0，其他资产计数保持，明确QAfixture非AI收益。NativeUI硝石0/3/6/9/12，141beforecall9<line10/visibletrue/fullfalse，actualCuirassier0/165/铁quote10，142linefulltrue原Cui51/165保持。完整CityManager8BUILD/4unit/2mil/0Line，0foreign/unknown/errors/resourceReadErrors/overflow；events138..141仅9record，重复社区完成通知2不算2资产，不授142events。清exactwrapper/3events，独立142save后restore主148双CoreUI一致。CoreIron27→17与10匹配，UI25→17不同上下文/回合不可独立精确扣费结论。
 
 449raw把马25/铁27库存写成Index，未接入wrapper、漏quote、误把fullfalse单独判资源、虚构32城界限，0rawNative/product。owner14观察透明性/资源错误未知/原调用保真例通过，events8旧例复用0新credit。139首End只ACK不换回合，实际idle且5旧伟人SKIPfalse/noqueued后新普通End进亚历山大对话；141WorldCongress普通物理投票，0UserForced/手动内政。过期参考点击和过早Continue均0input，不误报产品FAIL。累计through449449/418/28/3 HTTP479/extra30；450区域盘点候选独立另记，未知人工时间/缓存/节省null。
+
+## 2026-11-06：450区域容量与前置只读盘点
+
+BF-202609141645，[14城252条Native盘点](testing/baiqi-district-capacity-inventory-77.md)。实际36defs选18普通非internal/trait/center，0errors/incomplete；邯郸4/4但圣地科技已解锁/geometry10/fullfalse，西安3/7但SpaceportRocketryfalse/geometry4，上海2/3但Harborgeometry0，分别保留条件，不能以fullfalse单独推因。原版CitySupport407/408两capacityAPI实际function且三城核过，Cities.GetPlotPurchaseCity(plot)第一方消费者和Native同城读回0error；两个plotinstancegetter实际nil仅读type未call。当前148growth预计不当真实恢复。
+
+450raw未定义visibility、districtRows跨城共享上限、漏full/false/归属/前置、把settlerMinPop挪作区域门和断言无capacityAPI，拒用0rawNative/product；owner绑定实际vis、单次defs缓存、分离32city/256defs/256plotspercity、原版capacity与Tech/Civic资格、ownvisible城市关联。Lua编译是解析检查，Nativeinventory是条件盘点，均不代BACKGROUND行为/完成。累计through450450/419/28/3 HTTP480/extra30；451实际beforecall观察候选独立下一包另记，维护缓存同日复用，未知cache/owner成本/节省null。
