@@ -343,3 +343,5 @@
 按[结果模板](baiqi-acceptance-plan.md#测试结果模板)另建脱敏报告，写真实实际结果与证据索引。此处的需求关联与预期仅用于追踪，以运行记录中的实际状态为准。
 
 - TC-029／030冷进程补证：[74版两份真实中断存档](baiqi-cold-recovery-74.md)由旧18760保存、新12052加载；FINISHING自动完成、CHARGING维持未知。原同进程样本范围不变；其他阶段及跨正常回合尚未因此闭合。
+
+- TC-029／030正常回合补证：[74版未知扣款114→115](baiqi-debit-unknown-normal-turn-74.md)同一笔UNKNOWN／CHARGING保持、冲突守卫真，军队新回合4行动；跨回合与两次Recover均0转城／Finish。无UserForced，资金差值不代替直接扣款计数；其他阶段仍未闭。

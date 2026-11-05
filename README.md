@@ -52,3 +52,5 @@ python tools\build_mod.py --install
 生成的 `dist/Baiqi.zip` 与本机安装内容不入库。游戏、私人存档、账号资料和模型原件均不公开。协作资料参考 [ck3_eternal_recurrence](https://github.com/XenoAmess/ck3_eternal_recurrence)，遵循 [GPL v3](LICENSE)。[P1](docs/testing/results/2026-10-31-p1-smoke.md)／[P2](docs/testing/results/2026-10-31-p2-requisition.md)报告是历史证据，其中旧面板、接管与经营权已撤销。
 
 - [74版冷进程恢复补证](docs/testing/baiqi-cold-recovery-74.md)：完整退出后，正凭证FINISHING自动完成，缺肯定扣款回执的CHARGING继续冻结；两组完成后探针均0额外转城／Finish，TC-029／030仍部分。
+
+- [74版未知扣款正常114→115](docs/testing/baiqi-debit-unknown-normal-turn-74.md)：仍UNKNOWN、冲突冻结，新回合骑手4行动；跨回合及两次Recover原生转城／Finish计数0，资金差值限制明说。
