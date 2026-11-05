@@ -1,0 +1,396 @@
+{
+  "schema": "civ6.capture425427-upgraded-actor75/v1",
+  "utc": "2026-11-05T15:43:08.257691+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime_during_test": 75,
+  "product_code_pin": "1961f9117028b7e0c4e67125e9d72b122ccd2040",
+  "product_changes": 0,
+  "owned_pid": 15788,
+  "birth": 1793880723.3621035,
+  "ordinary_military_upgrade_control": {
+    "source": "Independent normal Farm114checkpoint",
+    "synthetic_tech_resource_gold_changes": 0,
+    "actual_qualification": {
+      "old_army": [
+        0,
+        2162700,
+        "UNIT_HORSEMAN",
+        10,
+        12,
+        4
+      ],
+      "territory_owner": 0,
+      "loose_strict": [
+        true,
+        true
+      ],
+      "command_hash": -750032448,
+      "target": [
+        118,
+        "UNIT_COURSER"
+      ],
+      "price": 125
+    },
+    "test_player_upgrade_requests": 1,
+    "gold_before_after": [
+      4524.2734375,
+      4399.2734375
+    ],
+    "new_army": [
+      0,
+      6815791,
+      "UNIT_COURSER",
+      10,
+      12,
+      0
+    ],
+    "old_ui": null,
+    "old_core": {
+      "owner": 0,
+      "id": 2162700,
+      "xy": [
+        -9999,
+        -9999
+      ],
+      "moves": 4,
+      "dead": false,
+      "delayed": true
+    },
+    "core_ui_collection_count": [
+      48,
+      47
+    ],
+    "saved": {
+      "utc": "2026-11-05T15:17:28.938351+00:00",
+      "name": "Baiqi_P6_20261105_V75_NormalUpgrade114.Civ6Save",
+      "bytes": 568992,
+      "sha256": "c90c044d515581786c133540dea3612936449f29f44ed5b80f71412fabb3d2e4",
+      "stable_repeated_read": true
+    },
+    "paid_capture_requests": 0
+  },
+  "first_garrison_flag_input_failure": {
+    "fixture": "Independent garrison prepared114",
+    "pixel": [
+      520,
+      377
+    ],
+    "verified_cursor_plot": 877,
+    "physical_right": 1,
+    "worldinput_down_up_move_interact": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "paid_requests": 0,
+    "gold": 4524.2734375,
+    "journal": null,
+    "actual_army_after": {
+      "id": 2162700,
+      "xy": [
+        42,
+        19
+      ],
+      "moves": 0,
+      "damage": 25
+    },
+    "actual_city_after": {
+      "owner": 1,
+      "id": 524295,
+      "garrison_damage": 175,
+      "garrison_max": 200
+    },
+    "guard_damage_still": 37,
+    "expected_garrison_damage_before": 150,
+    "status": "FAIL_CITY_INTERACTION_CONFIRMATION_GARRISON_FLAG_PATH",
+    "primary_cause": "Base UnitFlagManager OnUnitFlagClick directly requests ranged or MOVE_TO attack at flagged enemy unit coords; it bypasses WorldInput.WrapMove. Native callbacks capture handler but handler looks up global UnitManager at invocation.",
+    "observer_scope": "0BaiqiGameplay LuaTransfer/Finish binding calls does not mean no native battle action; actual moves/damage proves ordinary combat.",
+    "recovery": "Stopped, all diagnostic bindings cleaned, officially restored fresh independent prepared114copy. No paid request/unknown action replay, no game property/move/damage patch."
+  },
+  "fresh_second_scene_paid_request": {
+    "physical_city_tile_right": [
+      490,
+      390
+    ],
+    "cursor_plot": 877,
+    "physical_confirm": 1,
+    "paid_requests": 1,
+    "cost": 300,
+    "native_lua_transfer": 1,
+    "native_lua_finish": 0,
+    "observer_errors": 0,
+    "preFinish_fault_blocks": 2,
+    "fault_passed_matcher_errors": [
+      0,
+      0
+    ],
+    "stage": "UNKNOWN",
+    "phase": "FINISHING",
+    "reason": "movement_unresolved",
+    "gold_before_after": [
+      4524.2734375,
+      4224.2734375
+    ],
+    "transfer_charge_observed": [
+      true,
+      true
+    ],
+    "city": [
+      0,
+      851979,
+      41,
+      19,
+      1
+    ],
+    "old_army": [
+      0,
+      2162700,
+      42,
+      19,
+      4
+    ],
+    "cooldown": 114
+  },
+  "acting_military_replacement": {
+    "test_player_normal_upgrade_requests": 1,
+    "upgrade_price": 125,
+    "native_strict_qualified": true,
+    "gold_before_after": [
+      4224.2734375,
+      4099.2734375
+    ],
+    "new_army": [
+      0,
+      6815791,
+      "UNIT_COURSER",
+      42,
+      19,
+      0
+    ],
+    "new_cooldown": null,
+    "old_ui": null,
+    "old_core": {
+      "owner": 0,
+      "id": 2162700,
+      "type": "UNIT_HORSEMAN",
+      "xy": [
+        -9999,
+        -9999
+      ],
+      "moves": 4,
+      "dead": false,
+      "delayed": true,
+      "cooldown": 114
+    },
+    "core_ui_count": [
+      48,
+      47
+    ],
+    "journal_still_points_to_old_fullID": 2162700
+  },
+  "live_recovery": {
+    "preFinish_fault_removed_before_calls": true,
+    "recover_calls": 2,
+    "continuous_native_lua_transfer_finish": [
+      1,
+      0
+    ],
+    "added_transfer_finish": [
+      0,
+      0
+    ],
+    "observer_errors": 0,
+    "stage_phase": [
+      "UNKNOWN",
+      "FINISHING"
+    ],
+    "gold": 4099.2734375,
+    "saved_after_all_bindings_clean": {
+      "utc": "2026-11-05T15:33:02.225274+00:00",
+      "name": "Baiqi_P6_20261105_V75_PendingUpgraded114.Civ6Save",
+      "bytes": 569101,
+      "sha256": "b0dc40bb8ea82ae82e592fb4643079316338e7bc678d0b567645c0f43525409b",
+      "stable_repeated_read": true
+    }
+  },
+  "same_process_official_reload": {
+    "old_core_still_retained_delayed_fullID": true,
+    "old_ui": null,
+    "new_army_still_moves0": true,
+    "gold": 4099.2734375,
+    "stage_phase": [
+      "UNKNOWN",
+      "FINISHING"
+    ],
+    "bootstrap_native_call_count": null,
+    "new_postload_two_recover_transfer_finish": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "first_continue_guard": "Fresh image still loading,0key. Later fresh ready pixels allowed oneContinue; no dependent Native call after failed gate."
+  },
+  "normal114_restored": {
+    "three_contexts": true,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "horse_fullID_moves": [
+      2162700,
+      4
+    ],
+    "builder_charges": 1,
+    "journal": null,
+    "bindings_clear": true
+  },
+  "models425427": [
+    {
+      "logical": 425,
+      "shared_commit": "26e094ebfa2b5390aa5cadecb940ebadba0b2e15",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "attempts": 1,
+      "extra_retries": 0,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 14001,
+        "completion_tokens": 892,
+        "total_tokens": 14893
+      },
+      "total_ms": 7732.244200014975,
+      "ttft_ms": 2023.7817000015639,
+      "cached_prompt_tokens": null,
+      "adoption_qualification": "Bounded readonly military upgrade inventory direction. Raw uses absent BaiqiPolicy.Number, Elements, boolean concatenation;8owner actual-port cases, raw port fixture fails;0rawNative.",
+      "raw_candidate_native_execution": 0,
+      "maintenance": "Same-machine/user Nov5 successful OpenCode1.19.5 canonical CLI cache;0new nativegeneration",
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "logical": 426,
+      "shared_commit": "607464d98459d5aed8bd0eff685c325726e98765",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "attempts": 1,
+      "extra_retries": 0,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 17559,
+        "completion_tokens": 953,
+        "total_tokens": 18512
+      },
+      "total_ms": 8615.707300021313,
+      "ttft_ms": 2466.102900041733,
+      "cached_prompt_tokens": null,
+      "adoption_qualification": "Most eligibility and fresh scan outline; raw guard twice sends2mockcommands, no once flag; rawCore wrong UIGetUnitType and uses old u for new v. Owner9command gates, Core5/UI4reader cases,0rawNative.",
+      "raw_candidate_native_execution": 0,
+      "maintenance": "Same-machine/user Nov5 successful OpenCode1.19.5 canonical CLI cache;0new nativegeneration",
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "logical": 427,
+      "shared_commit": "607464d98459d5aed8bd0eff685c325726e98765",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "attempts": 1,
+      "extra_retries": 0,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 13044,
+        "completion_tokens": 1303,
+        "total_tokens": 14347
+      },
+      "total_ms": 10160.43519997038,
+      "ttft_ms": 1932.443899975624,
+      "cached_prompt_tokens": null,
+      "adoption_qualification": "Most raw pending-upgrade guard incl exact positive receipts and once flag; add known horse type/result table check. Readers add protected availability/journal count/city/alias/UIjournal/newcooldown/bounded scan.13command gates,6eachreader;0rawNative.",
+      "raw_candidate_native_execution": 0,
+      "maintenance": "Same-machine/user Nov5 successful OpenCode1.19.5 canonical CLI cache;0new nativegeneration",
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    }
+  ],
+  "cumulative_through427": {
+    "logical": 427,
+    "complete_stop_valid": 396,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 457,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/capture75/upgraded-actor-confirm.png",
+      "sha256": "b9596d6da52a2cc0a395dd5df52bcf771111fdb33d822ef71522947ae401c671",
+      "raw_unedited": true,
+      "scope": "Fresh independent scene, actual open-city-tile rightclick quote300. Separate earlier garrison-flag input had no popup and was discarded by official checkpoint restore."
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/upgraded-actor-unknown.png",
+      "sha256": "9d09d825c86fdde031fbbcc22704e6d76ad4128986e927b8fdf0b129a3d2da17",
+      "raw_unedited": true,
+      "scope": "Actual frozen-result notice after300capture and125upgrade. HUDgold4099; selected scout was chosen by native UI after oldunit removal, not acting courser evidence."
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/upgraded-actor-reloaded.png",
+      "sha256": "c70103deb5a766d1f5d61eeb6dd1558f7ab14b3442d5701d7fef10e0659234bb",
+      "raw_unedited": true,
+      "scope": "Actual reloaded pending scene, selected newcourser6815791 moves0; retained oldCore fullID and UNKNOWN phase proven separately by readers."
+    }
+  ],
+  "software_suite_rerun": false,
+  "software_baseline": "Source75 full1048 passed132.939s, no new product changes.",
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "next_required_work": "428real failure fix candidate already obtained separately; not yet applied or runtime tested. Fix garrison-flag eligible city confirmation without changing non-city army commands, civilian locks or native continue path; add regression and cold Native retest.",
+  "limits": [
+    "Narrow real acting-army upgrade replacement at same-turn FINISHING plus same-process reload; not entire CHARGED/phase/military removal matrix or new cold load.",
+    "No source74 Native counterpart; old74 software counterexample remains separate.",
+    "Upgrade125 is explicit military TEST_PLAYER expense, not second300capture charge. No direct Treasury-call count.",
+    "Frozen UNKNOWN is intentional safety behavior with city/payment retained, not fully completed capture or auto refund/manual unlock.",
+    "Garrison flag confirmation FAIL remains open at this cutoff; source75not complete release candidate.",
+    "417exit residue unclassified; Alpha74unchanged."
+  ],
+  "raw_sha256": {
+    "capture425-native-inventory-response.json": "75f13e00e2ec2b91e6f0d0a8d75e6688fb427b5c3e1fb1f3e421a452e926a078",
+    "capture425-owner-reader-qualification.json": "bb620df0070e7aaf974a75d9b2f1e638d9f696cdca65aa718cd60fc784c14400",
+    "capture426-owner-qualification.json": "d4f25e200d4934ca9cde8e9fdbeaf872cbc78ce76bb323f1bc403d61c337bca0",
+    "capture426-upgrade-once-response.json": "37369378b229106f16d4c98f9de761e709c040f4f51155bf177472a5ecd0d5fc",
+    "capture426-read-after-upgrade-response.json": "f36e1f17480b751e09c885e675c75b29fd18793c4729fc34621cf541c7a18bdc",
+    "capture426-save-upgraded114-response.json": "3256145a4f516b886497000492627b4401e87f5fb5b83f8eecee73a139b65b26",
+    "capture427-first-input-audit-response.json": "9bea6d4c62d1fefb5ed2dccb798d098fca36f5ee2f8cfbadf82e7f781b66c56e",
+    "capture427-input-read-after-first-right-response.json": "f8239d08a79dc6aefb9214863d8d6660db3c2c0529ca25c50b6fb1f0c351ad58",
+    "capture427-request-read-before-confirm-response.json": "b602c43766f4d3adba95a1e44b023387dced42ba72d189f12c7b51924c1abdb5",
+    "capture427-owner-qualification.json": "0e10cf2880fab8bbe76b828c0ee0e3ef59cfbb1920fbc18df3f090526dd86001",
+    "capture427b-load-garrison-prepared114-response.json": "e76badcb5087479c63ad7885e571005ccf4e4a1c4430a1610bae621659b8d05a",
+    "capture427-fault-read-actual-paid-pending-response.json": "662025eab00d6213109a7de9db0a33cc8c44541bcc6213323c00b273954787cb",
+    "capture427-observer-read-actual-paid-pending-response.json": "e19be41da47638f2f99030b3a71949ffe8bc1ae8d43519ed2ea0c1efd63e040e",
+    "capture427-request-read-actual-paid-pending-response.json": "ab63c893b11ad8130c2fca990f0b89b64ad8889a3cdcc18d41ef7d9c35e52e90",
+    "capture427-input-read-actual-paid-pending-response.json": "cab46cdc294073e3dea072ed15bc07abf6c6be80cb43f6db872af58beaeb2cb1",
+    "capture427-upgrade-once-response.json": "dd250fedf8f225247eedf7b9dbe8904588ad75451df243b02f8f3e31ced529e8",
+    "capture427-read-after-paid-upgrade-response.json": "5a4621062dbf0f4aa9bcbe38adede3683b3746492b863fe0b1c49e7fcc859466",
+    "capture427-fault-cleanup-post-upgrade-before-recover-response.json": "988da183e84c50a3eb88fde005dad77f886cf8951587a225bbb87af03c43e482",
+    "capture427-recover-first-response.json": "7b2fbd9b0b691b65be297135275a41005249081a9caa20456a73b6f41e34cd08",
+    "capture427-recover-second-response.json": "5c80719cab709d66a35160befde729fe299b3d1097ce26e78a6921a3cec2374e",
+    "capture427-read-pending-after-reload-response.json": "207ec1e021a173857d545b3eb09faf06a13ac28d0b71485949bac6791971d301",
+    "capture427-save-pending-upgraded114-response.json": "10759530fa85901ed66aaa08c4667864f0e9f6db34b3ec3bc461f4754f2a384a",
+    "capture427-recover-postload-first-response.json": "dde07c50e3f84c8197d0e3d3733f0346c0708b20e671bc9489a0ca7269f3f3d6",
+    "capture427-recover-postload-second-response.json": "6d36ae28be5eafceb320336c7c355871e533d887eabf91b96049f81078da5b59",
+    "capture427-normal-restored-response.json": "012c402814412b2494b3990d75a774b8caaed517a9e1743194d2c8be5c3568b7",
+    "capture425-model/ATTEMPT1-RESULT.json": "aa735b3d4c1e41c138d8624585d4a680c459bf53ac89dae0ab7e3528e33581f3",
+    "capture425-model/ATTEMPT1-CONTENT.txt": "70a9c7229131a65041ae76447040605301eeee5b84fd3d35f681408f17bfc53b",
+    "capture426-model/ATTEMPT1-RESULT.json": "88f9446ac12411e4c237f519d8a6e10c5c7b6d7cbd72020b6db24f0547e9d669",
+    "capture426-model/ATTEMPT1-CONTENT.txt": "2edfc32a7ac2f59bd56eb23f286126e50c4ae41ce4bd58dcf96c30b7a7ac5fe2",
+    "capture427-model/ATTEMPT1-RESULT.json": "dc6d67b61129305186474c8ed54da532d2ae1828acb3a46f0d240d3ab5bba3b7",
+    "capture427-model/ATTEMPT1-CONTENT.txt": "c487f129f3204c54601b3f0fcff1c3807576378a20bb52a5e600e9da946ca83d"
+  }
+}
