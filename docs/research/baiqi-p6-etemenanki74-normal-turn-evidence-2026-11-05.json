@@ -1,0 +1,331 @@
+{
+  "schema": "civ6.etemenanki74-normal-turn-followup/v1",
+  "date_local": "2026-11-05",
+  "utc": "2026-11-05T02:16:13.515797+00:00",
+  "machine_id": "BF-202609141645",
+  "product_build": 74,
+  "product_changes": 0,
+  "status": "PAID_RESULT_RESTORE_AND_FOUR_NORMAL_TURNS_OBSERVED_CITY_BECAME_FREE_CITY",
+  "previous_cutoff": "https://github.com/XenoAmess/civ6_dev/blob/b5400e9db018b8425e19ecb3033445020263aa32/docs/research/baiqi-p6-etemenanki74-completion-evidence-2026-11-05.json",
+  "starting_point": {
+    "turn": 114,
+    "owner": 0,
+    "city_id": 851979,
+    "loyalty": 100,
+    "loyalty_per_turn": -30.6875,
+    "gold": 3224.2734375,
+    "monument_progress": 0,
+    "monument_cost": 30,
+    "completed_paid_result_restore_independently_verified": true
+  },
+  "snapshots": [
+    {
+      "turn": 115,
+      "owner": 0,
+      "city_id": 851979,
+      "population": 11,
+      "loyalty": 72.3125,
+      "loyalty_per_turn": -27.6875,
+      "gold": 3260.984375,
+      "gross_gold_yield": 95.7109375,
+      "maintenance": 59.0,
+      "gold_change_equals_preceding_turn_net_income": true,
+      "original_buildings": 4,
+      "great_work_slots_unchanged": true,
+      "completed_districts_unchanged_by_type_and_location": true,
+      "monument_completed": false,
+      "production_queue": [
+        "1",
+        "-2025065568",
+        "16",
+        "30"
+      ],
+      "owned_city_count": 12
+    },
+    {
+      "turn": 116,
+      "owner": 0,
+      "city_id": 851979,
+      "population": 11,
+      "loyalty": 44.625,
+      "loyalty_per_turn": -27.6875,
+      "gold": 3297.6953125,
+      "gross_gold_yield": 95.7109375,
+      "maintenance": 59.0,
+      "gold_change_equals_preceding_turn_net_income": true,
+      "original_buildings": 4,
+      "great_work_slots_unchanged": true,
+      "completed_districts_unchanged_by_type_and_location": true,
+      "monument_completed": false,
+      "production_queue": [
+        "1",
+        "-2025065568",
+        "28",
+        "30"
+      ],
+      "owned_city_count": 12
+    },
+    {
+      "turn": 117,
+      "owner": 0,
+      "city_id": 851979,
+      "population": 11,
+      "loyalty": 17.9375,
+      "loyalty_per_turn": -26.6875,
+      "gold": 3334.40625,
+      "gross_gold_yield": 96.7109375,
+      "maintenance": 59.0,
+      "gold_change_equals_preceding_turn_net_income": true,
+      "original_buildings": 4,
+      "great_work_slots_unchanged": true,
+      "completed_districts_unchanged_by_type_and_location": true,
+      "monument_completed": true,
+      "production_queue": [
+        "1",
+        "90525320",
+        "0",
+        "30"
+      ],
+      "owned_city_count": 12
+    },
+    {
+      "turn": 118,
+      "owner": 62,
+      "city_id": 131073,
+      "population": 11,
+      "loyalty": 100.0,
+      "loyalty_per_turn": -9.0,
+      "gold": 3372.1171875,
+      "gross_gold_yield": 101.2109375,
+      "maintenance": 54.0,
+      "gold_change_equals_preceding_turn_net_income": true,
+      "original_buildings": 4,
+      "great_work_slots_unchanged": true,
+      "completed_districts_unchanged_by_type_and_location": true,
+      "monument_completed": true,
+      "production_queue": null,
+      "owned_city_count": 12
+    }
+  ],
+  "loyalty_result": {
+    "turn_became_free_city": 118,
+    "free_city_owner": 62,
+    "is_free_cities_true": true,
+    "scope": "This one existing-enemy-city QA branch, four normal turn transitions. No event-cause hook; continuous loyalty decline then verified Free Cities ownership. Not all maps, long-term stable retention, or guaranteed four-turn revolt."
+  },
+  "settlement_after_city_loss": {
+    "operations": 1,
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "cost": 1300,
+    "original_recorded_balance_after": 3224.2734375,
+    "current_gold": 3372.1171875,
+    "four_changes_equal_previous_native_net_income": true,
+    "extra_charge_or_refund_observed": false,
+    "capture_replays": 0
+  },
+  "test_player_actions": {
+    "normal_end_reason": "No reason parameter; never UserForced",
+    "military_skips": "Selected ready owned unescorted military only; per-turn full-ID dedupe, ordinary SKIP_TURN native qualification. Official DoEndTurn selects unresolved units.",
+    "move_type": "Ordinary MOVE_TO, no teleport or escort; visible owned empty destination, fresh qualification. TEST_PLAYER, not BACKGROUND.",
+    "manual_domestic_orders": 0,
+    "diagnostic_correction": "First pending reader queried nil UnitOperationTypes.SKIP_TURN; false results are not legal qualification evidence. Corrected to shipped GameInfo hash745019656. The normal player action helper already used the correct fallback.",
+    "guarded_next_step": "116 step51 failed at initial active/idle guard before action. No replay; independent deferred and settled reads followed.",
+    "great_musician_scope": "After player moved overlapping general away at117, musician2621462 was independently no longer ready. No manual musician order; cause not inferred without background log.",
+    "military_move_requests": [
+      {
+        "id": 2424851,
+        "turn": 116,
+        "from": [
+          11,
+          6
+        ],
+        "requested_to": [
+          11,
+          7
+        ],
+        "position_independently_read_back": [
+          11,
+          7
+        ]
+      },
+      {
+        "id": 4849702,
+        "turn": 116,
+        "from": [
+          18,
+          14
+        ],
+        "requested_to": [
+          17,
+          13
+        ],
+        "position_independently_read_back": [
+          17,
+          13
+        ]
+      },
+      {
+        "id": 4718628,
+        "turn": 116,
+        "from": [
+          11,
+          6
+        ],
+        "requested_to": [
+          10,
+          4
+        ],
+        "position_independently_read_back": [
+          10,
+          4
+        ]
+      },
+      {
+        "id": 5701675,
+        "turn": 116,
+        "from": [
+          11,
+          6
+        ],
+        "requested_to": [
+          11,
+          4
+        ],
+        "position_independently_read_back": null
+      },
+      {
+        "id": 7012401,
+        "turn": 117,
+        "from": [
+          16,
+          14
+        ],
+        "requested_to": [
+          15,
+          14
+        ],
+        "position_independently_read_back": [
+          15,
+          14
+        ]
+      }
+    ],
+    "movement_readback_limit": "Four military destinations independently matched. For knight5701675 the ordinary request/return is recorded, but its destination was not independently snapshotted before normal-checkpoint restoration; position remains unknown. Never replayed to fill that gap."
+  },
+  "assets_at118": {
+    "original_buildings_present_unpillaged": 4,
+    "additional_monument_present": true,
+    "great_works_unchanged": [
+      [
+        14,
+        0,
+        1,
+        7
+      ],
+      [
+        14,
+        1,
+        5,
+        8
+      ],
+      [
+        23,
+        0,
+        10,
+        56
+      ],
+      [
+        23,
+        1,
+        9,
+        55
+      ],
+      [
+        23,
+        2,
+        8,
+        54
+      ]
+    ],
+    "completed_districts_by_type_x_y": [
+      [
+        0,
+        37,
+        12
+      ],
+      [
+        7,
+        37,
+        11
+      ],
+      [
+        8,
+        37,
+        14
+      ],
+      [
+        13,
+        38,
+        12
+      ],
+      [
+        27,
+        36,
+        13
+      ]
+    ],
+    "new_owner_has_assets": 62,
+    "unfinished_campus_restored": false
+  },
+  "city_count_limit": "Player0 count12 does not imply target still owned: target at37,12 belongs62; another player0 city917515 at25,15 independently exists. This record does not award the complete natural-settler production chain.",
+  "save_revolt118": {
+    "utc": "2026-11-05T02:13:52.511780+00:00",
+    "name": "Baiqi_P6_20261105_V74_EtemRevolt118.Civ6Save",
+    "bytes": 577982,
+    "sha256": "4e70270429fb9df59b01818c7bcc7af50c460d76392155640c2f6a30c570aad7",
+    "stable_repeated_read": true
+  },
+  "original_baseline_sha256_unchanged": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6",
+  "image": {
+    "path": "docs/testing/screenshots/baiqi-74-etemenanki-revolt118.png",
+    "sha256": "062c946d61b070c359eacaeba33666cef05f4ad3084bef22f280ccc1d4647b60",
+    "source": "Actual118 game window,1024x728,raw bytes; not image generation or reconstructed UI.",
+    "scope": "City banner and turn visible; screenshot alone does not prove ledger or all asset slots."
+  },
+  "restore_normal_status": "Official normal114 LoadGame ACK true; independent in-game readback pending at this cutoff.",
+  "new_model_calls": 0,
+  "software_suite_rerun": false,
+  "all40_native_complete": false,
+  "steam_online_switches": 0,
+  "remaining": [
+    "Other wonders/unique and unfinished assets",
+    "Nonempty garrison city",
+    "District yields and longer loyalty scenarios",
+    "Other interruption/cold/third-party combat matrix"
+  ],
+  "raw_evidence_sha256": {
+    "finance74-flow-wonder74-normal114-a1-response.json": "4d0e2f504e0e2891d3636f5de3244b5c8d3a79e75cbb3804229c11fe69739353",
+    "finance74-flow-wonder74-normal115-a1-response.json": "b51a8e241a4a04ac46270a55aef7df34867a831585b1e2c276aadc921356974f",
+    "finance74-flow-wonder74-normal116-a1-response.json": "72dfc9646ae66ef382b4ea196186a9379643b564e7ee949750ebc39596e08dca",
+    "finance74-flow-wonder74-normal117-a1-response.json": "c4d3e91993b97de4db94ea3b30dd758c7dc16c9b5f81cfe69c74244585f1bb5c",
+    "source73-progress114-save-receipt.json": "9f2b2354ab90c88d0b4a82436f77299b12a800510ea6b1631cbb4871427beb6d",
+    "wonder-etemenanki74-captured-restore-verify-response.json": "36ab854bcfc523db36bf11b4abd4f0d1333930d1eb9bb99fd6595453fab538e7",
+    "wonder-etemenanki74-general117-after-response.json": "b077d0f093a0921e5ffcd3ca6792c5f33febc5ae43a7f8490fa427fa45528bde",
+    "wonder-etemenanki74-general117-before-response.json": "7026ebb67359b61abb28c0eb05149ee078f3e574d39d925a773894d68e1c2cc2",
+    "wonder-etemenanki74-normal-step-116-50-response.json": "646f9cce61d52a3fa3047d4925a17406b29981764a403a3b1bed3131a601b49f",
+    "wonder-etemenanki74-normal-step-117-62-response.json": "2fbc8740571fb310ec8ffa2159f0790cca8fdbc555dd302d95c0c15c7b935a37",
+    "wonder-etemenanki74-observe-after114-a1-response.json": "f4dc9ed50f85e42df5ae02a180a55d083c87dee554505b313fb8dc5405b5f461",
+    "wonder-etemenanki74-observe-after115-a2-response.json": "872f529b2c28da42fc902e21f7b6e15a4f4b047ece06dbac0d34b0f0dfa34056",
+    "wonder-etemenanki74-observe-after116-normal-settled-response.json": "b3c5733bb5bcb5745a735a10b87e4b21eb82fa4bed0940a3ff390de24bedbc3e",
+    "wonder-etemenanki74-observe-after117-normal-settled-response.json": "8a45ce15b244d6afacfd2480dd30739763256472b01c9aff27d41d7be9aba11a",
+    "wonder-etemenanki74-pending116-resolved-skip-response.json": "61c7984009b4b74e8ed792adba075e29a26b9b7eb9b57ac5e0c5824b74b7cedb",
+    "wonder-etemenanki74-revolt118-verify-response.json": "fb3815a4e93bc4b9a2a8262c2ab5d99ab814c57c23559a4d0440011f35849c73",
+    "wonder-etemenanki74-save-revolt118-response.json": "1c139e915ff22841b79526cccdf14746940c8ffbd0a24cf8c250a367c438b9e5",
+    "wonder-etemenanki74-military-unstack116-2424851-response.json": "f8b6d0e8f05b5a46eee2d01951709fce3f98415783f9c0ad4b20003f62c6e2c8",
+    "wonder-etemenanki74-military-unstack116-4849702-response.json": "b60639972ebe09a58d6a322660b6c5348575dcd02b1720d1bb56e5021fd82965",
+    "wonder-etemenanki74-military-unstack116-4718628-response.json": "0e9d22162192cfa6bf555abe57048da488bec5c8f54236eeac40100c8940fcea",
+    "wonder-etemenanki74-military-unstack116-5701675-response.json": "074fdfd3a2bcf2fa7a295657e50f3f9fc5e842a145f4632fba847c85a74fda39",
+    "wonder-etemenanki74-military-unstack117-7012401-response.json": "a1d1cce84b638bd53a96f377ffeadc8cd49c2e441651de8118594aa0ee16509d"
+  }
+}
