@@ -351,3 +351,5 @@
 - TC-013／016／036受控补证：[74指定移民资格拒绝](baiqi-settler-qualification-recovery-74.md)115拒绝MOVE资格1次，实际移动／建城0、待命1，有限观察计数保持、其他内政继续；撤去钩子后116自动三步移动。FOUND资格实机0命中、建城和自然压力仍未授通过。
 
 - TC-016恢复补证：[74已有移民恢复后建城](baiqi-settler-recovery-founded-74.md)从410干净116继续到119，原位FOUND一次与新城25,15／人口1／自动粮仓关联，119重载保持。Core同ID延迟移除、UI缺失如实记录；不是正常训练成本、全部压力或全部护送通过。
+
+- TC-018／030新软件反例：[74地图外军队形状](baiqi-capture-removed-actor-software-74.md)完整ID仍匹配时CHARGED／FINISHING会对移出地图／延迟销毁对象调用动作并完成；已有正常对照。不是Native军队FAIL，资格修复和实机复测待完成，相关边界未闭。
