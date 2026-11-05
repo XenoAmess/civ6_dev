@@ -66,3 +66,5 @@ python tools\build_mod.py --install
 - [75版征城军队可用性检查](docs/testing/baiqi-capture-actor-guard-75.md)：已修复74的软件反例，新增回归及完整软件检查通过；75安装和实机复测继续进行，工坊仍74。
 
 - [75版征城恢复实机复测](docs/testing/baiqi-capture-native-recovery-75.md)：旧FINISHING恢复、未知扣款冻结、实际军队移除及重载已有窄样本和3张原图；同ID延迟销毁的军队实机窗口仍未验，正常114已恢复。
+
+- [75版过期FINISHING正常跨回合](docs/testing/baiqi-expired-finishing-75.md)：114正扣款中断到115，撤故障及存读档后骑手仍4行动，两组Recover均0转城／Finish；正常114已恢复。

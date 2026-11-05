@@ -1,0 +1,203 @@
+{
+  "schema": "civ6.capture416-expired-finishing75/v1",
+  "utc": "2026-11-05T11:50:48.540946+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 75,
+  "source_pin": "1961f9117028b7e0c4e67125e9d72b122ccd2040",
+  "owned_pid": 13340,
+  "birth": 1793877573.3264081,
+  "product_changes": 0,
+  "qa_prestate": {
+    "independent_garrison114": true,
+    "physical_right": 1,
+    "physical_confirm_300": 1,
+    "ui_paid_request": 1,
+    "transfer_calls": 1,
+    "finish_calls": 0,
+    "before_native_finish_fault_blocked": 2,
+    "stage": "UNKNOWN",
+    "phase": "FINISHING",
+    "record_turn": 114,
+    "transfer_observed": true,
+    "charge_observed": true,
+    "balance_before": 4524.2734375,
+    "balance_after": 4224.2734375,
+    "army": [
+      0,
+      2162700,
+      42,
+      19,
+      4
+    ],
+    "cooldown": 114,
+    "not_natural_combat": true
+  },
+  "normal_turn": {
+    "test_player_military_skip": 9,
+    "official_DoEndTurn": 8,
+    "one_ACTION_ENDTURN_without_reason": 1,
+    "UserForced": false,
+    "paid_request_replay": 0,
+    "civilian_or_production_test_orders": 0,
+    "military_selection_reminders_remaining": true,
+    "action_ACK_and_actual_115_independently_verified": true
+  },
+  "actual115": {
+    "stage": "UNKNOWN",
+    "phase": "FINISHING",
+    "record_turn": 114,
+    "unique_records": 1,
+    "city": [
+      0,
+      851979,
+      41,
+      19,
+      1
+    ],
+    "army": [
+      0,
+      2162700,
+      42,
+      19,
+      4
+    ],
+    "army_damage": 0,
+    "cooldown": 114,
+    "death_flags": [
+      false,
+      false
+    ],
+    "map": [
+      44,
+      26
+    ],
+    "actor_and_plot_conflicts": true,
+    "gold": 4265.984375,
+    "gold_delta_since114": 41.7109375,
+    "direct_treasury_debit_refund_counters": null
+  },
+  "native_counters": {
+    "initial_paid_request_through_normal115": {
+      "transfer": 1,
+      "finish": 0,
+      "errors": 0
+    },
+    "fault_cleanup_at115": {
+      "blocked": 2,
+      "passed": 0,
+      "matcher_errors": 0
+    },
+    "fresh_after_fault_cleanup_two_recover_probes": {
+      "transfer": 0,
+      "finish": 0,
+      "errors": 0
+    },
+    "fresh_after_same_process_reload_two_recover_probes": {
+      "transfer": 0,
+      "finish": 0,
+      "errors": 0
+    }
+  },
+  "saved115": {
+    "utc": "2026-11-05T11:43:31.873383+00:00",
+    "name": "Baiqi_P6_20261105_V75_ExpiredFinishing115.Civ6Save",
+    "bytes": 572660,
+    "sha256": "a17442d7036c61b9ba742abe7decc365dbd5d5fe072021cc4e5fa4d11187b5cf",
+    "stable_repeated_read": true
+  },
+  "reload": {
+    "same_owned75_process": true,
+    "old_record_turn114_and_current115": true,
+    "military_moves_preserved": 4,
+    "cooldown": 114,
+    "gold": 4265.984375,
+    "unknown_finishing_conflicts_preserved": true
+  },
+  "owner_diagnostic_correction": "First Core reader reused in Executor hit unavailable Requisition helper. Original failure preserved. Separate UI reader qualified actual UI APIs; not model or product failure,0game actions from failed read.",
+  "limits": [
+    "One QA positive FINISHING crossing exactly one normal turn; not all phases or natural combat.",
+    "No current-turn replay or refund inferred from balance delta.",
+    "No fresh cold process for expired115 reload.",
+    "Native retained-ID delayed military removal still untested; related40-case matrix remains partial."
+  ],
+  "normal114_restored": {
+    "three_contexts": true,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "army_original_moves": 4,
+    "builder_charges": 1,
+    "journal": null,
+    "fault_observer_bindings_clear": true
+  },
+  "screenshot": {
+    "path": "docs/testing/screenshots/capture75/expired-finishing-115.png",
+    "sha256": "b1f3f7b7af9ac2930c41bd59ba24f1b6ddd205bdc2b418a2ae454ba79076c59d",
+    "version": 75,
+    "raw_unedited": true,
+    "scope": "Actual115 selected horse panel4/4; location and pending ledger separately Native verified."
+  },
+  "model416": {
+    "shared_commit": "93d2470abbddcb84bbdd7deb685744997d7509b1",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 7519,
+      "completion_tokens": 632,
+      "total_tokens": 8151
+    },
+    "total_ms": 5195.689500018489,
+    "ttft_ms": 1321.3183000334539,
+    "cached_prompt_tokens": null,
+    "candidate_lua_lines": 12,
+    "diagnostic_software_cases": 6,
+    "raw_candidate_native_execution": 0,
+    "adoption": "Correct phase/positive receipts/city/unit and independent conflict assertion direction; owner added unique/full record identity, native grid/death/read protection and correct416prefix.",
+    "rejected": [
+      "Missing record uniqueness and full record identity",
+      "No grid/death checks",
+      "Read exceptions propagate instead of available=false",
+      "Old408 prefix"
+    ],
+    "maintenance": "Canonical Nov5 successful1.19.5 cache;0new OpenCode native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through416": {
+    "logical": 416,
+    "complete_stop_valid": 385,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 446,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "software_suite_rerun": false,
+  "software_baseline": "75 full1048 passed132.939s; only diagnostics/docs since code1961f911.",
+  "steam_online_switches": 0,
+  "workshop_and_alpha": "Fixed74 unchanged.",
+  "raw_sha256": {
+    "capture416-observer-read-pending-response.json": "9e617c58d55e93db26f33ef8f46e82115bfbcb0bd39f91dd630bda62fe00a599",
+    "capture416-fault-read-pending-response.json": "4fe052cdb7c58791cf6f68627072154ec5c506506a13b652c5f69ad636a54f78",
+    "capture416-request-read-once-response.json": "e7847e92bf51548abbc9f9c3b2b877c4edf6437556abdfff6ec33971b4c3420b",
+    "capture416-normal-end114-response.json": "b8f4da431ee7e4e76c8daf9b619a2c68f403361be2c165a7f1bfed5203a239ad",
+    "capture416-status-after-end-response.json": "f67666d47e8ab4cc69e91c9cb193aa9174ded4bc4f1e13d1db1a0efca4aff721",
+    "capture416-counts-across-normal-turn-response.json": "759eafa58b5df48acbbe87c7742186126efd74b130bf5765a0c7f5dd45f8b5c1",
+    "capture416-fault-cleanup-before-new-turn-probes-response.json": "7bcd4e8df67577fe7dda5ff5f25dbe7258d1391b1a6652cebc2550343133cdce",
+    "capture416-counts-after-probes-response.json": "7f5159aa7868013b5bf959bb1205b41784771d819149825915122247a388721e",
+    "capture416-read-ui-after-probes-response.json": "edf616e692240060a6712f12ac7bb69467245e60c37346f133ee0953d05374f8",
+    "capture416-read-ui-after-probes-qualified-response.json": "c7962eb9c5a82440cfcdbdfe20004d5d4750e4460e772a464161858ab7487fcc",
+    "capture416-counts-reloaded-response.json": "2982165a085d2651c508b684c42e410b219d91e2aaf26987f1d3f52b44093f53",
+    "capture416-read-ui-reloaded-response.json": "c2c2179dbda99f242d71fc120bf5604a01ad989b960c66a03bf576e1a0fce09a",
+    "capture416-save-expired115-response.json": "23dea9afa306661922806ff7b3df272cc2ff5cc695407a8730e1d27897b5a8d0",
+    "capture416-normal-restored-response.json": "1139a9b0f614ed4d8ab7e0a6395cf664b50258f5675f7a7e71a2624a66ae380f",
+    "capture416-owner-probe-qualification.json": "79320826483c7cd207dfbd05b1e43d19e6e1feb391d0f70ad9f9e377fe2b5e9c",
+    "capture416-model/ATTEMPT1-RESULT.json": "3858cc1073a5ab1daadf73336bd486667fa900a4d3395015c87475252fd74e23",
+    "capture416-model/ATTEMPT1-CONTENT.txt": "b06e0b48a3698f59ebb55216696f84e28655ad350fb10cde23fca8cfa1391789"
+  }
+}
