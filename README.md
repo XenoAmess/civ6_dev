@@ -72,3 +72,5 @@ python tools\build_mod.py --install
 - [75版转城后、扣款前恢复](docs/testing/baiqi-transferred-before-debit-75.md)：真实TRANSFERRED保存点同进程／新进程恢复完成；附前后实机图。新进程前出现一次退出收尾残留，已如实记录，不授干净关机通过。
 
 - [75版已扣款、未写军队冷却恢复](docs/testing/baiqi-charged-before-cooldown-75.md)：真实CHARGED保存点重载后金币保持、军队行动结清，附前后两张原图；正常114已恢复。
+
+- [75版动作已生效后的异常恢复](docs/testing/baiqi-finish-applied-recovery-75.md)：实际Finish1后异常，撤故障两次LiveRecover连续观察仍Finish1；保存点重载及前后两图另列，正常114已恢复。

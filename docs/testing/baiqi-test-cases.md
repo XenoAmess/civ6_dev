@@ -363,3 +363,5 @@
 - TC-029／030：[75正TRANSFERRED](baiqi-transferred-before-debit-75.md)真实尚未扣款保存点同进程及新进程首载补齐结算，完成后各两次Recover0转城／Finish。新进程前正式退出出现残留、只清理自有QA游戏，故不授干净退出；完整矩阵仍部分。
 
 - TC-029／030：[75正CHARGED](baiqi-charged-before-cooldown-75.md)已补真实收费肯定回执、无冷却／4行动保存点同进程重载，余额保持、军队0行动及冷却114；完成后两Recover0转城／Finish。新冷进程CHARGED及其余矩阵仍未覆盖。
+
+- TC-029／030：[75动作后异常](baiqi-finish-applied-recovery-75.md)真实Finish已作用后保持UNKNOWN／FINISHING，撤故障LiveRecover直接观测无第二次Finish；保存点重载另列、bootstrap计数未知。全矩阵仍部分；历史“城邦62”分类待原档核对，不由本例授验。

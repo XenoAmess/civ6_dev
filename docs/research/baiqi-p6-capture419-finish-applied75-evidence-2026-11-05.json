@@ -1,0 +1,182 @@
+{
+  "schema": "civ6.capture419-finish-applied75/v1",
+  "utc": "2026-11-05T13:12:14.929037+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 75,
+  "product_code_pin": "1961f9117028b7e0c4e67125e9d72b122ccd2040",
+  "product_changes": 0,
+  "owned_pid": 15788,
+  "birth": 1793880723.3621035,
+  "qa_input": {
+    "independent_garrison114": true,
+    "physical_right": 1,
+    "physical_confirm_300": 1,
+    "ui_paid_requests": 1,
+    "not_natural_combat": true
+  },
+  "actual_effect_before_pending": {
+    "native_transfer_calls": 1,
+    "native_finish_calls": 1,
+    "observer_errors": 0,
+    "after_actual_finish_return_fault_raises": 1,
+    "commit_blocked": 1,
+    "passed": 3,
+    "matcher_errors": 0,
+    "stage": "UNKNOWN",
+    "phase": "FINISHING",
+    "reason": "recovery_interrupted",
+    "transfer_observed": true,
+    "charge_observed": true,
+    "balance_before": 4524.2734375,
+    "balance_after": 4224.2734375,
+    "army": [
+      0,
+      2162700,
+      42,
+      19,
+      0
+    ],
+    "cooldown": 114,
+    "current_gold": 4224.2734375,
+    "city": [
+      0,
+      851979,
+      41,
+      19,
+      1
+    ]
+  },
+  "saved": {
+    "utc": "2026-11-05T12:55:47.720032+00:00",
+    "name": "Baiqi_P6_20261105_V75_FinishAppliedUnknown114.Civ6Save",
+    "bytes": 568901,
+    "sha256": "7db87b75ccad8b4259fa084ec772c6841dcea98e7ab767d3437d18d85abdfca3",
+    "stable_repeated_read": true
+  },
+  "held_while_saving": [
+    "Temporary after-finish fault",
+    "Temporary COMMIT fault",
+    "Native call-through observer"
+  ],
+  "diagnostic_game_property_writes": 0,
+  "live_recovery_after_cleanup": {
+    "recover_calls": 2,
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "gold": 4224.2734375,
+    "army_moves": 0,
+    "cooldown": 114,
+    "whole_window_native_transfer": 1,
+    "whole_window_native_finish": 1,
+    "additional_native_transfer": 0,
+    "additional_native_finish": 0,
+    "observer_errors": 0,
+    "scope": "Observer stayed bound from original paid request through actual effect, held save and both liveRecover calls. Actual action return, induced failure and no subsequent reFinish are distinct observed facts."
+  },
+  "same_process_saved_unknown_reload": {
+    "all_previous_diagnostics_clean_before_load": true,
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "gold": 4224.2734375,
+    "army_moves": 0,
+    "cooldown": 114,
+    "bootstrap_native_counts": null,
+    "post_bootstrap_two_recover": {
+      "transfer": 0,
+      "finish": 0,
+      "errors": 0
+    }
+  },
+  "normal_restore": {
+    "turn": 114,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "horse_original_moves": 4,
+    "builder_charges": 1,
+    "journal": null,
+    "three_contexts": true,
+    "diagnostic_bindings_clear": true
+  },
+  "model419": {
+    "shared_commit": "b90756dfe608984138739a38338e05ad861eae3f",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 15157,
+      "completion_tokens": 1808,
+      "total_tokens": 16965
+    },
+    "total_ms": 12807.42830003146,
+    "ttft_ms": 2134.661399992183,
+    "cached_prompt_tokens": null,
+    "candidate_lua_lines": 78,
+    "raw_install_lua_compile": false,
+    "raw_compile_error": "[string \"<python>\"]:22: function arguments expected near 'and'",
+    "raw_candidate_software_execution": 0,
+    "raw_candidate_native_execution": 0,
+    "owner_diagnostic_checks": 8,
+    "adoption": "Dual binding and rollback structure plus verbatim8-line atomic cleanup. Owner corrected colon syntax, impossible preFinish moves0, after-return counter order, actual exhausted-unit/raised-evidence COMMIT guard and vararg forwarding.",
+    "owner_qualification_correction": "First fallback assertion assumed scalar Planner return; actual Transition returns multiple values. Original failed log kept; compare directly with original return tuple,8checks pass.",
+    "maintenance": "Canonical same-user/machine Nov5 successful1.19.5 cache;0new OpenCode native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through419": {
+    "logical": 419,
+    "complete_stop_valid": 388,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 449,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/capture75/finish-applied-unknown.png",
+      "sha256": "661a71d334fd6cb9a69567c0909283a5db178aa965b173b07a40e7555d2b6d55",
+      "version": 75,
+      "raw_unedited": true
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/finish-applied-recovered.png",
+      "sha256": "546429dc3b772dde433f81bc434c8de8f8e174bb343410fd9cab14988631b50e",
+      "version": 75,
+      "raw_unedited": true
+    }
+  ],
+  "software_suite_rerun": false,
+  "software_baseline": "Source75 full1048 passed132.939s; only diagnostics/docs since code1961f911.",
+  "steam_online_switches": 0,
+  "limits": [
+    "One same-process after-effect FINISHING case and live recovery plus saved-state reload.",
+    "No direct Treasury API count, no bootstrap Native total or new cold419load.",
+    "Native retained-ID delayed military and whole matrix still untested.",
+    "Current player62 identifies FREE_CITIES; old73city-state label queued for historical checkpoint audit, no city-state acceptance awarded by this work."
+  ],
+  "raw_sha256": {
+    "capture419-fault-read-pending-response.json": "aa999bf8742fc9a2d7fbac1f6b1023ed054a52152d930af80808c13c9baf1688",
+    "capture419-request-read-once-response.json": "9af56c01ca144f6927d9b58586e098f0d3fc1445a4d906740761289391d50d92",
+    "capture419-input-read-once-response.json": "c5eee81babbce9ce25f40fdf3c8ca449e61817ae221f3a7dc590c101e091503f",
+    "capture419-save-aftereffect114-response.json": "b9685093d16c4bf98566d33ebd6db7fa6b40cd0267fb5d21cc969cc1f8985a15",
+    "capture419-pending-save-held-fault.json": "470ca2046d6bb26cdd711c7be71cd1d2fddb6f0b712d8593050412d8e225f0b9",
+    "capture419-fault-cleanup-live-recovery-response.json": "92b8074840618030a0f0616d515767a8daa27cf1108d54fa72f240c2d25c2285",
+    "capture419-fault-live-recover-one-response.json": "05409abb5442c27f93d35feef93074e3d3fcae393d0262a0a0b3b7b1310d380d",
+    "capture419-fault-live-recover-two-response.json": "516956e35f874811918193109962e8531f5a18788698ab30bf26c23fbfc9bb9e",
+    "capture419-fault-live-counts-completed-response.json": "f6c3ac5b1ea4a11f6dc08689b199217e67553e0f207edf3e504345d1ace33094",
+    "capture419-healthy-finish-read-first-load-response.json": "b6dc13018b1602f971e2ceae28665484ef9707fc1b3ec83e2a7547601585872f",
+    "capture419-healthy-finish-counts-completed-response.json": "1e0a408dfaa8416f75fafe0fdcf3a4ff38a6f9c43c719b515c793e0c7c04effc",
+    "capture419-normal-restored-response.json": "93574104e97a929306e8f09d019553c42f9aef60a5ac7e39625d9535db28f81e",
+    "capture419-fault-software-witness.json": "6663703ba611a686cf455d335a9097e21185bfc7b776a0d7a66bfcbb7ff136b7",
+    "capture419-raw-compile-qualification.json": "4d4949343f92d7f0e4400ea39fa5faa898a0225ec1a618d3c4d75d46edcd7dcd",
+    "capture419-qualification.log": "ac395951e6f03474778d6b3c8d238410e892f26b0342603140d38af07c1d150a",
+    "capture419-qualification2.log": "0a6033485c6add8771d74e60bbf8e1c9537bb753f687a148a12df1c205c2d6ce",
+    "capture419-model/ATTEMPT1-RESULT.json": "6902a65c86713e6ce668479ddce6120d025c780fe9c15cbcef69fadf09af8397",
+    "capture419-model/ATTEMPT1-CONTENT.txt": "924d5d0d84ad8b6f879afc63d085c8f28b15194a0d7adffebdaf8047bb58b479"
+  }
+}

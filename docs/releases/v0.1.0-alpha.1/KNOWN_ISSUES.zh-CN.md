@@ -43,3 +43,6 @@
 
 
 75开发验收另补真实CHARGED、军队冷却尚未写入的保存点同进程恢复：金币保持，行动结清。只覆盖该阶段，公开Alpha74及工坊内容未更新。[前后两张实机图](../../testing/baiqi-charged-before-cooldown-75.md)。
+
+
+75开发验收补齐实际结束行动返回后异常的LiveRecover连续观察：转城／Finish保持1／1，没有第二次Finish；保存点重载另列。[前后两图及限制](../../testing/baiqi-finish-applied-recovery-75.md)。旧“城邦62”样本的身份分类待历史存档核查，本轮暂不授该项城邦验收。Alpha74和工坊未更新。
