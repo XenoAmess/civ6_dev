@@ -1,0 +1,386 @@
+{
+  "schema": "civ6.capture421423-vilnius75/v1",
+  "utc": "2026-11-05T14:54:49.927768+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 75,
+  "product_code_pin": "1961f9117028b7e0c4e67125e9d72b122ccd2040",
+  "product_changes": 0,
+  "owned_pid": 15788,
+  "birth": 1793880723.3621035,
+  "original_independent_world": {
+    "name": "Baiqi_P6_20261101_V33_ManualEnvoy2.Civ6Save",
+    "sha256": "fdd139b55b9815d4c4ff9ae98f04550ad1c999a889608de95477b6fb411a9e6f",
+    "bytes": 638126
+  },
+  "scene": {
+    "turn": 2,
+    "map": [
+      44,
+      26
+    ],
+    "local_leader": "LEADER_BAIQI",
+    "target": {
+      "player": 6,
+      "leader": "LEADER_MINOR_CIV_VILNIUS",
+      "civilization": "CIVILIZATION_VILNIUS",
+      "level": "CIVILIZATION_LEVEL_CITY_STATE",
+      "ui_name": "维尔纽斯",
+      "original_city_count": 1,
+      "city": [
+        6,
+        65536,
+        5,
+        15,
+        1
+      ]
+    },
+    "original_own_army": [
+      0,
+      131073,
+      10,
+      18,
+      2,
+      1
+    ],
+    "original_gold": 20
+  },
+  "explicit_qa_preparation": {
+    "declare_war": {
+      "from": 0,
+      "to": 6,
+      "port": "Diplomacy.DeclareWarOn",
+      "type": "FORMAL_WAR",
+      "enum": 1941490022,
+      "count": 1
+    },
+    "gold_delta": 480,
+    "gold_after": 500,
+    "place_only_own_unescorted_warrior": [
+      6,
+      15
+    ],
+    "empty_passable_land_plot": 666,
+    "placement_moves_after": 0,
+    "restore_movement_delta": 2,
+    "garrison_damage": 150,
+    "garrison_max": 200,
+    "outer_damage_max": [
+      0,
+      0
+    ],
+    "not_natural_battle_or_income": true,
+    "not_physical_diplomacy_button_acceptance": true,
+    "civilian_or_production_rescue_inputs": 0
+  },
+  "prepared_save": {
+    "utc": "2026-11-05T14:21:27.730942+00:00",
+    "name": "Baiqi_P6_20261105_V75_VilniusPrepared2.Civ6Save",
+    "bytes": 639787,
+    "sha256": "c16ab1c83feca76aaca78cd5f9bc10eab0450c0d643938c002b59a323532eba1",
+    "stable_repeated_read": true
+  },
+  "actual_paid_input": {
+    "physical_map_right": 1,
+    "cursor_plot": 665,
+    "physical_confirm": 1,
+    "cost": 300,
+    "ui_paid_requests": 1,
+    "all_request_calls_in_window": 1,
+    "native_transfer": 1,
+    "native_finish": 1,
+    "native_observer_errors": 0,
+    "input_down_up_move_interact": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "semantic_capture_calls_by_test_player": 0,
+    "unknown_paid_replays": 0
+  },
+  "actual_result": {
+    "city": [
+      0,
+      131073,
+      5,
+      15,
+      1
+    ],
+    "own_army": [
+      0,
+      131073,
+      6,
+      15,
+      0
+    ],
+    "cooldown_turn": 2,
+    "gold_before": 500,
+    "gold_after": 200,
+    "journal_key": "city:0:2:131073:6:65536:5:15",
+    "journal_count": 1,
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "transfer_observed": true,
+    "charge_observed": true,
+    "live_two_recover": "Continuous native observer remains transfer1/finish1, errors0, gold200; no additional calls."
+  },
+  "actual_assets": {
+    "ui_buildings_catalog_entries": 138,
+    "before": [
+      {
+        "index": 1,
+        "type": "BUILDING_PALACE",
+        "wonder": false,
+        "pillaged": false,
+        "great_work_slots": 1,
+        "work_index": -1,
+        "work_type": -1
+      }
+    ],
+    "after_present_buildings": 0,
+    "after_slots": 0,
+    "scope": "Native transfer removed Palace and its empty slot. No ordinary building, wonder or occupied great-work sample in this city; no blanket asset-preservation pass. Cause not independently compared to vanilla."
+  },
+  "actual_defeated_city_state": {
+    "alive_after": false,
+    "cities_core_ui": 0,
+    "ui_units_after": 0,
+    "core_units_after": 2,
+    "core_fresh_lookups": [
+      {
+        "owner": 6,
+        "full_id": 131073,
+        "xy": [
+          -9999,
+          -9999
+        ],
+        "is_dead": false,
+        "is_delayed_death": true,
+        "moves": 2,
+        "damage": 0
+      },
+      {
+        "owner": 6,
+        "full_id": 196610,
+        "xy": [
+          -9999,
+          -9999
+        ],
+        "is_dead": false,
+        "is_delayed_death": true,
+        "moves": 2,
+        "damage": 0
+      }
+    ],
+    "not_inherited_by_baiqi": true,
+    "before_units": [
+      {
+        "owner": 6,
+        "full_id": 131073,
+        "xy": [
+          5,
+          14
+        ]
+      },
+      {
+        "owner": 6,
+        "full_id": 196610,
+        "xy": [
+          6,
+          16
+        ]
+      }
+    ],
+    "same_after_official_reload": true,
+    "scope": "Real Native retained full-ID delayed-death MILITARY objects, distinct from UI nil. These are defeated enemy warriors, not the acting Baiqi army during interrupted settlement; no acceptance of that missing actor scenario. No pre-transfer Native references reused; owner/collection distinguish foreign131073, own131073 and city131073."
+  },
+  "committed_save": {
+    "utc": "2026-11-05T14:48:38.376057+00:00",
+    "name": "Baiqi_P6_20261105_V75_VilniusCommitted2.Civ6Save",
+    "bytes": 641271,
+    "sha256": "e997831ed33e61ae8fee494d8bf8c5cc4328a6693959262f110caaab6d4311e7",
+    "stable_repeated_read": true
+  },
+  "same_process_reload": {
+    "actual_core_ui_completion_verified": true,
+    "gold": 200,
+    "army_moves": 0,
+    "cooldown": 2,
+    "journal_count": 1,
+    "assets_same": true,
+    "bootstrap_native_count": null,
+    "no_replayed_paid_request": true
+  },
+  "load_observation_correction": {
+    "first_continue_gate": "Owned game transiently hung while loading,0key input.",
+    "owner_mistake": "Issued two read-only result readers after failed Continue gate instead of stopping dependent chain; connection refused/timeout, no game-writing calls. Both terminated before further action.",
+    "later": "Fresh ready-screen pixel/owner gate, one Continue, fresh Core/UI result and assets verified. No load replay or paid action replay.",
+    "acceptance": "Only later successful independent reads used; initial unavailable read is not a product FAIL or pass."
+  },
+  "normal114_restored": {
+    "three_contexts": true,
+    "cities": 11,
+    "gold": 4524.2734375,
+    "faith": 397.94140625,
+    "horse_moves": 4,
+    "horse_cooldown": null,
+    "builder_charges": 1,
+    "plots538_539_improvement": [
+      -1,
+      1
+    ],
+    "requisition_journal": null,
+    "all_temporary_bindings_clear": true
+  },
+  "models421423": [
+    {
+      "logical": 421,
+      "shared_commit": "977c2c2fd420d135218f04661f7b6b1529a8b1ce",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "attempts": 1,
+      "extra_retries": 0,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 12953,
+        "completion_tokens": 1485,
+        "total_tokens": 14438
+      },
+      "total_ms": 11102.962500008289,
+      "ttft_ms": 1926.7428999883123,
+      "cached_prompt_tokens": null,
+      "qualification": "45 candidate Lua lines; both raw readers fail compile. Core/UI owner readers each6 cases, zero raw Native.",
+      "adoption": "Identity and scene inventory direction; owner rewrites colon field syntax, correct diplomacy receiver, protected missing-plot availability and actual defense ports.",
+      "raw_candidate_native_execution": 0,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null,
+      "maintenance": "Canonical same-machine/user Nov5 successful OpenCode1.19.5 cache reused;0new OpenCode native generation."
+    },
+    {
+      "logical": 422,
+      "shared_commit": "977c2c2fd420d135218f04661f7b6b1529a8b1ce",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "attempts": 1,
+      "extra_retries": 0,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 14090,
+        "completion_tokens": 1033,
+        "total_tokens": 15123
+      },
+      "total_ms": 8670.963199983817,
+      "ttft_ms": 2022.0443999860436,
+      "cached_prompt_tokens": null,
+      "qualification": "36 lines compile; raw GetCount-on-array fixture fails; owner6 port cases; zero raw Native.",
+      "adoption": "Most identity/capability inventory; owner counts actual Lua array units, guards missing/nil/malformed collection, reads actual war enum and movement restore port.",
+      "raw_candidate_native_execution": 0,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null,
+      "maintenance": "Canonical same-machine/user Nov5 successful OpenCode1.19.5 cache reused;0new OpenCode native generation."
+    },
+    {
+      "logical": 423,
+      "shared_commit": "977c2c2fd420d135218f04661f7b6b1529a8b1ce",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "attempts": 1,
+      "extra_retries": 0,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 16220,
+        "completion_tokens": 1183,
+        "total_tokens": 17403
+      },
+      "total_ms": 9828.248900012113,
+      "ttft_ms": 2301.218699954916,
+      "cached_prompt_tokens": null,
+      "qualification": "40 lines compile; raw nil-collection fixture makes reader unavailable; owner Core/UI each6 cases; zero raw Native.",
+      "adoption": "Most post-attempt result/journal direction; owner guards absent/dead-player collections, preserves nil/unknown, explicit absent journal/record, adds target identity and UI localized name.",
+      "raw_candidate_native_execution": 0,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null,
+      "maintenance": "Canonical same-machine/user Nov5 successful OpenCode1.19.5 cache reused;0new OpenCode native generation."
+    }
+  ],
+  "cumulative_through423": {
+    "logical": 423,
+    "complete_stop_valid": 392,
+    "length_discarded": 28,
+    "final_transport_failed": 3,
+    "http_attempts": 453,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/capture75/vilnius-before.png",
+      "sha256": "6ad9376b11315f57ac5b23dc49c852d7173b467ca3516d06225b3cc4a541f642",
+      "raw_unedited": true,
+      "scope": "75 actual prepared City-State city6/65536 pop1; own warrior2/2 and gold500. QA war/stock/placement/damage, not natural battle."
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/vilnius-confirm.png",
+      "sha256": "610c811acb6e03c6a559b26f652417817b40a115cbf723326e4bda605102b7c3",
+      "raw_unedited": true,
+      "scope": "Actual map right-click popup,300gold, continue normal attack and cancel alternatives; no paid request before confirm."
+    },
+    {
+      "path": "docs/testing/screenshots/capture75/vilnius-after.png",
+      "sha256": "277af626a0bca9b354ca2a80ec45be32d7628997e86a4bbed5181dc0f8a85ed5",
+      "raw_unedited": true,
+      "scope": "Actual white/red Baiqi city banner, gold200 and own warrior0/2. Building/foreign unit details require Core/UI independent reads."
+    }
+  ],
+  "software_suite_rerun": false,
+  "software_baseline": "Source75 full1048 passed132.939s; no new product/test changes.",
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "alpha_published_content": "74 unchanged;75 and new risk BBCode not uploaded.",
+  "limits": [
+    "One true City-State last-city/pop1 supported capture with explicit QA setup, not every city-state or balance case.",
+    "Palace and empty slot actually removed; no assertion of perfect asset preservation.",
+    "No new cold-process load, Treasury native-call count, long loyalty or automatic post-capture production acceptance.",
+    "Native delayed military class confirmed for defeated enemy units; acting-army interruption case still unverified.",
+    "Historical73FREE_CITIES reclassification remains; does not retroactively qualify Alpha74.",
+    "417 formal exit residue remains unclassified."
+  ],
+  "raw_sha256": {
+    "capture421-original33-save-receipt.json": "e5fd65aa180a9cab516b979742fae033b0884efb403cb3799c03bc392b294ec0",
+    "capture421-citystate-qualified-response.json": "b12df3cb60b6fcc62666d885e042a7f41d176e21ebc21ac07a4384d5069320ed",
+    "capture421-raw-compile-qualification.json": "04b81ae1bcecacebf215d65b7fd28cca84c1587e4ab1197bbd489a2bb86b9952",
+    "capture421-owner-reader-qualification.json": "0359a78b9817899b6329ddeb8a4668e0e4721a0e9b5bc275d6bae1fe1e514c3f",
+    "capture422-source-call-sites.json": "a1d699a6d3beaeab868bcee2f48fba3f913e46d3abc0ec64969846a6e3358e90",
+    "capture422-native-preflight-response.json": "a6616a39b4fb7dc1d0139d7e9838252be06c116740801f82503c6de0836ff3cb",
+    "capture422-owner-preflight-qualification.json": "710f8e9aa42b9e08f22daed0b1af99d044f655c3ebdb2d07169e780ec7f07467",
+    "capture422-prepared-quote-response.json": "a2471a9ff2bc590b0b579cd08e5c68f80804c2af2e29314c9d5ea8648d7f860a",
+    "capture422-save-vilnius-prepared2-response.json": "d532a77bf6464b22dcfa68360cf64350543925e78d805bfe7c45482c4a0bbdcd",
+    "capture423-owner-reader-qualification.json": "2a7c991e6b5e396ed693c488db9b035adbaef71e20647e3389198f44ed906f12",
+    "capture423-before-assets-response.json": "93ab9511eace1faa3ef4f4fe772a247f1b2929bb4365d14bed80880a8fdcaabe",
+    "capture423-result-after-confirm-response.json": "bbd01a3a8716c5e56222faabc49419353116807369598a0c725f89ec2f45b10b",
+    "capture423-observer-read-after-confirm-response.json": "7bed05f9cd8785e70d7984685093e4eacff1bbcf115504943b4801007d16d190",
+    "capture423-request-read-after-right-response.json": "bc884a7947ec25c7da731bcb7843ddee97be71c5682f9df76e1b5edfe565b94e",
+    "capture423-request-read-after-confirm-response.json": "d7663efeac9840cc19ce47bb2fc5cd252892e173cd49e0269dc581a8567ba9db",
+    "capture423-input-read-after-confirm-response.json": "e97e4e31c4833f1c5b0e4e6b71682afc45b16b8f408c82a2e520ced410a49657",
+    "capture423-post-before-save-response.json": "393316600e1259b60c0f694e70c308ec368993cf8d7902787a3b7bd3bef2fb13",
+    "capture423-post-after-reload-confirmed-response.json": "0fe09e046998d8f683271d73a519868ef074446f24ba8eb13c4e2ad105af9403",
+    "capture423-recover-first-response.json": "b7666215ee62cbd072ae3716fd5bc97fdbc5e82679f76f5e24e782b3640391d1",
+    "capture423-recover-second-response.json": "ab032d11a1dc8b73386fb804ee009c9739d7f3a96b0da507c62df884c22c4abf",
+    "capture423-save-vilnius-done2-response.json": "5e2dfd919f1309372b0edd19c67c817f0ba3ed79c17a222d2b6f971c175eff63",
+    "capture423-load-vilnius-done2-response.json": "dc6d6b09ebae2401a3c92518011c96f2e2f17dbe7dc08b663bd1bfdc140864d8",
+    "capture423-result-after-reload-confirmed-response.json": "8eb597b8186a480ef27c21fbcc3d8656215a67150db170db6affee0a9b0c19dc",
+    "capture423-normal-restored-response.json": "6c30b0e335d8a4352f026a0047ec14b651ad7f7b987cd73a0d58553fb2aafa30",
+    "capture421-model/ATTEMPT1-RESULT.json": "44ff8066cc18a7c779fc6ef03a7e39a0dc071d3f9121cf12db9348da1dc5c3ab",
+    "capture421-model/ATTEMPT1-CONTENT.txt": "1ee0e13388af3d72fb5d70fe8725c4b9d667249960c98538839cffdd0f871222",
+    "capture422-model/ATTEMPT1-RESULT.json": "4172b9c7e2ac4a191580ef4394259abf92a752814838fda660dba3ee0e374af7",
+    "capture422-model/ATTEMPT1-CONTENT.txt": "dbab7a68cbe9a479cf4c42e9a9fece07f80caa147bac232fce610f56e92c8cf8",
+    "capture423-model/ATTEMPT1-RESULT.json": "c56c738b137759c1c979cdec92d691638d3f7fbab57a99bb84d6a651c527b5cb",
+    "capture423-model/ATTEMPT1-CONTENT.txt": "25aff8e3fcf3902aba65f9311be218b910d14a09e84855a7b5381df3fe60ebd8"
+  }
+}

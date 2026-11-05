@@ -1,5 +1,7 @@
 # 更正73版征城样本：62是自由城市
 
+后续新证据：[75版另一个世界的维尔纽斯](baiqi-vilnius-city-state-capture-75.md)已完成真正城邦最后一城300征取窄验；本页对旧73自由城市样本的分类更正保持，不追认旧记录或Alpha74。
+
 此前将377—382征城样本写成“城邦62”，分类错误。2026-11-05在BF-202609141645用75版正式加载同一个73版准备档，Core和UI都读到：`LEADER_FREE_CITIES`、`CIVILIZATION_FREE_CITIES`、`CIVILIZATION_LEVEL_FREE_CITIES`；UI名称为“自由城市”。该样本不能算城邦征城通过。[完整审计、存档和原件指纹](../research/baiqi-p6-audit420-free-cities-classification-evidence-2026-11-05.json)。
 
 | 核验对象 | 原73准备档的75版补读 |

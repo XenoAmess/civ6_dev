@@ -367,3 +367,5 @@
 - TC-029／030：[75动作后异常](baiqi-finish-applied-recovery-75.md)真实Finish已作用后保持UNKNOWN／FINISHING，撤故障LiveRecover直接观测无第二次Finish；保存点重载另列、bootstrap计数未知。全矩阵仍部分；历史“城邦62”分类待原档核对，不由本例授验。
 
 - TC-031分类更正：[原73保存点62实际自由城市](baiqi-free-city-classification-audit-75.md)，撤回本样本城邦通过；1100及8建筑／文物行为数据保留，真正城邦仍未验。
+
+- TC-025／029／031：[75维尔纽斯最后一城](baiqi-vilnius-city-state-capture-75.md)确认为CITY_STATE，显式QA条件后实际地图确认300，一笔DONE、军队2→0及存读档保持。宫殿／空槽移除；敌军UI消失但Core保留延迟销毁军队完整ID；不是执行军队移除样本，未授资产无损、长期忠诚／生产或全矩阵通过。

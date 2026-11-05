@@ -65,3 +65,5 @@
 
 
 风险补充稿另已加入[历史样本身份更正](../../testing/baiqi-free-city-classification-audit-75.md)：62是自由城市，撤回该样本城邦验收。BBCode仅本地入库，尚未更新工坊页面。
+
+[75真正城邦实机补验](../../testing/baiqi-vilnius-city-state-capture-75.md)与风险已加入待上传BBCode；含三张内嵌实机图。当前工坊与Alpha74仍未变更。

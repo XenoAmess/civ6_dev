@@ -76,3 +76,5 @@ python tools\build_mod.py --install
 - [75版动作已生效后的异常恢复](docs/testing/baiqi-finish-applied-recovery-75.md)：实际Finish1后异常，撤故障两次LiveRecover连续观察仍Finish1；保存点重载及前后两图另列，正常114已恢复。
 
 - [73样本身份更正](docs/testing/baiqi-free-city-classification-audit-75.md)：原“城邦62”实际为自由城市；保留已发生的1100扣费及资产数据，撤回该样本的城邦验收结论。
+
+- [75版真正城邦征取](docs/testing/baiqi-vilnius-city-state-capture-75.md)：维尔纽斯最后一城300金币，实际右键／确认、一次转城与结束行动、存读档及三张实机图。宫殿移除、灭亡敌军Core延迟对象与未验范围均单列；Alpha74未更新。
