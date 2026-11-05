@@ -7,6 +7,7 @@ local w=TestCapture
 local unit={GetID=function() return w.unitID or 9 end,GetOwner=function() return 7 end,GetType=function() return 0 end,
  GetFormationUnitCount=function() return w.formation end,GetMovesRemaining=function() return w.moves end,
  GetX=function() return 2 end,GetY=function() return 2 end,
+ IsDead=function() return false end,IsDelayedDeath=function() return false end,
  GetProperty=function(_,key) return w.unitProps[key] end,SetProperty=function(_,key,val) w.unitProps[key]=val end}
 local buildings={HasBuilding=function() return w.granary end,IsPillaged=function() return w.pillaged end}
 local city={GetOwner=function() return w.owner end,GetID=function() return w.cityID or 12 end,GetX=function() return 3 end,
@@ -48,13 +49,15 @@ GameInfo.BuildingModifiers=function()
 end
 DefenseTypes={DISTRICT_GARRISON=0,DISTRICT_OUTER=1}
 Map={GetPlotDistance=function() return 1 end}
+Map.GetGridSize=function() return 44,26 end
 local function Plot(index,x,y,props)
  return {GetIndex=function() return index end,GetX=function() return x end,GetY=function() return y end,
  GetProperty=function(_,key) return props[key] end,SetProperty=function(_,key,val) props[key]=val end}
 end
 local sourcePlot,recipientPlot=Plot(100,3,2,w.sourceProps),Plot(200,8,8,w.recipientProps)
-Map.GetPlot=function(x,y) if x==3 and y==2 then return sourcePlot elseif x==8 and y==8 then return recipientPlot end end
-Map.GetPlotByIndex=function(index) if index==100 then return sourcePlot elseif index==200 then return recipientPlot end end
+local actorPlot=Plot(99,2,2,{})
+Map.GetPlot=function(x,y) if x==2 and y==2 then return actorPlot elseif x==3 and y==2 then return sourcePlot elseif x==8 and y==8 then return recipientPlot end end
+Map.GetPlotByIndex=function(index) if index==99 then return actorPlot elseif index==100 then return sourcePlot elseif index==200 then return recipientPlot end end
 Map.GetPlotCount=function() return 201 end
 Map.GetAdjacentPlot=function(x,y,dir) if dir==0 then return sourcePlot end end
 CityManager={GetCityAt=function(x,y) if x==3 and y==2 then return city elseif x==8 and y==8 then return recipient end end,

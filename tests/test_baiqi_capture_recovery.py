@@ -172,6 +172,115 @@ end})
         self.assertEqual((self.w.gold, self.w.moves, self.w.charges, self.w.transferCalls), (600, 0, 1, 1))
         self.assertEqual(self.w.props.BAIQI_REQUISITION_RESULT.stage, 'COMMITTED')
 
+    def pending_phase(self, phase):
+        if phase != 'FINISHING':
+            self.partial(phase)
+        else:
+            self.lua.execute('''
+local finish=UnitManager.FinishMoves
+UnitManager.FinishMoves=function() UnitManager.FinishMoves=finish;error('before native finish') end
+''')
+            self.assertEqual(self.c.Request(7, self.params), (False, 'movement_unresolved'))
+            self.assertEqual((self.record().stage, self.record().phase), ('UNKNOWN', phase))
+        self.lua.execute('''
+TestCapture.laterWrites=0
+local unit=TestCapture.objects.unit;local write=unit.SetProperty
+unit.SetProperty=function(self,...) TestCapture.laterWrites=TestCapture.laterWrites+1;return write(self,...) end
+''')
+
+    def assert_frozen(self, phase):
+        before = (self.w.gold, self.w.charges, self.w.transferCalls, self.w.finishCalls,
+                  self.w.moves, self.w.unitProps.BAIQI_REQUISITION_TURN)
+        self.c.Recover(7)
+        self.c.Recover(7)
+        self.assertEqual((self.record().stage, self.record().phase), ('UNKNOWN', phase))
+        self.assertEqual((self.w.gold, self.w.charges, self.w.transferCalls, self.w.finishCalls,
+                          self.w.moves, self.w.unitProps.BAIQI_REQUISITION_TURN), before)
+        self.assertEqual(self.w.laterWrites, 0)
+        self.assertIsNone(self.w.props.BAIQI_REQUISITION_RESULT)
+
+    def test_retained_full_id_with_native_removed_shape_stays_frozen_in_all_resumable_phases(self):
+        for phase in ('TRANSFERRED', 'CHARGED', 'FINISHING'):
+            with self.subTest(phase=phase):
+                self.setUp(); self.pending_phase(phase)
+                self.lua.execute('''
+local u=TestCapture.objects.unit
+u.GetX=function() return -9999 end;u.GetY=function() return -9999 end
+u.IsDead=function() return false end;u.IsDelayedDeath=function() return true end
+''')
+                self.assert_frozen(phase)
+
+    def test_unavailable_actor_or_map_readers_fail_closed_without_propagating(self):
+        changes = (
+            'u.IsDead=nil', 'u.IsDelayedDeath=nil',
+            'u.IsDead=function() return nil end', 'u.IsDelayedDeath=function() return 0 end',
+            "u.IsDead=function() error('dead unavailable') end",
+            "u.IsDelayedDeath=function() error('delayed unavailable') end",
+            "u.GetX=function() error('position unavailable') end",
+            "TestCapture.objects.player.GetUnits=function() error('units unavailable') end",
+            'Map.GetGridSize=nil', 'Map.GetPlot=nil',
+            "Map.GetGridSize=function() error('size unavailable') end",
+            "Map.GetPlot=function() error('plot unavailable') end",
+        )
+        for change in changes:
+            with self.subTest(change=change):
+                self.setUp(); self.pending_phase('TRANSFERRED')
+                self.lua.execute('local u=TestCapture.objects.unit;' + change)
+                self.assert_frozen('TRANSFERRED')
+
+    def test_dead_flags_invalid_coordinates_or_wrong_plot_do_not_qualify_recovery(self):
+        changes = (
+            'u.IsDead=function() return true end', 'u.IsDelayedDeath=function() return true end',
+            'u.GetX=function() return -1 end', 'u.GetY=function() return -1 end',
+            'u.GetX=function() return 0/0 end', 'u.GetY=function() return math.huge end',
+            'u.GetX=function() return 2.5 end', 'u.GetX=function() return 44 end',
+            'u.GetY=function() return 26 end', 'Map.GetGridSize=function() return 44 end',
+            'Map.GetGridSize=function() return 44,0 end',
+            'Map.GetGridSize=function() return 44,26.5 end',
+            'local get=Map.GetPlot;Map.GetPlot=function(x,y) if x~=2 or y~=2 then return get(x,y) end end',
+            'local get=Map.GetPlot;Map.GetPlot=function(x,y) if x==2 and y==2 then return get(3,2) end;return get(x,y) end',
+        )
+        for change in changes:
+            with self.subTest(change=change):
+                self.setUp(); self.pending_phase('CHARGED')
+                self.lua.execute('local u=TestCapture.objects.unit;' + change)
+                self.assert_frozen('CHARGED')
+
+    def test_actor_removed_during_actual_debit_never_gets_cooldown_or_finish(self):
+        for change in ('u.IsDelayedDeath=function() return true end',
+                       'u.GetX=function() return -9999 end;u.GetY=function() return -9999 end',
+                       "u.IsDead=function() error('reader expired') end"):
+            with self.subTest(change=change):
+                self.setUp()
+                self.lua.execute('''
+TestCapture.laterWrites=0
+local u=TestCapture.objects.unit;local write=u.SetProperty
+u.SetProperty=function(self,...) TestCapture.laterWrites=TestCapture.laterWrites+1;return write(self,...) end
+local treasury=TestCapture.objects.player:GetTreasury();local charge=treasury.ChangeGoldBalance
+treasury.ChangeGoldBalance=function(self,value)
+ charge(self,value)
+''' + change + '\nend')
+                self.assertEqual(self.c.Request(7, self.params), (False, 'settlement_context_changed'))
+                self.assertEqual((self.w.gold, self.w.charges, self.w.transferCalls, self.w.finishCalls), (600, 1, 1, 0))
+                self.assert_frozen('CHARGED')
+
+    def test_healthy_actor_on_tall_foreign_water_plot_recovers_once(self):
+        self.pending_phase('CHARGED')
+        self.lua.execute('''
+local u=TestCapture.objects.unit;local get=Map.GetPlot
+u.GetX=function() return 25 end;u.GetY=function() return 43 end
+Map.GetGridSize=function() return 26,44 end
+Map.GetPlot=function(x,y)
+ if x==25 and y==43 then return {GetX=function() return x end,GetY=function() return y end,
+  IsWater=function() return true end,GetOwner=function() return 3 end} end
+ return get(x,y)
+end
+''')
+        self.c.Recover(7); self.c.Recover(7)
+        self.assertEqual((self.record().stage, self.record().phase), ('COMMITTED', 'DONE'))
+        self.assertEqual((self.w.gold, self.w.charges, self.w.transferCalls, self.w.finishCalls,
+                          self.w.moves, self.w.laterWrites), (600, 1, 1, 1, 0, 1))
+
 
 if __name__ == '__main__':
     unittest.main()

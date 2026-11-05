@@ -31,6 +31,28 @@ local function Unknown(player, journal, record, reason)
   return false, reason
 end
 
+local function Integer(value)
+  return BaiqiPolicy.Number(value) and value>=0 and value%1==0
+end
+
+local function ActorInWorld(unit)
+  -- A consumed entity can retain its full ID, owner and movement in GameCore.
+  -- Missing or failed native reads are not positive proof of availability.
+  local ok,valid=pcall(function()
+    if type(unit.IsDead)~="function" or type(unit.IsDelayedDeath)~="function"
+      or unit:IsDead()~=false or unit:IsDelayedDeath()~=false then return false end
+    local x,y=unit:GetX(),unit:GetY()
+    if not Integer(x) or not Integer(y) or type(Map.GetGridSize)~="function"
+      or type(Map.GetPlot)~="function" then return false end
+    local width,height=Map.GetGridSize()
+    if not Integer(width) or not Integer(height) or width<1 or height<1
+      or x>=width or y>=height then return false end
+    local plot=Map.GetPlot(x,y)
+    return plot~=nil and plot:GetX()==x and plot:GetY()==y
+  end)
+  return ok and valid==true
+end
+
 local function Settle(player,journal,record,quote,recovering)
   if record.phase~="TRANSFERRED" and record.phase~="CHARGED" and record.phase~="FINISHING" then
     return Unknown(player,journal,record,"settlement_phase_unknown")
@@ -57,7 +79,8 @@ local function Settle(player,journal,record,quote,recovering)
   end
   if Game.GetCurrentGameTurn()~=quote.turn or BaiqiRequisition.Player(quote.playerID)==nil
     or not BaiqiRequisition.IsCaptureUnit(unit) or unit.GetFormationUnitCount==nil or unit:GetFormationUnitCount()~=1
-    or not BaiqiPolicy.Number(unit:GetMovesRemaining()) or unit:GetMovesRemaining()<0 then
+    or not BaiqiPolicy.Number(unit:GetMovesRemaining()) or unit:GetMovesRemaining()<0
+    or not ActorInWorld(unit) then
     return Unknown(player,journal,record,"settlement_context_changed")
   end
   record.phase="FINISHING"
@@ -74,10 +97,6 @@ local function Settle(player,journal,record,quote,recovering)
   Persist(player,journal,record)
   Log(record.id,record.stage,record.reason)
   return true,record.reason
-end
-
-local function Integer(value)
-  return BaiqiPolicy.Number(value) and value>=0 and value%1==0
 end
 
 local function Recoverable(playerID,player,journal,key,record)
@@ -111,6 +130,7 @@ local function Recoverable(playerID,player,journal,key,record)
     and BaiqiPolicy.MatchesID(unit,record.unitID) and unit:GetOwner()==playerID
     and BaiqiRequisition.IsCaptureUnit(unit) and unit.GetFormationUnitCount~=nil and unit:GetFormationUnitCount()==1
     and BaiqiPolicy.Number(unit:GetMovesRemaining()) and unit:GetMovesRemaining()>=0
+    and ActorInWorld(unit)
     and type(UnitManager.FinishMoves)=="function"
 end
 
@@ -122,7 +142,8 @@ function BaiqiCapture.Recover(playerID)
   for key,record in pairs(journal.operations) do
     if type(record)=="table" and (record.stage=="SUBMITTED" or record.stage=="UNKNOWN" or record.stage=="QUOTED")
       and type(record.id)=="string" and key==record.id and not active[key] then
-      if Recoverable(playerID,player,journal,key,record) then
+      local readable,eligible=pcall(Recoverable,playerID,player,journal,key,record)
+      if readable and eligible then
         active[key]=true
         local ok,success=pcall(Settle,player,journal,record,record,true)
         active[key]=nil
