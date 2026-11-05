@@ -349,3 +349,5 @@
 - 建造者补证：[74版最后一次劳动](baiqi-builder-final-charge-74.md)精确prepared114／saved115独立加载，538无改良→农场、原1次单位消失，原539农场保持；日志unit_unavailable缺口仍留，不把任何消失判成功，也不冒称pending卡死或全部改良矩阵通过。
 
 - TC-013／016／036受控补证：[74指定移民资格拒绝](baiqi-settler-qualification-recovery-74.md)115拒绝MOVE资格1次，实际移动／建城0、待命1，有限观察计数保持、其他内政继续；撤去钩子后116自动三步移动。FOUND资格实机0命中、建城和自然压力仍未授通过。
+
+- TC-016恢复补证：[74已有移民恢复后建城](baiqi-settler-recovery-founded-74.md)从410干净116继续到119，原位FOUND一次与新城25,15／人口1／自动粮仓关联，119重载保持。Core同ID延迟移除、UI缺失如实记录；不是正常训练成本、全部压力或全部护送通过。

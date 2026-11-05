@@ -58,3 +58,5 @@ python tools\build_mod.py --install
 - [74版建造者最后一次改良](docs/testing/baiqi-builder-final-charge-74.md)：独立114／115存档证明538新增农场、1次劳动建造者消失，日志确认缺口保留；原正常114已恢复。
 
 - [74版移民资格拒绝与恢复](docs/testing/baiqi-settler-qualification-recovery-74.md)：115原地一次待命，其他内政继续；撤故障后116自动三步移动，尚未建城，不授完整压力矩阵。
+
+- [74版恢复移民实际建城](docs/testing/baiqi-settler-recovery-founded-74.md)：119胶东新城、原移民延迟移除、自动粮仓及119重载均有独立证据；测试玩家处理一次外交来访，原正常114已恢复。

@@ -22,3 +22,6 @@
 410候选install／cleanup均Lua53编译，但install引用Controller私有PlayerContext／CoreIdle和错误unit:GetQueuedDestination，实际UI只读返回均nil；正确UnitManager方法为function。负责人重写资格范围与前态／fresh身份检查，7项隔离诊断含11透传子例通过，非新增产品测试。cleanup六行按解码候选字符串原样采用，来自给定既有参考，不授新颖性。负责人首次落盘时CRLF转换使SHA门拒绝，0NativeCMD；保留原件、恢复准确UTF8LF字节后才以新标签清理，不归模型／产品错误。
 
 TC-013／016／036整体仍部分；本例没有实际FOUND_CITY拒绝命中、正常训练成本、自然城址竞争／模型服务中断或战略资源压力。产品及Alpha附件未改，完整软件套件未重跑。
+
+
+后续：[411实际119建城及新城托管](baiqi-settler-recovery-founded-74.md)已通过此恢复分支的窄样本和正式重载；原410在116尚未建城的切点不改。之后已独立恢复原正常114。
