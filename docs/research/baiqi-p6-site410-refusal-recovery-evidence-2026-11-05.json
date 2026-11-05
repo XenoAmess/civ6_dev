@@ -1,0 +1,286 @@
+{
+  "schema": "civ6.native-site410-qualification-refusal/v1",
+  "utc": "2026-11-05T08:16:17.092324+00:00",
+  "date_local": "2026-11-05",
+  "machine_id": "BF-202609141645",
+  "build": 74,
+  "product_changes": 0,
+  "owner": {
+    "pid": 12052,
+    "birth": 1793861922.5603912
+  },
+  "scope": "Controlled CanStartOperation refusal for existing unescorted settler in turn115; not native action failure, natural no-site/path pressure or complete found-city result.",
+  "baseline114": {
+    "id": 6684713,
+    "type": "UNIT_SETTLER",
+    "owner": 0,
+    "position": [
+      21,
+      9
+    ],
+    "plot": 417,
+    "moves": 0,
+    "formation": 1,
+    "queued": null,
+    "normal_checkpoint_independently_restored": true
+  },
+  "held115": {
+    "position": [
+      21,
+      9
+    ],
+    "moves": 3,
+    "queued": null,
+    "native_qualification_hook_blocked_MOVE_TO": 1,
+    "native_qualification_hook_blocked_FOUND_CITY": 0,
+    "qualification_other_calls_forwarded": 78,
+    "matcher_errors": 0,
+    "actual_request_observer_all": 22,
+    "target_MOVE_TO_FOUND_CITY": [
+      0,
+      0
+    ],
+    "target_other_request": 1,
+    "target_other_operation": "SKIP_TURN",
+    "other_civilian_requests": 21,
+    "nonCivilian_unknownType_errors": [
+      0,
+      0,
+      0
+    ],
+    "observation_points_seconds_apart": 94.660975,
+    "counters_unchanged_between_points": true,
+    "turn_refresh_is_not_old_moves_unchanged": true
+  },
+  "recovered116": {
+    "fault_removed_before_normal_end115": true,
+    "position": [
+      23,
+      12
+    ],
+    "plot": 551,
+    "moves": 0,
+    "queued": null,
+    "actual_MOVE_TO_requests": 3,
+    "actual_FOUND_CITY_requests": 0,
+    "request_targets": [
+      [
+        22,
+        10
+      ],
+      [
+        22,
+        11
+      ],
+      [
+        23,
+        12
+      ]
+    ],
+    "source": "BACKGROUND",
+    "observed_move_result_log_entries": 3,
+    "cumulative_request_counts": {
+      "all": 39,
+      "targetMove": 3,
+      "targetFound": 0,
+      "targetOther": 1,
+      "other": 35,
+      "nonCivilian": 0,
+      "unknownType": 0,
+      "errors": 0
+    },
+    "cities": 11,
+    "no_manual_civilian_commands_cache_attempt_reservation_or_receipt_writes": true
+  },
+  "observer_scope": "BaiqiExecutor UnitManager.RequestOperation callthrough only; not all game engine actions or other Lua contexts. Qualification wrapper itself issues0actions. All39samples retained, no truncation at64limit.",
+  "actual_normal_turns": [
+    {
+      "from": 114,
+      "to": 115,
+      "military_skips": [
+        [
+          "1048576",
+          "UNIT_SCOUT"
+        ],
+        [
+          "1441803",
+          "UNIT_SCOUT"
+        ],
+        [
+          "1245193",
+          "UNIT_SCOUT"
+        ],
+        [
+          "3997727",
+          "UNIT_CHINESE_CROUCHING_TIGER"
+        ]
+      ],
+      "do_end_turn": 2,
+      "official_no_reason_ACTION_ENDTURN": 1,
+      "UserForced": 0,
+      "remaining_military_selection_reminders_fully_consumed": false
+    },
+    {
+      "from": 115,
+      "to": 116,
+      "military_skips": [
+        [
+          "327683",
+          "UNIT_SCOUT"
+        ],
+        [
+          "1048576",
+          "UNIT_SCOUT"
+        ],
+        [
+          "1245193",
+          "UNIT_SCOUT"
+        ]
+      ],
+      "do_end_turn": 3,
+      "official_no_reason_ACTION_ENDTURN": 1,
+      "UserForced": 0,
+      "remaining_military_selection_reminders_fully_consumed": false
+    }
+  ],
+  "target_log": [
+    "BaiqiExecutor: BAIQI|request|turn=115|id=0:115:11|source=BACKGROUND|unit=6684713|operation=SKIP_TURN|plot=417|from=417",
+    "BaiqiExecutor: BAIQI|request|turn=116|id=0:116:33|source=BACKGROUND|unit=6684713|operation=MOVE_TO|plot=462|from=417",
+    "BaiqiExecutor: BAIQI|observed|turn=116|id=0:116:33|unit=6684713|kind=MOVE_TO",
+    "BaiqiExecutor: BAIQI|request|turn=116|id=0:116:34|source=BACKGROUND|unit=6684713|operation=MOVE_TO|plot=506|from=462",
+    "BaiqiExecutor: BAIQI|observed|turn=116|id=0:116:34|unit=6684713|kind=MOVE_TO",
+    "BaiqiExecutor: BAIQI|request|turn=116|id=0:116:35|source=BACKGROUND|unit=6684713|operation=MOVE_TO|plot=551|from=506",
+    "BaiqiExecutor: BAIQI|observed|turn=116|id=0:116:35|unit=6684713|kind=MOVE_TO"
+  ],
+  "bindings_cleaned": true,
+  "saved116": {
+    "utc": "2026-11-05T08:12:37.462447+00:00",
+    "name": "Baiqi_P6_20261105_V74_SiteQualificationRecovered116.Civ6Save",
+    "bytes": 570337,
+    "sha256": "b4ebee87f232dd8aee7b2fc290c5281c41d64b2a2226c3b402a1604a5b711b77",
+    "stable_repeated_read": true
+  },
+  "model410": {
+    "shared_commit": "1b8324bb9454d424782569047716ab454f41b070",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 13568,
+      "completion_tokens": 1394,
+      "total_tokens": 14962
+    },
+    "total_ms": 11174.324300023727,
+    "ttft_ms": 2065.407400019467,
+    "cached_prompt_tokens": null,
+    "compile_install_cleanup_lua53": true,
+    "raw_install_lines": 38,
+    "raw_cleanup_lines": 6,
+    "raw_install_game_execution": 0,
+    "cleanup_code_string_verbatim_game_execution": 1,
+    "cleanup_derived_from_supplied_owner_reference_no_novelty_credit": true,
+    "adoption": "Partial scoped-turn/actor rejection direction; owner replaced unavailable local helpers/context and queue API.6line cleanup adopted verbatim as decoded UTF8LF string.",
+    "candidate_issues": [
+      "PlayerContext and CoreIdle are private Controller locals, unavailable to injected global code",
+      "Candidate unit:GetQueuedDestination is not supplied actual UnitManager.GetQueuedDestination",
+      "Initial leader/active/context and type guards corrected; fresh fullidentity rechecked",
+      "Plan incorrectly forbids all targetrequests although SKIP may forward; old0movement refreshes on newturn; reservations/targets may change before RequestCivilian qualification"
+    ],
+    "actual_unavailable_global_helpers_and_method_readback": [
+      "PlayerContextnil",
+      "CoreIdlenil",
+      "unitGetQueuedDestinationnil",
+      "UnitManagerGetQueuedDestinationfunction"
+    ],
+    "owner_hook_diagnostic_checks": 7,
+    "forwarding_subcases": 11,
+    "not_product_tests": true,
+    "owner_encoding_error": {
+      "utc": "2026-11-05T08:06:41.612289+00:00",
+      "owner_error": "Witness wrote cleanup with Windows newline translation while hash used decoded LF model string. SHA gate rejected cleanup before Native/attempt allocation;0CMD/action. Exact decoded candidate UTF8LF bytes now restored and verified; originalCRLF preserved.",
+      "before_sha256": "952efa8b85bfe48527e57c645d7de3307f0927a3228ff25a65160b5cb388a95c",
+      "after_sha256": "c32d328295cd700dc6884f33603603ed019f58144a5806d161893f5c98dde9a3",
+      "matches_qualified_cleanup": true,
+      "model_or_product_error": false
+    },
+    "maintenance": "canonical CLI Nov5 successful1.19.5cache beforePOST;0new OpenCode native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through410": {
+    "logical": 410,
+    "complete_stop_valid": 380,
+    "length_discarded": 27,
+    "final_transport_failed": 3,
+    "http_attempts": 440,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "model409_shared_record": {
+    "commit": "1b8324bb9454d424782569047716ab454f41b070",
+    "url": "https://github.com/XenoAmess/local-model-operations/blob/1b8324bb9454d424782569047716ab454f41b070/docs/evidence/2026-11-05-civ6-builder409.json"
+  },
+  "images": [
+    {
+      "stage": "held115",
+      "path": "docs/testing/screenshots/baiqi-74-settler-refused115.png",
+      "sha256": "ea52ed75fa581c60b2f1fbff2d9a6c05d92af27c25d80d6d06e88aada95c935e",
+      "raw_bytes_unchanged": true
+    },
+    {
+      "stage": "recovered116",
+      "path": "docs/testing/screenshots/baiqi-74-settler-recovered116.png",
+      "sha256": "85e27fd488e7d3c5610a5dc5c6fe34cc96c28185afea671e0085e93456f63748",
+      "raw_bytes_unchanged": true
+    }
+  ],
+  "current_state": "Clean saved recovered116branch retained to continue actual founding followup; normal114not yet restored after410. All fault/request observer bindings removed.",
+  "limits": [
+    "No real FOUND_CITYqualification hit in115, no claim from software branch test to actual native hit",
+    "No new-city founding observed by116; no normal production/population cost coverage awarded",
+    "No natural no-site/strategic resource/remote model service outage or fullTC013016036acceptance",
+    "Reservation/target may be changed by actual product before rejectedRequest; no claim that private caches stayed unchanged and no hand clearing",
+    "Product74andAlpha unchanged; no full software suite rerun",
+    "Steamoffline,0online switches"
+  ],
+  "raw_evidence_sha256": {
+    "recovery407-view-site-held115-20261105T080416359679Z-receipt.json": "f3c1914048892a26152ed52ebdcd04fff9facbc2104fb7efaa8bc5beb98809c7",
+    "recovery407-view-site-recovered116-20261105T081234179237Z-receipt.json": "7364c403707a5cd424652f384db166ade177c76623fadc5ceb67c4d054a784db",
+    "site410-api-read-current-response.json": "f58aadb42a1bce2bab62b738dc4d7c498528280334e447cc408ac2f96de48fe2",
+    "site410-baseline-readonly-response.json": "0b74bf54025c7c6a338e6fe734547024efdac16d71fae024c3eac9de0a3037a1",
+    "site410-cleanup-encoding-repair.json": "dc052fc6e359123405602b7b0c4051d83ef463b74c96e26bf6319d8072636d32",
+    "site410-clear-recovered116-response.json": "778a500c9384cb15a00949fb32ea389dfeb698198548432d240b3f99b5c93a0a",
+    "site410-fault-cleanup-after-held115-qualified-response.json": "2c3fa46be12b2a8009bdaa0dfa5d327351e2b0c2cb11037ba3952cd0a5205fe3",
+    "site410-fault-install-before114-response.json": "e4af9776970c8723cf1d8856afd02438650ad8264f5b7bac2e9abc1114ddd7b0",
+    "site410-model/ADAPTER-PROVENANCE.json": "f5b760b08e20516030a3df29eabff3bb71e5439c1fc43dd8dc6c9c3c870f7d6b",
+    "site410-model/ATTEMPT1-RESULT.json": "530795b9550826df4a0e9b1bab8cef24324d006f89d65fb24097913a4d7cdac2",
+    "site410-model/SUMMARY.json": "bf5bff796fe642d9f5ad3b348f02764255622dcb9dd4c8232c13289f4983b13b",
+    "site410-normal-end-114-response.json": "640efcdfc5e95b19a7b32f9b8315b64047e580a4fa38da671815c4fc8bca2c49",
+    "site410-normal-end-115-response.json": "bc4bcc92424ec334cf27f0959ae77f8b79bb86bb7f4361e0a7209d7f77434fba",
+    "site410-normal-step-114-01-response.json": "ddb0ba716d196628e1c946eaa6b1fa2a7cc9dae73fa98b54bcfcfd90d77f9496",
+    "site410-normal-step-114-02-response.json": "921327eaa3749cdf26b472de7e9a915510b28edae7287564167e0d5980d00424",
+    "site410-normal-step-114-03-response.json": "92b19c4f7827bd6a0e31d9b3e30615377566b74d442a9c1f9db5eeac181f330e",
+    "site410-normal-step-114-04-response.json": "c4108084039a0eda02b111dbe92b7f1dddcbaa0677a8646e70deaab9f06026bf",
+    "site410-normal-step-114-05-response.json": "31e37d128b26f01aa0298edf5235cf431ee0c7e7b70e9fee2f59f9a1323be6f7",
+    "site410-normal-step-114-06-response.json": "edcbd4058e506588896864d75537c1858515e94f1237f2d377ea785985c5412e",
+    "site410-normal-step-115-01-response.json": "58651890d8d8d4c16fa44d755c46311fc4a6db2f4bce5daf19af7535a0aa8c84",
+    "site410-normal-step-115-02-response.json": "04280edb470fbc1f63480b9a00a8417f05609565746c1fd4356076e9ee23975b",
+    "site410-normal-step-115-03-response.json": "5834a67530c6c826b29e61c9ef017beaa223038f8d57a6f5545e457a3a336b39",
+    "site410-normal-step-115-04-response.json": "ae32cd700384629dc7d345011b5813b4f761039893769b0b077b382614420d7f",
+    "site410-normal-step-115-05-response.json": "5bdd8fa318ec65ee1f3ab3a4115492ce6ce11d7529ac9d303da3ccc38333097c",
+    "site410-normal-step-115-06-response.json": "09c5a02d4469ae5a184c93229f957f82ea68a0f8409eadec6aba5a0a0b9836d5",
+    "site410-read-active115-first-response.json": "3b43fae86604ed779a509e4f6a5b25d0247fe25a3675676af5b0373107445f32",
+    "site410-read-active115-second-response.json": "99bbd671f296160031007e8e5ab8f1210ddf6e18439b8b92046ff25149688869",
+    "site410-read-recovered116-final-response.json": "dc244536caa4dfa84f32d68ca161957d84f5c9ec182810e30609739b3b060ba1",
+    "site410-request-cleanup-recovered116-response.json": "31cea975188c606e3aef0f0d9e75fe483a08edc6bbd4fadb9ef4be98c88491b8",
+    "site410-request-install-before114-response.json": "1750d6fa5eefbb04d2ec07730ed098629fd2cfb2cfc5807c2d17d851a04ee72c",
+    "site410-save116-ack.json": "9e068104ebb839eeaa8ef8537e6177550bdc283dd422515de6a1761be2b40c48",
+    "site410-save116-response.json": "3f634359a202798f6ffdfc762bf3f96f148529e5f6ad8e28807a6c84c46e24ae",
+    "site410-scoped-log-index.json": "649d7d26123851f6e6513df939965297265c3f83c2da9734bd20af02e6382ddf",
+    "site410-software-witness.json": "8eff435cc0f93d149f4abea6df0d2890761d1379cae17a4edc707469b6dc768f"
+  }
+}

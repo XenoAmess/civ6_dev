@@ -347,3 +347,5 @@
 - TC-029／030正常回合补证：[74版未知扣款114→115](baiqi-debit-unknown-normal-turn-74.md)同一笔UNKNOWN／CHARGING保持、冲突守卫真，军队新回合4行动；跨回合与两次Recover均0转城／Finish。无UserForced，资金差值不代替直接扣款计数；其他阶段仍未闭。
 
 - 建造者补证：[74版最后一次劳动](baiqi-builder-final-charge-74.md)精确prepared114／saved115独立加载，538无改良→农场、原1次单位消失，原539农场保持；日志unit_unavailable缺口仍留，不把任何消失判成功，也不冒称pending卡死或全部改良矩阵通过。
+
+- TC-013／016／036受控补证：[74指定移民资格拒绝](baiqi-settler-qualification-recovery-74.md)115拒绝MOVE资格1次，实际移动／建城0、待命1，有限观察计数保持、其他内政继续；撤去钩子后116自动三步移动。FOUND资格实机0命中、建城和自然压力仍未授通过。
