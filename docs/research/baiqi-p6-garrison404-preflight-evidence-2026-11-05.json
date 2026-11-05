@@ -1,0 +1,135 @@
+{
+  "schema": "civ6.visible-garrison404-preflight/v1",
+  "utc": "2026-11-05T02:32:04.266321+00:00",
+  "machine_id": "BF-202609141645",
+  "build": 74,
+  "status": "READONLY_CANDIDATE_INVENTORY_ONLY_NOT_GARRISON_CAPTURE_PASS",
+  "gameplay_actions": 0,
+  "source_state": "Normal Farm114 independently restored; no war, placement, damage, capture or turn operation in this scan.",
+  "scan": {
+    "foreign_cities_read": 9,
+    "visible_cities": 9,
+    "hidden_cities_skipped": 0,
+    "unknown_city_receivers": 60,
+    "garrison_candidates": 1,
+    "limit": "Unknown receiver slots are retained, not empty-city proof; no claim that this UI covered every possible world player. Ordinary and religious plot layers only, at visible cities.128city/128unit bounds not reached."
+  },
+  "candidate_target": {
+    "owner": 1,
+    "city_id": 524295,
+    "x": 41,
+    "y": 19,
+    "population": 1,
+    "unit": {
+      "owner": 1,
+      "id": 1179657,
+      "type": "UNIT_MACEDONIAN_HETAIROI",
+      "formation": "FORMATION_CLASS_LAND_COMBAT",
+      "moves": 0,
+      "damage": 37,
+      "formation_unit_count": 1
+    },
+    "preexisting": true,
+    "capture_test_completed": false
+  },
+  "other_observed_unit": {
+    "city_id": 65536,
+    "owner": 1,
+    "unit_id": 3604496,
+    "type": "UNIT_GREAT_ARTIST",
+    "counts_as_military_garrison": false
+  },
+  "model": {
+    "logical_number": 404,
+    "task_id": "civ6-garrison404-visible-existing-city-inventory",
+    "mode_id": "http-candidate",
+    "shared_commit": "d8265e5132cafd03a828c302fe6c9ea261abc404",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "max_tokens": 4500,
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "prompt_tokens": 6433,
+    "completion_tokens": 1007,
+    "ttft_ms": 1546.1986999725923,
+    "total_ms": 7731.167699967045,
+    "cached_prompt_tokens": null,
+    "client_inflight_peak": 1,
+    "candidate_code_adopted": 0,
+    "candidate_game_execution": 0,
+    "rejected_findings": [
+      "Lua53 compile fails at type(visibility:IsVisible), invalid colon member expression; candidate not executed.",
+      "FormationClass outer condition CIVILIAN/MILITIA/NAVAL and nested LAND cannot both hold, so this count is always0 even before considering supplied actual FormationClass strings.",
+      "Invented or unqualified CombatClass/RangedDamage fields replace the supplied Combat/RangedCombat contract; unit-owner equality is omitted.",
+      "No128unit bound, per-city identity readback, or unknown receiver accounting; candidate visibility receiver is not established."
+    ],
+    "owner_correction": "Separate owner Lua53 compile and actual readonly UI scan; no model code executed. Source qualification and game results are owner work, not generation adoption.",
+    "maintenance": "Canonical CLI preflight before POST; Nov5 same-machine successful1.19.5 cache, not new OpenCode generation.",
+    "owner_phase_events": [
+      {
+        "utc": "2026-11-05T02:24:43.841298+00:00",
+        "task": "garrison404",
+        "event": "PREP_BEGIN",
+        "earlier_task_selection_and_reading_seconds": null
+      },
+      {
+        "utc": "2026-11-05T02:25:30.281678+00:00",
+        "task": "garrison404",
+        "event": "PREP_END",
+        "earlier_task_selection_and_reading_seconds": null
+      },
+      {
+        "utc": "2026-11-05T02:26:13.429953+00:00",
+        "task": "garrison404",
+        "event": "REVIEW_BEGIN",
+        "earlier_task_selection_and_reading_seconds": null
+      },
+      {
+        "utc": "2026-11-05T02:27:03.667855+00:00",
+        "task": "garrison404",
+        "event": "REVIEW_END",
+        "earlier_task_selection_and_reading_seconds": null
+      },
+      {
+        "utc": "2026-11-05T02:27:04.108291+00:00",
+        "task": "garrison404",
+        "event": "CORRECTION_BEGIN",
+        "earlier_task_selection_and_reading_seconds": null
+      },
+      {
+        "utc": "2026-11-05T02:30:06.171036+00:00",
+        "task": "garrison404",
+        "event": "CORRECTION_END",
+        "earlier_task_selection_and_reading_seconds": null
+      }
+    ],
+    "owner_active_seconds": null,
+    "earlier_source_selection_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through404": {
+    "logical": 404,
+    "complete_stop_valid": 374,
+    "length_discarded": 27,
+    "final_transport_failed": 3,
+    "http_attempts": 434,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "raw_evidence_sha256": {
+    "garrison404-owner-review.json": "d94350fb4faca2dad1aad80c094ea4e13d08cba94945f70cd778bcbfcec4f216",
+    "garrison404-native-readonly-response.json": "6c84afa2bf9a8940e688c1fdc2ec8d57b6191d518f4d64ddba174997f06395d0",
+    "garrison404-owner-reviewed.lua": "04c3504424b2971d74ade1f052d7b47cf287406078e1cb4e8485220b12796825",
+    "garrison404-owner-phases.jsonl": "133efbe81607dd9a057598984757c669ce44edcb15b139cdc09e9eed9d06c651",
+    "garrison404-model/ATTEMPT1-RESULT.json": "7b21dae55bf8b4eeaba6b131127d6a8d6cb54d89eaf8a3730b3c01adbcd5f526",
+    "garrison404-model/ADAPTER-PROVENANCE.json": "92394f3713f893bb58f30d3f1974dd6aef07890d94ceed8ab041370975361132"
+  },
+  "next": "Fresh visible target, defenses and adjacency preflight; independent QA checkpoint then one map-confirm capture, track original full unit identity/owner/position and native asset conversion. Never clear or create the guard.",
+  "steam_online_switches": 0,
+  "product_changes": 0,
+  "full40_native_complete": false
+}
