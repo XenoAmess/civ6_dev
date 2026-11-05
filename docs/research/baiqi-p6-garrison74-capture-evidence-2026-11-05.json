@@ -1,0 +1,196 @@
+{
+  "schema": "civ6.preexisting-garrison74-capture/v1",
+  "utc": "2026-11-05T02:50:57.667988+00:00",
+  "machine_id": "BF-202609141645",
+  "build": 74,
+  "status": "ONE_EXISTING_GARRISON_CITY_MAP_CAPTURE_AND_INDEPENDENT_UNIT_EVACUATION_READBACK",
+  "source_preflight": "https://github.com/XenoAmess/civ6_dev/blob/1d343cf1a4e6768c724b5e733ed1325fc816b9b1/docs/research/baiqi-p6-garrison404-preflight-evidence-2026-11-05.json",
+  "before": {
+    "owner": 1,
+    "city_id": 524295,
+    "x": 41,
+    "y": 19,
+    "population": 1,
+    "buildings": 0,
+    "completed_districts": 1,
+    "garrison_max_damage": 200,
+    "garrison_damage_qa": 150,
+    "outer_max_damage": 0,
+    "gold": 4524.2734375,
+    "actor": {
+      "id": 2162700,
+      "x": 42,
+      "y": 19,
+      "moves": 4
+    },
+    "guard": {
+      "owner": 1,
+      "id": 1179657,
+      "type": "UNIT_MACEDONIAN_HETAIROI",
+      "x": 41,
+      "y": 19,
+      "moves": 0,
+      "damage": 37,
+      "formation_unit_count": 1,
+      "preexisting_and_never_manually_changed": true
+    }
+  },
+  "physical_input": {
+    "right_click_count": 1,
+    "right_coordinates": [
+      490,
+      390
+    ],
+    "cursor_plot": 877,
+    "down_up_move_interact_each": 1,
+    "trace_errors": 0,
+    "trace_drops": 0,
+    "confirm_left_count": 1,
+    "confirm_coordinates": [
+      280,
+      434
+    ],
+    "quote_cost": 300,
+    "ui_player_operation_requests": 1,
+    "native_transfer_calls": 1,
+    "native_finish_calls": 1,
+    "native_observer_errors": 0,
+    "semantic_open_or_capture_calls_by_tester": 0
+  },
+  "after": {
+    "owner": 0,
+    "city_id": 851979,
+    "x": 41,
+    "y": 19,
+    "population": 1,
+    "buildings": 0,
+    "completed_districts": 1,
+    "city_center_id": 2097182,
+    "city_center_damage": 100,
+    "city_center_max_damage": 200,
+    "occupied": false,
+    "loyalty": 100,
+    "loyalty_per_turn": -27.6875,
+    "production_queue_size": 1,
+    "production_hash": -764771404,
+    "production_type_resolved": false,
+    "gold": 4224.2734375,
+    "actor": {
+      "id": 2162700,
+      "x": 42,
+      "y": 19,
+      "moves": 0,
+      "damage": 0,
+      "cooldown_turn": 114
+    },
+    "original_guard": {
+      "owner": 1,
+      "id": 1179657,
+      "type": "UNIT_MACEDONIAN_HETAIROI",
+      "x": 40,
+      "y": 19,
+      "moves": 0,
+      "damage": 37,
+      "formation_unit_count": 1,
+      "plot_is_water": true,
+      "is_embarked_ui": true,
+      "source_qualification": "Shipped Base/Assets/UI/UnitFlagManager.lua603 uses pUnit:IsEmbarked().",
+      "readback": "Existing foreign owner/fullID lookup and visible adjacent plot agree; independent GameplayCore and UI repeat the same tuple."
+    }
+  },
+  "identity_alias_rejected": {
+    "player0_find_id_requested": 1179657,
+    "returned_full_id": 1245193,
+    "returned_type": "UNIT_SCOUT",
+    "same_before_and_after": true,
+    "accepted_as_guard": false
+  },
+  "transaction": {
+    "id": "city:0:114:2162700:1:524295:41:19",
+    "stage": "COMMITTED",
+    "phase": "DONE",
+    "cost": 300,
+    "balance_before": 4524.2734375,
+    "balance_after": 4224.2734375,
+    "operations": 1
+  },
+  "qa_setup_only": [
+    "Source-backed scenario formal war force flag, not ordinary diplomacy UI pass",
+    "Own actor PlaceUnit42,19; native placement set0moves, separately restored4",
+    "City-center damage150/200 synthetic; guard original37damage unchanged",
+    "No foreign guard creation, movement, deletion, damage, orders or forced turn; native transfer relocation is observed result"
+  ],
+  "cleanup": "2Core/1UIrequest/4input wrappers ownership-checked and restored before captured save and baseline load. Independent namespace checks pass.",
+  "save_prepared": {
+    "utc": "2026-11-05T02:40:23.303135+00:00",
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044",
+    "stable_repeated_read": true
+  },
+  "save_captured": {
+    "utc": "2026-11-05T02:47:21.388397+00:00",
+    "name": "Baiqi_P6_20261105_V74_GarrisonCaptured114.Civ6Save",
+    "bytes": 568804,
+    "sha256": "d1da13ab82463078608bc9ec58a1ccef8763dbe6972fdf225376ca69dd28f17e",
+    "stable_repeated_read": true
+  },
+  "normal_baseline_file_sha256_unchanged": "2560bbc24b4ee3a27ea8a8301e24ca9952603f947d66524b80667276f868b6f6",
+  "current_restore_status": "Official normal Farm114 LoadGame ACKtrue; independent Continue/state readback pending at this cutoff.",
+  "images": [
+    {
+      "path": "docs/testing/screenshots/baiqi-74-garrison-confirmation.png",
+      "sha256": "61f7f22f16372c82e2510cf8b250c9dd0547120829d8aa966740835fad803d96",
+      "raw_window_bytes_unchanged": true,
+      "scope": "Actual300coin map popup from physical right; before paid confirm."
+    },
+    {
+      "path": "docs/testing/screenshots/baiqi-74-garrison-result.png",
+      "sha256": "963f55c4f3321dd087887114ddc3f76d0f446961a15739b3024ee02904756fed",
+      "raw_window_bytes_unchanged": true,
+      "scope": "Fresh actual city owner flag,4224gold and actor0moves. Original tooltip retained; unit full identity and embarked status established by independent reads, not screenshot alone."
+    }
+  ],
+  "owner_correction": "First Executor save precheck wrongly referenced WorldInput-local BaiqiRequisition; stopped at missing table before flag/Save call. Actual Quote300 then qualified separately in WorldInput and one qualified Save persisted. This is owner context error, not model error or paid request retry.",
+  "model404_followup": {
+    "new_model_calls": 0,
+    "model_code_in_capture": 0,
+    "shared_commit": "cefc76c03f915e77273aa99a4f3d6416b0817899",
+    "url": "https://github.com/XenoAmess/local-model-operations/blob/cefc76c03f915e77273aa99a4f3d6416b0817899/docs/evidence/2026-11-05-civ6-garrison404.json"
+  },
+  "limits": [
+    "One existing land-combat garrison and one coastal city, immediate same-turn sample only",
+    "No universal city/guard evacuation rule, no guarantee it always goes to water or is always preserved",
+    "No followup enemy attack, cross-turn/cold garrison capture recovery or district yields claim",
+    "Original QA war and city damage do not qualify natural diplomacy or battle",
+    "New production queue type not resolved at this cutoff; not a completed production chain"
+  ],
+  "all40_native_complete": false,
+  "steam_online_switches": 0,
+  "software_suite_rerun": false,
+  "product_changes": 0,
+  "raw_evidence_sha256": {
+    "garrison74-confirm-attempt.json": "ce6b049b234a77a4c9359ba0b0467e07d67016ae34ded8621864a511ad5dce65",
+    "garrison74-fixture-damage-response.json": "31c83fc2bdce898152111cc06f27b18e13f842b5d7506704c7d0f1c643143fa6",
+    "garrison74-fixture-declare-war-response.json": "5cd823f7db52d7ec529a638a033c5e337d8db320452c608baacd6743c345384f",
+    "garrison74-fixture-place-actor-response.json": "f54e390edd11ad7119a0bc461e3695edd4832ea0b91465bd6ba8ff7abf87cd96",
+    "garrison74-fixture-restore-actor-moves-response.json": "658ad2fbce9a97c666234b7ee4a94b0f59a91977ef23e32840f2761cb12f433e",
+    "garrison74-independent-after-response.json": "0e5f80221858b8bbe3bf8cd4e40864bc179d07f597db5e451a5a9c274158a3ea",
+    "garrison74-input-trace-cleanup-response.json": "d4f1285fbbb3d916127e1d7d90845754e37e65766d45a3197a44493955fc6abe",
+    "garrison74-input-trace-read-response.json": "d40c9a9e92d1dd7df90727bb221ce7913b34855dd09e179f58e5b0c7e7b91815",
+    "garrison74-load-normal-response.json": "d9f4e1ebb8b84a38a2116193074cfdcdafc8852a629d9f8a6a5c44f736196f47",
+    "garrison74-observer-core-cleanup-response.json": "848601225436e5326fcc0e580b2a19aabfdc63e3cbd39612f70deca5547ba5c5",
+    "garrison74-observer-core-read-after-response.json": "e6c6026ca8b73008d365714ca6fb046cc43826b236fad7889d98d3ef1372efc8",
+    "garrison74-observer-ui-cleanup-response.json": "740067d004114b38f978556b9ba153192d3c6d430ac586399330481d0aa6c432",
+    "garrison74-observer-ui-read-response.json": "76b8faff7f9b160b95ccf35b1cf7e13afe9131847d88147caaef389fce21c50b",
+    "garrison74-preflight-response.json": "65483d804ed4a3a8d6c44e5689629f0a25cbace6283acfc52d7b279669610b1a",
+    "garrison74-save-captured-response.json": "5f6e1cf0b8cd1404b8b157384d986bdb13e04ba7d88e4a6dc311ad527fc6c6ea",
+    "garrison74-save-prepared-ack.json": "ce6c64b51a5737fc3eefcf11261886d1ca69cda4672f3b181e3f8d028592bdc7",
+    "garrison74-save-prepared-qualified-attempt.json": "ae72bd7df16da6da03c17a25ae8444a5ed212122ea9321a7ee0c964cac86528c",
+    "garrison74-save-prepared-response.json": "5085c382ad264e562875e04e9803266f5604f25126c39d1ba934213021443b10",
+    "garrison74-select-quote-response.json": "3f46118c7395aabeea9c5d4840f76ae4d63ed865c25a791c3226b886db7e7c89",
+    "garrison74-unit-after-response.json": "dcc84d5533d92fad567465361c88516296438d9d691c1d22e7da459def92709b",
+    "garrison74-unit-before-response.json": "0246bd84b17d102072dd7bb9dbf730f45e06dd5afb1ef141c38db83b6ffe83a2",
+    "source73-progress114-save-receipt.json": "9f2b2354ab90c88d0b4a82436f77299b12a800510ea6b1631cbb4871427beb6d"
+  }
+}
