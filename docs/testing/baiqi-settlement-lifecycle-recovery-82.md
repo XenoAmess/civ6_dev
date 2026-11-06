@@ -37,3 +37,5 @@ Core的UnitManager.RequestOperation和CanStartOperation实际均不存在，不�
 本轮额外修正了验收工具的原生版本差异：游戏标识2013.2.0 r13768，table.unpack不存在而全局unpack可用。初观察器在安装前拒绝依赖，未保存或发令；修正注入方式后35个合同场景通过（原33＋新增2，不重复算），再对实际出生单位安装。出生适配器另12个模拟场景。它们不是新增产品1153项检查，也不是原始模型475代码进实机。
 
 [完整结构化证据、调用边界、负责人查询与流程修正](../research/baiqi-p6-settlement82-native-lifecycle-recovery-evidence-2026-11-06.json)、[82软件合同](baiqi-settlement-persistent-82.md)、[82空日志初始化](baiqi-settlement-native-init-82.md)。新局首移民、旧档已有移民迁移及其他中断窗口仍待验；82不能据本轮称作稳定发布版。
+
+补充调查：Core真实函数名枚举中发现单位对象HasPendingOperations与GetOperationType。负责人独立只读器经16个隔离场景后，对当前158回合的8650807实际读到false及-1；日志仍ARMED，未改变队列或属性。它们提供了操作状态的原生读数，但尚无正向排队对照，也不能证明覆盖发令尚未入队的网络窗口。因此这不是重发许可，恢复FAIL未解除。[API与模型477边界证据](../research/baiqi-p6-settlement477-operation-read-evidence-2026-11-06.json)。

@@ -1,0 +1,225 @@
+{
+  "schema": "civ6.settlement477-operation-read/v1",
+  "utc": "2026-11-06T14:58:40.238957+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_changes": 0,
+  "scope": "ReadonlySDKfunctionreflectionandoneactualCoreownsettleroperationgetterqualificationaftertwo-roundunresolvedsavecase.Notrecoveryfix.",
+  "native": {
+    "owner_pid": 1468,
+    "turn": 158,
+    "unitID": 8650807,
+    "unitType": "UNIT_SETTLER",
+    "HasPendingOperations": false,
+    "GetOperationType": -1,
+    "journal_stage_still": "ARMED",
+    "commands_or_metadata_writes": 0,
+    "only_reader_metadata_exported": true,
+    "semantics_limit": "Typednegativecurrentunit-operationfacts,notproofaboutallpre-dispatchnetwork/inputqueuesorpermissiontoreplayunknownintent.",
+    "not_called": [
+      "GetOperationParameter",
+      "GetOperationTypeName",
+      "RequestOperation",
+      "InitUnit",
+      "Kill",
+      "MoveUnit",
+      "PlaceUnit",
+      "privatePlanner",
+      "Inspect",
+      "Prepare",
+      "Commit"
+    ],
+    "CoreEmitter": "RequestOperation/CanStartOperationabsent,otherenumeratedmutatorsnotinvoked.",
+    "positive_queued_operation_comparison": "Notyetqualified.",
+    "event_signatures_or_serialization_guarantees": "Notqualified."
+  },
+  "software": {
+    "independent_owner_reader_contracts": 16,
+    "passed": 16,
+    "not_new_product_unittest_methods": true,
+    "existing_product_full_suite": "1153PASSpreviously;notrerunforignoredreader/docs"
+  },
+  "model477": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 1896,
+      "completion_tokens": 791,
+      "total_tokens": 2687
+    },
+    "ttft_ms": 530.9019000269473,
+    "total_ms": 5317.309599951841,
+    "shared_commit": "eca6b1aa6b567be3edfd7d4af94cb5c669858bae",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "utc": "2026-11-06T14:53:39.722611+00:00",
+      "raw_compile": true,
+      "raw_cases": {
+        "typed-no-operation-fact-not-grant": {
+          "passed": false
+        },
+        "typed-pending-operation": {
+          "passed": false
+        },
+        "unknown-never-defaults-false": {
+          "passed": false
+        },
+        "getter-error-protected": {
+          "passed": false
+        },
+        "fractional-operation-rejected": {
+          "passed": false
+        },
+        "nan-operation-rejected": {
+          "passed": false
+        },
+        "infinite-operation-rejected": {
+          "passed": false
+        },
+        "numeric-pending-not-boolean": {
+          "passed": false
+        },
+        "large-id-never-native": {
+          "passed": true
+        },
+        "negative-id-never-native": {
+          "passed": true
+        },
+        "alias-no-op-read": {
+          "passed": true
+        },
+        "foreign-owner-no-op-read": {
+          "passed": true
+        },
+        "wrong-type-no-op-read": {
+          "passed": true
+        },
+        "missing-J-protected": {
+          "passed": false
+        },
+        "invalid-object-id-not-returned": {
+          "passed": false
+        },
+        "metadata-fresh-plain": {
+          "passed": false
+        }
+      },
+      "raw_failed": 11,
+      "owner_cases": {
+        "typed-no-operation-fact-not-grant": {
+          "passed": true
+        },
+        "typed-pending-operation": {
+          "passed": true
+        },
+        "unknown-never-defaults-false": {
+          "passed": true
+        },
+        "getter-error-protected": {
+          "passed": true
+        },
+        "fractional-operation-rejected": {
+          "passed": true
+        },
+        "nan-operation-rejected": {
+          "passed": true
+        },
+        "infinite-operation-rejected": {
+          "passed": true
+        },
+        "numeric-pending-not-boolean": {
+          "passed": true
+        },
+        "large-id-never-native": {
+          "passed": true
+        },
+        "negative-id-never-native": {
+          "passed": true
+        },
+        "alias-no-op-read": {
+          "passed": true
+        },
+        "foreign-owner-no-op-read": {
+          "passed": true
+        },
+        "wrong-type-no-op-read": {
+          "passed": true
+        },
+        "missing-J-protected": {
+          "passed": true
+        },
+        "invalid-object-id-not-returned": {
+          "passed": true
+        },
+        "metadata-fresh-plain": {
+          "passed": true
+        }
+      },
+      "owner_unique_cases": 16,
+      "owner_sha256": "43e5296eef812b327890d32eafa863e4fa61fddcafe8a13d77ef08161d0dc1ba",
+      "whole_raw_adoption": 0,
+      "raw_Native_execution": 0,
+      "owner_scope": "Independentread-onlyoneownsettleroperationgetterprobe;notmodfix,notretrypermission",
+      "raw_defects": [
+        "Unitrowtablecomparedtoliteralstringrejectsvalidsettlerbeforegetters.",
+        "Noerrorprotection;missingJ/getterexceptionsescape.",
+        "UNKNOWNdefaultspendingfalse/op-1andcopiesinvalidinputobjectid.",
+        "Operationnumberlacksintegercheck."
+      ],
+      "usage": {
+        "prompt_tokens": 1896,
+        "completion_tokens": 791,
+        "total_tokens": 2687
+      },
+      "ttft_ms": 530.9019000269473,
+      "total_ms": 5317.309599951841,
+      "cumulative_through477": {
+        "logical_tasks": 477,
+        "complete_stop_valid": 444,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 507,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "whole_code_adopted": false,
+    "raw_native_execution": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through477": {
+    "logical_tasks": 477,
+    "complete_stop_valid": 444,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 507,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "settlement82-core-sdk-names-response.json": "b78ea803593ccd81635d55f555cbc92b18e3c8c37074dd7c9d0b846e2c64fc01",
+    "settlement477-owner-scope-review.json": "de3fcae6eb21f7adaa0f10e041accbce301ce6e95ecf24ce8760dcd949e9662c",
+    "settlement477-owner-native-attempt.json": "7e7d03c32e87b48530580905d3e99f4379fa1070c95e6f0ed73341794a7e8056",
+    "settlement477-owner-native-response.json": "892436a6aa5375eab794599d50f5dd793e69fe0e3b444e04b5bf6d9a38035453",
+    "settlement477-model/ATTEMPT1-RESULT.json": "b99bb1f4d5c12191ac2db84f19964ada2c5a6ba7f57bfbf29ae57c44cd01d908",
+    "settlement477-model/ATTEMPT1-CONTENT.txt": "4fa65f837b8d0013b9a8f52afcacb8d8949e5ffd75fac2d841b9f5d9f2756389",
+    "settlement477-model/ATTEMPT1-RESPONSE.sse": "0f82b6b08dd059cbae065e8aa412cfcc38be6e0801887b6fe417edb37b71eb0c",
+    "settlement477-model/EVENTS.jsonl": "89fe963814cf0e2ddcc312f73bb88926f4c36250eb6f4c296977ade67af3e62f",
+    "settlement477-model/ADAPTER-PROVENANCE.json": "13741ebcfc2efba66a84701cbd637f3be3fbde5845c8b2e965fc19870db97ee4"
+  }
+}

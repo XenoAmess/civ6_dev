@@ -228,3 +228,9 @@ Owner成本：fixturefalse-and-or丢false先修再计模型；UIimportTestCase�
 Owner Savewatcher实际Native table.unpacknil/globalunpackfunction/_VERSION2013.2.0r13768，birthInstall依赖拒0wrapper-save，精确remove后explicitUnpackv2 35contracts(33+2非68)/birth12checks，direct真实8650807安装，475raw0Native-codeadopt。AfteractualNativeFOUNDreturn+CoreSnapshotARMED一次TEST_PLAYERSaveACKtrue，file630077B SHA6273f4...。正式Load156Core14cities/live865@10,19/1move/form1/ARMEDtoken同、cityIDnil；preContinue新logrestoredARMED证明真入档，不靠文件名。普通两round158仍14/live/ARMEDserial1，后装SDK48/0MOVE0FOUND2SKIP46other/安全计数0；缺口记录boundedFAIL自动续建，不定性永久卡死/Nativequeue已丢，0清journal/ready或重发。完成157638028B SHA6ab27...与失败158630355B SHAed4f...独立保存；3rawimages。
 
 476真实新gap诊断stop8197+549=8746tokens/TTFT1439.2557ms/total5554.6311ms/0retry，whole修复0adopt：one-turn→definite lost与OwnCity-only proof均拒，观察outline使用。Core实RequestOperation/CanStartOperation nil，event表存在不授签名/因果。累计476/443/30/3 HTTP506extra30/OpenCode原生新0/unknownnull。Owner误用city:GetLoyalty→实际CulturalIdentitygetter只读Lua错修正；首次loadedprobe假设city存在，实际世界14被泛化reader揭示。Timed8read结束在过渡busy，链停后独立freshReady合格，无END重放。一次progress漏label写前失败，cleanup期待REMOVED实际CLEARED在链尾停、无需重清。Steam0online-upload/工坊Alpha74不变。
+
+## 2026-11-06：477真实Core操作getter资格
+
+[操作状态证据](research/baiqi-p6-settlement477-operation-read-evidence-2026-11-06.json)。CoreUnitManager反射18functions无Request/CanStart；ownunitmetatable.__index70functions实际含HasPendingOperations/GetOperationType/GetOperationParameter。仅类型枚举0调用被列函数，后owner独立typedreader16contracts，Native当前158/own8650807读false/-1、KNOWN，ARMED仍在，0命令／属性改变；GetOperationParameter和Name映射不调用。没有正向queued对照，不授网络输入队列空或重发许可，继续恢复缺口调查。
+
+477rawcompile但16合同中11失败：rowtable与字面string比较导致正常单位永远拒、缺pcall、UNKNOWN造false/-1并带无效objectid、漏floor。Whole0Native-codeadopt，owner独立reader完整16pass；真实Native从source实际暴露方法发现后提出真实候选，不是假API探针。complete stop/DONE/VALID/0retry；累计477/444/30/3 HTTP507extra30/OpenCode新0/unknownnull。产品82不变，既有1153不为诊断重复计通过。Steam0online-upload/Alpha74不变。
