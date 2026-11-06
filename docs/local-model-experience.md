@@ -138,3 +138,11 @@ BF-202609141645，[77实机诊断](testing/baiqi-settler-occupied-detour-gap-77.
 20真实RunNow回归：原77初10正例2FAIL/负8PASS0.133s，owner78初10PASS0.132s，扩20PASS0.296s；源码.patch后大套1084第一次18ERROR均static-control工具版本拒78，原件保留。460canonical一次stop/DONE/VALID0retry，完整给4Python消费者/build_mod，4exact替换经审采用，显式tuple+type(bool拒)保持，独立Lua67..70dump合同未扩大。二次full1084PASS140.522s/outer144.9002197s，实际sourceSHA c0c899efb0804f3d812c24348e5583a3c8353ea34229bd00334888e3e0e4719c；pack87 SHAA2a0bf083cd8ff01637721f95e7e56621d7d0586ced40585d70aaea2d72bdf36。未安装/冷验，不能授Native78或建城通过。model458459raw拒仍0Native/product，owner逻辑非raw采用；4604替换工具采用非游戏Native动作。累计460/428/29/3 HTTP490/extra30，0新OpenCode/未知cache成本节省null。
 
 owned77/18360birth1793907267.1851747在hash核167后正式OnExitGame一次，窗口消失但进程仍清理，不重复退出或盲启动。Steam背景point查询unavailable0input/focus/shot，未认offline，78启动前须fresh proof；0online/upload/Alpha74未变。
+
+## 2026-11-06：461／462与78真实建城、忠诚反例
+
+[78同档实机证据](testing/baiqi-settler-detour-native-78.md)。77自然训练164出生9764928，在78冷载原167占格档后自行走8,8，173一次FOUND建1114127临淄，175普通粮仓1/32与正式重载保持；两个跨版本新区域172Harbor3407922／174Industry3211311完成接续、UI完成＋Coreplot身份＋重复event只计一对象。启动SDK计数未知；后两透明窗口34/6MOVE和180/18MOVE/1FOUND/0noncivilian等限定Executor。城市23BUILD/5unit/2military-production，不把军队生产误作后台军令。events43/0error/drop，精确恢复与reload QA nil。
+
+实际新城不等于mod observed：FOUND0:173:193仍unit_unavailable，未重放。461stop/valid但原稿kindMOVE_TO/operation字符串FOUND_CITY与actualkindFOUND_CITY/numericoperation矛盾，隔离条件false；文字勘误不等于patch已修正，且缺request-before无城、alias与异步资格，整patch拒绝0Native/product。462stop/valid只参考installed原版CulturalIdentity方法；原probe无owner/player/visible/bounds/finite检查且Round全局未验证，owner改成自有fullID/coords/visible-first的有限读取。首次16bound实17有overflow1保持原件，再32bound实际17/0err/0overflow，54/100/-23/3turns。Nearbycitizen-20/happiness-3，不能靠新城和少量产能掩盖长期丢城风险。模组显式忠诚门缺失；Native推荐内部opaque，不断言所有AI逻辑无忠诚考量。
+
+Owner新Core只读probe两次因UI GetUnitType接口错用失败，第一次误判movementmeta后仍failed；随后依既有qualifiedCoreGetType更正，UI/Core175和重载175均PASS。0gamecommands，失败后无依赖写入。Continue加载窗口health/glyph各拒一次0input，后freshglyph才Esc一次。旧77正式退出关窗441.68s残留后hash核167、只终止exactowned18360 once，Steam/othergame0kill，不授干净退出。冷78前fresh只读offline age0.002295s；0online/upload。逻辑累计462/430/29/3，HTTP492/extra30；本包新增461462各1次HTTPstop无retry，0新OpenCode-native/unknowncachecostsnull。
