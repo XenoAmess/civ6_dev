@@ -1,0 +1,125 @@
+{
+  "schema": "civ6.settlement82-legacy-migration/v1",
+  "utc": "2026-11-06T15:28:10.191854+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "product_changes": 0,
+  "native": {
+    "owner_pid": 1468,
+    "original_world": "Version77 natural settler arrived136, before settlement journal existed. Official hash-checked load on unchanged82.",
+    "original_save": {
+      "bytes": 592253,
+      "sha256": "6be24a17fd40302acbdffd4f7c1988fc8cdacda0b366d7e3144c57f3fc99576b"
+    },
+    "initial_migration": {
+      "world_turn": 136,
+      "city_count": 12,
+      "unitID": 7274546,
+      "unitType": "UNIT_SETTLER",
+      "x": 28,
+      "y": 17,
+      "moves": 0,
+      "formation": 1,
+      "stage": "LEGACY_UNKNOWN",
+      "token": "settle:0:1",
+      "record_turn": 136,
+      "serial": 1,
+      "requestID": "legacy",
+      "empty": false,
+      "coordinate_witness": null
+    },
+    "ordinary_turn": {
+      "world_turn": 137,
+      "city_count": 12,
+      "moves": 2,
+      "stage": "LEGACY_UNKNOWN",
+      "record_turn": 136,
+      "token": "settle:0:1",
+      "ui_inventory": 52,
+      "core_inventory": 53,
+      "inventory_context_difference_not_hidden": true
+    },
+    "test_player_inputs": {
+      "military_SKIPs": 20,
+      "normal_END": 1,
+      "forced_END": 0,
+      "alexander_trade_refusal_click": 1,
+      "goodbye_click": 1,
+      "civilian_or_domestic_inputs": 0
+    },
+    "reloaded": {
+      "world_turn": 137,
+      "city_count": 12,
+      "stage": "LEGACY_UNKNOWN",
+      "record_turn": 136,
+      "token": "settle:0:1",
+      "serial": 1,
+      "UI_GameConfiguration_IsSavedGame": true,
+      "Core_pending": false,
+      "Core_operation_type": -1,
+      "save_bytes": 593519,
+      "save_sha256": "230c1a70cede0a65bb20489291e5a8ed9a7cd8d49643ca96bed7bc10307303e2",
+      "distinguishes_reinit": "If reconstructed from absent bank on current137, record turn would137; actual retained136 matches original migration."
+    },
+    "verdicts": {
+      "conservative_existing_settler_migration": "PASS for this one saved world",
+      "nonempty_legacy_record_persistence": "PASS for original136 to saved/reloaded137",
+      "existing_settler_expansion_recovery": "NOT_PASSED; held existing settler does not resume",
+      "newgame_first_settler": "NOT_TESTED",
+      "complete_recovery": "NOT_PASSED"
+    },
+    "observation_limits": "No SDK wrapper in this case; no claim of whole-game zero background commands. QA never invoked Initialize/Prepare/Commit/Inspect, cleared metadata, moved settler, or founded manually.",
+    "all_QA_hooks_before_save": "Nil; no new hooks installed."
+  },
+  "owner_corrections": [
+    "First old136 load script produced double semicolon. Lua53 compile accepted but actual Lua parser rejected entire code before execution. Original attempt retained; flag nil checked; corrected syntax Lua51 compiled and new distinct load attempt ACKtrue, no unknown replay.",
+    "First UI reader called nonexistent UI.IsSavedGame after valid legacy/unit prints. Readonly failure retained. Independent method-type read plus actual source consumer found correct GameConfiguration.IsSavedGame; subsequent actual UI readtrue. Product uses correct API throughout.",
+    "Eight-read readiness bound expired while ordinary END was awaiting Alexander trade. No END replay; fresh owned screenshot, TEST_PLAYER refusal/goodbye, independent ready confirmed actual137."
+  ],
+  "screenshot": {
+    "path": "docs/testing/screenshots/settlement82-legacy/reloaded137.png",
+    "sha256": "6a85c63e28ac479a20a6dd06c9217a55a85f84753e5b0c43f268e2c4315321e7",
+    "altered": false,
+    "scope": "Actual137 after official reload, live existing settler2moves. Legacy metadata comes from Native read, not text visible in image."
+  },
+  "software": "Existing product1153PASS; no product patch and no new product tests. Ignored QA readers compile checked with Lua51.",
+  "model478_context": {
+    "already_counted": true,
+    "new_http_calls": 0,
+    "new_opencode_generation": 0,
+    "prior_public_evidence": "baiqi-p6-settlement478-positive-queue-evidence-2026-11-06.json",
+    "scope": "Actual Native acceptance continuation, no new candidate generation credit."
+  },
+  "cumulative_through478": {
+    "logical_tasks": 478,
+    "complete_stop_valid": 445,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 508,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "fresh_steam_mode_query": "15:23:54Z background read unavailable/no input/focus/screenshot. No new launch or upload from this result.",
+  "raw_sha256": {
+    "settlement82-legacy136-load-attempt.json": "406d2ca889ab939eed7deeaa013de6fef7e06538ef13ed3b85c2de5ca45ff96d",
+    "settlement82-legacy136-load2-attempt.json": "1e935dab8aad4b45994913b5eb63e46c7e1ddcda5f2464cbb9228f48c87ae042",
+    "settlement82-legacy136-load2-response.json": "865d1c45f3ca62d02232165be129508e6870348c5094a2e78cc87d909bee3335",
+    "settlement82-legacy136-diag-response.json": "410d046ab48c370a21e8bce7e895e53ac1b22482c4d358b045170e0ec63da966",
+    "settlement82-legacy-ui-first136-v3-response.json": "ceb09c4cefb2213b9942d4d038f923b4baa3afe522024092d6e39ad42ac4299c",
+    "settlement82-legacy-core-first136-response.json": "fc9af8e8f560de34cc669330725f1f9f3f5ce9bb377406feed339639b90741ed",
+    "settlement82-legacy-ui-ordinary137-response.json": "59baee9ea3d00346695d505f45c652fac0ecaec2208e8f922aa26180b0e69641",
+    "settlement82-legacy-core-ordinary137-response.json": "e4fdd3d408d8ba0cee00f8f50a9d1de98878b23e143f88c4aaedfd317e90480a",
+    "settlement82-legacy-ui-saved137-response.json": "eb88e9d23d5e44c92fd2347c299d6ed45153c8ee6487ee7a50e1e3301160ebfa",
+    "settlement82-legacy-core-saved137-response.json": "557f87a8f1d1e6bedf560cee78e9d49c7a40635c525742716afa07291fd533c2",
+    "settlement82-save-legacy137-response.json": "fd0685739d2f9c47b916f76bad157766fa8356a6467c4afc5399b18b0a961819",
+    "settlement82-load-legacy137-response.json": "29d478310895d02ae9f198d210e45228e50075c7ca530fa138d5090de01765ef",
+    "settlement82b-log-legacy137-reloaded.json": "9f74a65c3f936cb829fe317ba2d8b10ddd0c1c1346190d8db0d082b6fb660c55"
+  }
+}

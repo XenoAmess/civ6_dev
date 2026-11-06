@@ -431,3 +431,5 @@
 - TC-015／017：[82冷初始化](baiqi-settlement-native-init-82.md)完成当前loaded148／0存活移民的UI+Core空日志与跨上下文读取、普通保存重载世界核对。空日志重建不可排除，不授非空持久／未决恢复通过。
 
 - TC-015／017：[82自然链与真实ARMED档](baiqi-settlement-lifecycle-recovery-82.md)：自然出生／人口成本／一次建城／新城生产窄通过；非空ARMED日志实际加载通过；156已发令但未生效档在普通158仍未续建，恢复进度FAIL，禁止把不重发当作完整恢复。
+
+- TC-015／017补充：[82旧档既有移民](baiqi-settlement-legacy-migration-82.md)保守迁移、136创建记录在137存读后保持。仅迁移／持久化窄PASS，旧移民扩张仍停止、ARMED续建FAIL未解除，新局首移民与完整用例未通过。

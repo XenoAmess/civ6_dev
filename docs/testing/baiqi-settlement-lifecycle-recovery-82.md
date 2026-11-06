@@ -41,3 +41,5 @@ Core的UnitManager.RequestOperation和CanStartOperation实际均不存在，不�
 补充调查：Core真实函数名枚举中发现单位对象HasPendingOperations与GetOperationType。负责人独立只读器经16个隔离场景后，对当前158回合的8650807实际读到false及-1；日志仍ARMED，未改变队列或属性。它们提供了操作状态的原生读数，但尚无正向排队对照，也不能证明覆盖发令尚未入队的网络窗口。因此这不是重发许可，恢复FAIL未解除。[API与模型477边界证据](../research/baiqi-p6-settlement477-operation-read-evidence-2026-11-06.json)。
 
 随后478补到自然排队正例：158回合只读扫描自有58个单位，其中5名建造者和1名移民。建造者8519734在17,4的UI排队目的地非nil；随后Core同一完整ID读到HasPendingOperations=true、GetOperationType=1477390184。另五名文职，包括8650807，均为UI无目的地／Core false、-1。两次读取分属UI与Core，并非原子快照；数字操作类型未映射名称。全程0命令、0属性改变，没有人为制造队列。这验证了当前单位操作状态的一个正例，仍未证明网络预分发窗口，因此ARMED不清除，恢复FAIL不变。[478对照证据](../research/baiqi-p6-settlement478-positive-queue-evidence-2026-11-06.json)。
+
+[旧档已有移民迁移与持久化](baiqi-settlement-legacy-migration-82.md)已补一份实机样本：旧77／136的7274546自动迁移LEGACY_UNKNOWN；普通到137再存读后，记录创建回合仍136，证明非空记录保存。旧移民仍停止扩张，不能据此解除本页ARMED续建FAIL；新局首移民仍待验。

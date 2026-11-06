@@ -240,3 +240,9 @@ Owner Savewatcher实际Native table.unpacknil/globalunpackfunction/_VERSION2013.
 [UI/Core对照证据](research/baiqi-p6-settlement478-positive-queue-evidence-2026-11-06.json)。478为尚未实现的双上下文只读器候选，完整stop/DONE/VALID，2311+754=3065 tokens，5.0592618秒，0重试。原稿在方法值检查使用非法冒号语法，编译拒绝；还把UI路径写成Core的GetType。整稿未采用、未进实机，不把语法修补当作原稿通过。负责人独立只读器22个隔离合同通过后，实机按UI→Core读取同一回合的6名自有文职。8519734自然已有排队目的地，Core pending=true／op1477390184；另外5名为false／-1。该数字未做未知域名称映射，不自动推定网络输入队列已空，也不授重发许可。
 
 累计478逻辑任务／445完整／30截断／3最终传输失败，HTTP508／额外重试30，OpenCode原生生成新增0，未知成本与缓存保持null。源码82未改，1153是先前产品全套结果，22是忽略目录内诊断合同，分别计数。Steam联网／上传0，工坊Alpha74不变。
+
+## 2026-11-06：旧档迁移以跨回合创建时间验证持久化
+
+[原生证据](research/baiqi-p6-settlement82-legacy-migration-evidence-2026-11-06.json)：Source82正式加载77版136、自然已有7274546@28,17，自动LEGACY_UNKNOWN／settle:0:1／recordturn136。20军事SKIP＋普通END，TEST_PLAYER拒交易／告别后到137，12城／同移民2moves。正式593519B保存、load／continue后UI+Core仍recordturn136，区别于缺bank在137重建；迁移与记录持久化窄PASS，扩张仍受阻。无QA属性写、私有恢复调用、SDK代理或手工文职输入。1张原图已内嵌。
+
+负责人错误单列：preflight结尾与helper拼成双分号，Lua53允许而游戏整段解析拒绝，0动作；原intent保留，Lua51编译＋原flag nil后新load尝试一次。UI读档getter误写UI.IsSavedGame，只读有效前缀后错误，独立反射／真实消费者确认应为GameConfiguration.IsSavedGame，产品一直正确；修正读回true。END ACK后8轮未ready是外交来访，停止依赖动作，普通拒绝／告别后独立ready，0END重放。新HTTP／OpenCode原生生成均0，累计仍478/445/30/3 HTTP508extra30，未知成本null。产品82／先前1153不重算，Steam0online-upload／Alpha74不变。
