@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [80正常训练与实际人口成本，三张原图](docs/testing/baiqi-natural-settler-training-80.md)：益阳自动训练190产能，142新移民7929900出生、人口14→13并接续下水道；安全路线与建城继续验，工坊仍Alpha74。
+
 - [80双场景实机与三张原图](docs/testing/baiqi-known-border-native-80.md)：坏城址保留移民等待，有己方支撑处自动建九江，138粮仓3/32与正式重载保持；保守筛选及短窗口不等于长期保城，工坊仍Alpha74。
 
 - [80保守边境筛选的软件修复](docs/testing/baiqi-known-border-screen-80.md)：22新增回归、完整1130通过；原坏目标与有支撑目标冷实机待做，不能据此关闭忠诚失城FAIL，工坊仍Alpha74。
