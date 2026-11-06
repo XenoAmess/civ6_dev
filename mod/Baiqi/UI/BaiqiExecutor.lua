@@ -78,8 +78,13 @@ local function Activate(playerID)
 end
 local function OnViewReady()
   ready=true
-  if type(GameConfiguration)=="table" and type(GameConfiguration.IsSavedGame)=="function"
-    and GameConfiguration.IsSavedGame()==true then acknowledgedTurn=CurrentTurn() end
+  if type(GameConfiguration)=="table" and type(GameConfiguration.IsSavedGame)=="function" then
+    local ok,saved=pcall(GameConfiguration.IsSavedGame)
+    if ok and type(saved)=="boolean" then
+      BaiqiController.SetSettlementLoadKind(saved)
+      if saved==true then acknowledgedTurn=CurrentTurn() end
+    end
+  end
   recoveryNeeded=true
   ContextPtr:SetHide(false)
   RunIfReady()

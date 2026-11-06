@@ -93,10 +93,11 @@ class ExecutorRecoveryTests(unittest.TestCase):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lua.execute(EVENT + '''
 include=function() end
-W={allowed=false,hidden=false,available=false,requests={},refresh=0,runs=0,turn=1,saved=true,updates=0,adminRuns=0}
+W={allowed=false,hidden=false,available=false,requests={},refresh=0,runs=0,turn=1,saved=true,updates=0,adminRuns=0,loadKinds={}}
 BaiqiConfig={interval=0.35};BaiqiAdmin={Run=function() W.adminRuns=W.adminRuns+1 end}
 BaiqiController={IsAvailable=function() return W.allowed and (not W.turnGuard or W.turnGuard()) end,
  SetTurnGuard=function(fn) W.turnGuard=fn end,
+ SetSettlementLoadKind=function(value)assert(type(value)=='boolean');W.loadKinds[#W.loadKinds+1]=value end,
  RefreshProduction=function() W.refresh=W.refresh+1 end,
  RunNow=function() W.runs=W.runs+1 end,Update=function(_,allow) W.updates=W.updates+1;W.allowOrders=allow end,Shutdown=function() end}
 Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end}
@@ -137,6 +138,26 @@ Events={LoadGameViewStateDone=TestEvent(),PlayerTurnActivated=TestEvent(),GameCo
         self.lua.execute('Events.LoadGameViewStateDone.Fire()')
         self.assertEqual(len(self.w.requests), 1)
         self.assertIsNone(self.w.requests[1].standbyUnlockNeeded)
+
+    def test_native_typed_load_kind_is_forwarded_without_truthy_coercion(self):
+        for value in (False,True):
+            with self.subTest(value=value):
+                self.setUp()
+                self.w.saved=value
+                self.lua.execute('Events.LoadGameViewStateDone.Fire()')
+                self.assertEqual(len(self.w.loadKinds),1)
+                self.assertIs(self.w.loadKinds[1],value)
+
+    def test_unknown_or_throwing_load_kind_never_becomes_fresh_game(self):
+        for value in (None,1,'true'):
+            with self.subTest(value=value):
+                self.setUp()
+                self.w.saved=value
+                self.lua.execute('Events.LoadGameViewStateDone.Fire()')
+                self.assertEqual(len(self.w.loadKinds),0)
+        self.setUp()
+        self.lua.execute('GameConfiguration.IsSavedGame=function()error("UNAVAILABLE")end;Events.LoadGameViewStateDone.Fire()')
+        self.assertEqual(len(self.w.loadKinds),0)
 
     def test_new_game_requires_actual_local_activation_before_any_new_order(self):
         self.w.allowed, self.w.available, self.w.saved = True, True, False

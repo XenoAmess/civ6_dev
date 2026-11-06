@@ -1,5 +1,7 @@
 # 白绮全功能状态及更新：2026-11-05（北京时间）
 
+最新源码82：[建城持久授权](baiqi-settlement-persistent-82.md)完整1153项软件通过／93文件包；已接Prepare、Commit、观察与恢复消费者，尚未授82实机日志保存或中途恢复通过。丢确认、永久别名、旧档无日志移民可能持续等待。80验收进程已正式退出；工坊仍Alpha74。
+
 最新源码81：[日志及Core存储组件](baiqi-settlement-storage-81.md)45个合同子场景／完整1132软件通过、89文件包未安装。尚未接入实际建城发令／恢复枚举，当前实机仍80的148稳定保存点；未决建城持久恢复继续实现，工坊仍Alpha74。
 
 建城中途恢复继续：[467／468合同审阅及Core／UI资格](baiqi-settlement-recovery-boundaries-80.md)只关闭接口样本未知。Core没有IsSavedGame，UI当前读档为true；旧档未知迁移／新局首都及持久授权仍待实现／验收。原稿未入游戏，source/install/runtime仍80，工坊Alpha74不变。

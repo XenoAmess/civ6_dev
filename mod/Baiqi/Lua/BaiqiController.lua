@@ -6,6 +6,7 @@ include("BaiqiHeritageActions")
 include("BaiqiNaturalistPurchase")
 include("BaiqiArchaeologyHome")
 include("BaiqiPendingArtifact")
+include("BaiqiSettlementJournal")
 
 BaiqiController = {}
 local C = BaiqiConfig
@@ -31,6 +32,7 @@ local turnGuard
 local status = "内政托管开启；军队等待你的命令"
 local contextID, visibility
 local lastReasons = {}
+local settlementLoadKind,settlementReady,settlementRecords=nil,false,{}
 
 local function Log(kind, details)
   print("BAIQI|"..kind.."|turn="..tostring(Game.GetCurrentGameTurn()).."|"..(details or ""))
@@ -53,6 +55,10 @@ end
 -- The invisible executor supplies the native local-turn acknowledgement.
 function BaiqiController.SetTurnGuard(guard)
   turnGuard=type(guard)=="function" and guard or function() return false end
+end
+
+function BaiqiController.SetSettlementLoadKind(value)
+  if type(value)=="boolean" then settlementLoadKind=value end
 end
 
 local function PlayerContext()
@@ -365,6 +371,52 @@ local function FoundCityObserved(player,pending,lookup)
   return id
 end
 
+local function SettlementBridge(method,...)
+  local b=type(ExposedMembers)=="table" and ExposedMembers.BaiqiSettlementIntentBridge
+  if type(b)~="table" or b.version~=1 or b.marker~="baiqi-settlement-intent-v1"
+    or type(b[method])~="function" then return "UNAVAILABLE",nil,"bridge" end
+  local ok,a,c,d=pcall(b[method],...)
+  if ok then return a,c,d end
+  return "UNAVAILABLE",nil,"bridge_error"
+end
+
+local function SettlementRecord(op,playerID,unitID)
+  local J=BaiqiSettlementJournal
+  if type(J)~="table" or type(op)~="table" or getmetatable(op)~=nil or op.unitID~=unitID
+    or J.UnitKey(unitID)==nil then return nil end
+  local bank=J.New(playerID)
+  if not bank then return nil end
+  bank.serial=op.sequence;bank.operations[J.UnitKey(unitID)]=op
+  local copy=J.Clone(bank,playerID)
+  return copy and copy.operations[J.UnitKey(unitID)]
+end
+
+local function RefreshSettlement(playerID)
+  local method=settlementReady and "Snapshot" or "Initialize"
+  local s,bank=SettlementBridge(method,playerID,settlementLoadKind)
+  local J=BaiqiSettlementJournal
+  if s~="READY" or type(J)~="table" or not J.Validate(bank,playerID) then
+    settlementReady=false;return
+  end
+  settlementRecords=J.Clone(bank,playerID).operations;settlementReady=true
+  -- Restore intents even when the original actor is absent from the live list.
+  -- A different pending operation is never overwritten by a restored record.
+  for _,op in pairs(settlementRecords) do
+    if (op.stage=="ARMED" or op.stage=="LEGACY_UNKNOWN") and pendingUnits[op.unitID]==nil then
+      pendingUnits[op.unitID]={id=op.requestID,kind="FOUND_CITY",operation=UnitOperationTypes.FOUND_CITY,
+        plot=op.plot,from=op.plot,elapsed=0,persistent=true,token=op.token,restored=true}
+      Log("settler_intent_restored","unit="..op.unitID.."|token="..op.token.."|stage="..op.stage)
+    end
+  end
+end
+
+local function SettlementHeld(unit)
+  if not settlementReady then return true end
+  local key=BaiqiSettlementJournal.UnitKey(unit:GetID())
+  local op=key and settlementRecords[key]
+  return op~=nil and op.stage~="PREPARED"
+end
+
 -- A bounded known-border heuristic, not a native loyalty prediction. A lack of
 -- currently visible foreign cities says nothing about cities hidden by fog.
 local function KnownExpansionSupport(plot,player,playerID)
@@ -446,6 +498,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local def = GameInfo.Units[unit:GetUnitType()]
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
   local unitID,unitType=unit:GetID(),def.UnitType
+  if unitType=="UNIT_SETTLER" and SettlementHeld(unit) then return false,"settlement_receipt_pending" end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
@@ -519,11 +572,47 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
+  local settlementToken
+  if founding then
+    local stage,op=SettlementBridge("Prepare",ctx.player,unitID,founding.index,founding.x,founding.y,id)
+    op=SettlementRecord(op,ctx.player,unitID)
+    if stage~="PREPARED" or not op or op.stage~=stage or op.requestID~=id
+      or op.plot~=founding.index or op.x~=founding.x or op.y~=founding.y then return false,"settlement_prepare_unavailable" end
+    local granted,token=SettlementBridge("Commit",ctx.player,unitID,op.token,id)
+    if granted~=true or token~=op.token then return false,"settlement_commit_unconfirmed" end
+    settlementToken=token
+  end
   pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=here:GetIndex(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
-  if founding then pendingUnits[unitID].founding=founding end
+  if founding then
+    pendingUnits[unitID].founding=founding
+    pendingUnits[unitID].persistent=true;pendingUnits[unitID].token=settlementToken
+    -- The Core ACK is another callback boundary. Never use pre-ACK facts to
+    -- emit the native order; failure now retains ARMED without inventing a retry.
+    local function FinalFoundUnit()
+      local c,p,s=PlayerContext()
+      if not c or c.player~=ctx.player or turn~=Game.GetCurrentGameTurn() or not CoreIdle() then return nil end
+      local u=p:GetUnits():FindID(unitID);local row=u and GameInfo.Units[u:GetUnitType()]
+      if not BaiqiPolicy.MatchesID(u,unitID) or not row or row.UnitType~="UNIT_SETTLER"
+        or not BaiqiPolicy.CanCivilian(c,UnitSnapshot(u,s)) or UnitIndex(u)~=founding.index then return nil end
+      return u,p
+    end
+    local fresh,p=FinalFoundUnit()
+    if not fresh or UnitManager.CanStartOperation(fresh,action,nil,params)~=true then return false,"armed_final_native_unavailable" end
+    fresh,p=FinalFoundUnit()
+    local ok,site,city,isCity=pcall(FoundingSite,founding.index,founding.x,founding.y)
+    if not fresh or not ok or not site or city~=nil or isCity~=false
+      or (site:GetOwner()~=-1 and site:GetOwner()~=ctx.player)
+      or not Safe(site,p) or KnownExpansionSupport(site,p,ctx.player)~=true then return false,"armed_final_site_unavailable" end
+    fresh=FinalFoundUnit()
+    if not fresh then return false,"armed_final_unit_changed" end
+    unit=fresh
+  end
   if origin then pendingUnits[unit:GetID()].origin=origin:GetID();pendingUnits[unit:GetID()].destination=dest:GetID() end
   Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex().."|from="..here:GetIndex())
-  UnitManager.RequestOperation(unit, action, params)
+  if founding then
+    local ok=pcall(UnitManager.RequestOperation,unit,action,params)
+    if not ok then Log("settler_request_unresolved","id="..id.."|unit="..unitID.."|native_call_error=true|token="..settlementToken) end
+  else UnitManager.RequestOperation(unit, action, params) end
   return true, "submitted"
 end
 
@@ -553,6 +642,8 @@ local function RequestCivilianStandby(unit)
       or type(UnitManager.GetActivityType)~="function" or not ActivityTypes
       or ActivityTypes.ACTIVITY_AWAKE==nil
       or UnitManager.GetActivityType(fresh)~=ActivityTypes.ACTIVITY_AWAKE then return nil end
+    if unitType=="UNIT_SETTLER" and (type(UnitManager.GetQueuedDestination)~="function"
+      or UnitManager.GetQueuedDestination(fresh)~=nil) then return nil end
     return fresh
   end
   local fresh=Eligible()
@@ -1940,6 +2031,10 @@ local function RecruitAllowed(role,economy,player,state)
 end
 
 local function ProcessSettler(ctx, player, state, unit)
+  if SettlementHeld(unit) then
+    Reason("settler_receipt:"..unit:GetID(),"移民保留未确认建城记录，等待原生命令结果")
+    return RequestCivilianStandby(unit)
+  end
   local here = UnitPlot(unit)
   if here==nil then return false end -- Consumed/removed units may remain in a transient collection snapshot.
   local id,key=unit:GetID(),UnitKey(unit)
@@ -2722,7 +2817,10 @@ local function ReadBack(player)
     end
   end
   for unitID, pending in pairs(pendingUnits) do
-    local lookup=player:GetUnits():FindID(unitID)
+    local lookup
+    if BaiqiPolicy.Number(unitID) and unitID>=0 and unitID<=2147483647 and unitID%1==0 then
+      lookup=player:GetUnits():FindID(unitID)
+    end
     local unit=lookup
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
     if pending.kind=="FOUND_RELIGION" then
@@ -2852,10 +2950,19 @@ local function ReadBack(player)
         unitEvaluated[UnitKey(unit)]=nil
       end
     elseif pending.kind=="FOUND_CITY" then
-      local ok,cityID=pcall(FoundCityObserved,player,pending,lookup)
+      local ok,cityID
+      if pending.persistent==true then
+        local stage,op=SettlementBridge("Inspect",contextID,unitID)
+        op=SettlementRecord(op,contextID,unitID)
+        ok=stage=="OBSERVED" and op~=nil and op.stage==stage and op.token==pending.token
+          and op.requestID==pending.id
+        if ok then cityID=op.cityID end
+        if not ok and unit then RequestCivilianStandby(unit) end
+      else ok,cityID=pcall(FoundCityObserved,player,pending,lookup) end
       if ok and cityID~=nil then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=FOUND_CITY|city="..cityID
-          .."|proof=new_owned_city_at_empty_site_and_absent_settler")
+          ..(pending.persistent and "|proof=core_durable_empty_site_city_and_consumed_settler|token="..pending.token
+            or "|proof=new_owned_city_at_empty_site_and_absent_settler"))
         pendingUnits[unitID]=nil
       elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
         -- Consumption and city creation may reach UI in different callbacks.
@@ -2964,12 +3071,13 @@ local function Tick(allowOrders)
       local kind=pending.kind
       if kind=="ACTIVATE_GREAT_PERSON" or kind=="CREATE_GREAT_WORK"
         or kind=="FOUND_RELIGION" or kind=="SPREAD_RELIGION" or kind=="DESIGNATE_PARK"
-        or kind=="EXCAVATE" or kind=="CHOOSE_ARTIFACT_PLAYER" then
+        or kind=="EXCAVATE" or kind=="CHOOSE_ARTIFACT_PLAYER" or kind=="FOUND_CITY" then
         effectPending=true;break
       end
     end
     if not effectPending then return end
   end
+  RefreshSettlement(ctx.player)
   ReadBack(player)
   for id,entry in pairs(builderRejectedGoals) do
     local unit=player:GetUnits():FindID(id)
@@ -3078,6 +3186,7 @@ local function Tick(allowOrders)
             if quarantined then status="先知等待持久化许可与新鲜身份核对；其他内政继续执行";return end
           end
           local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
+            or (snapshot.type=="UNIT_SETTLER" and SettlementHeld(unit))
             or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
             or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
             or (snapshot.type=="UNIT_GREAT_PROPHET" and ProphetHeld(unit))

@@ -1,5 +1,7 @@
 # 白绮：为我前驱开发原型
 
+源码82接入[完整建城持久桥](../testing/baiqi-settlement-persistent-82.md)：持久PREPARED／ARMED一次确认、Core效果合取、前端恢复枚举和最终复核。完整1153软件通过／93文件包，尚未安装实测；旧无日志移民保持未知、丢确认或永久别名可能持续等待。
+
 源码81新增[严格日志及Core存储组件](../testing/baiqi-settlement-storage-81.md)，89文件打包、完整1132软件通过；组件尚未接发令／恢复消费者，实机仍80，Controller字节未变。继续完整持久桥与前端写前守卫，不声称恢复已经完成。
 
 [未决建城恢复接口准备](../testing/baiqi-settlement-recovery-boundaries-80.md)：Core已知城址／可见性可用，IsSavedGame仅在本次UI有可靠读档结果，Core不存在该方法；持久日志整合仍在做，未发布81，不热改80。

@@ -1,7 +1,20 @@
 -- Explicit adapter test world. This is not an engine simulation or a gameplay PASS.
 TestWorld={cityRequests={},unitRequests={},turn=1,paused=false,formation=1,withCity=true,withSettler=false}
 local W=TestWorld
-function include(name) end
+function include(name)
+ if name=="BaiqiSettlementJournal" then
+  for _,module in ipairs({"BaiqiSettlementJournal","BaiqiSettlementStateCore","BaiqiSettlementUnitCore",
+    "BaiqiSettlementTileCore","BaiqiSettlementIntentCore"})do dofile("mod/Baiqi/Lua/"..module..".lua")end
+  -- Existing controller fixtures begin with a valid initialized journal. The
+  -- initialization/load-kind boundary is exercised separately, not guessed here.
+  local E={Game=Game,GameConfiguration=GameConfiguration,Players=Players,PlayerConfigurations=PlayerConfigurations,
+    GameInfo=GameInfo,Map=Map,PlayersVisibility=PlayersVisibility,CityManager=CityManager}
+  local S=assert(BaiqiSettlementStateCore.Create(BaiqiConfig,BaiqiSettlementJournal,E))
+  local api=assert(BaiqiSettlementIntentCore.Create(BaiqiConfig,BaiqiSettlementJournal,S,BaiqiSettlementUnitCore,BaiqiSettlementTileCore,E))
+  api.version=1;api.marker="baiqi-settlement-intent-v1"
+  ExposedMembers=ExposedMembers or {};ExposedMembers.BaiqiSettlementIntentBridge=api
+ end
+end
 Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end,
  IsAllowStrategicCommands=function() return W.strategic~=false end}
 GameConfiguration={IsAnyMultiplayer=function() return false end,IsHotseat=function() return false end}
@@ -32,6 +45,7 @@ function plot:IsCity() return false end
 function plot:IsImprovementPillaged() return false end
 function plot:GetImprovementType() return -1 end
 Map={GetPlotByIndex=function() return plot end,GetPlot=function() return plot end,
+  GetGridSize=function()return 10,10 end,
   -- The minimal world contains its queried center only. More detailed fixtures
   -- replace this oracle; zero native offset must still return the current plot.
   GetPlotXYWithRangeCheck=function(x,y,dx,dy,r)
@@ -58,6 +72,9 @@ function city:GetBuildings() return {IsPillaged=function() return false end} end
 local army,settler,builder={},{},{}
 for object,definition in pairs({[army]=0,[settler]=1,[builder]=2}) do
   object.GetUnitType=function() return definition end
+  object.GetType=function(self)return self:GetUnitType()end
+  object.IsDead=function()return false end
+  object.IsDelayedDeath=function()return false end
   object.GetOwner=function() return 7 end
   object.GetID=function() return definition+1 end
   object.GetPlotId=function() return 42 end
@@ -71,7 +88,16 @@ local function members(objects)
 end
 local player={}
 function player:IsTurnActive() return true end
-function player:GetProperty() return {version=1,enabled=not W.paused,cities={},units={},protected={}} end
+function player:GetProperty(key)
+ if key=="BAIQI_SETTLEMENT_INTENTS_V1"then
+  if W.settlementBank==nil and not W.missingSettlementBank then W.settlementBank=BaiqiSettlementJournal.New(7) end
+  return W.settlementBank
+ end
+ return {version=1,enabled=not W.paused,cities={},units={},protected={}}
+end
+function player:SetProperty(key,value)
+ assert(key=="BAIQI_SETTLEMENT_INTENTS_V1");W.settlementBank=value
+end
 function player:GetCities()
  return {Members=members(W.withCity and {city} or {}),GetCount=function() return W.withCity and 1 or 0 end,
    FindID=function() return W.withCity and city or nil end}
