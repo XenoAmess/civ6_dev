@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [79建城回执软件修复](docs/testing/baiqi-found-city-receipt-79.md)：24新增回归、完整1108项通过；冷启动实机待做，忠诚选址缺口仍开放，工坊仍Alpha74。
+
 - [78临淄178实际叛离，两张实机图](docs/testing/baiqi-new-city-loyalty-loss-78.md)：173建城、175忠诚54、177为8、178实际变为自由城市。扩张选址质量记FAIL，继续修复；工坊仍Alpha74。
 
 - [78同档绕行建城、六张实机图与忠诚风险](docs/testing/baiqi-settler-detour-native-78.md)：173建第16城、粮仓自然产能和175正式重载保持；成都港口／九江工业区已完成。新城每回合忠诚−23及建城回执缺口仍未关闭，工坊仍Alpha74。

@@ -10,9 +10,9 @@ UNAVAILABLE = 'function(...) return "UNAVAILABLE",nil,"private_static_control" e
 def resolve_source_version(value: int | None = None) -> int:
     if value is None:
         text=ET.fromstring((Path(__file__).resolve().parents[1]/'mod/Baiqi/Baiqi.modinfo').read_bytes()).get('version')
-        if text not in ('67','68','69','70','71','72','73','74','75','76','77','78'):raise ValueError('Unsupported actual source version')
+        if text not in ('67','68','69','70','71','72','73','74','75','76','77','78','79'):raise ValueError('Unsupported actual source version')
         value=int(text)
-    if type(value) is not int or value not in (67,68,69,70,71,72,73,74,75,76,77,78):raise ValueError('Unsupported source version')
+    if type(value) is not int or value not in (67,68,69,70,71,72,73,74,75,76,77,78,79):raise ValueError('Unsupported source version')
     return value
 
 

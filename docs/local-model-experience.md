@@ -154,3 +154,9 @@ Owner新Core只读probe两次因UI GetUnitType接口错用失败，第一次误�
 463canonical一次stop/DONE/VALID0retry，raw3替换exact/fullLua编译成功；isolated actual missingunit+latecity清pending not_observed，以及healthyunit+existingcity竟observed，两反例失败，wholepatch拒0rawNative/product。设计承诺retainmissing但patch仍clear，资格前empty没有writefreshwitness，不能因语法可编译或描述正确授采用。累计463/431/29/3 HTTP493extra30/0newOpenCode/unknownnull。
 
 Owner175cycle实际176后末尾读已删CityCalls断言失败；从清观察器后的消费范围修正，去掉末尾失效audit，只推进下一176/177并实际177/178，不重放175任何动作。无新productcheck必要；0online/upload/Alpha74未变。
+
+## 2026-11-06：负责人79建城回执与完整1108
+
+[79软件修复](testing/baiqi-found-city-receipt-79.md)。463wholepatch拒绝后owner实现FOUND专用memorywitness/receipt，不是raw采用。CanStart与既有latest之后，当前visible/revealed、NativeIsCityfalse＋CityManager.GetCityAt成功nil、own/unowned＋freshSafe，再freshContext/idle/fullunitID/type/CanCivilianunescorted/position。pending存unitID/type/player/index/xy/emptytrue；后rawlookup必须nil且有限512unitinventory无原ID，别名／未知不算消耗；同可见格Nativecitytrue/plotownerown，newcityfullID/xy/owner+ownFindID相符才observed。missing/citylate/moveschange/healthy/foreign/alias/error均retainpending，timeout只一次unresolved不重发，已见foreigncity阻断后capture倒认。仍纯memory、无durablejournal，exactoffworld对象不当absence，只授软件。
+
+原78新15tests9FAIL6PASS0error0.173s；owner15PASS0.845s，23PASS0.252s，final24PASS0.303s；full1108PASS76.529s/outer78.7108701s。无因旧耗时不同声称性能加速。2Python工具显式79+2消费者同步（参考已验证460模式），独立Lua67..70不扩；baseMock只补actualIsCity/GetCityAt。包87 SHA002021932d19871a5d1b69c8ec6cbf06ea6273e168503a4be0de1f1fc0622fa3，尚未安装；Native仍owned78/178实际失城已保存，不热注入，不授Native79／忠诚修复。0newHTTP，累计463/431/29/3 HTTP493extra30，0newOpenCode-native／unknowncachecostnull。

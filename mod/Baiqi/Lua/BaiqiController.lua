@@ -325,6 +325,46 @@ local function CivilianMoveTarget(here, plot, unit, playerID)
   return true
 end
 
+-- Query only this recorded, currently visible site. Nil city lookup is useful
+-- only alongside a typed native IsCity=false witness, never as a failed read.
+local function FoundingSite(index,x,y)
+  if not BaiqiPolicy.Number(index) or index<0 or index%1~=0 then return nil end
+  local plot=Map.GetPlotByIndex(index)
+  if not plot or plot:GetIndex()~=index or plot:GetX()~=x or plot:GetY()~=y
+    or not Revealed(plot) or not visibility or type(visibility.IsVisible)~="function"
+    or visibility:IsVisible(x,y)~=true or not CityManager
+    or type(CityManager.GetCityAt)~="function" then return nil end
+  local isCity=plot:IsCity()
+  if type(isCity)~="boolean" then return nil end
+  return plot,CityManager.GetCityAt(x,y),isCity
+end
+
+local function FoundCityObserved(player,pending,lookup)
+  local w=pending.founding
+  if not w or w.empty~=true or w.player~=contextID or w.unitType~="UNIT_SETTLER"
+    or pending.kind~="FOUND_CITY" or pending.operation~=UnitOperationTypes.FOUND_CITY
+    or pending.plot~=w.index or pending.from~=w.index or lookup~=nil then return nil end
+  -- A full-ID alias is not absence. Also corroborate a nil lookup against the
+  -- owned collection; missing/error metadata or an overlarge snapshot waits.
+  local count=0
+  for _,unit in player:GetUnits():Members() do
+    count=count+1
+    if count>512 then return nil end
+    local id=unit:GetID()
+    if not BaiqiPolicy.Number(id) or id<0 or id%1~=0 or id==w.unitID then return nil end
+  end
+  local plot,city,isCity=FoundingSite(w.index,w.x,w.y)
+  if not plot or isCity~=true or not city or w.conflictingCity then return nil end
+  if city:GetOwner()~=w.player then w.conflictingCity=true;return nil end
+  local id=city:GetID()
+  if not BaiqiPolicy.Number(id) or id<0 or id%1~=0 or id>2147483647
+    or city:GetX()~=w.x or city:GetY()~=w.y or plot:GetOwner()~=w.player then return nil end
+  local own=player:GetCities():FindID(id)
+  if not BaiqiPolicy.MatchesID(own,id) or own:GetOwner()~=w.player
+    or own:GetX()~=w.x or own:GetY()~=w.y then return nil end
+  return id
+end
+
 local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   -- Re-read ownership and active player at the write boundary. No takeover flags.
   local freshCtx, freshPlayer, freshState = PlayerContext()
@@ -386,10 +426,30 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
+  local founding
+  if operation=="FOUND_CITY" then
+    -- Native qualification above may run callbacks. Acquire the empty-site
+    -- witness afterwards, adjacent to the existing final request boundary.
+    local ok,site,city,isCity=pcall(FoundingSite,here:GetIndex(),here:GetX(),here:GetY())
+    if not ok or not site or city~=nil or isCity~=false or unitType~="UNIT_SETTLER"
+      or (site:GetOwner()~=-1 and site:GetOwner()~=latest.player)
+      or not Safe(site,Players[latest.player]) then return false,"founding_site_unavailable" end
+    local final,finalPlayer,finalState=PlayerContext()
+    local fresh=finalPlayer and finalPlayer:GetUnits():FindID(unitID)
+    local row=fresh and GameInfo.Units[fresh:GetUnitType()]
+    if not final or not CoreIdle() or final.player~=latest.player
+      or not BaiqiPolicy.MatchesID(fresh,unitID) or not row or row.UnitType~=unitType
+      or not BaiqiPolicy.CanCivilian(final,UnitSnapshot(fresh,finalState))
+      or UnitIndex(fresh)~=site:GetIndex() then return false,"unit_or_context_changed" end
+    unit=fresh
+    founding={unitID=unitID,unitType=unitType,player=latest.player,index=site:GetIndex(),
+      x=site:GetX(),y=site:GetY(),empty=true}
+  end
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
   pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=here:GetIndex(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
+  if founding then pendingUnits[unitID].founding=founding end
   if origin then pendingUnits[unit:GetID()].origin=origin:GetID();pendingUnits[unit:GetID()].destination=dest:GetID() end
   Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex().."|from="..here:GetIndex())
   UnitManager.RequestOperation(unit, action, params)
@@ -2599,7 +2659,8 @@ local function ReadBack(player)
     end
   end
   for unitID, pending in pairs(pendingUnits) do
-    local unit=player:GetUnits():FindID(unitID)
+    local lookup=player:GetUnits():FindID(unitID)
+    local unit=lookup
     if not BaiqiPolicy.MatchesID(unit,unitID) then unit=nil end
     if pending.kind=="FOUND_RELIGION" then
       local stage,token=ProphetBridge("Inspect",contextID,unitID)
@@ -2726,6 +2787,20 @@ local function ReadBack(player)
         Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=native_idle_without_trade_route")
         pendingUnits[unitID]=nil
         unitEvaluated[UnitKey(unit)]=nil
+      end
+    elseif pending.kind=="FOUND_CITY" then
+      local ok,cityID=pcall(FoundCityObserved,player,pending,lookup)
+      if ok and cityID~=nil then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=FOUND_CITY|city="..cityID
+          .."|proof=new_owned_city_at_empty_site_and_absent_settler")
+        pendingUnits[unitID]=nil
+      elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
+        -- Consumption and city creation may reach UI in different callbacks.
+        -- Keep this intent across ordinary turns; neither absence nor movement
+        -- points prove an outcome, and unknown results must not be resubmitted.
+        Log("settler_request_unresolved","id="..pending.id.."|unit="..unitID
+          .."|awaiting_new_owned_city_and_consumed_unit=true")
+        pending.unresolvedLogged=true
       end
     elseif unit==nil or unit:GetOwner()~=contextID then
       Log("unit_request_not_observed","id="..pending.id.."|unit="..unitID.."|reason=unit_unavailable")

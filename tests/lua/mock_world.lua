@@ -28,6 +28,7 @@ function plot:GetX() return 2 end
 function plot:GetY() return 3 end
 function plot:GetFeatureType() return -1 end
 function plot:GetOwner() return 7 end
+function plot:IsCity() return false end
 function plot:IsImprovementPillaged() return false end
 function plot:GetImprovementType() return -1 end
 Map={GetPlotByIndex=function() return plot end,GetPlot=function() return plot end,
@@ -87,6 +88,7 @@ Players={[7]=player}
 PlayerConfigurations={[7]={IsHuman=function() return true end,GetLeaderTypeName=function() return "LEADER_BAIQI" end}}
 PlayersVisibility={[7]={IsRevealed=function() return true end,IsVisible=function() return true end}}
 CityManager={CanStartOperation=function() return true end,RequestOperation=function(c,op,params) W.cityRequests[#W.cityRequests+1]=params end}
+CityManager.GetCityAt=function() return nil end
 CityManager.RequestCommand=function(c,op,params)
  W.cityCommandRequests=W.cityCommandRequests or {}
  W.cityCommandRequests[#W.cityCommandRequests+1]={city=c:GetID(),op=op,params=params}
