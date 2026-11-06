@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [82自然建城与中途保存失败窗口（3张实机图）](docs/testing/baiqi-settlement-lifecycle-recovery-82.md)：156建成太原、157粮仓7/32；非空ARMED确实入档，但重载后的存活移民经过两个普通回合仍未续建，完整恢复未通过。
+
 - [82冷启动、空日志与两张实机图](docs/testing/baiqi-settlement-native-init-82.md)：UI／Core完整读回及普通保存／重载后世界核对；空日志可能重建，尚不能授持久意图或未决建城恢复通过。
 
 - [82建城持久授权软件](docs/testing/baiqi-settlement-persistent-82.md)：Core一次授权、读档恢复枚举、前端授权后复核已接线；完整1153项软件通过，93文件包。82冷实机尚未通过；未知移民继续等待。
