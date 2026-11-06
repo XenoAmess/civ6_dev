@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [80同一名新移民完整窄链：长沙、初期生产与148正式重载](docs/testing/baiqi-natural-settler-founded-80.md)：147一次建城，148粮仓3/32与忠诚100／+20保持，三张新原图；未决动作持久恢复、长期质量及完整40项仍未闭，工坊仍Alpha74。
+
 - [80正常训练与实际人口成本，三张原图](docs/testing/baiqi-natural-settler-training-80.md)：益阳自动训练190产能，142新移民7929900出生、人口14→13并接续下水道；安全路线与建城继续验，工坊仍Alpha74。
 
 - [80双场景实机与三张原图](docs/testing/baiqi-known-border-native-80.md)：坏城址保留移民等待，有己方支撑处自动建九江，138粮仓3/32与正式重载保持；保守筛选及短窗口不等于长期保城，工坊仍Alpha74。
