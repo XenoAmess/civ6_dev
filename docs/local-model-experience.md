@@ -202,3 +202,9 @@ Owner诊断改137routeread旧167guard拒0CMD；Coreprobe旧37,24误报absent，�
 Owner独立probe当前sameowned80/25132/14814city，UI先fresh确认25,19及26,20visible/revealed；Core18scalar0errunknown，861owner0IsCityfalse/GetCityAtnil，906owner0IsCitytrue/GetCityAt983053fullownxy，两格Corevis/revealtrue/Native返回table。0foreignroster/propertywrite/eventregistration/gamecommands。Core商人8388652moves0/form1、MapGetPlotByIndex906可用；CityAddedToMap/CityInitialized存在不授signature。CoreGameConfigIsSavedGame type nil，pcallUNKNOWN/errorcaught；UI实际function/true仅当前loaded148，非freshfalse证明。持久协议未实现，0产品不重复1130/Steam0online-upload/Alpha74未改。
 
 截至468累计468/436/29/3 HTTP498extra30/OpenCode新0/unknownnull；随后469新纯数据helper候选已另发完整stop/VALID，累计当前469/437/29/3 HTTP499extra30，尚未采用，不混本包Native功效。
+
+## 2026-11-06：469／470到81未接线组件
+
+[81组件软件](testing/baiqi-settlement-storage-81.md)：469完整2665+1349/4014tokens/TTFT519.744ms/total8273.0141ms0retry；raw6合同反例（finite/typedmax3、metatable3），ownerfinite-max/type+Plain(state/ops/op)+privateRequestID修正后18通过，主体部分采用。首ownerLua执行器漏return导致结果None误判，已在真实计数前改回，不能把18None当模型失败。470完整8450+1685/10135/1418.408ms/11511.2946ms0retry，rawwhole拒：全局C/J/KEY捕获未用E、无globals加载错、字面dotconsumer保护外抛；其余6coloncompat隔离案例显示validbankflag/alias/dupID/nil-race/unknownmulti/ignoredE，非认可接口变化。Owner新独立Corefactory27合同通过；加leaderfixture后原exclusive26review拒覆盖，v2保留27，不重复算26新场景。
+
+source81新增J和StateCoreVFS/Files及reservedConfigKEY，无Controller/Gameplay/Executor接线、无实际Prepare/Commit/Observe，Native仍80。公共2unittest/45subcases0.678s，完整1132PASS136.515s/outer141.0803131s；2工具显式81/2消费者期望81，Lua67..70不扩。89包逐项bytesmatch但未装，Controller仍9d35f3...。Core80既有GPproperty只读shape top/operations/firstop metatablenil，不授新Settlement存储Native。累计470/438/29/3 HTTP500extra30，0newOpenCode/unknownnull；Steam0online-upload/Alpha74不变。下一步接持久桥及UI最终守卫并冷实机，不能在组件push后停下。

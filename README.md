@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [81日志与Core存储组件](docs/testing/baiqi-settlement-storage-81.md)：45个合同子场景、完整1132项软件通过、89文件包；尚未接实际发令／恢复入口，实机仍80，不能称中途恢复通过。
+
 - [建城中途恢复的Core／UI接口核对](docs/testing/baiqi-settlement-recovery-boundaries-80.md)：Core可读已知城址与可见性，但没有IsSavedGame；两份候选已拒，持久协议仍未实现，不将完成后读档升级为中途恢复通过。
 
 - [80同一名新移民完整窄链：长沙、初期生产与148正式重载](docs/testing/baiqi-natural-settler-founded-80.md)：147一次建城，148粮仓3/32与忠诚100／+20保持，三张新原图；未决动作持久恢复、长期质量及完整40项仍未闭，工坊仍Alpha74。

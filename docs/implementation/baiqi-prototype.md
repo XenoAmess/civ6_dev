@@ -1,5 +1,7 @@
 # 白绮：为我前驱开发原型
 
+源码81新增[严格日志及Core存储组件](../testing/baiqi-settlement-storage-81.md)，89文件打包、完整1132软件通过；组件尚未接发令／恢复消费者，实机仍80，Controller字节未变。继续完整持久桥与前端写前守卫，不声称恢复已经完成。
+
 [未决建城恢复接口准备](../testing/baiqi-settlement-recovery-boundaries-80.md)：Core已知城址／可见性可用，IsSavedGame仅在本次UI有可靠读档结果，Core不存在该方法；持久日志整合仍在做，未发布81，不热改80。
 
 80已闭合[同一正常训练新移民到长沙建城、生产与148正式重载](../testing/baiqi-natural-settler-founded-80.md)窄链；当前14城、无诊断钩子。未决见证内存协议没有持久化，继续修复／验证；工坊Alpha74未改。

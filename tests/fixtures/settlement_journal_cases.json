@@ -1,0 +1,23 @@
+{
+  "fixture_lua": "J=BaiqiSettlementJournal;MAX=2147483647\nfunction Op(id,seq,stage)local o={token=J.Token(0,seq),sequence=seq,unitID=id,unitType='UNIT_SETTLER',x=26,y=20,plot=906,turn=148,requestID='0:147:173',stage=stage or'ARMED',empty=true,conflictingCity=false};if o.stage=='OBSERVED'then o.cityID=983053 elseif o.stage=='LEGACY_UNKNOWN'then o.x=nil;o.y=nil;o.plot=nil;o.empty=false;o.requestID='legacy'end;return o end\nfunction State()return{version=1,owner=0,serial=1,operations={['7929900']=Op(7929900,1)}}end\n",
+  "cases": {
+    "all-four-valid-stages": "for _,stage in ipairs({'PREPARED','ARMED','OBSERVED','LEGACY_UNKNOWN'})do local s=State();s.operations['7929900']=Op(7929900,1,stage);if not J.Validate(s,0)then return false end end;return true",
+    "finite-and-typed-maximum": "return J.Integer(1,math.huge)==false and J.Integer(1,-math.huge)==false and J.Integer(1,1.5)==false and J.Integer(1,0/0)==false",
+    "nil-maximum-no-throw": "return J.Integer(1,nil)==false",
+    "string-maximum-no-throw": "return J.Integer(1,'2')==false",
+    "invalid-number-values": "return J.Integer(0/0,MAX)==false and J.Integer(math.huge,MAX)==false and J.Integer(-1,MAX)==false and J.Integer(1.5,MAX)==false and J.Integer('1',MAX)==false",
+    "top-metatable-forged-version": "local s=State();s.version=nil;setmetatable(s,{__index=function(_,k)if k=='version'then return 1 end end});return J.Validate(s,0)==false and J.Clone(s,0)==nil and J.Equal(s,s,0)==false",
+    "op-metatable-forged-type": "local s=State();local op=s.operations['7929900'];op.unitType=nil;setmetatable(op,{__index=function(_,k)if k=='unitType'then return 'UNIT_SETTLER'end end});return J.Validate(s,0)==false",
+    "operations-metatable-no-execution": "local s=State();s.operations=setmetatable({},{__pairs=function()error('MUST_NOT_EXECUTE_METATABLE')end});return J.Validate(s,0)==false",
+    "unknown-fields-no-execution": "local s=State();local called=false;s.extra=function()called=true;error('MUST_NOT_EXECUTE')end;return J.Validate(s,0)==false and called==false",
+    "wrong-owner-and-typed-fields": "local s=State();if J.Validate(s,1)then return false end;s.owner='0';if J.Validate(s,0)then return false end;s=State();s.operations['7929900'].empty='true';return J.Validate(s,0)==false",
+    "canonical-request-ids": "local s=State();for _,q in ipairs({'00:1:1','0:01:1','0:1:01','0:1','-1:1:1','0:1:1.0','0:1:1\\n'})do s.operations['7929900'].requestID=q;if J.Validate(s,0)then return false end end;local q=string.rep('1',30)..':'..string.rep('2',31)..':'..string.rep('3',33);s.operations['7929900'].requestID=q;if #q~=96 or not J.Validate(s,0)then return false end;s.operations['7929900'].requestID=q..'1';return J.Validate(s,0)==false",
+    "stages-do-not-fabricate-proof": "local s=State();s.operations['7929900'].empty=false;if J.Validate(s,0)then return false end;s.operations['7929900']=Op(7929900,1,'OBSERVED');s.operations['7929900'].conflictingCity=true;if J.Validate(s,0)then return false end;s.operations['7929900']=Op(7929900,1,'LEGACY_UNKNOWN');s.operations['7929900'].x=26;return J.Validate(s,0)==false",
+    "unique-sequence-and-token": "local s=State();s.serial=2;s.operations['7929901']=Op(7929901,1);if J.Validate(s,0)then return false end;s.operations['7929901']=Op(7929901,2);if not J.Validate(s,0)then return false end;s.operations['7929901'].token='settle:1:2';return J.Validate(s,0)==false",
+    "exact-full-id-keys-and-large-metadata-only": "local s=State();s.operations={['07929900']=Op(7929900,1)};if J.Validate(s,0)then return false end;local id=9007199254740991;s.operations={[J.UnitKey(id)]=Op(id,1)};return J.Validate(s,0)==true and J.UnitKey(id)=='9007199254740991'and J.UnitKey(9007199254740992)==nil",
+    "bounded-256-records": "local s=J.New(0);s.serial=256;for i=1,256 do s.operations[J.UnitKey(i)]=Op(i,i)end;if not J.Validate(s,0)then return false end;s.serial=257;s.operations['257']=Op(257,257);return J.Validate(s,0)==false",
+    "clone-isolation-and-equality": "local a=State();local b=J.Clone(a,0);if not b or b==a or b.operations==a.operations or b.operations['7929900']==a.operations['7929900']or not J.Equal(a,b,0)then return false end;b.operations['7929900'].stage='PREPARED';return a.operations['7929900'].stage=='ARMED'and J.Equal(a,b,0)==false",
+    "clone-invalid-does-not-repair": "local a=State();a.operations['7929900'].stage='BROKEN';return J.Clone(a,0)==nil and J.Equal(a,a,0)==false and a.operations['7929900'].stage=='BROKEN'",
+    "new-and-token-boundaries": "return J.New('0')==nil and J.New(-1)==nil and J.Token(0,0)==nil and J.Token('0',1)==nil and J.Token(0,1)=='settle:0:1'and J.Validate(J.New(0),0)==true"
+  }
+}
