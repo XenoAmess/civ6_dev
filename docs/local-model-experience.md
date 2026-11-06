@@ -234,3 +234,9 @@ Owner Savewatcher实际Native table.unpacknil/globalunpackfunction/_VERSION2013.
 [操作状态证据](research/baiqi-p6-settlement477-operation-read-evidence-2026-11-06.json)。CoreUnitManager反射18functions无Request/CanStart；ownunitmetatable.__index70functions实际含HasPendingOperations/GetOperationType/GetOperationParameter。仅类型枚举0调用被列函数，后owner独立typedreader16contracts，Native当前158/own8650807读false/-1、KNOWN，ARMED仍在，0命令／属性改变；GetOperationParameter和Name映射不调用。没有正向queued对照，不授网络输入队列空或重发许可，继续恢复缺口调查。
 
 477rawcompile但16合同中11失败：rowtable与字面string比较导致正常单位永远拒、缺pcall、UNKNOWN造false/-1并带无效objectid、漏floor。Whole0Native-codeadopt，owner独立reader完整16pass；真实Native从source实际暴露方法发现后提出真实候选，不是假API探针。complete stop/DONE/VALID/0retry；累计477/444/30/3 HTTP507extra30/OpenCode新0/unknownnull。产品82不变，既有1153不为诊断重复计通过。Steam0online-upload/Alpha74不变。
+
+## 2026-11-06：478自然队列正例与上下文边界
+
+[UI/Core对照证据](research/baiqi-p6-settlement478-positive-queue-evidence-2026-11-06.json)。478为尚未实现的双上下文只读器候选，完整stop/DONE/VALID，2311+754=3065 tokens，5.0592618秒，0重试。原稿在方法值检查使用非法冒号语法，编译拒绝；还把UI路径写成Core的GetType。整稿未采用、未进实机，不把语法修补当作原稿通过。负责人独立只读器22个隔离合同通过后，实机按UI→Core读取同一回合的6名自有文职。8519734自然已有排队目的地，Core pending=true／op1477390184；另外5名为false／-1。该数字未做未知域名称映射，不自动推定网络输入队列已空，也不授重发许可。
+
+累计478逻辑任务／445完整／30截断／3最终传输失败，HTTP508／额外重试30，OpenCode原生生成新增0，未知成本与缓存保持null。源码82未改，1153是先前产品全套结果，22是忽略目录内诊断合同，分别计数。Steam联网／上传0，工坊Alpha74不变。

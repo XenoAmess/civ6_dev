@@ -1,0 +1,285 @@
+{
+  "schema": "civ6.settlement478-positive-queue/v1",
+  "utc": "2026-11-06T15:11:22.153086+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_changes": 0,
+  "scope": "Readonly sequential UI/Core comparison of natural own settler and builders at turn158. No queue was created by QA.",
+  "native": {
+    "owner_pid": 1468,
+    "turn": 158,
+    "ui_inventory_count": 58,
+    "civilian_samples": 6,
+    "ui": [
+      {
+        "unitID": 8454185,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": false,
+        "pending": null,
+        "operationType": null,
+        "x": 27,
+        "y": 15
+      },
+      {
+        "unitID": 8847408,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": false,
+        "pending": null,
+        "operationType": null,
+        "x": 14,
+        "y": 8
+      },
+      {
+        "unitID": 7864372,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": false,
+        "pending": null,
+        "operationType": null,
+        "x": 11,
+        "y": 9
+      },
+      {
+        "unitID": 8519734,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": true,
+        "pending": null,
+        "operationType": null,
+        "x": 17,
+        "y": 4
+      },
+      {
+        "unitID": 8650807,
+        "unitType": "UNIT_SETTLER",
+        "queuedDestination": false,
+        "pending": null,
+        "operationType": null,
+        "x": 10,
+        "y": 19
+      },
+      {
+        "unitID": 8978491,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": false,
+        "pending": null,
+        "operationType": null,
+        "x": 23,
+        "y": 15
+      }
+    ],
+    "core": [
+      {
+        "unitID": 8454185,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": null,
+        "pending": false,
+        "operationType": -1,
+        "x": 27,
+        "y": 15
+      },
+      {
+        "unitID": 8847408,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": null,
+        "pending": false,
+        "operationType": -1,
+        "x": 14,
+        "y": 8
+      },
+      {
+        "unitID": 7864372,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": null,
+        "pending": false,
+        "operationType": -1,
+        "x": 11,
+        "y": 9
+      },
+      {
+        "unitID": 8519734,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": null,
+        "pending": true,
+        "operationType": 1477390184,
+        "x": 17,
+        "y": 4
+      },
+      {
+        "unitID": 8650807,
+        "unitType": "UNIT_SETTLER",
+        "queuedDestination": null,
+        "pending": false,
+        "operationType": -1,
+        "x": 10,
+        "y": 19
+      },
+      {
+        "unitID": 8978491,
+        "unitType": "UNIT_BUILDER",
+        "queuedDestination": null,
+        "pending": false,
+        "operationType": -1,
+        "x": 23,
+        "y": 15
+      }
+    ],
+    "positive_comparison": "Builder8519734 at17,4 has UI queuedDestination nonnil and Core pending=true/op1477390184. Operation numeric value not mapped to name.",
+    "negative_comparison": "Other five including held settler8650807 are UI no destination/Core pending=false/op-1. Journal still ARMED.",
+    "read_order": "UI then Core; separate contexts, non-atomic reads in the same owned turn.",
+    "commands_or_metadata_writes": 0,
+    "limit": "Supports current-unit operation getter meaning for these samples; no proof covering requests before dispatch or safe replay."
+  },
+  "software": {
+    "independent_owner_reader_contracts": 22,
+    "passed": 22,
+    "product_full_suite": "1153 previously passed; not rerun for ignored probe/docs."
+  },
+  "model478": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 2311,
+      "completion_tokens": 754,
+      "total_tokens": 3065
+    },
+    "ttft_ms": 499.44859999231994,
+    "total_ms": 5059.261800022796,
+    "shared_commit": "02954aaec02774b9e4914230b777ec3a716ef6dd",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "utc": "2026-11-06T15:08:37.338550+00:00",
+      "raw_compile": false,
+      "raw_compile_error": "[string \"<python>\"]:13: function arguments expected near 'and'",
+      "raw_defects": [
+        "Colon syntax used for method value checks is invalid Lua.",
+        "UI path unconditionally uses Core GetType instead of UI GetUnitType."
+      ],
+      "raw_adoption": 0,
+      "raw_native_execution": 0,
+      "owner_cases": {
+        "core-no-operation": {
+          "passed": true
+        },
+        "core-pending-builder": {
+          "passed": true
+        },
+        "ui-nil-queue-only-GetUnitType": {
+          "passed": true
+        },
+        "ui-positive-builder": {
+          "passed": true
+        },
+        "unknown-no-default": {
+          "passed": true
+        },
+        "core-getter-error": {
+          "passed": true
+        },
+        "ui-getter-error": {
+          "passed": true
+        },
+        "fractional-operation": {
+          "passed": true
+        },
+        "nan-operation": {
+          "passed": true
+        },
+        "infinite-operation": {
+          "passed": true
+        },
+        "pending-must-boolean": {
+          "passed": true
+        },
+        "large-id-no-native": {
+          "passed": true
+        },
+        "negative-id-no-native": {
+          "passed": true
+        },
+        "alias-no-getters": {
+          "passed": true
+        },
+        "foreign-no-getters": {
+          "passed": true
+        },
+        "wrong-type-no-getters": {
+          "passed": true
+        },
+        "unsupported-expected-type": {
+          "passed": true
+        },
+        "invalid-context-no-native": {
+          "passed": true
+        },
+        "missing-J-protected": {
+          "passed": true
+        },
+        "invalid-object-id": {
+          "passed": true
+        },
+        "fresh-plain-metadata": {
+          "passed": true
+        },
+        "missing-UI-getter": {
+          "passed": true
+        }
+      },
+      "owner_unique_cases": 22,
+      "owner_sha256": "41e4be3cf540b2d6c3bb4062e65c55d3e2c07ccf64bbcbc9469c6be83305473a",
+      "usage": {
+        "prompt_tokens": 2311,
+        "completion_tokens": 754,
+        "total_tokens": 3065
+      },
+      "ttft_ms": 499.44859999231994,
+      "total_ms": 5059.261800022796,
+      "cumulative_through478": {
+        "logical_tasks": 478,
+        "complete_stop_valid": 445,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 508,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "whole_code_adopted": false,
+    "raw_native_execution": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through478": {
+    "logical_tasks": 478,
+    "complete_stop_valid": 445,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 508,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "settlement478-owner-scope-review.json": "f1efdda653be7636361d16f8e2ff2228037c2183b9bfa75d34122b8f2bbd60da",
+    "settlement478-native-ui-attempt.json": "224220b16b10f3ef2f8e657af3f6414ffe0e65a730f7cc3d7361a4862758fdfc",
+    "settlement478-native-ui-response.json": "f1f7fc482359dd4b26a7225d131c595e599c600d748d19b7a5d9a4597bccbc1f",
+    "settlement478-native-core-attempt.json": "30041a48abe711ac3d4efbbeb1765da3596f595f225aa13a11971455fdf032e6",
+    "settlement478-native-core-response.json": "19199bb68908521176b1ed0745e204b5ee92a43baab3e946c93b00322a2666f1",
+    "settlement478-model/ATTEMPT1-RESULT.json": "de685ea17d4e2da9ad2732fd5ade46cb581b35c9f3a885a901b8eb33aac0e58b",
+    "settlement478-model/ATTEMPT1-CONTENT.txt": "3c109068bb074ab35b4b44c5e22a92bb420fdd779ff8314d7181a3ba5edf9dfe",
+    "settlement478-model/ATTEMPT1-RESPONSE.sse": "4f07b9a155454c459d4e0bf46c7d17b88cd990a28b009bfe367bef1686f6d3b9",
+    "settlement478-model/EVENTS.jsonl": "275336f598cc5ba1183ab1f9a7962376d712029a7693a11ffbe097253e902b59",
+    "settlement478-model/ADAPTER-PROVENANCE.json": "110be3e23683f9c63c2d83c7cbf0607c64ef5234870944e18711c398aacaf70f"
+  }
+}
