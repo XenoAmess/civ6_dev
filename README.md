@@ -104,3 +104,5 @@ python tools\build_mod.py --install
 - [77区域容量盘点](docs/testing/baiqi-district-capacity-inventory-77.md)：14城、18普通区域、252条Native记录，找出容量满／缺科技／缺地块的独立样本；只是夹具条件，后台行为和恢复建设继续验。
 
 - [77自然增长与两个新港口完整实机链](docs/testing/baiqi-district-growth-harbors-77.md)：容量恢复、真实坐标派发、正常进度、157／160建成和正式存读档保持，新增7张内嵌实机图；其他区域与完整矩阵继续。
+
+- [77低净收入时暂停扩军](docs/testing/baiqi-military-low-net-income-77.md)：余额6517、军队有缺额且原版炮兵合法，实际净收入0.777时后台继续项目；新增3张内嵌实机图，测试后已恢复主线160。

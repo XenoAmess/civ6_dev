@@ -106,3 +106,11 @@ BF-202609141645，[77正常148→160实机](testing/baiqi-district-growth-harbor
 451raw缺Read、无界append、非district行读RequiresPopulation、未守visibility/同城/XY等，owner18透明性例后Native。452raw整个复制CityManagerwrapper代只读reader，可能覆盖451binding，整段拒0rawNative；owner有界Native成员fullID/xy/IsComplete，事件行号不是fullID。453raw多变量仅赋一个table、nilcounter加法、errors永0/unknown当空/混geometry与full/fit重复，拒0rawNative；owner12保护/未知例、14city×3types实际盘点0error。成熟城三类陆地候选被改良/feature保护，不能推所有区域0可用；成都53、九江732、长沙907有自然ClearPlot，未拆资产或调用私有规划。成都153学院full1/1负条件真，但工业区当时在建，不能说空队列负分支已隔离；154长4后先Workshop，学院未授完成。
 
 Ready不是全部回合结算原子门，159早段金币/队列旧值，晚段读回7650.3515625/Harbor166后才下结论；不抹早件。151、154先End同回合已知后新普通End，154已有settlerqueue847正常执行，非手动重发文职／UserForced。capacityBlockedRequests仅筛查，已放置续建可能满容量合法，不自动判错。累计through453453/422/28/3 HTTP483/extra30，0rawNative/product/新OpenCode，18+12是工具资格不是1064新增产品项；454净收入真实下一任务另记，成本/cache/人工节省未知null。
+
+## 2026-11-06：454实际净收入负条件与原版外交夹具
+
+BF-202609141645，[77低净收入证据](testing/baiqi-military-low-net-income-77.md)。独立Normal138，TEST_PLAYER原版GUI赠礼68GPT×30、一次实际确认，对方同意；确认后138rawNet仍68.777，不授通过。普通结束实际139后gold6517.75390625/yield148.77734375/total148/unit28/net.77734375，24军队<26且0军队队列，两城FieldCannon双资格true/cost165/resource0。2实际CityManagerBUILD都是HarborProject0/112，0unit/military/lowNetMilitary/foreign/unknown/errors/overflow/financeReadErrors，原项目2个未取消完成事件。Total维护+68是外交义务，不是军队费用；318行维护定义非负，内部承诺未知不用0。3旧军队实际移动、24军事SKIP、正式无REASON结束，0UserForced/手动文职生产/私有规划。
+
+454raw finance缺pcall/unknown/附件字段，privateProcessCity/Planner/pending和直接DealManager建议全拒；Equalize隐藏误读原版消费者，条件没构成不能判产品FAIL。owner18观察器例(11旧+7新)，8事件复用0新增，0rawNative/product/产品修改/1064重跑。截图过期与动画背景ROI拒绝均在输入前；新鲜自有截图核静态控件、金额68、期限30及对方空报价文字mask后保留原60秒检查，确认v1无实际动作、v2唯一确认，不重放未知交易。
+
+清精确wrapper/3events后正式save139600653B SHA05c917451e61e12e75f3b10dd35b8847e52b9eba0d9f9d0dd3d2e6be68f4554d。原main160hash验证正式load一次/Continue一次，15city/gold7708.4609375/net58.90625/两Harbor和新Neighborhood完成、CoreplotIDs保留，QA全nil。454stop/DONE/VALID一次0retry，累计454/423/28/3 HTTP484/extra30，Nov6OpenCode1.19.5成功缓存复用，0新原生生成，未知cache/owner成本/节省null。仅139窗口，不授阈值exact2/100、长期gift或全TC007/013/40；Steam离线0upload/Alpha74未变。
