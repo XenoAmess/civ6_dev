@@ -436,6 +436,87 @@ local function RequestCivilianStandby(unit)
   return true
 end
 
+-- A native route can ignore a friendly civilian's end-of-step stack slot.
+-- Keep the same destination: propose at most six visible adjacent alternatives
+-- that strictly approach it and adjoin the validated route beyond its blocker.
+-- Only the proposed first edge receives native authority; every later hop is
+-- planned again. No detour object or cached path authorizes a future command.
+local function SettlerOccupiedDetour(unit, target, player, here, path)
+  local ctx=PlayerContext()
+  local row=unit and GameInfo.Units[unit:GetUnitType()]
+  if not ctx or not row or row.UnitType~="UNIT_SETTLER"
+    or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,{})) then return nil end
+  local id,kind,start=unit:GetID(),unit:GetUnitType(),here:GetIndex()
+  local goal=target:GetIndex()
+  local distance=Map.GetPlotDistance(here:GetX(),here:GetY(),target:GetX(),target:GetY())
+  if not BaiqiPolicy.Number(distance) or distance<=0 then return nil end
+  local geometry=NeighborhoodGeometry(here,1)
+  if not geometry or #geometry>7 then return nil end
+  local function Fresh()
+    local latest,p,s=PlayerContext()
+    local fresh=p and p:GetUnits():FindID(id)
+    return latest and latest.player==ctx.player and CoreIdle()
+      and BaiqiPolicy.MatchesID(fresh,id) and fresh:GetOwner()==ctx.player
+      and fresh:GetUnitType()==kind and UnitIndex(fresh)==start
+      and BaiqiPolicy.CanCivilian(latest,UnitSnapshot(fresh,s))
+  end
+  local function Available(plot)
+    if not plot or not Revealed(plot) or visibility:IsVisible(plot:GetX(),plot:GetY())~=true
+      or (plot:GetOwner()~=-1 and plot:GetOwner()~=ctx.player)
+      or not Safe(plot,player) then return false end
+    local _,primary=GetVisibleUnits(plot)
+    if type(primary)~="table" then return false end
+    local n=0
+    for _,other in pairs(primary) do
+      n=n+1
+      if n>64 or not GameInfo.Units[other:GetUnitType()] then return false end
+    end
+    return CivilianMoveTarget(here,plot,unit,ctx.player)==true
+  end
+  local choices={}
+  for _,cell in ipairs(geometry) do
+    local plot=Map.GetPlotByIndex(cell.index)
+    if cell.index~=start and plot and plot:GetIndex()==cell.index
+      and Map.GetPlotDistance(here:GetX(),here:GetY(),plot:GetX(),plot:GetY())==1
+      and Map.GetPlotDistance(plot:GetX(),plot:GetY(),target:GetX(),target:GetY())<distance
+      and Available(plot) then
+      local join
+      for i=3,#path do
+        local suffix=Map.GetPlotByIndex(path[i])
+        if suffix and Revealed(suffix)
+          and Map.GetPlotDistance(plot:GetX(),plot:GetY(),suffix:GetX(),suffix:GetY())<=1 then join=i end
+      end
+      if join then choices[#choices+1]={index=cell.index,join=join} end
+    end
+  end
+  table.sort(choices,function(a,b)
+    if a.join~=b.join then return a.join>b.join end
+    return a.index<b.index
+  end)
+  for _,choice in ipairs(choices) do
+    if not Fresh() then return nil end
+    local plot=Map.GetPlotByIndex(choice.index)
+    if Available(plot) then
+      local ok,edge=pcall(UnitManager.GetMoveToPathEx,unit,choice.index)
+      if ok and type(edge)=="table" and type(edge.plots)=="table" and #edge.plots==2
+        and edge.plots[1]==start and edge.plots[2]==choice.index and Fresh() then
+        local params={[UnitOperationTypes.PARAM_X]=plot:GetX(),[UnitOperationTypes.PARAM_Y]=plot:GetY()}
+        local qualified,allowed=pcall(UnitManager.CanStartOperation,unit,UnitOperationTypes.MOVE_TO,nil,params)
+        if qualified and allowed==true and Fresh() and Available(plot) then
+          local cache,valid={},true
+          for _,index in ipairs(path) do
+            local point=Map.GetPlotByIndex(index)
+            if not point or not Revealed(point) or not Safe(point,player,cache)
+              or (point:GetOwner()~=-1 and point:GetOwner()~=ctx.player) then valid=false;break end
+          end
+          if valid and Fresh() then return plot end
+        end
+      end
+    end
+  end
+  return nil
+end
+
 local function PathStep(unit, target, player, state)
   if not Revealed(target) or not Safe(target, player) then return nil end
   local start=UnitIndex(unit)
@@ -453,8 +534,15 @@ local function PathStep(unit, target, player, state)
   local here=UnitPlot(unit)
   if not step or not here then return nil end
   local row=GameInfo.Units[unit:GetUnitType()]
-  if row and (row.UnitType=="UNIT_BUILDER" or row.UnitType=="UNIT_SETTLER")
-    and not CivilianMoveTarget(here,step,unit,contextID) then return nil end
+  if row and (row.UnitType=="UNIT_BUILDER" or row.UnitType=="UNIT_SETTLER") then
+    local legal,reason=CivilianMoveTarget(here,step,unit,contextID)
+    if not legal then
+      if row.UnitType=="UNIT_SETTLER" and reason=="civilian_target_occupied" then
+        return SettlerOccupiedDetour(unit,target,player,here,path.plots)
+      end
+      return nil
+    end
+  end
   return step
 end
 

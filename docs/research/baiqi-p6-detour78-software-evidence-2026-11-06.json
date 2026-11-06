@@ -1,0 +1,127 @@
+{
+  "schema": "civ6.detour78-software/v1",
+  "utc": "2026-11-06T03:26:39.796758+00:00",
+  "date_local": "2026-11-06",
+  "machine_id": "BF-202609141645",
+  "source_version": 78,
+  "installed_version_at_cut": 77,
+  "runtime_version_at_cut": 77,
+  "native78_verified": false,
+  "game_status": "Owned77formalOnExitGameissuedafterhashverified167checkpoint; mainwindowgonebutprocess18360stillinshutdown, no78launch/installyet.",
+  "prior_failure_report": "docs/testing/baiqi-settler-occupied-detour-gap-77.md",
+  "preserved_main167": {
+    "utc": "2026-11-06T02:58:20.149264+00:00",
+    "name": "Baiqi_P6_20261106_V77_SettlerBlocked167.Civ6Save",
+    "bytes": 652585,
+    "sha256": "068e8b9f43abe30edf1636a293411e5a9cfc33fc666e50c5b96ab43da0943f86",
+    "stable_repeated_read": true
+  },
+  "implementation": {
+    "scope": "UNIT_SETTLER only and existingnativepath firstCivilianMoveTarget reason civilian_target_occupied only.",
+    "unchanged_existing_gates": "Originalfullnativegoalpath/type/length/identity/exploration/ownership/visiblethreatchecks. Builderandothercivilianpathsretainoldbehavior. No military/escort/diplomacy control added.",
+    "detour_candidates": "ExistingqualifiedNeighborhoodGeometry radius1<=7cells includingcenter;<=6adjacentcurrentlyvisible/revealedownorunownedneighbors. Unknownprimaryunitmetadata/layersreject, Safe/CivilianMoveTarget rechecked. StrictsamegoalMapdistancedecrease and adjacency/equalitytovalidatedoriginalpathsuffixfromindex3.",
+    "native_firsthop": "GetMoveToPathEx(unit,neighbor)exact2nodeswithownedactualorigin; freshhealthyfullID/type/position/unescortedcontext, nativeCanStartMOVEtrue. Afterqualificationnewuncachedstepavailabilityandwholeoriginalpathfreshsafety/ownership, RequestCivilianstandardwriteguards retained.",
+    "no_cached_future_command_authority": true,
+    "limits": "Thisisaboundedmonotonicdetourproposalwithtruefirsthopqualificationandgeometricrejoin. Doesnotproveallfutureedgesornavigateeveryobstacle/equaldistanceorbacktrackingdetour. Noeligibleproposalkeepswait. Nativeactual167comparisonpending."
+  },
+  "regression": {
+    "file": "tests/test_baiqi_settler_detour.py",
+    "new_tests": 20,
+    "baseline77_initial10": "2positiveFAIL/8negativePASS/0errors,0.133s",
+    "owner78_initial10": "10PASS0.132s",
+    "owner78_expanded20": "20PASS0.296s",
+    "scope": "RealRunNowschedulerandindependentexplicitaxialhex/nativepathfixture; onlysettlerordered, prophetandarmyreceive0orders. NoNativegamepassfrommock."
+  },
+  "full_suite_first": {
+    "utc_start": "2026-11-06T03:12:47.910359+00:00",
+    "utc_end": "2026-11-06T03:15:03.178464+00:00",
+    "exit_code": 1,
+    "wall_seconds": 135.26833439990878,
+    "source_sha256": {
+      "mod/Baiqi/Lua/BaiqiController.lua": "c4384d27a60dbd2eba06c16ad7f7da54321d30de30fbcd952f2130b1f48f1c8e",
+      "mod/Baiqi/Baiqi.modinfo": "0f1cb9c381135f39ff26dd35a72d1d7b41b25d8605bcc78c2a714399e37b5565",
+      "tests/test_baiqi_settler_detour.py": "767c9b48e22f8dafbedf8f5532b5255b2774506607faf1bf161d3a8505e0fd4e"
+    },
+    "before_patch_regression": "Initial10tests onunchanged77:2positiveFAIL/8negativepass/0errors,0.133seconds. Afterownerpatchfirst10pass,expanded20pass0.296s. NoNativeproduct78passfromsoftwarealone."
+  },
+  "full_suite_first_errors": "18static-controltoolversionallowlisterrors aftermodinfobump,notgameplayassertfailures. Exactconsumerscorrected; original logretained.",
+  "full_suite_final": {
+    "utc_start": "2026-11-06T03:18:18.931185+00:00",
+    "utc_end": "2026-11-06T03:20:43.831362+00:00",
+    "exit_code": 0,
+    "wall_seconds": 144.90021969994996,
+    "source_sha256": {
+      "mod/Baiqi/Lua/BaiqiController.lua": "c0c899efb0804f3d812c24348e5583a3c8353ea34229bd00334888e3e0e4719c",
+      "mod/Baiqi/Baiqi.modinfo": "0f1cb9c381135f39ff26dd35a72d1d7b41b25d8605bcc78c2a714399e37b5565",
+      "tests/test_baiqi_settler_detour.py": "767c9b48e22f8dafbedf8f5532b5255b2774506607faf1bf161d3a8505e0fd4e"
+    },
+    "before_patch_regression": "Initial10tests onunchanged77:2positiveFAIL/8negativepass/0errors,0.133seconds. Afterownerpatchfirst10pass,expanded20pass0.296s. NoNativeproduct78passfromsoftwarealone."
+  },
+  "full_suite_final_tests": 1084,
+  "suite_reported_seconds": 140.522,
+  "package": {
+    "files": 87,
+    "archive_sha256": "a2a0bf083cd8ff01637721f95e7e56621d7d0586ced40585d70aaea2d72bdf36",
+    "installed": false,
+    "workshop_released": false
+  },
+  "model460": {
+    "shared_commit": "3dc4e80c1eb6570fd4e599c2c03855bc27120291",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "attempts": 1,
+    "extra_retries": 0,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "usage": {
+      "prompt_tokens": 6634,
+      "completion_tokens": 630,
+      "total_tokens": 7264
+    },
+    "total_ms": 4836.293600033969,
+    "ttft_ms": 1263.3689000504091,
+    "adoption": "Fourreviewedexactreplacements in2Pythonstatic-controltools and2consumerassertions. Strictallowlists/typechecksretained, independentoldLua67..70compatdumpcontractunchanged.",
+    "raw_native_execution": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null,
+    "maintenance": "Nov6successfulOpenCode1.19.5cache reused;0newnativegeneration."
+  },
+  "previous_models458459": "Rejectedentirepatch/test afteractualmocknilglobalfailures; ownerwrittenproduct/tests, onlyboundedneighbors/strictprogressdesignnotesreference. Alreadyrecorded456459package,0newHTTPhereforthem.",
+  "cumulative_through460": {
+    "logical": 460,
+    "complete_stop_valid": 428,
+    "length_discarded": 29,
+    "final_transport_failed": 3,
+    "http_attempts": 490,
+    "extra_retries": 30,
+    "new_opencode_native_generation": 0
+  },
+  "steam_mode": "Noonlinechanges. Latestbackgroundreadonlycheckunavailable(menuclosed),notclaimedfreshproof; before78launchmustobtainfreshcurrentinstanceofflineproof.",
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "alpha74_changes": 0,
+  "source_files_sha256": {
+    "mod/Baiqi/Lua/BaiqiController.lua": "c0c899efb0804f3d812c24348e5583a3c8353ea34229bd00334888e3e0e4719c",
+    "mod/Baiqi/Baiqi.modinfo": "0f1cb9c381135f39ff26dd35a72d1d7b41b25d8605bcc78c2a714399e37b5565",
+    "tests/test_baiqi_settler_detour.py": "767c9b48e22f8dafbedf8f5532b5255b2774506607faf1bf161d3a8505e0fd4e",
+    "tools/static_control_source.py": "c1d2ea7d2dcf5b0aed9afdc1aa02759011d60125901859a85df79cb87bcc985a",
+    "tools/build_static_control.py": "752327c6ac3114ab477c27c21fb295c421fdcc230dd9163b6498e37ad2dd49ee",
+    "tests/test_static_control_ui.py": "3b82c7c704dd627c3666d76ad167d6271065f0f304310545ba94fec7520c9321",
+    "tests/test_paired_build.py": "b118e541f55d4b04222008b3b00a59de1102035c02ccf67fda962614d15b4a4a"
+  },
+  "raw_sha256": {
+    "detour78-exit-status-20261106T032330097215Z.json": "0fb97fca8b745fb76f602e4bfbea016f3c7e24e6433082f2f321b5c8178b97f5",
+    "detour78-exit77-attempt.json": "3d2d169fa60a9446977995172d8619c21eaf28eb091211435a1de6fdb1e85e4b",
+    "detour78-exit77-response.json": "184704924ceaafae4b55db37a6b30320dd02ba86c6f4f9f64ebbe26e32bac1f8",
+    "detour78-final-suite-result.json": "f66a19bbe82de509b3cfc79e13852db421265f099a9861c1b4f235426eaf4292",
+    "detour78-full-suite-result.json": "8238aad6a56ae054a67bdb508b149ea0024b9c23716158dc3e18dd45b9d82ea2",
+    "detour78-full-suite.log": "9ee465e98d81a3f57edecb67ee4515b0ba6ee994b4b4287848dd2ca83235257d",
+    "detour78-final-suite.log": "ecc6daae3ff6eececcda858f1725deb6b98d74e5a48d927b0530e3e979c6ce4d",
+    "detour460-caller.log": "28edc9af0b1a61a5afa6018020940160af384edb1f13cae1a4380c7a8cd2ffc3",
+    "detour460-model/ATTEMPT1-RESULT.json": "b37c517b36709028d5200c2871c1c01f068078351267840a5c85945dcec01df1",
+    "detour460-model/ATTEMPT1-CONTENT.txt": "72dee9aa44be216cc06afb6c9fb8cad0143ad6083da2deb44896b20e8ebdc8ab",
+    "detour460-model/ADAPTER-PROVENANCE.json": "07afbbe2d449313d5298e0021feebf9b4cdb5caf2384b50bdb90faf983f12717"
+  }
+}
