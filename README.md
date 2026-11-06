@@ -108,3 +108,5 @@ python tools\build_mod.py --install
 - [77低净收入时暂停扩军](docs/testing/baiqi-military-low-net-income-77.md)：余额6517、军队有缺额且原版炮兵合法，实际净收入0.777时后台继续项目；新增3张内嵌实机图，测试后已恢复主线160。
 
 - [77水上乐园完工、成都增长后新放港口](docs/testing/baiqi-water-entertainment-growth-77.md)：正常165完成并正式重载，4张内嵌实机图；成都港口和九江工业区仍在建。
+
+- [77新发现：移民同一城址绕行缺口](docs/testing/baiqi-settler-occupied-detour-gap-77.md)：77正常训练及出生已核，167因己方先知挡住原生首步而等待；完整绕行／建城未授通过，已保存复现现场并继续修复。
