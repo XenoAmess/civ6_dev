@@ -1,5 +1,7 @@
 # 白绮：为我前驱开发原型
 
+最新源码／安装／运行79：[实际建城回执、初期生产与175正式重载](../testing/baiqi-found-city-receipt-native-79.md)窄通过；2张新图，当前0钩子。忠诚选址／已知信息边界继续修，未决回执持久化未完成，Alpha74未变。
+
 最新源码79：[FOUND专用效果回执](../testing/baiqi-found-city-receipt-79.md)24新增回归／完整1108软件通过，安装／运行78，79冷原生待核；未解决178忠诚选址FAIL。
 
 最新[78长期选址质量FAIL](../testing/baiqi-new-city-loyalty-loss-78.md)：新建临淄178真实叛离。产品仍78，源码未改；建城回执与选址质量继续修复。

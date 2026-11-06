@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [79同档建城回执、生产与175正式重载](docs/testing/baiqi-found-city-receipt-native-79.md)：实际1次建城正确observed，附2张新实机图；忠诚54／每回合−23及选址缺口仍在，工坊仍Alpha74。
+
 - [79建城回执软件修复](docs/testing/baiqi-found-city-receipt-79.md)：24新增回归、完整1108项通过；冷启动实机待做，忠诚选址缺口仍开放，工坊仍Alpha74。
 
 - [78临淄178实际叛离，两张实机图](docs/testing/baiqi-new-city-loyalty-loss-78.md)：173建城、175忠诚54、177为8、178实际变为自由城市。扩张选址质量记FAIL，继续修复；工坊仍Alpha74。
