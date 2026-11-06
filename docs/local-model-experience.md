@@ -146,3 +146,11 @@ owned77/18360birth1793907267.1851747在hash核167后正式OnExitGame一次，窗
 实际新城不等于mod observed：FOUND0:173:193仍unit_unavailable，未重放。461stop/valid但原稿kindMOVE_TO/operation字符串FOUND_CITY与actualkindFOUND_CITY/numericoperation矛盾，隔离条件false；文字勘误不等于patch已修正，且缺request-before无城、alias与异步资格，整patch拒绝0Native/product。462stop/valid只参考installed原版CulturalIdentity方法；原probe无owner/player/visible/bounds/finite检查且Round全局未验证，owner改成自有fullID/coords/visible-first的有限读取。首次16bound实17有overflow1保持原件，再32bound实际17/0err/0overflow，54/100/-23/3turns。Nearbycitizen-20/happiness-3，不能靠新城和少量产能掩盖长期丢城风险。模组显式忠诚门缺失；Native推荐内部opaque，不断言所有AI逻辑无忠诚考量。
 
 Owner新Core只读probe两次因UI GetUnitType接口错用失败，第一次误判movementmeta后仍failed；随后依既有qualifiedCoreGetType更正，UI/Core175和重载175均PASS。0gamecommands，失败后无依赖写入。Continue加载窗口health/glyph各拒一次0input，后freshglyph才Esc一次。旧77正式退出关窗441.68s残留后hash核167、只终止exactowned18360 once，Steam/othergame0kill，不授干净退出。冷78前fresh只读offline age0.002295s；0online/upload。逻辑累计462/430/29/3，HTTP492/extra30；本包新增461462各1次HTTPstop无retry，0新OpenCode-native/unknowncachecostsnull。
+
+## 2026-11-06：463编译通过仍违反实际回执合同
+
+[78忠诚实际失城](testing/baiqi-new-city-loyalty-loss-78.md)：175→178普通回合后Native忠诚54/31/8，178实际UI/Core自有15，原1114127不在自有清单；当前visible37,24新fullID131072 owner62，配置LEADER_FREE_CITIES/CIVILIZATION_FREE_CITIES。173建立与175生产/重载仍真，长期保城FAIL。没有manGovernor/army/map/citytransfer rescue，不能用前者掩盖后者。178private save685221 SHA0fbb18e834cbcc1b642272635f8c627e0352b55ff7a8f1330f119ff7a412623f；未授178reload。
+
+463canonical一次stop/DONE/VALID0retry，raw3替换exact/fullLua编译成功；isolated actual missingunit+latecity清pending not_observed，以及healthyunit+existingcity竟observed，两反例失败，wholepatch拒0rawNative/product。设计承诺retainmissing但patch仍clear，资格前empty没有writefreshwitness，不能因语法可编译或描述正确授采用。累计463/431/29/3 HTTP493extra30/0newOpenCode/unknownnull。
+
+Owner175cycle实际176后末尾读已删CityCalls断言失败；从清观察器后的消费范围修正，去掉末尾失效audit，只推进下一176/177并实际177/178，不重放175任何动作。无新productcheck必要；0online/upload/Alpha74未变。
