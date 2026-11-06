@@ -1,5 +1,7 @@
 # 白绮：为我前驱开发原型
 
+[未决建城恢复接口准备](../testing/baiqi-settlement-recovery-boundaries-80.md)：Core已知城址／可见性可用，IsSavedGame仅在本次UI有可靠读档结果，Core不存在该方法；持久日志整合仍在做，未发布81，不热改80。
+
 80已闭合[同一正常训练新移民到长沙建城、生产与148正式重载](../testing/baiqi-natural-settler-founded-80.md)窄链；当前14城、无诊断钩子。未决见证内存协议没有持久化，继续修复／验证；工坊Alpha74未改。
 
 80另完成[自身正常训练、出生与人口成本](../testing/baiqi-natural-settler-training-80.md)子项；当前142、13城，新7929900@20,7／0行动力，训练观察器已清，下一步跟踪此演员安全路线／建城，不把另一演员的通过移借到这里。

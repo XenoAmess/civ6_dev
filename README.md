@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [建城中途恢复的Core／UI接口核对](docs/testing/baiqi-settlement-recovery-boundaries-80.md)：Core可读已知城址与可见性，但没有IsSavedGame；两份候选已拒，持久协议仍未实现，不将完成后读档升级为中途恢复通过。
+
 - [80同一名新移民完整窄链：长沙、初期生产与148正式重载](docs/testing/baiqi-natural-settler-founded-80.md)：147一次建城，148粮仓3/32与忠诚100／+20保持，三张新原图；未决动作持久恢复、长期质量及完整40项仍未闭，工坊仍Alpha74。
 
 - [80正常训练与实际人口成本，三张原图](docs/testing/baiqi-natural-settler-training-80.md)：益阳自动训练190产能，142新移民7929900出生、人口14→13并接续下水道；安全路线与建城继续验，工坊仍Alpha74。
