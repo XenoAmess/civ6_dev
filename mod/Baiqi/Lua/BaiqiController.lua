@@ -365,6 +365,76 @@ local function FoundCityObserved(player,pending,lookup)
   return id
 end
 
+-- A bounded known-border heuristic, not a native loyalty prediction. A lack of
+-- currently visible foreign cities says nothing about cities hidden by fog.
+local function KnownExpansionSupport(plot,player,playerID)
+  local ok,result,reason=pcall(function()
+    local function Integer(n)return GeometryInteger(n) and n<=2147483647 end
+    if not Integer(playerID) or playerID~=contextID or not plot or not Revealed(plot) then return nil,"unknown_site" end
+    local index,x,y=plot:GetIndex(),plot:GetX(),plot:GetY()
+    if not Integer(index) or not Integer(x) or not Integer(y) then return nil,"unknown_site" end
+    local own=player:GetCities();local expected=own:GetCount()
+    if not Integer(expected) or expected>128 then return nil,"unknown_cities" end
+    local count,nearest,owned=0,nil,{}
+    for _,city in own:Members() do
+      count=count+1;if count>128 then return nil,"unknown_cities" end
+      local id,cx,cy=city:GetID(),city:GetX(),city:GetY()
+      if not Integer(id) or owned[id] or city:GetOwner()~=playerID
+        or not Integer(cx) or not Integer(cy) then return nil,"unknown_cities" end
+      local current=own:FindID(id)
+      if not BaiqiPolicy.MatchesID(current,id) or current:GetOwner()~=playerID
+        or current:GetX()~=cx or current:GetY()~=cy then return nil,"unknown_cities" end
+      local distance=Map.GetPlotDistance(x,y,cx,cy)
+      if not Integer(distance) then return nil,"unknown_distance" end
+      if distance<=3 then return false,"city_too_close" end
+      if not nearest or distance<nearest then nearest=distance end
+      owned[id]={x=cx,y=cy}
+    end
+    if count~=expected or own:GetCount()~=expected then return nil,"unknown_cities" end
+    if expected==0 then return true,"first_city" end
+    if not nearest then return nil,"unknown_cities" end
+    local radius=nearest<=9 and 3 or 9
+    local cells=NeighborhoodGeometry(plot,radius)
+    if not cells or #cells>(radius==3 and 37 or 271) then return nil,"unknown_geometry" end
+    local seen={}
+    for _,cell in ipairs(cells) do
+      local near=Map.GetPlotByIndex(cell.index)
+      if not near or near:GetIndex()~=cell.index or near:GetX()~=cell.x or near:GetY()~=cell.y then return nil,"unknown_geometry" end
+      local revealed=visibility:IsRevealed(cell.x,cell.y)
+      if type(revealed)~="boolean" then return nil,"unknown_visibility" end
+      local visible=false
+      if revealed then
+        visible=visibility:IsVisible(cell.x,cell.y)
+        if type(visible)~="boolean" then return nil,"unknown_visibility" end
+      end
+      if revealed and visible then
+        local flag=near:IsCity()
+        if type(flag)~="boolean" then return nil,"unknown_city" end
+        if flag then
+          local city=CityManager.GetCityAt(cell.x,cell.y)
+          if not city then return nil,"unknown_city" end
+          local id,owner=city:GetID(),city:GetOwner()
+          if not Integer(id) or not Integer(owner) or owner~=near:GetOwner()
+            or city:GetX()~=cell.x or city:GetY()~=cell.y then return nil,"unknown_city" end
+          local key=owner..":"..id
+          if seen[key] and seen[key]~=cell.index then return nil,"unknown_city" end
+          seen[key]=cell.index
+          local distance=Map.GetPlotDistance(x,y,cell.x,cell.y)
+          if not Integer(distance) or distance>radius then return nil,"unknown_geometry" end
+          if distance<=3 then return false,"city_too_close" end
+          if owner==playerID then
+            local c=owned[id]
+            if not c or c.x~=cell.x or c.y~=cell.y then return nil,"unknown_cities" end
+          elseif nearest>9 then return false,"foreign_border_without_owned_support" end
+        end
+      end
+    end
+    return true,"known_border_checked"
+  end)
+  if not ok then return nil,"native_information_unavailable" end
+  return result,reason
+end
+
 local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   -- Re-read ownership and active player at the write boundary. No takeover flags.
   local freshCtx, freshPlayer, freshState = PlayerContext()
@@ -428,6 +498,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
   local founding
   if operation=="FOUND_CITY" then
+    if KnownExpansionSupport(plot,Players[latest.player],latest.player)~=true then return false,"settlement_support_unavailable" end
     -- Native qualification above may run callbacks. Acquire the empty-site
     -- witness afterwards, adjacent to the existing final request boundary.
     local ok,site,city,isCity=pcall(FoundingSite,here:GetIndex(),here:GetX(),here:GetY())
@@ -1844,28 +1915,12 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID)
     end
   end
   table.sort(candidates,function(a,b) if a.score~=b.score then return a.score>b.score end return a.index<b.index end)
-  local knownCities
   for i,candidate in ipairs(candidates) do
     local plot=Map.GetPlotByIndex(candidate.index)
     if plot and plot:GetIndex()==candidate.index and Revealed(plot) and not plot:IsWater()
       and not plot:IsImpassable() and not plot:IsCity() and plot:GetFeatureType()==-1
       and (plot:GetOwner()==-1 or plot:GetOwner()==contextID) and Safe(plot,player) then
-      -- These coordinates are planning data for this invocation, never command
-      -- authority or a cache shared by later callbacks.
-      if knownCities==nil then
-        knownCities={}
-        for _,owner in pairs(PlayerManager.GetAliveIDs()) do
-          for _,city in Players[owner]:GetCities():Members() do
-            local x,y=city:GetX(),city:GetY()
-            if Revealed(Map.GetPlot(x,y)) then knownCities[#knownCities+1]={x=x,y=y} end
-          end
-        end
-      end
-      local distantEnough = true
-      for _,city in ipairs(knownCities) do
-        if Map.GetPlotDistance(plot:GetX(),plot:GetY(),city.x,city.y)<=3 then distantEnough=false;break end
-      end
-      if distantEnough then
+      if KnownExpansionSupport(plot,player,contextID)==true then
         result[#result+1] = {index=candidate.index, score=candidate.score, legal=true, revealed=true, safe=true,
           protected=false, plot=plot}
         if firstOnly then return result,i<#candidates end
@@ -1893,14 +1948,22 @@ local function ProcessSettler(ctx, player, state, unit)
     search={player=ctx.player,turn=turn,key=key,tested={}}
     settlerSearches[id]=search
   end
+  local oldTarget=settlementTargets[id]
+  if oldTarget~=nil then
+    local oldPlot=Map.GetPlotByIndex(oldTarget)
+    if not oldPlot or KnownExpansionSupport(oldPlot,player,ctx.player)~=true then
+      if reservations[oldTarget]==id then reservations[oldTarget]=nil end
+      settlementTargets[id]=nil;search.tested[oldTarget]=true
+    end
+  end
   local mayFound=player:GetCities():GetCount()==0 or settlementTargets[id]==here:GetIndex()
-  if mayFound and Safe(here,player) and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
+  if mayFound and KnownExpansionSupport(here,player,ctx.player)==true and Safe(here,player) and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
     settlerSearches[id]=nil
     return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
   end
   local sites,more=SettlementSites(player,state,true,search.tested,id)
   local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
-  if not mayFound and target and target.index==here:GetIndex() and Safe(here, player)
+  if not mayFound and target and target.index==here:GetIndex() and KnownExpansionSupport(here,player,ctx.player)==true and Safe(here, player)
     and UnitManager.CanStartOperation(unit, UnitOperationTypes.FOUND_CITY) == true then
     settlerSearches[id]=nil
     return RequestCivilian(ctx, state, unit, "FOUND_CITY", here)

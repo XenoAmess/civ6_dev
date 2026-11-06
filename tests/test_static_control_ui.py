@@ -59,7 +59,7 @@ UI.RequestPlayerOperation=function() T.recovery=T.recovery+1 end
     def test_builder_preserves_manifest_assets_and_other_readonly_ui(self):
         out=ROOT/'.local-model/static-control-tests'/uuid.uuid4().hex
         result=build(out);self.assertEqual(result['files'],len(manifest_files(ROOT/'mod/Baiqi')));self.assertEqual(set(result['changed_files']),set(edits()))
-        self.assertEqual(result['source_version'],79)
+        self.assertEqual(result['source_version'],80)
         target=out/'Baiqi';source=ROOT/'mod/Baiqi'
         self.assertEqual(manifest_files(source),manifest_files(target))
         for name in manifest_files(source):

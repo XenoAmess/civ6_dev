@@ -37,29 +37,15 @@ class SettlementSiteTests(unittest.TestCase):
         sites = self.sites(self.w.objects.player, self.lua.table(), True)
         self.assertEqual([s.index for s in sites.values()], [47])
 
-    def test_city_position_is_retrieved_once_for_all_valid_hints(self):
+    def test_all_valid_hints_are_checked_without_enumerating_foreign_rosters(self):
         self.lua.execute('''
             TestWorld.settlementRecommendations={46,47,48}
-            TestWorld.cityPlotReads=0
-            local original=Map.GetPlot
-            -- Native visibility is its own binding. Keep the mock's internal
-            -- coordinate lookup out of the producer's Map.GetPlot counter.
-            PlayersVisibility[7].IsRevealed=function(_,x,y)
-                local p=original(x,y)
-                return p~=nil and not TestWorld.hidden[p:GetIndex()]
-            end
-            PlayersVisibility[7].IsVisible=function(_,x,y)
-                local p=original(x,y)
-                return p~=nil and not TestWorld.hidden[p:GetIndex()] and not TestWorld.fogged[p:GetIndex()]
-            end
-            Map.GetPlot=function(x,y)
-                if x==2 and y==3 then TestWorld.cityPlotReads=TestWorld.cityPlotReads+1 end
-                return original(x,y)
+            PlayerManager.GetAliveIDs=function()
+                error('Settlement planning must not enumerate foreign city rosters')
             end
         ''')
         sites = self.sites(self.w.objects.player, self.lua.table(), False)
         self.assertEqual({s.index for s in sites.values()}, {46, 47, 48})
-        self.assertEqual(self.w.cityPlotReads, 1)
 
 
 if __name__ == '__main__':
