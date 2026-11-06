@@ -106,3 +106,5 @@ python tools\build_mod.py --install
 - [77自然增长与两个新港口完整实机链](docs/testing/baiqi-district-growth-harbors-77.md)：容量恢复、真实坐标派发、正常进度、157／160建成和正式存读档保持，新增7张内嵌实机图；其他区域与完整矩阵继续。
 
 - [77低净收入时暂停扩军](docs/testing/baiqi-military-low-net-income-77.md)：余额6517、军队有缺额且原版炮兵合法，实际净收入0.777时后台继续项目；新增3张内嵌实机图，测试后已恢复主线160。
+
+- [77水上乐园完工、成都增长后新放港口](docs/testing/baiqi-water-entertainment-growth-77.md)：正常165完成并正式重载，4张内嵌实机图；成都港口和九江工业区仍在建。

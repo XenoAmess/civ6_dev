@@ -114,3 +114,11 @@ BF-202609141645，[77低净收入证据](testing/baiqi-military-low-net-income-7
 454raw finance缺pcall/unknown/附件字段，privateProcessCity/Planner/pending和直接DealManager建议全拒；Equalize隐藏误读原版消费者，条件没构成不能判产品FAIL。owner18观察器例(11旧+7新)，8事件复用0新增，0rawNative/product/产品修改/1064重跑。截图过期与动画背景ROI拒绝均在输入前；新鲜自有截图核静态控件、金额68、期限30及对方空报价文字mask后保留原60秒检查，确认v1无实际动作、v2唯一确认，不重放未知交易。
 
 清精确wrapper/3events后正式save139600653B SHA05c917451e61e12e75f3b10dd35b8847e52b9eba0d9f9d0dd3d2e6be68f4554d。原main160hash验证正式load一次/Continue一次，15city/gold7708.4609375/net58.90625/两Harbor和新Neighborhood完成、CoreplotIDs保留，QA全nil。454stop/DONE/VALID一次0retry，累计454/423/28/3 HTTP484/extra30，Nov6OpenCode1.19.5成功缓存复用，0新原生生成，未知cache/owner成本/节省null。仅139窗口，不授阈值exact2/100、长期gift或全TC007/013/40；Steam离线0upload/Alpha74未变。
+
+## 2026-11-06：455截断弃用与水上乐园完成
+
+BF-202609141645，[77主线160→165证据](testing/baiqi-water-entertainment-growth-77.md)。模型455一POST200/DONE/length2500tokens，整份丢弃，不读半稿/拼接/采用，不重试同题；owner复用452成员及451透明观察器，有限3city×64/typedfinite编译，18+8旧例复用0新增产品计数。累计455/423/29/3 HTTP485/extra30，Nov6维护缓存复用/0新OpenCode/成本未知null。
+
+Owner初装Citycalls留148guard而160拒绝，后仍在同批继续事件安装和正常turn，违反失败停链；160→161 CitySDK未知，不补0。actual161新guard接入后16BUILD/0unitmil/4district/0foreign/unknown/errors/overflow/capacityReadErrors/满容量筛查hit，四区beforecall有空位/双flag/prereq/XY资格。45events160→165无error/drop。原WuhanWater3342385@8,8：16044/177→16173→162102→163130→164159→165complete，2通知只计1资产，实际后BUILDING_SEAPORT。Chengdu153pop3/1/1学院visibletrue/fullfalse/plot53clear，160161pop4/1/2/dualtrue，Workshop162完成后actualHarbor3407922@6,3 before1/2合法，0/187→16337→16459→16576未完。162放置后nativezoned仍1/2，1632/2，不造立即原子计数，Campus162false原因未隔离。JiujiangIndustry3211311@28,16到16576/177仍未完。新胶东Commercial/长沙Industry/秀容Industry165只入队。
+
+TestPlayer21/20/19/19/19军事SKIP，160和163普通Alex来访再见；161162原版议会一次提交0favor，自选ranged但结果melee，不能混投票和结果；MigrationB目标Alex非本方。161162第一次formalend执行既有queues仍sameactiveidle，freshpending后新普通end，0UserForced/手动文职/clearqueue。早165Ready后又busy，最终idle数据复核。精确restore/3events移除后165save652093B SHA2ae64f7fef8bebe012480c54c2c7857bcb12081b9325545b07b7f9dd2ec67d0c，正式load一次，loading期Continueguard拒0input后actualContinueonce；15cities/gold8008.64453125/Watercomplete+HarborIndustrypending/UI属性和CoreplotIDs保持，bindingsnil。0productchanges/1064重跑/Steamonline/upload，Alpha74未变。
