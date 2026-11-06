@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [82冷启动、空日志与两张实机图](docs/testing/baiqi-settlement-native-init-82.md)：UI／Core完整读回及普通保存／重载后世界核对；空日志可能重建，尚不能授持久意图或未决建城恢复通过。
+
 - [82建城持久授权软件](docs/testing/baiqi-settlement-persistent-82.md)：Core一次授权、读档恢复枚举、前端授权后复核已接线；完整1153项软件通过，93文件包。82冷实机尚未通过；未知移民继续等待。
 
 - [81日志与Core存储组件](docs/testing/baiqi-settlement-storage-81.md)：45个合同子场景、完整1132项软件通过、89文件包；尚未接实际发令／恢复入口，实机仍80，不能称中途恢复通过。
