@@ -292,3 +292,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [证据](research/baiqi-p6-production485-settler-legality-hints-evidence-2026-11-07.json)。485stop/DONE/VALID5881tokens(4759+1122)、TTFT0.8041193秒／总7.7705949秒／0retry；Lua51 compile在`player:GetCities and`语法失败，另错把GetLocalPlayer数字当对象、无全读pcall、UI缺失可跳过门。0raw合同运行／0Native／0整稿采用；owner独立25casepass（signed Hash/Native两种receiver/精确bool/三状态边界/未知保护）。
 
 实际38 settleIndex0/hash-798712536，qsize1/standby743941431，两CanProduce和native appendCanStart均true。另原始GrandAI可用、GetSettlementRecommendations(12)真实table但0条，0隐藏坐标／属性输出。源码2027临时hasSafeSite=true做纯预算，2029才取实际Sites，2030完整门；故puretrue不等完整允许，当前appendtrue不等queueReady，更不倒推36。0gameorders/hooks/statewrite，private38FarmSave仍保持。累计485/452/30/3 HTTP515extra30/OpenCode新0未知null；source82未改1153不重跑/Steam0Alpha74。
+
+## 2026-11-07：487—491离线发布工具
+
+[候选与证据](research/baiqi-p6-release-tools-487-491-evidence-2026-11-07.json)、[用法](workshop/release-tooling.md)。487/488 length未采用，不拼接；489—491完整stop/JSON后选择部分逻辑。490禁止87回退／宽松Convert；491修正count==count+1，regex JSON转义本身有效不记模型错误。Owner测试预期22改为实际20；14测试方法含官方SDK C#5编译和20纯助手case全过，未调用Publisher.Main/SteamAPI。并行真实2后3（按HTTP区间），累计491/456/32/3 HTTP521 extra30；维护复用Nov7同机同用户00:36成功1.19.5，OpenCode新0、未知null。源码82不改，0联网上传。
