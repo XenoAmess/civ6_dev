@@ -296,3 +296,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-07：487—491离线发布工具
 
 [候选与证据](research/baiqi-p6-release-tools-487-491-evidence-2026-11-07.json)、[用法](workshop/release-tooling.md)。487/488 length未采用，不拼接；489—491完整stop/JSON后选择部分逻辑。490禁止87回退／宽松Convert；491修正count==count+1，regex JSON转义本身有效不记模型错误。Owner测试预期22改为实际20；14测试方法含官方SDK C#5编译和20纯助手case全过，未调用Publisher.Main/SteamAPI。并行真实2后3（按HTTP区间），累计491/456/32/3 HTTP521 extra30；维护复用Nov7同机同用户00:36成功1.19.5，OpenCode新0、未知null。源码82不改，0联网上传。
+
+## 2026-11-07：486与492新局真实训练、读取时刻与派发时刻分开
+
+[公开证据](research/baiqi-p6-frontier486-path492-natural-settler-evidence-2026-11-07.json)。486raw Lua51goto拒，owner27pass；prompt没写5.1是owner准备责任。492raw可编译但18中7fail（全actor采样／userdata忽略／空路径UNKNOWN／holes等），owner18pass，路径复制变体19pass。52/53待命后的Native空plots不解释派发前；未来54/55/56实际原返回5格，55当前可见4交战敌军影响起点和前三后续格。后读威胁不是历史路径样本同刻快照。旧builder3BUILD与3改良／46消失相符；43入settler、51生393216，pop4→4未授cost；56生builder458754、排军营。18normalEND31armySKIP+5armyorders、0civ/cheats。527futureExecutor样本510recruit4city13unitop／0mil/error/drop仅scope。56save1090744B/hash049d6d01829fa298d39c38f3fe2ce09ffb8b35e1d6f2cc4ae7a55e55328425f1全钩清后正式reload保持，3新图。Owner防御第二步在moves0后仍预览再调用，被守卫0emit拒；流程错误留证后依赖操作改查exit+semantic。累计492457stop32length3transportHTTP522extra30/OpenCode新0／未知null；82不改1153不重跑／Steam0Alpha74。

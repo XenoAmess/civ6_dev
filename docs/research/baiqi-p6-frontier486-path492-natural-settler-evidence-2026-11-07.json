@@ -1,0 +1,491 @@
+{
+  "schema": "civ6.frontier486-path492-natural-settler/v1",
+  "utc": "2026-11-07T13:12:49.055442+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "product_changes": 0,
+  "native": {
+    "world": "Same independent newgame, officially reloaded completed farm38, ordinary38→56; no manual civilian/domestic input, grants or reveal API.",
+    "TEST_PLAYER_inputs": {
+      "ordinary_END": 18,
+      "military_SKIP": 31,
+      "scout_moves": 2,
+      "ranged_attack": 1,
+      "melee_attack": 1,
+      "defense_move": 1,
+      "forced_END": 0,
+      "civilian_orders": 0,
+      "domestic_choices": 0,
+      "grants": 0,
+      "war_declarations": 0
+    },
+    "exploration": "38archer59,29→59,28;actual hints0 at38 and1 visible/revealed59,26/1983 at39.39shot visible at-war scout, removed from still-visible plot.52archer59,28→58,27;53actualnewposition/moves2. Not BACKGROUND scouting.",
+    "training": [
+      {
+        "turn": 43,
+        "type": "UNIT_SETTLER",
+        "progress": 0,
+        "cost": 80
+      },
+      {
+        "turn": 46,
+        "progress": 37,
+        "cost": 80
+      },
+      {
+        "turn": 48,
+        "progress": 57,
+        "cost": 80
+      },
+      {
+        "turn": 49,
+        "progress": 67,
+        "cost": 80
+      },
+      {
+        "turn": 50,
+        "progress": 77,
+        "cost": 80
+      },
+      {
+        "turn": 51,
+        "actual_settler": 393216,
+        "position": [
+          60,
+          30
+        ],
+        "moves": 2,
+        "manual_actions": 0,
+        "new_queue": "UNIT_BUILDER",
+        "builder_progress": 0,
+        "builder_cost": 54
+      },
+      {
+        "turn": 56,
+        "actual_new_builder": 458754,
+        "position": [
+          60,
+          30
+        ],
+        "current_queue": "DISTRICT_ENCAMPMENT",
+        "hash": 1725642169,
+        "planned_position": [
+          60,
+          32
+        ]
+      }
+    ],
+    "population_limit": "50/51/52/53/56 owncapital all4, raw unit PopulationCost1 and PrereqPopulation2. No population-deduction PASS, no established cause.56 governor3 ResourceManager has only base Groundbreaker; current state does not retroactively explain51.",
+    "first_builder": "Farm38, native BUILD mine44 at61,30/hash1001859687 and farm45 at60,31/hash168372657.46owned plot read confirms nonpillaged Farm2205/Mine2281/Farm2354; initial3charges plus3actual builds, oldbuilder absent46, consistent with charge exhaustion. No exact unit-removal event claimed.",
+    "path_wait": {
+      "post_standby_query52_53": "Native returned real table.plots empty at read time; cannot explain pre-standby decisions.",
+      "future54": "Observer1 original native query, actor393216/target1983 returned5plots.",
+      "future55_56": "Corrected copy observer2 originalqueries, each5plots; metadata copied without issuing any query/order.",
+      "actual_route": [
+        2280,
+        2205,
+        2132,
+        2057,
+        1983
+      ],
+      "visible_threat_snapshot55": "At the later55 read, pathstart radius2 containedwarrior3538991@60,31,warrior6160407@61,32,slinger3670029@60,29,archer5242942@61,30, allowner63/atwar. First four pathentries affected; targetsite itself safe in this read. No atomic dispatch-time threat snapshot claimed.",
+      "source": "PathStep742+ checks destination and every revealed pathplot with Safe radius2, including origin. Native usable path does not authorize dangerous movement.",
+      "result": "Settler51→56waits in owncapital; no secondcity, no FOUND or ARMED record for this newsettler. Complete expansion remains OPEN."
+    },
+    "observer": {
+      "scope": "Future original Executor calls only; UnitPanel/WorldInput TEST_PLAYER military outside SDK finance scope.",
+      "recruit": 510,
+      "city": 4,
+      "unit_op": 13,
+      "unit_cmd": 0,
+      "samples": 527,
+      "errors": 0,
+      "drops": 0,
+      "all_indices_read_once": true,
+      "military_requests_in_this_scope": 0,
+      "requests_return": "0 values, not a success Boolean. Effects read independently.",
+      "restored_before_save": true
+    },
+    "military55": "TEST_PLAYER warrior attacked adjacent damaged slinger once; initial fast reads unchanged, later target absent in visible plot, warrior60,29/moves0/damage15. Archer moved58,27→59,27/moves0. No repeated attack.",
+    "save_reload": {
+      "bytes": 1090744,
+      "sha256": "049d6d01829fa298d39c38f3fe2ce09ffb8b35e1d6f2cc4ae7a55e55328425f1",
+      "official_save_ACK": true,
+      "official_load_ACK": true,
+      "Continue_once": true,
+      "actual_UI_and_Core": "Turn56,onecity/pop4/gold202/queueEncampment1725642169,4units393216/131073/458754/327683,positions/moves/damage andoriginalcapitalOBSERVEDserial1 preserved.",
+      "diagnostics_absent": true,
+      "private_save_committed": false
+    },
+    "verdict": "Narrow PASS natural settler training, second builder replacement, firstbuilder3improvements and completed-state save/reload. Safe waiting correlated with visible threats; no full expansion/population cost or40TC PASS."
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/frontier486/training50.png",
+      "sha256": "b7e27b10c5aa6156df1c03d90f393df859484e4c50a5a4743e887db239fc0e44",
+      "altered": false
+    },
+    {
+      "path": "docs/testing/screenshots/frontier486/settler-born51.png",
+      "sha256": "33bf20ac4927f2b18b4e5cbba0b765d1c1afdc224c4aba238d3f063307a7d89c",
+      "altered": false
+    },
+    {
+      "path": "docs/testing/screenshots/frontier486/reloaded-city56.png",
+      "sha256": "1cdfd4a59f8940be37e4302250c94ef5d20f446fcb560342093c614042bf3d04",
+      "altered": false
+    }
+  ],
+  "models486492": [
+    {
+      "task": 486,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 2934,
+        "completion_tokens": 1496,
+        "total_tokens": 4430
+      },
+      "ttft_ms": 543.6468999832869,
+      "total_ms": 9142.449099919759,
+      "review": {
+        "utc": "2026-11-07T11:18:48.738059+00:00",
+        "raw_lua51_compile": false,
+        "raw_compile_error": "[string \"<python>\"]:102: '=' expected near 'continue'",
+        "raw_contract_cases_run": 0,
+        "raw_other_static_issues": [
+          "No requested whole-function pcall.",
+          "Invalid visible-row fields cause selectTarget to return nil rather than UNKNOWN metadata."
+        ],
+        "owner_prompt_correction": "Prompt486 omitted an explicit Lua5.1 version even though current game target is known Lua2013.2.0/unpack5.1. Raw used goto/labels; owner compile refused before any execution. This omission is owner preparation responsibility, not a product defect.",
+        "whole_raw_adoption": 0,
+        "raw_native_execution": 0,
+        "owner_cases": {
+          "max-distance-then-lowest-index": {
+            "passed": true
+          },
+          "tie-lowest-index": {
+            "passed": true
+          },
+          "empty-known-no-target": {
+            "passed": true
+          },
+          "no-outward-target-known-none": {
+            "passed": true
+          },
+          "holes-unknown": {
+            "passed": true
+          },
+          "extra-string-array-key": {
+            "passed": true
+          },
+          "seven-rows-rejected": {
+            "passed": true
+          },
+          "duplicate-plot-index": {
+            "passed": true
+          },
+          "nan-geometry": {
+            "passed": true
+          },
+          "infinite-distance": {
+            "passed": true
+          },
+          "numeric-string-rejected": {
+            "passed": true
+          },
+          "visible-not-boolean": {
+            "passed": true
+          },
+          "invisible-skip-with-unknown-properties": {
+            "passed": true
+          },
+          "foreign-skip-with-no-native-fields": {
+            "passed": true
+          },
+          "city-skip-with-no-native-fields": {
+            "passed": true
+          },
+          "occupied-skip-with-no-native-fields": {
+            "passed": true
+          },
+          "eligible-missing-canmove-unknown": {
+            "passed": true
+          },
+          "eligible-missing-canswap-unknown": {
+            "passed": true
+          },
+          "eligible-missing-war-change-unknown": {
+            "passed": true
+          },
+          "native-move-rejection-not-selected": {
+            "passed": true
+          },
+          "swap-rejected-target": {
+            "passed": true
+          },
+          "war-change-rejected-target": {
+            "passed": true
+          },
+          "nonadjacent-not-selected": {
+            "passed": true
+          },
+          "unknown-owner-rejected": {
+            "passed": true
+          },
+          "fractional-unit-count": {
+            "passed": true
+          },
+          "bad-pid-protected": {
+            "passed": true
+          },
+          "fresh-plain-output-no-input-mutation": {
+            "passed": true
+          }
+        },
+        "owner_unique_cases": 27,
+        "owner_sha256": "490e8edad2683b572e85a445cfbced210d2bdd9ddbd94a70cfdd8fa44cc3ff3b",
+        "scope": "Pure target metadata only for TEST_PLAYER, not BACKGROUND scouting or a command emitter. Owner reviews and freshly qualifies each actual input.",
+        "usage": {
+          "prompt_tokens": 2934,
+          "completion_tokens": 1496,
+          "total_tokens": 4430
+        },
+        "ttft_ms": 543.6468999832869,
+        "total_ms": 9142.449099919759,
+        "cumulative_through486": {
+          "logical_tasks": 486,
+          "complete_stop_valid": 453,
+          "length": 30,
+          "final_transport_failures": 3,
+          "http_attempts": 516,
+          "extra_retries": 30,
+          "opencode_native_generation": 0,
+          "cached_tokens": null,
+          "owner_active_seconds": null,
+          "net_savings_seconds": null
+        }
+      },
+      "shared_commit": "cb337ca4bd87f5c9fe5b3745692c0b140d04e501",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "task": 492,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "usage": {
+        "prompt_tokens": 50493,
+        "completion_tokens": 1137,
+        "total_tokens": 51630
+      },
+      "ttft_ms": 6574.025999987498,
+      "total_ms": 13473.290399997495,
+      "review": {
+        "utc": "2026-11-07T12:52:44.008266+00:00",
+        "raw_lua51_compile": true,
+        "raw_cases": {
+          "empty-real-zero": {
+            "passed": false
+          },
+          "one-element": {
+            "passed": true
+          },
+          "dense-three": {
+            "passed": true
+          },
+          "hole-unknown": {
+            "passed": false
+          },
+          "string-key-unknown": {
+            "passed": true
+          },
+          "invalid-value-unknown": {
+            "passed": false
+          },
+          "other-actor-unrecorded": {
+            "passed": false
+          },
+          "nil-holes-and-count": {
+            "passed": true
+          },
+          "native-once-only": {
+            "passed": false
+          },
+          "original-error-identity": {
+            "passed": false
+          },
+          "sample-error-transparent": {
+            "passed": true
+          },
+          "restore-exact": {
+            "passed": true
+          },
+          "foreign-function-preserved": {
+            "passed": true
+          },
+          "foreign-namespace-preserved": {
+            "passed": true
+          },
+          "capacity-filtered": {
+            "passed": true
+          },
+          "bad-target-transparent": {
+            "passed": false
+          },
+          "occupied-install-refused": {
+            "passed": true
+          },
+          "publication-failure-rollback": {
+            "passed": true
+          }
+        },
+        "raw_failed_cases": 7,
+        "static_rejections": [
+          "Before sampling records every actor, including UNKNOWN rather than filtering; actual Native units may be userdata.",
+          "Empty plots becomes UNKNOWN; no validation of all keys/holes.",
+          "Sampling before original query violated requested post-return-only timing."
+        ],
+        "whole_raw_adoption": 0,
+        "raw_native_execution": 0,
+        "owner_cases": {
+          "empty-real-zero": {
+            "passed": true
+          },
+          "one-element": {
+            "passed": true
+          },
+          "dense-three": {
+            "passed": true
+          },
+          "hole-unknown": {
+            "passed": true
+          },
+          "string-key-unknown": {
+            "passed": true
+          },
+          "invalid-value-unknown": {
+            "passed": true
+          },
+          "other-actor-unrecorded": {
+            "passed": true
+          },
+          "nil-holes-and-count": {
+            "passed": true
+          },
+          "native-once-only": {
+            "passed": true
+          },
+          "original-error-identity": {
+            "passed": true
+          },
+          "sample-error-transparent": {
+            "passed": true
+          },
+          "restore-exact": {
+            "passed": true
+          },
+          "foreign-function-preserved": {
+            "passed": true
+          },
+          "foreign-namespace-preserved": {
+            "passed": true
+          },
+          "capacity-filtered": {
+            "passed": true
+          },
+          "bad-target-transparent": {
+            "passed": true
+          },
+          "occupied-install-refused": {
+            "passed": true
+          },
+          "publication-failure-rollback": {
+            "passed": true
+          }
+        },
+        "owner_contract_cases": 18,
+        "owner_sha256": "e290d6802445732b0b06df2b4bd4608c0f16cb6ca5b71ba051aaf30a733a5e16",
+        "scope": "Transparent future GetMoveToPathEx only, no route query emitted by observer, no command emitter.",
+        "usage": {
+          "prompt_tokens": 50493,
+          "completion_tokens": 1137,
+          "total_tokens": 51630
+        },
+        "ttft_ms": 6574.025999987498,
+        "total_ms": 13473.290399997495,
+        "cumulative_through492": {
+          "logical_tasks": 492,
+          "complete_stop_valid": 457,
+          "length": 32,
+          "final_transport_failures": 3,
+          "http_attempts": 522,
+          "extra_retries": 30,
+          "opencode_native_generation": 0,
+          "cached_tokens": null,
+          "owner_active_seconds": null,
+          "net_savings_seconds": null
+        }
+      },
+      "shared_commit": "154a28b398b5e424e29f5f9066f3c21bbe2127a7",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    }
+  ],
+  "cumulative_through492": {
+    "logical_tasks": 492,
+    "complete_stop_valid": 457,
+    "length": 32,
+    "final_transport_failures": 3,
+    "http_attempts": 522,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "owner_corrections": [
+    "Model486 prompt omitted explicitLua5.1; raw goto/labels refused beforeNative, owner27 pure cases passed.",
+    "Model492compiledbut7/18 contract failures, owner18passed; next copy variant19passed. No whole raw code inNative.",
+    "Defense secondstep55 was attempted after actualmoves0 and even after preview failure because owner orchestration failed to stop. Both guards rejected before originalMoveUnitToPlot;0orders emitted. Evidence kept, subsequent dependent actions now check terminal exit and semantic success. This was an owner workflow error, not a product defect.",
+    "First melee55fastread unchanged despite returnedrequest; later actual15damage/newposition/targetabsent, no attack replay.",
+    "Pathcopy sampleturn is historical; threat queries performed later at readtime, not a frozen sampleturn snapshot. Used original at55 receipt for55facts; cleanup56threats are current56."
+  ],
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "actual_workshop_last_verified_version": 74,
+  "raw_sha256": {
+    "frontier486-owner-scope-review.json": "5e73821bbfdc70028061d84600b2aa3b42baa7c0067a0c34eccaff4dd51018ba",
+    "path492-owner-scope-review.json": "c7051a7288111915221d688792fd1763eb5ef495ce716a361e81e2c56d8d5c5d",
+    "path492b-owner-contracts.json": "25d9d79bb40164d8ad9e189d3391b95b352416b0541712c1b33b47b07c51c874",
+    "frontier486-finance-read-final56-1-response.json": "0e3a6c8242d727038c19e913675e21d4490b9d850b42b45277b1798a99099455",
+    "frontier486-finance-read-final56-2-response.json": "10f0fd28d9dddfaa22dad19e38a057423792f1ff97c5615a43bdea2449823b49",
+    "frontier486-finance-read-final56-3-response.json": "f556ca62efdd0ff0def0cbcc175613f4531be72445397deb419b1c65156cf6b8",
+    "frontier486-finance-read-final56-4-response.json": "9067988b72be9a32f7fe6564693364b41fa47d24b9b58f8cef61a5f120229a87",
+    "frontier486-finance-cleanup-final56-response.json": "e0066396b3649c3f2f2a7330be8b8d8c46b8672105127dae69ece3ce4a784828",
+    "path492-read-at54-response.json": "f2199a63d8ae2b5a8a0fe7d187dcdc354062db496eccddf0fcfc8536273884ea",
+    "path492-cleanup-first54-response.json": "3f634abe5d2a469443965f80b61dc675687ec01744a3e13326c82dbf67b25fff",
+    "path492b-read-at55-response.json": "eaf5e6c33a69a8800635bcc16c0d5a5193de7677e92aff0cf0bea680b8a36237",
+    "path492b-cleanup-final56-response.json": "227efdb6592d7fa9d9a66a9f42e655e6d4ece1c4ba4ec676c5b1be59f00bc443",
+    "frontier486-route-wait52-response.json": "93deba7af6a60d45f8799a1e3b1aa2dc30d49669d1053c4ca116fc762f108407",
+    "frontier486-route-wait53-response.json": "74bf0dc38e5ab3757af4f66cbe1ea2d7c5ffc1457272b6835bac10cb2ad33e3d",
+    "frontier486-step52-response.json": "ed6ef9396a5cbf67a9fc69b475faf00d286d5710f8b7bb48f8bf8147db8f730f",
+    "frontier486-settler-view-birth51-response.json": "5b919cb10ca587f2e866b1ad754b3726a3d4cee7654877f940237defe3e71f47",
+    "frontier486-final-reload56-response.json": "9d9d5daf6151fecad4e579652a62c007c48cd00bb42602f5b59992d0bae0a80b",
+    "frontier486-save56-response.json": "c72ea0f9fe4ef11412bbc028d752341f6375faaf53aafc8d427c4322b45121e3",
+    "frontier486-load56-response.json": "47569eb7ad683880bf1433cc554e9345b197c10f80fc8384b7c5068528109b76",
+    "threat484-ui-frontier-reload56-response.json": "82a9c618d695c29ee456a6671a3b1c00cc650a321e0c539f7fd91dbe0641de82",
+    "threat484-core-frontier-reload56-response.json": "00ccd9df6448157c7a703da2cd6950de012d7d8929c6f6e868edce6d172d80c3",
+    "threat484-health-frontier-reload56-response.json": "f2530857ff86f13e27ba0ef1bc0680478bc2c49a9abfecfb562af1556b10a6e6",
+    "threat484-health-settled-melee55-response.json": "f1c4a07004bd715a4a82e751f417c0145b3a3fcdfa7ea21f683dd2a68d50ba98"
+  }
+}
