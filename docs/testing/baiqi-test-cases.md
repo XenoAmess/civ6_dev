@@ -465,3 +465,5 @@
 - [85旧ARMED升级与宗教演员资格](baiqi-armed-upgrade-and-native-api-85.md)：82失败158正式载入85，旧记录／活移民保持，恢复仍FAIL；58自有单位中四宗教类型为0，未补授原版控制权限。只读返回形状纠正为0返回／局部nil，未改属性。
 
 - [86拥有先知资格](baiqi-prophet-ownership-86.md)：原版true代表拥有，旧pre写反且夹具相同；17Lua51对照旧85失败11／原候选失败1／修订0。完整1213pass1SDK环境skip，96包待冷实机；不补授旧LEGACY恢复或宗教单位实际指挥。
+
+- [86新局40→66](baiqi-classical-native-86.md)：26normalEND52armySKIP，原版外交提示由TEST_PLAYER回复；自动生产、5改良、寡头四卡及66save/load回读。先知点0／0新先知，激活未触发；被俘提示身份未知、scout伤52，不授安全性或全宗教通过。4原图内嵌，完整40项及恢复FAIL继续。

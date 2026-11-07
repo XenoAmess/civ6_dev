@@ -160,3 +160,5 @@ python tools\build_mod.py --install
 - [85读取旧ARMED失败档及接口资格](docs/testing/baiqi-armed-upgrade-and-native-api-85.md)：旧日志保留，恢复仍FAIL；宗教四类实际演员为0，权限待验。缺失属性实际0返回，撤回function误读；1张原始实机图。
 
 - [86先知资格修复](docs/testing/baiqi-prophet-ownership-86.md)：原版“拥有先知”含义纠正，17项Lua5.1对照由旧版11失败到修订全过；完整1213通过／1环境跳过，待冷实机。旧LEGACY保护不清除，公开Alpha2仍82。
+
+- [86古典新局实机与4张内嵌图](docs/testing/baiqi-classical-native-86.md)：26普通回合、自动生产／五处改良／寡头四卡及66正式重载已核；先知点0、激活仍未验收，被俘提示与斥候受伤如实记录。公开Alpha2仍82。
