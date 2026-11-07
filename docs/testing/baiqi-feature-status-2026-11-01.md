@@ -381,3 +381,5 @@
 [83第二城北京与66存读档](baiqi-settler-continuity-native-83.md)：56→66普通10回合／14军事待命＋8军事动作，0文职／内政／赠送／强制。270未来Executor样本与8条目标路径；65一次FOUND，66两城／248金／粮仓38及5进度重载保持。只授窄链，不授人口成本、跨读档行军计划、ARMED／旧档FAIL或40项全过。
 
 [84独立行军计划](baiqi-settler-goals-persistence-84.md)接通Core存储／UI恢复／写前确认和已确认建城后的提案清理。30新方法、1202pass1SDK环境skip／74Lua51／96包一致；尚未实机，不授冷读目标或未决FOUND恢复通过。
+
+[85旧ARMED失败档兼容与实际API](baiqi-armed-upgrade-and-native-api-85.md)：14城58单位旧记录保留，原等待FAIL仍在；宗教四类型演员0，权限待验。缺失新目标属性实际0返回，无存档污染证据；只读工具缺rawget已改正，产品未动。

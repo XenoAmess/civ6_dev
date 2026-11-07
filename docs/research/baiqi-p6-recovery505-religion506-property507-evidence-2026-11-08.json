@@ -1,0 +1,272 @@
+{
+  "schema": "civ6.recovery505-religion506-property507/v1",
+  "utc": "2026-11-07T19:06:43.609572+00:00",
+  "date_local": "2026-11-08",
+  "machine_id": "BF-202609141645",
+  "product_source_commit": "cfd24ce7ca9193c8dba7f0d31af438dbbc16245a",
+  "source_install_runtime_version": 85,
+  "files": 96,
+  "product_changes_this_package": 0,
+  "published_Alpha2_build": 82,
+  "owned_runtime": {
+    "pid": 24476,
+    "birth": 1794073221.401719,
+    "endpoint": 4318,
+    "contexts": 126,
+    "Steam_online_or_upload": 0
+  },
+  "upgrade": {
+    "input_writer_version": 82,
+    "reader_version": 85,
+    "input_bytes": 630319,
+    "input_sha256": "6ba7c8eaacc5fffa96fc8752520732d812b1e8e4a578a00eb44e6f12a597c50b",
+    "official_load_ack": true,
+    "actual_UI_and_Core": "158/14cities/58units/gold7567.28515625/map44x26",
+    "journal": "serial1/unit8650807/ARMED/settle:0:1/request0:156:173/from156/846xy10,19",
+    "actor": "UNIT_SETTLER8650807/10,19/moves2/dmg0/form1/deadfalse/delayedfalse",
+    "target": "visible/revealed/plot846/noCity/owner-1",
+    "verdict": "Compatibility preserves old unresolved transaction; forward recovery FAIL remains open. No new ordinary turns repeated as recovery proof.",
+    "Native_game_orders_this_package": 0,
+    "private_Inspect_Prepare_Commit_calls": 0,
+    "property_writes_by_QA": 0
+  },
+  "operation_API": {
+    "UI": {
+      "unit_HasPendingOperations": false,
+      "unit_GetOperationType_available": false,
+      "UnitManager_GetQueuedDestination_available": true,
+      "queued_destination": null
+    },
+    "Core": {
+      "unit_HasPendingOperations": false,
+      "unit_GetOperationType": -1,
+      "UnitManager_GetQueuedDestination_available": false
+    },
+    "unit_operation_events": "Added/Started/Deactivated/OperationsCleared expose Add/Remove in both contexts; local shipped handlers refreshUI, no correlated mod requestID guarantee shown.",
+    "limit": "Unit getters, queued movement destination and UI refresh events do not establish every input/network/native dispatch layer is empty; no UNKNOWNFOUND replay permission."
+  },
+  "religion_inventory": {
+    "owner_reader_checks": 15,
+    "actual_own_units": 58,
+    "target_types": [
+      "UNIT_MISSIONARY",
+      "UNIT_APOSTLE",
+      "UNIT_INQUISITOR",
+      "UNIT_GURU"
+    ],
+    "actual_target_units": 0,
+    "status": "KNOWN_EMPTY",
+    "Native_operation_permission_pass": false,
+    "spawns_purchases_or_faith_spends": 0
+  },
+  "property_diagnostic": {
+    "owner_v1_checks": 15,
+    "owner_v2_actual_rawget_missing_checks": 15,
+    "actual_both_contexts": {
+      "goal_key_return_arity": 0,
+      "goal_local_assignment_type": "nil",
+      "journal_return_arity": 1,
+      "journal_return_type": "table",
+      "journal_plain": true,
+      "journal_top_fields": 4
+    },
+    "corrections": [
+      "Initial inline type(p:GetProperty(missingkey)) printedfunction; explicit packn and localassignment show0returns/nil. Retracted function-value/corrupt-save inference.",
+      "Owner first shape sampler assumed standard rawget:actual UI/Core type(rawget)=nil, causing its journal handler_error. v2 raw next iteration qualified, no rawget needed; all15checks repeated with rawgetnil. Productcode contains0rawget occurrences and is unchanged."
+    ],
+    "scope": "No returned function invoked, no property reset or bridge mutation; no missing key reinitialization performed by QA."
+  },
+  "official_save158": {
+    "bytes": 629900,
+    "sha256": "53a08d9f9eff2fb65a5bc93a11b938b78c5f18a09b50c75dddb6b58a73d9c579",
+    "ack": true,
+    "stable_bytes": true,
+    "reloaded_this_saved85file": false,
+    "private_save_committed": false
+  },
+  "models505507": [
+    {
+      "task": 505,
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 8612,
+        "completion_tokens": 699,
+        "total_tokens": 9311
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "started_at_utc": "2026-11-07T18:51:11.224526+00:00",
+      "total_ms": 8443.14900005702,
+      "ttft_ms": 2123.3617999823764,
+      "shared_commit": "7a27482ae09f470eff5c64cb74a421405d2b035a",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "candidate_adoption": "REJECTED_EXPERIMENT_AND_ENGINE_GUARANTEE_CLAIMS",
+        "raw_native_executions": 0,
+        "useful_direction": "No presently supported safe replay rule; no implementation proposed. Existing independent owner conclusion, not adopted new engine proof.",
+        "findings": [
+          "source_findings3 wrongly calls falseHasPending/-1operation a confirmation of no queued native operation, contrary supplied scope limit.",
+          "Experiment manually injects ARMEd via private Commit, repeats already controlled dispatch/no-dispatch distinction and does not decide hidden dispatch-layer guarantee.",
+          "Invents UnitManager.HasPendingOperations/GetOperationType static calls: qualified existing adapter uses unit:HasPendingOperations()/unit:GetOperationType().",
+          "BaiqiSettlementUnitCore.Classify(unit) has wrong actual signature Classify(J,E,pid,id).",
+          "DispatchAttempted boolean alone shifts the save/crash ambiguity; no atomic co-commit with native command is shown."
+        ],
+        "owner_next": "Load preserved82failure158 under85 for compatibility+actual ownreligious actor inventory, zero unknownFOUND replay. Query real unit operation and event availability only; do not repeat prior two ordinary turns as new proof."
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "task": 506,
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 3712,
+        "completion_tokens": 674,
+        "total_tokens": 4386
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "started_at_utc": "2026-11-07T18:51:11.224816+00:00",
+      "total_ms": 7380.734500009567,
+      "ttft_ms": 1084.3217000365257,
+      "shared_commit": "7a27482ae09f470eff5c64cb74a421405d2b035a",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "candidate_adoption": "REJECTED",
+        "raw_lua51_compile": true,
+        "raw_standalone_execution_failure": "[string \"<python>\"]:1: attempt to index global 'M' (a nil value)",
+        "raw_empty_actual_generic_iterator_status": "UNKNOWN",
+        "raw_table_member_status": "UNKNOWN",
+        "raw_native_executions": 0,
+        "findings": [
+          "No local M declaration or return M; not a standalone promised module.",
+          "Treats Members generic iterator as ipairs table.",
+          "local type variable shadows Lua type(), so any unit triggers a protected error.",
+          "Returns UNKNOWN upon any ordinary nonreligious unit rather than filtering it; bound counts only selected religious units."
+        ],
+        "owner_checks": {
+          "empty_generic_iterator_known": true,
+          "mixed_inventory_filters_four_types": true,
+          "duplicate_nonreligious_rejected": true,
+          "duplicate_after_religious_no_partial": true,
+          "foreign_owner_rejected": true,
+          "invalid_id_rejected": true,
+          "invalid_type_rejected": true,
+          "missing_definition_rejected": true,
+          "128all_inventory_bound_known": true,
+          "129all_inventory_bound_unknown": true,
+          "getter_throw_unknown": true,
+          "wrong_owner_or_human_unknown": true,
+          "local_player_changed_unknown": true,
+          "invalid_pid_unknown": true,
+          "policy_unknown_no_partial": true
+        },
+        "owner_cases": 15,
+        "owner_native_executions_so_far": 0
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "task": 507,
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 3559,
+        "completion_tokens": 793,
+        "total_tokens": 4352
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "started_at_utc": "2026-11-07T18:57:20.722465+00:00",
+      "total_ms": 5891.483400017023,
+      "ttft_ms": 704.9489999189973,
+      "shared_commit": "7a27482ae09f470eff5c64cb74a421405d2b035a",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "candidate_adoption": "REJECTED",
+        "raw_lua51_compile": true,
+        "raw_valid_player_zero_returns_pcall": false,
+        "raw_error_class": "attempt to get length of nil vals",
+        "raw_native_executions": 0,
+        "findings": [
+          "local ok,vals={pcall(...)} assigns the packed table to ok and leaves valsnil; #vals throws for valid player.",
+          "Even corrected unpack must remove pcall boolean and preserve explicit arity/nil holes; # cannot measure arbitrary returns.",
+          "Table-only player gate assumes native representation; raw output has no8-return cap and unprotected metatable/getter access."
+        ],
+        "owner_cases": 15,
+        "owner_checks": {
+          "zero_returns_preserved": true,
+          "one_nil_return_preserved": true,
+          "function_return_never_invoked": true,
+          "colon_self_received": true,
+          "nil_holes_and_trailing_nil_counted": true,
+          "eight_types_and_full_count": true,
+          "exception_no_private_message": true,
+          "plain_goal_bank_shape": true,
+          "top_level_scan_bound": true,
+          "goals_scan_bound": true,
+          "metatable_index_never_called": true,
+          "getter_lookup_exception_caught": true,
+          "invalid_key_zero_getter_calls": true,
+          "missing_player_unknown": true,
+          "journal_key_allowed": true
+        }
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    }
+  ],
+  "cumulative_through507": {
+    "logical_tasks": 507,
+    "complete_stop_valid": 472,
+    "length": 32,
+    "final_transport_failures": 3,
+    "http_attempts": 537,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "daily_maintenance": "505/506 launched for independent real tasks with overlapping canonical calls;507followed actual new return-shape anomaly. Samehost/user Nov8 successful1.19.5 maintenancecache reused;0new OpenCode nativegeneration.",
+  "screenshot": {
+    "path": "docs/testing/screenshots/recovery505/upgraded158.png",
+    "sha256": "cf3d1229b258789b1e34ff409e05613240fcf21c9d680b4c5fb6e7812fdddfcc",
+    "altered": false
+  },
+  "private_raw_sha256": {
+    "recovery505-load158-response.json": "c1ca0912c73c69d15338f32ef70f2e7906ad423d5703121860af517b19503faf",
+    "recovery505-world-ui-loaded158-response.json": "4589eed20feef15e5f26ce8542c6805bcfd78d4a510e19463de9761f392da162",
+    "recovery505-world-core-loaded158-response.json": "81df302d47600847b414a67e7e45cef55253d677a98ffdce33faa1b7af6a613c",
+    "recovery505-primary-api-index.txt": "15d9dcb0324e6a55469ed246c4b368148d4ce90ec8c83ebe5f5e52b893a68f1c",
+    "recovery505-primary-source.txt": "eea1b358ff63955aaad5e50d60ea2f17c61ffeb2e02bad702be9bd880e5d18f9",
+    "recovery505-owner-scope-review.json": "7419775bfe10110d658db72dd03d7449710760a566f20ac91737f4e689a39181",
+    "religion506-owner-scope-review.json": "e2e9e36084fffa6ba04cb04be2f35f6a4f07ea7a3cac64f314fb190abf8ff822",
+    "religion506-native-inventory158-response.json": "76fbff9401e22f8ce89dd17f692f6d747612f2aa29acabf6953f09b4061c77ed",
+    "property507-owner-scope-review.json": "3c639daaee20e6b9e469377d9bdd31af7ad9967b67ea1010aabffec16319ffb2",
+    "property507-owner-environment-v2-checks.json": "3c639daaee20e6b9e469377d9bdd31af7ad9967b67ea1010aabffec16319ffb2",
+    "property507-native-ui-response.json": "81c1ed3522a9917adfa58cd65ee85946502a356250d0414fd71b8eb5176e9cb9",
+    "property507-native-core-response.json": "8795e643150df6814c194cabc5e2532174c09fd55df1fd72c169a37f6f52251a",
+    "property507-environment-ui-response.json": "a3c9b523fbcd41aa7a19f1deca90bbd478981b4f2ef7c6eb60df6236dd7670ea",
+    "property507-environment-core-response.json": "3ded5efa9fb0ae73ae5dea1834b6fa647220980b0f68125c0d41fbcb34fdc24d",
+    "property507-native-v2-ui-response.json": "093d2e47872832299991cd1c888aec3340e32f5da519a69796966f3330689758",
+    "property507-native-v2-core-response.json": "f8e8fafa2706112be0529f78f2187a472feedb2ca0daad6bca8b31b0c5595969",
+    "recovery505-save158-response.json": "e90c775a2f1e7451bf673cb8af7099527930367f5bc12b8d10bcc86b39dcd232",
+    "recovery505-save158-ack.json": "ffe3e1c25b687e02d2ead20dad7e25cb2029485aadb1a9d3ec62f19cd233153b"
+  },
+  "limitations": [
+    "ARMEDforward recovery and legacywait FAIL remain; preservedjournal is not progressPASS.",
+    "No actual religious actors, so no religious Nativecontrol permission evidence.",
+    "No timeoutclear, cancellation, injectedARMED or repeatedFOUND performed.",
+    "No new product suite rerun orSteamupload;publicAlpha2still82."
+  ]
+}
