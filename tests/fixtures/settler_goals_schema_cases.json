@@ -1,0 +1,20 @@
+{
+  "empty_roundtrip": "local a=M.New(0,10,10);return M.Clone(a,0,10,10)~=nil",
+  "valid_goal": "local a=M.New(0,10,10);a.goals['393216']={unitID=393216,unitType='UNIT_SETTLER',plot=21,x=1,y=2};return M.Clone(a,0,10,10)~=nil",
+  "owner_mismatch": "local a=M.New(0,10,10);return M.Clone(a,1,10,10)==nil",
+  "extra_bank_field": "local a=M.New(0,10,10);a.extra=true;return M.Clone(a,0,10,10)==nil",
+  "bank_metatable": "local a=M.New(0,10,10);setmetatable(a,{});return M.Clone(a,0,10,10)==nil",
+  "goals_metatable": "local a=M.New(0,10,10);setmetatable(a.goals,{});return M.Clone(a,0,10,10)==nil",
+  "goal_extra_field": "local a=M.New(0,10,10);a.goals['1']={unitID=1,unitType='UNIT_SETTLER',plot=21,x=1,y=2,extra=true};return M.Clone(a,0,10,10)==nil",
+  "invalid_owner_argument": "local a=M.New(0,10,10);return M.Clone(a,'invalid',10,10)==nil",
+  "canonical_key": "local a=M.New(0,10,10);a.goals['01']={unitID=1,unitType='UNIT_SETTLER',plot=21,x=1,y=2};return M.Clone(a,0,10,10)==nil",
+  "duplicate_target": "local a=M.New(0,10,10);a.goals['1']={unitID=1,unitType='UNIT_SETTLER',plot=21,x=1,y=2};a.goals['2']={unitID=2,unitType='UNIT_SETTLER',plot=21,x=1,y=2};return M.Clone(a,0,10,10)==nil",
+  "deep_copy": "local a=M.New(0,10,10);a.goals['1']={unitID=1,unitType='UNIT_SETTLER',plot=21,x=1,y=2};local b=M.Clone(a,0,10,10);if not b then return false end;b.goals['1'].x=9;return a.goals['1'].x==1 and a~=b and a.goals~=b.goals and a.goals['1']~=b.goals['1']",
+  "max_32_goals": "local a=M.New(0,10,10);for i=1,32 do a.goals[tostring(i)]={unitID=i,unitType='UNIT_SETTLER',plot=i,x=i%10,y=math.floor(i/10)}end;return M.Clone(a,0,10,10)~=nil",
+  "reject_33_goals": "local a=M.New(0,10,10);for i=1,33 do a.goals[tostring(i)]={unitID=i,unitType='UNIT_SETTLER',plot=i,x=i%10,y=math.floor(i/10)}end;return M.Clone(a,0,10,10)==nil",
+  "nan_inf_boolean_new": "return M.New(0/0,10,10)==nil and M.New(0,math.huge,10)==nil and M.New(true,10,10)==nil",
+  "negative_fraction_new": "return M.New(-1,10,10)==nil and M.New(0,1.5,10)==nil and M.New(0,0,10)==nil",
+  "large_exact_id": "local a=M.New(0,10,10);a.goals['2147483647']={unitID=2147483647,unitType='UNIT_SETTLER',plot=21,x=1,y=2};return M.Clone(a,0,10,10)~=nil",
+  "missing_not_empty": "return M.Clone(nil,0,10,10)==nil",
+  "map_mismatch": "local a=M.New(0,10,10);return M.Clone(a,0,11,10)==nil"
+}

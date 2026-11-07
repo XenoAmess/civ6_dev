@@ -369,3 +369,7 @@ python tools\build_mod.py --install
 ## 2026-11-07：83保留已选城址候选
 
 [源码与82冷读64证据](../testing/baiqi-settler-target-continuity-83.md)。原目标1983当前可见且已退出3条推荐；83只修同进程候选连续性，保留完整资格及请求守卫。新增9方法，全量1172通过／1环境跳过，71Lua51编译及93文件包一致，尚未安装实机；ARMED、旧档等待及目标持久化仍开放。
+
+## 2026-11-08：84独立行军计划存储
+
+[实现与软件范围](../testing/baiqi-settler-goals-persistence-84.md)：独立property／严格schema／Core深拷贝存读／UI恢复与原安全守卫，未改FOUND journal。完整1202pass1SDK环境skip、74Lua51、96文件包；安装／运行仍83，84冷实机待验，不授历史旧档目标猜测或未决恢复。

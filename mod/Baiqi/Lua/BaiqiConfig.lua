@@ -11,6 +11,7 @@ BaiqiConfig = {
   cityHealthPercent = 35, requisitionKey = "BAIQI_REQUISITION_V1",
   greatPersonIntentKey = "BAIQI_GREAT_PERSON_INTENTS_V1",
   settlementIntentKey = "BAIQI_SETTLEMENT_INTENTS_V1",
+  settlerGoalsKey = "BAIQI_SETTLER_GOALS_V1",
   creativeIntentKey = "BAIQI_CREATIVE_INTENTS_V1",
   religiousIntentKey = "BAIQI_RELIGIOUS_INTENTS_V1",
   prophetIntentKey = "BAIQI_PROPHET_INTENTS_V1",

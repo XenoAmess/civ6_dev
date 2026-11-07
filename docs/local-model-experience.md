@@ -316,3 +316,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-08：83原生扩张与498—500计划候选拒绝
 
 [证据](research/baiqi-p6-source83-native-and-goals498500-evidence-2026-11-08.json)。源83/93从82save56冷启，10normalEND14armySKIP+8armyorder，61自走／64到1983／65一次FOUND北京／66grain5/65及save1126483B/hashc8a27cdc4b8fd57466ee4a6e8d26d1612b88fc4b326f0b2dbf4e259c67b4dae7正式reload双上下文保持，全钩nil。当前推荐3不含1983是移动后读回，非派发原子见证；原生窄链与条件软件回归分开。270finance完整读回0error/drop、14civops含FOUND1及SKIP1，745019656来自GameInfo而非枚举；0ret不是success。500globalvisibility错误由Core只读类型证实nil/perplayerfunction，原稿构造即engine拒。498答非任务、499raw8/18且exportmissing，owner私有schema18pass未产品接线；500另有formation2/index/读回缺口均拒。500Nov8canonicalfreshOpenCode1.19.5日检查，无update；498/499调用在Nov7，各日维护不混。累计500465stop32length3transportHTTP530extra30/OpenCode新0/未知null。焦点失败未发Continue，独立UIA focus恢复；4319未资格0CMD，4318新LSQ126再读；cycle56END到57后只读路径错误，补读不重放。
+
+## 2026-11-08：501／502未接线候选与负责人84接管
+
+[证据](research/baiqi-p6-goals501502-source84-evidence-2026-11-08.json)。501helper能编译但Process完全不调用Read/Remember，cleanup是散文，拒绝；502在正确预期tests路径内存运行6项3error／3pass，Python集合当Lua及负数组索引、重建测试没重建，0整稿Native。owner任务混用旧Lua53夹具与5.1要求是准备问题，重写新UI全部Lua51。产品84 owner接通独立schema/Core/Gameplay/UI，30新方法中Core19、Gameplay4、Schema18子案、UI6；full1202pass1SDK环境skip、74Lua51/96zip一致。首次宽hunk错把Forget加在FOUND_RELIGION，直接读回即纠正至确证FOUND_CITY，未安装Native。抽象Controller地图显式假桥，不假扮真实Core集成；后者独立一致几何用例。每日维护复用Nov8task500成功1.19.5缓存，逻辑502467stop32length3transportHTTP532extra30/OpenCode新0/未知null。当前运行83已save66并正式请求exit一次，84尚未Native，Alpha2不改82。

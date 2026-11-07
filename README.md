@@ -148,3 +148,5 @@ python tools\build_mod.py --install
 - [83已选城址连续性修复](docs/testing/baiqi-settler-target-continuity-83.md)：原生推荐变化后继续重检旧目标，9项新增回归／全量1172通过、1环境跳过／93文件包；83尚未安装实测，不含冷读目标持久化。Steam与GitHub Alpha2仍82。
 
 - [83离线实机第二城与存读档](docs/testing/baiqi-settler-continuity-native-83.md)：61出城、64到址、65自主建立北京、66粮仓5/65，正式重载保持；3张原图。人口成本、行军计划持久化及未决恢复仍未闭，公开Alpha2仍82。
+
+- [84独立行军计划持久化](docs/testing/baiqi-settler-goals-persistence-84.md)：读档后恢复提案再重检，30新增软件方法，全量1202通过／1环境跳过、96文件包，尚未安装冷验。旧未决建城与旧档等待FAIL仍保留。

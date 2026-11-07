@@ -13,6 +13,17 @@ function include(name)
   local api=assert(BaiqiSettlementIntentCore.Create(BaiqiConfig,BaiqiSettlementJournal,S,BaiqiSettlementUnitCore,BaiqiSettlementTileCore,E))
   api.version=1;api.marker="baiqi-settlement-intent-v1"
   ExposedMembers=ExposedMembers or {};ExposedMembers.BaiqiSettlementIntentBridge=api
+   -- Controller-only fixtures use abstract plot indices. Proposal bridge
+   -- responses are supplied independently; real storage/schema and consistent
+   -- native geometry are tested in the dedicated goals Core/world contracts.
+   W.goalProposals=W.goalProposals or {}
+   ExposedMembers.BaiqiSettlerGoalsBridge={version=1,marker='baiqi-settler-goals-v1',
+    Read=function(pid,id)return 'READY',W.goalProposals[tostring(id)] end,
+    Remember=function(pid,id,index,x,y)
+      local g={unitID=id,unitType='UNIT_SETTLER',plot=index,x=x,y=y}
+      W.goalProposals[tostring(id)]=g;return 'READY',g
+    end,
+    Forget=function(pid,id)W.goalProposals[tostring(id)]=nil;return 'READY' end}
  end
 end
 Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end,

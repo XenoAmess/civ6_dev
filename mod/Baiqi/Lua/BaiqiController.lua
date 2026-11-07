@@ -380,6 +380,28 @@ local function SettlementBridge(method,...)
   return "UNAVAILABLE",nil,"bridge_error"
 end
 
+local function SettlerGoalBridge(method,...)
+  local b=type(ExposedMembers)=="table"and ExposedMembers.BaiqiSettlerGoalsBridge
+  if type(b)~="table"or getmetatable(b)~=nil or b.version~=1 or b.marker~="baiqi-settler-goals-v1"
+    or type(b[method])~="function"then return "UNAVAILABLE",nil,"bridge" end
+  local ok,s,g,why=pcall(b[method],...)
+  if ok then return s,g,why end
+  return "UNAVAILABLE",nil,"bridge_error"
+end
+
+local function SettlerGoalProposal(goal,id)
+  if type(goal)~="table"or getmetatable(goal)~=nil or not BaiqiSettlementJournal.UnitKey(id)
+    or goal.unitID~=id or goal.unitType~="UNIT_SETTLER"then return false end
+  local allowed={unitID=true,unitType=true,plot=true,x=true,y=true};local n=0
+  for k in pairs(goal)do n=n+1;if n>5 or not allowed[k]then return false end end
+  if n~=5 then return false end
+  for _,k in ipairs({"plot","x","y"})do
+    if not BaiqiSettlementJournal.Integer(goal[k],2147483647)then return false end
+  end
+  local plot=Map.GetPlotByIndex(goal.plot)
+  return plot~=nil and plot:GetIndex()==goal.plot and plot:GetX()==goal.x and plot:GetY()==goal.y and Revealed(plot)
+end
+
 local function SettlementRecord(op,playerID,unitID)
   local J=BaiqiSettlementJournal
   if type(J)~="table" or type(op)~="table" or getmetatable(op)~=nil or op.unitID~=unitID
@@ -2056,6 +2078,12 @@ local function ProcessSettler(ctx, player, state, unit)
   local here = UnitPlot(unit)
   if here==nil then return false end -- Consumed/removed units may remain in a transient collection snapshot.
   local id,key=unit:GetID(),UnitKey(unit)
+  local goalState,goal=SettlerGoalBridge("Read",ctx.player,id)
+  if goalState~="READY"or(goal~=nil and not SettlerGoalProposal(goal,id))then
+    Reason("settler_goal:"..id,"移民等待行军计划读取与资格确认")
+    return false
+  end
+  if goal~=nil then settlementTargets[id]=goal.plot end
   local search=settlerSearches[id]
   if not search or search.player~=ctx.player or search.turn~=turn or search.key~=key then
     search={player=ctx.player,turn=turn,key=key,tested={}}
@@ -2064,9 +2092,13 @@ local function ProcessSettler(ctx, player, state, unit)
   local oldTarget=settlementTargets[id]
   if oldTarget~=nil then
     local oldPlot=Map.GetPlotByIndex(oldTarget)
-    if not oldPlot or KnownExpansionSupport(oldPlot,player,ctx.player)~=true then
+    if not oldPlot or not Revealed(oldPlot)or oldPlot:IsWater()or oldPlot:IsImpassable()
+      or oldPlot:IsCity()or oldPlot:GetFeatureType()~=-1
+      or(oldPlot:GetOwner()~=-1 and oldPlot:GetOwner()~=ctx.player)
+      or KnownExpansionSupport(oldPlot,player,ctx.player)~=true then
       if reservations[oldTarget]==id then reservations[oldTarget]=nil end
       settlementTargets[id]=nil;search.tested[oldTarget]=true
+      SettlerGoalBridge("Forget",ctx.player,id)
     end
   end
   local mayFound=player:GetCities():GetCount()==0 or settlementTargets[id]==here:GetIndex()
@@ -2085,6 +2117,13 @@ local function ProcessSettler(ctx, player, state, unit)
     search.tested[target.index]=true
     local step=PathStep(unit,target.plot,player,state)
     if step then
+      local s,g=SettlerGoalBridge("Remember",ctx.player,id,target.index,target.plot:GetX(),target.plot:GetY())
+      if s~="READY"or not SettlerGoalProposal(g,id)or g.plot~=target.index
+        or g.x~=target.plot:GetX()or g.y~=target.plot:GetY()then
+        settlerSearches[id]=nil
+        Reason("settler_goal:"..id,"移民等待行军计划保存与资格确认")
+        return false
+      end
       reservations[target.index] = id
       settlementTargets[id] = target.index
       settlerSearches[id]=nil
@@ -2982,6 +3021,7 @@ local function ReadBack(player)
           ..(pending.persistent and "|proof=core_durable_empty_site_city_and_consumed_settler|token="..pending.token
             or "|proof=new_owned_city_at_empty_site_and_absent_settler"))
         pendingUnits[unitID]=nil
+        SettlerGoalBridge("Forget",contextID,unitID)
       elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then
         -- Consumption and city creation may reach UI in different callbacks.
         -- Keep this intent across ordinary turns; neither absence nor movement
