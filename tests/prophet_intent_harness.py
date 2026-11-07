@@ -79,7 +79,10 @@ function h.FireBootstrap() for _,fn in ipairs(listeners) do fn() end end
     previous = world.withScientist
     if fresh:
         world.withScientist = False
-    loader = lua.eval('function(source,name,env) local fn,err=load(source,name,"t",env);assert(fn,err);return fn() end')
+    if lua.eval('_VERSION') == 'Lua 5.1':
+        loader = lua.eval('function(source,name,env) local fn,err=loadstring(source,name);assert(fn,err);setfenv(fn,env);return fn() end')
+    else:
+        loader = lua.eval('function(source,name,env) local fn,err=load(source,name,"t",env);assert(fn,err);return fn() end')
     for name in ('BaiqiConfig', 'BaiqiPolicy', 'BaiqiProphetJournal', 'BaiqiProphetIntentGameplay'):
         loader((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'), name, h.core)
     world.withScientist = previous

@@ -158,3 +158,5 @@ python tools\build_mod.py --install
 - [85移民训练扣人口的事件实证](docs/testing/baiqi-settler-population-cost-native-85.md)：实际4→3→4、粮食33→2，解释两帧4→4；自动接续建造者，51正式重载保持，3张原图。只授该成本样本，恢复FAIL／完整40项仍开放。
 
 - [85读取旧ARMED失败档及接口资格](docs/testing/baiqi-armed-upgrade-and-native-api-85.md)：旧日志保留，恢复仍FAIL；宗教四类实际演员为0，权限待验。缺失属性实际0返回，撤回function误读；1张原始实机图。
+
+- [86先知资格修复](docs/testing/baiqi-prophet-ownership-86.md)：原版“拥有先知”含义纠正，17项Lua5.1对照由旧版11失败到修订全过；完整1213通过／1环境跳过，待冷实机。旧LEGACY保护不清除，公开Alpha2仍82。

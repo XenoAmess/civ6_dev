@@ -1,5 +1,5 @@
 local w=TestWorld;local o=w.objects
-w.scientistCharges=0;w.scientistClass=4;w.earnedBeliefs=0;w.foundingUnit=false;w.createdReligion=-1
+w.scientistCharges=0;w.scientistClass=4;w.earnedBeliefs=0;w.foundingUnit=true;w.createdReligion=-1
 local unit=GameInfo.Units[3];unit.UnitType='UNIT_GREAT_PROPHET'
 GameInfo.Units.UNIT_GREAT_PROPHET=unit
 local person=GameInfo.GreatPersonIndividuals[70];person.GreatPersonClassType='GREAT_PERSON_CLASS_PROPHET'

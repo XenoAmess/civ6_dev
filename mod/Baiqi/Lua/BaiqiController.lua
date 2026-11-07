@@ -1806,7 +1806,7 @@ local function ProphetQualification(player)
   local religion=player.GetReligion and player:GetReligion()
   if religion and religion.GetReligionTypeCreated and religion.GetNumBeliefsEarned and religion.HasReligiousFoundingUnit
     and religion:GetReligionTypeCreated()==-1 and religion:GetNumBeliefsEarned()==0
-    and religion:HasReligiousFoundingUnit()==false then return religion end
+    and religion:HasReligiousFoundingUnit()==true then return religion end
 end
 
 local function RequestProphet(unit)
@@ -2904,11 +2904,8 @@ local function ReadBack(player)
       local stage,token=ProphetBridge("Inspect",contextID,unitID)
       local religion=player.GetReligion and player:GetReligion()
       local earned=religion and religion.GetNumBeliefsEarned and religion:GetNumBeliefsEarned() or 0
-      local founding=religion and religion.HasReligiousFoundingUnit and religion:HasReligiousFoundingUnit() or false
-      local created=religion and religion.GetReligionTypeCreated and religion:GetReligionTypeCreated() or -1
       if pending.persistent==true and type(pending.token)=="string" and stage=="OBSERVED" and token==pending.token
-        and BaiqiPolicy.Number(earned) and earned>pending.earned
-        and (founding==true or (BaiqiPolicy.Number(created) and created>=0)) then
+        and BaiqiPolicy.Number(earned) and earned>pending.earned then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=FOUND_RELIGION|proof=bridge_observed_and_earned_qualification")
         pendingUnits[unitID]=nil
       elseif (pending.elapsed or 0)>=C.productionObservationSeconds and not pending.unresolvedLogged then

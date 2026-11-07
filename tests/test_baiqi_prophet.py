@@ -1,7 +1,7 @@
 """Prophet routing and earned qualification require native event plus real state."""
 from pathlib import Path
 import unittest
-from lupa.lua53 import LuaRuntime
+from lupa.lua51 import LuaRuntime
 from prophet_intent_harness import install_prophet_bridge
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,7 +40,7 @@ class ProphetTests(unittest.TestCase):
     def test_consumption_and_actual_earned_state_alone_are_not_confirmation(self):
         self.w.scientistPlot = 43
         self.c.RunNow()
-        self.w.withScientist, self.w.earnedBeliefs, self.w.foundingUnit = False, 2, True
+        self.w.withScientist, self.w.earnedBeliefs, self.w.foundingUnit = False, 2, False
         self.c.Update(3)
         self.assertEqual(self.observed(), [])
         self.w.strategic = False
@@ -60,14 +60,14 @@ class ProphetTests(unittest.TestCase):
         self.w.earnedBeliefs = 2
         self.c.RunNow()
         self.assertEqual(self.observed(), [])
-        self.w.foundingUnit, self.w.withScientist = True, False
+        self.w.foundingUnit, self.w.withScientist = False, False
         self.c.RunNow()
         self.assertEqual(len(self.observed()), 1)
 
     def test_wrong_event_player_full_id_class_and_individual_do_not_confirm(self):
         self.w.scientistPlot = 43
         self.c.RunNow()
-        self.w.earnedBeliefs, self.w.foundingUnit, self.w.withScientist = 2, True, False
+        self.w.earnedBeliefs, self.w.foundingUnit, self.w.withScientist = 2, False, False
         for args in ((8, 4, 4, 70), (7, 65540, 4, 70), (7, 4, 5, 70), (7, 4, 4, 71)):
             self.w.FireActivation(*args)
         self.c.RunNow()
@@ -115,7 +115,7 @@ class ProphetTests(unittest.TestCase):
                 elif case == 'founded':
                     self.w.createdReligion = 1
                 elif case == 'flag':
-                    self.w.foundingUnit = True
+                    self.w.foundingUnit = False
                 else:
                     self.w.rejectFounding = True
                 self.c.RunNow()
@@ -172,7 +172,7 @@ end
         self.lua.execute((ROOT / 'mod/Baiqi/Lua/BaiqiController.lua').read_text(encoding='utf-8'))
         self.c = self.lua.globals().BaiqiController
         self.c.RunNow()
-        self.w.withScientist, self.w.earnedBeliefs, self.w.foundingUnit = False, 2, True
+        self.w.withScientist, self.w.earnedBeliefs, self.w.foundingUnit = False, 2, False
         self.w.FireActivation(7, 4, 4, 70)
         bridge = self.lua.globals().ExposedMembers.BaiqiProphetIntentBridge
         self.assertEqual(bridge.Inspect(7, 4)[0], 'OBSERVED')
@@ -200,6 +200,49 @@ end
                 self.c.RunNow()
                 self.assertEqual(self.found_requests(),[])
                 self.assertNotIn('脚本错误',self.c.GetStatus())
+
+    def test_lost_prophet_ownership_after_durable_grant_holds_armed_without_native_order(self):
+        self.w.scientistPlot = 43
+        self.lua.execute('TestPropBridge.afterWrite=function() TestWorld.foundingUnit=false end')
+        self.c.RunNow()
+        self.assertEqual(self.found_requests(), [])
+        bridge = self.lua.globals().ExposedMembers.BaiqiProphetIntentBridge
+        self.assertEqual(bridge.Inspect(7, 4)[0], 'ARMED')
+        self.c.RunNow()
+        self.assertEqual(self.found_requests(), [])
+
+    def test_unknown_prophet_ownership_never_routes_or_founds(self):
+        for value in (None, 1, 'true'):
+            with self.subTest(value=value):
+                self.setUp()
+                self.w.foundingUnit = value
+                self.c.RunNow()
+                self.assertFalse(any(r.op in (10, 901) for r in self.w.unitRequests.values()))
+
+    def test_other_live_prophet_does_not_hide_correlated_completion(self):
+        self.w.scientistPlot = 43
+        self.c.RunNow()
+        self.assertEqual(len(self.found_requests()), 1)
+        self.lua.execute('''
+local w=TestWorld;local player=w.objects.player
+local original=player:GetUnits();local first=original:FindID(4)
+local second=setmetatable({GetID=function()return 7 end},{__index=first})
+player.GetUnits=function()return{
+  FindID=function(_,id)
+    if id==7 then return second end
+    if id==4 then return w.withScientist and first or nil end
+    return original:FindID(id)
+  end,
+  Members=function()
+    local members={second};if w.withScientist then members[#members+1]=first end
+    return ipairs(members)
+  end}end
+''')
+        self.w.withScientist, self.w.earnedBeliefs, self.w.foundingUnit = False, 2, True
+        self.w.FireActivation(7, 4, 4, 70)
+        self.c.RunNow()
+        self.assertEqual(len(self.observed()), 1)
+        self.assertEqual(len(self.found_requests()), 1)
 
 
 if __name__ == '__main__':
