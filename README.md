@@ -150,3 +150,5 @@ python tools\build_mod.py --install
 - [83离线实机第二城与存读档](docs/testing/baiqi-settler-continuity-native-83.md)：61出城、64到址、65自主建立北京、66粮仓5/65，正式重载保持；3张原图。人口成本、行军计划持久化及未决恢复仍未闭，公开Alpha2仍82。
 
 - [84独立行军计划持久化](docs/testing/baiqi-settler-goals-persistence-84.md)：读档后恢复提案再重检，30新增软件方法，全量1202通过／1环境跳过、96文件包，尚未安装冷验。旧未决建城与旧档等待FAIL仍保留。
+
+- [84真实在途计划／85原生队列守卫](docs/testing/baiqi-settler-queued-goal-85.md)：61真实写入目标1983并正式保存原队列2132，1111447B／1张原图；85软件1210通过／1环境跳过，待冷读同档，不授未决恢复或完整40项。

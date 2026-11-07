@@ -320,3 +320,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-08：501／502未接线候选与负责人84接管
 
 [证据](research/baiqi-p6-goals501502-source84-evidence-2026-11-08.json)。501helper能编译但Process完全不调用Read/Remember，cleanup是散文，拒绝；502在正确预期tests路径内存运行6项3error／3pass，Python集合当Lua及负数组索引、重建测试没重建，0整稿Native。owner任务混用旧Lua53夹具与5.1要求是准备问题，重写新UI全部Lua51。产品84 owner接通独立schema/Core/Gameplay/UI，30新方法中Core19、Gameplay4、Schema18子案、UI6；full1202pass1SDK环境skip、74Lua51/96zip一致。首次宽hunk错把Forget加在FOUND_RELIGION，直接读回即纠正至确证FOUND_CITY，未安装Native。抽象Controller地图显式假桥，不假扮真实Core集成；后者独立一致几何用例。每日维护复用Nov8task500成功1.19.5缓存，逻辑502467stop32length3transportHTTP532extra30/OpenCode新0/未知null。当前运行83已save66并正式请求exit一次，84尚未Native，Alpha2不改82。
+
+## 2026-11-08：503排队负向守卫与84真实目标保存
+
+[证据](research/baiqi-p6-queued-goal503-source85-evidence-2026-11-08.json)。84/96冷原56→61，5normalEND4milSKIP+8军队动作，0civ/domestic/grants/forced；Goalkey初始nil，61actual393216→1983/5926，actor5929/moves1/queued2132，J首都OBS1且无本actorFOUND。4futureExecutor文职ops／6目标path，全部read并Restore；save1111447B/hashd94187488d0599829087b081dee1105c50c37f60a7065e15634820af23159611，未cold。503 raw3anchors都唯一且Lua51compile，existing/qualification负案过、afterCommit仍fakeFOUND1且ARMED，整稿拒并owner补最终native边界。85新8方法通过，84初8方法中6fail/8failure子案，完整1210pass1SDK环境skip/74Lua51/96zip匹配；nilqueue不是全引擎empty授权，保留ARMED不重放。85数据Core与84字节同，计划84save→85cold明确分账。累计503468stop32length3transportHTTP533extra30/OpenCode新0/未知null，canonical复用Nov8维护。

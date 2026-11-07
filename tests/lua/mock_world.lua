@@ -132,6 +132,7 @@ CityManager.RequestCommand=function(c,op,params)
  return false,nil,'tail',nil
 end
 UnitManager={CanStartOperation=function() return true end,RequestOperation=function(u,op,params) W.unitRequests[#W.unitRequests+1]={unit=u:GetID(),op=op,params=params} end}
+UnitManager.GetQueuedDestination=function()return W.queuedDestination end
 UI={GetHeadSelectedCity=function() return nil end,GetHeadSelectedUnit=function() return nil end,
  IsGameCoreBusy=function() return W.busy or false end,IsProcessingMessages=function() return W.processing or false end}
 local function event() return {Add=function() end,Remove=function() end} end

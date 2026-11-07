@@ -509,6 +509,18 @@ local function KnownExpansionSupport(plot,player,playerID)
   return result,reason
 end
 
+-- A known destination, unavailable getter or unknown return shape only blocks
+-- new settler orders. Nil never proves that other engine queues are empty.
+local function SettlerQueueIdle(unit,unitType)
+  if unitType~="UNIT_SETTLER"then return true end
+  local f=UnitManager and UnitManager.GetQueuedDestination
+  if type(f)~="function"then return false end
+  local function Empty(ok,...)
+    return ok and select("#",...)<=1 and (...)==nil
+  end
+  return Empty(pcall(f,unit))
+end
+
 local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   -- Re-read ownership and active player at the write boundary. No takeover flags.
   local freshCtx, freshPlayer, freshState = PlayerContext()
@@ -521,6 +533,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if not allowed or not BaiqiPolicy.ActionAllowed(def.UnitType, operation) then return false, reason end
   local unitID,unitType=unit:GetID(),def.UnitType
   if unitType=="UNIT_SETTLER" and SettlementHeld(unit) then return false,"settlement_receipt_pending" end
+  if not SettlerQueueIdle(unit,unitType)then return false,"native_queue_pending_or_unknown" end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
@@ -591,6 +604,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     founding={unitID=unitID,unitType=unitType,player=latest.player,index=site:GetIndex(),
       x=site:GetX(),y=site:GetY(),empty=true}
   end
+  if not SettlerQueueIdle(unit,unitType)then return false,"native_queue_pending_or_unknown" end
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
@@ -630,6 +644,13 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     unit=fresh
   end
   if origin then pendingUnits[unit:GetID()].origin=origin:GetID();pendingUnits[unit:GetID()].destination=dest:GetID() end
+  if not SettlerQueueIdle(unit,unitType)then
+    -- No native call has occurred here. Only retire this function's unsent,
+    -- nonpersistent proposal; an already committed FOUND stays ARMED.
+    local pending=pendingUnits[unitID]
+    if not founding and pending and pending.id==id and pending.persistent~=true then pendingUnits[unitID]=nil end
+    return false,"native_queue_pending_or_unknown"
+  end
   Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex().."|from="..here:GetIndex())
   if founding then
     local ok=pcall(UnitManager.RequestOperation,unit,action,params)
@@ -664,8 +685,7 @@ local function RequestCivilianStandby(unit)
       or type(UnitManager.GetActivityType)~="function" or not ActivityTypes
       or ActivityTypes.ACTIVITY_AWAKE==nil
       or UnitManager.GetActivityType(fresh)~=ActivityTypes.ACTIVITY_AWAKE then return nil end
-    if unitType=="UNIT_SETTLER" and (type(UnitManager.GetQueuedDestination)~="function"
-      or UnitManager.GetQueuedDestination(fresh)~=nil) then return nil end
+    if not SettlerQueueIdle(fresh,unitType)then return nil end
     return fresh
   end
   local fresh=Eligible()
