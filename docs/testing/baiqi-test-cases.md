@@ -469,3 +469,5 @@
 - [86新局40→66](baiqi-classical-native-86.md)：26normalEND52armySKIP，原版外交提示由TEST_PLAYER回复；自动生产、5改良、寡头四卡及66save/load回读。先知点0／0新先知，激活未触发；被俘提示身份未知、scout伤52，不授安全性或全宗教通过。4原图内嵌，完整40项及恢复FAIL继续。
 
 - [87区域改良与86后续](baiqi-district-improvements-87.md)：TC内政生产补74farm2532原生双资格true却被空地筛选挡；软件9方法旧86／原515各3方法15断言失败，87为0，待87原生排队与地块消耗。TC-019／TC-035仅新增玩家枪兵一次近战、议会原版各1免费票提交／恢复71窄路径，不授全部矩阵或决议效果。74文职清单损失和0先知点仍开放，3原图内嵌。
+
+- [87冷加载至78](baiqi-cold-city-range-87.md)：原版载74/UI-Core保持、4normalEND4armySKIP、2TEST_PLAYERcityrange命令实际伤害10/16；0raw模型Native，不授全军事／地区放置或宗教通过。129未来样本及5snapshot全读撤钩，78保存；后续无野蛮人场景另记，不能回填围城生存验收。
