@@ -162,3 +162,5 @@ python tools\build_mod.py --install
 - [86先知资格修复](docs/testing/baiqi-prophet-ownership-86.md)：原版“拥有先知”含义纠正，17项Lua5.1对照由旧版11失败到修订全过；完整1213通过／1环境跳过，待冷实机。旧LEGACY保护不清除，公开Alpha2仍82。
 
 - [86古典新局实机与4张内嵌图](docs/testing/baiqi-classical-native-86.md)：26普通回合、自动生产／五处改良／寡头四卡及66正式重载已核；先知点0、激活仍未验收，被俘提示与斥候受伤如实记录。公开Alpha2仍82。
+
+- [87区域经济改良修复与86后续3图](docs/testing/baiqi-district-improvements-87.md)：74实机发现合法农场地块被旧筛选排除；修订9项Lua5.1对照通过，完整1222通过／1环境跳过、96文件包待冷实机。玩家近战及议会提交／恢复已补，文职损失与无新先知如实记录。

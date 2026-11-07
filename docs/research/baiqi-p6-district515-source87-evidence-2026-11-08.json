@@ -1,0 +1,505 @@
+{
+  "schema": "civ6.district515-source87/v1",
+  "utc": "2026-11-07T21:13:23.590628+00:00",
+  "date_local": "2026-11-08",
+  "machine_id": "BF-202609141645",
+  "source_version": 87,
+  "last_installed_runtime_version": 86,
+  "published_Alpha2_version": 82,
+  "Native86_bankB": {
+    "turns": [
+      66,
+      74
+    ],
+    "ordinary_END_count": 9,
+    "extra_END70": "First normal action terminal; observed same70 with civilian positions changed and no remaining queued destination; new fresh normal action (no UserForced) reached world congress, votes then actual71.",
+    "test_player_military_SKIPs": 8,
+    "SKIP_types": {
+      "UNIT_SCOUT": 1,
+      "UNIT_SPEARMAN": 7
+    },
+    "test_player_original_melee_commands": 1,
+    "finance": {
+      "samples": 267,
+      "recruit": 254,
+      "city": 2,
+      "unit_op": 11,
+      "unit_cmd": 0,
+      "unit_types": {
+        "UNIT_SETTLER": 8,
+        "UNIT_BUILDER": 3
+      },
+      "indices_read_once": true,
+      "errors": 0,
+      "drops": 0
+    },
+    "prophet": {
+      "samples": 9,
+      "snapshots_only": true,
+      "indices_read_once": true,
+      "errors": 0,
+      "unknown": 0,
+      "drops": 0,
+      "argdrops": 0,
+      "birth_events": 0,
+      "activation_events": 0
+    },
+    "both_observers_restored": true
+  },
+  "test_player_combat": {
+    "actor": 262147,
+    "from": [
+      15,
+      32
+    ],
+    "target": [
+      15,
+      31
+    ],
+    "enemy": [
+      1310739,
+      63,
+      "UNIT_WARRIOR"
+    ],
+    "original_entry": "Civ6Common.MoveUnitToPlot, original WorldInput context",
+    "native_qualification_signature": "CanStartOperation(unit,op,nil,params)",
+    "request_count": 1,
+    "request_return_count": 0,
+    "immediate_readback": "Old positions/moves/damage still shown, no replay",
+    "settled_readback": {
+      "own_moves": 0,
+      "own_damage": 27,
+      "own_position": [
+        15,
+        32
+      ],
+      "enemy_damage_before": 14,
+      "enemy_damage_after": 48
+    },
+    "new_war_requests": 0,
+    "executor_future_samples_at_attack": 0,
+    "limits": "One actual melee command by TEST_PLAYER; no all-military or religious-combat matrix pass"
+  },
+  "world_congress": {
+    "turn": 70,
+    "role": "TEST_PLAYER",
+    "ballots": [
+      [
+        "CITY_DEVELOPMENT_TREATY",
+        "A",
+        1,
+        "DISTRICT_HOLY_SITE"
+      ],
+      [
+        "MILITARY_ADVISORY",
+        "A",
+        1,
+        "PROMOTION_CLASS_ANTI_CAVALRY"
+      ]
+    ],
+    "displayed_total_favor_cost": 0,
+    "reviewed_submit_physical_clicks": 1,
+    "all_six_players_submitted_shown": true,
+    "actual_resumed_turn": 71,
+    "strategic_commands_restored": true,
+    "winner_and_effect_readback": "NOT_VERIFIED",
+    "navigation_limit": "One physical wheel attempt showed no scroll change; original ResolutionScroll:SetScrollValue(1) presentation-only then succeeded. Early next click while incomplete stayed on edit screen, not a duplicate vote submission."
+  },
+  "Native86_actual74": {
+    "city": [
+      65536,
+      "西安",
+      15,
+      32,
+      10
+    ],
+    "gold": 178.5,
+    "units": [
+      [
+        262147,
+        "UNIT_SPEARMAN",
+        15,
+        32,
+        2,
+        0
+      ]
+    ],
+    "queue": "DISTRICT_COMMERCIAL_HUB",
+    "districts_used": 2,
+    "districts_allowed": 4,
+    "campus": {
+      "complete": true,
+      "pillaged": false
+    },
+    "holy_site": {
+      "complete": false,
+      "placed": false,
+      "CanProduce_modes": [
+        true,
+        true
+      ]
+    },
+    "own_purchased_visible_plots": 14,
+    "old_ClearPlot_legal_holy_candidates": 0,
+    "economic_improvement_only_blocked_native_legal_candidates": 1,
+    "witness": {
+      "plot": 2532,
+      "xy": [
+        16,
+        34
+      ],
+      "improvement": "IMPROVEMENT_FARM",
+      "other_old_ClearPlot_protections_pass": true,
+      "native_CanHaveDistrict": true,
+      "native_CityManager_CanStartOperation_BUILD": true
+    },
+    "religion": {
+      "created": -1,
+      "earned": 0,
+      "pantheon": -1,
+      "has_prophet": false,
+      "faith": 5,
+      "prophet_points": 0,
+      "prophet_points_per_turn": 0
+    },
+    "losses": "Scout absent69, settler and latestbuilder absent74; capturednotice shown again. No UnitCaptured exactactor correlation, no secondcity. Not proof all losses caused by this district predicate.",
+    "queue_limit": "Commercial head is not empty and remains untouched. Candidate legality witness does not mean a HolySite was placed or chosen on74."
+  },
+  "source87_change": {
+    "scope": "Only district production plot eligibility and fresh dispatch validation; ClearPlot has one product consumer, ProcessCity district loop.",
+    "allowed_improvement_types": [
+      "IMPROVEMENT_FARM",
+      "IMPROVEMENT_MINE",
+      "IMPROVEMENT_QUARRY",
+      "IMPROVEMENT_PLANTATION",
+      "IMPROVEMENT_PASTURE",
+      "IMPROVEMENT_CAMP",
+      "IMPROVEMENT_LUMBER_MILL"
+    ],
+    "preserved_protection": [
+      "city",
+      "natural_wonder",
+      "national_park",
+      "existing_district",
+      "feature",
+      "visible_resource",
+      "military_improvement",
+      "unknown_improvement_or_metadata"
+    ],
+    "fresh_boundary": "After final normal native eligibility, derive placement plot from exact xy; recheck exact metadata/hash, coordinate identity, owner, nativeCanHaveDistrict and protected predicate immediately before NextRequest.",
+    "preserved": "QueueReady/completedHead/CanProduce/CanStartOperation/budget/score/army/escort/diplomacy/journals/UI unchanged."
+  },
+  "software": {
+    "new_Lua51_test_methods": 9,
+    "baseline86": {
+      "failed_methods": 3,
+      "failure_assertion_records": 15,
+      "errors": 0
+    },
+    "raw515_full": {
+      "all_anchors_unique_and_sequential": [
+        1,
+        1,
+        1
+      ],
+      "Lua51_compile": true,
+      "failed_methods": 3,
+      "failure_assertion_records": 15,
+      "errors": 0
+    },
+    "owner87": {
+      "failed_methods": 0,
+      "failure_assertion_records": 0,
+      "errors": 0
+    },
+    "tests_exercise_actual_Controller_ProcessCity": true,
+    "full_run": 1223,
+    "full_pass": 1222,
+    "full_skip": 1,
+    "full_seconds": 81.311,
+    "skip_reason": "OfficialSteamworks.NET.dll environment path absent; publisher unchanged",
+    "lua51_compiled": 74,
+    "files": 96,
+    "all_package_bytes_match_source": true,
+    "archive_sha256": "e3f06cb2fdaa38e968ec819cb8ce823cd4e5f8aba60fb18802cc1538ce88aa37"
+  },
+  "private_checkpoint74": {
+    "utc": "2026-11-07T21:02:49.733470+00:00",
+    "name": "Baiqi_P6_20261108_V86_LossesAndCongress74.Civ6Save",
+    "bytes": 1154101,
+    "sha256": "7024d35ed777ff78a38bdb02f8fe8144a26717052df4b96be959c4545c940be5",
+    "stable_repeated_read": true,
+    "official_save_ACK": true,
+    "loaded": false,
+    "all_observers_restored_before_save": true,
+    "private_save_committed": false
+  },
+  "models513_515": [
+    {
+      "task": 513,
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 1529,
+        "completion_tokens": 671,
+        "total_tokens": 2200
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "ttft_ms": 438.5125000262633,
+      "total_ms": 5309.739600052126,
+      "canonical_shared_commit": "e70d85581fd10ae366588da2cafb640de6127a21",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "whole_raw_adopted": false,
+        "adoption": "MODIFIED_ANALYSIS_DIRECTION_ONLY",
+        "reused": [
+          "Visible adjacent-only scope",
+          "Qualification distinct from action and combat outcome",
+          "One TEST_PLAYER action then independent actual readback; no unknown replay"
+        ],
+        "rejected": [
+          "Owner!=self and BARBARIAN type do not establish hostility",
+          "Invented UI.GetID wording; actual object:GetID",
+          "Wrong CanStartOperation signature repeated from owner prompt",
+          "Eligibility alone does not mandate action"
+        ],
+        "owner_contract_correction": "Owner supplied wrong(unit,op,params,false) signature. Shipped Civ6Common102..169 proves actual(unit,op,nil,params) and original MOVE modifiers. Supplied source helper lacked qualification implementation; owner error not solely model failure.",
+        "raw_native_executions": 0,
+        "native_plan": "Owner typed inline read: localhumanBaiqi/current66, exactownspearman, sixcityadjacent visible plots only, table bound32, ownDiplomacy:IsAtWarWith; primary originalMoveUnitToPlot once under fresh exactenemy/predicates/noNewWar check.",
+        "actual_result": {
+          "single_request_return_count": 0,
+          "first_immediate_world": "oldstate retained; no replay",
+          "later_settled_world": {
+            "spearman": [
+              262147,
+              15,
+              32,
+              0,
+              27
+            ],
+            "enemy": [
+              1310739,
+              63,
+              "UNIT_WARRIOR",
+              15,
+              31,
+              48
+            ]
+          },
+          "start_spearman_damage": 0,
+          "start_enemy_damage": 14,
+          "new_war_request": 0,
+          "context": "TEST_PLAYER originalWorldInput/Civ6Common, not modBACKGROUND",
+          "executor_future_samples_after_settled_attack": 0
+        },
+        "software_validation": "Lua5.1 compile and independent exactworld preflight/readback; no new product change or duplicated full-suite run",
+        "limitations": [
+          "Single own spearman melee action only, not all military/religiouscombattypes or outcome guarantee",
+          "No exact capturedunit identity or cause inferred"
+        ]
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "task": 514,
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 4627,
+        "completion_tokens": 675,
+        "total_tokens": 5302
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "ttft_ms": 769.4616001099348,
+      "total_ms": 5633.1331001129,
+      "canonical_shared_commit": "e70d85581fd10ae366588da2cafb640de6127a21",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "whole_raw_adopted": false,
+        "raw_native_executions": 0,
+        "rejection": "INCONCLUSIVE verdict is compatible with missing evidence, but HolySite task was answered with Campus, unsupported claim of absent global API, and no actual resource/placement distinction. No score change adopted."
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "task": 515,
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 998,
+        "completion_tokens": 788,
+        "total_tokens": 1786
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "ttft_ms": 404.4905999908224,
+      "total_ms": 5118.593899998814,
+      "canonical_shared_commit": "e70d85581fd10ae366588da2cafb640de6127a21",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "utc": "2026-11-07T21:10:04.694576+00:00",
+        "raw_anchor_counts": [
+          1,
+          1,
+          1
+        ],
+        "sequential_anchor_counts": [
+          1,
+          1,
+          1
+        ],
+        "raw_Lua51_compile": true,
+        "whole_raw_adopted": false,
+        "raw_native_executions": 0,
+        "raw_rejection": "All three anchors unique and sequentially applicable; Lua51 compiles. Two duplicate local FreshValid definitions are never called, depend on undefined HOLY_SITE/BUILD/APPEND and literal parameter keys; improvement names omit IMPROVEMENT_ prefix. Full candidate tested only in isolated Lua51, not Native.",
+        "owner_correction": "Two initial comparison assertions guessed anchor failure without measuring normalized/sequential source; both failed before tests or actions. Actual result: all three anchors uniquely apply in order and compile. Guessed anchor rejection retracted; independent semantic failures retained.",
+        "results": {
+          "baseline86": {
+            "methods_run": 9,
+            "failed_methods": [
+              "test_farm_becomes_military_improvement_during_final_native_validation",
+              "test_protection_changes_after_selection_prevent_actual_dispatch",
+              "test_real_prefixed_economic_types_can_be_replaced"
+            ],
+            "failure_assertion_records": 15,
+            "failures": [
+              "source87_district.DistrictImprovementTests.test_farm_becomes_military_improvement_during_final_native_validation",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.park=true')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.resource=8')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.feature=2')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.owner=8')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.alias=true')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.noPlacement=true')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='GameInfo.Districts[777]=nil')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='FARM')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='MINE')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='QUARRY')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='PLANTATION')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='PASTURE')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='CAMP')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='LUMBER_MILL')"
+            ],
+            "errors": [],
+            "source_sha256": "32ab5082109737a2b16f56ebbf62ca08b298b79d0b5b90a92aec2f30add439e1"
+          },
+          "raw515_full": {
+            "methods_run": 9,
+            "failed_methods": [
+              "test_farm_becomes_military_improvement_during_final_native_validation",
+              "test_protection_changes_after_selection_prevent_actual_dispatch",
+              "test_real_prefixed_economic_types_can_be_replaced"
+            ],
+            "failure_assertion_records": 15,
+            "failures": [
+              "source87_district.DistrictImprovementTests.test_farm_becomes_military_improvement_during_final_native_validation",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.park=true')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.resource=8')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.feature=2')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.owner=8')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.alias=true')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='w.noPlacement=true')",
+              "source87_district.DistrictImprovementTests.test_protection_changes_after_selection_prevent_actual_dispatch (change='GameInfo.Districts[777]=nil')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='FARM')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='MINE')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='QUARRY')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='PLANTATION')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='PASTURE')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='CAMP')",
+              "source87_district.DistrictImprovementTests.test_real_prefixed_economic_types_can_be_replaced (kind='LUMBER_MILL')"
+            ],
+            "errors": [],
+            "source_sha256": "1c67ea1009384d744a6c0b448f3e60bea900a9bf139ad36baf2c7b436486a0af"
+          },
+          "owner87": {
+            "methods_run": 9,
+            "failed_methods": [],
+            "failure_assertion_records": 0,
+            "failures": [],
+            "errors": [],
+            "source_sha256": "85fc6086874f0392ef89bc8de3e1c14319e3789690a2ee123cd71b4863cc5a09"
+          }
+        }
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    }
+  ],
+  "cumulative_through515": {
+    "logical_tasks": 515,
+    "complete_stop_valid": 480,
+    "length": 32,
+    "final_transport_failures": 3,
+    "http_attempts": 545,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "daily_maintenance": "Canonical HTTP reused successful Nov8 samehost/user1.19.5 maintenance cache;0new OpenCode-native generation",
+  "owner_QA_corrections": [
+    "513prompt gave wrong qualification signature, corrected against actual Civ6Common; no wrong-signature game order issued.",
+    "Readonly plot diagnostic initially treated false resourceRow as nonnil and errored before actions; v2normalizes no-resource to nil, actual14plots read.",
+    "515comparison twice assumed bad anchors without measuring, failed before test/action. Actual all3anchors apply in order and compile; rejection is semantic, not anchor or syntax failure."
+  ],
+  "screenshots": [
+    {
+      "path": "docs/testing/media/source87-district/01-player-combat66.png",
+      "sha256": "bce3c86ada76f691fc0e61c64e82b3799fdac7a606cd9145ea497ff00232bfe3",
+      "caption": "TEST_PLAYER原版枪兵近城攻击后，实际伤害随后独立读回；不是BACKGROUND军令。",
+      "kind": "UNEDITED_OWNED_NATIVE_SCREENSHOT",
+      "ai_generated": false
+    },
+    {
+      "path": "docs/testing/media/source87-district/02-congress-review70.png",
+      "sha256": "2349792b3277dbaddcdc79b4471edc3028bcf8b77c533350ad6ff6d2316037af",
+      "caption": "TEST_PLAYER在原版议会核对圣地与抗骑兵两项A各1票、总花费0；随后提交一次并恢复71。选票不是最终获胜效果证明。",
+      "kind": "UNEDITED_OWNED_NATIVE_SCREENSHOT",
+      "ai_generated": false
+    },
+    {
+      "path": "docs/testing/media/source87-district/03-losses74.png",
+      "sha256": "e9b5b87f2dfb7afe402ffe42002599fd99f9c2c235327db34687f4b007503423",
+      "caption": "74再次保留被俘提示，自有单位清单只剩枪兵，城市10人口；被俘演员ID仍未由事件精确关联。",
+      "kind": "UNEDITED_OWNED_NATIVE_SCREENSHOT",
+      "ai_generated": false
+    }
+  ],
+  "private_raw_sha256": {
+    "military513-primary-common-source.txt": "4327ff0f600dcba552f71822cb6b3fdcf6631e896ef6079cbaada84651252061",
+    "military513-read-initial66-response.json": "e482f30c35e8fbfc5d05ed14fa872416fb590398f6a1c913b55f3e3568ca4800",
+    "military513-test-player-attack66-response.json": "0492c1f7e12a5e4ad836a01c7cd05fa2c7fe7a2a9bb9381cdf514250e91a8932",
+    "military513-read-settled-attack66-response.json": "1231f936b889fd13734ca55b39f64199171bd558a1564bf46c32b39feee5c44f",
+    "source86b-finance-read-after-attack66-response.json": "2987a78c222658a1bcd3f7c465f61f007486fc745d5fd682a5a6ff57173ec03f",
+    "source86-ready-after-congress71-response.json": "b593be5a64b23b31d7647eb8b8afd1955c32f5ad59fc564096beaaadb61e09f3",
+    "source86-bankb74-audit.json": "06559a964d21333b901fb848ac170662da6309802bad7e8e690736ac3499b981",
+    "source86-firstworld-ui-normal74-response.json": "1ae96edcc18711957acd9be717458e88d5418bdfb6407a23c2b46dc609ea8d03",
+    "source86-districts-normal74-response.json": "7fe5ecb7a339527f4fe95b5c0be8c0e83d16adadf67d073d35223134458eaadb",
+    "source86-holy-sites-normal74v2-response.json": "56905932d952b82aa074cc73026b0516fa83464569327172f082b7e85b7233e3",
+    "source86-save74-response.json": "2973d2895e0143ce03ca6db06103605bd95df59a473fd72cbc854a6019d4e49d",
+    "source86-save74-ack.json": "a80c5f4be9ccf85a81ca0894868a6aa8b450cbdce25395f9d246db847293edf9",
+    "source87-tests-focused-result.json": "ff2bc1d157cd9231f988712447e1de276c67bde1f21cb78196990e92545af7ea",
+    "source87-tests-full-result.json": "b0f975e26b7b1bf8ef25c01cd4201667e4fb79130a5cad641ccc83a15c3ce94b",
+    "source87-tests-full-0.log": "addc8c9d682cd73f9625d134b8aecd94e24b3cfa3d87d57210c06ad31b64f459",
+    "source87-compile-package-result.json": "9dc80c589621987d855d49eade0795ca49e34515b0019f7c308eaf782565cc17",
+    "district515-owner-scope-review.json": "74af158b2af5ea357cb03020c8966046681e909de3433f1e748fbfd811e4b2e2"
+  },
+  "limits": [
+    "Source87 software only at this recording point, not installed or Native validated.",
+    "No new prophet; source86 activation fix still lacks fresh Native positive actor.",
+    "Capturednotice and inventoryloss risks remain; exactactors/causes not fabricated.",
+    "No final Congress resolution effect readback; narrow player UI submit/resume only.",
+    "ARMED/legacy recoveryFAIL/full40TC/performance/longterm quality remainOPEN.",
+    "0Steamonline/upload;publicAlpha2still82/12images."
+  ]
+}
