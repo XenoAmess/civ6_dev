@@ -2,7 +2,7 @@
 
 当前开发与实机82。新增[新局自然移民／危险路线／3图与56正式重载](docs/testing/baiqi-newgame-natural-settler-and-path-wait-82.md)；完整40项仍未通过。
 
-[Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam尚未同步**，实际工坊最后核验仍Alpha1内部74／7图；上传前须确认其他设备无人游戏。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
+[Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 
 - [82全新开局首都与两张实机图](docs/testing/baiqi-newgame-first-capital-82.md)：false新局标志、自动建西安、纪念碑0→4/60及第2回合正式重载窄通过。中途保存续建与旧档扩张缺口仍在，工坊Alpha74未更新。
 
@@ -38,7 +38,7 @@
 
 **公开Alpha：** [v0.1.0-alpha.1下载](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.1)，内部构建74。先读[安装与真实实机图](docs/releases/v0.1.0-alpha.1/README.zh-CN.md)和[已知问题／未验收风险](docs/releases/v0.1.0-alpha.1/KNOWN_ISSUES.zh-CN.md)。这是预发布版，建议独立新局，不承诺长期主档可靠性。
 
-**Steam工坊：** [白绮 Alpha 1](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)已公开，介绍按实际玩法重写，7张真实实机图已内嵌正文，宣传封面与已知风险另有标注。[图文／BBCode／上传源码](docs/workshop/v0.1.0-alpha.1/README.md)及[发布回执](docs/workshop/v0.1.0-alpha.1/publication-status.json)已入库；实际工坊下载的87个文件与Alpha哈希一致。上传前检查账号占用，禁止顶号。
+**Steam工坊：** [白绮 Alpha 2](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)已公开，12张真实实机图已内嵌正文，新封面与恢复风险明确标注。[图文／BBCode／上传源码](docs/workshop/v0.1.0-alpha.2/README.md)及[发布回执](docs/workshop/v0.1.0-alpha.2/publication-status.json)已入库；实际工坊下载的93个文件与82版pin一致。上传前检查账号占用，禁止顶号。
 
 白绮接管研究、政策、排产、建设和移民扩张。你用手头的军队和国库处理前线，决定外交，并结束回合；城市可以查看，但没有临时接管。
 

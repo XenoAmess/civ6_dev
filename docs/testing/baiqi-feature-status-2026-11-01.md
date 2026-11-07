@@ -1,6 +1,6 @@
 # 白绮全功能状态及更新：2026-11-07（北京时间）
 
-当前源码／安装／实机82，工坊Alpha74；40项尚未全验，82仍不能标稳定版。
+当前源码／安装／最近实机82，工坊已同步Alpha2内部82／12图，93文件下载逐项核对；40项尚未全验，82仍不能标稳定版。
 
 本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。
 

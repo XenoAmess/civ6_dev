@@ -304,3 +304,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-07：493／494发布文案候选按图和世界身份复核
 
 [Alpha2准备证据](research/baiqi-p6-alpha2-493494-offline-preparation-evidence-2026-11-07.json)。两候选均stop/DONE/VALID，4938181tokens/TTFT1.5821299秒/总14.6315424秒，4947793tokens/1.8813511秒/12.8981036秒，均0retry。真实并行2。493错图注（18图叫14、38farm讲44/45、51图讲56），494把14城ARMED-save QA误叫新局且复制任务指令到notes，均不整稿采用；owner重写并按原PNG/Native证据修。12图=新82局5+历史7，BBCode5248B，本地93文件/ZIP逐项一致hasha1f8be6e2dd5ebccf2300caabd9e1aeebc84dec7f737ef8e72044e6d1dc1ff16。封面builtin imagegen edit原图与prompt公开，JPEG仅格式/尺寸转换，非实机。跨page意图日志新回归后15工具method/20managedcases通过，0Publisher.Main/API。累计494459stop32length3transportHTTP524extra30/OpenCode新0未知null；每日维护复用Nov7同机同用户00:36成功1.19.5。缺fresh占用状态，async问题待答，0联网上传、工坊lastverified74。
+
+## 2026-11-07：Alpha2发布执行不是新增模型能力
+
+[回执](workshop/v0.1.0-alpha.2/publication-evidence.json)：8个官方SDK发布器进程（7创建端上下文、1消费端），5次图库追加＋1次内容更新均OK，无Create／自动重放；12张真实正文HTMLimg与全部图像／新封面哈希、93文件实际下载通过。先取得本轮人工无人报告，不伪装API检测。模式物理操作ACK未生效，保留当前在线读回；正常Exit/普通重启后，正式Invoke＋14904实例新鲜GoOnline只读才授offline，原因未知不猜DPI。自有游戏已保存64后退出无UI残留超180秒才单独terminate，不能称clean正常退出，Steam0terminate。此执行0新HTTP／OpenCode任务，逻辑累计仍494／459stop／32length／3transport／HTTP524extra30，未知成本null，不能把SDK成功或软件15方法授40项实机。
