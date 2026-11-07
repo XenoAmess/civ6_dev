@@ -324,3 +324,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-08：503排队负向守卫与84真实目标保存
 
 [证据](research/baiqi-p6-queued-goal503-source85-evidence-2026-11-08.json)。84/96冷原56→61，5normalEND4milSKIP+8军队动作，0civ/domestic/grants/forced；Goalkey初始nil，61actual393216→1983/5926，actor5929/moves1/queued2132，J首都OBS1且无本actorFOUND。4futureExecutor文职ops／6目标path，全部read并Restore；save1111447B/hashd94187488d0599829087b081dee1105c50c37f60a7065e15634820af23159611，未cold。503 raw3anchors都唯一且Lua51compile，existing/qualification负案过、afterCommit仍fakeFOUND1且ARMED，整稿拒并owner补最终native边界。85新8方法通过，84初8方法中6fail/8failure子案，完整1210pass1SDK环境skip/74Lua51/96zip匹配；nilqueue不是全引擎empty授权，保留ARMED不重放。85数据Core与84字节同，计划84save→85cold明确分账。累计503468stop32length3transportHTTP533extra30/OpenCode新0/未知null，canonical复用Nov8维护。
+
+## 2026-11-08：85冷读计划到建城；504被隔离反例拒绝
+
+[证据](research/baiqi-p6-source85-native-and-population504-evidence-2026-11-08.json)。84queued61正式档由85冷读，原2132与goal1983均保持；未来观察窗口旧queue期间0settler请求，63／64自行到5927／5926，65一次FOUND北京及清goal，66粮仓5/65，正式save1126552B/hash0f7511f8233dc41f3b6bf9a8db10c80bd5815508bb4fd9f4b868383a58aa76c9、重载UI/Core／空嵌套goal保持、钩nil。266样本全读一次、3目标path、0error/drop。UI未载Core纯schema的预检失败发生于saveflag前，修UI形状检查另立v2后只Save一次；加载中glyph未匹配0input、LSQ超时0CMD，后来Continue一次／126contexts新资格。504使用真实原版事件片段仍local函数自影导致0注册却打印installed，发明Players.GetLocalPlayer、colon无self、参数无n、外方args先记录，Lua51compile不代表运行有效；隔离snapshotnil，拒0Native。累计504469stop32length3transportHTTP534extra30/OpenCode新0/未知null；canonical复用Nov8维护1.19.5缓存。

@@ -1,0 +1,274 @@
+{
+  "schema": "civ6.source85-native-population504/v1",
+  "utc": "2026-11-07T18:13:43.401828+00:00",
+  "date_local": "2026-11-08",
+  "machine_id": "BF-202609141645",
+  "product_source_commit": "cfd24ce7ca9193c8dba7f0d31af438dbbc16245a",
+  "source_install_runtime_version": 85,
+  "files": 96,
+  "product_changes_this_package": 0,
+  "published_Alpha2_build": 82,
+  "owned_runtime": {
+    "pid": 24476,
+    "birth": 1794073221.401719,
+    "endpoint_port": 4318,
+    "contexts": 126,
+    "offline_proof_utc": "2026-11-07T17:40:21.394261+00:00",
+    "proof_age_seconds": 0.00456,
+    "online_switches": 0,
+    "other_games_terminated": 0
+  },
+  "native": {
+    "input_save": {
+      "writer_version": 84,
+      "reader_version": 85,
+      "bytes": 1111447,
+      "sha256": "d94187488d0599829087b081dee1105c50c37f60a7065e15634820af23159611"
+    },
+    "cold61": {
+      "settler": 393216,
+      "xy": [
+        59,
+        29
+      ],
+      "moves": 1,
+      "native_queued_destination": 2132,
+      "persisted_goal": [
+        1983,
+        59,
+        26
+      ],
+      "map": [
+        74,
+        46
+      ],
+      "found_journal": "Originalcapital OBSERVEDserial1 only; no393216FOUND entry."
+    },
+    "queue_return_shape": {
+      "queued": "exactly1value/number2132",
+      "idle": "exactly1value/nil",
+      "qualification_only": "Own actors read-only; nil is not an engine/network-wide-empty proof."
+    },
+    "TEST_PLAYER_inputs": {
+      "ordinary_END": 5,
+      "military_SKIP": 10,
+      "manual_civilian_or_domestic": 0,
+      "forced_END": 0,
+      "grants": 0,
+      "reveal": 0,
+      "military_combat": 0,
+      "war_declarations": 0
+    },
+    "sequence": [
+      {
+        "turn": 62,
+        "early": "Actual59,29/moves2/queued2132; same goal1983; no settler request observed in future Executor scope."
+      },
+      {
+        "turn": 63,
+        "settler_xy": [
+          59,
+          27
+        ],
+        "moves": 0,
+        "goal": 1983
+      },
+      {
+        "turn": 64,
+        "settler_xy": [
+          59,
+          26
+        ],
+        "moves": 0,
+        "goal": 1983
+      },
+      {
+        "turn": 65,
+        "new_city": [
+          131073,
+          "北京",
+          59,
+          26
+        ],
+        "own_cities": 2,
+        "gold": 243,
+        "population": 1,
+        "granary_progress": 0,
+        "granary_cost": 65,
+        "goal_records": 0,
+        "journal": "393216 OBSERVED settle:0:2 request0:65:10 city131073; serial2"
+      },
+      {
+        "turn": 66,
+        "own_cities": 2,
+        "gold": 248,
+        "population": [
+          4,
+          1
+        ],
+        "capital_granary_progress": 38,
+        "new_granary_progress": 5,
+        "granary_cost": 65,
+        "goal_records": 0
+      }
+    ],
+    "observer_scope": "Installed after startup at61; only future original Executor calls covered, no preinstallation/global-zero claim. No extra query or orders.",
+    "finance": {
+      "recruit": 254,
+      "city": 2,
+      "unit_op": 10,
+      "unit_cmd": 0,
+      "samples": 266,
+      "all_indices_read_exactly_once": true,
+      "errors": 0,
+      "drops": 0,
+      "military_in_Executor_scope": 0,
+      "FOUND_CITY_requests": 1,
+      "settler_SKIP_requests": 1,
+      "native_request_returns": 0,
+      "return_true_means": "pcall did not throw; not native success bool"
+    },
+    "path": {
+      "all_calls": 6,
+      "intended_settler_samples": 3,
+      "path_lengths": [
+        4,
+        3,
+        2
+      ],
+      "errors": 0,
+      "drops": 0
+    },
+    "save_reload": {
+      "writer_version": 85,
+      "reader_version": 85,
+      "bytes": 1126552,
+      "sha256": "0f7511f8233dc41f3b6bf9a8db10c80bd5815508bb4fd9f4b868383a58aa76c9",
+      "official_save_ack": true,
+      "official_load_ack": true,
+      "actual_UI_and_Core_verified": true,
+      "empty_nested_goal_table_survived": true,
+      "all_observers_restored_before_save_and_nil_after_reload": true,
+      "private_save_committed": false
+    },
+    "owner_corrections": [
+      "Initial preflight wrongly assumed Core-only BaiqiSettlerGoals was available in UI: terminal error before save flag/native SaveGame, read confirmed flag nil and empty actual table. Original intent preserved; corrected UI-only shape check used distinct v2 intent; exactly one SaveGame called.",
+      "Load screen still loading: Continue glyph checks sent0input, LSQ timed out sent0CMD. Later fresh reviewed glyph matched and Continue pressedonce; new126context qualification then world read."
+    ],
+    "verdict": "Narrow PASS84saved real queued proposal→85coldload→ordinary movement/found→goal cleanup→newcityproduction→85completed-state save/reload. No full40TC or unresolved-FOUND replay approval."
+  },
+  "model504": {
+    "task": 504,
+    "http_attempts": 1,
+    "usage": {
+      "prompt_tokens": 3559,
+      "completion_tokens": 1470,
+      "total_tokens": 5029
+    },
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "ttft_ms": 669.610399985686,
+    "total_ms": 9875.731399981305,
+    "shared_commit": "8099403e799694180631b470e3ab27561e73ba80",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "raw_lua51_compile": true,
+      "raw_native_executions": 0,
+      "candidate_adoption": "REJECTED",
+      "isolated_actual_consumer_api": {
+        "registered_callbacks": 0,
+        "removed_callbacks": 0,
+        "diagnostic_global_type": "nil",
+        "printed_success": "P6Population504 installed",
+        "snapshot": null
+      },
+      "findings": [
+        "Local P6Population504 is assigned the installer function, so its nonnil guard immediately returns; prints installed with zero event registrations and no diagnostic global.",
+        "Invents Players.GetLocalPlayer, unlike supplied Game.GetLocalPlayer; colon-method getters called without self. Snapshot returnsnil against supplied API shape.",
+        "No explicit vararg n, so nil holes/trailing nil are not preserved. Unfiltered foreign event args still appended before snapshot filtering.",
+        "Unit birth does not attach capital food/pop snapshot; inaccessible local records/counters, missing bounded turn guard and ownership-safe exposed object.",
+        "growth.GetFood indexing and unitObj.GetUnitType invocation can throw outside the safe-call function."
+      ],
+      "owner_followup": "Build bounded passive observer from actual Game/Players/city/event contracts; isolate meaningful callback/restore/nil-hole/foreign-filter tests before Native."
+    },
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through504": {
+    "logical_tasks": 504,
+    "complete_stop_valid": 469,
+    "length": 32,
+    "final_transport_failures": 3,
+    "http_attempts": 534,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "daily_maintenance": "Canonical shared caller reused same-machine/user Nov8 successful1.19.5 OpenCode daily preflight cache before HTTP; native OpenCode generation0.",
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/source85/loaded61.png",
+      "sha256": "6ad0f76d85c2d91dc7585501aae46a9758053402e5dca4a96b391e38762fce60",
+      "altered": false,
+      "source_version": 85
+    },
+    {
+      "path": "docs/testing/screenshots/source85/founded65.png",
+      "sha256": "058885fbe16522d310708cee16ac81d7318aa7ede1711106ef664e8465842acd",
+      "altered": false,
+      "source_version": 85
+    },
+    {
+      "path": "docs/testing/screenshots/source85/reloaded66.png",
+      "sha256": "88a6156917d44aa7d443d96d26146ad442aa26746afec8c1d570cc86f4cff444",
+      "altered": false,
+      "source_version": 85
+    }
+  ],
+  "private_raw_sha256": {
+    "source85-install-result.json": "b462bc09ab193503e4a4f52e4559bea6a4d4e48b01aae5597bc5ad096dd53353",
+    "source85-queued503-cold-launch-receipt.json": "2897171c7e7805f0f7edf7eee8cddd2a3dfdb9f1dd2b222be281719c80b709de",
+    "source85-cold-load61-response.json": "b63be2bc40cb03ad309112b68e17c67872ef32986eb260803c2c8b56903b3f32",
+    "source85-queue-shape61-response.json": "df044b8b6731b29a8ec1e80308a816c6916219dac8c39e29359455f124345dbd",
+    "source85-goal-read-loaded61-response.json": "5ae6a87c6c0a50516288c1a1d6c2f1e2fd2ad4853a2e81d78096261cc380df1d",
+    "source85-goal-read-after-end62-response.json": "b9a36be15f707f7946e93b0745bf00b8c14cf1d3229c850541c557e44a4f1876",
+    "source85-goal-read-at63-response.json": "f33013361c56e3222d1c48751e89b4b1677a46b4063fbfc95c6884eb34f66fce",
+    "source85-goal-read-at64-response.json": "76f103446d4d0c2dba7cc4581dbc1a7a134c6fd8b929074fe1c5feb1fbd1e8fc",
+    "source85-goal-read-founded65-response.json": "ac83cda532477bb329a0118bed9a11a27da5d3badfd0e823d78bd71aa522ce67",
+    "source85-goal-read-production66-response.json": "dceb48575cc764b51112ca5d66bb093b13124037b3e754771798730589c4c589",
+    "source85-goal-read-reloaded66-response.json": "ac620de96261e0e309dc0f860b3bd38c6b3fa64d243085dd067275dbf9ced542",
+    "source85-finance-read-before-end61-response.json": "0efe011dcbd83f3c2382b2daff533cb423a3efb83c2d55aeab7a9edc12032d9a",
+    "source85-finance-read-at62-response.json": "ef6eee6d4c266220592d547eb5e143b251369bfcb7fec2a24e03386a84e7b43c",
+    "source85-finance-read-at63-response.json": "3d976d1c5cd6d6f7636625af347539fc38203895501ba16832eeccc079d91059",
+    "source85-finance-read-founded65-response.json": "508ab39742eb4c124285edcfbad5ce906e454ad2a923ce41e40b52e67f920901",
+    "source85-finance-read-production66-response.json": "3b7947114e96b4a5d1f27b751a87c5ebe0f3780f20c68061b2ff00e71e99f56b",
+    "source85-finance-cleanup-completed66-response.json": "0fea9cc5b7bd6857a430b142ad9086628a3a0c29269f3aedb0ebf086ce1a4b0d",
+    "source85-path-cleanup-completed66-response.json": "24ec5f87d6e9d64839c8e2b2305fe5b07987ebd6f3e24183f2f32c07a39f43ed",
+    "threat484-ui-source85-founded65-response.json": "4b959708837d02ff4b521fe9135e3f25d4e57c81cd14df129585fdd7b9a04bf1",
+    "threat484-core-source85-founded65-response.json": "64ec5cba29c8cc7522026c54aed30333aca44fb6a7270084805551d490ec3cfb",
+    "threat484-ui-source85-production66-response.json": "ce983a1ebf7f11473ca9b3d98f1e53910811dd8a88c4b6ea13c9b5febd962b74",
+    "source85-save66-preflight-failure-read-response.json": "5729499bf47f819d5dce0382ccd28f33d2b46e8b1e59042b7afa195fb6763dd5",
+    "source85-save66v2-response.json": "1a32cb39e4864edcccc259424ad3b97624257ffd548b2807129a08308b340247",
+    "source85-save66v2-ack.json": "e5daad072ba8b56eaba3283dee4329c241d21ee9d7da58bde3ac324c3d9b0f54",
+    "source85-load66-response.json": "3d7b6edb7d132aac1c3e398aa0fce44075e65a95390bafad7ced21407d302335",
+    "source85-final-reload66-response.json": "53fe20f79981e5cf1a3afbc07c1888c256ddbdca6008a36f16d04e879f8e7d5c",
+    "threat484-ui-source85-reloaded66-response.json": "6bcaa4ff46a34840cc5993306a99aed15e8f1661693e07b2d05f971e1c6d97a0",
+    "threat484-core-source85-reloaded66-response.json": "45de2179c9367b3da40dc16201b21a35cb0da08ef9003dd4d4999294c6ba9303",
+    "population504-primary-api-index.txt": "0fc3ca13881df2e9d63c15aa6197781b47bf2e9f759bd5f39f05d2549213fff7",
+    "population504-primary-source.txt": "ce054262e122373855466f833312c43bed1f3da48571cd592e3e09fc6845f1eb",
+    "population504-owner-scope-review.json": "014adfa23a4409ebeb8f42818ca47aa455b122f7dd6f4984e081202fab0f9d94",
+    "population504-caller.log": "b49ba5ee3bf62aaf9e8e48f379b9c06a87fadb3110507fd4b40ae01fdcdab44d"
+  },
+  "limitations": [
+    "Population cost of this first natural settler remains unknown.504rawobserver rejected,0Nativeexecutions.",
+    "ARMEDmid-save recovery and legacy migration waiting FAIL remain open.",
+    "No automatic replay/cancel of unknown pending operations; nilqueuedestination alone is not authorization.",
+    "Full40TC, long-run city quality and all production/religion/army/UI matrices remain incomplete.",
+    "Source85 is not the published Alpha2 build82; no Steam upload in this QA package."
+  ]
+}
