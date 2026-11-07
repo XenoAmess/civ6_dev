@@ -272,3 +272,9 @@ Source82同一新局普通2→18、16军事SKIP＋16END，11首次HasMining真�
 [公开证据](research/baiqi-p6-production482-standby-and-first-units-evidence-2026-11-07.json)。482stop/DONE/VALID，52083+1215=53298tokens，TTFT6.80614秒／总16.290719秒、0retry。四项源码判断保留窄事实、拒绝普遍无恢复缺口／无死锁保证；-1000仍是可选候选，CompletedIdleHead不资格项目，UnitCountChanged是handler而实际订阅UnitAddedToMap/RemovedFromMap，未决replacement分支仍会保留。0产品patch／raw0Native，不拿源码推断Native项目完工。
 
 已测finance观察器10项重跑通过，Lua51编译后19绑定、33精确恢复；383招募+3城请求+6文职op=392／0error-drop。实际22排builder、26进38/50、27进46/50、28出生接slinger、32军队出现、33原位；15普通END16军队SKIP，无文职／人工资源。builder仍在城内、3劳动力、10自有plot无改良，东侧可见蛮族，未授建设或完整原因。1017948Bsave SHAbe1c1596228d62a1b2f2d2b1fa79c40e163a29e5ff62eb0ad778f48acaf10ded loadContinue三单位/城/金币/项目保持。2原图。CMD空格regex只读检索失误已纠；continue ignoredhelper误删行在运行前读回恢复；loading一次LSQ拒连接0CMD，不重放load。累计482/449/30/3 HTTP512extra30/OpenCode新0/unknownnull，源码82未改1153不重跑／Steam0online-uploadAlpha74。
+
+## 2026-11-07：483推荐非空与当前安全拒绝条件
+
+[原生事实](research/baiqi-p6-builder483-threat-wait-evidence-2026-11-07.json)：当前33builder原生3条recommendation，2205/2281/2353均自有revealed/visible；首都radius2的19geometrycells只读可见普通+宗教层，3敌unit均owner63/atwartrue/distance2，位置61,31勇士、61,29scout、62,30蛮族骑射。源码原地work需Safe(here)，路线含origin逐项Safe，条件匹配；未调用privateSafe/Planner，也未证明分支全trace／清敌恢复／实际改良。0游戏orders/hooks/propertywrites，复用482两图但不计新图，当前已reload33不变。
+
+483stop/DONE/VALID，1565+1541=3106tokens、TTFT0.5017968秒／总9.7810995秒，0retry。Raw compile却把GetLocalPlayer数字当对象，编GetHuman/GetLeader、缺pcall、purchased按unique而非raw计上限、Inf坐标等；27中24fail并非24种独立bug，前置错误遮蔽，0Native/0整稿采用。Owner独立reader27Lua51pass后实际KNOWN3非空。累计483/450/30/3 HTTP513extra30/OpenCode新0未知null；产品82未改1153不重跑，Steam0online-uploadAlpha74。

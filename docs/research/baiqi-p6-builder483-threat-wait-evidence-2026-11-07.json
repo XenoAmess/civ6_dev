@@ -1,0 +1,372 @@
+{
+  "schema": "civ6.builder483-threat-wait/v1",
+  "utc": "2026-11-07T09:55:57.250708+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "product_changes": 0,
+  "native": {
+    "world": "Same officially reloaded newgame33; prior save1017948B/hashbe1c1596228d62a1b2f2d2b1fa79c40e163a29e5ff62eb0ad778f48acaf10ded. No game orders in483.",
+    "builder": {
+      "id": 196608,
+      "position": [
+        60,
+        30
+      ],
+      "moves": 2,
+      "charges_UI_previous_package": 3
+    },
+    "original_recommendations": {
+      "status": "KNOWN",
+      "raw_count": 3,
+      "non_owned_count": 0,
+      "owned_targets": [
+        {
+          "plotIndex": 2205,
+          "x": 59,
+          "y": 29,
+          "revealed": true,
+          "visible": true
+        },
+        {
+          "plotIndex": 2281,
+          "x": 61,
+          "y": 30,
+          "revealed": true,
+          "visible": true
+        },
+        {
+          "plotIndex": 2353,
+          "x": 59,
+          "y": 31,
+          "revealed": true,
+          "visible": true
+        }
+      ],
+      "getter": "city:GetCityAI():GetImprovementRecommendationsForBuilder(unit:GetComponentID())",
+      "private_planner_calls": 0
+    },
+    "current_plot_threat_inputs": {
+      "radius": 2,
+      "unique_geometry_cells": 19,
+      "visible_foreign_at_war": 3,
+      "units": [
+        {
+          "plotIndex": 2355,
+          "x": 61,
+          "y": 31,
+          "unitID": 3014699,
+          "owner": 63,
+          "unitType": "UNIT_WARRIOR",
+          "atWar": true,
+          "distance": 2
+        },
+        {
+          "plotIndex": 2207,
+          "x": 61,
+          "y": 29,
+          "unitID": 1835035,
+          "owner": 63,
+          "unitType": "UNIT_SCOUT",
+          "atWar": true,
+          "distance": 2
+        },
+        {
+          "plotIndex": 2282,
+          "x": 62,
+          "y": 30,
+          "unitID": 3866672,
+          "owner": 63,
+          "unitType": "UNIT_BARBARIAN_HORSE_ARCHER",
+          "atWar": true,
+          "distance": 2
+        }
+      ],
+      "hidden_unit_queries": 0,
+      "layers": "Currently revealed+visible plot primary and religious unit layers only.",
+      "current_plot_meets_no_hostile_condition": false
+    },
+    "source_correlation": {
+      "current_work": "Controller2397 requires Safe(current) for in-place repair/improvement; 167-193 reject visible foreign at-war unit within radius2.",
+      "route": "Controller2231-2239 requires path begins at current and validates safety on every path entry including origin.",
+      "qualification": "No direct call to private Safe, BuilderTargets, Planner, Run, Initialize, or a gameplay setter. Current native facts match source rejection condition; this is not a full branch trace or post-threat recovery result."
+    },
+    "verdict": "Current wait consistent with safety: actual improvement recommendations exist and current origin has3 visible at-war units in the excluded radius. Not a proof of completed improvement or successful recovery after threat removal.",
+    "game_orders": 0,
+    "new_observer_hooks": 0,
+    "qa_state_writes": 0,
+    "limits": "No new territory exploration, threat removal, construction or full civilian/military/safety matrix tested in483. Previous ARMEd-save and legacy expansion failures remain."
+  },
+  "illustrations_reused": [
+    {
+      "path": "docs/testing/screenshots/production482/builder33.png",
+      "sha256": "756c6d8bfc267f318a08c780e40d68999602fc0093f79a066bc93d4a4d2a222d",
+      "origin": "Previous482 turn33 pre-reload raw screenshot; official reload and current readonly facts separately recorded. Not a newly taken483 image."
+    },
+    {
+      "path": "docs/testing/screenshots/production482/slinger33.png",
+      "sha256": "2bc861661e44c5b772f149c69de803dcf310b72aac99eb4e149a32e679c8d9ef",
+      "origin": "Previous482 turn33 pre-reload raw screenshot."
+    }
+  ],
+  "software": {
+    "owner_reader_lua51_contracts": 27,
+    "raw_candidate_failed_contracts": 24,
+    "raw_failures_not_independent_defect_count": true,
+    "raw_native_execution": 0,
+    "whole_raw_adoption": 0,
+    "product_full_suite_not_rerun": true
+  },
+  "model483": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 1565,
+      "completion_tokens": 1541,
+      "total_tokens": 3106
+    },
+    "ttft_ms": 501.7967999447137,
+    "total_ms": 9781.099499901757,
+    "shared_commit": "e8d5905f6da1ed14a990a9efbd94999eff3e87ff",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "utc": "2026-11-07T09:52:48.272203+00:00",
+      "raw_compile": true,
+      "raw_cases": {
+        "actual-numeric-local-player-correct-config-methods": {
+          "passed": false,
+          "error": "[string \"<python>\"]:18: attempt to index local 'player' (a number value)\nstack traceback:\n\t[string \"<python>\"]:18: in function <[string \"<python>\"]:3>\n\t(tail call): ?\n\t[string \"<python>\"]:1: in function <[string \"<python>\"]:1>\n\t(tail call): ?"
+        },
+        "empty-table-known-empty": {
+          "passed": false,
+          "error": "[string \"<python>\"]:18: attempt to index local 'player' (a number value)\nstack traceback:\n\t[string \"<python>\"]:18: in function <[string \"<python>\"]:3>\n\t(tail call): ?\n\t[string \"<python>\"]:1: in function <[string \"<python>\"]:1>\n\t(tail call): ?"
+        },
+        "nil-not-empty": {
+          "passed": false
+        },
+        "getter-throws-protected-no-secret": {
+          "passed": false
+        },
+        "missing-interface-protected": {
+          "passed": true
+        },
+        "bad-environment-value-protected": {
+          "passed": false
+        },
+        "local-player-mismatch-before-actor-reads": {
+          "passed": false
+        },
+        "nonhuman": {
+          "passed": false
+        },
+        "other-leader": {
+          "passed": false
+        },
+        "city-full-id-alias-rejected": {
+          "passed": false
+        },
+        "unit-full-id-alias-rejected": {
+          "passed": false
+        },
+        "foreign-unit-rejected": {
+          "passed": false
+        },
+        "military-not-builder": {
+          "passed": false
+        },
+        "nonowned-recommendation-no-map-read": {
+          "passed": false,
+          "error": "[string \"<python>\"]:18: attempt to index local 'player' (a number value)\nstack traceback:\n\t[string \"<python>\"]:18: in function <[string \"<python>\"]:3>\n\t(tail call): ?\n\t[string \"<python>\"]:1: in function <[string \"<python>\"]:1>\n\t(tail call): ?"
+        },
+        "dedup-target-count-raw": {
+          "passed": false,
+          "error": "[string \"<python>\"]:18: attempt to index local 'player' (a number value)\nstack traceback:\n\t[string \"<python>\"]:18: in function <[string \"<python>\"]:3>\n\t(tail call): ?\n\t[string \"<python>\"]:1: in function <[string \"<python>\"]:1>\n\t(tail call): ?"
+        },
+        "purchased-raw-129-duplicate-entries-bounded": {
+          "passed": false
+        },
+        "recommendation-raw-count-bounded": {
+          "passed": false
+        },
+        "malformed-recommendation-before-map-read": {
+          "passed": false
+        },
+        "missing-purchased-not-empty": {
+          "passed": false
+        },
+        "plot-identity-mismatch": {
+          "passed": false
+        },
+        "plot-owner-mismatch-not-known-partial": {
+          "passed": false
+        },
+        "missing-owned-plot": {
+          "passed": false
+        },
+        "visibility-type-not-false-default": {
+          "passed": false
+        },
+        "infinite-coordinate": {
+          "passed": false
+        },
+        "fractional-id-no-read": {
+          "passed": true
+        },
+        "invalid-pid-object-no-read": {
+          "passed": true
+        },
+        "fresh-plain-output": {
+          "passed": false,
+          "error": "[string \"<python>\"]:18: attempt to index local 'player' (a number value)\nstack traceback:\n\t[string \"<python>\"]:18: in function <[string \"<python>\"]:3>\n\t(tail call): ?\n\t[string \"<python>\"]:1: in function <[string \"<python>\"]:1>\n\t(tail call): ?"
+        }
+      },
+      "raw_failed": 24,
+      "owner_cases": {
+        "actual-numeric-local-player-correct-config-methods": {
+          "passed": true
+        },
+        "empty-table-known-empty": {
+          "passed": true
+        },
+        "nil-not-empty": {
+          "passed": true
+        },
+        "getter-throws-protected-no-secret": {
+          "passed": true
+        },
+        "missing-interface-protected": {
+          "passed": true
+        },
+        "bad-environment-value-protected": {
+          "passed": true
+        },
+        "local-player-mismatch-before-actor-reads": {
+          "passed": true
+        },
+        "nonhuman": {
+          "passed": true
+        },
+        "other-leader": {
+          "passed": true
+        },
+        "city-full-id-alias-rejected": {
+          "passed": true
+        },
+        "unit-full-id-alias-rejected": {
+          "passed": true
+        },
+        "foreign-unit-rejected": {
+          "passed": true
+        },
+        "military-not-builder": {
+          "passed": true
+        },
+        "nonowned-recommendation-no-map-read": {
+          "passed": true
+        },
+        "dedup-target-count-raw": {
+          "passed": true
+        },
+        "purchased-raw-129-duplicate-entries-bounded": {
+          "passed": true
+        },
+        "recommendation-raw-count-bounded": {
+          "passed": true
+        },
+        "malformed-recommendation-before-map-read": {
+          "passed": true
+        },
+        "missing-purchased-not-empty": {
+          "passed": true
+        },
+        "plot-identity-mismatch": {
+          "passed": true
+        },
+        "plot-owner-mismatch-not-known-partial": {
+          "passed": true
+        },
+        "missing-owned-plot": {
+          "passed": true
+        },
+        "visibility-type-not-false-default": {
+          "passed": true
+        },
+        "infinite-coordinate": {
+          "passed": true
+        },
+        "fractional-id-no-read": {
+          "passed": true
+        },
+        "invalid-pid-object-no-read": {
+          "passed": true
+        },
+        "fresh-plain-output": {
+          "passed": true
+        }
+      },
+      "owner_unique_cases": 27,
+      "owner_sha256": "ab702e7e6b1f3b786eae5912f7e20c8f0ddfe5782a1e13d6f558f6cc5b61db90",
+      "raw_native_execution": 0,
+      "whole_raw_adoption": 0,
+      "raw_defects": [
+        "Treats Game.GetLocalPlayer numeric pid as player object and calls GetID on number.",
+        "Invents GetHuman/GetLeader instead of contracted IsHuman/GetLeaderTypeName.",
+        "No whole-read pcall despite explicit contract; limitation asks external wrapper.",
+        "Purchased count bound applies only to unique indices, allowing arbitrary duplicate entries.",
+        "Infinite coordinate accepted if numeric floor returns infinity.",
+        "Purchased plot owner mismatch can be treated as known nonowned instead of rejecting stale identity."
+      ],
+      "usage": {
+        "prompt_tokens": 1565,
+        "completion_tokens": 1541,
+        "total_tokens": 3106
+      },
+      "ttft_ms": 501.7967999447137,
+      "total_ms": 9781.099499901757,
+      "cumulative_through483": {
+        "logical_tasks": 483,
+        "complete_stop_valid": 450,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 513,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through483": {
+    "logical_tasks": 483,
+    "complete_stop_valid": 450,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 513,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "builder483-owner-scope-review.json": "5f4cd56578a03a75c5b0f88de33eda31c0b5eb56a6eab0009fd770a53f57da07",
+    "builder483-recommend33-response.json": "8451bbc38fe833667869cf6a05975e2beec46eb9abbe58c129fe7793a83709bb",
+    "builder483-threat33-response.json": "ce2d3f5e36379e175cc536c76befa65b5cc305b601b15ff4ef3864c7da77aa8c",
+    "builder483-model/ATTEMPT1-RESULT.json": "1f9c7c161d29d9cc87e109997a7751c9524da3d4740bf70b265ed2505ed8d6d7",
+    "builder483-model/ATTEMPT1-CONTENT.txt": "b14fbb11e43e46dde4ccedbc08f36ea6faefe4ece9ef8a7b687924c7bd459746",
+    "builder483-model/ATTEMPT1-RESPONSE.sse": "900eda7386005fe3bdba19f6e52684a9159f937dd1f7c3ebfe2888fdb2d33483",
+    "builder483-model/EVENTS.jsonl": "a52623630577f95b6d2f90c44985333dcc6cb8a5d08ef62c1265794aa62b008d",
+    "builder483-model/ADAPTER-PROVENANCE.json": "5b0d7b79ba0ea42d026d1d496cca342e4fbd698a59140a1b2621aa99d86d9e03"
+  }
+}
