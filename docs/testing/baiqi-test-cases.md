@@ -437,3 +437,5 @@
 - TC-015／017补充：[82全新世界首移民](baiqi-newgame-first-capital-82.md)自动建西安、纪念碑0→4/60、普通1→2与完成后存读档窄通过。启动前首帧SDK未知；完整矩阵及已知ARMED续建FAIL仍开放。
 
 - TC-015／017补充：[原版保存资格采样与82失败重现](baiqi-settlement-allowed-save-window-82.md)。FOUND返回／ARMED时CanLocalPlayerSaveGame=true；定时文件重载后普通两回合仍14城与活移民，前进恢复FAIL。只补资格事实，不授物理菜单／自动保存时序或安全重试。
+
+- 新局内政补充：[82首次科技、市政与政策](baiqi-newgame-first-tech-policies-82.md)完成／自动接续、两张政策实际落槽、纪念碑完工及18回合存读档窄通过。无人工内政／私有Run；没有授完整研究树、政府升级、付费换卡或全部用例通过。

@@ -260,3 +260,9 @@ Source82新PID624/birth1794037522.685621，93filesmatch；Steam后台独立offli
 新PID624原82／148复用，为新资格问题走自然训练与行军，不重复旧绿credit。156实际FOUND返回值0、CoreARMED同token，原版CanLocalPlayerSaveGame真；一次定时保存ACKtrue／630058B SHA d5a12456e94d80cb4f06756c71876ac89a95c3c17674661748fe03543c1f5f62。原世界后成15城OBSERVED并独立保存；精确cleanup后重载定时文件却14城/live8650807@10,19/moves1/ARMED，普通两回合158仍14/live2moves/ARMED。Corefalse/-1只当前unit状态，不授输入队列已空。资格允许不证明物理UI可插入同一调用栈／autosave时序。失败与完成均保留、1张稳态原图。
 
 148／149旧8轮ready过渡超时，停止依赖后freshread；本例之后显式24轮上限，不改旧回执。151／153／154首普通END留当前处理队列，freshpending后新progressEND，0UserForced。157一次后续UI队列只读断言失败，链停；独立J与ready读成功，未重发END。首camera截图在动画中仅私留，稳态原图审后发布。累计480/447/30/3 HTTP510extra30，OpenCode新0、未知成本null；产品82／先前1153不重跑，Steam0online-upload／Alpha74不变。
+
+## 2026-11-07：481只读政治状态器接管与真实早期接续
+
+[原生时间线](research/baiqi-p6-domestic481-first-tech-civic-policy-evidence-2026-11-07.json)。481stop/DONE/VALID，5837+1497=7334tokens、TTFT0.9093176秒／总9.7998775秒、0retry。Raw Lua51编译但20场景13失败：成功没KNOWN、缺pcall、DBIndex不对照输入／字符串缺失仍放行、HasTech/HasCivic不校bool与固定行缺失仍放行、slotType允许无类型。整稿0Native／0采用；owner独立reader20场景通过，实际UI基线2为采矿／法典在研与空槽，原生Index/hash合同本次匹配。
+
+Source82同一新局普通2→18、16军事SKIP＋16END，11首次HasMining真转畜牧、14首次HasCode真转技艺并装纪律／城市规划。10Monument44/60，18HasBuilding真／pop3／gold95／待命整备项目，当前排产原因未靠余额推断。991483B save SHA104cd33b6df743864addad163ac0eec5c39edbbf815251733b68fd65e9522543，loadContinue后全部相同。2原图；gov首次旧ref过60秒守卫拒0input，freshref后oneVIEW，不放宽门。0产品修改／1153不重跑，累计481/448/30/3 HTTP511extra30/OpenCode新0/unknownnull，Steam0online-uploadAlpha74不变。
