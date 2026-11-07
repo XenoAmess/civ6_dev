@@ -435,3 +435,5 @@
 - TC-015／017补充：[82旧档既有移民](baiqi-settlement-legacy-migration-82.md)保守迁移、136创建记录在137存读后保持。仅迁移／持久化窄PASS，旧移民扩张仍停止、ARMED续建FAIL未解除，新局首移民与完整用例未通过。
 
 - TC-015／017补充：[82全新世界首移民](baiqi-newgame-first-capital-82.md)自动建西安、纪念碑0→4/60、普通1→2与完成后存读档窄通过。启动前首帧SDK未知；完整矩阵及已知ARMED续建FAIL仍开放。
+
+- TC-015／017补充：[原版保存资格采样与82失败重现](baiqi-settlement-allowed-save-window-82.md)。FOUND返回／ARMED时CanLocalPlayerSaveGame=true；定时文件重载后普通两回合仍14城与活移民，前进恢复FAIL。只补资格事实，不授物理菜单／自动保存时序或安全重试。

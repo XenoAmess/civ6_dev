@@ -1,0 +1,252 @@
+{
+  "schema": "civ6.settlement480-allowed-save-window/v1",
+  "utc": "2026-11-07T08:58:03.798987+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "product_changes": 0,
+  "scope": "New actual original-save eligibility sample inside the preserved unresolved founding window, not repeated training pass credit or a recovery fix.",
+  "native": {
+    "owner_pid": 624,
+    "base_world": "Preserved82 empty-journal148, natural next settler8650807 born152. Original newgame2 separately saved; completed157/legacy137/failure158 older checkpoints not overwritten.",
+    "instrumentation": "Original CanLocalPlayerSaveGame captured from InGameTopOptionsMenu, raw reviewed typed reader exported through temporary readonly QA bridge. Transparent owner SDK wrapper installed152 on own known settler; zero orders or save at install.",
+    "at_actual_BACKGROUND_FOUND_return": {
+      "turn": 156,
+      "unitID": 8650807,
+      "unit_operation_return_count": 0,
+      "first_return_type": "nil",
+      "CanLocalPlayerSaveGame_status": "KNOWN",
+      "CanLocalPlayerSaveGame": true,
+      "journal_stage": "ARMED",
+      "token": "settle:0:1",
+      "requestID": "0:156:173",
+      "plot": 846,
+      "xy": [
+        10,
+        19
+      ],
+      "timed_TEST_PLAYER_save_calls": 1,
+      "SaveGame_ACK": true,
+      "wrapper_total_calls": 85,
+      "matched_found_calls": 1,
+      "reentries": 0,
+      "observer_errors": 0
+    },
+    "timed_save": {
+      "bytes": 630058,
+      "sha256": "d5a12456e94d80cb4f06756c71876ac89a95c3c17674661748fe03543c1f5f62",
+      "stable_reads": 3
+    },
+    "original_world_afterward": {
+      "turn": 156,
+      "cities": 15,
+      "stage": "OBSERVED",
+      "cityID": 1048590,
+      "city_name": "太原",
+      "granary_progress": 0,
+      "granary_cost": 32,
+      "gold": 7481.26953125,
+      "separate_completed_save_bytes": 636331,
+      "separate_completed_save_sha256": "beb9f9854e8bc0aa3a8a188a136f2875e3673ddc36378b7a2ffcc8516bba65e6"
+    },
+    "actual_timed_reload": {
+      "turn": 156,
+      "cities": 14,
+      "stage": "ARMED",
+      "token": "settle:0:1",
+      "live_settlerID": 8650807,
+      "xy": [
+        10,
+        19
+      ],
+      "moves": 1,
+      "formation": 1,
+      "cityID": null,
+      "restored_log_before_Continue": true,
+      "UI_inventory": 60,
+      "Core_inventory": 61
+    },
+    "after_two_ordinary_rounds": {
+      "turn": 158,
+      "cities": 14,
+      "stage": "ARMED",
+      "token": "settle:0:1",
+      "live_settlerID": 8650807,
+      "xy": [
+        10,
+        19
+      ],
+      "moves": 2,
+      "formation": 1,
+      "UI_inventory": 58,
+      "Core_inventory": 58,
+      "gold": 7567.28515625,
+      "Core_HasPendingOperations": false,
+      "Core_GetOperationType": -1,
+      "separate_failure_save_bytes": 630319,
+      "separate_failure_save_sha256": "6ba7c8eaacc5fffa96fc8752520732d812b1e8e4a578a00eb44e6f12a597c50b"
+    },
+    "test_player_flow": "Ordinary military skips/end only. Fresh same-turn pending reads then new normal progress END on151/153/154; no UserForced, manual civilians, queue clearing, journal reset, or private Planner/Initialize/Prepare/Commit/Inspect calls.",
+    "cleanup": "Owner SDK wrapper restored exact original, readonly QA export removed exact owned object before timed reload. No new startup SDK in reloaded world; no claim of global zero commands.",
+    "verdict": "Original save predicate permits this precisely timed test save; nonempty journal restored, forward founding recovery still FAIL within two ordinary rounds.",
+    "limits": "Timed save is injected after original native return before controller continuation. Predicate true does not prove a physical menu click can interleave at exactly the same call-stack point or establish autosave timing. No native input queue loss or safe replay guarantee."
+  },
+  "software": {
+    "raw_model_sampler_lua51_cases": 14,
+    "raw_sampler_native_adopted": "Whole code, readonly ignored QA only; no product code adoption.",
+    "modified_owner_watch_lua51_compile": true,
+    "modified_watch_current_contracts": 44,
+    "relevant_base_contracts_rechecked_for_modified_source": 35,
+    "new_watch_contracts": 9,
+    "product_full_suite": "1153 previously passed, unchanged; not rerun for ignored QA/docs."
+  },
+  "model480": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 7861,
+      "completion_tokens": 164,
+      "total_tokens": 8025
+    },
+    "ttft_ms": 1337.0832999935374,
+    "total_ms": 2373.1420000549406,
+    "shared_commit": "91b7b7c5c41a5606b4b9efa06bdfae69c7d78c3a",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "utc": "2026-11-07T08:10:58.267927+00:00",
+      "lua51_compile": true,
+      "raw_unique_cases": 14,
+      "raw_cases": {
+        "true-known-once-zeroargs": {
+          "passed": true
+        },
+        "false-known": {
+          "passed": true
+        },
+        "missing-function": {
+          "passed": true
+        },
+        "callable-table-rejected": {
+          "passed": true
+        },
+        "exception-private-value-not-returned": {
+          "passed": true
+        },
+        "nil-result-unknown": {
+          "passed": true
+        },
+        "numeric-result-unknown": {
+          "passed": true
+        },
+        "string-result-unknown": {
+          "passed": true
+        },
+        "table-result-unknown": {
+          "passed": true
+        },
+        "NaN-result-unknown": {
+          "passed": true
+        },
+        "no-cache": {
+          "passed": true
+        },
+        "fresh-plain-metadata": {
+          "passed": true
+        },
+        "extra-original-returns-not-leaked": {
+          "passed": true
+        },
+        "nested-observation-no-cache": {
+          "passed": true
+        }
+      },
+      "raw_module_sha256": "4998ed175d87ab77d951f0e6fe08f6d3c19593e78415a578788452582132e333",
+      "code_adoption": "Whole raw code approved for ignored readonly QA sampler only; no product change.",
+      "text_limitations_correction": "The supplied function is executed and may read engine state. Candidate prose saying no game logic/global access is broader than the actual narrow getter contract.",
+      "usage": {
+        "prompt_tokens": 7861,
+        "completion_tokens": 164,
+        "total_tokens": 8025
+      },
+      "ttft_ms": 1337.0832999935374,
+      "total_ms": 2373.1420000549406,
+      "cumulative_through480": {
+        "logical_tasks": 480,
+        "complete_stop_valid": 447,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 510,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "raw_code_adopted_for_QA": true,
+    "product_patch_adopted": false,
+    "native_code_used_after_review": true,
+    "prose_limitations_corrected": "The supplied original getter is executed and reads engine state; no broad no-game-logic/no-global-access claim.",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through480": {
+    "logical_tasks": 480,
+    "complete_stop_valid": 447,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 510,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "owner_corrections": [
+    "Two exact whitespace anchors in preparation refused before any output watcher or Native action; unique semantic anchors used, original failures retained.",
+    "Initial eight-poll readiness expired during transition; separate fresh read qualified actual next turn. For later reads the owned bound was explicitly changed to24, not rewritten in old receipts.",
+    "A post-ready ordinary157 UI queue read failed at a readonly assertion; no dependent action followed. Independent current-journal and fresh-ready reads succeeded; no END replay.",
+    "First screenshot after LookAtPlot caught camera animation and is private. Later settled raw image was inspected and published unedited."
+  ],
+  "original_primary_hashes": {
+    "LocalPlayerActionSupport.lua": "6fbbb9dd5cc2fda56efae23cccdea2917dfbbcc9cab1cf44bae555c8271075c7",
+    "Menus/InGameTopOptionsMenu.lua": "cded5640ff7fd6eef8932281184380a70f9ef9b4d38d87c976e1bb073868383b",
+    "InGame.lua": "80fcc6e774b586a45658638acf9f5a99050d8101ffa41ed173d0a6114f0bb299"
+  },
+  "screenshot": {
+    "path": "docs/testing/screenshots/settlement480/allowed-save-unresolved158.png",
+    "sha256": "01857b6b2a13894eba98d01b9d87421090caea06f9ff28da1037d178cdca8293",
+    "altered": false,
+    "scope": "Actual158 live settler2moves and no city at target. Journal/API facts from independent Native reads, not an overlay."
+  },
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "settlement480-owner-scope-review.json": "38cc737e325891839eb07cbf44879e3a36c8b4769a095a9a9f21d3dec31cc10e",
+    "settlement480-owner-watch-checks.json": "17d788d8d7d093fab76746fe032e699c982e48ecae87c33527b71273a1793c0c",
+    "settlement480-watch-read-at156-response.json": "954505765140256d9e7e85d77597ebc46f8fd98725df390d7bdb6498c1e1f2cd",
+    "settlement480-watch-cleanup-after-save156-response.json": "0cfadf286c88f2352de186995101dc33d3401c27fcb14ab8b9b1cecda82887d2",
+    "settlement480-gate-cleanup-after-save156-response.json": "15a2f652abfeeee9ec904e3e5a63879ff839f35760b2b76f3e8071e94c7efaee",
+    "settlement480-timed-save-response.json": "78f5572456bc3b4df92f512ee296816d6895bf771747651859e63f10312724be",
+    "settlement480-load-timed-response.json": "599cbb59f767727305e1fb5ee04008c10fe87d8c9c8e75cab978c389414a2930",
+    "settlement82-intent-state-ui-predicate480-loaded156-response.json": "23b1328b5467de43972bb8b2773d414cbc57612f64d70adc8832ecb3b875c8fb",
+    "settlement82-intent-state-core-predicate480-loaded156-response.json": "0690d085eb47f9f9a8b7422ae3ffe7633a6e649def8e1ab973b88e22634eadc9",
+    "settlement82-intent-state-ui-predicate480-final158-response.json": "b7540526028069bf21ea520a98d98b925a21a716ab2d13de1aa8fd6c01eb0941",
+    "settlement82-intent-state-core-predicate480-final158-response.json": "e186627df39404e0f6e7cbca250966285c2f51b9e04d5d79d134d946c6bbeca7",
+    "settlement480-final-core-response.json": "f5d99e849fac4969cd8be27a2eadc128425f4a7b72f1af68e7cc12b4c3badecc",
+    "settlement480-save-completed156-response.json": "fccd2646065084a39256b033a14017b48ec813d81d6742e7ab961fc73ff3367a",
+    "settlement480-save-failure158-response.json": "2b8cace67a9a933987fbd807fba526d8a2fdffddaea55098feab2c9f95ce5299",
+    "resume82nov7-log-predicate480-final158.json": "10d5e9e03197cd7d3a394b7631b1ad40d47b690c2a243aadfb931f78e4dc5f25",
+    "settlement480-model/ATTEMPT1-RESULT.json": "35d6c42b62ba14cc331aada4f7526f2da5e422e6db43d30b5084193a079d923a",
+    "settlement480-model/ATTEMPT1-CONTENT.txt": "32e4939f1b4b9c92023fd42d4f33efc2cce68a50ad65e3df8ab51ef1cbc8405e",
+    "settlement480-model/ATTEMPT1-RESPONSE.sse": "125ff6bb5f5de1b0f64a438446df4947c53870a3cfdf24ed41d0424a8c42cec4",
+    "settlement480-model/EVENTS.jsonl": "7fa08b2b017e6cea13ac6c446eed9b6a7c16ba7b3ec405b112b8c2593d73ed7a",
+    "settlement480-model/ADAPTER-PROVENANCE.json": "8e2e386ece6180375876e22f10c96d94e43ca849f8190e8a194e510d629c36ea"
+  }
+}

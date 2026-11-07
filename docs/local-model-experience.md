@@ -252,3 +252,11 @@ Owner Savewatcher实际Native table.unpacknil/globalunpackfunction/_VERSION2013.
 [新局证据](research/baiqi-p6-newgame82-first-capital-evidence-2026-11-07.json)。共享先同步cb5d75e，仅新增其他业务文档；Nov7同机同用户00:36成功1.19.5维护缓存复用，非本轮更新／原生生成。479完整stop/DONE/VALID，53252+1495=54747 tokens，TTFT6.8882885秒／总21.7580344秒，0retry。三个finding无新缺陷采用：条件式缺依赖安全拒绝且有日志、忽略Initialize既有bank提前分支、暂不可用误推永久hold；原引文含!=而真实Lua~=。whole0补丁／0模型Native，保留事件时序未知。累计479/446/30/3 HTTP509extra30，OpenCode新0，未知缓存／成本null；PREP阶段记录交错UI工作，不称独占人工收益。
 
 Source82新PID624/birth1794037522.685621，93filesmatch；Steam后台独立offline07:45:22.681802Z、age0.002195秒，0切换／上传。原版新局UIflagfalse，1回合自动city65536西安60,30与OBSERVED65536/token settle:0:1/request0:1:1；UI只warrior131073，Core原settler离图delayedtrue，区别活单位。1军队TEST_PLAYER SKIP＋1普通END到2，Monument0→4/60、gold10→15／warrior位置不变；893840B正规save/load/continue后UIflagtrue、同city/journal/progress保持。2原图；未装启动SDK，不授全局发令数。早MainMenu尚无context、两loadingLSQ Timeout均0CMD；capture activation失败另formalWin32focus；Cityview适配Python数值邻接SyntaxWarning读取成功，后续补空格。0产品修改，既有1153不重跑；ARMED及Legacy扩张缺口仍未关闭。
+
+## 2026-11-07：480原版保存资格适配器采用，实际失败窗口补证
+
+[完整证据](research/baiqi-p6-settlement480-allowed-save-window-evidence-2026-11-07.json)。480完整stop/DONE/VALID，7861+164=8025 tokens，TTFT1.3370833秒、总2.373142秒，0重试。Raw极窄Read(CanSave)零参单次pcall、typedbool、UNKNOWN不填false，14个Lua51场景通过；整段采用于忽略目录只读QA，并在真实UI原版getter使用。无产品采用；文字“无global／game logic”过宽，实际会执行传入引擎getter，单列纠正。负责人扩展旧SaveWatch加入资格采样，44当前版本场景（相关35＋新增9）、Lua51编译通过；两处空白锚点准备拒绝均0Native前修正，非模型错误。
+
+新PID624原82／148复用，为新资格问题走自然训练与行军，不重复旧绿credit。156实际FOUND返回值0、CoreARMED同token，原版CanLocalPlayerSaveGame真；一次定时保存ACKtrue／630058B SHA d5a12456e94d80cb4f06756c71876ac89a95c3c17674661748fe03543c1f5f62。原世界后成15城OBSERVED并独立保存；精确cleanup后重载定时文件却14城/live8650807@10,19/moves1/ARMED，普通两回合158仍14/live2moves/ARMED。Corefalse/-1只当前unit状态，不授输入队列已空。资格允许不证明物理UI可插入同一调用栈／autosave时序。失败与完成均保留、1张稳态原图。
+
+148／149旧8轮ready过渡超时，停止依赖后freshread；本例之后显式24轮上限，不改旧回执。151／153／154首普通END留当前处理队列，freshpending后新progressEND，0UserForced。157一次后续UI队列只读断言失败，链停；独立J与ready读成功，未重发END。首camera截图在动画中仅私留，稳态原图审后发布。累计480/447/30/3 HTTP510extra30，OpenCode新0、未知成本null；产品82／先前1153不重跑，Steam0online-upload／Alpha74不变。
