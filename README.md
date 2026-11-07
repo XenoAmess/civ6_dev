@@ -2,7 +2,7 @@
 
 当前开发与实机82。新增[新局自然移民／危险路线／3图与56正式重载](docs/testing/baiqi-newgame-natural-settler-and-path-wait-82.md)；完整40项仍未通过。
 
-[Alpha 2离线发布包](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)已准备，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**尚未上传**，实际工坊最后核验仍Alpha1内部74／7图；上传前须确认其他设备无人游戏。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
+[Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam尚未同步**，实际工坊最后核验仍Alpha1内部74／7图；上传前须确认其他设备无人游戏。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 
 - [82全新开局首都与两张实机图](docs/testing/baiqi-newgame-first-capital-82.md)：false新局标志、自动建西安、纪念碑0→4/60及第2回合正式重载窄通过。中途保存续建与旧档扩张缺口仍在，工坊Alpha74未更新。
 

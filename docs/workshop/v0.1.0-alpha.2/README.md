@@ -1,6 +1,6 @@
 # Alpha 2工坊材料
 
-状态为离线准备，尚未上传。包含[12图解读](screenshot-commentary.md)、[BBCode正文](description.bbcode)、[变更说明](changenotes.bbcode)、[图像来源与生成提示](art-provenance.json)、[包计划](package.json)。产品版本82，现有条目3833805495。
+[GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)已公开并下载核验；本工坊包仍待Steam占用确认，尚未上传。包含[12图解读](screenshot-commentary.md)、[BBCode正文](description.bbcode)、[变更说明](changenotes.bbcode)、[图像来源与生成提示](art-provenance.json)、[包计划](package.json)。产品版本82，现有条目3833805495。
 
 上传前先取得新鲜可靠的其他设备游戏占用状态；不能从本机离线或失败查询推断无人。已有发布授权不等于占用状态已确认。参照[Steam流程](../../steam-offline-workflow.md)。
 
