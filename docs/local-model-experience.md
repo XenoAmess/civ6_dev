@@ -278,3 +278,11 @@ Source82同一新局普通2→18、16军事SKIP＋16END，11首次HasMining真�
 [原生事实](research/baiqi-p6-builder483-threat-wait-evidence-2026-11-07.json)：当前33builder原生3条recommendation，2205/2281/2353均自有revealed/visible；首都radius2的19geometrycells只读可见普通+宗教层，3敌unit均owner63/atwartrue/distance2，位置61,31勇士、61,29scout、62,30蛮族骑射。源码原地work需Safe(here)，路线含origin逐项Safe，条件匹配；未调用privateSafe/Planner，也未证明分支全trace／清敌恢复／实际改良。0游戏orders/hooks/propertywrites，复用482两图但不计新图，当前已reload33不变。
 
 483stop/DONE/VALID，1565+1541=3106tokens、TTFT0.5017968秒／总9.7810995秒，0retry。Raw compile却把GetLocalPlayer数字当对象，编GetHuman/GetLeader、缺pcall、purchased按unique而非raw计上限、Inf坐标等；27中24fail并非24种独立bug，前置错误遮蔽，0Native/0整稿采用。Owner独立reader27Lua51pass后实际KNOWN3非空。累计483/450/30/3 HTTP513extra30/OpenCode新0未知null；产品82未改1153不重跑，Steam0online-uploadAlpha74。
+
+## 2026-11-07：484测试玩家军控与危险退去后的真实农场
+
+[公开证据](research/baiqi-p6-threat484-combat-and-farm-recovery-evidence-2026-11-07.json)。484stop/DONE/VALID，2155+1320=3475tokens，TTFT0.484792秒／总9.9145323秒，0retry。Advisory错把Player33、warrior131073当archer／错升级对象、用CanStartCommand作远程资格；整稿0采用／0Native。Owner按原版UnitPanel upgrade和Civ6Common/WorldInput签名，15Lua51升级守卫场景通过。33slinger262146→archer327683/cost60/gold170→110，旧对象发令后不用；33→38共5END3milSKIP、额外10军控（1upgrade4move4range1melee），0civilian/grants/forced/declare。
+
+38实际builder196608从6030到5929，先MOVE再BUILD_IMPROVEMENT/hash168372657；plot2205 FarmIndex1/nonpillaged、3→2charges／manualaction0，archer同格仍2moves/form1未带走。未来Executor133样本127recruit1city5builderop／0error-drop／军事0仅该scope；全清再1024091Bsave/hashb40b7eb45a6312a7b7bd8f57de2e7cb5c9b398d02aa89ec6bc1fd49879a4a8e3，正式loadContinue同Farm/charges/3units/pop4/gold130/standby/Jobserved。3新图内嵌，危险只是离开当前可见半径，不称全灭或全图安全。36pureSettlertrue但standby，不据此判Native合法或FAIL，485后续独立诊断。
+
+Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束，分别fresh35/36无END重发，新future32读，36→37第20读成功。reposition先validate两层再ipairs，空白编辑一次Lua51compile拒0CMD后修；一次只读patch锚失配未编辑。37首快读伤害0/move1，后实际66/move0，无射击重放。累计484/451/30/3 HTTP514extra30/OpenCode新0未知null，源码82未改1153不重跑，Steam0online-uploadAlpha74；既有恢复FAIL保留。

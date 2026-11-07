@@ -1,0 +1,411 @@
+{
+  "schema": "civ6.threat484-combat-and-farm-recovery/v1",
+  "utc": "2026-11-07T10:47:47.197082+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "product_changes": 0,
+  "native": {
+    "initial": "Same independently saved/reloaded newgame33 from production482; no resources/units granted. Builder originally born28, stillcapital33 with3charges/0improvements.483qualified3native recommendations plus3visible at-war origin threats.",
+    "TEST_PLAYER_inputs": {
+      "ordinary_END": 5,
+      "turns": "33→38",
+      "military_SKIP": 3,
+      "military_upgrade": 1,
+      "military_moves": 4,
+      "ranged_attacks": 4,
+      "melee_attacks": 1,
+      "non_SKIP_military_operations": 10,
+      "forced_END": 0,
+      "civilian_orders": 0,
+      "domestic_choices": 0,
+      "war_declarations": 0,
+      "resource_unit_grants": 0
+    },
+    "military_upgrade": {
+      "turn": 33,
+      "old_slingerID": 262146,
+      "new_archerID": 327683,
+      "cost": 60,
+      "gold_before": 170,
+      "gold_after": 110,
+      "new_moves": 0,
+      "scope": "Original UnitPanel command after fresh exact qualification. No old-object getters after command; actual effect from new own collection."
+    },
+    "combat_samples": [
+      {
+        "turn": 34,
+        "archer_target_warrior": 3014699,
+        "damage_before": 0,
+        "damage_after_shot": 43,
+        "damage_after_melee": 79
+      },
+      {
+        "turn": 35,
+        "target": 3014699,
+        "damage_before": 79,
+        "after": "No longer in still-visible target plot after shot; no hidden roster read."
+      },
+      {
+        "turn": 36,
+        "target": 3538991,
+        "damage_before": 49,
+        "damage_after": 92
+      },
+      {
+        "turn": 37,
+        "target_slinger": 3670029,
+        "damage_before": 0,
+        "first_fast_read_after_request": 0,
+        "later_settled_read": 66,
+        "note": "One request only; initial idle read was not treated as damage completion."
+      }
+    ],
+    "military_positions": "Warrior TEST_PLAYER advanced59,30→59,31 at34, retreated59,31→59,30 at36, moved59,30→60,30 at37. Archer TEST_PLAYER moved60,30→59,29 at37. All original wrapped WorldInput paths after native qualification.",
+    "no_civilian_swap": "37 warrior entered own capital containing builder only after Native SWAP_UNITS=false; builder stayed60,30.38builder then moved to archer plot by BACKGROUND; archer stayed59,29/moves2/formation1.",
+    "actual_farm": {
+      "turn": 38,
+      "builderID": 196608,
+      "from": [
+        60,
+        30
+      ],
+      "target": [
+        59,
+        29
+      ],
+      "plotIndex": 2205,
+      "improvementIndex": 1,
+      "improvementType": "IMPROVEMENT_FARM",
+      "improvementHash": 168372657,
+      "pillaged": false,
+      "charges_before_UI33": 3,
+      "charges_after_UI_native38": 2,
+      "builder_moves_after": 0,
+      "player_action_count_for_builder": 0,
+      "archer_action_count": 9,
+      "warrior_action_count": 6,
+      "source": "Future original Executor observer records one MOVE_TO then one BUILD_IMPROVEMENT; native plot/charges confirm completion, not ACK alone.",
+      "threat_limit": "Enemies moved farther at38: visible slinger59,33/damage66 and warrior62,32/damage92, each outside archer range in these reads. Not all barbarians killed; this is current visible-threat relief, not global safety."
+    },
+    "observer": {
+      "window": "Installed34 before first shot, future BaiqiExecutor only; restored38 before save. TEST_PLAYER UnitPanel/WorldInput operations are outside this SDK scope.",
+      "recruit": 127,
+      "city": 1,
+      "unit_op": 5,
+      "unit_cmd": 0,
+      "samples": 133,
+      "errors": 0,
+      "drops": 0,
+      "military_requests_in_this_scope": 0,
+      "unit_ops": "Builder standby35/36/37, MOVE_TO38, BUILD_IMPROVEMENT38.",
+      "city_request": "Standby36. Pure settler AllowRecruit=true is not full native candidate legality; subsequent diagnostic485 remains separate."
+    },
+    "world38": {
+      "cities": 1,
+      "cityID": 65536,
+      "cityPosition": [
+        60,
+        30
+      ],
+      "population": 4,
+      "gold": 130,
+      "currentProduction": "PROJECT_BAIQI_STANDBY",
+      "currentHash": 743941431,
+      "units": [
+        {
+          "turn": 38,
+          "id": 196608,
+          "type": "UNIT_BUILDER",
+          "x": 59,
+          "y": 29,
+          "moves": 0,
+          "damage": 0,
+          "formation": 1,
+          "queueX": null,
+          "queueY": null,
+          "dead": false,
+          "delayed": false
+        },
+        {
+          "turn": 38,
+          "id": 131073,
+          "type": "UNIT_WARRIOR",
+          "x": 60,
+          "y": 30,
+          "moves": 2,
+          "damage": 75,
+          "formation": 1,
+          "queueX": null,
+          "queueY": null,
+          "dead": false,
+          "delayed": false
+        },
+        {
+          "turn": 38,
+          "id": 327683,
+          "type": "UNIT_ARCHER",
+          "x": 59,
+          "y": 29,
+          "moves": 2,
+          "damage": 0,
+          "formation": 1,
+          "queueX": null,
+          "queueY": null,
+          "dead": false,
+          "delayed": false
+        }
+      ]
+    },
+    "save_reload": {
+      "bytes": 1024091,
+      "sha256": "b40b7eb45a6312a7b7bd8f57de2e7cb5c9b398d02aa89ec6bc1fd49879a4a8e3",
+      "save_ACK": true,
+      "load_ACK": true,
+      "Continue_once": true,
+      "actual_after": "FarmIndex1/nonpillaged, builder2charges/0moves/zero manual actions, army positions/moves/wound75, onecity/pop4/gold130/standby andcapital OBSERVED retained.",
+      "observer_absent": true,
+      "private_save_committed": false
+    },
+    "verdict": "Narrow PASS this fresh start: TEST_PLAYER upgrade/movement/ranged/melee controls, visible-threat wait followed by autonomous farm and normal charge consumption, completed farm save/reload.",
+    "limits": "No complete military/safety/repair/builder/production matrix, full40TC, permanent safety guarantee or recovery fix. Existing ARMEd-save and legacy expansion failures remain."
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/threat484/farm-reload38.png",
+      "sha256": "bb5529ef37faa17ca9ebfef5e2da9efc15f90d991e5a1f50c7b60e5f1fc0173c",
+      "altered": false,
+      "turn": 38,
+      "stage": "Official reload38, builder2charges and zero manual actions"
+    },
+    {
+      "path": "docs/testing/screenshots/threat484/archer38.png",
+      "sha256": "ed7bb90343e13f8f1bcd5bbddb8501ec13edd26ade6278286a2310f3d96e10a5",
+      "altered": false,
+      "turn": 38,
+      "stage": "Before save38, military actions retained"
+    },
+    {
+      "path": "docs/testing/screenshots/threat484/wounded-warrior38.png",
+      "sha256": "5234aa873399ccb9c7fac12da89059d130eb2f94841399f7219cfe8f43a035b8",
+      "altered": false,
+      "turn": 38,
+      "stage": "Before save38, wounded warrior returned to capital by TEST_PLAYER"
+    }
+  ],
+  "software": {
+    "owner_upgrade_lua51_contracts": 15,
+    "existing_transparent_observer_prior_tests_this_turn": 10,
+    "raw_model_native_execution": 0,
+    "whole_raw_plan_adoption": false,
+    "product_prior_full_suite": 1153,
+    "product_full_suite_reruns": 0
+  },
+  "model484": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 2155,
+      "completion_tokens": 1320,
+      "total_tokens": 3475
+    },
+    "ttft_ms": 484.7919999156147,
+    "total_ms": 9914.532299968414,
+    "shared_commit": "2c0731e8b54d2e24b5db5fab985c929fac300cb4",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "utc": "2026-11-07T10:02:29.538275+00:00",
+      "raw_advisory_steps": 5,
+      "whole_raw_plan_adoption": false,
+      "raw_native_execution": 0,
+      "raw_defects": [
+        "Calls current player Player33 instead of player0/turn33.",
+        "Confuses actual warrior131073 with archer and selects it for the slinger262146 upgrade.",
+        "Confuses enemy warrior and archer labels.",
+        "Suggests CanStartCommand for ranged attack, whereas actual vanilla WorldInput uses CanStartOperation/RequestOperation.",
+        "Treats builder movement/type change during autonomous progression as inherently unexpected and overbroad zeroBACKGROUND assertion without instrumentation."
+      ],
+      "owner_scope": "Reuse previously qualified original military upgrade API pattern with current fresh actual UnitPanel preview: slinger262146 -> archer28, cost60, treasury170. Current Native guarded code independently owner written, no model command code. Original action after qualification only, then fresh collection read, never stale object.",
+      "owner_lua51_contract_cases": {
+        "one-request-no-old-object-after-return": {
+          "passed": true,
+          "requests": 1,
+          "terminal_success": true
+        },
+        "foreign-actor": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "actor-alias": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "civilian-not-army": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "wrong-price": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "treasury-changed": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "target-changed": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "native-rejected": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "other-turn": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "nonhuman": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "inactive": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "dead-unit": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "other-leader": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "prior-attempt-not-replayed": {
+          "passed": true,
+          "requests": 0,
+          "terminal_success": false
+        },
+        "request-error-claimed-and-no-replay": {
+          "passed": true,
+          "requests": 1,
+          "terminal_success": false
+        }
+      },
+      "owner_unique_cases": 15,
+      "owner_command_sha256": "c741df148b60588d618c304e9be7b0890302cf81a2956c8869efd4e69ee296d8",
+      "usage": {
+        "prompt_tokens": 2155,
+        "completion_tokens": 1320,
+        "total_tokens": 3475
+      },
+      "ttft_ms": 484.7919999156147,
+      "total_ms": 9914.532299968414,
+      "cumulative_through484": {
+        "logical_tasks": 484,
+        "complete_stop_valid": 451,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 514,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "raw_type": "Advisory TEST_PLAYER conditional plan, not generated game code",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through484": {
+    "logical_tasks": 484,
+    "complete_stop_valid": 451,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 514,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "owner_corrections": [
+    "Melee scout34 preview refused before input because actual distance2, not1; separate readonly facts confirmed, guard not weakened.",
+    "Normal END34/35 each had early16-read timeout; dependent chains stopped, separate fresh35/36 actual readiness obtained, no repeated END. New future workflow uses bounded32 reads; END36 reached37 on read20.",
+    "Reposition helper changed to validate both native layers before ipairs so nil cannot truncate into empty. First whitespace edit failed Lua51 compile before any attempt/CMD, fixed before action.",
+    "A proposed read-only combat-preview patch anchor failed before editing; no Native action.",
+    "First post-shot37 idle read still showed old damage0/moves1; later actual66/moves0 retained, no shot replay."
+  ],
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "threat484-owner-scope-review.json": "bb20460c34ddcf92ebdb4fddf589bde2c08abde7183cfa14f18a97c73df86d67",
+    "threat484-upgrade-preview33-response.json": "9bdacdf55b101a124ba53b5d7698dc7c81929fd7c591a1bb837196137a49a135",
+    "threat484-upgrade33-response.json": "137f909ca955fbea83ca9ecc8b60a671baeddd8296a6150471c59a39052760b2",
+    "domestic481-ui-upgrade33-response.json": "9f777de6d0f526f841184f20bf334a8615277a1b4efc91d8e285757244a196f3",
+    "threat484-advance34-response.json": "94077dd9cc6600e5de9a78fce9773816284cc44ed3b8d64610a918e9cde7f59f",
+    "threat484-melee-attack-t34-warrior1-response.json": "235c7ad6f3f31a7590b2523a3db087e5a1c085ba380827e6c5ec262172487477",
+    "threat484-melee-diag34-response.json": "3c7a340cc05b57300cb744a3229bd631e938c1b0fce1f1ae2bb92a01c26a0936",
+    "threat484-distances34-response.json": "ddca90fa5dc0b056b862e4891939d937545e7aedcdea1fb49f403dddfe53b3d0",
+    "threat484-retreat36-response.json": "79d74df3542785722c63b3e616d7f8457640351bec51b58d23ea3be76bf4c52f",
+    "threat484-shot-t34-warrior1-response.json": "7417b7244437b6c31fda853c74d6e6c513ac41b7fc63792be806eac30c5e2dff",
+    "threat484-shot-t35-warrior2-response.json": "bd3f8cffa841c45db42d9fde6ef58b11371b51b1e247917ad4529018e509b3bb",
+    "threat484-shot-t36-warrior3-response.json": "e407ad4582f051489d5046b7b843c0e881d703d92f2cb4fc943081e428e228bb",
+    "threat484-shot-t37-slinger1-response.json": "0c66d2b52a0e65496b58e33fc2338ba071349615cb53c18939befde95994844a",
+    "threat484-combat-preview-at34-response.json": "8cf94c55de8264a1a94e07bf2fb953b748d85db5975bf67b68c74d62df6db018",
+    "threat484-combat-preview-after-shot34-response.json": "8e3e3f48f8838edbb86c3a347d8f87b17584a2e997d7f581f46ffd85367b104a",
+    "threat484-combat-preview-after-melee34-response.json": "d9d1cbed014e8d3f4009753ad74925ff3a16bb18b32eeb1e2147c9d9730075c9",
+    "threat484-combat-preview-at35-response.json": "315fccd6892beeb6f8bf4b17623e779ca70aafe9f4f55a0cbf7cc53e5cd86d72",
+    "threat484-combat-preview-after-shot35-response.json": "4e1d8e73afd9dfb81b40b36a6c203a03fef555c0d449516d256e8c5dd2bd11e5",
+    "threat484-combat-preview-at36-response.json": "c5113b47b7c9bedfeb5fea17f3408042d42d3f76bbeb66039c282933bf62d9ce",
+    "threat484-combat-preview-after-shot36-response.json": "c3df55bb81a7c04f9e89a25a25ede2e9dca827879ea8ac31c56fe5cc29da13e7",
+    "threat484-combat-preview-at37-response.json": "729d419a8fd3b2a3ce287eb9312c186297857e9fa58b7f1cf8eeff6364285418",
+    "threat484-combat-preview-field37-response.json": "8e7a883a541abc07d326f04c9d1b74ba781087384e77fa82593948da38f8602c",
+    "threat484-combat-preview-after-shot37-response.json": "e34e992752ac66d22c423c3046dd7b37917c332308873561aab4802352be07e6",
+    "threat484-combat-preview-settled-shot37-response.json": "8a57e3f2d13a715370378bc04b00fb9984825e4b94b7d39f68e1ac62ef831c49",
+    "threat484-combat-preview-at38-response.json": "0518c609bb91f80c77244dd54d63c77b29aaea6d86f2466038be9aa02f43b8f3",
+    "threat484-reposition-preview-t37-archer-response.json": "cf8cd7e5af64d01a27e89a520f1ca057d9245f7b15b10b6418fdefa95269444d",
+    "threat484-reposition-preview-t37-warrior-city-response.json": "8cd932f2d38de57e6ea10acc429c99b2fc84e5bb08545b79774bb5db6e905bfb",
+    "threat484-reposition-move-t37-archer-response.json": "0fae373f7ecec5b8884407edd421500b6a6853879e8c1981de31149ebb55fe72",
+    "threat484-reposition-move-t37-warrior-city-response.json": "047ca062b7004ac62ef301e0867a160fec6f925294d946affb5bf68f71301d50",
+    "threat484-health-at36-response.json": "416c3ac67c393833f7fac21089b829a6f56aee00a1077b31ea97e328eab59106",
+    "threat484-health-at37-response.json": "cf30d47e3b79a1ddb2ca26403d98c38fa4d08624883af9fd4edc78562f514398",
+    "threat484-health-archer-field37-response.json": "23c04bbda5f8fe7b3a9bbdcec5281f6348a2f2faf520291502c9ad828599e1e2",
+    "threat484-health-warrior-city37-response.json": "0b0b254f801b44a159650fe7ad0087855fd4fdc44c4beafb5aac40ae2f1d89f9",
+    "threat484-health-at38-response.json": "d18e67e2a1145c2b37409e9d83a1a5e9fd3447aaca92ad83fa23dcf249868c35",
+    "threat484-health-reload38-response.json": "eba62e05139e0aec5ef07a7645061c553490bc818c6f9f0b5e56b39005f5e87e",
+    "threat484-finance-read-final38-response.json": "98fa1737ed5df66f09c409a4fa3ed491365c3a0b32716481ca3695c2ac28bd50",
+    "threat484-finance-cleanup-final38-response.json": "2a56cd31626e668e8f6b145ecaf23c202df8b1394d80af9740ab76324001bb82",
+    "threat484-plots-at38-response.json": "e5b95a7bfed6657c8ed5322c0e3d45bd9d0a44d65bece20ee05ff36177510b90",
+    "threat484-view-farm38-response.json": "934d7d2f9c713b917a6cd7b6e6e3e1a8e7441b928296795b20dbbc3ca3fe3867",
+    "threat484-view-army38-response.json": "81f323683e08bf62ab39eab5717b667c49c3edff3fb8cf28da999fb092265436",
+    "threat484-view-wounded38-response.json": "a41327aade0665f25b0fba77a5c0d160c044a462124880d4ba18d4ebdae0720a",
+    "threat484-view-reload38-response.json": "a74b37835457253232a6c0766ed98a2db8e889d1e28cdb9f56d4787980a211e0",
+    "threat484-final-reload38-response.json": "0f6c8adc65dc321fc5533f11030ea92131902bfb79ea2e51007b49c2002df296",
+    "threat484-save38-response.json": "6d6fbe57df10243f5eb276ea1527a787558e12ca44035f30d683d30aeb109d5b",
+    "threat484-load38-response.json": "bdf35c0d0d62c78083a0eae3845edeb345ec3f74068c1b1846c39178abeffb34",
+    "threat484-model/ATTEMPT1-RESULT.json": "6e963f7fa31c28d26b8191be896c5bad8db60f516b3b413bb0cde01b0dfd5838",
+    "threat484-model/ATTEMPT1-CONTENT.txt": "964ed17f433cac881fcec43759025438678fef8688a5e75ca05e03bb371b3111",
+    "threat484-model/ATTEMPT1-RESPONSE.sse": "b0d1ae9a684015e68aeabbfde38377770ef6851fbc040cc7d26d4fe6fdea892b",
+    "threat484-model/EVENTS.jsonl": "c4ae53dce512a95711f727b88a69223f5a3349f6aef729b7f179cd6a4ad9eccb",
+    "threat484-model/ADAPTER-PROVENANCE.json": "0d09751fdaecdf4f33a80e584258cec37363408f4b34b4849ace3cfd2e03dd70"
+  }
+}
