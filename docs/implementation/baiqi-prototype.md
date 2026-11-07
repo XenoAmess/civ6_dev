@@ -363,3 +363,5 @@ python tools\build_mod.py --install
 - [76城旗UNKNOWN提示与恢复](../testing/baiqi-flag-unknown-recovery-76.md)：实际冻结提示、健康骑手FINISHING恢复及未知结果保存点同进程加载窄验通过；未重复征取，原正常114已恢复。新正常移民生产／人口成本及完整矩阵继续。
 
 - [76新移民正常训练／人口成本](../testing/baiqi-natural-settler-training-76.md)子项通过：后台选产、原生进度175成本及新演员7274546，人口10→9再增长10；全程未代做文职。新演员完整自动建城与重载继续，非完整TC-015通过。
+
+[82全新开局首都实机](../testing/baiqi-newgame-first-capital-82.md)窄通过：新进程624、93文件一致、启动前新鲜离线确认；原版创建／选择白绮，1回合自动西安与OBSERVED，普通到2时纪念碑4/60，正式完成后存读档保持。UI false新局→true读档来源均实际读回。两张原图入库；ARMED窗口续建及旧档扩张仍未修复。

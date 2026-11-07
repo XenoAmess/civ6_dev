@@ -246,3 +246,9 @@ Owner Savewatcher实际Native table.unpacknil/globalunpackfunction/_VERSION2013.
 [原生证据](research/baiqi-p6-settlement82-legacy-migration-evidence-2026-11-06.json)：Source82正式加载77版136、自然已有7274546@28,17，自动LEGACY_UNKNOWN／settle:0:1／recordturn136。20军事SKIP＋普通END，TEST_PLAYER拒交易／告别后到137，12城／同移民2moves。正式593519B保存、load／continue后UI+Core仍recordturn136，区别于缺bank在137重建；迁移与记录持久化窄PASS，扩张仍受阻。无QA属性写、私有恢复调用、SDK代理或手工文职输入。1张原图已内嵌。
 
 负责人错误单列：preflight结尾与helper拼成双分号，Lua53允许而游戏整段解析拒绝，0动作；原intent保留，Lua51编译＋原flag nil后新load尝试一次。UI读档getter误写UI.IsSavedGame，只读有效前缀后错误，独立反射／真实消费者确认应为GameConfiguration.IsSavedGame，产品一直正确；修正读回true。END ACK后8轮未ready是外交来访，停止依赖动作，普通拒绝／告别后独立ready，0END重放。新HTTP／OpenCode原生生成均0，累计仍478/445/30/3 HTTP508extra30，未知成本null。产品82／先前1153不重算，Steam0online-upload／Alpha74不变。
+
+## 2026-11-07：479新局源审与首都实际验收
+
+[新局证据](research/baiqi-p6-newgame82-first-capital-evidence-2026-11-07.json)。共享先同步cb5d75e，仅新增其他业务文档；Nov7同机同用户00:36成功1.19.5维护缓存复用，非本轮更新／原生生成。479完整stop/DONE/VALID，53252+1495=54747 tokens，TTFT6.8882885秒／总21.7580344秒，0retry。三个finding无新缺陷采用：条件式缺依赖安全拒绝且有日志、忽略Initialize既有bank提前分支、暂不可用误推永久hold；原引文含!=而真实Lua~=。whole0补丁／0模型Native，保留事件时序未知。累计479/446/30/3 HTTP509extra30，OpenCode新0，未知缓存／成本null；PREP阶段记录交错UI工作，不称独占人工收益。
+
+Source82新PID624/birth1794037522.685621，93filesmatch；Steam后台独立offline07:45:22.681802Z、age0.002195秒，0切换／上传。原版新局UIflagfalse，1回合自动city65536西安60,30与OBSERVED65536/token settle:0:1/request0:1:1；UI只warrior131073，Core原settler离图delayedtrue，区别活单位。1军队TEST_PLAYER SKIP＋1普通END到2，Monument0→4/60、gold10→15／warrior位置不变；893840B正规save/load/continue后UIflagtrue、同city/journal/progress保持。2原图；未装启动SDK，不授全局发令数。早MainMenu尚无context、两loadingLSQ Timeout均0CMD；capture activation失败另formalWin32focus；Cityview适配Python数值邻接SyntaxWarning读取成功，后续补空格。0产品修改，既有1153不重跑；ARMED及Legacy扩张缺口仍未关闭。

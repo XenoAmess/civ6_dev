@@ -1,5 +1,7 @@
 # civ6_dev
 
+- [82全新开局首都与两张实机图](docs/testing/baiqi-newgame-first-capital-82.md)：false新局标志、自动建西安、纪念碑0→4/60及第2回合正式重载窄通过。中途保存续建与旧档扩张缺口仍在，工坊Alpha74未更新。
+
 - [82自然建城与中途保存失败窗口（3张实机图）](docs/testing/baiqi-settlement-lifecycle-recovery-82.md)：156建成太原、157粮仓7/32；非空ARMED确实入档，但重载后的存活移民经过两个普通回合仍未续建，完整恢复未通过。
 
 - [82冷启动、空日志与两张实机图](docs/testing/baiqi-settlement-native-init-82.md)：UI／Core完整读回及普通保存／重载后世界核对；空日志可能重建，尚不能授持久意图或未决建城恢复通过。
@@ -44,7 +46,7 @@
 
 征城图为27版QA敌城场景，人口1、报价300金币；不是74版重拍。[完整玩法介绍与7张实机图](docs/workshop/v0.1.0-alpha.1/README.md)逐图注明版本与场景。
 
-- [最新开发与验收交接（2026-11-06）](docs/handoff/2026-11-06.md)：当前构建、游戏／存档现场、已验范围、剩余任务及本地模型续接。
+- [最新开发与验收交接（2026-11-07）](docs/handoff/2026-11-07.md)：当前构建、游戏／存档现场、已验范围、剩余任务及本地模型续接。
 - [全部功能状态快照](docs/testing/baiqi-feature-status-2026-11-01.md)、[安装与当前实现](docs/implementation/baiqi-prototype.md)、[持续验收](docs/testing/results/2026-11-01-p6-acceptance.md)、[P5 历史记录](docs/testing/results/2026-11-01-p5-acceptance.md)。
 - [74版建筑财政重验](docs/testing/baiqi-building-budget-74.md)：修复规划后收入／承诺变化仍提交建筑，8项回归及完整1029项通过；74已离线冷启并恢复114，[财政压力实机待验](docs/testing/baiqi-cold-start-74.md)。
 - [74版财政观察与副本](docs/testing/baiqi-financial-observer-74.md)：独立诊断工具10测及实机接入；测试后已清理观察器并恢复正常114存档。

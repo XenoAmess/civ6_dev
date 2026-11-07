@@ -433,3 +433,5 @@
 - TC-015／017：[82自然链与真实ARMED档](baiqi-settlement-lifecycle-recovery-82.md)：自然出生／人口成本／一次建城／新城生产窄通过；非空ARMED日志实际加载通过；156已发令但未生效档在普通158仍未续建，恢复进度FAIL，禁止把不重发当作完整恢复。
 
 - TC-015／017补充：[82旧档既有移民](baiqi-settlement-legacy-migration-82.md)保守迁移、136创建记录在137存读后保持。仅迁移／持久化窄PASS，旧移民扩张仍停止、ARMED续建FAIL未解除，新局首移民与完整用例未通过。
+
+- TC-015／017补充：[82全新世界首移民](baiqi-newgame-first-capital-82.md)自动建西安、纪念碑0→4/60、普通1→2与完成后存读档窄通过。启动前首帧SDK未知；完整矩阵及已知ARMED续建FAIL仍开放。

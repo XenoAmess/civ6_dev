@@ -1,0 +1,242 @@
+{
+  "schema": "civ6.newgame82-first-capital/v1",
+  "utc": "2026-11-07T08:04:44.119796+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "launch_repo_commit": "4f1a2130487c7a19d6b482b5035ffe21944f1a54",
+  "product_changes": 0,
+  "environment": {
+    "new_owned_pid": 624,
+    "new_owned_birth": 1794037522.685621,
+    "install_files_all_match": 93,
+    "fresh_steam_offline_proof_utc": "2026-11-07T07:45:22.681802+00:00",
+    "proof_age_seconds": 0.002195,
+    "mode_switches": 0,
+    "source": "Independent background visible MenuItem 上线..., no proof input/focus/move/screenshot. Formal navigation tracked separately.",
+    "daily_opencode": "Nov7 same-machine/user successful1.19.5 cache from00:36 reused, not new generation."
+  },
+  "native": {
+    "new_game_creation": "Original MainMenu.OnAdvancedSetup, physical Baiqi picker, guarded original OnStartButton, one start-screen click; no save loaded before first capital.",
+    "settings": "Gathering Storm, Prince, Standard speed, Continents, Small, six participants; defaults visible in setup.",
+    "first_active": {
+      "turn": 1,
+      "UI_GameConfiguration_IsSavedGame": false,
+      "city_count": 1,
+      "cityID": 65536,
+      "city_name": "西安",
+      "city_xy": [
+        60,
+        30
+      ],
+      "city_pop": 1,
+      "gold": 10,
+      "initial_settlerID": 65536,
+      "stage": "OBSERVED",
+      "token": "settle:0:1",
+      "requestID": "0:1:1",
+      "record_turn": 1,
+      "plot": 2280,
+      "empty_witness": true,
+      "conflictingCity": false,
+      "UI_units": [
+        {
+          "id": 131073,
+          "type": "UNIT_WARRIOR",
+          "xy": [
+            59,
+            30
+          ],
+          "moves": 2
+        }
+      ],
+      "Core_extra_original_settler": {
+        "id": 65536,
+        "xy": [
+          -9999,
+          -9999
+        ],
+        "isDead": false,
+        "isDelayedDeath": true,
+        "moves": 2,
+        "classification": "Consumed/offmap delayed object, not live expansion settler."
+      },
+      "production": "BUILDING_MONUMENT 0/60; production and citizen controls disabled in actual CityPanel."
+    },
+    "normal_turn2": {
+      "ordinary_END": 1,
+      "military_TEST_PLAYER_SKIP": 1,
+      "forced_END": 0,
+      "civilian_or_domestic_inputs": 0,
+      "city_count": 1,
+      "monument_progress": 4,
+      "monument_cost": 60,
+      "gold": 15,
+      "warrior_position": [
+        59,
+        30
+      ],
+      "warrior_moves": 2,
+      "UI_Core_units": 1,
+      "stage_still": "OBSERVED",
+      "same_token": true
+    },
+    "official_save_reload": {
+      "save_bytes": 893840,
+      "save_sha256": "1f14dad0b73bc09d8fa0583b69fb289d66b07899b65e575bfa104dba9fb4d982",
+      "save_ACK": true,
+      "load_ACK": true,
+      "continue_once": true,
+      "turn": 2,
+      "UI_GameConfiguration_IsSavedGame": true,
+      "city_count": 1,
+      "cityID": 65536,
+      "city_xy": [
+        60,
+        30
+      ],
+      "monument_progress": 4,
+      "monument_cost": 60,
+      "gold": 15,
+      "record_turn": 1,
+      "serial": 1,
+      "token": "settle:0:1",
+      "stage": "OBSERVED"
+    },
+    "no_QA_recovery_calls": "No Initialize/Prepare/Commit/Inspect/private Planner invocation, metadata clearing, unit grants, manual settler move/found, or manual production.",
+    "coverage_limits": "First UI/Core world reads were after initial background founding. No SDK startup hook; no claim of exact global native command count or zero background army commands. One new world and one normal round, not complete newgame matrix or pending-recovery acceptance.",
+    "verdict": "Narrow PASS fresh first-settler capital, automatic initial production, normal progress, and completed-world reload. Existing ARMEd pre-effect recovery FAIL and held legacy expansion remain."
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/newgame82/first-capital1.png",
+      "sha256": "fc6f240cd8be5d5562b2fcc22a30dcac46af63a53ae8079287b052cd8ac8edb2",
+      "altered": false,
+      "turn": 1
+    },
+    {
+      "path": "docs/testing/screenshots/newgame82/monument2.png",
+      "sha256": "30762d403aef2b0c2bc96d416e6c1c154f8478876a9d63fbdc06de81e78c8e41",
+      "altered": false,
+      "turn": 2
+    }
+  ],
+  "owner_corrections": [
+    "First early mainmenu LSQ had no MainMenu yet; no CMD sent. A capture activation call failed before screenshot; used separately qualified Win32 owned-window focus.",
+    "Two loading-time LSQ-only queries timed out before enter-game; no CMD/game-action replay. After one physical start click, fresh126contexts qualified.",
+    "Ported cityview Python ID expression emitted SyntaxWarning; read succeeded, spacing corrected before turn2; no product modification."
+  ],
+  "software": "Product1153 previously passed, unchanged; ignored QA readers Lua51 compile checked, not new product tests.",
+  "model479": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 53252,
+      "completion_tokens": 1495,
+      "total_tokens": 54747
+    },
+    "ttft_ms": 6888.288499903865,
+    "total_ms": 21758.034399943426,
+    "shared_commit": "cb5d75eabf80a0aad430bb66cb6180d39d5e2196",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "utc": "2026-11-07T08:02:22.929085+00:00",
+      "mode": "http-candidate-source-audit",
+      "candidate_findings": 3,
+      "accepted_new_defects": 0,
+      "patches_adopted": 0,
+      "raw_native_execution": 0,
+      "reviews": [
+        {
+          "finding": 1,
+          "verdict": "Not a demonstrated newgame defect",
+          "reason": "Factory dependency failure is conditional fail-closed behavior and explicitly logged. Candidate supplied no actual missing dependency trigger; Native newgame bridge initialized and first capital observed."
+        },
+        {
+          "finding": 2,
+          "verdict": "Wrong control-flow inference",
+          "reason": "A nonnil bank at Initialize entry is handled by clone/READY or invalid rejection before WriteNew. WriteNew journal_changed tests an intervening property change, preserving concurrent evidence. Candidate previous-session speculation does not establish that path."
+        },
+        {
+          "finding": 3,
+          "verdict": "Conditional safety hold, not proven permanent deadlock",
+          "reason": "Unknown initialization intentionally blocks emission. RefreshSettlement retries Initialize while unready, so temporary failure alone does not establish indefinitely held state. Native first newgame path worked."
+        }
+      ],
+      "anchor_quality": "First and third quoted anchors use != where actual Lua uses ~=; not exact source excerpts.",
+      "retained_unproven": "Native startup event ordering and malformed/absent dependency environments are not universally proved by one successful start.",
+      "native_separate_evidence": "Current newgame UI false flag, first65536 OBSERVED/city65536@60,30 atturn1, normal2 monument4of60; not model-authored actions.",
+      "usage": {
+        "prompt_tokens": 53252,
+        "completion_tokens": 1495,
+        "total_tokens": 54747
+      },
+      "ttft_ms": 6888.288499903865,
+      "total_ms": 21758.034399943426,
+      "source_sha256": {
+        "mod/Baiqi/Lua/BaiqiController.lua": "2e713275d739afdcd83b5592274c0ce795c484f0fa4c4ba598a3e105133ac0e5",
+        "mod/Baiqi/Lua/BaiqiSettlementStateCore.lua": "6ebc7e7abfc0f055e4b88c6e68c7fd4cfe7edb3d35f98599b899e97096a8b071",
+        "mod/Baiqi/Lua/BaiqiSettlementIntentGameplay.lua": "c14c741670ebee3719d2d511746ad0118a3145c2a39b5e9c344bc3cf8daf5548",
+        "mod/Baiqi/UI/BaiqiExecutor.lua": "64310c070a9a95c75d3cdd3a2624845bd6f2549a36e2f849ddbeb6f7c14eb57b"
+      },
+      "cumulative_through479": {
+        "logical_tasks": 479,
+        "complete_stop_valid": 446,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 509,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      },
+      "owner_timing": "PREP_BEGIN/END recorded with interleaved frontend work; review start not independently timed. No exclusive active-time or savings claim."
+    },
+    "accepted_new_defects": 0,
+    "patch_adoption": 0,
+    "raw_native_execution": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through479": {
+    "logical_tasks": 479,
+    "complete_stop_valid": 446,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 509,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "resume82nov7-cold-launch-receipt.json": "8a34d2c2ac70d6be845d79930cb1782a6b23b63ee01752bbd4bab61645f713da",
+    "resume82nov7-menu-inspect-baiqi-response.json": "b6a1d2b7887f9674c9d54e68950d4027df625fcc885f833e16e852fefeb36c3c",
+    "resume82nov7-menu-start-newgame-response.json": "d666c21e9fa08379429b29d34469306fd2acd93779ad68851680951787f630c8",
+    "newgame82-ui-first-active-response.json": "8dd40ad254069d7f76dbb58b3be8213e6eb153eaa8e2f46408fa878c4cf4abbb",
+    "newgame82-core-first-active-response.json": "adf0aeb90a5e4761152d86678b98d84306f0d083f7861ca16b493b68610a0cba",
+    "newgame82-ui-ordinary2-response.json": "155da66feecd0e1f88584df53368fd6558390e4c8dc0aeb537b3c253b376c10b",
+    "newgame82-core-ordinary2-response.json": "89df2e410b9a1c47074ea4025a9aee255a24d74143441e062dc86f913b4268a2",
+    "newgame82-ui-reload2-response.json": "51c72621816243a681cb2b80be91fc5718295969f6b621f5295c666e5a65ec25",
+    "newgame82-core-reload2-response.json": "0d298869080ad957b48e337451863a9146a02ba4874ee3b99fdb87edf16f3ee7",
+    "newgame82-save-capital2-response.json": "33f8808807c3e5a998fe1da663790a2423508c17ebea68388928a58dc6ad7a89",
+    "newgame82-load-capital2-response.json": "c31eeef76a811eeb4fefdb44d94d927f21ff7586e33f4344062985c2e4b0464c",
+    "resume82nov7-log-newgame-reloaded2.json": "08f90c80086972af5de66b807a67ae4a15a0f0a47c3271c0142ddfbe4d96ea9d",
+    "settlement479-owner-scope-review.json": "30c230e32cd3e51da5f0a9a0768a3ced9422a05eb0af13f690f97597d751549d",
+    "settlement479-model/ATTEMPT1-RESULT.json": "6757392ddebbbc202e7f6d5b1a7ee3d0658fd243a1585ef66f2357f65bff1b9c",
+    "settlement479-model/ATTEMPT1-CONTENT.txt": "5740a97f8129d66a31faaf98968cdcb90cf5aadc9e46bf498c8de546dbcc6ff0",
+    "settlement479-model/ATTEMPT1-RESPONSE.sse": "0d60b2bb178acf2f5bffa9c7e1fb550c16ba06b58d941206c231ec2c473ab27f",
+    "settlement479-model/EVENTS.jsonl": "7fc45ef4482cfd56910a4c206ecc338d1e9ed80ebd02c935c3b1217012a6c945",
+    "settlement479-model/ADAPTER-PROVENANCE.json": "dc2abe2171cd24f48cd8c1a27dc097fd34ec87a4502d3de7ae534c78dd68ebb0"
+  }
+}
