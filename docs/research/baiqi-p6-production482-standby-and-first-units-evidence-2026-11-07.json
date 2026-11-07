@@ -1,0 +1,434 @@
+{
+  "schema": "civ6.production482-standby-and-first-units/v1",
+  "utc": "2026-11-07T09:48:17.575388+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "product_changes": 0,
+  "native": {
+    "initial": "Same independent newgame domestic18 save; no resources or unit grants.",
+    "normal_inputs": {
+      "turns": "18→33",
+      "ordinary_END": 15,
+      "military_SKIP": 16,
+      "forced_END": 0,
+      "civilian_inputs": 0,
+      "domestic_choices": 0,
+      "view_unit_selections": 2
+    },
+    "timeline": [
+      {
+        "turn": 18,
+        "gold": 95,
+        "production": "PROJECT_BAIQI_STANDBY"
+      },
+      {
+        "turn": 19,
+        "cities": 1,
+        "gold": 100.0,
+        "population": 3,
+        "queueHash": 743941431,
+        "units": [
+          {
+            "id": 131073,
+            "type": "UNIT_WARRIOR",
+            "x": 59,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          }
+        ]
+      },
+      {
+        "turn": 22,
+        "source": "Transparent original AllowRecruit forwarder and city SDK request",
+        "gold": 115,
+        "netGold": 5,
+        "builderAllowed": true,
+        "cityRequestUnitHash": 299201842
+      },
+      {
+        "turn": 26,
+        "cities": 1,
+        "gold": 135.0,
+        "population": 3,
+        "queueHash": 299201842,
+        "units": [
+          {
+            "id": 131073,
+            "type": "UNIT_WARRIOR",
+            "x": 59,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          }
+        ],
+        "unitProgress": 38,
+        "unitCost": 50
+      },
+      {
+        "turn": 27,
+        "cities": 1,
+        "gold": 140.0,
+        "population": 3,
+        "queueHash": 299201842,
+        "units": [
+          {
+            "id": 131073,
+            "type": "UNIT_WARRIOR",
+            "x": 59,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          }
+        ],
+        "unitProgress": 46,
+        "unitCost": 50
+      },
+      {
+        "turn": 28,
+        "cities": 1,
+        "gold": 145.0,
+        "population": 3,
+        "queueHash": 1558890441,
+        "units": [
+          {
+            "id": 131073,
+            "type": "UNIT_WARRIOR",
+            "x": 59,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          },
+          {
+            "id": 196608,
+            "type": "UNIT_BUILDER",
+            "x": 60,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          }
+        ],
+        "unitProgress": 0,
+        "unitCost": 35
+      },
+      {
+        "turn": 32,
+        "source": "TEST_PLAYER normal military selection/skip receipts identify slinger262146; SDK queues standby after two live military count.",
+        "militaryLive": 2,
+        "newProduction": "PROJECT_BAIQI_STANDBY"
+      },
+      {
+        "turn": 33,
+        "cities": 1,
+        "gold": 170.0,
+        "population": 3,
+        "queueHash": 743941431,
+        "units": [
+          {
+            "id": 131073,
+            "type": "UNIT_WARRIOR",
+            "x": 59,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          },
+          {
+            "id": 196608,
+            "type": "UNIT_BUILDER",
+            "x": 60,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          },
+          {
+            "id": 262146,
+            "type": "UNIT_SLINGER",
+            "x": 60,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          }
+        ]
+      }
+    ],
+    "observer": {
+      "scope": "BaiqiExecutor future original AllowRecruit/CityManager.RequestOperation/UnitManager.RequestOperation/RequestCommand only, installed19 and exactly restored33 before save. Does not instrument other UI contexts or pre-install calls.",
+      "recruitDecisions": 383,
+      "cityRequests": 3,
+      "unitOperations": 6,
+      "unitCommands": 0,
+      "samples": 392,
+      "errors": 0,
+      "drops": 0,
+      "cityRequestSummary": [
+        {
+          "turn": 22,
+          "unit": "UNIT_BUILDER",
+          "hash": 299201842
+        },
+        {
+          "turn": 28,
+          "unit": "UNIT_SLINGER",
+          "hash": 1558890441
+        },
+        {
+          "turn": 32,
+          "project": "PROJECT_BAIQI_STANDBY",
+          "hash": 743941431
+        }
+      ],
+      "unitOperationSummary": "Six operations, all builder196608/hash745019656 on turns28..33. Log labels SKIP_TURN; no BUILD_IMPROVEMENT/MOVE_TO observed. Original calls returned zero values, not success booleans.",
+      "militaryRequestsInThisScope": 0,
+      "all_pages_complete": true
+    },
+    "builder_limit": "Born28; still capital60,30 at33 with2moves. Actual UI displays3 build charges. All10 currently purchased plots read improvementIndex=-1 at28 and33, including city center. Visible barbarians east in screenshots; no claimed exact safety root cause or automatic improvement completion.",
+    "save_reload": {
+      "bytes": 1017948,
+      "sha256": "be1c1596228d62a1b2f2d2b1fa79c40e163a29e5ff62eb0ad778f48acaf10ded",
+      "save_ACK": true,
+      "load_ACK": true,
+      "Continue_once": true,
+      "world_before": {
+        "turn": 33,
+        "cities": 1,
+        "gold": 170.0,
+        "population": 3,
+        "queueHash": 743941431,
+        "units": [
+          {
+            "id": 131073,
+            "type": "UNIT_WARRIOR",
+            "x": 59,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          },
+          {
+            "id": 196608,
+            "type": "UNIT_BUILDER",
+            "x": 60,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          },
+          {
+            "id": 262146,
+            "type": "UNIT_SLINGER",
+            "x": 60,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          }
+        ]
+      },
+      "world_after": {
+        "turn": 33,
+        "cities": 1,
+        "gold": 170.0,
+        "population": 3,
+        "queueHash": 743941431,
+        "units": [
+          {
+            "id": 131073,
+            "type": "UNIT_WARRIOR",
+            "x": 59,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          },
+          {
+            "id": 196608,
+            "type": "UNIT_BUILDER",
+            "x": 60,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          },
+          {
+            "id": 262146,
+            "type": "UNIT_SLINGER",
+            "x": 60,
+            "y": 30,
+            "moves": 2.0,
+            "formation": 1,
+            "dead": false,
+            "delayed": false
+          }
+        ]
+      },
+      "observer_absent": true,
+      "capital_intent_observed": true,
+      "monument_exists": true
+    },
+    "verdict": "Narrow PASS finite fallback followed by natural builder and slinger production, waiting military and completed-state reload in this start. Auto builder improvement remains unpassed in this window.",
+    "limits": "No complete budget/production/military/civilian matrix or all40TC. Existing ARMEd-save and legacy expansion failures remain. No global zero military orders claim."
+  },
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/production482/slinger33.png",
+      "sha256": "2bc861661e44c5b772f149c69de803dcf310b72aac99eb4e149a32e679c8d9ef",
+      "altered": false,
+      "turn": 33
+    },
+    {
+      "path": "docs/testing/screenshots/production482/builder33.png",
+      "sha256": "756c6d8bfc267f318a08c780e40d68999602fc0093f79a066bc93d4a4d2a222d",
+      "altered": false,
+      "turn": 33
+    }
+  ],
+  "software": {
+    "existing_finance_observer_tests_rerun": 10,
+    "new_full_product_suite_runs": 0,
+    "product_prior_full_suite": 1153,
+    "owner_lua51_compile": true,
+    "model_generated_native_code": 0
+  },
+  "model482": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 52083,
+      "completion_tokens": 1215,
+      "total_tokens": 53298
+    },
+    "ttft_ms": 6806.140000000596,
+    "total_ms": 16290.718999924138,
+    "shared_commit": "3da1f6169831c0d87d6c7e02b1b5f9c3fd9ec518",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "whole_raw_adoption": false,
+    "raw_native_execution": 0,
+    "review": {
+      "utc": "2026-11-07T09:38:35.071874+00:00",
+      "scope": "Review finite standby source audit; not code generation or engine qualification",
+      "candidate_findings": 4,
+      "new_confirmed_product_defects": 0,
+      "product_patches": 0,
+      "whole_candidate_adoption": false,
+      "raw_native_execution": 0,
+      "decisions": [
+        {
+          "finding": 1,
+          "decision": "Only negative project priority and selected pending readback facts retained. Reject universal recovery/deadlock absence and wording excluded from selection.",
+          "source": "Controller2755 still Add(project,-1000); it remains selectable by Choose. ReadBack3015-3020 retains unresolved replacement, not covered in blanket conclusion. Native completed project queue removal not qualified by Lua source."
+        },
+        {
+          "finding": 2,
+          "decision": "QueueReady exact gating retained; no native recovery guarantee adopted.",
+          "source": "Controller2595-2600 requires empty/current0 or qualified completed building/district. CompletedIdleHead2504 explicitly excludes units/projects; an active standby blocks further append until normal native completion. Candidate wording that it only blocks when sole item is not a general guarantee."
+        },
+        {
+          "finding": 3,
+          "decision": "RefreshProduction reset and completion callback retained; event spelling corrected.",
+          "source": "Controller81 resets cityEvaluated only.3235-3245 registers CityProductionCompleted and UnitAddedToMap/UnitRemovedFromMap with handler OnUnitCountChanged; there is no subscribed event named UnitCountChanged here."
+        },
+        {
+          "finding": 4,
+          "decision": "Source attempt/pending/limit facts retained, universal prevention claim restricted.",
+          "source": "Controller2707/2696 and NextRequest avoid repeated same-turn candidate keys; this is not proof every runtime recovery or infinite-loop property."
+        }
+      ],
+      "native_independent_result_so_far": "19 gold100 still standby. Transparent observer installed19. Ordinary19→26; first observed future AllowRecruit evaluation22 gold115/net5, buildertrue and one cityRequest, current26 UNIT_BUILDER38/50. This actual effect is independent of candidate source claims.",
+      "observer_software": "Existing diagnostic_finance 10 tests rerun passed before binding. Adapted installer Lua5.1 compiled. No product source changed.",
+      "usage": {
+        "prompt_tokens": 52083,
+        "completion_tokens": 1215,
+        "total_tokens": 53298
+      },
+      "ttft_ms": 6806.140000000596,
+      "total_ms": 16290.718999924138,
+      "cumulative_through482": {
+        "logical_tasks": 482,
+        "complete_stop_valid": 449,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 512,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through482": {
+    "logical_tasks": 482,
+    "complete_stop_valid": 449,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 512,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "owner_corrections": [
+    "CMD regex with unescaped spaces failed read-only search; corrected bounded -e patterns, no Native action.",
+    "Continue helper source line was accidentally removed during ignored-helper edit; immediately read back and restored before any execution.",
+    "First load33 LSQ qualification was connection-refused during loading; no CMD and no load replay. Fresh owned endpoint qualification required."
+  ],
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "production482-owner-scope-review.json": "0c62b1e7a6dbd4c8add3dad70f5d6fc8fc65c9380c894c8e657e653ed98bc7eb",
+    "production482-finance-install-at19-response.json": "8e6fdba17b296bc1d845c7d001fcd06ff2d456d09108b298445f070cbfda0759",
+    "production482-finance-read-at33-page1-response.json": "a1f364149628b770c9e63e1763fa4db74478422af468a1eade1f7d153cc6f088",
+    "production482-finance-read-at33-page2-response.json": "34b8dd0f0073f8e738a62774bb8fd1013428c49cbd29e2f3cc0920b7dc7d9c0e",
+    "production482-finance-read-at33-page3-response.json": "3af5c2d3692356f06157d0aa423b5eb79658eecf5ff22c44c54166e270691c9b",
+    "production482-finance-cleanup-at33-response.json": "a3ea55cadae2bbfd8e91afe371ccb04936197be51e85ea7e9974c19476854fee",
+    "domestic481-ui-at19-response.json": "ba6c8e4245c56253eb52f81fb1d9fe139b24cd612d84e5f7dbb024f11b82359d",
+    "domestic481-ui-at26-response.json": "58572271542fa223101076f6033e0ae1a1f4d4ef35195eea7843a8e16949cea0",
+    "domestic481-ui-at27-response.json": "b2d57ec3b8bd73a7df9566b22fef52ce7177892d2cad435ff36b425a8c481ee4",
+    "domestic481-ui-at28-response.json": "4184ef205e71676bc4e541ed2fc71b7b11693af1e6f315e3d4c93beb820b8a80",
+    "domestic481-ui-at33-response.json": "8552a6d7af3fa818d80469bf1544f31b0a25a67615ea0292afa6453c4566792b",
+    "domestic481-ui-reload33-response.json": "40fe4a1faa764444d8f514183baf188fe70416341ffc1b9490a768ac9d1a8991",
+    "production482-plots-at28-response.json": "d0a24d0ce9113eef722c46113ce07c33c52d7351751c252b1dfa36b1be3c17a6",
+    "production482-plots-at33-response.json": "2c31bdf3e7998696a76f49f198576e8df38ef8a7146b2d6ac825f2208d5530ad",
+    "production482-final-reload33-response.json": "9a742bce9cba540242d0715b28da169fff9f40bfde910ca9194b7e3798bfa56b",
+    "production482-save33-response.json": "83690610e26960a7be3eaec899f168bb6a5c6b879ded783752a30c6930b311ab",
+    "production482-load33-response.json": "73fd24970788a116f54d804109e980d654312cbab122d995ca25775b905c92a5",
+    "domestic481-normal-step-32-01-response.json": "84b7e40f616d3be6b71aa37ee019b32db4f17b6a5858aad2da8dae951a8fb93b",
+    "domestic481-normal-step-32-02-response.json": "12eb3bf90507137abb8333bcf06edf9d0597100c415a64edabfe515800e67269",
+    "production482-model/ATTEMPT1-RESULT.json": "fa55ed72ea054702608f32d11c785d70e7b854ca46da03fcfee6dc4f5b192ae1",
+    "production482-model/ATTEMPT1-CONTENT.txt": "bcb39121b8dd0f48a31ce29e8d498578eeeb15215446710eff32cdc0321f9996",
+    "production482-model/ATTEMPT1-RESPONSE.sse": "7f119285ead891e2c002c348a26e1f089955dee25d21605c67ef3962687efdf4",
+    "production482-model/EVENTS.jsonl": "f0ce02cdd70dc66c3ebe27e6b4db0a9723e0515f899275088653f7c706020405",
+    "production482-model/ADAPTER-PROVENANCE.json": "0643e82ea19df49dcfced307b9ba175122c33e7067b721ca40f0b9baa234e4c4"
+  }
+}

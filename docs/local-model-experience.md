@@ -266,3 +266,9 @@ Source82新PID624/birth1794037522.685621，93filesmatch；Steam后台独立offli
 [原生时间线](research/baiqi-p6-domestic481-first-tech-civic-policy-evidence-2026-11-07.json)。481stop/DONE/VALID，5837+1497=7334tokens、TTFT0.9093176秒／总9.7998775秒、0retry。Raw Lua51编译但20场景13失败：成功没KNOWN、缺pcall、DBIndex不对照输入／字符串缺失仍放行、HasTech/HasCivic不校bool与固定行缺失仍放行、slotType允许无类型。整稿0Native／0采用；owner独立reader20场景通过，实际UI基线2为采矿／法典在研与空槽，原生Index/hash合同本次匹配。
 
 Source82同一新局普通2→18、16军事SKIP＋16END，11首次HasMining真转畜牧、14首次HasCode真转技艺并装纪律／城市规划。10Monument44/60，18HasBuilding真／pop3／gold95／待命整备项目，当前排产原因未靠余额推断。991483B save SHA104cd33b6df743864addad163ac0eec5c39edbbf815251733b68fd65e9522543，loadContinue后全部相同。2原图；gov首次旧ref过60秒守卫拒0input，freshref后oneVIEW，不放宽门。0产品修改／1153不重跑，累计481/448/30/3 HTTP511extra30/OpenCode新0/unknownnull，Steam0online-uploadAlpha74不变。
+
+## 2026-11-07：482待命排产审阅与真实首批单位
+
+[公开证据](research/baiqi-p6-production482-standby-and-first-units-evidence-2026-11-07.json)。482stop/DONE/VALID，52083+1215=53298tokens，TTFT6.80614秒／总16.290719秒、0retry。四项源码判断保留窄事实、拒绝普遍无恢复缺口／无死锁保证；-1000仍是可选候选，CompletedIdleHead不资格项目，UnitCountChanged是handler而实际订阅UnitAddedToMap/RemovedFromMap，未决replacement分支仍会保留。0产品patch／raw0Native，不拿源码推断Native项目完工。
+
+已测finance观察器10项重跑通过，Lua51编译后19绑定、33精确恢复；383招募+3城请求+6文职op=392／0error-drop。实际22排builder、26进38/50、27进46/50、28出生接slinger、32军队出现、33原位；15普通END16军队SKIP，无文职／人工资源。builder仍在城内、3劳动力、10自有plot无改良，东侧可见蛮族，未授建设或完整原因。1017948Bsave SHAbe1c1596228d62a1b2f2d2b1fa79c40e163a29e5ff62eb0ad778f48acaf10ded loadContinue三单位/城/金币/项目保持。2原图。CMD空格regex只读检索失误已纠；continue ignoredhelper误删行在运行前读回恢复；loading一次LSQ拒连接0CMD，不重放load。累计482/449/30/3 HTTP512extra30/OpenCode新0/unknownnull，源码82未改1153不重跑／Steam0online-uploadAlpha74。

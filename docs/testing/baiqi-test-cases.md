@@ -439,3 +439,5 @@
 - TC-015／017补充：[原版保存资格采样与82失败重现](baiqi-settlement-allowed-save-window-82.md)。FOUND返回／ARMED时CanLocalPlayerSaveGame=true；定时文件重载后普通两回合仍14城与活移民，前进恢复FAIL。只补资格事实，不授物理菜单／自动保存时序或安全重试。
 
 - 新局内政补充：[82首次科技、市政与政策](baiqi-newgame-first-tech-policies-82.md)完成／自动接续、两张政策实际落槽、纪念碑完工及18回合存读档窄通过。无人工内政／私有Run；没有授完整研究树、政府升级、付费换卡或全部用例通过。
+
+- 新局排产补充：[82待命后自然训练建造者／投石兵](baiqi-newgame-standby-first-units-82.md)及33回合军队等待／正式存读档窄通过。15普通回合、16军队SKIP，无文职输入；建造者待命／未改良仍待追因，不授完整生产、军队与建设矩阵。
