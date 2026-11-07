@@ -1,0 +1,207 @@
+{
+  "schema": "civ6.production485-settler-legality-hints/v1",
+  "utc": "2026-11-07T11:07:01.439567+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 82,
+  "product_source_commit": "8d6b9014681ca11f3f73d4b36862b1d57e4a7d61",
+  "product_changes": 0,
+  "native": {
+    "context": "Same officially reloaded farm38; no new gameplay inputs or state writes.",
+    "cityID": 65536,
+    "turn": 38,
+    "settlerIndex": 0,
+    "settlerHash": -798712536,
+    "queueSize": 1,
+    "currentHash": 743941431,
+    "currentProduction": "PROJECT_BAIQI_STANDBY",
+    "canProduceExclusion": true,
+    "canProduceRequirements": true,
+    "canStartAppendBuild": true,
+    "settlement_hints": {
+      "native_interface_present": true,
+      "native_return_type": "table",
+      "native_call_parameter": 12,
+      "raw_count": 0,
+      "revealed_count": 0,
+      "visible_count": 0,
+      "unrevealed_count": 0,
+      "fogged_count": 0,
+      "unknown_collection_not_defaulted_to_empty": true,
+      "hidden_coordinates_or_properties_emitted": false
+    },
+    "source_correlation": "Controller2027 temporarily hasSafeSite=true for pure budget probe;2029 then reads actual SettlementSites;2030 requires its nonempty result. Current raw native hints empty means that actual site condition cannot pass. QueueReady also requires queue empty/current0, unlike this active standby.",
+    "verdict": "Known current append legality and known empty actual settlement hints, not a historical36 native failure. No product bug or full auto-expansion PASS awarded.",
+    "limits": "No private SettlementSites/Planner/Run call, queue mutation, settler spawn/training/founding, human fog reveal or complete expansion test. Current38 cannot retroactively explain36. Whether normal TEST_PLAYER exploration changes hints remains untested."
+  },
+  "software": {
+    "raw_compile": false,
+    "raw_contract_cases_run": 0,
+    "whole_raw_native_execution": 0,
+    "whole_raw_adoption": 0,
+    "owner_lua51_contracts": 25,
+    "product_suite_reruns": 0,
+    "prior_product_suite": 1153
+  },
+  "model485": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "attempts": 1,
+    "extra_retries": 0,
+    "usage": {
+      "prompt_tokens": 4759,
+      "completion_tokens": 1122,
+      "total_tokens": 5881
+    },
+    "ttft_ms": 804.1192999808118,
+    "total_ms": 7770.594900008291,
+    "shared_commit": "2c0731e8b54d2e24b5db5fab985c929fac300cb4",
+    "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "review": {
+      "utc": "2026-11-07T10:54:05.255282+00:00",
+      "raw_compile": false,
+      "raw_compile_error": "[string \"<python>\"]:16: function arguments expected near 'and'",
+      "raw_contract_cases_run": 0,
+      "owner_cases": {
+        "actual-pid-number-and-signed-hash-signatures": {
+          "passed": true
+        },
+        "native-false-is-known-not-unknown": {
+          "passed": true
+        },
+        "empty-queue-current0-known": {
+          "passed": true
+        },
+        "missing-ui-not-skip-guard": {
+          "passed": true
+        },
+        "missing-interface-protected": {
+          "passed": true
+        },
+        "local-mismatch-before-probe": {
+          "passed": true
+        },
+        "city-id-alias-rejected": {
+          "passed": true
+        },
+        "foreign-city-rejected": {
+          "passed": true
+        },
+        "nonhuman": {
+          "passed": true
+        },
+        "inactive": {
+          "passed": true
+        },
+        "busy": {
+          "passed": true
+        },
+        "unknown-busy-not-false": {
+          "passed": true
+        },
+        "bad-row-type": {
+          "passed": true
+        },
+        "bad-row-index": {
+          "passed": true
+        },
+        "infinite-hash-no-probe": {
+          "passed": true
+        },
+        "parameter-key-collision-before-probe": {
+          "passed": true
+        },
+        "nonboolean-native-not-coerced": {
+          "passed": true
+        },
+        "throw-protected-no-raw-exception": {
+          "passed": true
+        },
+        "turn-drift": {
+          "passed": true
+        },
+        "queue-size-drift": {
+          "passed": true
+        },
+        "queue-hash-drift": {
+          "passed": true
+        },
+        "local-changed-at-boundary": {
+          "passed": true
+        },
+        "owner-changed-at-boundary": {
+          "passed": true
+        },
+        "invalid-city-input-before-native": {
+          "passed": true
+        },
+        "fresh-plain-metadata": {
+          "passed": true
+        }
+      },
+      "owner_unique_cases": 25,
+      "owner_sha256": "bc8af7ce720bd5745aca3f68b1c2db80c328c3e9e5972fc924302f723f496dce",
+      "whole_raw_adoption": 0,
+      "raw_native_execution": 0,
+      "raw_defects": [
+        "Lua syntax invalid at player:GetCities and: colon call used as member presence expression.",
+        "Also treats numeric GetLocalPlayer as player object.",
+        "No requested whole-read pcall; limitation overstates missing-interface protection.",
+        "Missing E.UI can skip exact idle guard."
+      ],
+      "source_correction": "Controller2027 sets hasSafeSite=true only for pure budget probe, then2029 queries SettlementSites and2030 requires actual hints. A pure true does not imply full RecruitAllowed. Current append legality cannot explain historical36 alone.",
+      "usage": {
+        "prompt_tokens": 4759,
+        "completion_tokens": 1122,
+        "total_tokens": 5881
+      },
+      "ttft_ms": 804.1192999808118,
+      "total_ms": 7770.594900008291,
+      "cumulative_through485": {
+        "logical_tasks": 485,
+        "complete_stop_valid": 452,
+        "length": 30,
+        "final_transport_failures": 3,
+        "http_attempts": 515,
+        "extra_retries": 30,
+        "opencode_native_generation": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative_through485": {
+    "logical_tasks": 485,
+    "complete_stop_valid": 452,
+    "length": 30,
+    "final_transport_failures": 3,
+    "http_attempts": 515,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "new_screenshots": 0,
+  "illustration": "Previous threat484 farm38 screenshot reused with explicit attribution in document.",
+  "game_orders": 0,
+  "new_hooks": 0,
+  "steam_online_switches": 0,
+  "workshop_uploads": 0,
+  "public_alpha_version": 74,
+  "raw_sha256": {
+    "production485-owner-scope-review.json": "2cfe9e3d565075d34695a7af7a20fdf2db9efaf3eea9f4e201ec5c3c62cf8685",
+    "production485-read-current38-response.json": "7b89ced6ac7fe6267e7b369d1e5c9e2b68f1def2200053af6a6a9121d5276612",
+    "production485-hints38-response.json": "e7e2e60c4f9690c528c8633db2038a5b0981102e0baa153ae0d4614965820362",
+    "production485-model/ATTEMPT1-RESULT.json": "5fd34e8936fb284c68c1da5beb089c0aa1bfd44262df3fc6add05ae7bc8847ce",
+    "production485-model/ATTEMPT1-CONTENT.txt": "5b767d475fa6065a3aa5791d880a8ed3cf34a1615ac83eb2afcbdafcc50f19b2",
+    "production485-model/ATTEMPT1-RESPONSE.sse": "0b1145fc1d48197338600df2d026ee2a8aea4adbf3bcd9d4c2b1274cfe3eca1b",
+    "production485-model/EVENTS.jsonl": "480caa5ae10d8e00c272cef044eab21d29649f48a1d13c92aff122de85b05e94",
+    "production485-model/ADAPTER-PROVENANCE.json": "0d09751fdaecdf4f33a80e584258cec37363408f4b34b4849ace3cfd2e03dd70"
+  }
+}

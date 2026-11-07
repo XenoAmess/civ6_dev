@@ -286,3 +286,9 @@ Source82同一新局普通2→18、16军事SKIP＋16END，11首次HasMining真�
 38实际builder196608从6030到5929，先MOVE再BUILD_IMPROVEMENT/hash168372657；plot2205 FarmIndex1/nonpillaged、3→2charges／manualaction0，archer同格仍2moves/form1未带走。未来Executor133样本127recruit1city5builderop／0error-drop／军事0仅该scope；全清再1024091Bsave/hashb40b7eb45a6312a7b7bd8f57de2e7cb5c9b398d02aa89ec6bc1fd49879a4a8e3，正式loadContinue同Farm/charges/3units/pop4/gold130/standby/Jobserved。3新图内嵌，危险只是离开当前可见半径，不称全灭或全图安全。36pureSettlertrue但standby，不据此判Native合法或FAIL，485后续独立诊断。
 
 Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束，分别fresh35/36无END重发，新future32读，36→37第20读成功。reposition先validate两层再ipairs，空白编辑一次Lua51compile拒0CMD后修；一次只读patch锚失配未编辑。37首快读伤害0/move1，后实际66/move0，无射击重放。累计484/451/30/3 HTTP514extra30/OpenCode新0未知null，源码82未改1153不重跑，Steam0online-uploadAlpha74；既有恢复FAIL保留。
+
+## 2026-11-07：485移民当前资格与真实空推荐
+
+[证据](research/baiqi-p6-production485-settler-legality-hints-evidence-2026-11-07.json)。485stop/DONE/VALID5881tokens(4759+1122)、TTFT0.8041193秒／总7.7705949秒／0retry；Lua51 compile在`player:GetCities and`语法失败，另错把GetLocalPlayer数字当对象、无全读pcall、UI缺失可跳过门。0raw合同运行／0Native／0整稿采用；owner独立25casepass（signed Hash/Native两种receiver/精确bool/三状态边界/未知保护）。
+
+实际38 settleIndex0/hash-798712536，qsize1/standby743941431，两CanProduce和native appendCanStart均true。另原始GrandAI可用、GetSettlementRecommendations(12)真实table但0条，0隐藏坐标／属性输出。源码2027临时hasSafeSite=true做纯预算，2029才取实际Sites，2030完整门；故puretrue不等完整允许，当前appendtrue不等queueReady，更不倒推36。0gameorders/hooks/statewrite，private38FarmSave仍保持。累计485/452/30/3 HTTP515extra30/OpenCode新0未知null；source82未改1153不重跑/Steam0Alpha74。

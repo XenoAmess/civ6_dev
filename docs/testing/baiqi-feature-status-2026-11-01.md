@@ -1,4 +1,12 @@
-# 白绮全功能状态及更新：2026-11-05（北京时间）
+# 白绮全功能状态及更新：2026-11-07（北京时间）
+
+当前源码／安装／实机82，工坊Alpha74；40项尚未全验，82仍不能标稳定版。
+
+本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。
+
+开放风险：[ARMED中途保存恢复FAIL](baiqi-settlement-allowed-save-window-82.md)、[旧档移民等待](baiqi-settlement-legacy-migration-82.md)、完整生产／建设／军队／宗教等矩阵。新局38[移民原生可追加但城址推荐为空](baiqi-newgame-settler-legality-hints-82.md)，未授新局自动扩张通过。
+
+下方保留各历史切点；其中旧“最新／当前／待验”对应记录当时。
 
 最新82原生：[自然建城通过／中途保存续建FAIL](baiqi-settlement-lifecycle-recovery-82.md)。152西安真实训练扣人口16→15，156一次FOUND建太原，157完成记录与粮仓7/32；定时存档保存了ARMED／14城／存活移民，加载后两普通回合仍未恢复。非空持久化、防重复为窄通过，完整恢复未通过，82不能称稳定版。
 
