@@ -1993,19 +1993,37 @@ local function CreatedWorkObserved(player,pending)
   return false
 end
 
-local function SettlementSites(player, state, firstOnly, excluded, unitID)
+local function SettlementSites(player, state, firstOnly, excluded, unitID, preferredIndex)
   local result,candidates = {},{}
   local ai = player:GetGrandStrategicAI()
   if ai == nil then return result end
-  for rank, recommendation in pairs(ai:GetSettlementRecommendations(12) or {}) do
-    local index=recommendation.SettlingLocation
+  local seen={}
+  local function AddCandidate(index,score,preferred)
     local reserved=reservations[index]
     if BaiqiPolicy.Number(index) and index>=0 and index%1==0 and not (excluded and excluded[index])
       and (unitID==nil or reserved==nil or reserved==unitID) then
-      candidates[#candidates+1]={index=index,score=100-(tonumber(rank) or 0)}
+      local candidate=seen[index]
+      if candidate then
+        if score>candidate.score then candidate.score=score end
+        candidate.preferred=candidate.preferred or preferred
+      else
+        candidate={index=index,score=score,preferred=preferred}
+        seen[index]=candidate;candidates[#candidates+1]=candidate
+      end
     end
   end
-  table.sort(candidates,function(a,b) if a.score~=b.score then return a.score>b.score end return a.index<b.index end)
+  -- Native rankings can change while a settler is en route. An existing goal
+  -- remains a proposal only: every eligibility, path and dispatch check below
+  -- still reads current state. Recruitment never supplies a preferred index.
+  if preferredIndex~=nil then AddCandidate(preferredIndex,100,true) end
+  for rank, recommendation in pairs(ai:GetSettlementRecommendations(12) or {}) do
+    AddCandidate(recommendation.SettlingLocation,100-(tonumber(rank) or 0),false)
+  end
+  table.sort(candidates,function(a,b)
+    if a.preferred~=b.preferred then return a.preferred end
+    if a.score~=b.score then return a.score>b.score end
+    return a.index<b.index
+  end)
   for i,candidate in ipairs(candidates) do
     local plot=Map.GetPlotByIndex(candidate.index)
     if plot and plot:GetIndex()==candidate.index and Revealed(plot) and not plot:IsWater()
@@ -2056,7 +2074,7 @@ local function ProcessSettler(ctx, player, state, unit)
     settlerSearches[id]=nil
     return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
   end
-  local sites,more=SettlementSites(player,state,true,search.tested,id)
+  local sites,more=SettlementSites(player,state,true,search.tested,id,settlementTargets[id])
   local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
   if not mayFound and target and target.index==here:GetIndex() and KnownExpansionSupport(here,player,ctx.player)==true and Safe(here, player)
     and UnitManager.CanStartOperation(unit, UnitOperationTypes.FOUND_CITY) == true then

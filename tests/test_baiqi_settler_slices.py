@@ -105,6 +105,31 @@ class SettlerSliceTests(unittest.TestCase):
         self.assertEqual((self.w.unitRequests[1].unit, self.w.unitRequests[1].op), (2, 11))
         self.assertEqual(self.paths(), [])
 
+    def test_selected_target_survives_hint_change_after_confirmed_step(self):
+        self.c.RunNow()
+        self.assertEqual(self.paths(), [(2, 46)])
+        # Native move completion, then the next ordinary planning turn. The
+        # mock changes position only after the controller's original request.
+        self.w.settlerPlot = 43
+        self.w.turn = 2
+        self.lua.execute('''
+            TestWorld.paths[46]={43,60,61,62,48,46}
+            TestWorld.settlementRecommendations={47}
+        ''')
+        self.c.RunNow()
+        self.assertEqual(self.paths(), [(2, 46), (2, 46)])
+        r = self.w.unitRequests[2]
+        self.assertEqual((r.unit, r.op, r.params[14], r.params[15]),
+                         (2, 10, 4, 3))
+
+    def test_selected_target_does_not_override_new_foreign_ownership(self):
+        self.c.RunNow()
+        self.w.settlerPlot, self.w.turn = 43, 2
+        self.w.siteOwners[46] = 8
+        self.lua.execute('TestWorld.paths[47]={43,42,44,70,71,72,73,74,47}')
+        self.c.RunNow()
+        self.assertEqual(self.paths(), [(2, 46), (2, 47)])
+
 
 if __name__ == '__main__':
     unittest.main()

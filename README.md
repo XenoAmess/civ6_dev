@@ -144,3 +144,5 @@ python tools\build_mod.py --install
 - [77新发现：移民同一城址绕行缺口](docs/testing/baiqi-settler-occupied-detour-gap-77.md)：77正常训练及出生已核，167因己方先知挡住原生首步而等待；完整绕行／建城未授通过，已保存复现现场并继续修复。
 
 - [78版移民同城址绕行的软件修复](docs/testing/baiqi-settler-detour-78.md)：20新增回归、完整1084项通过，87文件包已生成；安装／冷启动实机仍待核，不授建城通过。
+
+- [83已选城址连续性修复](docs/testing/baiqi-settler-target-continuity-83.md)：原生推荐变化后继续重检旧目标，9项新增回归／全量1172通过、1环境跳过／93文件包；83尚未安装实测，不含冷读目标持久化。Steam与GitHub Alpha2仍82。

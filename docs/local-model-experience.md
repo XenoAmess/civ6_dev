@@ -308,3 +308,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-07：Alpha2发布执行不是新增模型能力
 
 [回执](workshop/v0.1.0-alpha.2/publication-evidence.json)：8个官方SDK发布器进程（7创建端上下文、1消费端），5次图库追加＋1次内容更新均OK，无Create／自动重放；12张真实正文HTMLimg与全部图像／新封面哈希、93文件实际下载通过。先取得本轮人工无人报告，不伪装API检测。模式物理操作ACK未生效，保留当前在线读回；正常Exit/普通重启后，正式Invoke＋14904实例新鲜GoOnline只读才授offline，原因未知不猜DPI。自有游戏已保存64后退出无UI残留超180秒才单独terminate，不能称clean正常退出，Steam0terminate。此执行0新HTTP／OpenCode任务，逻辑累计仍494／459stop／32length／3transport／HTTP524extra30，未知成本null，不能把SDK成功或软件15方法授40项实机。
+
+## 2026-11-07：495—497城址连续性与只读探针
+
+[证据](research/baiqi-p6-target495497-continuity-source83-evidence-2026-11-07.json)。三次HTTP均200/完整stop/VALID，495私有Safe／KnownSupport伪导出与源码错误拒；496少end编译FAIL、缺完整身份／可见性／界限守卫，0原稿Native，owner重写只读已知1983membership及3圈可见city。冷读64raw3且1983false，21/37当前可见0city，ownnearest4；不能倒推原进程私有goal或授私有support返回。497修改采用优先候选／call，owner去任意1000分、显式优先、重复保留最高评分。9新回归，82有3fail，83聚焦98pass；首全量18error由owner遗漏版本消费者，修后1172pass1SDK环境skip，71Lua51/93zip一致，尚未安装Native。当前82Core死builder离图额外行不算活单位；147469951实际REPAIR枚举不授修复效果。累计497/462stop32length3transportHTTP527extra30，OpenCode新0／未知成本null。
