@@ -471,3 +471,5 @@
 - [87区域改良与86后续](baiqi-district-improvements-87.md)：TC内政生产补74farm2532原生双资格true却被空地筛选挡；软件9方法旧86／原515各3方法15断言失败，87为0，待87原生排队与地块消耗。TC-019／TC-035仅新增玩家枪兵一次近战、议会原版各1免费票提交／恢复71窄路径，不授全部矩阵或决议效果。74文职清单损失和0先知点仍开放，3原图内嵌。
 
 - [87冷加载至78](baiqi-cold-city-range-87.md)：原版载74/UI-Core保持、4normalEND4armySKIP、2TEST_PLAYERcityrange命令实际伤害10/16；0raw模型Native，不授全军事／地区放置或宗教通过。129未来样本及5snapshot全读撤钩，78保存；后续无野蛮人场景另记，不能回填围城生存验收。
+
+- [87无蛮族三城85](baiqi-nobarb-three-cities-87.md)：45normalEND90armySKIP、0UserForced/文职生产输入；北京71、邯郸78实际建城/JOBSERVED，85撤钩保存／精确加载保持。2760future样本+46prophet快照全序号一次读回，0错误丢样；0先知事件不等于0所有伟人。519/alias522原只首都，0区域记录不授全帝国，523/26边界后未来90扩至自有城市；邯郸90港口旧地块未捕获。5图内嵌，Source87农场替代、新先知、ARMED恢复FAIL、围城／忠诚与五城20回合及全40项仍OPEN。
