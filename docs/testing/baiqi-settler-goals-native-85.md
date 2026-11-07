@@ -21,3 +21,7 @@
 本轮授84真实计划升级冷读、保留原队列、自动行军建城、清目标和完成态重载窄通过。ARMED中途保存恢复、旧档等待FAIL、人口成本及完整40项仍开放。人口观察器候选504虽编译通过，但隔离运行零注册却打印“installed”，还发明Players.GetLocalPlayer、丢nil参数孔；已拒绝，未入游戏。累计504任务／469完整stop／32length／3最终transport，534HTTP／额外重试30；OpenCode新原生生成0、未知成本null。
 
 GitHub和Steam Alpha2仍为82／12张实机图，85尚未发布；本轮Steam持续离线。
+
+## 后续人口成本样本
+
+[另一个85分支](baiqi-settler-population-cost-native-85.md)已记录51出生时4→3→4与粮食33→2，补得1人口成本和出生态重载窄通过。它与本篇queued61→65建城并非同一分支，不因393216相同拼接历史；旧恢复FAIL和完整40项继续。

@@ -154,3 +154,5 @@ python tools\build_mod.py --install
 - [84真实在途计划／85原生队列守卫](docs/testing/baiqi-settler-queued-goal-85.md)：61真实写入目标1983并正式保存原队列2132，1111447B／1张原图；85软件1210通过／1环境跳过，待冷读同档，不授未决恢复或完整40项。
 
 - [85读档后自动行军、建城与计划清理](docs/testing/baiqi-settler-goals-native-85.md)：84排队61档升级冷读，65建立北京、66粮仓5/65，完成态正式重载保持；3张原始实机图。恢复FAIL、人口成本和完整40项仍开放，公开Alpha2仍82。
+
+- [85移民训练扣人口的事件实证](docs/testing/baiqi-settler-population-cost-native-85.md)：实际4→3→4、粮食33→2，解释两帧4→4；自动接续建造者，51正式重载保持，3张原图。只授该成本样本，恢复FAIL／完整40项仍开放。

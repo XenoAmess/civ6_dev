@@ -328,3 +328,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-08：85冷读计划到建城；504被隔离反例拒绝
 
 [证据](research/baiqi-p6-source85-native-and-population504-evidence-2026-11-08.json)。84queued61正式档由85冷读，原2132与goal1983均保持；未来观察窗口旧queue期间0settler请求，63／64自行到5927／5926，65一次FOUND北京及清goal，66粮仓5/65，正式save1126552B/hash0f7511f8233dc41f3b6bf9a8db10c80bd5815508bb4fd9f4b868383a58aa76c9、重载UI/Core／空嵌套goal保持、钩nil。266样本全读一次、3目标path、0error/drop。UI未载Core纯schema的预检失败发生于saveflag前，修UI形状检查另立v2后只Save一次；加载中glyph未匹配0input、LSQ超时0CMD，后来Continue一次／126contexts新资格。504使用真实原版事件片段仍local函数自影导致0注册却打印installed，发明Players.GetLocalPlayer、colon无self、参数无n、外方args先记录，Lua51compile不代表运行有效；隔离snapshotnil，拒0Native。累计504469stop32length3transportHTTP534extra30/OpenCode新0/未知null；canonical复用Nov8维护1.19.5缓存。
+
+## 2026-11-08：504负责人只读事件观察器记录4→3→4
+
+[证据](research/baiqi-p6-population504-native-evidence-2026-11-08.json)。0新HTTP，原504拒绝保持，owner私有Lua51观察器及v2各14隔离检查，精确capital65536/0/6030、方法self、先过滤外方、vararg n／nil孔、三自身回调Remove。迟侦察分支49才训练／51为22of80，13+6记录撤钩；从正式38档另分支38/39两次军队侦察，43训练0/80→50为77/80，51记录UnitAdded393216时pop4粮33门槛44→population3粮33门槛33(两次同值回调)→生产完3→population4粮2门槛44。21记录，三bank40全读一次0err/unknown/drop/argdrop；不是免成本或两个3回调扣两次。各13normalEND24milSKIP2milmove，0civ/domestic/grant/forced。出生态save1062791B/hash42a0a504397e6216d335745777955ce401650a7dd956fc6d94434d9ea096b1ad，正式reloadUI/Core保留、钩nil。第二分支首次Load预检误预计已耗尽builder仍在而unitcount3失败，发生flag/Load前；新读2units/gold182/22of80，v2独立意图一次Load成功，保留原件。只读事件顺序不冒充engine内部原子证明；不把不同分支复用ID拼接成同演员史。累计保持504469stop32length3transportHTTP534extra30，OpenCode新0、未知null。
