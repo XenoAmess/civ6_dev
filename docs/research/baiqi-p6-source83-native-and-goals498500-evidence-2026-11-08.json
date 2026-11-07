@@ -1,0 +1,446 @@
+{
+  "schema": "civ6.source83-native-goals498500/v1",
+  "utc": "2026-11-07T16:21:34.635748+00:00",
+  "date_local": "2026-11-08",
+  "machine_id": "BF-202609141645",
+  "product_source_commit": "06e3d90520fb4b2bd6ed5072597198ffa8cfec40",
+  "source_install_runtime_version": 83,
+  "files": 93,
+  "product_changes_this_package": 0,
+  "published_Alpha2_build": 82,
+  "owned_runtime": {
+    "pid": 14972,
+    "birth": 1794066213.9520104,
+    "endpoint_port": 4318,
+    "contexts": 126,
+    "fresh_offline_proof_utc": "2026-11-07T15:43:33.946510+00:00",
+    "proof_age_seconds": 0.003295,
+    "online_switches": 0,
+    "mode_reads_do_not_use_navigation_images_or_ACK": true,
+    "old_owned1620_exit": "Official exit once; >180s later saved/noUI/noListener/zeroCPU residue retired once, clean_normal_exit=false. Steam/other games untouched."
+  },
+  "native": {
+    "starting_save": "Exact original82natural-settler56checkpoint, no grants or goal injection; source83 cold-load acknowledgement and actual currentworld verified.",
+    "TEST_PLAYER_inputs": {
+      "ordinary_END": 10,
+      "military_SKIP": 14,
+      "ranged_attacks": 4,
+      "melee_attacks": 1,
+      "military_moves": 3,
+      "UserForced": 0,
+      "manual_civilian_or_domestic": 0,
+      "grants": 0,
+      "reveal": 0,
+      "war_declarations": 0
+    },
+    "autonomous_sequence": [
+      {
+        "turn": 61,
+        "settler": [
+          393216,
+          59,
+          29
+        ],
+        "moves": 1,
+        "queued_destination": 2132,
+        "known1983_in_raw_hints": true
+      },
+      {
+        "turn": 62,
+        "early_read": "Still5929/queued2132; not permanent-stuck proof."
+      },
+      {
+        "turn": 63,
+        "settler": [
+          393216,
+          59,
+          27
+        ],
+        "moves": 0,
+        "known1983_in_raw_hints": true
+      },
+      {
+        "turn": 64,
+        "settler": [
+          393216,
+          59,
+          26
+        ],
+        "moves": 0,
+        "known1983_in_raw_hints": false,
+        "raw_hints": 3,
+        "visible_hints": 1,
+        "hidden_hints_count_only": 2
+      },
+      {
+        "turn": 65,
+        "new_city": [
+          131073,
+          "北京",
+          59,
+          26
+        ],
+        "population": 1,
+        "own_cities": 2,
+        "gold": 243,
+        "new_city_queue": "BUILDING_GRANARY0/65",
+        "consumed_settler_fullid": 393216,
+        "intent": "OBSERVED settle:0:2 request0:65:14 city131073"
+      },
+      {
+        "turn": 66,
+        "new_city_build_progress": 5,
+        "cost": 65,
+        "capital_build_progress": 38,
+        "own_cities": 2,
+        "gold": 248
+      }
+    ],
+    "causal_limit": "Hint membership was read after movement, not atomically inside dispatch. Source regression proves the conditional continuity branch; this Native sequence proves autonomous movement/founding/production, not an atomic historical before-dispatch hint witness.",
+    "future_path_observer": {
+      "all_original_calls_in_wrapper_scope": 12,
+      "intended_settler_samples": 8,
+      "errors": 0,
+      "drops": 0,
+      "native_return_plot_counts": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        3,
+        2
+      ],
+      "last_query": "64actor393216/target1983/2plots",
+      "no_extra_query_or_order_by_observer": true
+    },
+    "future_finance_observer": {
+      "recruit": 254,
+      "city": 2,
+      "unit_op": 14,
+      "unit_cmd": 0,
+      "samples": 270,
+      "all_indices_read_once": true,
+      "errors": 0,
+      "drops": 0,
+      "military_requests_in_Executor_scope": 0,
+      "FOUND_CITY_requests": 1,
+      "settler_SKIP_TURN_requests": 1,
+      "skip_value": 745019656,
+      "skip_classification": "Actual GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN.Hash; not present in UnitOperationTypes enumeration.",
+      "Native_return_interpretation": "Original request returns0values; observer returnedtrue means no Lua throw, not a success bool. Effects read independently."
+    },
+    "save_reload": {
+      "bytes": 1126483,
+      "sha256": "c8a27cdc4b8fd57466ee4a6e8d26d1612b88fc4b326f0b2dbf4e259c67b4dae7",
+      "official_save_ack": true,
+      "official_load_ack": true,
+      "Continue_once": true,
+      "actual_UI_and_Core": "66/2cities/pop4and1/gold248/granary38and5/2livearmyunits131073and327683/OBSERVEDserial2 preserved",
+      "all_observers_restored_before_save_and_nil_after_reload": true,
+      "private_save_committed": false
+    },
+    "Core_transient": "65exactsettler393216 remains offmap(-9999,-9999),deadfalse/delayedtrue alongside newcity andOBSERVED; after66reload actorabsent. Not a stale lookup to another actor.",
+    "verdict": "Narrow PASS same trained actor autonomous movement→found→newcityproduction→completed-state save/reload. FullTC015 population cost, cold-goal persistence, ARMED/legacyrecovery and40TC remain OPEN."
+  },
+  "models498500": [
+    {
+      "task": 498,
+      "call_date_local": "2026-11-07",
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 54100,
+        "completion_tokens": 1004,
+        "total_tokens": 55104
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "ttft_ms": 6940.92720001936,
+      "total_ms": 14081.207600072958,
+      "shared_commit": "b4ee137f745e70c0eee61c2170c2dcb3b32b3cf8",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "candidate_adoption": "REJECTED",
+        "raw_native_calls": 0,
+        "findings": [
+          "Did not propose independent movement-goal persistence; repeated existing FOUND journal lifecycle.",
+          "Claims about overwriting ARMED/LEGACY and resuming after movement are not the supplied source contract.",
+          "No candidate implementation or target persistence adopted."
+        ]
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "task": 499,
+      "call_date_local": "2026-11-07",
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 1993,
+        "completion_tokens": 1178,
+        "total_tokens": 3171
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "ttft_ms": 542.3531000269577,
+      "total_ms": 7312.108500045724,
+      "shared_commit": "b4ee137f745e70c0eee61c2170c2dcb3b32b3cf8",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "candidate_adoption": "REJECTED_OWNER_PRIVATE_PROTOTYPE_ONLY",
+        "raw_native_calls": 0,
+        "contracts": {
+          "raw": {
+            "lua51_compile": true,
+            "cases": {
+              "empty_roundtrip": {
+                "passed": true
+              },
+              "valid_goal": {
+                "passed": false
+              },
+              "owner_mismatch": {
+                "passed": false
+              },
+              "extra_bank_field": {
+                "passed": false
+              },
+              "bank_metatable": {
+                "passed": false
+              },
+              "goals_metatable": {
+                "passed": false
+              },
+              "goal_extra_field": {
+                "passed": false
+              },
+              "invalid_owner_argument": {
+                "passed": false
+              },
+              "canonical_key": {
+                "passed": true
+              },
+              "duplicate_target": {
+                "passed": true
+              },
+              "deep_copy": {
+                "passed": false
+              },
+              "max_32_goals": {
+                "passed": false
+              },
+              "reject_33_goals": {
+                "passed": true
+              },
+              "nan_inf_boolean_new": {
+                "passed": true
+              },
+              "negative_fraction_new": {
+                "passed": true
+              },
+              "large_exact_id": {
+                "passed": false
+              },
+              "missing_not_empty": {
+                "passed": true
+              },
+              "map_mismatch": {
+                "passed": true
+              }
+            },
+            "pass_count": 8,
+            "count": 18,
+            "global_export": false,
+            "source_sha256": "c90be17b3ed0b0aeaf511a429a52dd678daddb71100291eb67cad0cf1a517f47"
+          },
+          "owner": {
+            "lua51_compile": true,
+            "cases": {
+              "empty_roundtrip": {
+                "passed": true
+              },
+              "valid_goal": {
+                "passed": true
+              },
+              "owner_mismatch": {
+                "passed": true
+              },
+              "extra_bank_field": {
+                "passed": true
+              },
+              "bank_metatable": {
+                "passed": true
+              },
+              "goals_metatable": {
+                "passed": true
+              },
+              "goal_extra_field": {
+                "passed": true
+              },
+              "invalid_owner_argument": {
+                "passed": true
+              },
+              "canonical_key": {
+                "passed": true
+              },
+              "duplicate_target": {
+                "passed": true
+              },
+              "deep_copy": {
+                "passed": true
+              },
+              "max_32_goals": {
+                "passed": true
+              },
+              "reject_33_goals": {
+                "passed": true
+              },
+              "nan_inf_boolean_new": {
+                "passed": true
+              },
+              "negative_fraction_new": {
+                "passed": true
+              },
+              "large_exact_id": {
+                "passed": true
+              },
+              "missing_not_empty": {
+                "passed": true
+              },
+              "map_mismatch": {
+                "passed": true
+              }
+            },
+            "pass_count": 18,
+            "count": 18,
+            "global_export": true,
+            "source_sha256": "e1bcb1e9b09a92791862291e2a8dc2f32dc49e93071e3113c4592df79c97e7fd"
+          }
+        },
+        "findings": [
+          "Valid goal has five fields but raw requires six; accepts an extra sixth field instead.",
+          "Clone fails owner matching/argument and exact bank/meta checks; local export omits required global.",
+          "Raw8of18pass; owner18of18pass plus global export, private prototype not integrated or Native-executed."
+        ]
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    {
+      "task": 500,
+      "call_date_local": "2026-11-08",
+      "http_attempts": 1,
+      "usage": {
+        "prompt_tokens": 4054,
+        "completion_tokens": 2643,
+        "total_tokens": 6697
+      },
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": "VALID",
+      "ttft_ms": 727.1822999464348,
+      "total_ms": 15889.737699995749,
+      "shared_commit": "b4ee137f745e70c0eee61c2170c2dcb3b32b3cf8",
+      "caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "review": {
+        "candidate_adoption": "REJECTED",
+        "raw_native_calls": 0,
+        "lua51_compile": true,
+        "findings": [
+          "Requires E.PlayersVisibility.IsRevealed as a global static function; actual Core has nil there, per-player function only.",
+          "Ignores supplied index versus computed plot, accepts formation2 through formation<1 guard.",
+          "No exact expected-bank readback or final owner/map/old-bank recheck; valid-but-different writeback can be mistaken for success.",
+          "Same-unit goal changes rejected, preventing replanning; no code integrated."
+        ],
+        "isolated_actual_consumer_shape_constructor": {
+          "api": null,
+          "reason": "engine",
+          "native_executions": 0
+        }
+      },
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    }
+  ],
+  "nov8_first_model_preflight": {
+    "event": "OPENCODE_DAILY_CHECK",
+    "date": "2026-11-08",
+    "installed_version": "1.19.5",
+    "registry_latest": "1.19.5",
+    "updated": false
+  },
+  "cumulative_through500": {
+    "logical_tasks": 500,
+    "complete_stop_valid": 465,
+    "length": 32,
+    "final_transport_failures": 3,
+    "http_attempts": 530,
+    "extra_retries": 30,
+    "opencode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "owner_workflow_corrections": [
+    "Initial SetForegroundWindow failed with Steam navigation still foreground; no Continue input emitted. Closed exact own Steam popup once, then official UIA own-game set_focus succeeded. No focus-lock/config bypass.",
+    "4319 was a temporary listener, not qualified in-game contexts. Failed LSQ reads sent0CMD; fresh4318tuple+126contexts qualified before gameplay.",
+    "Cycle56 original END actually reached57; following readonly reader failed because broad namespace replacement changed an existing review receipt path. Repaired that file reference and read57 alone; no repeatedEND."
+  ],
+  "screenshots": [
+    {
+      "path": "docs/testing/screenshots/source83/arrived64.png",
+      "sha256": "082680a6acbf7c74206350d53758483db8a11aa1348445625001feb76be4e7ca",
+      "altered": false,
+      "source_version": 83
+    },
+    {
+      "path": "docs/testing/screenshots/source83/new-city65.png",
+      "sha256": "4ec66733bcb2349fb9025b3e1a8c14f3c9ed550d4061da860b493598f4df9ddf",
+      "altered": false,
+      "source_version": 83
+    },
+    {
+      "path": "docs/testing/screenshots/source83/reloaded-city66.png",
+      "sha256": "47ecb81ac71c2ca1778a7de1338b53fe8c936189f92f635426f389cd765d4757",
+      "altered": false,
+      "source_version": 83
+    }
+  ],
+  "raw_sha256": {
+    "source83-install-result.json": "d7a363d39547855294bf1173d48302f8bebd345f37c8334b9b3defa9a5440842",
+    "source83-target497-cold-launch-receipt.json": "6f426e894dd0fdb94607dc8d907438f7b204fc0a06a53b0de589295f6d0ef143",
+    "source83-cold-load56-response.json": "39aefeb146c754d224e017a422906327a29ba674135f50989bf21264a0d9f622",
+    "source83-path-read-at61-response.json": "f4ac9d5fb44b96eb1de2f782961a462c55b5b5a9570fa37e841ffb09c83567da",
+    "source83-path-cleanup-final66-response.json": "81679bbc8f58062aa8de762128cb7a43833a1a72a25efa6f7c1207861275ed86",
+    "source83-site-at61-response.json": "197b1602bb5a46dfd5c951d800f9649e719725446915045f485937ade1214184",
+    "source83-site-at63-response.json": "c31bdd78cbc4633a3d185eb0a6715e8bf8cab8dac848cdba87d4ffd74bc52054",
+    "source83-site-at64-response.json": "d8702ee5186d4a402d855cc19dbbb5787c5a34e12e7969dabca9e3a2f195136e",
+    "threat484-ui-source83-64-response.json": "fd693be2447ef9f43800a908e6fc0ed9048a1b8fb285f45de107737d2697f80d",
+    "threat484-ui-source83-65-response.json": "d3aa72158a587500fed295d83f82f668af36f4db94d5982d6965fab24b974342",
+    "threat484-core-source83-65-response.json": "26a5f9cdbfbea717feb68f34929b8b323e365a476cbefc4a6115aa6115ce5185",
+    "threat484-ui-source83-66-response.json": "de0c0a085b20ab0cf0365afc6c5d8a862fcb92ef66881febb12af39e406b1887",
+    "source83-finance-read-at64-response.json": "e102cd1ee089e0349b8a460c17464e76f0d16830c3ac3d339dc7a6a04d2bbc59",
+    "source83-finance-read-at65-response.json": "ea7292e5d62b60444427ed5dea2f2e3425c5020ccb97c94dd4a71550ebf17e83",
+    "source83-finance-read-rest65-response.json": "7b8d30052e246dda92a83f976cea3842e837ca6da5caa9304f96f101bb24f167",
+    "source83-finance-cleanup-final66-response.json": "e764e82e41b246a4badbf8f4380605b9a06a5985d173c9c95f62cfa24e26cdc2",
+    "source83-save66-response.json": "35064247d6c590e6df0592e9035eea3c318f6b4f71d0bf66b15afd9b33252c99",
+    "source83-load66-response.json": "79c839232bfc622d3c5f6e3355d79795e63c2fa5d7ad89fd5a35f58b62e8bcfa",
+    "source83-final-reload66-response.json": "6686e7ecd9dadae635ff2fb07c9adc61e06d73c32a194bccd20a9dd01ea6d2c9",
+    "threat484-ui-source83-reloaded66-response.json": "fe7b61d3f3bce180ca3a4526ee7b4870af3be0e449a16df7950535e991994a19",
+    "threat484-core-source83-reloaded66-response.json": "a78ea65190a9d69e0c36bf97b89249824bad9892f0a56a79bb0c0983c3115517",
+    "source83-core-api-response.json": "64bdd2377e52a3485ea25f73616e09bec083c19414e73acd61ba717a4a1e8d15",
+    "target499-owner-contracts.json": "8b7e875c5bf6b7155a5f95ecc273301c6972f8e078cea021fa58f30df09886f1",
+    "target500-caller.log": "c0ce635e313743cbdc7498ee12800551a026ed9915b4e9fe5b4df426deb409b3",
+    "source83-before-cold-residue-retire-result.json": "2657f972132774cc78cc8f0cc0a3a619c8b95dbb42edba9d41a29dfbc8b115eb"
+  },
+  "next": "Implement independent goal storage and cold-load proposal requalification; 498/499/500 rejected, owner prototypes remain private and not integrated."
+}

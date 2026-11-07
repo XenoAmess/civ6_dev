@@ -312,3 +312,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-07：495—497城址连续性与只读探针
 
 [证据](research/baiqi-p6-target495497-continuity-source83-evidence-2026-11-07.json)。三次HTTP均200/完整stop/VALID，495私有Safe／KnownSupport伪导出与源码错误拒；496少end编译FAIL、缺完整身份／可见性／界限守卫，0原稿Native，owner重写只读已知1983membership及3圈可见city。冷读64raw3且1983false，21/37当前可见0city，ownnearest4；不能倒推原进程私有goal或授私有support返回。497修改采用优先候选／call，owner去任意1000分、显式优先、重复保留最高评分。9新回归，82有3fail，83聚焦98pass；首全量18error由owner遗漏版本消费者，修后1172pass1SDK环境skip，71Lua51/93zip一致，尚未安装Native。当前82Core死builder离图额外行不算活单位；147469951实际REPAIR枚举不授修复效果。累计497/462stop32length3transportHTTP527extra30，OpenCode新0／未知成本null。
+
+## 2026-11-08：83原生扩张与498—500计划候选拒绝
+
+[证据](research/baiqi-p6-source83-native-and-goals498500-evidence-2026-11-08.json)。源83/93从82save56冷启，10normalEND14armySKIP+8armyorder，61自走／64到1983／65一次FOUND北京／66grain5/65及save1126483B/hashc8a27cdc4b8fd57466ee4a6e8d26d1612b88fc4b326f0b2dbf4e259c67b4dae7正式reload双上下文保持，全钩nil。当前推荐3不含1983是移动后读回，非派发原子见证；原生窄链与条件软件回归分开。270finance完整读回0error/drop、14civops含FOUND1及SKIP1，745019656来自GameInfo而非枚举；0ret不是success。500globalvisibility错误由Core只读类型证实nil/perplayerfunction，原稿构造即engine拒。498答非任务、499raw8/18且exportmissing，owner私有schema18pass未产品接线；500另有formation2/index/读回缺口均拒。500Nov8canonicalfreshOpenCode1.19.5日检查，无update；498/499调用在Nov7，各日维护不混。累计500465stop32length3transportHTTP530extra30/OpenCode新0/未知null。焦点失败未发Continue，独立UIA focus恢复；4319未资格0CMD，4318新LSQ126再读；cycle56END到57后只读路径错误，补读不重放。
