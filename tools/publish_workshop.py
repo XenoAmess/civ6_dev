@@ -15,6 +15,24 @@ except ImportError:
     from prepare_workshop import DEFAULT_RELEASE, ROOT, prepare, release_docs
 
 
+def publication_paths(release: str, page_revision: int, body_hash: str) -> tuple[Path, Path, Path]:
+    release_docs(release)
+    if type(page_revision) is not int or page_revision < 1:
+        raise ValueError("Invalid page revision")
+    if len(body_hash) != 12 or any(c not in "0123456789abcdef" for c in body_hash):
+        raise ValueError("Invalid description digest")
+    key = "alpha1" if release == DEFAULT_RELEASE else release
+    stage = ROOT / "dist/workshop" / f"{key}-page{page_revision}-{body_hash}"
+    private = ROOT / ".local-model/steam" / f"workshop-{key}"
+    # Preserve all legacy intents. New releases share mutation intents across page edits.
+    if release == DEFAULT_RELEASE:
+        private /= f"page-{page_revision}"
+        config_path = private / "input.json"
+    else:
+        config_path = private / f"input-page{page_revision}-{body_hash}.json"
+    return stage, private, config_path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sdk-dir", type=Path, required=True, help="Official Civ6 SDK installation directory")
@@ -44,8 +62,7 @@ def main() -> None:
         if type(page_revision) is not int or page_revision < 1:
             raise ValueError("Invalid page revision")
         body_hash = hashlib.sha256((docs / "description.bbcode").read_bytes()).hexdigest()[:12]
-        release_key = "alpha1" if args.release == DEFAULT_RELEASE else args.release
-        stage = ROOT / "dist/workshop" / f"{release_key}-page{page_revision}-{body_hash}"
+        stage, private, config_path = publication_paths(args.release, page_revision, body_hash)
         verified = prepare(stage, release=args.release)
         sdk = args.sdk_dir.resolve() / "ModUploader"
         bridge = ROOT / ".local-model/tools/workshop-sdk-bridge"
@@ -66,7 +83,6 @@ def main() -> None:
         subprocess.run([str(csc), "/nologo", "/platform:x64", "/target:exe",
                         "/reference:" + str(bridge / "Steamworks.NET.dll"), "/reference:System.Web.Extensions.dll",
                         "/out:" + str(executable), str(ROOT / "tools/BaiqiWorkshopPublisher.cs")], check=True)
-        private = ROOT / ".local-model/steam" / f"workshop-{release_key}" / f"page-{page_revision}"
         private.mkdir(parents=True, exist_ok=True)
         gallery = [row for row in plan["media"] if row["upload"] and row["role"] != "primary_preview"]
         config = {"remote_occupancy_source": "user_explicit_idle", "mod_id": plan["mod_id"],
@@ -79,7 +95,6 @@ def main() -> None:
         config["new_gallery"] = [str(stage / "gallery" / row.get("upload_filename", Path(row["repository_path"]).name))
                                  for row in gallery if row["role"] not in {"gameplay_overview", "gameplay_city"}]
         # Journal location is stable so a second create/publish refuses to overwrite an existing intent.
-        config_path = private / "input.json"
         encoded = json.dumps(config, ensure_ascii=False, indent=2).encode("utf-8")
         if config_path.exists() and config_path.read_bytes() != encoded:
             raise ValueError("Existing publication input differs; inspect its journal before proceeding")

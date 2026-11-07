@@ -300,3 +300,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-07：486与492新局真实训练、读取时刻与派发时刻分开
 
 [公开证据](research/baiqi-p6-frontier486-path492-natural-settler-evidence-2026-11-07.json)。486raw Lua51goto拒，owner27pass；prompt没写5.1是owner准备责任。492raw可编译但18中7fail（全actor采样／userdata忽略／空路径UNKNOWN／holes等），owner18pass，路径复制变体19pass。52/53待命后的Native空plots不解释派发前；未来54/55/56实际原返回5格，55当前可见4交战敌军影响起点和前三后续格。后读威胁不是历史路径样本同刻快照。旧builder3BUILD与3改良／46消失相符；43入settler、51生393216，pop4→4未授cost；56生builder458754、排军营。18normalEND31armySKIP+5armyorders、0civ/cheats。527futureExecutor样本510recruit4city13unitop／0mil/error/drop仅scope。56save1090744B/hash049d6d01829fa298d39c38f3fe2ce09ffb8b35e1d6f2cc4ae7a55e55328425f1全钩清后正式reload保持，3新图。Owner防御第二步在moves0后仍预览再调用，被守卫0emit拒；流程错误留证后依赖操作改查exit+semantic。累计492457stop32length3transportHTTP522extra30/OpenCode新0／未知null；82不改1153不重跑／Steam0Alpha74。
+
+## 2026-11-07：493／494发布文案候选按图和世界身份复核
+
+[Alpha2准备证据](research/baiqi-p6-alpha2-493494-offline-preparation-evidence-2026-11-07.json)。两候选均stop/DONE/VALID，4938181tokens/TTFT1.5821299秒/总14.6315424秒，4947793tokens/1.8813511秒/12.8981036秒，均0retry。真实并行2。493错图注（18图叫14、38farm讲44/45、51图讲56），494把14城ARMED-save QA误叫新局且复制任务指令到notes，均不整稿采用；owner重写并按原PNG/Native证据修。12图=新82局5+历史7，BBCode5248B，本地93文件/ZIP逐项一致hasha1f8be6e2dd5ebccf2300caabd9e1aeebc84dec7f737ef8e72044e6d1dc1ff16。封面builtin imagegen edit原图与prompt公开，JPEG仅格式/尺寸转换，非实机。跨page意图日志新回归后15工具method/20managedcases通过，0Publisher.Main/API。累计494459stop32length3transportHTTP524extra30/OpenCode新0未知null；每日维护复用Nov7同机同用户00:36成功1.19.5。缺fresh占用状态，async问题待答，0联网上传、工坊lastverified74。

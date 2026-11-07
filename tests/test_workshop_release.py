@@ -9,6 +9,7 @@ import unittest
 from unittest.mock import patch
 
 from tools import prepare_workshop as workshop
+from tools import publish_workshop as publisher
 from tools.build_mod import MOD_ID
 
 
@@ -134,6 +135,16 @@ class WorkshopReleaseTests(unittest.TestCase):
 
 
 class PublisherOccupancyGateTests(unittest.TestCase):
+    def test_page_edits_share_new_release_mutation_intents_and_preserve_legacy_paths(self):
+        a = publisher.publication_paths("v0.1.0-alpha.2", 1, "1" * 12)
+        b = publisher.publication_paths("v0.1.0-alpha.2", 2, "2" * 12)
+        self.assertEqual(a[1], b[1])
+        self.assertNotEqual(a[0], b[0])
+        self.assertNotEqual(a[2], b[2])
+        old = publisher.publication_paths(workshop.DEFAULT_RELEASE, 2, "1" * 12)
+        self.assertEqual(old[1], publisher.ROOT / ".local-model/steam/workshop-alpha1/page-2")
+        self.assertEqual(old[2].name, "input.json")
+
     def test_cli_refuses_before_reading_a_nonexistent_sdk_or_release(self):
         root = Path(__file__).resolve().parents[1]
         for mode in ("inspect", "update-content", "append-preview", "download"):
