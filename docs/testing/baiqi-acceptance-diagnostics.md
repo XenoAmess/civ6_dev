@@ -8,4 +8,4 @@
 
 [生产与区域测试](../../tests/test_baiqi_acceptance_diagnostics.py)、[资源测试](../../tests/test_diagnostic_resource_snapshot.py)使用lupa.lua51：4个测试方法、65个逻辑边界。命令为python -m unittest discover -s tests -p test_baiqi_acceptance_diagnostics.py和python -m unittest discover -s tests -p test_diagnostic_resource_snapshot.py。它们是API合同检查，实机结果另见[99—119窗口](baiqi-five-city-twenty-turns-87.md)。
 
-API依据是本机原版GS CitySupport209—307、UnitPanel2252，以及TopPanel_Expansion2 44—55、ReportScreen_Expansion2 83—99。第三方游戏代码仅本机读取，不上库。区域BEFORE_REQUEST_NOT_ACK只是原请求前的见证；请求返回、Map落地和城市区域完成必须分别核验。观察只覆盖所安装上下文及安装期间，0行不能推断其他上下文没有请求。资源工具119以后才可采样，不能追认缺失的99—118库存。
+API依据是本机原版GS CitySupport209—307、UnitPanel2252，以及TopPanel_Expansion2 44—55、ReportScreen_Expansion2 83—99。第三方游戏代码仅本机读取，不上库。区域BEFORE_REQUEST_NOT_ACK只是原请求前的见证；请求返回、Map落地和城市区域完成必须分别核验。观察只覆盖所安装上下文及安装期间，0行不能推断其他上下文没有请求。第一窗口119才开始资源采样，不能追认其99—118库存；后续已从正式99档[独立重测并采齐21份](baiqi-five-city-resource-complete-87.md)。

@@ -1,6 +1,6 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
-当前源码／安装／实机87。[99→119五城窗口](baiqi-five-city-twenty-turns-87.md)实建6栋建筑／4特色区／19改良，自主扩至7城，矿山替代工业区正案已取得；缺逐回合战略库存，TC-037仍部分。ARMED／旧档恢复FAIL及宗教、兼容、性能与完整40项继续开放。公开Alpha2仍82／12图。
+当前源码／安装／实机87。[五城独立补测99→119](baiqi-five-city-resource-complete-87.md)资源21份／147行齐全，6建筑／4特色区／19改良、5→7城，TC-037在此GS无蛮族夹具通过。ARMED／旧档恢复FAIL及宗教、兼容、性能与完整40项继续开放。其他设备正在使用Steam，禁止上线及上传；公开Alpha2仍82／12图。
 
 本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。
 

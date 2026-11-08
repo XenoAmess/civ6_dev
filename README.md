@@ -170,3 +170,5 @@ python tools\build_mod.py --install
 - [87无蛮族对照：三城、加载保持与5张实机图](docs/testing/baiqi-nobarb-three-cities-87.md)：40→85普通推进，71/78自行移民建城，原版保存加载后3城7单位保持；区域观察首都限定已纠正，农场替换／新先知仍待正案。
 
 - [87五城二十回合与5张实机图](docs/testing/baiqi-five-city-twenty-turns-87.md)：99→119零人工内政，5→7城、6栋建筑、4个特色区、19处改良；矿山替代工业区实际完工。战略资源逐回合库存漏采，TC-037仍未整项通过；验收工具已上库。
+
+- [87五城资源补测通过及5张实机图](docs/testing/baiqi-five-city-resource-complete-87.md)：从正式99档独立重测20回合，21份资源／147行齐全、6建筑4特色区19改良，零人工内政；TC-037仅该GS无蛮族夹具通过。Steam有其他设备占用，继续暂停上线与上传。
