@@ -495,3 +495,6 @@
 
 
 - [旧ARMED的CANCEL源码及原生资格557](baiqi-armed-cancel-source-557.md)：区分普通command、spy特殊路由及视觉重画，取消旧FOUND尚无关联证明；当前闲置自有Scout两种CANCEL资格false，0发令／写属性，旧演员未触碰。不新增取消许可或关闭恢复FAIL，产品97未变。
+
+
+- [97实际重读旧ARMED158](baiqi-oldarmed97-native158.md)：记录保留；两种原版CANCEL资格false，缺少active/strategic同步样本，不授取消或重放。0END158、旧恢复FAIL保持；已独立返回176主线并核对9城食物／忠诚度。

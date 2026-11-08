@@ -421,3 +421,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [诊断／原生闲置斥候](testing/baiqi-armed-cancel-source-557.md)。557 stop/DONE/JSON/1HTTP/15040tokens/9.145552s；视觉路径/命令开始回调事实及NOT_PROVEN窄采用，raw把原版EspionagePopup OnAbort481to487错标modCore481to487（实际124行），该项拒；补普通非spy通用路由，HasPendingOperations已给API不算未知、也不推全队列空。ownerNative当前176自有Scout196610@51,28/m3/formation1，pendingfalse/queuednil，liveCANCEL533311341，原UnitPanel两种CanStart签名均booleanfalse；0RequestCommand/Operation/属性写，没碰旧8650807。新取消许可/清日志/重放均0，旧ARMED仍FAIL，产品97/主9城176保持。累计557/519stop/35length/3transport/587HTTP/30extra/OpenCode新0/null未知；Steam0上线登录下载上传初始化/上传。
 
 557负责人初次校正引用时也未实数而写128行，随后直接splitlines实测124并纠正公开文档及回执；模型错引481to487的拒绝结论不变，不重跑HTTP或游戏输入。
+
+
+## 2026-11-09：97读取旧ARMED及返回主线
+
+[旧158原图和只读证据](testing/baiqi-oldarmed97-native158.md)。复用557源码分析，0新HTTP；旧85档正式加载一次，ARMED／8650807／请求0:156:173保留。CANCEL两原版签名均boolean false，但未采active/strategic，不能推永久资格或派发终止。0END158／CANCEL／WAKE／MOVE／FOUND／写属性／私有bridge；历史中断恢复FAIL保持。切换前保存主176，正式返回一次后9城food非负／饥荒−1／忠诚100正增长，新陇西和长沙优先保留；无全世界相同或零bootstrap宣称。Steam持续禁止上线与上传。
