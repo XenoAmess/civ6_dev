@@ -376,3 +376,9 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [组件、测试和证据](testing/baiqi-missionary-purchase-components-88.md)。两真实独立客户端HTTP区间重叠峰值2，不为12—16目标凑探针；均完整stop/SSE/JSON、2HTTP0额外重试。528报价原9方法38子场景中3方法失败：15字段DTO只返11、同一轮重复GetReligion、可混合两组件faith与created。owner补4发令签名字段、复用同一组件后9通过，修改采用。529复制原Naturalist纯日志合同并加独立类型/令牌/religionIndex，8方法29子场景全过，完整原稿采用；两原稿Native0，组件未做实机采购。累计529493stop33length3transportHTTP559extra30/OpenCode原生新0/null未知，Nov8维护缓存。
 
 88只注册Quote和pureJournal，Config无新持久键、没有需求/Core许可/发令/效果消费者，不能叫自动购买完成。24定向方法通过，76Lua51，98包byteMatch SHA8e8f4c875bf541de9a9f753d816cb5dac0605fa424939d707914121f26b118f3，未install/Native；原87安装96hash仍一致，旧1222pass1SDKskip未重跑。owner写manifest时4/6空格子串计数重叠断言，停于manifest写前，两个新模块已原样复制；改完整行锚点修复。合并测试脚本缺项目root sys.path使manifest导入失败（17新方法已过），加root后24通过；失败日志保留。补全实际Admin264已正常招募伟人，Controller真正生产2785—2869／Military2541及原版MustPurchase确认传教士采购缺口，不归咎527原稿独担遗漏上下文。下一步Core快照/许可/faith互斥/传播日志初始化/唯一发令，旧ARMED不清，战斗宗教指挥不扩。Steam外机占用继续0上线登录下载上传初始化/上传。
+
+## 2026-11-08：530—533采购存储候选与89软件回归
+
+[采用边界与证据](testing/baiqi-missionary-purchase-storage-89.md)。4真实独立任务并行，POST_BEGIN至END实际峰值4／持续17.043秒，均完整stop/SSE/JSON、4HTTP0extra；不是12—16目标或服务running数据。530原17子场景1反例（外方ID读取在owner前），修改采用；531错读库字段替代真实玩家Property，原16中12失败，拒绝；532错依赖名，诊断别名下3额外实证反例（nil最后快照、有效serial17变更被覆盖、MustPurchasefalse），整稿拒绝，owner从现NaturalistCore独立实现；533三原文锚点各唯一、两文件编译，但pid0错拒／未Protected，整稿不采用，仅引入方向。不得把最初corrupt并发夹具被guard挡住说成已证明覆盖；实际用合法serial17空日志反例。原稿Native均0。
+
+通过533累计533logical/497stop/33length/3transport/563HTTP/30extra/OpenCode新原生0，未知cache/人工节时null；Nov8每日成功缓存复用。源89含新CoreSnapshot、Guard、Intent及SpreadInitialize/Naturalist守卫，25新方法/33纯子场景；最终1269run1268pass1SDKskip、79Lua51/101文件byteMatch。首全套1fail29error是两个include-noop夹具缺新依赖与私有静态工具version87上限；79定向后2旧87断言，改独立XML版本后全套通过，私有对照新Core/Initialize也关闭。owner Config锚点误设无空格停止后续写、局部恢复；Initialize初始转发三返回值改strictsinglebool，原记录保留。0install/Native89，原87all96保持，0Steam动作。

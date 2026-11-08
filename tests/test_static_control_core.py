@@ -49,10 +49,11 @@ include=function(name) return LoadActual(name) end
 
 
 class StaticControlCoreTests(unittest.TestCase):
-    def test_actual_six_bridges_reject_without_domain_reads_or_writes(self):
+    def test_actual_seven_bridges_reject_without_domain_reads_or_writes(self):
         h=CoreHarness();h.load('BaiqiGameplay');g=h.lua.globals();t=g.T
         names=('BaiqiGreatPersonIntentBridge','BaiqiCreativeIntentBridge','BaiqiReligiousIntentBridge',
-               'BaiqiNaturalistIntentBridge','BaiqiNaturalistPurchaseBridge','BaiqiArchaeologyBridge')
+               'BaiqiNaturalistIntentBridge','BaiqiNaturalistPurchaseBridge','BaiqiArchaeologyBridge',
+               'BaiqiMissionaryPurchaseBridge')
         for name in names:
             bridge=g.ExposedMembers[name];self.assertIsNotNone(bridge,name)
             self.assertEqual(bridge.Inspect(7,4),('UNAVAILABLE',None,'private_static_control'),name)
@@ -60,6 +61,7 @@ class StaticControlCoreTests(unittest.TestCase):
             for method in methods:self.assertEqual(bridge[method](7,4),(False,None,'private_static_control'),(name,method))
         self.assertEqual(g.ExposedMembers.BaiqiGreatPersonIntentBridge.Observe(7,4)[0],'UNAVAILABLE')
         self.assertFalse(g.BaiqiArchaeologyIntentGameplay.ObserveCreated(7,4))
+        self.assertEqual(g.BaiqiReligiousIntentGameplay.Initialize(7),(False,None,'private_static_control'))
         self.assertEqual((t.reads,t.playerWrites,t.plotWrites,t.gameWrites),(0,0,0,0))
         self.assertTrue({'BaiqiGPJournal','BaiqiCreativeJournal','BaiqiReligiousJournal','BaiqiArchaeologyJournal'}.issubset(h.seen))
 

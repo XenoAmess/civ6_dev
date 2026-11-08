@@ -174,3 +174,5 @@ python tools\build_mod.py --install
 - [87五城资源补测通过及5张实机图](docs/testing/baiqi-five-city-resource-complete-87.md)：从正式99档独立重测20回合，21份资源／147行齐全、6建筑4特色区19改良，零人工内政；TC-037仅该GS无蛮族夹具通过。Steam有其他设备占用，继续暂停上线与上传。
 
 - [88传教士报价／日志组件](docs/testing/baiqi-missionary-purchase-components-88.md)：新增17软件方法与7清单检查通过、76Lua5.1编译、98文件包一致；采购需求、Core许可与发令尚未接通。安装／实机仍87，不授88实机通过，Steam占用期间保持不上线。
+
+- [89传教士Core采购许可](docs/testing/baiqi-missionary-purchase-storage-89.md)：补持久许可、传播日志初始化与共用信仰检查；完整1268通过／1SDK环境跳过、79Lua5.1、101包一致。需求和发令未接，未安装，实机仍87；Steam占用期间继续不上线。

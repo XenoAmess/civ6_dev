@@ -1,5 +1,6 @@
 from pathlib import Path
 import unittest,uuid,json
+import xml.etree.ElementTree as ET
 from lupa.lua53 import LuaRuntime
 from tools.build_static_control import build,clock_prelude,ROOT
 from tools.static_control_source import transform
@@ -20,7 +21,8 @@ class PairedBuildTests(unittest.TestCase):
         self.assertEqual((out/'control/Baiqi/UI/BaiqiExecutor.lua').read_text(encoding='utf-8'),prefix+transform(raw,'UI/BaiqiExecutor.lua')[0])
         expected=len(manifest_files(ROOT/'mod/Baiqi'))
         self.assertEqual(enabled['files'],expected);self.assertEqual(control['files'],expected)
-        self.assertEqual((enabled['source_version'],control['source_version']),(87,87))
+        version=int(ET.fromstring((ROOT/'mod/Baiqi/Baiqi.modinfo').read_bytes()).get('version'))
+        self.assertEqual((enabled['source_version'],control['source_version']),(version,version))
         receipt=ROOT/'.local-model/acceptance-p6-20261101'/f"paired-c2-v{enabled['source_version']}-{out.name}-tested-builds.json"
         receipt.write_text(json.dumps({'root':str(out.relative_to(ROOT)),'enabled':enabled,'control':control},indent=2)+'\n',encoding='utf-8',newline='\n')
 

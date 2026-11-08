@@ -5,7 +5,8 @@ local J,C=BaiqiReligiousJournal,BaiqiConfig
 local KEY=C.religiousIntentKey
 local MARKER="baiqi-religious-intent-v1"
 local function Owner(pid,active)
-  if not J.Integer(pid,2147483647) or pid~=Game.GetLocalPlayer()
+  if type(KEY)~="string" or #KEY==0 or #KEY>128
+    or not J.Integer(pid,2147483647) or pid~=Game.GetLocalPlayer()
     or GameConfiguration.IsAnyMultiplayer()
     or (GameConfiguration.IsHotseat and GameConfiguration.IsHotseat()) then return nil end
   local player,config=Players[pid],PlayerConfigurations[pid]
@@ -142,6 +143,17 @@ local function Protected(fn,failure)
 end
 local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,"UNAVAILABLE"),Prepare=Protected(Prepare,false)}
 BaiqiReligiousIntentGameplay={}
+-- Freeze legacy actors before a permitted new purchase can appear. Existing
+-- ARMED/LEGACY_UNKNOWN entries remain unchanged; this never issues a command.
+local Initialize=Protected(function(pid)
+  if type(ExposedMembers)~="table" or ExposedMembers.BaiqiReligiousIntentBridge~=bridge then return false end
+  local player=Owner(pid,false)
+  return player~=nil and Load(player,pid)~=nil
+end,false)
+function BaiqiReligiousIntentGameplay.Initialize(pid)
+  local result=Initialize(pid)
+  return result==true
+end
 local function Bootstrap()
   local pid=Game.GetLocalPlayer()
   local player=Owner(pid,false)

@@ -18,5 +18,6 @@ BaiqiConfig = {
   naturalistIntentKey = "BAIQI_NATURALIST_INTENTS_V1",
   archaeologyIntentKey = "BAIQI_ARCHAEOLOGY_INTENTS_V1",
   naturalistPurchaseIntentKey = "BAIQI_NATURALIST_PURCHASE_INTENTS_V1",
+  missionaryPurchaseIntentKey="BAIQI_MISSIONARY_PURCHASE_INTENTS_V1",
   naturalistFaithReserve = 100,
 }

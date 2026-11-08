@@ -59,5 +59,6 @@ def install_purchase_bridge(lua, stored=None):
         lua.globals().TestPurchaseBridge.store = lua.globals().TestPurchaseBridge.Copy(stored)
     load = lua.eval('function(source,name,env) local chunk,err=load(source,name,"t",env);assert(chunk,err);return chunk() end')
     for name in ('BaiqiConfig','BaiqiNaturalistUnit','BaiqiNaturalistPurchaseSnapshot',
-                 'BaiqiNaturalistPurchaseJournal','BaiqiNaturalistPurchaseIntentGameplay'):
+                 'BaiqiNaturalistPurchaseJournal','BaiqiMissionaryPurchaseJournal',
+                 'BaiqiFaithPurchaseGuard','BaiqiNaturalistPurchaseIntentGameplay'):
         load((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'), name, lua.globals().TestPurchaseBridge.core)

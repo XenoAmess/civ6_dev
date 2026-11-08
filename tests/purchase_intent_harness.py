@@ -86,6 +86,6 @@ def make_purchase_core(inject_key=True, stored=None, with_receipt_events=False):
                 return lua.table_from({key:into_runtime(item) for key,item in value.items()})
             return value
         lua.globals().H.store = into_runtime(plain(stored))
-    for name in ('BaiqiNaturalistPurchaseJournal','BaiqiNaturalistPurchaseIntentGameplay'):
+    for name in ('BaiqiNaturalistPurchaseJournal','BaiqiMissionaryPurchaseJournal','BaiqiFaithPurchaseGuard','BaiqiNaturalistPurchaseIntentGameplay'):
         lua.execute((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
     return lua

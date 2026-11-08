@@ -2,6 +2,8 @@ include("BaiqiConfig")
 include("BaiqiNaturalistUnit")
 include("BaiqiNaturalistPurchaseSnapshot")
 include("BaiqiNaturalistPurchaseJournal")
+include("BaiqiMissionaryPurchaseJournal")
+include("BaiqiFaithPurchaseGuard")
 
 -- The UI supplies the current engine quote. Core independently checks the
 -- balance, city and stock; Core has no UI city:GetGold() price component.
@@ -134,6 +136,12 @@ local function Prepare(pid,cityID,x,y,unitHash,cost,faithBefore,reserve)
   end
   if not Eligible() or not Eligible() then return false,nil,"snapshot_changed" end
   if not j.Equal(state,Load(player,pid,key),pid) then return false,nil,"journal_changed" end
+  if type(BaiqiFaithPurchaseGuard)~="table" or type(BaiqiFaithPurchaseGuard.Open)~="function"
+    or BaiqiFaithPurchaseGuard.Open({Config=BaiqiConfig,NaturalistJournal=BaiqiNaturalistPurchaseJournal,
+      MissionaryJournal=BaiqiMissionaryPurchaseJournal},player,pid)~=true then
+    return false,nil,"faith_guard_closed"
+  end
+  if not Eligible() or not j.Equal(state,Load(player,pid,key),pid) then return false,nil,"snapshot_or_journal_changed" end
   local nextState=j.Clone(state,pid)
   nextState.serial=nextState.serial+1
   local seq=nextState.serial

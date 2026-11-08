@@ -1,5 +1,6 @@
 from pathlib import Path
 import unittest,uuid,hashlib,json
+import xml.etree.ElementTree as ET
 from lupa.lua53 import LuaRuntime
 from tools.static_control_source import transform,edits
 from tools.build_static_control import build
@@ -59,7 +60,8 @@ UI.RequestPlayerOperation=function() T.recovery=T.recovery+1 end
     def test_builder_preserves_manifest_assets_and_other_readonly_ui(self):
         out=ROOT/'.local-model/static-control-tests'/uuid.uuid4().hex
         result=build(out);self.assertEqual(result['files'],len(manifest_files(ROOT/'mod/Baiqi')));self.assertEqual(set(result['changed_files']),set(edits()))
-        self.assertEqual(result['source_version'],87)
+        version=int(ET.fromstring((ROOT/'mod/Baiqi/Baiqi.modinfo').read_bytes()).get('version'))
+        self.assertEqual(result['source_version'],version)
         target=out/'Baiqi';source=ROOT/'mod/Baiqi'
         self.assertEqual(manifest_files(source),manifest_files(target))
         for name in manifest_files(source):
