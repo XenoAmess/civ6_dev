@@ -402,3 +402,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：97 食粮正案续验20回合
 
 [原生153→173／5张原图与9份CSV](testing/baiqi-food-focus-long-window-97.md)：长沙4→7、8城160食粮样本无饥饿倒计时、168忠诚样本100正变化；中途154正式完成态reload一次，不称同context20turn。29ordinaryEND92armySKIP/0UserForced0手补内政，5使者查看保留20/22/24/26/28；议会我方4免费票与实际近战／军队生产费减半分开，外交最终目标未知。17建筑7区域完成（含旧放置）8处NONE转改良，新4063259仍61,34在途，广州173净粮0保留风险。W2达3305前单Lua无yield恢复原绑定再装W3，合4629=4453recruit35city139op2cmd，0err/drop，141单位调用均自有受托类型；全部撤钩。无CityRequestCommand包装，不报粮食发令次数。173正式save1666670B/hasheab32bcf74a09e52586248c4d37f1de0d2fe45a0582797c0ae6100940e9231c7未load。161协议停链先重证、166owner旧160边界先拒再修、168envoy前置拒后flag_nil/hiddentrue才freshview、160早晚缓存差都留证；UIready不保证公告消失，173三遮挡图私留关闭原公告重拍未编辑。0新HTTP/软件，复用555累计及1375pass1SDKskip；Steam0上线登录下载上传初始化/上传，旧FAIL/宗教/BaseRF/性能/40仍open。
+
+
+## 2026-11-09：556 被动建城前警告与陇西自然正案
+
+[原生175建陇西／176产能进度及原图](testing/baiqi-natural-longxi-and-prefound-warning-97.md)。556 stop/DONE/JSON、1HTTP/3545tokens/4.160131s，raw含!= Lua51失败；syntax-only对照12中2FAIL2ERROR（Lua断言），整稿拒0rawNative。owner12诊断方法＋旧finance10、pure-read sensor5场景后174装外层一次转发probe，175捕获4063259@62,34/moves2/goal2578匹配，Warning UNKNOWN/nil/no_warning_entry不当0；一次实际FOUND，9城陇西589832、175/176L100+17，粮仓0→3/32。演员名册消耗／新builder同回合出生使总数30不变；raw自有Intent OBSERVED/city589832/token settle:0:9/request0:175:193、goal175/176已知0均另读。先撤外层175再撤W4于176，W4 659=635recruit5city19op/0cmd/0errdrop。173→176五普通END15armySKIP、0手补内政/UserForced；save1761689624B/hash2cf7785130032322fe961f3a7f968bb253868606b27d63902bda11e79828c5b8未load。新工具不进mod，97产品未改，旧FAIL/宗教/40不升级。回执脚本曾错要求syntaxcontrol0errors，按原日志2FAIL2ERROR修记账无重跑；队列表导出把cost当progress，前置拒绝且未写公共文件后校正。前5图/doc固定6bb13fb公开GET200/hash一致。累计556/518stop/35length/3transport/586HTTP/30extra/OpenCode新0，未知null；Steam0上线登录下载上传初始化/上传。

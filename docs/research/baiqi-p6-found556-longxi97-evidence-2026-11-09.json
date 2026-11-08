@@ -1,0 +1,318 @@
+{
+  "schema": "civ6.found556-passive-warning97-longxi176/v1",
+  "utc": "2026-11-08T21:56:45.480012+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 97,
+  "product_commit": "4da78ccc3f3a4f0ed21bc657458dca765da748b4",
+  "model556": {
+    "started_at_utc": "2026-11-08T21:38:44.937492+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 2944,
+      "completion_tokens": 601,
+      "total_tokens": 3545
+    },
+    "seconds": 4.16013119998388,
+    "raw_Lua51_compile": false,
+    "adoption": "REJECTED_ALL_RAW_CODE",
+    "raw_Native": 0,
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical successful same-machine/user cache reused installed/latest1.19.5 updatedfalse",
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "review": {
+    "raw_Lua51_compile": false,
+    "raw_compile_error": "[string \"<python>\"]:14: 'then' expected near '!'",
+    "raw_code_adoption": 0,
+    "raw_Native": 0,
+    "syntax_only_control": {
+      "operator_replacements": 1,
+      "run": 12,
+      "failures": [
+        "test_nonplain_or_missing_sensor_record_remains_unknown (tests.test_diagnostic_found_warning.FoundWarningDiagnosticTests.test_nonplain_or_missing_sensor_record_remains_unknown)",
+        "test_sensor_exception_cannot_suppress_original (tests.test_diagnostic_found_warning.FoundWarningDiagnosticTests.test_sensor_exception_cannot_suppress_original)"
+      ],
+      "errors": [
+        "test_foreign_binding_namespace_and_table_refused_before_restore (tests.test_diagnostic_found_warning.FoundWarningDiagnosticTests.test_foreign_binding_namespace_and_table_refused_before_restore)",
+        "test_invalid_operation_and_occupied_namespace_never_install (tests.test_diagnostic_found_warning.FoundWarningDiagnosticTests.test_invalid_operation_and_occupied_namespace_never_install)"
+      ],
+      "is_raw_candidate": false,
+      "Native": 0
+    },
+    "owner_Lua51_compile": true,
+    "owner_methods": 12,
+    "owner_pass": 12,
+    "related_existing_finance_methods_pass": 10,
+    "scope": "22 relevant diagnostic tests; no repeated full product suite/build, product97 unchanged.",
+    "review": "REJECTED_ALL_RAW_CODE: invalid !=; Restore omits fresh table identity; operation not finite/integer-validated; nonplain callback results accepted and UNKNOWN status shape wrong. Owner tail-forwards original exactly once; checks current table/binding/namespace. Sensor must be owner pure-read; pre-call data is not effect proof.",
+    "review_harness_correction": "First receipt assertion incorrectly required zero unittest errors on deliberately failing syntax-control. Existing logs show2FAIL2ERROR (Lua assertions); corrected accounting from preserved original logs, no test/game replay.",
+    "usage": {
+      "prompt_tokens": 2944,
+      "completion_tokens": 601,
+      "total_tokens": 3545
+    },
+    "http_seconds": 4.16013119998388,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "owner_sensor_qualification": {
+    "owner_cases": [
+      "actual_unknown_stays_nil",
+      "foreign_short_circuit",
+      "wrong_context_not_known",
+      "goal_mismatch_recorded_not_repaired",
+      "public_reader_throw_no_permission"
+    ],
+    "count": 5,
+    "Lua51_compile": true,
+    "source_sha256": "2274ff34bf57b0c286f466098e6198b4df6d3e5c4818e705f9f00b54525f21b4",
+    "game_orders": 0,
+    "raw_model_source": false
+  },
+  "diagnostic_sources": {
+    "generic": "tools/lua/diagnostic_found_warning.lua",
+    "generic_sha256": "9814a6d9989fe98cb99ba97735c8eb890d89f4a0b108128b98abc340ce414038",
+    "sensor_private_source_sha256": "2274ff34bf57b0c286f466098e6198b4df6d3e5c4818e705f9f00b54525f21b4",
+    "scope": "Owner pure-read sensor; no Native commands, no private Bridge/Inspect/Prepare/RunNow. Original game action tail-forwarded once; sensor does not decide authorization. Generic observer not part of mod package."
+  },
+  "native_prefound": {
+    "installed_at174": true,
+    "exact_scoped_actual_actor": "4063259 owned0 UNIT_SETTLER at62,34 goal2578",
+    "precall_row": [
+      "1",
+      "CAPTURED",
+      "nil",
+      "175",
+      "4063259",
+      "0",
+      "UNIT_SETTLER",
+      "62",
+      "34",
+      "2578",
+      "2",
+      "true",
+      "true",
+      "2578",
+      "UNKNOWN",
+      "nil",
+      "no_warning_entry"
+    ],
+    "observer_samples": 1,
+    "observer_errors": 0,
+    "observer_drops": 0,
+    "restored_at175_before_finance": true,
+    "unknown_is_not_zero_or_safety_proof": true,
+    "source_warning_value_on173": [
+      "UNKNOWN",
+      null,
+      "no_warning_entry"
+    ]
+  },
+  "actual175176": {
+    "new_city": {
+      "id": 589832,
+      "name": "LOC_CITY_NAME_LONGXI",
+      "xy": [
+        62,
+        34
+      ],
+      "population175176": [
+        1,
+        1
+      ],
+      "loyalty175176": [
+        100,
+        100
+      ],
+      "rate175": 17.0,
+      "rate176": 17.0,
+      "granary_progress175176": [
+        0,
+        3
+      ],
+      "granary_cost": 32,
+      "food176": [
+        "176",
+        "589832",
+        "1",
+        "0.9453125",
+        "7",
+        "2",
+        "7",
+        "-1",
+        "false",
+        "false"
+      ]
+    },
+    "cities174175176": [
+      8,
+      9,
+      9
+    ],
+    "actor_4063259_present174": true,
+    "actor_4063259_absent175176": true,
+    "persisted_raw_intent": [
+      "4063259",
+      "UNIT_SETTLER",
+      "OBSERVED",
+      "589832",
+      "62",
+      "34",
+      "2578",
+      "175",
+      "0:175:193",
+      "settle:0:9",
+      "true",
+      "false"
+    ],
+    "goal_state": [
+      [
+        "174",
+        "true",
+        "1",
+        "1"
+      ],
+      [
+        "175",
+        "true",
+        "0",
+        "0"
+      ],
+      [
+        "176",
+        "true",
+        "0",
+        "0"
+      ]
+    ],
+    "full_roster_caveat": "Total units remain30 in175 while settler consumed and builder4653085 appears; full IDs and city evidence used, not netcounts.",
+    "normal_END_inputs": 5,
+    "army_SKIP": 15,
+    "actual_advances173to176": 3,
+    "UserForced": 0,
+    "manual_domestic": 0,
+    "END176": 0,
+    "all_sampled9city175176": "loyalty100/positive rates, surplus>=0/no starvation countdown",
+    "old_recovery_or_safety_FAIL_closed": false
+  },
+  "financeW4": {
+    "counts": [
+      "176",
+      "635",
+      "5",
+      "19",
+      "0",
+      "0",
+      "0",
+      "659"
+    ],
+    "FOUND_calls": [
+      [
+        "524",
+        "175",
+        "4063259",
+        "0",
+        "UNIT_SETTLER",
+        "unit_op",
+        "1463004268",
+        "true",
+        "0"
+      ]
+    ],
+    "one_original_FOUND_forward_observed": true,
+    "errors": 0,
+    "drops": 0,
+    "samples": 659,
+    "restored_at176": true,
+    "scope": "Executor bindings only, CityRequestCommand not wrapped. Void return not independently counted as effect; actualnewcity/actorconsumption/OBSERVEDrecord separate."
+  },
+  "save176": {
+    "utc": "2026-11-08T21:52:09.653172+00:00",
+    "name": "Baiqi_P6_20261109_V97_LongxiEstablished176.Civ6Save",
+    "bytes": 1689624,
+    "sha256": "2cf7785130032322fe961f3a7f968bb253868606b27d63902bda11e79828c5b8",
+    "stable_repeated_read": true
+  },
+  "save_ACK_true": true,
+  "save176_loaded": false,
+  "tables": [
+    {
+      "path": "docs/testing/found97-followup174-176-queues.csv",
+      "rows": 26,
+      "sha256": "2fb22c17f5f3963a5901a90bbaf4d2c4b0067f4250c3f979a3ac86556922e6fd"
+    },
+    {
+      "path": "docs/testing/found97-followup174-176-vitals.csv",
+      "rows": 26,
+      "sha256": "cc8fea430841c167df775de9a0f02135a97e24fb12cd5c7980e1e881860c195b"
+    },
+    {
+      "path": "docs/testing/found97-followup174-176-growth.csv",
+      "rows": 26,
+      "sha256": "89783071849d85d54f42fe21988602ccdc5e5a1d208f6fd8b816e85b849e6594"
+    },
+    {
+      "path": "docs/testing/found97-prefound175.csv",
+      "rows": 1,
+      "sha256": "0f44032bb06b4ac34872012679914d7febe037e689ed1ffaf7280b631e6ad6a8"
+    },
+    {
+      "path": "docs/testing/found97-followup173-176-background-unit-calls.csv",
+      "rows": 19,
+      "sha256": "c33ea0a779032dcf80586f565dc81f5ffb5fec36114ca55bfe5c31633109b168"
+    },
+    {
+      "path": "docs/testing/found97-followup174-176-goal-state.csv",
+      "rows": 3,
+      "sha256": "77f399ae4ca53edb948748d882e63ae91156821f060b0f27612c88e934f951ca"
+    }
+  ],
+  "image": {
+    "path": "docs/testing/images/found97-longxi/longxi176.png",
+    "sha256": "e32e90b81adda65f6bf5f98fd6fa4c618f2a3ff3195b5303288d4f6d38caaed6",
+    "viewed_unaltered_original": true
+  },
+  "previous20turn_images_public_GET": {
+    "receipt": "docs/research/baiqi-p6-food97-long173-public-images-2026-11-09.json",
+    "fixed_commit": "6bb13fbc57937c77351b3794fe0fb1def778a853",
+    "inline_images": 5,
+    "all_doc_and_images_GET200_hashmatch": true,
+    "Steam_calls": 0
+  },
+  "cumulative556": {
+    "logical_tasks": 556,
+    "complete_stop_valid_outer_JSON": 518,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 586,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "product_software_reused": "1375pass1SDKskip baseline, no product source change/full suite rerun/build or newmodversion;22 relevantdiagnostic tests passed plus5sensorcases.",
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82,
+    "public_Alpha2_gallery": 12
+  },
+  "limits": [
+    "Current UNKNOWN prewarning plus positive postcity does not validate knownnegative veto or establish UNKNOWN=0.",
+    "Natural train/found/nextturn production narrow chain; completed-state Save176 not loaded at this cut, no midrequest recovery upgrade.",
+    "OldARMED/LEGACY/95and96negative histories remain; allfood matrix/religion/BaseRF/performance/full40 open.",
+    "Observed pre-call is diagnostic only and never a grant of permission or general proof of trusted sensor purity."
+  ]
+}
