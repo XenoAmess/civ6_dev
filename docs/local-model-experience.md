@@ -435,4 +435,9 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 
 ## 2026-11-09：98冷读与三普通回合
 
-[四原图／8CSV及边界](testing/baiqi-source98-cold-followup-179.md)。本记录复用560，0新HTTP；561界面估时另账。新鲜Steam离线证明0.003946秒后冷启动98，0模式切换/上线/上传；原97主176已保存并安全退出自有实例。实际176→179／4普通END／15玩家待命，巴西原版三输入，无UserForced。冷读自有经济/9队列/56建筑/33区域/139地块/30单位与97最后176均相同，九城粮食相同，不推全世界或0bootstrap。36food均非负／starve−1，36loyalty100正变化；177洪水总PopLost1支持首都16→15→16关联，6改良消失另记，不捏造逐城归因。观察784=766评估+6城+12单位，12均自有builder，0错丢／已撤；3建设调用只有2共同地块净新改良，不混作实效。秀容卡片1／原生队列4的新显示缺口未闭。179ACKtrue/hash稳定已保存未load，旧恢复/宗教/完整40继续开放。
+[四原图／8CSV及边界](testing/baiqi-source98-cold-followup-179.md)。本记录复用560，0新HTTP；561界面估时另账。新鲜Steam离线证明0.003946秒后冷启动98，0模式切换/上线/上传；原97主176已保存并安全退出自有实例。实际176→179／4普通END／15玩家待命，巴西原版三输入，无UserForced。冷读自有经济/9队列/56建筑/33区域/139地块/30单位与97最后176均相同，九城粮食相同，不推全世界或0bootstrap。36food均非负／starve−1，36loyalty100正变化；177洪水总PopLost1支持首都16→15→16关联，6改良消失另记，不捏造逐城归因。观察784=766评估+6城+12单位，12均自有builder，0错丢／已撤；3建设调用只有2共同地块净新改良，不混作实效。秀容卡片原图为4，负责人误读1已由561复核撤回（见后续更正），不是已证产品缺口。179ACKtrue/hash稳定已保存未load，旧恢复/宗教/完整40继续开放。
+
+
+## 2026-11-09：561撤回负责人截图小字误读
+
+[原图与控件复核](testing/baiqi-cityui561-image-reading-correction.md)。owner把秀容原图4读成1，并在模型输入中当事实；两份私人ROI放大均清楚为4，三次CityPanel只读控件／Native两种GetTurnsLeft签名／GetCityData均4，当前样本一致，非缓存或modifier修复证据。原四PNG未改，文档／BBCode撤回错误缺陷；新原始复核图另存入库。561 stop/DONE/JSON/1HTTP/28473tokens/11.281081s，窄采真实数据路径和ProductionNum getter；XP2覆写ViewMain链条错误拒。输入假事实与模型真实源码误判分别记账，模型未见图不算其视觉失败。累计561/523stop/35length/3transport/591HTTP/30extra，OpenCode原生新0/null未知；0产品改动／新测试／写控件／刷新器／游戏命令，Steam禁上线继续。
