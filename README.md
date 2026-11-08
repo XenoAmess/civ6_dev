@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／安装／实机93。[102→109实机及两张新军队原图](docs/testing/baiqi-army-wait-native-93.md)：新长矛兵训练完成、等待玩家并实际接受玩家移动；五城生产继续。发现所有带地貌城址被误排除，修复与扩张复验继续；长期保城FAIL未关闭。Steam他机占用，禁止上线／上传，公开Alpha2仍82／12图。
+当前源码94，安装／最后实机93。[雨林等可定居地貌的软件修复](docs/testing/baiqi-settlement-features-source-94.md)：1339运行／1338通过／1SDK跳过，104文件82Lua5.1；94待离线冷验。93实机109的新军队由玩家接管已有两张原图，扩张及长期保城仍未通过。Steam他机占用，禁止上线／上传，公开Alpha2仍82／12图。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 

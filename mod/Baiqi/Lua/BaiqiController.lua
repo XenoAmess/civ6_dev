@@ -2187,6 +2187,18 @@ local function CreatedWorkObserved(player,pending)
   return false
 end
 
+local function SettlementFeatureAllowed(plot)
+  local ok,allowed=pcall(function()
+    local index=plot:GetFeatureType()
+    if index==-1 then return true end
+    if not BaiqiPolicy.Number(index) or index<0 or index%1~=0 then return false end
+    local row=GameInfo.Features[index]
+    return row~=nil and row.Index==index and type(row.FeatureType)=="string" and row.FeatureType~=""
+      and row.Settlement==true and row.NaturalWonder==false and row.Impassable==false
+  end)
+  return ok and allowed==true
+end
+
 local function SettlementSites(player, state, firstOnly, excluded, unitID, preferredIndex)
   local result,candidates = {},{}
   local ai = player:GetGrandStrategicAI()
@@ -2221,7 +2233,7 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
   for i,candidate in ipairs(candidates) do
     local plot=Map.GetPlotByIndex(candidate.index)
     if plot and plot:GetIndex()==candidate.index and Revealed(plot) and not plot:IsWater()
-      and not plot:IsImpassable() and not plot:IsCity() and plot:GetFeatureType()==-1
+      and not plot:IsImpassable() and not plot:IsCity() and SettlementFeatureAllowed(plot)
       and (plot:GetOwner()==-1 or plot:GetOwner()==contextID) and Safe(plot,player) then
       if KnownExpansionSupport(plot,player,contextID)==true then
         result[#result+1] = {index=candidate.index, score=candidate.score, legal=true, revealed=true, safe=true,
@@ -2273,7 +2285,7 @@ local function ProcessSettler(ctx, player, state, unit)
   if oldTarget~=nil then
     local oldPlot=Map.GetPlotByIndex(oldTarget)
     if not oldPlot or not Revealed(oldPlot)or oldPlot:IsWater()or oldPlot:IsImpassable()
-      or oldPlot:IsCity()or oldPlot:GetFeatureType()~=-1
+      or oldPlot:IsCity()or not SettlementFeatureAllowed(oldPlot)
       or(oldPlot:GetOwner()~=-1 and oldPlot:GetOwner()~=ctx.player)
       or KnownExpansionSupport(oldPlot,player,ctx.player)~=true then
       if reservations[oldTarget]==id then reservations[oldTarget]=nil end

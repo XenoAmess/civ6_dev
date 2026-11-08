@@ -1,0 +1,150 @@
+{
+  "schema": "civ6.baiqi-settlement-features94-model545/v1",
+  "utc": "2026-11-08T12:48:12.681614+00:00",
+  "machine_id": "BF-202609141645",
+  "product": {
+    "source": 94,
+    "installed": 93,
+    "last_actual": 93,
+    "last_actual_turn": 109,
+    "new_modules": 0,
+    "artifact": {
+      "files": 104,
+      "Lua51_compiled": 82,
+      "archive_bytes": 8780201,
+      "archive_sha256": "faab24dd7ef63e2de76d3694056aab8dd936e70960a20530ccc8ec19fee64d58",
+      "all_manifest_archive_bytes_match": true
+    },
+    "runtime94": "NOT_YET"
+  },
+  "defect": {
+    "actual109": "Visible native recommendation2047@49,27 FEATURE_JUNGLEindex2;nearestOwn5/no currently visible foreignwithin5; new and old-goal feature==-1 blanket excludes it. This proves source exclusion, not exclusive waiting reason or successful future founding.",
+    "native_metadata": [
+      "2047/1976/2131:JUNGLE2;2204:FLOODPLAINS_PLAINS32;row.Indexmatches;Settlementtrue/NaturalWonderfalse/Impassablefalse typedboolean."
+    ],
+    "primary_installed_sources": [
+      "Base/Assets/Gameplay/Data/Schema/01_GameplaySchema.sql:1221..1261, SettlementBOOLEAN DEFAULT1, NaturalWonder/ImpassableBOOLEAN DEFAULT0.",
+      "Base/Assets/Gameplay/Data/Features.xml:29..44;JUNGLE/FOREST/MARSH defaultSettlementtrue;OASIS and wonders explicitfalse."
+    ],
+    "NoCity": "Initial readonly diagnostic hypothesis returnednil, primaryschema confirms field absent. Never added to product.",
+    "fix": "New local pure protected metadata guard, applied to new recommendations and retained goals. No feature-1 remainsallowed; nonnegative finiteinteger feature looks up actual row identity/type and explicitlySettlementtrue/NaturalWonderfalse/Impassablefalse; missing/bad/throwing infofalse. No fixed feature whitelist, RemoveTech/Removable gate or relaxed political/safety/FOUND gate."
+  },
+  "software": {
+    "new_methods": 9,
+    "Lua_version": "5.1 for nine new feature consumer methods",
+    "before_after": {
+      "source93": {
+        "run": 9,
+        "failures": [
+          "test_native_recommended_ordinary_features_are_considered (feature94cases.SettlementFeatureTests.test_native_recommended_ordinary_features_are_considered) (name='FEATURE_JUNGLE')",
+          "test_native_recommended_ordinary_features_are_considered (feature94cases.SettlementFeatureTests.test_native_recommended_ordinary_features_are_considered) (name='FEATURE_FOREST')",
+          "test_native_recommended_ordinary_features_are_considered (feature94cases.SettlementFeatureTests.test_native_recommended_ordinary_features_are_considered) (name='FEATURE_MARSH')",
+          "test_native_recommended_ordinary_features_are_considered (feature94cases.SettlementFeatureTests.test_native_recommended_ordinary_features_are_considered) (name='FEATURE_FLOODPLAINS')",
+          "test_native_recommended_ordinary_features_are_considered (feature94cases.SettlementFeatureTests.test_native_recommended_ordinary_features_are_considered) (name='FEATURE_FLOODPLAINS_PLAINS')",
+          "test_retained_feature_goal_survives_changed_recommendations (feature94cases.SettlementFeatureTests.test_retained_feature_goal_survives_changed_recommendations)",
+          "test_retained_goal_rechecks_changed_feature_metadata (feature94cases.SettlementFeatureTests.test_retained_goal_rechecks_changed_feature_metadata)"
+        ],
+        "errors": [
+          "test_feature_lookup_exceptions_are_contained (feature94cases.SettlementFeatureTests.test_feature_lookup_exceptions_are_contained) (script=\"Map.GetPlotByIndex(46).GetFeatureType=function()error('unavailable')end\")"
+        ]
+      },
+      "source94": {
+        "run": 9,
+        "failures": [],
+        "errors": []
+      }
+    },
+    "first_owner_fixture_run": "Initial8methods sixFAIL subcases due missing controller context initialization; added existing RunNow(false) setup, no product constraint relaxation. Then extended retained-goal cases to9.",
+    "first_comparison_orchestration": "Owner incorrectly asserted source93 had noerrors; original source getter exception is an expected real counterexample. Preserved initial logs; second comparison permits and records7FAILsubcases/1ERROR vs94ninepass. The source93 suffix dummy local helper was only to return the unused accessor, no existing consumer changed.",
+    "full_run": 1339,
+    "full_pass": 1338,
+    "SDK_environment_skip": 1,
+    "artifact": {
+      "files": 104,
+      "Lua51_compiled": 82,
+      "archive_bytes": 8780201,
+      "archive_sha256": "faab24dd7ef63e2de76d3694056aab8dd936e70960a20530ccc8ec19fee64d58",
+      "all_manifest_archive_bytes_match": true
+    },
+    "static_control_known_versions": "Added94 only, unknownversion andanchor rejection retained."
+  },
+  "model545": {
+    "mode": "canonical ordinary HTTP",
+    "HTTP_attempts": 1,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 4064,
+      "completion_tokens": 431,
+      "total_tokens": 4495
+    },
+    "total_ms": 3368.4266000054777,
+    "raw_helper_Lua51_compile": true,
+    "raw_helper_owner_cases": [
+      {
+        "case": "valid",
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "pass": true
+      },
+      {
+        "case": "missing_type",
+        "expected": false,
+        "actual": true,
+        "error": null,
+        "pass": false
+      },
+      {
+        "case": "missing_natural",
+        "expected": false,
+        "actual": true,
+        "error": null,
+        "pass": false
+      },
+      {
+        "case": "missing_impassable",
+        "expected": false,
+        "actual": true,
+        "error": null,
+        "pass": false
+      },
+      {
+        "case": "getter_error",
+        "expected": false,
+        "actual": null,
+        "error": "[string \"<python>\"]:1: unavailable\nstack traceback:\n\t[string \"<python>\"]:2: in function <[string \"<python>\"]:1>\n\t[string \"<python>\"]:1: in function 'GetFeatureType'\n\t[C]: in function 'error'",
+        "pass": false
+      }
+    ],
+    "adoption": "Two exact feature-condition replacement strings adopted verbatim. Helper not adopted as supplied: missing FeatureType validation, nilNaturalWonder/nilImpassable admitted, getter exception escaped. Owner wrote explicit typedfalse checks and pcall containment.",
+    "raw_Native_executions": 0,
+    "owner_input_scope": "Strongly guided actual schema, two exact consumers, guard types and intended minimal patch. No autonomous API discovery claim.",
+    "maintenance": "Nov8 first5001.19.5 passed; canonical545 reused same-client current-day cache, no newOpenCode native generation.",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative545": {
+    "logical_tasks": 545,
+    "complete_stop_valid_outer_JSON": 508,
+    "length_discarded": 34,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 575,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "native_boundary": "93saved109 stable before formalExit once.94notinstalled/launched yet. No new safe site/path/found/long-term Native PASS.92long130FAIL, oldARMED/LEGACY/religion/compat/performance/full40 retained.",
+  "steam": {
+    "occupied_other_device": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "Alpha2_internal": 82,
+    "Alpha2_images": 12
+  }
+}
