@@ -1,6 +1,6 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
-当前源码91，安装及最近实机90。[总督危城调派软件](baiqi-governor-loyalty-source-91.md)1306通过／1SDK跳过，尚未安装实测91；成都122忠诚8.83／每回合−6.28／产能0的FAIL保持，122已保存。其他设备占用Steam，禁止上线与上传，公开Alpha2仍82／12图。完整40项、恢复／选址／宗教实机／兼容／性能继续开放。
+当前源码／安装／实际91。[总督自动调派及3回合忠诚回升](baiqi-governor-loyalty-native-91.md)窄样本通过：成都122压力转+1.72，125忠诚13.28；产能仍0，不关长期稳定与选址FAIL。540扩张保护仅修正候选29场景未集成。软件1306通过／1SDK跳过；旧恢复FAIL、宗教实机、兼容、性能及完整40项开放。Steam占用，禁止上线／上传，Alpha2仍82／12图。
 
 本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。
 
