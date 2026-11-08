@@ -498,3 +498,6 @@
 
 
 - [97实际重读旧ARMED158](baiqi-oldarmed97-native158.md)：记录保留；两种原版CANCEL资格false，缺少active/strategic同步样本，不授取消或重放。0END158、旧恢复FAIL保持；已独立返回176主线并核对9城食物／忠诚度。
+
+
+- [98同回合已确认而尚未发令的建城修复](baiqi-live-unissued-found-98.md)：23新回归旧97十四失败、新全过，完整1412/1411pass/1SDKskip；仅同回合内存权限，读档／跨回合／已进writer不重发，原生已发令保存窗口恢复FAIL保持。98待离线冷实机，Steam禁上线／上传。

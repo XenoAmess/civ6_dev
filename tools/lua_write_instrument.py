@@ -31,7 +31,9 @@ def instrument_writes(source: str,label: str) -> tuple[str,list[dict]]:
             method=ts[i+2].value
             before=ts[i-1].value if i else None
             after=ts[i+3].value if i+3<len(ts) else None
-            if before in ('.',':','function') or after=='=':
+            equality=(after=='=' and i+4<len(ts) and ts[i+4].value=='='
+                      and ts[i+3].end==ts[i+4].start)
+            if before in ('.',':','function') or (after=='=' and not equality):
                 raise ValueError('Unsupported qualified SDK receiver or assignment')
             line=bisect_right(newlines,t.start)+1
             canonical=ALIASES.get(t.value,t.value)

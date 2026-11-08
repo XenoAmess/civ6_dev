@@ -112,10 +112,14 @@ end
 
 -- Immutable native topology only; no visibility, threats or native objects.
 -- A changed binding invalidates every center, not just the first one revisited.
-local neighborhoodCache,neighborhoodCount={},0
+local neighborhoodCache,neighborhoodCount,settlementWorldEpoch={},0,0
 local neighborhoodXY,neighborhoodByIndex
 local function ClearNeighborhoods()
   neighborhoodCache,neighborhoodCount={},0
+  settlementWorldEpoch=settlementWorldEpoch+1
+  -- A new world may reuse native bindings. Only a fresh live Commit ACK can
+  -- create an unsent dispatch closure; never carry one through a load event.
+  for _,pending in pairs(pendingUnits) do pending.dispatch=nil end
 end
 local function ForgetNeighborhood(key)
   if key and neighborhoodCache[key] then
@@ -673,8 +677,12 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   local key = "unit:"..unit:GetID()..":"..here:GetIndex()..":"..operation..":"..plot:GetIndex()..":"..tostring(improvement)
   local id = NextRequest(key)
   if id == nil or pendingUnits[unit:GetID()] ~= nil then return false, "already_pending_or_budget" end
-  local settlementToken
+  local settlementToken,foundingNative
   if founding then
+    foundingNative={manager=UnitManager,writer=UnitManager.RequestOperation,
+      qualifier=UnitManager.CanStartOperation,bridge=ExposedMembers.BaiqiSettlementIntentBridge,
+      epoch=settlementWorldEpoch}
+    if type(foundingNative.writer)~="function" then return false,"native_writer_unavailable" end
     local stage,op=SettlementBridge("Prepare",ctx.player,unitID,founding.index,founding.x,founding.y,id)
     op=SettlementRecord(op,ctx.player,unitID)
     if stage~="PREPARED" or not op or op.stage~=stage or op.requestID~=id
@@ -683,44 +691,81 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     if granted~=true or token~=op.token then return false,"settlement_commit_unconfirmed" end
     settlementToken=token
   end
-  pendingUnits[unit:GetID()] = {id=id, operation=action, plot=plot:GetIndex(), from=here:GetIndex(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
+  pendingUnits[unitID] = {id=id, operation=action, plot=plot:GetIndex(), from=here:GetIndex(), kind=operation, moves=unit:GetMovesRemaining(),elapsed=0}
   if founding then
-    pendingUnits[unitID].founding=founding
-    pendingUnits[unitID].persistent=true;pendingUnits[unitID].token=settlementToken
-    -- The Core ACK is another callback boundary. Never use pre-ACK facts to
-    -- emit the native order; failure now retains ARMED without inventing a retry.
+    local pending=pendingUnits[unitID]
+    pending.founding=founding;pending.persistent=true;pending.token=settlementToken
+    local armedTurn,entered,checking,dispatch=turn,false,false,nil
+    -- This closure exists only after this call's successful fresh Commit ACK.
+    -- It is not serialized, restored from ARMED, or usable in another turn.
+    local function Bound()
+      return pendingUnits[unitID]==pending and pending.dispatch==dispatch and not entered
+        and turn==armedTurn and settlementWorldEpoch==foundingNative.epoch
+        and UnitOperationTypes.FOUND_CITY==action and next(params)==nil
+        and UnitManager==foundingNative.manager
+        and UnitManager.RequestOperation==foundingNative.writer
+        and UnitManager.CanStartOperation==foundingNative.qualifier
+        and type(ExposedMembers)=="table" and ExposedMembers.BaiqiSettlementIntentBridge==foundingNative.bridge
+    end
     local function FinalFoundUnit()
       local c,p,s=PlayerContext()
-      if not c or c.player~=ctx.player or turn~=Game.GetCurrentGameTurn() or not CoreIdle() then return nil end
+      if not Bound() or not c or c.player~=ctx.player or armedTurn~=Game.GetCurrentGameTurn()
+        or not CoreIdle() then return nil end
       local u=p:GetUnits():FindID(unitID);local row=u and GameInfo.Units[u:GetUnitType()]
       if not BaiqiPolicy.MatchesID(u,unitID) or not row or row.UnitType~="UNIT_SETTLER"
         or not BaiqiPolicy.CanCivilian(c,UnitSnapshot(u,s)) or UnitIndex(u)~=founding.index then return nil end
       return u,p
     end
-    local fresh,p=FinalFoundUnit()
-    if not fresh or UnitManager.CanStartOperation(fresh,action,nil,params)~=true then return false,"armed_final_native_unavailable" end
-    fresh,p=FinalFoundUnit()
-    local ok,site,city,isCity=pcall(FoundingSite,founding.index,founding.x,founding.y)
-    if not fresh or not ok or not site or city~=nil or isCity~=false
-      or (site:GetOwner()~=-1 and site:GetOwner()~=ctx.player)
-      or not Safe(site,p) or KnownExpansionSupport(site,p,ctx.player)~=true then return false,"armed_final_site_unavailable" end
-    fresh=FinalFoundUnit()
-    if not fresh then return false,"armed_final_unit_changed" end
-    unit=fresh
+    local function Qualify()
+      if not FinalFoundUnit() then return nil,"armed_final_unit_changed" end
+      local stage,bank=SettlementBridge("Snapshot",ctx.player)
+      local J=BaiqiSettlementJournal
+      local current=stage=="READY" and J.Validate(bank,ctx.player)
+        and SettlementRecord(bank.operations[J.UnitKey(unitID)],ctx.player,unitID)
+      if not current or current.stage~="ARMED" or current.token~=settlementToken
+        or current.requestID~=id or current.turn~=armedTurn or current.plot~=founding.index
+        or current.x~=founding.x or current.y~=founding.y or current.empty~=true
+        or current.conflictingCity~=false then return nil,"armed_live_intent_changed" end
+      local fresh,p=FinalFoundUnit()
+      if not fresh or foundingNative.qualifier(fresh,action,nil,params)~=true then return nil,"armed_final_native_unavailable" end
+      fresh,p=FinalFoundUnit()
+      local ok,site,city,isCity=pcall(FoundingSite,founding.index,founding.x,founding.y)
+      if not fresh or not ok or not site or city~=nil or isCity~=false
+        or (site:GetOwner()~=-1 and site:GetOwner()~=ctx.player)
+        or not Safe(site,p) or KnownExpansionSupport(site,p,ctx.player)~=true then return nil,"armed_final_site_unavailable" end
+      fresh=FinalFoundUnit()
+      if not fresh or not SettlerQueueIdle(fresh,unitType) then return nil,"native_queue_pending_or_unknown" end
+      fresh=FinalFoundUnit()
+      if not fresh then return nil,"armed_final_unit_changed" end
+      return fresh
+    end
+    dispatch=function()
+      if entered or checking or not Bound() then return false,"armed_live_dispatch_held" end
+      checking=true
+      local ok,fresh,why=pcall(Qualify)
+      checking=false
+      if not ok or not fresh or not Bound() then return false,why or "armed_live_qualification_unavailable" end
+      -- Consume before entering the writer. False, void and throw are all
+      -- unresolved native outcomes, never permission for another dispatch.
+      entered=true;pending.dispatch=nil
+      Log("request", "id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=FOUND_CITY|plot="..founding.index.."|from="..founding.index)
+      local called=pcall(foundingNative.writer,fresh,action,params)
+      if not called then Log("settler_request_unresolved","id="..id.."|unit="..unitID.."|native_call_error=true|token="..settlementToken) end
+      return true,"submitted"
+    end
+    pending.dispatch=dispatch
+    return dispatch()
   end
   if origin then pendingUnits[unit:GetID()].origin=origin:GetID();pendingUnits[unit:GetID()].destination=dest:GetID() end
   if not SettlerQueueIdle(unit,unitType)then
     -- No native call has occurred here. Only retire this function's unsent,
-    -- nonpersistent proposal; an already committed FOUND stays ARMED.
+    -- nonpersistent proposal. FOUND uses its separate live-ACK dispatch path.
     local pending=pendingUnits[unitID]
     if not founding and pending and pending.id==id and pending.persistent~=true then pendingUnits[unitID]=nil end
     return false,"native_queue_pending_or_unknown"
   end
   Log("request", "id="..id.."|source=BACKGROUND|unit="..unit:GetID().."|operation="..operation.."|plot="..plot:GetIndex().."|from="..here:GetIndex())
-  if founding then
-    local ok=pcall(UnitManager.RequestOperation,unit,action,params)
-    if not ok then Log("settler_request_unresolved","id="..id.."|unit="..unitID.."|native_call_error=true|token="..settlementToken) end
-  else UnitManager.RequestOperation(unit, action, params) end
+  UnitManager.RequestOperation(unit, action, params)
   return true, "submitted"
 end
 
@@ -730,6 +775,8 @@ local function RequestCivilianStandby(unit)
   if not unit or type(unit.GetID)~="function" then return false end
   local unitID=unit:GetID()
   if not BaiqiPolicy.Number(unitID) or unitID<0 or unitID%1~=0 or unitID>2147483647 then return false end
+  local pending=pendingUnits[unitID]
+  if pending and type(pending.dispatch)=="function" then return false end
   local def=GameInfo.Units[unit:GetUnitType()]
   local unitType=def and def.UnitType
   if not BaiqiPolicy.CivilianType(unitType) then return false end
@@ -3228,7 +3275,7 @@ local function ReadBack(player)
         ok=stage=="OBSERVED" and op~=nil and op.stage==stage and op.token==pending.token
           and op.requestID==pending.id
         if ok then cityID=op.cityID end
-        if not ok and unit then RequestCivilianStandby(unit) end
+        if not ok and unit and type(pending.dispatch)~="function" then RequestCivilianStandby(unit) end
       else ok,cityID=pcall(FoundCityObserved,player,pending,lookup) end
       if ok and cityID~=nil then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=FOUND_CITY|city="..cityID
@@ -3325,6 +3372,9 @@ local function Tick(allowOrders)
     -- turn; retaining that pending slot would strand the civilian indefinitely.
     for id,pending in pairs(pendingUnits) do
       if pending.kind=="SKIP_TURN" then pendingUnits[id]=nil end
+      -- Live unsent permission is deliberately narrower than durable intent.
+      -- A later turn still retains ARMED, without reconstructing a grant.
+      if pending.kind=="FOUND_CITY" then pending.dispatch=nil end
     end
     for id in pairs(districtPersonPlans) do
       local unit=player:GetUnits():FindID(id)
@@ -3375,6 +3425,11 @@ local function Tick(allowOrders)
   -- Existing factual receipts may reconcile while the core is busy. New
   -- gameplay orders wait until both native processing readers report idle.
   if allowOrders==false or not CoreIdle() then return end
+  for _,pending in pairs(pendingUnits) do
+    if pending.kind=="FOUND_CITY" and type(pending.dispatch)=="function" and pending.dispatch() then
+      status="已提交移民建城，等待实际结果";return
+    end
+  end
   -- Only the engine's actual extraction queue permits an artifact choice.
   -- This runs before ordinary scheduling because a pending artifact can block it.
   local artifact,artifactStatus=ArchaeologyPendingRead(ctx,player)

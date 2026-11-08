@@ -426,3 +426,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：97读取旧ARMED及返回主线
 
 [旧158原图和只读证据](testing/baiqi-oldarmed97-native158.md)。复用557源码分析，0新HTTP；旧85档正式加载一次，ARMED／8650807／请求0:156:173保留。CANCEL两原版签名均boolean false，但未采active/strategic，不能推永久资格或派发终止。0END158／CANCEL／WAKE／MOVE／FOUND／写属性／私有bridge；历史中断恢复FAIL保持。切换前保存主176，正式返回一次后9城food非负／饥荒−1／忠诚100正增长，新陇西和长沙优先保留；无全世界相同或零bootstrap宣称。Steam持续禁止上线与上传。
+
+
+## 2026-11-09：558–560与98有限未发令修复
+
+[98软件合同和完整边界](testing/baiqi-live-unissued-found-98.md)。558诊断窄采用，旧档满行动力推未发令／清未决／不完整重试拒；559缺可执行测试；560相同i+3索引条件矛盾会放行赋值，拒。owner独立同回合live闭包，不更Core或存档协议，进入writer前消耗，false/void/throw未决，加载代次／函数绑定／枚举／现场／原请求逐项核对，加载、跨回合不授重发。23新回归旧97十四失败、新全过；完整1412/1411pass/1SDKskip、85Lua51/107byteequal。两轮完整工具错误19/1均修正，owner加载ACK／枚举／待命三个反例修正均保留。累计560/522stop/35length/3transport/590HTTP/30extra，OpenCode新0/null未知。98未冷实机，不解除旧FAIL；97主176另存校验，Steam0私自上线或上传。

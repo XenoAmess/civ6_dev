@@ -35,6 +35,17 @@ local query=CityManager.FinishMoves
         source='-- player:SetProperty(1)\nlocal s="UI.RequestPlayerOperation"\nCanStartOperation(unit)\n'
         out,m=instrument_writes(source,'test.lua');self.assertEqual(out,source);self.assertEqual(m,[])
 
+    def test_sdk_equality_is_a_read_and_preserves_function_identity(self):
+        source='same=UnitManager.RequestOperation==fn;missing=UnitManager.RequestOperation==nil'
+        out,manifest=instrument_writes(source,'equality.lua')
+        self.assertEqual(len(manifest),2)
+        lua=LuaRuntime(unpack_returned_tuples=True)
+        lua.execute('calls=0;fn=function()calls=calls+1 end;UnitManager={RequestOperation=fn};P6WriteRef=function(_,f)return f end')
+        lua.execute(out)
+        self.assertTrue(lua.globals().same)
+        self.assertFalse(lua.globals().missing)
+        self.assertEqual(lua.globals().calls,0)
+
     def test_unsupported_receiver_declaration_assignment_and_collision_fail(self):
         for source in ['p.units:SetProperty(1)','p[0]:SetProperty(1)','Get():SetProperty(1)',
                        'function p:SetProperty(x) end','env.UI.RequestPlayerOperation(1)',
