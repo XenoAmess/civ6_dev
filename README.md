@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码92，安装／实机仍91。[扩张稳定性保护软件及130新FAIL](docs/testing/baiqi-expansion-stability-source-92.md)：1321通过／1SDK跳过，104文件／82Lua5.1；92尚未实机。成都130忠诚4.06、产能0，失败档已保存，长期保城FAIL保持。其他设备占用Steam，禁止上线／上传；公开Alpha2仍82／12图。
+当前源码／安装／实机92。[低忠诚等待的离线实机与3张图](docs/testing/baiqi-expansion-stability-native-92.md)：125→128三个普通回合，移民原地等待并保留目标，其他生产继续。成都128忠诚17.97但产能0；91长期130FAIL仍开放，尚无忠诚50恢复／新训练门的原生独立证明。其他设备占用Steam，禁止上线／上传；公开Alpha2仍82／12图。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 

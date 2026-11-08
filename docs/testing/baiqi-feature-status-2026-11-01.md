@@ -1,6 +1,6 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
-当前源码92，安装及实际91。[全局扩张等待软件与130新稳定性FAIL](baiqi-expansion-stability-source-92.md)：1321通过／1SDK跳过、92未安装实机；91成都130忠诚4.06／负压／产能0，总督仍+8，失败档已保存。短期回升未升级为长期PASS。旧恢复FAIL、宗教采购正案、兼容／性能／全40开放。Steam占用，禁止上线／上传，Alpha2仍82／12图。
+当前源码／安装／实机92。[离线125→128等待验收及3张原图](baiqi-expansion-stability-native-92.md)：同一移民等待／目标保持／其他生产继续窄通过；成都产能0，91长期130FAIL不关闭。128正式存读档后原目标／演员／7城队列与忠诚状态保持；忠诚50恢复与新训练门原生正反例未完成。软件基线1321通过／1SDK跳过、104文件82Lua51。其他设备占用Steam，0上线／上传；Alpha2仍82／12图。
 
 本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。
 
