@@ -407,3 +407,10 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：556 被动建城前警告与陇西自然正案
 
 [原生175建陇西／176产能进度及原图](testing/baiqi-natural-longxi-and-prefound-warning-97.md)。556 stop/DONE/JSON、1HTTP/3545tokens/4.160131s，raw含!= Lua51失败；syntax-only对照12中2FAIL2ERROR（Lua断言），整稿拒0rawNative。owner12诊断方法＋旧finance10、pure-read sensor5场景后174装外层一次转发probe，175捕获4063259@62,34/moves2/goal2578匹配，Warning UNKNOWN/nil/no_warning_entry不当0；一次实际FOUND，9城陇西589832、175/176L100+17，粮仓0→3/32。演员名册消耗／新builder同回合出生使总数30不变；raw自有Intent OBSERVED/city589832/token settle:0:9/request0:175:193、goal175/176已知0均另读。先撤外层175再撤W4于176，W4 659=635recruit5city19op/0cmd/0errdrop。173→176五普通END15armySKIP、0手补内政/UserForced；save1761689624B/hash2cf7785130032322fe961f3a7f968bb253868606b27d63902bda11e79828c5b8未load。新工具不进mod，97产品未改，旧FAIL/宗教/40不升级。回执脚本曾错要求syntaxcontrol0errors，按原日志2FAIL2ERROR修记账无重跑；队列表导出把cost当progress，前置拒绝且未写公共文件后校正。前5图/doc固定6bb13fb公开GET200/hash一致。累计556/518stop/35length/3transport/586HTTP/30extra/OpenCode新0，未知null；Steam0上线登录下载上传初始化/上传。
+
+
+## 2026-11-09：97自然陇西176完成态正式重载
+
+[原图／18行食粮对账](testing/baiqi-longxi-completed-reload-97.md)：LoadACKtrue/输入1，Continue1，actual176active；WORLD1/CITY9/BUILDING56/DISTRICT33/PLOT139相同，9城food/focus全等、陇西1pop粮仓3/32L100+17、原4063259 OBSERVED/city589832/request/token同、goal0。UNIT30中builder3932180 59,35/m2→60,34/m0及4653085 56,36/m2→57,37/m.5，次数1/3保持，不称全世界不变/引导0请求。先前已全撤外层及W4未重装。Loadhelper首版pre尾分号与sharedloader加分号相接Lua51拒，意图/flag/Net前0动作；去尾分号后唯一Load。临时hung截图拒、LSQ一次timeout无CMD，health同11316birth运行；原Continue新鲜画面对比后click1，126contexts/实际176重证，无重放。save1689624/hash2cf7785130032322fe961f3a7f968bb253868606b27d63902bda11e79828c5b8保持。0END176/手补/新HTTP/新软件，复用556累计和原22相关诊断＋5回调资格；完成态窄PASS不关闭旧未决/宗教/40。Steam0上线登录下载上传初始化/上传。
+
+176重载交付清单第一次复用p变量令README重复，delivery唯一性守卫在git add前拒绝；改为显式证据路径，只补交付，不重生成资产／不重放任何游戏动作。

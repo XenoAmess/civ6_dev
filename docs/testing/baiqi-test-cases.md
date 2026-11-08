@@ -489,3 +489,6 @@
 
 
 - [97自然建陇西及建城前原生警告](baiqi-natural-longxi-and-prefound-warning-97.md)：175第9城589832，176粮仓3/32、忠诚100／+17；一次实际FOUND前采UNKNOWN/nil，不能当0或授负警告守卫通过。raw保存Intent OBSERVED、演员消耗及目标0另核；被动工具12新方法＋10相关检查、回调5场景后安装，外层及W4均已撤，176保存未load。旧恢复／长期安全／宗教／完整40仍开放，Steam占用禁上线。
+
+
+- [97自然陇西176正式重载](baiqi-longxi-completed-reload-97.md)：同档Load/Continue各1，9城food/focus全保持，陇西1人口粮仓3/32L100+17、原始OBSERVED对应记录及goal0一致；9队列56建筑33区域139地块保持，两builder续移明确记录，不报引导0发令或全世界不变。完成态窄PASS，不授旧ARMED/LEGACY、长期安全或宗教／完整40通过。Steam占用0上线上传。
