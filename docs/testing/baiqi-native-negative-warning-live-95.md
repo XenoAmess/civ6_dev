@@ -1,5 +1,7 @@
 # 95冷实机：旧坏城址被拒绝，移民保留并改道
 
+后续[138→152续验与6张原图](baiqi-warning95-followup152.md)：同移民确实改道建秀容，但初始忠诚每回合−2.6875，已保存停止END。下文139旧坏址拒绝窄PASS保持，不能扩成新址安全。
+
 95加载同一份94的138回合建城前存档后，139没有建立原来负忠诚的上海。七城、二十五单位保持，同一移民3211284从59,28向西走到57,28，保存目标改为1902／52,25。观察器记录该移民两次MOVE_TO、零次FOUND_CITY。这关闭的是本次旧坏城址拒绝和改道的窄检查，新城址的建成与长期稳定仍继续验收。
 
 [14行队列](warning95-138-139-queues.csv)、[14行城市状态](warning95-138-139-vitals.csv)、[机器与逐项证据](../research/baiqi-p6-warning95-native139-evidence-2026-11-09.json)。[95软件验证](baiqi-native-negative-warning-95.md)和[94旧失败](baiqi-shanghai-negative-loyalty-native-94.md)保留各自切点。
