@@ -1,5 +1,7 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
+[95原版负忠诚警告守卫](baiqi-native-negative-warning-95.md)：源码95／安装实机94；独立138实际目标−6、已保存未END138。13新方法旧94八失败／95全过，全1351pass1SDKskip、105文件83Lua51；待冷验95，旧失败和完整40仍开放，Steam禁令不变。
+
 [94上海139负忠诚FAIL](baiqi-shanghai-negative-loyalty-native-94.md)：自动第8城100／−9.5625，已保存、停止END；太原人口2／100+17，长期窗口未闭。71队列71状态／五图，原版圣地4城可产3城容量受限；宗教仍未触发。Steam禁令不变，以下均历史切点。
 
 [94太原完成态130读档窄通过](baiqi-rainforest-completed-reload-94.md)：七城十八单位、所采集生产和7行城市状态一致，UI／Core原日志OBSERVED一致。旧ARMED／LEGACY恢复FAIL、长期保城与宗教正案继续开放；Steam占用禁上线。以下保留各历史切点。

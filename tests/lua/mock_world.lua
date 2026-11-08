@@ -24,6 +24,8 @@ function include(name)
       W.goalProposals[tostring(id)]=g;return 'READY',g
     end,
     Forget=function(pid,id)W.goalProposals[tostring(id)]=nil;return 'READY' end}
+ elseif name=="BaiqiSettlementWarning" then
+  dofile("mod/Baiqi/Lua/BaiqiSettlementWarning.lua")
  end
 end
 Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end,

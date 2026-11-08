@@ -1,5 +1,7 @@
 # 94实机：第八城上海出现负忠诚，验收未通过
 
+后续已完成[138建城前警告复现和95软件守卫](baiqi-native-negative-warning-95.md)，95尚未安装实测。本页139FAIL及其存档保持，不能以软件结果覆盖。
+
 139回合，AI自动在59,28建立上海，初始忠诚100、每回合−9.5625。选址安全记FAIL，尚未测试到叛离；发现负值后已停止结束回合并正式保存现场。太原和广州在同一窗口保持正忠诚，不能据此覆盖上海的问题。
 
 [71行生产队列](shanghai94-130-139-queues.csv)、[71行城市状态](shanghai94-130-139-vitals.csv)、[逐项证据与模型审阅](../research/baiqi-p6-shanghai94-negative139-model547-evidence-2026-11-09.json)。源码／安装／实机仍94，未发布95。此前[太原完成态130读档](baiqi-rainforest-completed-reload-94.md)的窄通过保留。

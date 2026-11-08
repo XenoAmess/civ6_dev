@@ -1,5 +1,6 @@
 include("BaiqiConfig")
 include("BaiqiPolicy")
+include("BaiqiSettlementWarning")
 include("BaiqiPlanner")
 include("BaiqiHeritageCandidates")
 include("BaiqiHeritageActions")
@@ -513,6 +514,13 @@ local function KnownExpansionSupport(plot,player,playerID)
     if count~=expected or own:GetCount()~=expected then return nil,"unknown_cities" end
     if expected==0 then return true,"first_city" end
     if not nearest then return nil,"unknown_cities" end
+    local warningModule=BaiqiSettlementWarning
+    if type(warningModule)~="table" or type(warningModule.Read)~="function" then
+      return nil,"loyalty_warning_unavailable"
+    end
+    local warningStage=warningModule.Read(
+      {GameConfiguration=GameConfiguration,Map=Map,PlayersVisibility=PlayersVisibility},playerID,index)
+    if warningStage=="KNOWN_NEGATIVE" then return false,"native_negative_loyalty_warning" end
     local stable,why=ExpansionStable(player,playerID)
     if stable~=true then return stable,why end
     local radius=nearest<=9 and nearest or 9

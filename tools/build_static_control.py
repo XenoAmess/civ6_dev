@@ -30,7 +30,7 @@ def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control'
     if variant=='enabled' and not paired_clock:raise ValueError('Enabled variant requires matched stopwatch')
     source=ROOT/'mod/Baiqi';files=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','94'):raise ValueError('Expected actual source67 through94')
+    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95'):raise ValueError('Expected actual source67 through95')
     version=int(version)
     output_dir=output_dir.resolve()
     if output_dir==source.resolve() or output_dir.is_relative_to(source.resolve()) or source.resolve().is_relative_to(output_dir):raise ValueError('Separate output required')
