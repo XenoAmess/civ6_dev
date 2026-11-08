@@ -1,0 +1,172 @@
+{
+  "schema": "civ6.religion555-public-pool97/v1",
+  "utc": "2026-11-08T20:49:55.830458+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 97,
+  "product_commit": "4da78ccc3f3a4f0ed21bc657458dca765da748b4",
+  "model555": {
+    "started_at_utc": "2026-11-08T20:45:07.797042+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 5891,
+      "completion_tokens": 789,
+      "total_tokens": 6680
+    },
+    "seconds": 5.935482900007628,
+    "adoption": "REJECTED_ALL_RAW_CODE",
+    "raw_Native": 0,
+    "OpenCode_native_generation": 0,
+    "daily_maintenance": "Nov9 canonical same-machine/user successful cache reused installed/latest1.19.5 updatedfalse",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "review": {
+    "raw_Lua51_compile": true,
+    "raw_code_adoption": 0,
+    "raw_Native": 0,
+    "owner_Lua51_compile": true,
+    "cases": {
+      "mixed_classes_unclaimed_prophet": {
+        "raw": "FAIL",
+        "owner": "PASS"
+      },
+      "claimed_public_prophet_retained": {
+        "raw": "FAIL",
+        "owner": "PASS"
+      },
+      "empty_current_not_forever_exhausted": {
+        "raw": "FAIL",
+        "owner": "PASS"
+      },
+      "nonprophet_rows_bounded": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "religions_bounded_even_unfounded": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "founded_nil_unknown": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "numeric_infinity_unknown": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "missing_prophet_definition_unknown": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "invalid_prophet_claimant_unknown": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "foreign_player_unknown": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "missing_own_boolean_unknown": {
+        "raw": "PASS",
+        "owner": "PASS"
+      },
+      "native_read_throw_is_unknown": {
+        "raw": "PASS",
+        "owner": "PASS"
+      }
+    },
+    "owner_case_count": 12,
+    "review": "REJECTED_CODE: static Game calls changed to colon; incorrectly asserts every timeline class equals Prophet; filters Claimant==0, losing unclaimed/other claimant entries; bounds matching count instead of total; missing finite/founded boolean/definition checks. Owner read-only replacement uses original consumer APIs and bounded arrays. Cap remains unknown; no exhaustion inference.",
+    "usage": {
+      "prompt_tokens": 5891,
+      "completion_tokens": 789,
+      "total_tokens": 6680
+    },
+    "http_seconds": 5.935482900007628,
+    "owner_not_product": true
+  },
+  "raw_negative_cases_limit": "UNKNOWN from earlier bad static guard is not a validation of later negative branches; no nine-branch-pass claim.",
+  "owner_native": {
+    "runtime_pid": 11316,
+    "runtime_birth": 1794167130.3072424,
+    "port": 4318,
+    "context": "GreatPeoplePopup",
+    "readonly_calls": 1,
+    "turn": 162,
+    "lines": [
+      [
+        "P6_RELIGION555_STATUS",
+        "KNOWN",
+        "162",
+        "nil"
+      ],
+      [
+        "P6_RELIGION555_OWN",
+        "-1",
+        "0",
+        "20",
+        "false",
+        "436.3046875",
+        "40",
+        "0"
+      ],
+      [
+        "P6_RELIGION555_PUBLIC_POOL",
+        "1",
+        "2",
+        "CAP_UNKNOWN"
+      ],
+      [
+        "P6_RELIGION555_PROPHET",
+        "122",
+        "nil"
+      ],
+      [
+        "P6_RELIGION555_READ_DONE"
+      ]
+    ],
+    "game_orders": 0,
+    "property_writes": 0,
+    "raw_candidate_execution": 0,
+    "religion_cap": null,
+    "empty_pool_hypothesis": "Current public timeline is NOT EMPTY",
+    "cause_of_no_religion": "NOT_ESTABLISHED",
+    "natural_positive_chain": "OPEN"
+  },
+  "transport_recovery": {
+    "after_ordinary_END161": "size0/tag4 readiness protocol rejected; child terminal; no END replay",
+    "fresh_health": "same owned11316 birth running CPUdelta8.015625/2sec",
+    "fresh_LSQ": "qualified4318",
+    "fresh_ready": "actual162 active/strategic/idle then diagnosis"
+  },
+  "cumulative555": {
+    "logical_tasks": 555,
+    "complete_stop_valid_outer_JSON": 517,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 585,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82
+  },
+  "limits": [
+    "No verified religion cap or permanent pool inference.",
+    "No new HolySite/Prophet/founding/Missionary purchase/spread actual effect.",
+    "No product code/binary change, no repeated full software suite.",
+    "Food97 long window ongoing in separate receipts; not completed here."
+  ]
+}

@@ -392,3 +392,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-08：536只读采购审计候选与隔离边界
 
 [工具、16场景与冷启动准备](testing/baiqi-faith-purchase-audit-536.md)。536真实未完只读验收工具任务，完整stop/SSE/JSON但Lua51 continue语法失败，整拒，owner独立实现3真实Property双轮冻结/Clone/Equal及每namespace ABSENT/KNOWN/UNKNOWN计数，1方法16子场景0writes；工具未入Native、外于产品103，不调用有副作用的Inspect等。累计536logical500stop外JSON33length3transport566HTTP30extra/OpenCode原生0/cache人工节时null，Nov8维护缓存。90安装103match；87新119备份核验，退出残留仅自身无窗口/端口/CPU变化且>180s后结束。当前Steam14904后台可见GoOnline证实offline；头部导航与后台证明严格分列，0模式切换上线登录下载上传，外机占用不解除。首次90启动未响应/只读两端口timeout后自有终止，第二次同DX12/8核32前端contexts与原版119LoadACKtrue，世界尚未读取切点，未知原因和真实效果不拔高。
+
+
+## 2026-11-09：555 先知池诊断，原稿拒绝
+
+[97 原生162及审阅边界](testing/baiqi-religion-public-pool-97.md)。555完整stop/DONE/JSON，1HTTP/6680tokens/5.935483s；静态改冒号、全表断言先知及Claimant0过滤错，整稿拒绝0rawNative。owner12隔离例后只读：当前1未招募先知index122/nil、已创教2、cap未知；自有40points/+0、faith436.3046875、created-1/earned0/pantheon20/hasfalse。不支持先知列表耗尽解释，尚不知单一根因，宗教实效链仍open。161结束后协议帧拒绝先停再同进程/LSQ/实际162重证，不重发END。累计555/517stop/35length/3transport/585HTTP/30extra/OpenCode新0，未知成本null。Steam外机占用，0上线登录下载上传初始化/上传；产品97未变，长期食粮窗口另记。
