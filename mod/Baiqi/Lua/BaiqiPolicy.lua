@@ -109,3 +109,120 @@ function BaiqiPolicy.CanCivilian(ctx, unit)
   if not BaiqiPolicy.Number(unit.moves) or unit.moves <= 0 then return false, "no_moves" end
   return true, "eligible"
 end
+
+-- Pure own-city stability decision; no engine calls or cached permission.
+BaiqiPolicy.ExpansionStability=(function()
+local BaiqiExpansionStability = {}
+
+local function Plain(v)return type(v)=="table"and getmetatable(v)==nil end
+
+local function IsFiniteNumber(n)
+  return type(n) == "number" and n == n and n ~= math.huge and n ~= -math.huge
+end
+
+local function IsIntegerInRange(n, min, max)
+  if not IsFiniteNumber(n) then return false end
+  if n ~= math.floor(n) then return false end
+  return n >= min and n <= max
+end
+
+function BaiqiExpansionStability.Evaluate(snapshot)
+  if not Plain(snapshot) then return "UNKNOWN", "invalid_state", nil end
+
+  local rules = snapshot.loyaltyRules
+  if rules == false then
+    return "CLEAR", "no_loyalty_rules", nil
+  end
+
+  if rules ~= true then
+    return "UNKNOWN", "invalid_state", nil
+  end
+
+  local cities = snapshot.cities
+  if not Plain(cities) then return "UNKNOWN", "invalid_state", nil end
+
+  -- Validate structure: dense array, no metatable, no extra keys, max 128
+  local count = 0
+  for k, v in pairs(cities) do
+    if type(k) ~= "number" or k ~= math.floor(k) or k < 1 or k > 128 then
+      return "UNKNOWN", "invalid_state", nil
+    end
+    count = count + 1
+  end
+
+  if count > 128 then return "UNKNOWN", "invalid_state", nil end
+
+  -- Check for holes and ensure 1..count are all present
+  for i = 1, count do
+    if cities[i] == nil then return "UNKNOWN", "invalid_state", nil end
+  end
+
+  -- Validate each city DTO
+  local seenIDs = {}
+  local bestUnstable = nil
+  local bestID = nil
+  local bestLoyalty = nil
+  local bestRate = nil
+
+  for i = 1, count do
+    local city = cities[i]
+    if not Plain(city) then return "UNKNOWN", "invalid_state", nil end
+
+    -- Check for extra keys in city table (strict DTO)
+    local keyCount = 0
+    for k, _ in pairs(city) do
+      keyCount = keyCount + 1
+      if k ~= "id" and k ~= "loyalty" and k ~= "rate" then
+        return "UNKNOWN", "invalid_state", nil
+      end
+    end
+    if keyCount ~= 3 then return "UNKNOWN", "invalid_state", nil end
+
+    local id = city.id
+    local loyalty = city.loyalty
+    local rate = city.rate
+
+    if not IsIntegerInRange(id, 0, 2147483647) then return "UNKNOWN", "invalid_state", nil end
+    if not IsFiniteNumber(loyalty) or loyalty < 0 or loyalty > 100 then return "UNKNOWN", "invalid_state", nil end
+    if not IsFiniteNumber(rate) or rate < -1000 or rate > 1000 then return "UNKNOWN", "invalid_state", nil end
+
+    if seenIDs[id] then return "UNKNOWN", "invalid_state", nil end
+    seenIDs[id] = true
+
+    -- Determine instability: rate < 0 OR loyalty < 50
+    if rate < 0 or loyalty < 50 then
+      -- Priority: lower loyalty, then lower rate, then lower id
+      if bestUnstable == nil then
+        bestUnstable = true
+        bestID = id
+        bestLoyalty = loyalty
+        bestRate = rate
+      else
+        if loyalty < bestLoyalty then
+          bestID = id; bestLoyalty = loyalty; bestRate = rate
+        elseif loyalty == bestLoyalty then
+          if rate < bestRate then
+            bestID = id; bestLoyalty = loyalty; bestRate = rate
+          elseif rate == bestRate then
+            if id < bestID then
+              bestID = id; bestLoyalty = loyalty; bestRate = rate
+            end
+          end
+        end
+      end
+    end
+  end
+
+  if bestUnstable then
+    return "HOLD", "unstable_owned_city", bestID
+  end
+
+  if count == 0 then
+    return "CLEAR", "first_city", nil
+  end
+
+  return "CLEAR", "stable", nil
+end
+
+return BaiqiExpansionStability.Evaluate
+end)()

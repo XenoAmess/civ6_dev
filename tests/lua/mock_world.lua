@@ -28,7 +28,8 @@ function include(name)
 end
 Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return W.turn end,
  IsAllowStrategicCommands=function() return W.strategic~=false end}
-GameConfiguration={IsAnyMultiplayer=function() return false end,IsHotseat=function() return false end}
+GameConfiguration={IsAnyMultiplayer=function() return false end,IsHotseat=function() return false end,
+ GetValue=function(key)if key=="RULESET"then return W.ruleset or "RULESET_STANDARD"end end}
 local function rows(data)
   local result={}
   for i,row in ipairs(data) do result[row.Hash]=row; result[row.Index]=row; if row.BuildingType then result[row.BuildingType]=row end end

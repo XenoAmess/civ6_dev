@@ -456,6 +456,37 @@ end
 
 -- A bounded known-border heuristic, not a native loyalty prediction. A lack of
 -- currently visible foreign cities says nothing about cities hidden by fog.
+local function ExpansionStable(player,playerID)
+  local ok,stage,reason=pcall(function()
+    if not GeometryInteger(playerID) or playerID>2147483647 or playerID~=contextID
+      or not player then return "UNKNOWN","unknown_player" end
+    local ruleset=GameConfiguration.GetValue("RULESET")
+    if ruleset=="RULESET_STANDARD" then
+      return BaiqiPolicy.ExpansionStability({loyaltyRules=false})
+    end
+    if ruleset~="RULESET_EXPANSION_1" and ruleset~="RULESET_EXPANSION_2" then return "UNKNOWN","unknown_ruleset" end
+    local own=player:GetCities();local expected=own:GetCount()
+    if not GeometryInteger(expected) or expected>128 then return "UNKNOWN","unknown_cities" end
+    local snapshot={loyaltyRules=true,cities={}}
+    for _,city in own:Members() do
+      if #snapshot.cities>=128 or city:GetOwner()~=playerID then return "UNKNOWN","unknown_cities" end
+      local id=city:GetID()
+      if not GeometryInteger(id) or id>2147483647 then return "UNKNOWN","unknown_city" end
+      local current=own:FindID(id)
+      if not BaiqiPolicy.MatchesID(current,id) or current:GetOwner()~=playerID then return "UNKNOWN","unknown_city" end
+      local identity=city:GetCulturalIdentity()
+      snapshot.cities[#snapshot.cities+1]={id=id,loyalty=identity:GetLoyalty(),rate=identity:GetLoyaltyPerTurn()}
+    end
+    if #snapshot.cities~=expected or own:GetCount()~=expected or GameConfiguration.GetValue("RULESET")~=ruleset then
+      return "UNKNOWN","cities_or_ruleset_changed"
+    end
+    return BaiqiPolicy.ExpansionStability(snapshot)
+  end)
+  if not ok then return nil,"loyalty_information_unavailable" end
+  if stage=="CLEAR" then return true,reason end
+  if stage=="HOLD" then return false,reason end
+  return nil,reason
+end
 local function KnownExpansionSupport(plot,player,playerID)
   local ok,result,reason=pcall(function()
     local function Integer(n)return GeometryInteger(n) and n<=2147483647 end
@@ -482,6 +513,8 @@ local function KnownExpansionSupport(plot,player,playerID)
     if count~=expected or own:GetCount()~=expected then return nil,"unknown_cities" end
     if expected==0 then return true,"first_city" end
     if not nearest then return nil,"unknown_cities" end
+    local stable,why=ExpansionStable(player,playerID)
+    if stable~=true then return stable,why end
     local radius=nearest<=9 and 3 or 9
     local cells=NeighborhoodGeometry(plot,radius)
     if not cells or #cells>(radius==3 and 37 or 271) then return nil,"unknown_geometry" end
@@ -596,6 +629,9 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     if not Safe(plot,Players[latest.player]) then return false,"unsafe_after_qualification" end
     local legal,why=CivilianMoveTarget(here,plot,unit,latest.player)
     if not legal then return false,why end
+    if unitType=="UNIT_SETTLER" and ExpansionStable(Players[latest.player],latest.player)~=true then
+      return false,"owned_city_stability_unavailable"
+    end
   end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_MISSIONARY" and missionaryPurchase.Held() then return false,"purchase_receipt_pending" end
@@ -2205,6 +2241,14 @@ end
 local function ProcessSettler(ctx, player, state, unit)
   if SettlementHeld(unit) then
     Reason("settler_receipt:"..unit:GetID(),"移民保留未确认建城记录，等待原生命令结果")
+    return RequestCivilianStandby(unit)
+  end
+  local stable=ExpansionStable(player,ctx.player)
+  if stable~=true then
+    Reason("settler_stability:"..unit:GetID(),stable==false
+      and "先等己方城市忠诚恢复，再继续扩张" or "等待己方城市忠诚信息")
+    -- Keep the remembered proposal and any native queue. Standby itself
+    -- refuses a queued/unknown actor and never cancels an existing order.
     return RequestCivilianStandby(unit)
   end
   local here = UnitPlot(unit)
