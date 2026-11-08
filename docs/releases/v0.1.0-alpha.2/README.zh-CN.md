@@ -1,5 +1,7 @@
 # 白绮【为我前驱】Alpha 2
 
+安装前另读[11月9日后到风险](post-release-findings-2026-11-09.md)：发布82仍有先知资格错误，正常宗教链、建城未决恢复及长期忠诚不能承诺可用。下载包仍82，开发95没有进入该包。
+
 选择白绮，研究、政策、生产、建设和文职扩张强制托管；军队与外交由玩家决定。可查看内政，不能接管或暂停。先读[已知问题](KNOWN_ISSUES.zh-CN.md)和[更新说明](RELEASE_NOTES.md)。
 
 [GitHub Alpha2预发布包](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)已公开，内部82／93文件；公开附件下载后的93文件逐项与pin一致。[同一Steam工坊条目](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)已同步82版、12图与新封面，实际工坊下载93文件逐项与pin一致。计划更新[同一工坊条目](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)，不另建条目。
