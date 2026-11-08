@@ -1,0 +1,25 @@
+{
+  "fixture": "\nW={pid=0,turn=130,rules='RULESET_EXPANSION_2',era=3,score=50,countdown=-1,heroic=false,golden=false,dark=true,erasCalls=0,turnCalls=0}\nfunction Proxy(t)local p=newproxy(true);getmetatable(p).__index=t;return p end\nfunction NewEras()\n local e={}\n e.GetCurrentEra=function(self)assert(self==e);if W.indexError then error('private exception')end;return W.era end\n e.GetPlayerCurrentScore=function(self,pid)assert(self==e and pid==W.pid);return W.score end\n e.GetNextEraCountdown=function(self)assert(self==e);return W.countdown end\n e.HasHeroicGoldenAge=function(self,pid)assert(self==e and pid==W.pid);return W.heroic end\n e.HasGoldenAge=function(self,pid)assert(self==e and pid==W.pid);return W.golden end\n e.HasDarkAge=function(self,pid)assert(self==e and pid==W.pid);return W.dark end\n return e\nend\nE={Game={GetLocalPlayer=function(...)assert(select('#',...)==0);return W.localPid or W.pid end,\n GetCurrentGameTurn=function(...)assert(select('#',...)==0);W.turnCalls=W.turnCalls+1;return W.turn+(W.changedTurn and W.turnCalls-1 or 0)end,\n GetEras=function(...)assert(select('#',...)==0);W.erasCalls=W.erasCalls+1;if W.erasCalls==2 and W.changeAge then W.dark=false end;return NewEras()end},\n GameConfiguration={GetValue=function(key)assert(key=='RULESET');return W.rules end}}\nfunction Known(age)local v=M.Read(E,0);assert(v.status=='KNOWN'and v.age==age and v.turn==130 and v.countdown==-1);for k,a in pairs(v)do assert(type(a)~='function'and type(a)~='userdata'and type(a)~='table')end end\nfunction Unknown()local ok,v=pcall(M.Read,E,0);assert(ok and type(v)=='table'and v.status=='UNKNOWN')end\n",
+  "cases": {
+    "actual_static_self_and_distinct_second_eras_objects": "Known(\"DARK\");assert(W.erasCalls==2)",
+    "heroic_and_golden_true_valid": "W.heroic=true;W.golden=true;W.dark=false;Known(\"HEROIC\")",
+    "golden_known": "W.golden=true;W.dark=false;Known(\"GOLDEN\")",
+    "all_false_is_normal": "W.dark=false;Known(\"NORMAL\")",
+    "dark_and_golden_inconsistent": "W.golden=true;Unknown()",
+    "dark_and_heroic_inconsistent": "W.heroic=true;Unknown()",
+    "actual_standard_literal_zero_eras_calls": "W.rules=\"RULESET_STANDARD\";assert(M.Read(E,0).status==\"NOT_APPLICABLE\"and W.erasCalls==0)",
+    "foreign_pid_zero_eras_calls": "W.localPid=8;Unknown();assert(W.erasCalls==0)",
+    "fresh_age_changed": "W.changeAge=true;Unknown()",
+    "fresh_turn_changed": "W.changedTurn=true;Unknown()",
+    "userdata_libraries_supported": "E.Game=Proxy(E.Game);E.GameConfiguration=Proxy(E.GameConfiguration);Known(\"DARK\")",
+    "eras_getter_exception_unknown": "W.indexError=true;Unknown()",
+    "library_index_exception_unknown": "E.Game=setmetatable({},{__index=function()error(\"private indexing\")end});Unknown()",
+    "sealed_environment_metatable_never_executed": "E=setmetatable({},{__metatable=false,__index=function()W.executed=true;error(\"private env\")end});Unknown();assert(not W.executed)",
+    "infinite_score_unknown": "W.score=math.huge;Unknown()",
+    "infinite_countdown_unknown": "W.countdown=math.huge;Unknown()",
+    "nonboolean_age_unknown": "W.dark=1;Unknown()",
+    "unknown_rules_zero_eras_calls": "W.rules=\"RULESET_UNKNOWN\";Unknown();assert(W.erasCalls==0)",
+    "source_missing_eras_getter_unknown": "E.Game.GetEras=nil;Unknown()",
+    "no_output_mutation_or_global_export": "Known(\"DARK\");assert(E.Game and W.era==3 and BaiqiOwnAge==nil)"
+  }
+}
