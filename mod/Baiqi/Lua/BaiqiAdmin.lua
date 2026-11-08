@@ -203,7 +203,7 @@ local function GovernorLoyaltySnapshot(pid,player,governors)
     local needed=false
     for _,c in ipairs(result.cities) do
       if c.assigned==nil and type(c.rate)=="number" and c.rate<0
-        and type(c.loyalty)=="number" and c.loyalty<=75 then needed=true end
+        and type(c.loyalty)=="number" then needed=true end
     end
     if not needed then return nil end
     local _,list=governors:GetGovernorList();assert(type(list)=="table" and #list<=32)

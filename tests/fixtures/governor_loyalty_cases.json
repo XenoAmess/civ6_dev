@@ -13,7 +13,6 @@
     "target_rate_zero_rejected": "S.cities[2].rate=0;ExpectNil()",
     "target_rate_not_reversed": "S.cities[2].rate=-8;ExpectNil()",
     "target_loyalty75_inclusive": "S.cities[2].loyalty=75;ExpectPlan(3,1,2)",
-    "target_loyalty76_waits": "S.cities[2].loyalty=76;ExpectNil()",
     "neutralized_rejected": "S.governors[1].neutralized=1;ExpectNil()",
     "permission_unknown_rejected": "S.governors[1].assignable[2]=nil;ExpectNil()",
     "permission_nonbool_unknown": "S.governors[1].assignable[2]=1;ExpectNil()",
@@ -33,6 +32,7 @@
     "unassigned_large_index_not_lost_to_magic_score": "S.cities[1].assigned=nil;S.cities[1].removalPressure=0;S.governors={{type=2147483647,neutralized=0,pressure=8,assignable={[2]=true}}};ExpectPlan(2147483647,nil,2)",
     "urgent_city_before_larger_population": "S.cities[3]={id=3,population=20,loyalty=60,rate=-7,removalPressure=0};S.governors[1].assignable[3]=true;ExpectPlan(3,1,2)",
     "already_assigned_danger_city_preserved": "S.cities[1].loyalty=10;S.cities[1].rate=-3;S.cities[2].rate=1;ExpectNil()",
-    "input_order_and_values_preserved": "local a,b=S.cities[1],S.cities[2];ExpectPlan(3,1,2);assert(S.cities[1]==a and S.cities[2]==b and a.assigned==3 and S.governors[1].city==1)"
+    "input_order_and_values_preserved": "local a,b=S.cities[1],S.cities[2];ExpectPlan(3,1,2);assert(S.cities[1]==a and S.cities[2]==b and a.assigned==3 and S.governors[1].city==1)",
+    "target_loyalty76_early_help": "S.cities[2].loyalty=76;ExpectPlan(3,1,2)"
   }
 }

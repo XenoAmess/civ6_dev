@@ -45,7 +45,7 @@ local function Plan(s)
     if c.assigned~=nil then
       local g=governors[c.assigned]
       if not g or g.city~=c.id then return nil end
-    elseif c.rate<0 and c.loyalty<=75 then targets[#targets+1]=c end
+    elseif c.rate<0 then targets[#targets+1]=c end
   end
   for _,g in ipairs(s.governors) do
     if g.city~=nil and (not cities[g.city] or cities[g.city].assigned~=g.type) then return nil end

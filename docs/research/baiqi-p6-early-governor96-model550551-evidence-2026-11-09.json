@@ -1,0 +1,161 @@
+{
+  "schema": "civ6.baiqi-early-governor96-model550551/v1",
+  "utc": "2026-11-08T18:58:13.615529+00:00",
+  "machine_id": "BF-202609141645",
+  "source": 96,
+  "installed_and_runtime_at_software_cutpoint": 95,
+  "previous_Native_fail": {
+    "evidence_pin": "ce8dda748fda5d4638902a0d6794185d69a1b36d",
+    "path": "docs/research/baiqi-p6-warning95-followup152-evidence-2026-11-09.json",
+    "city": 524295,
+    "x": 62,
+    "y": 30,
+    "loyalty": 100,
+    "rate": -2.6875,
+    "source95_END152": 0,
+    "save": {
+      "utc": "2026-11-08T18:42:02.324108+00:00",
+      "name": "Baiqi_P6_20261109_V95_XiurongNegative152.Civ6Save",
+      "bytes": 1556866,
+      "sha256": "f46b12c4a7544a874608d3f5b81c8eb2b503e56a5642aa2e2e8a75ca70913532",
+      "stable_repeated_read": true
+    },
+    "saved_ACK": true,
+    "observer_restored": true,
+    "scope": "Native95 fail, not Native96; no manual governor assignment"
+  },
+  "changes": [
+    "Pure planner negative unassigned city candidate no longer waits loyalty<=75.",
+    "Admin actual snapshot needed prefilter removes same75 threshold, preserving typed loyalty validation.",
+    "Strict positive target afterpressure; donor loyalty>=80 and postremoval rate>=1, native permission/freshness/pending uncertain no-replay unchanged.",
+    "Assigned-city handling and first-city/settlement warning semantics unchanged."
+  ],
+  "owner_review": {
+    "model550": "length2600, complete SSE but non-stop; outer syntaxUNKNOWN, no content parse/adoption/compile/Native",
+    "model551": "Exact unique raw planner hunk adopted verbatim; only removes loyalty<=75 precondition. No Native execution of raw candidate.",
+    "raw_candidate_consumer_comparison": "8methods,4FAIL0ERROR: Admin snapshot prefilter still requires<=75",
+    "owner_task_scope_correction": "Owner had explicitly restricted551 to planner only, despite supplying actual Admin prefilter; consumer mismatch is owner scoping/integration omission, not invented model API failure.",
+    "owner_addition": "Remove same75 filter from real Admin snapshot, preserve typed numeric loyalty and all validation/permission/final reread/pending logic",
+    "adapted_comparison": "8methods0FAIL0ERROR",
+    "fixture_update": "Existing76wait scenario revised to earlyHelp, total existing33 subcases unchanged",
+    "raw_model_game_orders": 0,
+    "installed_and_runtime": 95,
+    "source": 96
+  },
+  "new_8_method_comparison": {
+    "baseline95": {
+      "run": 8,
+      "failures": 4,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.12154740002006292
+    },
+    "raw551_planner_only": {
+      "run": 8,
+      "failures": 4,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.12427139992360026
+    },
+    "owner_adapted_consumer": {
+      "run": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.5263845999725163
+    },
+    "new_methods": 8,
+    "existing_fixture_subcases": 33,
+    "fixture_changed_not_added": "76waits ->76earlyHelp; total33 remains"
+  },
+  "affected_module_methods_pass": 25,
+  "full_suite": {
+    "run": 1360,
+    "pass": 1359,
+    "skip": 1,
+    "seconds": 137.418,
+    "skip_reason": "Set BAIQI_WORKSHOP_SDK_ASSEMBLY to an installed official Steamworks.NET.dll; not evidence SDK uninstalled"
+  },
+  "package": {
+    "utc": "2026-11-08T18:56:47.078225+00:00",
+    "files": 105,
+    "Lua51_compiled": 83,
+    "archive_bytes": 8781459,
+    "archive_sha256": "ca7ef23481beb0ca7bbadb9afc26c0403c0b13b6648106c366a8a50bc5f33a31",
+    "zip_source_bytes_equal": true,
+    "installations": 0,
+    "Native96_executions": 0
+  },
+  "model550": {
+    "task": "Early governor patch plus consumer tests, owner over-bundled2600budget",
+    "started_at_utc": "2026-11-08T18:44:18.754861+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "finish_reason": "length",
+    "SSE_DONE": true,
+    "outer_JSON": "UNKNOWN",
+    "usage": {
+      "prompt_tokens": 8755,
+      "completion_tokens": 2600,
+      "total_tokens": 11355
+    },
+    "total_ms": 16174.944799975492,
+    "review": "LENGTH_DISCARDED_WHOLE: no content JSON parse, no source compilation, no adopted truncated hunk/test; owner output-budget coupling cost.",
+    "raw_model_Native_execution": 0,
+    "daily_maintenance": "Nov9 same-machine/same-user successful canonical cache reused; installed/latest1.19.5 updatedfalse",
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "model551": {
+    "task": "Narrow exact pure-planner early negative rescue hunk",
+    "started_at_utc": "2026-11-08T18:45:10.419202+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 8711,
+      "completion_tokens": 268,
+      "total_tokens": 8979
+    },
+    "total_ms": 2536.1829000758007,
+    "review": "RAW_PLANNER_HUNK_ADOPTED_VERBATIM_WITH_OWNER_CONSUMER_FIX: exact unique source match. Raw planner alone4fail0error in8actualconsumer methods. Owner explicitly scoped to planner only despite supplied Admin threshold, then fixed actual consumer filter; semantic/API invention not alleged.",
+    "raw_model_Native_execution": 0,
+    "daily_maintenance": "Nov9 same-machine/same-user successful canonical cache reused; installed/latest1.19.5 updatedfalse",
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative551": {
+    "logical_tasks": 551,
+    "complete_stop_valid_outer_JSON": 513,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 581,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "record_correction": "Prior95 JSON named PublicRelations finaltarget although screenshot bottom did not fully verify it; corrected toUNKNOWN/partlyoutside, matching prose. No new game action or result claim.",
+  "steam": {
+    "other_device_in_use": true,
+    "new_idle_clearance": false,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82,
+    "public_Alpha2_gallery": 12
+  },
+  "limits": [
+    "96 software pass is not actual governor reassignment/effect; cold same152 save verification still required.",
+    "No guarantee new city initial rate nonnegative before any governor intervention.",
+    "A governor cannot alone fix oldShanghai-9.5625; no unsafe donor or repeated uncertain request authorized.",
+    "OldARMED/LEGACY, expansionlongterm/religion/Base/RF/performance/full40 open; Steam otherdevice ban persists."
+  ]
+}
