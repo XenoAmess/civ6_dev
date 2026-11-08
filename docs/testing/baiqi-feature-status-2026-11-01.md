@@ -1,5 +1,7 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
+[94太原完成态130读档窄通过](baiqi-rainforest-completed-reload-94.md)：七城十八单位、所采集生产和7行城市状态一致，UI／Core原日志OBSERVED一致。旧ARMED／LEGACY恢复FAIL、长期保城与宗教正案继续开放；Steam占用禁上线。以下保留各历史切点。
+
 当前源码／安装／实机94。[实际雨林建太原、跨黑暗时代130与4图](baiqi-rainforest-dark-age-native-94.md)：7城保持，太原粮仓3/32及忠诚100／+17、广州100／+18。68组队列及状态，130已保存未加载；只授此窗口，旧长期失城／ARMED／LEGACY与宗教／兼容／性能／完整40仍开放。Steam占用禁上线，Alpha2仍82／12图。
 
 本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。

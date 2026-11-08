@@ -1,5 +1,7 @@
 # civ6_dev
 
+[94太原130完成态读档已核对](docs/testing/baiqi-rainforest-completed-reload-94.md)：七城十八单位及所采集生产／建筑／区域／己方地块保持，太原忠诚100／+17。旧未决恢复和长期保城仍未通过；宗教130先知点40／每回合0、七城无圣地。Steam他机占用，持续禁止上线与上传。下文各“当前”保留历史切点。
+
 当前源码／安装／实机94。[雨林建太原与黑暗时代130，4张原图](docs/testing/baiqi-rainforest-dark-age-native-94.md)：太原粮仓3/32、忠诚100／+17；广州粮仓与纪念碑完工、人口2、100／+18。130已保存，长期、旧恢复和完整40项仍开放。Steam他机占用，禁止上线／上传；公开Alpha2仍82／12图。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
