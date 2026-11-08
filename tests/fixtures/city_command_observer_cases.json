@@ -1,0 +1,26 @@
+{
+  "fixture": "\nH={calls=0,published=nil,turn=119,id=65536,owner=0}\nCity={GetID=function(self)assert(self==City);if H.actorError then error('actor read')end;return H.id end,\n GetOwner=function(self)assert(self==City);return H.owner end}\nTarget={}\nOriginal=function(...)\n H.calls=H.calls+1;H.args={n=select('#',...),...}\n if H.action then H.action()end\n if H.nativeError then error(H.nativeError)end\n if H.void then return end\n return nil,false,7,nil\nend\nTarget.RequestCommand=Original\nO={getTable=function()return Target end,getPublished=function()return H.published end,\n publish=function(v)H.published=v;if H.publishError then error('publish failure')end end,\n game={GetCurrentGameTurn=function()return H.turn end},unpack=unpack}\nfunction Install()S=M.Install(O);assert(H.calls==0 and S.count==0 and Target.RequestCommand~=Original)end\nfunction Call(op,params)return Target.RequestCommand(City,op or -199,params)end\n",
+  "cases": {
+    "transparent_nil_holes_and_returns": "Install();local n,a,b,c,d=(function(...)return select('#',...),...end)(Target.RequestCommand(City,-199,{[11]=600},nil));assert(n==4 and a==nil and b==false and c==7 and d==nil and H.args.n==4 and S.count==1 and S.samples[1].returnCount==4 and S.errors==0)",
+    "void_return_count_zero": "Install();H.void=true;assert(select('#',Call())==0 and S.samples[1].returnCount==0 and S.samples[1].returned)",
+    "original_error_object_preserved": "Install();local marker={};H.nativeError=marker;local ok,e=pcall(Call);assert(not ok and e==marker and H.calls==1 and S.count==1 and not S.samples[1].returned)",
+    "actor_error_never_blocks_original": "Install();H.actorError=true;Call();assert(H.calls==1 and S.count==1 and S.errors==1 and #S.samples==0)",
+    "fractional_turn_unknown": "Install();H.turn=119.5;Call();assert(H.calls==1 and S.errors==1 and #S.samples==0)",
+    "boolean_actor_id_unknown": "Install();H.id=true;Call();assert(H.calls==1 and S.errors==1 and #S.samples==0)",
+    "string_operation_unknown": "Install();Call('PURCHASE');assert(H.calls==1 and S.errors==1 and #S.samples==0)",
+    "fractional_operation_unknown": "Install();Call(77.5);assert(H.calls==1 and S.errors==1 and #S.samples==0)",
+    "negative_operation_hash_valid": "Install();Call(-199);assert(S.samples[1].operation==-199 and S.errors==0)",
+    "params_scalar_copy_not_alias": "Install();local p={[11]=600,[12]=5,[13]=0,flag=false};Call(-199,p);p[11]=601;assert(S.samples[1].params[11]==600 and S.samples[1].params.flag==false and S.errors==0)",
+    "function_param_not_executed": "Install();Call(-199,{bad=function()H.called=true end});assert(not H.called and H.calls==1 and S.errors==1)",
+    "params_cap_forward": "Install();local p={};for i=1,33 do p[i]=i end;Call(-199,p);assert(H.calls==1 and S.errors==1 and #S.samples==0)",
+    "sample_cap_forward": "Install();for i=1,300 do Call()end;assert(H.calls==300 and S.count==300 and #S.samples==256 and S.drops==44)",
+    "after_error_does_not_change_native_return": "Install();H.action=function()setmetatable(S.samples[1],{__newindex=function()error('diagnostic after')end})end;local ok,a,b,c,d=pcall(Call);assert(ok and a==nil and b==false and c==7 and d==nil and H.calls==1 and S.errors==1)",
+    "owned_restore_no_original_call": "Install();S.Restore();assert(Target.RequestCommand==Original and H.published==nil and H.calls==0)",
+    "foreign_binding_preserved": "Install();local f=function()end;Target.RequestCommand=f;assert(not pcall(S.Restore)and Target.RequestCommand==f and H.published==S)",
+    "foreign_namespace_preserved": "Install();local f={};H.published=f;assert(not pcall(S.Restore)and H.published==f and Target.RequestCommand~=Original)",
+    "invalid_install_zero_mutations": "O.game=nil;assert(not pcall(M.Install,O)and Target.RequestCommand==Original and H.published==nil and H.calls==0)",
+    "publish_failure_rolls_back_only_owned": "H.publishError=true;assert(not pcall(M.Install,O));assert(Target.RequestCommand==Original and H.published==nil and H.calls==0)",
+    "publish_foreign_binding_preserved": "local f=function()end;O.publish=function(v)H.published=v;if v then Target.RequestCommand=f end end;assert(not pcall(M.Install,O)and Target.RequestCommand==f and H.published==nil)",
+    "namespace_collision_zero_mutations": "local f={};H.published=f;assert(not pcall(M.Install,O)and Target.RequestCommand==Original and H.published==f and H.calls==0)"
+  }
+}
