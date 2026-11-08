@@ -17,3 +17,6 @@
 产品仍98，软件1412项／1411pass／1SDK环境skip未因这次更正重跑。179正例存档保持，旧中断存读恢复FAIL、自然宗教和完整40用例仍开放。Steam其他设备占用，0模式切换／上线／登录／下载／上传初始化／上传。
 
 [完整更正与原生读数](../research/baiqi-p6-cityui561-owner-image-reading-correction-evidence-2026-11-09.json)、[已更正的98实机记录](baiqi-source98-cold-followup-179.md)。
+
+
+[五张原始PNG与两篇说明的固定提交公开访问核对](../research/baiqi-p6-source98-public-original-images-2026-11-09.json)：均HTTP200、字节与发布pin完全相同。这不代表已在Steam上传或复验外链显示。
