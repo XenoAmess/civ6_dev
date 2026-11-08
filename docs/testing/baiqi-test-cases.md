@@ -473,3 +473,5 @@
 - [87冷加载至78](baiqi-cold-city-range-87.md)：原版载74/UI-Core保持、4normalEND4armySKIP、2TEST_PLAYERcityrange命令实际伤害10/16；0raw模型Native，不授全军事／地区放置或宗教通过。129未来样本及5snapshot全读撤钩，78保存；后续无野蛮人场景另记，不能回填围城生存验收。
 
 - [87无蛮族三城85](baiqi-nobarb-three-cities-87.md)：45normalEND90armySKIP、0UserForced/文职生产输入；北京71、邯郸78实际建城/JOBSERVED，85撤钩保存／精确加载保持。2760future样本+46prophet快照全序号一次读回，0错误丢样；0先知事件不等于0所有伟人。519/alias522原只首都，0区域记录不授全帝国，523/26边界后未来90扩至自有城市；邯郸90港口旧地块未捕获。5图内嵌，Source87农场替代、新先知、ARMED恢复FAIL、围城／忠诚与五城20回合及全40项仍OPEN。
+
+- [87五城99→119窗口](baiqi-five-city-twenty-turns-87.md)：TC-037行为已观察、资源库存证据未齐，仍部分；21份队列成本人口快照，6建筑／4特色区／19新改良、5→7城。22normalEND／28玩家待命／16外交议会点击、0人工内政／UserForced。108矿山→109工业区PLACED→119COMPLETE，不授农场子类型；3195future样本／21先知快照读回撤钩，0先知正案。新增4方法65逻辑边界仅QA，不是产品全套重跑。
