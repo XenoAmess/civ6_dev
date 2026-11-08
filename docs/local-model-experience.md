@@ -418,4 +418,6 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 
 ## 2026-11-09：557 原版CANCEL源码及只读资格
 
-[诊断／原生闲置斥候](testing/baiqi-armed-cancel-source-557.md)。557 stop/DONE/JSON/1HTTP/15040tokens/9.145552s；视觉路径/命令开始回调事实及NOT_PROVEN窄采用，raw把原版EspionagePopup OnAbort481to487错标modCore481to487（实际128行），该项拒；补普通非spy通用路由，HasPendingOperations已给API不算未知、也不推全队列空。ownerNative当前176自有Scout196610@51,28/m3/formation1，pendingfalse/queuednil，liveCANCEL533311341，原UnitPanel两种CanStart签名均booleanfalse；0RequestCommand/Operation/属性写，没碰旧8650807。新取消许可/清日志/重放均0，旧ARMED仍FAIL，产品97/主9城176保持。累计557/519stop/35length/3transport/587HTTP/30extra/OpenCode新0/null未知；Steam0上线登录下载上传初始化/上传。
+[诊断／原生闲置斥候](testing/baiqi-armed-cancel-source-557.md)。557 stop/DONE/JSON/1HTTP/15040tokens/9.145552s；视觉路径/命令开始回调事实及NOT_PROVEN窄采用，raw把原版EspionagePopup OnAbort481to487错标modCore481to487（实际124行），该项拒；补普通非spy通用路由，HasPendingOperations已给API不算未知、也不推全队列空。ownerNative当前176自有Scout196610@51,28/m3/formation1，pendingfalse/queuednil，liveCANCEL533311341，原UnitPanel两种CanStart签名均booleanfalse；0RequestCommand/Operation/属性写，没碰旧8650807。新取消许可/清日志/重放均0，旧ARMED仍FAIL，产品97/主9城176保持。累计557/519stop/35length/3transport/587HTTP/30extra/OpenCode新0/null未知；Steam0上线登录下载上传初始化/上传。
+
+557负责人初次校正引用时也未实数而写128行，随后直接splitlines实测124并纠正公开文档及回执；模型错引481to487的拒绝结论不变，不重跑HTTP或游戏输入。

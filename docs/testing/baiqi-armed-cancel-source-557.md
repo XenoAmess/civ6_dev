@@ -10,7 +10,7 @@
 
 本次只读核对当前自有斥候 `196610@51,28`：3 行动力、单体、HasPendingOperations=false、QueuedDestination=nil；实际 CANCEL hash 为 `533311341`。按原版 UnitPanel 的两种 CanStartCommand 签名读取，均返回 boolean false；没有请求 CANCEL、WAKE、MOVE 或 FOUND，没有写属性。这只说明这个闲置演员的当前资格，不推广成所有斥候或移民都不支持取消。
 
-本地模型 557 完整 stop／SSE DONE／外层合法 JSON，1 次 HTTP，13981 输入＋1059 输出＝15040 tokens，耗时 `9.1455516` 秒。关于视觉路径及命令开始事件的两个事实、间谍专门路由和 NOT_PROVEN 的窄结论可采用。它还错误地把原版 EspionagePopup 的 OnAbort 标成 `BaiqiSettlementIntentCore.lua:481—487`；该文件仅 128 行，且不含该函数，此引用拒绝。它遗漏了已给出的普通命令路由，并把文档已确认的 HasPendingOperations 泛称为未知 API；这些表述由负责人纠正。关于整个工程是否有引擎事件更新日志的断言也没有获得完整工程证据，不采用。
+本地模型 557 完整 stop／SSE DONE／外层合法 JSON，1 次 HTTP，13981 输入＋1059 输出＝15040 tokens，耗时 `9.1455516` 秒。关于视觉路径及命令开始事件的两个事实、间谍专门路由和 NOT_PROVEN 的窄结论可采用。它还错误地把原版 EspionagePopup 的 OnAbort 标成 `BaiqiSettlementIntentCore.lua:481—487`；该文件仅 124 行，且不含该函数，此引用拒绝。它遗漏了已给出的普通命令路由，并把文档已确认的 HasPendingOperations 泛称为未知 API；这些表述由负责人纠正。关于整个工程是否有引擎事件更新日志的断言也没有获得完整工程证据，不采用。
 
 不增加新的取消许可，不清 ARMED／LEGACY、不重放 FOUND，旧失败继续保留。下一步只能在明确夹具中核对取消适用状态、原生效果以及能否关联到原请求；健康军队的玩家取消实验也不能直接替旧移民提供取消回执。当前只读调用没有授予这样的行为通过。
 
