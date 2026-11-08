@@ -1,5 +1,7 @@
 # Alpha 2工坊材料
 
+[新增饥饿风险补记与两图](../../releases/v0.1.0-alpha.2/food-risk-2026-11-09.md)及[待同步BBCode](pending-food-risk-2026-11-09.bbcode.txt)已准备。工坊仍82／12图，他机占用期间0上线上传；不把96负例说成82同档实测。
+
 [11月9日风险补记](../../releases/v0.1.0-alpha.2/post-release-findings-2026-11-09.md)与[待同步BBCode](pending-risks-2026-11-09.bbcode.txt)已准备；他机占用期间工坊未更新，不将入库写成已发布。以下保留原Alpha2发布切点。
 
 [GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)已公开并下载核验；本工坊包也已公开，82版93文件、12张内嵌实机图与新封面均核验；Steam已恢复并只读确认离线。包含[12图解读](screenshot-commentary.md)、[BBCode正文](description.bbcode)、[变更说明](changenotes.bbcode)、[图像来源与生成提示](art-provenance.json)、[包计划](package.json)。产品版本82，现有条目3833805495。
