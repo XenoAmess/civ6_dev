@@ -1,6 +1,6 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
-当前源码90，安装／最近实机87。[传教士采购完整软件链](baiqi-missionary-purchase-flow-90.md)接通安全国内需求、一次发令与回执后传播交接；1287软件通过／1SDK跳过，103包未安装。[87五城资源补测](baiqi-five-city-resource-complete-87.md)仅该GS无蛮族夹具TC-037通过。宗教90实机、ARMED／旧档恢复FAIL、兼容、性能及全40仍开放；其他设备占用Steam，禁止上线与上传，公开Alpha2仍82／12图。
+当前源码／安装90，已验证实机功能仍87。[90离线冷启动与536只读工具](baiqi-faith-purchase-audit-536.md)仅32前端上下文和119加载ACK，实际世界待读；不能授90采购通过。[90软件链](baiqi-missionary-purchase-flow-90.md)1287通过／1SDK跳过、103包一致。ARMED／旧档恢复FAIL、宗教实机、兼容、性能和全40仍开放；其他设备占用Steam，禁止上线与上传，公开Alpha2仍82／12图。
 
 本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。
 

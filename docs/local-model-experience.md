@@ -388,3 +388,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [软件链及证据](testing/baiqi-missionary-purchase-flow-90.md)。两真实独立POST完整stop/SSE/外JSON，峰值2持续19.047s，2HTTP0extra。534原稿Lua51 continue语法失败，535编译通过却Object(E.Bridge)拒绝合同里的函数，正常正例UNAVAILABLE／0请求，均整拒、0Native；owner独立Demand/Submit并接Controller，22需求+19提交子场景、17联合方法。通过535累计535logical/499stop有效外JSON/33length/3transport/565HTTP/30extra，OpenCode新原生0、Nov8缓存维护，未知人工节时/cache null。499不代表Lua语法/业务都过。
 
 联合17方法首3失败：忙碌effectPending漏新采购、held演员过早unitEvaluated导致确认后当回合仍停，两个产品修复；unused TestWorld.leader改实际PlayerConfigurations getter为夹具纠正。准备器误以为settlement写守卫有2处，在产品写前断言停止，换实际两处Naturalist守卫；隔离fixture缺Yields/Core assert/getmetatable已补，不记产品bug。完整1288首1error1skip：SDK写引用插桩拒绝新表达式。保留工具原规则，传入command adapter先赋local、真实SDK函数先读local再身份比较；新增/受影响方法通过，最终全1288run1287pass1SDKskip，81Lua51、103zip一致。0install/Native90，原87all96保持，Steam0模式查询输入/联网下载上传，现119现场保持。
+
+## 2026-11-08：536只读采购审计候选与隔离边界
+
+[工具、16场景与冷启动准备](testing/baiqi-faith-purchase-audit-536.md)。536真实未完只读验收工具任务，完整stop/SSE/JSON但Lua51 continue语法失败，整拒，owner独立实现3真实Property双轮冻结/Clone/Equal及每namespace ABSENT/KNOWN/UNKNOWN计数，1方法16子场景0writes；工具未入Native、外于产品103，不调用有副作用的Inspect等。累计536logical500stop外JSON33length3transport566HTTP30extra/OpenCode原生0/cache人工节时null，Nov8维护缓存。90安装103match；87新119备份核验，退出残留仅自身无窗口/端口/CPU变化且>180s后结束。当前Steam14904后台可见GoOnline证实offline；头部导航与后台证明严格分列，0模式切换上线登录下载上传，外机占用不解除。首次90启动未响应/只读两端口timeout后自有终止，第二次同DX12/8核32前端contexts与原版119LoadACKtrue，世界尚未读取切点，未知原因和真实效果不拔高。

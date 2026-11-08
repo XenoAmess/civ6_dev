@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前开发源码90，安装／最近实机87，公开Alpha2内部82。[传教士采购软件链](docs/testing/baiqi-missionary-purchase-flow-90.md)已接通，尚未安装实测90；[87五城二十回合资源验收](docs/testing/baiqi-five-city-resource-complete-87.md)仅该夹具通过。完整40项仍未完成，其他设备占用Steam期间禁止上线与上传。
+当前开发源码及安装90，实机功能证据仍87；90版已离线启动并请求加载119备份，[冷启动状态与只读工具](docs/testing/baiqi-faith-purchase-audit-536.md)明确区分ACK和实际世界。完整40项未完成，其他设备占用Steam期间禁止上线与上传。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 

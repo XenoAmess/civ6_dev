@@ -1,0 +1,21 @@
+{
+  "fixture_suffix": "\nE.Config.religiousIntentKey='r';E.ReligiousJournal=BaiqiReligiousJournal\nfunction Spread(stage)\n local op={token='religion:0:1',sequence=1,unitID=9,unitType='UNIT_MISSIONARY',religion=4,\n  charges=3,x=16,y=14,turn=119,stage=stage}\n if stage~='LEGACY_UNKNOWN'then op.cityID=65536;op.cityX=16;op.cityY=14 end\n return{version=1,owner=0,serial=1,operations={['9']=op}}\nend\n",
+  "cases": {
+    "three_absent_two_rounds": "local v=M.Read(E,Player,0);assert(v.status=='KNOWN'and v.naturalist.status=='ABSENT'and v.spread.armed==0 and H.reads==6)",
+    "three_known_distinct_stages": "H.store.n=Op('n','ARMED');H.store.m=Op('m','OBSERVED');H.store.r=Spread('LEGACY_UNKNOWN');local v=M.Read(E,Player,0);assert(v.status=='KNOWN'and v.naturalist.armed==1 and v.missionary.observed==1 and v.spread.legacy==1)",
+    "one_corrupt_preserves_others": "H.store.n=Op('n','ARMED');H.store.m='unknown';local v=M.Read(E,Player,0);assert(v.status=='UNKNOWN'and v.naturalist.armed==1 and v.missionary.status=='UNKNOWN'and v.missionary.armed==nil and v.spread.status=='ABSENT')",
+    "read_throw_not_absence_or_early_stop": "H.onread=function(k)if k=='m'then error('read')end end;local v=M.Read(E,Player,0);assert(v.status=='UNKNOWN'and v.missionary.status=='UNKNOWN'and v.spread.status=='ABSENT'and H.reads==6)",
+    "appeared_between_rounds": "H.onread=function(k,n)if n==4 then H.store.n=Op('n','ARMED')end end;local v=M.Read(E,Player,0);assert(v.naturalist.status=='UNKNOWN'and v.missionary.status=='ABSENT')",
+    "disappeared_between_rounds": "H.store.m=Op('m','OBSERVED');H.onread=function(k,n)if n==5 then H.store.m=nil end end;assert(M.Read(E,Player,0).missionary.status=='UNKNOWN')",
+    "first_copy_is_frozen": "H.store.n=Op('n','OBSERVED');H.onread=function(k,n)if n==2 then H.store.n.operations['1'].cost=74;H.store.n.operations['1'].faithAfter=101 end end;assert(M.Read(E,Player,0).naturalist.status=='UNKNOWN')",
+    "key_dependency_invalid_zero_reads": "E.Config.missionaryPurchaseIntentKey=nil;assert(M.Read(E,Player,0).status=='UNKNOWN'and H.reads==0)",
+    "aliased_keys_zero_reads": "E.Config.religiousIntentKey='n';assert(M.Read(E,Player,0).status=='UNKNOWN'and H.reads==0)",
+    "library_dependency_invalid_zero_reads": "E.MissionaryJournal={};assert(M.Read(E,Player,0).status=='UNKNOWN'and H.reads==0)",
+    "boolean_pid_invalid_zero_reads": "assert(M.Read(E,Player,true).status=='UNKNOWN'and H.reads==0)",
+    "function_value_not_executed": "H.store.m=function()H.called=true end;local v=M.Read(E,Player,0);assert(v.missionary.status=='UNKNOWN'and not H.called)",
+    "nonboolean_validator_not_success": "H.store.m=Op('m','ARMED');E.MissionaryJournal.Validate=function()return 1 end;assert(M.Read(E,Player,0).missionary.status=='UNKNOWN')",
+    "changed_namespace_is_unknown": "H.onread=function(k,n)if n==6 then E.Config.religiousIntentKey='other'end end;local v=M.Read(E,Player,0);assert(v.status=='UNKNOWN'and v.spread.status=='UNKNOWN')",
+    "get_property_missing_zero_reads": "Player.GetProperty=nil;assert(M.Read(E,Player,0).status=='UNKNOWN'and H.reads==0)",
+    "userdata_receivers_and_libraries": "function Wrap(v)local u=newproxy(true);getmetatable(u).__index=v;return u end;Player=Wrap(Player);E.Config=Wrap(E.Config);E.NaturalistJournal=Wrap(E.NaturalistJournal);E.MissionaryJournal=Wrap(E.MissionaryJournal);E.ReligiousJournal=Wrap(E.ReligiousJournal);assert(M.Read(E,Player,0).status=='KNOWN'and H.reads==6)"
+  }
+}
