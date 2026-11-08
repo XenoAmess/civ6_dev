@@ -515,9 +515,11 @@ local function KnownExpansionSupport(plot,player,playerID)
     if not nearest then return nil,"unknown_cities" end
     local stable,why=ExpansionStable(player,playerID)
     if stable~=true then return stable,why end
-    local radius=nearest<=9 and 3 or 9
+    local radius=nearest<=9 and nearest or 9
+    if radius<1 or radius>9 or radius%1~=0 then return nil,"unknown_geometry" end
+    local maxCells=1+3*radius*(radius+1)
     local cells=NeighborhoodGeometry(plot,radius)
-    if not cells or #cells>(radius==3 and 37 or 271) then return nil,"unknown_geometry" end
+    if not cells or #cells>maxCells then return nil,"unknown_geometry" end
     local seen={}
     for _,cell in ipairs(cells) do
       local near=Map.GetPlotByIndex(cell.index)
@@ -547,6 +549,8 @@ local function KnownExpansionSupport(plot,player,playerID)
           if owner==playerID then
             local c=owned[id]
             if not c or c.x~=cell.x or c.y~=cell.y then return nil,"unknown_cities" end
+          elseif nearest<=9 and distance<=nearest then
+            return false,"foreign_city_within_nearest_owned"
           elseif nearest>9 then return false,"foreign_border_without_owned_support" end
         end
       end

@@ -15,7 +15,12 @@ for index,c in pairs(coords) do
  plots[id]=p;xy[x..':'..y]=p
 end
 Map.GetPlotByIndex=function(index) return plots[index] end
-Map.GetPlot=function(x,y) return xy[x..':'..y] end
+Map.GetPlot=function(x,y)
+ -- Integral floating coordinates from a native distance describe the same hex.
+ -- Lua 5.3 stringifies 5.0 differently; the game's Lua 5.1 has one number type.
+ if type(x)~='number'or type(y)~='number'or x%1~=0 or y%1~=0 then return nil end
+ return xy[math.floor(x)..':'..math.floor(y)]
+end
 Map.GetPlotDistance=function(x,y,x2,y2)
  local dx,dy=x2-x,y2-y;return (math.abs(dx)+math.abs(dy)+math.abs(dx+dy))/2
 end

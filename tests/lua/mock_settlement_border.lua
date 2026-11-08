@@ -5,8 +5,9 @@ w.settlementRecommendations={47};w.foreign=true;w.ownX=0;w.ownY=0
 local originalPlot,originalByIndex=Map.GetPlot,Map.GetPlotByIndex
 local extra={}
 local function add(index,x,y,foreign)
- local p={GetIndex=function()return index end,GetX=function()return x end,
-  GetY=function()return y end,GetOwner=function()
+ local p={GetIndex=function()return index end,
+  GetX=function()return index==200 and w.foreignX or x end,
+  GetY=function()return index==200 and w.foreignY or y end,GetOwner=function()
    if foreign and w.foreign and((index==201)==(w.nearForeign==true))then return 8 end
    return -1
   end,GetFeatureType=function()return -1 end,IsWater=function()return false end,

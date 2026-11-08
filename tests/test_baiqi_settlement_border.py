@@ -42,10 +42,56 @@ class SettlementBorderTests(unittest.TestCase):
         self.run_now()
         self.assertEqual(len(self.orders(10)), 1)
 
-    def test_near_own_support_keeps_native_recommendation(self):
+    def test_near_own_support_does_not_hide_closer_foreign_city(self):
         self.w.ownX, self.w.ownY = 2, 3
         self.run_now()
+        self.assertEqual(self.orders(10), [])
+
+    def test_foreign_four_tiles_away_is_rejected_when_own_city_is_five(self):
+        self.w.ownX, self.w.ownY = 3, 4
+        self.run_now()
+        self.assertEqual(self.orders(10), [])
+        self.assertEqual(self.orders(11), [])
+
+    def test_foreign_equal_to_nearest_own_city_is_rejected(self):
+        self.w.ownX, self.w.ownY = 4, 4
+        self.run_now()
+        self.assertEqual(self.orders(10), [])
+
+    def test_foreign_farther_than_nearest_own_city_keeps_recommendation(self):
+        self.w.ownX, self.w.ownY = 4, 4
+        self.w.foreignX = 13
+        self.run_now()
         self.assertEqual(len(self.orders(10)), 1)
+
+    def test_hidden_closer_foreign_city_is_never_read(self):
+        self.w.ownX, self.w.ownY = 3, 4
+        self.w.hidden[200] = True
+        self.run_now()
+        self.assertEqual(len(self.orders(10)), 1)
+        self.assertEqual(self.w.cityQueries, 0)
+
+    def test_fogged_closer_foreign_city_is_never_read(self):
+        self.w.ownX, self.w.ownY = 3, 4
+        self.w.fogged[200] = True
+        self.run_now()
+        self.assertEqual(len(self.orders(10)), 1)
+        self.assertEqual(self.w.cityQueries, 0)
+
+    def test_closer_foreign_city_appearing_during_found_qualification_blocks_write(self):
+        self.w.ownX, self.w.ownY = 3, 4
+        self.select_goal_then_arrive()
+        self.w.foreign = False
+        self.lua.execute('''
+            local old=UnitManager.CanStartOperation;local n=0
+            UnitManager.CanStartOperation=function(u,op,...)
+              local ok=old(u,op,...)
+              if op==11 then n=n+1;if n==2 then TestWorld.foreign=true end end
+              return ok
+            end
+        ''')
+        self.run_now()
+        self.assertEqual(self.orders(11), [])
 
     def test_own_support_does_not_bypass_visible_foreign_minimum_city_distance(self):
         self.w.ownX, self.w.ownY = 2, 3

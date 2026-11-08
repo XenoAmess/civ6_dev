@@ -1,0 +1,142 @@
+{
+  "schema": "civ6.baiqi-nearer-visible-border93-and-model543/v1",
+  "utc": "2026-11-08T10:16:49.061598+00:00",
+  "machine_id": "BF-202609141645",
+  "product": {
+    "source": 93,
+    "installed": 92,
+    "last_actual": 92,
+    "new_product_files": 0,
+    "changed_product": [
+      "Lua/BaiqiController.lua",
+      "Baiqi.modinfo"
+    ],
+    "artifact": {
+      "version": 93,
+      "files": 104,
+      "Lua51_compiled": 82,
+      "archive_bytes": 8780098,
+      "archive_sha256": "ae519e11998db8ec3de3e94fed54d5461fb1c8e691113144ceb64b49738c0134",
+      "all_manifest_archive_bytes_match": true,
+      "installed": false,
+      "Native": false
+    },
+    "current_game": "Official exit92 once requested from saved128; termination not assumed until owner status.",
+    "Native93": "NOT_YET"
+  },
+  "design": {
+    "old": "Nearest own city<=9 caused radius3 foreign-city scan, ignoring visible cities4..9 away.",
+    "new": "For non-first city use radius min(nearest-own-distance,9), bound cells1+3*r*(r+1), veto currently visible revealed foreign city at distance<=nearest own; far-island existing9-radius veto stays.",
+    "not_a_loyalty_predictor": true,
+    "first_city_unchanged": true,
+    "no_foreign_roster_or_hidden_metadata_reads": true,
+    "limits": [
+      "Current/future population and age pressure not predicted.",
+      "Fewer sites may be accepted; waiting can increase on crowded maps.",
+      "Near scan may grow from37 to as many as271 cells, performance acceptance still open.",
+      "Does not rescue existing Chengdu, close loyalty/productionFAIL130, or fix old ARMED/LEGACY recovery."
+    ]
+  },
+  "observed_source92_native128": {
+    "visible_only_readout": [
+      "P6_SITE543_VISIBLE_CITY\t2273\t53\t30\t8\t0\t327684\t2",
+      "P6_SITE543_VISIBLE_CITY\t2571\t55\t34\t8\t0\t65536\t11",
+      "P6_SITE543_VISIBLE_CITY\t2723\t59\t36\t9\t0\t262147\t7",
+      "P6_SITE543_VISIBLE_CITY\t2053\t55\t27\t4\t6\t65536\t7",
+      "P6_SITE543_VISIBLE_CITY\t2427\t59\t32\t5\t0\t458758\t2",
+      "P6_SITE543_VISIBLE_CITY\t2057\t59\t27\t0\t0\t393221\t2",
+      "P6_SITE543_VISIBLE_CITY_READ_DONE\t115\t6\tONLY_CURRENTLY_VISIBLE_REVEALED_CITY_TILES_WITHIN9_OF_OWN_CHENGDU_NO_OTHER_PLAYER_CITY_ROSTER_NO_ORDERS"
+    ],
+    "visible_cells": 115,
+    "visible_city_tiles": 6,
+    "fact": "Visible foreign city55,27 at distance4 population7; nearest other own city59,32 distance5 population2 when existingChengdu excluded.",
+    "scope": "Current128 already has Chengdu. No claim this is founding-time state or an actual rejected proposed site under93. No city deletion, teleport, replay or map reveal."
+  },
+  "software": {
+    "new_methods": 6,
+    "changed_existing_policy_assertion": 1,
+    "border_methods_pass": 28,
+    "before_after_six_cases": {
+      "source92": {
+        "run": 6,
+        "failures": [
+          "test_foreign_four_tiles_away_is_rejected_when_own_city_is_five",
+          "test_foreign_equal_to_nearest_own_city_is_rejected",
+          "test_closer_foreign_city_appearing_during_found_qualification_blocks_write"
+        ],
+        "errors": [],
+        "details": "test_foreign_four_tiles_away_is_rejected_when_own_city_is_five (__main__.run.<locals>.ActualConsumerTests.test_foreign_four_tiles_away_is_rejected_when_own_city_is_five) ... FAIL\ntest_foreign_equal_to_nearest_own_city_is_rejected (__main__.run.<locals>.ActualConsumerTests.test_foreign_equal_to_nearest_own_city_is_rejected) ... FAIL\ntest_foreign_farther_than_nearest_own_city_keeps_recommendation (__main__.run.<locals>.ActualConsumerTests.test_foreign_farther_than_nearest_own_city_keeps_recommendation) ... ok\ntest_hidden_closer_foreign_city_is_never_read (__main__.run.<locals>.ActualConsumerTests.test_hidden_closer_foreign_city_is_never_read) ... ok\ntest_fogged_closer_foreign_city_is_never_read (__main__.run.<locals>.ActualConsumerTests.test_fogged_closer_foreign_city_is_never_read) ... ok\ntest_closer_foreign_city_appearing_during_found_qualification_blocks_write (__main__.run.<locals>.ActualConsumerTests.test_closer_foreign_city_appearing_during_found_qualification_blocks_write) ... FAIL\n\n======================================================================\nFAIL: test_foreign_four_tiles_away_is_rejected_when_own_city_is_five (__main__.run.<locals>.ActualConsumerTests.test_foreign_four_tiles_away_is_rejected_when_own_city_is_five)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\workspace\\civ6_dev\\tests\\test_baiqi_settlement_border.py\", line 53, in test_foreign_four_tiles_away_is_rejected_when_own_city_is_five\n    self.assertEqual(self.orders(10), [])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [<Lua table at 0x000002678F0F5EC0>] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n<Lua table at 0x000002678F0F5EC0>\n\n- [<Lua table at 0x000002678F0F5EC0>]\n+ []\n\n======================================================================\nFAIL: test_foreign_equal_to_nearest_own_city_is_rejected (__main__.run.<locals>.ActualConsumerTests.test_foreign_equal_to_nearest_own_city_is_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\workspace\\civ6_dev\\tests\\test_baiqi_settlement_border.py\", line 59, in test_foreign_equal_to_nearest_own_city_is_rejected\n    self.assertEqual(self.orders(10), [])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [<Lua table at 0x000002678F1AB470>] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n<Lua table at 0x000002678F1AB470>\n\n- [<Lua table at 0x000002678F1AB470>]\n+ []\n\n======================================================================\nFAIL: test_closer_foreign_city_appearing_during_found_qualification_blocks_write (__main__.run.<locals>.ActualConsumerTests.test_closer_foreign_city_appearing_during_found_qualification_blocks_write)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\workspace\\civ6_dev\\tests\\test_baiqi_settlement_border.py\", line 94, in test_closer_foreign_city_appearing_during_found_qualification_blocks_write\n    self.assertEqual(self.orders(11), [])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [<Lua table at 0x000002678F136C00>] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n<Lua table at 0x000002678F136C00>\n\n- [<Lua table at 0x000002678F136C00>]\n+ []\n\n----------------------------------------------------------------------\nRan 6 tests in 0.086s\n\nFAILED (failures=3)\n"
+      },
+      "source93": {
+        "run": 6,
+        "failures": [],
+        "errors": [],
+        "details": "test_foreign_four_tiles_away_is_rejected_when_own_city_is_five (__main__.run.<locals>.ActualConsumerTests.test_foreign_four_tiles_away_is_rejected_when_own_city_is_five) ... ok\ntest_foreign_equal_to_nearest_own_city_is_rejected (__main__.run.<locals>.ActualConsumerTests.test_foreign_equal_to_nearest_own_city_is_rejected) ... ok\ntest_foreign_farther_than_nearest_own_city_keeps_recommendation (__main__.run.<locals>.ActualConsumerTests.test_foreign_farther_than_nearest_own_city_keeps_recommendation) ... ok\ntest_hidden_closer_foreign_city_is_never_read (__main__.run.<locals>.ActualConsumerTests.test_hidden_closer_foreign_city_is_never_read) ... ok\ntest_fogged_closer_foreign_city_is_never_read (__main__.run.<locals>.ActualConsumerTests.test_fogged_closer_foreign_city_is_never_read) ... ok\ntest_closer_foreign_city_appearing_during_found_qualification_blocks_write (__main__.run.<locals>.ActualConsumerTests.test_closer_foreign_city_appearing_during_found_qualification_blocks_write) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.063s\n\nOK\n"
+      }
+    },
+    "initial_full_run": {
+      "run": 1330,
+      "failures": 37,
+      "errors": 1,
+      "skipped": 1,
+      "cause": "Shared Lua53 fixture used stringified floating hex coordinates after radius derived from numeric native distance. Product Lua51 diagnostic positive cases succeeded; corrected common Map.GetPlot numeric indexing, no product eligibility relaxation."
+    },
+    "owner_new_fixture_initial_failures": 4,
+    "final_full_run": 1330,
+    "final_pass": 1329,
+    "SDK_environment_skip": 1,
+    "source93_archive_verified": true,
+    "all_Lua51_compiled": 82,
+    "known93_private_comparison_allowlist_updated": true,
+    "unknown_versions_and_anchors_still_rejected": true,
+    "owner_review_assertion": "First diagnostic expected elseif substring but actual Lua parser reported close-parenthesis near return; corrected assertion retained actual compile error before adoption."
+  },
+  "model543": {
+    "mode": "canonical ordinary HTTP",
+    "HTTP_attempts": 1,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 5845,
+      "completion_tokens": 665,
+      "total_tokens": 6510
+    },
+    "total_ms": 4963.42809998896,
+    "cached_prompt_tokens": null,
+    "maintenance": "Nov8 successful first5001.19.5 daily check cache reused, no update.",
+    "raw_whole_adopted": false,
+    "raw_complete_replacements_Lua51_compile": false,
+    "raw_error": "[string \"<python>\"]:557: ')' expected (to close '(' at line 491) near 'return'",
+    "adoption": "First exact radius/bound replacement adopted verbatim. Owner corrected second elseif branch premature end before applying; model test prose not used as executable tests.",
+    "raw_Native_executions": 0,
+    "Native93_executions": 0,
+    "owner_independent_consumer_methods": 6,
+    "owner_cost_seconds": null
+  },
+  "cumulative543": {
+    "logical_tasks": 543,
+    "complete_stop_valid_outer_JSON": 507,
+    "length_discarded": 33,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 573,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online": 0,
+    "login": 0,
+    "downloads": 0,
+    "uploader_initialization": 0,
+    "upload": 0,
+    "public_Alpha2_internal": 82,
+    "public_Alpha2_images": 12
+  },
+  "next": "Offline cold install after exact own92 exit and fresh background offline proof; use preserved87five-city99 before new settler birth rather than fabricate93 effects from current128 already-failed city."
+}
