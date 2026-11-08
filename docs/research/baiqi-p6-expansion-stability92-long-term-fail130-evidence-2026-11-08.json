@@ -1,0 +1,159 @@
+{
+  "schema": "civ6.baiqi-expansion-stability92-long-term-fail130/v1",
+  "utc": "2026-11-08T09:42:26.133273+00:00",
+  "machine_id": "BF-202609141645",
+  "source_runtime": 92,
+  "product_commit": "30e7d6febead785bd1ab7cf18b7eb4f87a9dc467",
+  "prior_waiting_reload_evidence_commit": "3ffca0d17afae9973f7ffe84affe27d28f1e2f37",
+  "new_product_code_changes": 0,
+  "new_tests_or_full_suite_reruns": 0,
+  "actual": {
+    "branch": "Source92 from91recovering125, official128 save/reload then normal128..130; original91FAIL130 archive untouched.",
+    "turns": [
+      129,
+      130
+    ],
+    "city_count_each": 7,
+    "unit_count_130": 20,
+    "gold130": 2109.7421875,
+    "faith130": 278.44140625,
+    "religion_created": -1,
+    "chengdu_samples": [
+      {
+        "turn": 129,
+        "id": 393221,
+        "population": 2,
+        "loyalty": 19.0625,
+        "rate": 1.09375,
+        "production": 0.0,
+        "amenities": 0.0,
+        "amenities_needed": 1.0,
+        "governor": 3
+      },
+      {
+        "turn": 130,
+        "id": 393221,
+        "population": 2,
+        "loyalty": 4.0625,
+        "rate": -15.0,
+        "production": 0.0,
+        "amenities": 0.0,
+        "amenities_needed": 1.0,
+        "governor": 3
+      }
+    ],
+    "pressure_readout": [
+      "P6_SOURCE92_EMERGENCY_ENV\t130\ttrue\ttrue\tfalse\tfalse\t7\t20\t2109.7421875\t278.44140625\t23669119\tnil",
+      "P6_SOURCE92_EMERGENCY_CHENGDU_EXISTS\ttrue",
+      "P6_SOURCE92_EMERGENCY_CHENGDU\t0\t4.0625\t-15\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t1\t来自附近 [ICON_Citizen] 公民的压力\t-20",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t2\t[ICON_Governor] 总督派驻此处\t8",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t3\t此城所有权\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t4\t占领（城市创建者的 [ICON_GRIEVANCE] 不满）\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t5\t占领期间的驻军单位\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t6\t幸福感等级\t-3",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t7\t信仰您创立的 [ICON_Religion] 宗教\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t8\t饥荒\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t9\t[ICON_TradeRoute] 贸易路线\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t10\t其他效果\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t11\t作为城市的原始拥有者\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t12\t作为城市被占领前的拥有者\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t13\t附近的 [ICON_Citizen] 公民\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t14\t附近的敌方 [ICON_Citizen] 公民\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t15\t附近拥有的 [ICON_Governor] 总督\t0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t16\t附近的敌方外交官 [ICON_Governor] 总督\t-0",
+      "P6_SOURCE92_EMERGENCY_PRESSURE\t17\t附近巨作\t0",
+      "P6_SOURCE92_EMERGENCY_GOVERNOR\t3\t0\t0\t393221\t8",
+      "P6_SOURCE92_EMERGENCY_GOVERNOR\t4\t0\t0\t131073\t8",
+      "P6_SOURCE92_EMERGENCY_GOVERNOR\t5\t0\t0\t196610\t8",
+      "P6_SOURCE92_EMERGENCY_GOVERNOR\t0\t0\t0\t262147\t8",
+      "P6_SOURCE92_EMERGENCY_GOVERNOR\t1\t0\t0\t327684\t8",
+      "P6_SOURCE92_EMERGENCY_READ_DONE\tZERO_GAME_ORDERS"
+    ],
+    "TEST_PLAYER_after128": {
+      "normal_END": 2,
+      "military_SKIP": 4,
+      "actual_advances": 2,
+      "UserForced": 0,
+      "manual_domestic_orders": 0,
+      "END130_or_later": 0,
+      "Congress_vote": 0
+    },
+    "failure_check": "vitals130 returned exit1 after preserving14-row pair; no subsequent cycle/END, only readonly state, official Save and original city view.",
+    "settler": {
+      "id": 2686991,
+      "position129and130": [
+        59,
+        36
+      ],
+      "moves": 2,
+      "queued_destination": null,
+      "saved_goal": [
+        62,
+        34
+      ],
+      "cities_remained7": true
+    },
+    "observer_scope_limit": "Old observer was removed before save128. No Native order counts claimed for128..130.",
+    "classification": "Existing city long-term stability and production FAIL; waiting proposal preservation remains narrowly PASS.",
+    "causality_limit": "Source92 reaches crisis with no eighth own city. This does not identify the population-pressure change cause, nor prove an uncontrolled branch comparison isolates it.",
+    "checkpoint130": {
+      "utc": "2026-11-08T09:39:39.070960+00:00",
+      "name": "Baiqi_P6_20261108_V92_ChengduLoyaltyFail130.Civ6Save",
+      "bytes": 1434179,
+      "sha256": "366921a883ce6c937dafdd568b69378cd9c2db4325d8589e3a77bb4786905170",
+      "stable_repeated_read": true
+    },
+    "checkpoint_ACK_true": true,
+    "checkpoint130_loaded": false,
+    "vitals_csv": "docs/testing/expansion-stability92-129-130-vitals.csv",
+    "queues_csv": "docs/testing/expansion-stability92-129-130-queues.csv",
+    "image": {
+      "path": "docs/testing/images/expansion-stability92/critical130.png",
+      "sha256": "ea9192d3babdd6b040784923dde65bdbea31926d257de6708dafdbc4c7a23639",
+      "unaltered_original": true,
+      "viewed": true,
+      "caption": "Actual130 original Chengdu loyalty page:4.1,-15, nearby-20,governor+8,happiness-3,production-100%; no Congress overlay or vote."
+    }
+  },
+  "model541_followup": {
+    "new_model_requests": 0,
+    "prior_raw_adoption": false,
+    "prior_owner_software_cases": 34,
+    "same_owner_reader_sha256": "69cb71fc87c87301978f25eb04a42e88b044ea007b38aab0437652c9c5dd574f",
+    "owner_information_only130": [
+      "P6_FORECAST541_OWNER_INFO\t1758\tUNKNOWN\tnil\ttarget_unavailable",
+      "P6_FORECAST541_OWNER_INFO\t1976\tUNKNOWN\tnil\tno_warning_entry",
+      "P6_FORECAST541_OWNER_INFO\t2047\tUNKNOWN\tnil\tno_warning_entry"
+    ],
+    "product_integration": false,
+    "raw_Native_executions": 0,
+    "known_negative_Native_positive": false,
+    "scope": "No lens or selection changes by adapter; original city view is separate TEST_PLAYER UI input. No hidden/foreign roster or game orders. Missing UNKNOWN is not zero."
+  },
+  "cumulative541": {
+    "logical_tasks": 541,
+    "complete_stop_valid_outer_JSON": 505,
+    "length_discarded": 33,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 571,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cache_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "steam": {
+    "other_device_occupied": true,
+    "mode_switches": 0,
+    "online": 0,
+    "login": 0,
+    "downloads": 0,
+    "uploader_initialization": 0,
+    "upload": 0,
+    "Alpha2_internal": 82,
+    "Alpha2_images": 12
+  },
+  "next": "Diagnose own age/visible pressure causes and qualify forecast input; no further END on failed130 or claims of stable release."
+}
