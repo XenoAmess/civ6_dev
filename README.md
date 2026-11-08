@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／安装及冷实机90，已从119推进至122。[三张实机图与新稳定性FAIL](docs/testing/baiqi-source90-cold-smoke-loyalty-fail.md)：7城生产接续，成都忠诚8.83／每回合−6.28／产能0，已保存停止换回合并继续修复。宗教采购正案与完整40项未通过；其他设备占用Steam，禁止上线与上传。
+当前源码91，安装及最近实机90。[总督危城调派软件修复](docs/testing/baiqi-governor-loyalty-source-91.md)1306通过／1SDK跳过，104文件／82Lua5.1；[成都122忠诚FAIL与3图](docs/testing/baiqi-source90-cold-smoke-loyalty-fail.md)已保存，待91离线冷复测。其他设备占用Steam，禁止上线与上传，公开Alpha2仍82／12图。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 

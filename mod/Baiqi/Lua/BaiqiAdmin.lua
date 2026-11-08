@@ -1,6 +1,7 @@
 -- Uses the same legal, normal-cost requests as the shipped research/government UI.
 -- This module belongs only to the unguarded, invisible executor context.
 include("BaiqiConfig")
+include("BaiqiGovernorLoyalty")
 BaiqiAdmin={}
 local attempted,turn={},-1
 local techPriority={TECH_MINING=90,TECH_ANIMAL_HUSBANDRY=85,TECH_ARCHERY=80,TECH_BRONZE_WORKING=75,TECH_WHEEL=70}
@@ -12,6 +13,7 @@ local pantheonPriority={BELIEF_GOD_OF_THE_FORGE=100,BELIEF_CITY_PATRON_GODDESS=9
 local governmentSlots
 local pendingGreatPerson
 local pendingReligion
+local pendingGovernorRescue
 local religionBeliefPriority={BELIEF_WORK_ETHIC=100,BELIEF_FEED_THE_WORLD=95,
   BELIEF_TITHE=90,BELIEF_DEFENDER_OF_FAITH=85}
 local function Once(key,action)
@@ -162,10 +164,132 @@ local function Assignable(row)
   end
   return true
 end
+local function LoyaltyCity(city,pid,governors)
+  assert(city:GetOwner()==pid)
+  local identity=assert(city:GetCulturalIdentity())
+  local assigned=governors:GetAssignedGovernor(city)
+  local pressure,count,keys,entries,total,found=0,0,0,0,0,false
+  local rows=identity:GetIdentitySourcesBreakdown()
+  assert(type(rows)=="table")
+  for key in pairs(rows) do
+    assert(type(key)=="number" and key%1==0 and key>=1 and key<=64)
+    keys=keys+1
+  end
+  for _,source in ipairs(rows) do
+    count=count+1;assert(count<=64 and type(source)=="table")
+    for kind,value in pairs(source) do
+      entries=entries+1;assert(entries<=128)
+      assert(type(kind)=="string" and type(value)=="number" and value==value and math.abs(value)<=1000)
+      total=total+value
+      if kind=="Governors" then pressure=pressure+value;found=true end
+    end
+  end
+  local rate=identity:GetLoyaltyPerTurn()
+  assert(count==keys and math.abs(total-rate)<=1/256)
+  assert((not assigned and pressure==0) or (assigned and found and pressure>0))
+  return {id=city:GetID(),population=city:GetPopulation(),loyalty=identity:GetLoyalty(),
+    rate=rate,assigned=assigned and assigned:GetType(),removalPressure=pressure}
+end
+local function GovernorLoyaltySnapshot(pid,player,governors)
+  local ok,snapshot=pcall(function()
+    local result={cities={},governors={}}
+    local own=player:GetCities();local expected=own:GetCount()
+    assert(type(expected)=="number" and expected>=0 and expected<=128 and expected%1==0)
+    for _,city in own:Members() do
+      assert(#result.cities<128)
+      result.cities[#result.cities+1]=LoyaltyCity(city,pid,governors)
+    end
+    assert(#result.cities==expected and own:GetCount()==expected)
+    local needed=false
+    for _,c in ipairs(result.cities) do
+      if c.assigned==nil and type(c.rate)=="number" and c.rate<0
+        and type(c.loyalty)=="number" and c.loyalty<=75 then needed=true end
+    end
+    if not needed then return nil end
+    local _,list=governors:GetGovernorList();assert(type(list)=="table" and #list<=32)
+    for _,governor in ipairs(list) do
+      assert(#result.governors<32)
+      local row=assert(GameInfo.Governors[governor:GetType()])
+      local assigned=governor:GetAssignedCity()
+      -- Never recall a governor from a foreign city or city-state.
+      assert(not assigned or assigned:GetOwner()==pid)
+      local item={type=row.Index,city=assigned and assigned:GetID(),
+        neutralized=governor:GetNeutralizedTurns(),pressure=governor:GetIdentityPressure(),assignable={}}
+      for _,city in ipairs(result.cities) do
+        local native=assert(own:FindID(city.id));assert(native:GetOwner()==pid)
+        local can=governors:CanAssignGovernor(row.Hash,native,true)
+        assert(type(can)=="boolean")
+        item.assignable[city.id]=Assignable(row) and can
+      end
+      result.governors[#result.governors+1]=item
+    end
+    return result
+  end)
+  if ok then return snapshot end
+end
+local function GovernorRescue(pid,player,governors)
+  if pendingGovernorRescue then
+    local p=pendingGovernorRescue
+    local ok,observed=pcall(function()
+      if p.player~=pid then return false end
+      local city=player:GetCities():FindID(p.target)
+      if not city or city:GetOwner()~=pid then return false end
+      local g=governors:GetAssignedGovernor(city)
+      local source=g and g:GetAssignedCity()
+      return g~=nil and g:GetType()==p.governor and source~=nil
+        and source:GetOwner()==pid and source:GetID()==p.target
+    end)
+    if not ok or observed~=true then return true end
+    print("BAIQI|governor_rescue_observed|turn="..turn.."|governor="..p.governor.."|target="..p.target)
+    pendingGovernorRescue=nil
+  end
+  if type(BaiqiGovernorLoyalty)~="table" or type(BaiqiGovernorLoyalty.Plan)~="function" then return false end
+  local plan=BaiqiGovernorLoyalty.Plan(GovernorLoyaltySnapshot(pid,player,governors))
+  if not plan then return false end
+  local fresh=BaiqiGovernorLoyalty.Plan(GovernorLoyaltySnapshot(pid,player,governors))
+  if not fresh or fresh.governor~=plan.governor or fresh.source~=plan.source or fresh.target~=plan.target then return true end
+  local ok,ready=pcall(function()
+    local city=assert(player:GetCities():FindID(plan.target))
+    local row=assert(GameInfo.Governors[plan.governor])
+    if not Assignable(row) or governors:CanAssignGovernor(row.Hash,city,true)~=true then return false end
+    -- Read critical native values after the permission call as well.
+    local target=LoyaltyCity(city,pid,governors)
+    local _,list=governors:GetGovernorList();local selected
+    for _,g in ipairs(list) do if g:GetType()==plan.governor then selected=g end end
+    if not selected then return false end
+    local assigned=selected:GetAssignedCity()
+    local checkCities={target}
+    if plan.source~=nil then
+      if not assigned or assigned:GetOwner()~=pid or assigned:GetID()~=plan.source then return false end
+      local donor=LoyaltyCity(assigned,pid,governors)
+      checkCities[#checkCities+1]=donor
+    elseif assigned~=nil then return false end
+    local checked=BaiqiGovernorLoyalty.Plan({cities=checkCities,governors={{type=selected:GetType(),
+      city=assigned and assigned:GetID(),neutralized=selected:GetNeutralizedTurns(),
+      pressure=selected:GetIdentityPressure(),assignable={[plan.target]=true}}}})
+    if not checked or checked.governor~=plan.governor or checked.source~=plan.source or checked.target~=plan.target then return false end
+    local config=PlayerConfigurations[pid]
+    return Game.GetLocalPlayer()==pid and Game.GetCurrentGameTurn()==turn and player:IsTurnActive()
+      and config:GetLeaderTypeName()==BaiqiConfig.leader and config:IsHuman()
+      and Game.IsAllowStrategicCommands(pid) and not GameConfiguration.IsAnyMultiplayer()
+      and not (GameConfiguration.IsHotseat and GameConfiguration.IsHotseat())
+  end)
+  if not ok or ready~=true then return true end
+  Once("governor-assign:"..plan.governor,function()
+    pendingGovernorRescue={player=pid,governor=plan.governor,target=plan.target}
+    print("BAIQI|governor_rescue_request|turn="..turn.."|governor="..plan.governor.."|target="..plan.target)
+    -- A false, void or throwing request is still uncertain; no in-session replay.
+    pcall(UI.RequestPlayerOperation,pid,PlayerOperations.ASSIGN_GOVERNOR,{
+      [PlayerOperations.PARAM_GOVERNOR_TYPE]=plan.governor,
+      [PlayerOperations.PARAM_PLAYER_ONE]=pid,[PlayerOperations.PARAM_CITY_DEST]=plan.target})
+  end)
+  return true
+end
 local function Governors(pid,player)
   if not player.GetGovernors or not GameInfo.Governors then return end
   local governors=player:GetGovernors()
   if not governors then return end
+  if GovernorRescue(pid,player,governors) then return end
   local cities={}
   for _,city in player:GetCities():Members() do
     if city:GetOwner()==pid and not governors:GetAssignedGovernor(city) then cities[#cities+1]=city end
