@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码93，安装／最后实机92。[更近可见外国城筛选的软件修复](docs/testing/baiqi-nearer-visible-border-source-93.md)：1330运行／1329通过／1SDK跳过，104文件82Lua5.1；93尚未实机。92的130长期保城／产出FAIL保持，等待与存读档仅窄通过。其他设备占用Steam，禁止上线／上传；公开Alpha2仍82／12图。
+当前源码／安装／实机93。[离线冷验99→101及4张实机解读](docs/testing/baiqi-nearer-visible-border-native-93.md)：旧队列训练完成、移民保守等待，其他生产继续，两处新锯木厂读回。尚无93安全城址／新城正案，92长期130保城FAIL保持。软件1330运行／1329通过／1SDK跳过、104文件82Lua5.1。其他设备占用Steam，禁止上线／上传；公开Alpha2仍82／12图。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 
