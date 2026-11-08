@@ -492,3 +492,6 @@
 
 
 - [97自然陇西176正式重载](baiqi-longxi-completed-reload-97.md)：同档Load/Continue各1，9城food/focus全保持，陇西1人口粮仓3/32L100+17、原始OBSERVED对应记录及goal0一致；9队列56建筑33区域139地块保持，两builder续移明确记录，不报引导0发令或全世界不变。完成态窄PASS，不授旧ARMED/LEGACY、长期安全或宗教／完整40通过。Steam占用0上线上传。
+
+
+- [旧ARMED的CANCEL源码及原生资格557](baiqi-armed-cancel-source-557.md)：区分普通command、spy特殊路由及视觉重画，取消旧FOUND尚无关联证明；当前闲置自有Scout两种CANCEL资格false，0发令／写属性，旧演员未触碰。不新增取消许可或关闭恢复FAIL，产品97未变。

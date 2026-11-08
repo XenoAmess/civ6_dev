@@ -1,0 +1,163 @@
+{
+  "schema": "civ6.cancel557-source-and-idle-scout-qualification/v1",
+  "utc": "2026-11-08T22:22:19.057322+00:00",
+  "machine_id": "BF-202609141645",
+  "product_version": 97,
+  "product_commit": "4da78ccc3f3a4f0ed21bc657458dca765da748b4",
+  "model557": {
+    "started_at_utc": "2026-11-08T22:17:14.479275+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 13981,
+      "completion_tokens": 1059,
+      "total_tokens": 15040
+    },
+    "seconds": 9.145551599911414,
+    "adoption": "PARTIAL_ANALYSIS_WITH_OWNER_CORRECTIONS_NO_CODE",
+    "raw_Native": 0,
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical successful same-machine/user cache reused installed/latest1.19.5 updatedfalse",
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "candidate": {
+    "facts": [
+      {
+        "anchor": "Base/Assets/UI/WorldInput.lua:813-827",
+        "fact": "UnitMovementCancel() clears the visual movement path and lens, then if a unit is selected and has a queued destination, it calls RealizeMovementPath(true). It does not call UnitManager.RequestCommand with CANCEL.",
+        "limit": "This is a UI visual reset function, not the native command execution path for cancelling operations."
+      },
+      {
+        "anchor": "Base/Assets/UI/WorldInput.lua:830-834",
+        "fact": "OnUnitCommandStarted(player, unitId, hCommand, iData1) checks if hCommand == UnitCommandTypes.CANCEL and calls UnitMovementCancel().",
+        "limit": "This is a UI event handler reacting to a command start, not the source of the command itself. It confirms the UI links the CANCEL command to the visual reset, but does not prove the C++ engine's internal state handling for queued operations."
+      },
+      {
+        "anchor": "Base/Assets/UI/Panels/UnitPanel.lua:459-465",
+        "fact": "The UnitPanel explicitly routes UnitCommandTypes.CANCEL to a spy mission cancellation handler (OnUnitActionClicked_CancelSpyMission) only if GameInfo.Units[unitType].Spy is true.",
+        "limit": "This is a specific UI branch for spies. It does not define the behavior for non-spy units (like settlers) regarding the CANCEL command."
+      },
+      {
+        "anchor": "mod/Baiqi/Lua/BaiqiSettlementIntentCore.lua:481-487",
+        "fact": "The mod's OnAbort() function calls UnitManager.RequestCommand(m_spy, UnitCommandTypes.CANCEL).",
+        "limit": "This is the mod's own implementation for aborting a spy mission. It demonstrates that RequestCommand(CANCEL) is a valid API call, but does not prove how the engine handles this command for a queued FOUND_CITY operation on a settler."
+      }
+    ],
+    "missing_proof": [
+      "No source code or documentation provided shows the C++ engine's internal logic for how UnitCommandTypes.CANCEL affects a queued UnitOperationTypes.FOUND_CITY. The UI handlers (WorldInput, UnitPanel) do not reveal the engine's state machine behavior.",
+      "There is no evidence that calling CANCEL on a settler with a queued FOUND_CITY operation clears the operation from the engine's internal queue or prevents its future execution. The mod's journal (ARMED state) is separate from the engine's operation queue.",
+      "The relationship between the mod's 'ARMED' journal state and the engine's actual pending operation state is not defined in the provided source. The mod tracks intent, but the engine tracks execution. CANCEL might affect one but not the other."
+    ],
+    "next_readonly": [
+      {
+        "question": "Does the engine's CANCEL command handler for a settler unit check for and clear queued operations like FOUND_CITY?",
+        "already_supplied_API_or_UNKNOWN": "UNKNOWN. The provided Lua UI code does not contain the C++ engine implementation. The mod's Lua code only shows RequestCommand(CANCEL) for spies."
+      },
+      {
+        "question": "Is there a native API to query if a unit has pending operations that would be cleared by CANCEL?",
+        "already_supplied_API_or_UNKNOWN": "UNKNOWN. The provided source mentions UnitManager.GetQueuedDestination in WorldInput.lua, but this is for movement paths, not general operations. No API is shown for querying pending FOUND_CITY operations."
+      },
+      {
+        "question": "Does the mod's Inspect() function or any other part of BaiqiSettlementIntentCore.lua interact with the engine's CANCEL command to update the journal state?",
+        "already_supplied_API_or_UNKNOWN": "NO. The provided BaiqiSettlementIntentCore.lua does not show any code that reacts to the engine's CANCEL command to update the journal. The journal is updated by the mod's own Prepare/Commit/Inspect functions, not by engine events."
+      }
+    ],
+    "decision": "NOT_PROVEN",
+    "limits": [
+      "The provided source code is insufficient to prove that the CANCEL command prevents the execution of a queued FOUND_CITY operation. It only shows UI handlers and mod-specific spy logic.",
+      "The mod's journal state (ARMED) is independent of the engine's operation queue. CANCEL might affect the engine's queue, but the mod's journal would not be updated by the engine's CANCEL command based on the provided code.",
+      "No C++ engine source or documentation is provided to confirm the behavior of UnitCommandTypes.CANCEL for non-spy units with queued operations."
+    ]
+  },
+  "owner_review": {
+    "adopted": [
+      "facts0and1: visiblepath/commandstarted event scope",
+      "fact2spy-specialbranch with ordinaryroutecorrection",
+      "NOT_PROVEN current cancellation evidence insufficient"
+    ],
+    "rejected": [
+      "fact3misattributes originalEspionagePopup481to487 to modCore481to487; currentmodCorehas128lines/noOnAbort",
+      "Implication that onlyspy path exists omitsUnitPanel466to471genericqualification",
+      "nextreadonly1 API unknown framing ignores supplied HasPendingOperations reading (while correctly notfullglobalqueueproof)",
+      "Global absence of event-driven journal updates is unsupported from scopedsource"
+    ],
+    "old_ARMED_not_loaded_or_touched": true,
+    "Core_cancelled_protocol_or_newpermission_added": false
+  },
+  "primary_anchors": [
+    "Base/Assets/Gameplay/Data/UnitCommands.xml12/36",
+    "Base/Assets/UI/Panels/UnitPanel.lua459to471",
+    "Base/Assets/UI/WorldInput.lua813to834",
+    "Base/Assets/UI/Popups/EspionagePopup.lua481to486",
+    "mod/Baiqi/Lua/BaiqiSettlementIntentCore.luaCommit/Inspect",
+    "mod/Baiqi/Lua/BaiqiSettlementJournal.luaSTAGES"
+  ],
+  "owner_native_read": {
+    "calls": 1,
+    "lines": [
+      [
+        "P6_CANCEL557_OWN_SCOUT",
+        "176",
+        "196610",
+        "0",
+        "51",
+        "28",
+        "3",
+        "false",
+        "nil"
+      ],
+      [
+        "P6_CANCEL557_NATIVE_CANCEL_QUALIFICATION",
+        "533311341",
+        "false",
+        "boolean",
+        "false",
+        "boolean",
+        "nil",
+        "true",
+        "false",
+        "INPLACE"
+      ],
+      [
+        "P6_CANCEL557_READ_DONE",
+        "ZERO_REQUESTCOMMAND_OR_OPERATION_OR_PROPERTYWRITE_NO_OLD_ARMED_ACTOR_TOUCHED"
+      ]
+    ],
+    "game_orders": 0,
+    "RequestCommand": 0,
+    "RequestOperation": 0,
+    "property_writes": 0,
+    "scope": "One current ownidleScout qualification, not a settler/queuedcommand cancellation or any correlated oldrequest proof."
+  },
+  "cumulative557": {
+    "logical_tasks": 557,
+    "complete_stop_valid_outer_JSON": 519,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 587,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "new_tests_or_product_source_changes": 0,
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82
+  },
+  "limits": [
+    "OldARMED/LEGACY recovery stillFAIL/open; no CANCEL or unknownFOUND replay allowed by thisanalysis.",
+    "Data/UI declaration and native eligibility are not C++ global queue/effect guarantees.",
+    "No current oldARMED actor cancellation qualification or proof of cessation."
+  ]
+}

@@ -414,3 +414,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [原图／18行食粮对账](testing/baiqi-longxi-completed-reload-97.md)：LoadACKtrue/输入1，Continue1，actual176active；WORLD1/CITY9/BUILDING56/DISTRICT33/PLOT139相同，9城food/focus全等、陇西1pop粮仓3/32L100+17、原4063259 OBSERVED/city589832/request/token同、goal0。UNIT30中builder3932180 59,35/m2→60,34/m0及4653085 56,36/m2→57,37/m.5，次数1/3保持，不称全世界不变/引导0请求。先前已全撤外层及W4未重装。Loadhelper首版pre尾分号与sharedloader加分号相接Lua51拒，意图/flag/Net前0动作；去尾分号后唯一Load。临时hung截图拒、LSQ一次timeout无CMD，health同11316birth运行；原Continue新鲜画面对比后click1，126contexts/实际176重证，无重放。save1689624/hash2cf7785130032322fe961f3a7f968bb253868606b27d63902bda11e79828c5b8保持。0END176/手补/新HTTP/新软件，复用556累计和原22相关诊断＋5回调资格；完成态窄PASS不关闭旧未决/宗教/40。Steam0上线登录下载上传初始化/上传。
 
 176重载交付清单第一次复用p变量令README重复，delivery唯一性守卫在git add前拒绝；改为显式证据路径，只补交付，不重生成资产／不重放任何游戏动作。
+
+
+## 2026-11-09：557 原版CANCEL源码及只读资格
+
+[诊断／原生闲置斥候](testing/baiqi-armed-cancel-source-557.md)。557 stop/DONE/JSON/1HTTP/15040tokens/9.145552s；视觉路径/命令开始回调事实及NOT_PROVEN窄采用，raw把原版EspionagePopup OnAbort481to487错标modCore481to487（实际128行），该项拒；补普通非spy通用路由，HasPendingOperations已给API不算未知、也不推全队列空。ownerNative当前176自有Scout196610@51,28/m3/formation1，pendingfalse/queuednil，liveCANCEL533311341，原UnitPanel两种CanStart签名均booleanfalse；0RequestCommand/Operation/属性写，没碰旧8650807。新取消许可/清日志/重放均0，旧ARMED仍FAIL，产品97/主9城176保持。累计557/519stop/35length/3transport/587HTTP/30extra/OpenCode新0/null未知；Steam0上线登录下载上传初始化/上传。
