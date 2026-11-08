@@ -172,3 +172,5 @@ python tools\build_mod.py --install
 - [87五城二十回合与5张实机图](docs/testing/baiqi-five-city-twenty-turns-87.md)：99→119零人工内政，5→7城、6栋建筑、4个特色区、19处改良；矿山替代工业区实际完工。战略资源逐回合库存漏采，TC-037仍未整项通过；验收工具已上库。
 
 - [87五城资源补测通过及5张实机图](docs/testing/baiqi-five-city-resource-complete-87.md)：从正式99档独立重测20回合，21份资源／147行齐全、6建筑4特色区19改良，零人工内政；TC-037仅该GS无蛮族夹具通过。Steam有其他设备占用，继续暂停上线与上传。
+
+- [88传教士报价／日志组件](docs/testing/baiqi-missionary-purchase-components-88.md)：新增17软件方法与7清单检查通过、76Lua5.1编译、98文件包一致；采购需求、Core许可与发令尚未接通。安装／实机仍87，不授88实机通过，Steam占用期间保持不上线。

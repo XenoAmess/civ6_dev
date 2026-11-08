@@ -1,6 +1,7 @@
 -- Invisible executor: the leader selection is the only administration switch.
 include("BaiqiController")
 include("BaiqiAdmin")
+include("BaiqiMissionaryPurchase")
 local ready=false
 local adminStopped=false
 local adminElapsed=0

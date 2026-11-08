@@ -2,6 +2,7 @@
 include("BaiqiConfig")
 include("BaiqiPolicy")
 include("BaiqiPlanner")
+include("BaiqiMissionaryPurchaseJournal")
 include("BaiqiRequisition")
 include("BaiqiCapture")
 include("BaiqiGPIntentGameplay")
