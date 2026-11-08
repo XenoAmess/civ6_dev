@@ -1,5 +1,7 @@
 # 94：按原版地貌许可筛选城址
 
+后续已完成[94离线109→120及广州完成态重载](baiqi-settlement-features-native-94.md)，初始雨林目标接受／移动、后改无地貌格建广州，长期与旧恢复FAIL仍开放。下文“尚未安装／实机”保留软件交付切点。
+
 93把所有带地貌的候选城址拒绝了，已有目标也会被相同条件清掉。109实机里，原版推荐的49,27为雨林，已经可见、无主、非城市／水面／不可通行格，最近己方城5格，5格内没有当前可见外国城；它仍被feature==-1条件挡住。94把这两处改为读取原版Features.Settlement。[逐项证据](../research/baiqi-p6-settlement-feature94-model545-evidence-2026-11-08.json)。**目前只完成软件修复，94尚未安装或实机，不能宣布移民已恢复扩张。**
 
 本机原版Schema的Features表有Settlement布尔字段，默认true；Features.xml里的雨林、树林、沼泽沿用该值，绿洲与自然奇观显式false。109实机雨林与冲积平原行也确实返回Settlement=true、NaturalWonder=false、Impassable=false。最初只读探查NoCity得到nil，核对schema后确认不存在该字段，没有将这个猜测写进产品。

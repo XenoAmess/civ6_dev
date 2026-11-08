@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码94，安装／最后实机93。[雨林等可定居地貌的软件修复](docs/testing/baiqi-settlement-features-source-94.md)：1339运行／1338通过／1SDK跳过，104文件82Lua5.1；94待离线冷验。93实机109的新军队由玩家接管已有两张原图，扩张及长期保城仍未通过。Steam他机占用，禁止上线／上传，公开Alpha2仍82／12图。
+当前源码／安装／实机94。[离线109→120广州建城、生产及重载，4张原图](docs/testing/baiqi-settlement-features-native-94.md)：5→6城、粮仓4/32与忠诚100／+17保持。初始雨林目标已接受，但最终广州建于无地貌格；长期保城与旧恢复FAIL仍开放。Steam他机占用禁上线／上传，公开Alpha2仍82／12图。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 
