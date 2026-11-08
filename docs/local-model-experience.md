@@ -397,3 +397,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：555 先知池诊断，原稿拒绝
 
 [97 原生162及审阅边界](testing/baiqi-religion-public-pool-97.md)。555完整stop/DONE/JSON，1HTTP/6680tokens/5.935483s；静态改冒号、全表断言先知及Claimant0过滤错，整稿拒绝0rawNative。owner12隔离例后只读：当前1未招募先知index122/nil、已创教2、cap未知；自有40points/+0、faith436.3046875、created-1/earned0/pantheon20/hasfalse。不支持先知列表耗尽解释，尚不知单一根因，宗教实效链仍open。161结束后协议帧拒绝先停再同进程/LSQ/实际162重证，不重发END。累计555/517stop/35length/3transport/585HTTP/30extra/OpenCode新0，未知成本null。Steam外机占用，0上线登录下载上传初始化/上传；产品97未变，长期食粮窗口另记。
+
+
+## 2026-11-09：97 食粮正案续验20回合
+
+[原生153→173／5张原图与9份CSV](testing/baiqi-food-focus-long-window-97.md)：长沙4→7、8城160食粮样本无饥饿倒计时、168忠诚样本100正变化；中途154正式完成态reload一次，不称同context20turn。29ordinaryEND92armySKIP/0UserForced0手补内政，5使者查看保留20/22/24/26/28；议会我方4免费票与实际近战／军队生产费减半分开，外交最终目标未知。17建筑7区域完成（含旧放置）8处NONE转改良，新4063259仍61,34在途，广州173净粮0保留风险。W2达3305前单Lua无yield恢复原绑定再装W3，合4629=4453recruit35city139op2cmd，0err/drop，141单位调用均自有受托类型；全部撤钩。无CityRequestCommand包装，不报粮食发令次数。173正式save1666670B/hasheab32bcf74a09e52586248c4d37f1de0d2fe45a0582797c0ae6100940e9231c7未load。161协议停链先重证、166owner旧160边界先拒再修、168envoy前置拒后flag_nil/hiddentrue才freshview、160早晚缓存差都留证；UIready不保证公告消失，173三遮挡图私留关闭原公告重拍未编辑。0新HTTP/软件，复用555累计及1375pass1SDKskip；Steam0上线登录下载上传初始化/上传，旧FAIL/宗教/BaseRF/性能/40仍open。
