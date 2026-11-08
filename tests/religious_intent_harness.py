@@ -19,6 +19,7 @@ local function wrap(unit)
   GetType=function() return unit:GetUnitType() end,GetX=function() return unit:GetX() end,
   GetY=function() return unit:GetY() end,GetMovesRemaining=function() return unit:GetMovesRemaining() end,
   GetFormationUnitCount=function() return unit:GetFormationUnitCount() end,
+  IsDelayedDeath=function() return ui.TestWorld.missionaryDead==true end,
   GetReligion=function() return {GetReligionType=function() return ui.TestWorld.unitReligion end,
     GetSpreadCharges=function() return ui.TestWorld.spreadCharges end} end}
  if ui.TestWorld.missingCoreMoves then core.GetMovesRemaining=nil end
@@ -46,7 +47,7 @@ local corePlayer={IsHuman=function() return ui.PlayerConfigurations[7]:IsHuman()
    end}
  end}
 local allowed={type=true,pairs=true,ipairs=true,pcall=true,tostring=true,select=true,
- math=true,string=true,table=true,Game=true,GameInfo=true,GameConfiguration=true,
+ assert=true,getmetatable=true,math=true,string=true,table=true,Game=true,GameInfo=true,GameConfiguration=true,
  Map=true,PlayersVisibility=true,print=true}
 local listeners={}
 local function event() return {Add=function(fn) listeners[#listeners+1]=fn end} end
@@ -69,5 +70,7 @@ end
     core = lua.globals().TestRelBridge.core
     if stored is not None:
         lua.globals().TestRelBridge.store = lua.globals().TestRelBridge.Copy(stored)
-    for name in ('BaiqiConfig', 'BaiqiPolicy', 'BaiqiReligiousJournal', 'BaiqiReligiousIntentGameplay'):
+    for name in ('BaiqiConfig', 'BaiqiPolicy', 'BaiqiReligiousJournal', 'BaiqiReligiousIntentGameplay',
+                 'BaiqiNaturalistPurchaseJournal','BaiqiMissionaryPurchaseJournal','BaiqiFaithPurchaseGuard',
+                 'BaiqiMissionaryPurchaseSnapshot','BaiqiMissionaryPurchaseIntentGameplay'):
         load((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'), name, core)

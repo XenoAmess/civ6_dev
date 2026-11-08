@@ -382,3 +382,9 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [采用边界与证据](testing/baiqi-missionary-purchase-storage-89.md)。4真实独立任务并行，POST_BEGIN至END实际峰值4／持续17.043秒，均完整stop/SSE/JSON、4HTTP0extra；不是12—16目标或服务running数据。530原17子场景1反例（外方ID读取在owner前），修改采用；531错读库字段替代真实玩家Property，原16中12失败，拒绝；532错依赖名，诊断别名下3额外实证反例（nil最后快照、有效serial17变更被覆盖、MustPurchasefalse），整稿拒绝，owner从现NaturalistCore独立实现；533三原文锚点各唯一、两文件编译，但pid0错拒／未Protected，整稿不采用，仅引入方向。不得把最初corrupt并发夹具被guard挡住说成已证明覆盖；实际用合法serial17空日志反例。原稿Native均0。
 
 通过533累计533logical/497stop/33length/3transport/563HTTP/30extra/OpenCode新原生0，未知cache/人工节时null；Nov8每日成功缓存复用。源89含新CoreSnapshot、Guard、Intent及SpreadInitialize/Naturalist守卫，25新方法/33纯子场景；最终1269run1268pass1SDKskip、79Lua51/101文件byteMatch。首全套1fail29error是两个include-noop夹具缺新依赖与私有静态工具version87上限；79定向后2旧87断言，改独立XML版本后全套通过，私有对照新Core/Initialize也关闭。owner Config锚点误设无空格停止后续写、局部恢复；Initialize初始转发三返回值改strictsinglebool，原记录保留。0install/Native89，原87all96保持，0Steam动作。
+
+## 2026-11-08：534535消费者原稿拒绝与90完整软件链
+
+[软件链及证据](testing/baiqi-missionary-purchase-flow-90.md)。两真实独立POST完整stop/SSE/外JSON，峰值2持续19.047s，2HTTP0extra。534原稿Lua51 continue语法失败，535编译通过却Object(E.Bridge)拒绝合同里的函数，正常正例UNAVAILABLE／0请求，均整拒、0Native；owner独立Demand/Submit并接Controller，22需求+19提交子场景、17联合方法。通过535累计535logical/499stop有效外JSON/33length/3transport/565HTTP/30extra，OpenCode新原生0、Nov8缓存维护，未知人工节时/cache null。499不代表Lua语法/业务都过。
+
+联合17方法首3失败：忙碌effectPending漏新采购、held演员过早unitEvaluated导致确认后当回合仍停，两个产品修复；unused TestWorld.leader改实际PlayerConfigurations getter为夹具纠正。准备器误以为settlement写守卫有2处，在产品写前断言停止，换实际两处Naturalist守卫；隔离fixture缺Yields/Core assert/getmetatable已补，不记产品bug。完整1288首1error1skip：SDK写引用插桩拒绝新表达式。保留工具原规则，传入command adapter先赋local、真实SDK函数先读local再身份比较；新增/受影响方法通过，最终全1288run1287pass1SDKskip，81Lua51、103zip一致。0install/Native90，原87all96保持，Steam0模式查询输入/联网下载上传，现119现场保持。

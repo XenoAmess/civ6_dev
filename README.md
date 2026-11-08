@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前开发与实机82。新增[新局自然移民／危险路线／3图与56正式重载](docs/testing/baiqi-newgame-natural-settler-and-path-wait-82.md)；完整40项仍未通过。
+当前开发源码90，安装／最近实机87，公开Alpha2内部82。[传教士采购软件链](docs/testing/baiqi-missionary-purchase-flow-90.md)已接通，尚未安装实测90；[87五城二十回合资源验收](docs/testing/baiqi-five-city-resource-complete-87.md)仅该夹具通过。完整40项仍未完成，其他设备占用Steam期间禁止上线与上传。
 
 [Alpha 2已在GitHub预发布](https://github.com/XenoAmess/civ6_dev/releases/tag/v0.1.0-alpha.2)，[安装与风险](docs/releases/v0.1.0-alpha.2/README.zh-CN.md)，含[12张实机的逐图解读](docs/workshop/v0.1.0-alpha.2/screenshot-commentary.md)、BBCode、独立宣传封面与明确风险。**Steam已同步Alpha2内部82／12图**，93个文件实际下载核对一致，客户端已恢复并只读确认离线。下列开发条目保留各历史切点，旧“尚未开始／当前”不能覆盖最新记录。
 
@@ -50,7 +50,7 @@
 
 征城图为27版QA敌城场景，人口1、报价300金币；不是74版重拍。[完整玩法介绍与7张实机图](docs/workshop/v0.1.0-alpha.1/README.md)逐图注明版本与场景。
 
-- [最新开发与验收交接（2026-11-07）](docs/handoff/2026-11-07.md)：当前构建、游戏／存档现场、已验范围、剩余任务及本地模型续接。
+- [最新开发与验收交接（2026-11-08）](docs/handoff/2026-11-08.md)：当前构建、游戏／存档现场、已验范围、剩余任务及本地模型续接。
 - [全部功能状态快照](docs/testing/baiqi-feature-status-2026-11-01.md)、[安装与当前实现](docs/implementation/baiqi-prototype.md)、[持续验收](docs/testing/results/2026-11-01-p6-acceptance.md)、[P5 历史记录](docs/testing/results/2026-11-01-p5-acceptance.md)。
 - [74版建筑财政重验](docs/testing/baiqi-building-budget-74.md)：修复规划后收入／承诺变化仍提交建筑，8项回归及完整1029项通过；74已离线冷启并恢复114，[财政压力实机待验](docs/testing/baiqi-cold-start-74.md)。
 - [74版财政观察与副本](docs/testing/baiqi-financial-observer-74.md)：独立诊断工具10测及实机接入；测试后已清理观察器并恢复正常114存档。
@@ -176,3 +176,5 @@ python tools\build_mod.py --install
 - [88传教士报价／日志组件](docs/testing/baiqi-missionary-purchase-components-88.md)：新增17软件方法与7清单检查通过、76Lua5.1编译、98文件包一致；采购需求、Core许可与发令尚未接通。安装／实机仍87，不授88实机通过，Steam占用期间保持不上线。
 
 - [89传教士Core采购许可](docs/testing/baiqi-missionary-purchase-storage-89.md)：补持久许可、传播日志初始化与共用信仰检查；完整1268通过／1SDK环境跳过、79Lua5.1、101包一致。需求和发令未接，未安装，实机仍87；Steam占用期间继续不上线。
+
+- [90传教士自动采购软件链](docs/testing/baiqi-missionary-purchase-flow-90.md)：安全国内需求、一次信仰购买及回执后传播交接已接通；1287软件通过／1SDK跳过、81Lua5.1／103文件一致。未安装／实测90，安装及实机仍87，Steam占用期间不上线。

@@ -4,6 +4,9 @@ include("BaiqiPlanner")
 include("BaiqiHeritageCandidates")
 include("BaiqiHeritageActions")
 include("BaiqiNaturalistPurchase")
+include("BaiqiMissionaryPurchase")
+include("BaiqiMissionaryPurchaseDemand")
+include("BaiqiMissionaryPurchaseSubmit")
 include("BaiqiArchaeologyHome")
 include("BaiqiPendingArtifact")
 include("BaiqiSettlementJournal")
@@ -20,6 +23,7 @@ local builderRejectedGoals={}
 local settlerSearches={}
 local districtPersonPlans = {}
 local missionaryPlans = {}
+local missionaryPurchase={doneTurn=-1,streak=0}
 local naturalistSearches = {}
 local archaeologySearches = {}
 local ArchaeologyHeld
@@ -546,6 +550,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if unitType=="UNIT_SETTLER" and SettlementHeld(unit) then return false,"settlement_receipt_pending" end
   if not SettlerQueueIdle(unit,unitType)then return false,"native_queue_pending_or_unknown" end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
+  if unitType=="UNIT_MISSIONARY" and missionaryPurchase.Held() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
   if operation=="MOVE_TO" or operation=="MAKE_TRADE_ROUTE" then
@@ -593,6 +598,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     if not legal then return false,why end
   end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end
+  if unitType=="UNIT_MISSIONARY" and missionaryPurchase.Held() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
   local founding
@@ -971,7 +977,7 @@ local function RequestMissionary(unit,city)
   if not operation or not BaiqiPolicy.Number(operation.Hash) or operation.Hash%1~=0 then return false end
   local function StillEligible()
     local freshCtx,freshPlayer,freshState=PlayerContext()
-    if not freshCtx or not CoreIdle() or freshCtx.player~=ctx.player then return nil end
+    if not freshCtx or not CoreIdle() or freshCtx.player~=ctx.player or missionaryPurchase.Held() then return nil end
     local fresh=freshPlayer:GetUnits():FindID(unitID)
     local target=freshPlayer:GetCities():FindID(cityID)
     if not BaiqiPolicy.MatchesID(fresh,unitID) or fresh:GetOwner()~=ctx.player
@@ -1009,6 +1015,7 @@ local function RequestMissionary(unit,city)
 end
 
 local function ProcessMissionary(ctx,player,state,unit)
+  if missionaryPurchase.Held() then return false end
   if MissionaryHeld(unit) then
     Reason("missionary:"..unit:GetID(),"传教士等待持久化回执；其他内政继续执行")
     return false
@@ -1055,6 +1062,100 @@ local function ProcessMissionary(ctx,player,state,unit)
   end
   Reason("missionary:"..id,"传教士等待安全国内路径或原生传播资格")
   return false
+end
+
+
+-- Shared Core purchase state is authoritative across UI reloads. Unknown
+-- permission holds missionaries; it never blocks unrelated city production.
+function missionaryPurchase.Bridge(method,...)
+  local argc,args=select("#",...),{...}
+  local ok,a,b,c=pcall(function()
+    local bridge=type(ExposedMembers)=="table"and ExposedMembers.BaiqiMissionaryPurchaseBridge
+    if type(bridge)~="table"or bridge.version~=1 or bridge.marker~="baiqi-missionary-purchase-v1"
+      or type(bridge[method])~="function"then return "UNAVAILABLE"end
+    local unpackArgs=table.unpack or unpack
+    return bridge[method](unpackArgs(args,1,argc))
+  end)
+  if ok then return a,b,c end
+  return "UNAVAILABLE"
+end
+function missionaryPurchase.Held()
+  return missionaryPurchase.Bridge("Inspect",contextID)~="OPEN"
+end
+function missionaryPurchase.SafeCity(pid,city)
+  local ctx,player=PlayerContext()
+  if not ctx or ctx.player~=pid or not CoreIdle()or not city or city:GetOwner()~=pid then return false end
+  local found=player:GetCities():FindID(city:GetID())
+  if not BaiqiPolicy.MatchesID(found,city:GetID())or found:GetOwner()~=pid
+    or found:GetX()~=city:GetX()or found:GetY()~=city:GetY()then return false end
+  local plot=Map.GetPlot(found:GetX(),found:GetY())
+  return plot~=nil and plot:GetX()==found:GetX()and plot:GetY()==found:GetY()
+    and plot:GetOwner()==pid and Revealed(plot)and visibility:IsVisible(plot:GetX(),plot:GetY())==true
+    and Safe(plot,player)==true
+end
+function missionaryPurchase.Demand(player,pid)
+  return type(BaiqiMissionaryPurchaseDemand)=="table"
+    and BaiqiMissionaryPurchaseDemand.Read({GameInfo=GameInfo,SafeCity=missionaryPurchase.SafeCity},player,pid)==true
+end
+function missionaryPurchase.Request(ctx,cityID)
+  local pid,at,reserve=ctx.player,turn,C.missionaryFaithReserve
+  local native=CityManager.RequestCommand
+  local requestID
+  if type(native)~="function"or type(BaiqiMissionaryPurchaseSubmit)~="table"then return false end
+  local E={GameInfo=GameInfo,MilitaryFormationTypes=MilitaryFormationTypes,CityCommandTypes=CityCommandTypes,
+    Quote=BaiqiMissionaryPurchase,Demand=missionaryPurchase.Demand,
+    Bridge=function()return type(ExposedMembers)=="table"and ExposedMembers.BaiqiMissionaryPurchaseBridge end}
+  E.Current=function(who)
+    local fresh,player=PlayerContext()
+    local currentWriter=CityManager.RequestCommand
+    local currentQualifier=CityManager.CanStartCommand
+    if fresh and who==pid and fresh.player==pid and BaiqiPolicy.Context(fresh)and CoreIdle()
+      and turn==at and Game.GetCurrentGameTurn()==at and C.missionaryFaithReserve==reserve
+      and currentWriter==native and currentQualifier==E.CityManager.CanStartCommand then return player end
+  end
+  E.CityManager={CanStartCommand=CityManager.CanStartCommand,RequestCommand=function(city,op,params)
+    local player=E.Current(pid)
+    if not player or not missionaryPurchase.SafeCity(pid,city)then return false end
+    requestID=NextRequest("missionary_purchase:"..cityID..":"..at)
+    if not requestID then return false end
+    Log("request","id="..requestID.."|source=BACKGROUND|city="..cityID.."|operation=PURCHASE|unit=UNIT_MISSIONARY")
+    return native(city,op,params)
+  end}
+  local stage,token,reason=BaiqiMissionaryPurchaseSubmit.Request(E,pid,cityID,reserve)
+  if type(token)=="string"and(stage=="ARMED"or stage=="OBSERVED")then
+    if stage=="ARMED"then
+      missionaryPurchase.pending={id=requestID or token,token=token,cityID=cityID}
+      Log("missionary_purchase_held","token="..token.."|reason="..tostring(reason))
+    else
+      Log("observed","id="..(requestID or token).."|city="..cityID.."|kind=PURCHASE|unit=UNIT_MISSIONARY|proof=core_new_unit_and_exact_faith_debit")
+    end
+    return true
+  end
+  return false
+end
+function missionaryPurchase.Process(ctx,player)
+  if missionaryPurchase.pending or(missionaryPurchase.doneTurn==turn and missionaryPurchase.donePlayer==ctx.player)then return false,false end
+  local function Done()
+    missionaryPurchase.doneTurn=turn;missionaryPurchase.donePlayer=ctx.player;missionaryPurchase.search=nil
+  end
+  if missionaryPurchase.Held()or not missionaryPurchase.Demand(player,ctx.player)then Done();return false,false end
+  local search=missionaryPurchase.search
+  if not search or search.turn~=turn or search.player~=ctx.player then
+    search={turn=turn,player=ctx.player,failed={}};missionaryPurchase.search=search
+  end
+  local cities={}
+  for _,city in player:GetCities():Members()do
+    local id=city:GetID()
+    if BaiqiPolicy.Number(id)and id>=0 and id<=2147483647 and id%1==0 and city:GetOwner()==ctx.player
+      and not search.failed[id]then cities[#cities+1]={id=id,city=city}end
+  end
+  table.sort(cities,function(a,b)return a.id<b.id end)
+  local choice=cities[1]
+  if not choice then Done();return false,false end
+  search.failed[choice.id]=true
+  if missionaryPurchase.SafeCity(ctx.player,choice.city)and missionaryPurchase.Request(ctx,choice.id)then Done();return true,false end
+  if #cities>1 then return false,true end
+  Done();return false,false
 end
 
 local function NaturalistPurchaseBridge(method,...)
@@ -2905,6 +3006,14 @@ local function ProcessCity(ctx, player, state, city)
 end
 
 local function ReadBack(player)
+  if missionaryPurchase.pending then
+    local pending=missionaryPurchase.pending
+    local stage,token=missionaryPurchase.Bridge("Inspect",contextID,pending.token)
+    if stage=="OBSERVED"and token==pending.token then
+      Log("observed","id="..pending.id.."|city="..pending.cityID.."|kind=PURCHASE|unit=UNIT_MISSIONARY|proof=core_new_unit_and_exact_faith_debit")
+      missionaryPurchase.pending=nil
+    end
+  end
   if pendingPurchase then
     local stage,token=NaturalistPurchaseBridge("Inspect",contextID,pendingPurchase.token)
     if stage=="OBSERVED" and token==pendingPurchase.token then
@@ -3161,7 +3270,7 @@ local function Tick(allowOrders)
   -- Passive initialization and effect receipts still reconcile while busy.
   -- Only ordinary movement, route and queue receipts may await an idle tick.
   if allowOrders~=false and not CoreIdle() then
-    local effectPending=pendingPurchase~=nil
+    local effectPending=pendingPurchase~=nil or missionaryPurchase.pending~=nil
     for _,pending in pairs(pendingUnits) do
       local kind=pending.kind
       if kind=="ACTIVATE_GREAT_PERSON" or kind=="CREATE_GREAT_WORK"
@@ -3225,6 +3334,12 @@ local function Tick(allowOrders)
   end
   -- One city's quote per callback, at most two purchase continuations before
   -- normal unit scheduling. Scalar failed IDs never authorize a later command.
+  if missionaryPurchase.streak<2 then
+    local submitted,continuing=missionaryPurchase.Process(ctx,player)
+    if submitted then missionaryPurchase.streak=0;status="已登记传教士购买；等待实际扣费与新单位";return end
+    if continuing then missionaryPurchase.streak=missionaryPurchase.streak+1;return end
+  end
+  missionaryPurchase.streak=0
   if purchaseResumeStreak<2 then
     local submitted,continuing=ProcessNaturalistPurchase(ctx,player)
     if submitted then purchaseResumeStreak=0;status="已登记自然学家购买；等待实际扣费与新单位";return end
@@ -3258,7 +3373,11 @@ local function Tick(allowOrders)
           elseif snapshot.type=="UNIT_TRADER" then
             if ProcessTrader(ctx,player,state,unit) then status="已提交国内商路，等待实际结果";return end
           elseif snapshot.type=="UNIT_MISSIONARY" then
-            if ProcessMissionary(ctx,player,state,unit) then status="已登记传教士国内任务；等待实际结果";return end
+            if missionaryPurchase.Held() then
+              unitEvaluated[unitKey]=nil
+            elseif ProcessMissionary(ctx,player,state,unit) then
+              status="已登记传教士国内任务；等待实际结果";return
+            end
           elseif snapshot.type=="UNIT_NATURALIST" then
             local submitted,continuing=ProcessNaturalist(ctx,player,state,unit)
             if submitted then status="已登记自然学家公园任务；等待实际公园";return end
