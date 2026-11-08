@@ -2,6 +2,7 @@
 -- This module belongs only to the unguarded, invisible executor context.
 include("BaiqiConfig")
 include("BaiqiGovernorLoyalty")
+include("BaiqiFoodFocusRunner")
 BaiqiAdmin={}
 local attempted,turn={},-1
 local techPriority={TECH_MINING=90,TECH_ANIMAL_HUSBANDRY=85,TECH_ARCHERY=80,TECH_BRONZE_WORKING=75,TECH_WHEEL=70}
@@ -466,6 +467,11 @@ function BaiqiAdmin.Run()
           {[PlayerOperations.PARAM_CIVIC_TYPE]=path,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}) end)
       end
     end
+  end
+  if type(BaiqiFoodFocusRunner)=="table" and type(BaiqiFoodFocusRunner.Run)=="function" then
+    BaiqiFoodFocusRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
+      Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
+      CityCommandTypes=CityCommandTypes,YieldTypes=YieldTypes,leader=BaiqiConfig.leader},pid)
   end
   Pantheon(pid,player)
   Religion(pid,player)

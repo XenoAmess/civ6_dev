@@ -1,0 +1,27 @@
+{
+  "fixture": "function ExpectNil(s)\n  local res = M.Plan(s)\n  if res ~= nil then error('Expected nil') end\nend\nfunction ExpectPlan(s, mode, flags, data0)\n  local res = M.Plan(s)\n  if res == nil then error('Expected plan') end\n  if res.cityID ~= s.cityID then error('cityID mismatch') end\n  if res.mode ~= mode then error('mode mismatch') end\n  if res.flags ~= flags then error('flags mismatch') end\n  if res.data0 ~= data0 then error('data0 mismatch') end\nend\nfunction FreshS()\n  return {player=7, owner=7, cityID=42, surplus=-1, favored=false, disfavored=false}\nend",
+  "cases": {
+    "case1_valid_negative_disfavored": "local s = FreshS(); s.disfavored = true; ExpectPlan(s, 'UNIGNORE', 1, 0)",
+    "case2_valid_negative_neither": "local s = FreshS(); ExpectPlan(s, 'FAVOR', 0, 1)",
+    "case3_nonnegative_surplus": "local s = FreshS(); s.surplus = 0; ExpectNil(s)",
+    "case4_positive_surplus": "local s = FreshS(); s.surplus = 10; ExpectNil(s)",
+    "case5_already_favored": "local s = FreshS(); s.favored = true; ExpectNil(s)",
+    "case6_contradictory_flags": "local s = FreshS(); s.favored = true; s.disfavored = true; ExpectNil(s)",
+    "case7_player_owner_mismatch": "local s = FreshS(); s.owner = 8; ExpectNil(s)",
+    "case8_invalid_player_type": "local s = FreshS(); s.player = '7'; ExpectNil(s)",
+    "case9_invalid_cityID_type": "local s = FreshS(); s.cityID = 42.5; ExpectNil(s)",
+    "case10_surplus_nan": "local s = FreshS(); s.surplus = 0/0; ExpectNil(s)",
+    "case11_surplus_inf": "local s = FreshS(); s.surplus = 1/0; ExpectNil(s)",
+    "case12_surplus_out_of_range": "local s = FreshS(); s.surplus = 1000001; ExpectNil(s)",
+    "case13_surplus_out_of_range_neg": "local s = FreshS(); s.surplus = -1000001; ExpectNil(s)",
+    "case14_favored_not_bool": "local s = FreshS(); s.favored = 1; ExpectNil(s)",
+    "case15_disfavored_not_bool": "local s = FreshS(); s.disfavored = 'true'; ExpectNil(s)",
+    "case16_metatable_rejection": "local s = FreshS(); setmetatable(s, {}); ExpectNil(s)",
+    "case17_missing_field": "local s = FreshS(); s.surplus = nil; ExpectNil(s)",
+    "case18_input_immutability": "local s = FreshS(); local orig = {player=s.player, owner=s.owner, cityID=s.cityID, surplus=s.surplus, favored=s.favored, disfavored=s.disfavored}; M.Plan(s); if s.player ~= orig.player or s.owner ~= orig.owner or s.cityID ~= orig.cityID or s.surplus ~= orig.surplus or s.favored ~= orig.favored or s.disfavored ~= orig.disfavored then error('Input mutated') end",
+    "owner_zero_player_city_identity": "local s=FreshS();s.player=0;s.owner=0;s.cityID=0;ExpectPlan(s,'FAVOR',0,1)",
+    "owner_scalar_nil_snapshots": "ExpectNil(nil);ExpectNil(false);ExpectNil(7)",
+    "owner_hidden_metatable_not_executed": "local called=false;local s=setmetatable({},{__index=function()called=true;error('hidden')end});ExpectNil(s);assert(not called)",
+    "owner_fractional_player_and_negative_city": "local s=FreshS();s.player=7.5;s.owner=7.5;ExpectNil(s);s=FreshS();s.cityID=-1;ExpectNil(s)"
+  }
+}

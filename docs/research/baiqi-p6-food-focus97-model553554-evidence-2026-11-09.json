@@ -1,0 +1,254 @@
+{
+  "schema": "civ6.food-focus97-source-and-native96-starvation553554/v1",
+  "utc": "2026-11-08T19:41:57.628622+00:00",
+  "machine_id": "BF-202609141645",
+  "source": 97,
+  "installed_and_last_runtime": 96,
+  "Native96_reproduction": {
+    "source_pin": "4679b611562c8295ff46a9f4497930a1dd498376",
+    "runtime": {
+      "pid": 20972,
+      "birth": 1794164432.109566,
+      "HWND": 3802286,
+      "port": 4318
+    },
+    "separate_branch": "Known95FAIL152 officialLoad1/ACKtrue/originalContinue1; preserved96positive156 save before branching. Not replay of original branch action receipts.",
+    "actual_growth_rows": [
+      [
+        "152",
+        "327684",
+        "3",
+        "15.94921875",
+        "16",
+        "1",
+        "1",
+        "-1",
+        "7",
+        "3",
+        "7"
+      ],
+      [
+        "153",
+        "327684",
+        "4",
+        "0.8984375",
+        "22",
+        "-1",
+        "-1",
+        "1",
+        "7",
+        "3",
+        "7"
+      ],
+      [
+        "154",
+        "327684",
+        "3",
+        "15",
+        "16",
+        "1",
+        "2",
+        "-1",
+        "7",
+        "3",
+        "7"
+      ]
+    ],
+    "city": 327684,
+    "x": 53,
+    "y": 30,
+    "status": "FAIL_STARVATION_WITH_UNUSED_VISIBLE_OWN_FOOD_TILE",
+    "food_focus153": "All6favoredfalse/disfavoredfalse",
+    "visible_own_plot_count": 13,
+    "unworked_food3_farm": {
+      "plot": 2124,
+      "x": 52,
+      "y": 28,
+      "citizens": 0,
+      "food": 3,
+      "production": 1,
+      "locked": 0
+    },
+    "actual_focus_permission": "CanStartCommand true/booleantrue with originalCityPanel explicit desired params flags0/yieldFOOD0/data01, command-1927260886",
+    "request_commands_or_manual_domestic": 0,
+    "direct_ordinary_END": 2,
+    "army_SKIP": 8,
+    "UserForced": 0,
+    "actual_advances": 2,
+    "END154": 0,
+    "prestarvation153_save": {
+      "utc": "2026-11-08T19:27:26.099356+00:00",
+      "name": "Baiqi_P6_20261109_V96_ChangshaStarving153.Civ6Save",
+      "bytes": 1559392,
+      "sha256": "f08d4936c90c0f0d2cedddb78dced2bd427075d09b6b8a11a3d552458334b2f4",
+      "stable_repeated_read": true
+    },
+    "save_ACK_true": true,
+    "save_loaded": false,
+    "older_positive156_save_preserved": {
+      "utc": "2026-11-08T19:16:30.211529+00:00",
+      "name": "Baiqi_P6_20261109_V96_GovernorRecovery156.Civ6Save",
+      "bytes": 1575467,
+      "sha256": "908048bbb579e535b93bae834f27a24819758490eb1b7d76c84a66f6d8d621d3",
+      "stable_repeated_read": true
+    },
+    "city_production": "CommercialHub in153/154; no manualqueue orcitysettlertraining; not a Native settler populationcost sample",
+    "scope": "153foodsurplus-1/stock0.898/starvation1 then154pop4to3/surplus+1/stock15; natural starvation reproduction. All historical154 causal details not inferred from filtered events."
+  },
+  "source97_changes": [
+    "Pure onecityPlan validates ownership/identity/bools/finite surplus; negative food only: UNIGNOREdesiredfalse first if needed, then FAVORdesiredtrue.",
+    "OwnerRunner legal nativeCanStartCommand, samecity/currentstate reread afterpermission, leader/turn/active/strategic/UIidle/multiplayer/binding rechecks.",
+    "Pending percity remains on false/void/throw until actualfocus observed acrosssamecontextturns; no toggleoff/foodgrant/manualworkedtile lock.",
+    "ActualAdmin includes/calls runner; missingdata/API isolates food and preserves otheradministration.",
+    "Module pending is same-context only. Explicit nonconsumptive desired states may be re-evaluated after coldload; no durable mid-request recovery claim."
+  ],
+  "review": {
+    "553": {
+      "raw_Lua51_compile": false,
+      "error": "[string \"<python>\"]:11: 'then' expected near '!'",
+      "syntax_operator_replacements": 6,
+      "adoption": "ADAPTED_SYNTAX_ONLY: != -> ~=; complete purePlan otherwise retained",
+      "raw_Native": 0
+    },
+    "554": {
+      "raw_fixture_Lua51_compile": true,
+      "raw_case_count": 18,
+      "raw_separate_fixture_protocol_failures": 18,
+      "reason": "FreshS/ExpectNil/ExpectPlan are chunk locals and M localnil shadows externally injected M; not executable under promised fixture protocol",
+      "adoption": "CASE_BODIES_RETAINED_WITH_OWNER_FIXTURE: remove localM and export helperfunctions; retains explicit s arg signature matching18bodies",
+      "owner_added_cases": 4,
+      "adapted_total_cases": 22,
+      "adapted_pass": 22,
+      "raw_Native": 0
+    },
+    "source97_not_installed": true,
+    "owner_native_requests": 0,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "new_software": {
+    "methods": 16,
+    "pure_plan_subcases": 22,
+    "model_case_bodies": 18,
+    "owner_added_case_bodies": 4,
+    "baseline96": {
+      "run": 16,
+      "failures": 8,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.4512857999652624
+    },
+    "current97": {
+      "run": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.7040343000553548
+    },
+    "full": {
+      "run": 1376,
+      "pass": 1375,
+      "skip": 1,
+      "seconds": 148.3,
+      "skip_reason": "Set BAIQI_WORKSHOP_SDK_ASSEMBLY to an installed official Steamworks.NET.dll; not evidence uninstalledSDK"
+    }
+  },
+  "package": {
+    "utc": "2026-11-08T19:40:19.288095+00:00",
+    "files": 107,
+    "Lua51_compiled": 85,
+    "archive_bytes": 8784014,
+    "archive_sha256": "2706780956d75d2ac925ac81403fac556ec3a2cb8392876e521c6be1fbb68a3b",
+    "zip_source_bytes_equal": true,
+    "installations": 0,
+    "Native97_executions": 0
+  },
+  "model553": {
+    "task": "Pure foodfocus planner",
+    "started_at_utc": "2026-11-08T19:31:04.658144+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 2573,
+      "completion_tokens": 477,
+      "total_tokens": 3050
+    },
+    "total_ms": 4632.844999898225,
+    "raw_Native_execution": 0,
+    "daily_maintenance": "Nov9 canonical successful same-machine/same-user cache reused installed/latest1.19.5 updatedfalse",
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "model554": {
+    "task": "Independent pureplanner fixture/cases",
+    "started_at_utc": "2026-11-08T19:31:04.660134+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "usage": {
+      "prompt_tokens": 2651,
+      "completion_tokens": 846,
+      "total_tokens": 3497
+    },
+    "total_ms": 6801.682299934328,
+    "raw_Native_execution": 0,
+    "daily_maintenance": "Nov9 canonical successful same-machine/same-user cache reused installed/latest1.19.5 updatedfalse",
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "parallel": {
+    "actual_HTTP_peak": 2,
+    "overlap_seconds": 4.631673,
+    "target12to16_not_achieved_or_quota": true,
+    "independent_tasks": "Plan module and fixture/case bodies; distinct candidates, owner single writer toproduct",
+    "server_running_waiting_KV": "NOT_MEASURED"
+  },
+  "cumulative554": {
+    "logical_tasks": 554,
+    "complete_stop_valid_outer_JSON": 516,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 584,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "images": [
+    {
+      "path": "docs/testing/images/food97/starving153.png",
+      "sha256": "3a140afb8115df5c539c83a943945cc23355aa697b10c4f5e278ded904c4b287",
+      "viewed_unaltered_original": true
+    },
+    {
+      "path": "docs/testing/images/food97/lost154.png",
+      "sha256": "f71d01eced04a6859e29f677cea87a90eba34a5788e196dc78cda10697ef2afe",
+      "viewed_unaltered_original": true
+    }
+  ],
+  "Steam": {
+    "other_device_in_use": true,
+    "new_idle_clearance": false,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82,
+    "public_Alpha2_gallery": 12
+  },
+  "limits": [
+    "97notinstalled orNative at software delivery; not actualfoodfocus effect/populationpreservation PASS.",
+    "Foodpriority may reduceproduction and cannot createfood where nolegalfoodtiles exist; alreadyfavored starvation staysopen.",
+    "No guarantee allcities/20turns orfuturegrowth; full40/oldARMED/LEGACY/religion/Base/RF/performance open.",
+    "No Steam publication; allpublicAlpha2binary/gallery unchanged."
+  ]
+}
