@@ -1,6 +1,6 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
-当前源码／安装／实机93。[离线99→101窄验收与4图](baiqi-nearer-visible-border-native-93.md)：旧移民队列完成、保守等待、生产继续，两处锯木厂从NONE实变。未授93新选址／新城、长期保城或训练门独立通过，原92长期130FAIL保留。101检查点已保存、观察器撤下；软件1330运行／1329通过／1SDK跳过。Steam占用禁止上线／上传，Alpha2仍82／12图。
+当前源码／安装／实机93。[102→109实机及两张新军队原图](baiqi-army-wait-native-93.md)：新长矛兵训练完成、等待玩家并实际接受玩家移动；五城生产继续。发现所有带地貌城址被误排除，修复与扩张复验继续；长期保城FAIL未关闭。Steam他机占用，禁止上线／上传，公开Alpha2仍82／12图。
 
 本日新增实机链：[新局首移民建都](baiqi-newgame-first-capital-82.md)、[科技／法典／首批政策接续](baiqi-newgame-first-tech-policies-82.md)、[待命后训练建造者与投石兵](baiqi-newgame-standby-first-units-82.md)、[玩家正常交战、危险退去后自主修农场及38存读档](baiqi-newgame-combat-farm-recovery-82.md)。图片已内嵌，均为窄样本通过。
 
