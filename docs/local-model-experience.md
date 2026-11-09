@@ -536,3 +536,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：576两次实际国内传播与最后一次回执FAIL
 
 [三原图及136—139信徒CSV](testing/baiqi-domestic-spread-and-final-charge-104.md)。104原unit3407893从圣地三MOVE到首都65536，137/138/139各一SPREAD；3→2→1与两OBSERVED真实核对，139Core同ID/own0/r1/ch0/DelayedDeathtrue/xy-9999，UIlive名单0、ARMED religion:0:3，0END139保存1463393/hash201a02a...；137/138另存未load，拒将消失当成功。首都Buddhist1/3/4/5但majority-1，普通压力贡献未知。3normalEND/4军队SKIP、28food非负无饿/28loyalty100正，observer413/27全文职0错丢与CityCmd0均已撤。5761HTTP12244tokens/3.540883s stop/DONE/JSON，坐标诊断已有owner独识，建议负坐标删除对象作proof/错误CoreflatAPI均拒0采用，下一步实际event观察。累计576/537stop/36length/3transport/606HTTP/30extra/OpenCode0/null成本；Steam禁上线工坊82。
+
+
+## 2026-11-09：577只读事件观察软件
+
+[工具与8项检查](testing/baiqi-missionary-event-observer.md)。5771HTTP3081tokens/7.622741s stop/DONE/JSON，提供原版事件签名与合同；rawLua51compile但同8methods10失败事件，尾nil丢、参数无界/快照别名/非法scope、当前Add漏清及重复移除，全拒0Native。owner独立有界标量RAW观察+精确回调撤除，8pass，工具不入104108包，产品full1577不虚增完整1585。Core/UI139四eventAdd/Remove已读存在但未证实emission；139FAIL保存、独立138LoadACK但未worldread，不重发。累计577/538stop/36length/3transport/607HTTP/30extra/OpenCode0/null成本，Steam禁上线工坊82。
