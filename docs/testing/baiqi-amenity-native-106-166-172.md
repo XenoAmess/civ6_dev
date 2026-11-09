@@ -52,3 +52,6 @@
 172已正式保存1645552字节，SHA-256 `55ba3d3bbfdb114e58805313aa81a3ec554553f96a73bacf6c1d72559806c817`，保存前全部诊断已撤，尚未读回。广州仍47／112、秀容44／66，二者缺口仍2；旧已发令移民ARMED恢复FAIL、通用未知MOVE、小视口、规则集／军队全矩阵及完整40项仍未关闭。此前105的20回合通过不等于新增106也已完成20回合。
 
 [56行逐城生产](baiqi-source106-166-172-production.csv) · [600行宜居度来源](baiqi-source106-168-172-amenity-components.csv) · [结构化证据／原图哈希](../research/baiqi-p6-amenities106-native172-evidence-2026-11-10.json) · [待同步BBCode](../workshop/v0.1.0-alpha.2/pending-source106-amenities172-2026-11-10.bbcode)
+
+
+后到补证：[172竞技场完成态已正式读回](baiqi-completed-reload-172-106.md)。本页“未载”是前一冻结切点；竞技场8／8及五组自有状态保持，1建造者移动，不授全部未知恢复通过。
