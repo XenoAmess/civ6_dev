@@ -49,3 +49,6 @@
 冻结到596累计596逻辑／556完整／37截断整弃／3最终传输失败、626HTTP／30额外重试／0OpenCode原生生成；后续597修复候选另计。同机BF-202609141645的Nov10成功1.19.5每日维护缓存由canonical CLI复用。缓存tokens、人工成本和净节时未知为null。本包不改产品，不为文档复跑已通过全套；旧已发令移民ARMED恢复FAIL、未知MOVE、108正式冷安装、十城性能和完整40项继续开放。Steam他机占用，联网／登录／下载／上传初始化／上传均0；新启动离线证明不可用时不新启。
 
 [结构化证据与原图哈希](../research/baiqi-p6-city-amenity186-evidence-2026-11-10.json) · [待同步BBCode](../workshop/v0.1.0-alpha.2/pending-city-amenity186-2026-11-10.bbcode)
+
+
+后续：[109修正水坝必需洪泛平原规则](baiqi-dam-required-features-109.md)，软件回归与现有106中纯函数只读预验通过，正式安装开工／建成仍待验。

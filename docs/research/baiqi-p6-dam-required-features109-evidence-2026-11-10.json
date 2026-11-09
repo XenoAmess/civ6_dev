@@ -1,0 +1,409 @@
+{
+  "schema": "civ6.dam109-required-feature-software-and-readonly-preview/v1",
+  "utc": "2026-11-09T20:36:13.824832+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 109,
+  "previous_source_commit": "80bc68c6603428c62ad2fa514f686a68d43152d0",
+  "installed_runtime_version": 106,
+  "current_turn": 186,
+  "status": "SOFTWARE_REGRESSION_AND_EXACT_HELPER_PREVIEW_PASS_NOT_COLD_PRODUCT_NATIVE",
+  "problem": "All-feature exclusion prevented DAM mandatoryfloodplain placement. Current Beijing18ownvisibleplots had productiontrue and1NativeDAMlegalplot butClearPlotfalse; currentnonemptyqueue notoverwritten.",
+  "change": {
+    "files": [
+      "mod/Baiqi/Lua/BaiqiController.lua",
+      "mod/Baiqi/Baiqi.modinfo",
+      "tools/static_control_source.py",
+      "tools/build_static_control.py",
+      "tests/test_baiqi_dam_features.py"
+    ],
+    "feature_pairs": [
+      "DISTRICT_DAM/FEATURE_FLOODPLAINS",
+      "DISTRICT_DAM/FEATURE_FLOODPLAINS_GRASSLAND",
+      "DISTRICT_DAM/FEATURE_FLOODPLAINS_PLAINS"
+    ],
+    "planning_and_final_boundary_receive_actual_district_row": true,
+    "finite_nonnegative_integer_feature_index_and_actual_metadata_identity_required": true,
+    "resource_wonder_park_existing_district_special_improvement_protections_preserved": true,
+    "no_feature_harvest_or_tile_reservation_or_manual_control": true
+  },
+  "software": {
+    "new_real_writer_methods": 9,
+    "new_narrow_result": "9pass/3.436s",
+    "old108_red": {
+      "methods": 9,
+      "failures": 13,
+      "errors": 0
+    },
+    "first_full_suite": {
+      "utc": "2026-11-09T20:33:29.314866+00:00",
+      "suite_returncode": 1,
+      "suite_counts": [
+        [
+          "1628",
+          "98.128"
+        ]
+      ],
+      "suite_tail": "8\n\n======================================================================\nERROR: test_builder_preserves_manifest_assets_and_other_readonly_ui (test_static_control_ui.StaticControlUITests.test_builder_preserves_manifest_assets_and_other_readonly_ui)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\workspace\\civ6_dev\\tests\\test_static_control_ui.py\", line 62, in test_builder_preserves_manifest_assets_and_other_readonly_ui\n    result=build(out);self.assertEqual(result['files'],len(manifest_files(ROOT/'mod/Baiqi')));self.assertEqual(set(result['changed_files']),set(edits()))\n  File \"C:\\workspace\\civ6_dev\\tools\\build_static_control.py\", line 33, in build\n    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106','107','108'):raise ValueError('Expected actual source67 through108')\n                                                                                                                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Expected actual source67 through108\n\n----------------------------------------------------------------------\nRan 1628 tests in 98.128s\n\nFAILED (errors=2, skipped=1)\n",
+      "Lua51_files": 87,
+      "package_files": 109,
+      "static_control_files_and_anchor_counts": [
+        {
+          "path": "Lua/BaiqiController.lua",
+          "anchors": 3
+        },
+        {
+          "path": "Lua/BaiqiGPIntentGameplay.lua",
+          "anchors": 2
+        },
+        {
+          "path": "Lua/BaiqiSettlerGoalsGameplay.lua",
+          "anchors": 1
+        },
+        {
+          "path": "Lua/BaiqiCreativeIntentGameplay.lua",
+          "anchors": 1
+        },
+        {
+          "path": "Lua/BaiqiProphetIntentGameplay.lua",
+          "anchors": 2
+        },
+        {
+          "path": "Lua/BaiqiReligiousIntentGameplay.lua",
+          "anchors": 4
+        },
+        {
+          "path": "Lua/BaiqiNaturalistIntentGameplay.lua",
+          "anchors": 2
+        },
+        {
+          "path": "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua",
+          "anchors": 2
+        },
+        {
+          "path": "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+          "anchors": 2
+        },
+        {
+          "path": "Lua/BaiqiArchaeologyIntentGameplay.lua",
+          "anchors": 1
+        },
+        {
+          "path": "UI/BaiqiExecutor.lua",
+          "anchors": 1
+        },
+        {
+          "path": "Lua/BaiqiAdmin.lua",
+          "anchors": 1
+        }
+      ],
+      "ZIP_sha256": "3a2d07aadb6786e8a25975e81402f808b8db0bdbf61ab56c9717f9ddb1397d4a",
+      "ZIP_bytes": 8792886,
+      "package_all_files_byte_equal": true,
+      "future110_rejected": true,
+      "wall_seconds": 99.13523080002051,
+      "installed": false,
+      "Native_fix_pass": false,
+      "Steam_actions": 0
+    },
+    "owner_fix_recheck": {
+      "utc": "2026-11-09T20:34:35.871952+00:00",
+      "reason": "Owner missed second duplicate sourceversion whitelist in build_static_control; initial1628fullsuite2buildererrors1SDKskip, sourceproduct9newchecks alreadypass. Only affectedbuilderconsumers rerun aftertool-only one-linefix.",
+      "methods": 8,
+      "failures": 0,
+      "errors": 0,
+      "wall_seconds": 18.428603300009854,
+      "future110_rejected": true,
+      "product_files_changed_since_fullsuite": false,
+      "initial_product_ZIP_unchanged": "3a2d07aadb6786e8a25975e81402f808b8db0bdbf61ab56c9717f9ddb1397d4a",
+      "Steam_actions": 0
+    },
+    "final_state_claim": "Initialfull1628 had1625pass2buildererrors1SDKskip; owner fixed overlookedduplicatebuildversion whitelist and all8affectedconsumermethods pass. No claimcleanfullsuite rerun. Productbytesunchanged sinceinitialsuite/package."
+  },
+  "Native_preview": {
+    "role": "EXACT_REVIEWED_PRODUCT_PURE_HELPER_READONLY_LOCAL_SCOPE_IN_EXISTING106_NOT_FULL_CONTROLLER_OR_INSTALL",
+    "attempt": {
+      "utc": "2026-11-09T20:33:25.643262+00:00",
+      "source_version": 109,
+      "installed_version": 106,
+      "role": "EXACT_REVIEWED_SOURCE_PURE_HELPERS_LOCAL_SCOPE_NATIVE_READONLY_PREVIEW",
+      "source_functions_sha256": "439055d790f090694d791fefbb9983968e5acd050a26c5848c6399919024b62e",
+      "code_sha256": "a2c71358dd748ffff9451fd10423563ebeb7e34cd64a044b4c14ff92c0a61051",
+      "no_installed_or_global_controller_redefinition": true,
+      "Steam_actions": 0
+    },
+    "rows": [
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2865",
+        "true",
+        "true",
+        "true",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2864",
+        "true",
+        "true",
+        "true",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2863",
+        "true",
+        "true",
+        "true",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2791",
+        "true",
+        "true",
+        "true",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2790",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2789",
+        "true",
+        "true",
+        "true",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2788",
+        "true",
+        "true",
+        "true",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2787",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2717",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2716",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2715",
+        "false",
+        "false",
+        "false",
+        "true",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2714",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2642",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2641",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2640",
+        "false",
+        "false",
+        "false",
+        "true",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2639",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2568",
+        "false",
+        "false",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "P6_DAM109_PREDICATE_PLOT",
+        "2567",
+        "false",
+        "false",
+        "false",
+        "true",
+        "false"
+      ],
+      [
+        "P6_DAM109_PREDICATE_DONE",
+        "18",
+        "6",
+        "6",
+        "7",
+        "0",
+        "1",
+        "EXACT_SOURCE_LOCAL_FUNCTION_PREVIEW_ONLY_NOT_INSTALLED109_NOT_BUILD_OR_QUEUE_WRITE"
+      ]
+    ],
+    "actual_definition_types": [
+      [
+        "P6_DAM597_DEFINITION_TYPES",
+        "userdata",
+        "table",
+        "table",
+        "0",
+        "FEATURE_FLOODPLAINS"
+      ],
+      [
+        "P6_DAM597_DEFINITION_TYPES_DONE",
+        "READONLY_STATIC_DEFINITIONS_NO_PRODUCTPATCH_NO_ORDERS"
+      ]
+    ],
+    "coverage": {
+      "own_visible_purchased": 18,
+      "old_ClearPlot": 6,
+      "new_EC_ClearPlot": 6,
+      "new_DAM_ClearPlot": 7,
+      "EC_policy_native_intersection": 0,
+      "DAM_policy_native_intersection": 1
+    },
+    "new_DAM_plot": {
+      "index": 2568,
+      "xy": [
+        52,
+        34
+      ],
+      "feature": "FEATURE_FLOODPLAINS",
+      "ordinary_improvement": "IMPROVEMENT_FARM"
+    },
+    "installed_global_controller_redefined": false,
+    "new_callbacks_or_global_namespaces": 0,
+    "gameplay_order_calls_in_preview": 0,
+    "not_actual_BUILD_or_completion_or_final_CanStart_pass": true
+  },
+  "model_activity": {
+    "utc": "2026-11-09T20:30:06.756353+00:00",
+    "model": 597,
+    "usage": {
+      "prompt_tokens": 5966,
+      "completion_tokens": 983,
+      "total_tokens": 6949
+    },
+    "duration_ms": 7070.048099965788,
+    "HTTP_attempts": 1,
+    "complete_stop_DONE_valid_outer_JSON": true,
+    "raw_code_Native_execution": 0,
+    "raw_fractional_feature_matching_metadata_accepted": true,
+    "adoption": "District-specific threeverifiedfloodplain helper and both rowarguments partiallyadopted; owner adds finite/nonnegativeinteger featureindex and objecttypes/strictfeaturetypereading guards before metadataaccess. Originalprotectioncomment retained.",
+    "rejection": "Rawhelper checks districtindex but not featureindexinteger before metadataaccess; accepts matchingfake0.5 row. Missing/malformedfeaturemetadata also needs explicitobjectguards.",
+    "owner_tests_on_old108": {
+      "methods": 9,
+      "failures": 13,
+      "errors": 0
+    },
+    "old_controller_sha256": "0ed45be25d3c982de14dc14e926452b00f3988463693c9207fc88a94a578d2d9",
+    "cumulative597": {
+      "logical_tasks": 597,
+      "complete_stop_valid_outer_JSON": 557,
+      "length_discarded": 37,
+      "final_transport_failure": 3,
+      "HTTP_attempts": 627,
+      "extra_HTTP_attempts": 30,
+      "OpenCode_native_generation": 0,
+      "current_in_flight": 0,
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    }
+  },
+  "cumulative597": {
+    "logical_tasks": 597,
+    "complete_stop_valid_outer_JSON": 557,
+    "length_discarded": 37,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 627,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam": {
+    "other_device_busy": true,
+    "online_login_download_uploader_init_upload": 0,
+    "mode_changes": 0,
+    "new_process_spawn": 0,
+    "Workshop_version": 82,
+    "gallery": 12,
+    "pendingBBCode_uploaded": false
+  },
+  "new_END186": 0,
+  "new_install": false,
+  "limits": [
+    "Installedruntime106 remains unchanged;109coldnormalBUILD/completion/fees/reload nottested.",
+    "Exacthelper18plotpreview doesnotprove fullProcessCity priorityselection orfinalNativeCanStart.",
+    "No promisecurrentallamenitydeficitsfixed; nonemptysettlerqueue preserved, ECintersectionstill0.",
+    "UnknownissuedFOUNDARMEDFAIL/MOVE/fullUI/ten-city/full40remainopen."
+  ]
+}
