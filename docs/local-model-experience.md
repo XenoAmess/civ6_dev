@@ -451,3 +451,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：562地图先知类上限诊断
 
 [原版读取／22检查／179原生](testing/baiqi-religion-map-class-cap-562.md)。562 stop/DONE/JSON/1HTTP/2503tokens/6.530123s，raw Lua51可编译但同22组12pass/6fail/4error：编号0拒绝、genericfor状态丢失、未捕Native异常、ipairs漏稀疏/非数组键、无穷cap和元表ID接受，整稿拒0Native。owner只读模块22pass、不入mod包，179 Native MapIndex2/SMALL/PROPHET类上限4／已成立非Pantheon2／算术差2。不是无预留槽或可领先知数，不重写555当时Unknown或把162池当179；0生产权重/圣地手排/信仰先知赠送，宗教链未通过。累计562/524stop/35length/3transport/592HTTP/30extra/OpenCode新0/null未知，Steam0上线／模式切换或上传。
+
+
+## 2026-11-09：563首座圣地生产与99软件
+
+[源码、98条件和99回归](testing/baiqi-first-holy-site-production-99.md)。563 stop/DONE/JSON、1HTTP18925tokens/19.178804s，排序35弱项诊断窄采用，原helper14只有2pass10fail2error，漏他城既有／排队／放置、错字符串比较数值队列、无边界复核／异常／有界读取、分数矛盾，原代码整拒0Native。owner实现首座92机会加权、帝国全承诺及最终重检，未知回退35；未决首座请求保留不推失败，跨空头／其他头／回合防重复加权，但不是新持久恢复协议。23新回归旧98十四失败／0error，新全过；完整检查见证据，85Lua51／107包。最初6处fixture失败纠正，非产品六bug。98当前179五城bothCanProduceHolySite真、九城未建／放置且已有队列、公开未领取先知1／40点+0；仅资格条件，不推完整区位或99实效。累计563/525stop/35length/3transport/593HTTP/30extra/OpenCode原生新0/null未知；99尚未安装／实机，Steam0上线或上传。

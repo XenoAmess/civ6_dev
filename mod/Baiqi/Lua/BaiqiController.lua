@@ -2878,6 +2878,101 @@ local buildingPriority = {BUILDING_GRANARY=110,BUILDING_MONUMENT=100,BUILDING_WA
 local districtPriority = {DISTRICT_INDUSTRIAL_ZONE=72,DISTRICT_COMMERCIAL_HUB=70,DISTRICT_HARBOR=70,
   DISTRICT_CAMPUS=68,DISTRICT_ENCAMPMENT=65,DISTRICT_AQUEDUCT=60,DISTRICT_NEIGHBORHOOD=55}
 
+-- An opportunity to start religious infrastructure is a ranking hint, never a
+-- Prophet recruitment/founding permission. Unknown reads keep the normal score.
+local function FirstHolySiteWanted(ctx,player)
+  local ok,wanted=pcall(function()
+    local function Integer(value,max)
+      return BaiqiPolicy.Number(value) and value>=0 and value<=max and value%1==0
+    end
+    local function DenseSize(list,max)
+      if type(list)~="table" or getmetatable(list)~=nil then return nil end
+      local n,highest=0,0
+      for key in pairs(list) do
+        n=n+1
+        if n>max or not Integer(key,max) or key<1 then return nil end
+        highest=math.max(highest,key)
+      end
+      if n~=highest then return nil end
+      return n
+    end
+    if not BaiqiPolicy.Context(ctx) or Players[ctx.player]~=player
+      or Game.GetCurrentGameTurn()~=turn then return false end
+    local row=GameInfo.Districts.DISTRICT_HOLY_SITE
+    if not row or row.DistrictType~="DISTRICT_HOLY_SITE" or not Integer(row.Index,2147483647)
+      or not BaiqiPolicy.Number(row.Hash) or row.Hash%1~=0 then return false end
+    local religion=player:GetReligion()
+    if religion:GetReligionTypeCreated()~=-1 or religion:GetNumBeliefsEarned()~=0 then return false end
+    local held=religion:HasReligiousFoundingUnit()
+    if type(held)~="boolean" then return false end
+    local cities=player:GetCities()
+    local count=cities:GetCount()
+    if not Integer(count,256) or count==0 then return false end
+    local seen,n={},0
+    for _,city in cities:Members() do
+      n=n+1
+      local id=city:GetID()
+      if n>count or not Integer(id,2147483647) or seen[id] or city:GetOwner()~=ctx.player
+        or not BaiqiPolicy.MatchesID(cities:FindID(id),id) then return false end
+      seen[id]=true
+      local q=city:GetBuildQueue()
+      local exists=city:GetDistricts():HasDistrict(row.Index,true)
+      local placed=q:HasBeenPlaced(row.Hash)
+      if type(exists)~="boolean" or type(placed)~="boolean" or exists or placed then return false end
+      local current=q:GetCurrentProductionTypeHash()
+      if not BaiqiPolicy.Number(current) or current%1~=0 or current==row.Hash then return false end
+      local size=q:GetSize()
+      if not Integer(size,64) then return false end
+      for i=0,size-1 do
+        local entry=q:GetAt(i)
+        if type(entry)~="table" then return false end
+        if entry.DistrictType~=nil then
+          local actual=GameInfo.Districts[entry.DistrictType]
+          if not actual or actual.DistrictType=="DISTRICT_HOLY_SITE" then return false end
+        end
+      end
+    end
+    if n~=count then return false end
+    n=0
+    for _,pending in pairs(pendingCities) do
+      n=n+1
+      if n>256 then return false end
+      if pending.kind=="district" then
+        local actual=GameInfo.Districts[pending.hash]
+        if not actual or actual.DistrictType=="DISTRICT_HOLY_SITE" then return false end
+      end
+    end
+    if not held then
+      local class=GameInfo.GreatPersonClasses.GREAT_PERSON_CLASS_PROPHET
+      if not class or class.GreatPersonClassType~="GREAT_PERSON_CLASS_PROPHET"
+        or not Integer(class.Index,2147483647) then return false end
+      local timeline=Game.GetGreatPeople():GetTimeline()
+      local size=DenseSize(timeline,128)
+      if size==nil then return false end
+      local unclaimed,individuals=false,{}
+      for i=1,size do
+        local entry=timeline[i]
+        if type(entry)~="table" or getmetatable(entry)~=nil
+          or not Integer(entry.Class,2147483647) then return false end
+        if entry.Class==class.Index then
+          local id=entry.Individual
+          local definition=Integer(id,2147483647) and GameInfo.GreatPersonIndividuals[id]
+          if not definition or definition.Index~=id or individuals[id]
+            or definition.GreatPersonClassType~="GREAT_PERSON_CLASS_PROPHET"
+            or (entry.Claimant~=nil and not Integer(entry.Claimant,2147483647)) then return false end
+          individuals[id]=true
+          if entry.Claimant==nil then unclaimed=true end
+        end
+      end
+      if not unclaimed then return false end
+    end
+    local fresh,freshPlayer=PlayerContext()
+    return BaiqiPolicy.Context(fresh) and fresh.player==ctx.player and freshPlayer==player
+      and Game.GetCurrentGameTurn()==turn and CoreIdle()
+  end)
+  return ok and wanted==true
+end
+
 local function BuildParams(candidate,completedHead)
   local params = {[CityOperationTypes.PARAM_INSERT_MODE]=completedHead and CityOperationTypes.VALUE_REPLACE_AT or CityOperationTypes.VALUE_APPEND}
   if completedHead then params[CityOperationTypes.PARAM_QUEUE_DESTINATION_LOCATION]=0 end
@@ -3000,14 +3095,14 @@ local function ProcessCity(ctx, player, state, city)
   if not QueueReady(city,q,completedHead) or pendingCities[cityID] then return false end
   cityEvaluated[cityID]=turn
   local candidates, checked = {}, 0
-  local function Add(kind,row,score,repair,placement)
+  local function Add(kind,row,score,repair,placement,firstHolySite)
     if checked >= C.candidatesPerCity then return end
     checked=checked+1
     -- Both CanProduce modes are required by the shipped ProductionPanel.
     -- Exclusion checks alone can say true for a building behind an unknown tech.
     if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
-      score=score,repair=repair,placement=placement}
+      score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true}
     if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c,completedHead)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
@@ -3022,6 +3117,7 @@ local function ProcessCity(ctx, player, state, city)
       Add("building",row,buildingPriority[row.BuildingType] or 40,repair)
     end
   end
+  local firstHolySite=FirstHolySiteWanted(ctx,player)
   local plots={}
   for _,index in pairs(Map.GetCityPlots():GetPurchasedPlots(city) or {}) do plots[#plots+1]=index end
   table.sort(plots)
@@ -3029,11 +3125,13 @@ local function ProcessCity(ctx, player, state, city)
     if row.DistrictType~="DISTRICT_CITY_CENTER" and q:CanProduce(row.Hash,true) then
       if q:HasBeenPlaced(row.Hash) then Add("district",row,districtPriority[row.DistrictType] or 35,true)
       else
+        local boosted=firstHolySite and row.DistrictType=="DISTRICT_HOLY_SITE"
+        local priority=boosted and 92 or (districtPriority[row.DistrictType] or 35)
         for _, index in ipairs(plots) do
           local plot=Map.GetPlotByIndex(index)
           if plot and plot:GetOwner()==ctx.player and ClearPlot(plot,state,player)
             and plot:CanHaveDistrict(row.Index,ctx.player,city:GetID()) then
-            Add("district",row,districtPriority[row.DistrictType] or 35,false,{x=plot:GetX(),y=plot:GetY()})
+            Add("district",row,priority,false,{x=plot:GetX(),y=plot:GetY()},boosted)
           end
         end
       end
@@ -3108,9 +3206,18 @@ local function ProcessCity(ctx, player, state, city)
       or plot:CanHaveDistrict(row.Index,latest.player,cityID)~=true
       or plot:GetOwner()~=latest.player or not ClearPlot(plot,latestState,latestPlayer) then return false end
   end
+  if choice.firstHolySite and not FirstHolySiteWanted(latest,latestPlayer) then
+    cityEvaluated[cityID]=nil
+    Reason("religion_supply_changed:"..cityID,"首座圣地需求已变化，重新安排合法生产")
+    return false
+  end
+  -- The extra demand read must not cover a turn/queue change at its boundary.
+  if choice.firstHolySite and (not CoreIdle() or not QueueReady(city,q,completedHead)
+    or Game.GetCurrentGameTurn()~=turn) then return false end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
-  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead}
+  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,
+    firstHolySite=choice.firstHolySite}
   if choice.kind=="unit" then
     submittedUnits[cityID]=submittedUnits[cityID] or {}
     submittedUnits[cityID][choice.hash]=true
@@ -3331,11 +3438,13 @@ local function ReadBack(player)
       if matched then
         Log("queue_observed","id="..pending.id.."|city="..cityID.."|hash="..pending.hash)
         pendingCities[cityID]=nil
-      elseif pending.replacesHead then
-        -- A missing replacement is unknown. A late operation could overwrite
-        -- alternate work, so retain the request and never infer failure.
+      elseif pending.replacesHead or pending.firstHolySite then
+        -- A missing replacement/first Holy Site is unknown. A late operation
+        -- could overwrite alternate work or duplicate the empire's first site.
+        -- Retain the request and never infer failure from a temporary empty head.
         if (pending.elapsed or 0)>=C.productionObservationSeconds and CoreIdle() and not pending.unresolvedLogged then
-          Log("queue_replacement_unresolved","id="..pending.id.."|city="..cityID.."|actual_hash="..hash)
+          Log(pending.firstHolySite and "first_holy_site_request_unresolved" or "queue_replacement_unresolved",
+            "id="..pending.id.."|city="..cityID.."|actual_hash="..hash)
           pending.unresolvedLogged=true
         end
       elseif hash~=0 then
