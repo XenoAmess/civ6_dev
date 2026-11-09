@@ -506,3 +506,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：正常祷告完工、招募与创教122
 
 [实机两原图、逐回合CSV与边界](testing/baiqi-normal-religion-founded-122.md)。BF-202609141645运行102早期六城，111祷告0/68→11563/68→116complete，event1/0错误丢且撤，points64→101 delta37、相邻稳定5、本样本额外32不推广公式。125报价120而非旧122的60，119116+5−120=120的1，公开125归0T120与实际unit2621455交叉确认；12154,37moves0→122消耗/OBSERVED/eventSeen，公开Buddhism1/WORK_ETHIC/TITHE与原版宗教页一致，QA0手补内政。HasReligiousFoundingUnit false120有单位、true122单位已消耗，不能当presence；Rome已领1/classMax1，撤回仅凭进度条推竞争者猜测，0赞助。122神社missing、70faith quote/274.57balance但nativefalse、工业26/86保持，无传教士/采购日志nil，国内传播未过。111→122实际11普通回合，22测试玩家军队SKIP；72food非负无饥饿，Finance3046/2934read/23city/88unitop/1cmd0错丢仍挂，三save校验未load，旧ARMEDFAIL/完整40仍开。571文案请求length整份丢弃，不读拼接，1HTTP7311+2800=10111tokens/18.266241s、owner独立写；累计571/532stop/36length/3transport/601HTTP/30extra，OpenCode原生0/成本未知null，Steam禁上线工坊82。
+
+
+## 2026-11-09：572神社正常优先级与128保存
+
+[源码103／4项／完整重跑与边界](testing/baiqi-shrine-production-103.md)。BF-202609141645：102已创教但缺神社，Native122missionary70cost/274.57faith/nativefalse，128347.79/神社Maintenance1/bothproduce true，7城邯郸移民33/130。Model572stop/DONE/JSON1HTTP21139tokens/6.580024s，采用唯一BUILDING_SHRINE91补丁；模型可能0维护想法拒，owner用1，旧4有1fail、新4pass。首次full1562因漏103对照工具allowlist18error，补两tool后重跑1562/1561pass/1SDKskip、86Lua51/108包字节一致；计数1546+570tool12+new4，未装未Native103。128save1428901/hash9ddde3...未load/0END128，Finance4109count/4096retained/0err13drop含5unit_op，119retained文职，不能授128全演员覆盖；zero-drop断言在Restore前挡撤，明确带丢弃路径精确撤成功。前571固定GET5一致；累计572/533stop/36length/3transport/602HTTP/30extra/OpenCode0/null成本，Steam禁上线工坊82。
