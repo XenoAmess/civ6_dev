@@ -23,3 +23,6 @@
 只授予新城及已完成账本／商路这次正式读档的窄通过。旧已发令移民ARMED恢复FAIL、未知移动审查、宜居度、小视口与兼容／性能矩阵继续。Steam其他设备用号限制持续，0上线、登录、下载、上传初始化或上传，工坊Alpha2仍内部82。图文与BBCode仅入库。
 
 [结构化比较、完整ID别名与日志行序](../research/baiqi-p6-source105-reload165-and-exact-id-evidence-2026-11-09.json) · [原20回合逐城数据和5图](baiqi-continuous-window-105-145-165.md)
+
+
+后续：[MOVE等待源码审查](baiqi-move-reload-audit-105.md)已明确区分普通换回合与模块重新创建，未授未知移动恢复通过；下一步为被动原生事件观察。

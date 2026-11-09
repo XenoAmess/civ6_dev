@@ -1,0 +1,65 @@
+{
+  "schema": "civ6.source105-move583-audit/v1",
+  "machine_id": "BF-202609141645",
+  "model_activity": {
+    "new_logical_tasks": 1,
+    "new_HTTP_attempts": 1,
+    "new_OpenCode_native_generation": 0,
+    "finish_reason": "stop",
+    "JSON_valid": true,
+    "usage": {
+      "prompt_tokens": 23485,
+      "completion_tokens": 604,
+      "total_tokens": 24089
+    },
+    "duration_ms": 7481.845599948429,
+    "raw_adopted": false,
+    "review": {
+      "utc": "2026-11-09T13:31:06.332325+00:00",
+      "raw_adopted": false,
+      "raw_code_or_native_actions": 0,
+      "rejection": [
+        "Claim1 contradicts itself and source: ordinary turn reset clears SKIP_TURN only, not MOVE",
+        "Claim3 falsely treats native idle/no queued destination plus elapsed time as proof distinguishing failure from unknown; previous research explicitly does not qualify pre-dispatch delivery",
+        "Absence of observed log does not prove 164:253 cleared; no turn-reset clearance exists for MOVE",
+        "Different targets prove distinct requested steps, not a general no-duplicate/durability guarantee",
+        "Does not analyze requested BR013 ability-vs-movement scope distinction; invents L3690 ReadBack location instead of actual3499..3540"
+      ],
+      "owner_facts": [
+        "MOVE pending exists only in module-local table at18 and is assigned694",
+        "3599..3609ordinary turn changes retain MOVE; fresh module execution initializes local table",
+        "3530..3540clear may occur with same position/ready/no queued destination/idle afterelapsed interval; that is a current mechanism, not a native rejected-operation proof",
+        "Same request replay not demonstrated by distinct164:253 and165:3targets; no full unknown-movement recovery pass granted",
+        "Next bounded experiment: passive existing UnitOperationStarted/Deactivated event observer and actual builder state during natural next-turn action; no manual move or guessed event semantics"
+      ],
+      "usage": {
+        "prompt_tokens": 23485,
+        "completion_tokens": 604,
+        "total_tokens": 24089
+      },
+      "duration_ms": 7481.845599948429
+    },
+    "cached_tokens": null,
+    "cost": null
+  },
+  "cumulative583": {
+    "logical_tasks": 583,
+    "complete_stop_valid_outer_JSON": 544,
+    "length_discarded": 36,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 613,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "native": "No new game orders or event subscriptions for this audit; existing actual105/165reload facts only. Current product source unchanged.",
+  "new_passes_or_closed_FAILs": 0,
+  "Steam": {
+    "other_device_busy": true,
+    "online_login_download_uploader_init_upload": 0,
+    "workshop_version": 82
+  }
+}
