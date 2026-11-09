@@ -570,3 +570,6 @@
 
 
 105实机补证（2026-11-09）：[140正常续购与完成态重载](baiqi-missionary-normal-purchase-reload-105.md)窄通过；原版一次80faith新演员/新OBSERVED记录，旧记录保持，六组自有行／7food／followers／日志读回全同。引导调用unknown，不关闭旧已发令移民ARMED恢复FAIL或40项完整验收。
+
+
+105实机补证（2026-11-09）：[完成态重载后的141首都转教](baiqi-capital-religion-postreload-105.md)窄通过；3MOVE+1SPREAD/3→2/新OBSERVED，nativeMajority1与原版4城页交叉确认。不按6/12推多数、不量化自然压力贡献，141已存未load，其他缺口保持。

@@ -566,3 +566,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：105现有官方SDK离线单项补验
 
 [引用环境澄清与20辅助函数断言](testing/baiqi-official-sdk-offline-reference-check.md)。0新模型；完整1598原件1597pass1skip，实际因BAIQI_WORKSHOP_SDK_ASSEMBLY未设，不等于未安装。从游戏同级已装SDK取现有程序集、只传本次子进程引用，单项C#5以WorkshopOfflineTests为Main通过1方法20cases；BaiqiWorkshopPublisher.Main/SteamAPI.Init均0，无Steam联网下载或上传。程序集sha90daa82a...留摘要不入DLL，不改历史fullskip、不虚报新full1598，579累计不增，工坊82。
+
+
+## 2026-11-09：105完成态读档后首都转教141
+
+[实际宗教原图／逐城CSV](testing/baiqi-capital-religion-postreload-105.md)。0新HTTP。140重载后1normalEND/2armySKIP到141，新3670037三MOVE到首都+一SPREAD，3→2/newreligion:0:4OBSERVED；首都12pop佛教5→6、nativeMajority-1→1，原版宗教4城市含西安。不能按半数自行推规则，压力贡献不量化。observer140/128read1city11文职ops0cmd0错丢、CityCmd0仍挂；7food无饿/忠诚100正、广州5→6，save1411466428/41718fd7...未load。579累计及完整1598/SDK单补范围保持，Steam禁上线工坊82。
