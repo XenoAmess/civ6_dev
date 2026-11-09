@@ -34,3 +34,6 @@ Steam其他设备使用约束保持。本次沿用已离线启动的同一文明
 - [15次后台单位调用](source98-natural173-176-background-unit-calls.csv)
 
 [结构化证据与UI／Core原始读数](../research/baiqi-p6-source98-natural-found176-evidence-2026-11-09.json)、[98软件合同](baiqi-live-unissued-found-98.md)、[独立179主线](baiqi-source98-cold-followup-179.md)、[旧中断恢复FAIL](baiqi-settlement-lifecycle-recovery-82.md)。
+
+
+[本页与陇西新原图的固定提交公开访问核对](../research/baiqi-p6-source98-sixth-public-original-image-2026-11-09.json)：均HTTP200，字节／SHA与已推送pin完全一致。连同前轮五张，98共六张不同原始PNG已核对公开可取；这不代表Steam已更新或外链显示已验。
