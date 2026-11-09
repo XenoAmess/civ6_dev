@@ -471,3 +471,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：565正常祷告项目与100软件
 
 [实际定义／26回归／完整1503](testing/baiqi-prayer-project-production-100.md)。565 stop/DONE/JSON/1HTTP19492tokens/14.128484s；原稿helper及精确接线Lua51可编译，但26有19fail事件0error，漏帝国承诺／候选预算／未知请求保留，待命−1000丢失、原1分项目被额外守卫阻断，显式false／定义／重复校验不足，所谓atomicity拒绝；整稿0Native。owner91加权、前置候选、全帝国／最终Native重验及未知标记保持；26新pass，旧99同组20fail事件0error，原23首座回归在完整1503/1502pass/1SDK条件skip内，85Lua51/107包。首26唯一fixture错误为无圣地应走已有92而非工坊90；验证器else拼写先被Python拒绝0测试，修正后实跑。99原生186实际项目PROJECT_ENHANCE_DISTRICT_HOLY_SITE index12/hash30870116/PrereqHoly/成本100、双CanProduce及APPENDtrue，原队列灯塔；先知cost60/own41+1/CanRecruitfalse，奖励额未知，0手补点数／赞助。累计565/527stop/35length/3transport/595HTTP/30extra/OpenCode新0/null未知。100未安装实机，Steam0上线或上传，旧恢复FAIL/宗教整链/完整40open。
+
+
+## 2026-11-09：566正常空先知与100负例／伟人页FAIL
+
+[原图／公开过去记录／20诊断](testing/baiqi-empty-prophet-and-gp-ui-fail-100.md)。566 stop/DONE/JSON1HTTP8941tokens/11.434711s，raw静态又错冒号原20有9fail事件；仅点号控制仍11fail事件，漏元表／过去未领取过滤／负数／own一致性等，整拒0Native。owner20pass后100原生187KNOWN/NONE_AVAILABLE，自己-1/earned0/heldfalse/faith586.171875/points42+1；公开past117p4T54、112p3T95、122p1T186，不把三条历史凑成4槽全归属或猜赞助方式。旧555UNKNOWN不是供应事实。100冷186自有六组全等，1普通END8军队SKIP2Spain拒交易／Bye，18food18loyalty保持；observer269=254recruit2city13op0cmd/0错丢全撤，187正式save1770927/hashca92b85...0END187。祷告既有队列未空前供应关闭，未授项目奖励／招募；另实测GP页面Open/OnOpenViaLaunchBar/LateInitialize均nil，仅IsReadOnly，事件ACK后地图不变UI查看FAIL，根因为把wildcard扩展当主体加载，567另修。累计566/528stop/35length/3transport/596HTTP/30extra/OpenCode新0/null未知；0Steam模式／上线／上传。

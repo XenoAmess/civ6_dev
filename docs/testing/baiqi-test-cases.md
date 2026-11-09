@@ -522,3 +522,6 @@
 
 
 - [100圣地祷告者正常排产软件](baiqi-prayer-project-production-100.md)：26新回归／完整1503项1502pass1SDKskip，91加权保留原队列及未知承诺；100未实机，99当前41／+1不冒充项目奖励或招募成功，宗教整链／旧恢复FAIL／完整40保持。
+
+
+- [100冷187供应负例与伟人页FAIL](baiqi-empty-prophet-and-gp-ui-fail-100.md)：122已在186被他方领取，当前类无个体、own42/+1无先知；20只读诊断区分NONE_AVAILABLE与UNKNOWN。原查看入口ACK未打开、主体函数nil，UIFAIL待修；祷告奖励／招募／完整40未通过，187已保存。
