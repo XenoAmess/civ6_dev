@@ -546,3 +546,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：577独立实机事件时序补证
 
 [104最后一次传播实际事件](testing/baiqi-missionary-final-charge-events-104.md)。0新HTTP，577累计不重复。独立138正式load/Continue各1、M573逐行保持，1normalEND/2军队SKIP→139，Core/UI各4事件StartedSpread→Charges0/1→Removed→Deactivated；UI在Started1ch/followers4，Charges仍活0ch/followers5，移除后nil；Core各回调都已dead0ch/-9999。不拼跨ctx原子顺序，不解释尾0/1成功码，产品ARMED收尾仍FAIL。Core适配器cfg.IsHuman nil发生安装后print(scope)，读回0记录句柄后先精确撤再fallbackplayer重装，无双订阅；UI合法。两事件观察+Finance137/8文职ops/1spread+CityCmd0皆撤，另存1391463550/hash4083b6f...，0END139；不累计独立分支为主线第四次spread。105事件pair修复继续，Steam禁上线工坊82。
+
+
+## 2026-11-09：578最后一次传播事件pair软件105
+
+[105实现与1598完整检查](testing/baiqi-missionary-final-charge-105.md)。5781HTTP12600tokens/14.439776s stop/DONE/JSON，rawhelpersLua51compile却TestRelBridge夹具污染/GameEvents错family/CoreGetUnitType缺口/MAX未定义/城市0/负坐标正案拒/无fresh，UI补丁误改Core且return后语句，整拒0Native。相同11Core检查旧104与raw均1fail1缺Shutdownerror；owner11Core/私有control+2UI新方法及旧14通过，full1598=1577+577tool8+13，1597pass1SDKskip/86Lua51/108字节等。精确事件pair+同回合原ARMED1charge/token/原演员身份宗教编队/城市+重复journal，普通Read/Prepare/schema不变；缺事件旧ARMED不追认，缺namespace不初始化，UI只接同tokenCoreOBSERVED最后缺演员，partialAddfailclosed/精确Shutdown/control关订阅。未装未Native105，自有104残留条件清理只own19876，Steam0上线工坊82。累计578/539stop/36length/3transport/608HTTP/30extra/OpenCode0/null成本。

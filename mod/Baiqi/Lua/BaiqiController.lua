@@ -3407,7 +3407,10 @@ local function ReadBack(player)
       local stage,token=ReligiousBridge("Inspect",contextID,unitID)
       local religion,charges
       if unit and unit:GetOwner()==contextID then religion,charges=MissionaryData(unit) end
-      if stage=="OBSERVED" and token==pending.token and religion==pending.religion
+      if stage=="OBSERVED" and token==pending.token and pending.charges==1 and not unit then
+        Log("observed","id="..pending.id.."|unit="..unitID.."|kind=SPREAD_RELIGION|proof=core_final_charge_receipt")
+        pendingUnits[unitID]=nil
+      elseif stage=="OBSERVED" and token==pending.token and religion==pending.religion
         and charges and charges<pending.charges then
         Log("observed","id="..pending.id.."|unit="..unitID.."|kind=SPREAD_RELIGION|proof=core_and_ui_charge_decrease|charges="..charges)
         pendingUnits[unitID]=nil

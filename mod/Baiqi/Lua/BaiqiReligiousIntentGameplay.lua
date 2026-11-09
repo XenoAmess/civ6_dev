@@ -4,6 +4,12 @@ include("BaiqiReligiousJournal")
 local J,C=BaiqiReligiousJournal,BaiqiConfig
 local KEY=C.religiousIntentKey
 local MARKER="baiqi-religious-intent-v1"
+local MAX=2147483647
+local finalStopped=false
+local finalEventsReady=false
+local finalBridge
+local finalPairs={}
+local finalSubscriptions={}
 local function Owner(pid,active)
   if type(KEY)~="string" or #KEY==0 or #KEY>128
     or not J.Integer(pid,2147483647) or pid~=Game.GetLocalPlayer()
@@ -133,8 +139,81 @@ local function Prepare(pid,id,religion,charges,x,y,cityID)
   if not op or not Persist(player,pid,state) then return false,nil,"persist_unconfirmed" end
   return true,op.token,"persisted"
 end
+local function FinalHash()
+  local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SPREAD_RELIGION
+  if row and BaiqiPolicy.Number(row.Hash) and row.Hash%1==0 then return row.Hash end
+end
+local function FinalState(pid,id)
+  if finalStopped or not finalEventsReady or type(ExposedMembers)~="table"
+    or ExposedMembers.BaiqiReligiousIntentBridge~=finalBridge or not J.Integer(id,MAX) then return nil end
+  local player=Owner(pid,false)
+  if not player then return nil end
+  -- Unlike Load, event observation must never create a missing namespace.
+  local state=J.Clone(player:GetProperty(KEY),pid)
+  local op=state and state.operations[J.UnitKey(id)]
+  if not op or op.stage~="ARMED" or op.charges~=1 or op.turn~=Game.GetCurrentGameTurn() then return nil end
+  local city=player:GetCities():FindID(op.cityID)
+  if not city or city:GetID()~=op.cityID or city:GetOwner()~=pid
+    or city:GetX()~=op.cityX or city:GetY()~=op.cityY
+    or player:GetReligion():GetReligionTypeCreated()~=op.religion then return nil end
+  return player,state,op
+end
+local function SpentActor(player,pid,op)
+  local unit=player:GetUnits():FindID(op.unitID)
+  if not unit or unit:GetID()~=op.unitID or unit:GetOwner()~=pid then return nil end
+  local row=GameInfo.Units[unit:GetType()]
+  if not row or row.UnitType~="UNIT_MISSIONARY" then return nil end
+  local r=unit:GetReligion()
+  if not r or r:GetReligionType()~=op.religion or r:GetSpreadCharges()~=0
+    or unit:GetFormationUnitCount()~=1 then return nil end
+  local x,y,dead,moves=unit:GetX(),unit:GetY(),unit:IsDelayedDeath(),unit:GetMovesRemaining()
+  -- This is receipt evidence only, and only after the exact native event pair.
+  -- Prepare and ordinary unit snapshots still reject deleted coordinates.
+  if not ((dead==true and x==-9999 and y==-9999)
+    or (dead==false and x==op.x and y==op.y))
+    or not BaiqiPolicy.Number(moves) or moves<0 then return nil end
+  return {x=x,y=y,dead=dead,moves=moves}
+end
+local function FinalStarted(pid,id,hash)
+  if pid~=Game.GetLocalPlayer() or not J.Integer(id,MAX) then return end
+  finalPairs[id]=nil
+  if hash==nil or hash~=FinalHash() then return end
+  local player,state,op=FinalState(pid,id)
+  if not player or not SpentActor(player,pid,op) then return end
+  local count=0;for _ in pairs(finalPairs)do count=count+1 end
+  if count>=256 then return end
+  finalPairs[id]={owner=pid,hash=hash,state=state}
+end
+local function FinalCharges(pid,id,newCharges,oldCharges)
+  if pid~=Game.GetLocalPlayer() or not J.Integer(id,MAX) then return end
+  local proof=finalPairs[id];finalPairs[id]=nil
+  if not proof or proof.owner~=pid or newCharges~=0 or oldCharges~=1
+    or proof.hash~=FinalHash() then return end
+  local player,state,op=FinalState(pid,id)
+  if not player or not J.Equal(state,proof.state,pid) then return end
+  local first=SpentActor(player,pid,op)
+  if not first then return end
+  local current,again,actual=FinalState(pid,id)
+  if current~=player or not J.Equal(state,again,pid) then return end
+  local second=SpentActor(current,pid,actual)
+  if not second then return end
+  for k,v in pairs(first)do if second[k]~=v then return end end
+  if not J.Equal(state,player:GetProperty(KEY),pid) then return end
+  local last=SpentActor(player,pid,actual)
+  if not last then return end
+  for k,v in pairs(second)do if last[k]~=v then return end end
+  current,again=FinalState(pid,id)
+  if current~=player or not J.Equal(state,again,pid) or proof.hash~=FinalHash() then return end
+  local nextState=J.Clone(state,pid)
+  nextState.operations[J.UnitKey(id)].stage="OBSERVED"
+  Persist(player,pid,nextState)
+end
+local function FinalDiscard(pid,id)
+  if pid==Game.GetLocalPlayer() and J.Integer(id,MAX) then finalPairs[id]=nil end
+end
 local function Protected(fn,failure)
   return function(...)
+    if finalStopped then return failure,nil,"shutdown" end
     local ok,a,b,c=pcall(fn,...)
     if ok then return a,b,c end
     print("BAIQI|religious_intent_unavailable|"..tostring(a))
@@ -142,7 +221,44 @@ local function Protected(fn,failure)
   end
 end
 local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,"UNAVAILABLE"),Prepare=Protected(Prepare,false)}
+finalBridge=bridge
 BaiqiReligiousIntentGameplay={}
+local function RemoveFinalSubscriptions()
+  local all=true
+  for _,entry in ipairs(finalSubscriptions)do
+    if entry.attempted and not entry.removed then
+      local ok,result=pcall(entry.remove,entry.callback)
+      if ok and result~=false then entry.removed=true else all=false end
+    end
+  end
+  return all
+end
+function BaiqiReligiousIntentGameplay.Shutdown()
+  finalStopped=true;finalEventsReady=false;finalPairs={}
+  return RemoveFinalSubscriptions()
+end
+local function InstallFinalSubscriptions()
+  if type(Events)~="table" then return false end
+  local entries={}
+  for _,item in ipairs({{"UnitOperationStarted",FinalStarted},{"UnitChargesChanged",FinalCharges},
+    {"UnitOperationDeactivated",FinalDiscard},{"UnitRemovedFromMap",FinalDiscard}})do
+    local event=Events[item[1]]
+    if not event or type(event.Add)~="function" or type(event.Remove)~="function" then return false end
+    entries[#entries+1]={add=event.Add,remove=event.Remove,callback=Protected(item[2],false)}
+  end
+  finalSubscriptions=entries
+  for _,entry in ipairs(entries)do
+    entry.attempted=true
+    local ok,result=pcall(entry.add,entry.callback)
+    if not ok or result==false then
+      finalPairs={}
+      RemoveFinalSubscriptions()
+      return false
+    end
+  end
+  finalEventsReady=true
+  return true
+end
 -- Freeze legacy actors before a permitted new purchase can appear. Existing
 -- ARMED/LEGACY_UNKNOWN entries remain unchanged; this never issues a command.
 local Initialize=Protected(function(pid)
@@ -164,6 +280,9 @@ if type(ExposedMembers)=="table" and (ExposedMembers.BaiqiReligiousIntentBridge=
     and ExposedMembers.BaiqiReligiousIntentBridge.marker==MARKER
     and ExposedMembers.BaiqiReligiousIntentBridge.version==1)) then
   ExposedMembers.BaiqiReligiousIntentBridge=bridge
+  if not InstallFinalSubscriptions() then
+    print("BAIQI|religious_final_receipt_unavailable|events=true")
+  end
   if GameEvents and GameEvents.OnGameTurnStarted then GameEvents.OnGameTurnStarted.Add(Protected(Bootstrap,false)) end
   if GameEvents and GameEvents.BaiqiRequisitionRecover then GameEvents.BaiqiRequisitionRecover.Add(Protected(Bootstrap,false)) end
   Protected(Bootstrap,false)()
