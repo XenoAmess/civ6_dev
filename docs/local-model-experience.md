@@ -481,3 +481,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：567与101伟人页面主体加载
 
 [软件证据](testing/baiqi-great-people-view-101.md)。567完整stop/DONE/JSON1HTTP20733tokens/10.000089s，函数patch原样采用，owner修文件头；raw8tests7errors（include参数、dict属性、未定义只读），测试整拒。owner8用真实loader/wrapper/guard和原版wildcard合同通过，旧100同8有12error-events含子场景；全1531/1530pass/1SDKskip、85Lua51/107文件，101尚未冷实机。100187负例保存0END187、当前先知空未创教，不能授祷告奖励／招募。累计567/529stop/35length/3transport/597HTTP/30extra，新OpenCode0/null未知；Steam禁上线上传，Alpha2仍82。
+
+
+## 2026-11-09：568早期99诊断与101伟人页显示反例
+
+[原图与证据](testing/baiqi-great-people-native-partial-101.md)。101冷187原打开/关闭各1且IsReadOnlytrue，主体恢复窄通过；图中X/Y及小视口底部截断仍FAIL，Game.GetPlayers四筛选均0、PlayerManager.GetAliveMajors6含own，根因未知，569另修不授全页。187save1769701/hashf0f72ba...0END187；正式读真实87NoBarb99保存1244764/hash1106c85...，原Continue一次后5城9单位/faith100.41015625/points0+0/unclaimed122，5food非负无饥饿，未授祷告招募。568stop/DONE/JSON1HTTP4955tokens/5.176399s，首边界patch采用，冗余>=0拒；raw6pass超要求3，owner合3并已知基线再验future，旧150同3有3fail-events，新23pass，旧149负夹具改98。私有allfood154下界先在0Native前拒，扩99后才真实读。累计到568/530stop/35length/3transport/598HTTP/30extra，569另账，新OpenCode0/null未知；0Steam模式上线上传。

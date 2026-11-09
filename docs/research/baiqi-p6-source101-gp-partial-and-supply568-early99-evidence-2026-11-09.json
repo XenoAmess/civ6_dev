@@ -1,0 +1,384 @@
+{
+  "schema": "civ6.source101-gp-view-partial-and-supply568-genuine99/v1",
+  "utc": "2026-11-09T03:42:58.888258+00:00",
+  "machine_id": "BF-202609141645",
+  "runtime_version": 101,
+  "model568": {
+    "started_at_utc": "2026-11-09T03:30:47.645675+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "usage": {
+      "prompt_tokens": 4173,
+      "completion_tokens": 782,
+      "total_tokens": 4955
+    },
+    "seconds": 5.176398899988271,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "adoption": "FIRST_BOUND_GUARD_PATCH_ADOPTED; REDUNDANT_NUMERIC_PATCH_REJECTED; RAW6PASS_OWNER3_CONSOLIDATED",
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical same-machine/user successful cache installed/latest1.19.5 updatedfalse",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative568": {
+    "logical_tasks": 568,
+    "complete_stop_valid_outer_JSON": 530,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 598,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "following569": "Separate complete candidate, still under independent source/test review; not adopted or counted in cumulative568.",
+  "review568": {
+    "utc": "2026-11-09T03:37:55.306948+00:00",
+    "adoption": "First guard patch adopted. Redundant >=0 patch rejected; integer already enforces it. Raw6 tests pass but exceed requested3; owner3 consolidates boundaries and validates known-before-future to avoid old-scope false positive. Legacy149negative updated98.",
+    "raw6_exit_code": 0,
+    "results": {
+      "old150": {
+        "run": 3,
+        "failures": [
+          "test_diagnostic_prophet_supply_early.EarlyProphetSupplyTests.test_past_records_cannot_claim_a_future_or_negative_turn (turn=99)",
+          "test_diagnostic_prophet_supply_early.EarlyProphetSupplyTests.test_supported_early_and_original_boundaries (turn=99)",
+          "test_diagnostic_prophet_supply_early.EarlyProphetSupplyTests.test_supported_early_and_original_boundaries (turn=149)"
+        ],
+        "errors": [],
+        "exit_code": 1
+      },
+      "owner23": {
+        "run": 23,
+        "failures": [],
+        "errors": [],
+        "exit_code": 0
+      }
+    },
+    "Native": 0,
+    "Steam_actions": 0
+  },
+  "Native101_187": {
+    "launch": {
+      "utc": "2026-11-09T03:27:55.257124+00:00",
+      "source_commit": "f4c8e6464be65a3d11d843a5c99e8d3aba34ead3",
+      "version": 101,
+      "files": 107,
+      "installed_all_match_source": true,
+      "offline_proof": "workshop-page2-point-mode-20261109T032755247968Z.json",
+      "proof_age_seconds": 0.003397,
+      "steam_pid": 14904,
+      "steam_birth": 1794062890.679772,
+      "cpu_affinity": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "online_switches": 0,
+      "pid": 3512,
+      "created_at": 1794194875.253384
+    },
+    "original_open_event": 1,
+    "original_close_event": 1,
+    "before": [
+      [
+        "P6_SOURCE101_GP187_BINDINGS",
+        "true",
+        "function",
+        "function",
+        "function",
+        "function",
+        "false"
+      ],
+      [
+        "P6_SOURCE101_GP187_READONLY",
+        "true",
+        "0"
+      ],
+      [
+        "P6_SOURCE101_GP187_OWN",
+        "-1",
+        "false",
+        "42"
+      ]
+    ],
+    "after_open": [
+      [
+        "P6_SOURCE101_GP187_BINDINGS",
+        "false",
+        "function",
+        "function",
+        "function",
+        "function",
+        "true"
+      ],
+      [
+        "P6_SOURCE101_GP187_READONLY",
+        "true",
+        "0"
+      ],
+      [
+        "P6_SOURCE101_GP187_OWN",
+        "-1",
+        "false",
+        "42"
+      ]
+    ],
+    "after_close": [
+      [
+        "P6_SOURCE101_GP187_BINDINGS",
+        "true",
+        "function",
+        "function",
+        "function",
+        "function",
+        "false"
+      ],
+      [
+        "P6_SOURCE101_GP187_READONLY",
+        "true",
+        "0"
+      ],
+      [
+        "P6_SOURCE101_GP187_OWN",
+        "-1",
+        "false",
+        "42"
+      ]
+    ],
+    "narrow_open_close_and_readonly": true,
+    "full_view_PASS": false,
+    "reason": "Actual original screenshot retains X/Y placeholders in progress; original native Game.GetPlayers returns empty for all4sampled filters while PlayerManager.GetAliveMajors returns6 includingown. Root cause of enumeration mismatch unknown.",
+    "public_player_list_key_counts": [
+      [
+        "P6_GP569_LIST_COUNT",
+        "major",
+        "0",
+        "0"
+      ],
+      [
+        "P6_GP569_LIST_COUNT",
+        "none",
+        "0",
+        "0"
+      ],
+      [
+        "P6_GP569_LIST_COUNT",
+        "both",
+        "0",
+        "0"
+      ],
+      [
+        "P6_GP569_LIST_COUNT",
+        "alive",
+        "0",
+        "0"
+      ],
+      [
+        "P6_GP569_MANAGER_TYPE",
+        "function"
+      ],
+      [
+        "P6_GP569_ALIVE_MAJORS",
+        "6",
+        "true"
+      ],
+      [
+        "P6_GP569_READONLY_DONE"
+      ]
+    ],
+    "own_supply": [
+      [
+        "P6_SOURCE101_SUPPLY",
+        "KNOWN",
+        "nil",
+        "187"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_OWN",
+        "-1",
+        "0",
+        "false",
+        "586.171875",
+        "42",
+        "1"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_CURRENT",
+        "NONE_AVAILABLE",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_PAST",
+        "117",
+        "4",
+        "54"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_PAST",
+        "112",
+        "3",
+        "95"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_PAST",
+        "122",
+        "1",
+        "186"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_DONE",
+        "READONLY"
+      ]
+    ],
+    "END187": 0,
+    "domestic_input_or_purchase": 0,
+    "saved187_bytes": 1769701,
+    "saved187_sha256": "f0f72ba95122eca73213eb5785e16ea3bd1135c08801b104e5a83f250c0811e5",
+    "private_save_committed": false
+  },
+  "image": {
+    "path": "docs/testing/images/source101-gp187/open-with-progress-placeholder.png",
+    "original_unedited": true,
+    "sha256": "a88f575c5b7f220b686bc7e46b2fbaa02e9f3024fdf6134bf6c7a509dc72c757",
+    "limits": "Actual1024x728 original image; bottom content clipped at this viewport and progress placeholders visible. Does not prove complete layout or numeric progress."
+  },
+  "Native101_early99": {
+    "separate_branch": true,
+    "genuine87_save_bytes": 1244764,
+    "genuine87_save_sha256": "1106c85dc6bfe086615d24a17c611853b2d90331181fbf5f6d5df14903866543",
+    "official_load_ACK_true": true,
+    "visible_Continue_once": true,
+    "supply_rows": [
+      [
+        "P6_SOURCE101_SUPPLY",
+        "KNOWN",
+        "nil",
+        "99"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_OWN",
+        "-1",
+        "0",
+        "false",
+        "100.41015625",
+        "0",
+        "0"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_CURRENT",
+        "UNCLAIMED",
+        "122",
+        "nil"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_PAST",
+        "117",
+        "4",
+        "54"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_PAST",
+        "112",
+        "3",
+        "95"
+      ],
+      [
+        "P6_SOURCE101_SUPPLY_DONE",
+        "READONLY"
+      ]
+    ],
+    "food_rows": [
+      [
+        "99",
+        "65536",
+        "11",
+        "7.84765625",
+        "63",
+        "6",
+        "15",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "99",
+        "131073",
+        "7",
+        "12.546875",
+        "38",
+        "15",
+        "8",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "99",
+        "196610",
+        "4",
+        "14.890625",
+        "22",
+        "3",
+        "5",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "99",
+        "262147",
+        "4",
+        "3.41796875",
+        "22",
+        "2",
+        "9",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "99",
+        "327684",
+        "1",
+        "0",
+        "7",
+        "0",
+        "-1",
+        "-1",
+        "false",
+        "false"
+      ]
+    ],
+    "early_first_read_cities": 5,
+    "early_first_read_units": 9,
+    "early_first_read_gold": 865.46484375,
+    "own_faith": 100.41015625,
+    "own_points": 0,
+    "own_points_rate": 0,
+    "current_prophet": 122,
+    "current_prophet_unclaimed": true,
+    "prayer_or_recruitment_or_founding_PASS": false,
+    "point_faith_unit_grants": 0,
+    "first_allfood_wrapper_rejected_before_Native": "Old owner154lowerbound; changed ignored own99scope, then realread5nonnegative/no-starve. Not a product failure or action replay."
+  },
+  "validation_scope": "Tools-only23methods pass. Prior101full1531 not rerun/relabelled; no new product changes in this package.569 UI data fix separate.",
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "offline_proof_independent_background": true,
+    "formal_header_only_navigation_separate": 1,
+    "public_Alpha2_internal": 82
+  }
+}

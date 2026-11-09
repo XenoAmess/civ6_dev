@@ -132,7 +132,7 @@ class ProphetSupplyTests(unittest.TestCase):
 
     def test_exceptions_and_wrong_local_context_remain_unknown(self):
         for key,value in (('throwCurrent',True),('throwPast',True),('throwPoints',True),
-                          ('player',1),('nonhuman',True),('turn',149),('turn',251)):
+                          ('player',1),('nonhuman',True),('turn',98),('turn',251)):
             with self.subTest(key=key):
                 self.setUp();self.w[key]=value;self.read('UNKNOWN')
 
