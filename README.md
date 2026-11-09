@@ -1,5 +1,7 @@
 # civ6_dev
 
+[105冷实机最后一次收尾／两原图](docs/testing/baiqi-missionary-final-charge-native-105.md)：同138前置普通139仅一次SPREAD，宗教记录自动OBSERVED、UI唯一core_final_charge_receipt确认，余额383.425与104失败六组自有样本保持。收尾窄过，完成139已存未重载，正常新购买／旧移民FAIL／完整40继续，观察器仍挂。Steam禁上线工坊82。以下历史切点。
+
 [105最后一次传播回执修复／软件](docs/testing/baiqi-missionary-final-charge-105.md)：基于104真实Core/UI事件，精确SPREAD开始+次数1→0配对并复核原记录／演员，缺事件旧ARMED保持未知；UI缺失演员只接匹配Core完成态。新增13项、完整1598项1597pass1SDKskip，86Lua51／108包，尚未安装实机。104139FAIL及138前置已保留，Steam禁上线工坊82。以下历史切点。
 
 [104实机国内传播／三原图／139新FAIL](docs/testing/baiqi-domestic-spread-and-final-charge-104.md)：137、138实际传播3→2→1及两OBSERVED，139最后一次发令后删除对象0次数／-9999坐标但ARMED。已停END139保存、两观察器撤除，收尾修复继续；首都佛教1→3→4→5仍非多数，压力贡献不冒领。28food／28忠诚保持，Steam禁上线，工坊82。以下历史切点。

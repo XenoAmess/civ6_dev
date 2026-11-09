@@ -551,3 +551,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：578最后一次传播事件pair软件105
 
 [105实现与1598完整检查](testing/baiqi-missionary-final-charge-105.md)。5781HTTP12600tokens/14.439776s stop/DONE/JSON，rawhelpersLua51compile却TestRelBridge夹具污染/GameEvents错family/CoreGetUnitType缺口/MAX未定义/城市0/负坐标正案拒/无fresh，UI补丁误改Core且return后语句，整拒0Native。相同11Core检查旧104与raw均1fail1缺Shutdownerror；owner11Core/私有control+2UI新方法及旧14通过，full1598=1577+577tool8+13，1597pass1SDKskip/86Lua51/108字节等。精确事件pair+同回合原ARMED1charge/token/原演员身份宗教编队/城市+重复journal，普通Read/Prepare/schema不变；缺事件旧ARMED不追认，缺namespace不初始化，UI只接同tokenCoreOBSERVED最后缺演员，partialAddfailclosed/精确Shutdown/control关订阅。未装未Native105，自有104残留条件清理只own19876，Steam0上线工坊82。累计578/539stop/36length/3transport/608HTTP/30extra/OpenCode0/null成本。
+
+
+## 2026-11-09：105冷实机139最后一次回执与UI完成
+
+[两原图与Native核对](testing/baiqi-missionary-final-charge-native-105.md)。0新HTTP，578累计不增。108files等于8fd38e7，Steam14904fresh后台offline age0.045483后spawn12000；同138检查点LoadACK/Continue1，7food与M573全同，1normalEND/2armySKIP→139仅1SPREAD，原religion:0:3OBSERVED、Lua.log唯一core_final_charge_receipt，0购买CityCmd/0QA桥调用/文职输入。与104失败139六自有组逐行同，Buddhist5/12仍非多数；Core raw1删除对象非活unit，UIlive0。139保存1463574/a435149b...未load，observer137/8文职ops0错丢仍挂。图中宗教公民6是总宗教非Buddhist6，Changsha悬浮非目标。Steam0上线或上传工坊82，正常新采购/完成态读档/旧FAIL/full40继续。
