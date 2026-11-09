@@ -567,3 +567,6 @@
 
 
 105实机补证（2026-11-09）：[139最后一次收尾](baiqi-missionary-final-charge-native-105.md)窄通过；同138前置、1次后台传播→同token OBSERVED，原生日志确认UI等待解除。完成态139已保存未重载，正常105新购买与完整宗教验收继续，旧ARMED无新事件不追认，旧移民FAIL不关闭。
+
+
+105实机补证（2026-11-09）：[140正常续购与完成态重载](baiqi-missionary-normal-purchase-reload-105.md)窄通过；原版一次80faith新演员/新OBSERVED记录，旧记录保持，六组自有行／7food／followers／日志读回全同。引导调用unknown，不关闭旧已发令移民ARMED恢复FAIL或40项完整验收。

@@ -556,3 +556,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：105冷实机139最后一次回执与UI完成
 
 [两原图与Native核对](testing/baiqi-missionary-final-charge-native-105.md)。0新HTTP，578累计不增。108files等于8fd38e7，Steam14904fresh后台offline age0.045483后spawn12000；同138检查点LoadACK/Continue1，7food与M573全同，1normalEND/2armySKIP→139仅1SPREAD，原religion:0:3OBSERVED、Lua.log唯一core_final_charge_receipt，0购买CityCmd/0QA桥调用/文职输入。与104失败139六自有组逐行同，Buddhist5/12仍非多数；Core raw1删除对象非活unit，UIlive0。139保存1463574/a435149b...未load，observer137/8文职ops0错丢仍挂。图中宗教公民6是总宗教非Buddhist6，Changsha悬浮非目标。Steam0上线或上传工坊82，正常新采购/完成态读档/旧FAIL/full40继续。
+
+
+## 2026-11-09：579正常续购105与完成态140重载
+
+[两原图与完整逐项核对](testing/baiqi-missionary-normal-purchase-reload-105.md)。105140一次BACKGROUNDfaith购买，394.4296875−80=314.4296875，新3670037@54,37/r1/ch3/mv0，新purchase:0:2OBSERVED，旧136/70purchase:0:1及最后religion:0:3保持；不拿139跨回合净额当价格、不猜涨价公式。140save1464129/2a36d685...正式LoadACK/Continue1后world/7queue/24building/20district/103plot/23unit、7food/followers和所有已完成journal逐行同，bootstrap调用unknown、所测无额外扣费单位奖励。2normalEND/4armySKIP，observer270/12文职ops0错丢、CityCmd1/0错丢已全撤。5791HTTP1069tokens/1.015649s stop/DONE/JSON，只有当前事实小文案，partial数值表述方向、owner改重play/模糊新事件/删无关未验证总结；0代码或Native采用，重载后来由owner独验。累计579/540stop/36length/3transport/609HTTP/30extra/OpenCode0/null成本；full1598保持，Steam0上线工坊82。
