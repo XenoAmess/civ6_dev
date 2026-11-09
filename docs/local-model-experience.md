@@ -581,3 +581,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：105连续20回合与无宗教需求负例
 
 [145—165原图／157城市行／完整输入分账](testing/baiqi-continuous-window-105-145-165.md)。同一105正常20turn、24ordinaryEND/36armySKIP/0人工内政UserForced，18建筑5普通区域7原可见自有NONE→improved逐格匹配BUILD，7→8城，本TC037场景通过而非全40。160自有8多数、宗教页总9含外城；1610传教士/购买4笔不增/CityCmd仍2/faith增长。160finance3788无错丢、外层2979先撤，161CityCmd撤，165全nil。582真实诊断1HTTP stopJSON4494tokens10.320730秒，原损坏diff拒绝，owner私有只读白名单与3次上限；69实际首试，重试分支未覆盖，不冒报软件或Native完整通过。累计582/543完整/36length/3transport/612HTTP/30extra/0OpenCode生成，未知成本null。165save1613032/558acebe...未load，旧恢复FAIL与其余风险继续，Steam禁上线82未变。
+
+
+## 2026-11-09：105完成态165读档与原生FindID槽位复用
+
+[实际重载对照与原图](testing/baiqi-completed-reload-165-105.md)，0新HTTP、582累计不增。FindID(旧3145745)在UI/Core返回新4653073骑士，旧4259861返回新4456469建造者；必须核对完整GetID，不能以非nil当旧演员存活。原165新商路先实际OBSERVED再SaveACK，旧帧与加载前单位位置/预计回合不同，先停加载再逐项对账，不回填或覆盖存档。正式load一次/Continue一次/0END165，五组1/8/45/28/124全同，30单位身份类型相同而builder4456469移动2→0/次数4不变，7原生routes、8food及已打印账本字段全同。保留旧164:253未见完成与新165:3不同目标，未知MOVE恢复仍审，不授完整持久化或旧ARMEDFAIL解除。完整日志已忽略归档，Steam禁上线82未更。

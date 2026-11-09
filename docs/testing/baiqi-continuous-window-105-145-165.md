@@ -38,3 +38,6 @@
 160已保存1580930字节，SHA-256 `8177f36338bc5ea70f9f814ece36e847b1f377d8bed68633d5af9cf3afa8f0e0`；165已保存1613032字节，SHA-256 `558acebef0362c1a4e0c665ce9b39a935e1cb6b7cda67194894d5b1ae21d5a94`。两份尚未重载。旧已发令移民ARMED恢复仍FAIL，宜居度不足、小视口裁切／残留提示、兼容规则集、特殊文职及性能矩阵继续。当前Steam他机占用，0上线／登录／下载／上传初始化或上传，工坊与发布附件仍内部82；本证据和BBCode仅入库。
 
 [逐城队列／成本／食粮／忠诚CSV](baiqi-source105-window145-165-cities.csv) · [逐回合经济](baiqi-source105-window145-165-world.csv) · [逐回合单位](baiqi-source105-window145-165-units.csv) · [完成清单](baiqi-source105-window145-165-completions.csv) · [结构化证据](../research/baiqi-p6-source105-window145-165-and-no-demand-evidence-2026-11-09.json)
+
+
+后续读档更新：[165原文件已正式重载一次](baiqi-completed-reload-165-105.md)。完成态新城／账本和商路保持；1建造者移动，未知MOVE审查继续。上文“尚未重载”是本报告原提交切点，160文件仍未加载。
