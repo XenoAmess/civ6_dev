@@ -1,5 +1,7 @@
 # civ6_dev
 
+[SDK离线单项补验](docs/testing/baiqi-official-sdk-offline-reference-check.md)：完整1598原运行1597通过1引用环境跳过；现有SDK单项另跑1方法／20辅助函数断言通过，0上传器Main／SteamAPI.Init，未重跑全套。以下开发进度。
+
 [105正常续购／140正式重载／两原图](docs/testing/baiqi-missionary-normal-purchase-reload-105.md)：仅1次新购买80信仰，394.4297→314.4297，新3670037／3次／0行动／OBSERVED，旧70记录保持。完成140正式存读后六组自有行、7food／followers及原日志全同，无额外所测单位／扣款。续购与完成态读档窄过，全部观察器已撤，新传播／旧移民FAIL／40项继续，Steam禁上线工坊82。以下历史切点。
 
 [105冷实机最后一次收尾／两原图](docs/testing/baiqi-missionary-final-charge-native-105.md)：同138前置普通139仅一次SPREAD，宗教记录自动OBSERVED、UI唯一core_final_charge_receipt确认，余额383.425与104失败六组自有样本保持。收尾窄过，完成139已存未重载，正常新购买／旧移民FAIL／完整40继续，观察器仍挂。Steam禁上线工坊82。以下历史切点。

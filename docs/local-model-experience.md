@@ -561,3 +561,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：579正常续购105与完成态140重载
 
 [两原图与完整逐项核对](testing/baiqi-missionary-normal-purchase-reload-105.md)。105140一次BACKGROUNDfaith购买，394.4296875−80=314.4296875，新3670037@54,37/r1/ch3/mv0，新purchase:0:2OBSERVED，旧136/70purchase:0:1及最后religion:0:3保持；不拿139跨回合净额当价格、不猜涨价公式。140save1464129/2a36d685...正式LoadACK/Continue1后world/7queue/24building/20district/103plot/23unit、7food/followers和所有已完成journal逐行同，bootstrap调用unknown、所测无额外扣费单位奖励。2normalEND/4armySKIP，observer270/12文职ops0错丢、CityCmd1/0错丢已全撤。5791HTTP1069tokens/1.015649s stop/DONE/JSON，只有当前事实小文案，partial数值表述方向、owner改重play/模糊新事件/删无关未验证总结；0代码或Native采用，重载后来由owner独验。累计579/540stop/36length/3transport/609HTTP/30extra/OpenCode0/null成本；full1598保持，Steam0上线工坊82。
+
+
+## 2026-11-09：105现有官方SDK离线单项补验
+
+[引用环境澄清与20辅助函数断言](testing/baiqi-official-sdk-offline-reference-check.md)。0新模型；完整1598原件1597pass1skip，实际因BAIQI_WORKSHOP_SDK_ASSEMBLY未设，不等于未安装。从游戏同级已装SDK取现有程序集、只传本次子进程引用，单项C#5以WorkshopOfflineTests为Main通过1方法20cases；BaiqiWorkshopPublisher.Main/SteamAPI.Init均0，无Steam联网下载或上传。程序集sha90daa82a...留摘要不入DLL，不改历史fullskip、不虚报新full1598，579累计不增，工坊82。
