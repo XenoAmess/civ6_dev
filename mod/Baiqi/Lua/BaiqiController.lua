@@ -3197,6 +3197,11 @@ local function ProcessCity(ctx, player, state, city)
   end
   if not QueueReady(city,q,completedHead) or pendingCities[cityID] then return false end
   cityEvaluated[cityID]=turn
+  local amenitiesOK,amenities,amenitiesNeeded=pcall(function()
+    local growth=city:GetGrowth()
+    return growth:GetAmenities(),growth:GetAmenitiesNeeded()
+  end)
+  if not amenitiesOK then amenities,amenitiesNeeded=nil,nil end
   local candidates, checked = {}, 0
   local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject)
     if checked >= C.candidatesPerCity then return end
@@ -3223,7 +3228,9 @@ local function ProcessCity(ctx, player, state, city)
     local repair=city:GetBuildings():IsPillaged(row.Index)
     if not row.IsWonder and (not row.RequiresPlacement or repair) and (not row.MustPurchase or repair)
       and ((row.Maintenance or 0)==0 or netGold-economy.committedMaintenance-(row.Maintenance or 0)>=C.netGoldMin or repair) then
-      Add("building",row,buildingPriority[row.BuildingType] or 40,repair)
+      local priority=BaiqiPlanner.AmenityProductionScore(buildingPriority[row.BuildingType] or 40,
+        row.Entertainment,amenities,amenitiesNeeded)
+      Add("building",row,priority,repair)
     end
   end
   local firstHolySite=FirstHolySiteWanted(ctx,player)
@@ -3232,10 +3239,14 @@ local function ProcessCity(ctx, player, state, city)
   table.sort(plots)
   for row in GameInfo.Districts() do
     if row.DistrictType~="DISTRICT_CITY_CENTER" and q:CanProduce(row.Hash,true) then
-      if q:HasBeenPlaced(row.Hash) then Add("district",row,districtPriority[row.DistrictType] or 35,true)
+      if q:HasBeenPlaced(row.Hash) then
+        local priority=BaiqiPlanner.AmenityProductionScore(districtPriority[row.DistrictType] or 35,
+          row.Entertainment,amenities,amenitiesNeeded)
+        Add("district",row,priority,true)
       else
         local boosted=firstHolySite and row.DistrictType=="DISTRICT_HOLY_SITE"
         local priority=boosted and 92 or (districtPriority[row.DistrictType] or 35)
+        priority=BaiqiPlanner.AmenityProductionScore(priority,row.Entertainment,amenities,amenitiesNeeded)
         for _, index in ipairs(plots) do
           local plot=Map.GetPlotByIndex(index)
           if plot and plot:GetOwner()==ctx.player and ClearPlot(plot,state,player)

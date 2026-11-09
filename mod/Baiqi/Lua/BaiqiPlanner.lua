@@ -3,6 +3,15 @@ BaiqiPlanner = {}
 
 local function number(n) return BaiqiPolicy.Number(n) end
 
+-- A ranking hint only. Native legality, costs and the existing queue stay with
+-- the city writer; unknown growth data leaves ordinary priorities unchanged.
+function BaiqiPlanner.AmenityProductionScore(base, entertainment, amenities, needed)
+  if not number(base) or not number(entertainment) or entertainment<=0
+    or not number(amenities) or not number(needed) or needed<0
+    or needed-amenities<2 then return base end
+  return math.max(base,94)
+end
+
 function BaiqiPlanner.Choose(city, candidates)
   if type(city) ~= "table" or city.paused ~= false or city.queueEmpty ~= true then return nil end
   local best, bestScore

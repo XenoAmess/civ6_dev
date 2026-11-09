@@ -1,0 +1,754 @@
+{
+  "schema": "civ6.baiqi-amenity-production106-software/v1",
+  "utc": "2026-11-09T15:15:43.040546+00:00",
+  "machine_id": "BF-202609141645",
+  "product_version": 106,
+  "runtime_version": 105,
+  "product_native106": "NOT_INSTALLED_OR_RUN",
+  "change": {
+    "score": "Known needed-minus-amenities>=2 and finite rowEntertainment>0: max(base,94); otherwise base",
+    "growth_reads": "Only after existing empty/finished queue and pending gates, once bounded pcall per evaluatedcity, 2growthscalar reads",
+    "existing_queue_preemption": false,
+    "new_native_write_ports": 0,
+    "new_manual_control": false,
+    "gates": "Existing two CanProduce modes, native request eligibility, maintenance budget, plot protection and write-boundary checks retained"
+  },
+  "native105_only": {
+    "turn": 166,
+    "city_columns": [
+      "id",
+      "population",
+      "amenities",
+      "needed",
+      "queue_size",
+      "current_hash"
+    ],
+    "cities": [
+      [
+        "65536",
+        "14",
+        "4",
+        "7",
+        "1",
+        "299201842"
+      ],
+      [
+        "131073",
+        "12",
+        "3",
+        "6",
+        "1",
+        "101426179"
+      ],
+      [
+        "196610",
+        "10",
+        "3",
+        "5",
+        "1",
+        "-1098114629"
+      ],
+      [
+        "262147",
+        "11",
+        "3",
+        "6",
+        "1",
+        "1714821680"
+      ],
+      [
+        "327684",
+        "2",
+        "0",
+        "1",
+        "1",
+        "59156901"
+      ],
+      [
+        "393221",
+        "7",
+        "2",
+        "4",
+        "1",
+        "-46510675"
+      ],
+      [
+        "458758",
+        "4",
+        "0",
+        "2",
+        "1",
+        "-1188273497"
+      ],
+      [
+        "524295",
+        "3",
+        "0",
+        "2",
+        "1",
+        "-2025065568"
+      ]
+    ],
+    "data_columns": [
+      "kind",
+      "type",
+      "index",
+      "hash",
+      "Entertainment",
+      "RegionalRange",
+      "PrereqDistrict",
+      "Maintenance"
+    ],
+    "data": [
+      [
+        "Buildings",
+        "BUILDING_ARENA",
+        "8",
+        "1397419701",
+        "2",
+        "0",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "1"
+      ],
+      [
+        "Buildings",
+        "BUILDING_ZOO",
+        "30",
+        "-879749823",
+        "1",
+        "6",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "2"
+      ],
+      [
+        "Buildings",
+        "BUILDING_STADIUM",
+        "38",
+        "-1550374126",
+        "1",
+        "6",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "3"
+      ],
+      [
+        "Buildings",
+        "BUILDING_FERRIS_WHEEL",
+        "99",
+        "-2054348538",
+        "2",
+        "0",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "1"
+      ],
+      [
+        "Buildings",
+        "BUILDING_AQUARIUM",
+        "100",
+        "-683073647",
+        "1",
+        "9",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "2"
+      ],
+      [
+        "Buildings",
+        "BUILDING_AQUATICS_CENTER",
+        "101",
+        "-547966944",
+        "1",
+        "9",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "3"
+      ],
+      [
+        "Districts",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "7",
+        "1982083301",
+        "1",
+        "nil",
+        "nil",
+        "1"
+      ],
+      [
+        "Districts",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "24",
+        "-484977807",
+        "1",
+        "nil",
+        "nil",
+        "1"
+      ]
+    ],
+    "qualification_columns": [
+      "city_id",
+      "type",
+      "CanProduce_exclusion",
+      "CanProduce_full"
+    ],
+    "qualification": [
+      [
+        "65536",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "65536",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "65536",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "65536",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "65536",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "65536",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "65536",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "true"
+      ],
+      [
+        "65536",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ],
+      [
+        "131073",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "131073",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "131073",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "131073",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "131073",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "131073",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "131073",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "true"
+      ],
+      [
+        "131073",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ],
+      [
+        "196610",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "196610",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "196610",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "196610",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "196610",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "196610",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "196610",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "false"
+      ],
+      [
+        "196610",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ],
+      [
+        "262147",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "262147",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "262147",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "262147",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "262147",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "262147",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "262147",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "false"
+      ],
+      [
+        "262147",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ],
+      [
+        "327684",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "327684",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "327684",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "327684",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "327684",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "327684",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "327684",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "false"
+      ],
+      [
+        "327684",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ],
+      [
+        "393221",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "393221",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "393221",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "393221",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "393221",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "393221",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "393221",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "true"
+      ],
+      [
+        "393221",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ],
+      [
+        "458758",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "458758",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "458758",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "458758",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "458758",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "458758",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "458758",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "false"
+      ],
+      [
+        "458758",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ],
+      [
+        "524295",
+        "BUILDING_ARENA",
+        "false",
+        "false"
+      ],
+      [
+        "524295",
+        "BUILDING_ZOO",
+        "false",
+        "false"
+      ],
+      [
+        "524295",
+        "BUILDING_STADIUM",
+        "false",
+        "false"
+      ],
+      [
+        "524295",
+        "BUILDING_FERRIS_WHEEL",
+        "false",
+        "false"
+      ],
+      [
+        "524295",
+        "BUILDING_AQUARIUM",
+        "false",
+        "false"
+      ],
+      [
+        "524295",
+        "BUILDING_AQUATICS_CENTER",
+        "false",
+        "false"
+      ],
+      [
+        "524295",
+        "DISTRICT_ENTERTAINMENT_COMPLEX",
+        "true",
+        "true"
+      ],
+      [
+        "524295",
+        "DISTRICT_WATER_ENTERTAINMENT_COMPLEX",
+        "false",
+        "false"
+      ]
+    ],
+    "placement_qualified": false,
+    "orders": 0,
+    "all8queues_occupied": true
+  },
+  "software": {
+    "full_suite": "SECOND_RUN_COMPLETE_GREEN_BEFORE_OWNER_POSTCHECK_PREFIX_ERROR",
+    "tests": 1611,
+    "reported_seconds": 143.563,
+    "summary": "OK (skipped=1)",
+    "passed": 1610,
+    "skipped": 1,
+    "Lua51_compile_files": 86,
+    "package_byte_equal_files": 108,
+    "archive_sha256": "f9235057efb835bb4759d3eeff190bb077e21213491cf46042c27c86c32a0482",
+    "fullsuite_rerun_after_owner_postcheck_error": false,
+    "owner_postcheck_error": "Original verification helper ignored actual Baiqi/ archive prefix and looked for mod/Baiqi/Baiqi/Baiqi.modinfo; raised after green fullsuite and successful package. Corrected prefix-aware byte comparison separately, no tests replayed.",
+    "product_native106": "NOT_INSTALLED_OR_RUN",
+    "game_runtime105": true,
+    "Steam_operations": 0
+  },
+  "red_on105": {
+    "label": "old105-corrected-tests",
+    "returncode": 1,
+    "controller_sha256": "1c632a5a172a76a4981b239a2ee3720a93fefecff91ce5893efb83cc922fc494",
+    "planner_sha256": "92854053d06ee1d523cead303e2b97cd07570ea8dac11607ebd177b7defd32f9"
+  },
+  "old105_red_details": "9methods: failures3 (two venue subtests plus finalguard scenario whose target not chosen), errors1(newpurehelperabsent); original preliminary test capture also retained, owner corrected argument evaluation ordering and isolated secondcity queue before final redrun",
+  "new106_targeted": {
+    "methods": 9,
+    "passed": 9,
+    "log_private": true
+  },
+  "first_fullsuite": {
+    "started_utc": "2026-11-09T15:05:21.734983+00:00",
+    "finished_utc": "2026-11-09T15:07:07.350053+00:00",
+    "wall_seconds": 105.61521149997134,
+    "returncode": 1,
+    "runner_summary": [
+      "FAILED (errors=18, skipped=1)"
+    ],
+    "runner_counts": [
+      [
+        "1611",
+        "104.304"
+      ]
+    ],
+    "error_lines": [
+      "ERROR: test_emit_error_stops_without_swallowing (test_control_compat_dump.ControlCompatDumpTests.test_emit_error_stops_without_swallowing)",
+      "ERROR: test_explicit_legacy_and_nil_default_do_not_inherit_seventh_spec (test_control_compat_dump.ControlCompatDumpTests.test_explicit_legacy_and_nil_default_do_not_inherit_seventh_spec)",
+      "ERROR: test_invalid_source_versions_are_rejected (test_control_compat_dump.ControlCompatDumpTests.test_invalid_source_versions_are_rejected)",
+      "ERROR: test_seven_actual_factories_metadata_only_no_bridge_calls_or_addresses (test_control_compat_dump.ControlCompatDumpTests.test_seven_actual_factories_metadata_only_no_bridge_calls_or_addresses)",
+      "ERROR: test_snapshot_exception_explicit_unavailable (test_control_compat_dump.ControlCompatDumpTests.test_snapshot_exception_explicit_unavailable)",
+      "ERROR: test_userdata_like_field_exception_is_unavailable_and_others_continue (test_control_compat_dump.ControlCompatDumpTests.test_userdata_like_field_exception_is_unavailable_and_others_continue)",
+      "ERROR: test_wrong_turn_returns_before_players_or_clock_or_bridges (test_control_compat_dump.ControlCompatDumpTests.test_wrong_turn_returns_before_players_or_clock_or_bridges)",
+      "ERROR: test_identical_stopwatch_before_original_executor_and_all_source_hashes (test_paired_build.PairedBuildTests.test_identical_stopwatch_before_original_executor_and_all_source_hashes)",
+      "ERROR: test_actual_captured_receipt_and_unit_callbacks_cannot_write_journals (test_static_control_core.StaticControlCoreTests.test_actual_captured_receipt_and_unit_callbacks_cannot_write_journals)",
+      "ERROR: test_actual_prophet_bridge_static_control (test_static_control_core.StaticControlCoreTests.test_actual_prophet_bridge_static_control)",
+      "ERROR: test_actual_seven_bridges_reject_without_domain_reads_or_writes (test_static_control_core.StaticControlCoreTests.test_actual_seven_bridges_reject_without_domain_reads_or_writes)",
+      "ERROR: test_original_withdrawn_cleanup_runs_once_without_benefits (test_static_control_core.StaticControlCoreTests.test_original_withdrawn_cleanup_runs_once_without_benefits)",
+      "ERROR: test_owned_event_unsubscribe_keeps_foreign_callbacks (test_static_control_core.StaticControlCoreTests.test_owned_event_unsubscribe_keeps_foreign_callbacks)",
+      "ERROR: test_actual_admin_no_requests_with_original_positive_consumer (test_static_control_ui.StaticControlUITests.test_actual_admin_no_requests_with_original_positive_consumer)",
+      "ERROR: test_actual_controller_closed_with_original_positive_consumer (test_static_control_ui.StaticControlUITests.test_actual_controller_closed_with_original_positive_consumer)",
+      "ERROR: test_actual_executor_closes_recovery_before_registered_callbacks (test_static_control_ui.StaticControlUITests.test_actual_executor_closes_recovery_before_registered_callbacks)",
+      "ERROR: test_builder_preserves_manifest_assets_and_other_readonly_ui (test_static_control_ui.StaticControlUITests.test_builder_preserves_manifest_assets_and_other_readonly_ui)",
+      "ERROR: test_exact_anchor_rejects_drift_and_unknown_source_is_unchanged (test_static_control_ui.StaticControlUITests.test_exact_anchor_rejects_drift_and_unknown_source_is_unchanged)"
+    ],
+    "game_runtime_still105": true,
+    "Steam_operations": 0
+  },
+  "tooling_correction": {
+    "adoption": "PARTIAL_THREE_EXACT_REPLACEMENT_LINES_AFTER_OWNER_HUNK_RECONSTRUCTION",
+    "raw_patch_check_returncode": 128,
+    "raw_patch_check_error": "error: corrupt patch at C:/workspace/civ6_dev/.local-model/acceptance-p6-20261101/control588-model-unmodified.patch:21\n",
+    "raw_patch_applied": false,
+    "owner_corrected_patch_check_passed": true,
+    "replacements": [
+      {
+        "file": "tools/static_control_source.py",
+        "old": "        if text not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105'):raise ValueError('Unsupported actual source version')",
+        "new": "        if text not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106'):raise ValueError('Unsupported actual source version')"
+      },
+      {
+        "file": "tools/static_control_source.py",
+        "old": "    if type(value) is not int or value not in (67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105):raise ValueError('Unsupported source version')",
+        "new": "    if type(value) is not int or value not in (67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106):raise ValueError('Unsupported source version')"
+      },
+      {
+        "file": "tools/build_static_control.py",
+        "old": "    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105'):raise ValueError('Expected actual source67 through105')",
+        "new": "    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106'):raise ValueError('Expected actual source67 through106')"
+      }
+    ],
+    "unknown_future_versions_not_opened": true
+  },
+  "model_activity": {
+    "new_logical_tasks": 3,
+    "new_HTTP_attempts": 3,
+    "new_OpenCode_native_generation": 0,
+    "cases": {
+      "586": {
+        "logical_tasks": 1,
+        "HTTP_attempts": 1,
+        "finish_reason": "length",
+        "candidate_complete": false,
+        "usage": {
+          "prompt_tokens": 59643,
+          "completion_tokens": 3000,
+          "total_tokens": 62643
+        },
+        "duration_ms": 33700.40660002269,
+        "raw_executed": false,
+        "adoption": "LENGTH_WHOLE_DISCARDED_NEVER_READ_OR_SPLICED"
+      },
+      "587": {
+        "logical_tasks": 1,
+        "HTTP_attempts": 1,
+        "finish_reason": "stop",
+        "candidate_complete": true,
+        "usage": {
+          "prompt_tokens": 63997,
+          "completion_tokens": 45,
+          "total_tokens": 64042
+        },
+        "duration_ms": 16148.332300013863,
+        "raw_executed": false,
+        "adoption": "REJECTED_FILE_PATH_INSTEAD_OF_TEST_CODE"
+      },
+      "588": {
+        "logical_tasks": 1,
+        "HTTP_attempts": 1,
+        "finish_reason": "stop",
+        "candidate_complete": true,
+        "usage": {
+          "prompt_tokens": 6645,
+          "completion_tokens": 1123,
+          "total_tokens": 7768
+        },
+        "duration_ms": 7499.261399963871,
+        "raw_executed": false,
+        "adoption": "PARTIAL_THREE_LITERAL_REPLACEMENT_LINES_OWNER_FIXED_UNIFIED_HUNKS"
+      }
+    },
+    "actual_peak_HTTP_in_flight": 2,
+    "peak2_seconds": 16.15493,
+    "current_HTTP_in_flight": 0,
+    "model_product_code_or_tests_adopted": false,
+    "control_tooling_three_lines_partially_adopted": true
+  },
+  "cumulative588": {
+    "logical_tasks": 588,
+    "complete_stop_valid_outer_JSON": 548,
+    "length_discarded": 37,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 618,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam": {
+    "other_device_busy": true,
+    "forbidden_online_login_download_uploader_init_upload": 0,
+    "mode_changes": 0,
+    "readonly_mode_query_utc": "2026-11-09T15:07:35.699481+00:00",
+    "readonly_mode_query": "unavailable",
+    "query_input_activation_focus_move_screenshot": false,
+    "new_game_spawned": false,
+    "workshop_version": 82
+  },
+  "limits": [
+    "No new actualproduction106, completedEntertainmentyield or improvedamenity claim.",
+    "Fourcities passedbothCanProduce modes only; realplotlegality/costs still required.",
+    "Ranking hint is not regional coverage optimization or full economic strategy.",
+    "No preempting current queues, no effect until normal newproduction decision.",
+    "Old issued FOUND ARMED FAIL, unknownMOVE, smallviewport andfull40case matrix remain."
+  ]
+}

@@ -603,3 +603,10 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [105使徒QA166—167／三张原图](testing/baiqi-apostle-actions-qa-105.md)：两名调试授予使徒经原版按钮回调分别完成传道信仰与发起宗教审讯，后台补第三信条，167两侧审讯开启。已正式返回原166主线／8城31单位／两信条，QA结果未带入。不是正常采购或物理按钮通过；旧恢复FAIL／完整矩阵继续，Steam禁上线工坊82保持。
 
 模型585完整6488tokens／8.477650秒；同名局部函数遮蔽全局导致自阻、领袖字面量错误、遗漏human／完整城市ID，整份拒绝。Owner17隔离断言／Lua51后仅两QA授予，真实回调效果与UI同步差异分列。UI.GetNumBeliefsEarned合法而Core无此getter；Core销毁前次数仍3不能写耗到0。累计585logical546complete36length3transport615HTTP30extra0OpenCode生成，owner成本／节时null；未改105产品。
+
+
+## 2026-11-09：586—588宜居度排序与版本消费者
+
+[106宜居度排序／软件](testing/baiqi-amenity-production-106.md)：持续缺口≥2时合法娱乐设施至少94，保留基础生产、原版费用资格及已有队列；9新检查，完整1611中1610pass／1SDKskip，86Lua51／108包。首次18对照构建版本错误已修，ZIP前缀辅助错误另核。尚未安装实测，运行105／166；Steam禁上线工坊82保持。
+
+586length整弃，587仅文件名拒绝；588三个106白名单替换行在owner修复破损hunk后部分采用。owner9方法对实际writer，完整首次18版本错误后最终1610pass1skip／86Lua51／108包，ZIP前缀辅助错误单独修核不重跑全套。实际Native105八城只读，不授106实机。累计588logical548complete37length3transport618HTTP30extra0OpenCode生成，峰2持续16.154930秒，未知成本null。
