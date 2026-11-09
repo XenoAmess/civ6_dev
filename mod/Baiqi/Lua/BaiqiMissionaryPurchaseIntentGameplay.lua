@@ -65,30 +65,87 @@ local function Persist(player,pid,key,state)
   player:SetProperty(key,value)
   return j.Equal(state,player:GetProperty(key),pid)
 end
+local function BirthSiteMatches(player,pid,op,unit)
+  if unit.x==op.x and unit.y==op.y then return true end
+  local ok,result=pcall(function()
+    local j=BaiqiMissionaryPurchaseJournal
+    local holy=GameInfo.Districts.DISTRICT_HOLY_SITE
+    if not Object(holy) or holy.DistrictType~="DISTRICT_HOLY_SITE" or not j.Integer(holy.Index,MAX) then return false end
+    local city=player:GetCities():FindID(op.cityID)
+    if not Object(city) or city:GetID()~=op.cityID or city:GetOwner()~=pid
+      or city:GetX()~=op.x or city:GetY()~=op.y then return false end
+    -- Core's city district collection has GetDistrict, but no Members method.
+    local district=city:GetDistricts():GetDistrict(holy.Index)
+    if not Object(district) then return false end
+    local id=district:GetID()
+    if not j.Integer(id,MAX) or district:GetOwner()~=pid or district:GetType()~=holy.Index
+      or district:GetX()~=unit.x or district:GetY()~=unit.y
+      or district:IsComplete()~=true or district:IsPillaged()~=false then return false end
+    local ownerCity=district:GetCity()
+    if not Object(ownerCity) or ownerCity:GetID()~=op.cityID or ownerCity:GetOwner()~=pid
+      or ownerCity:GetX()~=op.x or ownerCity:GetY()~=op.y then return false end
+    local plot=Map.GetPlot(unit.x,unit.y)
+    return Object(plot) and plot:GetOwner()==pid and plot:GetDistrictType()==holy.Index
+      and plot:GetDistrictID()==id
+  end)
+  return ok and result==true
+end
+local function ReceiptUnit(player,pid,op,snap)
+  local j=BaiqiMissionaryPurchaseJournal
+  if not snap or snap.cityID~=op.cityID or snap.owner~=pid or snap.x~=op.x or snap.y~=op.y
+    or snap.religionIndex~=op.religionIndex or snap.majorityReligion~=op.religionIndex
+    or op.faithBefore-snap.faithBalance~=op.cost then return nil end
+  local count,unit=0,nil
+  for _,v in ipairs(snap.missionaries) do
+    if v.religionIndex==op.religionIndex and v.charges>0 then count=count+1;unit=v end
+  end
+  if count~=1 or not unit or unit.unitType~="UNIT_MISSIONARY" or not j.Integer(unit.unitID,MAX)
+    or unit.formation~=1 or not BirthSiteMatches(player,pid,op,unit) then return nil end
+  for _,prior in ipairs(op.baselineUnitIDs) do if prior==unit.unitID then return nil end end
+  return unit
+end
+local function FreshReceipt(player,pid,key,state,op,first)
+  local current,currentKey=Owner(pid,false)
+  if current~=player or currentKey~=key or Turn()~=op.turn or UnitHash()~=op.unitHash then return nil end
+  local snap=BaiqiMissionaryPurchaseSnapshot.Read(player,pid,op.cityID)
+  local unit=ReceiptUnit(player,pid,op,snap)
+  if not unit then return nil end
+  for _,k in ipairs({"unitID","unitType","religionIndex","charges","x","y","moves","formation"}) do
+    if unit[k]~=first[k] then return nil end
+  end
+  if not BaiqiMissionaryPurchaseJournal.Equal(state,Load(player,pid,key),pid) then return nil end
+  local live=player:GetUnits():FindID(unit.unitID)
+  local city=player:GetCities():FindID(op.cityID)
+  if not Object(live) or not Object(city) or not BirthSiteMatches(player,pid,op,unit) then return nil end
+  local pr=player:GetReligion();local ur=live:GetReligion()
+  local definition=GameInfo.Units[live:GetType()]
+  current,currentKey=Owner(pid,false)
+  if current~=player or currentKey~=key or Turn()~=op.turn or UnitHash()~=op.unitHash
+    or not Object(definition) or definition.UnitType~="UNIT_MISSIONARY"
+    or live:GetID()~=unit.unitID or live:GetOwner()~=pid or live:IsDelayedDeath()~=false
+    or live:GetX()~=unit.x or live:GetY()~=unit.y or live:GetMovesRemaining()~=unit.moves
+    or live:GetFormationUnitCount()~=1 or ur:GetReligionType()~=op.religionIndex
+    or ur:GetSpreadCharges()~=unit.charges or pr:GetReligionTypeCreated()~=op.religionIndex
+    or pr:GetFaithBalance()~=snap.faithBalance or op.faithBefore-snap.faithBalance~=op.cost
+    or city:GetID()~=op.cityID or city:GetOwner()~=pid or city:GetX()~=op.x or city:GetY()~=op.y
+    or city:GetReligion():GetMajorityReligion()~=op.religionIndex then return nil end
+  return snap,unit
+end
 local function Observe(player,pid,key,state)
   local j=BaiqiMissionaryPurchaseJournal
   for id,op in pairs(state.operations) do
     if op.stage=="ARMED" and Turn()==op.turn and UnitHash()==op.unitHash then
       local snap=BaiqiMissionaryPurchaseSnapshot.Read(player,pid,op.cityID)
-      if snap and snap.cityID==op.cityID and snap.owner==pid and snap.x==op.x and snap.y==op.y
-        and snap.religionIndex==op.religionIndex and snap.majorityReligion==op.religionIndex
-        and op.faithBefore-snap.faithBalance==op.cost then
-        local count,unit=0,nil
-        for _,v in ipairs(snap.missionaries) do
-          if v.religionIndex==op.religionIndex and v.charges>0 then count=count+1;unit=v end
-        end
-        if count==1 and unit and unit.unitType=="UNIT_MISSIONARY" and j.Integer(unit.unitID,MAX)
-          and unit.x==op.x and unit.y==op.y and unit.formation==1 then
-          local old=false
-          for _,prior in ipairs(op.baselineUnitIDs)do if prior==unit.unitID then old=true end end
-          if not old then
-            local nextState=j.Clone(state,pid)
-            nextState.operations[id].stage="OBSERVED"
-            nextState.operations[id].newUnitID=unit.unitID
-            nextState.operations[id].faithAfter=snap.faithBalance
-            if not Persist(player,pid,key,nextState)then return nil end
-            return nextState
-          end
+      local unit=ReceiptUnit(player,pid,op,snap)
+      if unit then
+        local fresh,actual=FreshReceipt(player,pid,key,state,op,unit)
+        if fresh then
+          local nextState=j.Clone(state,pid)
+          nextState.operations[id].stage="OBSERVED"
+          nextState.operations[id].newUnitID=actual.unitID
+          nextState.operations[id].faithAfter=fresh.faithBalance
+          if not Persist(player,pid,key,nextState)then return nil end
+          return nextState
         end
       end
     end
