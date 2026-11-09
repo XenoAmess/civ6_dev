@@ -1,5 +1,7 @@
 # 白绮全功能状态及更新：2026-11-08（北京时间）
 
+[108可还原预验／六图](baiqi-gp108-preview186.md)：现有106／186实例，7次Applytrue，原版历史／当前／重开回调3次均过；传记滚动0→1与返回可见。75项及回调全还原，原版另重开9卡768／670，前后六组自有状态、9food／9vitals及186存档一致。仅预验通过，安装冷验／宽视口／CityPanel与旧恢复FAIL继续，0新进程／0Steam上线，工坊82不变。
+
 [108句柄缓存修正／软件](baiqi-great-people-handle-cache-108.md)：改记成功高度，原XML／上次合法尺寸重验；Native别名和原池重置两回归在107各触发Lua断言，108八方法／相关38通过，全1618pass1SDKskip、87Lua51／109包。安装实机仍106／186，108预验与冷安装待做，Steam禁上线不新启；旧恢复FAIL／CityPanel／全矩阵继续。
 
 [107可还原预验／重复应用FAIL](baiqi-gp107-preview186-reapply-fail.md)：106现有实例9卡首次适配689，原传记／历史可见；同控件GetChildren句柄==true但表键查不到，重复Applyfalse，缓存待修。75项已还原并原版关闭，0END186／0新进程／0Steam上线。Timeline原版字段勘误，592仍因局部表当全局等拒绝；源码107未改，软件绿不覆盖NativeFAIL。
