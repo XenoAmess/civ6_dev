@@ -461,3 +461,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：564原生先知赞助报价，只读
 
 [182实机报价与20诊断检查](testing/baiqi-prophet-patronage-quote-564.md)。564 stop/DONE/JSON/1HTTP15143tokens/9.177928s，raw Lua51可编译但Game静态错冒号使正案UNKNOWN；原20有9fail事件，三静态点号纠正对照仍19fail事件（非19独立方法），漏稀疏／额外键／已领取重复／定义编号、NIL状态不符及末尾新鲜性等，整稿和对照均0Native。owner独立只读模块20pass后，99原生182未领取Prophet122：CanRecruitfalse、CanPatronize金币／信仰均true、价格500／350，自有4534.1015625／522.14453125；0采购／扣费／赠送／私有Bridge。工具不入模组，不能称自动赞助实现或宗教通过；原99完整1457切点未重跑。累计564/526stop/35length/3transport/594HTTP/30extra/OpenCode原生新0/null未知，Steam占用继续0上线上传。
+
+
+## 2026-11-09：99自然首座圣地、首次产点与完成态重载
+
+[两原图／7CSV／179→186实机](testing/baiqi-first-holy-site-native-99.md)。0新HTTP／产品改动，复用563及564累计。太原182圣地0/68、18334、18452、185实际完成接灯塔；186先知40→41/+1，正式save/load186保持。冷179自有1经济9队列59建筑33区域140plot30unit全等，reload186自有1/9/66/34/145/36全等、9food相同，不推全世界或0bootstrap。7普通END45玩家军队SKIP，185Spainintro拒访一次后actual186；72food非负starve-1/72loyalty100正变化。observer179→185共1846=1781recruit14city50op1cmd，51单位为39builder9settler1trader2merchant，0错丢且全撤，末185→186不在观察窗。180首都fullCanProduce真但ClearPlot和区位交集0，非已证排序缺陷；185food忙碌守卫止步后独立fresh读正常，不伪造饥荒；186loadLSQtimeout0CMD无重放，初截图focus失败0PNG后ownUIA。owner把接续灯塔口述为市场已及时纠正，公开packet用实际灯塔。107byte安装，Steam新鲜offline0.003459s后启动、header导航与只读proof分列0模式/上线/上传；99建设产点窄PASS，宗教整链/旧恢复FAIL/完整40仍open。
