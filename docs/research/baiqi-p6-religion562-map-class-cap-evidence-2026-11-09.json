@@ -1,0 +1,141 @@
+{
+  "schema": "civ6.religion562-primary-map-class-cap-readonly/v1",
+  "utc": "2026-11-09T00:33:39.320083+00:00",
+  "machine_id": "BF-202609141645",
+  "product_version": 98,
+  "unchanged_product_source": "9f474f8bd1c118f9c4430f92d55b99ec9fd66413",
+  "model562": {
+    "started_at_utc": "2026-11-09T00:16:18.139510+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "usage": {
+      "prompt_tokens": 1490,
+      "completion_tokens": 1013,
+      "total_tokens": 2503
+    },
+    "seconds": 6.5301229999167845,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "adoption": "RAW_CODE_REJECTED_OWNER_READONLY_MODULE",
+    "raw_Lua51_compile": true,
+    "raw22_cases": {
+      "pass": 12,
+      "fail": 6,
+      "error": 4
+    },
+    "raw_candidate_Native": 0,
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical same-machine/user successful cache installed/latest1.19.5 updatedfalse",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "owner_review": {
+    "utc": "2026-11-09T00:30:37.268999+00:00",
+    "raw_Lua51_compile": true,
+    "raw_tests_run": 22,
+    "raw_failures": [
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_infinite_cap_is_unknown",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_map_index_zero_is_valid",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_metatable_record_cannot_fake_a_religion",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_non_array_key_is_unknown",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_sparse_list_is_unknown",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_zero_array_key_is_not_a_zero_religion_id"
+    ],
+    "raw_errors": [
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_founded_throw_is_unknown",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_generic_for_preserves_state_and_control",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_native_throw_is_unknown",
+      "tests.test_diagnostic_religion_capacity.ReligionCapacityTests.test_nil_ports_are_unknown"
+    ],
+    "raw_code_adoption": 0,
+    "raw_Native": 0,
+    "owner_module_tests": 22,
+    "owner_tests_passed_before_Native": true,
+    "rejected": [
+      "Rejects valid mapindex0",
+      "Captures only first generic iterator return, loses state/control",
+      "No protective pcall for Native/input exceptions",
+      "ipairs silently accepts sparse/nonarray/zero-key religion lists",
+      "No finite integer bound, accepts infinite classcap",
+      "Metatable religion records can supply fabricated ID"
+    ],
+    "owner_module_not_product": true
+  },
+  "owner_module": {
+    "path": "tools/lua/diagnostic_religion_capacity.lua",
+    "sha256": "f9efb83912af8376e1225c81876ac596cf8dafeef0174bd90ddcdd254a870023",
+    "new_Lua51_tests": 22,
+    "all_pass": true,
+    "product_manifest_inclusion": false,
+    "bounds": "At most512 class data rows plus overflow witness;64plain dense religion entries. Native generic-for state/control preserved.",
+    "not_an_authorization": "Map class cap and arithmetic only. Unknowns remain unknown; a valid0cap is distinct from missing data."
+  },
+  "primary_anchors": [
+    "Base/Assets/UI/ReligionScreen.lua182to190 count founded nonPantheon",
+    "Base/Assets/UI/ReligionScreen.lua204to222 Map.GetMapSize/GameInfo.Maps/Map_GreatPersonClasses.MaxWorldInstances",
+    "GameInfo.Religions.Pantheon and Game.GetReligion():HasBeenFounded"
+  ],
+  "owner_native": {
+    "turn": 179,
+    "context": "ReligionScreen",
+    "rows": [
+      [
+        "P6_RELIGION562_MAP_CAP",
+        "OK",
+        "map_class_counts_only_not_founder_availability",
+        "2",
+        "MAPSIZE_SMALL",
+        "4",
+        "2",
+        "2"
+      ],
+      [
+        "P6_RELIGION562_SCOPE",
+        "MAP_CLASS_CAP_MINUS_FOUNDED_NOT_UNRESERVED_SLOTS_OR_FOUNDING_PERMISSION"
+      ],
+      [
+        "P6_RELIGION562_DONE",
+        "READONLY_NO_GAME_OR_PROPERTY_OR_PRIVATE_BRIDGE_OR_CONTROL_WRITES"
+      ]
+    ],
+    "game_orders": 0,
+    "property_writes": 0,
+    "private_bridge_calls": 0,
+    "map_index": 2,
+    "map_type": "MAPSIZE_SMALL",
+    "map_class_cap": 4,
+    "public_founded_count": 2,
+    "arithmetic_difference": 2,
+    "unreserved_available_foundingslots": "UNKNOWN",
+    "current_unclaimed_prophet_pool": "NOT_READ_IN_THIS_PHASE",
+    "faith_production_or_founding_PASS": false
+  },
+  "cumulative562": {
+    "logical_tasks": 562,
+    "complete_stop_valid_outer_JSON": 524,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 592,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "new_product_modifications": 0,
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82
+  },
+  "limits": [
+    "Numerical map maximum minus founded count is not free Prophet stock, held-unit reservations, actual founding eligibility or permission to command a unit.",
+    "Earlier555 timeline pool is a162sample and is not promoted to current179.",
+    "No production weights changed and no HolySite/Prophet/faith was granted or manually queued.",
+    "22new diagnostic tests do not replace product1412checks or close natural religion/complete40/oldARMED recoveryFAIL."
+  ]
+}

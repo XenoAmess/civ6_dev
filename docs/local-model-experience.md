@@ -446,3 +446,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：98正常新建城独立分支
 
 [原图／6CSV与完整边界](testing/baiqi-source98-natural-founding-176.md)。复用561、0新HTTP，562容量读取另账。独立173旧正例在98实际3普通回合/5END/15玩家待命，175一次FOUND新陇西，176粮仓3/32/L100+17；34food非负starve−1/34loyalty100正增长。新请求0:175:18不同继承97的193；175UI无actor/Core仍有旧对象且未采死亡旗，不追认Core175消失，176双方lookupnil/名册0且OBSERVED一致。655观察635评估+5城+15全自有文职、0错丢已撤。174首次结束后的busy核验失败止步，后来新读合格才一次新普通结束；一次查看sentinel改名断言未跟进，保存raw核对一次实际动作、0重放。176ACKtrue1689811B/hash保存未load，已正式返回179，9food/经济队列建筑区域地块保持、一builder继续移动，不推全世界不变或0bootstrap。正常FOUND路径窄通过，98特殊live未发令延后路径未自然观测，旧FAIL保持；Steam0新启动/模式切换/上线或上传。
+
+
+## 2026-11-09：562地图先知类上限诊断
+
+[原版读取／22检查／179原生](testing/baiqi-religion-map-class-cap-562.md)。562 stop/DONE/JSON/1HTTP/2503tokens/6.530123s，raw Lua51可编译但同22组12pass/6fail/4error：编号0拒绝、genericfor状态丢失、未捕Native异常、ipairs漏稀疏/非数组键、无穷cap和元表ID接受，整稿拒0Native。owner只读模块22pass、不入mod包，179 Native MapIndex2/SMALL/PROPHET类上限4／已成立非Pantheon2／算术差2。不是无预留槽或可领先知数，不重写555当时Unknown或把162池当179；0生产权重/圣地手排/信仰先知赠送，宗教链未通过。累计562/524stop/35length/3transport/592HTTP/30extra/OpenCode新0/null未知，Steam0上线／模式切换或上传。
