@@ -573,3 +573,6 @@
 
 
 105实机补证（2026-11-09）：[完成态重载后的141首都转教](baiqi-capital-religion-postreload-105.md)窄通过；3MOVE+1SPREAD/3→2/新OBSERVED，nativeMajority1与原版4城页交叉确认。不按6/12推多数、不量化自然压力贡献，141已存未load，其他缺口保持。
+
+
+105实机补证（2026-11-09）：[北京最后传播144](baiqi-missionary-beijing-final-105.md)回执窄通过；Core与UI双确认、单位耗尽退出，佛教仍4/11／多数-1，不授转教或长期稳定。144已存未载，宜居度-3／小视口裁切及旧移民FAIL继续；40项未全过。诊断工具上限仅软件14方法，不冒充Native长窗。

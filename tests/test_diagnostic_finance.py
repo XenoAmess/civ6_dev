@@ -101,8 +101,67 @@ OriginalRecruit=Planner.AllowRecruit
 
     def test_global_cap_drops_only_evidence_and_continues_every_original(self):
         s = self.install()
+        self.assertEqual(s.maxRecords, 4096)
         self.lua.execute('for i=1,4097 do Planner.AllowRecruit("builder",S,C)end')
         self.assertEqual((len(s.samples), s.drops, self.g.W.calls), (4096, 1, 4097))
+
+    def test_explicit_small_cap_keeps_forwarding_and_cannot_be_changed_by_handle(self):
+        self.g.O.maxRecords = 2
+        s = self.install()
+        self.assertEqual(s.maxRecords, 2)
+        s.maxRecords = 1000000
+        self.g.O.maxRecords = 1000000
+        for _ in range(3):
+            self.assertEqual(self.g.Units.RequestOperation(self.g.Actor, 10, None, 7), ('native', None, 9, None))
+        self.assertEqual((len(s.samples), s.drops, s.counts.unit_op, self.g.W.calls, self.g.W.argc), (2, 1, 3, 3, 4))
+        self.assertEqual((s.samples[1].argc, s.samples[1].returnCount), (4, 4))
+        s.Restore()
+
+    def test_maximum_cap_accepts_16384_and_drops_the_next_record(self):
+        self.g.O.maxRecords = 16384
+        s = self.install()
+        self.lua.execute('for i=1,16385 do Units.RequestOperation(Actor,10) end')
+        self.assertEqual((s.maxRecords, len(s.samples), s.drops, self.g.W.calls), (16384, 16384, 1, 16385))
+        s.Restore()
+
+    def test_invalid_caps_fail_before_any_getter_publication_or_binding(self):
+        for value in (0, -1, .5, float('nan'), float('inf'), -float('inf'), '2', True, False, 16385):
+            with self.subTest(value=value):
+                self.setUp()
+                self.g.O.maxRecords = value
+                self.lua.execute('''
+W.getters=0;W.publications=0
+O.getPublished=function()W.getters=W.getters+1;return W.published end
+O.getTables=function()W.getters=W.getters+1;return Planner,Cities,Units end
+O.publish=function(v)W.publications=W.publications+1;W.published=v end
+''')
+                with self.assertRaisesRegex(LuaError, 'Invalid maxRecords'):
+                    self.install()
+                self.assertEqual((self.g.W.getters, self.g.W.publications), (0, 0))
+                self.assertTrue(self.lua.eval('W.published==nil and Planner.AllowRecruit==OriginalRecruit and Cities.RequestOperation==Native and Units.RequestOperation==Native and Units.RequestCommand==Native'))
+
+    def test_independent_namespaces_nest_without_duplicate_native_calls_and_restore_lifo(self):
+        inner = self.install()
+        self.lua.execute('''
+O2={};for k,v in pairs(O)do O2[k]=v end
+O2.maxRecords=8
+O2.getPublished=function()return W.outer end
+O2.publish=function(v)W.outer=v end
+''')
+        outer = self.module.Install(self.g.O2)
+        self.assertEqual(self.g.Planner.AllowRecruit('builder', self.g.S, self.g.C, None), (False, None, 42, None))
+        self.assertEqual(self.g.Units.RequestOperation(self.g.Actor, 10, None, 7, None), ('native', None, 9, None))
+        self.assertEqual((self.g.W.calls, len(inner.samples), len(outer.samples)), (2, 2, 2))
+        self.assertEqual((inner.samples[2].argc, outer.samples[2].argc, outer.samples[2].returnCount), (5, 5, 4))
+        with self.assertRaisesRegex(LuaError, 'Foreign binding'):
+            inner.Restore()
+        self.assertTrue(self.lua.eval('W.published~=nil and W.outer~=nil and Planner.AllowRecruit==W.outer.entries[1].wrapper and Cities.RequestOperation==W.outer.entries[2].wrapper and Units.RequestOperation==W.outer.entries[3].wrapper and Units.RequestCommand==W.outer.entries[4].wrapper'))
+        outer.Restore()
+        self.assertTrue(self.lua.eval('W.outer==nil and Planner.AllowRecruit==W.published.entries[1].wrapper and Units.RequestCommand==W.published.entries[4].wrapper'))
+        self.assertEqual(self.g.Units.RequestCommand(self.g.Actor, 12), ('native', None, 9, None))
+        self.assertEqual((self.g.W.calls, len(inner.samples), len(outer.samples)), (3, 3, 2))
+        inner.Restore()
+        self.assertTrue(self.lua.eval('W.published==nil and W.outer==nil and Planner.AllowRecruit==OriginalRecruit and Cities.RequestOperation==Native and Units.RequestOperation==Native and Units.RequestCommand==Native'))
 
     def test_foreign_binding_or_table_aborts_before_any_partial_restore(self):
         s = self.install()

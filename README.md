@@ -1,5 +1,7 @@
 # civ6_dev
 
+[105北京最后一次传播144／实机原图](docs/testing/baiqi-missionary-beijing-final-105.md)：第二名传教士转往北京并耗尽，Core与UI回执完成；北京仍佛教4/11、未转教，不冒充信徒增加。144已存未载；后台观察809零错丢仍挂，宜居度／小视口／旧移民FAIL及完整40项继续。Steam他机占用禁上线，工坊82未更新。以下历史切点。
+
 [105读档后续传教／首都转教141原图](docs/testing/baiqi-capital-religion-postreload-105.md)：新3670037后台三MOVE加一传播，3→2／新OBSERVED；首都佛教5→6、原生多数-1→1，宗教页列4城。不按6/12推多数，不量化压力贡献。141已存未load、7food／忠诚保持，观察140零错丢仍挂；旧移民FAIL／40项继续，Steam禁上线工坊82。以下历史切点。
 
 [SDK离线单项补验](docs/testing/baiqi-official-sdk-offline-reference-check.md)：完整1598原运行1597通过1引用环境跳过；现有SDK单项另跑1方法／20辅助函数断言通过，0上传器Main／SteamAPI.Init，未重跑全套。以下开发进度。

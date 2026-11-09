@@ -571,3 +571,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：105完成态读档后首都转教141
 
 [实际宗教原图／逐城CSV](testing/baiqi-capital-religion-postreload-105.md)。0新HTTP。140重载后1normalEND/2armySKIP到141，新3670037三MOVE到首都+一SPREAD，3→2/newreligion:0:4OBSERVED；首都12pop佛教5→6、nativeMajority-1→1，原版宗教4城市含西安。不能按半数自行推规则，压力贡献不量化。observer140/128read1city11文职ops0cmd0错丢、CityCmd0仍挂；7food无饿/忠诚100正、广州5→6，save1411466428/41718fd7...未load。579累计及完整1598/SDK单补范围保持，Steam禁上线工坊82。
+
+
+## 2026-11-09：105北京最后次数144与长窗观察器
+
+[144原图、数据及模型580—581](testing/baiqi-missionary-beijing-final-105.md)。第二3670037转北京，最后0charges/延迟死亡、Core与UIOBSERVED，nativeMajority仍-1/佛教4of11，禁止把回执完成写成转教／增长。140以来809记录0错丢／38文职操作／CityCmd0，仍挂。北京-3宜居度和小视口裁切保留。580原diff损坏／非法值验证晚／漏测试拒绝，owner诊断上限闭包1..16384/默认4096，新增4共14方法通过及Lua51编译；581图解部分事实表达改写。新增2stopJSON/2HTTP/实际峰2，累计581/542完整/36length/3transport/611HTTP/30extra/0OpenCode生成，未知成本null。Steam禁上线工坊82；产品105未变。

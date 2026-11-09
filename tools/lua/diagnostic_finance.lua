@@ -13,19 +13,23 @@ end
 function M.Install(o)
   assert(type(o)=="table" and type(o.getTables)=="function" and type(o.getPublished)=="function"
     and type(o.publish)=="function" and type(o.unpack)=="function")
+  local maxRecords=o.maxRecords
+  if maxRecords==nil then maxRecords=4096 end
+  assert(type(maxRecords)=="number" and maxRecords==maxRecords
+    and maxRecords>=1 and maxRecords<=16384 and maxRecords==math.floor(maxRecords),"Invalid maxRecords")
   assert(o.getPublished()==nil,"Observer namespace occupied")
   local planner,cities,units=o.getTables()
   assert(type(planner)=="table" and type(cities)=="table" and type(units)=="table")
   assert(type(o.game)=="table" and type(o.game.GetCurrentGameTurn)=="function"
     and (type(o.unitRows)=="table" or type(o.unitRows)=="userdata"))
-  local s={counts={recruit=0,city=0,unit_op=0,unit_cmd=0},errors=0,drops=0,samples={},entries={}}
+  local s={counts={recruit=0,city=0,unit_op=0,unit_cmd=0},errors=0,drops=0,samples={},entries={},maxRecords=maxRecords}
   local function Sense(fn)
     local ok=pcall(fn)
     if not ok then s.errors=s.errors+1 end
   end
   local function Before(kind,args)
     s.counts[kind]=s.counts[kind]+1
-    if #s.samples>=4096 then s.drops=s.drops+1;return nil end
+    if #s.samples>=maxRecords then s.drops=s.drops+1;return nil end
     local r={kind=kind,turn=o.game.GetCurrentGameTurn(),argc=args.n,returned=false}
     if kind=="recruit" then
       assert(type(args[1])=="string" and type(args[2])=="table" and type(args[3])=="table")
