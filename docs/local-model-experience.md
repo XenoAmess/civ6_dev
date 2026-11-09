@@ -596,3 +596,10 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：584自然MOVE停用回调，不能当队列清空
 
 [105实际166双上下文](testing/baiqi-builder-move-events-166-105.md)。584原稿scope玩家0类型错／方法不调用／编造UI.GetUnit、Core.GetUnit／漏self，整份拒绝；owner21隔离场景及Lua51后挂既有raw观察器。1ordinaryEND/2armySKIP到166，目标4456469自动54,34→54,33→54,32；各2Deactivated、0匹配Started、0错丢后全部撤。第二停用仍pending/queued true，不授idle或未知重试；UI0.25/Core0分开记不推原因。原错误UI0保存前guard0调用，实际0.25另存1623174/f68d3615...未load。累计584logical545complete36length3transport614HTTP30extra0OpenCode生成，未知成本null；产品105、Steam禁上线工坊82保持。
+
+
+## 2026-11-09：585使徒原版使用与AI信条衔接
+
+[105使徒QA166—167／三张原图](testing/baiqi-apostle-actions-qa-105.md)：两名调试授予使徒经原版按钮回调分别完成传道信仰与发起宗教审讯，后台补第三信条，167两侧审讯开启。已正式返回原166主线／8城31单位／两信条，QA结果未带入。不是正常采购或物理按钮通过；旧恢复FAIL／完整矩阵继续，Steam禁上线工坊82保持。
+
+模型585完整6488tokens／8.477650秒；同名局部函数遮蔽全局导致自阻、领袖字面量错误、遗漏human／完整城市ID，整份拒绝。Owner17隔离断言／Lua51后仅两QA授予，真实回调效果与UI同步差异分列。UI.GetNumBeliefsEarned合法而Core无此getter；Core销毁前次数仍3不能写耗到0。累计585logical546complete36length3transport615HTTP30extra0OpenCode生成，owner成本／节时null；未改105产品。
