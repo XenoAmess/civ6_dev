@@ -610,3 +610,10 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [106宜居度排序／软件](testing/baiqi-amenity-production-106.md)：持续缺口≥2时合法娱乐设施至少94，保留基础生产、原版费用资格及已有队列；9新检查，完整1611中1610pass／1SDKskip，86Lua51／108包。首次18对照构建版本错误已修，ZIP前缀辅助错误另核。尚未安装实测，运行105／166；Steam禁上线工坊82保持。
 
 586length整弃，587仅文件名拒绝；588三个106白名单替换行在owner修复破损hunk后部分采用。owner9方法对实际writer，完整首次18版本错误后最终1610pass1skip／86Lua51／108包，ZIP前缀辅助错误单独修核不重跑全套。实际Native105八城只读，不授106实机。累计588logical548complete37length3transport618HTTP30extra0OpenCode生成，峰2持续16.154930秒，未知成本null。
+
+
+## 2026-11-10：589实际宜居度来源与单城闭环
+
+[106实机166—172／七张原图](testing/baiqi-amenity-native-106-166-172.md)：三城后台开娱乐中心，西安170完工接竞技场、172竞技场完成达8／8后排大学；娱乐来源+3与奢侈品+1分账。冷读六组相同，6实际回合／11普通END／16军队待命／0人工内政；观察1471零错丢已撤，172已存未载。其余缺口／旧恢复FAIL继续，Steam禁上线工坊82保持。
+
+589调用实际11月9日stopJSON5854tokens／5.083503秒，编造Cities及IsHuman／错误self／漏范围，整份拒绝。Owner实际8城五帧600来源值，西安2→3→5娱乐与1→2奢侈品分列。跨回退分支同完整数字ID可分配给不同类型；保留分支／类型来路。累计589logical549complete37length3transport619HTTP30extra0OpenCode生成，未知成本null；11月10日仅证据同步，不追认当日模型维护。
