@@ -27,3 +27,6 @@
 旧已发令ARMED存读恢复FAIL、98特殊未发令延期路径原生样本、自然创教与传教采购／传播、完整40项和兼容／性能继续开放。正常赞助的原生价格已只读核过，但自动赞助尚未实现。本页复用563实现及564报价研究，0新增HTTP、0新产品改动，不重跑原1457项软件切点。
 
 [结构化证据](../research/baiqi-p6-source99-natural-holy186-evidence-2026-11-09.json)、[72行队列](source99-holy179-186-queues.csv)、[72行食粮](source99-holy179-186-food.csv)、[72行忠诚](source99-holy179-186-vitals.csv)、[实际先知点](source99-holy179-186-religion.csv)、[51条后台单位调用](source99-holy179-186-background-unit-calls.csv)、[待上传BBCode](../workshop/v0.1.0-alpha.2/pending-first-holy99-native186-2026-11-09.bbcode.txt)。
+
+
+[两张原图与本页的固定提交公开访问核对](../research/baiqi-p6-source99-public-original-images-2026-11-09.json)：三份GET均HTTP200，字节／SHA与发布pin一致。这是仓库访问核对，未在Steam上传或复验外链显示。
