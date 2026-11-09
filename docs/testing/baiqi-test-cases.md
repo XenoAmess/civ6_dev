@@ -525,3 +525,6 @@
 
 
 - [100冷187供应负例与伟人页FAIL](baiqi-empty-prophet-and-gp-ui-fail-100.md)：122已在186被他方领取，当前类无个体、own42/+1无先知；20只读诊断区分NONE_AVAILABLE与UNKNOWN。原查看入口ACK未打开、主体函数nil，UIFAIL待修；祷告奖励／招募／完整40未通过，187已保存。
+
+
+- [101伟人页加载软件修复](baiqi-great-people-view-101.md)：8项合同检查、完整1531项1530通过1SDK条件跳过；旧100主体漏载的实机FAIL另留证，101实际查看和只读仍待冷验。

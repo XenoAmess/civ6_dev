@@ -1,0 +1,145 @@
+{
+  "schema": "civ6.ui567-great-people101-software/v1",
+  "utc": "2026-11-09T03:24:53.027139+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 101,
+  "runtime_at_cut": {
+    "version": 100,
+    "turn": 187,
+    "private_negative_checkpoint_preserved": true,
+    "END187": 0
+  },
+  "model567": {
+    "started_at_utc": "2026-11-09T02:57:52.796433+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "usage": {
+      "prompt_tokens": 19482,
+      "completion_tokens": 1251,
+      "total_tokens": 20733
+    },
+    "seconds": 10.000088799977675,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "adoption": "EXACT_FUNCTION_PATCH_ADOPTED_OWNER_HEADER_COMMENT; RAW_TEST_REJECTED",
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical same-machine/user successful cache installed/latest1.19.5 updatedfalse",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative567": {
+    "logical_tasks": 567,
+    "complete_stop_valid_outer_JSON": 529,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 597,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "review": {
+    "patch": "exact model function patch adopted; owner replaces misleading parent-include comment",
+    "raw_test": "rejected, includes Python arity/type errors, missing wildcard simulation and meaningful readonly/duplicate coverage",
+    "results": {
+      "raw": {
+        "run": 8,
+        "failure_events": [],
+        "error_events": [
+          "raw567.TestGreatPeoplePopupLoader.test_expansion1_ruleset_gp",
+          "raw567.TestGreatPeoplePopupLoader.test_gp_loads_base_then_wildcard",
+          "raw567.TestGreatPeoplePopupLoader.test_no_duplicate_base_load",
+          "raw567.TestGreatPeoplePopupLoader.test_other_ui_readonly_untouched",
+          "raw567.TestGreatPeoplePopupLoader.test_readonly_delegation",
+          "raw567.TestGreatPeoplePopupLoader.test_standard_ruleset_gp",
+          "raw567.TestGreatPeoplePopupLoader.test_wildcard_override_contract"
+        ],
+        "exit_code": 1
+      },
+      "old100": {
+        "run": 8,
+        "failure_events": [],
+        "error_events": [
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_baiqi_remains_readonly_with_original_handlers_loaded (ruleset='RULESET_EXPANSION_1')",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_baiqi_remains_readonly_with_original_handlers_loaded (ruleset='RULESET_EXPANSION_2')",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_base_and_installed_extensions_load_in_all_three_rulesets (ruleset='RULESET_EXPANSION_1')",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_base_and_installed_extensions_load_in_all_three_rulesets (ruleset='RULESET_EXPANSION_2')",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_congress_readonly_remains_after_extension_and_baiqi_wrapper",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_nonhuman_multiplayer_hotseat_keep_existing_scope (key='human')",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_nonhuman_multiplayer_hotseat_keep_existing_scope (key='multiplayer')",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_nonhuman_multiplayer_hotseat_keep_existing_scope (key='hotseat')",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_normal_leader_keeps_native_readonly_and_write_behavior",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_one_wrapper_initializes_base_and_events_exactly_once",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_original_view_event_is_present_and_opens_without_a_game_order",
+          "test_baiqi_great_people_loader.GreatPeopleLoaderTests.test_other_ui_replacement_selection_is_unchanged"
+        ],
+        "exit_code": 1
+      },
+      "owner101": {
+        "run": 8,
+        "failure_events": [],
+        "error_events": [],
+        "exit_code": 0
+      }
+    },
+    "raw_Native": 0
+  },
+  "implementation": {
+    "primary": "Original Base GreatPeoplePopup defines handlers/eventregistration and includes GreatPeoplePopup_ wildcard; XP1/XP2 are fragments explicitly loaded by Base.",
+    "fix": "Always load GreatPeoplePopup base; its original wildcard loads installed expansions. All other UI routing and ReadOnly wrapper unchanged.",
+    "military_or_diplomacy_or_domestic_gameplay_order_changes": false,
+    "third_party_file_changes": false,
+    "new_switches": false
+  },
+  "validation": {
+    "utc": "2026-11-09T03:24:23.140055+00:00",
+    "Lua51_files": 85,
+    "archive": {
+      "files": 107,
+      "bytes": 8786911,
+      "sha256": "d4c894cddb900e128118258ab3c81a22fac6272ddc3ccc9db0dffab6a02a650d"
+    },
+    "full_suite": {
+      "run": 1531,
+      "failure_events": [],
+      "error_events": [],
+      "skips": [
+        {
+          "test": "test_workshop_publisher_managed.WorkshopManagedTests.test_csharp5_compile_and_pure_helpers_without_publisher_main",
+          "reason": "Set BAIQI_WORKSHOP_SDK_ASSEMBLY to an installed official Steamworks.NET.dll"
+        }
+      ]
+    },
+    "exit_code": 0,
+    "Native101": 0,
+    "runtime100_turn187": true,
+    "Steam_actions": 0
+  },
+  "owner8_scope": [
+    "All3rulesets initialize base once and each installed wildcard extension once",
+    "Original view event opens without a game order",
+    "Baiqi read-only and patronage/recruit requests remain blocked",
+    "Ordinary leader retains native view/write behavior",
+    "Congress readonly delegation remains",
+    "Nonhuman/MP/hotseat retain existing scope",
+    "Other UI replacement selection unchanged",
+    "One wrapper registers original handlers exactly once"
+  ],
+  "limits": [
+    "Synthetic native include contracts use actual mod loader/wrapper/guards, not a game engine.",
+    "Old100 has12error-events across8methods and subcases, not12independent tests; raw test8 has7errors.",
+    "1531 includes original1503 plus20tool-only supply tests and8UItests; 1SDK environment skip does not establish SDK installation.",
+    "101 cold view/visibility/readonly still pending.",
+    "Prayer completion/normal Prophet recruitment/founding/domestic missionary chain remains open."
+  ],
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82
+  }
+}

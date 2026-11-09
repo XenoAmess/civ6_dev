@@ -476,3 +476,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：566正常空先知与100负例／伟人页FAIL
 
 [原图／公开过去记录／20诊断](testing/baiqi-empty-prophet-and-gp-ui-fail-100.md)。566 stop/DONE/JSON1HTTP8941tokens/11.434711s，raw静态又错冒号原20有9fail事件；仅点号控制仍11fail事件，漏元表／过去未领取过滤／负数／own一致性等，整拒0Native。owner20pass后100原生187KNOWN/NONE_AVAILABLE，自己-1/earned0/heldfalse/faith586.171875/points42+1；公开past117p4T54、112p3T95、122p1T186，不把三条历史凑成4槽全归属或猜赞助方式。旧555UNKNOWN不是供应事实。100冷186自有六组全等，1普通END8军队SKIP2Spain拒交易／Bye，18food18loyalty保持；observer269=254recruit2city13op0cmd/0错丢全撤，187正式save1770927/hashca92b85...0END187。祷告既有队列未空前供应关闭，未授项目奖励／招募；另实测GP页面Open/OnOpenViaLaunchBar/LateInitialize均nil，仅IsReadOnly，事件ACK后地图不变UI查看FAIL，根因为把wildcard扩展当主体加载，567另修。累计566/528stop/35length/3transport/596HTTP/30extra/OpenCode新0/null未知；0Steam模式／上线／上传。
+
+
+## 2026-11-09：567与101伟人页面主体加载
+
+[软件证据](testing/baiqi-great-people-view-101.md)。567完整stop/DONE/JSON1HTTP20733tokens/10.000089s，函数patch原样采用，owner修文件头；raw8tests7errors（include参数、dict属性、未定义只读），测试整拒。owner8用真实loader/wrapper/guard和原版wildcard合同通过，旧100同8有12error-events含子场景；全1531/1530pass/1SDKskip、85Lua51/107文件，101尚未冷实机。100187负例保存0END187、当前先知空未创教，不能授祷告奖励／招募。累计567/529stop/35length/3transport/597HTTP/30extra，新OpenCode0/null未知；Steam禁上线上传，Alpha2仍82。
