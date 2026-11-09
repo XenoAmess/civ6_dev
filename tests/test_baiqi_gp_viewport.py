@@ -71,4 +71,40 @@ class GreatPeopleViewportTests(unittest.TestCase):
   self.lua.globals().include=lambda name: self.lua.execute(SOURCE) if name=='BaiqiGPViewport' else None
   self.lua.execute((ROOT/'mod/Baiqi/UI/BaiqiGreatPeoplePopup.lua').read_text(encoding='utf-8'))
   self.lua.execute("assert(W.loads==1 and W.readonly and W.dataInstalls==1);ViewCurrent('data','tail');geometry();assert(W.current==1)")
+ def test_native_equal_handles_are_fresh_table_keys_on_each_children_read(self):
+  self.lua.execute('''
+  local meta={}
+  local function alias(c)return setmetatable({target=c},meta)end
+  local function children(c)
+   local result={};for i,v in ipairs(c.children)do result[i]=alias(v)end;return result
+  end
+  meta.__eq=function(a,b)return a.target==b.target end
+  meta.__index=function(p,key)
+   if key=='GetChildren'then return function()return children(p.target)end end
+   local value=p.target[key]
+   if type(value)=='function'then return function(_,...)return value(p.target,...)end end
+   return value
+  end
+  Controls.PeopleStack.GetChildren=function(self)return children(self)end
+  local a,b=Controls.PeopleStack:GetChildren(),Controls.PeopleStack:GetChildren()
+  assert(a[1]==b[1]);local keyed={[a[1]]=true};assert(keyed[b[1]]==nil)
+  assert(BaiqiGPViewport.Apply());geometry()
+  assert(BaiqiGPViewport.Apply(),'Fresh native aliases must preserve repeat adaptation');geometry()
+  W.height=1080;assert(BaiqiGPViewport.Apply());geometry()
+  W.height=689;assert(BaiqiGPViewport.Apply());geometry()
+  ''')
+ def test_native_pool_can_reset_cards_to_xml_with_header_still_adapted(self):
+  self.lua.execute('''
+  assert(BaiqiGPViewport.Apply());geometry()
+  assert(Controls.PopupContainer.h==689)
+  for _,c in ipairs(Controls.PeopleStack.children)do
+   c.h=670;c.name.oy=-295;c.main.h=654;c.effect.h=240;c.points.h=152
+   c.bio.h=391;c.bioScroll.h=391;c.detail.h=391;c.detailScroll.h=391
+  end
+  assert(Controls.PopupContainer.h==689)
+  assert(BaiqiGPViewport.Apply(),'Native XML card reset must be qualified again');geometry()
+  Controls.PeopleStack.children[2].main.h=999
+  local before=W.writes
+  assert(BaiqiGPViewport.Apply()==false and W.writes==before)
+  ''')
 if __name__=='__main__':unittest.main()

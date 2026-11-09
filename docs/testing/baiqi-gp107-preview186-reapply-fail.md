@@ -25,3 +25,6 @@
 本包新增模型／HTTP／OpenCode生成0，累计仍592。源码107和之前1616通过／1SDK跳过、87Lua编译／109包结果不变；那些结果没有覆盖这次Native句柄语义，不能用绿测试覆盖实机FAIL。后续补回归、修正缓存并复测；Steam新启动所需模式只读确认不可用，继续不新启、不上线、不上传。工坊仍Alpha2内部82／12图。
 
 [107软件](baiqi-great-people-viewport-107.md) · [结构化预验与勘误](../research/baiqi-p6-gp107-preview186-reapply-fail-evidence-2026-11-10.json) · [待同步BBCode](../workshop/v0.1.0-alpha.2/pending-gp107-preview186-2026-11-10.bbcode)
+
+
+后续：[108已补别名／原池重置回归并完成软件修正](baiqi-great-people-handle-cache-108.md)。本页107失败保留，108实际预验与冷安装仍待做。

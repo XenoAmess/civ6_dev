@@ -1,5 +1,7 @@
 # civ6_dev
 
+[108句柄缓存修正／软件](docs/testing/baiqi-great-people-handle-cache-108.md)：改记成功高度，原XML／上次合法尺寸重验；Native别名和原池重置两回归在107各触发Lua断言，108八方法／相关38通过，全1618pass1SDKskip、87Lua51／109包。安装实机仍106／186，108预验与冷安装待做，Steam禁上线不新启；旧恢复FAIL／CityPanel／全矩阵继续。
+
 [107可还原预验／重复应用FAIL](docs/testing/baiqi-gp107-preview186-reapply-fail.md)：106现有实例9卡首次适配689，原传记／历史可见；同控件GetChildren句柄==true但表键查不到，重复Applyfalse，缓存待修。75项已还原并原版关闭，0END186／0新进程／0Steam上线。Timeline原版字段勘误，592仍因局部表当全局等拒绝；源码107未改，软件绿不覆盖NativeFAIL。
 
 [107伟人页布局／软件](docs/testing/baiqi-great-people-viewport-107.md)：689高适配并保留招募152区与费用行，原768恢复／实例池／失败整页预检／wrapper接线6新方法，相关36通过；全1616pass／1SDKskip，87Lua51／109包。安装实机仍106／186；新只读Steam模式查询不可用，0新进程／0上线，先做可还原预验。CityPanel／旧恢复FAIL与全矩阵继续，工坊82不变。

@@ -2,7 +2,8 @@
 if BaiqiGPViewport then return end
 BaiqiGPViewport={}
 local V=BaiqiGPViewport
-local last=setmetatable({},{__mode="k"})
+-- Equal native handles can still differ as Lua table keys across GetChildren.
+local lastHeight
 local installed=false
 local unpackValues=unpack or table.unpack
 local function finite(v)return type(v)=="number"and v==v and math.abs(v)<math.huge end
@@ -24,14 +25,15 @@ local function plan()
   if not finite(screenY)or screenY<600 or screenY>16384 then return nil end
   local height=math.min(768,screenY)
   local changes={}
-  local function add(c,get,set,base,value)
+  local function add(c,get,set,base,value,previous)
     assert(c and type(c[get])=="function"and type(c[set])=="function")
     local old=c[get](c)
-    local prior=last[c]
-    assert(finite(old)and old==(prior and prior[get]or base))
+    assert(finite(old)and(old==base or(lastHeight and old==previous)))
     changes[#changes+1]={c=c,get=get,set=c[set],old=old,value=value}
   end
-  local function size(c,base,value)add(c,"GetSizeY","SetSizeY",base,value)end
+  local function size(c,base,value)
+    add(c,"GetSizeY","SetSizeY",base,value,base+(lastHeight or 768)-768)
+  end
   local popup,people,stack,past=Controls.PopupContainer,Controls.PeopleScroller,Controls.PeopleStack,Controls.RecruitedScroller
   assert(popup and people and stack and past)
   assert(type(popup.ReprocessAnchoring)=="function"and type(stack.CalculateSize)=="function"
@@ -55,7 +57,8 @@ local function plan()
     size(card,670,height-98)
     size(found.MainInfo,654,height-114)
     size(found.EffectStackScroller,240,height-528)
-    add(found.IndividualName,"GetOffsetY","SetOffsetY",-295,40-math.floor((height-98)/2))
+    add(found.IndividualName,"GetOffsetY","SetOffsetY",-295,40-math.floor((height-98)/2),
+      40-math.floor(((lastHeight or 768)-98)/2))
     size(found.BiographyArea,391,height-377)
     size(found.BiographyScroll,391,height-377)
     size(found.RecruitInfoArea,391,height-377)
@@ -63,10 +66,10 @@ local function plan()
     -- RecruitProgressBox remains152px; reserve the full public points area.
     assert(found.RecruitProgressBox and found.RecruitProgressBox:GetSizeY()==152)
   end
-  return changes,{popup,stack,people,past}
+  return changes,{popup,stack,people,past},height
 end
 function V.Apply()
-  local ok,changes,reflow=pcall(plan)
+  local ok,changes,reflow,height=pcall(plan)
   if not ok or not changes then return false end
   local applied=0
   for _,entry in ipairs(changes)do
@@ -78,9 +81,7 @@ function V.Apply()
     end
     applied=applied+1
   end
-  for _,entry in ipairs(changes)do
-    last[entry.c]=last[entry.c]or{};last[entry.c][entry.get]=entry.value
-  end
+  lastHeight=height
   reflow[2]:CalculateSize();reflow[3]:CalculateSize();reflow[4]:CalculateSize()
   reflow[1]:ReprocessAnchoring()
   return true
