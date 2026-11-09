@@ -531,3 +531,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：575旧文案误作现状与104冷实机恢复
 
 [136原图与核对](testing/baiqi-missionary-cold-recovery-104.md)。575收到当前事实+标为历史的旧软件文案，却复制运行仍103／104尚未冷验／旧档未load，并把BACKGROUND采购归玩家，全拒0采用；1HTTP6912tokens/5.669021s stop/DONE/JSON，owner独立写当前结果。104108files等于0d04e22，freshSteamoffline age0.008590后启动；正式load真实ARMED136+Continue1，自动OBSERVED原token/newUnitID3407893、faith351.414/同1unit/ch3/moves0，0QA桥调用或采购。自有6组／7food／信徒逐行保持，恢复136另存1449339/hash9031462f...未load，fresh104采购及spread未授。CoreGetNumBeliefsEarned nil属ownerUI口误用0动作，图像变亮guard0input后新鲜审图Continue1，bootstrap命令次数unknown；旧103退出残留仅自有tuple条件清理。Finance/CityCmds136新装，累计575/536stop/36length/3transport/605HTTP/30extra/OpenCode0/null成本，Steam禁上线工坊82。
+
+
+## 2026-11-09：576两次实际国内传播与最后一次回执FAIL
+
+[三原图及136—139信徒CSV](testing/baiqi-domestic-spread-and-final-charge-104.md)。104原unit3407893从圣地三MOVE到首都65536，137/138/139各一SPREAD；3→2→1与两OBSERVED真实核对，139Core同ID/own0/r1/ch0/DelayedDeathtrue/xy-9999，UIlive名单0、ARMED religion:0:3，0END139保存1463393/hash201a02a...；137/138另存未load，拒将消失当成功。首都Buddhist1/3/4/5但majority-1，普通压力贡献未知。3normalEND/4军队SKIP、28food非负无饿/28loyalty100正，observer413/27全文职0错丢与CityCmd0均已撤。5761HTTP12244tokens/3.540883s stop/DONE/JSON，坐标诊断已有owner独识，建议负坐标删除对象作proof/错误CoreflatAPI均拒0采用，下一步实际event观察。累计576/537stop/36length/3transport/606HTTP/30extra/OpenCode0/null成本；Steam禁上线工坊82。

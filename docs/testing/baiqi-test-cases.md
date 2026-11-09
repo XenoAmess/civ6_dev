@@ -558,3 +558,6 @@
 
 
 104冷实机补证（2026-11-09）：[同136已支付传教士回执恢复](baiqi-missionary-cold-recovery-104.md)窄通过，ARMED→OBSERVED同token/原演员/351.414余额，六自有组与7food／followers保持。0QA补买／移动／传播，新保存未load，正常104新购买、国内传播与原有移民已发令恢复FAIL均不关闭。
+
+
+104实机补证（2026-11-09）：[国内传播137—139及最后一次收尾FAIL](baiqi-domestic-spread-and-final-charge-104.md)。前两次原生传播与次数下降／OBSERVED窄通过，最后一次ARMED保留；不能从UI单位消失或Core删除对象0次数授收尾通过。首都仍非佛教多数，压力增长不冒领。139已存0END，观察器均撤，继续修复。
