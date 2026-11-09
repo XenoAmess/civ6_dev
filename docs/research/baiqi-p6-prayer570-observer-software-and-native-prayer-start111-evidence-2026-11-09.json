@@ -1,0 +1,473 @@
+{
+  "schema": "civ6.prayer570-passive-observer-software-and-native-start111/v1",
+  "utc": "2026-11-09T05:12:51.314792+00:00",
+  "machine_id": "BF-202609141645",
+  "runtime_version": 102,
+  "runtime_code_commit": "9bf0334c8db470b2223065aea0c74e83581653ab",
+  "model570": {
+    "started_at_utc": "2026-11-09T04:41:23.167080+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "usage": {
+      "prompt_tokens": 4823,
+      "completion_tokens": 1196,
+      "total_tokens": 6019
+    },
+    "seconds": 8.633994700037874,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "adoption": "RAW_REJECTED_OWNER_TOOLS_ONLY_MODULE",
+    "raw_or_control_Native": 0,
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical same-machine/user successful cache installed/latest1.19.5 updatedfalse",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative570": {
+    "logical_tasks": 570,
+    "complete_stop_valid_outer_JSON": 532,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 600,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "review": {
+    "utc": "2026-11-09T05:06:36.477674+00:00",
+    "raw_and_default_control_Lua51_compile": true,
+    "results": {
+      "raw": {
+        "run": 12,
+        "failure_events": [
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='player')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='human')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='leader')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='turn')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='turn')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='owner')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='noCity')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_explicit_bound_drops_without_more_snapshot_reads",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_record_bound_and_target_validation (key='maxRecords')"
+        ],
+        "error_events": [
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_changed_or_invalid_snapshot_does_not_publish_numbers (key='changePoints')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_changed_or_invalid_snapshot_does_not_publish_numbers (key='points')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_changed_or_invalid_snapshot_does_not_publish_numbers (key='faith')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_changed_or_invalid_snapshot_does_not_publish_numbers (key='rate')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_default_bound_static_event_and_exact_known_record",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_failed_remove_is_not_reported_restored_and_can_be_retried (key='removeThrow')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_failed_remove_is_not_reported_restored_and_can_be_retried (key='removeFalse')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_missing_snapshot_still_preserves_matching_event_as_unknown",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_native_object_metatables_are_supported",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_other_players_cities_projects_and_project_hash_are_ignored_before_snapshot",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_restore_removes_exact_callback_once_and_is_idempotent"
+        ],
+        "exit_code": 1
+      },
+      "default-only": {
+        "run": 12,
+        "failure_events": [
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_add_exception_after_attachment_attempts_exact_cleanup",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_changed_or_invalid_snapshot_does_not_publish_numbers (key='changePoints')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='player')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='human')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='leader')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='turn')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='turn')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='owner')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_context_or_ownership_change_ignores_without_reading_own_snapshot (key='noCity')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_default_bound_static_event_and_exact_known_record",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_explicit_bound_drops_without_more_snapshot_reads",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_failed_remove_is_not_reported_restored_and_can_be_retried (key='removeFalse')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_missing_snapshot_still_preserves_matching_event_as_unknown",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_record_bound_and_target_validation (key='maxRecords')",
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_restore_removes_exact_callback_once_and_is_idempotent"
+        ],
+        "error_events": [
+          "test_diagnostic_prayer_completion.PrayerCompletionTests.test_failed_remove_is_not_reported_restored_and_can_be_retried (key='removeThrow')"
+        ],
+        "exit_code": 1
+      },
+      "owner": {
+        "run": 12,
+        "failure_events": [],
+        "error_events": [],
+        "exit_code": 0
+      }
+    },
+    "adoption": "RAW_REJECTED_OWNER_TOOLS_ONLY_MODULE",
+    "raw_control_Native": 0,
+    "findings": [
+      "Default maxRecords absent and no finite practical record bound.",
+      "Callback lacks current leader/local/cityownership/turn/fresh own-state validation.",
+      "Event identities not retained with snapshot result.",
+      "Restore lacks idempotent success and failure acknowledgment; tautological Owned assert cannot verify attachment.",
+      "Add cleanup compares method to callback instead of removing the callback on ambiguous failure."
+    ],
+    "owner_scope": "Own matching completion event plus best-effort consistent snapshot, not reward attribution; staticAddRemove, bounded32/1..128, no active-turn gate, exactRestore."
+  },
+  "owner_tool": {
+    "path": "tools/lua/diagnostic_prayer_completion.lua",
+    "software_methods": 12,
+    "all_pass": true,
+    "Native_installed_at_cut": false,
+    "in_product_manifest": false,
+    "scope": "Only original CityProjectCompleted3IDs event; current own humanBaiqi/targetcity/99..250, no IsTurnActive gate. Exact staticAddRemove closure,32default/1..128 practicalbound, snapshot unknown separate from known event, staged freshness, truthfulRestore ACK. Completion not reward attribution."
+  },
+  "Native111": {
+    "normal_HolySite_progress": [
+      {
+        "turn": 106,
+        "type": "DISTRICT_HOLY_SITE",
+        "progress": "0",
+        "cost": "75"
+      },
+      {
+        "turn": 107,
+        "type": "DISTRICT_HOLY_SITE",
+        "progress": "27",
+        "cost": "75"
+      },
+      {
+        "turn": 108,
+        "type": "DISTRICT_HOLY_SITE",
+        "progress": "42",
+        "cost": "75"
+      },
+      {
+        "turn": 109,
+        "type": "DISTRICT_HOLY_SITE",
+        "progress": "55",
+        "cost": "75"
+      },
+      {
+        "turn": 110,
+        "type": "DISTRICT_HOLY_SITE",
+        "progress": "68",
+        "cost": "75"
+      }
+    ],
+    "completed_HolySite_row": [
+      "P6_SOURCE102BSMOKE_DISTRICT",
+      "196610",
+      "DISTRICT_HOLY_SITE",
+      "54",
+      "37",
+      "true",
+      "false"
+    ],
+    "current_prayer_queue_row": [
+      "P6_SOURCE102BSMOKE_CITY",
+      "196610",
+      "LOC_CITY_NAME_HANDAN",
+      "56",
+      "38",
+      "6",
+      "KNOWN",
+      "1",
+      "30870116",
+      "PROJECT",
+      "PROJECT_ENHANCE_DISTRICT_HOLY_SITE",
+      "12",
+      "0",
+      "68",
+      "5",
+      "nil",
+      "nil"
+    ],
+    "supply_rows": [
+      [
+        "P6_SOURCE102B_SUPPLY",
+        "KNOWN",
+        "nil",
+        "111"
+      ],
+      [
+        "P6_SOURCE102B_SUPPLY_OWN",
+        "-1",
+        "0",
+        "false",
+        "171.21484375",
+        "44",
+        "4"
+      ],
+      [
+        "P6_SOURCE102B_SUPPLY_CURRENT",
+        "UNCLAIMED",
+        "122",
+        "nil"
+      ],
+      [
+        "P6_SOURCE102B_SUPPLY_PAST",
+        "117",
+        "4",
+        "54"
+      ],
+      [
+        "P6_SOURCE102B_SUPPLY_PAST",
+        "112",
+        "3",
+        "95"
+      ],
+      [
+        "P6_SOURCE102B_SUPPLY_DONE",
+        "READONLY"
+      ]
+    ],
+    "food_rows": [
+      [
+        "111",
+        "65536",
+        "11",
+        "29.95703125",
+        "63",
+        "8",
+        "7",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "111",
+        "131073",
+        "8",
+        "23.0625",
+        "44",
+        "17",
+        "6",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "111",
+        "196610",
+        "6",
+        "8.1328125",
+        "33",
+        "5",
+        "5",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "111",
+        "262147",
+        "5",
+        "16.54296875",
+        "27",
+        "5",
+        "2",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "111",
+        "327684",
+        "2",
+        "0.68359375",
+        "12",
+        "0",
+        "-1",
+        "-1",
+        "false",
+        "false"
+      ],
+      [
+        "111",
+        "393221",
+        "2",
+        "2.484375",
+        "12",
+        "2",
+        "11",
+        "-1",
+        "false",
+        "false"
+      ]
+    ],
+    "vitals_rows": [
+      [
+        "111",
+        "65536",
+        "11",
+        "100",
+        "29",
+        "26",
+        "6",
+        "6",
+        "3"
+      ],
+      [
+        "111",
+        "131073",
+        "8",
+        "100",
+        "26",
+        "6.30078125",
+        "3",
+        "4",
+        "4"
+      ],
+      [
+        "111",
+        "196610",
+        "6",
+        "100",
+        "29",
+        "14",
+        "3",
+        "3",
+        "5"
+      ],
+      [
+        "111",
+        "262147",
+        "5",
+        "100",
+        "29",
+        "8",
+        "3",
+        "3",
+        "0"
+      ],
+      [
+        "111",
+        "327684",
+        "2",
+        "100",
+        "18",
+        "8.046875",
+        "0",
+        "1",
+        "nil"
+      ],
+      [
+        "111",
+        "393221",
+        "2",
+        "100",
+        "17",
+        "3.6015625",
+        "0",
+        "1",
+        "nil"
+      ]
+    ],
+    "first_actual_normal_prayer_start_PASS": true,
+    "project_completion_or_reward_PASS": false,
+    "Prophet_recruit_or_founding_PASS": false,
+    "private_save_bytes": 1321241,
+    "private_save_sha256": "84111313f7f2770cc50559c1be0ee995b16ed7ddb46339ece525abb664676b13",
+    "END111": 0,
+    "manual_production_or_point_faith_unit_grants": 0,
+    "Finance_observer_counts": [
+      "P6_SOURCE102B_OBSERVER_COUNTS",
+      "111",
+      "1274",
+      "10",
+      "26",
+      "0",
+      "0",
+      "0",
+      "1310"
+    ],
+    "Finance_still_attached_at_cut": true,
+    "FOUND105_row": [
+      "P6_SOURCE102B_OBSERVER_UNIT",
+      "133",
+      "105",
+      "1572869",
+      "0",
+      "UNIT_SETTLER",
+      "unit_op",
+      "1463004268",
+      "true",
+      "0"
+    ],
+    "Guangzhou111": [
+      [
+        "P6_SOURCE102BSMOKE_CITY",
+        "393221",
+        "LOC_CITY_NAME_GUANGZHOU",
+        "49",
+        "27",
+        "2",
+        "KNOWN",
+        "1",
+        "-764771404",
+        "BUILDING",
+        "BUILDING_GRANARY",
+        "3",
+        "21",
+        "32",
+        "3",
+        "nil",
+        "nil"
+      ]
+    ],
+    "limit": "Normal fresh founder/city and current prayer start do not repair the old issuedARMED recoveryFAIL."
+  },
+  "TEST_PLAYER_diplomacy": {
+    "Rome107": "Refused gypsum1/9gold/openborder proposal and originalBye once; no accept",
+    "Brazil109": "Refused iron10/3goldperturn/openborder proposal and originalBye once; earlier stale-frame/offer-comparison attempts issued0physical input. Fresh helper checks leader,prompt,Refuse text, not unchanged offer amounts.",
+    "WorldCongress110": "One freeA vote for citydevelopmentCommercialHub and one freeA vote forSovereigntyTradecitystates; total0favor shown on reviewed final submit. OneSubmit, actual111results targetedTheaterSquare andCulturalcitystates, not ourtargets; originalReturnGame once. These are TEST_PLAYER diplomatic inputs, not modBACKGROUND or manual domestic production.",
+    "EOT_replay_after_diplomacy_wait_failure": 0
+  },
+  "image": {
+    "path": "docs/testing/images/source102-prayer111/started111.png",
+    "sha256": "bec286e1ec3b53dfd1e584d2912292c16567f7dd4aac939e74cf98aa8e911b9f",
+    "original_unedited": true,
+    "caption": "ActualHandan111 normalHolySiteprayer queue; not project completion or award."
+  },
+  "native102_public_GET4": {
+    "utc": "2026-11-09T04:27:06.235316+00:00",
+    "commit": "4660f98a6ef81847c0859137933022810caa172a",
+    "public_GET": [
+      {
+        "url": "https://raw.githubusercontent.com/XenoAmess/civ6_dev/4660f98a6ef81847c0859137933022810caa172a/docs/testing/images/source102-gp103/standings103.png",
+        "status": 200,
+        "bytes": 343627,
+        "sha256": "08943986fdacdec56ea4f179cf8c1f178a4c37cc1b13866271737dbf30dfe0c2",
+        "matches_fixed_Git_blob_bytes": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/XenoAmess/civ6_dev/4660f98a6ef81847c0859137933022810caa172a/docs/testing/images/source102-gp103/prophet12of60_103.png",
+        "status": 200,
+        "bytes": 335318,
+        "sha256": "0ffbe458e3470a8b9c296836f6acae2481d3846779e17543f98fa3a049bfb09b",
+        "matches_fixed_Git_blob_bytes": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/XenoAmess/civ6_dev/4660f98a6ef81847c0859137933022810caa172a/docs/testing/baiqi-great-people-native-numbers-102.md",
+        "status": 200,
+        "bytes": 3998,
+        "sha256": "deeb977154e46b66c9330ac80c3d905fe213eb57803b8c4e9e13466ec1ed99c1",
+        "matches_fixed_Git_blob_bytes": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/XenoAmess/civ6_dev/4660f98a6ef81847c0859137933022810caa172a/docs/workshop/v0.1.0-alpha.2/pending-gp102-native103-2026-11-09.bbcode.txt",
+        "status": 200,
+        "bytes": 1092,
+        "sha256": "5b580938dad02631afcf843d1165dc75b58c8ca7fe07c4478119e179df9d7799",
+        "matches_fixed_Git_blob_bytes": true
+      }
+    ],
+    "Steam_actions": 0
+  },
+  "validation_limit": "Tools12 only; product102 remains previous full1546 cut. Do not relabel as a new full1558 run.",
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82
+  }
+}

@@ -496,3 +496,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：102原生公开数字与自有显示错误恢复
 
 [两张原图／25food／六组比较](testing/baiqi-great-people-native-numbers-102.md)。新HTTP0，既有569raw仍0Native；owner102实际10类各6players，ownProphet12/60+4／CanRecruitfalse，原打开滚动关闭各1且只读，数字窄过、小视口底部布局未过。首次102原数据已正确，随后ownAltEnter显示装置错误，GP请求在LSQ45前置断开、CMD49未发，非模型HTTP；原OK退出、>=180秒仅own9432身份路径/CPU0/无可见窗监听/两个已知隐藏微helper核验后清残留，FullScreen0未改，新的离线证明0.004803秒后窗口重启同103，所得两PNG原件不编辑。101→102首次及重读经济1/队列5/建筑14/区域10/地块63/单位9全等，5food全等，只授自有切片不授queue恢复。早期99→103实际4turn/4军队SKIP/5普通RequestAction/1RomeBye/0UserForced或手补，25food非负无饥饿，先知0,0,4,8,12/+4来源不补猜，537观察0错丢含22civilian=14builder8settler/16move6build，全撤103。102查看save1269143/hash321b910...；祷告、招募创教整链/旧恢复FAIL/full40open。累计仍569/531stop/35length/3transport/599HTTP/30extra/OpenCode新0/unknownnull。0Steam模式上线上传，Alpha2仍82。
+
+
+## 2026-11-09：570项目完成只读观察器与祷告111开工
+
+[原图／12工具检查／原生开工](testing/baiqi-normal-prayer-start-111.md)。570stop/DONE/JSON1HTTP6019tokens/8.633995s，raw12有9fail11error-events，补default控制仍15fail1error-events，均0Native拒；漏默认/实用上限、当前身份城市回合一致性、事件IDs、幂等与失败移除、Add错误清理，Owned恒真。owner工具12pass，32默认1..128、有界ownCityProjectCompleted静态AddRemove、未知快照仍保事件、不以通知授奖励，未装Native、不入产品、不重算完整1558。实际102邯郸106Holy0/75→10727→10842→10955→11068→111complete，后台HolyPrayer12/hash30870116/0of68/5turns，own44+4/unclaimed122，111save1321241/hash841113...0END111。103Finance观察1310/0错丢仍挂，105settler1572869FOUND和111广州393221@49,27，6food非负无饿/6loyalty100正，正常案不修旧ARMEDFAIL。107Rome及109Brazil拒交易Bye，110CongressTEST_PLAYER两项免费A1选Commerce/Trade，实际111Theater/Cultural，0后台外交或手动排产。累计570/532stop/35length/3transport/600HTTP/30extra，新OpenCode0/null未知；Steam0上线上传，工坊82。
