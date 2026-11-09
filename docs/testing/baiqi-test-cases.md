@@ -504,3 +504,6 @@
 
 
 - [98实际冷读176与普通至179](baiqi-source98-cold-followup-179.md)：四原图／36food／36loyalty与784条观察；0Steam上线/模式切换，3实际回合/4普通END/15玩家待命。城市继续运行窄通过；新同回合闭包路径尚无自然原生触发，旧恢复FAIL保持，秀容原图实际4，负责人初次误读1已由[561复核](baiqi-cityui561-image-reading-correction.md)撤回。
+
+
+- [98独立正常建城173→176](baiqi-source98-natural-founding-176.md)：1FOUND实际8→9，新请求0:175:18，176双方原移民消失且OBSERVED匹配；粮仓3/32、34food/loyalty保留、655透明观察已撤。正常新建城窄通过；live暂拒后延后子路径仍仅软件，旧中断恢复FAIL／完整40未闭。独立176已存，已返回179正例，Steam0上线／上传。

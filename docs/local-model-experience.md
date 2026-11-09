@@ -441,3 +441,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：561撤回负责人截图小字误读
 
 [原图与控件复核](testing/baiqi-cityui561-image-reading-correction.md)。owner把秀容原图4读成1，并在模型输入中当事实；两份私人ROI放大均清楚为4，三次CityPanel只读控件／Native两种GetTurnsLeft签名／GetCityData均4，当前样本一致，非缓存或modifier修复证据。原四PNG未改，文档／BBCode撤回错误缺陷；新原始复核图另存入库。561 stop/DONE/JSON/1HTTP/28473tokens/11.281081s，窄采真实数据路径和ProductionNum getter；XP2覆写ViewMain链条错误拒。输入假事实与模型真实源码误判分别记账，模型未见图不算其视觉失败。累计561/523stop/35length/3transport/591HTTP/30extra，OpenCode原生新0/null未知；0产品改动／新测试／写控件／刷新器／游戏命令，Steam禁上线继续。
+
+
+## 2026-11-09：98正常新建城独立分支
+
+[原图／6CSV与完整边界](testing/baiqi-source98-natural-founding-176.md)。复用561、0新HTTP，562容量读取另账。独立173旧正例在98实际3普通回合/5END/15玩家待命，175一次FOUND新陇西，176粮仓3/32/L100+17；34food非负starve−1/34loyalty100正增长。新请求0:175:18不同继承97的193；175UI无actor/Core仍有旧对象且未采死亡旗，不追认Core175消失，176双方lookupnil/名册0且OBSERVED一致。655观察635评估+5城+15全自有文职、0错丢已撤。174首次结束后的busy核验失败止步，后来新读合格才一次新普通结束；一次查看sentinel改名断言未跟进，保存raw核对一次实际动作、0重放。176ACKtrue1689811B/hash保存未load，已正式返回179，9food/经济队列建筑区域地块保持、一builder继续移动，不推全世界不变或0bootstrap。正常FOUND路径窄通过，98特殊live未发令延后路径未自然观测，旧FAIL保持；Steam0新启动/模式切换/上线或上传。
