@@ -591,3 +591,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：583 MOVE重规划审查，拒绝错误的换回合清等待结论
 
 [源码审查及下一被动实验](testing/baiqi-move-reload-audit-105.md)。583真实诊断1HTTP stopJSON24089tokens7.481846s，整稿拒绝：普通换回合只清SKIP而不是MOVE；idle/空queue/超时不证明拒绝，缺observed不能证明被清。不同target既不能冒称同一请求重复，也不能授完整持久化通过。0新Native订阅/游戏动作/产品改动/功能通过。累计583/544完整36length3transport613HTTP30extra0OpenCode生成，未知成本null；Steam禁上线82未变。
+
+
+## 2026-11-09：584自然MOVE停用回调，不能当队列清空
+
+[105实际166双上下文](testing/baiqi-builder-move-events-166-105.md)。584原稿scope玩家0类型错／方法不调用／编造UI.GetUnit、Core.GetUnit／漏self，整份拒绝；owner21隔离场景及Lua51后挂既有raw观察器。1ordinaryEND/2armySKIP到166，目标4456469自动54,34→54,33→54,32；各2Deactivated、0匹配Started、0错丢后全部撤。第二停用仍pending/queued true，不授idle或未知重试；UI0.25/Core0分开记不推原因。原错误UI0保存前guard0调用，实际0.25另存1623174/f68d3615...未load。累计584logical545complete36length3transport614HTTP30extra0OpenCode生成，未知成本null；产品105、Steam禁上线工坊82保持。

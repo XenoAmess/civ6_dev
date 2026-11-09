@@ -11,3 +11,6 @@
 当前仍105／实际165，Steam他机用号禁上线、上传，工坊82未变。此审查不是新的实机复测或完整40项通过。
 
 [模型拒绝、源码事实与范围](../research/baiqi-p6-move583-current-source-audit-evidence-2026-11-09.json)
+
+
+后续：[166自然移动事件已采集](baiqi-builder-move-events-166-105.md)，第二次停用仍queued／pending，不能作为队列清空屏障；未知恢复继续保留。

@@ -582,3 +582,6 @@
 
 
 105读档补证（2026-11-09）：[165已完成新城／宗教账本／7商路正式重载](baiqi-completed-reload-165-105.md)窄通过。五组全同、单位身份相同但1builder继续移动，不称六组全同；原生FindID可别名新演员，完整ID守卫修正仅诊断。未知MOVE持久化、旧ARMED恢复FAIL及其余矩阵保持。
+
+
+105原生移动诊断（2026-11-09）：[166停用回调仍有排队](baiqi-builder-move-events-166-105.md)取得反例，不授未知MOVE恢复通过；Core/UI分开读、无匹配Started不推广事件缺席结论。旧FOUND ARMED恢复FAIL与完整矩阵保持。
