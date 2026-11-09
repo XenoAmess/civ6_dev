@@ -541,3 +541,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：577只读事件观察软件
 
 [工具与8项检查](testing/baiqi-missionary-event-observer.md)。5771HTTP3081tokens/7.622741s stop/DONE/JSON，提供原版事件签名与合同；rawLua51compile但同8methods10失败事件，尾nil丢、参数无界/快照别名/非法scope、当前Add漏清及重复移除，全拒0Native。owner独立有界标量RAW观察+精确回调撤除，8pass，工具不入104108包，产品full1577不虚增完整1585。Core/UI139四eventAdd/Remove已读存在但未证实emission；139FAIL保存、独立138LoadACK但未worldread，不重发。累计577/538stop/36length/3transport/607HTTP/30extra/OpenCode0/null成本，Steam禁上线工坊82。
+
+
+## 2026-11-09：577独立实机事件时序补证
+
+[104最后一次传播实际事件](testing/baiqi-missionary-final-charge-events-104.md)。0新HTTP，577累计不重复。独立138正式load/Continue各1、M573逐行保持，1normalEND/2军队SKIP→139，Core/UI各4事件StartedSpread→Charges0/1→Removed→Deactivated；UI在Started1ch/followers4，Charges仍活0ch/followers5，移除后nil；Core各回调都已dead0ch/-9999。不拼跨ctx原子顺序，不解释尾0/1成功码，产品ARMED收尾仍FAIL。Core适配器cfg.IsHuman nil发生安装后print(scope)，读回0记录句柄后先精确撤再fallbackplayer重装，无双订阅；UI合法。两事件观察+Finance137/8文职ops/1spread+CityCmd0皆撤，另存1391463550/hash4083b6f...，0END139；不累计独立分支为主线第四次spread。105事件pair修复继续，Steam禁上线工坊82。
