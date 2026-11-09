@@ -1,0 +1,241 @@
+{
+  "schema": "civ6.religion565-normal-prayer-production100-software/v1",
+  "utc": "2026-11-09T02:17:22.161030+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 100,
+  "installed_runtime_version_at_cut": 99,
+  "current_runtime_turn": 186,
+  "model565": {
+    "started_at_utc": "2026-11-09T01:58:55.468831+00:00",
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "usage": {
+      "prompt_tokens": 17557,
+      "completion_tokens": 1935,
+      "total_tokens": 19492
+    },
+    "seconds": 14.128484499990009,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "helper_and_assembled_Lua51_compile": true,
+    "adoption": "RAW_IMPLEMENTATION_REJECTED_OWNER_IMPLEMENTATION",
+    "raw26_failure_events": 19,
+    "raw26_error_events": 0,
+    "raw_candidate_Native": 0,
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical same-machine/user successful cache installed/latest1.19.5 updatedfalse",
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null,
+    "review": [
+      "Only current-city queue/pending checked; misses empire-wide commitments.",
+      "Still inserts prayer after ordinary candidate budget can be exhausted.",
+      "Removes standby-1000 by giving it score1.",
+      "Final demand guard applied even to ordinary score1 project, blocking legacy fallback.",
+      "Missing explicit false recruitability, duplicate/definition/unknown record checks and bounded early-stop timeline scan.",
+      "No ReadBack marker retained after unknown requests; claims atomicity beyond actual read checks."
+    ]
+  },
+  "cumulative565": {
+    "logical_tasks": 565,
+    "complete_stop_valid_outer_JSON": 527,
+    "length_discarded": 35,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 595,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "prior99_Native186_inputs": {
+    "rows": [
+      [
+        "P6_RELIGION565_PROJECT_DEFINITION",
+        "12",
+        "30870116",
+        "PROJECT_ENHANCE_DISTRICT_HOLY_SITE",
+        "DISTRICT_HOLY_SITE",
+        "25",
+        "COST_PROGRESSION_GAME_PROGRESS",
+        "1500"
+      ],
+      [
+        "P6_RELIGION565_PROJECT_QUALIFIED",
+        "458758",
+        "true",
+        "true",
+        "100",
+        "true",
+        "1",
+        "-46510675"
+      ],
+      [
+        "P6_RELIGION565_PROPHET_POINT_COST",
+        "122",
+        "60",
+        "nil",
+        "41",
+        "1",
+        "false"
+      ],
+      [
+        "P6_RELIGION565_INPUTS_DONE",
+        "186",
+        "39",
+        "1",
+        "PUBLIC_DEFINITIONS_AND_QUALIFICATION_ONLY_NO_ORDER"
+      ],
+      [
+        "P6_RELIGION565_PRIMARY_LOCALIZED_PROJECT",
+        "LOC_PROJECT_ENHANCE_DISTRICT_HOLY_SITE_NAME",
+        "圣地祷告者",
+        "LOC_PROJECT_ENHANCE_DISTRICT_HOLY_SITE_EXPANSION2_DESCRIPTION",
+        "基于区域的项目，每回合提供 [ICON_Faith] 信仰值、+100%宗教压力。完成后奖励 [ICON_GreatProphet] 大预言家点数。"
+      ],
+      [
+        "P6_RELIGION565_DESCRIPTION_DONE",
+        "READONLY_OFFICIAL_PROJECT_TEXT_NOT_MEASURED_AWARD"
+      ]
+    ],
+    "actual_project_type": "PROJECT_ENHANCE_DISTRICT_HOLY_SITE",
+    "index": 12,
+    "hash": 30870116,
+    "PrereqDistrict": "DISTRICT_HOLY_SITE",
+    "actual_native_project_cost": 100,
+    "both_CanProduce_modes": true,
+    "current_APPEND_qualification": true,
+    "current_queue": "BUILDING_LIGHTHOUSE",
+    "prophet_point_cost": 60,
+    "own_prophet_points": 41,
+    "own_prophet_points_per_turn": 1,
+    "ordinary_CanRecruit": false,
+    "project_award_amount": "NOT_MEASURED",
+    "project_completed_under100": false
+  },
+  "owner_implementation": {
+    "boost_score": 91,
+    "normal_project_score": 1,
+    "standby_score": -1000,
+    "helper": "PrayerProjectWanted",
+    "candidate_reserved_before_ordinary_budget": true,
+    "existing_queue_overwrite": false,
+    "checks": [
+      "Own active same-turn Baiqi/complete unpillaged HolySite/created-1/earned0/heldfalse",
+      "Validated full bounded dense timeline; unclaimed identity0 valid, claimant0 claimed; CanRecruit must explicitly false for every unclaimed candidate",
+      "All own city current/entire queues and pending projects suppress duplicate bonus",
+      "Fresh demand and native two-mode/operation qualification at existing sole writer",
+      "Flag retained across uncertain empty/unrelated heads and turns until observed or city unavailable"
+    ],
+    "currency_spending_or_grants": false,
+    "new_property_or_persisted_schema": false,
+    "control_toggles_or_military_diplomacy_changes": false,
+    "limits": [
+      "No new saved-game recovery protocol; marker in-process only.",
+      "A priority hint does not prohibit all ordinary prayer projects elsewhere.",
+      "Existing queue completes first; builders/essential production/repairs still outrank project.",
+      "New Native project completion/award/recruitment remains untested."
+    ]
+  },
+  "validation": {
+    "utc": "2026-11-09T02:15:13.347682+00:00",
+    "controls": {
+      "old99": {
+        "run": 26,
+        "failure_events": [
+          "test_baiqi_prayer_production.PrayerProductionTests.test_candidate_is_entered_before_ordinary_scan_budget_is_exhausted",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_completed_holy_site_and_unrecruitable_unclaimed_prophet_choose_prayer",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_existing_queue_is_preserved",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.canRecruit=true')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.canRecruit=nil')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.created=0')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.earned=1')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.held=true')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.holyPillaged=true')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.completed[66]=false')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.queues[67]={{ProjectType=0}}')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.current[67]=910')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_queue_change_is_preserved",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_observed_native_project_still_blocks_other_boost",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_qualification_lost_during_demand_check_is_read_again",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_second_city_does_not_duplicate_the_pending_goal",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_unknown_writer_result_cannot_be_replayed",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_unobserved_project_request_survives_timeout_and_new_turn",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_unrelated_native_head_does_not_discard_unknown_project",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_valid_zero_project_class_and_individual_indices_are_accepted"
+        ],
+        "error_events": [],
+        "skips": []
+      },
+      "raw565": {
+        "run": 26,
+        "failure_events": [
+          "test_baiqi_prayer_production.PrayerProductionTests.test_another_city_current_or_entire_queue_suppresses_bonus (code='TestWorld.current[67]=910')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_another_city_current_or_entire_queue_suppresses_bonus (code='TestWorld.queues[67]={{ProjectType=0}}')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_another_city_current_or_entire_queue_suppresses_bonus (code=\"TestWorld.queues[67]={{ProjectType='PROJECT_ENHANCE_DISTRICT_HOLY_SITE'}}\")",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_another_city_current_or_entire_queue_suppresses_bonus (code='TestWorld.queues[67]={{BuildingType=9},{ProjectType=0}}')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_candidate_is_entered_before_ordinary_scan_budget_is_exhausted",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_direct_recruitment_and_unknown_recruitability_keep_normal_ranking (value=None)",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.canRecruit=nil')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.queues[67]={{ProjectType=0}}')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_final_goal_changes_stop_prayer_and_replan_same_turn (change='w.current[67]=910')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_known_unneeded_goal_keeps_ordinary_project_production",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_malformed_or_ambiguous_timeline_keeps_ordinary_production (code='TestWorld.timeline[2]={Class=0,Individual=0,Claimant=0}')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_malformed_or_ambiguous_timeline_keeps_ordinary_production (code='GameInfo.GreatPersonIndividuals[0].Index=1')",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_observed_native_project_still_blocks_other_boost",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_second_city_does_not_duplicate_the_pending_goal",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_standby_keeps_its_negative_score",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_unknown_project_queue_definition_is_not_empty",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_unobserved_project_request_survives_timeout_and_new_turn",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_unrelated_native_head_does_not_discard_unknown_project",
+          "test_baiqi_prayer_production.PrayerProductionTests.test_wrong_or_missing_prerequisite_definition_does_not_boost (code=\"TestWorld.prayerDefinition.PrereqDistrict='WRONG'\")"
+        ],
+        "error_events": [],
+        "skips": []
+      }
+    },
+    "raw_helper_and_assembled_Lua51_compile": true,
+    "raw_candidate_Native": 0,
+    "source100_Lua51_files": 85,
+    "archive": {
+      "files": 107,
+      "bytes": 8786912,
+      "sha256": "e54d3946b772b196ecb9b7b68f7e7a3d2102a581e48f91657e93bfed240f357f"
+    },
+    "full_suite": {
+      "run": 1503,
+      "failure_events": [],
+      "error_events": [],
+      "skips": [
+        {
+          "test": "test_workshop_publisher_managed.WorkshopManagedTests.test_csharp5_compile_and_pure_helpers_without_publisher_main",
+          "reason": "Set BAIQI_WORKSHOP_SDK_ASSEMBLY to an installed official Steamworks.NET.dll"
+        }
+      ]
+    },
+    "exit_code": 0,
+    "source100_Native": 0,
+    "running_Native99_turn": 186,
+    "owner_fixture_correction": "First26 run hadone subcase failure: noHolySite correctly chose existing firstHolySite92 overWorkshop90. Correct expected777, not product behavior;26thenpass.",
+    "owner_scope": "Normal prayer project91 before scan-budget exhaustion; bounded own completeunpillagedHolySite/publicunclaimednotrecruitable/empirequeue+pending checks; final demand and nativequalification refreshed; marker retained onunknown; no spending or persisted schema.",
+    "Steam_actions": 0
+  },
+  "full_suite": {
+    "run": 1503,
+    "pass": 1502,
+    "SDK_environment_skip": 1
+  },
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82
+  },
+  "open": [
+    "100 installation/cold-run and actual prayer completion/point award",
+    "Natural Prophet recruitment/founding/missionary purchase/domestic spread",
+    "Old issuedARMED recoveryFAIL and full40/BaseRF/compatibility/performance"
+  ]
+}

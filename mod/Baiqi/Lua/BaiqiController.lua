@@ -3083,6 +3083,109 @@ local function ArchaeologistDemand(ctx,player,city)
   return ok and needed==true
 end
 
+-- Keep ordinary project legality separate from a temporary recruitment goal.
+-- This helper supplies a score only; the existing city writer owns the request.
+local function PrayerProjectWanted(ctx,player,city)
+  local ok,wanted=pcall(function()
+    local function Integer(value,max)
+      return BaiqiPolicy.Number(value) and value>=0 and value<=max and value%1==0
+    end
+    local function DenseSize(list)
+      if type(list)~="table" or getmetatable(list)~=nil then return nil end
+      local count,highest=0,0
+      for key in pairs(list) do
+        count=count+1
+        if count>128 or not Integer(key,128) or key<1 then return nil end
+        highest=math.max(highest,key)
+      end
+      if count~=highest then return nil end
+      return count
+    end
+    if not BaiqiPolicy.Context(ctx) or Players[ctx.player]~=player
+      or Game.GetCurrentGameTurn()~=turn then return false end
+    local holy=GameInfo.Districts.DISTRICT_HOLY_SITE
+    local project=GameInfo.Projects.PROJECT_ENHANCE_DISTRICT_HOLY_SITE
+    if not holy or holy.DistrictType~="DISTRICT_HOLY_SITE" or not Integer(holy.Index,2147483647)
+      or not project or project.ProjectType~="PROJECT_ENHANCE_DISTRICT_HOLY_SITE"
+      or project.PrereqDistrict~="DISTRICT_HOLY_SITE" or not Integer(project.Index,2147483647)
+      or not BaiqiPolicy.Number(project.Hash) or project.Hash%1~=0 then return false end
+    local cityID=city:GetID()
+    local cities=player:GetCities()
+    local owned=cities:FindID(cityID)
+    if not Integer(cityID,2147483647) or not BaiqiPolicy.MatchesID(owned,cityID)
+      or city:GetOwner()~=ctx.player or owned:GetOwner()~=ctx.player then return false end
+    local districts=owned:GetDistricts()
+    if districts:HasDistrict(holy.Index,true)~=true or districts:IsPillaged(holy.Index)~=false then return false end
+    local religion=player:GetReligion()
+    if religion:GetReligionTypeCreated()~=-1 or religion:GetNumBeliefsEarned()~=0
+      or religion:HasReligiousFoundingUnit()~=false then return false end
+    local class=GameInfo.GreatPersonClasses.GREAT_PERSON_CLASS_PROPHET
+    if not class or class.GreatPersonClassType~="GREAT_PERSON_CLASS_PROPHET"
+      or not Integer(class.Index,2147483647) then return false end
+    local people=Game.GetGreatPeople()
+    local timeline=people:GetTimeline()
+    local size=DenseSize(timeline)
+    if size==nil then return false end
+    local seen,unclaimed={},{}
+    for i=1,size do
+      local entry=timeline[i]
+      if type(entry)~="table" or getmetatable(entry)~=nil
+        or not Integer(entry.Class,2147483647) then return false end
+      if entry.Class==class.Index then
+        local id=entry.Individual
+        local definition=Integer(id,2147483647) and GameInfo.GreatPersonIndividuals[id]
+        if not definition or definition.Index~=id or seen[id]
+          or definition.GreatPersonClassType~="GREAT_PERSON_CLASS_PROPHET"
+          or (entry.Claimant~=nil and not Integer(entry.Claimant,2147483647)) then return false end
+        seen[id]=true
+        if entry.Claimant==nil then unclaimed[#unclaimed+1]=id end
+      end
+    end
+    if #unclaimed==0 then return false end
+    for _,id in ipairs(unclaimed) do
+      -- A ready free recruitment takes precedence; nil is not a known false.
+      if people:CanRecruitPerson(ctx.player,id)~=false then return false end
+    end
+    local count=cities:GetCount()
+    if not Integer(count,256) or count==0 then return false end
+    local citySeen,n={},0
+    for _,member in cities:Members() do
+      n=n+1
+      local id=member:GetID()
+      if n>count or not Integer(id,2147483647) or citySeen[id] or member:GetOwner()~=ctx.player
+        or not BaiqiPolicy.MatchesID(cities:FindID(id),id) then return false end
+      citySeen[id]=true
+      local q=member:GetBuildQueue()
+      local hash=q:GetCurrentProductionTypeHash()
+      if not BaiqiPolicy.Number(hash) or hash%1~=0 or hash==project.Hash then return false end
+      local entries=q:GetSize()
+      if not Integer(entries,64) then return false end
+      for i=0,entries-1 do
+        local entry=q:GetAt(i)
+        if type(entry)~="table" then return false end
+        if entry.ProjectType~=nil then
+          local row=GameInfo.Projects[entry.ProjectType]
+          if not row or row.ProjectType==project.ProjectType then return false end
+        end
+      end
+    end
+    if n~=count then return false end
+    n=0
+    for _,pending in pairs(pendingCities) do
+      n=n+1
+      if n>256 then return false end
+      if pending.kind=="project" then
+        local row=GameInfo.Projects[pending.hash]
+        if not row or row.ProjectType==project.ProjectType then return false end
+      end
+    end
+    local fresh,freshPlayer=PlayerContext()
+    return BaiqiPolicy.Context(fresh) and fresh.player==ctx.player and freshPlayer==player
+      and Game.GetCurrentGameTurn()==turn and CoreIdle()
+  end)
+  return ok and wanted==true
+end
+
 local function ProcessCity(ctx, player, state, city)
   local cityID=city:GetID()
   if cityEvaluated[cityID]==turn then return false end
@@ -3095,14 +3198,15 @@ local function ProcessCity(ctx, player, state, city)
   if not QueueReady(city,q,completedHead) or pendingCities[cityID] then return false end
   cityEvaluated[cityID]=turn
   local candidates, checked = {}, 0
-  local function Add(kind,row,score,repair,placement,firstHolySite)
+  local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject)
     if checked >= C.candidatesPerCity then return end
     checked=checked+1
     -- Both CanProduce modes are required by the shipped ProductionPanel.
     -- Exclusion checks alone can say true for a building behind an unknown tech.
     if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
-      score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true}
+      score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true,
+      prayerProject=prayerProject==true}
     if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c,completedHead)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
@@ -3110,6 +3214,11 @@ local function ProcessCity(ctx, player, state, city)
   local treasury=player:GetTreasury()
   local netGold=treasury:GetGoldYield()-treasury:GetTotalMaintenance()
   local economy=Economy(player)
+  local prayerWanted=PrayerProjectWanted(ctx,player,city)
+  local prayer=prayerWanted and GameInfo.Projects.PROJECT_ENHANCE_DISTRICT_HOLY_SITE
+  -- Reserve this candidate before ordinary entries can exhaust the scan budget.
+  -- Its score still loses to essential production, builders and all repairs.
+  if prayer then Add("project",prayer,91,false,nil,false,true) end
   for row in GameInfo.Buildings() do
     local repair=city:GetBuildings():IsPillaged(row.Index)
     if not row.IsWonder and (not row.RequiresPlacement or repair) and (not row.MustPurchase or repair)
@@ -3154,7 +3263,9 @@ local function ProcessCity(ctx, player, state, city)
     end
   end
   for row in GameInfo.Projects() do
-    Add("project",row,row.ProjectType=="PROJECT_BAIQI_STANDBY" and -1000 or 1,false)
+    if not prayer or row.Hash~=prayer.Hash then
+      Add("project",row,row.ProjectType=="PROJECT_BAIQI_STANDBY" and -1000 or 1,false)
+    end
   end
   local choice=BaiqiPlanner.Choose({paused=false,queueEmpty=true},candidates)
   if choice == nil then Reason("city:"..city:GetID(),"城市等待合法生产或预算"); return false end
@@ -3211,13 +3322,21 @@ local function ProcessCity(ctx, player, state, city)
     Reason("religion_supply_changed:"..cityID,"首座圣地需求已变化，重新安排合法生产")
     return false
   end
+  if choice.prayerProject and not PrayerProjectWanted(latest,latestPlayer,city) then
+    cityEvaluated[cityID]=nil
+    Reason("religion_prayer_changed:"..cityID,"先知点数需求已变化，重新安排合法生产")
+    return false
+  end
   -- The extra demand read must not cover a turn/queue change at its boundary.
-  if choice.firstHolySite and (not CoreIdle() or not QueueReady(city,q,completedHead)
+  if (choice.firstHolySite or choice.prayerProject) and (not CoreIdle() or not QueueReady(city,q,completedHead)
     or Game.GetCurrentGameTurn()~=turn) then return false end
+  if choice.prayerProject and (q:CanProduce(choice.hash,true)~=true
+    or q:CanProduce(choice.hash,false,true)~=true
+    or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true) then return false end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
   pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,
-    firstHolySite=choice.firstHolySite}
+    firstHolySite=choice.firstHolySite,prayerProject=choice.prayerProject}
   if choice.kind=="unit" then
     submittedUnits[cityID]=submittedUnits[cityID] or {}
     submittedUnits[cityID][choice.hash]=true
@@ -3438,12 +3557,13 @@ local function ReadBack(player)
       if matched then
         Log("queue_observed","id="..pending.id.."|city="..cityID.."|hash="..pending.hash)
         pendingCities[cityID]=nil
-      elseif pending.replacesHead or pending.firstHolySite then
-        -- A missing replacement/first Holy Site is unknown. A late operation
-        -- could overwrite alternate work or duplicate the empire's first site.
+      elseif pending.replacesHead or pending.firstHolySite or pending.prayerProject then
+        -- A missing replacement or boosted religion request is unknown. A late
+        -- operation could overwrite work or duplicate the empire's supply goal.
         -- Retain the request and never infer failure from a temporary empty head.
         if (pending.elapsed or 0)>=C.productionObservationSeconds and CoreIdle() and not pending.unresolvedLogged then
-          Log(pending.firstHolySite and "first_holy_site_request_unresolved" or "queue_replacement_unresolved",
+          Log(pending.prayerProject and "prayer_project_request_unresolved"
+            or (pending.firstHolySite and "first_holy_site_request_unresolved" or "queue_replacement_unresolved"),
             "id="..pending.id.."|city="..cityID.."|actual_hash="..hash)
           pending.unresolvedLogged=true
         end

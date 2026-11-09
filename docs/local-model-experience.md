@@ -466,3 +466,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：99自然首座圣地、首次产点与完成态重载
 
 [两原图／7CSV／179→186实机](testing/baiqi-first-holy-site-native-99.md)。0新HTTP／产品改动，复用563及564累计。太原182圣地0/68、18334、18452、185实际完成接灯塔；186先知40→41/+1，正式save/load186保持。冷179自有1经济9队列59建筑33区域140plot30unit全等，reload186自有1/9/66/34/145/36全等、9food相同，不推全世界或0bootstrap。7普通END45玩家军队SKIP，185Spainintro拒访一次后actual186；72food非负starve-1/72loyalty100正变化。observer179→185共1846=1781recruit14city50op1cmd，51单位为39builder9settler1trader2merchant，0错丢且全撤，末185→186不在观察窗。180首都fullCanProduce真但ClearPlot和区位交集0，非已证排序缺陷；185food忙碌守卫止步后独立fresh读正常，不伪造饥荒；186loadLSQtimeout0CMD无重放，初截图focus失败0PNG后ownUIA。owner把接续灯塔口述为市场已及时纠正，公开packet用实际灯塔。107byte安装，Steam新鲜offline0.003459s后启动、header导航与只读proof分列0模式/上线/上传；99建设产点窄PASS，宗教整链/旧恢复FAIL/完整40仍open。
+
+
+## 2026-11-09：565正常祷告项目与100软件
+
+[实际定义／26回归／完整1503](testing/baiqi-prayer-project-production-100.md)。565 stop/DONE/JSON/1HTTP19492tokens/14.128484s；原稿helper及精确接线Lua51可编译，但26有19fail事件0error，漏帝国承诺／候选预算／未知请求保留，待命−1000丢失、原1分项目被额外守卫阻断，显式false／定义／重复校验不足，所谓atomicity拒绝；整稿0Native。owner91加权、前置候选、全帝国／最终Native重验及未知标记保持；26新pass，旧99同组20fail事件0error，原23首座回归在完整1503/1502pass/1SDK条件skip内，85Lua51/107包。首26唯一fixture错误为无圣地应走已有92而非工坊90；验证器else拼写先被Python拒绝0测试，修正后实跑。99原生186实际项目PROJECT_ENHANCE_DISTRICT_HOLY_SITE index12/hash30870116/PrereqHoly/成本100、双CanProduce及APPENDtrue，原队列灯塔；先知cost60/own41+1/CanRecruitfalse，奖励额未知，0手补点数／赞助。累计565/527stop/35length/3transport/595HTTP/30extra/OpenCode新0/null未知。100未安装实机，Steam0上线或上传，旧恢复FAIL/宗教整链/完整40open。
