@@ -1,0 +1,702 @@
+{
+  "schema": "civ6.religion573-shrine133-and-readonly-follower-snapshot/v1",
+  "utc": "2026-11-09T07:44:45.278664+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 103,
+  "runtime_code_commit": "bb49d6111d0277954a634ee8b50c3b6edae157b3",
+  "model573": {
+    "HTTP_attempts": 1,
+    "extra_attempts": 0,
+    "usage": {
+      "prompt_tokens": 4786,
+      "completion_tokens": 1263,
+      "total_tokens": 6049
+    },
+    "seconds": 8.546672299969941,
+    "finish_reason": "stop",
+    "SSE_DONE": true,
+    "outer_JSON": "VALID",
+    "adoption": "Rawqueryfullyrejected; ownerindependenttools-onlymodule/tests",
+    "raw_Native": 0,
+    "actual_HTTP_peak": 1,
+    "daily_maintenance": "Nov9 canonical same-machine/user1.19.5 successfulcache; noOpenCode-nativegeneration",
+    "cache_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative573": {
+    "logical_tasks": 573,
+    "complete_stop_valid_outer_JSON": 534,
+    "length_discarded": 36,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 603,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_HTTP_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "review": {
+    "raw_Lua51_compile": true,
+    "raw_rejected": true,
+    "raw_Native": 0,
+    "raw_scope_freshness_claim": "Singlepcall doesnotrecheckcontext; raw lackssecondscope andmultiplayerguard, skipsinvalidfollowers, no dense/uniquevalidation and latebounds.",
+    "TSV_literal_backslash_separator": true,
+    "isolated_counterexamples": [
+      {
+        "case": "faith_changes",
+        "raw_status": "KNOWN",
+        "owner_status": "UNKNOWN",
+        "raw_output": [
+          [
+            "P6_MISSIONARY573\tKNOWN\t131\t1\t200"
+          ],
+          [
+            "P6_MISSIONARY573\tCITY\t0\t0\t0\t4\t-1"
+          ],
+          [
+            "P6_MISSIONARY573\tFOLLOWER\t0\t0\t1"
+          ],
+          [
+            "P6_MISSIONARY573\tFOLLOWER\t0\t1\t2"
+          ]
+        ],
+        "raw_Native": 0
+      },
+      {
+        "case": "multiplayer",
+        "raw_status": "KNOWN",
+        "owner_status": "UNKNOWN",
+        "raw_output": [
+          [
+            "P6_MISSIONARY573\tKNOWN\t131\t1\t200"
+          ],
+          [
+            "P6_MISSIONARY573\tCITY\t0\t0\t0\t4\t-1"
+          ],
+          [
+            "P6_MISSIONARY573\tFOLLOWER\t0\t0\t1"
+          ],
+          [
+            "P6_MISSIONARY573\tFOLLOWER\t0\t1\t2"
+          ]
+        ],
+        "raw_Native": 0
+      },
+      {
+        "case": "sparse_followers",
+        "raw_status": "KNOWN",
+        "owner_status": "UNKNOWN",
+        "raw_output": [
+          [
+            "P6_MISSIONARY573\tKNOWN\t131\t1\t200"
+          ],
+          [
+            "P6_MISSIONARY573\tCITY\t0\t0\t0\t4\t-1"
+          ],
+          [
+            "P6_MISSIONARY573\tFOLLOWER\t0\t0\t1"
+          ]
+        ],
+        "raw_Native": 0
+      },
+      {
+        "case": "native_unaffiliated_minus_one",
+        "raw_status": "KNOWN",
+        "owner_status": "KNOWN",
+        "raw_output": [
+          [
+            "P6_MISSIONARY573\tKNOWN\t131\t1\t200"
+          ],
+          [
+            "P6_MISSIONARY573\tCITY\t0\t0\t0\t4\t-1"
+          ],
+          [
+            "P6_MISSIONARY573\tFOLLOWER\t0\t1\t1"
+          ]
+        ],
+        "raw_Native": 0
+      }
+    ],
+    "owner_methods": 7,
+    "owner_all_pass": true,
+    "owner_Native_first_UNKNOWN_correction": "Ownerprompt incorrectly excluded Religion=-1. Actual131listincludesunaffiliated; initialowner6tests missedNative shape. Addednegativeonecase, retainedzerofollowers andreran7, correctedNativeKNOWN. Do not blamecandidate for wrongownercontract.",
+    "owner_source_sha256": "6e0fc7e0d2308897f72ed35d7d72ef0f8b4a96d6e8334104e00399aa3af880ee"
+  },
+  "owner_tool": {
+    "path": "tools/lua/diagnostic_missionary_snapshot.lua",
+    "methods": 7,
+    "all_pass": true,
+    "Lua51_compile": true,
+    "Native_known131and133": true,
+    "unit_Native_positive_case": false,
+    "scope": "UIflatunitreligion/charges; ownhumanBaiqi0singleplayeractiveidleturn130..160 only. Two complete sorted bounded snapshotsmustmatchexactly; unknown hasno partialrows. ActualunaffiliatedReligion-1 retainedalongsidezero followers. Noorders/privatebridge/propertywrites/observeractions.",
+    "limits": "A cityconversion or followercountchange alone doesnotattribute missionaryeffect; positiveactualmissionaryportread stillpending."
+  },
+  "Native133": {
+    "normal_Shrine_start_PASS": true,
+    "first_background_BUILD_call_and_current_queue": [
+      [
+        "P6_SOURCE103_SHRINE_STARTED133",
+        "196610",
+        "-1766198995",
+        "0",
+        "35"
+      ],
+      [
+        "P6_SOURCE103_SHRINE_NATIVE_CITY_CALL",
+        "653",
+        "133",
+        "196610",
+        "0",
+        "739199558",
+        "true",
+        "0"
+      ],
+      [
+        "P6_SOURCE103_SHRINE_NATIVE_CITY_PARAM",
+        "653",
+        "-1254747886",
+        "-1766198995"
+      ],
+      [
+        "P6_SOURCE103_SHRINE_NATIVE_CITY_PARAM",
+        "653",
+        "-1406149623",
+        "369690394"
+      ],
+      [
+        "P6_SOURCE103_SHRINE_STARTED_PROOF_DONE",
+        "READONLY_NO_PRIVATE_PLANNER_OR_DOMESTIC_INPUT"
+      ]
+    ],
+    "queue": "BUILDING_SHRINE5/0of35/3turns",
+    "previous_normal_settler": "12833/130,12955,13077,13198,132120,133complete. Newsettler3145745ordinarymoves; no manualproduction.",
+    "faith": 396.8046875,
+    "purchase_or_domestic_spread_PASS": false,
+    "save_bytes": 1441573,
+    "save_sha256": "a0da1383c7d133e2aeb2ffc5b69382f008e5216f7fd3bfec524f9063b0ecc75b",
+    "save_loaded_at_cut": false,
+    "END133_at_saved_cut": 0,
+    "Finance_counts": [
+      "P6_SOURCE103_OBSERVER_COUNTS",
+      "133",
+      "765",
+      "6",
+      "16",
+      "0",
+      "0",
+      "0",
+      "787"
+    ],
+    "Finance_still_attached": true,
+    "CityRequestCommand_observer_counts": [
+      "P6_SOURCE103_CITYCMDS_COUNTS",
+      "133",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "CityRequestCommand_observer_still_attached": true,
+    "manual_domestic_or_faith_grants": 0
+  },
+  "own_follower_samples": {
+    "131": [
+      [
+        "OWN",
+        "1",
+        "380.3984375"
+      ],
+      [
+        "CITY",
+        "65536",
+        "55",
+        "34",
+        "12",
+        "-1"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "-1",
+        "10"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "2",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "131073",
+        "52",
+        "36",
+        "10",
+        "-1"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "-1",
+        "7"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "2",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "196610",
+        "56",
+        "38",
+        "8",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "-1",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "1",
+        "6"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "2",
+        "0"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "262147",
+        "59",
+        "36",
+        "8",
+        "8"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "-1",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "2",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "8",
+        "4"
+      ],
+      [
+        "CITY",
+        "327684",
+        "53",
+        "30",
+        "2",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "-1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "1",
+        "0"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "2",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "393221",
+        "49",
+        "27",
+        "5",
+        "-1"
+      ],
+      [
+        "FOLLOWER",
+        "393221",
+        "-1",
+        "4"
+      ],
+      [
+        "FOLLOWER",
+        "393221",
+        "2",
+        "1"
+      ],
+      [
+        "CITY",
+        "458758",
+        "59",
+        "32",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "-1",
+        "0"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "2",
+        "0"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "8",
+        "0"
+      ]
+    ],
+    "133": [
+      [
+        "OWN",
+        "1",
+        "396.8046875"
+      ],
+      [
+        "CITY",
+        "65536",
+        "55",
+        "34",
+        "12",
+        "-1"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "-1",
+        "10"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "2",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "65536",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "131073",
+        "52",
+        "36",
+        "10",
+        "-1"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "-1",
+        "7"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "2",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "131073",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "196610",
+        "56",
+        "38",
+        "8",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "-1",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "1",
+        "6"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "2",
+        "0"
+      ],
+      [
+        "FOLLOWER",
+        "196610",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "262147",
+        "59",
+        "36",
+        "8",
+        "8"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "-1",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "2",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "262147",
+        "8",
+        "4"
+      ],
+      [
+        "CITY",
+        "327684",
+        "53",
+        "30",
+        "2",
+        "2"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "-1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "1",
+        "0"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "2",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "327684",
+        "8",
+        "0"
+      ],
+      [
+        "CITY",
+        "393221",
+        "49",
+        "27",
+        "5",
+        "-1"
+      ],
+      [
+        "FOLLOWER",
+        "393221",
+        "-1",
+        "4"
+      ],
+      [
+        "FOLLOWER",
+        "393221",
+        "2",
+        "1"
+      ],
+      [
+        "CITY",
+        "458758",
+        "59",
+        "32",
+        "2",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "-1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "1",
+        "1"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "2",
+        "0"
+      ],
+      [
+        "FOLLOWER",
+        "458758",
+        "8",
+        "0"
+      ]
+    ]
+  },
+  "csv_path": "docs/research/baiqi-source103-own-followers131-133.csv",
+  "passive_conversion_counterexample": "Zeroactualmissionaries at131butXingzhou458758nativeMajority1/oneBuddhistofpop1. At133pop2/oneBuddhist+oneunaffiliatednativeMajoritystill1. Reportnativevalue, do not inferstrictmajorityfromarithmetic orcallthisbackgroundmissionarysuccess.",
+  "TEST_PLAYER_diplomacy": {
+    "129_Rome": "Refused10iron/46gold/openborder trade, thenByeonce",
+    "130_Brazil": "Explicitlyrefusedembassy, thenByeonce. Twoearlierexactpixelguardsfailed0input dueonlybuttonregiondifference, freshownedroot-reviewedpicturequalifiedsinglephysicalrefusal; noaccept.",
+    "special129": "OnefreeNOvote, reviewed0favorcost,Submit1; actual130failed7NO/4YES, originalReturnGame1. TargetBrazil, noemergencyjoiningorwarfromthisvote.",
+    "regular130": "OnefreeAforBorderControltargetBaiqi andonefreeAforCityDevelopmenttargetCommercialHub,reviewedtotal0favorcost/Submit1; actual131A6targetPedroII/Brazil andA6targetCityCenter, originalReturnGame1. Decisionsandresultsseparate; not manualcityproduction orBACKGROUNDdiplomacy.",
+    "END_or_Load_replay_after_wait_failure": 0
+  },
+  "image": {
+    "path": "docs/testing/images/source103-shrine133/started133.png",
+    "sha256": "12dd00e2b20656f337f12b9e2d91e12bb39f84f9405c9ccea07229ac25d48061",
+    "original_unedited": true,
+    "caption": "133邯郸神社，原版显示3回合后完成；Native0/35配对，不是完工或传教士截图。"
+  },
+  "previous_cold128_public_GET3": {
+    "utc": "2026-11-09T06:54:24.847924+00:00",
+    "commit": "588363a1f788a92f61d8546bd331a744524152ca",
+    "public_GET": [
+      {
+        "url": "https://raw.githubusercontent.com/XenoAmess/civ6_dev/588363a1f788a92f61d8546bd331a744524152ca/docs/testing/images/source103-cold128/existing-settler128.png",
+        "status": 200,
+        "bytes": 1112722,
+        "sha256": "de6d9d223d60177381492d781d8fbc8ff09f187aa84e6024a928c9fcb8ea6c49",
+        "matches_fixed_Git_blob_bytes": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/XenoAmess/civ6_dev/588363a1f788a92f61d8546bd331a744524152ca/docs/testing/baiqi-shrine-cold-readback-103.md",
+        "status": 200,
+        "bytes": 2911,
+        "sha256": "3d7c403231ed36736b59d45af01d72b046894639e05ff7bf2b8a5e7bd094c260",
+        "matches_fixed_Git_blob_bytes": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/XenoAmess/civ6_dev/588363a1f788a92f61d8546bd331a744524152ca/docs/workshop/v0.1.0-alpha.2/pending-shrine103-cold128-2026-11-09.bbcode.txt",
+        "status": 200,
+        "bytes": 857,
+        "sha256": "6b41a6fa3cc1e734435e1a0a62ba56665503fe0c4fee1b9142805398b1569a67",
+        "matches_fixed_Git_blob_bytes": true
+      }
+    ],
+    "Steam_actions": 0
+  },
+  "validation_limit": "7newtoolschecks only. Previous103full1562cut unchanged; do not relabel as full1569. Tools not in108productfiles.",
+  "Steam": {
+    "other_device_in_use": true,
+    "mode_switches": 0,
+    "online_login_download_uploader_initialization_upload": 0,
+    "public_Alpha2_internal": 82
+  },
+  "remaining": [
+    "Shrineactualcompletion",
+    "Firstactualmissionarypurchase/receipt",
+    "Domesticspreadwithcharges/nativeoperation/followerchanges",
+    "OldissuedsettlerARMEDrecoveryFAIL",
+    "Smallviewport/fullscreenfault/BaseRF/compatibility/performance/full40"
+  ]
+}

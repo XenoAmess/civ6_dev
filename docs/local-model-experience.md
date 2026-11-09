@@ -516,3 +516,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：103冷读128已完成宗教与原生产保持
 
 [原图与逐项冷读](testing/baiqi-shrine-cold-readback-103.md)。0新HTTP逻辑，沿用572累计。BF-202609141645：108files equal pushbb49，Steam14904同实例fresh后台offlineUTC06:34:23.360038/0.005423s启动20332，首次unavailable0spawn，正式header导航0模式项另账。旧102退出残留>=180s/无窗口端口/CPU0/保存校验后仅终止own25436；cleanexit未过。正式load128ACK+Continue1后world整行/7queue/20building/19district/94plot/17unit/7food全同，Handansettler33/130、faith347.789/points41+5/佛教2belief/先知OBSERVED原token保持，无重复演员/所测奖励重放；不是未决恢复。加载4318refused/4319timeout及ownership拒绝全0CMD，继续后4318unique126ctx qualified，不重发Load/Continue。observer128新装，bootstrap此前callsunknown；神社未建/传教0继续，0Steam模式切换或上传工坊82。
+
+
+## 2026-11-09：573信徒只读诊断与神社133开工
+
+[原图／7工具检查／131及133信徒CSV](testing/baiqi-shrine-start-and-followers-133.md)。BF-202609141645源103，原移民33→55→77→98→120→133complete，后台一次BUILD神社0/35/3turns，save1441573/a0da1383...未load/0END133。Finance787/765read6city16unitop0cmd/0错丢、CityCmds0均仍挂。5731HTTP6049tokens/8.546672s stop/DONE/JSON，rawLua51compile但无fresh二读/多人守卫/稀疏重复验证、跳过异常行/字面反斜杠，4隔离对照假Known或漏-1，全拒0Native。owner先误给followerReligion>=0合同，Native131UNKNOWN后发现无宗教-1及0行真实存在，纠正合同并增测试，owner7pass；两次全量排序二读Scope/faith/全部城市单位比对，Native131/133Known无传教士却邢州佛教已自然传播，不可据城市转教授后台spread。UIflatGetReligionType/Charges，UIGetReligionnil（先前owner探针误用已改，非产品bug）。特殊129NO1free→1307NO4YESfailed；regular130A1Baiqi/Commerce→131A6Brazil/CityCenter，0favor支出及input/results分账，130embassy拒绝两前置像素guard0input后新鲜root图原版明确拒一次。累计573/534stop/36length/3transport/603HTTP/30extra，OpenCode0/null未知，产品full1562切点不虚报1569；Steam禁上线工坊82。
