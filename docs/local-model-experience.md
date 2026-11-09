@@ -511,3 +511,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：572神社正常优先级与128保存
 
 [源码103／4项／完整重跑与边界](testing/baiqi-shrine-production-103.md)。BF-202609141645：102已创教但缺神社，Native122missionary70cost/274.57faith/nativefalse，128347.79/神社Maintenance1/bothproduce true，7城邯郸移民33/130。Model572stop/DONE/JSON1HTTP21139tokens/6.580024s，采用唯一BUILDING_SHRINE91补丁；模型可能0维护想法拒，owner用1，旧4有1fail、新4pass。首次full1562因漏103对照工具allowlist18error，补两tool后重跑1562/1561pass/1SDKskip、86Lua51/108包字节一致；计数1546+570tool12+new4，未装未Native103。128save1428901/hash9ddde3...未load/0END128，Finance4109count/4096retained/0err13drop含5unit_op，119retained文职，不能授128全演员覆盖；zero-drop断言在Restore前挡撤，明确带丢弃路径精确撤成功。前571固定GET5一致；累计572/533stop/36length/3transport/602HTTP/30extra/OpenCode0/null成本，Steam禁上线工坊82。
+
+
+## 2026-11-09：103冷读128已完成宗教与原生产保持
+
+[原图与逐项冷读](testing/baiqi-shrine-cold-readback-103.md)。0新HTTP逻辑，沿用572累计。BF-202609141645：108files equal pushbb49，Steam14904同实例fresh后台offlineUTC06:34:23.360038/0.005423s启动20332，首次unavailable0spawn，正式header导航0模式项另账。旧102退出残留>=180s/无窗口端口/CPU0/保存校验后仅终止own25436；cleanexit未过。正式load128ACK+Continue1后world整行/7queue/20building/19district/94plot/17unit/7food全同，Handansettler33/130、faith347.789/points41+5/佛教2belief/先知OBSERVED原token保持，无重复演员/所测奖励重放；不是未决恢复。加载4318refused/4319timeout及ownership拒绝全0CMD，继续后4318unique126ctx qualified，不重发Load/Continue。observer128新装，bootstrap此前callsunknown；神社未建/传教0继续，0Steam模式切换或上传工坊82。
