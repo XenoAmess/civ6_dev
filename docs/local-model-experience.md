@@ -486,3 +486,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：568早期99诊断与101伟人页显示反例
 
 [原图与证据](testing/baiqi-great-people-native-partial-101.md)。101冷187原打开/关闭各1且IsReadOnlytrue，主体恢复窄通过；图中X/Y及小视口底部截断仍FAIL，Game.GetPlayers四筛选均0、PlayerManager.GetAliveMajors6含own，根因未知，569另修不授全页。187save1769701/hashf0f72ba...0END187；正式读真实87NoBarb99保存1244764/hash1106c85...，原Continue一次后5城9单位/faith100.41015625/points0+0/unclaimed122，5food非负无饥饿，未授祷告招募。568stop/DONE/JSON1HTTP4955tokens/5.176399s，首边界patch采用，冗余>=0拒；raw6pass超要求3，owner合3并已知基线再验future，旧150同3有3fail-events，新23pass，旧149负夹具改98。私有allfood154下界先在0Native前拒，扩99后才真实读。累计到568/530stop/35length/3transport/598HTTP/30extra，569另账，新OpenCode0/null未知；0Steam模式上线上传。
+
+
+## 2026-11-09：569空公开进度与102软件
+
+[1546项与12实际helper回归](testing/baiqi-great-people-standings-102.md)。569完整stop/DONE/JSON1HTTP22747tokens/17.531432s，rawLua51compile但无白绮范围、逐类半发布、NaN等；3直接软件反例实证正常领袖被改/第二类异常已留第一类/NaN发布，raw3tests未定义include全error且镜像实现，整稿0Native拒绝。owner仅GPwrapper原版调用后、只白绮当前视图明确空类，64有界密集去重含own、公开点数及met/unmet名、全部暂存后复核回合身份及目标空表才发布，保已有/缺类/past/normalleader及原版异常。12pass，原8仍通过，完整1546/1545pass/1SDKskip，86Lua51/108包；102尚未装实机、小视口布局仍open。累计569/531stop/35length/3transport/599HTTP/30extra，新OpenCode0/null未知。小夹具清空格时短暂文字拼错，任何重跑前改正，不算产品或测试失败。Steam外机占用0上线上传，Alpha2仍82。

@@ -30,7 +30,7 @@ function FireLaunch()for _,f in ipairs(LaunchHandlers)do f()end end
 
     def include(self,name,wildcard=False):
         self.calls.append((name,bool(wildcard)))
-        if name in ('BaiqiConfig','BaiqiPolicy','BaiqiUIGuard','BaiqiUILoader'):
+        if name in ('BaiqiConfig','BaiqiPolicy','BaiqiUIGuard','BaiqiUILoader','BaiqiGPViewData'):
             path=ROOT/f'mod/Baiqi/Lua/{name}.lua'
             if name=='BaiqiUILoader' and os.environ.get('BAIQI_GP_LOADER_SOURCE'):
                 path=Path(os.environ['BAIQI_GP_LOADER_SOURCE'])
