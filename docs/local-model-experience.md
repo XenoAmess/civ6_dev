@@ -630,7 +630,7 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 
 [106实机166—186／六张原图](testing/baiqi-continuous-window-106-166-186.md)：20实际回合／174城帧，8→9城武汉，19建筑／6普通区域／7处配对改良；TC-037本GS场景通过。33普通END／63玩家军队待命／0人工内政。广州183竞技场完工但仍缺1；GP689对768裁切实测FAIL，负责人草稿5检查未入产品。186已存未载；旧恢复FAIL／全矩阵继续，Steam禁上线，工坊82保持。
 
-590资格文案有猜测需重写；591源锚点经owner原生689/768确认、原探针未用；592编造Timeline／实例全局、缺恢复且测试复制实现，编译后两项隔离反例拒绝。Owner布局稿5检查通过，未入产品或Native。累计592logical552complete37length3transport622HTTP30extra0OpenCode生成。Nov10新每日维护1.19.5通过，三个请求各1HTTP/72795tokens/实际峰1；未知用时成本null。原版读档可继续文职移动；断连接先只读读回，不能重放未知动作。设施来源与奢侈品/人口需求分列。
+590资格文案有猜测需重写；591源锚点经owner原生689/768确认、原探针未用；592把原版局部实例表当全局、把实例映射当控件、缺恢复且测试复制实现；Timeline确为原版字段，先前People假设撤回，正确的全局不可见与映射无GetChildren两项隔离反例拒绝。Owner布局稿5检查通过，未入产品或Native。累计592logical552complete37length3transport622HTTP30extra0OpenCode生成。Nov10新每日维护1.19.5通过，三个请求各1HTTP/72795tokens/实际峰1；未知用时成本null。原版读档可继续文职移动；断连接先只读读回，不能重放未知动作。设施来源与奢侈品/人口需求分列。
 
 
 ## 2026-11-10：592拒绝后107实际控件布局
@@ -638,3 +638,10 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 [107伟人页布局／软件](testing/baiqi-great-people-viewport-107.md)：689高适配并保留招募152区与费用行，原768恢复／实例池／失败整页预检／wrapper接线6新方法，相关36通过；全1616pass／1SDKskip，87Lua51／109包。安装实机仍106／186；新只读Steam模式查询不可用，0新进程／0上线，先做可还原预验。CityPanel／旧恢复FAIL与全矩阵继续，工坊82不变。
 
 未新增模型请求；源592真shape反例已记录。Owner绝对尺寸控制MainInfo独立父级，招募152区不压缩，名字半像素以整数偏移保留0.5容差；6真实模块方法与完整1617验证分账。软件不是Native，Steam后台只读不可用不新启，既有离线实例仅做可还原预验。
+
+
+## 2026-11-10：107原生句柄缓存FAIL与592评审勘误
+
+[107可还原预验／重复应用FAIL](testing/baiqi-gp107-preview186-reapply-fail.md)：106现有实例9卡首次适配689，原传记／历史可见；同控件GetChildren句柄==true但表键查不到，重复Applyfalse，缓存待修。75项已还原并原版关闭，0END186／0新进程／0Steam上线。Timeline原版字段勘误，592仍因局部表当全局等拒绝；源码107未改，软件绿不覆盖NativeFAIL。
+
+Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象替身授重复应用。原生无debug／rawequal，最初探针0setter中止，之后比较和局部表标记才得到有效证据。Timeline真实，撤回People假想Native输入；真实问题为局部m_kGreatPeople不可跨文件全局访问、实例映射不是控件。原始错误保留，新证据明确更正，不能让候选错误掩盖负责人误读。新增模型0／累计592。

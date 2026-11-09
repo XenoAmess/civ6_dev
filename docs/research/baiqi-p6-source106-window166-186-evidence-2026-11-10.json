@@ -1195,17 +1195,32 @@
         "adoption": "Entire implementation and copied-test candidate rejected",
         "Lua51_compile": true,
         "isolated_counterexamples": {
-          "actual_native_People_not_Timeline_returns_false": true,
-          "invented_m_kGreatPeople_global_raises": true
+          "native_Timeline_private_instance_not_global_raises": true,
+          "conditional_global_alias_plain_instance_has_no_GetChildren_returns_false": true
         },
         "rejections": [
-          "Invents data.Timeline and m_kGreatPeople instead of original actual data.People and local instance manager.",
+          "Original data.Timeline is valid. Original m_kGreatPeople exists as a LOCAL upvalue; the separate helper incorrectly reads it as a global, which is nil.",
           "getCtrl receives plain instance table rather than Content native control, so search returnsnil.",
           "No own human Baiqi scope, no dense complete bounded whole-tree preflight, partial writes/firstcard return.",
           "No >=768 restoration and repeated calls cumulatively shrink; reduces152high recruitment progress box, hiding content.",
           "No title placement/outerpopup fix. Tests embed a duplicate implementation, setter stubs discard dimensions, and narrow assertion cannot pass realhelper."
         ],
-        "owner_takeover_required": true
+        "owner_takeover_required": true,
+        "owner_review_correction": {
+          "utc": "2026-11-09T19:07:33.738383+00:00",
+          "withdrawn_claim": "Timeline is invented and actual native data usesPeople; this was an owner source-reading error.",
+          "primary_anchors": [
+            "Original local m_kGreatPeople declaration",
+            "ViewCurrent iterates ipairs(data.Timeline)",
+            "AddRecruit stores native instance maps in local m_kGreatPeople"
+          ],
+          "hypothetical_People_shape": "Earlier People-shaped empty input is NOT an actual Native consumer counterexample and is withdrawn.",
+          "candidate_still_rejected": true,
+          "private_original_review_preserved": true,
+          "second_counterexample_scope": "Only conditionally exposing a synthetic global to reach the next defect; actual Native never exposed that global.",
+          "new_model_or_HTTP": 0,
+          "raw_code_Native_executions": 0
+        }
       }
     ],
     "actual_HTTP_peak": 1,
