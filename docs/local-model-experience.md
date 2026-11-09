@@ -576,3 +576,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：105北京最后次数144与长窗观察器
 
 [144原图、数据及模型580—581](testing/baiqi-missionary-beijing-final-105.md)。第二3670037转北京，最后0charges/延迟死亡、Core与UIOBSERVED，nativeMajority仍-1/佛教4of11，禁止把回执完成写成转教／增长。140以来809记录0错丢／38文职操作／CityCmd0，仍挂。北京-3宜居度和小视口裁切保留。580原diff损坏／非法值验证晚／漏测试拒绝，owner诊断上限闭包1..16384/默认4096，新增4共14方法通过及Lua51编译；581图解部分事实表达改写。新增2stopJSON/2HTTP/实际峰2，累计581/542完整/36length/3transport/611HTTP/30extra/0OpenCode生成，未知成本null。Steam禁上线工坊82；产品105未变。
+
+
+## 2026-11-09：105连续20回合与无宗教需求负例
+
+[145—165原图／157城市行／完整输入分账](testing/baiqi-continuous-window-105-145-165.md)。同一105正常20turn、24ordinaryEND/36armySKIP/0人工内政UserForced，18建筑5普通区域7原可见自有NONE→improved逐格匹配BUILD，7→8城，本TC037场景通过而非全40。160自有8多数、宗教页总9含外城；1610传教士/购买4笔不增/CityCmd仍2/faith增长。160finance3788无错丢、外层2979先撤，161CityCmd撤，165全nil。582真实诊断1HTTP stopJSON4494tokens10.320730秒，原损坏diff拒绝，owner私有只读白名单与3次上限；69实际首试，重试分支未覆盖，不冒报软件或Native完整通过。累计582/543完整/36length/3transport/612HTTP/30extra/0OpenCode生成，未知成本null。165save1613032/558acebe...未load，旧恢复FAIL与其余风险继续，Steam禁上线82未变。

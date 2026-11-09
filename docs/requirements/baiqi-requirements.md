@@ -18,7 +18,7 @@
 
 ## 需求与用例追踪
 
-用例编号与完整步骤见[用例表](../testing/baiqi-test-cases.md)。初始状态为 `NOT_RUN`，实际状态按[运行记录](../testing/results/2026-10-31-p1-smoke.md)更新；表中“通过条件”是判据，不代表已通过。
+用例编号与完整步骤见[用例表](../testing/baiqi-test-cases.md)。初始状态为 `NOT_RUN`，实际状态按[持续P6运行记录](../testing/results/2026-11-01-p6-acceptance.md)更新；表中“通过条件”是判据，不代表已通过。
 
 | 编号 | 来源 | 需求与通过条件 | 对应用例 |
 | --- | --- | --- | --- |
