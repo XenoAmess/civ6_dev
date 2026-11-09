@@ -501,3 +501,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：570项目完成只读观察器与祷告111开工
 
 [原图／12工具检查／原生开工](testing/baiqi-normal-prayer-start-111.md)。570stop/DONE/JSON1HTTP6019tokens/8.633995s，raw12有9fail11error-events，补default控制仍15fail1error-events，均0Native拒；漏默认/实用上限、当前身份城市回合一致性、事件IDs、幂等与失败移除、Add错误清理，Owned恒真。owner工具12pass，32默认1..128、有界ownCityProjectCompleted静态AddRemove、未知快照仍保事件、不以通知授奖励，未装Native、不入产品、不重算完整1558。实际102邯郸106Holy0/75→10727→10842→10955→11068→111complete，后台HolyPrayer12/hash30870116/0of68/5turns，own44+4/unclaimed122，111save1321241/hash841113...0END111。103Finance观察1310/0错丢仍挂，105settler1572869FOUND和111广州393221@49,27，6food非负无饿/6loyalty100正，正常案不修旧ARMEDFAIL。107Rome及109Brazil拒交易Bye，110CongressTEST_PLAYER两项免费A1选Commerce/Trade，实际111Theater/Cultural，0后台外交或手动排产。累计570/532stop/35length/3transport/600HTTP/30extra，新OpenCode0/null未知；Steam0上线上传，工坊82。
+
+
+## 2026-11-09：正常祷告完工、招募与创教122
+
+[实机两原图、逐回合CSV与边界](testing/baiqi-normal-religion-founded-122.md)。BF-202609141645运行102早期六城，111祷告0/68→11563/68→116complete，event1/0错误丢且撤，points64→101 delta37、相邻稳定5、本样本额外32不推广公式。125报价120而非旧122的60，119116+5−120=120的1，公开125归0T120与实际unit2621455交叉确认；12154,37moves0→122消耗/OBSERVED/eventSeen，公开Buddhism1/WORK_ETHIC/TITHE与原版宗教页一致，QA0手补内政。HasReligiousFoundingUnit false120有单位、true122单位已消耗，不能当presence；Rome已领1/classMax1，撤回仅凭进度条推竞争者猜测，0赞助。122神社missing、70faith quote/274.57balance但nativefalse、工业26/86保持，无传教士/采购日志nil，国内传播未过。111→122实际11普通回合，22测试玩家军队SKIP；72food非负无饥饿，Finance3046/2934read/23city/88unitop/1cmd0错丢仍挂，三save校验未load，旧ARMEDFAIL/完整40仍开。571文案请求length整份丢弃，不读拼接，1HTTP7311+2800=10111tokens/18.266241s、owner独立写；累计571/532stop/36length/3transport/601HTTP/30extra，OpenCode原生0/成本未知null，Steam禁上线工坊82。
