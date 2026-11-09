@@ -526,3 +526,8 @@ Owner纠正：34scoutmeleepreview距2门拒0input；END34/35旧16读提前结束
 ## 2026-11-09：574圣地出生回执FAIL与104软件修复
 
 [103两实机原图／104软件检查](testing/baiqi-missionary-birth-receipt-104.md)。BF-202609141645：神社1330/35→13419→13533→136complete，后台一次PURCHASE/70faith421.414→351.414，UNIT_MISSIONARY3407893@54,37/r1/ch3/moves0；V1op136ARMED记录市中心56,38不匹配，购入回执及传播FAIL/未过，0END136/0重发退款，save1450072/hash8285cf...未load。Corecitydistrict无Members/IsPillaged，实际GetDistrict(holy1)得786443/own0/complete/nonpillaged/GetCity196610@56,38，plot同ID/type1/owner0；GetPurchaseCitynil，owner先误用UI迭代的只读查询0业务动作，另存后资格核对。5741HTTP15907tokens/9.868998s stop/DONE/JSON；rawLua51compile但Hash词法先用、硬编码ID、城市与圣地同坐标矛盾、删snapx/y守卫、无fresh/对象引用，8方法9失败事件，whole拒0Native；旧103同8有2fail。owner独立本城圣地+MapID匹配、二读/真实actor+faith/journal新鲜性，原quote/Prepare/schema/writer保持，新8+实际旧23pass（prompt误称24），full1577/1576pass1SDKskip=1562+573tool7+new8，86Lua51/108包字节一致，未装未Native104。Finance1572/31unitop仅builder/settler0错丢及CityCmds1/0错丢均已撤，传播namespace0/0，Nativeunitflat/Corecomponent真实读回，未授spread。累计574/535stop/36length/3transport/604HTTP/30extra/OpenCode0/null成本，Steam占用禁上线工坊82。
+
+
+## 2026-11-09：575旧文案误作现状与104冷实机恢复
+
+[136原图与核对](testing/baiqi-missionary-cold-recovery-104.md)。575收到当前事实+标为历史的旧软件文案，却复制运行仍103／104尚未冷验／旧档未load，并把BACKGROUND采购归玩家，全拒0采用；1HTTP6912tokens/5.669021s stop/DONE/JSON，owner独立写当前结果。104108files等于0d04e22，freshSteamoffline age0.008590后启动；正式load真实ARMED136+Continue1，自动OBSERVED原token/newUnitID3407893、faith351.414/同1unit/ch3/moves0，0QA桥调用或采购。自有6组／7food／信徒逐行保持，恢复136另存1449339/hash9031462f...未load，fresh104采购及spread未授。CoreGetNumBeliefsEarned nil属ownerUI口误用0动作，图像变亮guard0input后新鲜审图Continue1，bootstrap命令次数unknown；旧103退出残留仅自有tuple条件清理。Finance/CityCmds136新装，累计575/536stop/36length/3transport/605HTTP/30extra/OpenCode0/null成本，Steam禁上线工坊82。
