@@ -1,0 +1,61 @@
+{
+  "schema": "civ6.source110-food-rescue-software/v1",
+  "utc": "2026-11-10T19:46:24.232893+00:00",
+  "date_local": "2026-11-11",
+  "machine_id": "BF-202609141645",
+  "source_version": 110,
+  "installed_runtime_at_cutoff": 109,
+  "turn": 208,
+  "own_cities": 10,
+  "implementation": "Owner written after rejecting complete model607; automatic desired reassignment of own donor plot beyond donor work radius, within starving city work radius. Never manipulate working donor tiles or player military.",
+  "tests": {
+    "first_food_suite_methods": 24,
+    "first_food_suite_passed": 24,
+    "new_rescue_methods_final": 9,
+    "first_full_suite": {
+      "run": 1644,
+      "passed": 1625,
+      "errors": 18,
+      "skipped": 1,
+      "seconds": 127.729,
+      "cause": "Owner launched before updating two auxiliary source-version whitelists. In-process imports retained old whitelist; concurrent source-line display is not the executed old bytecode. No claim of full clean rerun."
+    },
+    "focused_recheck": {
+      "run": 20,
+      "passed": 19,
+      "import_errors": 1,
+      "cause": "Owner targeted module invocation omitted tests import path for existing test_control_compat_dump; isolated discovery fixes invocation, no source change."
+    },
+    "separate_compat_discovery_log": "----------------------------------------------------------------------\nRan 7 tests in 0.466s\n\nOK\n",
+    "Lua51_compiled": 89
+  },
+  "package": {
+    "files": 111,
+    "bytes": 8797302,
+    "sha256": "ada9dd5de814b0bad989a5b34197d3ae11ec358076232e58f67b53145561e787",
+    "installed": false,
+    "Steam_uploaded": false
+  },
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "7e17678e8364a7e7561ee2786e09cf429e1b9087dc82ee57eac9a54e4a5039cf",
+    "mod/Baiqi/Lua/BaiqiAdmin.lua": "548e187a009481660475e497372e007f48dfa7b92d36fd70698abea9d1b7406d",
+    "mod/Baiqi/Lua/BaiqiFoodTileRescue.lua": "e60a9a029d72241f6a8d37447a395e4294cf4aa64e6b08cff3b211fd530576ee",
+    "mod/Baiqi/Lua/BaiqiFoodTileRescueRunner.lua": "4b69baae0dd953a679f13c0bab246c36133d68904b6261ffbdeabf27478ab932",
+    "tools/build_static_control.py": "45d0dd159111ccd23fe94b2b39c1ff80799d439f1b3ba5141b4b0a355ef5f78e",
+    "tools/static_control_source.py": "f9339c390b836746e427926ccc1843f2639ca09d5f4b939955f5e0ff551002a3",
+    "tests/fixtures/food_tile_rescue.lua": "fb5268a04062411982a0678a37305e95974562fbbe909bd9647bdb4ffd32a4b9",
+    "tests/test_baiqi_food_tile_rescue.py": "53ba2864cadb81cb373f2799563073f3f547b94eb900204208e8c2f551df5602"
+  },
+  "scope_limits": [
+    "Only software-qualified at cutoff, no actual rescue request or food recovery yet.",
+    "Predicted surplus is arithmetic; requires actual purchase ownership and native nonnegative food receipt.",
+    "Unknown submissions held only during current UI Lua context. Cross-save/reload recovery not implemented or accepted; old persistent settlement failure unrelated and open.",
+    "No adequate outside-donor-workradius plot means no request; this is a narrow rescue, not proof all starvation is prevented.",
+    "All old DAM construction/MOVEqueue/UI/performance/fullmatrix gates remain open."
+  ],
+  "Steam": {
+    "online_actions": 0,
+    "uploads": 0,
+    "published_internal": 82
+  }
+}

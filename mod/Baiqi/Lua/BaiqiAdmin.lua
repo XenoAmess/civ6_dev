@@ -3,6 +3,7 @@
 include("BaiqiConfig")
 include("BaiqiGovernorLoyalty")
 include("BaiqiFoodFocusRunner")
+include("BaiqiFoodTileRescueRunner")
 BaiqiAdmin={}
 local attempted,turn={},-1
 local techPriority={TECH_MINING=90,TECH_ANIMAL_HUSBANDRY=85,TECH_ARCHERY=80,TECH_BRONZE_WORKING=75,TECH_WHEEL=70}
@@ -472,6 +473,12 @@ function BaiqiAdmin.Run()
     BaiqiFoodFocusRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
       Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
       CityCommandTypes=CityCommandTypes,YieldTypes=YieldTypes,leader=BaiqiConfig.leader},pid)
+  end
+  if type(BaiqiFoodTileRescueRunner)=="table" and type(BaiqiFoodTileRescueRunner.Run)=="function" then
+    BaiqiFoodTileRescueRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
+      Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
+      CityCommandTypes=CityCommandTypes,CityCommandResults=CityCommandResults,YieldTypes=YieldTypes,
+      Map=Map,PlayersVisibility=PlayersVisibility,leader=BaiqiConfig.leader},pid)
   end
   Pantheon(pid,player)
   Religion(pid,player)
