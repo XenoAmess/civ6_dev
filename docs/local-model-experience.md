@@ -694,3 +694,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 [109告警审阅与被动队列工具](testing/baiqi-move-warning-audit-109.md)：3处新改良效果保留、演员归因未知；9MOVE中3条有后续同演员到原目标证据，不判引擎已拒绝。连接表两处按实际行序纠正，605原模块语法及6隔离反例整拒；负责人工具8方法通过，尚未接实机。游戏206／十城，0新END／Steam上线，旧FAIL／全矩阵保持。
 
 604位置列／新ID非重放／行动点归因均纠正；owner按回合连接误纳两条较早同回合请求，改按真实行序。605 !=语法失败，修语法仅隔离重现6缺陷，0原稿Native；owner首次异常反例样本数预期1改实际0。现有206三演员pendingtrue但readyfalse已被旧guard挡住，不虚构新增pending门必修复；软件工具不声称队列原子空。累计605/565完整37length3transport635HTTP30extra，Nov11缓存1.19.5/0OpenCode原生，未知成本null。
+
+
+## 2026-11-11：606—607与208饥饿
+
+[208真实FAIL、候选整拒与负责人修正](testing/baiqi-food208-starvation.md)。606界面方案只做算术反例：窗口min768h+8溢出8，遗漏阴影／内容收缩、恢复不是原值，0Native。607选择2277正确但Lua!=语法、合法−1标记被拒、sourceCityID误用plotID、缺饥饿门，整模块拒；只做隔离反例，0raw Native／产品采用。负责人MANAGE城中心max0误假设与派发15列解析均纠正并保留原件。两次完整stop/DONE/合法外JSON，分别9074+1650=10724与5031+1423=6454tokens，12686.7586／9643.9954ms，各1HTTP、峰1，Nov11成功1.19.5缓存。累计607任务／567完整／37length／3transport／637HTTP／30extra／0OpenCode原生，缓存／人工／节时null。605工具21调用只有3显式读取、0自然目标，已精确撤；208停END且存档，Steam0上线。

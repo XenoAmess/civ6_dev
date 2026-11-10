@@ -1,0 +1,184 @@
+{
+  "schema": "civ6.source109-food208/v1",
+  "utc": "2026-11-10T19:37:09.991936+00:00",
+  "date_local": "2026-11-11",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 109,
+  "turn": 208,
+  "own_cities": 10,
+  "status": "FAIL: food favored yet surplus negative, stopped before END208. Rescue not implemented/applied at cutoff.",
+  "city": {
+    "id": 458758,
+    "name": "邢州",
+    "x": 59,
+    "y": 32,
+    "population": 8,
+    "food_yield": 15,
+    "food_stock": 1.74609375,
+    "surplus": -1,
+    "starvation_turns": 2,
+    "favored": true,
+    "disfavored": false,
+    "housing": 15,
+    "loyalty": 100
+  },
+  "actual206to208": {
+    "advances": 2,
+    "ordinary_END_flows": 4,
+    "TEST_PLAYER_army_SKIP": 8,
+    "UserForced": 0,
+    "manual_domestic": 0
+  },
+  "food_breakdown": {
+    "worked_tiles": 11,
+    "outgoing_trade_routes": 3,
+    "ordinary_Granary": 1,
+    "worked_land_slots": 6,
+    "zero_food_industrial_specialists": 2
+  },
+  "candidate_not_executed": {
+    "plotID": 2277,
+    "x": 57,
+    "y": 30,
+    "food": 1,
+    "source_cityID": 65536,
+    "source_distance": 4,
+    "target_distance": 3,
+    "complete_source_manage_has_plot": false,
+    "native_swap_allowed": true,
+    "arithmetic_only_expected_surplus": 0
+  },
+  "getter605": {
+    "restored_exact_original": true,
+    "calls": 21,
+    "ignored": 18,
+    "errors": 0,
+    "drops": 0,
+    "reentrant": 0,
+    "samples": 3,
+    "samples_from_explicit_readonly_qualification": 3,
+    "natural_target_samples": 0,
+    "new_orders": 0
+  },
+  "save": {
+    "name": "Baiqi_P6_20261111_V109_XingzhouFood208_BeforeLoss.Civ6Save",
+    "bytes": 1872098,
+    "sha256": "5ea859bda43ee060b26e73f9131aa01b2e3549f7484292e824d45e6bb5ddf0e3",
+    "official_ACK": true,
+    "loaded": false,
+    "included_in_public_repo": false
+  },
+  "screenshot": {
+    "path": "docs/testing/images/source109-food208/xingzhou208-before-loss.png",
+    "sha256": "a49771313759ef12ca3ab7587f32d9ea2f8dbf5b677b054eb89f915be6f7ad5a",
+    "root_visually_inspected": true
+  },
+  "model_activity": {
+    "606": {
+      "utc": "2026-11-10T19:03:19.174256+00:00",
+      "model": 606,
+      "complete_stop_DONE_valid_outer_JSON": true,
+      "usage": {
+        "prompt_tokens": 9074,
+        "completion_tokens": 1650,
+        "total_tokens": 10724
+      },
+      "duration_ms": 12686.75859994255,
+      "HTTP_attempts": 1,
+      "adoption": "Whole geometry plan rejected, no executablecode/Native/productadoption. Owner takes over geometryscope using actualsourcecenteranchors.",
+      "raw_candidate_Native_execution": 0,
+      "owner_arithmetic_counterexamples_not_Native": [
+        {
+          "viewport": 689,
+          "candidate_Window_min768h_plus8": 697,
+          "overflows_viewport": true,
+          "DropShadow_not_resized": 760,
+          "candidate_detail_height": 220
+        },
+        {
+          "viewport": 600,
+          "candidate_Window_min768h_plus8": 608,
+          "overflows_viewport": true,
+          "DropShadow_not_resized": 760,
+          "candidate_detail_height": 220
+        }
+      ],
+      "rejections": [
+        "Window formula min768h+8 doublecounts parent+8 and overflows8at689/600;DropShadow760 omitted.",
+        "Arbitrary BaseStackheight overridesautoStack, clampingjustifications contradict their own derivedspace.",
+        "CrisisDetailheight remains220atboth689/600 despite compressedbackground; no measuredcontentor600overlapqualification.",
+        "EmergencyDetailplan entry literally retracts itself inreasonbut remainsformalchange; cannot executeambiguousplan.",
+        "Hidden/offscreenApply recommendation violates explicit freshactualvisiblepreviewcondition.",
+        "Restoring hardcodedbasevalues isnot restoringexactpre-previewvalues; nofullbefore-anysetterpreflight.",
+        "Morethan5previewsteps, no actionablecorrectcenteranchor derivation."
+      ],
+      "daily_maintenance": "Nov11same-machine/user1.19.5cache reused/0nativegeneration",
+      "cumulative606": {
+        "logical_tasks": 606,
+        "complete_stop_valid_outer_JSON": 566,
+        "length_discarded": 37,
+        "final_transport_failure": 3,
+        "HTTP_attempts": 636,
+        "extra_HTTP_attempts": 30,
+        "OpenCode_native_generation": 0,
+        "current_in_flight": 0,
+        "cached_tokens": null,
+        "owner_active_seconds": null,
+        "net_savings_seconds": null
+      }
+    },
+    "607": {
+      "model": 607,
+      "complete_stop_DONE_valid_outer_JSON": true,
+      "usage": {
+        "prompt_tokens": 5031,
+        "completion_tokens": 1423,
+        "total_tokens": 6454
+      },
+      "duration_ms": 9643.995399936102,
+      "HTTP_attempts": 1,
+      "raw_candidate_Native_execution": 0,
+      "adoption": "Whole planner rejected; correct case choice alone does not qualify executable code. Owner implementation pending.",
+      "isolated_software_counterexamples": [
+        "Raw Lua51 compilation fails on !=.",
+        "Syntax-only repair rejects legitimate district=-1 and improvement=-1 and returns no plan for actual six targets.",
+        "After syntax and sentinel repair, sourceCityID is wrongly copied from plotID2277 rather than sourcecity65536.",
+        "After syntax and sentinel repair, starvation=-1 still returns plan: required starvation/population/map bounds omitted."
+      ],
+      "additional_source_findings": [
+        "Dense table validation silently truncates at first hole, ignores string/zero/out-of-range keys.",
+        "NaN/infinite IDs pass range/floor validation in cases; sourceWorked/sourceLocked are not finite bounded integers."
+      ],
+      "owner_corrections": [
+        "First MANAGE reader incorrectly required max>=citizens; citycenter1/max0 is legitimate. Complete reread preserves native sentinel counts.",
+        "607 dispatcher first expected16 fields instead of15 and boolean at13 instead of12; failed before HTTP, then corrected without duplicate dispatch."
+      ],
+      "daily_maintenance": "Nov11 same-machine/user successful OpenCode1.19.5 cache reused, zero native generation"
+    }
+  },
+  "cumulative607": {
+    "logical_tasks": 607,
+    "complete_stop_valid_outer_JSON": 567,
+    "length_discarded": 37,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 637,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam": {
+    "online_actions": 0,
+    "uploads": 0,
+    "published_internal_version": 82,
+    "user_other_device_occupation_warning_still_active": true
+  },
+  "limits": [
+    "Earlier186..206 food window remains valid only for its sampled196 cityframes.",
+    "No hand food, manual citizen/tile assignment, policy/queue override, new gameplay toggle, granary-rights or liberation entry.",
+    "No engine queue empty proof from nil destination; three explicit getter reads are not natural target samples.",
+    "Old issuedFOUNDARMED reload FAIL, dam actual build, smallviewport UI, performance and full40 remain open."
+  ]
+}
