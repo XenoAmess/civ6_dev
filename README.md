@@ -1,5 +1,7 @@
 # civ6_dev
 
+[114 正式实机／211前后对照](docs/testing/baiqi-district-worked-food-114-native211.md)：邢州保住粮格，8人、净粮食0，托管转建大学；西安仍开工堤坝。211已保存，工坊82未更新。
+
 [114 区域选址粮食校验](docs/testing/baiqi-district-worked-food-114.md)：保住盈余承受不起的工作粮格，仍允许空闲地和有余粮的选址。全量 1683 通过、1 SDK 跳过；尚未正式装入实机。
 
 [211 水坝开工与缺粮复发／三张实机图](docs/testing/baiqi-dam-started-food-regression-211.md)：西安自动开工；邢州新社区占了救粮格，净粮食回到 −1。已停在 211 保存，继续修区域选址。
