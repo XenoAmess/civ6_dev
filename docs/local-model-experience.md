@@ -704,3 +704,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-11：608救粮持久协议审阅
 
 [当前真实Core端口及608整份协议拒用](testing/baiqi-food-persistence608-review.md)。Core Map.GetCityPlots=nil，Cities.GetPlotPurchaseCity按原版消费者资格实际返回完整自有城；0新属性写／命令。608完整stop/DONE/JSON，14474+907tokens、8193.5603ms／有效首2077.2999ms，各1HTTP峰1、同日1.19.5缓存、0OpenCode原生。缺目标坐标、新鲜许可边、UNKNOWN迟到观察、跨turn保持及具体schema／最终重检，整协议不采用；20标题不当可执行负例。owner接手ARMED/OBSERVED并保守代价，仍未实现／授验；准备wall与111实机交错，主动及净收益null。累计608/568完整37length3transport638HTTP30extra，0rawNative。
+
+
+## 2026-11-11：609故障方案与610真实Core端口修正
+
+[112失败原图、613前软件边界及610采用](testing/baiqi-food-core-human-113.md)。609只复述给定方案、无精确恢复门，0代码采用；owner7项私有钩子检查不能替代实际命中。Core配置IsHuman=nil、player方法true，112故障点未到／0Prepare／journalnil；610小gate片段采用，owner分开Core/UI fixture5方法及相关42通过。60911393+843tokens／7892.1658ms；61010835+584／5274.9864ms，各单HTTPstop/DONE/JSON，Nov11缓存、0OpenCode原生。累计610/570完整37length3transport640HTTP30extra，未知工时净收益null；113Native仍待验。

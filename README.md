@@ -1,5 +1,7 @@
 # civ6_dev
 
+[113救粮桥修复／112失败实图](docs/testing/baiqi-food-core-human-113.md)：112实机发现Core缺配置对象IsHuman，救粮未执行；113改用真实玩家端口并保持未知拒绝，新增5方法、相关42全过。正式113存档与救粮仍待验，未推进缺粮208，Steam离线／工坊82不变。
+
 [112救粮持久化／软件](docs/testing/baiqi-food-persistence-112.md)：Core持久ARMED并读回后才授一次新许可，旧ARM跨UI／回合只观察，不重发；18真实新方法、全1680含9重复fixture通过／1SDKskip，导入已收敛，93Lua51／115包。运行仍111／210，真实故障保存／冷读待验，Steam离线、工坊82保持。
 
 [111正式冷验／运动会开关重开三图](docs/testing/baiqi-worldcrisis111-cold210.md)：113文件匹配、新鲜后台离线后冷启；原入口自动适配，2次物理确认／2次实际关闭、真正重开尺寸保持。十城food／vitals保持，邢州8人净0，210已存未载，0END／Steam上线；工坊82未更。

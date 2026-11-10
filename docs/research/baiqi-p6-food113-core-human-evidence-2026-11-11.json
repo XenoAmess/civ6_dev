@@ -1,0 +1,169 @@
+{
+  "schema": "civ6.food113-core-human-software/v1",
+  "utc": "2026-11-10T21:58:43.989062+00:00",
+  "date_local": "2026-11-11",
+  "machine_id": "BF-202609141645",
+  "source": 113,
+  "installed_runtime": 112,
+  "runtime_variant": "private112diagnostic; only Core Prepare reply truncation wrapper, never hit",
+  "actual112_failure": {
+    "turn": 208,
+    "cities": 10,
+    "Core_configuration_IsHuman": null,
+    "Core_player_IsHuman": "function; actual true",
+    "Core_player_IsTurnActive": "function; actual true",
+    "Core_Inspect": [
+      "UNAVAILABLE",
+      null,
+      "inspect_unavailable"
+    ],
+    "Prepare_calls": 0,
+    "truncated_replies": 0,
+    "new_food_journal": null,
+    "target": {
+      "cityID": 458758,
+      "population": 8,
+      "food_stock": 1.74609375,
+      "surplus": -1,
+      "starvation": 2
+    },
+    "purchase_city2277": 65536,
+    "official_END": 0,
+    "fault_checkpoint_not_reached": true,
+    "diagnostic_exact_restored": true,
+    "official_failed_checkpoint": {
+      "utc": "2026-11-10T21:57:30.420284+00:00",
+      "name": "Baiqi_P6_20261111_V112_CoreHumanPortFail208.Civ6Save",
+      "bytes": 1871326,
+      "sha256": "55e226ebc1f2f96c126e340cb15549e7348b5c4e6969cea7e8ee7d0f89774182",
+      "stable_repeated_read": true
+    },
+    "saved_checkpoint_loaded": false
+  },
+  "owner_probe_correction": "First readonly Core probe tried UI-only GetFood/GetTurnsUntilStarvation and failed without mutation. Core protected type reads prove all three storage/countdown ports absent; actual stock/countdown read separately in UI. Raw failure preserved.",
+  "model609": {
+    "utc": "2026-11-10T21:52:08.276310+00:00",
+    "model": 609,
+    "complete_stop_DONE_valid_JSON": true,
+    "HTTP_attempts": 1,
+    "peak_inflight": 1,
+    "usage": {
+      "prompt_tokens": 11393,
+      "completion_tokens": 843,
+      "total_tokens": 12236
+    },
+    "duration_ms": 7892.165799974464,
+    "headers_ms": 1783.6884999414906,
+    "first_content_ms": 1802.9006000142545,
+    "candidate_sha256": "d986d11cc21caa2c55f07d775c47b6bb2fbe828470477dfdaa60cc72c5972bdf",
+    "adoption": "No executable code or new test adoption; review restates supplied diagnostic plan. Owner narrow fault and seven tests independent.",
+    "review": [
+      "Exact fixture and write/readback-before-truncation direction were already in supplied task.",
+      "Namespace advice says bridge nil or expected marker; a nil bridge has no callable original Prepare and must not activate. Owner requires actual owned marker/version/function plus empty own namespace.",
+      "Cleanup only described as restore, without exact bridge/wrapper/namespace identity checks; owner refuses all replacement cleanup.",
+      "Candidate omits supplied live world seed, NoBarbs, fullcapital and map scope checks. Owner uses qualified MapConfiguration.GetValue(RANDOM_SEED); input prose incorrectly named GameConfiguration MAP_RANDOM_SEED, not used in owner diagnostic.",
+      "Three tests restate given cases, not forwarding unknown return/throw, nonmatching scopes or replacement cleanup. A stated zero-or-one command allowance is too loose for this known-zero-submit fixture.",
+      "Fault is after successful persistent Prepare before any city command. It cannot qualify issued-city-command unknown recovery or atomic queue/save behavior."
+    ],
+    "owner_private_checks": {
+      "methods": 7,
+      "pass": 7,
+      "seconds": 0.097,
+      "variant_changed_files": [
+        "Lua/BaiqiFoodTileIntentGameplay.lua"
+      ],
+      "product_code_modified": false,
+      "raw_candidate_native": 0
+    },
+    "daily_maintenance": "Nov11 same-machine/user successful OpenCode1.19.5 cache reused; no native generation",
+    "cumulative609": {
+      "logical_tasks": 609,
+      "complete_stop_valid_outer_JSON": 569,
+      "length_discarded": 37,
+      "final_transport_failure": 3,
+      "HTTP_attempts": 639,
+      "extra_HTTP_attempts": 30,
+      "OpenCode_native_generation": 0,
+      "cached_tokens": null,
+      "owner_active_seconds": null,
+      "net_savings_seconds": null
+    },
+    "native_outcome_at_review": "NOT_YET_OBSERVED",
+    "Steam_online_actions": 0,
+    "uploads": 0
+  },
+  "model610": {
+    "complete_stop_DONE_valid_JSON": true,
+    "HTTP_attempts": 1,
+    "peak_in_flight": 1,
+    "usage": {
+      "prompt_tokens": 10835,
+      "completion_tokens": 584,
+      "total_tokens": 11419
+    },
+    "duration_ms": 5274.986400036141,
+    "headers_ms": 1683.574500028044,
+    "first_content_ms": 1685.7842999743298,
+    "adoption": "Human gate fragment adopted with owner indentation and integration into existing owner condition. Tests are owner implementation; six abstract cases reviewed, not executable candidate tests.",
+    "gate_chars": 367,
+    "gate_sha256": "bb4ca150eec46ea52df0596defffa10b700a1d55d3a1352aee3839a17d74331f",
+    "raw_candidate_Native": 0,
+    "daily_maintenance": "Nov11 successful same-machine/user OpenCode1.19.5 cache; zero native generation",
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "cumulative610": {
+    "logical_tasks": 610,
+    "complete_stop_valid_outer_JSON": 570,
+    "length_discarded": 37,
+    "final_transport_failure": 3,
+    "HTTP_attempts": 640,
+    "extra_HTTP_attempts": 30,
+    "OpenCode_native_generation": 0,
+    "current_in_flight": 0,
+    "cached_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "tests": {
+    "new_methods": 5,
+    "old112_reproduction": "5 methods, 4pass/1error from missing Core config human gate",
+    "final_targeted_methods": 42,
+    "final_targeted_pass": 42,
+    "seconds": 12.266,
+    "initial_targeted_invocation": "32 product methods passed; two nonexistent static module names caused 2 import errors. Corrected to actual core/UI modules; preserved raw log.",
+    "full_suite_rerun": false
+  },
+  "software": {
+    "utc": "2026-11-10T21:57:08.428725+00:00",
+    "version": 113,
+    "files": 115,
+    "Lua51_compile": 93,
+    "targeted_exit": 0,
+    "test_modules": [
+      "tests.test_baiqi_food_tile_core_human",
+      "tests.test_baiqi_food_tile_persistence",
+      "tests.test_baiqi_food_tile_rescue",
+      "tests.test_static_control_core",
+      "tests.test_static_control_ui"
+    ],
+    "package_sha256": "da69f5a3336f90f751ea1b219634ba8817d3b09a9c3dcab363152c48d279df53",
+    "product_runtime_still112diagnostic": true,
+    "actual_failed112_saved_property": null,
+    "actual_failed112_Prepare_calls": 0,
+    "actual_failed112_city_rescue_logs": 0,
+    "original208_no_END": true,
+    "Steam_online_upload": 0
+  },
+  "image": {
+    "path": "docs/images/baiqi-food113/112-core-human-fail208.png",
+    "sha256": "e255f5d644f2c82ea2a36f894b605d80024d758c7093e38b0986c3a1fdffc75d",
+    "meaning": "actual failed112, food15 and red starvation2; not successful113"
+  },
+  "Steam": {
+    "online_actions": 0,
+    "uploads": 0,
+    "workshop_internal": 82
+  },
+  "next": "Owner113 narrow hot diagnostic under existing112 runtime, actual ARM save, then formal113 cold reload oldARM and independent original208 natural rescue. No native113 success at this cutoff."
+}

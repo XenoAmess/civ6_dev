@@ -18,7 +18,19 @@ local function Owner(pid,active)
     or Static(Game,"GetLocalPlayer")~=pid or Static(GameConfiguration,"IsAnyMultiplayer")~=false
     or (GameConfiguration.IsHotseat and Static(GameConfiguration,"IsHotseat")~=false) then return nil end
   local p,c=Players[pid],PlayerConfigurations[pid]
-  if Method(c,"IsHuman")~=true or Method(c,"GetLeaderTypeName")~=BaiqiConfig.leader
+  local human
+  if type(c.IsHuman)=="function" then
+    local ok_h, val_h = pcall(function() return c:IsHuman() end)
+    if not ok_h or val_h ~= true then return nil end
+    human = true
+  elseif type(p.IsHuman)=="function" then
+    local ok_h, val_h = pcall(function() return p:IsHuman() end)
+    if not ok_h or val_h ~= true then return nil end
+    human = true
+  else
+    return nil
+  end
+  if human~=true or Method(c,"GetLeaderTypeName")~=BaiqiConfig.leader
     or (active and Method(p,"IsTurnActive")~=true)
     or type(p.GetProperty)~="function" or type(p.SetProperty)~="function" then return nil end
   local key=BaiqiConfig.foodTileRescueIntentKey
