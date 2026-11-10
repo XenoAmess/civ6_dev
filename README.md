@@ -1,5 +1,7 @@
 # civ6_dev
 
+[114 区域选址粮食校验](docs/testing/baiqi-district-worked-food-114.md)：保住盈余承受不起的工作粮格，仍允许空闲地和有余粮的选址。全量 1683 通过、1 SDK 跳过；尚未正式装入实机。
+
 [211 水坝开工与缺粮复发／三张实机图](docs/testing/baiqi-dam-started-food-regression-211.md)：西安自动开工；邢州新社区占了救粮格，净粮食回到 −1。已停在 211 保存，继续修区域选址。
 
 [113 完成态读档／实机图](docs/testing/baiqi-food113-completed-reload210.md)：邢州救粮结果和 OBSERVED 记录保留，176 次后台循环无新增救粮。武汉读档产出另有差异；水坝查到 5 个合法选址，待自然开工。

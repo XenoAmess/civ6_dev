@@ -1,0 +1,53 @@
+{
+  "schema": "civ6.source114-district-food-software/v1",
+  "date_local": "2026-11-11",
+  "utc": "2026-11-10T23:05:05.909835+00:00",
+  "machine_id": "BF-202609141645",
+  "source": 114,
+  "installed_runtime_at_checks": 113,
+  "software": {
+    "utc": "2026-11-10T23:03:32.933856+00:00",
+    "source": 114,
+    "runtime": 113,
+    "turn": 211,
+    "Lua51_compiled": 93,
+    "files": 115,
+    "full_tests": 1684,
+    "seconds": 107.751,
+    "full_pass": 1683,
+    "SDK_skip": 1,
+    "SHA256": "e94ef5c9a31d661bfd192e145adb6cc413e5f15c864e8c12dcb84d1a6d7b4aff",
+    "new_methods": 8,
+    "source113_red": 1,
+    "Steam_online_upload": 0
+  },
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "61e0eeb48e9012d1746ee31d93a3e168bec5f5907bd8cc9dd06aacb38d8ba56f",
+    "mod/Baiqi/Lua/BaiqiController.lua": "0234232afa8284e45e3fcb3571038aecc12f9bb432a3616504115c85c61a19d3",
+    "tests/test_baiqi_district_food.py": "666b370a4a0897df4794aacfc80ff53603fa6a4df98c282e9aa6fc2b5d938050",
+    "tests/test_baiqi_district_improvements.py": "0d32a034094074b9d75c8250fa7bccb788c2f3ae024692cfaf4ab98a1311ed51",
+    "tests/lua/mock_first_holy_site.lua": "3b057552a7aaa11df6fc2a27c94ed95dce109c196b3662153180d3c0475d5000",
+    "tools/build_static_control.py": "65dd1c9084e1c889b845dcdb351b89f2020a61f5651c51883845c4334b66948b",
+    "tools/static_control_source.py": "79fefb6d20750d1ce3b418c20913a968399276486b6d1ce536d06a5d39dabe02"
+  },
+  "new_scope": "Only new district placement; existing production/repair untouched. 0 tile FOOD bypasses assignment queries; positive FOOD needs explicit native worker count0 or count1 and actual surplus at least tile FOOD. Missing or malformed work data never count as zero.",
+  "native_read_budget": "At most one MANAGE per city planning evaluation plus one for selected positive-food final placement, local only; native CanProduce/operation/clear/ownership/queue gates retained.",
+  "final_boundary": "Fresh work and current food at selection submission; queue, turn and city identity checked again afterwards. Changes may permit clean replanning; no command or pending receipt created on rejection.",
+  "actual_113_readonly_source114_preview": {
+    "turn": 211,
+    "Shanghai_owned_DAM_candidate2130_food": 4,
+    "actual_workers": 1,
+    "actual_surplus": 12,
+    "predicate_allows": true,
+    "Xingzhou_currently_no_clear_and_native_neighborhood_candidates": true,
+    "game_operations": 0,
+    "recovery": false
+  },
+  "actual_original_regression": "113 placed Neighborhood on worked food2277, 1->0 food, surplus0->-1; new district already started is not undone.",
+  "remaining_native": "Install formal114 and load original pre-211 completed210, verify actual work and placement, repeat original Congress player flow and read 211; finish actual DAM only with healthy food/loyalty.",
+  "new_model_requests": 0,
+  "raw_model_adoption": 0,
+  "prior_611_612_both_length_discarded": true,
+  "Steam_online_upload": 0,
+  "workshop_internal": 82
+}

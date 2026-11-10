@@ -12,6 +12,8 @@ class DistrictImprovementTests(unittest.TestCase):
         self.lua.execute((ROOT / 'tests/lua/mock_world.lua').read_text(encoding='utf-8'))
         self.lua.execute('''
 local w=TestWorld;local p=Map.GetPlot(2,3);w.plot=p;w.improvement=9;w.feature=-1
+YieldTypes.FOOD=1
+function p:GetYield(kind)assert(kind==YieldTypes.FOOD);return 0 end
 local r={Hash=777,Index=3,DistrictType='DISTRICT_HOLY_SITE'}
 GameInfo.Districts=setmetatable({[777]=r,[3]=r},{__call=function()
  local done=false;return function()if not done then done=true;return r end end end})

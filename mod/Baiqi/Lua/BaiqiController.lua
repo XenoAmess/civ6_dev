@@ -242,6 +242,48 @@ local function ClearPlot(plot, state, player, districtRow)
   return row~=nil and ordinary[row.ImprovementType]==true
 end
 
+-- A new district consumes the tile's worked yield. Keep the native work
+-- snapshot local to this evaluation and read it again before submitting.
+local function DistrictFoodAllows(city, plot, snapshot)
+  local ok, allowed = pcall(function()
+    local kind=YieldTypes.FOOD
+    if not GeometryInteger(kind) then return false end
+    local food=plot:GetYield(kind)
+    if not BaiqiPolicy.Number(food) or food<0 or food>1000000 then return false end
+    if food==0 then return true end
+    local index=plot:GetIndex()
+    if not GeometryInteger(index) or index>2147483647 then return false end
+    if not snapshot.read then
+      snapshot.read=true
+      local surplus=city:GetGrowth():GetFoodSurplus()
+      if not BaiqiPolicy.Number(surplus) or math.abs(surplus)>1000000 then return false end
+      local manage,key=CityCommandTypes.MANAGE,CityCommandTypes.PARAM_MANAGE_CITIZEN
+      local plotsKey,citizensKey=CityCommandResults.PLOTS,CityCommandResults.CITIZENS
+      if manage==nil or key==nil or plotsKey==nil or citizensKey==nil or plotsKey==citizensKey then return false end
+      local param=UI.GetInterfaceModeParameter(key)
+      if param~=nil and type(param)~="boolean" and type(param)~="string" and not BaiqiPolicy.Number(param) then return false end
+      local args={};if param~=nil then args[key]=param end
+      local result=CityManager.GetCommandTargets(city,manage,args)
+      local plots,counts=result and result[plotsKey],result and result[citizensKey]
+      if type(plots)~="table" or type(counts)~="table" then return false end
+      local work,n={},0
+      for slot,id in pairs(plots) do
+        n=n+1;local count=counts[slot]
+        if n>128 or not GeometryInteger(id) or id>2147483647 or work[id]~=nil
+          or not BaiqiPolicy.Number(count) or count%1~=0 or count< -1 or count>256 then return false end
+        work[id]=count
+      end
+      snapshot.work,snapshot.surplus=work,surplus
+    end
+    local count=snapshot.work and snapshot.work[index]
+    -- An absent or unknown work row is different from an explicit zero.
+    -- ClearPlot already excludes districts; their multi-worker counts cannot
+    -- qualify a regular placement tile.
+    return count==0 or (count==1 and snapshot.surplus>=food)
+  end)
+  return ok and allowed==true
+end
+
 local function NextRequest(key)
   if attempts[key] or requestCount >= C.requestsPerTurn then return nil end
   attempts[key] = true
@@ -3250,7 +3292,7 @@ local function ProcessCity(ctx, player, state, city)
     end
   end
   local firstHolySite=FirstHolySiteWanted(ctx,player)
-  local plots={}
+  local plots,planningFood={},{}
   for _,index in pairs(Map.GetCityPlots():GetPurchasedPlots(city) or {}) do plots[#plots+1]=index end
   table.sort(plots)
   for row in GameInfo.Districts() do
@@ -3266,7 +3308,8 @@ local function ProcessCity(ctx, player, state, city)
         for _, index in ipairs(plots) do
           local plot=Map.GetPlotByIndex(index)
           if plot and plot:GetOwner()==ctx.player and ClearPlot(plot,state,player,row)
-            and plot:CanHaveDistrict(row.Index,ctx.player,city:GetID()) then
+            and plot:CanHaveDistrict(row.Index,ctx.player,city:GetID())
+            and DistrictFoodAllows(city,plot,planningFood) then
             Add("district",row,priority,false,{x=plot:GetX(),y=plot:GetY()},boosted)
           end
         end
@@ -3335,15 +3378,6 @@ local function ProcessCity(ctx, player, state, city)
   local latest,latestPlayer,latestState=PlayerContext()
   if not BaiqiPolicy.Context(latest) or latest.player~=freshCtx.player or not BaiqiPolicy.MatchesID(city,cityID)
     or city:GetOwner()~=latest.player or not QueueReady(city,q,completedHead) then return false end
-  if choice.placement then
-    local row=GameInfo.Districts[choice.hash]
-    local x,y=choice.placement.x,choice.placement.y
-    local plot=Map.GetPlot(x,y)
-    if choice.kind~="district" or not row or row.Hash~=choice.hash or not plot
-      or plot:GetX()~=x or plot:GetY()~=y
-      or plot:CanHaveDistrict(row.Index,latest.player,cityID)~=true
-      or plot:GetOwner()~=latest.player or not ClearPlot(plot,latestState,latestPlayer,row) then return false end
-  end
   if choice.firstHolySite and not FirstHolySiteWanted(latest,latestPlayer) then
     cityEvaluated[cityID]=nil
     Reason("religion_supply_changed:"..cityID,"首座圣地需求已变化，重新安排合法生产")
@@ -3360,6 +3394,22 @@ local function ProcessCity(ctx, player, state, city)
   if choice.prayerProject and (q:CanProduce(choice.hash,true)~=true
     or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true) then return false end
+  if choice.placement then
+    local row=GameInfo.Districts[choice.hash]
+    local x,y=choice.placement.x,choice.placement.y
+    local plot=Map.GetPlot(x,y)
+    if choice.kind~="district" or not row or row.Hash~=choice.hash or not plot
+      or plot:GetX()~=x or plot:GetY()~=y
+      or plot:CanHaveDistrict(row.Index,latest.player,cityID)~=true
+      or plot:GetOwner()~=latest.player or not ClearPlot(plot,latestState,latestPlayer,row) then return false end
+    if not DistrictFoodAllows(city,plot,{}) then
+      cityEvaluated[cityID]=nil
+      Reason("placement_food_changed:"..cityID,"工作粮食已变化，重新安排区域选址")
+      return false
+    end
+    if Game.GetCurrentGameTurn()~=turn or not QueueReady(city,q,completedHead)
+      or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player then return false end
+  end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
   pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,

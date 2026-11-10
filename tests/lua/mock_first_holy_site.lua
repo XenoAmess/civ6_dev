@@ -1,5 +1,6 @@
 -- Synthetic native-port fixture, not a game outcome or a Native action script.
 local w=TestWorld
+YieldTypes.FOOD=1
 w.created=-1;w.earned=0;w.held=false
 w.timeline={{Class=0,Individual=0}}
 w.queues={};w.current={};w.completed={};w.placed={};w.qualification={}
@@ -32,6 +33,7 @@ w.plots={}
 for _,c in ipairs(w.cities)do
  local id=c:GetID();local x=c:GetX()
  local p=setmetatable({GetIndex=function()return id-24 end,GetX=function()return x end,
+   GetYield=function(_,kind)assert(kind==YieldTypes.FOOD);return 0 end,
   IsNaturalWonder=function()return false end,IsNationalPark=function()return false end,
   GetDistrictType=function()return -1 end,GetResourceType=function()return -1 end,
   CanHaveDistrict=function(_,index,owner,cityID)
