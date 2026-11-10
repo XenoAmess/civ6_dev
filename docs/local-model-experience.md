@@ -699,3 +699,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-11：606—607与208饥饿
 
 [208真实FAIL、候选整拒与负责人修正](testing/baiqi-food208-starvation.md)。606界面方案只做算术反例：窗口min768h+8溢出8，遗漏阴影／内容收缩、恢复不是原值，0Native。607选择2277正确但Lua!=语法、合法−1标记被拒、sourceCityID误用plotID、缺饥饿门，整模块拒；只做隔离反例，0raw Native／产品采用。负责人MANAGE城中心max0误假设与派发15列解析均纠正并保留原件。两次完整stop/DONE/合法外JSON，分别9074+1650=10724与5031+1423=6454tokens，12686.7586／9643.9954ms，各1HTTP、峰1，Nov11成功1.19.5缓存。累计607任务／567完整／37length／3transport／637HTTP／30extra／0OpenCode原生，缓存／人工／节时null。605工具21调用只有3显式读取、0自然目标，已精确撤；208停END且存档，Steam0上线。
+
+
+## 2026-11-11：608救粮持久协议审阅
+
+[当前真实Core端口及608整份协议拒用](testing/baiqi-food-persistence608-review.md)。Core Map.GetCityPlots=nil，Cities.GetPlotPurchaseCity按原版消费者资格实际返回完整自有城；0新属性写／命令。608完整stop/DONE/JSON，14474+907tokens、8193.5603ms／有效首2077.2999ms，各1HTTP峰1、同日1.19.5缓存、0OpenCode原生。缺目标坐标、新鲜许可边、UNKNOWN迟到观察、跨turn保持及具体schema／最终重检，整协议不采用；20标题不当可执行负例。owner接手ARMED/OBSERVED并保守代价，仍未实现／授验；准备wall与111实机交错，主动及净收益null。累计608/568完整37length3transport638HTTP30extra，0rawNative。
