@@ -12,6 +12,34 @@ class FoodTileRescueTests(unittest.TestCase):
         lua.execute((ROOT / 'tests/fixtures/food_tile_rescue.lua').read_text(encoding='utf-8'))
         for name in ('BaiqiFoodTileRescue', 'BaiqiFoodTileRescueRunner'):
             lua.execute((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
+        lua.execute('''
+          Game=E.Game;GameConfiguration=E.GameConfiguration;Players=E.Players
+          PlayerConfigurations=E.PlayerConfigurations;Map={}
+          for k,v in pairs(E.Map)do Map[k]=v end
+          Map.GetCityPlots=nil -- actual Core has no UI purchase collection port
+          BaiqiConfig={leader='LEADER_BAIQI',foodTileRescueIntentKey='FOOD_TEST_V1'}
+          ExposedMembers={};E.ExposedMembers=ExposedMembers;W.props={}
+          function CopyProperty(v)
+            if type(v)~='table'then return v end
+            local out={};for k,x in pairs(v)do out[k]=CopyProperty(x)end;return out
+          end
+          Players[0].GetProperty=function(_,key)
+            if W.readError then error('unknown property')end
+            return CopyProperty(W.props[key])
+          end
+          Players[0].SetProperty=function(_,key,value)
+            W.propertyWrites=(W.propertyWrites or 0)+1
+            W.props[key]=CopyProperty(value)
+            if W.afterPersist then W.afterPersist(value)end
+            if W.persistThrows then error('unknown after property mutation')end
+          end
+          Cities={GetPlotPurchaseCity=function(plot)
+            local id=W.transferred and 458758 or 65536
+            return Players[0]:GetCities():FindID(id)
+          end}
+        ''')
+        for name in ('BaiqiFoodTileJournal', 'BaiqiFoodTileIntentGameplay'):
+            lua.execute((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
         return lua
 
     def test_actual_shape_sparse_native_keys_submit_expected_source_plot_once(self):
@@ -101,6 +129,7 @@ class FoodTileRescueTests(unittest.TestCase):
             assert(e.Map==Map and e.PlayersVisibility==PlayersVisibility and e.UI==UI)
             assert(e.CityManager==CityManager and e.CityCommandResults==CityCommandResults)
             assert(e.CityCommandTypes==CityCommandTypes and e.YieldTypes==YieldTypes)
+            assert(e.ExposedMembers==ExposedMembers)
             RescueCalls=RescueCalls+1
           end}''')
         fixture.run_admin(1)

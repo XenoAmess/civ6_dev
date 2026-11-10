@@ -1,5 +1,6 @@
 -- The executor provides original ports, never the read-only player UI facade.
--- One desired reassignment at a time. Unknown submissions remain held in-session.
+-- Core persists permission before one native submission. Reloaded ARMED records
+-- only observe; they never become a new permission to send.
 include("BaiqiFoodTileRescue")
 BaiqiFoodTileRescueRunner={}
 local pending,attempted={},{}
@@ -114,35 +115,71 @@ local function Equal(a,b)
   for _,k in ipairs({"cityID","sourceCityID","plotID","x","y","expectedFood","expectedSurplus"}) do if a[k]~=b[k] then return false end end
   return true
 end
+local function Bridge(E)
+  local b=type(E.ExposedMembers)=="table" and E.ExposedMembers.BaiqiFoodTileRescueBridge
+  if type(b)=="table" and b.version==1 and b.marker=="baiqi-food-tile-rescue-v1"
+    and type(b.Prepare)=="function" and type(b.Inspect)=="function" then return b end
+end
+local function Call(b,method,...)
+  local ok,a,c,d=pcall(b[method],...);if ok then return a,c,d end
+  return nil,nil,"bridge_unavailable"
+end
+local function Source(s,plan)
+  for _,row in ipairs(s.targets)do
+    if row.plotID==plan.plotID and row.sourceCityID==plan.sourceCityID
+      and Int(row.sourceX,0,s.mapWidth-1) and Int(row.sourceY,0,s.mapHeight-1) then return row.sourceX,row.sourceY end
+  end
+end
+local deniedBeforePersist={owner_or_bridge=true,invalid_journal=true,prior_unresolved=true,prior_plot_unresolved=true,
+  journal_limit=true,invalid_identity=true,invalid_record=true,old_identity_mismatch=true,snapshot_changed=true}
 local function City(E,pid,turn,player,own,c,t)
-  local identity=Identity(c,pid);local held=pending[identity.id]
+  local identity=Identity(c,pid);local held=pending[identity.id];local b=Bridge(E);if not b then return false end
+  local prepare,inspect=b.Prepare,b.Inspect
+  local stage,token=Call(b,"Inspect",pid,identity.id,held and held.token)
   if held then
     if held.player~=pid or not SameCity(held,identity) then return false end
-    local _,purchased=Ownership(E,own,pid)
-    local surplus=Method(Method(c,"GetGrowth"),"GetFoodSurplus")
-    if purchased[held.plotID]~=identity.id or not Finite(surplus) or surplus<0 then return false end
-    print("BAIQI|food_tile_rescue_observed|turn="..turn.."|city="..identity.id.."|plot="..held.plotID.."|surplus="..surplus)
+    if held.token==nil or stage~="OBSERVED" or token~=held.token then return false end
+    print("BAIQI|food_tile_rescue_observed|turn="..turn.."|city="..identity.id.."|plot="..held.plotID.."|token="..token.."|receipt=CORE_OBSERVED")
     pending[identity.id]=nil
   end
+  if stage~="OPEN" and stage~="OBSERVED" then return false end
+  if stage=="OPEN" and token~=nil then return false end
+  if stage=="OBSERVED" and (type(token)~="string" or #token==0 or #token>96) then return false end
   if attempted[identity.id]==turn then return false end
+  local yield=E.YieldTypes.FOOD
   local s=Snapshot(E,own,c,pid,t);local plan=Plan(s);if not plan then return false end
+  local sourceX,sourceY=Source(s,plan);if sourceX==nil then return false end
   local manager=E.CityManager;local qualifier,writer=manager.CanStartCommand,manager.RequestCommand
   assert(type(qualifier)=="function" and type(writer)=="function")
   local params=Params(E,t.PARAM_SWAP_TILE_OWNER);params[t.PARAM_X]=plan.x;params[t.PARAM_Y]=plan.y
   if qualifier(c,t.SWAP_TILE_OWNER,params)~=true then return false end
+  -- Hold even an uncertain Prepare reply locally. It never authorizes a city
+  -- command; on reload the actual durable record is inspected afresh.
+  local hold={player=pid,id=identity.id,x=identity.x,y=identity.y,plotID=plan.plotID}
+  pending[identity.id]=hold;attempted[identity.id]=turn
+  local granted,newToken,why=Call(b,"Prepare",pid,identity.id,identity.x,identity.y,
+    plan.sourceCityID,sourceX,sourceY,plan.plotID,plan.x,plan.y,turn)
+  if granted~=true or type(newToken)~="string" or #newToken==0 or #newToken>96 or why~="armed" then
+    if granted==false and deniedBeforePersist[why] then pending[identity.id]=nil end
+    return false
+  end
+  hold.token=newToken
+  local armed,storedToken=Call(b,"Inspect",pid,identity.id,newToken)
+  if armed~="ARMED" or storedToken~=newToken then return false end
   local fresh=Method(own,"FindID",identity.id);assert(fresh and SameCity(identity,Identity(fresh,pid)))
   local again=Snapshot(E,own,fresh,pid,t);local nextPlan=Plan(again)
+  local freshSourceX,freshSourceY;if nextPlan then freshSourceX,freshSourceY=Source(again,nextPlan)end
   if not Equal(plan,nextPlan) or s.surplus~=again.surplus or s.population~=again.population or s.starvation~=again.starvation
-    or Player(E,pid,turn)~=player or E.CityManager~=manager or manager.CanStartCommand~=qualifier or manager.RequestCommand~=writer then return false end
+    or sourceX~=freshSourceX or sourceY~=freshSourceY or E.YieldTypes.FOOD~=yield
+    or Player(E,pid,turn)~=player or E.CityManager~=manager or manager.CanStartCommand~=qualifier or manager.RequestCommand~=writer
+    or Bridge(E)~=b or b.Prepare~=prepare or b.Inspect~=inspect then return false end
   local freshTokens=Tokens(E);for k,v in pairs(t) do if freshTokens[k]~=v then return false end end
   local finalParams=Params(E,t.PARAM_SWAP_TILE_OWNER);finalParams[t.PARAM_X]=plan.x;finalParams[t.PARAM_Y]=plan.y
   for k,v in pairs(params) do if finalParams[k]~=v then return false end end
   for k,v in pairs(finalParams) do if params[k]~=v then return false end end
-  -- Desired plot ownership is the receipt. No timeout, alternate target or retry
-  -- follows false/void/throwing submission while that desired state is unknown.
-  pending[identity.id]={player=pid,id=identity.id,x=identity.x,y=identity.y,plotID=plan.plotID}
-  attempted[identity.id]=turn
-  print("BAIQI|food_tile_rescue_request|turn="..turn.."|city="..identity.id.."|source="..plan.sourceCityID.."|plot="..plan.plotID.."|predicted="..plan.expectedSurplus)
+  -- The fresh successful Prepare above is the sole send grant. Old ARM at load,
+  -- false/void/throwing submission and post-arm abort never grant another send.
+  print("BAIQI|food_tile_rescue_request|turn="..turn.."|city="..identity.id.."|source=BACKGROUND|fromCity="..plan.sourceCityID.."|plot="..plan.plotID.."|token="..newToken.."|predicted="..plan.expectedSurplus)
   pcall(writer,fresh,t.SWAP_TILE_OWNER,params)
   return true
 end

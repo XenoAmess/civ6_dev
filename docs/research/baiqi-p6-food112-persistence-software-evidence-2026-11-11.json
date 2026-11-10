@@ -1,0 +1,82 @@
+{
+  "schema": "civ6.food112-persistence-software/v1",
+  "utc": "2026-11-10T21:33:29.977335+00:00",
+  "date_local": "2026-11-11",
+  "machine_id": "BF-202609141645",
+  "source": 112,
+  "installed_runtime": 111,
+  "actual_turn": 210,
+  "own_cities": 10,
+  "owner_implementation_after_candidate608_rejection": true,
+  "new_protocol": "Core persists validated ARMED with verified readback before a fresh sameUI grant; oldARMED only observes owned target plot and actual nonnegative food, then persistsOBSERVED. Unknown stages are response envelopes, not dead terminal records.",
+  "new_software_methods": 18,
+  "full_run": {
+    "run": 1680,
+    "passed": 1679,
+    "skipped": 1,
+    "seconds": 147.639,
+    "failures": 0,
+    "errors": 0,
+    "duplicated_fixture_methods": 9,
+    "unique_methods": 1671,
+    "duplicate_import_fixed_after_run": true,
+    "recheck_only_real_new_methods": 18,
+    "clean_unique_full_rerun_claimed": false
+  },
+  "Lua51_compiled": 93,
+  "package": {
+    "files": 115,
+    "bytes": 8803406,
+    "sha256": "49cc70b9b626cabdd05c7583057810d36b2e0c9dc1e3cb84e8549d9eaf637bca",
+    "installed": false,
+    "Steam_uploaded": false
+  },
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "05295af35d7fb40f34ee0ce11d97362ebe0217054fcbfdf7d8c996e1331d94d6",
+    "mod/Baiqi/Lua/BaiqiAdmin.lua": "69c7a117b348ff5d02bb37535345f0a89bf25a273f8ee78c0c4702148e4dd3b0",
+    "mod/Baiqi/Lua/BaiqiConfig.lua": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+    "mod/Baiqi/Lua/BaiqiFoodTileRescueRunner.lua": "4f9e5e6157efb446259d021349afc89fc9191635d9b6a9c7f9e16027290394e6",
+    "mod/Baiqi/Lua/BaiqiGameplay.lua": "f9f8d6efae48e186e959b2c90e936a6ea242bd5d1a25c50e1fd0681164817d04",
+    "mod/Baiqi/Lua/BaiqiFoodTileIntentGameplay.lua": "c59d947938729012fc3432d47c79e6cbde815a76be17cfea52891fd521089d79",
+    "mod/Baiqi/Lua/BaiqiFoodTileJournal.lua": "cced5c81a8796c030cf75121527d85b1b61812b2923446937e19d5935fbbc9fe",
+    "tests/fixtures/food_tile_rescue.lua": "422092491190beade84169c5e4db022fbf53fa2496c15da56618b69f6e0cf5d0",
+    "tests/test_baiqi_food_tile_rescue.py": "7776d210dbdbe122a45dec663eb77442f96e3002d7c6baca8c6e0cc964665fa8",
+    "tests/test_baiqi_food_tile_persistence.py": "c9278ef014564bfa247f55d7221e2e8e7e72b29bf820c35f6eb4cc07cedbd619",
+    "tools/build_static_control.py": "26825efe16a4a0319af7533ec0a2bfc76a7a03f0501ff06330c8dc4a2ca5c479",
+    "tools/static_control_source.py": "56dfea031e9ca6a52822a3971ef7b78eded11f1592ec5c29185473205ab2b4c2"
+  },
+  "persistent_bounds": {
+    "records": 128,
+    "serial_max": 2147483647,
+    "one_unresolved_per_city": true,
+    "one_unresolved_per_plot": true,
+    "discard_unresolved_records": false,
+    "both_city_full_identity_and_coordinates": true,
+    "strict_closed_schema": true
+  },
+  "Core_API_qualification": {
+    "Map_GetCityPlots": null,
+    "Cities_GetPlotPurchaseCity": "Actual Core owned2277 returnsfull458758/owner0/59,32",
+    "Map_GetGridSize": "actual74x46",
+    "owned_plot_GetIndex": "actual2277/57,30/owner0",
+    "qualification_property_writes": 0,
+    "qualification_city_commands": 0
+  },
+  "known_tradeoffs": [
+    "After successful persistent grant, a final UI permission/identity change can abort without native send but leave ARMED conservatively held. No automatic timeout/cancel/retry is added.",
+    "A named Core pre-persistence denial can be retried on a future turn; an unknown Prepare reply is held locally and never grants a native command.",
+    "Old pre-journal saves cannot retroactively certify an unrecorded unknown command. Current real preloss208 baseline separately proves no earlier rescue request.",
+    "Bridge unavailable/corrupt record/capacity stops rescue only; other administration continues.",
+    "Own current purchase plus actual target food is a desired-state receipt, not exact causal proof of an individual native invocation."
+  ],
+  "Native_acceptance_pending": [
+    "Real persistent ARM/write-readback in game",
+    "Fault between durable permission and native command",
+    "Official save/cold reload oldARMED produces no resend",
+    "Fresh emptyjournal normal rescue actual propertyOBSERVED and food effect"
+  ],
+  "new_HTTP_requests": 0,
+  "raw_model_code_adoption": 0,
+  "Steam_online_upload": 0,
+  "workshop_published_internal": 82
+}

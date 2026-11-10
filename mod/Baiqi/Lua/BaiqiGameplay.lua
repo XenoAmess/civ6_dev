@@ -15,6 +15,7 @@ include("BaiqiProphetIntentGameplay")
 include("BaiqiNaturalistIntentGameplay")
 include("BaiqiNaturalistPurchaseIntentGameplay")
 include("BaiqiArchaeologyReceiptEvents")
+include("BaiqiFoodTileIntentGameplay")
 
 local function RetireLegacyControls()
   -- Remove withdrawn plot-effect gates without refunds, transfers or replay.

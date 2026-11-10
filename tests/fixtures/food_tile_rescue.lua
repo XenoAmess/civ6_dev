@@ -16,7 +16,7 @@ local own={GetCount=function()return w.count or 2 end,FindID=function(_,id)
 own.Members=function()local n=0;return function()n=n+1;if n==1 then return 7,c elseif n==2 then return 12,d end end end
 local player={IsTurnActive=function()return w.active end,GetCities=function()return own end}
 local function plot(id,x,y,food,district)
-  return {GetX=function()return x end,GetY=function()return y end,GetOwner=function()return 0 end,
+  return {GetIndex=function()return id end,GetX=function()return x end,GetY=function()return y end,GetOwner=function()return 0 end,
     GetYield=function()return food end,GetDistrictType=function()return district end,GetImprovementType=function()return -1 end}
 end
 local plots={[2277]=plot(2277,57,30,1,-1),[2353]=plot(2353,59,31,0,9)}

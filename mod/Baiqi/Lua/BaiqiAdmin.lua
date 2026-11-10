@@ -478,7 +478,7 @@ function BaiqiAdmin.Run()
     BaiqiFoodTileRescueRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
       Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
       CityCommandTypes=CityCommandTypes,CityCommandResults=CityCommandResults,YieldTypes=YieldTypes,
-      Map=Map,PlayersVisibility=PlayersVisibility,leader=BaiqiConfig.leader},pid)
+      Map=Map,PlayersVisibility=PlayersVisibility,ExposedMembers=ExposedMembers,leader=BaiqiConfig.leader},pid)
   end
   Pantheon(pid,player)
   Religion(pid,player)
