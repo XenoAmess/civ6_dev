@@ -21,7 +21,7 @@ class TestObservedAcceptance(unittest.TestCase):
         self.assertEqual(res['requested_turns'], [85, 86, 87, 88, 89, 90])
         self.assertEqual(len(list(self.ledger.glob('end*.json'))), 6)
         self.assertEqual(self.h.actions, [85, 86, 87, 88, 89, 90])
-        self.assertEqual([(value,turn) for _,value,turn in self.h.recordings], [(True,85)]*32+[(False,91)]*32)
+        self.assertEqual([(value,turn) for _,value,turn in self.h.recordings], [(True,85)]*len(self.h.keys)+[(False,91)]*len(self.h.keys))
         self.assertTrue(self.h.all_recording(False))
 
     def test_visible_diplomacy_blocks_end(self):

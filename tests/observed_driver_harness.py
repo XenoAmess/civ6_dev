@@ -59,8 +59,12 @@ end''')
         info=ET.fromstring((ROOT/'mod/Baiqi/Baiqi.modinfo').read_bytes())
         self.keys=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
         self.keys+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
-        assert len(self.keys)==32
-        for key in self.keys:self.lua.globals().AddFakeContext(key)
+        assert len(self.keys)==33 and 'UI/BaiqiWorldCrisisPopup.lua' in self.keys
+        from tools.diagnostic_quotas import bounded_quotas
+        quotas=bounded_quotas(self.keys)
+        for key in self.keys:
+            self.lua.globals().AddFakeContext(key)
+            self.lua.globals().ExposedMembers.P6BaiqiOwnRegistry.entries[key].Snapshot().profile.capacity=quotas[key]
 
     def _print(self,*values):
         def text(v):

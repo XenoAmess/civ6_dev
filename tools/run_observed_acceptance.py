@@ -79,7 +79,8 @@ assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()==85 and Players[0]
 assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and P6Q20StageB==nil)
 local registry=ExposedMembers.P6BaiqiOwnRegistry
 assert(registry.marker=='baiqi67-q19' and registry.enabled==false)
-local keys={{}};for key in pairs(registry.entries) do keys[#keys+1]=key end;table.sort(keys);assert(#keys==32)
+local keys={{}};for key in pairs(registry.entries) do keys[#keys+1]=key end;table.sort(keys)
+assert(#keys==32 or (#keys==33 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil))
 local s={{keys=keys,token={quoted},phase='PREPARING',ends={{}},baseline={{}},start=Automation.GetTime()}}
 P6Q20StageB=s
 {budget_start}

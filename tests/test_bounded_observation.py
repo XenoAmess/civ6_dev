@@ -63,7 +63,15 @@ class TestBoundedObservation(unittest.TestCase):
         with self.assertRaises(TypeError):bounded_quotas(UserDict.fromkeys(keys))
         bad=list(keys);bad[bad.index('UI/BaiqiExecutor.lua')]='UI/MissingOverride.lua'
         with self.assertRaises(ValueError):bounded_quotas(bad)
-        self.assertEqual(len(q),32); self.assertEqual(sum(q.values()),4096)
+        self.assertEqual(len(q),33); self.assertEqual(sum(q.values()),4096)
+        self.assertEqual(q['UI/BaiqiWorldCrisisPopup.lua'],16)
+        self.assertEqual(q['UI/BaiqiExecutor.lua'],2032)
+        legacy=[k for k in keys if k!='UI/BaiqiWorldCrisisPopup.lua']
+        old=bounded_quotas(legacy)
+        self.assertEqual(len(old),32);self.assertEqual(sum(old.values()),4096)
+        self.assertEqual(old['UI/BaiqiExecutor.lua'],2048)
+        unknown=[k if k!='UI/BaiqiWorldCrisisPopup.lua' else 'UI/Unknown.lua' for k in keys]
+        with self.assertRaises(ValueError):bounded_quotas(unknown)
         self.assertTrue(all(isinstance(v,int) and v>0 for v in q.values()))
         with self.assertRaises(ValueError): bounded_quotas(keys[:-1])
         with self.assertRaises(ValueError): bounded_quotas(keys+keys[:1])

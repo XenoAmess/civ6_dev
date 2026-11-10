@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="110">
+<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="111">
   <Properties>
     <Name>白绮：为我前驱</Name>
     <Description>白绮领袖原型：自动内政，军队由玩家指挥。开发版本。</Description>
@@ -129,6 +129,8 @@
       <File>Lua/BaiqiFoodFocusRunner.lua</File>
       <File>Lua/BaiqiFoodTileRescue.lua</File>
       <File>Lua/BaiqiFoodTileRescueRunner.lua</File>
+      <File>Lua/BaiqiCrisisViewport.lua</File>
+      <File>UI/BaiqiWorldCrisisPopup.lua</File>
       <File>UI/BaiqiWorldInput.lua</File>
       <File>UI/BaiqiUnitPanel.lua</File>
       <File>UI/BaiqiProductionPanel.lua</File>
@@ -269,6 +271,13 @@
         <LoadOrder>1000</LoadOrder>
         <LuaContext>GreatPeoplePopup</LuaContext>
         <LuaReplace>UI/BaiqiGreatPeoplePopup.lua</LuaReplace>
+      </Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiWorldCrisisViewport">
+      <Properties>
+        <LoadOrder>1000</LoadOrder>
+        <LuaContext>WorldCrisisPopup</LuaContext>
+        <LuaReplace>UI/BaiqiWorldCrisisPopup.lua</LuaReplace>
       </Properties>
     </ReplaceUIScript>
     <ReplaceUIScript id="BaiqiGuardCityStates">
@@ -431,6 +440,8 @@
     <File>Lua/BaiqiFoodFocusRunner.lua</File>
     <File>Lua/BaiqiFoodTileRescue.lua</File>
     <File>Lua/BaiqiFoodTileRescueRunner.lua</File>
+    <File>Lua/BaiqiCrisisViewport.lua</File>
+    <File>UI/BaiqiWorldCrisisPopup.lua</File>
     <File>UI/BaiqiWorldInput.lua</File>
     <File>UI/BaiqiUnitPanel.lua</File>
     <File>UI/BaiqiProductionPanel.lua</File>

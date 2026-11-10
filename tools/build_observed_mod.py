@@ -110,7 +110,7 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',required=True,type=Path)
-    parser.add_argument('--bounded-zero',action='store_true',help='Aggregate measured-zero normal calls; explicit 32-context quotas sum to frozen global4096')
+    parser.add_argument('--bounded-zero',action='store_true',help='Aggregate measured-zero normal calls; legacy32 or source11133 context quotas sum to frozen global4096')
     args=parser.parse_args()
     result=build(args.output_dir,bounded_zero=args.bounded_zero)
     print(json.dumps({k:result[k] for k in ('mode','source_version','files','changed_files','expected_entry_keys','archive_sha256','installed')},ensure_ascii=False))
