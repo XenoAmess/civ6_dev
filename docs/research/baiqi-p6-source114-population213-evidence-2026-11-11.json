@@ -1,0 +1,86 @@
+{
+  "schema": "civ6.food114-population-loss213/v1",
+  "date_local": "2026-11-11",
+  "utc": "2026-11-10T23:36:14.278811+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 114,
+  "ordinary_window": {
+    "from": 211,
+    "to": 213,
+    "ordinary_END": 2,
+    "TEST_PLAYER_military_SKIPs": 8,
+    "CANADA_first_contact_decline": 1,
+    "UserForced": 0,
+    "manual_domestic": 0,
+    "END213": 0
+  },
+  "real_population_decrease": [
+    8,
+    7
+  ],
+  "city_212": {
+    "cityID": 458758,
+    "net_food": 0,
+    "total_food": 16,
+    "stock": 1.74609375,
+    "plot2277_worker": 1,
+    "queue": "BUILDING_UNIVERSITY 51/125"
+  },
+  "city_213": {
+    "net_food": 3,
+    "total_food": 17,
+    "stock": 35,
+    "threshold": 38,
+    "starvation_countdown": -1,
+    "plot2277_undistricted_food1_worker0": true,
+    "still_owned_city": 458758,
+    "old_record": "OBSERVED foodtile:0:1",
+    "queue": "BUILDING_UNIVERSITY 90/125",
+    "actual_new_queue_request_for_city212213": 0
+  },
+  "native_starvation_notification": {
+    "id": 2048,
+    "visible_actual": true,
+    "summary": "邢州没有为公民提供足够 [ICON_Food] 食物。如果情况继续，将会失去 [ICON_Citizen] 公民！",
+    "message": "城市正在挨饿！",
+    "created_turn": null,
+    "relation_to_exact_population_change": "unisolated"
+  },
+  "new_domestic_route": {
+    "trader": 4784157,
+    "origin": 458758,
+    "destination": 262147,
+    "current_active": true,
+    "observed_logs": [
+      "BaiqiExecutor: BAIQI|request|turn=213|id=0:213:46|source=BACKGROUND|unit=4784157|operation=MAKE_TRADE_ROUTE|plot=2723|from=2427",
+      "BaiqiExecutor: BAIQI|observed|turn=213|id=0:213:46|unit=4784157|kind=MAKE_TRADE_ROUTE|destination=262147"
+    ],
+    "old_route_expiry_and_timing": null,
+    "hypothesis_only": true
+  },
+  "Xian_DAM_2569_progress_211_212_213": [
+    0,
+    60,
+    111
+  ],
+  "Xian_DAM_cost": 197,
+  "completed": false,
+  "population_cause": "UNKNOWN; current yields and notification do not give transition order",
+  "trace_ports": "CityPopulationChanged, CityWorkerChanged, TradeRouteActivityChanged, NotificationAdded Add/Remove actual types. Core has no City.GetTrade or Growth.GetFood; UI qualified. Port presence not event delivery.",
+  "save": {
+    "utc": "2026-11-10T23:28:43.683046+00:00",
+    "name": "Baiqi_P6_20261111_V114_PopulationLoss213.Civ6Save",
+    "bytes": 1914816,
+    "sha256": "54f5ea0a50c94afe91f6dd46856790062f20f8bc5261cefa277c94ddd701324d",
+    "stable_repeated_read": true,
+    "official_ACK": true,
+    "loaded": false,
+    "private": true
+  },
+  "photo": {
+    "path": "docs/testing/images/source114-food-dam211/xingzhou-population213.png",
+    "sha256": "2417bffc9a9a769d87b9a8dce5e93a6c7015e5537b84229516e317879482bbe2"
+  },
+  "Steam_online_upload": 0,
+  "next": "Separate 211 healthy saved fixture with route/food/population/notification observation before ordinary212->213. No in-place command replay or write of yields/population."
+}

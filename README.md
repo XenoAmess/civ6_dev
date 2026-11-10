@@ -1,5 +1,7 @@
 # civ6_dev
 
+[114 后续 213 人口损失待定位](docs/testing/baiqi-food114-population-loss213.md)：粮格没再被占，但邢州由 8 变 7；旧饥饿通知和新国内路线待查。213 已另存，水坝 111/197。
+
 [114 正式实机／211前后对照](docs/testing/baiqi-district-worked-food-114-native211.md)：邢州保住粮格，8人、净粮食0，托管转建大学；西安仍开工堤坝。211已保存，工坊82未更新。
 
 [114 区域选址粮食校验](docs/testing/baiqi-district-worked-food-114.md)：保住盈余承受不起的工作粮格，仍允许空闲地和有余粮的选址。全量 1683 通过、1 SDK 跳过；尚未正式装入实机。
