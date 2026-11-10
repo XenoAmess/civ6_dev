@@ -709,3 +709,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-11：609故障方案与610真实Core端口修正
 
 [112失败原图、113软件边界及610采用](testing/baiqi-food-core-human-113.md)。609只复述给定方案、无精确恢复门，0代码采用；owner7项私有钩子检查不能替代实际命中。Core配置IsHuman=nil、player方法true，112故障点未到／0Prepare／journalnil；610小gate片段采用，owner分开Core/UI fixture5方法及相关42通过。60911393+843tokens／7892.1658ms；61010835+584／5274.9864ms，各单HTTPstop/DONE/JSON，Nov11缓存、0OpenCode原生。累计610/570完整37length3transport640HTTP30extra，未知工时净收益null；113Native仍待验。
+
+
+## 2026-11-11：611／612截断与211新选址缺口
+
+两真实任务各1HTTP200、SSE DONE但length，8779+1200与6742+1500tokens，9888.7169／9914.9208ms；整份丢弃、不拼接、不采用或执行。负责人旁听真实Choose并精确撤回，西安实际水坝开工、上海工业区优先；邢州新社区取用了救粮工作格，原记录没丢但产出1→0。详见[211实机及失败保存](testing/baiqi-dam-started-food-regression-211.md)。累计612/570完整39length3transport642HTTP30extra，0OpenCode原生，工时净收益null。

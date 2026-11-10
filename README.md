@@ -1,5 +1,7 @@
 # civ6_dev
 
+[211 水坝开工与缺粮复发／三张实机图](docs/testing/baiqi-dam-started-food-regression-211.md)：西安自动开工；邢州新社区占了救粮格，净粮食回到 −1。已停在 211 保存，继续修区域选址。
+
 [113 完成态读档／实机图](docs/testing/baiqi-food113-completed-reload210.md)：邢州救粮结果和 OBSERVED 记录保留，176 次后台循环无新增救粮。武汉读档产出另有差异；水坝查到 5 个合法选址，待自然开工。
 
 [113 正式实机／四张原图](docs/testing/baiqi-food113-persistence-cold208-210.md)：旧许可冷载后 118 次后台循环不重发；原缺粮档正常一次救粮，208→210 邢州仍 8 人、净粮食 0。运动会自然弹窗的确定可见且可关。210 已保存，工坊 82 未更新。
