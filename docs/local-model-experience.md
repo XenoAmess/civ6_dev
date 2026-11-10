@@ -708,4 +708,4 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 ## 2026-11-11：609故障方案与610真实Core端口修正
 
-[112失败原图、613前软件边界及610采用](testing/baiqi-food-core-human-113.md)。609只复述给定方案、无精确恢复门，0代码采用；owner7项私有钩子检查不能替代实际命中。Core配置IsHuman=nil、player方法true，112故障点未到／0Prepare／journalnil；610小gate片段采用，owner分开Core/UI fixture5方法及相关42通过。60911393+843tokens／7892.1658ms；61010835+584／5274.9864ms，各单HTTPstop/DONE/JSON，Nov11缓存、0OpenCode原生。累计610/570完整37length3transport640HTTP30extra，未知工时净收益null；113Native仍待验。
+[112失败原图、113软件边界及610采用](testing/baiqi-food-core-human-113.md)。609只复述给定方案、无精确恢复门，0代码采用；owner7项私有钩子检查不能替代实际命中。Core配置IsHuman=nil、player方法true，112故障点未到／0Prepare／journalnil；610小gate片段采用，owner分开Core/UI fixture5方法及相关42通过。60911393+843tokens／7892.1658ms；61010835+584／5274.9864ms，各单HTTPstop/DONE/JSON，Nov11缓存、0OpenCode原生。累计610/570完整37length3transport640HTTP30extra，未知工时净收益null；113Native仍待验。

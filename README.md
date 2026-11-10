@@ -1,5 +1,7 @@
 # civ6_dev
 
+[113 正式实机／四张原图](docs/testing/baiqi-food113-persistence-cold208-210.md)：旧许可冷载后 118 次后台循环不重发；原缺粮档正常一次救粮，208→210 邢州仍 8 人、净粮食 0。运动会自然弹窗的确定可见且可关。210 已保存，工坊 82 未更新。
+
 [113救粮桥修复／112失败实图](docs/testing/baiqi-food-core-human-113.md)：112实机发现Core缺配置对象IsHuman，救粮未执行；113改用真实玩家端口并保持未知拒绝，新增5方法、相关42全过。正式113存档与救粮仍待验，未推进缺粮208，Steam离线／工坊82不变。
 
 [112救粮持久化／软件](docs/testing/baiqi-food-persistence-112.md)：Core持久ARMED并读回后才授一次新许可，旧ARM跨UI／回合只观察，不重发；18真实新方法、全1680含9重复fixture通过／1SDKskip，导入已收敛，93Lua51／115包。运行仍111／210，真实故障保存／冷读待验，Steam离线、工坊82保持。
