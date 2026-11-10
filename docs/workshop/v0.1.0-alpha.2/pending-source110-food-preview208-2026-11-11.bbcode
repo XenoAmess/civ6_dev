@@ -1,0 +1,8 @@
+[h2]粮食托管修复的第一轮实机结果[/h2]
+208回合邢州人口8、粮食15，每回合缺1粮食，两回合后将掉人口。新增托管逻辑取用西安工作范围外的一块己方地块，由游戏把一名工业区专家调到粮食格，实际粮食升到16、净粮食归零，掉人口倒计时消失。西安净粮食仍为16；生产队列没有被取消。
+[img]https://raw.githubusercontent.com/XenoAmess/civ6_dev/main/docs/testing/images/source109-food208/xingzhou208-before-loss.png[/img]
+上图是问题发生时：底部红字提示两回合后掉人口。
+[img]https://raw.githubusercontent.com/XenoAmess/civ6_dev/main/docs/testing/images/source110-food-preview208/refreshed-panel208.png[/img]
+上图是后台分配后的原版面板：16粮食、人口仍8，红色饥饿提示消失。绿色零回合增长文字不算实际增长，当前净粮食为0。
+这次通过的是110模块在109实例中的后台预验。正式安装、长回合稳定和保存重载仍待验证；没有合法可用闲地时也不能保证消除饥饿。旧读档恢复失败、移动告警、水坝实际施工、小窗口和性能验收仍未关闭。Steam离线，工坊线上仍82；本段是待发布仓库材料。
+[url=https://github.com/XenoAmess/civ6_dev/blob/main/docs/testing/baiqi-food110-preview208.md]完整实机解读及验证边界[/url]
