@@ -2814,16 +2814,54 @@ end
 
 local function Military(row) return (row.Combat or 0) > 0 or (row.RangedCombat or 0) > 0 or row.FormationClass == "FORMATION_CLASS_SUPPORT" end
 
+-- This only ranks new domestic routes. The estimate cannot qualify a route
+-- or change an active one. Keep the original order if any score is unknown.
+local function TradeFoodScores(choices,origin,pid)
+  if not origin or #choices<2 or #choices>16 then return nil end
+  local ok,scores=pcall(function()
+    local growth=origin:GetGrowth()
+    local surplus,stock=growth:GetFoodSurplus(),growth:GetFood()
+    if not BaiqiPolicy.Number(surplus) or surplus>0 or surplus< -1000000
+      or not BaiqiPolicy.Number(stock) or stock<0 or stock>=2 then return nil end
+    local food=YieldTypes.FOOD
+    if not GeometryInteger(food) or food>=64 then return nil end
+    local manager=Game.GetTradeManager()
+    local from=origin:GetID()
+    local function component(method,to)
+      local yields=method(manager,pid,from,pid,to)
+      local value=type(yields)=="table" and yields[food+1]
+      if BaiqiPolicy.Number(value) and math.abs(value)<=1000000 then return value end
+    end
+    local values={}
+    for _,choice in ipairs(choices) do
+      local to=choice.id
+      local base=component(manager.CalculateOriginYieldsFromPotentialRoute,to)
+      local path=component(manager.CalculateOriginYieldsFromPath,to)
+      local modifiers=component(manager.CalculateOriginYieldsFromModifiers,to)
+      if base==nil or path==nil or modifiers==nil then return nil end
+      values[to]=base+path+modifiers
+    end
+    return values
+  end)
+  return ok and scores or nil
+end
+
 local function ProcessTrader(ctx,player,state,unit)
-  local choices={}
+  local choices,origin={},nil
   for _,city in player:GetCities():Members() do
     local plot=Map.GetPlot(city:GetX(),city:GetY())
     local route=TradePath(ctx,player,unit,plot)
     if route then
+      origin=origin or route.origin
       choices[#choices+1]={id=city:GetID(),x=city:GetX(),y=city:GetY(),length=route.length}
     end
   end
-  table.sort(choices,function(a,b) if a.length~=b.length then return a.length<b.length end return a.id<b.id end)
+  local food=TradeFoodScores(choices,origin,ctx.player)
+  table.sort(choices,function(a,b)
+    if food and food[a.id]~=food[b.id] then return food[a.id]>food[b.id] end
+    if a.length~=b.length then return a.length<b.length end
+    return a.id<b.id
+  end)
   for _,choice in ipairs(choices) do
     local plot=Map.GetPlot(choice.x,choice.y)
     local params,origin,dest=TradeParams(ctx,player,unit,plot)

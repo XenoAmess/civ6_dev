@@ -1,0 +1,109 @@
+{
+  "schema": "civ6.food115-new-route-food-software/v1",
+  "utc": "2026-11-11T00:12:35.045118+00:00",
+  "date_local": "2026-11-11",
+  "machine_id": "BF-202609141645",
+  "source": 115,
+  "package": {
+    "utc": "2026-11-11T00:11:13.430149+00:00",
+    "version": 115,
+    "files": 115,
+    "Lua51_compiled": 93,
+    "sha256": "49da34be240f5a53d254f91e947d576ea1185a759901087cef4037e23479e44c",
+    "Steam_actions": 0
+  },
+  "full_tests": {
+    "total": 1690,
+    "pass": 1689,
+    "SDK_skip": 1,
+    "seconds": 87.297
+  },
+  "focused_tests": 29,
+  "new_cases": 6,
+  "red_failures_on_114": 2,
+  "initial_full_attempt": {
+    "failed_static_numeric_whitelist_errors": 18,
+    "corrected_and_reran_full": true
+  },
+  "source_sha256": {
+    "mod/Baiqi/Baiqi.modinfo": "c352180f6fb99cfe505e88ef2a038eb03ac68722c6e2735cafcb415b97e01ab9",
+    "mod/Baiqi/Lua/BaiqiController.lua": "05264980d5c5214d5eaa27c277a2046da3f2eeb6ac9944f8ea125ee0b391f310",
+    "tools/build_static_control.py": "98d9536a3913283557992c75b7f731fba51ee01971baabd7d1bcf5186c99abc7",
+    "tools/static_control_source.py": "f1c8559652e89259dd1821aefbe33cd19b393bc4d3458af308eca10b04933d91",
+    "tests/test_baiqi_trade_ranking.py": "c1b1ab8c4229fd79cb0dec49d10ee8940c3cc40a3e1ebafae3d81986fff0c743"
+  },
+  "qualification": "existing original route path/operation, route capacity, own endpoints, revealed and safety gates remain. No request on occupied routes added.",
+  "preview": {
+    "runtime": 114,
+    "source_helper": 115,
+    "turn": 212,
+    "candidate_scores": 9,
+    "Xian": 5,
+    "Jiaodong": 3,
+    "capacity": [
+      9,
+      9
+    ],
+    "native_gameplay_requests": 0
+  },
+  "formal115_eligible_idle_trader_actual_start": null,
+  "source114_replay_population_loss_fixed": false,
+  "models": {
+    "615": {
+      "HTTP": 200,
+      "finish_reason": "stop",
+      "DONE": true,
+      "usage": {
+        "prompt_tokens": 1685,
+        "completion_tokens": 136,
+        "total_tokens": 1821
+      },
+      "total_ms": 2237.576900050044,
+      "TTFT_ms": 763.0967000732198,
+      "adopted": false,
+      "review": "Restated original path length order, omitting food comparison and required path/modifier components. No adoption."
+    },
+    "616": {
+      "HTTP": 200,
+      "finish_reason": "stop",
+      "DONE": true,
+      "usage": {
+        "prompt_tokens": 1951,
+        "completion_tokens": 148,
+        "total_tokens": 2099
+      },
+      "total_ms": 2299.047000007704,
+      "TTFT_ms": 897.9210000252351,
+      "adopted": false,
+      "review": "Farm is a future plausible alternative, but no qualified onsite builder and current native order already chooses by index. No builder change or adoption."
+    },
+    "617": {
+      "HTTP": 200,
+      "finish_reason": "stop",
+      "DONE": true,
+      "usage": {
+        "prompt_tokens": 1523,
+        "completion_tokens": 347,
+        "total_tokens": 1870
+      },
+      "total_ms": 2642.578500090167,
+      "TTFT_ms": 504.88260004203767,
+      "adopted": false,
+      "review": "Calls nonexistent Game.GetGrowth instead of origin:GetGrowth; treats missing FOOD slots as zero, fails to validate finite or thrown reads. Owner implemented separate checked score map. No candidate code adopted."
+    }
+  },
+  "model_cumulative": {
+    "logical": 617,
+    "complete": 575,
+    "length": 39,
+    "transport": 3,
+    "HTTP": 647,
+    "extra": 30,
+    "OpenCode_native": 0,
+    "cached": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam_online_upload": 0,
+  "workshop_internal": 82
+}
