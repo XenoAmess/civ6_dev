@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [123原生258付费排水与641维护费诊断](testing/baiqi-paid-barriers-native258-123.md)：Gold两次各135实际扣270，屏障／排水／上海跨事件存续、胶东社区和市场自动修复实际粮4、净6→10；2普通回合14军队SKIP2NPC点击，保存重载目标状态／现金保留且无重购。总收入531.8125→538.11328125未知，未授完整WORLD一致。641完整原稿Members／组件参数／pcall隔离失败拒用；Owner6合同、61Native阶段0错，原版Index绑定确认但已建两屏障GetBuildingMaintenance仍0，不能当免费或未来0。静态Maintenance1不等于有效动态维护，预算仍待补。累计641/597完整/41length/3transport/671HTTP/30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source123-native258-and-model641-2026-11-12.json)。
+
 2026-11-12 新增 [123真实维护费预算软件](testing/baiqi-flood-maintenance-budget-123.md)：按640先行原生诊断修Owner零维护假设；实际维护费1计入预算，100金币／净2、同回合新承诺保守预留，最后规则重读。fixture默认1，20runner方法，精确旧122有11失败断言0异常；完整1774项1773pass1SDKskip，95Lua51／117包。无新增HTTP，不重复640；尚未授123扣款／建筑／排水实效，冷载同一原256复测。累计640/596完整/41length/3transport/670HTTP/30extra，OpenCode原生0、维护缓存复用、未知成本null。[证据](research/baiqi-p6-source123-maintenance-budget-software-2026-11-12.json)。
 
 2026-11-12 新增 [122原生256失败与640诊断](testing/baiqi-paid-flood-barrier-native256-failure-122.md)：两城native购买资格与需求true、价格135，屏障仍无且金币未变；准确只读源码片段Contexttrue、Read/Eligible成功nil，实际Maintenance=1被Owner零维护假设误挡。640完整H2方向部分采用，原诊断Context函数当对象／pcall布尔索引隔离失败拒用；13值＋4函数结果、0游戏动作／全局替换。保持256不END，继续123预算修正。累计640/596完整/41length/3transport/670HTTP/30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source122-native256-failure-and-model640-2026-11-12.json)。
