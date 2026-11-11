@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [635／636 与 121 洪灾应对软件](testing/baiqi-coastal-response-121.md)：635输出length未读未采用，636完整但pcall布尔索引隔离失败、错误Members与元数据／最终检查，原代码拒用。Owner共享原生需求、0进度／空闲研究重排与pending读回、96分防洪坝和最终检查；22新增方法，旧120有11失败断言，完整1753项1752pass1SDKskip，94Lua51／116包。120253隔离只读11城仅两城需求true，0游戏动作，不授121实效。维护1.19.5缓存复用，累计636／593完整／40length／3transport／666HTTP／30extra，OpenCode原生0，未知成本null。[证据](research/baiqi-p6-source121-coastal-response-software-2026-11-12.json)。
+
 2026-11-12 新增 [634 海岸洪灾与防洪资格](testing/baiqi-coastal-flood-barrier253-120.md)：单HTTP200/stop/DONE/VALID，7558+1467 tokens、11217.9624ms。原稿城市索引不满足给定FindID合同、无身份视野与指定区域、漏两模式及建筑状态，原代码拒用；Owner6合同后两己方地块40阶段0错误，明确TerrainManager Flooded=true/Submerged=false，DroughtTurns=nil保持未知。两城屏障未建、可见false/排除true；计算机HasTech=false而CanResearch=true，不混淆研究可选与生产许可。0END/游戏动作/界面/订阅，保存的253保持。下一步修研究和防洪优先级，不授屏障或排水实效。Nov12维护1.19.5缓存复用，累计634/592完整/39length/3transport/664HTTP/30extra，OpenCode原生0，未知成本null。[逐案证据](research/baiqi-p6-model634-coastal-flood253-evidence-2026-11-12.json)。
 
 2026-11-12 新增 [120 正式供电与 253 重载](testing/baiqi-power-project-native253-120.md)：此次 Native 无新增 HTTP，633 软件候选另计，独立634诊断在重载中完成、不在此追认采用。新鲜0.008437秒后台离线证明后冷载原119246，七实际回合／7显式END／49军队SKIP／0人工内政；三城项目实际供电，胶东249完好市场4→6，250原版项目完成事件与重新开工。入队／重开帧可短暂未供电，不能用队列回执代替效果。251社区及市场受损后产粮0、原版洪灾限制拒修，继续诊断防洪，不误归为项目失效。10被动事件0错丢、3订阅撤，253重载11城／158建筑／64区域／204可见自有格／52单位及food/vitals/power/damage全同。额外只读迭代器错误归owner；70 Localization错误关联官方Clickouts/HoF源，无Baiqi引用或Gameplay错误，不称全零。[逐案证据](research/baiqi-p6-source120-native-power253-evidence-2026-11-12.json)。

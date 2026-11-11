@@ -11,6 +11,7 @@ include("BaiqiMissionaryPurchaseSubmit")
 include("BaiqiArchaeologyHome")
 include("BaiqiPendingArtifact")
 include("BaiqiSettlementJournal")
+include("BaiqiFlood")
 
 BaiqiController = {}
 local C = BaiqiConfig
@@ -3384,6 +3385,16 @@ local function PowerProjectWanted(ctx,player,city)
   return ok and wanted==true
 end
 
+local function FloodBarrierWanted(ctx,player,city)
+  local ok,wanted=pcall(function()
+    if not BaiqiPolicy.Context(ctx) or Players[ctx.player]~=player or Game.GetCurrentGameTurn()~=turn
+      or type(BaiqiFlood)~="table" or type(BaiqiFlood.City)~="function" then return false end
+    return BaiqiFlood.City({Game=Game,Players=Players,PlayersVisibility=PlayersVisibility,
+      GameInfo=GameInfo,Map=Map,TerrainManager=TerrainManager},ctx.player,city:GetID(),turn)
+  end)
+  return ok and wanted==true
+end
+
 local function ProcessCity(ctx, player, state, city)
   local cityID=city:GetID()
   if cityEvaluated[cityID]==turn then return false end
@@ -3404,7 +3415,7 @@ local function ProcessCity(ctx, player, state, city)
   if not amenitiesOK then amenities,amenitiesNeeded=nil,nil end
   local buildingFood,foodSurplus,foodStock=BuildingFoodHints(city)
   local candidates, checked = {}, 0
-  local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject)
+  local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject,floodBarrier)
     if checked >= C.candidatesPerCity then return end
     checked=checked+1
     -- Both CanProduce modes are required by the shipped ProductionPanel.
@@ -3412,7 +3423,7 @@ local function ProcessCity(ctx, player, state, city)
     if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
       score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true,
-      prayerProject=prayerProject==true,powerProject=powerProject==true}
+      prayerProject=prayerProject==true,powerProject=powerProject==true,floodBarrier=floodBarrier==true}
     if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c,completedHead,blockedHead)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
@@ -3420,6 +3431,16 @@ local function ProcessCity(ctx, player, state, city)
   local treasury=player:GetTreasury()
   local netGold=treasury:GetGoldYield()-treasury:GetTotalMaintenance()
   local economy=Economy(player)
+  local flood=FloodBarrierWanted(ctx,player,city) and GameInfo.Buildings.BUILDING_FLOOD_BARRIER
+  if flood then
+    local repair=city:GetBuildings():IsPillaged(flood.Index)==true
+    local maintenance=flood.Maintenance or 0
+    if not flood.IsWonder and (not flood.RequiresPlacement or repair) and (not flood.MustPurchase or repair)
+      and BaiqiPolicy.Number(maintenance) and maintenance>=0
+      and (maintenance==0 or netGold-economy.committedMaintenance-maintenance>=C.netGoldMin or repair) then
+      Add("building",flood,96,repair,nil,false,false,false,true)
+    end
+  end
   local prayerWanted=PrayerProjectWanted(ctx,player,city)
   local prayer=prayerWanted and GameInfo.Projects.PROJECT_ENHANCE_DISTRICT_HOLY_SITE
   -- Reserve this candidate before ordinary entries can exhaust the scan budget.
@@ -3430,7 +3451,7 @@ local function ProcessCity(ctx, player, state, city)
   if powerProject then Add("project",powerProject,92,false,nil,false,false,true) end
   for row in GameInfo.Buildings() do
     local repair=city:GetBuildings():IsPillaged(row.Index)
-    if not row.IsWonder and (not row.RequiresPlacement or repair) and (not row.MustPurchase or repair)
+    if (not flood or row.Hash~=flood.Hash) and not row.IsWonder and (not row.RequiresPlacement or repair) and (not row.MustPurchase or repair)
       and ((row.Maintenance or 0)==0 or netGold-economy.committedMaintenance-(row.Maintenance or 0)>=C.netGoldMin or repair) then
       local priority=BaiqiPlanner.AmenityProductionScore(buildingPriority[row.BuildingType] or 40,
         row.Entertainment,amenities,amenitiesNeeded)
@@ -3547,14 +3568,19 @@ local function ProcessCity(ctx, player, state, city)
     Reason("power_changed:"..cityID,"Power demand or available fuel changed; replan production")
     return false
   end
+  if choice.floodBarrier and not FloodBarrierWanted(latest,latestPlayer,city) then
+    cityEvaluated[cityID]=nil
+    Reason("flood_changed:"..cityID,"Coastal flood demand changed; replan production")
+    return false
+  end
   -- The extra demand read must not cover a turn/queue change at its boundary.
-  if (choice.firstHolySite or choice.prayerProject or choice.powerProject) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
+  if (choice.firstHolySite or choice.prayerProject or choice.powerProject or choice.floodBarrier) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
     or Game.GetCurrentGameTurn()~=turn or not BaiqiPolicy.MatchesID(city,cityID)
     or city:GetOwner()~=latest.player) then return false end
-  if (choice.prayerProject or choice.powerProject) and (q:CanProduce(choice.hash,true)~=true
+  if (choice.prayerProject or choice.powerProject or choice.floodBarrier) and (q:CanProduce(choice.hash,true)~=true
     or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true) then return false end
-  if choice.powerProject and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
+  if (choice.powerProject or choice.floodBarrier) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
     or Game.GetCurrentGameTurn()~=turn or not BaiqiPolicy.MatchesID(city,cityID)
     or city:GetOwner()~=latest.player) then return false end
   if choice.placement then

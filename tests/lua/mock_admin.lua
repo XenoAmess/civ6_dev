@@ -36,4 +36,5 @@ PlayerConfigurations={[7]={GetLeaderTypeName=function() return w.leader end,IsHu
 Game={GetLocalPlayer=function() return 7 end,GetCurrentGameTurn=function() return w.turn end,IsAllowStrategicCommands=function() return true end}
 GameConfiguration={IsAnyMultiplayer=function() return false end}
 PlayerOperations={RESEARCH=1,PROGRESS_CIVIC=2,PARAM_TECH_TYPE='tech',PARAM_CIVIC_TYPE='civic',PARAM_INSERT_MODE='mode',VALUE_EXCLUSIVE=3}
-UI={RequestPlayerOperation=function(pid,op,params) w.requests[#w.requests+1]={pid=pid,op=op,params=params} end}
+UI={IsGameCoreBusy=function()return false end,IsProcessingMessages=function()return false end,
+ RequestPlayerOperation=function(pid,op,params) w.requests[#w.requests+1]={pid=pid,op=op,params=params} end}

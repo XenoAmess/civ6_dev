@@ -4,6 +4,7 @@ include("BaiqiConfig")
 include("BaiqiGovernorLoyalty")
 include("BaiqiFoodFocusRunner")
 include("BaiqiFoodTileRescueRunner")
+include("BaiqiFlood")
 BaiqiAdmin={}
 local attempted,turn={},-1
 local techPriority={TECH_MINING=90,TECH_ANIMAL_HUSBANDRY=85,TECH_ARCHERY=80,TECH_BRONZE_WORKING=75,TECH_WHEEL=70}
@@ -16,6 +17,7 @@ local governmentSlots
 local pendingGreatPerson
 local pendingReligion
 local pendingGovernorRescue
+local pendingResearch
 local religionBeliefPriority={BELIEF_WORK_ETHIC=100,BELIEF_FEED_THE_WORLD=95,
   BELIEF_TITHE=90,BELIEF_DEFENDER_OF_FAITH=85}
 local function Once(key,action)
@@ -38,6 +40,81 @@ local function Choose(rows,can,cost,priorities,typeKey)
     return a.Index<b.Index
   end)
   return choices[1]
+end
+local function ResearchPlayer(pid,player)
+  local config=PlayerConfigurations[pid]
+  return Game.GetLocalPlayer()==pid and Players[pid]==player and config and config:IsHuman()==true
+    and config:GetLeaderTypeName()==BaiqiConfig.leader and player:IsTurnActive()==true
+    and Game.IsAllowStrategicCommands(pid)==true and Game.GetCurrentGameTurn()==turn
+    and GameConfiguration.IsAnyMultiplayer()==false
+    and (not GameConfiguration.IsHotseat or GameConfiguration.IsHotseat()==false)
+    and UI.IsGameCoreBusy and UI.IsGameCoreBusy()==false
+    and UI.IsProcessingMessages and UI.IsProcessingMessages()==false
+end
+local function FloodEnvironment()
+  return {Game=Game,Players=Players,PlayersVisibility=PlayersVisibility,GameInfo=GameInfo,
+    Map=Map,TerrainManager=TerrainManager}
+end
+local function FloodTechnology(techs)
+  if type(BaiqiFlood)~="table" or type(BaiqiFlood.Definition)~="function" then return nil end
+  local barrier=BaiqiFlood.Definition(FloodEnvironment())
+  local row=barrier and GameInfo.Technologies[barrier.PrereqTech]
+  if row and row.TechnologyType==barrier.PrereqTech and type(row.Index)=="number" and row.Index>=0
+    and row.Index%1==0 and type(row.Hash)=="number" and row.Hash>-math.huge and row.Hash<math.huge
+    and row.Hash%1==0 and techs:HasTech(row.Index)==false and techs:CanResearch(row.Index)==true then return row end
+end
+local function FloodResearchCity(pid,player)
+  if type(BaiqiFlood.City)~="function" then return nil end
+  local count=0
+  for _,city in player:GetCities():Members() do
+    count=count+1
+    if count>256 then return nil end
+    local id=city:GetID()
+    if BaiqiFlood.City(FloodEnvironment(),pid,id,turn)==true then return id end
+  end
+end
+local function Research(pid,player,techs)
+  if pendingResearch then
+    if pendingResearch.player~=pid then return end
+    if techs:GetResearchingTech()==pendingResearch.index or techs:HasTech(pendingResearch.index)==true then
+      print("BAIQI|research_observed|turn="..turn.."|index="..pendingResearch.index)
+      pendingResearch=nil
+    else
+      if not pendingResearch.logged then
+        print("BAIQI|research_pending|turn="..turn.."|index="..pendingResearch.index)
+        pendingResearch.logged=true
+      end
+      return -- Unknown native outcome is not permission to replay next turn.
+    end
+  end
+  local current=techs:GetResearchingTech()
+  if type(current)~="number" or current< -1 or current%1~=0 then return end
+  if current>=0 and techs:GetResearchProgress(current)~=0 then return end
+  local row=FloodTechnology(techs)
+  if row and row.Index==current then return end
+  local floodCity=row and FloodResearchCity(pid,player)
+  if not floodCity then
+    if current~=-1 then return end
+    row=Choose(GameInfo.Technologies,function(r) return techs:HasTech(r.Index)==false and techs:CanResearch(r.Index)==true end,
+      function(r) return techs:GetResearchCost(r.Index) end,techPriority,"TechnologyType")
+  end
+  if not row then return end
+  local path=techs:GetResearchPath(row.Hash)
+  if type(path)~="table" or next(path)==nil or not ResearchPlayer(pid,player) then return end
+  if floodCity then
+    if BaiqiFlood.City(FloodEnvironment(),pid,floodCity,turn)~=true then return end
+    local latest=FloodTechnology(techs)
+    if not latest or latest.Index~=row.Index or latest.Hash~=row.Hash then return end
+  end
+  if techs:HasTech(row.Index)~=false or techs:CanResearch(row.Index)~=true
+    or techs:GetResearchingTech()~=current or (current>=0 and techs:GetResearchProgress(current)~=0)
+    or not ResearchPlayer(pid,player) then return end
+  Once("tech:"..row.Index,function()
+    pendingResearch={player=pid,index=row.Index,hash=row.Hash,turn=turn}
+    if floodCity then print("BAIQI|flood_research_request|turn="..turn.."|city="..floodCity.."|index="..row.Index) end
+    UI.RequestPlayerOperation(pid,PlayerOperations.RESEARCH,
+      {[PlayerOperations.PARAM_TECH_TYPE]=path,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE})
+  end)
 end
 local function Pantheon(pid,player)
   if not player.GetReligion or not GameInfo.Beliefs then return end
@@ -447,17 +524,8 @@ function BaiqiAdmin.Run()
   local current=Game.GetCurrentGameTurn()
   if current~=turn then turn=current;attempted={} end
   local techs,culture=player:GetTechs(),player:GetCulture()
-  if techs:GetResearchingTech()==-1 then
-    local row=Choose(GameInfo.Technologies,function(r) return not techs:HasTech(r.Index) and techs:CanResearch(r.Index) end,
-      function(r) return techs:GetResearchCost(r.Index) end,techPriority,"TechnologyType")
-    if row then
-      local path=techs:GetResearchPath(row.Hash)
-      if type(path)=="table" and next(path)~=nil then
-        Once("tech:"..row.Index,function() UI.RequestPlayerOperation(pid,PlayerOperations.RESEARCH,
-          {[PlayerOperations.PARAM_TECH_TYPE]=path,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}) end)
-      end
-    end
-  end
+  local researchOK=pcall(Research,pid,player,techs)
+  if not researchOK then Once("research-read-error",function() print("BAIQI|research_wait|turn="..turn.."|reason=native_read_or_request_unknown") end) end
   if culture:GetProgressingCivic()==-1 then
     local row=Choose(GameInfo.Civics,function(r) return not culture:HasCivic(r.Index) and culture:CanProgress(r.Index) end,
       function(r) return culture:GetCultureCost(r.Index) end,civicPriority,"CivicType")
