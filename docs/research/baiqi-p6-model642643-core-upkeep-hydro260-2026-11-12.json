@@ -1,0 +1,931 @@
+{
+  "schema": "civ6.model642643-core-upkeep-hydro260/v1",
+  "utc": "2026-11-11T22:32:53.748739+00:00",
+  "date_local": "2026-11-12",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 123,
+  "source_commit": "eb6e2faf7b8e4a57f756ef8a0d470ae14b862ac7",
+  "models": {
+    "642": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 8008,
+        "completion_tokens": 676,
+        "total_tokens": 8684
+      },
+      "total_ms": 5890.0685999542475,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "643": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 8589,
+        "completion_tokens": 827,
+        "total_tokens": 9416
+      },
+      "total_ms": 7246.41249992419,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    }
+  },
+  "adoption": {
+    "642": {
+      "raw_code_adopted": false,
+      "Lua51_compile_failure": "[string \"<python>\"]:16: '=' expected near 'continue'",
+      "other_rejections": [
+        "pcall Boolean status captured as data",
+        "Missing own ID/owner/xy and final turn checks",
+        "Invented E.Treasury instead of supplied player component; omits actual reads",
+        "API lookup and world scope outside independent protection",
+        "Game colon call does not follow supplied dot API consumer"
+      ],
+      "native_raw_execution": false
+    },
+    "643": {
+      "raw_code_adopted": false,
+      "normal_numeric_district_type_gives_unread_unknown": true,
+      "fake_pcall_native_exception_escapes": "[string \"<python>\"]:1: optional native read\nstack traceback:\n\t[C]: in function 'error'\n\t[string \"<python>\"]:1: in function 'GetOwner'\n\t[string \"<python>\"]:6: in function <[string \"<python>\"]:4>\n\t(tail call): ?\n\t[string \"<python>\"]:4: in function <[string \"<python>\"]:1>",
+      "other_rejections": [
+        "Local pcall deliberately replaced with a direct invocation",
+        "District numeric type compared to string; no metadata mapping or target coordinates",
+        "xy and turn ignored, no visibility or bounded scan",
+        "Unknowns default to false/zero, raw ok status incorrectly inferred from no return",
+        "Guessed E.YIELD_GOLD and missing supplied operation namespace; only visible purchase mode",
+        "No live modifier-chain check; direction wrongly skips long-term goal while project temporarily powers city"
+      ],
+      "native_raw_execution": false
+    },
+    "raw_code_adopted": false,
+    "directions_only": [
+      "Differentiate Core and UI effective maintenance APIs",
+      "Qualify already owned hydro before assuming it is missing"
+    ]
+  },
+  "qualification": {
+    "642_owner_contract_groups": 5,
+    "643_owner_contract_groups": 6
+  },
+  "native642": {
+    "context": "GameCore_Tuner",
+    "turn": 259,
+    "stages": 21,
+    "main_API_errors": 0,
+    "all_turn_tags259": true,
+    "rows": [
+      [
+        "P6_642_META",
+        "113",
+        "205057393",
+        "1"
+      ],
+      [
+        "P6_642_API",
+        "1",
+        "BarrierDefinition",
+        "259",
+        "259",
+        "true",
+        "table",
+        "OBJECT"
+      ],
+      [
+        "P6_642_API",
+        "2",
+        "Treasury:GetTotalMaintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "215"
+      ],
+      [
+        "P6_642_API",
+        "3",
+        "Treasury:GetBuildingMaintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "126"
+      ],
+      [
+        "P6_642_API",
+        "4",
+        "Treasury:GetDistrictMaintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "22"
+      ],
+      [
+        "P6_642_API",
+        "5",
+        "Treasury:GetUnitMaintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "68"
+      ],
+      [
+        "P6_642_API",
+        "6",
+        "Treasury:GetWMDMaintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "0"
+      ],
+      [
+        "P6_642_API",
+        "7",
+        "262147:OwnIdentity",
+        "259",
+        "259",
+        "true",
+        "table",
+        "OBJECT"
+      ],
+      [
+        "P6_642_API",
+        "8",
+        "262147:HasBuilding",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "true"
+      ],
+      [
+        "P6_642_API",
+        "9",
+        "262147:Pillaged",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_API",
+        "10",
+        "262147:Maintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "7"
+      ],
+      [
+        "P6_642_API",
+        "11",
+        "262147:FinalIdentity",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "true"
+      ],
+      [
+        "P6_642_API",
+        "12",
+        "655369:OwnIdentity",
+        "259",
+        "259",
+        "true",
+        "table",
+        "OBJECT"
+      ],
+      [
+        "P6_642_API",
+        "13",
+        "655369:HasBuilding",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "true"
+      ],
+      [
+        "P6_642_API",
+        "14",
+        "655369:Pillaged",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_API",
+        "15",
+        "655369:Maintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "7"
+      ],
+      [
+        "P6_642_API",
+        "16",
+        "655369:FinalIdentity",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "true"
+      ],
+      [
+        "P6_642_API",
+        "17",
+        "65536:OwnIdentity",
+        "259",
+        "259",
+        "true",
+        "table",
+        "OBJECT"
+      ],
+      [
+        "P6_642_API",
+        "18",
+        "65536:HasBuilding",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_API",
+        "19",
+        "65536:Pillaged",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_API",
+        "20",
+        "65536:Maintenance",
+        "259",
+        "259",
+        "true",
+        "number",
+        "0"
+      ],
+      [
+        "P6_642_API",
+        "21",
+        "65536:FinalIdentity",
+        "259",
+        "259",
+        "true",
+        "boolean",
+        "true"
+      ],
+      [
+        "P6_642_DONE",
+        "21",
+        "true",
+        "259"
+      ]
+    ],
+    "owned_barriers_effective_maintenance_each7": true,
+    "UI_same_method_owned_values_were0": true,
+    "static_definition_maintenance": 1,
+    "control_capital_HasBuilding_false_and_maintenance0": true,
+    "unbuilt_followup_UI_rows": [
+      [
+        "P6_642_UNBUILT",
+        "65536",
+        "HasBuilding",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "65536",
+        "Maintenance",
+        "259",
+        "true",
+        "number",
+        "0"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "65536",
+        "CanProduceVisible",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "65536",
+        "CanProduceExclusion",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "131073",
+        "HasBuilding",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "131073",
+        "Maintenance",
+        "259",
+        "true",
+        "number",
+        "0"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "131073",
+        "CanProduceVisible",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "131073",
+        "CanProduceExclusion",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "720906",
+        "HasBuilding",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "720906",
+        "Maintenance",
+        "259",
+        "true",
+        "number",
+        "0"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "720906",
+        "CanProduceVisible",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT",
+        "720906",
+        "CanProduceExclusion",
+        "259",
+        "true",
+        "boolean",
+        "false"
+      ],
+      [
+        "P6_642_UNBUILT_DONE",
+        "259"
+      ]
+    ],
+    "unbuilt_followup_Core_rows": [
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "65536",
+          "HasBuilding",
+          "259",
+          "true",
+          "boolean"
+        ],
+        "value_summary": "false"
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "65536",
+          "Maintenance",
+          "259",
+          "true",
+          "number"
+        ],
+        "value_summary": "0"
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "65536",
+          "CanProduceVisible",
+          "259",
+          "false",
+          "string"
+        ],
+        "value_summary": "Not Implemented."
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "65536",
+          "CanProduceExclusion",
+          "259",
+          "false",
+          "string"
+        ],
+        "value_summary": "Not Implemented."
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "131073",
+          "HasBuilding",
+          "259",
+          "true",
+          "boolean"
+        ],
+        "value_summary": "false"
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "131073",
+          "Maintenance",
+          "259",
+          "true",
+          "number"
+        ],
+        "value_summary": "0"
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "131073",
+          "CanProduceVisible",
+          "259",
+          "false",
+          "string"
+        ],
+        "value_summary": "Not Implemented."
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "131073",
+          "CanProduceExclusion",
+          "259",
+          "false",
+          "string"
+        ],
+        "value_summary": "Not Implemented."
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "720906",
+          "HasBuilding",
+          "259",
+          "true",
+          "boolean"
+        ],
+        "value_summary": "false"
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "720906",
+          "Maintenance",
+          "259",
+          "true",
+          "number"
+        ],
+        "value_summary": "0"
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "720906",
+          "CanProduceVisible",
+          "259",
+          "false",
+          "string"
+        ],
+        "value_summary": "Not Implemented."
+      },
+      {
+        "tag": "P6_642_UNBUILT",
+        "fields": [
+          "720906",
+          "CanProduceExclusion",
+          "259",
+          "false",
+          "string"
+        ],
+        "value_summary": "Not Implemented."
+      },
+      {
+        "tag": "P6_642_UNBUILT_DONE",
+        "fields": [
+          "259"
+        ],
+        "value_summary": null
+      }
+    ],
+    "Core_CanProduce_NotImplemented_count": 6,
+    "UI_unbuilt_three_cities_both_modes_false": true,
+    "future_cost_for_eligible_unbuilt_not_qualified": true,
+    "first_inventory_unprotected_Core_CityGold_unavailable_error": true,
+    "partial_Buildings_methods_recovered_from_original_raw_receipt_not_replayed": true,
+    "Core_getmetatable_function_available_debug_rawget_nil": true,
+    "guarded_Core_CityGold_read_error_preserved": true,
+    "inventory_new_native_methods_invoked": 0
+  },
+  "native643": {
+    "context": "BaiqiExecutor",
+    "turn": 260,
+    "stages": 21,
+    "initial_API_errors": 1,
+    "initial_error": "Owner optional full-table ModifierArguments limit4096 was too small; not interpreted as no hydro rule.",
+    "metadata": {
+      "type": "BUILDING_HYDROELECTRIC_DAM",
+      "index": 114,
+      "hash": -743431162,
+      "prereq": "TECH_ELECTRICITY",
+      "district": "DISTRICT_DAM",
+      "base_maintenance": 1,
+      "base_cost": 440,
+      "PurchaseYield": "YIELD_GOLD"
+    },
+    "already_has_intact_hydro": true,
+    "capital_dam_complete_intact_at53_34": true,
+    "free_power": 6,
+    "temporary_power": 0,
+    "required_power": 8,
+    "fully_powered": true,
+    "fully_powered_by_active_project": true,
+    "both_CanProduce_false": true,
+    "BuildAppendCanStart_false": true,
+    "quoted_Gold_price745": true,
+    "both_Gold_purchase_modes_false": true,
+    "no_duplicate_hydro_build_or_purchase_implemented": true,
+    "raw_rows": [
+      {
+        "stage": "1",
+        "name": "CapitalDamScope",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "table",
+        "value": "OBJECT"
+      },
+      {
+        "stage": "2",
+        "name": "HydroDefinition",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "table",
+        "value": "OBJECT"
+      },
+      {
+        "stage": "3",
+        "name": "DamComplete",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "true"
+      },
+      {
+        "stage": "4",
+        "name": "DamPillaged",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "stage": "5",
+        "name": "HydroHas",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "true"
+      },
+      {
+        "stage": "6",
+        "name": "HydroPillaged",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "stage": "7",
+        "name": "PrereqOwned",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "true"
+      },
+      {
+        "stage": "8",
+        "name": "Power:GetFreePower",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "number",
+        "value": "6"
+      },
+      {
+        "stage": "9",
+        "name": "Power:GetTemporaryPower",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "number",
+        "value": "0"
+      },
+      {
+        "stage": "10",
+        "name": "Power:GetRequiredPower",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "number",
+        "value": "8"
+      },
+      {
+        "stage": "11",
+        "name": "Power:IsFullyPowered",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "true"
+      },
+      {
+        "stage": "12",
+        "name": "Power:IsFullyPoweredByActiveProject",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "true"
+      },
+      {
+        "stage": "13",
+        "name": "CanProduceVisible",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "stage": "14",
+        "name": "CanProduceExclusion",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "stage": "15",
+        "name": "ProductionCost",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "number",
+        "value": "220"
+      },
+      {
+        "stage": "16",
+        "name": "BuildAppendCanStart",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "stage": "17",
+        "name": "GoldPrice",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "number",
+        "value": "745"
+      },
+      {
+        "stage": "18",
+        "name": "GoldVisible",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "stage": "19",
+        "name": "GoldFull",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "stage": "20",
+        "name": "FreePowerRule",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "false",
+        "type": "string",
+        "value": "assertion failed"
+      },
+      {
+        "stage": "21",
+        "name": "FinalScope",
+        "turn": "260",
+        "turn_after": "260",
+        "ok": "true",
+        "type": "boolean",
+        "value": "true"
+      }
+    ],
+    "qualified_rule_followup": [
+      [
+        "P6_643_DETAIL",
+        "ModifiersProvider",
+        "true",
+        "string",
+        "userdata"
+      ],
+      [
+        "P6_643_DETAIL",
+        "DirectModifierRowType",
+        "true",
+        "string",
+        "table"
+      ],
+      [
+        "P6_643_DETAIL",
+        "DirectModifierType",
+        "true",
+        "string",
+        "MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER"
+      ],
+      [
+        "P6_643_DETAIL",
+        "DirectSubjectRequirement",
+        "true",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_643_MODIFIER",
+        "HYDROELECTRIC_DAM_FREE_POWER",
+        "MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_643_DETAIL",
+        "ModifierIteration",
+        "true",
+        "number",
+        "1"
+      ],
+      [
+        "P6_643_ARGUMENT",
+        "Amount",
+        "6"
+      ],
+      [
+        "P6_643_ARGUMENT",
+        "SourceType",
+        "FREE_POWER_SOURCE_WATER"
+      ],
+      [
+        "P6_643_DETAIL",
+        "ArgumentIteration",
+        "true",
+        "number",
+        "2"
+      ],
+      [
+        "P6_643_DETAILS_DONE",
+        "260"
+      ]
+    ],
+    "rule_followup_bound": 32768,
+    "qualified_rule": "HYDROELECTRIC_DAM_FREE_POWER / MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER / Amount6 / FREE_POWER_SOURCE_WATER; SubjectRequirementSetId=nil",
+    "hypothesis_ordinary_priority_starved_unbuilt_capital_hydro_refuted": true,
+    "not_claiming_new_free_power_effect": true
+  },
+  "turn_progress": {
+    "from_saved_reloaded258_to_actual260": true,
+    "explicit_normal_END_turns": [
+      258,
+      259
+    ],
+    "TEST_PLAYER_military_SKIPs": 14,
+    "Canada_bye_clicks": 1,
+    "special_Congress_physical_clicks": 5,
+    "special_Congress_at_world_turn259": true,
+    "TEST_PLAYER_religious_emergency_one_against_vote_cost0": true,
+    "actual_outcome_for15_against8_passed_despite_own_vote": true,
+    "Congress_original_submit_contains_END_action_actual_global_count": null,
+    "no_UserForced_or_manual_domestic": true,
+    "END_not_replayed_after_wait": true,
+    "stage260_all11_prechecks_no_population_loss_food_nonnegative": true,
+    "Shanghai_Seaport260_progress_cost": [
+      207,
+      220
+    ],
+    "no_claim_yet_of_Shanghai_IndustrialZone_repair": true
+  },
+  "scope": {
+    "diagnostic_game_orders": 0,
+    "diagnostic_subscriptions": 0,
+    "diagnostic_global_replacements": 0,
+    "Steam_online_upload_actions": 0,
+    "new_source_code_changes": 0
+  },
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "OpenCode_installed_registry": "1.19.5",
+    "same_machine_user_success_cache_reused": true,
+    "upgrade_this_window": false,
+    "OpenCode_native_generation": 0
+  },
+  "cumulative": {
+    "logical_calls": 643,
+    "complete": 599,
+    "length_failures": 41,
+    "transport_failures": 3,
+    "HTTP_attempts": 673,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "clarification": "Earlier event7 wording refers only to the observed GetClimateChangeForLastSeaLevelEvent value7, not a separately qualified phase label or event ordinal.",
+  "still_open": [
+    "Eligible unbuilt dynamic future upkeep and tight-budget guard",
+    "Reload gross income change cause",
+    "Shanghai IndustrialZone repair and old Factory resume",
+    "Other renewable sources or technology for resource-free power beyond existing6",
+    "Full acceptance matrix and older unknown recovery"
+  ]
+}
