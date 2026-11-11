@@ -12,6 +12,15 @@ function BaiqiPlanner.AmenityProductionScore(base, entertainment, amenities, nee
   return math.max(base,94)
 end
 
+-- Rank known base-food supply only; this does not predict conditional modifiers
+-- or authorize construction. Unknown city/yield reads keep the old priority.
+function BaiqiPlanner.FoodProductionScore(base, foodYield, surplus, stock)
+  if not number(base) or not number(foodYield) or foodYield<=0
+    or not number(surplus) or surplus>0 or not number(stock)
+    or stock<0 or stock>=2 then return base end
+  return math.max(base,94)
+end
+
 function BaiqiPlanner.Choose(city, candidates)
   if type(city) ~= "table" or city.paused ~= false or city.queueEmpty ~= true then return nil end
   local best, bestScore

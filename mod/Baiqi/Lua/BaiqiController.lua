@@ -3282,6 +3282,30 @@ local function PrayerProjectWanted(ctx,player,city)
   return ok and wanted==true
 end
 
+-- A per-idle-city hint. Do not cache a partial yield scan or let an optional
+-- growth/table read prevent normal production when a port is unavailable.
+local function BuildingFoodHints(city)
+  local ok,food,surplus,stock=pcall(function()
+    local growth=city:GetGrowth()
+    local net,reserve=growth:GetFoodSurplus(),growth:GetFood()
+    if not BaiqiPolicy.Number(net) or net>0 or not BaiqiPolicy.Number(reserve)
+      or reserve<0 or reserve>=2 then return nil end
+    local yields,count={},0
+    for row in GameInfo.Building_YieldChanges() do
+      count=count+1
+      if count>4096 or type(row)~="table" or type(row.YieldType)~="string" or row.YieldType==""
+        or type(row.BuildingType)~="string" or row.BuildingType==""
+        or not BaiqiPolicy.Number(row.YieldChange) then return nil end
+      if row.YieldType=="YIELD_FOOD" then
+        if yields[row.BuildingType]~=nil then return nil end
+        yields[row.BuildingType]=row.YieldChange
+      end
+    end
+    return yields,net,reserve
+  end)
+  if ok then return food,surplus,stock end
+end
+
 local function ProcessCity(ctx, player, state, city)
   local cityID=city:GetID()
   if cityEvaluated[cityID]==turn then return false end
@@ -3298,6 +3322,7 @@ local function ProcessCity(ctx, player, state, city)
     return growth:GetAmenities(),growth:GetAmenitiesNeeded()
   end)
   if not amenitiesOK then amenities,amenitiesNeeded=nil,nil end
+  local buildingFood,foodSurplus,foodStock=BuildingFoodHints(city)
   local candidates, checked = {}, 0
   local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject)
     if checked >= C.candidatesPerCity then return end
@@ -3326,6 +3351,8 @@ local function ProcessCity(ctx, player, state, city)
       and ((row.Maintenance or 0)==0 or netGold-economy.committedMaintenance-(row.Maintenance or 0)>=C.netGoldMin or repair) then
       local priority=BaiqiPlanner.AmenityProductionScore(buildingPriority[row.BuildingType] or 40,
         row.Entertainment,amenities,amenitiesNeeded)
+      priority=BaiqiPlanner.FoodProductionScore(priority,buildingFood and buildingFood[row.BuildingType],
+        foodSurplus,foodStock)
       Add("building",row,priority,repair)
     end
   end

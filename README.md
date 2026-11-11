@@ -4,6 +4,8 @@
 
 当前本地 115：西安堤坝已正常建成并通过 216 保存重载；216 巴西文化胜利后，功能延续测试已到 [219 回合](docs/testing/baiqi-postvictory219-115.md)。缺粮新商路排序的软件和实机只读估算已核对，实际新开路线仍待验；[213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)尚未关闭。Steam 保持离线，工坊仍为 82。
 
+源码已到 [116：低粮城市基础产粮建筑排序](docs/testing/baiqi-food-production-116.md)，完整软件检查 1697 通过／1 SDK 跳过；运行 115 已保存 220，116 安装实测继续。
+
 ## 历史进度（各条保留当时状态）
 
 [115 缺粮城市的新商路排序](docs/testing/baiqi-trade-food-priority-115.md)：软件和实机只读估算已核对；未证明 213 人口损失修复，实际新开路线仍待验。

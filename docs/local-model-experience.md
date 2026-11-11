@@ -719,3 +719,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-11：619—621接续证据与219现场
 
 [结算后219、模型审阅及诊断清理](testing/baiqi-postvictory219-115.md)。619/620/621各单HTTP stop/DONE/合法JSON，分别2798/9331/5357 tokens、2363.2341/2722.9470/2355.2740ms。619缺具体因果钩子，620逐回合可能重发未知迁城，621否认已结算，均未采用。Owner接手重新核219十城及9/9，精确撤掉外层1911074次但0目标样本的诊断；正式保存1961154字节，未载。食品市场visiblefalse/exclusiontrue/defaultfalse且科技false，不能当合法。累计621逻辑/579完整/39length/3transport/651HTTP/30extra/0OpenCode原生，未知成本null；Steam0上线，工坊82不变。
+
+
+## 2026-11-11：622基础产粮排序与116软件
+
+[116候选修正、真实writer回归及115只读预验](testing/baiqi-food-production-116.md)。622完整stop/DONE/VALID，7620+440=8060tokens、4019.4342ms、1HTTP；纯函数部分采用，原集成growth异常独立复现，部分坏行及宜居度绕过整段拒用。Owner有界全表读取，8新方法，旧115两失败；首次全1698两构建版本错误已修，再次全1697pass/1SDKskip，93Lua51/115包。实机115219→220一普通END/4军队SKIP/0人工内政，116纯read预验市场4粮/score94但visiblefalse，不冒称116施工。220保存1971556字节/9517a0fd…未载，自有游戏正式退出已请求。累计622/580完整/39length/3transport/652HTTP/30extra，0OpenCode原生，未知成本null，Steam0上线工坊82保持。
