@@ -729,3 +729,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-11：623—624与武汉222人口守卫
 
 [222现场与后续诊断](testing/baiqi-wuhan-population222-116.md)。623/624各1HTTP stop/DONE/VALID，5167+182/1505+197tokens，2247.3313/2083.7072ms。623缺city关联和正确恢复拒用；624仅事件观察方向保留，中心匹配及正盈余推断拒用。Owner7隔离合同、0自然目标，守卫失败后错误继续装钩已立即撤除、0END222；实际220→222两普通END/8军队SKIP/1外交Bye，新沈阳但武汉6→5/库存仍23.9648，原因未知。222存1980125字节/d9fbec53…未载。累计624/582完整/39length/3transport/654HTTP/30extra/0OpenCode原生，未知成本null；Steam0上线82不变。
+
+
+## 2026-11-12：625、三轮复现和原版灾害历史
+
+[事件先后、时序不原子及历史损失范围](testing/baiqi-wuhan-population222-trace-116.md)。625单HTTP stop/DONE/VALID，2304+104=2408tokens、1311.097ms；仅Core读数方向保留，缺覆盖否因果拒用。Owner三轮5END/20军队SKIP/3原版Bye，UI/Core229末快照行无错丢、25订阅全撤；不把三分支相加成普通连续回合。人口早于陨石和建城；风暴26历史PopLost4是整事件，武汉只少1，逐城归因未闭。CoreGetFood=nil实证、UI/Core回调turn不同；原版GetEventsForTurn和灾害损失入口是owner补读完整消费者才找到，准备成本不推给模型。Nov12维护新检查1.19.5成功无升级，625缓存复用；累计625/583完整/39length/3transport/655HTTP/30extra/0OpenCode原生，未知成本null。
