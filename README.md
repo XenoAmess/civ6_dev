@@ -2,9 +2,9 @@
 
 白绮【为我前驱】强制托管内政、生产、建设与和平扩张，军队和外交由玩家操作。目前仍是未完成全功能验收的原型。
 
-当前本地 116：西安堤坝已正常建成并通过 216 保存重载；216 巴西文化胜利后，功能延续测试已到 [220 回合](docs/testing/baiqi-cold220-116.md)。缺粮新商路排序的软件和实机只读估算已核对，实际新开路线仍待验；[213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)尚未关闭。Steam 保持离线，工坊仍为 82。
+当前本地 119：西安堤坝与水力发电站已建成；216 巴西文化胜利后，独立功能复现到 [243 回合并完成重载](docs/testing/baiqi-recovery-food-completed243-119.md)。上海洪灾受阻队列恢复接续，长沙食品市场建成、自然增长到四人。旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)和 [222 武汉逐城归因](docs/testing/baiqi-wuhan-population222-trace-116.md)仍开放。启动前已证 Steam 离线，全程未上线，工坊仍 82。
 
-源码 [119](docs/testing/baiqi-pruned-building-receipt-119.md) 适配原版清理受阻队列后的回执，软件 1718 通过／1 SDK 跳过，待冷验。[118 独立实机](docs/testing/baiqi-flooded-building-queue-118.md)确认替代生产已开始、旧工厂生产保留，但严格双条目回执卡住，继续修复。原主 237 与复现失败均已存，长沙食品市场仍 150/190。旧人口损失与全功能矩阵开放。
+源码与实机 [119](docs/testing/baiqi-recovery-food-completed243-119.md)：软件 1718 通过／1 SDK 跳过；实际 7 回合、0 人工内政、9 普通 END／44 玩家军队待命，完成态重载保持。食品市场实际产粮 4→通电后 6，长沙当前净粮 9；上海下水道已完成、商业中心 132/143。全功能验收尚未完成。
 
 ## 历史进度（各条保留当时状态）
 
