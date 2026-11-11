@@ -1,0 +1,389 @@
+{
+  "schema": "civ6.source122-native256-failure-and-model640/v1",
+  "utc": "2026-11-11T21:37:54.742187+00:00",
+  "date_local": "2026-11-12",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 122,
+  "source_commit": "4ab8227695430d8bab70ca0e93634540b8139e3c",
+  "package_files": 117,
+  "byte_exact": true,
+  "package_sha256": "ae33257bcf29945218bd9aebb9687fe56ecf0661359fd640d7086fa7ea3dd844",
+  "Steam": {
+    "fresh_independent_background_offline_proof": true,
+    "proof_age_seconds": 0.005207,
+    "proof_file": "food112-live-offline-mode-20261111T212812190293Z.json",
+    "confirmation_input_activation_focus_move_screenshot": false,
+    "online_switch_upload_actions": 0
+  },
+  "scope": {
+    "original_source121_save256_cold_load_once": true,
+    "actual_turn": 256,
+    "Continue_inputs": 1,
+    "END": 0,
+    "manual_domestic": 0,
+    "QA_purchase_requests": 0,
+    "no_native_purchase_effect_pass": true
+  },
+  "cold256_comparison": {
+    "WORLD": {
+      "rows": 1,
+      "equal": true
+    },
+    "CITY": {
+      "rows": 11,
+      "equal": true
+    },
+    "BUILDING": {
+      "rows": 161,
+      "equal": true
+    },
+    "DISTRICT": {
+      "rows": 64,
+      "equal": true
+    },
+    "PLOT": {
+      "rows": 205,
+      "equal": true
+    },
+    "UNIT": {
+      "rows": 53,
+      "equal": true
+    },
+    "FOOD": {
+      "cities": 11,
+      "completion_rows": 1,
+      "equal": true
+    },
+    "VITALS": {
+      "cities": 11,
+      "completion_rows": 1,
+      "equal": true
+    }
+  },
+  "native_ledger_rows": [
+    [
+      "P6_122_LEDGER",
+      "256",
+      "19287.51953125",
+      "554.40625",
+      "200",
+      "4948.79296875"
+    ],
+    [
+      "P6_122_PURCHASE_STATE",
+      "262147",
+      "false",
+      "false",
+      "false",
+      "135",
+      "true",
+      "true",
+      "205057393"
+    ],
+    [
+      "P6_122_PURCHASE_STATE",
+      "655369",
+      "false",
+      "false",
+      "false",
+      "135",
+      "true",
+      "true",
+      "-1681819567"
+    ],
+    [
+      "P6_122_LEDGER_DONE",
+      "256"
+    ]
+  ],
+  "native_flood_rows": [
+    [
+      "P6_122_RESEARCH",
+      "256",
+      "50",
+      "TECH_ADVANCED_FLIGHT",
+      "0",
+      "55",
+      "true",
+      "false",
+      "0",
+      "664"
+    ],
+    [
+      "P6_122_FLOOD_CITY",
+      "262147",
+      "true",
+      "false",
+      "false",
+      "true",
+      "true",
+      "205057393",
+      "0",
+      "240",
+      "true",
+      "true",
+      "2",
+      "true",
+      "false",
+      "17",
+      "6"
+    ],
+    [
+      "P6_122_FLOOD_CITY",
+      "655369",
+      "true",
+      "false",
+      "false",
+      "true",
+      "true",
+      "-1681819567",
+      "0",
+      "240",
+      "true",
+      "true",
+      "1",
+      "true",
+      "false",
+      "13",
+      "11"
+    ],
+    [
+      "P6_122_MARKET",
+      "true",
+      "true",
+      "0"
+    ],
+    [
+      "P6_122_STATE_DONE",
+      "256"
+    ]
+  ],
+  "failure": {
+    "barriers_both_unbuilt": true,
+    "gold_unchanged": 19287.51953125,
+    "both_native_gold_purchase_modes_true": true,
+    "shared_flood_demand_both_true": true,
+    "Holds_both_false": true,
+    "no_flood_purchase_request_in_full_window_log": true,
+    "real_Maintenance": 1,
+    "source122_only_zero_maintenance_causes_Read_and_Eligible_nil": true,
+    "owner_unverified_zero_maintenance_assumption": true,
+    "Read_pcall_succeeded_no_API_exception": true,
+    "Context_qualified": true,
+    "scheduler_global_invocation_counter": null,
+    "no_permission_to_advance_sea_event_before_fix": true
+  },
+  "model640": {
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "usage": {
+      "prompt_tokens": 7274,
+      "completion_tokens": 614,
+      "total_tokens": 7888
+    },
+    "total_ms": 5474.3290999904275,
+    "json_syntax": {
+      "status": "VALID",
+      "top_level_type": "object",
+      "reason": "COMPLETE_STOP_JSON",
+      "error": null,
+      "offset_units": "Unicode code points",
+      "max_utf8_bytes": 1048576,
+      "semantic_review": "OWNER_REVIEW_REQUIRED"
+    }
+  },
+  "adoption": {
+    "raw_code_adopted": false,
+    "counterexample": {
+      "raw_code_adopted": false,
+      "isolated_raw_failure": "[string \"<python>\"]:1: attempt to index local 'Context' (a function value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk",
+      "other_rejections": [
+        "Calls the real Context function as a no-argument environment and object",
+        "Again indexes Boolean pcall status instead of returned quote",
+        "Cannot access private Read/Eligible unless actual lexical source is included",
+        "Requested field hypotheses is array rather than string; ledger income/upkeep evidence missed"
+      ],
+      "native_raw_execution": false
+    },
+    "direction": "H2 maintenance hypothesis independently confirmed by actual source read; owner rewrote diagnostic",
+    "hypotheses_schema_array_instead_of_requested_string": true
+  },
+  "native_readonly_qualification": {
+    "exact_source_function_fragment_excludes_include_Work_Run_RequestCommand": true,
+    "metadata_and_Context_rows": 13,
+    "private_Read_Eligible_rows": 4,
+    "turn_all256": true,
+    "game_orders": 0,
+    "subscriptions": 0,
+    "global_replacements": 0,
+    "result_rows": [
+      [
+        "P6_640_VALUE",
+        "Context",
+        "256",
+        "true",
+        "boolean",
+        "true"
+      ],
+      [
+        "P6_640_VALUE",
+        "config.leader",
+        "256",
+        "true",
+        "string",
+        "LEADER_BAIQI"
+      ],
+      [
+        "P6_640_VALUE",
+        "config.goldReserve",
+        "256",
+        "true",
+        "number",
+        "100"
+      ],
+      [
+        "P6_640_VALUE",
+        "config.netGoldMin",
+        "256",
+        "true",
+        "number",
+        "2"
+      ],
+      [
+        "P6_640_VALUE",
+        "barrier.Maintenance",
+        "256",
+        "true",
+        "number",
+        "1"
+      ],
+      [
+        "P6_640_VALUE",
+        "barrier.Hash",
+        "256",
+        "true",
+        "number",
+        "205057393"
+      ],
+      [
+        "P6_640_VALUE",
+        "barrier.Index",
+        "256",
+        "true",
+        "number",
+        "113"
+      ],
+      [
+        "P6_640_VALUE",
+        "barrier.PurchaseYield",
+        "256",
+        "true",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_640_VALUE",
+        "barrier.PrereqTech",
+        "256",
+        "true",
+        "string",
+        "TECH_COMPUTERS"
+      ],
+      [
+        "P6_640_VALUE",
+        "enum.PURCHASE",
+        "256",
+        "true",
+        "number",
+        "1490793096"
+      ],
+      [
+        "P6_640_VALUE",
+        "enum.PARAM_BUILDING_TYPE",
+        "256",
+        "true",
+        "number",
+        "-1254747886"
+      ],
+      [
+        "P6_640_VALUE",
+        "enum.PARAM_YIELD_TYPE",
+        "256",
+        "true",
+        "number",
+        "730511874"
+      ],
+      [
+        "P6_640_VALUE",
+        "GoldYield",
+        "256",
+        "true",
+        "number",
+        "2"
+      ],
+      [
+        "P6_640_READ",
+        "262147",
+        "256",
+        "true",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_640_ELIGIBLE",
+        "262147",
+        "256",
+        "true",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_640_READ",
+        "655369",
+        "256",
+        "true",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_640_ELIGIBLE",
+        "655369",
+        "256",
+        "true",
+        "nil",
+        "nil"
+      ],
+      [
+        "P6_640_DONE",
+        "256"
+      ]
+    ]
+  },
+  "owner_preflight_errors": {
+    "private122_install_helper_indentation_error_before_any_install_or_spawn": true,
+    "corrected_and_py_compiled_before_single_actual_install": true,
+    "no_game_action_replayed": true
+  },
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "OpenCode_installed_registry": "1.19.5",
+    "same_machine_user_success_cache_reused": true,
+    "upgrade_this_call": false,
+    "OpenCode_native_generation": 0
+  },
+  "cumulative": {
+    "logical_calls": 640,
+    "complete": 596,
+    "length_failures": 41,
+    "transport_failures": 3,
+    "HTTP_attempts": 670,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null,
+    "OpenCode_native_generation": 0
+  },
+  "next_work": "Source123 must budget finite nonnegative barrier maintenance instead of requiring zero, reserve same-turn commitments, software-qualify and cold-retest preserved256. Do not hot replace module or manually buy."
+}
