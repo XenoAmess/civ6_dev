@@ -750,3 +750,10 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 237上海受损工业区原版明确洪灾无法修复，工厂队列73/165、currentHash0。629 PREPEND方向部分采用，未保护helper、缺已拥有建筑拒绝与用任意blocked替代原签名等由负责人修正。118九新方法最终通过；首轮夹具参数索引和错误后停止预期由负责人纠正，完整1715项1714pass1SDKskip、93Lua51／115包。源118尚未冷装，不授PREPEND实效。81被动记录0错0丢，三订阅撤，正式保存237。
 
 普通HTTP累计629逻辑／587完整／39length／3transport／659HTTP／30extra；三次初始实际在途各1，同机Nov12维护缓存复用，OpenCode原生生成0。缓存收益、成本和净节省均未知null。[软件和现场证据](research/baiqi-p6-source118-blocked-production-software-2026-11-12.json)。
+
+
+## 2026-11-12：630 原版清理旧项与回执修复
+
+118真实独立236→237，6军队SKIP／1普通END；PREPEND确实请求，但Native只留Sewer一项、工厂仍73/165，严格两项回执待定。先前冷读237走普通追加，删项时刻未隔离，不授前插证明。630单HTTP200/stop/DONE/VALID，2439+1263=3702tokens，9082.852ms；只部分采用旧生产元数据／反例方向。原helper错接pcall多返回，隔离合格夹具实际nil,nil；回执先size2再判size1不可达，且双项未验生产。负责人重写119。4新方法／受阻组13，首轮owner稀疏表误造三项导致一失败，修正后全1719项1718pass1SDKskip、93Lua51／115包；119尚未冷验。
+
+当日1.19.5维护缓存复用；累计630逻辑／588完整／39length／3transport／660HTTP／30extra，实际初始在途1，OpenCode原生0；成本收益null。[精确业务证据](research/baiqi-p6-source119-pruned-queue-software-2026-11-12.json)。

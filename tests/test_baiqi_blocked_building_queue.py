@@ -37,7 +37,7 @@ for _,c in ipairs(w.cities)do
    if hash==901 and((mode==true and w.rejectFirst)or(mode==false and w.rejectSecond))then return false end
    return can(self,hash,mode,...)
   end
-  q.GetBuildingProgress=function(_,i)assert(i==25);return w.blockedProgress end
+  q.GetBuildingProgress=function(_,i)assert(i==25);if w.throwProgress then error('progress unknown')end;return w.blockedProgress end
   q.GetBuildingCost=function(_,i)assert(i==25);return w.blockedCost end
   return q
  end
@@ -58,6 +58,7 @@ CityManager.RequestOperation=function(c,op,params)
   assert(params[CityOperationTypes.PARAM_INSERT_MODE]==CityOperationTypes.VALUE_PREPEND and params[2]==901)
   table.insert(w.queues[c:GetID()],1,{BuildingType=9,Directive=1,Modifiers=0})
   w.current[c:GetID()]=901
+  if w.pruneWriter then table.remove(w.queues[c:GetID()],2)end
  end
 end
 ''')
@@ -143,6 +144,49 @@ end
         self.case.c.Update(3)
         self.assertNotIn('queue_observed', self.logs())
         self.assertIn('queue_prepend_unresolved', self.logs())
+
+    def test_native_pruned_old_entry_with_stored_progress_allows_next_production(self):
+        self.case.w.applyWriter=True;self.case.w.pruneWriter=True
+        self.assertEqual(self.case.chosen(),901)
+        self.case.c.Update(3)
+        self.assertIn('queue_observed',self.logs())
+        self.assertNotIn('queue_prepend_unresolved',self.logs())
+        self.assertEqual(self.case.w.blockedProgress,73)
+        self.case.change('TestWorld.queues[66]={};TestWorld.current[66]=0;TestWorld.allowed[901]=false;TestWorld.allowed[910]=true;TestWorld.turn=2')
+        self.case.c.RunNow()
+        self.assertEqual(len(self.case.w.cityRequests),2)
+        self.assertEqual(self.case.w.cityRequests[2].params[5],910)
+
+    def test_pruned_old_progress_loss_or_unknown_keeps_request_pending(self):
+        for change in ('TestWorld.blockedProgress=72','TestWorld.blockedProgress=0/0',
+                       'TestWorld.blockedProgress=nil','TestWorld.throwProgress=true',
+                       'TestWorld.blockedBuilt=nil','TestWorld.blockedBuilt=true'):
+            with self.subTest(change=change):
+                self.setUp();self.case.w.applyWriter=True;self.case.w.pruneWriter=True
+                self.assertEqual(self.case.chosen(),901)
+                self.case.change(change);self.case.c.Update(3)
+                self.assertNotIn('queue_observed',self.logs())
+                self.assertIn('queue_prepend_unresolved',self.logs())
+                self.assertEqual(len(self.case.w.cityRequests),1)
+
+    def test_two_entries_also_require_stored_progress_to_be_preserved(self):
+        self.case.w.applyWriter=True
+        self.assertEqual(self.case.chosen(),901)
+        self.case.w.blockedProgress=72;self.case.c.Update(3)
+        self.assertNotIn('queue_observed',self.logs())
+        self.assertIn('queue_prepend_unresolved',self.logs())
+
+    def test_wrong_new_head_or_unrelated_entries_cannot_acknowledge_pruning(self):
+        for change in ('TestWorld.current[66]=910',
+                       'TestWorld.queues[66][1]={ProjectType=0}',
+                       'TestWorld.queues[66][2]={BuildingType=25,Directive=1,Modifiers=1}',
+                       'TestWorld.queues[66][2]={BuildingType=25,Directive=1,Modifiers=0};TestWorld.queues[66][3]={BuildingType=9}'):
+            with self.subTest(change=change):
+                self.setUp();self.case.w.applyWriter=True;self.case.w.pruneWriter=True
+                self.assertEqual(self.case.chosen(),901)
+                self.case.change(change);self.case.c.Update(3)
+                self.assertNotIn('queue_observed',self.logs())
+                self.assertIn('queue_prepend_unresolved',self.logs())
 
 
 if __name__ == '__main__':

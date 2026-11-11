@@ -2911,7 +2911,7 @@ end
 -- current hash. Preserve that sole entry while prepending ordinary legal work.
 -- Unknown or normally active queues never authorize this exception.
 local function BlockedIdleHead(city,q)
-  local ok,signature=pcall(function()
+  local ok,signature,work=pcall(function()
     local function Integer(n,lo)
       return BaiqiPolicy.Number(n) and n%1==0 and n>=lo and n<=2147483647
     end
@@ -2938,9 +2938,9 @@ local function BlockedIdleHead(city,q)
     local progress,cost=q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
     if not BaiqiPolicy.Number(progress) or progress<0 or not BaiqiPolicy.Number(cost)
       or cost<=progress then return nil end
-    return sig
+    return sig,{buildingIndex=row.Index,hash=row.Hash,progress=progress}
   end)
-  return ok and signature or nil
+  if ok then return signature,work end
 end
 
 local function Economy(player)
@@ -3364,7 +3364,8 @@ local function ProcessCity(ctx, player, state, city)
     and CityOperationTypes.PARAM_QUEUE_DESTINATION_LOCATION~=nil then
     completedHead=CompletedIdleHead(city,q)
   end
-  local blockedHead=not completedHead and CoreIdle() and BlockedIdleHead(city,q) or nil
+  local blockedHead,blockedWork
+  if not completedHead and CoreIdle() then blockedHead,blockedWork=BlockedIdleHead(city,q) end
   if not QueueReady(city,q,completedHead,blockedHead) or pendingCities[cityID] then return false end
   cityEvaluated[cityID]=turn
   local amenitiesOK,amenities,amenitiesNeeded=pcall(function()
@@ -3537,7 +3538,7 @@ local function ProcessCity(ctx, player, state, city)
     or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player) then return false end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
-  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,prependsHead=blockedHead,
+  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,prependsHead=blockedHead,blockedWork=blockedWork,
     firstHolySite=choice.firstHolySite,prayerProject=choice.prayerProject}
   if choice.kind=="unit" then
     submittedUnits[cityID]=submittedUnits[cityID] or {}
@@ -3761,12 +3762,24 @@ local function ReadBack(player)
       end
       if pending.prependsHead then
         local ok,preserved=pcall(function()
-          if hash~=pending.hash or q:GetSize()~=2 then return false end
+          local size=q:GetSize()
+          if hash~=pending.hash or (size~=1 and size~=2) then return false end
           local _,head=QueueHeadSignature(q)
           local tables={building=GameInfo.Buildings,district=GameInfo.Districts,unit=GameInfo.Units,project=GameInfo.Projects}
           local fields={building="BuildingType",district="DistrictType",unit="UnitType",project="ProjectType"}
           local row=head and tables[pending.kind][head[fields[pending.kind]]]
-          return row~=nil and row.Hash==pending.hash and QueueHeadSignature(q,1)==pending.prependsHead
+          if not row or row.Hash~=pending.hash then return false end
+          local work=pending.blockedWork
+          local old=work and GameInfo.Buildings[work.buildingIndex]
+          if not old or old.Index~=work.buildingIndex or old.Hash~=work.hash then return false end
+          local progress=q:GetBuildingProgress(work.buildingIndex)
+          if not BaiqiPolicy.Number(progress) or not BaiqiPolicy.Number(work.progress)
+            or work.progress<0 or progress<work.progress then return false end
+          if size==2 then return QueueHeadSignature(q,1)==pending.prependsHead end
+          -- Native PREPEND can prune the unbuildable old entry. Its production
+          -- must still be stored; never recreate an illegal queue entry or pay
+          -- compensation. Missing/unknown progress leaves this request pending.
+          return city:GetBuildings():HasBuilding(work.buildingIndex)==false
         end)
         matched=ok and preserved==true
       end
