@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [124工厂269完工与648粮食上下文](testing/baiqi-factory-completed269-food-context-124.md)：上海项目自然267完成→工厂73/165→268130→269完工／正式重载保持，6普通END42军队SKIP5NPC点击0人工内政，22事件0错丢且3钩全撤。邢州269 UI−1饥饿1但Core+1，新FAIL停END保存；648同context连读伪UI/Core、owner/turn缺失隔离拒。Owner5合同真正UI/Core/UI48阶段，两UI−1/Core+1，Core10不可用API独立记录。重载UI+1／市场4→6但Core仍1，未知原因；收入／住房变动保留，不授全部一致或救粮通过。累计648/604完整41length3transport678HTTP30extra、维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native124-factory269-food648-2026-11-12.json)。
+
 2026-11-12 新增 [124正式冷载与647资格](testing/baiqi-renewable-tech264-cold124.md)：117文件、新鲜独立离线0.004179秒后启动、一次官方263冷载，主快照及vitals保持；邢州净粮1→3／增长12→4、上海项目供电标志false→true未知，不授全状态同一或新电源。正常264火箭完成，卫星Hasfalse/CanResearchtrue。647完整18590tokens/9288.8419ms，错用player:GetPower隔离抛错及无守卫／错误path集成，整拒0rawNative；实际十九读阶段复用644资格工具。累计647/603完整41length3transport677HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-model647-renewable-cold124-2026-11-12.json)。
 
 2026-11-12 新增 [124已有投入续建与644—646](testing/baiqi-invested-building-resume-124.md)：123／263上海工业区修复、工作坊完成，但工厂73/165原生合法仍输给项目92；124仅该供电需求下有限未完工建筑93，真实队列成本、原生许可预算和活动队列保持。8新方法及全量软件通过，待冷验。644两反例拒，Owner5合同后十九Native阶段0错，四可再生科技皆未拥有且不可直接研究；645把未建0重新当未来费拒，UI/Core有界清单未授新预测器。646纯helper部分采用，猜端口／静态成本拒。累计646/602完整41length3transport676HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source124-resume-and-model644646-2026-11-12.json)。
