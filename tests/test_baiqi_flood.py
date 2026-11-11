@@ -132,6 +132,11 @@ CityManager.CanStartOperation=function(c,op,p,...)
     def test_existing_active_queue_is_preserved_without_terrain_scan(self):
         self.case.change('TestWorld.queues[66]={{BuildingType=9}}');self.case.c.RunNow()
         self.assertEqual(len(self.case.w.cityRequests),0);self.assertEqual(self.case.lua.globals().TestFlood.terrainReads,0)
+    def test_pending_purchase_holds_production_until_confirmed_then_replans_same_turn(self):
+        self.case.change('BaiqiFloodPurchase={Holds=function(pid,id)return pid==7 and id==66 end}')
+        self.case.c.RunNow();self.assertEqual(len(self.case.w.cityRequests),0)
+        self.case.change('BaiqiFloodPurchase.Holds=function()return false end')
+        self.assertEqual(self.case.chosen(),913)
     def test_final_demand_change_replans_same_turn(self):
         self.case.change('TestWorld.floodShock=function()TestFlood.flooded=false end')
         self.case.c.RunNow();self.assertEqual(len(self.case.w.cityRequests),0);self.assertEqual(self.case.chosen(),927)

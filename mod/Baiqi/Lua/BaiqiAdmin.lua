@@ -5,6 +5,7 @@ include("BaiqiGovernorLoyalty")
 include("BaiqiFoodFocusRunner")
 include("BaiqiFoodTileRescueRunner")
 include("BaiqiFlood")
+include("BaiqiFloodPurchase")
 BaiqiAdmin={}
 local attempted,turn={},-1
 local techPriority={TECH_MINING=90,TECH_ANIMAL_HUSBANDRY=85,TECH_ARCHERY=80,TECH_BRONZE_WORKING=75,TECH_WHEEL=70}
@@ -524,6 +525,12 @@ function BaiqiAdmin.Run()
   local current=Game.GetCurrentGameTurn()
   if current~=turn then turn=current;attempted={} end
   local techs,culture=player:GetTechs(),player:GetCulture()
+  if type(BaiqiFloodPurchase)=="table" and type(BaiqiFloodPurchase.Run)=="function" then
+    BaiqiFloodPurchase.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,Players=Players,
+      PlayerConfigurations=PlayerConfigurations,GameInfo=GameInfo,PlayersVisibility=PlayersVisibility,
+      Map=Map,TerrainManager=TerrainManager,CityManager=CityManager,CityCommandTypes=CityCommandTypes,
+      config=BaiqiConfig},pid)
+  end
   local researchOK=pcall(Research,pid,player,techs)
   if not researchOK then Once("research-read-error",function() print("BAIQI|research_wait|turn="..turn.."|reason=native_read_or_request_unknown") end) end
   if culture:GetProgressingCivic()==-1 then

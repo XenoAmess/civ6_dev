@@ -3397,6 +3397,8 @@ end
 
 local function ProcessCity(ctx, player, state, city)
   local cityID=city:GetID()
+  if type(BaiqiFloodPurchase)=="table" and type(BaiqiFloodPurchase.Holds)=="function"
+    and BaiqiFloodPurchase.Holds(ctx.player,cityID)==true then return false end
   if cityEvaluated[cityID]==turn then return false end
   local q=city:GetBuildQueue()
   local completedHead
