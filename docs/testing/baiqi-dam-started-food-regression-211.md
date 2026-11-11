@@ -14,4 +14,4 @@
 
 已保存 211 失败现场、保留原 210 档，没有再结束回合。下一步补新区域的粮食损失校验，并在提交建造前重读实际工作与盈余；现有生产不取消，不加入手动地块入口。Steam 离线，工坊仍为内部 82。
 
-[实际坐标、请求与回执、模型弃用和存档指纹](../research/baiqi-p6-source113-dam-food211-evidence-2026-11-11.json)。
+[实际坐标、请求与回执、模型弃用和存档指纹](../research/baiqi-p6-source113-dam-food211-evidence-2026-11-11.json) · [同一坝址在 215 实际完工](baiqi-dam-completed-215.md)。

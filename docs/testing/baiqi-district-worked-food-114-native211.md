@@ -10,4 +10,4 @@
 
 十座城市当前粮食盈余都非负，忠诚均为 100。西安仍在同一洪泛平原 2569 开工堤坝，进度 0/197；校验没有阻止这项有余粮的建造。211 现场已正式保存，旧失败档单独保留。此处通过的是这一条复发路线，堤坝完工和更长时间保持仍需单独验收。
 
-[完整读回与存档指纹](../research/baiqi-p6-source114-district-food-native211-evidence-2026-11-11.json)。Steam 离线，工坊仍为内部 82。
+[完整读回与存档指纹](../research/baiqi-p6-source114-district-food-native211-evidence-2026-11-11.json) · [215 原坝址完工及后续粮食风险](baiqi-dam-completed-215.md)。Steam 离线，工坊仍为内部 82。
