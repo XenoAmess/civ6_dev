@@ -1,0 +1,159 @@
+{
+  "schema": "civ6.source116-native-low-food-building-start/v1",
+  "utc": "2026-11-11T16:56:20.603073+00:00",
+  "date_local": "2026-11-12",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 116,
+  "postvictory": true,
+  "actual_low_food_selection": {
+    "turn": 228,
+    "city": 327684,
+    "name": "Changsha",
+    "population": 2,
+    "food_stock": 0.68359375,
+    "net_food": 0,
+    "base_score": 40,
+    "actual_score": 94,
+    "native_visible": true,
+    "native_exclusion": true,
+    "prereq_tech": true,
+    "original_writer_returned": true,
+    "native_entertainment": 0,
+    "legal_candidates": [
+      {
+        "kind": "building",
+        "type": "BUILDING_SEWER",
+        "score": 40.0,
+        "repair": false,
+        "index": 30,
+        "legal": true
+      },
+      {
+        "kind": "building",
+        "type": "BUILDING_FOOD_MARKET",
+        "score": 94.0,
+        "repair": false,
+        "index": 70,
+        "legal": true
+      },
+      {
+        "kind": "building",
+        "type": "BUILDING_COAL_POWER_PLANT",
+        "score": 40.0,
+        "repair": false,
+        "index": 74,
+        "legal": true
+      },
+      {
+        "kind": "district",
+        "type": "DISTRICT_NEIGHBORHOOD",
+        "score": 55.0,
+        "repair": false,
+        "index": 104,
+        "legal": true
+      },
+      {
+        "kind": "district",
+        "type": "DISTRICT_NEIGHBORHOOD",
+        "score": 55.0,
+        "repair": false,
+        "index": 105,
+        "legal": true
+      },
+      {
+        "kind": "district",
+        "type": "DISTRICT_NEIGHBORHOOD",
+        "score": 55.0,
+        "repair": false,
+        "index": 106,
+        "legal": true
+      },
+      {
+        "kind": "project",
+        "type": "PROJECT_ENHANCE_DISTRICT_INDUSTRIAL_ZONE",
+        "score": 1.0,
+        "repair": false,
+        "index": 124,
+        "legal": true
+      },
+      {
+        "kind": "project",
+        "type": "PROJECT_BAIQI_STANDBY",
+        "score": -1000.0,
+        "repair": false,
+        "index": 129,
+        "legal": true
+      }
+    ]
+  },
+  "same_vector_pure_counterfactual": {
+    "only_change": "Food market score94->40; same observed legal candidate vector, no Native actions or old-runtime replay.",
+    "current_choice": "BUILDING_FOOD_MARKET",
+    "without_food_boost": "DISTRICT_NEIGHBORHOOD"
+  },
+  "actual_queue": {
+    "kind": "BUILDING",
+    "type": "BUILDING_FOOD_MARKET",
+    "index": 111,
+    "progress": 0,
+    "cost": 190,
+    "display_turns": 12,
+    "completed": false
+  },
+  "other_two_market_choices": {
+    "227_Jiaodong": {
+      "city": 262147,
+      "score": 40,
+      "net_food": 4,
+      "stock": 69.4140625
+    },
+    "227_Xingzhou": {
+      "city": 458758,
+      "score": 40,
+      "net_food": 4,
+      "stock": 33.28125
+    },
+    "new_low_food_boost_evidence": false
+  },
+  "observer": {
+    "Choose_calls": 23,
+    "market_choices": 3,
+    "captured_rows": 3,
+    "errors": 0,
+    "drops": 0,
+    "Choose_RequestOperation_exactly_restored": true,
+    "production_event_observer_still_active_for_completion": true
+  },
+  "normal_training228": {
+    "Beijing_unit_birth": 7077933,
+    "type": "UNIT_SETTLER",
+    "birth_xy": [
+      52,
+      36
+    ],
+    "observed_population_sequence": [
+      15,
+      14,
+      14,
+      15
+    ],
+    "end_population": 15,
+    "not_a_new_starvation_failure": true
+  },
+  "checkpoint": {
+    "bytes": 2022166,
+    "sha256": "66c8159cadf1b4f291e6c2c97c2551e0a5eaac53d2fa220ff4fee2d37530c8b4",
+    "stable_repeated_read": true
+  },
+  "photo": {
+    "path": "docs/testing/images/source116-food228/changsha-food-market-start228.png",
+    "sha256": "f73a265f0c6def824a7922358a07b4e02816571775f5ce6602c1b2e52fdfc6da"
+  },
+  "new_model_calls": 0,
+  "model_cumulative_logical": 625,
+  "manual_domestic": 0,
+  "UserForced": 0,
+  "Steam_online_upload_actions": 0,
+  "completion_food_effect": null,
+  "old213_and_Wuhan222_not_closed": true
+}
