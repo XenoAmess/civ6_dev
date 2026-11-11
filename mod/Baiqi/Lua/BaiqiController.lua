@@ -2875,9 +2875,9 @@ local function ProcessTrader(ctx,player,state,unit)
   return false
 end
 
-local function QueueHeadSignature(q)
+local function QueueHeadSignature(q,index)
   if not q.GetAt or q:GetSize()==0 then return nil end
-  local e=q:GetAt(0)
+  local e=q:GetAt(index or 0)
   if type(e)~="table" then return nil end
   local p=e.Location or {}
   return table.concat({tostring(e.Directive),tostring(e.BuildingType),tostring(e.DistrictType),
@@ -2904,6 +2904,43 @@ local function CompletedIdleHead(city,q)
   else return nil end -- Units/projects cannot be proved complete by an asset flag.
   if not BaiqiPolicy.Number(progress) or not BaiqiPolicy.Number(cost) or cost<0 or progress<cost then return nil end
   return signature,row
+end
+
+
+-- A flooded prerequisite can strand an unfinished building behind a zero
+-- current hash. Preserve that sole entry while prepending ordinary legal work.
+-- Unknown or normally active queues never authorize this exception.
+local function BlockedIdleHead(city,q)
+  local ok,signature=pcall(function()
+    local function Integer(n,lo)
+      return BaiqiPolicy.Number(n) and n%1==0 and n>=lo and n<=2147483647
+    end
+    local mode=CityOperationTypes.VALUE_PREPEND
+    if not Integer(mode,-2147483648) or mode==CityOperationTypes.VALUE_APPEND
+      or mode==CityOperationTypes.VALUE_REPLACE_AT or q:GetSize()~=1
+      or q:GetCurrentProductionTypeHash()~=0 then return nil end
+    local sig,e=QueueHeadSignature(q)
+    if not e or not Integer(e.BuildingType,0) or e.DistrictType~=nil
+      or e.UnitType~=nil or e.ProjectType~=nil or not Integer(e.Directive,0)
+      or not Integer(e.Modifiers,0) or (e.Location~=nil and type(e.Location)~="table") then return nil end
+    local location=e.Location or {}
+    if (location.x~=nil and not Integer(location.x,-2147483648))
+      or (location.y~=nil and not Integer(location.y,-2147483648)) then return nil end
+    local row=GameInfo.Buildings[e.BuildingType]
+    if not row or row.Index~=e.BuildingType or not Integer(row.Hash,-2147483648)
+      or type(row.PrereqDistrict)~="string" or row.PrereqDistrict=="" then return nil end
+    local district=GameInfo.Districts[row.PrereqDistrict]
+    if not district or district.DistrictType~=row.PrereqDistrict or not Integer(district.Index,0)
+      or city:GetBuildings():HasBuilding(row.Index)~=false then return nil end
+    local districts=city:GetDistricts()
+    if districts:HasDistrict(district.Index,true)~=true or districts:IsPillaged(district.Index)~=true
+      or q:CanProduce(row.Hash,true)~=true or q:CanProduce(row.Hash,false,true)~=false then return nil end
+    local progress,cost=q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
+    if not BaiqiPolicy.Number(progress) or progress<0 or not BaiqiPolicy.Number(cost)
+      or cost<=progress then return nil end
+    return sig
+  end)
+  return ok and signature or nil
 end
 
 local function Economy(player)
@@ -3069,8 +3106,9 @@ local function FirstHolySiteWanted(ctx,player)
   return ok and wanted==true
 end
 
-local function BuildParams(candidate,completedHead)
-  local params = {[CityOperationTypes.PARAM_INSERT_MODE]=completedHead and CityOperationTypes.VALUE_REPLACE_AT or CityOperationTypes.VALUE_APPEND}
+local function BuildParams(candidate,completedHead,blockedHead)
+  local params = {[CityOperationTypes.PARAM_INSERT_MODE]=blockedHead and CityOperationTypes.VALUE_PREPEND
+    or (completedHead and CityOperationTypes.VALUE_REPLACE_AT or CityOperationTypes.VALUE_APPEND)}
   if completedHead then params[CityOperationTypes.PARAM_QUEUE_DESTINATION_LOCATION]=0 end
   local keys = {building=CityOperationTypes.PARAM_BUILDING_TYPE,district=CityOperationTypes.PARAM_DISTRICT_TYPE,
     unit=CityOperationTypes.PARAM_UNIT_TYPE,project=CityOperationTypes.PARAM_PROJECT_TYPE}
@@ -3087,7 +3125,10 @@ local function CityRequestKey(city,candidate)
     ..":"..(p and (p.x..":"..p.y) or "current")
 end
 
-local function QueueReady(city,q,completedHead)
+local function QueueReady(city,q,completedHead,blockedHead)
+  if blockedHead then
+    return not completedHead and BlockedIdleHead(city,q)==blockedHead and CoreIdle()
+  end
   if completedHead then
     return q:GetSize()==1 and CompletedIdleHead(city,q)==completedHead and CoreIdle()
   end
@@ -3323,7 +3364,8 @@ local function ProcessCity(ctx, player, state, city)
     and CityOperationTypes.PARAM_QUEUE_DESTINATION_LOCATION~=nil then
     completedHead=CompletedIdleHead(city,q)
   end
-  if not QueueReady(city,q,completedHead) or pendingCities[cityID] then return false end
+  local blockedHead=not completedHead and CoreIdle() and BlockedIdleHead(city,q) or nil
+  if not QueueReady(city,q,completedHead,blockedHead) or pendingCities[cityID] then return false end
   cityEvaluated[cityID]=turn
   local amenitiesOK,amenities,amenitiesNeeded=pcall(function()
     local growth=city:GetGrowth()
@@ -3342,7 +3384,7 @@ local function ProcessCity(ctx, player, state, city)
       score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true,
       prayerProject=prayerProject==true}
     if attempts[CityRequestKey(city,c)] then return end
-    local params=BuildParams(c,completedHead)
+    local params=BuildParams(c,completedHead,blockedHead)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
   end
   local treasury=player:GetTreasury()
@@ -3415,8 +3457,8 @@ local function ProcessCity(ctx, player, state, city)
   -- All state and legality are checked again at the write boundary.
   local freshCtx, freshPlayer, freshState=PlayerContext()
   if not BaiqiPolicy.Context(freshCtx) or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=freshCtx.player
-    or not QueueReady(city,q,completedHead) then return false end
-  local params=BuildParams(choice,completedHead)
+    or not QueueReady(city,q,completedHead,blockedHead) then return false end
+  local params=BuildParams(choice,completedHead,blockedHead)
   if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
   if choice.kind=="district" and choice.type=="DISTRICT_NEIGHBORHOOD" and choice.repair~=true
@@ -3456,7 +3498,7 @@ local function ProcessCity(ctx, player, state, city)
   end
   local latest,latestPlayer,latestState=PlayerContext()
   if not BaiqiPolicy.Context(latest) or latest.player~=freshCtx.player or not BaiqiPolicy.MatchesID(city,cityID)
-    or city:GetOwner()~=latest.player or not QueueReady(city,q,completedHead) then return false end
+    or city:GetOwner()~=latest.player or not QueueReady(city,q,completedHead,blockedHead) then return false end
   if choice.firstHolySite and not FirstHolySiteWanted(latest,latestPlayer) then
     cityEvaluated[cityID]=nil
     Reason("religion_supply_changed:"..cityID,"首座圣地需求已变化，重新安排合法生产")
@@ -3468,7 +3510,7 @@ local function ProcessCity(ctx, player, state, city)
     return false
   end
   -- The extra demand read must not cover a turn/queue change at its boundary.
-  if (choice.firstHolySite or choice.prayerProject) and (not CoreIdle() or not QueueReady(city,q,completedHead)
+  if (choice.firstHolySite or choice.prayerProject) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
     or Game.GetCurrentGameTurn()~=turn) then return false end
   if choice.prayerProject and (q:CanProduce(choice.hash,true)~=true
     or q:CanProduce(choice.hash,false,true)~=true
@@ -3486,18 +3528,22 @@ local function ProcessCity(ctx, player, state, city)
       Reason("placement_food_changed:"..cityID,"工作粮食已变化，重新安排区域选址")
       return false
     end
-    if Game.GetCurrentGameTurn()~=turn or not QueueReady(city,q,completedHead)
+    if Game.GetCurrentGameTurn()~=turn or not QueueReady(city,q,completedHead,blockedHead)
       or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player then return false end
   end
+  if blockedHead and (q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
+    or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true
+    or not QueueReady(city,q,completedHead,blockedHead) or Game.GetCurrentGameTurn()~=turn
+    or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player) then return false end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
-  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,
+  pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,prependsHead=blockedHead,
     firstHolySite=choice.firstHolySite,prayerProject=choice.prayerProject}
   if choice.kind=="unit" then
     submittedUnits[cityID]=submittedUnits[cityID] or {}
     submittedUnits[cityID][choice.hash]=true
   end
-  Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type..(completedHead and "|insert=replace_completed" or ""))
+  Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type..(blockedHead and "|insert=prepend_blocked" or (completedHead and "|insert=replace_completed" or "")))
   CityManager.RequestOperation(city,CityOperationTypes.BUILD,params)
   return true
 end
@@ -3713,15 +3759,26 @@ local function ReadBack(player)
           or (entry.ProjectType and GameInfo.Projects[entry.ProjectType]))
         if row and row.Hash==pending.hash then matched=true;break end
       end
+      if pending.prependsHead then
+        local ok,preserved=pcall(function()
+          if hash~=pending.hash or q:GetSize()~=2 then return false end
+          local _,head=QueueHeadSignature(q)
+          local tables={building=GameInfo.Buildings,district=GameInfo.Districts,unit=GameInfo.Units,project=GameInfo.Projects}
+          local fields={building="BuildingType",district="DistrictType",unit="UnitType",project="ProjectType"}
+          local row=head and tables[pending.kind][head[fields[pending.kind]]]
+          return row~=nil and row.Hash==pending.hash and QueueHeadSignature(q,1)==pending.prependsHead
+        end)
+        matched=ok and preserved==true
+      end
       if matched then
         Log("queue_observed","id="..pending.id.."|city="..cityID.."|hash="..pending.hash)
         pendingCities[cityID]=nil
-      elseif pending.replacesHead or pending.firstHolySite or pending.prayerProject then
+      elseif pending.prependsHead or pending.replacesHead or pending.firstHolySite or pending.prayerProject then
         -- A missing replacement or boosted religion request is unknown. A late
         -- operation could overwrite work or duplicate the empire's supply goal.
         -- Retain the request and never infer failure from a temporary empty head.
         if (pending.elapsed or 0)>=C.productionObservationSeconds and CoreIdle() and not pending.unresolvedLogged then
-          Log(pending.prayerProject and "prayer_project_request_unresolved"
+          Log(pending.prependsHead and "queue_prepend_unresolved" or pending.prayerProject and "prayer_project_request_unresolved"
             or (pending.firstHolySite and "first_holy_site_request_unresolved" or "queue_replacement_unresolved"),
             "id="..pending.id.."|city="..cityID.."|actual_hash="..hash)
           pending.unresolvedLogged=true

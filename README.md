@@ -4,7 +4,7 @@
 
 当前本地 116：西安堤坝已正常建成并通过 216 保存重载；216 巴西文化胜利后，功能延续测试已到 [220 回合](docs/testing/baiqi-cold220-116.md)。缺粮新商路排序的软件和实机只读估算已核对，实际新开路线仍待验；[213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)尚未关闭。Steam 保持离线，工坊仍为 82。
 
-源码 [117](docs/testing/baiqi-neighborhood-demand-117.md) 抑制住房明显富余时的新社区，软件 1705 通过／1 SDK 跳过，尚未安装。实机保持 116；[228 长沙实际按低粮排序开工食品市场](docs/testing/baiqi-food-market-start228-116.md)，建成效果继续验。十一城继续；[222 武汉人口诊断](docs/testing/baiqi-wuhan-population222-trace-116.md)未关闭。
+源码 [118](docs/testing/baiqi-flooded-building-queue-118.md) 修复洪灾前置区域导致的停滞建筑队列，软件 1714 通过／1 SDK 跳过，待冷验。116 主线停在 237：上海原工厂 73/165 被洪灾阻塞，现场已存；长沙食品市场 150/190 尚未建成。[117 住房需求提示](docs/testing/baiqi-neighborhood-demand-117.md)随源码保留。旧人口损失与全功能矩阵仍开放。
 
 ## 历史进度（各条保留当时状态）
 
