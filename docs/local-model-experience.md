@@ -714,3 +714,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-11：611／612截断与211新选址缺口
 
 两真实任务各1HTTP200、SSE DONE但length，8779+1200与6742+1500tokens，9888.7169／9914.9208ms；整份丢弃、不拼接、不采用或执行。负责人旁听真实Choose并精确撤回，西安实际水坝开工、上海工业区优先；邢州新社区取用了救粮工作格，原记录没丢但产出1→0。详见[211实机及失败保存](testing/baiqi-dam-started-food-regression-211.md)。累计612/570完整39length3transport642HTTP30extra，0OpenCode原生，工时净收益null。
+
+
+## 2026-11-11：619—621接续证据与219现场
+
+[结算后219、模型审阅及诊断清理](testing/baiqi-postvictory219-115.md)。619/620/621各单HTTP stop/DONE/合法JSON，分别2798/9331/5357 tokens、2363.2341/2722.9470/2355.2740ms。619缺具体因果钩子，620逐回合可能重发未知迁城，621否认已结算，均未采用。Owner接手重新核219十城及9/9，精确撤掉外层1911074次但0目标样本的诊断；正式保存1961154字节，未载。食品市场visiblefalse/exclusiontrue/defaultfalse且科技false，不能当合法。累计621逻辑/579完整/39length/3transport/651HTTP/30extra/0OpenCode原生，未知成本null；Steam0上线，工坊82不变。
