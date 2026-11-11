@@ -734,3 +734,10 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-12：625、三轮复现和原版灾害历史
 
 [事件先后、时序不原子及历史损失范围](testing/baiqi-wuhan-population222-trace-116.md)。625单HTTP stop/DONE/VALID，2304+104=2408tokens、1311.097ms；仅Core读数方向保留，缺覆盖否因果拒用。Owner三轮5END/20军队SKIP/3原版Bye，UI/Core229末快照行无错丢、25订阅全撤；不把三分支相加成普通连续回合。人口早于陨石和建城；风暴26历史PopLost4是整事件，武汉只少1，逐城归因未闭。CoreGetFood=nil实证、UI/Core回调turn不同；原版GetEventsForTurn和灾害损失入口是owner补读完整消费者才找到，准备成本不推给模型。Nov12维护新检查1.19.5成功无升级，625缓存复用；累计625/583完整/39length/3transport/655HTTP/30extra/0OpenCode原生，未知成本null。
+
+
+## 2026-11-12：626 住房需求候选与 117 软件
+
+真实 116 实机长沙 2 人／住房 18 仍有三个新社区候选。626 先提候选，单 HTTP200、完整 stop/DONE/VALID，5206+202=5408 tokens，2279.384ms。只部分采用有限比较方向；原 helper 人口 0 返回 false 的隔离反例成立，集成漏类型限定／最终重检且含 continue 伪码，负责人重写。8 新方法、旧116三失败断言；完整1706项1705pass1官方SDKskip、93Lua51／115文件包。源码117未装，运行116继续食品市场实效。
+
+复用 Nov12 当日同机 OpenCode1.19.5 成功维护缓存；普通HTTP与0OpenCode原生生成分账。累计626逻辑／584完整／39length／3transport／656HTTP／30extra，当前真实任务初始在途1；缓存收益和净节省未知 null。[业务证据](research/baiqi-p6-source117-neighborhood-demand-software-2026-11-12.json)。

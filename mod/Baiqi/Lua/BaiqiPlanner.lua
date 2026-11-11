@@ -21,6 +21,15 @@ function BaiqiPlanner.FoodProductionScore(base, foodYield, surplus, stock)
   return math.max(base,94)
 end
 
+-- Leave room for four future citizens before planning another Neighborhood.
+-- This is a demand hint, not construction permission; unknown reads keep the
+-- existing planner behavior. Placed work and repairs bypass this new-site hint.
+function BaiqiPlanner.NeighborhoodDemand(housing, population)
+  if not number(housing) or housing<0 or not number(population)
+    or population<1 or population%1~=0 then return true end
+  return housing-population<4
+end
+
 function BaiqiPlanner.Choose(city, candidates)
   if type(city) ~= "table" or city.paused ~= false or city.queueEmpty ~= true then return nil end
   local best, bestScore

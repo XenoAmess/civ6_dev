@@ -3306,6 +3306,14 @@ local function BuildingFoodHints(city)
   if ok then return food,surplus,stock end
 end
 
+local function NeighborhoodWanted(city)
+  local ok,housing,population=pcall(function()
+    return city:GetGrowth():GetHousing(),city:GetPopulation()
+  end)
+  if not ok then return true end
+  return BaiqiPlanner.NeighborhoodDemand(housing,population)
+end
+
 local function ProcessCity(ctx, player, state, city)
   local cityID=city:GetID()
   if cityEvaluated[cityID]==turn then return false end
@@ -3366,7 +3374,7 @@ local function ProcessCity(ctx, player, state, city)
         local priority=BaiqiPlanner.AmenityProductionScore(districtPriority[row.DistrictType] or 35,
           row.Entertainment,amenities,amenitiesNeeded)
         Add("district",row,priority,true)
-      else
+      elseif row.DistrictType~="DISTRICT_NEIGHBORHOOD" or NeighborhoodWanted(city) then
         local boosted=firstHolySite and row.DistrictType=="DISTRICT_HOLY_SITE"
         local priority=boosted and 92 or (districtPriority[row.DistrictType] or 35)
         priority=BaiqiPlanner.AmenityProductionScore(priority,row.Entertainment,amenities,amenitiesNeeded)
@@ -3411,6 +3419,12 @@ local function ProcessCity(ctx, player, state, city)
   local params=BuildParams(choice,completedHead)
   if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
+  if choice.kind=="district" and choice.type=="DISTRICT_NEIGHBORHOOD" and choice.repair~=true
+    and not NeighborhoodWanted(city) then
+    cityEvaluated[cityID]=nil
+    Reason("housing_changed:"..cityID,"住房余量已变化，重新安排合法任务")
+    return false
+  end
   if choice.kind=="unit" then
     local row=GameInfo.Units[choice.hash]
     local role=row and (row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler"
