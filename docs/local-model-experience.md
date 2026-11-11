@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [119 完成 246 与 632 电力取证](testing/baiqi-completed246-power-119.md)：从 243 接三实际回合、3 普通 END／21 军队 SKIP／4 原版外交物理输入／0 人工内政，上海商业中心与市场完成并接银行；长沙自然五人、下水道完成，246 正式重载全量保持。负责人把旧市场产粮 6 固定成断言的错误已更正，实际为 4。632 先候选，单 HTTP200/stop/DONE/VALID、4537+748 tokens、6081.4556ms；原代码字符串键来源行被 ipairs 丢空、首读错误阻断后续，两反例成立，拒用。Owner8合同后，11城129分阶段原生电力读数，长沙临时1／需求3、未完全供电；共四城缺电，自动补电仍未实现。Nov12 OpenCode1.19.5维护缓存复用，原生生成0，累计632／590完整／39length／3transport／662HTTP／30extra，未知成本null。[逐案证据](research/baiqi-p6-source119-completed246-power632-evidence-2026-11-12.json)。
+
 2026-11-12 新增 [631 武汉回调取证](testing/baiqi-wuhan-damage-callback-119.md)：单 HTTP200/stop/DONE/VALID，10784+1615=12399 tokens、12211.6747ms，真实任务初始在途 1。原代码拒用：人口事件签名错误、历史单表被当数组、缺有界快照／精确卸载、243 恢复基准错误；负责人补全 8 组隔离合同后才进 Native。UI/Core 各 3 行、0 错误／丢弃、8 订阅全撤，证实 221 武汉在受影响城市名单；累计事件死亡仍不能分配成武汉一人死因。独立一次普通回合、4 军队 SKIP、1 原版 Bye 后恢复完成态 243，全量比较保持。Nov12 同机同用户 OpenCode 1.19.5 维护缓存复用，原生生成 0；累计 631 逻辑／589 完整／39 length／3 transport／661 HTTP／30 extra，缓存与净收益未知 null。[逐案证据](research/baiqi-p6-model631-wuhan-damage-callback-evidence-2026-11-12.json)。
 
 2026-11-02按用户要求迁入 [local-model-operations](https://github.com/XenoAmess/local-model-operations)。通用规范、能力记录和经验以后在该仓库持续维护；本项目保留游戏相关证据与业务接入，不重复维护共享传输实现和连接配置。
