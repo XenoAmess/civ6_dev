@@ -724,3 +724,8 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 ## 2026-11-11：622基础产粮排序与116软件
 
 [116候选修正、真实writer回归及115只读预验](testing/baiqi-food-production-116.md)。622完整stop/DONE/VALID，7620+440=8060tokens、4019.4342ms、1HTTP；纯函数部分采用，原集成growth异常独立复现，部分坏行及宜居度绕过整段拒用。Owner有界全表读取，8新方法，旧115两失败；首次全1698两构建版本错误已修，再次全1697pass/1SDKskip，93Lua51/115包。实机115219→220一普通END/4军队SKIP/0人工内政，116纯read预验市场4粮/score94但visiblefalse，不冒称116施工。220保存1971556字节/9517a0fd…未载，自有游戏正式退出已请求。累计622/580完整/39length/3transport/652HTTP/30extra，0OpenCode原生，未知成本null，Steam0上线工坊82保持。
+
+
+## 2026-11-11：623—624与武汉222人口守卫
+
+[222现场与后续诊断](testing/baiqi-wuhan-population222-116.md)。623/624各1HTTP stop/DONE/VALID，5167+182/1505+197tokens，2247.3313/2083.7072ms。623缺city关联和正确恢复拒用；624仅事件观察方向保留，中心匹配及正盈余推断拒用。Owner7隔离合同、0自然目标，守卫失败后错误继续装钩已立即撤除、0END222；实际220→222两普通END/8军队SKIP/1外交Bye，新沈阳但武汉6→5/库存仍23.9648，原因未知。222存1980125字节/d9fbec53…未载。累计624/582完整/39length/3transport/654HTTP/30extra/0OpenCode原生，未知成本null；Steam0上线82不变。
