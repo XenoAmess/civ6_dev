@@ -2,9 +2,9 @@
 
 白绮【为我前驱】强制托管内政、生产、建设与和平扩张，军队和外交由玩家操作。目前仍是未完成全功能验收的原型。
 
-当前本地 119：功能复现已到 [246 回合并完成重载](docs/testing/baiqi-completed246-power-119.md)。上海商业中心与市场正常完成并接银行，长沙增长到五人、完成下水道；新查到四城供电不足，自动补电尚待处理。旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)仍开放；[新回调取证](docs/testing/baiqi-wuhan-damage-callback-119.md)确认武汉在灾害名单中，222 一人损失的逐城归因仍未知。启动前已证 Steam 离线，全程未上线，工坊仍 82。
+当前本地 [120／253，完成态已重载](docs/testing/baiqi-power-project-native253-120.md)：三城已自动使用原版项目临时供电，胶东市场曾实际恢复到 6 粮，项目正常完成并接续。251 胶东社区／市场受损、原版洪灾限制拒绝修复，防洪条件正在查；旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)、[222 武汉逐城归因](docs/testing/baiqi-wuhan-damage-callback-119.md)和完整验收仍开放。启动前已证 Steam 离线，全程未上线，工坊仍 82。
 
-源码 [120](docs/testing/baiqi-empty-fuel-power-project-120.md)：空燃料且缺电时，按当前原版规则优先考虑工业区供电项目；1730 软件通过／1 SDK 跳过，93 Lua／115 文件。只读预验识别四城，待正式冷验。实机仍为 [119／246 完成态](docs/testing/baiqi-completed246-power-119.md)，已保存并重载；全功能验收未完成。
+源码与实机 [120](docs/testing/baiqi-power-project-native253-120.md)：1730 软件通过／1 SDK 跳过，93 Lua／115 文件；246→253 七实际回合、0 人工内政，完成态重载保持。供电项目有入队与生效间隙，仍需长期燃料和防洪策略，未称全功能完成。
 
 ## 历史进度（各条保留当时状态）
 

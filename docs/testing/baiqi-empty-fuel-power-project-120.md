@@ -1,5 +1,7 @@
 # 120：无燃料时优先考虑原版供电项目
 
+后续 [正式冷验、实际供电、项目完成与 253 重载](baiqi-power-project-native253-120.md)已取得窄链证据；以下保留本工作包的软件阶段边界。
+
 119 的 [246 实机](baiqi-completed246-power-119.md)发现胶东、长沙、广州、秀容有需求而未完全供电。追加只读核对：煤库存 0、积累 3、发电需求 3，油和铀库存也为 0。胶东已有完好燃煤电厂和工业区；其他三城原版仍允许新造煤电／油电，因此只提高电厂优先级不能保证得到电。
 
 原版 `Projects_XP2` 当前数据库确认工业区后勤项目 `FullyPoweredWhileActive=true, RequiredPowerWhileActive=0`；实际西安、邢州有项目供电标记。提供者是可调用 userdata，直接按 ProjectType 索引得到表。负责人首个只接受 table/function 的诊断漏掉了它，后续真实迭代与直接索引已纠正，未把未遍历写成无规则。
