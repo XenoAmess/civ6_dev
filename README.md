@@ -4,7 +4,7 @@
 
 当前本地 [120／253，完成态已重载](docs/testing/baiqi-power-project-native253-120.md)：三城已自动使用原版项目临时供电，胶东市场曾实际恢复到 6 粮，项目正常完成并接续。[海岸探针](docs/testing/baiqi-coastal-flood-barrier253-120.md)确认胶东社区和上海工业区已淹、未沉没；防洪坝所需计算机可研究但未拥有，AI 防洪优先级待修；旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)、[222 武汉逐城归因](docs/testing/baiqi-wuhan-damage-callback-119.md)和完整验收仍开放。启动前已证 Steam 离线，全程未上线，工坊仍 82。
 
-源码与实机 [122／256](docs/testing/baiqi-paid-flood-barrier-native256-failure-122.md)：正常购买被错误零维护假设挡住，实际维护费1、两城未买，继续123修预算；1770 软件通过／1 SDK 跳过，95 Lua／117 文件。原121／257沉没失败保留，全功能验收未完成。
+源码 [123](docs/testing/baiqi-flood-maintenance-budget-123.md)：真实维护费与同回合新增预算，1773 软件通过／1 SDK 跳过，95 Lua／117 文件，待冷验。最近实机[122／256失败](docs/testing/baiqi-paid-flood-barrier-native256-failure-122.md)及原121沉没失败保留，全功能验收未完成。
 
 ## 历史进度（各条保留当时状态）
 

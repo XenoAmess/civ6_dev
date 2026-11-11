@@ -3,6 +3,7 @@
 include("BaiqiFlood")
 BaiqiFloodPurchase={}
 local pending
+local committed={maintenance=0}
 local function Number(v)
   return type(v)=="number" and v==v and v>-math.huge and v<math.huge
 end
@@ -31,16 +32,19 @@ local function Read(E,pid,id,turn)
     or keys.PARAM_BUILDING_TYPE==keys.PARAM_YIELD_TYPE then return nil end
   local reserve,minimum=E.config.goldReserve,E.config.netGoldMin
   local maintenance=row.Maintenance or 0
-  -- Restrict this emergency path to the actual zero-maintenance barrier rule.
-  if not Number(reserve) or reserve<0 or not Number(minimum) or maintenance~=0 then return nil end
+  if not Number(reserve) or reserve<0 or not Number(minimum) or not Number(maintenance) or maintenance<0 then return nil end
   local price=city:GetGold():GetPurchaseCost(gold.Index,row.Hash)
   local treasury=player:GetTreasury()
   local balance,income,upkeep=treasury:GetGoldBalance(),treasury:GetGoldYield(),treasury:GetTotalMaintenance()
   if not Number(price) or price<=0 or not Number(balance) or balance<0
     or not Number(income) or not Number(upkeep) or upkeep<0
-    or balance-price<reserve or income-upkeep<minimum then return nil end
+    or balance-price<reserve then return nil end
+  -- Native upkeep may update later than the building observation. Reserve all
+  -- newly requested maintenance this turn, even if already partly reflected.
+  local reserved=(committed.pid==pid and committed.turn==turn) and committed.maintenance or 0
+  if income-upkeep-reserved-maintenance<minimum then return nil end
   return {city=city,id=id,x=x,y=y,index=row.Index,hash=row.Hash,gold=gold.Index,price=price,balance=balance,
-    operation=keys.PURCHASE,buildingKey=keys.PARAM_BUILDING_TYPE,yieldKey=keys.PARAM_YIELD_TYPE,
+    maintenance=maintenance,operation=keys.PURCHASE,buildingKey=keys.PARAM_BUILDING_TYPE,yieldKey=keys.PARAM_YIELD_TYPE,
     params={[keys.PARAM_BUILDING_TYPE]=row.Hash,[keys.PARAM_YIELD_TYPE]=gold.Index}}
 end
 local function Eligible(E,pid,id,turn)
@@ -50,10 +54,12 @@ local function Eligible(E,pid,id,turn)
     or E.CityManager.CanStartCommand(before.city,before.operation,false,before.params,true)~=true then return nil end
   local after=Read(E,pid,id,turn)
   if not after then return nil end
-  for _,key in ipairs({"id","x","y","index","hash","gold","price","operation","buildingKey","yieldKey"})do
+  for _,key in ipairs({"id","x","y","index","hash","gold","price","maintenance","operation","buildingKey","yieldKey"})do
     if before[key]~=after[key] then return nil end
   end
   if BaiqiFlood.City(E,pid,id,turn)~=true then return nil end
+  local rule=BaiqiFlood.Definition(E)
+  if not rule or (rule.Maintenance or 0)~=after.maintenance then return nil end
   local latest=E.Players[pid]:GetCities():FindID(id)
   if not latest or latest:GetID()~=id or latest:GetOwner()~=pid or latest:GetX()~=after.x or latest:GetY()~=after.y
     or not Context(E,pid,turn) then return nil end
@@ -88,9 +94,11 @@ local function Work(E,pid)
     if count>256 then return false end
     local quote=Eligible(E,pid,city:GetID(),turn)
     if quote then
+      if committed.pid~=pid or committed.turn~=turn then committed={pid=pid,turn=turn,maintenance=0} end
+      committed.maintenance=committed.maintenance+quote.maintenance
       -- Set before the native writer: an exception after dispatch is unknown.
       pending={pid=pid,id=quote.id,x=quote.x,y=quote.y,index=quote.index,hash=quote.hash,
-        price=quote.price,balance=quote.balance,turn=turn}
+        price=quote.price,balance=quote.balance,maintenance=quote.maintenance,turn=turn}
       print("BAIQI|flood_purchase_request|turn="..turn.."|source=BACKGROUND|city="..quote.id
         .."|hash="..quote.hash.."|gold="..quote.price.."|balance="..quote.balance)
       CityManager.RequestCommand(quote.city,quote.operation,quote.params)

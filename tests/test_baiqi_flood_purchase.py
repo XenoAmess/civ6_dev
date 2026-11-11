@@ -11,7 +11,7 @@ class FloodPurchaseTests(unittest.TestCase):
         self.lua=LuaRuntime(unpack_returned_tuples=True)
         for name in ('mock_admin','mock_flood'):
             self.lua.execute((ROOT/f'tests/lua/{name}.lua').read_text(encoding='utf-8'))
-        self.lua.execute('''InstallFlood(nil,7);local w=TestAdmin;w.tech=0;w.civic=0;w.policyChanged=true
+        self.lua.execute('''InstallFlood(nil,7);TestFlood.definition.Maintenance=1;local w=TestAdmin;w.tech=0;w.civic=0;w.policyChanged=true
 w.purchases={};w.price=135;w.balance=2000;w.income=10;w.upkeep=0;w.canVisible=true;w.canFull=true
 w.priceReads=0;w.qualifications=0
 local c=TestFlood.cities[1]
@@ -36,7 +36,8 @@ CityManager={CanStartCommand=function(city,op,visible,p,reasons)
  if w.throwWriter then error('unknown after native writer')end end}
 ''')
         for name in ('BaiqiConfig','BaiqiFlood','BaiqiFloodPurchase'):
-            self.lua.execute((ROOT/f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
+            path=Path(os.environ.get('BAIQI_FLOOD_PURCHASE_RUNNER')) if name=='BaiqiFloodPurchase'and os.environ.get('BAIQI_FLOOD_PURCHASE_RUNNER')else ROOT/f'mod/Baiqi/Lua/{name}.lua'
+            self.lua.execute(path.read_text(encoding='utf-8'))
         self.lua.execute('E={Game=Game,GameConfiguration=GameConfiguration,UI=UI,Players=Players,PlayerConfigurations=PlayerConfigurations,GameInfo=GameInfo,Map=Map,PlayersVisibility=PlayersVisibility,TerrainManager=TerrainManager,CityManager=CityManager,CityCommandTypes=CityCommandTypes,config=BaiqiConfig}')
         self.w=self.lua.globals().TestAdmin
         self.runner=self.lua.globals().BaiqiFloodPurchase
@@ -60,11 +61,13 @@ CityManager={CanStartCommand=function(city,op,visible,p,reasons)
             with self.subTest(key=key,value=value):
                 self.setUp();self.w[key]=value;self.run_purchase();self.assertEqual(len(self.w.purchases),0)
     def test_exact_gold_reserve_and_net_income_boundary(self):
-        self.w.balance=235;self.w.income=2;self.w.apply=True
+        self.w.balance=235;self.w.income=3;self.w.apply=True
         self.assertTrue(self.run_purchase());self.assertEqual(self.w.balance,100)
     def test_unknown_or_changed_rule_demand_and_currency_never_authorize(self):
         for change in ('TestFlood.has=true','TestFlood.flooded=nil','TestFlood.submerged=true',
-                       'TestFlood.visible=false','TestFlood.throwTerrain=true','TestFlood.definition.Maintenance=1',
+                       'TestFlood.visible=false','TestFlood.throwTerrain=true','TestFlood.definition.Maintenance=-1',
+                       'TestFlood.definition.Maintenance=math.huge','TestFlood.definition.Maintenance=0/0',
+                       'TestFlood.definition.Maintenance="1"',
                        'GameInfo.Yields.YIELD_GOLD=nil','BaiqiConfig.goldReserve=nil','BaiqiConfig.netGoldMin=nil',
                        'CityCommandTypes.PARAM_YIELD_TYPE=41'):
             with self.subTest(change=change):
@@ -78,7 +81,7 @@ CityManager={CanStartCommand=function(city,op,visible,p,reasons)
             with self.subTest(change=change):
                 self.setUp();self.change(change);self.run_purchase();self.assertEqual(len(self.w.purchases),0)
     def test_final_qualification_cannot_cover_price_budget_flood_turn_owner_or_queue_change(self):
-        for change in ('TestAdmin.price=136','TestAdmin.balance=234','TestAdmin.income=1','TestFlood.has=true',
+        for change in ('TestAdmin.price=136','TestAdmin.balance=234','TestAdmin.income=1','TestFlood.definition.Maintenance=2','TestFlood.has=true',
                        'TestFlood.submerged=true','TestFlood.owner=8','TestAdmin.turn=2',
                        'UI.IsGameCoreBusy=function()return true end'):
             with self.subTest(change=change):
@@ -86,7 +89,7 @@ CityManager={CanStartCommand=function(city,op,visible,p,reasons)
                 self.run_purchase();self.assertEqual(len(self.w.purchases),0)
     def test_final_cost_read_cannot_cover_turn_or_identity_change(self):
         for change in ('TestAdmin.turn=2','TestFlood.owner=8','TestFlood.cities[1].GetX=function()return 9 end',
-                       'TestFlood.has=true','TestFlood.flooded=false','TestFlood.flooded=nil'):
+                       'TestFlood.has=true','TestFlood.flooded=false','TestFlood.flooded=nil','TestFlood.definition.Maintenance=2'):
             with self.subTest(change=change):
                 self.setUp();self.change('TestAdmin.priceShock=function()if TestAdmin.priceReads==2 then '+change+' end end')
                 self.run_purchase();self.assertEqual(len(self.w.purchases),0)
@@ -119,5 +122,22 @@ CityManager={CanStartCommand=function(city,op,visible,p,reasons)
     def test_city_scan_has_finite_bound(self):
         self.change('TestFlood.flooded=false;local c=TestFlood.cities[1];Players[7].GetCities=function()return {FindID=function()return c end,Members=function()local n=0;return function()n=n+1;if n<=300 then TestAdmin.lastCity=n;return n,c end end end}end')
         self.run_purchase();self.assertEqual(self.w.lastCity,257);self.assertEqual(len(self.w.purchases),0)
+    def test_positive_native_maintenance_is_budgeted_before_purchase(self):
+        self.w.income=3;self.assertTrue(self.run_purchase())
+        self.setUp();self.w.income=2;self.assertFalse(self.run_purchase());self.assertEqual(len(self.w.purchases),0)
+    def test_zero_maintenance_remains_valid_when_current_net_is_exact_minimum(self):
+        self.change('TestFlood.definition.Maintenance=0');self.w.income=2
+        self.assertTrue(self.run_purchase())
+    def test_same_turn_reserves_new_upkeep_even_before_native_treasury_refresh(self):
+        self.change('''local w=TestAdmin;local c=TestFlood.cities[1];local c2=setmetatable({GetID=function()return 67 end,GetX=function()return 3 end},{__index=c})
+w.built={};local cities={c,c2};for _,city in ipairs(cities)do local id=city:GetID();city.GetBuildings=function()return {HasBuilding=function()return w.built[id]==true end,IsPillaged=function()return false end}end end
+Players[7].GetCities=function()return {Members=function()return ipairs(cities)end,FindID=function(_,id)if id==66 then return c elseif id==67 then return c2 end end}end
+CityManager.CanStartCommand=function()return true end
+CityManager.RequestCommand=function(city,op,p)w.purchases[#w.purchases+1]={city=city:GetID()};w.built[city:GetID()]=true;w.balance=w.balance-w.price end
+''')
+        self.w.income=3;self.run_purchase();self.run_purchase();self.run_purchase()
+        self.assertEqual(len(self.w.purchases),1);self.assertEqual(self.w.upkeep,0)
+        self.w.turn=2;self.w.upkeep=1;self.run_purchase();self.assertEqual(len(self.w.purchases),1)
+        self.w.income=4;self.run_purchase();self.assertEqual(len(self.w.purchases),2)
 
 if __name__=='__main__':unittest.main()

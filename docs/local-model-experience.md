@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [123真实维护费预算软件](testing/baiqi-flood-maintenance-budget-123.md)：按640先行原生诊断修Owner零维护假设；实际维护费1计入预算，100金币／净2、同回合新承诺保守预留，最后规则重读。fixture默认1，20runner方法，精确旧122有11失败断言0异常；完整1774项1773pass1SDKskip，95Lua51／117包。无新增HTTP，不重复640；尚未授123扣款／建筑／排水实效，冷载同一原256复测。累计640/596完整/41length/3transport/670HTTP/30extra，OpenCode原生0、维护缓存复用、未知成本null。[证据](research/baiqi-p6-source123-maintenance-budget-software-2026-11-12.json)。
+
 2026-11-12 新增 [122原生256失败与640诊断](testing/baiqi-paid-flood-barrier-native256-failure-122.md)：两城native购买资格与需求true、价格135，屏障仍无且金币未变；准确只读源码片段Contexttrue、Read/Eligible成功nil，实际Maintenance=1被Owner零维护假设误挡。640完整H2方向部分采用，原诊断Context函数当对象／pcall布尔索引隔离失败拒用；13值＋4函数结果、0游戏动作／全局替换。保持256不END，继续123预算修正。累计640/596完整/41length/3transport/670HTTP/30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source122-native256-failure-and-model640-2026-11-12.json)。
 
 2026-11-12 新增 [638／639与122正常金币屏障软件](testing/baiqi-paid-flood-barrier-122.md)：638length截断未读；639完整但leader字符串对pid数值、猜接口、漏reserve／最终检查，隔离合法合同即拒用，原代码不采用。Owner按637真实价格与两资格接Gold writer，100金币／净2／零维护规则、pending跨回合不重发且持有该城生产。17runner＋1控制器新合同，旧121Admin调度1失败；首轮1769有1SDK接收者观测错误，规范局部CityManager后最终1771项1770pass1SDKskip、95Lua51／117包。未授122实效，将保留失败257并冷载256分支。累计639/595完整/41length/3transport/669HTTP/30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source122-paid-flood-barrier-software-2026-11-12.json)。
