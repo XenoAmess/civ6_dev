@@ -1,0 +1,580 @@
+{
+  "schema": "civ6.model631-wuhan-damage-callback/v1",
+  "utc": "2026-11-11T19:07:28.226900+00:00",
+  "date_local": "2026-11-12",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 119,
+  "source_commit": "cfb2d2d67233c8ca2faea2d19987b79de0ed0cde",
+  "scope": {
+    "independent_reproduction": true,
+    "original_auto221_sha256": "72dde55750b8d4a112c0cf59b547f84033bbc651e98ee6b85cbc290a498c4acc",
+    "actual_rounds": 1,
+    "ordinary_END_requests": 1,
+    "military_SKIPs": 4,
+    "diplomacy_Bye_inputs": 1,
+    "load_Continue_inputs": 2,
+    "UserForced": 0,
+    "manual_domestic": 0,
+    "Steam_online_upload_actions": 0,
+    "ready_timeout_during_original_Canada_scene": true,
+    "after_Byes_AI_busy_then_fresh_read_succeeded": true,
+    "unknown_END_replays": 0
+  },
+  "city": {
+    "id": 589832,
+    "plot": 2578,
+    "xy": [
+      62,
+      34
+    ],
+    "population_before_after": [
+      6,
+      5
+    ],
+    "UI_stock_before_callback_after": [
+      20.68359375,
+      20.68359375,
+      23.96484375
+    ],
+    "UI_net_before_callback_after": [
+      6,
+      7,
+      6
+    ],
+    "Core_stock_available": false,
+    "new_city_after_population_drop": 720906,
+    "Castle_after_progress_cost": [
+      40,
+      110
+    ]
+  },
+  "observer_qualification": {
+    "owner_isolated_contracts": 8,
+    "bounded_rows_per_context": 64,
+    "independent_api_reads_per_row": 5,
+    "snapshots_copied": true,
+    "own_or_revealed_scope": true,
+    "no_game_function_replacements": true,
+    "read_only": true
+  },
+  "observers": {
+    "UI": {
+      "rows": 3,
+      "callback_errors": 0,
+      "api_errors": 0,
+      "drops": 0,
+      "hooks_removed": 4,
+      "records": [
+        {
+          "seq": 1,
+          "event": "ManualRead",
+          "turn": 221,
+          "turn_after": 221,
+          "population": 6,
+          "native_new_population": null,
+          "food_stock": 20.68359375,
+          "food_stock_unavailable": false,
+          "net_food": 6.0,
+          "api": [
+            {
+              "stage": 1,
+              "name": "current_at_Wuhan",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "NIL",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 2,
+              "name": "current",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 3,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 0,
+                "EndTurn": 224,
+                "CurrentLocation": 2577
+              }
+            },
+            {
+              "stage": 3,
+              "name": "affected_own_Wuhan",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": true
+            },
+            {
+              "stage": 4,
+              "name": "history_current",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 3,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 0,
+                "EndTurn": 224,
+                "CurrentLocation": 2577
+              }
+            },
+            {
+              "stage": 5,
+              "name": "history_previous",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "event": "CityPopulationChanged",
+          "turn": 221,
+          "turn_after": 221,
+          "population": 5,
+          "native_new_population": 5,
+          "food_stock": 20.68359375,
+          "food_stock_unavailable": false,
+          "net_food": 7.0,
+          "api": [
+            {
+              "stage": 1,
+              "name": "current_at_Wuhan",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "NIL",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 2,
+              "name": "current",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "UNQUALIFIED_VISIBILITY",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 3,
+              "name": "affected_own_Wuhan",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 4,
+              "name": "history_current",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 10,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 4,
+                "EndTurn": 224
+              }
+            },
+            {
+              "stage": 5,
+              "name": "history_previous",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "event": "CityAddedToMap",
+          "turn": 222,
+          "turn_after": 222,
+          "population": 5,
+          "native_new_population": null,
+          "food_stock": 23.96484375,
+          "food_stock_unavailable": false,
+          "net_food": 6.0,
+          "api": [
+            {
+              "stage": 1,
+              "name": "current_at_Wuhan",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "NIL",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 2,
+              "name": "current",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "UNQUALIFIED_VISIBILITY",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 3,
+              "name": "affected_own_Wuhan",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "TABLE",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 4,
+              "name": "history_current",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "UNQUALIFIED_VISIBILITY",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 5,
+              "name": "history_previous",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 10,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 4,
+                "EndTurn": 224
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Core": {
+      "rows": 3,
+      "callback_errors": 0,
+      "api_errors": 0,
+      "drops": 0,
+      "hooks_removed": 4,
+      "records": [
+        {
+          "seq": 1,
+          "event": "ManualRead",
+          "turn": 221,
+          "turn_after": 221,
+          "population": 6,
+          "native_new_population": null,
+          "food_stock": null,
+          "food_stock_unavailable": true,
+          "net_food": 6.0,
+          "api": [
+            {
+              "stage": 1,
+              "name": "current_at_Wuhan",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "NIL",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 2,
+              "name": "current",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 3,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 0,
+                "EndTurn": 224,
+                "CurrentLocation": 2577
+              }
+            },
+            {
+              "stage": 3,
+              "name": "affected_own_Wuhan",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": true
+            },
+            {
+              "stage": 4,
+              "name": "history_current",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 3,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 0,
+                "EndTurn": 224,
+                "CurrentLocation": 2577
+              }
+            },
+            {
+              "stage": 5,
+              "name": "history_previous",
+              "turn": 221,
+              "turn_after": 221,
+              "status": "TABLE",
+              "own_Wuhan_present": false
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "event": "CityPopulationChanged",
+          "turn": 222,
+          "turn_after": 222,
+          "population": 5,
+          "native_new_population": 5,
+          "food_stock": null,
+          "food_stock_unavailable": true,
+          "net_food": 6.0,
+          "api": [
+            {
+              "stage": 1,
+              "name": "current_at_Wuhan",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "NIL",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 2,
+              "name": "current",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "UNQUALIFIED_VISIBILITY",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 3,
+              "name": "affected_own_Wuhan",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "TABLE",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 4,
+              "name": "history_current",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "UNQUALIFIED_VISIBILITY",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 5,
+              "name": "history_previous",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 10,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 4,
+                "EndTurn": 224
+              }
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "event": "CityAddedToMap",
+          "turn": 222,
+          "turn_after": 222,
+          "population": 5,
+          "native_new_population": null,
+          "food_stock": null,
+          "food_stock_unavailable": true,
+          "net_food": 6.0,
+          "api": [
+            {
+              "stage": 1,
+              "name": "current_at_Wuhan",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "NIL",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 2,
+              "name": "current",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "UNQUALIFIED_VISIBILITY",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 3,
+              "name": "affected_own_Wuhan",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "TABLE",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 4,
+              "name": "history_current",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "UNQUALIFIED_VISIBILITY",
+              "own_Wuhan_present": false
+            },
+            {
+              "stage": 5,
+              "name": "history_previous",
+              "turn": 222,
+              "turn_after": 222,
+              "status": "TABLE",
+              "own_Wuhan_present": false,
+              "fields": {
+                "TilesDamaged": 10,
+                "StartLocation": 2577,
+                "StartTurn": 221,
+                "RandomEvent": 16,
+                "PopLost": 4,
+                "EndTurn": 224
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "conclusions": {
+    "Wuhan_in_affected_cities_at221": true,
+    "qualified_current_event_at_that_read": "RANDOM_EVENT_TORNADO_OUTBREAK",
+    "event_whole_PopLost_before_after": [
+      0,
+      4
+    ],
+    "event_whole_TilesDamaged_before_after": [
+      3,
+      10
+    ],
+    "per_city_population_damage_confirmed": false,
+    "reason": "AffectedCities contains only CityOwner/CityID. At the population callback own-plot lookup is NIL, current event is not visibility qualified, the affected list has no Wuhan entry, while qualified tornado history has whole-event PopLost4. These separate calls are not an atomic per-city cause record.",
+    "no_absence_inference_from_nil_or_missing_callback": true,
+    "accepted_random_event_callback_rows": 0
+  },
+  "restored243": {
+    "checkpoint_sha256": "9ff52ccbdc1d1ce0d15fb4acefec92d9563b39360b19101ec69b36ef8f096fe4",
+    "official_load_requests": 1,
+    "actual_turn_readback": 243,
+    "comparison": {
+      "WORLD": {
+        "before_rows": 1,
+        "after_rows": 1,
+        "equal": true
+      },
+      "CITY": {
+        "before_rows": 11,
+        "after_rows": 11,
+        "equal": true
+      },
+      "BUILDING": {
+        "before_rows": 145,
+        "after_rows": 145,
+        "equal": true
+      },
+      "DISTRICT": {
+        "before_rows": 63,
+        "after_rows": 63,
+        "equal": true
+      },
+      "PLOT": {
+        "before_rows": 198,
+        "after_rows": 198,
+        "equal": true
+      },
+      "UNIT": {
+        "before_rows": 51,
+        "after_rows": 51,
+        "equal": true
+      },
+      "FOOD": {
+        "rows": 11,
+        "equal": true
+      },
+      "VITALS": {
+        "rows": 11,
+        "equal": true
+      }
+    },
+    "target_rows_equal": true,
+    "all8_hooks_removed_before_leave": true,
+    "UI_observer_absent_after_restore": true
+  },
+  "model631": {
+    "HTTP_attempts": 1,
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": "VALID",
+    "total_ms": 12211.674700025469,
+    "usage": {
+      "prompt_tokens": 10784,
+      "completion_tokens": 1615,
+      "total_tokens": 12399
+    },
+    "raw_code_adopted": false,
+    "partial_direction_adopted": [
+      "Separate callback-time API calls",
+      "Keep per-city attribution unresolved when only event aggregates are available"
+    ]
+  },
+  "owner_corrections": [
+    "Native CityPopulationChanged signature is playerID,cityID,newPopulation; candidate treated city as an object.",
+    "GetEventsForTurn returns a single event table; candidate ipairs loses its scalar fields.",
+    "Add collision guard, bounded arrays, copied snapshots, per-call stage/turn and precise uninstall/partial-registration rollback.",
+    "Restore actual completed243, not candidate mistaken population6/stock20.6836 baseline.",
+    "Affected-city membership or tile damage alone does not identify the cause of a one-person loss."
+  ],
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "OpenCode_installed_registry": "1.19.5",
+    "same_machine_user_success_cache_reused": true,
+    "upgrade_this_call": false,
+    "OpenCode_native_generation": 0
+  },
+  "cumulative": {
+    "logical_calls": 631,
+    "complete": 589,
+    "length_failures": 39,
+    "transport_failures": 3,
+    "HTTP_attempts": 661,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "still_open": [
+    "Wuhan222 per-city population-loss cause",
+    "213 population loss and natural low-food new trade ranking",
+    "old uncertain action recovery and full acceptance matrix"
+  ]
+}

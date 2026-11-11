@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [631 武汉回调取证](testing/baiqi-wuhan-damage-callback-119.md)：单 HTTP200/stop/DONE/VALID，10784+1615=12399 tokens、12211.6747ms，真实任务初始在途 1。原代码拒用：人口事件签名错误、历史单表被当数组、缺有界快照／精确卸载、243 恢复基准错误；负责人补全 8 组隔离合同后才进 Native。UI/Core 各 3 行、0 错误／丢弃、8 订阅全撤，证实 221 武汉在受影响城市名单；累计事件死亡仍不能分配成武汉一人死因。独立一次普通回合、4 军队 SKIP、1 原版 Bye 后恢复完成态 243，全量比较保持。Nov12 同机同用户 OpenCode 1.19.5 维护缓存复用，原生生成 0；累计 631 逻辑／589 完整／39 length／3 transport／661 HTTP／30 extra，缓存与净收益未知 null。[逐案证据](research/baiqi-p6-model631-wuhan-damage-callback-evidence-2026-11-12.json)。
+
 2026-11-02按用户要求迁入 [local-model-operations](https://github.com/XenoAmess/local-model-operations)。通用规范、能力记录和经验以后在该仓库持续维护；本项目保留游戏相关证据与业务接入，不重复维护共享传输实现和连接配置。
 
 - [Civ6经验整理](https://github.com/XenoAmess/local-model-operations/blob/main/docs/civ6-experience-2026-11-02.md)：真实控件/调用者、跨上下文API与原生类型、身份复用、未知动作不重放、事件字段、零次数创作及诊断清理。
