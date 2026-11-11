@@ -3355,6 +3355,35 @@ local function NeighborhoodWanted(city)
   return BaiqiPlanner.NeighborhoodDemand(housing,population)
 end
 
+-- Only rank the shipped no-power-cost project when its current rules confirm
+-- full power while active. Missing optional ports keep ordinary production.
+local function PowerProjectWanted(ctx,player,city)
+  local ok,wanted=pcall(function()
+    if not BaiqiPolicy.Context(ctx) or Players[ctx.player]~=player
+      or Game.GetCurrentGameTurn()~=turn then return false end
+    local cityID=city:GetID()
+    local owned=player:GetCities():FindID(cityID)
+    if not BaiqiPolicy.MatchesID(owned,cityID) or city:GetOwner()~=ctx.player
+      or owned:GetOwner()~=ctx.player then return false end
+    local project=GameInfo.Projects.PROJECT_ENHANCE_DISTRICT_INDUSTRIAL_ZONE
+    if not project or project.ProjectType~="PROJECT_ENHANCE_DISTRICT_INDUSTRIAL_ZONE"
+      or project.PrereqDistrict~="DISTRICT_INDUSTRIAL_ZONE"
+      or not BaiqiPolicy.Number(project.Hash) or project.Hash%1~=0 then return false end
+    local rule=GameInfo.Projects_XP2[project.ProjectType]
+    if not rule or rule.ProjectType~=project.ProjectType or rule.FullyPoweredWhileActive~=true
+      or rule.RequiredPowerWhileActive~=0 then return false end
+    local power=owned:GetPower()
+    local required,powered=power:GetRequiredPower(),power:IsFullyPowered()
+    if not BaiqiPolicy.Number(required) or required<=0 or powered~=false then return false end
+    local resources=player:GetResources()
+    local coal=resources:GetResourceAmount("RESOURCE_COAL")
+    local oil=resources:GetResourceAmount("RESOURCE_OIL")
+    local uranium=resources:GetResourceAmount("RESOURCE_URANIUM")
+    return BaiqiPlanner.PowerProjectScore(1,required,powered,coal,oil,uranium)==92
+  end)
+  return ok and wanted==true
+end
+
 local function ProcessCity(ctx, player, state, city)
   local cityID=city:GetID()
   if cityEvaluated[cityID]==turn then return false end
@@ -3375,7 +3404,7 @@ local function ProcessCity(ctx, player, state, city)
   if not amenitiesOK then amenities,amenitiesNeeded=nil,nil end
   local buildingFood,foodSurplus,foodStock=BuildingFoodHints(city)
   local candidates, checked = {}, 0
-  local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject)
+  local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject)
     if checked >= C.candidatesPerCity then return end
     checked=checked+1
     -- Both CanProduce modes are required by the shipped ProductionPanel.
@@ -3383,7 +3412,7 @@ local function ProcessCity(ctx, player, state, city)
     if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
       score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true,
-      prayerProject=prayerProject==true}
+      prayerProject=prayerProject==true,powerProject=powerProject==true}
     if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c,completedHead,blockedHead)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
@@ -3396,6 +3425,9 @@ local function ProcessCity(ctx, player, state, city)
   -- Reserve this candidate before ordinary entries can exhaust the scan budget.
   -- Its score still loses to essential production, builders and all repairs.
   if prayer then Add("project",prayer,91,false,nil,false,true) end
+  local powerWanted=PowerProjectWanted(ctx,player,city)
+  local powerProject=powerWanted and GameInfo.Projects.PROJECT_ENHANCE_DISTRICT_INDUSTRIAL_ZONE
+  if powerProject then Add("project",powerProject,92,false,nil,false,false,true) end
   for row in GameInfo.Buildings() do
     local repair=city:GetBuildings():IsPillaged(row.Index)
     if not row.IsWonder and (not row.RequiresPlacement or repair) and (not row.MustPurchase or repair)
@@ -3449,7 +3481,7 @@ local function ProcessCity(ctx, player, state, city)
     end
   end
   for row in GameInfo.Projects() do
-    if not prayer or row.Hash~=prayer.Hash then
+    if (not prayer or row.Hash~=prayer.Hash) and (not powerProject or row.Hash~=powerProject.Hash) then
       Add("project",row,row.ProjectType=="PROJECT_BAIQI_STANDBY" and -1000 or 1,false)
     end
   end
@@ -3510,12 +3542,21 @@ local function ProcessCity(ctx, player, state, city)
     Reason("religion_prayer_changed:"..cityID,"先知点数需求已变化，重新安排合法生产")
     return false
   end
+  if choice.powerProject and not PowerProjectWanted(latest,latestPlayer,city) then
+    cityEvaluated[cityID]=nil
+    Reason("power_changed:"..cityID,"Power demand or available fuel changed; replan production")
+    return false
+  end
   -- The extra demand read must not cover a turn/queue change at its boundary.
-  if (choice.firstHolySite or choice.prayerProject) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
-    or Game.GetCurrentGameTurn()~=turn) then return false end
-  if choice.prayerProject and (q:CanProduce(choice.hash,true)~=true
+  if (choice.firstHolySite or choice.prayerProject or choice.powerProject) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
+    or Game.GetCurrentGameTurn()~=turn or not BaiqiPolicy.MatchesID(city,cityID)
+    or city:GetOwner()~=latest.player) then return false end
+  if (choice.prayerProject or choice.powerProject) and (q:CanProduce(choice.hash,true)~=true
     or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true) then return false end
+  if choice.powerProject and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
+    or Game.GetCurrentGameTurn()~=turn or not BaiqiPolicy.MatchesID(city,cityID)
+    or city:GetOwner()~=latest.player) then return false end
   if choice.placement then
     local row=GameInfo.Districts[choice.hash]
     local x,y=choice.placement.x,choice.placement.y

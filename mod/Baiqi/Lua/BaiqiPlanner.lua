@@ -21,6 +21,15 @@ function BaiqiPlanner.FoodProductionScore(base, foodYield, surplus, stock)
   return math.max(base,94)
 end
 
+-- Temporary native project power is useful when all known fuel stocks are
+-- empty. This hint neither supplies fuel nor promises durable electricity.
+function BaiqiPlanner.PowerProjectScore(base, required, powered, coal, oil, uranium)
+  if not number(base) or not number(required) or required<=0 or powered~=false
+    or not number(coal) or coal~=0 or not number(oil) or oil~=0
+    or not number(uranium) or uranium~=0 then return base end
+  return math.max(base,92)
+end
+
 -- Leave room for four future citizens before planning another Neighborhood.
 -- This is a demand hint, not construction permission; unknown reads keep the
 -- existing planner behavior. Placed work and repairs bypass this new-site hint.
