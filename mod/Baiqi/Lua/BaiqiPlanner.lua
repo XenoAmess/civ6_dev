@@ -30,6 +30,14 @@ function BaiqiPlanner.PowerProjectScore(base, required, powered, coal, oil, uran
   return math.max(base,92)
 end
 
+-- Do not let a repeatable power project indefinitely displace production
+-- already invested in a legal unfinished building. Costs come from the queue.
+function BaiqiPlanner.ResumeProductionScore(base, progress, cost)
+  if not number(base) or not number(progress) or not number(cost) then return base end
+  if progress<=0 or progress>=cost then return base end
+  return math.max(base,93)
+end
+
 -- Leave room for four future citizens before planning another Neighborhood.
 -- This is a demand hint, not construction permission; unknown reads keep the
 -- existing planner behavior. Placed work and repairs bypass this new-site hint.

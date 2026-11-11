@@ -3459,6 +3459,12 @@ local function ProcessCity(ctx, player, state, city)
         row.Entertainment,amenities,amenitiesNeeded)
       priority=BaiqiPlanner.FoodProductionScore(priority,buildingFood and buildingFood[row.BuildingType],
         foodSurplus,foodStock)
+      if powerWanted and not repair then
+        local progressOK,progress,cost=pcall(function()
+          return q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
+        end)
+        if progressOK then priority=BaiqiPlanner.ResumeProductionScore(priority,progress,cost) end
+      end
       Add("building",row,priority,repair)
     end
   end
