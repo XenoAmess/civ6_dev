@@ -1,0 +1,428 @@
+{
+  "schema": "civ6.model647-renewable-tech-and-cold124/v1",
+  "utc": "2026-11-11T22:57:07.085953+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 124,
+  "source_commit": "badaf230b807d5d7a8ad6f8aa92f77b93cfb2e4c",
+  "model": {
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "usage": {
+      "prompt_tokens": 17594,
+      "completion_tokens": 996,
+      "total_tokens": 18590
+    },
+    "total_ms": 9288.841899950057,
+    "json_syntax": {
+      "status": "VALID",
+      "top_level_type": "object",
+      "reason": "COMPLETE_STOP_JSON",
+      "error": null,
+      "offset_units": "Unicode code points",
+      "max_utf8_bytes": 1048576,
+      "semantic_review": "OWNER_REVIEW_REQUIRED"
+    }
+  },
+  "adoption": {
+    "raw_code_adopted": false,
+    "Lua51_compile_pass": true,
+    "invented_Player_GetPower_exception": "[string \"<python>\"]:10: attempt to call method 'GetPower' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:10: in function <[string \"<python>\"]:1>",
+    "raw_Native_execution": 0,
+    "other_rejections": [
+      "Power belongs to own city per supplied actual source, not player",
+      "No pcall, no bounded own-city scan, no ID/xy/visibility/final-turn recheck",
+      "Hard-coded tech associations ignore current Improvements prerequisite metadata",
+      "Index may be noninteger/nonfinite; Hash/type not validated",
+      "Integration proposed after Research would allow two requests instead of the one pending protocol",
+      "Original RESEARCH consumer takes path table, not direct technology Hash",
+      "Tests claim no-city nil although candidate never reads cities"
+    ],
+    "partial_direction": "No new selector code adopted; owner will implement city-scoped demand and preserve research protocol. Supplied requirement required>free despite active-project power was already in prompt."
+  },
+  "native_read_tool": "Previously owner-qualified644 reader reused after actual tech state changed, not raw647",
+  "native_tech264": [
+    [
+      "P6_647_API",
+      "1",
+      "Context",
+      "264",
+      "264",
+      "true",
+      "table",
+      "OBJECT"
+    ],
+    [
+      "P6_647_API",
+      "2",
+      "IMPROVEMENT_SOLAR_FARM:Definition",
+      "264",
+      "264",
+      "true",
+      "table",
+      "OBJECT"
+    ],
+    [
+      "P6_647_API",
+      "3",
+      "IMPROVEMENT_SOLAR_FARM:PrereqTech",
+      "264",
+      "264",
+      "true",
+      "string",
+      "TECH_SATELLITES"
+    ],
+    [
+      "P6_647_API",
+      "4",
+      "IMPROVEMENT_SOLAR_FARM:HasTech",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "false"
+    ],
+    [
+      "P6_647_API",
+      "5",
+      "IMPROVEMENT_SOLAR_FARM:CanResearch",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "true"
+    ],
+    [
+      "P6_647_API",
+      "6",
+      "IMPROVEMENT_WIND_FARM:Definition",
+      "264",
+      "264",
+      "true",
+      "table",
+      "OBJECT"
+    ],
+    [
+      "P6_647_API",
+      "7",
+      "IMPROVEMENT_WIND_FARM:PrereqTech",
+      "264",
+      "264",
+      "true",
+      "string",
+      "TECH_COMPOSITES"
+    ],
+    [
+      "P6_647_API",
+      "8",
+      "IMPROVEMENT_WIND_FARM:HasTech",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "false"
+    ],
+    [
+      "P6_647_API",
+      "9",
+      "IMPROVEMENT_WIND_FARM:CanResearch",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "false"
+    ],
+    [
+      "P6_647_API",
+      "10",
+      "IMPROVEMENT_GEOTHERMAL_PLANT:Definition",
+      "264",
+      "264",
+      "true",
+      "table",
+      "OBJECT"
+    ],
+    [
+      "P6_647_API",
+      "11",
+      "IMPROVEMENT_GEOTHERMAL_PLANT:PrereqTech",
+      "264",
+      "264",
+      "true",
+      "string",
+      "TECH_SYNTHETIC_MATERIALS"
+    ],
+    [
+      "P6_647_API",
+      "12",
+      "IMPROVEMENT_GEOTHERMAL_PLANT:HasTech",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "false"
+    ],
+    [
+      "P6_647_API",
+      "13",
+      "IMPROVEMENT_GEOTHERMAL_PLANT:CanResearch",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "false"
+    ],
+    [
+      "P6_647_API",
+      "14",
+      "IMPROVEMENT_OFFSHORE_WIND_FARM:Definition",
+      "264",
+      "264",
+      "true",
+      "table",
+      "OBJECT"
+    ],
+    [
+      "P6_647_API",
+      "15",
+      "IMPROVEMENT_OFFSHORE_WIND_FARM:PrereqTech",
+      "264",
+      "264",
+      "true",
+      "string",
+      "TECH_PREDICTIVE_SYSTEMS"
+    ],
+    [
+      "P6_647_API",
+      "16",
+      "IMPROVEMENT_OFFSHORE_WIND_FARM:HasTech",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "false"
+    ],
+    [
+      "P6_647_API",
+      "17",
+      "IMPROVEMENT_OFFSHORE_WIND_FARM:CanResearch",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "false"
+    ],
+    [
+      "P6_647_API",
+      "18",
+      "OwnBuilderInventory",
+      "264",
+      "264",
+      "true",
+      "number",
+      "6"
+    ],
+    [
+      "P6_647_API",
+      "19",
+      "FinalContext",
+      "264",
+      "264",
+      "true",
+      "boolean",
+      "true"
+    ],
+    [
+      "P6_647_BUILDER",
+      "7798799",
+      "59",
+      "36",
+      "3",
+      "1"
+    ],
+    [
+      "P6_647_BUILDER",
+      "7274531",
+      "53",
+      "26",
+      "1",
+      "1"
+    ],
+    [
+      "P6_647_BUILDER",
+      "6946852",
+      "52",
+      "27",
+      "2",
+      "1"
+    ],
+    [
+      "P6_647_BUILDER",
+      "6881317",
+      "53",
+      "32",
+      "3",
+      "1"
+    ],
+    [
+      "P6_647_BUILDER",
+      "7340072",
+      "61",
+      "30",
+      "3",
+      "1"
+    ],
+    [
+      "P6_647_BUILDER",
+      "6750250",
+      "54",
+      "32",
+      "3",
+      "1"
+    ],
+    [
+      "P6_647_DONE",
+      "19",
+      "true",
+      "54"
+    ]
+  ],
+  "cold263": {
+    "utc": "2026-11-11T22:54:13.733956+00:00",
+    "comparison": {
+      "WORLD": {
+        "before": 1,
+        "after": 1,
+        "equal": true
+      },
+      "CITY": {
+        "before": 11,
+        "after": 11,
+        "equal": true
+      },
+      "BUILDING": {
+        "before": 167,
+        "after": 167,
+        "equal": true
+      },
+      "DISTRICT": {
+        "before": 64,
+        "after": 64,
+        "equal": true
+      },
+      "PLOT": {
+        "before": 208,
+        "after": 208,
+        "equal": true
+      },
+      "UNIT": {
+        "before": 54,
+        "after": 54,
+        "equal": true
+      },
+      "allfood": {
+        "rows_including_completion": 12,
+        "equal": false,
+        "only_before": [
+          [
+            "263",
+            "458758",
+            "10",
+            "45.8125",
+            "57",
+            "1",
+            "12",
+            "-1",
+            "true",
+            "false"
+          ]
+        ],
+        "only_after": [
+          [
+            "263",
+            "458758",
+            "10",
+            "45.8125",
+            "57",
+            "3",
+            "4",
+            "-1",
+            "true",
+            "false"
+          ]
+        ],
+        "cause": "UNKNOWN, not assigned to new ranking helper"
+      },
+      "vitals": {
+        "rows_including_completion": 12,
+        "equal": true
+      }
+    },
+    "version_from_to": [
+      123,
+      124
+    ],
+    "END_during_load": 0,
+    "power_flags": {
+      "Shanghai_before": [
+        false,
+        false
+      ],
+      "Shanghai_after": [
+        true,
+        true
+      ],
+      "cause": "UNKNOWN, not claimed as new124 energy effect"
+    },
+    "main_queues_and_oldFactory73_kept": true,
+    "no_new_barrier_purchase": true
+  },
+  "installation": {
+    "files": 117,
+    "byte_match": true,
+    "own_game_official_exit_once": true,
+    "residue_only_owned_PID_after180s_and_no_windows_listeners_CPU0_terminated": true,
+    "Steam_foreign_games_not_touched": true,
+    "fresh_independent_background_offline_proof_age_seconds": 0.004179,
+    "offline_query_input_activation_focus_move_screenshot_all0": true,
+    "separate_formal_header_navigation_did_not_itself_prove_mode": true,
+    "first_background_query_unavailable_prevented_launch_until_fresh_offline": true,
+    "official_load_once": true,
+    "physical_Continue_once": true,
+    "END_during_load": 0,
+    "new_barrier_purchases": 0
+  },
+  "owner_corrections": [
+    "Wrapper install-target version initially changed to124 during preparation; corrected to existing123 before executing install",
+    "City-view window bound rejected one pre-input attempt before independent corrected view",
+    "First cold comparison incorrectly expected food equality; preserved actual Xingzhou net1 to3 and growth-time12 to4, no state reset or invented cause"
+  ],
+  "still_open": [
+    "Shanghai current project preserved; actual Factory resume/completion still pending",
+    "Resource-free durable power and strategic unlock selection implementation",
+    "Unknown cold-load food/power-flag differences",
+    "Dynamic future upkeep and old recovery and full matrix"
+  ],
+  "cumulative": {
+    "logical_calls": 647,
+    "complete": 603,
+    "length_failures": 41,
+    "transport_failures": 3,
+    "HTTP_attempts": 677,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "same_machine_user_success_cache_reused": true,
+    "OpenCode_installed_registry": "1.19.5",
+    "upgrade_this_window": false,
+    "OpenCode_native_generation": 0
+  },
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82
+}

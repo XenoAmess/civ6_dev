@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [124正式冷载与647资格](testing/baiqi-renewable-tech264-cold124.md)：117文件、新鲜独立离线0.004179秒后启动、一次官方263冷载，主快照及vitals保持；邢州净粮1→3／增长12→4、上海项目供电标志false→true未知，不授全状态同一或新电源。正常264火箭完成，卫星Hasfalse/CanResearchtrue。647完整18590tokens/9288.8419ms，错用player:GetPower隔离抛错及无守卫／错误path集成，整拒0rawNative；实际十九读阶段复用644资格工具。累计647/603完整41length3transport677HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-model647-renewable-cold124-2026-11-12.json)。
+
 2026-11-12 新增 [124已有投入续建与644—646](testing/baiqi-invested-building-resume-124.md)：123／263上海工业区修复、工作坊完成，但工厂73/165原生合法仍输给项目92；124仅该供电需求下有限未完工建筑93，真实队列成本、原生许可预算和活动队列保持。8新方法及全量软件通过，待冷验。644两反例拒，Owner5合同后十九Native阶段0错，四可再生科技皆未拥有且不可直接研究；645把未建0重新当未来费拒，UI/Core有界清单未授新预测器。646纯helper部分采用，猜端口／静态成本拒。累计646/602完整41length3transport676HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source124-resume-and-model644646-2026-11-12.json)。
 
 2026-11-12 新增 [642／643 Core维护费与既有水电](testing/baiqi-core-upkeep-hydro260-123.md)：642原goto不兼容Lua51且pcall布尔，Owner5合同后Core21阶段0错，两已建屏障实际维护各7，对比UI0／静态1，未建可造未来成本仍未知；Core CanProduce六NotImplemented独立记录。643假pcall直调、数字区域比字符串隔离失败，Owner6合同后证首都水电早已有、免费6需求8且靠项目，生产购买均false，价745不授权重复造。首个规则扫描4096不足后32768有界跟进真实水电6链；不为错假设增代码。又2普通回合14SKIP，加拿大1点击及特殊议会5点击，反对1票成本0但最终15:8通过。累计643/599完整/41length/3transport/673HTTP/30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-model642643-core-upkeep-hydro260-2026-11-12.json)。
