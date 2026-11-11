@@ -2,7 +2,7 @@
 
 白绮【为我前驱】强制托管内政、生产、建设与和平扩张，军队和外交由玩家操作。目前仍是未完成全功能验收的原型。
 
-当前本地 [120／253，完成态已重载](docs/testing/baiqi-power-project-native253-120.md)：三城已自动使用原版项目临时供电，胶东市场曾实际恢复到 6 粮，项目正常完成并接续。251 胶东社区／市场受损、原版洪灾限制拒绝修复，防洪条件正在查；旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)、[222 武汉逐城归因](docs/testing/baiqi-wuhan-damage-callback-119.md)和完整验收仍开放。启动前已证 Steam 离线，全程未上线，工坊仍 82。
+当前本地 [120／253，完成态已重载](docs/testing/baiqi-power-project-native253-120.md)：三城已自动使用原版项目临时供电，胶东市场曾实际恢复到 6 粮，项目正常完成并接续。[海岸探针](docs/testing/baiqi-coastal-flood-barrier253-120.md)确认胶东社区和上海工业区已淹、未沉没；防洪坝所需计算机可研究但未拥有，AI 防洪优先级待修；旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)、[222 武汉逐城归因](docs/testing/baiqi-wuhan-damage-callback-119.md)和完整验收仍开放。启动前已证 Steam 离线，全程未上线，工坊仍 82。
 
 源码与实机 [120](docs/testing/baiqi-power-project-native253-120.md)：1730 软件通过／1 SDK 跳过，93 Lua／115 文件；246→253 七实际回合、0 人工内政，完成态重载保持。供电项目有入队与生效间隙，仍需长期燃料和防洪策略，未称全功能完成。
 
