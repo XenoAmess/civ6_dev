@@ -74,6 +74,73 @@ local function FloodResearchCity(pid,player)
     if BaiqiFlood.City(FloodEnvironment(),pid,id,turn)==true then return id end
   end
 end
+local function PowerResearchChoice(E,pid,turn)
+  local ok,choice=pcall(function()
+    local function finite(v)return type(v)=='number'and v==v and v>-math.huge and v<math.huge end
+    local function integer(v)return finite(v)and v%1==0 end
+    local function context()
+      assert(integer(pid)and pid>=0 and integer(turn)and turn>=0 and type(E.leader)=='string'and E.leader~='')
+      assert(E.Game.GetLocalPlayer()==pid and E.Game.GetCurrentGameTurn()==turn)
+      local p=assert(E.Players[pid]);local config=assert(E.PlayerConfigurations[pid])
+      assert(config:IsHuman()==true and config:GetLeaderTypeName()==E.leader and p:IsTurnActive()==true)
+      assert(E.Game.IsAllowStrategicCommands(pid)==true and E.GameConfiguration.IsAnyMultiplayer()==false)
+      assert(not E.GameConfiguration.IsHotseat or E.GameConfiguration.IsHotseat()==false)
+      assert(E.UI.IsGameCoreBusy()==false and E.UI.IsProcessingMessages()==false)
+      return p
+    end
+    local p=context();local techs=p:GetTechs()
+    local function emptyFuel()
+      local r=p:GetResources()
+      return r:GetResourceAmount('RESOURCE_COAL')==0 and r:GetResourceAmount('RESOURCE_OIL')==0 and r:GetResourceAmount('RESOURCE_URANIUM')==0
+    end
+    if not emptyFuel()then return nil end
+    local function cityDemand(id,x,y)
+      local c=p:GetCities():FindID(id)
+      if not c or c:GetID()~=id or c:GetOwner()~=pid or c:GetX()~=x or c:GetY()~=y then return false end
+      if E.PlayersVisibility[pid]:IsVisible(x,y)~=true or E.PlayersVisibility[pid]:IsRevealed(x,y)~=true then return false end
+      local power=c:GetPower();local free,required=power:GetFreePower(),power:GetRequiredPower()
+      return finite(free)and free>=0 and finite(required)and required>free
+    end
+    local demand;local count=0
+    for _,city in p:GetCities():Members()do
+      count=count+1;if count>256 then return nil end
+      local id,x,y=city:GetID(),city:GetX(),city:GetY()
+      if integer(id)and id>=0 and integer(x)and x>=0 and integer(y)and y>=0 and city:GetOwner()==pid and cityDemand(id,x,y)then
+        demand={id=id,x=x,y=y};break
+      end
+    end
+    if not demand then return nil end
+    local best
+    for _,name in ipairs({'IMPROVEMENT_SOLAR_FARM','IMPROVEMENT_WIND_FARM','IMPROVEMENT_GEOTHERMAL_PLANT','IMPROVEMENT_OFFSHORE_WIND_FARM'})do
+      local imp=E.GameInfo.Improvements[name]
+      if not imp or imp.ImprovementType~=name or type(imp.PrereqTech)~='string'or imp.PrereqTech==''then return nil end
+      local row=E.GameInfo.Technologies[imp.PrereqTech]
+      if not row or row.TechnologyType~=imp.PrereqTech or not integer(row.Index)or row.Index<0 or not integer(row.Hash)then return nil end
+      if techs:HasTech(row.Index)==false and techs:CanResearch(row.Index)==true then
+        local cost=techs:GetResearchCost(row.Index)
+        if not finite(cost)or cost<=0 then return nil end
+        if not best or cost<best.cost or(cost==best.cost and row.Index<best.index)then
+          best={index=row.Index,hash=row.Hash,type=row.TechnologyType,cost=cost,improvement=name}
+        end
+      end
+    end
+    if not best then return nil end
+    context()
+    if not emptyFuel()or not cityDemand(demand.id,demand.x,demand.y)then return nil end
+    local imp=E.GameInfo.Improvements[best.improvement];local row=E.GameInfo.Technologies[best.type]
+    if not imp or imp.PrereqTech~=best.type or not row or row.TechnologyType~=best.type or row.Index~=best.index or row.Hash~=best.hash
+      or techs:HasTech(best.index)~=false or techs:CanResearch(best.index)~=true or techs:GetResearchCost(best.index)~=best.cost then return nil end
+    context();best.city=demand.id;best.x=demand.x;best.y=demand.y
+    return best
+  end)
+  if ok then return choice end
+end
+
+local function PowerTechnology(pid)
+  return PowerResearchChoice({Game=Game,Players=Players,PlayerConfigurations=PlayerConfigurations,
+    GameConfiguration=GameConfiguration,UI=UI,GameInfo=GameInfo,PlayersVisibility=PlayersVisibility,
+    leader=BaiqiConfig.leader},pid,turn)
+end
 local function Research(pid,player,techs)
   if pendingResearch then
     if pendingResearch.player~=pid then return end
@@ -94,10 +161,17 @@ local function Research(pid,player,techs)
   local row=FloodTechnology(techs)
   if row and row.Index==current then return end
   local floodCity=row and FloodResearchCity(pid,player)
+  local power
   if not floodCity then
-    if current~=-1 then return end
-    row=Choose(GameInfo.Technologies,function(r) return techs:HasTech(r.Index)==false and techs:CanResearch(r.Index)==true end,
-      function(r) return techs:GetResearchCost(r.Index) end,techPriority,"TechnologyType")
+    power=PowerTechnology(pid)
+    if power then
+      row=GameInfo.Technologies[power.type]
+      if row.Index==current then return end
+    else
+      if current~=-1 then return end
+      row=Choose(GameInfo.Technologies,function(r) return techs:HasTech(r.Index)==false and techs:CanResearch(r.Index)==true end,
+        function(r) return techs:GetResearchCost(r.Index) end,techPriority,"TechnologyType")
+    end
   end
   if not row then return end
   local path=techs:GetResearchPath(row.Hash)
@@ -107,12 +181,20 @@ local function Research(pid,player,techs)
     local latest=FloodTechnology(techs)
     if not latest or latest.Index~=row.Index or latest.Hash~=row.Hash then return end
   end
+  if power then
+    local latest=PowerTechnology(pid)
+    if not latest then return end
+    for _,key in ipairs({"city","x","y","index","hash","type","cost","improvement"})do
+      if power[key]~=latest[key] then return end
+    end
+  end
   if techs:HasTech(row.Index)~=false or techs:CanResearch(row.Index)~=true
     or techs:GetResearchingTech()~=current or (current>=0 and techs:GetResearchProgress(current)~=0)
     or not ResearchPlayer(pid,player) then return end
   Once("tech:"..row.Index,function()
     pendingResearch={player=pid,index=row.Index,hash=row.Hash,turn=turn}
     if floodCity then print("BAIQI|flood_research_request|turn="..turn.."|city="..floodCity.."|index="..row.Index) end
+    if power then print("BAIQI|power_research_request|turn="..turn.."|city="..power.city.."|index="..row.Index.."|improvement="..power.improvement) end
     UI.RequestPlayerOperation(pid,PlayerOperations.RESEARCH,
       {[PlayerOperations.PARAM_TECH_TYPE]=path,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE})
   end)
