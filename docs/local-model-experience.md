@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-13 [700候选领域纠正](testing/baiqi-candidate-domain700-owner-correction.md)：生产Add512≠移民推荐／全图城址，Owner补领域；700完整71992tokens／15431.6745ms仅该解释部分采用，原生12硬上限、旧目标和调用边另纠。0代码／Native／测试，累计700／649完整流48length3transport730HTTP30extra，维护复用原生0／未知成本null。
+
+
 2026-11-13 [698699恢复与压力审阅](testing/baiqi-acceptance698699-owner-review.md)：两完整19801／9993tokens、7277.8312／13369.4700ms，698把软件故障混作P4实机，Owner另补包遗漏的27/74/75及独立恢复测试，不能假称全无历史；699丢弃／内存口径和69文件等错误，所提CLI实证exit2／0输出。0新代码或PASS，峰2／重叠7.277938秒，累计699／648完整流48length3transport729HTTP30extra；维护复用原生0／未知成本null。
 
 

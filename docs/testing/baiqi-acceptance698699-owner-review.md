@@ -9,3 +9,6 @@
 继续[协议1](baiqi-performance-protocol.md)下真正缺少的无合法城址／候选多压力夹具；先给齐当前生产者、消费者、配置及已有测试，保持4096cap、冻结预算、私有对照和发布版无开关。136住房实机[另包](baiqi-native136-housing-completed332.md)，不变成当前性能样本。
 
 Nov13同机同用户canonical维护1.19.5成功缓存复用。累计699逻辑／648完整stop流（含前692严格JSON拒绝）／48length／3最终传输失败／729HTTP／30extra；OpenCode原生0，未知缓存、Owner总成本和净节省null。
+
+
+后到[700领域纠正](baiqi-candidate-domain700-owner-correction.md)：512只约束ProcessCity/Add内部资格计数，不限制全部外层工作或移民城址；原生请求12也未在本案例验证返回硬上限，保留旧目标另算。本页先前的无领域512表述由Owner纠正，不以其反驳全图>1000的可能性。
