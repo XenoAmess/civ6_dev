@@ -157,12 +157,19 @@ end
 
 -- Optional housing hints do not grant production or feature-removal permission.
 function BaiqiPlanner.NeighborhoodFeatureAllowed(featureType, removable, naturalWonder, housing, population)
-  if featureType ~= "FEATURE_FOREST" and featureType ~= "FEATURE_JUNGLE" then return false end
-  if removable ~= true or naturalWonder ~= false then return false end
   if not BaiqiPolicy.Number(housing) or housing < 0 then return false end
   if not BaiqiPolicy.Number(population) or population <= 0 then return false end
   if housing >= population then return false end
-  return true
+  if naturalWonder ~= false then return false end
+  if featureType == "FEATURE_FOREST" or featureType == "FEATURE_JUNGLE" then
+    if removable ~= true then return false end
+    return true
+  end
+  if featureType == "FEATURE_FLOODPLAINS" or featureType == "FEATURE_FLOODPLAINS_GRASSLAND" or featureType == "FEATURE_FLOODPLAINS_PLAINS" then
+    if removable ~= false then return false end
+    return true
+  end
+  return false
 end
 
 function BaiqiPlanner.HousingProductionScore(base, housing, population)

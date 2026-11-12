@@ -1,0 +1,178 @@
+{
+  "schema": "civ6.housing136-model696697/v1",
+  "utc": "2026-11-12T18:06:21.171787+00:00",
+  "machine_id": "BF-202609141645",
+  "models": {
+    "696": {
+      "usage": {
+        "prompt_tokens": 21055,
+        "completion_tokens": 509,
+        "total_tokens": 21564
+      },
+      "total_ms": 7338.395999977365,
+      "first_nonempty_content_delta_ms": 3433.7094000075012,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      },
+      "cached_prompt_tokens_if_reported": null
+    },
+    "697": {
+      "usage": {
+        "prompt_tokens": 21162,
+        "completion_tokens": 1361,
+        "total_tokens": 22523
+      },
+      "total_ms": 12185.995700070634,
+      "first_nonempty_content_delta_ms": 3421.879000030458,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      },
+      "cached_prompt_tokens_if_reported": null
+    }
+  },
+  "actual_peak": 2,
+  "overlap_seconds": 7.325417,
+  "adoption": {
+    "696": "Pure NeighborhoodFeatureAllowed hunk adopted verbatim after independent owner integration witness; no other candidate code adopted.",
+    "697": "Whole test_file and existing_test_replacement rejected; no test code adopted."
+  },
+  "native135_motivation": {
+    "turn": 329,
+    "Beijing": {
+      "housing": 19,
+      "population": 20,
+      "active_queue": "FoodMarket0/190",
+      "native_only_resource_free_site": 2568,
+      "feature": "FEATURE_FLOODPLAINS",
+      "removable": false,
+      "naturalWonder": false,
+      "food": 6,
+      "workers": 1,
+      "net_food": 25,
+      "native_CanHaveDistrict": true,
+      "APPEND_CanStartOperation": true,
+      "135_feature_hint": false
+    },
+    "Xian": {
+      "housing": 23,
+      "population": 24,
+      "active_queue": "Builder94/147 before reload; cost149 after same-version reload",
+      "native_allowed_forest_sites": [
+        2719,
+        2495
+      ],
+      "food7_at_net5_must_still_reject": true
+    },
+    "native_diagnostic_is_not_queue_ready_or_permission": true
+  },
+  "implementation": "Exact three known non-removable floodplain feature strings may pass only with explicit false Removable, false NaturalWonder and actual finite housing shortage. Original removable forest/jungle rules, native production/placement/operation gates, visible-resource/assets and worked-food checks, and final rechecks remain. No independent feature-removal operation, Controller/score/queue/writer/unit/diplomacy/property change.",
+  "witness": {
+    "raw696_exact_hunk_count": 1,
+    "owner_independent_methods": 7,
+    "baseline135": {
+      "exit_code": 1,
+      "summary": [
+        "Ran 7 tests in 9.455s",
+        "FAILED (failures=13)"
+      ],
+      "log_sha256": "732ee18d518c1b8f5078b3b3416e7c072f7ad6d3183eb0f6a52aabc2882d4617"
+    },
+    "raw696": {
+      "exit_code": 0,
+      "summary": [
+        "Ran 7 tests in 8.795s",
+        "OK"
+      ],
+      "log_sha256": "a674815244f73f36cb313dd2a2e31fe64c6be291d9bb9e252c66e8aab23399c9"
+    },
+    "raw697_against_raw696": {
+      "exit_code": 1,
+      "summary": [
+        "Ran 20 tests in 15.787s",
+        "FAILED (failures=20)"
+      ],
+      "log_sha256": "2ed23f35d7a8a4f4ac1becb2951e3dfea6324d1a141cf4339c7ff220a4666471"
+    },
+    "raw697_existing_exact_hunk_count": 1,
+    "raw697_existing_fixture": {
+      "exit_code": 1,
+      "summary": [],
+      "log_sha256": "8b203837656a5cb712d062209c34af9322eafe4cbf2bade84d62f6d38abc0025"
+    },
+    "adoption": "Raw696 pure helper eligible for verbatim adoption after owner7; raw697 entire tests/replacement rejected; owner new7 and maintained old14 semantics required",
+    "scope": "No Native/game commands; exact current135 base fixture supplied to model, env only switches Planner to raw696 for isolated software witness",
+    "source_sha256": {
+      "raw696_planner": "8331d2c5b7a79868afbd85a6ef4626f7c758cc28d20fc2db256f18994e00f246",
+      "raw697_test": "35a95411a81c27e696e8845ff3d73bf6a258f5f31d5256fe9c42ce8e8db20c9c",
+      "raw697_existing_fixture": "1b528b7117c43e13490e13546a93caf5391ae6af274e0d581c0de36871549a82"
+    }
+  },
+  "raw697_review": [
+    "Claims composition but inherits14 parent tests: actual discovery20 (14 inherited+6), all20 fail on raw696.",
+    "Positive sites remain Marsh or forest rather than requested flood metadata; some negative cases never select the target feature, final forest transition is still legal.",
+    "Existing fixture replacement matches once but closes Features table before keys31/32; actual isolated LuaSyntaxError unexpected symbol near bracket."
+  ],
+  "owner_tests": "7 new integration methods using composition; 14 existing fixture methods preserve negative Marsh and explicit positive floodplain Dam. Related21 passed; frozen1989 total1988 passed1official SDK skip.",
+  "software": {
+    "utc": "2026-11-12T18:02:14.985151+00:00",
+    "version": 136,
+    "full_returncode": 0,
+    "full_summary": "Ran 1989 tests in 177.922s",
+    "elapsed_seconds": 180.2296108000446,
+    "total": 1989,
+    "passed": 1988,
+    "SDK_skip": 1,
+    "new_integration_methods": 7,
+    "related_housing_methods_passed": 21,
+    "Lua51_compiled": 97,
+    "package_files": 119,
+    "package_byte_exact": true,
+    "package_sha256": "c60d37988d698b3fde67753fbe533af21959b2e0add4a60b34fa41a4765c30b5",
+    "frozen_during_full": true,
+    "adoption": "RAW696_PURE_HELPER_VERBATIM; RAW697_TEST_AND_FIXTURE_WHOLE_REJECTED; OWNER7_NEW_TESTS_AND_EXISTING14_FIXTURE_SEMANTICS_MAINTAINED",
+    "Native136_status": "NOT_COLD_INSTALLED_OR_GAME_VERIFIED",
+    "last_game_runtime135_completed329": true,
+    "new_HTTP": 2,
+    "notes": "No Controller, score, queue, writer, unit/diplomacy or property changes. Original negative fixture0 changed to Marsh, Dam positive restores actual floodplain metadata. Raw696 passed independent7, actual136 related21 passed before this frozen full suite."
+  },
+  "maintenance": {
+    "date": "2026-11-13",
+    "mode": "Canonical daily success cache reuse after model695 fresh check",
+    "installed": "1.19.5",
+    "registry": "1.19.5",
+    "updated": false,
+    "OpenCode_native_generation": 0
+  },
+  "through697": {
+    "logical": 697,
+    "complete_stop_streams": 646,
+    "length": 48,
+    "final_transport_failures": 3,
+    "HTTP": 727,
+    "extra": 30,
+    "OpenCode_native": 0
+  },
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_total_seconds": null,
+    "net_savings": null
+  },
+  "Native136": "NOT_INSTALLED_OR_GAME_VERIFIED; current owned game135 same-version329 reload independently recorded",
+  "next": "Deliver software then install136 offline, cold-load exact329, preserve current FoodMarket/Builder queues and verify actual autonomous placement and housing through normal turns."
+}

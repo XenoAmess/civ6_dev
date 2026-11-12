@@ -17,7 +17,7 @@ GameInfo.Districts[777].DistrictType='DISTRICT_NEIGHBORHOOD'
 GameInfo.Features={
  [3]={Index=3,FeatureType='FEATURE_FOREST',Removable=true,NaturalWonder=false},
  [2]={Index=2,FeatureType='FEATURE_JUNGLE',Removable=true,NaturalWonder=false},
- [0]={Index=0,FeatureType='FEATURE_FLOODPLAINS',Removable=false,NaturalWonder=false}}
+ [0]={Index=0,FeatureType='FEATURE_MARSH',Removable=true,NaturalWonder=false}}
 w.feature=3;w.housing=15;w.population=20;w.housingReads=0;w.worker=1;w.surplus=5
 local get=c.GetGrowth
 c.GetGrowth=function()
@@ -144,7 +144,7 @@ end
         self.assertEqual(self.w.housingReads,0);self.assertIsNone(self.w.cityRequests[1][8])
 
     def test_dam_floodplains_keep_the_original_exception_without_housing_data(self):
-        self.change("GameInfo.Districts[777].DistrictType='DISTRICT_DAM';TestWorld.feature=0;TestWorld.housing=nil")
+        self.change("GameInfo.Features[0]={Index=0,FeatureType='FEATURE_FLOODPLAINS',Removable=false,NaturalWonder=false};GameInfo.Districts[777].DistrictType='DISTRICT_DAM';TestWorld.feature=0;TestWorld.housing=nil")
         self.case.run_city(1);self.assertEqual(self.w.housingReads,0)
 
     def test_housing_deficit_beats_optional_building_and_retained_project(self):

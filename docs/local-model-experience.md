@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-13 [136泛滥平原住房软件](testing/baiqi-housing136-model696697.md)：696纯helper原样采用，Owner7旧135有13失败／raw696全过；697错误继承、错地貌和表语法，实际20失败及独立LuaSyntaxError，整拒。Owner7新方法／相关21／全1988pass1SDKskip、97Lua51／119包。两HTTP峰2／重叠7.325417秒，累计697／646完整流48length3transport727HTTP30extra；Nov13缓存复用／原生0／未知成本null。136未安装实测，继续北京19/20及西安23/24。
+
+
 2026-11-13 新增 [695末五项证据审计](testing/baiqi-acceptance695-evidence-audit.md)：完整18160tokens／15152.5647ms却复述过时B_delta缺口、混淆发表切点及MOVE/FOUND，整拒。74/8/1029确由合同注记提供，Owner初筛缺源误判已纠正，不算模型错。Owner保67四数值预算及105/106特定长局已过作用域，当前住房、缺失故障和升级矩阵分开。Nov13实际维护1.19.5/registry1.19.5无升级；累计695／644完整stop流48length3transport725HTTP30extra，原生0／未知成本null。
 
 
