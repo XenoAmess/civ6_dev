@@ -1,5 +1,8 @@
 # civ6_dev
 
+实机 [132／304部分生效FAIL](docs/testing/baiqi-food-donor-native132-partial304.md)：后台把2133转入上海，但该格实际仅1粮，净粮−2→−1／ARMED保持、0重发；已保存停END。继续修已确认转入与救粮完成的接续，Steam离线／工坊82。
+
+
 源码 [132余粮供粮救援／软件](docs/testing/baiqi-food-surplus-donor-132.md)：304上海净粮−2且旧闲地策略无候选，新增有余粮邻城的未锁单工人格供粮；1920通过／1SDK跳过，待同304正式冷验。秀容工坊已修复、143项目投入保留。Steam离线／工坊82。
 
 

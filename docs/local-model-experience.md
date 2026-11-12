@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [132实机部分生效FAIL](testing/baiqi-food-donor-native132-partial304.md)：原UI2粮格转入上海实际1粮，净−2→−1、3→2零粮专家，供粮秀容仍+6；一次后台请求后ARMED安全保持，不能把候选预测记为实际救粮。已保存304，0END／重发／人工内政，产品接续需区分实际转入与净粮非负。680—682在途另包，through679及OpenCode原生0保持。
+
+
 2026-11-12 新增 [132余粮供粮与678／679](testing/baiqi-food-surplus-donor-132.md)：678 length6500未读整弃，679完整18438tokens但旧131的12方法11过／1Lua断言error，虚字段／缺供粮负例及实际重载，整拒。Owner11新方法、43相关和全1921项1920pass1SDKskip，97Lua51／119包。初次5前导分号夹具语法与raw679失败计数误期望分账修正；UI粮2/Core1实际差异不要求相等。两HTTP峰2／重叠11.689638秒，累计679／631完整45length3transport709HTTP30extra，维护缓存复用／OpenCode原生0／未知成本null。正式132同304冷验待做。
 
 
