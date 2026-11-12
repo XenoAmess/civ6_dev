@@ -1,5 +1,8 @@
 # civ6_dev
 
+实机 [133／304—306救粮保持](docs/testing/baiqi-food-native133-fire306.md)：旧2133不重发，新2206救上海到净0、15人口跨两普通回合保持；邢州新2576也已OBSERVED。306胶东21→20，原生自有燃烧森林／事件33 PopLost1支持火灾解释；已保存停END，完整无损窗口未过。继续完成态重载和工厂／143项目。
+
+
 源码 [133部分转入接续／软件](docs/testing/baiqi-food-partial-transfer-133.md)：精确已转入且源城非负才记TRANSFERRED，新token仅开另一块地的新计划，未知ARM保持不重发；1932通过／1SDK跳过，待同132／304冷验。
 
 

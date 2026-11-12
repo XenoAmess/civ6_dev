@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [133正式救粮304—306与胶东火灾](testing/baiqi-food-native133-fire306.md)：旧token2实际转入后TRANSFERRED、不重发2133；新2206/token3净0、上海15人口跨两普通回合保持，305另有邢州2576/token4实际+2。33food/vitals帧过，但306胶东21→20守卫停；前库存27.05净7、后库存33.64/UI净6，Core另8；自有购买格2725燃烧森林、事件33胶东PopLost1支持火灾推断，缺逐城码不冒全无损。0新HTTP／OpenCode原生0，through682不重计；完成态重载待做。
+
+
 2026-11-12 [133接续与680—682](testing/baiqi-food-partial-transfer-133.md)：680三反例／681nil类型别名经Owner修正，仅部分入口/状态/日志hunk采用；682原10方法1过9error整拒。Owner12新方法、55相关，全1933中1932pass1SDKskip，97Lua51／119包。首10负责人fixture/合同期望错误纠正分账，未知ARM不重发。三HTTP峰3／重叠23.816935秒，累计682／634完整45length3transport712HTTP30extra，维护复用／OpenCode原生0／未知成本null；正式133冷验待做。
 
 
