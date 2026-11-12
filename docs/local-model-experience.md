@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [287自然激光完成与665写入前证据](testing/baiqi-fusion287-power-prewrite-model665.md)：激光自然拥有、海上goal74接核聚变66／0/862，4普通END／28军SKIP／毛利再见1点击；Native帧异常独立重新资格读286而不重发END。665完整6234tokens却全局污染／虚构接口等整拒，Owner10组后临时包装7个Native项目快照全为零燃料、0drop/错，并匹配队列读回，未授正库存分支通过；包装已恢复再存287。累计665／619完整43length3transport695HTTP30extra，原生0／成本null。[证据](research/baiqi-p6-native129-fusion287-power-trace665-2026-11-12.json)。
+
 2026-11-12 新增 [129煤2同283正式冷验](testing/baiqi-positive-fuel-cold283-129.md)：119匹配／新鲜离线后原128档一次冷读，后台唯一海上goal74／site2789→激光61请求并观察，0END／人工研究，当前0/740；全部队列、各世界组、11城food／vitals和5滑雪场保持。221购买格复用Owner657做884实际适用读，海上32真其余0，0新HTTP不重计模型。129结果已存，继续普通回合与正燃料项目／持续供电。[证据](research/baiqi-p6-native129-positive-coal-laser283-2026-11-12.json)。
 
 2026-11-12 新增 [129正燃料与实际供电缺口](testing/baiqi-positive-fuel-power-129.md)：采用664已审阅Planner窄hunk，Admin有限非负＋真实gap／两个bool由Owner收紧；10新Lua51方法过，精确旧128四方法6断言失败0异常，冻结全量1858项1857pass1SDKskip／97Lua119包。0新HTTP不重计663664，待同283煤2／57进度0冷验，持续供电仍开放。[证据](research/baiqi-p6-source129-positive-fuel-power-software-2026-11-12.json)。

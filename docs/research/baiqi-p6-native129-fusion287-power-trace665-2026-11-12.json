@@ -1,0 +1,325 @@
+{
+  "schema": "civ6.native129-fusion287-power-trace665/v1",
+  "utc": "2026-11-12T03:59:29.163896+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 129,
+  "recorded_native_window": [
+    283,
+    287
+  ],
+  "model665": {
+    "transport": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 5205,
+        "completion_tokens": 1029,
+        "total_tokens": 6234
+      },
+      "total_ms": 7236.152899917215,
+      "first_nonempty_content_delta_ms": 866.5457998868078,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "review": {
+      "raw_Lua51_compile": true,
+      "raw_global_Install_Read_Remove_leak_reproduced": true,
+      "raw_exact_vararg_direction_witness_pass": true,
+      "raw_source_defects": [
+        "uses Game/CityOperationTypes globals rather than supplied E",
+        "invented city:GetResources/GetCoal/GetOil/GetUranium and power GetFree/GetTemporary/GetRequired/IsProject",
+        "does not filter actual power project metadata or owner/visibility",
+        "accepts infinity numbers",
+        "zero coordinates invented from production params",
+        "does not disable stale observation after Remove",
+        "does not pin original slot at construction or guard foreign replacement at first install"
+      ],
+      "raw_adopted": false,
+      "raw_Native": 0,
+      "owner_Lua51_groups": 10,
+      "owner_groups_pass": true,
+      "owner_groups": [
+        "zero Native construction/install + 0/4 exact varargs",
+        "typed own power snapshot and deep-copy input unchanged",
+        "same Native error object and one call",
+        "observer error still forwards once",
+        "cap drop and stale handle disabled after restore",
+        "foreign replacement preserved",
+        "infinite/nonbool unknown and false retained",
+        "late turn provenance invalidation",
+        "unrelated project and foreign city forward without records",
+        "repeat install does not stack"
+      ],
+      "game_orders": 0
+    }
+  },
+  "owner_temporary_QA_wrapper": {
+    "actual_context": "BaiqiExecutor",
+    "only_slot": "CityManager.RequestOperation",
+    "filter": "Actual native BUILD and actual metadata power project Hash, owned visible city",
+    "installed284": true,
+    "constructor_and_install_self_issued_game_orders": 0,
+    "native_records": [
+      {
+        "ordinal": 1,
+        "status": "QUALIFIED_SNAPSHOT",
+        "turn": 285,
+        "cityID": 196610,
+        "x": 56,
+        "y": 38,
+        "coal": 0.0,
+        "oil": 0.0,
+        "uranium": 0.0,
+        "free": 0.0,
+        "temporary": 2.0,
+        "required": 6.0,
+        "fully": false,
+        "project": false,
+        "projectHash": -1205325871
+      },
+      {
+        "ordinal": 2,
+        "status": "QUALIFIED_SNAPSHOT",
+        "turn": 285,
+        "cityID": 720906,
+        "x": 52,
+        "y": 25,
+        "coal": 0.0,
+        "oil": 0.0,
+        "uranium": 0.0,
+        "free": 0.0,
+        "temporary": 0.0,
+        "required": 2.0,
+        "fully": false,
+        "project": false,
+        "projectHash": -1205325871
+      },
+      {
+        "ordinal": 3,
+        "status": "QUALIFIED_SNAPSHOT",
+        "turn": 286,
+        "cityID": 65536,
+        "x": 55,
+        "y": 34,
+        "coal": 0.0,
+        "oil": 0.0,
+        "uranium": 0.0,
+        "free": 6.0,
+        "temporary": 4.0,
+        "required": 10.0,
+        "fully": true,
+        "project": false,
+        "projectHash": -1205325871
+      },
+      {
+        "ordinal": 4,
+        "status": "QUALIFIED_SNAPSHOT",
+        "turn": 286,
+        "cityID": 327684,
+        "x": 53,
+        "y": 30,
+        "coal": 0.0,
+        "oil": 0.0,
+        "uranium": 0.0,
+        "free": 0.0,
+        "temporary": 0.0,
+        "required": 3.0,
+        "fully": false,
+        "project": false,
+        "projectHash": -1205325871
+      },
+      {
+        "ordinal": 5,
+        "status": "QUALIFIED_SNAPSHOT",
+        "turn": 286,
+        "cityID": 589832,
+        "x": 62,
+        "y": 34,
+        "coal": 0.0,
+        "oil": 0.0,
+        "uranium": 0.0,
+        "free": 0.0,
+        "temporary": 0.0,
+        "required": 2.0,
+        "fully": false,
+        "project": false,
+        "projectHash": -1205325871
+      },
+      {
+        "ordinal": 6,
+        "status": "QUALIFIED_SNAPSHOT",
+        "turn": 287,
+        "cityID": 262147,
+        "x": 59,
+        "y": 36,
+        "coal": 0.0,
+        "oil": 0.0,
+        "uranium": 0.0,
+        "free": 0.0,
+        "temporary": 0.0,
+        "required": 9.0,
+        "fully": false,
+        "project": false,
+        "projectHash": -1205325871
+      },
+      {
+        "ordinal": 7,
+        "status": "QUALIFIED_SNAPSHOT",
+        "turn": 287,
+        "cityID": 524295,
+        "x": 62,
+        "y": 30,
+        "coal": 0.0,
+        "oil": 0.0,
+        "uranium": 0.0,
+        "free": 0.0,
+        "temporary": 0.0,
+        "required": 5.0,
+        "fully": false,
+        "project": false,
+        "projectHash": -1205325871
+      }
+    ],
+    "correlated_original_BACKGROUND_requests_and_queue_reads": [
+      {
+        "turn": 285,
+        "requestID": "0:285:20",
+        "cityID": 196610,
+        "queue_observed": true
+      },
+      {
+        "turn": 285,
+        "requestID": "0:285:21",
+        "cityID": 720906,
+        "queue_observed": true
+      },
+      {
+        "turn": 286,
+        "requestID": "0:286:35",
+        "cityID": 65536,
+        "queue_observed": true
+      },
+      {
+        "turn": 286,
+        "requestID": "0:286:36",
+        "cityID": 327684,
+        "queue_observed": true
+      },
+      {
+        "turn": 286,
+        "requestID": "0:286:37",
+        "cityID": 589832,
+        "queue_observed": true
+      },
+      {
+        "turn": 287,
+        "requestID": "0:287:51",
+        "cityID": 262147,
+        "queue_observed": true
+      },
+      {
+        "turn": 287,
+        "requestID": "0:287:52",
+        "cityID": 524295,
+        "queue_observed": true
+      }
+    ],
+    "dropped": 0,
+    "observe_errors": 0,
+    "all_observed_fuels_zero": true,
+    "positive_fuel_project_native_pass": false,
+    "record_with_fully_true_does_not_prove_priority92_hint": true,
+    "original_native_vararg_and_return_and_error_forwarding_software_cases": true,
+    "removed287_original_slot_restored": true,
+    "QA_global_cleared_before_save": true,
+    "does_not_read_or_reset_mod_pending_or_journals": true,
+    "not_added_to_product": true
+  },
+  "ordinary_progress": {
+    "normal_END283_through286": 4,
+    "military_SKIP": 28,
+    "UserForced": 0,
+    "Maori_wealth_praise_goodbye_original_clicks_after_END286": 1,
+    "transport_failure_after_END285": {
+      "type": "TunerFrameError",
+      "rejected_header": "size=0, tag=3",
+      "newly_requalified_same_PID_birth_endpoint_before_independent_read": true,
+      "END_replayed": false,
+      "actual286_later_read": true,
+      "not_a_model_HTTP_transport_failure": true
+    },
+    "END286_readiness_timeout_then_original_Maori_bye_and_independent_actual287_read": true,
+    "research_progress": {
+      "283": [
+        "TECH_LASERS",
+        0,
+        740
+      ],
+      "284": [
+        "TECH_LASERS",
+        274.53515625,
+        740
+      ],
+      "285": [
+        "TECH_LASERS",
+        439.10546875,
+        740
+      ],
+      "286": [
+        "TECH_LASERS",
+        603.67578125,
+        740
+      ],
+      "287": [
+        "TECH_NUCLEAR_FUSION",
+        0,
+        862
+      ]
+    },
+    "Lasers_naturally_owned287": true,
+    "BACKGROUND_goal74_next66_request_and_native_observation": true,
+    "all_settled_food_and_vitals_samples_pass": true,
+    "Xingzhou_population287": 11,
+    "new_manual_domestic_civilian_or_research_inputs": 0,
+    "Lua_module_errors": 0
+  },
+  "save287": {
+    "name": "Baiqi_P6_20261112_V129_FusionSelected287.Civ6Save",
+    "bytes": 2269208,
+    "sha256": "7af6b4d61195b1ab9e83e0ed62346b15829603399282f73fe52aecd9f511dda1"
+  },
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "OpenCode_installed_registry": "1.19.5",
+    "same_machine_user_success_cache_reused": true,
+    "OpenCode_native_generation": 0
+  },
+  "cumulative": {
+    "logical_calls": 665,
+    "complete": 619,
+    "length_failures": 43,
+    "transport_failures": 3,
+    "HTTP_attempts": 695,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82,
+  "still_open": [
+    "Positive-reserve and actually unpowered project dispatch not witnessed in this zero-fuel window",
+    "Remaining offshore unlock/build/durable power",
+    "Food phase, old213/222, historical unknown recovery/full matrix"
+  ]
+}
