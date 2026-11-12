@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [133正燃料实际供电318](testing/baiqi-native133-positive-fuel318.md)：武汉316完成时缺电／煤3油1队列空，BG新工业项目请求及回执，317100/168／activeProject全供电，318152/170；回调不是规划输入/原子或油消耗证明。25个双事件样本0错丢，317精确撤、318新完成后原样保持；77城次food/vitals与七人口区间无新损失，六旧损失／八停止保留。厂33已完但秀容体育场59/240、旧143/170未恢复，继续修项目接续；住房三城不足另记。0新HTTP／through688不重计，689690另包；Steam离线工坊82。
+
+
 2026-11-12 [687／688己方完成电力观察](testing/baiqi-power-completion-model687688.md)：687完整6506tokens却名单／身份／漂移／撤销漏门，独立11方法14failure11error(含subTest)整拒；688length5000正文未读。Owner纯只读自家两订阅模块11方法首过0.099s，双读未知分列、exact撤销失败不重发；原包误称Controller订阅两事件，Owner核XP2教程实际项目回调另源纠正。两HTTP峰2/重叠21.844057秒，累计688／638完整47length3transport718HTTP30extra，维护复用原生0／未知成本null；软件通过未Native。
 
 
