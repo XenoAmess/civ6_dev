@@ -158,7 +158,7 @@ local function City(E,pid,turn,player,own,c,t)
   local hold={player=pid,id=identity.id,x=identity.x,y=identity.y,plotID=plan.plotID}
   pending[identity.id]=hold;attempted[identity.id]=turn
   local granted,newToken,why=Call(b,"Prepare",pid,identity.id,identity.x,identity.y,
-    plan.sourceCityID,sourceX,sourceY,plan.plotID,plan.x,plan.y,turn)
+    plan.sourceCityID,sourceX,sourceY,plan.plotID,plan.x,plan.y,turn,plan.expectedFood)
   if granted~=true or type(newToken)~="string" or #newToken==0 or #newToken>96 or why~="armed" then
     if granted==false and deniedBeforePersist[why] then pending[identity.id]=nil end
     return false

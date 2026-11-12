@@ -73,6 +73,10 @@ local function Observe(p,pid,key,state,op)
   if not city or not plot or not PurchaseCity(plot,pid,op.cityID,op.cityX,op.cityY) then return state end
   local surplus=Method(Method(city,"GetGrowth"),"GetFoodSurplus")
   if not Number(surplus) or surplus<0 then return state end
+  local source=City(p,pid,op.sourceCityID,op.sourceX,op.sourceY)
+  if not source then return state end
+  local sourceSurplus=Method(Method(source,"GetGrowth"),"GetFoodSurplus")
+  if not Number(sourceSurplus) or sourceSurplus<0 then return state end
   local nextState=J.Clone(state,pid);local record=nextState.records[J.Key(op.cityID)]
   record.stage="OBSERVED";record.observedTurn=turn;record.observedSurplus=surplus
   if not Persist(p,pid,key,state,nextState) then return nil end
@@ -90,7 +94,7 @@ local function Inspect(pid,cityID,token)
   op=state.records[J.Key(cityID)]
   return op.stage,op.token,"inspected"
 end
-local function Prepare(pid,cityID,cityX,cityY,sourceID,sourceX,sourceY,plotID,plotX,plotY,turn)
+local function Prepare(pid,cityID,cityX,cityY,sourceID,sourceX,sourceY,plotID,plotX,plotY,turn,expectedFood)
   local p,key=Owner(pid,true);if not p then return false,nil,"owner_or_bridge" end
   local state=Load(p,pid,key);if not state then return false,nil,"invalid_journal" end
   local prior=state.records[J.Key(cityID)]
@@ -118,7 +122,16 @@ local function Prepare(pid,cityID,cityX,cityY,sourceID,sourceX,sourceY,plotID,pl
     local surplus=Method(Method(city,"GetGrowth"),"GetFoodSurplus")
     local sd=Static(Map,"GetPlotDistance",sourceX,sourceY,plotX,plotY)
     local td=Static(Map,"GetPlotDistance",cityX,cityY,plotX,plotY)
-    return Number(surplus) and surplus<0 and J.Integer(sd) and sd>3 and sd<=1024 and J.Integer(td) and td<=3
+    if not Number(surplus) or surplus>=0 or not J.Integer(sd) or sd<1 or sd>1024
+      or not J.Integer(td) or td>3 then return false end
+    if sd>3 then return true end
+    -- UI includes player yields that Core may omit. Bound the donor by the
+    -- fresh UI cost and reject a higher Core cost rather than assuming equality.
+    if not Number(expectedFood) or expectedFood<=0 or Method(plot,"GetDistrictType")~=-1 then return false end
+    local food=Method(plot,"GetYield",YieldTypes.FOOD)
+    local sourceSurplus=Method(Method(source,"GetGrowth"),"GetFoodSurplus")
+    return Number(food) and food>=0 and food<=expectedFood
+      and Number(sourceSurplus) and sourceSurplus>=expectedFood
   end
   if not Eligible() or not J.Equal(state,Load(p,pid,key),pid) or not Eligible() then return false,nil,"snapshot_changed" end
   if not Persist(p,pid,key,state,nextState) then return false,nil,"intent_write_unconfirmed" end

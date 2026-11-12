@@ -30,10 +30,14 @@ function BaiqiFoodTileRescue.Plan(s)
       or (d.sourceWorked~=nil and not Int(d.sourceWorked,-1,256))
       or (d.sourceLocked~=nil and not Int(d.sourceLocked,-1,256)) then return nil end
     seen[d.plotID]=true
+    local idleOutside=d.sourceDistance>3 and not d.sourceManageHasPlot
+      and d.sourceWorked==nil and d.sourceLocked==nil
+    local surplusWorker=d.sourceDistance>=1 and d.sourceDistance<=3
+      and d.sourceManageHasPlot and d.sourceWorked==1 and d.sourceLocked==0
+      and d.sourceSurplus>=d.food
     if d.owner==s.player and d.sourceCityID~=s.cityID and d.nativeAllowed
       and d.visible and d.revealed and d.district==-1 and d.food>0
-      and d.targetDistance<=3 and d.sourceDistance>3 and d.sourceManageComplete
-      and not d.sourceManageHasPlot and d.sourceWorked==nil and d.sourceLocked==nil
+      and d.targetDistance<=3 and d.sourceManageComplete and (idleOutside or surplusWorker)
       and s.surplus+d.food>=0
       and (not best or d.food<best.food or (d.food==best.food and d.plotID<best.plotID)) then best=d end
   end
