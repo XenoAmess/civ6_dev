@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [133原版25煤交易实机308](testing/baiqi-native133-coal-trade308.md)：683煤只读模块隐藏UNKNOWN／当前加拿大KNOWN，列表max100与单项max25分开。40前置拒绝0写，原版25煤报价双方六行核验后一次成交，实际煤0→25／金币−279另29每回合30回合；TEST_PLAYER准备场景，不算AI获取资源或正燃料生产通过。Owner修正Items单返回，旧截图和外交未关前置均0输入；五人口损失／七旧停止保留，新范围继续。0新HTTP／计数及维护原生0保持，Steam离线／工坊82。
+
+
 2026-11-12 [683／684当前交易煤元数据](testing/baiqi-trade-coal-reader-model683684.md)：683缺合同行外ID导致阳性UNKNOWN，补镜像仅隔离后八缺口仍KNOWN，整拒；684 length5000未读整弃。Owner纯只读模块12Lua51方法首过，实际界面未开／0Native／交易；对方from四实参、完整密集metadata和状态绑定重读，不造资源。两HTTP峰2／重叠15.516009秒，累计684／635完整46length3transport714HTTP30extra，维护缓存复用／OpenCode原生0／未知成本null。
 
 
