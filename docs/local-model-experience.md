@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-13 [136泛滥平原完工329](testing/baiqi-native136-floodplain-completed329.md)：0→102→165/200后逐区complete真、feature0保留、区域0→3；18/20继续新森林0:329:113，不能以同hash／HasBeenPlaced真误判首次未完或重放。66城帧／五区间NO_LOSS、2样本exact撤、329保存同进程重载ACK待读；主332保护，0本NativeHTTP／700另记。
+
+
 2026-11-13 [700候选领域纠正](testing/baiqi-candidate-domain700-owner-correction.md)：生产Add512≠移民推荐／全图城址，Owner补领域；700完整71992tokens／15431.6745ms仅该解释部分采用，原生12硬上限、旧目标和调用边另纠。0代码／Native／测试，累计700／649完整流48length3transport730HTTP30extra，维护复用原生0／未知成本null。
 
 
