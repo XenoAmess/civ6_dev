@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [131正式302→303恢复与新损失](testing/baiqi-building-repair-native131-poploss303.md)：119匹配／新鲜离线，唯一后台修工业区并观察，Native裁条目保工坊72/97与旧项目143/157；1普通END7军SKIP后工业区完好、工坊接续。独立人口守卫15→14停END303，风电增2失2133现5，保存303；UI/Core整事件PopLost1及当前AffectedCity秀容仍非逐城原子因果。广州vitals24→27是忠诚度增量、原住房评论撤回，1张原图；0新HTTP不重计674675。
+
 2026-11-12 新增 [131已拥有建筑修复软件](testing/baiqi-blocked-building-repair-131.md)：部分采用674的QueueReady／过滤／读回新kind窄段，Owner保旧未建建筑及项目、严验既有受损建筑正投入。10新方法、旧130三断言失败0异常，冻结全1910项1909pass1SDKskip／97Lua119包；最后130／302、131冷验未授。初次函数体保护误含下一函数前注释已在写源前拦住并纠正；0新HTTP不重计674675，原生0／成本null。
 
 2026-11-12 新增 [302新受阻工坊与674/675](testing/baiqi-blocked-workshop302-model674675.md)：四座风电完好、秀容free4需3且ByProject false仅单帧；工坊72/97已拥有受损，前置区再次受损导致hash0，原生修复true、0END302已存。两完整候选26535／25774tokens峰2，674删旧分支导致13方法17断言失败，675十五方法4失败及true/true／空负例／递归夹具，整稿拒绝、窄段待审采用；Owner错误预期异常／缺shape撤回，递归纯软件探针中断结果未知。累计675／629完整43length3transport705HTTP30extra，131未写／原生0／成本null。
