@@ -1,0 +1,179 @@
+{
+  "schema": "civ6.native125-solar-suitability652/v1",
+  "utc": "2026-11-12T00:27:59.704316+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 125,
+  "actual_turn": 275,
+  "END275_sent": false,
+  "new_game_orders": 0,
+  "model652": {
+    "transport": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 2258,
+        "completion_tokens": 1294,
+        "total_tokens": 3552
+      },
+      "total_ms": 8050.930100027472,
+      "first_nonempty_content_delta_ms": 495.2984999399632,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "review": {
+      "raw_Lua51_compiles": false,
+      "compile_error": "[string \"<python>\"]:50: '=' expected near 'end'",
+      "raw_Safe_exact_line_witness": {
+        "true_return": [
+          true,
+          "OK"
+        ],
+        "false_return": [
+          false,
+          "OK"
+        ],
+        "candidate_consumer_wrongly_treats_first_as_success_and_second_as_boolean": true
+      },
+      "raw_adopted": false,
+      "raw_Native": 0,
+      "owner_groups": 8,
+      "groups": [
+        "team7 rather than pid0 passed and false preserved",
+        "missing engine port unknown0calls",
+        "sparse packet rejected0calls",
+        "bool index rejected0calls",
+        "foreign plot unknown0calls",
+        "engine error protected",
+        "nonboolean unknown",
+        "pid9 rejected"
+      ],
+      "game_commands": 0
+    }
+  },
+  "owner_native": {
+    "UI_own_visible_packet_rows": 217,
+    "Core_plot_xy_owner_purchasecity_xy_visibility_turn_all_requalified": true,
+    "actual_team": 0,
+    "improvement_Index": 38,
+    "CanHaveImprovement_calls": 217,
+    "true": 0,
+    "false": 217,
+    "unknown": 0,
+    "not_a_builder_operation_or_future_clearance_permission": true,
+    "qualified_positive_control": {
+      "kind": "IMPROVEMENT_SKI_RESORT",
+      "Index": 45,
+      "Hash": 2135005470,
+      "same_actual_team": 0,
+      "independently_recorded_calls": 6,
+      "true": 6,
+      "false": 0,
+      "errors": 0
+    },
+    "current_builder_tiles_UI": [
+      [
+        "P6_SOLAR652_BUILDER_TILE_READBACK",
+        "7798799",
+        "2723",
+        "0",
+        "0",
+        "-1",
+        "nil"
+      ],
+      [
+        "P6_SOLAR652_BUILDER_TILE_READBACK",
+        "7274531",
+        "1977",
+        "0",
+        "-1",
+        "1",
+        "IMPROVEMENT_FARM"
+      ],
+      [
+        "P6_SOLAR652_BUILDER_TILE_READBACK",
+        "6946852",
+        "2050",
+        "0",
+        "10",
+        "-1",
+        "nil"
+      ],
+      [
+        "P6_SOLAR652_BUILDER_TILE_READBACK",
+        "6881317",
+        "2421",
+        "0",
+        "-1",
+        "18",
+        "IMPROVEMENT_GREAT_WALL"
+      ],
+      [
+        "P6_SOLAR652_BUILDER_TILE_READBACK",
+        "7340072",
+        "2281",
+        "0",
+        "-1",
+        "8",
+        "IMPROVEMENT_LUMBER_MILL"
+      ],
+      [
+        "P6_SOLAR652_BUILDER_TILE_READBACK",
+        "6750250",
+        "2422",
+        "0",
+        "2",
+        "-1",
+        "nil"
+      ]
+    ],
+    "failed_supplemental_Core_query": {
+      "unprotected_new_Core_method_failed": "function expected instead of nil",
+      "partial_output_not_retained_in_outer_artifact": true,
+      "engine_call_count_in_failed_query": null,
+      "not_counted_as_zero_errors_or_qualified_control": true,
+      "independent_protected_followup_preserved_above": true
+    }
+  },
+  "primary_local_sources": {
+    "engine_suitability_team_argument": "PiratesScenario_UnitCommands.lua:399 and CivRoyaleScenario_UnitCommands.lua:157 use ImprovementBuilder.CanHaveImprovement(plot, metadata.Index, player:GetTeam())",
+    "adjacent_operation_consumer": "Expansion2 WorldInput_Expansion2.lua:31-44 uses UnitOperationTypes.BUILD_IMPROVEMENT_ADJACENT, targetXY and improvementHash",
+    "adjacent_operation_targets": "WorldInput_Expansion2.lua:51-58 uses UnitManager.GetOperationTargets(unit, operation, improvementHash params), UnitOperationResults.PLOTS",
+    "controller_gap": "125 ActionAllowed excludes BUILD_IMPROVEMENT_ADJACENT; RequestCivilian requires non-move target equals current plot, BuilderTargets keeps recommendation mountain itself",
+    "original_game_files_not_committed": true
+  },
+  "next_implementation": "Qualify original adjacent-builder target operation; add narrow native planner/writer support with civilian-only, escort, target ownership, exact row and final state guards. Solar conversion or clearance is not authorized by this suitability result.",
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "OpenCode_installed_registry": "1.19.5",
+    "same_machine_user_success_cache_reused": true,
+    "OpenCode_native_generation": 0
+  },
+  "cumulative": {
+    "logical_calls": 652,
+    "complete": 608,
+    "length_failures": 41,
+    "transport_failures": 3,
+    "HTTP_attempts": 682,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82,
+  "still_open": [
+    "Adjacent improvement source implementation and actual construction",
+    "Solar clearance/replacement planning and durable power",
+    "Recurring food phase root cause, older213/222 and unknown recovery/full matrix"
+  ]
+}

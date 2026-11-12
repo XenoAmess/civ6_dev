@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [652太阳能适用与相邻建设缺口](testing/baiqi-solar-suitability275-model652.md)：原版team参数真实资格后，217己方格Core太阳能均false／0未知，滑雪场6阳性；不授移除后合法或操作许可。652完整3552tokens／8050.9301ms，continue编译失败与Safe多返回错接双见证整拒；Owner8合同后只读实际。补充Core未资格端口报错分账，独立保护后对照通过。原版BUILD_IMPROVEMENT_ADJACENT消费者已找到，125白名单／同格writer缺支持，继续修复。累计652/608完整41length3transport682HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native125-solar-suitability652-2026-11-12.json)。
+
 2026-11-12 新增 [125卫星实成275与651目标诊断](testing/baiqi-satellites-unlocked275-builder-125.md)：275卫星HasTechtrue，6建造者此地24新能源查询全false，217自有可见格／67空地；66次AI建议36行6目标全滑雪场，不授太阳能建设。651完整9952tokens／7365.1469ms，continue实际Lua51编译失败、漏pcall等整拒；Owner7组过后Native0未知／0动作。273初净−1后同回合UI/Core+4，库存仍0.34765625／11人，原因待核；另3END21SKIP1点击，10被动事件0错丢已撤，275保存。累计651/607完整41length3transport681HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native125-satellites275-builder651-2026-11-12.json)。
 
 2026-11-12 新增 [125实机271—272与649／650](testing/baiqi-renewable-research-native271-food272-125.md)：卫星实际自动选中且272已有296.332/740，正进度联合兵种保持。271粮食风险已保存，项目剩余回合Owner2误期望修正为3后单普通END、7军队SKIP／巴西2点击，272库存0.25→1.34765625且11人口；三被动订阅0错丢已撤。649纯helper4组过但逐行合法性／界限输入缺口未接产品；650四隔离语义反例整拒，0rawNative。累计650/606完整41length3transport680HTTP30extra；维护缓存复用、OpenCode原生0、未知成本null。[逐项证据](research/baiqi-p6-native125-research271-food272-model649650-2026-11-12.json)。
