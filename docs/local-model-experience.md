@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [692住房选址保护](testing/baiqi-housing692-protection319.md)：134／319原生11候选全部被ClearPlot资源3／地貌8挡住，分数调整不能独自解决；邯郸HasDistrict真但HasBeenPlaced假。692完整13644tokens／11835.7839ms却重复JSON键被项目适配器拒绝，整份0采用，不重试或修补。累计692／641完整stop流含本次严格JSON拒绝、48length3transport722HTTP30extra，原生0／未知成本null，继续真实林地元数据与134项目。
+
+
 2026-11-12 新增 [691住房需求与重复社区](testing/baiqi-housing691-native318.md)：133／318三城需求与双CanProduce均真，邯郸已有社区仍可再造；原生可放置4／2／5未授完整保护粮食资格。候选完整10455tokens／7976.6551ms，仅调查方向窄采用，负缺口算术／优先级／预算／原因表边界由Owner纠正。累计691／640完整48length3transport721HTTP30extra，原生0／未知成本null，住房改善仍待实效。
 
 
