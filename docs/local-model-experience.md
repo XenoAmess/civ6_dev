@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [133维修与1油准备311／686](testing/baiqi-native133-repairs-oil311-model686.md)：310—311无新增人口损失、斗兽场/动物园修好，转发电站0/240，143/164仍保留。原版Canada无油、Brazil valid却拒价、Spain无、Rome真实1油成交14金币+1GPT30，油0→1/煤8；正库存缺电新项目仍待测。6868847tokens完整，仅部分条件相容性采用，经Owner修正否定条件、维修队列与双CanProduce等四处，0代码Native。累计686／637完整46length3transport716HTTP30extra，维护复用原生0／未知成本null。
+
+
 2026-11-12 [133煤供电309与685反例](testing/baiqi-native133-coal-fire309-model685.md)：煤25→20、11城全供电，秀容娱乐区修好接斗兽场、143仍保留；尚无正燃料缺电时新项目请求。邢州新token5实际净+1／OBSERVED，但309新损1停保存，自有2576燃烧仅支持火灾推断。68517708tokens完整分析却错认进度为队首／>=0为正／娱乐区前提等五项，整拒；累计685／636完整46length3transport715HTTP30extra，维护复用原生0／未知成本null。
 
 
