@@ -3044,6 +3044,33 @@ local function BlockedIdleHead(city,q)
       or mode==CityOperationTypes.VALUE_REPLACE_AT or q:GetSize()~=1
       or q:GetCurrentProductionTypeHash()~=0 then return nil end
     local sig,e=QueueHeadSignature(q)
+
+    if e and e.ProjectType~=nil then
+      if not Integer(e.ProjectType,0) or e.BuildingType~=nil or e.DistrictType~=nil or e.UnitType~=nil
+        or not Integer(e.Directive,0) or not Integer(e.Modifiers,0)
+        or (e.Location~=nil and type(e.Location)~="table") then return nil end
+      local directive=CityProductionDirectives and CityProductionDirectives.PROJECT
+      if not Integer(directive,0) or e.Directive~=directive then return nil end
+      local location=e.Location or {}
+      if (location.x~=nil and not Integer(location.x,-2147483648))
+        or (location.y~=nil and not Integer(location.y,-2147483648)) then return nil end
+      local row=GameInfo.Projects[e.ProjectType]
+      if not row or row.Index~=e.ProjectType or not Integer(row.Hash,-2147483648) or row.Hash==0
+        or type(row.ProjectType)~="string" or row.ProjectType==""
+        or type(row.PrereqDistrict)~="string" or row.PrereqDistrict=="" then return nil end
+      local district=GameInfo.Districts[row.PrereqDistrict]
+      if not district or district.DistrictType~=row.PrereqDistrict or not Integer(district.Index,0)
+        or not Integer(district.Hash,-2147483648) or district.Hash==0 then return nil end
+      local districts=city:GetDistricts()
+      if districts:HasDistrict(district.Index,true)~=true or districts:IsPillaged(district.Index)~=true
+        or q:CanProduce(row.Hash,true)~=true or q:CanProduce(row.Hash,false,true)~=false then return nil end
+      local progress,cost=q:GetProjectProgress(row.Index),q:GetProjectCost(row.Index)
+      if not BaiqiPolicy.Number(progress) or progress<=0 or not BaiqiPolicy.Number(cost)
+        or cost<=progress then return nil end
+      return sig,{kind="project",projectIndex=row.Index,hash=row.Hash,projectType=row.ProjectType,
+        progress=progress,cost=cost,prereqIndex=district.Index,prereqHash=district.Hash,
+        prereqType=district.DistrictType}
+    end
     if not e or not Integer(e.BuildingType,0) or e.DistrictType~=nil
       or e.UnitType~=nil or e.ProjectType~=nil or not Integer(e.Directive,0)
       or not Integer(e.Modifiers,0) or (e.Location~=nil and type(e.Location)~="table") then return nil end
@@ -3249,9 +3276,18 @@ local function CityRequestKey(city,candidate)
     ..":"..(p and (p.x..":"..p.y) or "current")
 end
 
-local function QueueReady(city,q,completedHead,blockedHead)
+local function QueueReady(city,q,completedHead,blockedHead,blockedWork)
   if blockedHead then
-    return not completedHead and BlockedIdleHead(city,q)==blockedHead and CoreIdle()
+    if completedHead then return false end
+    local current,work=BlockedIdleHead(city,q)
+    if current~=blockedHead or not CoreIdle() then return false end
+    if (work and work.kind=="project") or (blockedWork and blockedWork.kind=="project") then
+      if not work or not blockedWork or work.kind~="project" or blockedWork.kind~="project" then return false end
+      for _,key in ipairs({"projectIndex","hash","projectType","progress","cost","prereqIndex","prereqHash","prereqType"}) do
+        if work[key]~=blockedWork[key] then return false end
+      end
+    end
+    return true
   end
   if completedHead then
     return q:GetSize()==1 and CompletedIdleHead(city,q)==completedHead and CoreIdle()
@@ -3531,7 +3567,7 @@ local function ProcessCity(ctx, player, state, city)
   end
   local blockedHead,blockedWork
   if not completedHead and CoreIdle() then blockedHead,blockedWork=BlockedIdleHead(city,q) end
-  if not QueueReady(city,q,completedHead,blockedHead) or pendingCities[cityID] then return false end
+  if not QueueReady(city,q,completedHead,blockedHead,blockedWork) or pendingCities[cityID] then return false end
   cityEvaluated[cityID]=turn
   local amenitiesOK,amenities,amenitiesNeeded=pcall(function()
     local growth=city:GetGrowth()
@@ -3541,6 +3577,10 @@ local function ProcessCity(ctx, player, state, city)
   local buildingFood,foodSurplus,foodStock=BuildingFoodHints(city)
   local candidates, checked = {}, 0
   local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject,floodBarrier)
+    if blockedWork and blockedWork.kind=="project" then
+      if kind~="district" or repair~=true or placement~=nil or row.Hash~=blockedWork.prereqHash
+        or row.Index~=blockedWork.prereqIndex or row.DistrictType~=blockedWork.prereqType then return end
+    end
     if checked >= C.candidatesPerCity then return end
     checked=checked+1
     -- Both CanProduce modes are required by the shipped ProductionPanel.
@@ -3642,7 +3682,7 @@ local function ProcessCity(ctx, player, state, city)
   -- All state and legality are checked again at the write boundary.
   local freshCtx, freshPlayer, freshState=PlayerContext()
   if not BaiqiPolicy.Context(freshCtx) or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=freshCtx.player
-    or not QueueReady(city,q,completedHead,blockedHead) then return false end
+    or not QueueReady(city,q,completedHead,blockedHead,blockedWork) then return false end
   local params=BuildParams(choice,completedHead,blockedHead)
   if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
@@ -3683,7 +3723,7 @@ local function ProcessCity(ctx, player, state, city)
   end
   local latest,latestPlayer,latestState=PlayerContext()
   if not BaiqiPolicy.Context(latest) or latest.player~=freshCtx.player or not BaiqiPolicy.MatchesID(city,cityID)
-    or city:GetOwner()~=latest.player or not QueueReady(city,q,completedHead,blockedHead) then return false end
+    or city:GetOwner()~=latest.player or not QueueReady(city,q,completedHead,blockedHead,blockedWork) then return false end
   if choice.firstHolySite and not FirstHolySiteWanted(latest,latestPlayer) then
     cityEvaluated[cityID]=nil
     Reason("religion_supply_changed:"..cityID,"首座圣地需求已变化，重新安排合法生产")
@@ -3705,13 +3745,13 @@ local function ProcessCity(ctx, player, state, city)
     return false
   end
   -- The extra demand read must not cover a turn/queue change at its boundary.
-  if (choice.firstHolySite or choice.prayerProject or choice.powerProject or choice.floodBarrier) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
+  if (choice.firstHolySite or choice.prayerProject or choice.powerProject or choice.floodBarrier) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead,blockedWork)
     or Game.GetCurrentGameTurn()~=turn or not BaiqiPolicy.MatchesID(city,cityID)
     or city:GetOwner()~=latest.player) then return false end
   if (choice.prayerProject or choice.powerProject or choice.floodBarrier) and (q:CanProduce(choice.hash,true)~=true
     or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true) then return false end
-  if (choice.powerProject or choice.floodBarrier) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead)
+  if (choice.powerProject or choice.floodBarrier) and (not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead,blockedWork)
     or Game.GetCurrentGameTurn()~=turn or not BaiqiPolicy.MatchesID(city,cityID)
     or city:GetOwner()~=latest.player) then return false end
   if choice.placement then
@@ -3727,12 +3767,12 @@ local function ProcessCity(ctx, player, state, city)
       Reason("placement_food_changed:"..cityID,"工作粮食已变化，重新安排区域选址")
       return false
     end
-    if Game.GetCurrentGameTurn()~=turn or not QueueReady(city,q,completedHead,blockedHead)
+    if Game.GetCurrentGameTurn()~=turn or not QueueReady(city,q,completedHead,blockedHead,blockedWork)
       or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player then return false end
   end
   if blockedHead and (q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true
-    or not QueueReady(city,q,completedHead,blockedHead) or Game.GetCurrentGameTurn()~=turn
+    or not QueueReady(city,q,completedHead,blockedHead,blockedWork) or Game.GetCurrentGameTurn()~=turn
     or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player) then return false end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
@@ -3968,6 +4008,21 @@ local function ReadBack(player)
           local row=head and tables[pending.kind][head[fields[pending.kind]]]
           if not row or row.Hash~=pending.hash then return false end
           local work=pending.blockedWork
+          if work and work.kind=="project" then
+            if work.buildingIndex~=nil or pending.kind~="district" or pending.hash~=work.prereqHash then return false end
+            local old=GameInfo.Projects[work.projectIndex]
+            local district=GameInfo.Districts[work.prereqType]
+            if not old or old.Index~=work.projectIndex or old.Hash~=work.hash or old.ProjectType~=work.projectType
+              or old.PrereqDistrict~=work.prereqType or not district or district.Index~=work.prereqIndex
+              or district.Hash~=work.prereqHash or district.DistrictType~=work.prereqType then return false end
+            local progress,cost=q:GetProjectProgress(work.projectIndex),q:GetProjectCost(work.projectIndex)
+            if not BaiqiPolicy.Number(work.progress) or work.progress<=0 or not BaiqiPolicy.Number(work.cost)
+              or work.cost<=work.progress or not BaiqiPolicy.Number(progress) or progress<work.progress
+              or not BaiqiPolicy.Number(cost) or progress>=cost then return false end
+            if size==2 then return QueueHeadSignature(q,1)==pending.prependsHead end
+            -- Native may prune the blocked entry; invested unfinished work must remain stored.
+            return true
+          end
           local old=work and GameInfo.Buildings[work.buildingIndex]
           if not old or old.Index~=work.buildingIndex or old.Hash~=work.hash then return false end
           local progress=q:GetBuildingProgress(work.buildingIndex)

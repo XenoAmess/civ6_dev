@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [130项目受阻修复与672/673](testing/baiqi-blocked-project-repair-130.md)：两完整候选15731／16765tokens实际峰2均整拒，672签名当work／发明API／最终漂移，673十三setup错误及错writer；Owner复用唯一写者、精确前置修复与投入读回。11新方法、旧129三断言失败0异常，冻结全1900项1899pass1SDKskip／97Lua119包。130冷验未授、129／300原档与人口FAIL保留；截至673／627完整43length3transport703HTTP30extra，原生0／未知成本null。
+
 2026-11-12 新增 [670/671秀容300受阻项目与独立人口证据](testing/baiqi-xiurong300-blocked-project-model670671.md)：项目143/154、工业区pillaged、原生PREPEND修复资格true却建筑限定阻断，0修复/END300，已保存。6706073tokens窄采用人口领域分离并补元数据保留；6714536tokens四反例整拒，Owner6合同后GetAt0真实PROJECT10，无零hash猜类型。13零燃料观察已还原，正储量分支未授；截至671／625完整43length3transport701HTTP30extra，672/673独立另记。
 
 2026-11-12 新增 [669回合转换只读退路与预测系统296](testing/baiqi-phase2-transition-model669.md)：完整3088tokens/8378.2509ms，12隔离场景过，整份候选用于私有驱动，pending漂移0后续输入；原件转义正确、Owner AST夹具修正另记，未授该新分支Native通过。NPC_BLOCKED实际巴西对话与296独立读回、邢州自然12/无新增损失；控制论完成接预测系统0/1150。296正式结束先执行原排队Builder到2205清队列，再新鲜普通结束，不冒称297。累计669／623完整43length3transport699HTTP30extra，原生0/成本null。
