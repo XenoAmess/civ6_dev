@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [133完成态306重载](testing/baiqi-food133-completed-reload306.md)：两原OBSERVED／serial4保持，严格旧日志前缀后0新救粮请求或回执；11城人口库存及Shanghai净0保持。World／176建筑／64区域／220地块同；北京成本123→127、1Builder续行、多城宜居度／产出重算差异另记，不能报整个世界不变。首次整CITY保护失败后分项复核，没有继续游戏输入。0新HTTP／through682／OpenCode原生0保持；六条停止记录保留，准备新范围续工厂。
+
+
 2026-11-12 [133正式救粮304—306与胶东火灾](testing/baiqi-food-native133-fire306.md)：旧token2实际转入后TRANSFERRED、不重发2133；新2206/token3净0、上海15人口跨两普通回合保持，305另有邢州2576/token4实际+2。33food/vitals帧过，但306胶东21→20守卫停；前库存27.05净7、后库存33.64/UI净6，Core另8；自有购买格2725燃烧森林、事件33胶东PopLost1支持火灾推断，缺逐城码不冒全无损。0新HTTP／OpenCode原生0，through682不重计；完成态重载待做。
 
 
