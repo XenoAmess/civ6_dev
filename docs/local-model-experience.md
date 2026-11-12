@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [683／684当前交易煤元数据](testing/baiqi-trade-coal-reader-model683684.md)：683缺合同行外ID导致阳性UNKNOWN，补镜像仅隔离后八缺口仍KNOWN，整拒；684 length5000未读整弃。Owner纯只读模块12Lua51方法首过，实际界面未开／0Native／交易；对方from四实参、完整密集metadata和状态绑定重读，不造资源。两HTTP峰2／重叠15.516009秒，累计684／635完整46length3transport714HTTP30extra，维护缓存复用／OpenCode原生0／未知成本null。
+
+
 2026-11-12 [133修复307—308及正常END接续](testing/baiqi-repair133-fire308.md)：3普通END才实际换2回合，第一307 END只执行队列，90s等待后新鲜不忙／军队SKIP均非法，追加一次正常progress后到308；未重放或手动补文职。工厂／海港实际修好、143/161保留，308胶东再−1停，正库存和相邻自有燃烧／烧焦林只支持传播推断。683/684候选另包，0本Native新HTTP；Steam离线／工坊82。
 
 

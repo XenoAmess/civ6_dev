@@ -1,0 +1,130 @@
+{
+  "schema": "civ6.trade-coal-reader683684/v1",
+  "utc": "2026-11-12T10:57:43.777721+00:00",
+  "machine_id": "BF-202609141645",
+  "purpose": "Bounded read-only current original trade-view coal metadata for future positive-fuel project acceptance; no trade or UI action",
+  "models": {
+    "683": {
+      "usage": {
+        "prompt_tokens": 11539,
+        "completion_tokens": 1789,
+        "total_tokens": 13328
+      },
+      "total_ms": 15516.502799931914,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      },
+      "candidate_complete": true
+    },
+    "684": {
+      "usage": {
+        "prompt_tokens": 11677,
+        "completion_tokens": 5000,
+        "total_tokens": 16677
+      },
+      "total_ms": 32868.11179993674,
+      "finish_reason": "length",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "UNKNOWN",
+        "top_level_type": "UNKNOWN",
+        "reason": "NON_STOP_FINISH",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      },
+      "candidate_complete": false
+    }
+  },
+  "review": {
+    "raw_compiles_Lua51": true,
+    "results": {
+      "MissingMirror": "UNKNOWN",
+      "Positive": "KNOWN",
+      "Sparse": "KNOWN",
+      "ExtraKey": "KNOWN",
+      "Fraction": "KNOWN",
+      "Meta": "KNOWN",
+      "InactiveFinal": "KNOWN",
+      "WrongOther": "KNOWN",
+      "MissingCoalIndex": 0,
+      "ReboundGetter": "KNOWN"
+    },
+    "whole_adoption": false,
+    "raw_Native_calls": 0,
+    "684": "length5000: body not read/parsed/adopted/retried/concatenated",
+    "mirror_field": "otherPlayerID deliberately added only to expose further failures, not an omitted input from supplied contract"
+  },
+  "adoption": "RAW683_WHOLE_REJECTED; RAW684_LENGTH_BODY_UNREAD; OWNER_WHOLE_MODULE_AND_TESTS",
+  "new_software_checks": {
+    "Lua51_methods": 12,
+    "passed": 12,
+    "first_run_unittest_seconds": 0.137,
+    "record_source": "Actual exec result581ef2; source hashes captured after pass, owner made no intervening source edits",
+    "source_sha256": {
+      "tools/lua/diagnostic_trade_coal.lua": "443786a7a51565f12bb63ea4abba6cc06b50e28fc4ff4df534c6a90b13c4c537",
+      "tests/test_diagnostic_trade_coal.py": "a432798b4577f5da6709256a88350d943002be08846791a0111472899565b9c6"
+    },
+    "forbidden_commands_and_input_mutation_checks": true,
+    "full_product_suite_not_rerun_for_standalone_diagnostic": true,
+    "source133_prior_frozen_full_suite": {
+      "total": 1933,
+      "pass": 1932,
+      "SDK_skip": 1,
+      "commit": "be1ebbb4dfbcb785729129660a46580c01bfb77d"
+    }
+  },
+  "reader_contract": {
+    "requires_original_trade_view_already_visible": true,
+    "requires_local_Baiqi_human_current_turn_met_other_regular_trade": true,
+    "WorkingDeal_getter": "GetWorkingDeal(OUTGOING,localPID,otherID)",
+    "possible_items_getter": "GetPossibleDealItems(otherID,localPID,RESOURCES,deal)",
+    "complete_dense_metadata_limit": 256,
+    "required_fields": [
+      "ForType finite integer",
+      "MaxAmount finite nonnegative integer",
+      "IsValid strict boolean"
+    ],
+    "missing_coal_in_complete_table": "KNOWN index actual_coal_index, presentfalse, max0, validfalse",
+    "nil_or_bad_ports": "UNKNOWN, no zero fallback",
+    "state_and_bindings_rechecked": true,
+    "no_atomic_snapshot_claim": true
+  },
+  "Native_status": {
+    "reader_calls": 0,
+    "trade_view_open_calls": 0,
+    "coal_purchase_calls": 0,
+    "positive_fuel_project_branch": "OPEN",
+    "current_game": 133,
+    "turn": 308,
+    "main_stop": "New Jiaodong population loss, current checkpoint preserved"
+  },
+  "through684": {
+    "logical": 684,
+    "complete": 635,
+    "length": 46,
+    "transport": 3,
+    "HTTP": 714,
+    "extra": 30,
+    "OpenCode_native": 0,
+    "new_actual_HTTP_peak": 2,
+    "new_HTTP_overlap_seconds": 15.516009,
+    "unknown_cache_cost_savings": null
+  },
+  "maintenance": "Canonical caller reused same-machine/user Nov12 OpenCode1.19.5 successful daily maintenance; no upgrade/native tool generation",
+  "owner_costs": "Initial source indexing/planning before phase events unknown; prep/review/correction UTC events retained with Native/log/doc work overlapping; active/net cost unknown",
+  "mod_version_unchanged": 133,
+  "game_package_files_unchanged": 119,
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82,
+  "next": "Qualify reader in actual original trade view opened by TEST_PLAYER after current safety review; metadata alone is not an accepted deal or AI resource acquisition; continue repair143 project and positive-fuel acceptance"
+}
