@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [125实机271—272与649／650](testing/baiqi-renewable-research-native271-food272-125.md)：卫星实际自动选中且272已有296.332/740，正进度联合兵种保持。271粮食风险已保存，项目剩余回合Owner2误期望修正为3后单普通END、7军队SKIP／巴西2点击，272库存0.25→1.34765625且11人口；三被动订阅0错丢已撤。649纯helper4组过但逐行合法性／界限输入缺口未接产品；650四隔离语义反例整拒，0rawNative。累计650/606完整41length3transport680HTTP30extra；维护缓存复用、OpenCode原生0、未知成本null。[逐项证据](research/baiqi-p6-native125-research271-food272-model649650-2026-11-12.json)。
+
 2026-11-12 新增 [125新能源研究软件](testing/baiqi-renewable-research-125.md)：沿647先行候选整拒后的Owner城市电力helper，需求大于免费电且三燃料0时按改良实际Prereq／当前可研究／真实成本选目标；保正进度、防洪优先、原path和pending。10新方法通过，精确旧124 Admin7失败0错。首全1792项1790pass1SDKskip1Ownerfixture双扫描514vs257失败；仅隔离fixture后10方法全过，产品不变、不冒称再全量绿，合1791通过证据／1SDKskip，95Lua51/117包。无新HTTP，647不重复；125冷验／解锁／太阳能实际建设继续。累计648/604完整41length3transport678HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source125-renewable-research-software-2026-11-12.json)。
 
 2026-11-12 新增 [124工厂269完工与648粮食上下文](testing/baiqi-factory-completed269-food-context-124.md)：上海项目自然267完成→工厂73/165→268130→269完工／正式重载保持，6普通END42军队SKIP5NPC点击0人工内政，22事件0错丢且3钩全撤。邢州269 UI−1饥饿1但Core+1，新FAIL停END保存；648同context连读伪UI/Core、owner/turn缺失隔离拒。Owner5合同真正UI/Core/UI48阶段，两UI−1/Core+1，Core10不可用API独立记录。重载UI+1／市场4→6但Core仍1，未知原因；收入／住房变动保留，不授全部一致或救粮通过。累计648/604完整41length3transport678HTTP30extra、维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native124-factory269-food648-2026-11-12.json)。
