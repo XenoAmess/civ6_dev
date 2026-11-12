@@ -11,12 +11,12 @@ class PowerResearchTests(unittest.TestCase):
         self.lua,self.w,self.a=f.lua,f.w,f.a
         self.lua.execute('''
 local w=TestAdmin;TestFlood.flooded=false
-w.power={free=6,required=8,fuel=0,can={[70]=true,[71]=false,[72]=false,[73]=false},owned={},costs={[70]=100,[71]=120,[72]=140,[73]=160}}
+w.power={free=6,required=8,fuel=0,full=true,project=true,can={[70]=true,[71]=false,[72]=false,[73]=false},owned={},costs={[70]=100,[71]=120,[72]=140,[73]=160}}
 local p=Players[7];p.GetResources=function()return {GetResourceAmount=function()return w.power.fuel end}end
 for _,c in ipairs(TestFlood.cities)do c.GetPower=function()
  if w.power.throw then error('native power unavailable')end
  return {GetFreePower=function()return w.power.free end,GetRequiredPower=function()return w.power.required end,
-  IsFullyPowered=function()return true end,IsFullyPoweredByActiveProject=function()return true end}
+  IsFullyPowered=function()return w.power.full end,IsFullyPoweredByActiveProject=function()return w.power.project end}
 end end
 local names={'IMPROVEMENT_SOLAR_FARM','IMPROVEMENT_WIND_FARM','IMPROVEMENT_GEOTHERMAL_PLANT','IMPROVEMENT_OFFSHORE_WIND_FARM'}
 GameInfo.Improvements={};local extra={};local old=GameInfo.Technologies
@@ -58,7 +58,7 @@ ExposedMembers={BaiqiPowerSitesBridge={marker='baiqi-power-sites-v1',version=1,
 
     def test_unknown_no_gap_fuel_or_illegal_goal_keeps_current_research(self):
         for change in ('w.power.free=8','w.power.free=nil','w.power.required=0/0',
-                       'w.power.throw=true','w.power.fuel=1','w.power.fuel=nil',
+                       'w.power.throw=true','w.power.fuel=-1','w.power.fuel=nil','w.power.fuel=math.huge',
                        'w.power.can[70]=false','w.power.can[70]=nil','w.power.owned[70]=true',
                        'TestFlood.owner=8','TestFlood.visible=false',
                        'w.power.costs[70]=nil','w.power.costs[70]=0',
@@ -88,7 +88,7 @@ Players[7].GetCities=function()return {FindID=function()return c end,Members=fun
         self.assertEqual(len(self.w.requests),1);self.assertEqual(self.w.requests[1].params.tech[1],555)
 
     def test_last_read_rejects_demand_fuel_ownership_metadata_turn_or_progress_drift(self):
-        for change in ('TestAdmin.power.free=8','TestAdmin.power.fuel=1',
+        for change in ('TestAdmin.power.free=8','TestAdmin.power.fuel=-1',
                        'TestAdmin.power.can[70]=false','TestFlood.owner=8','TestFlood.visible=false',
                        'GameInfo.Technologies.TECH_POWER_1.Hash=999',
                        'TestAdmin.turn=2','TestAdmin.progress=1','TestAdmin.tech=1',

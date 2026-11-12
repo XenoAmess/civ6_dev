@@ -89,17 +89,20 @@ local function PowerResearchChoice(E,pid,turn)
       return p
     end
     local p=context();local techs=p:GetTechs()
-    local function emptyFuel()
+    local function knownFuels()
       local r=p:GetResources()
-      return r:GetResourceAmount('RESOURCE_COAL')==0 and r:GetResourceAmount('RESOURCE_OIL')==0 and r:GetResourceAmount('RESOURCE_URANIUM')==0
+      local coal,oil,uranium=r:GetResourceAmount('RESOURCE_COAL'),r:GetResourceAmount('RESOURCE_OIL'),r:GetResourceAmount('RESOURCE_URANIUM')
+      return finite(coal)and coal>=0 and finite(oil)and oil>=0 and finite(uranium)and uranium>=0
     end
-    if not emptyFuel()then return nil end
+    if not knownFuels()then return nil end
     local function cityDemand(id,x,y)
       local c=p:GetCities():FindID(id)
       if not c or c:GetID()~=id or c:GetOwner()~=pid or c:GetX()~=x or c:GetY()~=y then return false end
       if E.PlayersVisibility[pid]:IsVisible(x,y)~=true or E.PlayersVisibility[pid]:IsRevealed(x,y)~=true then return false end
       local power=c:GetPower();local free,required=power:GetFreePower(),power:GetRequiredPower()
+      local fully,byProject=power:IsFullyPowered(),power:IsFullyPoweredByActiveProject()
       return finite(free)and free>=0 and finite(required)and required>free
+        and type(fully)=='boolean'and type(byProject)=='boolean'and(fully==false or byProject==true)
     end
     local bridge=E.ExposedMembers and E.ExposedMembers.BaiqiPowerSitesBridge
     if type(bridge)~='table'or bridge.marker~='baiqi-power-sites-v1'or bridge.version~=1
@@ -197,7 +200,7 @@ local function PowerResearchChoice(E,pid,turn)
     end
     if not best then return nil end
     context()
-    if not emptyFuel()or not cityDemand(best.city,best.x,best.y)or not bridgeStable()then return nil end
+    if not knownFuels()or not cityDemand(best.city,best.x,best.y)or not bridgeStable()then return nil end
     local plot=E.Map.GetPlotByIndex(best.sitePlot)
     if not plot or plot:GetIndex()~=best.sitePlot or plot:GetOwner()~=pid or plot:GetX()~=best.siteX or plot:GetY()~=best.siteY
       or plot:GetImprovementType()~=-1 or plot:GetDistrictType()~=-1
@@ -209,7 +212,7 @@ local function PowerResearchChoice(E,pid,turn)
     if not latest then return nil end
     for _,key in ipairs({'index','hash','type','cost','remaining','pathSignature'})do if best[key]~=latest[key]then return nil end end
     if inspect(pid,turn,best.sitePlot,best.city,best.improvement)~=true or not bridgeStable()then return nil end
-    if not emptyFuel()or not cityDemand(best.city,best.x,best.y)then return nil end
+    if not knownFuels()or not cityDemand(best.city,best.x,best.y)then return nil end
     context();best.bridge=bridge;best.inspect=inspect
     return best
   end)

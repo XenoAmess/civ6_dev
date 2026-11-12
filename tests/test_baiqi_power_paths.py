@@ -102,7 +102,7 @@ end
 
     def test_final_actual_path_site_and_bridge_identity_changes_block_writer(self):
         for change in ('w.routeCosts[61]=741','w.paths[1049470971]={56,66,61,72,74}',
-                       'w.siteImprovement=1','w.siteOwner=8','w.siteX=9','w.power.fuel=1',
+                       'w.siteImprovement=1','w.siteOwner=8','w.siteX=9','w.power.fuel=-1',
                        'ExposedMembers.BaiqiPowerSitesBridge.CanHave=function()return true end'):
             with self.subTest(change=change):
                 self.setUp();self.change('w.pathShock=function(h)if h==840424027 then '+change+' end end')

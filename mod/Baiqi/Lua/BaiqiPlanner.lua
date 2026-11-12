@@ -21,12 +21,12 @@ function BaiqiPlanner.FoodProductionScore(base, foodYield, surplus, stock)
   return math.max(base,94)
 end
 
--- Temporary native project power is useful when all known fuel stocks are
--- empty. This hint neither supplies fuel nor promises durable electricity.
+-- An actually unpowered city can need a temporary project with positive fuel
+-- stocks too. This hint neither supplies fuel nor promises durable electricity.
 function BaiqiPlanner.PowerProjectScore(base, required, powered, coal, oil, uranium)
   if not number(base) or not number(required) or required<=0 or powered~=false
-    or not number(coal) or coal~=0 or not number(oil) or oil~=0
-    or not number(uranium) or uranium~=0 then return base end
+    or not number(coal) or coal<0 or not number(oil) or oil<0
+    or not number(uranium) or uranium<0 then return base end
   return math.max(base,92)
 end
 

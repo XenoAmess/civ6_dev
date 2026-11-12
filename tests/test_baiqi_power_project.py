@@ -1,4 +1,4 @@
-"""Fuel-empty native project power is a production hint, never a free effect."""
+"""Known unpowered cities can use native projects with zero or positive fuel."""
 from pathlib import Path
 import os
 import unittest
@@ -51,10 +51,8 @@ end
     def test_known_unpowered_fuel_empty_city_prefers_native_power_project(self):
         self.assertEqual(self.case.chosen(),927)
 
-    def test_known_power_or_any_available_fuel_keeps_ordinary_production(self):
-        for change in ('TestWorld.powered=true','TestWorld.requiredPower=0',
-                       'TestWorld.fuel.RESOURCE_COAL=1','TestWorld.fuel.RESOURCE_OIL=1',
-                       'TestWorld.fuel.RESOURCE_URANIUM=1'):
+    def test_known_power_or_no_demand_keeps_ordinary_production(self):
+        for change in ('TestWorld.powered=true','TestWorld.requiredPower=0'):
             with self.subTest(change=change):
                 self.setUp();self.case.change(change);self.assertEqual(self.case.chosen(),901)
 
@@ -86,7 +84,7 @@ end
                     self.assertNotEqual(self.case.w.cityRequests[i].params[5],927)
 
     def test_demand_or_fuel_changes_at_final_check_replan_same_turn(self):
-        for change in ('w.powered=true','w.requiredPower=0','w.fuel.RESOURCE_COAL=1',
+        for change in ('w.powered=true','w.requiredPower=0','w.fuel.RESOURCE_COAL=-1',
                        'w.fuel.RESOURCE_OIL=nil','w.powerRule.FullyPoweredWhileActive=false'):
             with self.subTest(change=change):
                 self.setUp();self.case.change('TestWorld.queues[67]={{BuildingType=9}};TestWorld.powerShock=function()local w=TestWorld;'+change+' end')
@@ -122,7 +120,7 @@ end
         self.case.change("GameInfo.Buildings=setmetatable({}, {__call=function()local i=0;return function()i=i+1;if i<=512 then return {Index=i,Hash=3000+i,BuildingType='INELIGIBLE_'..i,Maintenance=0}end end end})")
         self.assertEqual(self.case.chosen(),927)
 
-    def test_score_only_accepts_positive_known_demand_and_exact_empty_fuels(self):
+    def test_score_only_accepts_positive_known_unpowered_demand_and_known_nonnegative_fuels(self):
         score=self.case.lua.globals().BaiqiPlanner.PowerProjectScore
         self.assertEqual(score(1,3,False,0,0,0),92)
         self.assertEqual(score(100,3,False,0,0,0),100)
