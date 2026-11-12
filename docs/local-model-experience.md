@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [125卫星实成275与651目标诊断](testing/baiqi-satellites-unlocked275-builder-125.md)：275卫星HasTechtrue，6建造者此地24新能源查询全false，217自有可见格／67空地；66次AI建议36行6目标全滑雪场，不授太阳能建设。651完整9952tokens／7365.1469ms，continue实际Lua51编译失败、漏pcall等整拒；Owner7组过后Native0未知／0动作。273初净−1后同回合UI/Core+4，库存仍0.34765625／11人，原因待核；另3END21SKIP1点击，10被动事件0错丢已撤，275保存。累计651/607完整41length3transport681HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native125-satellites275-builder651-2026-11-12.json)。
+
 2026-11-12 新增 [125实机271—272与649／650](testing/baiqi-renewable-research-native271-food272-125.md)：卫星实际自动选中且272已有296.332/740，正进度联合兵种保持。271粮食风险已保存，项目剩余回合Owner2误期望修正为3后单普通END、7军队SKIP／巴西2点击，272库存0.25→1.34765625且11人口；三被动订阅0错丢已撤。649纯helper4组过但逐行合法性／界限输入缺口未接产品；650四隔离语义反例整拒，0rawNative。累计650/606完整41length3transport680HTTP30extra；维护缓存复用、OpenCode原生0、未知成本null。[逐项证据](research/baiqi-p6-native125-research271-food272-model649650-2026-11-12.json)。
 
 2026-11-12 新增 [125新能源研究软件](testing/baiqi-renewable-research-125.md)：沿647先行候选整拒后的Owner城市电力helper，需求大于免费电且三燃料0时按改良实际Prereq／当前可研究／真实成本选目标；保正进度、防洪优先、原path和pending。10新方法通过，精确旧124 Admin7失败0错。首全1792项1790pass1SDKskip1Ownerfixture双扫描514vs257失败；仅隔离fixture后10方法全过，产品不变、不冒称再全量绿，合1791通过证据／1SDKskip，95Lua51/117包。无新HTTP，647不重复；125冷验／解锁／太阳能实际建设继续。累计648/604完整41length3transport678HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-source125-renewable-research-software-2026-11-12.json)。
