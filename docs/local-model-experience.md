@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [130正式300→301修复及首座风电](testing/baiqi-project-repair-first-offshore-native130.md)：119文件／新鲜离线，原129档一次冷读，唯一后台修工业区并观察、Native裁条目保143/154；1普通END7军SKIP后工业区完好、项目143/157、预测系统拥有。最后1次Builder7798799在2132自动造海上风电并消耗，raw unit_unavailable告警保留，配对地块NONE→真实风电／上海free2不授持续供足。5滑雪完整，人口新基线保两旧LOSS、301无新损失；0新HTTP不重计672673。
+
 2026-11-12 新增 [130项目受阻修复与672/673](testing/baiqi-blocked-project-repair-130.md)：两完整候选15731／16765tokens实际峰2均整拒，672签名当work／发明API／最终漂移，673十三setup错误及错writer；Owner复用唯一写者、精确前置修复与投入读回。11新方法、旧129三断言失败0异常，冻结全1900项1899pass1SDKskip／97Lua119包。130冷验未授、129／300原档与人口FAIL保留；截至673／627完整43length3transport703HTTP30extra，原生0／未知成本null。
 
 2026-11-12 新增 [670/671秀容300受阻项目与独立人口证据](testing/baiqi-xiurong300-blocked-project-model670671.md)：项目143/154、工业区pillaged、原生PREPEND修复资格true却建筑限定阻断，0修复/END300，已保存。6706073tokens窄采用人口领域分离并补元数据保留；6714536tokens四反例整拒，Owner6合同后GetAt0真实PROJECT10，无零hash猜类型。13零燃料观察已还原，正储量分支未授；截至671／625完整43length3transport701HTTP30extra，672/673独立另记。
