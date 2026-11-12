@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [127Builder队列保护与655／656](testing/baiqi-builder-queue-127.md)：655合法hunk经显式typed提取及隔离见证采用（外层字段类型不符任务但JSON VALID），656 length5000整份未读未采用；Owner12Lua51方法过，旧126三方法8断言失败0异常。Owner漏fixture表12setup错误分账纠正后，完整1819项1818pass1SDKskip、95Lua/117包。现行原队列／未知getter均拒Builder新MOVE/BUILD/REPAIR/SKIP/standby，原pending与其它演员授权保持，未授全部历史UNKNOWN恢复。HTTP峰值2重叠10.096057秒，累计656/611完整42length3transport686HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。127待同自然277/2350队列冷验。[证据](research/baiqi-p6-source127-builder-queue-software-2026-11-12.json)。
+
 2026-11-12 新增 [126正式实机275—277三滑雪场](testing/baiqi-builder-adjacent-native275-277-126.md)：117文件冷装，原版后台相邻施工2424/2721/2793各有精确请求及observed，3演员3→2次数。冷读各组保持，仅首个Builder原生移动变位；2普通END14军队SKIP0人工内政。734旧移动277观察闭合；6750250实际原生队列2350保持，移民专用检查需扩Builder，已保存277、未重载未END277，继续127。无新HTTP，不重计653654；随后655656另派独立任务，OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native126-three-ski277-2026-11-12.json)。
 
 2026-11-12 新增 [126相邻施工软件与653／654](testing/baiqi-builder-adjacent-126.md)：原版独立op／Hash目标列表、只Builder真实滑雪场／相距1、最后身份/元数据/函数重读和原pending，AI山格转邻格站位，普通同格守卫保持。653错Nativeproducer隔离nil整拒；654原13setup错误0通过，Owner15Lua51方法后全1807项1806pass1SDKskip、95Lua/117包；旧125三行为失败，Owner哨兵fixture错误已分账。HTTP实际重叠26.500657秒／峰值2，累计654/610完整41length3transport684HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。126待冷验、125/275只读6空原生列表及18站位不授施工。[证据](research/baiqi-p6-source126-adjacent-builder-software-2026-11-12.json)。

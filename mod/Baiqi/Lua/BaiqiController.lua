@@ -669,10 +669,10 @@ local function KnownExpansionSupport(plot,player,playerID)
   return result,reason
 end
 
--- A known destination, unavailable getter or unknown return shape only blocks
--- new settler orders. Nil never proves that other engine queues are empty.
+-- Preserve native settler and builder queues, including after a UI reload.
+-- A missing getter or unknown return shape never authorizes a replacement order.
 local function SettlerQueueIdle(unit,unitType)
-  if unitType~="UNIT_SETTLER"then return true end
+  if unitType~="UNIT_SETTLER" and unitType~="UNIT_BUILDER" then return true end
   local f=UnitManager and UnitManager.GetQueuedDestination
   if type(f)~="function"then return false end
   local function Empty(ok,...)

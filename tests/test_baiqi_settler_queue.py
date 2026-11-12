@@ -76,11 +76,11 @@ class SettlerQueueTests(unittest.TestCase):
         self.setUp();self.w.withCity=False;self.c.RunNow()
         self.assertEqual(self.ops(),[(2,11)])
 
-    def test_builder_remains_independent_of_settler_queue_guard(self):
+    def test_builder_unknown_queue_also_blocks_new_orders(self):
         self.w.withSettler,self.w.withBuilder=False,True
         self.lua.execute("UnitManager.GetQueuedDestination=function()error('UNRELATED_QUEUE')end")
         self.c.RunNow()
-        self.assertEqual(self.ops(),[(3,10)])
+        self.assertEqual(self.ops(),[])
 
 
 if __name__=='__main__':unittest.main()
