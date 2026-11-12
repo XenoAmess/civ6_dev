@@ -3081,8 +3081,24 @@ local function BlockedIdleHead(city,q)
     if not row or row.Index~=e.BuildingType or not Integer(row.Hash,-2147483648)
       or type(row.PrereqDistrict)~="string" or row.PrereqDistrict=="" then return nil end
     local district=GameInfo.Districts[row.PrereqDistrict]
-    if not district or district.DistrictType~=row.PrereqDistrict or not Integer(district.Index,0)
-      or city:GetBuildings():HasBuilding(row.Index)~=false then return nil end
+    if not district or district.DistrictType~=row.PrereqDistrict or not Integer(district.Index,0) then return nil end
+    local buildings=city:GetBuildings()
+    local owned=buildings:HasBuilding(row.Index)
+    if owned==true then
+      if row.Hash==0 or type(row.BuildingType)~="string" or row.BuildingType==""
+        or not Integer(district.Hash,-2147483648) or district.Hash==0
+        or buildings:IsPillaged(row.Index)~=true then return nil end
+      local districts=city:GetDistricts()
+      if districts:HasDistrict(district.Index,true)~=true or districts:IsPillaged(district.Index)~=true
+        or q:CanProduce(row.Hash,true)~=true or q:CanProduce(row.Hash,false,true)~=false then return nil end
+      local progress,cost=q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
+      if not BaiqiPolicy.Number(progress) or progress<=0 or not BaiqiPolicy.Number(cost)
+        or cost<=progress then return nil end
+      return sig,{kind="building_repair",buildingIndex=row.Index,hash=row.Hash,buildingType=row.BuildingType,
+        progress=progress,cost=cost,prereqIndex=district.Index,prereqHash=district.Hash,
+        prereqType=district.DistrictType}
+    end
+    if owned~=false then return nil end
     local districts=city:GetDistricts()
     if districts:HasDistrict(district.Index,true)~=true or districts:IsPillaged(district.Index)~=true
       or q:CanProduce(row.Hash,true)~=true or q:CanProduce(row.Hash,false,true)~=false then return nil end
@@ -3284,6 +3300,11 @@ local function QueueReady(city,q,completedHead,blockedHead,blockedWork)
     if (work and work.kind=="project") or (blockedWork and blockedWork.kind=="project") then
       if not work or not blockedWork or work.kind~="project" or blockedWork.kind~="project" then return false end
       for _,key in ipairs({"projectIndex","hash","projectType","progress","cost","prereqIndex","prereqHash","prereqType"}) do
+        if work[key]~=blockedWork[key] then return false end
+      end
+    elseif (work and work.kind=="building_repair") or (blockedWork and blockedWork.kind=="building_repair") then
+      if not work or not blockedWork or work.kind~="building_repair" or blockedWork.kind~="building_repair" then return false end
+      for _,key in ipairs({"buildingIndex","hash","buildingType","progress","cost","prereqIndex","prereqHash","prereqType"}) do
         if work[key]~=blockedWork[key] then return false end
       end
     end
@@ -3578,6 +3599,10 @@ local function ProcessCity(ctx, player, state, city)
   local candidates, checked = {}, 0
   local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject,floodBarrier)
     if blockedWork and blockedWork.kind=="project" then
+      if kind~="district" or repair~=true or placement~=nil or row.Hash~=blockedWork.prereqHash
+        or row.Index~=blockedWork.prereqIndex or row.DistrictType~=blockedWork.prereqType then return end
+    end
+    if blockedWork and blockedWork.kind=="building_repair" then
       if kind~="district" or repair~=true or placement~=nil or row.Hash~=blockedWork.prereqHash
         or row.Index~=blockedWork.prereqIndex or row.DistrictType~=blockedWork.prereqType then return end
     end
@@ -4021,6 +4046,25 @@ local function ReadBack(player)
               or not BaiqiPolicy.Number(cost) or progress>=cost then return false end
             if size==2 then return QueueHeadSignature(q,1)==pending.prependsHead end
             -- Native may prune the blocked entry; invested unfinished work must remain stored.
+            return true
+          end
+          if work and work.kind=="building_repair" then
+            if work.projectIndex~=nil or pending.kind~="district" or pending.hash~=work.prereqHash then return false end
+            local old=GameInfo.Buildings[work.buildingIndex]
+            local district=GameInfo.Districts[work.prereqType]
+            if not old or old.Index~=work.buildingIndex or old.Hash~=work.hash or old.BuildingType~=work.buildingType
+              or old.PrereqDistrict~=work.prereqType or not district or district.Index~=work.prereqIndex
+              or district.Hash~=work.prereqHash or district.DistrictType~=work.prereqType then return false end
+            local buildings=city:GetBuildings()
+            if buildings:HasBuilding(work.buildingIndex)~=true or buildings:IsPillaged(work.buildingIndex)~=true then return false end
+            local progress,cost=q:GetBuildingProgress(work.buildingIndex),q:GetBuildingCost(work.buildingIndex)
+            if not BaiqiPolicy.Number(work.progress) or work.progress<=0 or not BaiqiPolicy.Number(work.cost)
+              or work.cost<=work.progress or not BaiqiPolicy.Number(progress) or progress<work.progress
+              or not BaiqiPolicy.Number(cost) or progress>=cost then return false end
+            if size==2 then return QueueHeadSignature(q,1)==pending.prependsHead end
+            -- Native PREPEND can prune the unbuildable old entry. Its production
+            -- must still be stored; never recreate an illegal queue entry or pay
+            -- compensation. Missing/unknown progress leaves this request pending.
             return true
           end
           local old=work and GameInfo.Buildings[work.buildingIndex]

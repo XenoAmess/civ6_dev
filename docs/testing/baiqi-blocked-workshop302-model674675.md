@@ -4,7 +4,7 @@
 
 END301先返回但仍在同回合；独立确认世界／城市资产相同，两建造者与13原路线商人移动完成、52单位队列均成功返回单nil、剩余军SKIP均原生false、NPC隐藏后，发送一个新普通结束才到实际302 READY。因此301计2正常END、7军SKIP、0UserForced。负责人首次比较只预期两单位变化，遗漏13商人，断言在输入前拦住；依据实际行纠正，没有把商人移动算后台军令。
 
-302人口守卫NO_LOSS，秀容仍15、库存77.640625／净+9。工业区301已完好、302又pillaged；原因尚无逐城因果。旧工坊修复72/97、HasBuilding=true且IsPillaged=true，唯一typed建筑18队列hash0，包含检查true／排除false；前置工业区9受损90/121，两个检查true，原生PREPEND修复资格true，0新修复请求。现有旧建筑分支只允许尚未拥有的建筑，须补既有修复项受阻的窄类型，不破坏旧建筑或130项目。实际CityProductionDirectives.CONSTRUCT由已给夹具定义；BUILDING字段实机nil，负责人首次假定该字段的只读断言已纠正，不归模型错误。
+302人口守卫NO_LOSS，秀容仍15、库存77.640625／净+9。工业区301已完好、302又pillaged；原因尚无逐城因果。旧工坊修复72/97、HasBuilding=true且IsPillaged=true，唯一typed建筑18队列hash0，包含检查true／排除false；前置工业区9受损90/121，两个检查true，原生PREPEND修复资格true，0新修复请求。现有旧建筑分支只允许尚未拥有的建筑，须补既有修复项受阻的窄类型，不破坏旧建筑或130项目。夹具定义了CityProductionDirectives.CONSTRUCT，并非本次实机枚举见证；BUILDING字段实机nil，负责人首次假定该字段的只读断言已纠正，不归模型错误。
 
 首座风电2132仍完好；完整227购买可见自有格盘点现有4座，新增1901、2133、2134，均真实海上风电且未pillaged。秀容freePower4／required3、fullyPowered true／ByActiveProject false，是本回合独立免费供足快照；上海2/5仍靠项目，沈阳2/2但ByActiveProject true，不扩大为全域长期供电通过。旧项目投入仍143/157。
 

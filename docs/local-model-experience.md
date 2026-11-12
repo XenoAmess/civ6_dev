@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [131已拥有建筑修复软件](testing/baiqi-blocked-building-repair-131.md)：部分采用674的QueueReady／过滤／读回新kind窄段，Owner保旧未建建筑及项目、严验既有受损建筑正投入。10新方法、旧130三断言失败0异常，冻结全1910项1909pass1SDKskip／97Lua119包；最后130／302、131冷验未授。初次函数体保护误含下一函数前注释已在写源前拦住并纠正；0新HTTP不重计674675，原生0／成本null。
+
 2026-11-12 新增 [302新受阻工坊与674/675](testing/baiqi-blocked-workshop302-model674675.md)：四座风电完好、秀容free4需3且ByProject false仅单帧；工坊72/97已拥有受损，前置区再次受损导致hash0，原生修复true、0END302已存。两完整候选26535／25774tokens峰2，674删旧分支导致13方法17断言失败，675十五方法4失败及true/true／空负例／递归夹具，整稿拒绝、窄段待审采用；Owner错误预期异常／缺shape撤回，递归纯软件探针中断结果未知。累计675／629完整43length3transport705HTTP30extra，131未写／原生0／成本null。
 
 2026-11-12 新增 [130正式300→301修复及首座风电](testing/baiqi-project-repair-first-offshore-native130.md)：119文件／新鲜离线，原129档一次冷读，唯一后台修工业区并观察、Native裁条目保143/154；1普通END7军SKIP后工业区完好、项目143/157、预测系统拥有。最后1次Builder7798799在2132自动造海上风电并消耗，raw unit_unavailable告警保留，配对地块NONE→真实风电／上海free2不授持续供足。5滑雪完整，人口新基线保两旧LOSS、301无新损失；0新HTTP不重计672673。
