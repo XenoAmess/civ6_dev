@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [134未完项目接续／689690](testing/baiqi-project-resume134-model689690.md)：只采用689纯92.5提示，Controller漏特殊／重复／挡零进度新项目等Owner重写，raw12方法5failure；690length5000正文未读。Owner12方法夹具隔离一错后通过、旧13315failure1error含subTest；冻结1968项1967pass1SDKskip／417.642s、97Lua51／119包。through690=690／639完整48length3transport720HTTP30extra，峰2/重叠30.176518秒，维护原生0/成本null；游戏仍133318，待正式134冷验，691住房另包。
+
+
 2026-11-12 [133正燃料实际供电318](testing/baiqi-native133-positive-fuel318.md)：武汉316完成时缺电／煤3油1队列空，BG新工业项目请求及回执，317100/168／activeProject全供电，318152/170；回调不是规划输入/原子或油消耗证明。25个双事件样本0错丢，317精确撤、318新完成后原样保持；77城次food/vitals与七人口区间无新损失，六旧损失／八停止保留。厂33已完但秀容体育场59/240、旧143/170未恢复，继续修项目接续；住房三城不足另记。0新HTTP／through688不重计，689690另包；Steam离线工坊82。
 
 

@@ -3565,6 +3565,25 @@ local function PowerProjectWanted(ctx,player,city)
   return ok and wanted==true
 end
 
+local function ProjectResumePriority(q,row)
+  local ok,score=pcall(function()
+    if not row or type(row.ProjectType)~="string" or row.ProjectType=="PROJECT_BAIQI_STANDBY"
+      or not BaiqiPolicy.Number(row.Index) or row.Index<0 or row.Index%1~=0
+      or not BaiqiPolicy.Number(row.Hash) or row.Hash%1~=0 then return nil end
+    return BaiqiPlanner.ResumeProjectScore(1,q:GetProjectProgress(row.Index),q:GetProjectCost(row.Index))
+  end)
+  if ok and BaiqiPolicy.Number(score) and score>1 then return score end
+end
+
+local function ProjectResumeWanted(q,choice)
+  local ok,wanted=pcall(function()
+    local row=GameInfo.Projects[choice.hash]
+    return row~=nil and row.Hash==choice.hash and row.Index==choice.projectIndex
+      and row.ProjectType==choice.type and ProjectResumePriority(q,row)~=nil
+  end)
+  return ok and wanted==true
+end
+
 local function FloodBarrierWanted(ctx,player,city)
   local ok,wanted=pcall(function()
     if not BaiqiPolicy.Context(ctx) or Players[ctx.player]~=player or Game.GetCurrentGameTurn()~=turn
@@ -3596,8 +3615,8 @@ local function ProcessCity(ctx, player, state, city)
   end)
   if not amenitiesOK then amenities,amenitiesNeeded=nil,nil end
   local buildingFood,foodSurplus,foodStock=BuildingFoodHints(city)
-  local candidates, checked = {}, 0
-  local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject,floodBarrier)
+  local candidates, checked, projectCandidates, hasProjectResume = {}, 0, {}, false
+  local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject,floodBarrier,resumeProject)
     if blockedWork and blockedWork.kind=="project" then
       if kind~="district" or repair~=true or placement~=nil or row.Hash~=blockedWork.prereqHash
         or row.Index~=blockedWork.prereqIndex or row.DistrictType~=blockedWork.prereqType then return end
@@ -3606,6 +3625,7 @@ local function ProcessCity(ctx, player, state, city)
       if kind~="district" or repair~=true or placement~=nil or row.Hash~=blockedWork.prereqHash
         or row.Index~=blockedWork.prereqIndex or row.DistrictType~=blockedWork.prereqType then return end
     end
+    if kind=="project" and projectCandidates[row.Hash] then return end
     if checked >= C.candidatesPerCity then return end
     checked=checked+1
     -- Both CanProduce modes are required by the shipped ProductionPanel.
@@ -3613,10 +3633,15 @@ local function ProcessCity(ctx, player, state, city)
     if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
       score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true,
-      prayerProject=prayerProject==true,powerProject=powerProject==true,floodBarrier=floodBarrier==true}
+      prayerProject=prayerProject==true,powerProject=powerProject==true,floodBarrier=floodBarrier==true,
+      resumeProject=resumeProject==true,projectIndex=resumeProject==true and row.Index or nil}
     if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c,completedHead,blockedHead)
-    if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then c.legal=true; candidates[#candidates+1]=c end
+    if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then
+      c.legal=true;candidates[#candidates+1]=c
+      if kind=="project" and row.Hash~=nil then projectCandidates[row.Hash]=true end
+      if resumeProject==true then hasProjectResume=true end
+    end
   end
   local treasury=player:GetTreasury()
   local netGold=treasury:GetGoldYield()-treasury:GetTotalMaintenance()
@@ -3630,6 +3655,12 @@ local function ProcessCity(ctx, player, state, city)
       and (maintenance==0 or netGold-economy.committedMaintenance-maintenance>=C.netGoldMin or repair) then
       Add("building",flood,96,repair,nil,false,false,false,true)
     end
+  end
+  -- Reserve retained work before ordinary scans can consume the candidate
+  -- budget. Its independent investment reason also applies when powered.
+  for row in GameInfo.Projects() do
+    local priority=ProjectResumePriority(q,row)
+    if priority then Add("project",row,priority,false,nil,false,false,false,false,true) end
   end
   local prayerWanted=PrayerProjectWanted(ctx,player,city)
   local prayer=prayerWanted and GameInfo.Projects.PROJECT_ENHANCE_DISTRICT_HOLY_SITE
@@ -3647,7 +3678,7 @@ local function ProcessCity(ctx, player, state, city)
         row.Entertainment,amenities,amenitiesNeeded)
       priority=BaiqiPlanner.FoodProductionScore(priority,buildingFood and buildingFood[row.BuildingType],
         foodSurplus,foodStock)
-      if powerWanted and not repair then
+      if (powerWanted or hasProjectResume) and not repair then
         local progressOK,progress,cost=pcall(function()
           return q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
         end)
@@ -3799,6 +3830,19 @@ local function ProcessCity(ctx, player, state, city)
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true
     or not QueueReady(city,q,completedHead,blockedHead,blockedWork) or Game.GetCurrentGameTurn()~=turn
     or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player) then return false end
+  if choice.resumeProject then
+    if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
+      or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
+    -- A stored amount is not permission to start a fresh repeatable project.
+    -- Recheck the investment after native legality, then scope after its reads.
+    if not ProjectResumeWanted(q,choice) or not CoreIdle() or not QueueReady(city,q,completedHead,blockedHead,blockedWork)
+      or Game.GetCurrentGameTurn()~=turn or not BaiqiPolicy.MatchesID(city,cityID)
+      or city:GetOwner()~=latest.player then
+      cityEvaluated[cityID]=nil
+      Reason("project_resume_changed:"..cityID,"项目投资或生产状态已变化，重新安排合法任务")
+      return false
+    end
+  end
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
   pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,prependsHead=blockedHead,blockedWork=blockedWork,
@@ -3807,7 +3851,9 @@ local function ProcessCity(ctx, player, state, city)
     submittedUnits[cityID]=submittedUnits[cityID] or {}
     submittedUnits[cityID][choice.hash]=true
   end
-  Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type..(blockedHead and "|insert=prepend_blocked" or (completedHead and "|insert=replace_completed" or "")))
+  Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type
+    ..(choice.resumeProject and "|resume_project=true" or "")
+    ..(blockedHead and "|insert=prepend_blocked" or (completedHead and "|insert=replace_completed" or "")))
   CityManager.RequestOperation(city,CityOperationTypes.BUILD,params)
   return true
 end
