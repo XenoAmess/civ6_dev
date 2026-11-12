@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [669回合转换只读退路与预测系统296](testing/baiqi-phase2-transition-model669.md)：完整3088tokens/8378.2509ms，12隔离场景过，整份候选用于私有驱动，pending漂移0后续输入；原件转义正确、Owner AST夹具修正另记，未授该新分支Native通过。NPC_BLOCKED实际巴西对话与296独立读回、邢州自然12/无新增损失；控制论完成接预测系统0/1150。296正式结束先执行原排队Builder到2205清队列，再新鲜普通结束，不冒称297。累计669／623完整43length3transport699HTTP30extra，原生0/成本null。
+
 2026-11-12 新增 [上海294独立回调复现](testing/baiqi-shanghai294-callback-reproduction-129.md)：原Auto293字节副本冷到实际293，8组数据全部相同；复用Owner631、8隔离组后UI/Core各4监听，1普通END7军SKIP再次15→14。UI库存42.93359375/+17及龙卷风整事件PopLost0→1，Core294/+14仍非原子逐城因果；8监听全撤，正式恢复295并逐组复核。0新HTTP、668不重计，继续海上主线与开放人口矩阵。
 
 2026-11-12 新增 [668上海294人口与跨回合守卫](testing/baiqi-shanghai294-population-model668.md)：15→14但两端库存增加；原当前food检查漏跨回合人口，END294后发现并保全295和4原auto。候选4925tokens/8大整数异常后窄采用，10新测试、实际293→294 LOSS与294→295 NO_LOSS分开；未来新损失/UNKNOWN停下一END。龙卷风整场PopLost1非逐城归因，初筛严于原版已纠正；特殊291关闭坐标开菜单另记。累计668／622完整43length3transport698HTTP30extra，原生0/成本null。
