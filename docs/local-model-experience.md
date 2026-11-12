@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [687／688己方完成电力观察](testing/baiqi-power-completion-model687688.md)：687完整6506tokens却名单／身份／漂移／撤销漏门，独立11方法14failure11error(含subTest)整拒；688length5000正文未读。Owner纯只读自家两订阅模块11方法首过0.099s，双读未知分列、exact撤销失败不重发；原包误称Controller订阅两事件，Owner核XP2教程实际项目回调另源纠正。两HTTP峰2/重叠21.844057秒，累计688／638完整47length3transport718HTTP30extra，维护复用原生0／未知成本null；软件通过未Native。
+
+
 2026-11-12 [133维修与1油准备311／686](testing/baiqi-native133-repairs-oil311-model686.md)：310—311无新增人口损失、斗兽场/动物园修好，转发电站0/240，143/164仍保留。原版Canada无油、Brazil valid却拒价、Spain无、Rome真实1油成交14金币+1GPT30，油0→1/煤8；正库存缺电新项目仍待测。6868847tokens完整，仅部分条件相容性采用，经Owner修正否定条件、维修队列与双CanProduce等四处，0代码Native。累计686／637完整46length3transport716HTTP30extra，维护复用原生0／未知成本null。
 
 

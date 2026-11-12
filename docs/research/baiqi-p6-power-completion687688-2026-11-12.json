@@ -1,0 +1,103 @@
+{
+  "schema": "civ6.power-completion687688-review/v1",
+  "utc": "2026-11-12T12:35:20.971326+00:00",
+  "machine_id": "BF-202609141645",
+  "models": {
+    "687": {
+      "usage": {
+        "prompt_tokens": 3781,
+        "completion_tokens": 2725,
+        "total_tokens": 6506
+      },
+      "total_ms": 21844.191699987277,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      },
+      "candidate_complete": true
+    },
+    "688": {
+      "usage": {
+        "prompt_tokens": 3893,
+        "completion_tokens": 5000,
+        "total_tokens": 8893
+      },
+      "total_ms": 33291.989100165665,
+      "finish_reason": "length",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "UNKNOWN",
+        "top_level_type": "UNKNOWN",
+        "reason": "NON_STOP_FINISH",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      },
+      "candidate_complete": false
+    }
+  },
+  "adoption": "RAW687_WHOLE_REJECTED; RAW688_LENGTH_BODY_UNREAD; OWNER_WHOLE_MODULE_AND_TESTS",
+  "raw687_witness": {
+    "test_methods_run": 11,
+    "terminal_exit_code": 1,
+    "unittest_summary": [
+      "FAILED (failures=14, errors=11)"
+    ],
+    "native_use": 0,
+    "issues": [
+      "Empty and extra-key city list accepted; mutable caller list not copied",
+      "Post-install local player/MP/human/leader gates not rechecked",
+      "Changed snapshot silently disappears without UNKNOWN/errors",
+      "Final owner change accepted; fresh same-field city wrapper silently rejected",
+      "Failed Remove reports true/restoredtrue",
+      "Add throw/false after attachment leaves the failing exact callback uncleared"
+    ]
+  },
+  "raw688": "Length5000, complete SSE; body not read/parsed/adopted/retried/concatenated",
+  "software": {
+    "passed": 11,
+    "methods": 11,
+    "first_owner_unittest_seconds": 0.099,
+    "record_source": "Actual exec248ccd,11/11 first run; no subsequent owner source/test edits",
+    "source_sha256": {
+      "tools/lua/diagnostic_power_completion.lua": "c7bdd5a80d98ef5e314bdc89320392a8e1672676db3dee8120ab0f1aa0578f35",
+      "tests/test_diagnostic_power_completion.py": "0440ce4a9576196aa8fc1a42291ead7fc706926b9fe9fad20ec352b09d150b65"
+    }
+  },
+  "through688": {
+    "logical": 688,
+    "complete": 638,
+    "length": 47,
+    "transport": 3,
+    "HTTP": 718,
+    "extra": 30,
+    "OpenCode_native": 0,
+    "new_actual_HTTP_peak": 2,
+    "new_HTTP_overlap_seconds": 21.844057,
+    "cache_cost_net_savings": null
+  },
+  "maintenance": "Same-machine/user Nov12 daily OpenCode1.19.5 successful cache reused through canonical caller; no upgrade/native generation",
+  "costs": "Preparation source indexing/planning before events unknown; review/software authoring interleaved with game/delivery, active/net costs unknown",
+  "Native": "Owner module not yet installed; no observer or project-choice PASS",
+  "owner_packet_source_erratum": "Packet incorrectly said Controller subscribes both events; actual Controller only CityProductionCompleted. Installed XP2 TutorialLoader_Expansion2.lua211-219 is primary consumer for Events.CityProjectCompleted(playerID,cityID,projectID). Both native event names are supported by actual consumers, but only callback snapshots/notifications, not planner inputs. Original packet retained; no raw error attributed to model for this source-description mistake.",
+  "purpose": "Standalone bounded own production/project completion power and fuel snapshots; no planner function replacement or game orders",
+  "source_install_runtime_unchanged": 133,
+  "game_package_files_unchanged": 119,
+  "prior_frozen_product_tests": {
+    "total": 1933,
+    "passed": 1932,
+    "SDK_skip": 1,
+    "commit": "be1ebbb4dfbcb785729129660a46580c01bfb77d",
+    "not_rerun_for_standalone_observer": true
+  },
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82
+}
