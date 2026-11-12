@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [134／323保留项目实机完成](testing/baiqi-native134-project-completed323.md)：119冷装／原318实际一次加载，各快照组保持；体育场自然完成后143接回，唯一resume_project请求与队列匹配，323双完成事件／进度归零／新项目分列。七普通END／五实际推进／35军SKIP、66城帧／无人损，观察器精确撤掉、323已存未载；0新HTTP不重计689690，住房与693694另包。
+
+
 2026-11-12 新增 [692住房选址保护](testing/baiqi-housing692-protection319.md)：134／319原生11候选全部被ClearPlot资源3／地貌8挡住，分数调整不能独自解决；邯郸HasDistrict真但HasBeenPlaced假。692完整13644tokens／11835.7839ms却重复JSON键被项目适配器拒绝，整份0采用，不重试或修补。累计692／641完整stop流含本次严格JSON拒绝、48length3transport722HTTP30extra，原生0／未知成本null，继续真实林地元数据与134项目。
 
 
