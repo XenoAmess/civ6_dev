@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [670/671秀容300受阻项目与独立人口证据](testing/baiqi-xiurong300-blocked-project-model670671.md)：项目143/154、工业区pillaged、原生PREPEND修复资格true却建筑限定阻断，0修复/END300，已保存。6706073tokens窄采用人口领域分离并补元数据保留；6714536tokens四反例整拒，Owner6合同后GetAt0真实PROJECT10，无零hash猜类型。13零燃料观察已还原，正储量分支未授；截至671／625完整43length3transport701HTTP30extra，672/673独立另记。
+
 2026-11-12 新增 [669回合转换只读退路与预测系统296](testing/baiqi-phase2-transition-model669.md)：完整3088tokens/8378.2509ms，12隔离场景过，整份候选用于私有驱动，pending漂移0后续输入；原件转义正确、Owner AST夹具修正另记，未授该新分支Native通过。NPC_BLOCKED实际巴西对话与296独立读回、邢州自然12/无新增损失；控制论完成接预测系统0/1150。296正式结束先执行原排队Builder到2205清队列，再新鲜普通结束，不冒称297。累计669／623完整43length3transport699HTTP30extra，原生0/成本null。
 
 2026-11-12 新增 [上海294独立回调复现](testing/baiqi-shanghai294-callback-reproduction-129.md)：原Auto293字节副本冷到实际293，8组数据全部相同；复用Owner631、8隔离组后UI/Core各4监听，1普通END7军SKIP再次15→14。UI库存42.93359375/+17及龙卷风整事件PopLost0→1，Core294/+14仍非原子逐城因果；8监听全撤，正式恢复295并逐组复核。0新HTTP、668不重计，继续海上主线与开放人口矩阵。
