@@ -1,5 +1,8 @@
 # civ6_dev
 
+[136实机332当前11城无住房赤字](docs/testing/baiqi-native136-housing-completed332.md)：西安森林社区自然完成、住房27/24，北京改良住房到23/20；泛滥平原新分支尚无实际发单。三普通推进无新人口损失，332已保存，继续独立324对照及其余验收。
+
+
 [135同版329完成态已重载](docs/testing/baiqi-native135-completed329-reload.md)：三城住房／地块及11城人口保持，4组实体快照一致；收入、4粮食行／8vitals行和Builder成本差异单列。136软件1988pass1SDKskip已交付、尚待实机；继续北京19/20与西安23/24。
 
 

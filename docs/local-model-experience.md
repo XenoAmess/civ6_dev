@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-13 [136实机住房332](testing/baiqi-native136-housing-completed332.md)：同329对照135冷读四组行全匹配，西安0→127/200→完工，区域3→7；北京改良3→7先解除赤字，不能冒授泛滥平原施工。当前11城充足仅时点、44城帧／三人口区间无新损失，4样本exact撤、332已存。0本Native新HTTP，698699另包。
+
+
 2026-11-13 [136泛滥平原住房软件](testing/baiqi-housing136-model696697.md)：696纯helper原样采用，Owner7旧135有13失败／raw696全过；697错误继承、错地貌和表语法，实际20失败及独立LuaSyntaxError，整拒。Owner7新方法／相关21／全1988pass1SDKskip、97Lua51／119包。两HTTP峰2／重叠7.325417秒，累计697／646完整流48length3transport727HTTP30extra；Nov13缓存复用／原生0／未知成本null。136未安装实测，继续北京19/20及西安23/24。
 
 
