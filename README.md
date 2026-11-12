@@ -4,7 +4,7 @@
 
 历史里程碑 [120／253，完成态已重载](docs/testing/baiqi-power-project-native253-120.md)：三城已自动使用原版项目临时供电，胶东市场曾实际恢复到 6 粮，项目正常完成并接续。[海岸探针](docs/testing/baiqi-coastal-flood-barrier253-120.md)确认胶东社区和上海工业区已淹、未沉没；防洪坝所需计算机可研究但未拥有，当时AI防洪优先级待修；旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)、[222 武汉逐城归因](docs/testing/baiqi-wuhan-damage-callback-119.md)和完整验收仍开放。启动前已证 Steam 离线，全程未上线，工坊仍 82。
 
-源码／实机 [128／279](docs/testing/baiqi-power-path-native278-279-128.md)：冷读保塑料正进度，普通回合自然完成后，后台按真实海上场址选择核裂变前置；五滑雪场保持。持续供电、粮食阶段和完整矩阵继续；Steam离线／工坊82。
+源码／实机 [128／283](docs/testing/baiqi-coal-arrival-power-gap283-128.md)：核裂变自然完成，但煤储量2使旧全零燃料门禁用路线；邢州已有燃料供电，10城仍靠项目，正修129。五滑雪场保持，持续供电、粮食及完整矩阵继续；Steam离线／工坊82。
 
 ## 历史进度（各条保留当时状态）
 

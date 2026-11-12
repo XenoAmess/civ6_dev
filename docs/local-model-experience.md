@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [283煤到货后的持续供电缺口与663／664](testing/baiqi-coal-arrival-power-gap283-128.md)：核裂变自然完成、煤2令路线中断，24资源getter／11城／33电厂字段全资格，煤积累3耗电1，邢州燃料供电、10城仍project-only。663 continue等整拒，Owner7组后只读；664 Admin3反例拒，Planner完整原模块12形态验证可窄采用。提示误读formation为charges已用完整日志纠正，煤来源未归因。累计664／618完整／43length／3transport／694HTTP／30extra，原生0／成本null，继续129修复。[证据](research/baiqi-p6-native128-coal-power-gap283-model663664-2026-11-12.json)。
+
 2026-11-12 新增 [128正式冷278与自然前置279](testing/baiqi-power-path-native278-279-128.md)：119字节匹配／新鲜离线后同档冷读，各世界城市组及vitals保持，长沙UI净粮9→11库存不变独立Core11，非全food相等；正式只读桥真假过。1普通END／7军事SKIP、毛利再见1点击后真279，塑料自然完成、唯一后台海上goal74／site2789→核裂变56请求并观察，当前0/664，未人工内政。五滑雪场保持／279已存／0模组错。0新增HTTP，不重计659—662；继续自然推进与持续供电。[证据](research/baiqi-p6-native128-offshore-prerequisite279-2026-11-12.json)。
 
 2026-11-12 新增 [662独立粮食证据领域](testing/baiqi-food-domain-evidence-model662.md)：完整3672tokens候选5反例整拒，Owner纯工具9方法＋55坏参数通过；旧125的272→273实消息重放保库存−1、后读Core+4与覆盖未知，不推原子冲突／供电根因或END许可。128模组不变；累计662／616完整／43length／3transport／692HTTP／30extra，原生0、未知成本null。[证据](research/baiqi-food-domain-evidence662-2026-11-12.json)。
