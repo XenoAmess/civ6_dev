@@ -66,21 +66,29 @@ local function PurchaseCity(plot,pid,id,x,y)
     and Method(city,"GetX")==x and Method(city,"GetY")==y
 end
 local function Observe(p,pid,key,state,op)
-  if op.stage~="ARMED" then return state end
+  if op.stage~="ARMED" and op.stage~="TRANSFERRED" then return state end
   local turn=Static(Game,"GetCurrentGameTurn")
   if not J.Integer(turn) or turn<op.turn then return state end
   local city=City(p,pid,op.cityID,op.cityX,op.cityY);local plot=Plot(op,pid)
   if not city or not plot or not PurchaseCity(plot,pid,op.cityID,op.cityX,op.cityY) then return state end
   local surplus=Method(Method(city,"GetGrowth"),"GetFoodSurplus")
-  if not Number(surplus) or surplus<0 then return state end
+  if not Number(surplus) then return state end
   local source=City(p,pid,op.sourceCityID,op.sourceX,op.sourceY)
   if not source then return state end
   local sourceSurplus=Method(Method(source,"GetGrowth"),"GetFoodSurplus")
   if not Number(sourceSurplus) or sourceSurplus<0 then return state end
+  -- A known assignment is distinct from a successful food rescue. Keep the
+  -- first negative receipt stable; only later nonnegative food upgrades it.
+  if op.stage=="TRANSFERRED" and surplus<0 then return state end
   local nextState=J.Clone(state,pid);local record=nextState.records[J.Key(op.cityID)]
-  record.stage="OBSERVED";record.observedTurn=turn;record.observedSurplus=surplus
+  record.stage=surplus>=0 and "OBSERVED" or "TRANSFERRED"
+  record.observedTurn=turn;record.observedSurplus=surplus
   if not Persist(p,pid,key,state,nextState) then return nil end
-  print("BAIQI|food_tile_intent_observed|turn="..turn.."|city="..op.cityID.."|plot="..op.plotID.."|token="..op.token.."|surplus="..surplus)
+  if surplus>=0 then
+    print("BAIQI|food_tile_intent_observed|turn="..turn.."|city="..op.cityID.."|plot="..op.plotID.."|token="..op.token.."|surplus="..surplus)
+  else
+    print("BAIQI|food_tile_intent_transferred|turn="..turn.."|city="..op.cityID.."|plot="..op.plotID.."|token="..op.token.."|surplus="..surplus)
+  end
   return nextState
 end
 local function Inspect(pid,cityID,token)
@@ -99,6 +107,7 @@ local function Prepare(pid,cityID,cityX,cityY,sourceID,sourceX,sourceY,plotID,pl
   local state=Load(p,pid,key);if not state then return false,nil,"invalid_journal" end
   local prior=state.records[J.Key(cityID)]
   if prior and prior.stage=="ARMED" then return false,nil,"prior_unresolved" end
+  if prior and prior.plotID==plotID then return false,nil,"same_plot" end
   local count=0
   for _,record in pairs(state.records)do
     count=count+1

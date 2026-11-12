@@ -105,8 +105,8 @@ class FoodSurplusDonorTests(unittest.TestCase):
           W.transferred=true;W.surplus=0;W.donor=-1;W.turn=209
           local b=ExposedMembers.BaiqiFoodTileRescueBridge
           assert(b.Inspect(0,458758)=='ARMED' and W.propertyWrites==1)
-          W.donor=0;W.surplus=-1;assert(b.Inspect(0,458758)=='ARMED')
-          W.surplus=0;assert(b.Inspect(0,458758)=='OBSERVED' and W.propertyWrites==2)
+          W.donor=0;W.surplus=-1;assert(b.Inspect(0,458758)=='TRANSFERRED')
+          W.surplus=0;assert(b.Inspect(0,458758)=='OBSERVED' and W.propertyWrites==3)
           assert(#W.requests==1)''')
 
     def test_unknown_donor_receipt_keeps_arm_and_late_receipt_survives_both_reloads(self):

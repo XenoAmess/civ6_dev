@@ -131,21 +131,26 @@ local function Source(s,plan)
   end
 end
 local deniedBeforePersist={owner_or_bridge=true,invalid_journal=true,prior_unresolved=true,prior_plot_unresolved=true,
-  journal_limit=true,invalid_identity=true,invalid_record=true,old_identity_mismatch=true,snapshot_changed=true}
+  journal_limit=true,invalid_identity=true,invalid_record=true,old_identity_mismatch=true,snapshot_changed=true,same_plot=true}
 local function City(E,pid,turn,player,own,c,t)
   local identity=Identity(c,pid);local held=pending[identity.id];local b=Bridge(E);if not b then return false end
   local prepare,inspect=b.Prepare,b.Inspect
   local stage,token=Call(b,"Inspect",pid,identity.id,held and held.token)
   if held then
     if held.player~=pid or not SameCity(held,identity) then return false end
-    if held.token==nil or stage~="OBSERVED" or token~=held.token then return false end
-    print("BAIQI|food_tile_rescue_observed|turn="..turn.."|city="..identity.id.."|plot="..held.plotID.."|token="..token.."|receipt=CORE_OBSERVED")
+    if held.token==nil or (stage~="OBSERVED" and stage~="TRANSFERRED") or token~=held.token then return false end
+    if stage=="OBSERVED" then
+      print("BAIQI|food_tile_rescue_observed|turn="..turn.."|city="..identity.id.."|plot="..held.plotID.."|token="..token.."|receipt=CORE_OBSERVED")
+    else
+      print("BAIQI|food_tile_rescue_partial_transfer|turn="..turn.."|city="..identity.id.."|plot="..held.plotID.."|token="..token.."|receipt=CORE_TRANSFERRED")
+    end
     pending[identity.id]=nil
   end
-  if stage~="OPEN" and stage~="OBSERVED" then return false end
+  if stage~="OPEN" and stage~="OBSERVED" and stage~="TRANSFERRED" then return false end
   if stage=="OPEN" and token~=nil then return false end
-  if stage=="OBSERVED" and (type(token)~="string" or #token==0 or #token>96) then return false end
-  if attempted[identity.id]==turn then return false end
+  if (stage=="OBSERVED" or stage=="TRANSFERRED") and (type(token)~="string" or #token==0 or #token>96) then return false end
+  local last=attempted[identity.id]
+  if last and last.turn==turn and last.token==token then return false end
   local yield=E.YieldTypes.FOOD
   local s=Snapshot(E,own,c,pid,t);local plan=Plan(s);if not plan then return false end
   local sourceX,sourceY=Source(s,plan);if sourceX==nil then return false end
@@ -156,7 +161,7 @@ local function City(E,pid,turn,player,own,c,t)
   -- Hold even an uncertain Prepare reply locally. It never authorizes a city
   -- command; on reload the actual durable record is inspected afresh.
   local hold={player=pid,id=identity.id,x=identity.x,y=identity.y,plotID=plan.plotID}
-  pending[identity.id]=hold;attempted[identity.id]=turn
+  pending[identity.id]=hold;attempted[identity.id]={turn=turn,token=token}
   local granted,newToken,why=Call(b,"Prepare",pid,identity.id,identity.x,identity.y,
     plan.sourceCityID,sourceX,sourceY,plan.plotID,plan.x,plan.y,turn,plan.expectedFood)
   if granted~=true or type(newToken)~="string" or #newToken==0 or #newToken>96 or why~="armed" then

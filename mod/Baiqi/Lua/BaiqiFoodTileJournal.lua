@@ -39,6 +39,9 @@ local function Validate(s,pid)
       if r.observedTurn~=nil or r.observedSurplus~=nil then return false end
     elseif r.stage=="OBSERVED" then
       if not Int(r.observedTurn,r.turn,MAX) or not Number(r.observedSurplus,0,1000000) then return false end
+    elseif r.stage=="TRANSFERRED" then
+      if not Int(r.observedTurn,r.turn,MAX) or not Number(r.observedSurplus,-1000000,0)
+        or r.observedSurplus>=0 then return false end
     else return false end
   end
   return true

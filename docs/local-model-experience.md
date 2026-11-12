@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 [133接续与680—682](testing/baiqi-food-partial-transfer-133.md)：680三反例／681nil类型别名经Owner修正，仅部分入口/状态/日志hunk采用；682原10方法1过9error整拒。Owner12新方法、55相关，全1933中1932pass1SDKskip，97Lua51／119包。首10负责人fixture/合同期望错误纠正分账，未知ARM不重发。三HTTP峰3／重叠23.816935秒，累计682／634完整45length3transport712HTTP30extra，维护复用／OpenCode原生0／未知成本null；正式133冷验待做。
+
+
 2026-11-12 [132实机部分生效FAIL](testing/baiqi-food-donor-native132-partial304.md)：原UI2粮格转入上海实际1粮，净−2→−1、3→2零粮专家，供粮秀容仍+6；一次后台请求后ARMED安全保持，不能把候选预测记为实际救粮。已保存304，0END／重发／人工内政，产品接续需区分实际转入与净粮非负。680—682在途另包，through679及OpenCode原生0保持。
 
 

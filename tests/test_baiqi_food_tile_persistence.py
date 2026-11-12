@@ -55,11 +55,11 @@ class FoodTilePersistenceTests(unittest.TestCase):
           assert(#W.requests==1 and W.propertyWrites==2)
           BaiqiFoodTileRescueRunner.Run(E,0);assert(W.propertyWrites==2)''')
 
-    def test_ownership_alone_with_negative_food_is_not_rescue_receipt(self):
+    def test_ownership_with_negative_food_is_only_a_transfer_receipt(self):
         l = self.world()
         l.execute('''BaiqiFoodTileRescueRunner.Run(E,0)
           W.transferred=true;W.turn=209;BaiqiFoodTileRescueRunner.Run(E,0)
-          assert(W.props.FOOD_TEST_V1.records['458758'].stage=='ARMED' and #W.requests==1)
+          assert(W.props.FOOD_TEST_V1.records['458758'].stage=='TRANSFERRED' and #W.requests==1)
           W.surplus=0;BaiqiFoodTileRescueRunner.Run(E,0)
           assert(W.props.FOOD_TEST_V1.records['458758'].stage=='OBSERVED' and #W.requests==1)''')
 
