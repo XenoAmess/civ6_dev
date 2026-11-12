@@ -1,0 +1,188 @@
+{
+  "schema": "civ6.congress-readiness-model667/v1",
+  "utc": "2026-11-12T04:35:09.807447+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 129,
+  "product_files_changed": 0,
+  "model667": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "usage": {
+      "prompt_tokens": 3116,
+      "completion_tokens": 1136,
+      "total_tokens": 4252
+    },
+    "total_ms": 7129.364499822259,
+    "json_syntax": {
+      "status": "VALID",
+      "top_level_type": "object",
+      "reason": "COMPLETE_STOP_JSON",
+      "error": null,
+      "offset_units": "Unicode code points",
+      "max_utf8_bytes": 1048576,
+      "semantic_review": "OWNER_REVIEW_REQUIRED"
+    }
+  },
+  "review": {
+    "raw_base_malformed_failures": [
+      {
+        "input": "ui_none",
+        "error": "TypeError"
+      },
+      {
+        "input": "ui_missing",
+        "error": "KeyError"
+      },
+      {
+        "input": "scene_none",
+        "error": "TypeError"
+      },
+      {
+        "input": "scene_missing",
+        "error": "KeyError"
+      }
+    ],
+    "adoption": "Candidate classification plus skip unsafe base indexing after UNKNOWN; still validate every modal field",
+    "raw_native_calls": 0
+  },
+  "targeted_tests": {
+    "new_methods": 10,
+    "passed": 10
+  },
+  "native_blocked": {
+    "target": 292,
+    "actual_turn_all_contexts": 291,
+    "local_player_all": 0,
+    "aligned_owned_scope_all": true,
+    "outcome": {
+      "status": "MODAL_BLOCKED",
+      "qualified": false,
+      "reason": "visible_world_congress"
+    },
+    "UI": {
+      "local_player": 0,
+      "turn": 291,
+      "active": true,
+      "allowed": false,
+      "busy": false,
+      "messages": false,
+      "can_end_turn": true
+    },
+    "LeaderScene_hidden": true,
+    "congress": [
+      {
+        "local_player": 0,
+        "turn": 291,
+        "hidden": true,
+        "context": "WorldCongressPopup"
+      },
+      {
+        "local_player": 0,
+        "turn": 291,
+        "hidden": true,
+        "context": "WorldCongressBetweenTurns"
+      },
+      {
+        "local_player": 0,
+        "turn": 291,
+        "hidden": false,
+        "context": "WorldCongressIntro"
+      }
+    ],
+    "serial_queries": 5,
+    "elapsed_seconds": 2.5239950998220593,
+    "self_issued_game_orders": 0
+  },
+  "after_original_test_player_dialogue": {
+    "actual_ready292": {
+      "status": "READY",
+      "qualified": true,
+      "reason": "ready"
+    },
+    "normal_END290_and291_each_once": true,
+    "military_SKIP": 14,
+    "UserForced": 0,
+    "congress290": {
+      "votes": [
+        {
+          "resolution": "WorldIdeology",
+          "outcome": "A",
+          "target": "Democracy",
+          "votes": 1
+        },
+        {
+          "resolution": "MigrationTreaty",
+          "outcome": "A",
+          "target": "Canada",
+          "votes": 1
+        },
+        {
+          "resolution": "DiplomaticVictory",
+          "outcome": "A",
+          "target": "Baiqi",
+          "votes": 1
+        }
+      ],
+      "favor_cost": 0,
+      "submitted_once": true,
+      "original_close_after_all_submitted": true
+    },
+    "special291": {
+      "proposal": "Military emergency against Brazil after Rome captured",
+      "reject_votes": 1,
+      "favor_cost": 0,
+      "submitted_once": true,
+      "joined_emergency_or_declared_war": false,
+      "original_close_after_all_submitted": true
+    },
+    "not_BACKGROUND_diplomacy_or_domestic_evidence": true,
+    "292_food_vitals_pass_11cities": true,
+    "Xingzhou_population": 11,
+    "Xingzhou_original_Manhattan_progress": [
+      497,
+      500
+    ],
+    "Cybernetics_progress291": [
+      184.4453125,
+      1100
+    ],
+    "Cybernetics_progress292": [
+      374.58984375,
+      1100
+    ]
+  },
+  "private_monitor": {
+    "complete_three_modal_set_required": true,
+    "five_contexts_serial_and_scope_turn_aligned": true,
+    "all_fields_validated_before_visible_modal_classification": true,
+    "strict_frame_parser_unchanged": true,
+    "automatic_clicks_or_END_retries": 0,
+    "READY_is_action_permission": false,
+    "new_module_integrated_only_into_ignored_test_driver": true
+  },
+  "cumulative": {
+    "logical_calls": 667,
+    "complete": 621,
+    "length_failures": 43,
+    "transport_failures": 3,
+    "HTTP_attempts": 697,
+    "additional_attempts": 30,
+    "new_call_actual_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "maintenance": {
+    "date": "2026-11-12",
+    "OpenCode": "1.19.5",
+    "same_machine_user_success_cache_reused": true
+  },
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82,
+  "still_open": [
+    "Cybernetics/PredictiveSystems, offshore construction and durable power",
+    "Positive-fuel project Native priority case",
+    "Food phase and historical matrix"
+  ]
+}

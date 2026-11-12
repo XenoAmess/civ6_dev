@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [667世界议会实际阻挡与292](testing/baiqi-congress-readiness-model667.md)：完整4252tokens候选4个坏base抛错见证后窄采用；10新测试、实际5context291同scope/玩家/turn且Intro可见→MODAL_BLOCKED，原版反对军事紧急状况并关闭后独立292 READY。普通290议会3免费票，特殊291反对1免费票，0外交支持／宣战／END重发。控制论374.58984375/1100，11城food/vitals通过；累计667／621完整43length3transport697HTTP30extra，原生0/成本null。
+
 2026-11-12 新增 [666只读就绪分类与290](testing/baiqi-readiness-model666.md)：完整2966tokens候选复现3处大整数溢出和2个producer漏实际玩家；只采用分类逻辑加保护，Owner补实际字段。11项针对测试、首次双context实际290 READY；NPC实机分支仍待遇到。核聚变自然完成接控制论0/1100、广州核电站自然完成，燃料0不授持续供电。累计666／620完整43length3transport696HTTP30extra，原生0／成本null。
 
 2026-11-12 新增 [287自然激光完成与665写入前证据](testing/baiqi-fusion287-power-prewrite-model665.md)：激光自然拥有、海上goal74接核聚变66／0/862，4普通END／28军SKIP／毛利再见1点击；Native帧异常独立重新资格读286而不重发END。665完整6234tokens却全局污染／虚构接口等整拒，Owner10组后临时包装7个Native项目快照全为零燃料、0drop/错，并匹配队列读回，未授正库存分支通过；包装已恢复再存287。累计665／619完整43length3transport695HTTP30extra，原生0／成本null。[证据](research/baiqi-p6-native129-fusion287-power-trace665-2026-11-12.json)。
