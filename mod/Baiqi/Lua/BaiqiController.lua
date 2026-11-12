@@ -246,27 +246,38 @@ local function BuilderAdjacentTarget(ctx,player,unit,plot,hash,expected)
   if ok then return result end
 end
 
-local function FeatureAllowedForDistrict(districtRow, featureIndex)
-  if not BaiqiPolicy.Number(featureIndex) or featureIndex<0 or featureIndex%1~=0 then return false end
-  if type(districtRow)~="table" and type(districtRow)~="userdata" then return false end
-  if not BaiqiPolicy.Number(districtRow.Index) or districtRow.Index<0 or districtRow.Index%1~=0
-    or districtRow.DistrictType~="DISTRICT_DAM" then return false end
-  if type(GameInfo.Features)~="table" and type(GameInfo.Features)~="userdata" then return false end
-  local row=GameInfo.Features[featureIndex]
-  if (type(row)~="table" and type(row)~="userdata") or row.Index~=featureIndex then return false end
-  -- Dams require these floodplains in the shipped Gathering Storm data.
-  -- This allows normal district placement, never a separate feature removal.
-  local allowed={FEATURE_FLOODPLAINS=true,FEATURE_FLOODPLAINS_GRASSLAND=true,
-    FEATURE_FLOODPLAINS_PLAINS=true}
-  return type(row.FeatureType)=="string" and allowed[row.FeatureType]==true
+local function FeatureAllowedForDistrict(districtRow, featureIndex, city)
+  -- Optional metadata and growth ports may throw; decline this placement only.
+  local ok,allowed=pcall(function()
+    if not BaiqiPolicy.Number(featureIndex) or featureIndex<0 or featureIndex%1~=0 then return false end
+    if type(districtRow)~="table" and type(districtRow)~="userdata" then return false end
+    if not BaiqiPolicy.Number(districtRow.Index) or districtRow.Index<0 or districtRow.Index%1~=0 then return false end
+    if type(GameInfo.Features)~="table" and type(GameInfo.Features)~="userdata" then return false end
+    local row=GameInfo.Features[featureIndex]
+    if (type(row)~="table" and type(row)~="userdata") or row.Index~=featureIndex then return false end
+    if districtRow.DistrictType=="DISTRICT_DAM" then
+      local allowed={FEATURE_FLOODPLAINS=true,FEATURE_FLOODPLAINS_GRASSLAND=true,
+        FEATURE_FLOODPLAINS_PLAINS=true}
+      return type(row.FeatureType)=="string" and allowed[row.FeatureType]==true
+    end
+    if districtRow.DistrictType=="DISTRICT_NEIGHBORHOOD" and city then
+      local ok, housing, population = pcall(function()
+        return city:GetGrowth():GetHousing(), city:GetPopulation()
+      end)
+      if not ok then return false end
+      return BaiqiPlanner.NeighborhoodFeatureAllowed(row.FeatureType, row.Removable, row.NaturalWonder, housing, population)
+    end
+    return false
+  end)
+  return ok and allowed==true
 end
 
-local function ClearPlot(plot, state, player, districtRow)
+local function ClearPlot(plot, state, player, districtRow, city)
   if not (Revealed(plot) and not plot:IsCity()
     and not plot:IsNaturalWonder() and not plot:IsNationalPark()
     and plot:GetDistrictType() == -1 and not ResourceVisible(plot, player)) then return false end
   local feature=plot:GetFeatureType()
-  if feature~=-1 and not FeatureAllowedForDistrict(districtRow,feature) then return false end
+  if feature~=-1 and not FeatureAllowedForDistrict(districtRow,feature,city) then return false end
   local improvement=plot:GetImprovementType()
   if improvement == -1 then return true end
   if not BaiqiPolicy.Number(improvement) or improvement<0 or improvement%1~=0 then return false end
@@ -3700,10 +3711,18 @@ local function ProcessCity(ctx, player, state, city)
       elseif row.DistrictType~="DISTRICT_NEIGHBORHOOD" or NeighborhoodWanted(city) then
         local boosted=firstHolySite and row.DistrictType=="DISTRICT_HOLY_SITE"
         local priority=boosted and 92 or (districtPriority[row.DistrictType] or 35)
+        if row.DistrictType == "DISTRICT_NEIGHBORHOOD" then
+          local ok, housing, population = pcall(function()
+            return city:GetGrowth():GetHousing(), city:GetPopulation()
+          end)
+          if ok then
+            priority = BaiqiPlanner.HousingProductionScore(priority, housing, population)
+          end
+        end
         priority=BaiqiPlanner.AmenityProductionScore(priority,row.Entertainment,amenities,amenitiesNeeded)
         for _, index in ipairs(plots) do
           local plot=Map.GetPlotByIndex(index)
-          if plot and plot:GetOwner()==ctx.player and ClearPlot(plot,state,player,row)
+          if plot and plot:GetOwner()==ctx.player and ClearPlot(plot,state,player,row,city)
             and plot:CanHaveDistrict(row.Index,ctx.player,city:GetID())
             and DistrictFoodAllows(city,plot,planningFood) then
             Add("district",row,priority,false,{x=plot:GetX(),y=plot:GetY()},boosted)
@@ -3817,7 +3836,7 @@ local function ProcessCity(ctx, player, state, city)
     if choice.kind~="district" or not row or row.Hash~=choice.hash or not plot
       or plot:GetX()~=x or plot:GetY()~=y
       or plot:CanHaveDistrict(row.Index,latest.player,cityID)~=true
-      or plot:GetOwner()~=latest.player or not ClearPlot(plot,latestState,latestPlayer,row) then return false end
+      or plot:GetOwner()~=latest.player or not ClearPlot(plot,latestState,latestPlayer,row,city) then return false end
     if not DistrictFoodAllows(city,plot,{}) then
       cityEvaluated[cityID]=nil
       Reason("placement_food_changed:"..cityID,"工作粮食已变化，重新安排区域选址")

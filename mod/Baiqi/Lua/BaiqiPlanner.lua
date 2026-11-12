@@ -154,3 +154,21 @@ function BaiqiPlanner.Transition(stage, event, proof)
   if stage == "SUBMITTED" and event == "UNKNOWN" then return "UNKNOWN", "freeze" end
   return stage, "blocked"
 end
+
+-- Optional housing hints do not grant production or feature-removal permission.
+function BaiqiPlanner.NeighborhoodFeatureAllowed(featureType, removable, naturalWonder, housing, population)
+  if featureType ~= "FEATURE_FOREST" and featureType ~= "FEATURE_JUNGLE" then return false end
+  if removable ~= true or naturalWonder ~= false then return false end
+  if not BaiqiPolicy.Number(housing) or housing < 0 then return false end
+  if not BaiqiPolicy.Number(population) or population <= 0 then return false end
+  if housing >= population then return false end
+  return true
+end
+
+function BaiqiPlanner.HousingProductionScore(base, housing, population)
+  if not BaiqiPolicy.Number(base) then return base end
+  if not BaiqiPolicy.Number(housing) or housing < 0 then return base end
+  if not BaiqiPolicy.Number(population) or population <= 0 then return base end
+  if housing < population then return math.max(base, 93) end
+  return base
+end
