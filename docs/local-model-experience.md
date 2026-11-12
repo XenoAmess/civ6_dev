@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [128可落地供电前置与659—661](testing/baiqi-power-prerequisite-path-128.md)：三真实HTTP峰值3、原Core硬编码坐标／原planner未调桥或path／原测试9setup错误均隔离整拒；Owner实现只读Core资格桥与有空场址的实际路径下一步规划，保护正进度及pending不重发。20新Lua51方法、旧127三方法4断言失败0异常；首次全量因途中端口修正哈希不一致被拒，冻结重跑1838pass1SDKskip、97Lua119包，待正式128冷验。Core player.IsHuman已内联只读实证，config该端口nil。累计661/615完整43length3transport691HTTP30extra，维护缓存复用、原生0、未知成本null。[证据](research/baiqi-p6-source128-power-path-software-2026-11-12.json)。
+
 2026-11-12 新增 [658实际研究路径与UI端口](testing/baiqi-offshore-research-path278-model658.md)：仍127／278，海上风电引擎路径56→61→66→72→74，三条路径10项实为Index表；塑料正进度未改。UI ImprovementBuilder=nil，不能挪用Core适用端口。658 length整拒未读正文，Owner独立受保护只读诊断；累计658／612完整／43length／3transport／688HTTP／30extra，后续3个真实实现任务并行。[证据](research/baiqi-p6-native127-research-path658-2026-11-12.json)。
 
 2026-11-12 新增 [657海上风电地块与科技缺口](testing/baiqi-renewable-sites278-model657.md)：127／278，218购买格×4实际team适用性872次，海上风电32真／186假，其他三项全假，均0未知；未拥有科技不阻断该只读适用性，不能授建造。657完整14247tokens，缺全局端口在pcall之前抛出被隔离复现，Owner9组后接入；塑料正进度保持，继续658实际前置路径诊断。累计657／612完整／42length／3transport／687HTTP／30extra，未知成本null。[证据](research/baiqi-p6-native127-renewable-sites657-2026-11-12.json)。

@@ -29,6 +29,15 @@ local t=p:GetTechs();local has=t.HasTech;local can=t.CanResearch;local cost=t.Ge
 t.HasTech=function(self,i)if i>=70 and i<=73 then return w.power.owned[i]==true end;return has(self,i)end
 t.CanResearch=function(self,i)if i>=70 and i<=73 then return w.power.can[i]end;return can(self,i)end
 t.GetResearchCost=function(self,i)if i>=70 and i<=73 then return w.power.costs[i]end;return cost(self,i)end
+local oldPath=t.GetResearchPath
+t.GetResearchPath=function(self,h)if h>=770 and h<=773 then if w.pathShock then w.pathShock()end;return {h-700}end;return oldPath(self,h)end
+Map.GetCityPlots=function()return {GetPurchasedPlots=function()return {100}end}end
+local plot={GetIndex=function()return 100 end,GetOwner=function()return TestFlood.owner end,
+ GetX=function()return 8 end,GetY=function()return 3 end,
+ GetImprovementType=function()return -1 end,GetDistrictType=function()return -1 end}
+Map.GetPlotByIndex=function(id)if id==100 then return plot end end
+ExposedMembers={BaiqiPowerSitesBridge={marker='baiqi-power-sites-v1',version=1,
+ CanHave=function(pid,turn,id,city,kind)return pid==7 and turn==w.turn and id==100 and city==66 end}}
 ''')
         override=os.environ.get('BAIQI_POWER_RESEARCH_ADMIN')
         if override:
@@ -40,7 +49,7 @@ t.GetResearchCost=function(self,i)if i>=70 and i<=73 then return w.power.costs[i
             with self.subTest(current=current):
                 self.setUp();self.w.tech=current;self.a.Run();self.a.Run()
                 self.assertEqual(len(self.w.requests),1)
-                r=self.w.requests[1];self.assertEqual((r.pid,r.op,r.params.tech[1],r.params.mode),(7,1,770,3))
+                r=self.w.requests[1];self.assertEqual((r.pid,r.op,r.params.tech[1],r.params.mode),(7,1,70,3))
 
     def test_positive_unknown_and_invalid_current_progress_is_preserved(self):
         for value in (1,None,-1,float('inf'),float('nan')):
@@ -65,9 +74,9 @@ t.GetResearchCost=function(self,i)if i>=70 and i<=73 then return w.power.costs[i
 
     def test_current_metadata_and_actual_cost_choose_goal_without_fixed_tech_names(self):
         self.lua.execute("GameInfo.Improvements.IMPROVEMENT_SOLAR_FARM.PrereqTech='TECH_POWER_2';TestAdmin.power.can[71]=true")
-        self.a.Run();self.assertEqual(len(self.w.requests),1);self.assertEqual(self.w.requests[1].params.tech[1],771)
+        self.a.Run();self.assertEqual(len(self.w.requests),1);self.assertEqual(self.w.requests[1].params.tech[1],71)
         self.setUp();self.lua.execute('TestAdmin.power.can[71]=true;TestAdmin.power.costs[71]=50')
-        self.a.Run();self.assertEqual(len(self.w.requests),1);self.assertEqual(self.w.requests[1].params.tech[1],771)
+        self.a.Run();self.assertEqual(len(self.w.requests),1);self.assertEqual(self.w.requests[1].params.tech[1],71)
 
     def test_city_iteration_without_any_demand_is_bounded(self):
         self.lua.execute('''local w=TestAdmin;w.can=false;w.power.free=8;w.visits=0;local c=TestFlood.cities[1]

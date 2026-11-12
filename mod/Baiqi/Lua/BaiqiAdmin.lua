@@ -101,36 +101,116 @@ local function PowerResearchChoice(E,pid,turn)
       local power=c:GetPower();local free,required=power:GetFreePower(),power:GetRequiredPower()
       return finite(free)and free>=0 and finite(required)and required>free
     end
-    local demand;local count=0
+    local bridge=E.ExposedMembers and E.ExposedMembers.BaiqiPowerSitesBridge
+    if type(bridge)~='table'or bridge.marker~='baiqi-power-sites-v1'or bridge.version~=1
+      or type(bridge.CanHave)~='function'then return nil end
+    local inspect=bridge.CanHave
+    local function bridgeStable()
+      return E.ExposedMembers.BaiqiPowerSitesBridge==bridge and bridge.marker=='baiqi-power-sites-v1'
+        and bridge.version==1 and bridge.CanHave==inspect
+    end
+    local sites,count,total={},0,0
+    local cityPlots=E.Map.GetCityPlots()
     for _,city in p:GetCities():Members()do
       count=count+1;if count>256 then return nil end
       local id,x,y=city:GetID(),city:GetX(),city:GetY()
       if integer(id)and id>=0 and integer(x)and x>=0 and integer(y)and y>=0 and city:GetOwner()==pid and cityDemand(id,x,y)then
-        demand={id=id,x=x,y=y};break
+        local purchased=cityPlots:GetPurchasedPlots(city);if type(purchased)~='table'then return nil end
+        local raw=0
+        for _,plotID in pairs(purchased)do
+          raw=raw+1;total=total+1;if raw>128 or total>1024 then return nil end
+          if not integer(plotID)or plotID<0 then return nil end
+          local plot=E.Map.GetPlotByIndex(plotID)
+          if plot and plot:GetIndex()==plotID and plot:GetOwner()==pid then
+            local px,py=plot:GetX(),plot:GetY()
+            if integer(px)and px>=0 and integer(py)and py>=0
+              and E.PlayersVisibility[pid]:IsVisible(px,py)==true and E.PlayersVisibility[pid]:IsRevealed(px,py)==true
+              and plot:GetImprovementType()==-1 and plot:GetDistrictType()==-1 then
+              sites[#sites+1]={city=id,x=x,y=y,sitePlot=plotID,siteX=px,siteY=py}
+            end
+          end
+        end
       end
     end
-    if not demand then return nil end
+    table.sort(sites,function(a,b)if a.city~=b.city then return a.city<b.city end;return a.sitePlot<b.sitePlot end)
+    if #sites==0 then return nil end
+    local function pathChoice(goal)
+      local path=techs:GetResearchPath(goal.Hash)
+      if type(path)~='table'then return nil end
+      local n,maximum=0,0
+      for k in pairs(path)do
+        n=n+1;if n>128 or not integer(k)or k<1 or k>128 then return nil end
+        maximum=math.max(maximum,k)
+      end
+      if n==0 or maximum~=n or path[n]~=goal.Index then return nil end
+      local seen,nextStep,remaining,signature={},nil,0,{}
+      for i=1,n do
+        local index=path[i]
+        if not integer(index)or index<0 or seen[index]then return nil end;seen[index]=true
+        local row=E.GameInfo.Technologies[index]
+        if not row or row.Index~=index or type(row.TechnologyType)~='string'or row.TechnologyType==''or not integer(row.Hash)then return nil end
+        if i==n and(row.Hash~=goal.Hash or row.TechnologyType~=goal.TechnologyType)then return nil end
+        local has,can=techs:HasTech(index),techs:CanResearch(index)
+        local progress,cost=techs:GetResearchProgress(index),techs:GetResearchCost(index)
+        if type(has)~='boolean'or type(can)~='boolean'or not finite(cost)or cost<=0
+          or not finite(progress)or progress<0 or progress>cost then return nil end
+        signature[#signature+1]=index..':'..row.Hash..':'..row.TechnologyType..':'..tostring(has)..':'..tostring(can)..':'..progress..':'..cost
+        if not has then
+          if not nextStep then
+            if not can then return nil end
+            nextStep={index=index,hash=row.Hash,type=row.TechnologyType,cost=cost}
+          end
+          remaining=remaining+cost-progress
+          if not finite(remaining)then return nil end
+        end
+      end
+      if not nextStep or remaining<=0 then return nil end
+      nextStep.remaining=remaining;nextStep.pathSignature=table.concat(signature,';')
+      return nextStep
+    end
     local best
     for _,name in ipairs({'IMPROVEMENT_SOLAR_FARM','IMPROVEMENT_WIND_FARM','IMPROVEMENT_GEOTHERMAL_PLANT','IMPROVEMENT_OFFSHORE_WIND_FARM'})do
       local imp=E.GameInfo.Improvements[name]
       if not imp or imp.ImprovementType~=name or type(imp.PrereqTech)~='string'or imp.PrereqTech==''then return nil end
       local row=E.GameInfo.Technologies[imp.PrereqTech]
       if not row or row.TechnologyType~=imp.PrereqTech or not integer(row.Index)or row.Index<0 or not integer(row.Hash)then return nil end
-      if techs:HasTech(row.Index)==false and techs:CanResearch(row.Index)==true then
-        local cost=techs:GetResearchCost(row.Index)
-        if not finite(cost)or cost<=0 then return nil end
-        if not best or cost<best.cost or(cost==best.cost and row.Index<best.index)then
-          best={index=row.Index,hash=row.Hash,type=row.TechnologyType,cost=cost,improvement=name}
+      local has=techs:HasTech(row.Index);if type(has)~='boolean'then return nil end
+      if not has then
+        local plan=pathChoice(row)
+        if plan then
+          for _,site in ipairs(sites)do
+            if not bridgeStable()then return nil end
+            local suitable=inspect(pid,turn,site.sitePlot,site.city,name)
+            if suitable~=nil and type(suitable)~='boolean'then return nil end
+            if suitable==true then
+              if not best or plan.remaining<best.remaining
+                or(plan.remaining==best.remaining and row.Index<best.goalIndex)then
+                best=plan
+                for k,v in pairs(site)do best[k]=v end
+                best.improvement=name;best.goalIndex=row.Index;best.goalHash=row.Hash;best.goalType=row.TechnologyType
+              end
+              break
+            end
+          end
         end
       end
     end
     if not best then return nil end
     context()
-    if not emptyFuel()or not cityDemand(demand.id,demand.x,demand.y)then return nil end
-    local imp=E.GameInfo.Improvements[best.improvement];local row=E.GameInfo.Technologies[best.type]
-    if not imp or imp.PrereqTech~=best.type or not row or row.TechnologyType~=best.type or row.Index~=best.index or row.Hash~=best.hash
-      or techs:HasTech(best.index)~=false or techs:CanResearch(best.index)~=true or techs:GetResearchCost(best.index)~=best.cost then return nil end
-    context();best.city=demand.id;best.x=demand.x;best.y=demand.y
+    if not emptyFuel()or not cityDemand(best.city,best.x,best.y)or not bridgeStable()then return nil end
+    local plot=E.Map.GetPlotByIndex(best.sitePlot)
+    if not plot or plot:GetIndex()~=best.sitePlot or plot:GetOwner()~=pid or plot:GetX()~=best.siteX or plot:GetY()~=best.siteY
+      or plot:GetImprovementType()~=-1 or plot:GetDistrictType()~=-1
+      or E.PlayersVisibility[pid]:IsVisible(best.siteX,best.siteY)~=true or E.PlayersVisibility[pid]:IsRevealed(best.siteX,best.siteY)~=true then return nil end
+    local imp=E.GameInfo.Improvements[best.improvement];local goal=E.GameInfo.Technologies[best.goalType]
+    if not imp or imp.PrereqTech~=best.goalType or not goal or goal.TechnologyType~=best.goalType
+      or goal.Index~=best.goalIndex or goal.Hash~=best.goalHash or techs:HasTech(goal.Index)~=false then return nil end
+    local latest=pathChoice(goal)
+    if not latest then return nil end
+    for _,key in ipairs({'index','hash','type','cost','remaining','pathSignature'})do if best[key]~=latest[key]then return nil end end
+    if inspect(pid,turn,best.sitePlot,best.city,best.improvement)~=true or not bridgeStable()then return nil end
+    if not emptyFuel()or not cityDemand(best.city,best.x,best.y)then return nil end
+    context();best.bridge=bridge;best.inspect=inspect
     return best
   end)
   if ok then return choice end
@@ -139,7 +219,7 @@ end
 local function PowerTechnology(pid)
   return PowerResearchChoice({Game=Game,Players=Players,PlayerConfigurations=PlayerConfigurations,
     GameConfiguration=GameConfiguration,UI=UI,GameInfo=GameInfo,PlayersVisibility=PlayersVisibility,
-    leader=BaiqiConfig.leader},pid,turn)
+    Map=Map,ExposedMembers=ExposedMembers,leader=BaiqiConfig.leader},pid,turn)
 end
 local function Research(pid,player,techs)
   if pendingResearch then
@@ -184,9 +264,17 @@ local function Research(pid,player,techs)
   if power then
     local latest=PowerTechnology(pid)
     if not latest then return end
-    for _,key in ipairs({"city","x","y","index","hash","type","cost","improvement"})do
+    for _,key in ipairs({"city","x","y","index","hash","type","cost","improvement",
+      "goalIndex","goalHash","goalType","sitePlot","siteX","siteY","remaining","pathSignature","bridge","inspect"})do
       if power[key]~=latest[key] then return end
     end
+    -- Only the immediately researchable step is submitted, never a future queue.
+    local count=0
+    for key,value in pairs(path)do
+      count=count+1
+      if count>1 or key~=1 or value~=row.Index then return end
+    end
+    if count~=1 then return end
   end
   if techs:HasTech(row.Index)~=false or techs:CanResearch(row.Index)~=true
     or techs:GetResearchingTech()~=current or (current>=0 and techs:GetResearchProgress(current)~=0)
@@ -194,7 +282,8 @@ local function Research(pid,player,techs)
   Once("tech:"..row.Index,function()
     pendingResearch={player=pid,index=row.Index,hash=row.Hash,turn=turn}
     if floodCity then print("BAIQI|flood_research_request|turn="..turn.."|city="..floodCity.."|index="..row.Index) end
-    if power then print("BAIQI|power_research_request|turn="..turn.."|city="..power.city.."|index="..row.Index.."|improvement="..power.improvement) end
+    if power then print("BAIQI|power_research_request|turn="..turn.."|city="..power.city.."|index="..row.Index
+      .."|improvement="..power.improvement.."|goal="..power.goalIndex.."|plot="..power.sitePlot) end
     UI.RequestPlayerOperation(pid,PlayerOperations.RESEARCH,
       {[PlayerOperations.PARAM_TECH_TYPE]=path,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE})
   end)
