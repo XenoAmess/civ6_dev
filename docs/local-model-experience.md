@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [129煤2同283正式冷验](testing/baiqi-positive-fuel-cold283-129.md)：119匹配／新鲜离线后原128档一次冷读，后台唯一海上goal74／site2789→激光61请求并观察，0END／人工研究，当前0/740；全部队列、各世界组、11城food／vitals和5滑雪场保持。221购买格复用Owner657做884实际适用读，海上32真其余0，0新HTTP不重计模型。129结果已存，继续普通回合与正燃料项目／持续供电。[证据](research/baiqi-p6-native129-positive-coal-laser283-2026-11-12.json)。
+
 2026-11-12 新增 [129正燃料与实际供电缺口](testing/baiqi-positive-fuel-power-129.md)：采用664已审阅Planner窄hunk，Admin有限非负＋真实gap／两个bool由Owner收紧；10新Lua51方法过，精确旧128四方法6断言失败0异常，冻结全量1858项1857pass1SDKskip／97Lua119包。0新HTTP不重计663664，待同283煤2／57进度0冷验，持续供电仍开放。[证据](research/baiqi-p6-source129-positive-fuel-power-software-2026-11-12.json)。
 
 2026-11-12 新增 [283煤到货后的持续供电缺口与663／664](testing/baiqi-coal-arrival-power-gap283-128.md)：核裂变自然完成、煤2令路线中断，24资源getter／11城／33电厂字段全资格，煤积累3耗电1，邢州燃料供电、10城仍project-only。663 continue等整拒，Owner7组后只读；664 Admin3反例拒，Planner完整原模块12形态验证可窄采用。提示误读formation为charges已用完整日志纠正，煤来源未归因。累计664／618完整／43length／3transport／694HTTP／30extra，原生0／成本null，继续129修复。[证据](research/baiqi-p6-native128-coal-power-gap283-model663664-2026-11-12.json)。
