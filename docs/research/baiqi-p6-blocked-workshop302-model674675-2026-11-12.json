@@ -1,0 +1,236 @@
+{
+  "schema": "civ6.blocked-workshop302674675/v1",
+  "utc": "2026-11-12T07:33:08.444214+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 130,
+  "actual_turn": 302,
+  "END302": 0,
+  "native_blocked_repair": {
+    "Xiurong": 524295,
+    "population": 15,
+    "food_stock": 77.640625,
+    "food_surplus": 9,
+    "one_queue_current_hash": 0,
+    "entry": {
+      "Directive": 1,
+      "BuildingType": 18,
+      "Modifiers": 0,
+      "Location": [
+        -9999,
+        -9999
+      ]
+    },
+    "building": {
+      "Index": 18,
+      "Hash": 1738306535,
+      "BuildingType": "BUILDING_WORKSHOP",
+      "HasBuilding": true,
+      "IsPillaged": true,
+      "progress": 72,
+      "cost": 97,
+      "CanProduce_first_returns": [
+        true,
+        false
+      ]
+    },
+    "district": {
+      "Index": 9,
+      "Hash": -1698135861,
+      "HasDistrict": true,
+      "IsPillaged": true,
+      "progress": 90,
+      "cost": 121,
+      "CanProduce_first_returns": [
+        true,
+        true
+      ]
+    },
+    "native_PREPEND_district_repair_CanStartOperation_first_return": true,
+    "automatic_new_repair_requests302": 0,
+    "existing_legacy_block": "BlockedIdleHead rejects HasBuilding true; current Workshop repair is an already-owned asset",
+    "industrial_district301_302_pillaged": [
+      false,
+      true
+    ],
+    "cause_of_repeated_damage": null,
+    "existing_project_progress_cost": [
+      143,
+      157
+    ]
+  },
+  "four_real_offshore": {
+    "purchased_visible_own_plots": 227,
+    "unpillaged_plots": [
+      1901,
+      2132,
+      2133,
+      2134
+    ],
+    "Shanghai_free_required": [
+      2,
+      5
+    ],
+    "Xiurong_free_required": [
+      4,
+      3
+    ],
+    "Xiurong_fullyPowered": true,
+    "Xiurong_fullyPoweredByActiveProject": false,
+    "Shenyang_free_required": [
+      2,
+      2
+    ],
+    "Shenyang_fullyPoweredByActiveProject": true,
+    "original2132_cross_turn_preserved": true,
+    "whole_durable_power_matrix_not_passed": true
+  },
+  "turn301": {
+    "normal_END_requests": 2,
+    "military_SKIP": 7,
+    "first_END_ack_did_not_advance_turn": true,
+    "independent_same301_world_city_assets_equal": true,
+    "two_builder_and13_original_trader_moves_completed": true,
+    "all52_unit_queue_getters_success_single_nil": true,
+    "fresh_remaining_military_SKIP_all_false": true,
+    "new_original_queue_settled_END_then_actual302_READY": true,
+    "UserForced": 0,
+    "owner_initial_only_two_unit_changes_assertion_rejected_before_input_then_corrected_from13_traders": true
+  },
+  "population": {
+    "result": {
+      "status": "NO_LOSS",
+      "qualified": true,
+      "reason": "no_population_loss",
+      "losses": [],
+      "new_city_ids": [],
+      "causal_conclusion": null
+    },
+    "known_open_historical_losses": [
+      {
+        "cityID": 655369,
+        "interval": [
+          293,
+          294
+        ],
+        "delta": -1,
+        "cause": null
+      },
+      {
+        "cityID": 524295,
+        "interval": [
+          299,
+          300
+        ],
+        "delta": -3,
+        "cause": null
+      }
+    ],
+    "current_metadata_domains": {
+      "all_queue_metadata_known": false,
+      "unresolved_nonpopulation_metadata_count": 1,
+      "status": "KNOWN"
+    },
+    "game_orders": 0
+  },
+  "new130_stop_marker": true,
+  "save302": {
+    "name": "Baiqi_P6_20261112_V130_BlockedWorkshop302.Civ6Save",
+    "bytes": 2327250,
+    "sha256": "91ae21103401db2552fb3f03fad4ff2f48e27de7fa5d182b9ded92cad4981b77"
+  },
+  "models": {
+    "674": {
+      "usage": {
+        "prompt_tokens": 23486,
+        "completion_tokens": 3049,
+        "total_tokens": 26535
+      },
+      "total_ms": 27495.78749993816,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "675": {
+      "usage": {
+        "prompt_tokens": 23538,
+        "completion_tokens": 2236,
+        "total_tokens": 25774
+      },
+      "total_ms": 24277.34120003879,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    }
+  },
+  "review": {
+    "utc": "2026-11-12T07:31:27.161560+00:00",
+    "model674_whole_rejected": true,
+    "raw674_blocked_head_compiles_Lua51": true,
+    "raw674_old_building_tests": 13,
+    "raw674_old_building_assertion_failures": 17,
+    "raw674_old_building_errors": 0,
+    "raw674_fault": "Replaces legacy unowned-building branch with owned/pillaged-only branch despite explicit preserve requirement; new subtype also omits strict BuildingType and nonzero-hash validation",
+    "raw674_other_segments": "QueueReady/filter/readback building_repair hunk is a partial-adoption candidate, not applied or final-product tested yet",
+    "raw675_whole_rejected": true,
+    "raw675_methods": 15,
+    "raw675_assertion_failures": 4,
+    "raw675_errors": 0,
+    "raw675_explicit_fixture_inclusion_exclusion": [
+      true,
+      true
+    ],
+    "raw675_recursive_fallback_pcall_success": null,
+    "raw675_semantic_faults": [
+      "CanProduce returns true for both modes; actual blocked contract requires true/false",
+      "Several negative tests never run the controller",
+      "not-owned test is a pass placeholder",
+      "Overrides q.CanProduce and d.HasDistrict then recursively calls the override instead of saved original on fallback",
+      "Workshop metadata not added to callable building enumeration, so ProcessCity does not scan its actual row"
+    ],
+    "owner_corrections": [
+      "Review helper incorrectly expected setup errors; actual raw675 ran15 with4 assertion failures,0 errors. Initial helper stopped before review record; source/native unchanged.",
+      "Fixture queues/current/cities exist in actual supplied parent. Owner earlier suspicion of absent shape withdrawn; semantic CanProduce/recursive fallback faults explicitly witnessed."
+    ],
+    "raw_candidate_Native_calls": 0,
+    "product_source_writes": 0
+  },
+  "review_addendum": {
+    "owner_recursive_fallback_probe": "Pure Lua fixture fallback evaluation did not terminate and was interrupted via its owned exec session. No completed runtime result for that probe; recursive tail-call defect is a source finding. Candidate controller had no Native execution.",
+    "earlier_owner_active_seconds": null
+  },
+  "owner_bad_BUILDING_enum_assert_before_readonly_qualification_then_corrected": true,
+  "through675": {
+    "logical_calls": 675,
+    "complete": 629,
+    "length_failures": 43,
+    "transport_failures": 3,
+    "HTTP_attempts": 705,
+    "additional_attempts": 30,
+    "actual_peak_new_HTTP_inflight": 2,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null,
+    "new_HTTP_overlap_seconds": 24.20032
+  },
+  "daily_maintenance": "Same-machine same-user 2026-11-12 OpenCode1.19.5 successful cache reused; no upgrade or native generation",
+  "next": "Owner preserve legacy building/project paths, review narrow674 hunks, implement invested owned-building-repair prerequisite path with real regressions; source131 not yet written or tested",
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82
+}
