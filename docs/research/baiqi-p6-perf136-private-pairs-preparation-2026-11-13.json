@@ -1,0 +1,195 @@
+{
+  "schema": "civ6.perf136-private-pair-preparation/v1",
+  "utc": "2026-11-12T19:03:08.641056+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 136,
+  "product_source_commit": "ec7acbe8c77545015414c5d40eb29b31e12a4721",
+  "files_per_variant": 119,
+  "Lua51_compiled_per_variant": {
+    "enabled": 97,
+    "control": 97
+  },
+  "zip_byte_exact": true,
+  "source_unchanged": true,
+  "clock_prefix_equal": true,
+  "variants": {
+    "enabled": {
+      "changed_files": [
+        "UI/BaiqiExecutor.lua"
+      ],
+      "archive_sha256": "36006983f33c8a7dda59e117dfc127cf38cb9fc9271bcc5d5f3d9c9dd163add4",
+      "clock_prefix_sha256": "f0090d6adb97164f457506ef6d96601e6e0b6f0a073eb53e5db7a75ab583eb1b",
+      "coverage": {
+        "UI/BaiqiExecutor.lua": [
+          {
+            "prefix": "identical paired stopwatch; before original includes/event registration"
+          }
+        ]
+      },
+      "installed": false,
+      "limits": "Private candidate comparison only. Same manifest/assets/readonly UI guards. Control closes UI planners/recovery and Core mutation bridges/automatic bootstrap lexically before capture; enabled preserves original bodies. Legacy withdrawn-effect cleanup kept. Optional identical stopwatch before Executor callbacks, no game actions. Compile is not software/Native validity or B_delta evidence."
+    },
+    "control": {
+      "changed_files": [
+        "Lua/BaiqiController.lua",
+        "Lua/BaiqiGPIntentGameplay.lua",
+        "Lua/BaiqiSettlerGoalsGameplay.lua",
+        "Lua/BaiqiCreativeIntentGameplay.lua",
+        "Lua/BaiqiProphetIntentGameplay.lua",
+        "Lua/BaiqiReligiousIntentGameplay.lua",
+        "Lua/BaiqiNaturalistIntentGameplay.lua",
+        "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua",
+        "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+        "Lua/BaiqiArchaeologyIntentGameplay.lua",
+        "UI/BaiqiExecutor.lua",
+        "Lua/BaiqiAdmin.lua"
+      ],
+      "archive_sha256": "2b9d93334de057e27a1d16b2f0071a52e2edce9476dc108e1766df1953f7d812",
+      "clock_prefix_sha256": "f0090d6adb97164f457506ef6d96601e6e0b6f0a073eb53e5db7a75ab583eb1b",
+      "coverage": {
+        "Lua/BaiqiController.lua": [
+          {
+            "anchor": "print(\"BAIQI|ui_controller_loaded|version=2|mandatory_admin=true\")",
+            "insert_before": "BaiqiController.RunNow=function(...) return false,nil,\"private_static_control\" end\nBaiqiController.Update=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if Events.UnitGreatPersonActivated then Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated) end",
+            "insert_before": "OnGreatPersonActivated=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if Events.GreatWorkCreated then Events.GreatWorkCreated.Add(OnGreatWorkCreated) end",
+            "insert_before": "OnGreatWorkCreated=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiGPIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,\"UNAVAILABLE\")",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\nObserve=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if type(ExposedMembers)==\"table\" and (ExposedMembers.BaiqiGreatPersonIntentBridge==nil",
+            "insert_before": "Bootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiSettlerGoalsGameplay.lua": [
+          {
+            "anchor": "local MARKER=\"baiqi-settler-goals-v1\"",
+            "insert_before": "if api then api.Remember=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end;api.Forget=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiCreativeIntentGameplay.lua": [
+          {
+            "anchor": "BaiqiCreativeIntentGameplay={}",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\nOnCreated=function(...) return false,nil,\"private_static_control\" end\nBootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiProphetIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,\"UNAVAILABLE\")",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\nObserve=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if type(ExposedMembers)==\"table\" and (ExposedMembers.BaiqiProphetIntentBridge==nil",
+            "insert_before": "Bootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiReligiousIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,\"UNAVAILABLE\")",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if type(ExposedMembers)==\"table\" and (ExposedMembers.BaiqiReligiousIntentBridge==nil",
+            "insert_before": "Bootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "local function Bootstrap()",
+            "insert_before": "BaiqiReligiousIntentGameplay.Initialize=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if not InstallFinalSubscriptions() then",
+            "insert_before": "InstallFinalSubscriptions=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiNaturalistIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER,Inspect=Protected(Inspect,\"UNAVAILABLE\")",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "if type(ExposedMembers)==\"table\" and (ExposedMembers.BaiqiNaturalistIntentBridge==nil",
+            "insert_before": "Bootstrap=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER}",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "for _,name in ipairs({\"UnitAddedToMap\",\"PlayerTurnDeactivated\"}) do",
+            "insert_before": "ObserveEvent=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=MARKER}",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepare=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "anchor": "for _,name in ipairs({\"UnitAddedToMap\",\"PlayerTurnDeactivated\"}) do",
+            "insert_before": "ObserveEvent=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "Lua/BaiqiArchaeologyIntentGameplay.lua": [
+          {
+            "anchor": "local bridge={version=1,marker=BRIDGE_MARKER,PrepareExcavation=Protected(PrepareExcavation,false),",
+            "insert_before": "Inspect=function(...) return \"UNAVAILABLE\",nil,\"private_static_control\" end\nPrepareExcavation=function(...) return false,nil,\"private_static_control\" end\nPrepareChoice=function(...) return false,nil,\"private_static_control\" end\nPreparePendingChoice=function(...) return false,nil,\"private_static_control\" end\nObserveCreated=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ],
+        "UI/BaiqiExecutor.lua": [
+          {
+            "anchor": "local function Update(delta)",
+            "insert_before": "Recover=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          },
+          {
+            "prefix": "identical paired stopwatch; before original includes/event registration"
+          }
+        ],
+        "Lua/BaiqiAdmin.lua": [
+          {
+            "anchor": "@EOF",
+            "insert_before": "\nBaiqiAdmin.Run=function(...) return false,nil,\"private_static_control\" end\n",
+            "scope": "Private static copy only"
+          }
+        ]
+      },
+      "installed": false,
+      "limits": "Private candidate comparison only. Same manifest/assets/readonly UI guards. Control closes UI planners/recovery and Core mutation bridges/automatic bootstrap lexically before capture; enabled preserves original bodies. Legacy withdrawn-effect cleanup kept. Optional identical stopwatch before Executor callbacks, no game actions. Compile is not software/Native validity or B_delta evidence."
+    }
+  },
+  "scope": "Private artifact preparation only. Build compiled Lua53; owner additionally compiled97Lua51 per variant. Not installed, noNative performance, no accepted pressure fixture or clock calibration. Existing67 scoped measurements remain separate.",
+  "protocol": "1 unchanged.4096retained recordcap;anydrop invalid. Budgets and sample requirements not widened. Paired-clock flag alone; lexical control and identical prefix kept private, ordinary136source unchanged.",
+  "next": "Qualify no-legal-citysite/many-candidate fixtures from actual source+config and real actors, preserve active ordinary136housing test. Diagnostic install and runtime coverage/clock validity must be checked in its own owned window."
+}
