@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [126相邻施工软件与653／654](testing/baiqi-builder-adjacent-126.md)：原版独立op／Hash目标列表、只Builder真实滑雪场／相距1、最后身份/元数据/函数重读和原pending，AI山格转邻格站位，普通同格守卫保持。653错Nativeproducer隔离nil整拒；654原13setup错误0通过，Owner15Lua51方法后全1807项1806pass1SDKskip、95Lua/117包；旧125三行为失败，Owner哨兵fixture错误已分账。HTTP实际重叠26.500657秒／峰值2，累计654/610完整41length3transport684HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。126待冷验、125/275只读6空原生列表及18站位不授施工。[证据](research/baiqi-p6-source126-adjacent-builder-software-2026-11-12.json)。
+
 2026-11-12 新增 [652太阳能适用与相邻建设缺口](testing/baiqi-solar-suitability275-model652.md)：原版team参数真实资格后，217己方格Core太阳能均false／0未知，滑雪场6阳性；不授移除后合法或操作许可。652完整3552tokens／8050.9301ms，continue编译失败与Safe多返回错接双见证整拒；Owner8合同后只读实际。补充Core未资格端口报错分账，独立保护后对照通过。原版BUILD_IMPROVEMENT_ADJACENT消费者已找到，125白名单／同格writer缺支持，继续修复。累计652/608完整41length3transport682HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native125-solar-suitability652-2026-11-12.json)。
 
 2026-11-12 新增 [125卫星实成275与651目标诊断](testing/baiqi-satellites-unlocked275-builder-125.md)：275卫星HasTechtrue，6建造者此地24新能源查询全false，217自有可见格／67空地；66次AI建议36行6目标全滑雪场，不授太阳能建设。651完整9952tokens／7365.1469ms，continue实际Lua51编译失败、漏pcall等整拒；Owner7组过后Native0未知／0动作。273初净−1后同回合UI/Core+4，库存仍0.34765625／11人，原因待核；另3END21SKIP1点击，10被动事件0错丢已撤，275保存。累计651/607完整41length3transport681HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。[证据](research/baiqi-p6-native125-satellites275-builder651-2026-11-12.json)。

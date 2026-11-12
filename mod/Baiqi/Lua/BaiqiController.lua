@@ -209,6 +209,43 @@ local function ResourceVisible(plot, player)
   return row ~= nil and player:GetResources():IsResourceVisible(row.Hash) == true
 end
 
+-- Gathering Storm builds ski resorts from an adjacent tile with a separate
+-- operation. Keep its metadata and target checks outside ordinary local builds.
+local function BuilderAdjacentDefinition()
+  local ok,result=pcall(function()
+    local row=GameInfo.Improvements.IMPROVEMENT_SKI_RESORT
+    if type(row)~="table" or row.ImprovementType~="IMPROVEMENT_SKI_RESORT"
+      or not GeometryInteger(row.Index) or not BaiqiPolicy.Number(row.Hash) or row.Hash%1~=0 then return nil end
+    local op=UnitOperationTypes.BUILD_IMPROVEMENT_ADJACENT
+    local x,y,t=UnitOperationTypes.PARAM_X,UnitOperationTypes.PARAM_Y,UnitOperationTypes.PARAM_IMPROVEMENT_TYPE
+    if not BaiqiPolicy.Number(op) or op%1~=0 or x==nil or y==nil or t==nil
+      or x==y or x==t or y==t then return nil end
+    return {index=row.Index,hash=row.Hash,operation=op,xKey=x,yKey=y,typeKey=t}
+  end)
+  if ok then return result end
+end
+
+local function BuilderAdjacentTarget(ctx,player,unit,plot,hash,expected)
+  local ok,result=pcall(function()
+    local def=BuilderAdjacentDefinition()
+    if not def or hash~=def.hash or not plot then return nil end
+    if expected and (def.index~=expected.metadataIndex or def.hash~=expected.hash
+      or def.operation~=expected.operation or def.xKey~=expected.xKey
+      or def.yKey~=expected.yKey or def.typeKey~=expected.typeKey) then return nil end
+    local index,x,y=plot:GetIndex(),plot:GetX(),plot:GetY()
+    if not GeometryInteger(index) or not GeometryInteger(x) or not GeometryInteger(y) then return nil end
+    if expected and (index~=expected.index or x~=expected.x or y~=expected.y) then return nil end
+    local current=Map.GetPlotByIndex(index)
+    if not current or current:GetIndex()~=index or current:GetX()~=x or current:GetY()~=y
+      or current:GetOwner()~=ctx.player or current:GetImprovementType()~=-1 or current:GetDistrictType()~=-1
+      or not Revealed(current) or visibility:IsVisible(x,y)~=true
+      or Map.GetPlotDistance(unit:GetX(),unit:GetY(),x,y)~=1 or not Safe(current,player) then return nil end
+    return {plot=current,index=index,x=x,y=y,hash=def.hash,metadataIndex=def.index,
+      operation=def.operation,xKey=def.xKey,yKey=def.yKey,typeKey=def.typeKey}
+  end)
+  if ok then return result end
+end
+
 local function FeatureAllowedForDistrict(districtRow, featureIndex)
   if not BaiqiPolicy.Number(featureIndex) or featureIndex<0 or featureIndex%1~=0 then return false end
   if type(districtRow)~="table" and type(districtRow)~="userdata" then return false end
@@ -667,6 +704,7 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     if not Revealed(plot) then return false,"unsafe" end
   elseif operation~="SKIP_TURN" and not Safe(plot, Players[ctx.player]) then return false, "unsafe" end
   local params,origin,dest = {}
+  local adjacent
   local action = UnitOperationTypes[operation]
   if operation=="SKIP_TURN" and action==nil then
     local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN
@@ -680,6 +718,14 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     local legal,why=CivilianMoveTarget(here,plot,unit,ctx.player)
     if not legal then return false,why end
     params[UnitOperationTypes.PARAM_X], params[UnitOperationTypes.PARAM_Y] = plot:GetX(), plot:GetY()
+  elseif operation=="BUILD_IMPROVEMENT_ADJACENT" then
+    adjacent=BuilderAdjacentTarget(ctx,freshPlayer,unit,plot,improvement)
+    if unitType~="UNIT_BUILDER" or not adjacent
+      or type(UnitManager.CanStartOperation)~="function" or type(UnitManager.RequestOperation)~="function" then
+      return false,"adjacent_improvement_unavailable"
+    end
+    adjacent.qualifier,adjacent.writer=UnitManager.CanStartOperation,UnitManager.RequestOperation
+    params[adjacent.xKey],params[adjacent.yKey],params[adjacent.typeKey]=adjacent.x,adjacent.y,adjacent.hash
   else
     if plot:GetIndex() ~= here:GetIndex() then return false, "not_current_plot" end
     if operation == "BUILD_IMPROVEMENT" then
@@ -689,7 +735,14 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     elseif operation == "REPAIR" and plot:GetOwner() ~= ctx.player then return false, "foreign_repair" end
   end
   -- TradeParams already qualified and then freshly validated this exact route.
-  if operation~="MAKE_TRADE_ROUTE" and UnitManager.CanStartOperation(unit, action, nil, params) ~= true then return false, "engine_rejected" end
+  if operation~="MAKE_TRADE_ROUTE" then
+    local can
+    if adjacent then
+      local ok,result=pcall(UnitManager.CanStartOperation,unit,action,nil,params)
+      can=ok and result==true
+    else can=UnitManager.CanStartOperation(unit,action,nil,params) end
+    if can~=true then return false,"engine_rejected" end
+  end
   local latest=PlayerContext()
   local actual=GameInfo.Units[unit:GetUnitType()]
   if not latest or not CoreIdle() or latest.player~=ctx.player or not BaiqiPolicy.MatchesID(unit,unitID)
@@ -697,6 +750,17 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
     return false,"unit_or_context_changed"
   end
   if UnitIndex(unit)~=here:GetIndex() then return false,"position_changed" end
+  if adjacent then
+    local fresh=Players[latest.player]:GetUnits():FindID(unitID)
+    if not fresh or not BaiqiPolicy.MatchesID(fresh,unitID)
+      or not BaiqiPolicy.CanCivilian(latest,UnitSnapshot(fresh,{})) or UnitIndex(fresh)~=here:GetIndex()
+      or UnitManager.CanStartOperation~=adjacent.qualifier or UnitManager.RequestOperation~=adjacent.writer
+      or UnitOperationTypes[operation]~=adjacent.operation
+      or not BuilderAdjacentTarget(latest,Players[latest.player],fresh,plot,improvement,adjacent) then
+      return false,"adjacent_improvement_changed"
+    end
+    unit=fresh
+  end
   if operation=="MOVE_TO" then
     -- Qualification is a native boundary: re-read target facts after it rather
     -- than letting either path memoization or an earlier legal target authorize
@@ -2476,6 +2540,37 @@ local function BuilderImprovementCandidates(unit, plot)
   return rows
 end
 
+local function BuilderAdjacentCandidates(unit)
+  local ctx,player,state=PlayerContext()
+  if not ctx or not CoreIdle() or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) then return nil end
+  local row=GameInfo.Units[unit:GetUnitType()]
+  local def=BuilderAdjacentDefinition()
+  if not row or row.UnitType~="UNIT_BUILDER" or not def or not UnitManager
+    or type(UnitManager.GetOperationTargets)~="function" or type(UnitManager.CanStartOperation)~="function"
+    or not UnitOperationResults or UnitOperationResults.PLOTS==nil then return nil end
+  local ok,result=pcall(function()
+    local targets=UnitManager.GetOperationTargets(unit,def.operation,{[def.typeKey]=def.hash})
+    if type(targets)~="table" or type(targets[UnitOperationResults.PLOTS])~="table" then return nil end
+    local candidates,seen,n={},{},0
+    for _,index in pairs(targets[UnitOperationResults.PLOTS]) do
+      n=n+1;if n>128 or not GeometryInteger(index) then return nil end
+      if not seen[index] then
+        seen[index]=true
+        local plot=Map.GetPlotByIndex(index)
+        local candidate=BuilderAdjacentTarget(ctx,player,unit,plot,def.hash)
+        if candidate then
+          local params={[def.xKey]=candidate.x,[def.yKey]=candidate.y,[def.typeKey]=def.hash}
+          local called,can=pcall(UnitManager.CanStartOperation,unit,def.operation,nil,params)
+          if called and can==true then candidates[#candidates+1]=candidate end
+        end
+      end
+    end
+    table.sort(candidates,function(a,b)return a.index<b.index end)
+    return candidates
+  end)
+  if ok then return result end
+end
+
 local function PlanningTime()
   if type(Automation)~="table" or type(Automation.GetTime)~="function" then return nil end
   local ok,value=pcall(Automation.GetTime)
@@ -2626,21 +2721,45 @@ end
 
 
 local function BuilderTargets(ctx,player,unit)
-  local targets,seen={},{}
-  for _,city in player:GetCities():Members() do
-    local ai=city:GetCityAI()
-    if ai then
-      for _,rec in pairs(ai:GetImprovementRecommendationsForBuilder(unit:GetComponentID()) or {}) do
-        local plot=Map.GetPlotByIndex(rec.ImprovementLocation)
-        if plot and Revealed(plot) and plot:GetOwner()==ctx.player and not seen[plot:GetIndex()] then
-          seen[plot:GetIndex()]=true
-          targets[#targets+1]={plot=plot,index=plot:GetIndex(),distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
+  local ok,result=pcall(function()
+    local targets,seen={},{}
+    local def=BuilderAdjacentDefinition()
+    local function Add(plot,adjacent)
+      if not plot or not Revealed(plot) or plot:GetOwner()~=ctx.player then return end
+      local index=plot:GetIndex()
+      if not GeometryInteger(index) or seen[index] then return end
+      if adjacent and (visibility:IsVisible(plot:GetX(),plot:GetY())~=true
+        or plot:IsImpassable() or plot:IsWater() or index==UnitIndex(unit)) then return end
+      seen[index]=true
+      targets[#targets+1]={plot=plot,index=index,distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
+    end
+    local cities,total=0,0
+    for _,city in player:GetCities():Members() do
+      cities=cities+1;if cities>128 then return {} end
+      local ai=city:GetCityAI()
+      if ai then
+        local n=0
+        for _,rec in pairs(ai:GetImprovementRecommendationsForBuilder(unit:GetComponentID()) or {}) do
+          n=n+1;total=total+1;if n>128 or total>1024 then return {} end
+          if type(rec)=="table" and GeometryInteger(rec.ImprovementLocation) then
+            local plot=Map.GetPlotByIndex(rec.ImprovementLocation)
+            if def and rec.ImprovementHash==def.hash then
+              if plot and Revealed(plot) and plot:GetOwner()==ctx.player
+                and visibility:IsVisible(plot:GetX(),plot:GetY())==true
+                and plot:GetImprovementType()==-1 and plot:GetDistrictType()==-1
+                and type(Map.GetAdjacentPlot)=="function"
+                and Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())~=1 then
+                for direction=0,5 do Add(Map.GetAdjacentPlot(plot:GetX(),plot:GetY(),direction),true) end
+              end
+            else Add(plot,false) end
+          end
         end
       end
     end
-  end
-  table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
-  return targets
+    table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
+    return targets
+  end)
+  return ok and result or {}
 end
 
 local function BuilderRouteValid(ctx,state,unit,search)
@@ -2760,6 +2879,10 @@ local function ProcessBuilder(ctx, player, state, unit)
   if here:GetOwner() == ctx.player and Safe(here, player) then
     if here:IsImprovementPillaged() and UnitManager.CanStartOperation(unit, UnitOperationTypes.REPAIR) then
       return RequestCivilian(ctx, state, unit, "REPAIR", here)
+    end
+    local adjacent=BuilderAdjacentCandidates(unit)
+    if adjacent and adjacent[1] then
+      return RequestCivilian(ctx,state,unit,"BUILD_IMPROVEMENT_ADJACENT",adjacent[1].plot,adjacent[1].hash)
     end
     local best
     if here:GetImprovementType() == -1 then

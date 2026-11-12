@@ -83,6 +83,7 @@ function BaiqiPolicy.ActionAllowed(unitType, operation)
   if unitType == "UNIT_SETTLER" then return operation == "MOVE_TO" or operation == "FOUND_CITY" end
   if unitType == "UNIT_BUILDER" then
     return operation == "MOVE_TO" or operation == "BUILD_IMPROVEMENT" or operation == "REPAIR"
+      or operation == "BUILD_IMPROVEMENT_ADJACENT"
   end
   return false
 end
