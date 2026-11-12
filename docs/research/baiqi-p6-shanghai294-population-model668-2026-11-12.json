@@ -1,0 +1,225 @@
+{
+  "schema": "civ6.shanghai294-population-model668/v1",
+  "utc": "2026-11-12T04:51:30.363901+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 129,
+  "product_files_changed": 0,
+  "model668": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "usage": {
+      "prompt_tokens": 3524,
+      "completion_tokens": 1401,
+      "total_tokens": 4925
+    },
+    "total_ms": 8558.326400117949,
+    "json_syntax": {
+      "status": "VALID",
+      "top_level_type": "object",
+      "reason": "COMPLETE_STOP_JSON",
+      "error": null,
+      "offset_units": "Unicode code points",
+      "max_utf8_bytes": 1048576,
+      "semantic_review": "OWNER_REVIEW_REQUIRED"
+    }
+  },
+  "review": {
+    "raw_failures": [
+      {
+        "side": "before",
+        "field": "cityID",
+        "error": "OverflowError"
+      },
+      {
+        "side": "before",
+        "field": "x",
+        "error": "OverflowError"
+      },
+      {
+        "side": "before",
+        "field": "y",
+        "error": "OverflowError"
+      },
+      {
+        "side": "before",
+        "field": "population",
+        "error": "OverflowError"
+      },
+      {
+        "side": "after",
+        "field": "cityID",
+        "error": "OverflowError"
+      },
+      {
+        "side": "after",
+        "field": "x",
+        "error": "OverflowError"
+      },
+      {
+        "side": "after",
+        "field": "y",
+        "error": "OverflowError"
+      },
+      {
+        "side": "after",
+        "field": "population",
+        "error": "OverflowError"
+      }
+    ],
+    "adoption": "Candidate population comparison with protected finite integer helper",
+    "raw_native_calls": 0
+  },
+  "targeted_tests": {
+    "new_methods": 10,
+    "passed": 10
+  },
+  "actual_interval_replay": {
+    "source": "Original owner-qualified same-instance129 complete snapshot packets, not new Native calls",
+    "293_to294": {
+      "status": "POPULATION_LOSS",
+      "qualified": true,
+      "reason": "population_loss_detected",
+      "losses": [
+        {
+          "cityID": 655369,
+          "x": 59,
+          "y": 28,
+          "before_population": 15,
+          "after_population": 14,
+          "delta": -1
+        }
+      ],
+      "new_city_ids": [],
+      "causal_conclusion": null
+    },
+    "294_to295": {
+      "status": "NO_LOSS",
+      "qualified": true,
+      "reason": "no_population_loss",
+      "losses": [],
+      "new_city_ids": [],
+      "causal_conclusion": null
+    },
+    "consumer_would_block_on_POPULATION_LOSS_even_qualified_true": true,
+    "game_orders": 0,
+    "causality_proved": false
+  },
+  "mainline": {
+    "ordinary_END292_293_294_each_once": true,
+    "military_SKIP": 21,
+    "UserForced": 0,
+    "END295": 0,
+    "current_food_checks_did_not_compare_population": true,
+    "END294_was_sent_before_owner_noticed_previous_loss": true,
+    "after_END294_envoy_view_guard_failed_before_view_or_second_END_input": true,
+    "independent_read295_qualified": true,
+    "Shanghai": {
+      "cityID": 655369,
+      "xy": [
+        59,
+        28
+      ],
+      "population293_294_295": [
+        15,
+        14,
+        14
+      ],
+      "UI_stock293_294_295": [
+        42.93359375,
+        46.76171875,
+        50.86328125
+      ],
+      "UI_net293_294_295": [
+        17,
+        15,
+        15
+      ],
+      "current_starvation_prediction_each": -1
+    },
+    "current_nonnegative_food_is_not_no_population_loss": true,
+    "historical_matrix_and_new_loss_cause_open": true
+  },
+  "weather_history": {
+    "first_owner_filter_required_both_start_and_current_revealed_and_was_too_restrictive_for_original_history": true,
+    "corrected_source": "Installed DLC/Expansion2/UI/Additions/ClimateScreen.lua 622-640: Global or revealed CurrentLocation; climate-only entries separately",
+    "revealed292_tornado": {
+      "RandomEvent": 16,
+      "type": "RANDOM_EVENT_TORNADO_OUTBREAK",
+      "StartTurn": 292,
+      "EndTurn": 295,
+      "StartLocation": 1914,
+      "CurrentLocation": 2055,
+      "PopLost_whole_event": 1,
+      "TilesDamaged_whole_event": 4,
+      "UnitsLost_whole_event": 0
+    },
+    "own_Shanghai_current_at_plot295": null,
+    "not_city_specific_damage_receipt": true,
+    "causal_conclusion": null
+  },
+  "save295": {
+    "name": "Baiqi_P6_20261112_V129_ShanghaiLoss295.Civ6Save",
+    "bytes": 2298790,
+    "sha256": "3157b2a0bd40296d34db812249693a639a62549c3f4ea41a2ada4a9f2df3432f"
+  },
+  "original_auto_fixtures": [
+    {
+      "bytes": 2295599,
+      "sha256": "a779aaa7932cfcbcabe8d2104626017090302b686435bdde6cb134ed14e43fa2"
+    },
+    {
+      "bytes": 2295116,
+      "sha256": "7074637d5a24189f816583d0a161f0341d37c32257d04578be19173f84580f87"
+    },
+    {
+      "bytes": 2301134,
+      "sha256": "231a68bda28ca7337cbdda135990be323bbdd1a9e6c63af13cdf3a0b19b93f5f"
+    },
+    {
+      "bytes": 2297535,
+      "sha256": "6d4d75019314d4a32c73ae6fb195293eeb82baad352da2668c41b36de446e7f8"
+    }
+  ],
+  "private_population_gate": {
+    "before_next_END_checks_status_NO_LOSS_and_qualified_true": true,
+    "POPULATION_LOSS_qualified_is_evidence_not_permission": true,
+    "unknown_or_new_loss_creates_existing_driver_stop_marker": true,
+    "main295_baseline_retains_open293_294_loss": true,
+    "does_not_clear_historical_cause_or_grant_END295": true
+  },
+  "later_menu_correction": {
+    "special291_close_coordinate_clicked_after_submit": true,
+    "later293_menu_observed": true,
+    "coordinate_target_could_change_when_original_page_auto_closes": true,
+    "successful_original_special_page_close_not_proved": true,
+    "original_menu_ReturnToGame_clicks": 1,
+    "original_congress_results_ReturnToGame_clicks": 1,
+    "independent293_READY_afterward": true
+  },
+  "cumulative": {
+    "logical_calls": 668,
+    "complete": 622,
+    "length_failures": 43,
+    "transport_failures": 3,
+    "HTTP_attempts": 698,
+    "additional_attempts": 30,
+    "new_call_actual_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "maintenance": {
+    "date": "2026-11-12",
+    "OpenCode": "1.19.5",
+    "same_machine_user_success_cache_reused": true
+  },
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82,
+  "still_open": [
+    "Shanghai294 population cause and independent retained-state reproduction",
+    "Offshore remaining research/build/durable power",
+    "Positive-fuel project native priority case",
+    "Old213/222 and full matrix"
+  ]
+}

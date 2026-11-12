@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [668上海294人口与跨回合守卫](testing/baiqi-shanghai294-population-model668.md)：15→14但两端库存增加；原当前food检查漏跨回合人口，END294后发现并保全295和4原auto。候选4925tokens/8大整数异常后窄采用，10新测试、实际293→294 LOSS与294→295 NO_LOSS分开；未来新损失/UNKNOWN停下一END。龙卷风整场PopLost1非逐城归因，初筛严于原版已纠正；特殊291关闭坐标开菜单另记。累计668／622完整43length3transport698HTTP30extra，原生0/成本null。
+
 2026-11-12 新增 [667世界议会实际阻挡与292](testing/baiqi-congress-readiness-model667.md)：完整4252tokens候选4个坏base抛错见证后窄采用；10新测试、实际5context291同scope/玩家/turn且Intro可见→MODAL_BLOCKED，原版反对军事紧急状况并关闭后独立292 READY。普通290议会3免费票，特殊291反对1免费票，0外交支持／宣战／END重发。控制论374.58984375/1100，11城food/vitals通过；累计667／621完整43length3transport697HTTP30extra，原生0/成本null。
 
 2026-11-12 新增 [666只读就绪分类与290](testing/baiqi-readiness-model666.md)：完整2966tokens候选复现3处大整数溢出和2个producer漏实际玩家；只采用分类逻辑加保护，Owner补实际字段。11项针对测试、首次双context实际290 READY；NPC实机分支仍待遇到。核聚变自然完成接控制论0/1100、广州核电站自然完成，燃料0不授持续供电。累计666／620完整43length3transport696HTTP30extra，原生0／成本null。

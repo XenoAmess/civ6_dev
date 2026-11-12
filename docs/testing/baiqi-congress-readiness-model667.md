@@ -11,3 +11,6 @@ END290后两个context仍290、LeaderScene隐藏、UI active true／allowed fals
 实际特殊议程291时，5个串行context均实际291／玩家0／同资格scope；LeaderScene隐藏、WorldCongressPopup隐藏、BetweenTurns隐藏、Intro可见，2.523995秒明确返回MODAL_BLOCKED、qualified false，0自发游戏动作。测试玩家处理后新独立监视实际292 READY。原帧解析保持严格，不自动点击、没有动作重试；READY不是结束权限。
 
 292的11城food／vitals通过，邢州仍11人，原曼哈顿计划497/500未改。控制论291为184.4453125、292为374.58984375/1100；后续科技、实际海上施工与持续供电、粮食历史矩阵继续。累计667／621完整／43length／3transport／697HTTP／30extra；同机同用户每日维护成功缓存复用，OpenCode原生0，未知成本null，Steam离线／工坊82。
+
+
+后到纠正：[668操作与人口记录](baiqi-shanghai294-population-model668.md)确认特殊291提交后关闭坐标后来打开菜单，不能把坐标点击计为成功关闭该页的证明；293已依新图恢复。原独立292 READY证据保持。
