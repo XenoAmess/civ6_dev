@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [上海294独立回调复现](testing/baiqi-shanghai294-callback-reproduction-129.md)：原Auto293字节副本冷到实际293，8组数据全部相同；复用Owner631、8隔离组后UI/Core各4监听，1普通END7军SKIP再次15→14。UI库存42.93359375/+17及龙卷风整事件PopLost0→1，Core294/+14仍非原子逐城因果；8监听全撤，正式恢复295并逐组复核。0新HTTP、668不重计，继续海上主线与开放人口矩阵。
+
 2026-11-12 新增 [668上海294人口与跨回合守卫](testing/baiqi-shanghai294-population-model668.md)：15→14但两端库存增加；原当前food检查漏跨回合人口，END294后发现并保全295和4原auto。候选4925tokens/8大整数异常后窄采用，10新测试、实际293→294 LOSS与294→295 NO_LOSS分开；未来新损失/UNKNOWN停下一END。龙卷风整场PopLost1非逐城归因，初筛严于原版已纠正；特殊291关闭坐标开菜单另记。累计668／622完整43length3transport698HTTP30extra，原生0/成本null。
 
 2026-11-12 新增 [667世界议会实际阻挡与292](testing/baiqi-congress-readiness-model667.md)：完整4252tokens候选4个坏base抛错见证后窄采用；10新测试、实际5context291同scope/玩家/turn且Intro可见→MODAL_BLOCKED，原版反对军事紧急状况并关闭后独立292 READY。普通290议会3免费票，特殊291反对1免费票，0外交支持／宣战／END重发。控制论374.58984375/1100，11城food/vitals通过；累计667／621完整43length3transport697HTTP30extra，原生0/成本null。
