@@ -1,0 +1,146 @@
+{
+  "schema": "civ6.readonly-readiness-model666/v1",
+  "utc": "2026-11-12T04:18:36.429126+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 129,
+  "mod_product_files_changed": 0,
+  "model666": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "usage": {
+      "prompt_tokens": 1834,
+      "completion_tokens": 1132,
+      "total_tokens": 2966
+    },
+    "total_ms": 7054.438699968159,
+    "json_syntax": {
+      "status": "VALID",
+      "top_level_type": "object",
+      "reason": "COMPLETE_STOP_JSON",
+      "error": null,
+      "offset_units": "Unicode code points",
+      "max_utf8_bytes": 1048576,
+      "semantic_review": "OWNER_REVIEW_REQUIRED"
+    }
+  },
+  "review": {
+    "raw_python_failures": [
+      {
+        "input": "expected",
+        "failure": "OverflowError"
+      },
+      {
+        "input": "ui",
+        "failure": "OverflowError"
+      },
+      {
+        "input": "scene",
+        "failure": "OverflowError"
+      }
+    ],
+    "both_raw_producers_omit_required_actual_local_player": true,
+    "adopted": "Python classification with protected finite integer check",
+    "raw_Lua_adopted": false,
+    "owner_Lua_adds_actual_GetLocalPlayer": true,
+    "raw_limits_not_used_as_network_loop": true,
+    "raw_candidate_native_calls": 0
+  },
+  "targeted_tests": {
+    "methods": 11,
+    "passed": 11,
+    "scope": "Classifier evidence qualification, strict types, huge integers, alignment, NPC, stale and passed turn, no input mutation or EndPermission"
+  },
+  "previous_product_suite": {
+    "tests": 1858,
+    "passed": 1857,
+    "SDK_skipped": 1,
+    "does_not_include_new_11_tests": true
+  },
+  "native_first_sample": {
+    "target": 290,
+    "outcome": {
+      "status": "READY",
+      "qualified": true,
+      "reason": "ready"
+    },
+    "both_actual_local_player": 0,
+    "both_actual_turn": 290,
+    "UI": {
+      "local_player": 0,
+      "turn": 290,
+      "active": true,
+      "allowed": true,
+      "busy": false,
+      "messages": false,
+      "can_end_turn": true
+    },
+    "scene": {
+      "local_player": 0,
+      "turn": 290,
+      "hidden": true
+    },
+    "scope_hashes_equal": true
+  },
+  "private_monitor": {
+    "contexts_serial": true,
+    "max_pairs": 120,
+    "between_pair_deadline_seconds": 90,
+    "individual_native_queries_keep_existing_timeouts": true,
+    "strict_frame_parser_unchanged": true,
+    "before_after_PID_birth_exe_endpoint_check": true,
+    "same_seeds_leader_capital_runtime_asserts_each_read": true,
+    "NPC_is_explicit_nonzero_result": true,
+    "automatic_NPC_clicks": 0,
+    "game_orders": 0,
+    "END_permission": false,
+    "action_retry": false,
+    "private129_turn_ceiling_extended_to320_with_prior_copies_and_AST_checks": true
+  },
+  "mainline_through290": {
+    "END287_288_289_each_once": true,
+    "military_SKIP": 21,
+    "END288_slow_wait_resumed_readonly_without_replay": true,
+    "END289_Spain_original_goodbye_clicks": 1,
+    "stale_image_click_rejected_before_input": true,
+    "actual290_food_and_vitals_pass": true,
+    "Xingzhou_population": 11,
+    "NuclearFusion_naturally_owned": true,
+    "current_research": [
+      "TECH_CYBERNETICS",
+      0,
+      1100
+    ],
+    "Guangzhou_nuclear_plant_naturally_completed": true,
+    "coal_oil_uranium": [
+      0,
+      0,
+      0
+    ],
+    "durable_power_not_yet_passed": true
+  },
+  "cumulative": {
+    "logical_calls": 666,
+    "complete": 620,
+    "length_failures": 43,
+    "transport_failures": 3,
+    "HTTP_attempts": 696,
+    "additional_attempts": 30,
+    "new_call_actual_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "maintenance": {
+    "date": "2026-11-12",
+    "OpenCode": "1.19.5",
+    "same_machine_user_success_cache_reused": true
+  },
+  "Steam_online_upload_actions": 0,
+  "still_open": [
+    "Native NPC_BLOCKED branch for new monitor awaits actual dialogue",
+    "Cybernetics/PredictiveSystems, actual offshore build and durable supply",
+    "Positive-fuel project priority native case",
+    "Food phase and historical full matrix"
+  ]
+}
