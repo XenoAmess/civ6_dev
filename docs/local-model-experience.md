@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [303独立通知复现与676/677](testing/baiqi-xiurong303-notice-reproduction-model676677.md)：8组前后全匹配、1普通END7军SKIP再次掉1／失2133；UI/Core各3条，Owner新工具10合同后27条0错丢，原版沙尘暴移动报本回合1人口／10格、另飓风0人口，支持天气归因推断、无单城码。6767492tokens四反例整拒，67711992tokens length6500未读半截；10监听精撤、原主303恢复，邢州重载0→2净粮单列。累计677／630完整44length3transport707HTTP30extra，原生0／成本null。
+
 2026-11-12 新增 [131正式302→303恢复与新损失](testing/baiqi-building-repair-native131-poploss303.md)：119匹配／新鲜离线，唯一后台修工业区并观察，Native裁条目保工坊72/97与旧项目143/157；1普通END7军SKIP后工业区完好、工坊接续。独立人口守卫15→14停END303，风电增2失2133现5，保存303；UI/Core整事件PopLost1及当前AffectedCity秀容仍非逐城原子因果。广州vitals24→27是忠诚度增量、原住房评论撤回，1张原图；0新HTTP不重计674675。
 
 2026-11-12 新增 [131已拥有建筑修复软件](testing/baiqi-blocked-building-repair-131.md)：部分采用674的QueueReady／过滤／读回新kind窄段，Owner保旧未建建筑及项目、严验既有受损建筑正投入。10新方法、旧130三断言失败0异常，冻结全1910项1909pass1SDKskip／97Lua119包；最后130／302、131冷验未授。初次函数体保护误含下一函数前注释已在写源前拦住并纠正；0新HTTP不重计674675，原生0／成本null。

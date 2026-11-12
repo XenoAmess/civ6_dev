@@ -4,7 +4,7 @@
 
 历史里程碑 [120／253，完成态已重载](docs/testing/baiqi-power-project-native253-120.md)：三城已自动使用原版项目临时供电，胶东市场曾实际恢复到 6 粮，项目正常完成并接续。[海岸探针](docs/testing/baiqi-coastal-flood-barrier253-120.md)确认胶东社区和上海工业区已淹、未沉没；防洪坝所需计算机可研究但未拥有，当时AI防洪优先级待修；旧 [213 人口损失](docs/testing/baiqi-food114-trade-gap213.md)、[222 武汉逐城归因](docs/testing/baiqi-wuhan-damage-callback-119.md)和完整验收仍开放。启动前已证 Steam 离线，全程未上线，工坊仍 82。
 
-源码／实机 [131／303：工坊受阻恢复与新损失](docs/testing/baiqi-building-repair-native131-poploss303.md)：工业区修复完成，工坊72/97、项目143/157保持；风电5座但旧2133消失，秀容15→14。303已保存、0END303，继续逐城归因和修复／供电验收；Steam离线／工坊82。
+源码／实机 [131／303独立复现](docs/testing/baiqi-xiurong303-notice-reproduction-model676677.md)：8组前后全匹配，原生人口／2133移除与沙尘暴本回合1人口通知支持天气损失解释，缺单城原因码仍保边界。10监听已撤、原主303已恢复；继续工坊完成／143项目再续与供电，Steam离线／工坊82。
 
 ## 历史进度（各条保留当时状态）
 
