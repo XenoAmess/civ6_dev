@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [662独立粮食证据领域](testing/baiqi-food-domain-evidence-model662.md)：完整3672tokens候选5反例整拒，Owner纯工具9方法＋55坏参数通过；旧125的272→273实消息重放保库存−1、后读Core+4与覆盖未知，不推原子冲突／供电根因或END许可。128模组不变；累计662／616完整／43length／3transport／692HTTP／30extra，原生0、未知成本null。[证据](research/baiqi-food-domain-evidence662-2026-11-12.json)。
+
 2026-11-12 新增 [128可落地供电前置与659—661](testing/baiqi-power-prerequisite-path-128.md)：三真实HTTP峰值3、原Core硬编码坐标／原planner未调桥或path／原测试9setup错误均隔离整拒；Owner实现只读Core资格桥与有空场址的实际路径下一步规划，保护正进度及pending不重发。20新Lua51方法、旧127三方法4断言失败0异常；首次全量因途中端口修正哈希不一致被拒，冻结重跑1838pass1SDKskip、97Lua119包，待正式128冷验。Core player.IsHuman已内联只读实证，config该端口nil。累计661/615完整43length3transport691HTTP30extra，维护缓存复用、原生0、未知成本null。[证据](research/baiqi-p6-source128-power-path-software-2026-11-12.json)。
 
 2026-11-12 新增 [658实际研究路径与UI端口](testing/baiqi-offshore-research-path278-model658.md)：仍127／278，海上风电引擎路径56→61→66→72→74，三条路径10项实为Index表；塑料正进度未改。UI ImprovementBuilder=nil，不能挪用Core适用端口。658 length整拒未读正文，Owner独立受保护只读诊断；累计658／612完整／43length／3transport／688HTTP／30extra，后续3个真实实现任务并行。[证据](research/baiqi-p6-native127-research-path658-2026-11-12.json)。

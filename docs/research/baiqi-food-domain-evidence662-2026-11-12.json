@@ -1,0 +1,208 @@
+{
+  "schema": "civ6.food-domain-evidence662/v1",
+  "utc": "2026-11-12T02:41:32.617690+00:00",
+  "machine_id": "BF-202609141645",
+  "model662": {
+    "transport": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 1505,
+        "completion_tokens": 2167,
+        "total_tokens": 3672
+      },
+      "total_ms": 12835.500499932095,
+      "first_nonempty_content_delta_ms": 444.49669984169304,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "review": {
+      "utc": "2026-11-12T02:31:10.584250+00:00",
+      "raw_Python_compiles": true,
+      "raw_input_not_mutated": true,
+      "raw_adopted": false,
+      "raw_Native": 0,
+      "game_orders": 0,
+      "counterexamples": {
+        "foreign_Core_scopes_globally_qualified": {
+          "ui_interval": {
+            "qualified": true,
+            "reason": "Valid UI interval with same scope, city, turn+1, population, and all fields valid.",
+            "stock_delta": -1.0
+          },
+          "core_comparison": {
+            "qualified": true,
+            "reason": "Valid Core comparison with same scope, city, and finite surplus.",
+            "before_conflict": null,
+            "after_conflict": null
+          },
+          "production": {
+            "qualified": true,
+            "reason": "All events valid and matched.",
+            "events": []
+          },
+          "causal_conclusion": null
+        },
+        "events_retained_without_qualified_UI_interval": {
+          "ui_interval": {
+            "qualified": false,
+            "reason": "UI interval invalid due to scope/city/turn/population/field mismatch or invalid values.",
+            "stock_delta": null
+          },
+          "core_comparison": {
+            "qualified": true,
+            "reason": "Valid Core comparison with same scope, city, and finite surplus.",
+            "before_conflict": null,
+            "after_conflict": null
+          },
+          "production": {
+            "qualified": true,
+            "reason": "All events valid and matched.",
+            "events": [
+              {
+                "scope_key": "same-process-game-city",
+                "cityID": 458758,
+                "turn": 273,
+                "event": "CityProductionCompleted",
+                "productionKind": 3,
+                "productionIndex": 10
+              }
+            ]
+          },
+          "causal_conclusion": null
+        },
+        "invalid_event_domain_still_qualified": {
+          "ui_interval": {
+            "qualified": true,
+            "reason": "Valid UI interval with same scope, city, turn+1, population, and all fields valid.",
+            "stock_delta": -1.0
+          },
+          "core_comparison": {
+            "qualified": true,
+            "reason": "Valid Core comparison with same scope, city, and finite surplus.",
+            "before_conflict": false,
+            "after_conflict": false
+          },
+          "production": {
+            "qualified": true,
+            "reason": "Some events invalid or mismatched; 1 excluded.",
+            "events": []
+          },
+          "causal_conclusion": null
+        },
+        "huge_int_raises_OverflowError": true,
+        "untyped_event_extras_leak_nonserializable_object": true
+      },
+      "owner_next": "Preserve independent evidence domains, require aligned Core endpoints, reject malformed event coverage, sanitize output fields and guard finite checks against huge integers; replay actual272-to273 samples without causal or END permission."
+    }
+  },
+  "owner_implementation": {
+    "module": "tools/food_interval_evidence.py",
+    "consumer_tests": "tests/test_food_interval_evidence.py",
+    "pure_no_game_or_IO_calls": true,
+    "independent_domains": [
+      "UI stock interval",
+      "Core aligned endpoint value comparison, not atomic samples",
+      "bounded recorded production coverage, not all game events"
+    ],
+    "strict_boolean_finite_and_huge_int_protection": true,
+    "output_sanitized_not_borrowed_event_rows": true,
+    "qualified_UI_delta_survives_Core_and_event_gaps": true,
+    "causal_conclusion_always_null": true,
+    "END_permission_returned": false,
+    "targeted_methods": 9,
+    "targeted_passed": 9,
+    "additional_malformed_argument_cases": 55
+  },
+  "actual_saved_evidence_replay": {
+    "source_runtime_of_original_observations": 125,
+    "cityID": 458758,
+    "scope_from_guarded_same_owned125_lineage": true,
+    "UI_before": {
+      "cityID": 458758,
+      "turn": 272,
+      "population": 11,
+      "stock": 1.34765625,
+      "surplus": 1.0,
+      "project_hash": -1205325871,
+      "project_progress": 63.0
+    },
+    "UI_after": {
+      "cityID": 458758,
+      "turn": 273,
+      "population": 11,
+      "stock": 0.34765625,
+      "surplus": -1.0,
+      "project_hash": -1205325871,
+      "project_progress": 109.0
+    },
+    "Core_before": {
+      "cityID": 458758,
+      "turn": 272,
+      "surplus": 1.0
+    },
+    "Core_after": {
+      "cityID": 458758,
+      "turn": 273,
+      "surplus": 4.0
+    },
+    "Core273_was_later_than_UI273_not_atomic": true,
+    "analysis": {
+      "ui_interval": {
+        "qualified": true,
+        "reason": "ALIGNED_UI_STOCK_DELTA",
+        "stock_delta": -1.0
+      },
+      "core_comparison": {
+        "qualified": true,
+        "reason": "ALIGNED_ENDPOINT_VALUES_NOT_ATOMIC_SAMPLES",
+        "before_conflict": false,
+        "after_conflict": true
+      },
+      "production": {
+        "qualified": false,
+        "reason": "MISSING_EVENT_COVERAGE",
+        "events": []
+      },
+      "causal_conclusion": null
+    },
+    "new_game_orders": 0,
+    "not_a_food_root_cause_or_starvation_fix": true
+  },
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "OpenCode_installed_registry": "1.19.5",
+    "same_machine_user_success_cache_reused": true,
+    "OpenCode_native_generation": 0
+  },
+  "cumulative": {
+    "logical_calls": 662,
+    "complete": 616,
+    "length_failures": 43,
+    "transport_failures": 3,
+    "HTTP_attempts": 692,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "game_module_version_unchanged": 128,
+  "new_game_orders": 0,
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82,
+  "still_open": [
+    "Food phase and old213 population loss root cause",
+    "128 actual remaining prerequisite progression, offshore build and durable power",
+    "Older222 attribution, historical unknown recovery/full matrix"
+  ]
+}
