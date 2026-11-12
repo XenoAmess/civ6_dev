@@ -1,0 +1,170 @@
+{
+  "schema": "civ6.native127-renewable-sites657/v1",
+  "utc": "2026-11-12T02:03:22.190991+00:00",
+  "machine_id": "BF-202609141645",
+  "source_install_runtime": 127,
+  "actual_turn": 278,
+  "END278_sent": false,
+  "new_game_orders": 0,
+  "model657": {
+    "transport": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 12617,
+        "completion_tokens": 1630,
+        "total_tokens": 14247
+      },
+      "total_ms": 11206.32450003177,
+      "first_nonempty_content_delta_ms": 1917.8575000260025,
+      "json_syntax": {
+        "status": "VALID",
+        "top_level_type": "object",
+        "reason": "COMPLETE_STOP_JSON",
+        "error": null,
+        "offset_units": "Unicode code points",
+        "max_utf8_bytes": 1048576,
+        "semantic_review": "OWNER_REVIEW_REQUIRED"
+      }
+    },
+    "review": {
+      "utc": "2026-11-12T02:00:31.822245+00:00",
+      "raw_lua51_compile": true,
+      "raw_missing_global_engine_port_throws": "[string \"<python>\"]:66: attempt to index field 'ImprovementBuilder' (a nil value)",
+      "raw_adopted_unmodified": false,
+      "owner_changes": [
+        "qualify and capture engine function inside global protected preflight; missing engine 0 suitability calls",
+        "final turn mismatch invalidates all preceding row results"
+      ],
+      "owner_groups": 9,
+      "owner_lua51_compile": true,
+      "owner_groups_pass": true,
+      "groups": [
+        "actual team7 and eight calls despite three unowned prerequisite technologies; strict booleans; input unchanged",
+        "missing global port unknown0calls",
+        "sparse packet rejected0calls",
+        "missing one metadata rejects globally0calls",
+        "one failed row does not stop independent row",
+        "protected engine error unknown",
+        "nonboolean unknown",
+        "late turn change invalidates every row",
+        "foreign pid rejected0calls"
+      ],
+      "game_orders": 0,
+      "native_adoption_at_review": false
+    }
+  },
+  "owner_native": {
+    "UI_own_visible_packet_rows": 218,
+    "Core_plot_xy_owner_purchasecity_xy_visibility_turn_all_requalified": true,
+    "actual_team": 0,
+    "CanHaveImprovement_calls": 872,
+    "metadata": [
+      {
+        "kind": "IMPROVEMENT_SOLAR_FARM",
+        "index": 38,
+        "hash": 2127465633,
+        "prereq": "TECH_SATELLITES",
+        "hasTech": true
+      },
+      {
+        "kind": "IMPROVEMENT_WIND_FARM",
+        "index": 39,
+        "hash": 520634903,
+        "prereq": "TECH_COMPOSITES",
+        "hasTech": false
+      },
+      {
+        "kind": "IMPROVEMENT_GEOTHERMAL_PLANT",
+        "index": 37,
+        "hash": -1089304449,
+        "prereq": "TECH_SYNTHETIC_MATERIALS",
+        "hasTech": false
+      },
+      {
+        "kind": "IMPROVEMENT_OFFSHORE_WIND_FARM",
+        "index": 40,
+        "hash": 1058336991,
+        "prereq": "TECH_PREDICTIVE_SYSTEMS",
+        "hasTech": false
+      }
+    ],
+    "counts": {
+      "IMPROVEMENT_SOLAR_FARM": {
+        "VALID_TRUE": 0,
+        "VALID_FALSE": 218,
+        "UNKNOWN": 0
+      },
+      "IMPROVEMENT_WIND_FARM": {
+        "VALID_TRUE": 0,
+        "VALID_FALSE": 218,
+        "UNKNOWN": 0
+      },
+      "IMPROVEMENT_GEOTHERMAL_PLANT": {
+        "VALID_TRUE": 0,
+        "VALID_FALSE": 218,
+        "UNKNOWN": 0
+      },
+      "IMPROVEMENT_OFFSHORE_WIND_FARM": {
+        "VALID_TRUE": 32,
+        "VALID_FALSE": 186,
+        "UNKNOWN": 0
+      }
+    },
+    "offshore_positive_UI_correlation": {
+      "UI_empty_improvement_and_district": 32,
+      "UI_food_yield_histogram": {
+        "2": 32
+      },
+      "UI_existing_improvement_histogram": {
+        "-1": 32
+      },
+      "UI_existing_district_histogram": {
+        "-1": 32
+      }
+    },
+    "UI_fields_are_associated_prior_sample_not_Core_atomic": true,
+    "suitability_is_not_operation_permission": true,
+    "no_hypothetical_clearance_or_replacement_claim": true,
+    "actual_same_port_positive_while_prereq_unowned": 32
+  },
+  "research": {
+    "current": "TECH_PLASTICS",
+    "index": 54,
+    "progress": 533.61328125,
+    "cost": 592,
+    "positive_progress_must_be_preserved": true,
+    "offshore_prereq": "TECH_PREDICTIVE_SYSTEMS",
+    "prereq_owned": false,
+    "prereq_CanResearch": false,
+    "current_product_gap": "PowerResearchChoice considers only directly researchable renewable unlocks; site-aware actual prerequisite-path planning is not implemented.",
+    "primary_source": "Installed Base/Assets/UI/Screens/TechTree.lua:231-245 obtains complete GetResearchPath(actualHash), then submits that table. Future GS technologies can use randomized prerequisites, so no static XML graph claim.",
+    "next_task": "Model658 actual read-only research-path shape and prerequisite identity diagnostics; no research operation requested."
+  },
+  "maintenance": {
+    "daily_date": "2026-11-12",
+    "OpenCode_installed_registry": "1.19.5",
+    "same_machine_user_success_cache_reused": true,
+    "OpenCode_native_generation": 0
+  },
+  "cumulative_at_model657_completion": {
+    "logical_calls": 657,
+    "complete": 612,
+    "length_failures": 42,
+    "transport_failures": 3,
+    "HTTP_attempts": 687,
+    "additional_attempts": 30,
+    "actual_initial_inflight": 1,
+    "OpenCode_native_generation": 0,
+    "cached_prompt_tokens": null,
+    "owner_active_seconds": null,
+    "net_savings_seconds": null
+  },
+  "Steam_online_upload_actions": 0,
+  "Workshop_version": 82,
+  "still_open": [
+    "Offshore prerequisite-path planning, actual unlock/build and durable power",
+    "Recurring food phase root cause, older213/222 and unknown recovery/full matrix"
+  ]
+}

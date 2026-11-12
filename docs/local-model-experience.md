@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [657海上风电地块与科技缺口](testing/baiqi-renewable-sites278-model657.md)：127／278，218购买格×4实际team适用性872次，海上风电32真／186假，其他三项全假，均0未知；未拥有科技不阻断该只读适用性，不能授建造。657完整14247tokens，缺全局端口在pcall之前抛出被隔离复现，Owner9组后接入；塑料正进度保持，继续658实际前置路径诊断。累计657／612完整／42length／3transport／687HTTP／30extra，未知成本null。[证据](research/baiqi-p6-native127-renewable-sites657-2026-11-12.json)。
+
 2026-11-12 新增 [127队列冷读与普通执行278](testing/baiqi-builder-queue-native277-278-127.md)：世界/城/172建筑/64区域/214地块/54单位/food/vitals保持；675原队列2350冷读保留0新请求，一普通END/7军队SKIP/加拿大2点击后到56,31且queue nil/charges2，0重发MOVE，仅到达后SKIP。原3滑雪场保持，其他演员续建2处且2→1/3→2次数，总5处；不授历史空队列UNKNOWN或持续电力通过。278正式保存，未END278。0新HTTP不重计655656，OpenCode原生0，未知成本null。[证据](research/baiqi-p6-native127-builder-queue278-2026-11-12.json)。
 
 2026-11-12 新增 [127Builder队列保护与655／656](testing/baiqi-builder-queue-127.md)：655合法hunk经显式typed提取及隔离见证采用（外层字段类型不符任务但JSON VALID），656 length5000整份未读未采用；Owner12Lua51方法过，旧126三方法8断言失败0异常。Owner漏fixture表12setup错误分账纠正后，完整1819项1818pass1SDKskip、95Lua/117包。现行原队列／未知getter均拒Builder新MOVE/BUILD/REPAIR/SKIP/standby，原pending与其它演员授权保持，未授全部历史UNKNOWN恢复。HTTP峰值2重叠10.096057秒，累计656/611完整42length3transport686HTTP30extra，维护缓存复用、OpenCode原生0、未知成本null。127待同自然277/2350队列冷验。[证据](research/baiqi-p6-source127-builder-queue-software-2026-11-12.json)。
