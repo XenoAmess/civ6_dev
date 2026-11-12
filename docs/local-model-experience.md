@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-12 新增 [691住房需求与重复社区](testing/baiqi-housing691-native318.md)：133／318三城需求与双CanProduce均真，邯郸已有社区仍可再造；原生可放置4／2／5未授完整保护粮食资格。候选完整10455tokens／7976.6551ms，仅调查方向窄采用，负缺口算术／优先级／预算／原因表边界由Owner纠正。累计691／640完整48length3transport721HTTP30extra，原生0／未知成本null，住房改善仍待实效。
+
+
 2026-11-12 [134未完项目接续／689690](testing/baiqi-project-resume134-model689690.md)：只采用689纯92.5提示，Controller漏特殊／重复／挡零进度新项目等Owner重写，raw12方法5failure；690length5000正文未读。Owner12方法夹具隔离一错后通过、旧13315failure1error含subTest；冻结1968项1967pass1SDKskip／417.642s、97Lua51／119包。through690=690／639完整48length3transport720HTTP30extra，峰2/重叠30.176518秒，维护原生0/成本null；游戏仍133318，待正式134冷验，691住房另包。
 
 

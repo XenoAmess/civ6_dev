@@ -1,0 +1,119 @@
+{
+  "schema": "civ6.housing691-native318-gates/v1",
+  "utc": "2026-11-12T14:52:54.137307+00:00",
+  "machine_id": "BF-202609141645",
+  "observed_runtime": 133,
+  "observed_turn": 318,
+  "source_during_diagnostic": 134,
+  "model": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "json_syntax": {
+      "status": "VALID",
+      "top_level_type": "object",
+      "reason": "COMPLETE_STOP_JSON",
+      "error": null,
+      "offset_units": "Unicode code points",
+      "max_utf8_bytes": 1048576,
+      "semantic_review": "OWNER_REVIEW_REQUIRED"
+    },
+    "usage": {
+      "prompt_tokens": 9561,
+      "completion_tokens": 894,
+      "total_tokens": 10455
+    },
+    "total_ms": 7976.65510000661,
+    "TTFT_ms": 1620.8208999596536
+  },
+  "adoption": "PARTIAL_DIAGNOSTIC_OUTLINE_ONLY; owner protected native readers; no raw code/game action",
+  "owner_corrections": [
+    "All three negative housing-population values satisfy <4; a deficit1-3 does not make this gate false. Candidate arithmetic/limitation incorrect.",
+    "Demand is an eligibility gate, not a priority boost; active projects alone do not establish missing housing implementation or a planning failure.",
+    "Requested repeatable-Neighborhood analysis was omitted; actual OnePerCityfalse and Handan existing district with bothCanProduce true disprove an inherent one-per-city blocker in this state.",
+    "checked increments before legality; scan budget may include ineligible or low-score earlier rows, not only higher-priority work.",
+    "Second native CanProduce returned an additional reason table; owner only qualified booleans and did not inspect reasons. Do not claim a reason interface is unavailable."
+  ],
+  "native": {
+    "district_index": 10,
+    "district_hash": 1105121556,
+    "OnePerCity": false,
+    "cities": [
+      {
+        "city_id": 131073,
+        "housing": 15,
+        "population": 20,
+        "demand": true,
+        "queue_size": 1,
+        "queue_hash": -1938097113,
+        "has_neighborhood": false,
+        "neighborhood_pillaged": false,
+        "both_native_CanProduce": true,
+        "purchased": 25,
+        "visible": 25,
+        "native_CanHaveDistrict_true": 4,
+        "native_true_plots": [
+          2715,
+          2640,
+          2568,
+          2567
+        ]
+      },
+      {
+        "city_id": 196610,
+        "housing": 18,
+        "population": 20,
+        "demand": true,
+        "queue_size": 1,
+        "queue_hash": -1938097113,
+        "has_neighborhood": true,
+        "neighborhood_pillaged": false,
+        "both_native_CanProduce": true,
+        "purchased": 25,
+        "visible": 25,
+        "native_CanHaveDistrict_true": 2,
+        "native_true_plots": [
+          2941,
+          2867
+        ]
+      },
+      {
+        "city_id": 655369,
+        "housing": 14,
+        "population": 15,
+        "demand": true,
+        "queue_size": 1,
+        "queue_hash": -1205325871,
+        "has_neighborhood": false,
+        "neighborhood_pillaged": false,
+        "both_native_CanProduce": true,
+        "purchased": 18,
+        "visible": 18,
+        "native_CanHaveDistrict_true": 5,
+        "native_true_plots": [
+          2206,
+          2130,
+          2057,
+          2056,
+          2055
+        ]
+      }
+    ],
+    "game_orders": 0,
+    "full_planner_placement_eligibility": null,
+    "boundary": "Native CanHaveDistrict alone excludes neither protected assets/reservations nor worked-food risks, ClearPlot or final operation. Shanghai2206 is a food-rescue tile; no clearance/manual compensation."
+  },
+  "through691": {
+    "logical": 691,
+    "complete": 640,
+    "length": 48,
+    "transport": 3,
+    "HTTP": 721,
+    "extra": 30,
+    "OpenCode_native": 0,
+    "new_HTTP_peak": 1,
+    "cache_cost_net_savings": null
+  },
+  "maintenance": "Same-machine/user Nov12 OpenCode1.19.5 successful daily cache reused through canonical caller; native generation0",
+  "causal_limits": "No earlier housing baseline; no attribution to CorporateLibertarianism, no housing-adequacy PASS. Software134 project change is a separate task.",
+  "next": "Complete134 natural project continuation; independently inspect protected asset/food/reservation and priority gates at a real planning opportunity without interrupting active queues."
+}
