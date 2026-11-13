@@ -6,7 +6,31 @@ def _finite(value):
     except (OverflowError,ValueError):return False
 
 
-def analyze_pairs(pairs, fixture_sha256):
+def validate_capture_mode(capture, expected_source_version, require_ordinary):
+    if type(expected_source_version) is not int or expected_source_version not in (67, 140):
+        raise ValueError('expected_source_version must be int 67 or 140')
+    if type(require_ordinary) is not bool:
+        raise ValueError('require_ordinary must be bool')
+    if require_ordinary and expected_source_version != 140:
+        raise ValueError('require_ordinary requires expected_source_version 140')
+    if not isinstance(capture, collections.abc.Mapping):
+        raise ValueError('capture must be a mapping')
+    if type(capture.get('source_version')) is not int or capture.get('source_version') != expected_source_version:
+        raise ValueError('source_version mismatch')
+    if require_ordinary:
+        if capture.get('end_mode') != 'ORDINARY_CALLBACK':
+            raise ValueError('end_mode must be ORDINARY_CALLBACK')
+        if capture.get('forced') is not False:
+            raise ValueError('forced must be False')
+        if capture.get('phase') != 'COMPLETE':
+            raise ValueError('phase must be COMPLETE')
+        req = capture.get('requested_turns')
+        if not isinstance(req, list) or len(req) != 5 or any(type(t) is not int or t != 85+i for i, t in enumerate(req)):
+            raise ValueError('requested_turns must be [85,86,87,88,89]')
+    return True
+
+
+def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_ordinary=False):
     if not isinstance(pairs, collections.abc.Sequence) or isinstance(pairs, (str, bytes, bytearray, collections.abc.Mapping)):
         raise ValueError('pairs must be a sequence of 5 mappings')
     if len(pairs) != 5:
@@ -46,8 +70,7 @@ def analyze_pairs(pairs, fixture_sha256):
             seen_run_ids.add(run_id)
             if capture.get('fixture_sha256') != fixture_sha256:
                 raise ValueError('fixture_sha256 mismatch')
-            if type(capture.get('source_version')) is not int or capture.get('source_version') != 67:
-                raise ValueError('source_version must be 67')
+            validate_capture_mode(capture,expected_source_version,require_ordinary)
             if any(type(capture.get(k)) is not int or capture.get(k)!=0 for k in ('errors','refused')):
                 raise ValueError('errors and refused must be 0')
             records = capture.get('records')
@@ -139,7 +162,7 @@ def analyze_pairs(pairs, fixture_sha256):
     ratio_known = len(all_ratios) == 25
     budget_ok = ratio_known and top_median_delta <= 500 and (top_median_ratio is not None and top_median_ratio <= 10)
 
-    return {
+    result = {
         'matched_rows': matched_deltas,
         'pair_medians': pair_medians,
         'median_delta_ms': top_median_delta,
@@ -148,3 +171,6 @@ def analyze_pairs(pairs, fixture_sha256):
         'observed_b_delta_budget_ok': budget_ok,
         'limits': ['Input arithmetic only; physical execution/order, Native AI, operator input, clock precision and assets require separate evidence.']
     }
+    if require_ordinary or expected_source_version!=67:
+        result.update(source_version=expected_source_version,ordinary_required=require_ordinary)
+    return result

@@ -1,0 +1,94 @@
+{
+  "schema": "civ6.paired.current-source-mode730-software/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "scope": "Arithmetic analyzer explicit expected source140 plus required ordinary callback mode; historical default67 shape and formulas preserved.",
+  "api": "analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_ordinary=False)",
+  "normal_requirements": {
+    "source_version": 140,
+    "end_mode": "ORDINARY_CALLBACK",
+    "forced": false,
+    "phase": "COMPLETE",
+    "requested_turns": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ]
+  },
+  "software": {
+    "new_methods": 5,
+    "existing_arithmetic_methods": 9,
+    "distinct_passed": 14,
+    "synthetic_pairs": 5,
+    "synthetic_segments": 25,
+    "native_pairs": 0
+  },
+  "model730": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 5979,
+      "completion_tokens": 365,
+      "total_tokens": 6344
+    },
+    "total_ms": 2923.154199961573,
+    "ttft_ms": 910.0146999116987,
+    "attempts": 1,
+    "raw_probes": [
+      {
+        "case": "valid_current",
+        "contract_passed": true
+      },
+      {
+        "case": "legacy67",
+        "contract_passed": true
+      },
+      {
+        "case": "mixed_source",
+        "contract_passed": true
+      },
+      {
+        "case": "bool_source",
+        "contract_passed": true
+      },
+      {
+        "case": "numeric_forced",
+        "contract_passed": true
+      },
+      {
+        "case": "float_turn",
+        "contract_passed": true
+      },
+      {
+        "case": "unsupported_source",
+        "contract_passed": true
+      },
+      {
+        "case": "numeric_option",
+        "contract_passed": true
+      }
+    ],
+    "raw_helper_adopted": true,
+    "adoption": "Complete validate_capture_mode helper literal body adopted; collections.abc already imported by supplied actual consumer. Owner adds analyzer keyword integration and scoped result metadata."
+  },
+  "cumulative_through730": {
+    "logical": 730,
+    "complete_streams_including_historical_json_rejection": 677,
+    "length": 50,
+    "final_transport": 3,
+    "http": 760,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 successful canonical1.19.5 cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "Input arithmetic and declared mode checks only. Normal driver migration, bridge invocation, original engine acceptance, 5 matched groups/25 Native segments and performance acceptance remain unverified. No B_delta or TC-036 pass."
+}
