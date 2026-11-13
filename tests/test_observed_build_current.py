@@ -23,7 +23,7 @@ class CurrentObservedBuildTests(unittest.TestCase):
         cls.source = ROOT / 'mod/Baiqi'
         cls.names = manifest_files(cls.source)
         cls.before = {n: digest(cls.source / n) for n in cls.names}
-        cls.out = cls.base / 'bounded139'
+        cls.out = cls.base / 'bounded140'
         cls.result = builder.build(cls.out, bounded_zero=True)
 
     @classmethod
@@ -33,7 +33,7 @@ class CurrentObservedBuildTests(unittest.TestCase):
     def test_current_bounded_build_reports_real_version_and_frozen_schema(self):
         r = self.result
         self.assertEqual((r['source_version'], r['mode'], r['runtime_marker']),
-                         (139, 'baiqi139-q21-bounded', 'baiqi67-q19'))
+                         (140, 'baiqi140-q21-bounded', 'baiqi67-q19'))
         self.assertEqual(r['lua_compile_versions'], ['5.1', '5.3'])
         self.assertTrue(r['aggregate_zero'])
         self.assertFalse(r['installed'])
@@ -45,12 +45,12 @@ class CurrentObservedBuildTests(unittest.TestCase):
         self.assertEqual(self.result['source_hashes'], self.before)
         self.assertEqual({n: digest(self.source / n) for n in self.names}, self.before)
         self.assertEqual(manifest_files(self.out / 'Baiqi'), self.names)
-        archive = self.out / 'Baiqi-diagnostic139-q21-bounded.zip'
+        archive = self.out / 'Baiqi-diagnostic140-q21-bounded.zip'
         with zipfile.ZipFile(archive) as z:
             self.assertEqual(set(z.namelist()), {'Baiqi/' + n for n in self.names})
             for n in self.names:
                 self.assertEqual(z.read('Baiqi/' + n), (self.out / 'Baiqi' / n).read_bytes())
-        self.assertEqual(ET.fromstring((self.out / 'Baiqi/Baiqi.modinfo').read_bytes()).get('version'), '139')
+        self.assertEqual(ET.fromstring((self.out / 'Baiqi/Baiqi.modinfo').read_bytes()).get('version'), '140')
 
     def test_coverage_and_wrapped_canonical_capture_are_real_source_sites(self):
         r = self.result
@@ -81,10 +81,10 @@ class CurrentObservedBuildTests(unittest.TestCase):
         source.mkdir(parents=True)
         (source / 'empty.lua').write_text('return {}', encoding='utf-8')
         (source / 'Baiqi.modinfo').write_text(
-            f'<Mod id="{MOD_ID}" version="140"><Files><File>empty.lua</File></Files></Mod>',
+            f'<Mod id="{MOD_ID}" version="999"><Files><File>empty.lua</File></Files></Mod>',
             encoding='utf-8')
         output = self.base / 'unsupported-output'
-        with patch.object(builder, 'ROOT', base), self.assertRaisesRegex(ValueError, 'actual source67 or139'):
+        with patch.object(builder, 'ROOT', base), self.assertRaisesRegex(ValueError, 'actual source67,139 or140'):
             builder.build(output, bounded_zero=True)
         self.assertFalse(output.exists())
 

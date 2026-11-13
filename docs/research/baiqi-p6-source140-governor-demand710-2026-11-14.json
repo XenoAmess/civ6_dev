@@ -1,0 +1,121 @@
+{
+  "schema": "civ6.source140-governor-demand710/v1",
+  "utc": "2026-11-13T18:04:35.417199+00:00",
+  "machine_id": "BF-202609141645",
+  "version": 140,
+  "motivation": {
+    "source139_Native_Admin_p95_ms": 22,
+    "reference_ms": 20,
+    "readonly_cities": 11,
+    "unassigned_negative_growth": 0,
+    "Native140_gain": null
+  },
+  "change": "per-call bounded owner/unique roster/finite rate demand scan inside existing protected snapshot; only nil assigned governor is unassigned; no-demand avoids detailed sources; true re-reads original full snapshot from scratch",
+  "preserved": [
+    "pending assignment observation before snapshot",
+    "ordinary governor fallback on no/unknown rescue snapshot",
+    "fresh full donor removal pressure, population and loyalty",
+    "second full snapshot Plan",
+    "post-permission donor and target re-read",
+    "final turn/leader/human/strategic/singleplayer checks",
+    "uncertain request no replay",
+    "no cross-callback or per-turn cache"
+  ],
+  "new_checks": {
+    "methods": 9,
+    "seconds": 0.134,
+    "coverage": [
+      "known positive no breakdown",
+      "assigned negative ignored",
+      "next callback negative fresh demand",
+      "negative probe then full read positive no send",
+      "pending first then real observed no replay",
+      "nilNaNInfStringThrow contained and next call recovery",
+      "reportedcount/duplicates/assignmentfalse unknown",
+      "129th actual yield fails before identity read despite count1",
+      "unknown preserves normal governor fallthrough"
+    ]
+  },
+  "related_checks": {
+    "passing_methods": 31,
+    "owner_loader_error": "requested nonexistent tests.test_baiqi_governors; one ImportError, not product failure; actual complete discovery later passed"
+  },
+  "full_suite": {
+    "tests": 2038,
+    "passed": 2037,
+    "skipped": 1,
+    "seconds": 122.219,
+    "exit_code": 0,
+    "skip_reason": "existing SDK conditional"
+  },
+  "package": {
+    "version": 140,
+    "files": 119,
+    "Lua51": 97,
+    "all_zip_bytes_match": true,
+    "package_sha256": "23c3a98ba0be697e66980232e7c56b0ad67168f91dadbe516eb55b0ac48003e1"
+  },
+  "observed_builder": "explicit140 qualification added to existing67/139 allowlist; bounded only, dual Lua51/53 compile retained; actual current transformed Core integration passes; unknown999 rejected",
+  "model710": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "total_ms": 11451.045100111514,
+    "first_nonempty_content_delta_ms": 2258.731900015846,
+    "usage": {
+      "prompt_tokens": 16251,
+      "completion_tokens": 1477,
+      "total_tokens": 17728
+    },
+    "candidate_complete": true
+  },
+  "raw710_probes": [
+    {
+      "case": "positive_infinity",
+      "raw_classification": false,
+      "required": "unknown"
+    },
+    {
+      "case": "negative_infinity",
+      "raw_classification": true,
+      "required": "unknown"
+    },
+    {
+      "case": "reported1_actual129",
+      "raw_classification": false,
+      "iterator_calls": 130,
+      "required": "unknown_with_actual_iteration_cap"
+    },
+    {
+      "case": "reader_throws",
+      "protected_result": false,
+      "required": "call_site_contains_exception"
+    }
+  ],
+  "review710": {
+    "raw_code_adoption": false,
+    "direction_adoption": "fresh cheap demand only, after owner rewrite",
+    "defects": [
+      "count bound without actual iteration cap or final count/unique roster checks",
+      "infinite rates classified known",
+      "false assigned treated as nil",
+      "reader throws escape original Admin call site",
+      "rewritten call site changes unknown fallthrough to returntrue"
+    ],
+    "not_a_defect": "existing original ASSIGN_GOVERNOR uses governor Index; candidate retained this correctly"
+  },
+  "cumulative_through710": {
+    "logical_calls": 710,
+    "complete_streams_including_one_strict_json_rejection": 659,
+    "length": 48,
+    "final_transport": 3,
+    "HTTP_attempts": 740,
+    "extra_attempts": 30,
+    "OpenCode_native_generation_tasks": 0,
+    "new_peak_inflight": 1,
+    "cached_tokens": null,
+    "owner_active_cost": null,
+    "net_savings": null
+  },
+  "maintenance": "Nov14 canonical OpenCode1.19.5/latest1.19.5 succeeded; shared adapter cache reused",
+  "status": "software verified; source140 not yet installed or Native accepted, no whole performance pass; Steam offline/workshop82"
+}

@@ -444,8 +444,32 @@ local function LoyaltyCity(city,pid,governors)
   return {id=city:GetID(),population=city:GetPopulation(),loyalty=identity:GetLoyalty(),
     rate=rate,assigned=assigned and assigned:GetType(),removalPressure=pressure}
 end
+-- Read demand afresh inside the snapshot's protected call. These facts only
+-- decide whether to build a full snapshot; none authorize an assignment.
+local function GovernorLoyaltyDemand(pid,player,governors)
+  local own=assert(player:GetCities());local expected=own:GetCount()
+  assert(type(expected)=="number" and expected>=0 and expected<=128 and expected%1==0)
+  local visited,seen,needed=0,{},false
+  for _,city in own:Members() do
+    visited=visited+1;assert(visited<=128 and city:GetOwner()==pid)
+    local id=city:GetID()
+    assert(type(id)=="number" and id>=0 and id%1==0 and id<math.huge and not seen[id])
+    seen[id]=true
+    local assigned=governors:GetAssignedGovernor(city)
+    assert(assigned==nil or type(assigned)=="table" or type(assigned)=="userdata")
+    if assigned==nil then
+      local identity=assert(city:GetCulturalIdentity())
+      local rate=identity:GetLoyaltyPerTurn()
+      assert(type(rate)=="number" and rate==rate and rate>-math.huge and rate<math.huge)
+      if rate<0 then needed=true end
+    end
+  end
+  assert(visited==expected and own:GetCount()==expected)
+  return needed
+end
 local function GovernorLoyaltySnapshot(pid,player,governors)
   local ok,snapshot=pcall(function()
+    if GovernorLoyaltyDemand(pid,player,governors)~=true then return nil end
     local result={cities={},governors={}}
     local own=player:GetCities();local expected=own:GetCount()
     assert(type(expected)=="number" and expected>=0 and expected<=128 and expected%1==0)

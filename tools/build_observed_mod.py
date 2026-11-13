@@ -1,4 +1,4 @@
-"""Build a private source67/139 diagnostic copy; never install release files."""
+"""Build a private source67/139/140 diagnostic copy; never install release files."""
 from __future__ import annotations
 
 import argparse
@@ -58,10 +58,10 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
     files=manifest_files(source)
     info=ET.fromstring((source/'Baiqi.modinfo').read_bytes())
     version=info.get('version')
-    if version not in ('67','139'):
-        raise ValueError('Diagnostic assembler requires actual source67 or139')
-    if version=='139' and not bounded_zero:
-        raise ValueError('Source139 diagnostics require bounded_zero and the frozen4096 cap')
+    if version not in ('67','139','140'):
+        raise ValueError('Diagnostic assembler requires actual source67,139 or140')
+    if version in ('139','140') and not bounded_zero:
+        raise ValueError('Current source diagnostics require bounded_zero and the frozen4096 cap')
     expected=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
     expected+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
     quotas=bounded_quotas(expected) if bounded_zero else None
@@ -73,7 +73,7 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
     lua=LuaRuntime(unpack_returned_tuples=True)
     compile_lua=lua.eval('function(s,n) local f,e=load(s,n);assert(f,e);return true end')
     compile_lua51=None
-    if version=='139':
+    if version in ('139','140'):
         from lupa.lua51 import LuaRuntime as Lua51Runtime
         lua51=Lua51Runtime(unpack_returned_tuples=True)
         compile_lua51=lua51.eval('function(s,n) local f,e=loadstring(s,n);assert(f,e);return true end')
@@ -85,9 +85,9 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
             raw=contained(source,name).read_text(encoding='utf-8-sig')
             compile_lua(raw,name)
             text,coverage[name]=transform(raw,name,quotas)
-            if version=='139':
+            if version in ('139','140'):
                 text=text.replace('-- BAIQI_DIAGNOSTIC_ONLY: source67 owned definitions and Native leaves.',
-                                  '-- BAIQI_DIAGNOSTIC_ONLY: source139; runtime instrumentation schema baiqi67-q19.',1)
+                                  f'-- BAIQI_DIAGNOSTIC_ONLY: source{version}; runtime instrumentation schema baiqi67-q19.',1)
             compile_lua(text,name+'-q19')
             if compile_lua51:
                 compile_lua51(raw,name)
@@ -118,7 +118,7 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
             'helper_hashes':{stem:digest(ROOT/f'tools/lua/{stem}.lua') for stem in HELPERS.values()},
             'coverage':coverage,'archive_sha256':digest(archive),'installed':False,
             'limits':'Private inclusive walltime envelope, Native/vanilla callees included. Clock resolution, runtime active contexts and full-window completeness require actual evidence. No product controls.'}
-    if version=='139':
+    if version in ('139','140'):
         result['runtime_marker']=MARKER
         result['lua_compile_versions']=['5.1','5.3']
     (output_dir/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
