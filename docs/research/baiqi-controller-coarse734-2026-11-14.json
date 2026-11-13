@@ -1,0 +1,83 @@
+{
+  "schema": "civ6.controller.coarse734-software/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "artifact": {
+    "mode": "baiqi140-controller-children-v1",
+    "files": 119,
+    "archive_sha256": "61f36547ac3c00e07ad467b7364fad749ab9624ce15f4a2c05f683d05d4a15a2",
+    "children": [
+      "ReadBack",
+      "ProcessCity",
+      "ProcessBuilder",
+      "ProcessSettler",
+      "RefreshSettlement",
+      "ArchaeologyPendingRead"
+    ],
+    "sample_capacity": 4096,
+    "profile_count": 1,
+    "aggregate_zero": false,
+    "focus_turns": [
+      88,
+      89
+    ],
+    "observed_window_seconds": 10,
+    "original_controller_exact_prefix": true,
+    "lua51_compiled": true,
+    "lua53_compiled": true,
+    "installed": false
+  },
+  "software": {
+    "nested_methods": 10,
+    "builder_methods": 3,
+    "distinct_passed": 13,
+    "lua_files_compiled": 97,
+    "native_runs": 0
+  },
+  "model734": {
+    "usage": {
+      "prompt_tokens": 66176,
+      "completion_tokens": 761,
+      "total_tokens": 66937
+    },
+    "total_ms": 13045.786299975589,
+    "ttft_ms": 8481.710999971256,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "raw_review": {
+      "candidate_unchanged": true,
+      "methods": 10,
+      "failures": 0,
+      "errors": 5,
+      "passed": 5,
+      "adopted": false
+    },
+    "adopted_code": false,
+    "defects": [
+      "serial never incremented; rootId always0",
+      "unbounded snapshot integers accepted",
+      "snapshot getter throws outside protected read and blocks original body",
+      "missing root/invalid-clock/dropped metadata errors not counted"
+    ],
+    "owner_test_correction": "After original raw run, outside-focus argument/return fixture strengthened to assert all four returns; original raw evidence retained."
+  },
+  "cumulative": {
+    "logical": 734,
+    "complete_streams_including_historical_json_rejection": 681,
+    "length": 50,
+    "final_transport": 3,
+    "http": 764,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 canonical1.19.5 successful cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "Coarse diagnosis only. Starts after this QA observer saw the native anchor; earlier entries intentionally unmeasured. Child instrumentation changes root cost; never a B_plan or all-script performance pass."
+}

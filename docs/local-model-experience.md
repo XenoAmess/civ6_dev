@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [Controller粗分项734](testing/baiqi-controller-coarse734.md)：raw10方法5过5错误，rootId恒0／snapshot未保护及无界／遗漏根未知，0采用；Owner10新＋3构建方法过，根子共4096、97Lua双编译119包，仅准备。F真实90ms超限不放宽；累计734／681完整50length3transport764HTTP30extra，原生0／成本null。
+
 2026-11-14 [普通END入口733](testing/baiqi-paired-normal-end733.md)：完整候选模块原样采用，API／顺序为Owner事前合同；6不同软件方法过，原版无参数END前即时Begin，重复／未知不重发。真实跨UI／control普通门及25段未验证；累计733／680完整50length3transport763HTTP30extra，维护复用原生0／成本null。
 
 2026-11-14 [E收尾中止／732](testing/baiqi-stageA-E-closing732.md)：318行零错误、25窗前完整证明，但首次实际91复合收尾断言失败、stop缺失，旧E不追认。后到锚点已保留、91存档／QA撤；Owner6就绪门方法过，F同产物重读85。732原6检查4过2缺math失败，0代码；累计732／679完整50length3transport762HTTP30extra，原生0／成本null。
