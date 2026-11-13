@@ -1,7 +1,7 @@
 from pathlib import Path
 import tempfile,json,unittest,zipfile
 from lupa.lua51 import LuaRuntime
-from tools.build_controller_diagnostic import ROOT,CHILDREN,build,suffix
+from tools.build_controller_diagnostic import ROOT,CHILDREN,build,suffix,selected_children
 from tools.build_mod import digest,manifest_files
 
 
@@ -60,6 +60,27 @@ local ok,same=h.Restore();assert(ok and same[1]==false and BaiqiController.RunNo
 assert(#T.callbacks==1 and T.callbacks[1]==foreign)
 local ok2,same2=h.Restore();assert(ok2 and same2==same and #T.callbacks==1)
 ''')
+
+    def test_default_and_explicit_selection_are_byte_identical(self):
+        self.assertEqual(suffix(),suffix(CHILDREN))
+        self.assertEqual(suffix(),suffix(list(CHILDREN)))
+
+    def test_fine_settler_selection_compiles_actual_lexical_consumers(self):
+        fine=('ProcessSettler','SettlementSites','PathStep','Safe','KnownExpansionSupport','RequestCivilian')
+        with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
+            out=Path(temp)/'prepared';result=build(out,children=fine)
+            self.assertEqual(result['children'],list(fine))
+            self.assertEqual(result['profile_count'],1)
+            raw=(out/'Baiqi/Lua/BaiqiController.lua').read_text(encoding='utf-8')
+            for name in fine:self.assertIn("d.WrapChild('"+name+"',"+name+')',raw)
+
+    def test_bad_selections_and_missing_lexical_child_are_rejected(self):
+        for value in (None,(),'',('Safe','Safe'),('for',),('a.b',),('Safe',1),tuple('F'+str(i)for i in range(13))):
+            with self.subTest(value=value),self.assertRaises(ValueError):selected_children(value)
+        with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
+            out=Path(temp)/'missing'
+            with self.assertRaisesRegex(ValueError,'Unknown lexical'):build(out,children=('MissingActualFunction',))
+            self.assertFalse(out.exists())
 
 
 if __name__=='__main__':unittest.main()

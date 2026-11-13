@@ -13,7 +13,18 @@ CHILDREN=('ReadBack','ProcessCity','ProcessBuilder','ProcessSettler',
 HELPERS=('diagnostic_profile','diagnostic_child_profile','diagnostic_nested_profile')
 
 
-def suffix():
+def selected_children(children):
+    reserved=set('and break do else elseif end false for function goto if in local nil not or repeat return then true until while'.split())
+    if not isinstance(children,(tuple,list))or not 1<=len(children)<=12:
+        raise ValueError('Expected1..12 unique lexical children')
+    if any(not isinstance(name,str)or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*',name)or name in reserved for name in children):
+        raise ValueError('Invalid lexical child')
+    if len(set(children))!=len(children):raise ValueError('Duplicate lexical child')
+    return tuple(children)
+
+
+def suffix(children=CHILDREN):
+    children=selected_children(children)
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
     text+="assert(P6ControllerNested==nil,'Existing diagnostic owner')\n"
@@ -54,7 +65,7 @@ if added then d.subscribed=true else d.errors=d.errors+1 end
 local root={original=BaiqiController.RunNow}
 root.wrapped=d.WrapRoot(root.original);BaiqiController.RunNow=root.wrapped;d.bindings[1]=root
 '''
-    for index,name in enumerate(CHILDREN,2):
+    for index,name in enumerate(children,2):
         text+=f'''local binding{index}={{original={name}}}
 binding{index}.wrapped=d.WrapChild('{name}',{name});{name}=binding{index}.wrapped;d.bindings[{index}]=binding{index}
 '''
@@ -65,7 +76,7 @@ function d.Restore()
  same[1]=BaiqiController.RunNow==root.wrapped
  if same[1]then BaiqiController.RunNow=root.original end
 '''
-    for index,name in enumerate(CHILDREN,2):
+    for index,name in enumerate(children,2):
         text+=f''' same[{index}]={name}==binding{index}.wrapped
  if same[{index}]then {name}=binding{index}.original end
 '''
@@ -81,9 +92,10 @@ end
     return text
 
 
-def build(output_dir:Path):
+def build(output_dir:Path,*,children=CHILDREN):
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
+    children=selected_children(children)
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     if ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')!='140':
         raise ValueError('Expected current source140')
@@ -91,11 +103,11 @@ def build(output_dir:Path):
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():
         raise ValueError('New private output directory required')
     controller=source/'Lua/BaiqiController.lua';raw=controller.read_bytes()
-    for name in CHILDREN:
+    for name in children:
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:
             raise ValueError('Unknown lexical child '+name)
     hashes={name:digest(contained(source,name))for name in names}
-    appended=suffix().encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
+    appended=suffix(children).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
     prepared['Lua/BaiqiController.lua']=raw+appended
     c51=Lua51().eval('function(s)local f,e=loadstring(s);assert(f,e)end')
     c53=Lua53().eval('function(s)local f,e=load(s);assert(f,e)end')
@@ -110,7 +122,7 @@ def build(output_dir:Path):
                 changed_files=['Lua/BaiqiController.lua'],source_hashes=hashes,
                 instrumented_hashes={name:digest(contained(target,name))for name in names},
                 helper_hashes={name:digest(ROOT/f'tools/lua/{name}.lua')for name in HELPERS},
-                archive_sha256=digest(archive),children=list(CHILDREN),sample_capacity=4096,
+                archive_sha256=digest(archive),children=list(children),sample_capacity=4096,
                 profile_count=1,aggregate_zero=False,focus_turns=[88,89],observed_window_seconds=10,
                 original_controller_exact_prefix=True,lua51_compiled=True,lua53_compiled=True,installed=False,
                 limits='Coarse diagnosis only. Starts after this QA observer saw the native anchor; earlier entries intentionally unmeasured. Child instrumentation changes root cost; never a B_plan or all-script performance pass.')
@@ -120,4 +132,5 @@ def build(output_dir:Path):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,required=True)
-    d=build(p.parse_args().output_dir);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
+    p.add_argument('--children',nargs='+',default=CHILDREN);args=p.parse_args()
+    d=build(args.output_dir,children=args.children);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))

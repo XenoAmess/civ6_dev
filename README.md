@@ -1,5 +1,7 @@
 # civ6_dev
 
+[G实机定位移民尖峰](docs/testing/baiqi-controller-G-settler735736.md)：64根／840行零错误，两个88控制器根内ProcessSettler约65／82ms；90已存／七绑定撤，继续细分选址与路线。生产候选未采用、移民提前返回语义失败未采用，产品140和性能FAIL保持。
+
 [F完整Stage A：Controller最大90ms未过](docs/testing/baiqi-stageA-F-complete-fail.md)：311行零错误、22窗前完整证明，两个目标纯十城116／143样本；Admin19／23ms达到，Controller12／90ms仍FAIL。91已存／QA撤，继续定位尖峰，不授B_plan或整例通过。
 
 [E五窗后收尾中止／732](docs/testing/baiqi-stageA-E-closing732.md)：318行零错误、25窗前完整证明，缺完成stop仍不授B_plan；91已存／QA撤。6项就绪等待检查过，F同产物重新正式载入85，继续验收。
