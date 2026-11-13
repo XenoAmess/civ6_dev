@@ -1,0 +1,166 @@
+{
+  "schema": "civ6.native140.stageB.quota140/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "owner_role": "Acceptance agent acts as TEST_PLAYER for original military SKIP/END and one observed friendly farewell; BACKGROUND retains domestic-only scope.",
+  "source_version": 140,
+  "product_change": false,
+  "artifact_sha256": "45775f9f2ce6014134b52ddb4fdd3e4ae78dc724e78274f202403e26b7d2bd96",
+  "fixture": {
+    "name": "Baiqi_P6_20261101_V32_TenCities85_BeforeProfile.Civ6Save",
+    "bytes": 503809,
+    "sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44"
+  },
+  "warmup_seconds": 178.06100010872,
+  "formal_reload": true,
+  "ordinary_requested_turns": [
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  ],
+  "closing_actual_turn": 91,
+  "cities": 10,
+  "retained_samples": 1721,
+  "aggregate_zero_success_calls": 40281,
+  "contexts": 33,
+  "export_anchors": 792,
+  "export_write_rows": 36,
+  "export_errors": 0,
+  "sample_capacity": 4096,
+  "quota_profile": "current140",
+  "core_quota": 512,
+  "unit_flag_quota": 384,
+  "timing_coverage": {
+    "contexts": 33,
+    "phase_rows": 396,
+    "pause_pairs": 198,
+    "coverage_ok": true
+  },
+  "windows": [
+    {
+      "turn": 86,
+      "start_ui": 1794599587.757,
+      "end_ui": 1794599597.757,
+      "observed_union_ms": 202.99935340881348,
+      "clipped_inclusive_sum_ms_not_cpu": 209.99932289123535,
+      "sample_rows_intersecting": 151
+    },
+    {
+      "turn": 87,
+      "start_ui": 1794599644.4160001,
+      "end_ui": 1794599654.4160001,
+      "observed_union_ms": 330.0020694732666,
+      "clipped_inclusive_sum_ms_not_cpu": 351.001501083374,
+      "sample_rows_intersecting": 171
+    },
+    {
+      "turn": 88,
+      "start_ui": 1794599750.5440001,
+      "end_ui": 1794599760.5440001,
+      "observed_union_ms": 570.9977149963379,
+      "clipped_inclusive_sum_ms_not_cpu": 610.997200012207,
+      "sample_rows_intersecting": 208
+    },
+    {
+      "turn": 89,
+      "start_ui": 1794599805.917,
+      "end_ui": 1794599815.917,
+      "observed_union_ms": 709.9988460540771,
+      "clipped_inclusive_sum_ms_not_cpu": 762.9983425140381,
+      "sample_rows_intersecting": 206
+    },
+    {
+      "turn": 90,
+      "start_ui": 1794599864.319,
+      "end_ui": 1794599874.319,
+      "observed_union_ms": 252.99835205078125,
+      "clipped_inclusive_sum_ms_not_cpu": 272.998571395874,
+      "sample_rows_intersecting": 170
+    }
+  ],
+  "complete_turn_writes": [
+    {
+      "turn": 86,
+      "calls": 11,
+      "by_context": {
+        "UI/BaiqiExecutor.lua": 11
+      }
+    },
+    {
+      "turn": 87,
+      "calls": 10,
+      "by_context": {
+        "UI/BaiqiExecutor.lua": 10
+      }
+    },
+    {
+      "turn": 88,
+      "calls": 19,
+      "by_context": {
+        "Lua/BaiqiGameplay.lua": 3,
+        "UI/BaiqiExecutor.lua": 16
+      }
+    },
+    {
+      "turn": 89,
+      "calls": 12,
+      "by_context": {
+        "UI/BaiqiExecutor.lua": 12
+      }
+    },
+    {
+      "turn": 90,
+      "calls": 29,
+      "by_context": {
+        "Lua/BaiqiGameplay.lua": 4,
+        "UI/BaiqiExecutor.lua": 25
+      }
+    }
+  ],
+  "partial_turn_writes": [
+    {
+      "turn": 91,
+      "calls": 11,
+      "by_context": {
+        "UI/BaiqiExecutor.lua": 11
+      }
+    }
+  ],
+  "observed_b_turn_budget_ok": true,
+  "observed_n_req_budget_ok": true,
+  "qualification": "Strict canonical analyzer accepted all context/calibration/timing/accounting gates; no drops or invalid clocks. Inclusive wall-clock intervals are not exclusive CPU time.",
+  "b_plan": "OPEN: full-script parent-root deduplication does not yield independent Admin.Run / Controller.RunNow samples.",
+  "b_delta": "OPEN: matched five-pair control experiment remains required.",
+  "tc036_pass": false,
+  "steam": {
+    "mode": "offline",
+    "fresh_launch_confirmation_utc": "2026-11-13T19:42:01+00:00",
+    "confirmation_age_seconds": 0.00519,
+    "mode_switches": 0,
+    "uploads": 0,
+    "workshop_version": 82
+  },
+  "owner_correction": "Copied farewell helper accidentally read itself and failed before any input; owner fixed the source reference, inspected fresh owned-game image, issued exactly one physical Esc. Diplomacy dwell is retained without subtraction. END was not replayed.",
+  "qa_retirement": {
+    "recording_disabled": true,
+    "owned_anchor_subscribers_retired": 33,
+    "confirmed": true,
+    "official_exit_requested_once": true
+  },
+  "checkpoint": {
+    "name": "Baiqi_P6_20261114_V140_QuotaObservedComplete91.Civ6Save",
+    "bytes": 515217,
+    "sha256": "0de8b39a03477b00e05da0731a50bebc0bc1119b0fa3157209843d40d904ad5d",
+    "stable_repeated_read": true
+  },
+  "raw_evidence_sha256": {
+    "quota140-normal-facts.json": "c7efa150840ad3c48d798632c481b8a6a333f233accb5946720456d5a57a958c",
+    "quota140-normal-summary.json": "7b943bee0074ce8630554f724fe193a7d1094a9cf3c3fad0008dc489ad600e03",
+    "quota140-normal-analysis-input.json": "09d7d8723ae7b4f438c18bbc7fdb189d5ff83689b744808e4ad327d4662ce33e",
+    "quota140-retire-confirmed.json": "18fbba6a1096629ba4476c7017a05634f9688d1f2b22a4ac1f452fc976b6dc5b"
+  },
+  "limits": "Only current140 private Stage B run; previous failed runs unchanged. Source140 main333 checkpoint protected. Whole TC-036 and full functional acceptance remain open."
+}
