@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [窗外Native及718719](testing/baiqi-window140-timeout-post-end719.md)：872样本零drop／198切换行，END后外交漏报导致超时，鲜图TEST_PLAYER Esc后读到88，不重发／追开。718漏Admin及private include门，719仍受age门且raw1回归失败，均0原代码；Owner2新／27相关过。累计719／666完整50length3transport749HTTP30extra，维护复用原生0／成本null。
+
 2026-11-14 [切换助手／717](testing/baiqi-timing-transition717.md)：raw6方法8Lua子错误、仅正常完整路径方法过，漏额外键／异常保护／精确+1／绑定／记录状态；0采用。Owner重写6新Lua51方法全过，未Native；累计717／664完整50length3transport747HTTP30extra，维护复用原生0／成本null。
 
 2026-11-14 [窗外计时／716](testing/baiqi-window-timing716.md)：716完整10214tokens却只给文字、错改Wrap注册合同及非零计数要求，0原代码；Owner先提出方向并补变化元数据／保守时钟审计。14新／66相关过，97Lua双编译119私有包，尚未Native；累计716／663完整50length3transport746HTTP30extra，维护复用原生0／成本null。

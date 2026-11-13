@@ -218,13 +218,16 @@ end
                 if stopped!=['COMPLETE','91']:
                     raise RuntimeError('Completion stop not confirmed')
                 return {'phase':'COMPLETE','turn':91,'requested_turns':requested,'samples':samples,'cities':cities,'token':token}
-            if 86<=turn<=90 and anchored and age>=10 and ready and turn not in requested:
-                visible=diplomacy()
-                if visible:
-                    if not waiting_diplomacy:emit(f'TEST_PLAYER_DIPLOMACY_ACTIVE turn={turn}')
-                    waiting_diplomacy=True
-                else:
-                    waiting_diplomacy=False
+            # A visit can arrive after END was issued and hold its transition.
+            # Keep reporting visibility while awaiting actual activation; this
+            # never grants another callback or repeats the earlier END.
+            visible=diplomacy()
+            if visible:
+                if not waiting_diplomacy:emit(f'TEST_PLAYER_DIPLOMACY_ACTIVE turn={turn}')
+                waiting_diplomacy=True
+            else:
+                waiting_diplomacy=False
+                if 86<=turn<=90 and anchored and age>=10 and ready and turn not in requested:
                     action(turn,end_code(turn));deadline=now()+180
             sleep(1)
         raise TimeoutError('Activation or TEST_PLAYER diplomacy wait exceeded 180 seconds')

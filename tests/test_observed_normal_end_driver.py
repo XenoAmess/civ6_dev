@@ -151,6 +151,29 @@ class NormalObservedDriverTests(unittest.TestCase):
         self.assertEqual((self.calls, self.h.actions), ([], []))
         self.assertTrue(self.h.all_recording(False))
 
+    def test_post_ack_visit_is_reported_without_repeating_callback(self):
+        self.h.advance = False
+        self.h.visibility = lambda h: bool(self.calls)
+        with self.assertRaises(TimeoutError):
+            self.run_capture()
+        self.assertEqual([x[0] for x in self.calls], [85])
+        self.assertIn('TEST_PLAYER_DIPLOMACY_ACTIVE turn=85', self.h.logs)
+        self.assertEqual(self.h.logs.count('TEST_PLAYER_DIPLOMACY_ACTIVE turn=85'), 1)
+        self.assertTrue(self.h.all_recording(False))
+
+    def test_visit_before_ten_seconds_is_reported_before_end_gate(self):
+        seen = []
+        def visible(h):
+            if h.world.turn == 86 and not seen:
+                seen.append(float(h.world.clock))
+            return h.world.turn == 86 and h.world.clock < seen[0] + 3
+        self.h.visibility = visible
+        result = self.run_capture()
+        self.assertEqual(result['phase'], 'COMPLETE')
+        self.assertLess(seen[0], self.h.anchor_times[86] + 10)
+        self.assertIn('TEST_PLAYER_DIPLOMACY_ACTIVE turn=86', self.h.logs)
+        self.assertEqual([x[0] for x in self.calls], list(range(85, 91)))
+
 
 if __name__ == '__main__':
     unittest.main()
