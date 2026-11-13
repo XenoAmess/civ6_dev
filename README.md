@@ -1,5 +1,7 @@
 # civ6_dev
 
+[独立Stage A首次中止／723分析器](docs/testing/baiqi-stageA-aborted86-analyzer723.md)：普通85→86出现3个资格错误，最终7样本零丢弃，原因仍未知；包装／监听已撤、86已存。严格分析器11检查过，继续逐原因诊断，不授B_plan或整例PASS。
+
 [独立规划计时工具／721722](docs/testing/baiqi-stageA-tooling721722.md)：只改私有Executor，锚点先于原版回调、两公开目标后于真实include绑定；17新／33相关方法过，97Lua双编译119包，仅准备未Native。两原候选均拒，继续补B_plan与匹配对照。
 
 [140五窗观测完整](docs/testing/baiqi-native140-quota-fivewindows.md)：33上下文／1721保留样本零丢弃，396切换凭证审计通过；86—90耗时约203／330／571／710／253ms、写入11／10／19／12／29，均在对应预算。B_plan及匹配B_delta仍开放，未授整例PASS；91已存、QA监听已撤，继续独立规划计时。

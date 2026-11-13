@@ -1,0 +1,262 @@
+{
+  "schema": "civ6.stageA.first-native-abort.analyzer723/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "artifact_sha256": "cd860daae7e81b09fd7f1b5d23d62069e3e6b0a0d58325f41d11b709b2e21fb5",
+  "warmup_seconds": 117.25300002098083,
+  "formal_reload_original85": true,
+  "ordinary_end_requested_turns": [
+    85
+  ],
+  "actual_turn": 86,
+  "cities": 10,
+  "initial_abort_poll": {
+    "samples": 4,
+    "qualification_errors": 3
+  },
+  "final_export": {
+    "qualification_errors": 3,
+    "total_calls": 7,
+    "samples": 7,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "zero_success": 0,
+    "anchors": 1
+  },
+  "export_rows": [
+    [
+      "PLAN140_ABORT_STATS",
+      "3",
+      "7",
+      "7",
+      "0",
+      "0",
+      "0",
+      "1",
+      "true",
+      "true",
+      "10"
+    ],
+    [
+      "PLAN140_ABORT_ANCHOR",
+      "86",
+      "1794600852.9200001"
+    ],
+    [
+      "PLAN140_ABORT_SAMPLE",
+      "1",
+      "Controller.RunNow",
+      "0.0090000629425048828",
+      "false",
+      "1794600852.9200001",
+      "1794600852.9290001",
+      "86",
+      "86",
+      "10",
+      "10",
+      "1794600852.9200001",
+      "true"
+    ],
+    [
+      "PLAN140_ABORT_SAMPLE",
+      "2",
+      "Controller.RunNow",
+      "0.0039999485015869141",
+      "false",
+      "1794600852.954",
+      "1794600852.9579999",
+      "86",
+      "86",
+      "10",
+      "10",
+      "1794600852.9200001",
+      "true"
+    ],
+    [
+      "PLAN140_ABORT_SAMPLE",
+      "3",
+      "Admin.Run",
+      "0.00099992752075195313",
+      "false",
+      "1794600853.0020001",
+      "1794600853.003",
+      "86",
+      "86",
+      "10",
+      "10",
+      "1794600852.9200001",
+      "true"
+    ],
+    [
+      "PLAN140_ABORT_SAMPLE",
+      "4",
+      "Controller.RunNow",
+      "0.0030000209808349609",
+      "false",
+      "1794600853.0190001",
+      "1794600853.0220001",
+      "86",
+      "86",
+      "10",
+      "10",
+      "1794600852.9200001",
+      "true"
+    ],
+    [
+      "PLAN140_ABORT_SAMPLE",
+      "5",
+      "Controller.RunNow",
+      "0.0050001144409179688",
+      "false",
+      "1794600853.151",
+      "1794600853.1560001",
+      "86",
+      "86",
+      "10",
+      "10",
+      "1794600852.9200001",
+      "true"
+    ],
+    [
+      "PLAN140_ABORT_SAMPLE",
+      "6",
+      "Admin.Run",
+      "0.00099992752075195313",
+      "false",
+      "1794600853.3960001",
+      "1794600853.3970001",
+      "86",
+      "86",
+      "10",
+      "10",
+      "1794600852.9200001",
+      "true"
+    ],
+    [
+      "PLAN140_ABORT_SAMPLE",
+      "7",
+      "Controller.RunNow",
+      "0.0010001659393310547",
+      "false",
+      "1794600853.5039999",
+      "1794600853.5050001",
+      "86",
+      "86",
+      "10",
+      "10",
+      "1794600852.9200001",
+      "true"
+    ]
+  ],
+  "reason": "UNKNOWN: existing helper stores only total qualificationErrors; no reason codes. First recorded sample starts at actual recorded native86anchor. This does not identify which other three reads failed or establish event invocation ordering.",
+  "recording_disabled": true,
+  "root_bindings_restored": 2,
+  "owned_subscriber_removed": 1,
+  "checkpoint": {
+    "name": "Baiqi_P6_20261114_V140_PlanStageAAborted86.Civ6Save",
+    "bytes": 503981,
+    "sha256": "bbfe46b18ea874c1f34362ebbfe309b6be525ce4679d70ba18015b31040bf985",
+    "stable_repeated_read": true
+  },
+  "official_exit_requested_once": true,
+  "steam": {
+    "fresh_launch_confirmation_utc": "2026-11-13T20:07:32.834195+00:00",
+    "offline_age_seconds": 0.003504,
+    "mode_changes": 0,
+    "uploads": 0
+  },
+  "owner_corrections": [
+    "Initial mode proof unavailable halted launch; official header navigation then independent zero-input mode proof succeeded.",
+    "Read-only warmup check at54.255s refused reload, actual reload only after117.253s.",
+    "Endpoint helper invoked without required port failed before network action; later4319candidate unqualified and not adopted. Existing4318query proved owned server and laterfresh4318LSQqualified."
+  ],
+  "model723": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 3670,
+      "completion_tokens": 1537,
+      "total_tokens": 5207
+    },
+    "total_ms": 9572.851800126955,
+    "ttft_ms": 706.0425002127886,
+    "attempts": 1,
+    "probes": [
+      {
+        "case": "clock_duration_mismatch",
+        "contract_passed": false,
+        "candidate_rejected": false,
+        "expected_reject": true
+      },
+      {
+        "case": "forged_row_anchor",
+        "contract_passed": false,
+        "candidate_rejected": false,
+        "expected_reject": true
+      },
+      {
+        "case": "contradictory_eligible_flag",
+        "contract_passed": false,
+        "candidate_rejected": false,
+        "expected_reject": true
+      },
+      {
+        "case": "bool_dropped_counter",
+        "contract_passed": false,
+        "candidate_rejected": false,
+        "expected_reject": true
+      },
+      {
+        "case": "missing_required_counter",
+        "contract_passed": false,
+        "candidate_rejected": false,
+        "expected_reject": true
+      },
+      {
+        "case": "known_gate_race_should_be_classified",
+        "contract_passed": false,
+        "candidate_rejected": true,
+        "expected_reject": false
+      },
+      {
+        "case": "known_turn_crossing_should_be_classified",
+        "contract_passed": false,
+        "candidate_rejected": true,
+        "expected_reject": false
+      }
+    ],
+    "raw_code_adopted": false
+  },
+  "owner_analyzer": {
+    "file": "tools/analyze_plan_capture.py",
+    "software_methods_passed": 11,
+    "strict_accounting": true,
+    "frozen_capacity": 4096,
+    "minimum_pure_ten_samples_each": 100,
+    "p95_budget_ms": 20,
+    "max_budget_ms": 50,
+    "native_valid_stageA_capture": false
+  },
+  "cumulative_through723": {
+    "logical": 723,
+    "complete_streams_including_historical_json_rejection": 670,
+    "length": 50,
+    "final_transport": 3,
+    "http": 753,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 successful canonical1.19.5 cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "next": "724 bounded per-reason diagnostic candidate is a separate unfinished review. Preserve this run, diagnose current unknowns before any new performance claim.",
+  "tc036_pass": false,
+  "b_plan_pass": false,
+  "limits": "Partial aborted Stage A only. Stage B five-window results remain separate; main333 preserved; no domestic compensation, forced END, replay or gameplay function change."
+}
