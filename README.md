@@ -1,5 +1,8 @@
 # civ6_dev
 
+[138冷读333：批内路径实证、耗时仍开放](docs/testing/baiqi-native138-cold333-latency-open.md)：102批每批2克隆，366批完整11城，已采资产foodvitals旧账本全等；818根样本Admin p95约29ms仍超20ms，继续定位，138333已存。
+
+
 [138批内工作账本／软件](docs/testing/baiqi-working-journal138.md)：末尾真实整账本对照才授READY，不跨回调缓存；6新方法／66相关、全2013pass1SDKskip，97Lua51／119包。137性能未改善仍保留，138待离线冷验。
 
 

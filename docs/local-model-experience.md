@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [138实机与706707审阅](testing/baiqi-native138-cold333-latency-open.md)：Core102批204克隆／UI366批4026行均READY，九域全等；818根Adminp95~29ms仍开，1004子样本已撤。706漏55/67版本门CLIexit1／0目录，707NO_PATCH忽略保留后验写门的反例要求，均拒；Owner漏NewContext输入单列。累计707／656完整48length3transport737HTTP30extra，原生0／成本null；708另包。
+
+
 2026-11-14 [138工作账本／705](testing/baiqi-working-journal138.md)：705完整16664tokens／10200.1122ms却keynil错报旧ARM为OPEN、自比canonical绕过override，2隔离实证整稿拒绝；方案为Owner事前提示不追授自主发现。Owner重写6新／66相关／全2013pass1SDKskip、97Lua51／119包，未Native提速；累计705／654完整48length3transport735HTTP30extra，原生0／成本null。
 
 

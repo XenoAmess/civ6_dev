@@ -1,0 +1,324 @@
+{
+  "schema": "civ6.native138-cold333-two-clones-latency-open/v1",
+  "utc": "2026-11-13T17:21:50.891361+00:00",
+  "machine_id": "BF-202609141645",
+  "runtime": 138,
+  "install": {
+    "utc": "2026-11-13T17:02:41.873095+00:00",
+    "version": 138,
+    "files": 119,
+    "all_byte_match": true,
+    "source_commit": "3ddf6267f7257fedbc93ed9b1a3d21bd3c665c33",
+    "Steam_actions": 0
+  },
+  "cold_start": {
+    "source_commit": "3ddf6267f7257fedbc93ed9b1a3d21bd3c665c33",
+    "version": 138,
+    "files": 119,
+    "proof_age_seconds": 0.004915,
+    "cpu_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "online_switches": 0
+  },
+  "same_save": {
+    "utc": "2026-11-13T16:29:27.961631+00:00",
+    "name": "Baiqi_P6_20261114_V136_NoHint333.Civ6Save",
+    "bytes": 2457122,
+    "sha256": "86317c181f65d06f12500ba1b7d78b9f18e1bc488d0996e6f2bb75e6e743c0f7",
+    "stable_repeated_read": true
+  },
+  "world_comparison": {
+    "comparison": "Same exact136saved333 file;136sameprocessreload and138newcoldprocess. Perfieldcomparison only; no rigorouspairedperformanceclaim",
+    "domains": {
+      "WORLD": {
+        "before": 1,
+        "after": 1,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "CITY": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "BUILDING": {
+        "before": 196,
+        "after": 196,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "DISTRICT": {
+        "before": 70,
+        "after": 70,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "PLOT": {
+        "before": 222,
+        "after": 222,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "UNIT": {
+        "before": 52,
+        "after": 52,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "allfood": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "vitals": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "food_journal": {
+        "before_rows": 5,
+        "after_rows": 5,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      }
+    }
+  },
+  "core_natural_workbank_witness": {
+    "batch_calls": 102,
+    "READY": 102,
+    "UNKNOWN": 0,
+    "errors": 0,
+    "J_Clone_calls_inside_batches": 204,
+    "min_per_batch": 2,
+    "max_per_batch": 2,
+    "explicit_batch_calls": 0,
+    "both_originals_restored": true,
+    "global_removed": true,
+    "limits": "3oldOBSERVEDrecords;notNativeunresolvedfaultcoverage, noinferenceofRAMorallhiddenjournalreadcounts"
+  },
+  "UI_natural_batch_witness": {
+    "calls": 366,
+    "READY": 366,
+    "UNKNOWN": 0,
+    "errors": 0,
+    "shape_errors": 0,
+    "rows": 4026,
+    "elapsed_seconds": 132.3840000629425,
+    "original_restored": true,
+    "global_removed": true
+  },
+  "natural_root_profiles": {
+    "136_same333_reloaded": {
+      "wall_seconds": 62.395999908447266,
+      "summary": {
+        "Controller.RunNow": {
+          "count": 173,
+          "p50_ms": 1.9998550415039003,
+          "p95_ms": 17.999887466431,
+          "max_ms": 26.000022888184,
+          "above20ms": 3,
+          "above50ms": 0,
+          "failed": 0
+        },
+        "Admin.Run": {
+          "count": 173,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 29.999971389771,
+          "max_ms": 44.999837875366005,
+          "above20ms": 18,
+          "above50ms": 0,
+          "failed": 0
+        }
+      },
+      "dropped": 0,
+      "invalid_clock": 0,
+      "restored": [
+        "true",
+        "true"
+      ],
+      "removed": [
+        "nil"
+      ]
+    },
+    "138_same333_cold": {
+      "wall_seconds": 148.15400004386902,
+      "summary": {
+        "Controller.RunNow": {
+          "count": 409,
+          "p50_ms": 2.000093460083,
+          "p95_ms": 17.999887466431,
+          "max_ms": 27.000188827515,
+          "above20ms": 6,
+          "above50ms": 0,
+          "failed": 0
+        },
+        "Admin.Run": {
+          "count": 409,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 29.000043869019,
+          "max_ms": 40.000200271606005,
+          "above20ms": 68,
+          "above50ms": 0,
+          "failed": 0
+        }
+      },
+      "dropped": 0,
+      "invalid_clock": 0,
+      "restored": [
+        "true",
+        "true"
+      ],
+      "removed": [
+        "nil"
+      ]
+    }
+  },
+  "natural_nested_children": {
+    "wall_seconds": 90.92699980735779,
+    "summary": {
+      "Admin.Run": {
+        "count": 251,
+        "p50_ms": 3.000020980835,
+        "p95_ms": 27.999877929688,
+        "max_ms": 43.999910354614,
+        "above20ms": 32,
+        "failed": 0
+      },
+      "FloodPurchase.Run": {
+        "count": 251,
+        "p50_ms": 0.9999275207519501,
+        "p95_ms": 6.9999694824219,
+        "max_ms": 8.0001354217529,
+        "above20ms": 0,
+        "failed": 0
+      },
+      "FoodFocus.Run": {
+        "count": 251,
+        "p50_ms": 0.0,
+        "p95_ms": 3.000020980835,
+        "max_ms": 4.000186920166,
+        "above20ms": 0,
+        "failed": 0
+      },
+      "FoodTileRescue.Run": {
+        "count": 251,
+        "p50_ms": 1.9998550415039003,
+        "p95_ms": 13.999938964844,
+        "max_ms": 26.000022888184,
+        "above20ms": 1,
+        "failed": 0
+      }
+    },
+    "total_calls": 1004,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "restored": {
+      "Admin.Run": "true",
+      "FloodPurchase.Run": "true",
+      "FoodFocus.Run": "true",
+      "FoodTileRescue.Run": "true"
+    },
+    "removed": "nil",
+    "limits": [
+      "Only333steady naturalcallbacks, not originalroot window AB",
+      "Children inclusive; groupresidual only, no nested-sample global sum",
+      "Clock resolution/measurement overhead not isolated",
+      "Unmeasured research/governor/religion/local pieces only residual, no exact culprit assignment"
+    ]
+  },
+  "result": "BATCH_LOCAL_WORKBANK_AND_DATA_COMPATIBILITY_NARROW_PASS; ADMIN_P95~29MS_NOT_BELOW20MS_REFERENCE. RootlatencyremainsOPEN; noBturn/Bdelta/fullTC036PASS.",
+  "limits": [
+    "11cities, differentprocess/windows:13662.396s/173each,138148.154s/409each;notstrictAB",
+    "CoreandUIcounterwindowsseparateandremovedbeforetiming",
+    "Nestedchildwindow90.927s/251each,1004retained;inclusiveparent/childnotgloballysummed",
+    "NoEND,newturnorNativeARM/TRANSFERREDfaultunder138",
+    "Clockresolution/OSscheduling/observationoverheadnotisolated;no1mscausalityclaim"
+  ],
+  "save138333": {
+    "utc": "2026-11-13T17:11:14.228425+00:00",
+    "name": "Baiqi_P6_20261114_V138_WorkingJournalCold333.Civ6Save",
+    "bytes": 2456332,
+    "sha256": "ab1e95ee7a3ae7b85efe246db0b0aaccb522b928bbc97b813068038d8cbaadb3",
+    "stable_repeated_read": true
+  },
+  "new_controller_requests": [],
+  "BAIQI_errors": [],
+  "owner_corrections": [
+    "138UIwitnessfirstattemptreused137basename;exclusivefileopenrejectedbeforeNative/0wrapper/0originaloverwrite. Changedonly138ownedhelperoutputnamesandthenactualfirstinstall.",
+    "137officialexitresiduechecked129s:waited0terminate;202.725sverifiedexactownprocess/0windows/0listeners/2sCPU0/save137333hashbeforeoneownedresidueterminate. NoSteam/othergameprocessended."
+  ],
+  "models706707": {
+    "706": {
+      "usage": {
+        "prompt_tokens": 15065,
+        "completion_tokens": 1492,
+        "total_tokens": 16557
+      },
+      "total_ms": 11848.904900019988,
+      "first_nonempty_content_delta_ms": 2125.663199927658,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "adoption": "NONE_CODE_OR_CONCLUSION"
+    },
+    "707": {
+      "usage": {
+        "prompt_tokens": 27289,
+        "completion_tokens": 766,
+        "total_tokens": 28055
+      },
+      "total_ms": 9125.266100047156,
+      "first_nonempty_content_delta_ms": 3731.2527000904083,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "adoption": "NONE_CODE_OR_CONCLUSION"
+    }
+  },
+  "model706_review": [
+    "Selfcontradicts localfunctioncoverage; actualinstrumenter islexer coveringnamed/local/anonymous, notclaimedregex.",
+    "Missessourceversion55gateinbuild_profiled_modand67gateinbuild_observed_mod; proposedCLIactualexit1ValueErrorrequires67,beforeoutputdircreation/0install.",
+    "SuppliedhelperNewContext/profileaggregationbodiesnotprovidedbyowner; noindependentBturnconclusionfrommissinginputs.",
+    "InventsUITick/Adminreceiveasrequirednamesfromownercompressedprose; theywerenotdeclaredAPI."
+  ],
+  "model707_review": [
+    "NO_PATCHdoesnotshowactualfinitecounterexamplewithCorePrepareandretainedpostPreparePlayerguards; claimsstaleSnapshotwouldreachwriterdespitelaterguards.",
+    "FullPlayerafterPrepareisindeedrequiredandwillbekept; proposesremovingthatunrequestedpointincounterexamples.",
+    "Do notdeletepreguardblindly:ownerwilltestdemand-gatedNoActionreadswhilestillcheckingfullPlayerbeforerealplanningandwriter."
+  ],
+  "cumulative_through707": {
+    "logical": 707,
+    "complete_streams": 656,
+    "length": 48,
+    "final_transport": 3,
+    "HTTP": 737,
+    "extra": 30,
+    "OpenCode_native_generated_tasks": 0,
+    "cached_tokens": null,
+    "owner_active_cost": null,
+    "net_savings": null
+  },
+  "new_HTTP_for_thisNativecase": 0,
+  "708_separate_unfinished": true,
+  "Steam_online_upload": 0,
+  "Workshop_version": 82,
+  "next": "Review708candidateforfiniteknownnonnegativedemandshortcut; keepfreshreceipt/pending/context/Core/writerchecks; current139notimplementedatcutoff. AlsoportfullBturnassembleronlyafterversion/entryquota/sourcecoveragequalification;old67successnot138."
+}
