@@ -1,5 +1,7 @@
 # civ6_dev
 
+[Trial B失败与下一轮Core配额／720](docs/testing/baiqi-trialB-next-quota720.md)：到90十城、外交及时处理；Core128局部满后丢7，1437保留，全关／90已存。新规则仅140从UnitFlag转384给Core，总额4096不变，21方法过，待新冷测，不回改旧失败数据。
+
 [窗外计时实测与END后外交修复](docs/testing/baiqi-window140-timeout-post-end719.md)：33上下文切换确认、872样本零丢弃；外交在END后到达未被旧门报告，超时中止，关闭对话后实际到88。2新／27相关检查过，正重读原始档，不追认五窗通过。
 
 [逐上下文计时切换／717软件](docs/testing/baiqi-timing-transition717.md)：全部预检后逐项确认，精确变化数与本地时钟；未知只停止采集，不猜回滚或重放。6个实际Lua51方法通过，正在接入冷测。

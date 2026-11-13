@@ -64,7 +64,10 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
         raise ValueError('Current source diagnostics require bounded_zero and the frozen4096 cap')
     expected=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
     expected+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
-    quotas=bounded_quotas(expected) if bounded_zero else None
+    if version == '140' and bounded_zero:
+        quotas = bounded_quotas(expected, allocation='current140')
+    else:
+        quotas = bounded_quotas(expected) if bounded_zero else None
     output_dir=output_dir.resolve()
     if output_dir==source.resolve() or output_dir.is_relative_to(source.resolve()) or source.resolve().is_relative_to(output_dir):
         raise ValueError('Diagnostic output must be separate from release source')
@@ -121,6 +124,8 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
     if version in ('139','140'):
         result['runtime_marker']=MARKER
         result['lua_compile_versions']=['5.1','5.3']
+    if version=='140':
+        result['context_quota_profile']='current140'
     (output_dir/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     return result
 

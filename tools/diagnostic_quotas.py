@@ -14,7 +14,9 @@ OVERRIDES = {
 }
 
 
-def bounded_quotas(expected_keys: Sequence[str]) -> dict[str, int]:
+def bounded_quotas(expected_keys: Sequence[str], *, allocation: str = 'legacy') -> dict[str, int]:
+    if allocation not in ('legacy', 'current140'):
+        raise ValueError('unknown allocation profile')
     if not isinstance(expected_keys, Sequence) or isinstance(expected_keys, (str, bytes, bytearray, Mapping)):
         raise TypeError('expected_keys must be a sequence of strings')
     keys = list(expected_keys)
@@ -38,6 +40,13 @@ def bounded_quotas(expected_keys: Sequence[str]) -> dict[str, int]:
             quotas[k] = OVERRIDES[k] - (16 if len(keys) == 33 and k == 'UI/BaiqiExecutor.lua' else 0)
         else:
             quotas[k] = 16
+    if allocation == 'current140':
+        if len(keys) != 33:
+            raise ValueError('current140 requires the complete33 context layout')
+        # The next current build borrows unused flag-manager capacity; the
+        # frozen global cap and default historical allocations stay unchanged.
+        quotas['UI/BaiqiUnitFlagManager.lua'] = 384
+        quotas['Lua/BaiqiGameplay.lua'] = 512
     if any(type(v) is not int or v <= 0 for v in quotas.values()):
         raise ValueError('quotas must be positive integers')
     total = sum(quotas.values())

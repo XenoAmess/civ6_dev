@@ -40,6 +40,9 @@ class CurrentObservedBuildTests(unittest.TestCase):
         self.assertEqual(len(r['expected_entry_keys']), 33)
         self.assertEqual(sum(r['context_quotas'].values()), 4096)
         self.assertEqual(r['global_retained_sample_capacity'], 4096)
+        self.assertEqual(r['context_quota_profile'], 'current140')
+        self.assertEqual(r['context_quotas']['Lua/BaiqiGameplay.lua'], 512)
+        self.assertEqual(r['context_quotas']['UI/BaiqiUnitFlagManager.lua'], 384)
 
     def test_exact_inventory_source_hashes_and_archive_bytes_remain_qualified(self):
         self.assertEqual(self.result['source_hashes'], self.before)
