@@ -18,7 +18,7 @@ class ControllerDiagnosticBuildTests(unittest.TestCase):
                 self.assertEqual(set(z.namelist()),{'Baiqi/'+n for n in names})
                 for n in names:self.assertEqual(z.read('Baiqi/'+n),(target/n).read_bytes())
 
-    def fixture(self):
+    def fixture(self,*,include_pre_observer=False):
         lua=LuaRuntime(unpack_returned_tuples=True)
         code='''
 rawget=nil;rawset=nil;debug=nil
@@ -31,7 +31,7 @@ Events={PlayerTurnActivated={Add=function(fn)T.callbacks[#T.callbacks+1]=fn end,
         for name in CHILDREN:
             code+=f"local function {name}(...)T.calls=T.calls+1;assert(select('#',...)==2);return false,nil,7,nil end\n"
         code+='BaiqiController={RunNow=function(...)return ReadBack(...)end}\n'
-        code+=suffix()
+        code+=suffix(include_pre_observer=include_pre_observer)
         code+='return function()return ReadBack end\n'
         return lua,lua.execute(code)
 
@@ -81,6 +81,32 @@ local ok2,same2=h.Restore();assert(ok2 and same2==same and #T.callbacks==1)
             out=Path(temp)/'missing'
             with self.assertRaisesRegex(ValueError,'Unknown lexical'):build(out,children=('MissingActualFunction',))
             self.assertFalse(out.exists())
+
+    def test_v2_records_preobserver_and_anchored_entries_without_making_anchor(self):
+        lua,_=self.fixture(include_pre_observer=True)
+        lua.execute('''
+local h=P6ControllerNested;assert(h.source=='baiqi140-controller-children-v2')
+assert(h.SetEnabled(true));BaiqiController.RunNow(false,nil)
+assert(#h.profile.samples==2 and h.profile.samples[2].rootId==1 and next(h.anchors)==nil)
+T.time=101;T.callbacks[1](0);local anchor=h.anchors[88]
+assert(h.profile.samples[2].ended<anchor)
+BaiqiController.RunNow(true,nil);assert(#h.profile.samples==4 and h.serial==2)
+T.time=anchor+11;BaiqiController.RunNow(nil,nil)
+assert(#h.profile.samples==4 and T.calls==3 and h.errors==0)
+''')
+
+    def test_v2_actual_build_and_default_bytes_stay_separate(self):
+        with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
+            out=Path(temp)/'v2';result=build(out,include_pre_observer=True)
+            self.assertEqual(result['mode'],'baiqi140-controller-children-v2')
+            self.assertTrue(result['include_pre_observer_active_calls'])
+            self.assertIn('diagnostic_preobserver_qualifier',result['helper_hashes'])
+            self.assertIn("d.source='baiqi140-controller-children-v1'",suffix())
+            self.assertNotIn('diagnostic_preobserver_qualifier',build(Path(temp)/'v1')['helper_hashes'])
+
+    def test_scope_flag_requires_actual_bool(self):
+        for value in (None,0,1,'true'):
+            with self.subTest(value=value),self.assertRaises(ValueError):suffix(include_pre_observer=value)
 
 
 if __name__=='__main__':unittest.main()

@@ -23,8 +23,9 @@ def selected_children(children):
     return tuple(children)
 
 
-def suffix(children=CHILDREN):
+def suffix(children=CHILDREN,*,include_pre_observer=False):
     children=selected_children(children)
+    if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
     text+="assert(P6ControllerNested==nil,'Existing diagnostic owner')\n"
@@ -89,13 +90,22 @@ end
 P6ControllerNested=d
 end
 '''
+    if include_pre_observer:
+        marker='local d=NewNested(NewProfile,WrapChild,Automation.GetTime,function()\n'
+        a=text.index(marker)+len(marker);b=text.index('\nend)\nd.source=',a)
+        body=(ROOT/'tools/lua/diagnostic_preobserver_qualifier.lua').read_text(encoding='utf-8')
+        text=text[:a]+body.rstrip('\n')+text[b:]
+        old="d.source='baiqi140-controller-children-v1'"
+        assert text.count(old)==1
+        text=text.replace(old,"d.source='baiqi140-controller-children-v2'",1)
     return text
 
 
-def build(output_dir:Path,*,children=CHILDREN):
+def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     children=selected_children(children)
+    if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     if ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')!='140':
         raise ValueError('Expected current source140')
@@ -107,7 +117,7 @@ def build(output_dir:Path,*,children=CHILDREN):
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:
             raise ValueError('Unknown lexical child '+name)
     hashes={name:digest(contained(source,name))for name in names}
-    appended=suffix(children).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
+    appended=suffix(children,include_pre_observer=include_pre_observer).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
     prepared['Lua/BaiqiController.lua']=raw+appended
     c51=Lua51().eval('function(s)local f,e=loadstring(s);assert(f,e)end')
     c53=Lua53().eval('function(s)local f,e=load(s);assert(f,e)end')
@@ -126,11 +136,16 @@ def build(output_dir:Path,*,children=CHILDREN):
                 profile_count=1,aggregate_zero=False,focus_turns=[88,89],observed_window_seconds=10,
                 original_controller_exact_prefix=True,lua51_compiled=True,lua53_compiled=True,installed=False,
                 limits='Coarse diagnosis only. Starts after this QA observer saw the native anchor; earlier entries intentionally unmeasured. Child instrumentation changes root cost; never a B_plan or all-script performance pass.')
+    if include_pre_observer:
+        result.update(mode='baiqi140-controller-children-v2',include_pre_observer_active_calls=True,
+                      limits='Diagnosis only. All active88/89 entries before the own native observer plus10seconds after it are retained; classify intervals against actual observed anchors, never invent a physical event timestamp or grant performance pass.')
+        result['helper_hashes']['diagnostic_preobserver_qualifier']=digest(ROOT/'tools/lua/diagnostic_preobserver_qualifier.lua')
     (out/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return result
 
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,required=True)
-    p.add_argument('--children',nargs='+',default=CHILDREN);args=p.parse_args()
-    d=build(args.output_dir,children=args.children);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
+    p.add_argument('--children',nargs='+',default=CHILDREN)
+    p.add_argument('--include-pre-observer',action='store_true');args=p.parse_args()
+    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
