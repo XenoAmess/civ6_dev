@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [D86／独立87参数728](testing/baiqi-stageA-nativeD-arguments728.md)：D86剩1缺锚点仍失败；完整消费者发现Update(false)路径，独立87实测首false比本观察器早324ms，不倒填D86参数。728raw6探针5失败1变参过，false丢失／flag当turn等，0采用；Owner7方法及同助手Native过，非延迟PASS。累计728／675完整50length3transport758HTTP30extra，维护复用原生0／成本null。
+
 2026-11-14 [普通END计时桥／727](testing/baiqi-paired-normal-bridge727.md)：raw6探针5失败1外来退休检查过，反向拒合法保留／造资格／异常逃逸／身份漏检，0原代码。Owner7桥+3新真实构建，连旧构建／canonical钟22方法过，两包待Native，驱动未迁移。累计727／674完整50length3transport757HTTP30extra，维护复用原生0／成本null。
 
 2026-11-14 [缺锚点实证／726](testing/baiqi-stageA-native-anchor-inline726.md)：C86两actual Controller入口早于独立QA锚点676／312ms，2anchor_missing、9样本零drop，仍不授B_plan。726原方法丢变参／忽略未知，2探针失败1原错误检查过；仅采Add/Remove别名语句，方向为Owner事前合同。Owner4新／27相关过，新包待冷验。累计726／673完整50length3transport756HTTP30extra，维护复用原生0／成本null。

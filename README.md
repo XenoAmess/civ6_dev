@@ -1,5 +1,7 @@
 # civ6_dev
 
+[D86仍缺锚点／独立87参数实证728](docs/testing/baiqi-stageA-nativeD-arguments728.md)：D86最终9样本／1资格错误，保留失败；独立普通86→87确见首个RunNow(false)比本通知观察早324ms，9入口／1通知零丢弃，包装已撤／两档已存。7软件方法过，继续区间证明，不追认旧数据或授B_plan。
+
 [匹配普通END计时桥／727软件](docs/testing/baiqi-paired-normal-bridge727.md)：只计时不发游戏动作、验证既有READY且不补资格、未知不重试；新显式私有两包同前缀，10新／22相关检查过。普通驱动和真实跨UI／五组匹配仍待，未授B_delta。
 
 [Stage A实测缺锚点／726修正](docs/testing/baiqi-stageA-native-anchor-inline726.md)：本轮两次Controller入口比独立QA锚点早676／312ms，9样本零丢弃仍中止；C86已存／监听撤。改为真实Activate入口先观察、Add／Remove同别名，4新／27相关过，待新冷验，不追认旧错误原因。
