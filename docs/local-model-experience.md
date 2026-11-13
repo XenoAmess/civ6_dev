@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [333自然等待／702与计时](testing/baiqi-nohint333-profile702.md)：1普通END7军SKIP、11城NO_LOSS；232根样本Adminp95=27ms，184子样本救粮p95=18ms，非十城或配对PASS。702完整20966tokens／8282.8177ms却虚公开local、混所属及循环口径，整拒；Owner旧进程适配拒绝后独立实际332→333比较，旧原件保留。累计702／651完整48length3transport732HTTP30extra，原生0／成本null。
+
+
 2026-11-14 [恢复主332／701](testing/baiqi-main332-hint701.md)：原版Continue一次后六组已采行保持；701完整14759tokens／6936.6102ms却Lua51语法、TestWorld及假pcall整拒，Owner只读诊断8方法通过、实际推荐空表。不可据此授全图无城址／实际规划／性能。新维护1.19.5成功，累计701／650完整流48length3transport731HTTP30extra，原生0／成本null。
 
 
