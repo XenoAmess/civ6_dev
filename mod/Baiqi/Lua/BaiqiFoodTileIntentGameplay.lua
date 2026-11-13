@@ -152,7 +152,8 @@ function bridge.Inspect(...)
   local ok,a,b,c=pcall(Inspect,...);if ok then return a,b,c end
   return "UNAVAILABLE",nil,"inspect_unavailable"
 end
--- One UI/Core crossing, with the same fresh per-city observation as Inspect.
+local canonicalInspect=bridge.Inspect
+-- One verified working journal per call, never cached between callbacks.
 -- These receipts never grant a command; Prepare and the final Inspect stay fresh.
 local function InspectBatch(pid,requests)
   if type(requests)~="table" or getmetatable(requests)~=nil then return "UNAVAILABLE" end
@@ -163,7 +164,7 @@ local function InspectBatch(pid,requests)
     maximum=math.max(maximum,k)
   end
   if count==0 or maximum~=count then return "UNAVAILABLE" end
-  local p=Owner(pid,false);if not p then return "UNAVAILABLE" end
+  local p,key=Owner(pid,false);if not p then return "UNAVAILABLE" end
   local turn=Static(Game,"GetCurrentGameTurn");if not J.Integer(turn) then return "UNAVAILABLE" end
   local inspect,batch=bridge.Inspect,bridge.InspectBatch
   if type(inspect)~="function" or type(batch)~="function" then return "UNAVAILABLE" end
@@ -180,6 +181,41 @@ local function InspectBatch(pid,requests)
     validated[i]={cityID=r.cityID,token=r.token}
   end
   local result={}
+  if inspect==canonicalInspect then
+    local function Stable()
+      return Owner(pid,false)==p and Static(Game,"GetCurrentGameTurn")==turn
+        and bridge.Inspect==inspect and bridge.InspectBatch==batch
+    end
+    if not Stable() then return "UNAVAILABLE" end
+    local state=Load(p,pid,key);if not state then return "UNAVAILABLE" end
+    for i=1,count do
+      local r=validated[i];local id=J.Key(r.cityID);local op=state.records[id]
+      local stage,token,why
+      if not op then
+        stage,token,why=r.token==nil and "OPEN" or "UNKNOWN",r.token,"no_record"
+      elseif r.token~=nil and r.token~=op.token then
+        stage,token,why="UNKNOWN",r.token,"token_mismatch"
+      else
+        if op.stage=="ARMED" or op.stage=="TRANSFERRED" then
+          -- Only this branch can persist a receipt. Preserve its fresh owner,
+          -- context and native facts, plus Persist's optimistic journal check.
+          if not Stable() then return "UNAVAILABLE" end
+          state=Observe(p,pid,key,state,op)
+          if not state then return "UNAVAILABLE" end
+          op=state.records[id]
+        end
+        stage,token,why=op.stage,op.token,"inspected"
+      end
+      result[id]={cityID=r.cityID,stage=stage,token=token,reason=why}
+    end
+    -- Any concurrent change or unknown final read discards the entire reply.
+    -- No stale OPEN/OBSERVED row can be used as a new permission by the UI.
+    if not Stable() then return "UNAVAILABLE" end
+    local fresh=Load(p,pid,key)
+    if not fresh or not J.Equal(state,fresh,pid) or not Stable() then return "UNAVAILABLE" end
+    return "READY",result
+  end
+  -- Preserve explicit reader overrides instead of bypassing their behavior.
   for i=1,count do
     if Owner(pid,false)~=p or Static(Game,"GetCurrentGameTurn")~=turn
       or bridge.Inspect~=inspect or bridge.InspectBatch~=batch then return "UNAVAILABLE" end

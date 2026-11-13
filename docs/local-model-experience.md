@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [138工作账本／705](testing/baiqi-working-journal138.md)：705完整16664tokens／10200.1122ms却keynil错报旧ARM为OPEN、自比canonical绕过override，2隔离实证整稿拒绝；方案为Owner事前提示不追授自主发现。Owner重写6新／66相关／全2013pass1SDKskip、97Lua51／119包，未Native提速；累计705／654完整48length3transport735HTTP30extra，原生0／成本null。
+
+
 2026-11-14 [137冷读333实效与负性能](testing/baiqi-native137-cold333-batch.md)：119逐字安装／新鲜offline启动，同333资产foodvitals3旧账本全等，78批858行全READY；624新根样本0丢弃，Adminp95同136约30ms，未证明提速。包装全撤，0END／本NativeHTTP，705另包；Owner焦点helper未终态的早读被守卫拒绝0截图输入，原错误保留。
 
 

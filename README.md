@@ -1,5 +1,8 @@
 # civ6_dev
 
+[138批内工作账本／软件](docs/testing/baiqi-working-journal138.md)：末尾真实整账本对照才授READY，不跨回调缓存；6新方法／66相关、全2013pass1SDKskip，97Lua51／119包。137性能未改善仍保留，138待离线冷验。
+
+
 [137冷读333：回执兼容、耗时未改善](docs/testing/baiqi-native137-cold333-batch.md)：各资产／food／vitals及旧账本全等，78自然批回执均READY；Admin p95仍约30ms，未过20ms参考，继续修复。137333已存，Steam离线／工坊82。
 
 
