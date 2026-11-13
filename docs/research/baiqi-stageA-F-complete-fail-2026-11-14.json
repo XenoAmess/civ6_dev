@@ -1,0 +1,264 @@
+{
+  "schema": "civ6.stageA.F-complete-budget-fail/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "artifact_sha256": "9d2c4490a0b04554ae126e046b37c48cad193fa6664e5246989e9aef671c5dfa",
+  "formal_fixture_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+  "same_cold_instance_as_E": true,
+  "initial_warmup_seconds": 120.55399990081787,
+  "fresh_formal_original85_reload": true,
+  "capture_phase": "COMPLETE",
+  "requested_ordinary_turns": [
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  ],
+  "capture_start": 1794607514.9650002,
+  "capture_stop": 1794608008.058,
+  "anchors": {
+    "86": 1794607577.717,
+    "87": 1794607656.813,
+    "88": 1794607763.524,
+    "89": 1794607846.828,
+    "90": 1794607922.326,
+    "91": 1794608004.293
+  },
+  "profile": {
+    "capacity": 4096,
+    "aggregate_zero": false,
+    "total_calls": 311,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "zero_success": 0
+  },
+  "pre_anchor": {
+    "pending": 0,
+    "recorded": 22,
+    "validated": 22,
+    "errors": 0
+  },
+  "analysis": {
+    "utc": "2026-11-13T22:13:51.988750+00:00",
+    "facts_sha256": "ad0d99a87255ada528140a7cc2d6971d556ac337ce21a19b6b7cb74f5ce69df3",
+    "cities": 11,
+    "source": "baiqi140-stageA-v2",
+    "sample_quality_ok": true,
+    "samples": 311,
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 116,
+        "10_to_11": 0,
+        "eleven_city": 13,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 143,
+        "10_to_11": 0,
+        "eleven_city": 17,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 22
+      }
+    },
+    "eligible_calls_by_turn": {
+      "Admin.Run": {
+        "86": 27,
+        "87": 27,
+        "88": 26,
+        "89": 26,
+        "90": 23
+      },
+      "Controller.RunNow": {
+        "86": 33,
+        "87": 31,
+        "88": 34,
+        "89": 30,
+        "90": 32
+      }
+    },
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 116,
+        "p95_ms": 19.00005340576172,
+        "max_ms": 23.000001907348633,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 143,
+        "p95_ms": 12.000083923339844,
+        "max_ms": 89.99991416931152,
+        "budget_ok": false
+      }
+    },
+    "overall_budget_ok": false,
+    "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 22,
+      "validated": 22,
+      "errors": 0
+    }
+  },
+  "largest_pure_ten_rows": [
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.08999991416931152,
+      "failed": false,
+      "started": 1794607764.7810001,
+      "ended": 1794607764.871,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607763.524,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.0559999942779541,
+      "failed": false,
+      "started": 1794607848.22,
+      "ended": 1794607848.276,
+      "turnStart": 89,
+      "turnEnd": 89,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607846.828,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.03299999237060547,
+      "failed": false,
+      "started": 1794607848.5210001,
+      "ended": 1794607848.5540001,
+      "turnStart": 89,
+      "turnEnd": 89,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607846.828,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.023000001907348633,
+      "failed": false,
+      "started": 1794607923.334,
+      "ended": 1794607923.357,
+      "turnStart": 90,
+      "turnEnd": 90,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607922.326,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.021000146865844727,
+      "failed": false,
+      "started": 1794607665.438,
+      "ended": 1794607665.459,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607656.813,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.020999908447265625,
+      "failed": false,
+      "started": 1794607771.878,
+      "ended": 1794607771.899,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607763.524,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.020000219345092773,
+      "failed": false,
+      "started": 1794607764.034,
+      "ended": 1794607764.0540001,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607763.524,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.019999980926513672,
+      "failed": false,
+      "started": 1794607770.7810001,
+      "ended": 1794607770.801,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794607763.524,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    }
+  ],
+  "facts_sha256": "ad0d99a87255ada528140a7cc2d6971d556ac337ce21a19b6b7cb74f5ce69df3",
+  "final_turn": 91,
+  "final_cities": 11,
+  "saved": {
+    "bytes": 520612,
+    "sha256": "b6c6a97045b2611471f10e2186cd4f2e7a5a606d8f2340b1ab1db2987211ce61"
+  },
+  "qa": {
+    "two_root_bindings_restored": true,
+    "own_native_observer_removed": true,
+    "original_callback_alias_forwards_with_QA_disabled_until_exit": true,
+    "official_exit_requested_once": true
+  },
+  "old_E": "Remains aborted; 318 rows not substituted or retroactively qualified. Offline diagnostic pure-ten Controller maximum about80ms remains a separate negative observation, not a canonical quality pass.",
+  "new_model_calls_for_F_run": 0,
+  "current_http_cumulative_through733": {
+    "logical": 733,
+    "complete_streams_including_historical_json_rejection": 680,
+    "length": 50,
+    "final_transport": 3,
+    "http": 763,
+    "extra_attempts": 30
+  },
+  "limits": "B_plan FAIL: Controller maximum about90ms exceeds frozen50ms. Admin scoped pass only. No whole TC-036, B_delta or full functional pass. Continue coarse Controller child diagnosis before product optimization."
+}
