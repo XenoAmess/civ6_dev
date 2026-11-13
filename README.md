@@ -1,5 +1,8 @@
 # civ6_dev
 
+[139无需求早退／软件](docs/testing/baiqi-food-demand139.md)：回执照常观察，已知正粮省掉无用规划读取；负粮／未决偏好保新鲜完整门。9新方法、全2022pass1SDKskip，97Lua51／119包，待同333离线冷验，未授性能通过。
+
+
 [138冷读333：批内路径实证、耗时仍开放](docs/testing/baiqi-native138-cold333-latency-open.md)：102批每批2克隆，366批完整11城，已采资产foodvitals旧账本全等；818根样本Admin p95约29ms仍超20ms，继续定位，138333已存。
 
 

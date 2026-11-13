@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [139需求门／708](testing/baiqi-food-demand139.md)：raw708救粮旧City仍4完整busy读／1无用flag，偏好nil待决flag实际0应1；救粮0代码、偏好仅方向经Owner修正。Owner9新／全2022pass1SDKskip、97Lua51／119包，未Native提速。累计708／657完整48length3transport738HTTP30extra，原生0／成本null。
+
+
 2026-11-14 [138实机与706707审阅](testing/baiqi-native138-cold333-latency-open.md)：Core102批204克隆／UI366批4026行均READY，九域全等；818根Adminp95~29ms仍开，1004子样本已撤。706漏55/67版本门CLIexit1／0目录，707NO_PATCH忽略保留后验写门的反例要求，均拒；Owner漏NewContext输入单列。累计707／656完整48length3transport737HTTP30extra，原生0／成本null；708另包。
 
 

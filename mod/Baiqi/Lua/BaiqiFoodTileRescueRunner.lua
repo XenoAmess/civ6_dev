@@ -170,8 +170,7 @@ local function City(E,pid,turn,player,own,c,t,batch)
   local prepare,inspect=b.Prepare,b.Inspect
   local stage,token
   if batch then
-    if b~=batch.bridge or prepare~=batch.prepare or inspect~=batch.inspect or b.InspectBatch~=batch.method
-      or Player(E,pid,turn)~=player then return false end
+    if b~=batch.bridge or prepare~=batch.prepare or inspect~=batch.inspect or b.InspectBatch~=batch.method then return false end
     local row=batch.rows[string.format("%.0f",identity.id)]
     if not row or row.cityID~=identity.id then return false end
     stage,token=row.stage,row.token
@@ -191,6 +190,12 @@ local function City(E,pid,turn,player,own,c,t,batch)
   if (stage=="OBSERVED" or stage=="TRANSFERRED") and (type(token)~="string" or #token==0 or #token>96) then return false end
   local last=attempted[identity.id]
   if last and last.turn==turn and last.token==token then return false end
+  -- All receipt reconciliation above still runs for positive-food cities.
+  -- This read grants nothing; Snapshot repeats it from fresh native state.
+  if Static(E.Game,"GetLocalPlayer")~=pid or Static(E.Game,"GetCurrentGameTurn")~=turn then return false end
+  local demand=Method(Method(c,"GetGrowth"),"GetFoodSurplus")
+  if not Finite(demand) or demand>=0 then return false end
+  if Player(E,pid,turn)~=player then return false end
   local yield=E.YieldTypes.FOOD
   local s=Snapshot(E,own,c,pid,t);local plan=Plan(s);if not plan then return false end
   local sourceX,sourceY=Source(s,plan);if sourceX==nil then return false end

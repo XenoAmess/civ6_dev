@@ -7,6 +7,9 @@ local running=false
 local function Integer(v)
   return type(v)=="number" and v>=0 and v<=2147483647 and v%1==0
 end
+local function FoodNumber(v)
+  return type(v)=="number" and v==v and math.abs(v)<=1000000
+end
 local function Object(v)return type(v)=="table" or type(v)=="userdata" end
 local function Method(o,k,...)
   assert(Object(o) and type(o[k])=="function");return o[k](o,...)
@@ -28,9 +31,14 @@ local function Read(E,c,pid,yield)
   local owner=Method(c,"GetOwner");if owner~=pid then return nil end
   local id,x,y=Method(c,"GetID"),Method(c,"GetX"),Method(c,"GetY")
   if not Integer(id) or not Integer(x) or not Integer(y) then return nil end
-  local growth,citizens=Method(c,"GetGrowth"),Method(c,"GetCitizens")
+  local growth=Method(c,"GetGrowth")
+  local surplus=Method(growth,"GetFoodSurplus")
+  -- A positive city without an outstanding focus request has no proposal.
+  -- Held requests still read the desired flags, even with unknown food.
+  if pending[id]==nil and (not FoodNumber(surplus) or surplus>=0) then return nil end
+  local citizens=Method(c,"GetCitizens")
   return {player=pid,owner=owner,cityID=id,x=x,y=y,
-    surplus=Method(growth,"GetFoodSurplus"),favored=Method(citizens,"IsFavoredYield",yield),
+    surplus=surplus,favored=Method(citizens,"IsFavoredYield",yield),
     disfavored=Method(citizens,"IsDisfavoredYield",yield)}
 end
 local function Plan(s)
