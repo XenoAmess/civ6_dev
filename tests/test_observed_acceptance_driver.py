@@ -12,7 +12,7 @@ class TestObservedAcceptance(unittest.TestCase):
         self.ledger = ROOT / '.local-model/observed-driver-tests' / uuid.uuid4().hex
 
     def _run(self, **kwargs):
-        return run(self.h.query, self.h.diplomacy_visible, self.h.now, self.h.sleep, self.h.emit, self.ledger, **kwargs)
+        return run(self.h.query, self.h.diplomacy_visible, self.h.now, self.h.sleep, self.h.emit, self.ledger, legacy_forced=True, **kwargs)
 
     def test_complete_window(self):
         res = self._run()

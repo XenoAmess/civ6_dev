@@ -81,10 +81,10 @@ class TestBoundedObservation(unittest.TestCase):
         h.lua.execute("for _,e in pairs(ExposedMembers.P6BaiqiOwnRegistry.entries) do e.Snapshot().profile.capacity=129 end")
         ledger=Path('.local-model/bounded-observation-tests')/uuid.uuid4().hex
         with self.assertRaises(Exception):
-            run(h.query,h.diplomacy_visible,h.now,h.sleep,h.emit,ledger,sample_budget=4096)
+            run(h.query,h.diplomacy_visible,h.now,h.sleep,h.emit,ledger,sample_budget=4096,legacy_forced=True)
         self.assertEqual(h.actions,[])
         self.assertTrue(h.all_recording(False))
         h2=DriverHarness();ledger2=Path('.local-model/bounded-observation-tests')/uuid.uuid4().hex
-        result=run(h2.query,h2.diplomacy_visible,h2.now,h2.sleep,h2.emit,ledger2,sample_budget=4096)
+        result=run(h2.query,h2.diplomacy_visible,h2.now,h2.sleep,h2.emit,ledger2,sample_budget=4096,legacy_forced=True)
         self.assertEqual(result['requested_turns'],[85,86,87,88,89,90])
         self.assertTrue(h2.all_recording(False))

@@ -2,6 +2,13 @@
 
 All end-turn actions belong to TEST_PLAYER. This tool never commands units,
 chooses diplomacy, or changes the mod's mandatory domestic delegation.
+
+Ordinary mode requires request_normal_end(turn, token). The callback handles the
+test-player queue outside this observer and returns exactly {turn, token,
+requested: True, forced: False} after reading an ordinary END ACK. This is only
+a submission receipt: the independent poll must still observe activation.
+Unknown outcomes abort without replay. Historical UserForced reproduction
+requires explicit legacy_forced=True and cannot be combined with the callback.
 """
 from datetime import datetime,timezone
 import hashlib
@@ -24,7 +31,15 @@ def _payload(messages,marker):
     return found[0]
 
 
-def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budget=None):
+def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budget=None,
+        request_normal_end=None,legacy_forced=False):
+    if type(legacy_forced) is not bool:
+        raise TypeError('legacy_forced must be an explicit boolean')
+    if legacy_forced:
+        if request_normal_end is not None:
+            raise ValueError('Choose one TEST_PLAYER end-turn mode')
+    elif not callable(request_normal_end):
+        raise TypeError('An ordinary TEST_PLAYER end-turn callback is required')
     if sample_budget is not None and (type(sample_budget) is not int or sample_budget<1):
         raise ValueError('Expected positive retained-sample budget')
     token=uuid.uuid4().hex
@@ -44,25 +59,36 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
         nonlocal attempted
         record={'at_utc':datetime.now(timezone.utc).isoformat(),'role':'TEST_PLAYER',
                 'turn':turn,'token':token,'status':'ABOUT_TO_SUBMIT_ONCE',
+                'mode':'LEGACY_USER_FORCED' if legacy_forced else 'ORDINARY_CALLBACK',
                 'lua_sha256':hashlib.sha256(code.encode('utf-8')).hexdigest()}
         with (ledger_dir/f'end{turn}.json').open('x',encoding='utf-8',newline='\n') as stream:
             json.dump(record,stream,indent=2);stream.write('\n')
         attempted=True
-        result=_payload(query('BaiqiExecutor',code),'P6_Q20_END')
+        marker='P6_Q20_END' if legacy_forced else 'P6_Q20_READY'
+        result=_payload(query('BaiqiExecutor',code),marker)
         if result!=[str(turn)]:
             raise RuntimeError('Unexpected end-turn receipt')
+        if not legacy_forced:
+            # The callback owns ordinary queue handling and reads its native END
+            # ACK. Unknown outcomes stop this capture; no action is retried.
+            ack=request_normal_end(turn,token)
+            if (type(ack) is not dict or set(ack)!={'turn','token','requested','forced'}
+                or type(ack['turn']) is not int or ack['turn']!=turn or ack['token']!=token
+                or ack['requested'] is not True or ack['forced'] is not False):
+                raise RuntimeError('Ordinary END acknowledgement unavailable')
         requested.append(turn)
-        emit(f'TEST_PLAYER_END_REQUESTED_ONCE {turn}')
+        emit(f'TEST_PLAYER_END_REQUESTED_ONCE {turn} mode={record["mode"]}')
 
     def end_code(turn):
+        submit=("assert(type(UI.RequestAction)=='function' and ActionTypes.ACTION_ENDTURN~=nil)\n"
+                "UI.RequestAction(ActionTypes.ACTION_ENDTURN,{REASON='UserForced'})\n"
+                f"print('P6_Q20_END',{turn})" if legacy_forced else f"print('P6_Q20_READY',{turn})")
         return f'''
 local s=P6Q20StageB;assert(s and s.token=={quoted} and s.phase=='RECORDING')
 assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()=={turn})
 assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and not s.ends[{turn}])
-assert(type(UI.RequestAction)=='function' and ActionTypes.ACTION_ENDTURN~=nil)
 s.ends[{turn}]=true
-UI.RequestAction(ActionTypes.ACTION_ENDTURN,{{REASON='UserForced'}})
-print('P6_Q20_END',{turn})
+{submit}
 '''
 
     budget_start=''

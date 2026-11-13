@@ -1,0 +1,108 @@
+{
+  "schema": "civ6.ordinary-observed-driver711713/v1",
+  "utc": "2026-11-13T18:14:32.383342+00:00",
+  "machine_id": "BF-202609141645",
+  "release_version": 140,
+  "change": "default requires injected ordinary TEST_PLAYER callback after exclusive ledger and strict source-qualified READY gate; validate exact ACK mapping; actual activation independently polled; no callback or END retries on unknown; forced legacy explicit only",
+  "callback_contract": {
+    "arguments": [
+      "turn",
+      "capture_token"
+    ],
+    "return_exact_keys": [
+      "turn",
+      "token",
+      "requested",
+      "forced"
+    ],
+    "required": "exact integer turn, capture token, requested is True, forced is False; caller reads actual ordinary END ACK; callbacks may own authorized queue handling outside observer",
+    "not_proof": "ACK does not establish actual next turn or queue completion"
+  },
+  "preserved": [
+    "frozen85 ten-city setup",
+    "86..90 five ten-second windows and91 closing anchors",
+    "4096 retained cap/33 contexts checks",
+    "before/after clock calibration",
+    "exclusive per-turn ledger",
+    "diplomacy read gate",
+    "abort teardown on unknown",
+    "no observer unit/diplomacy/domestic input"
+  ],
+  "checks": {
+    "new_methods": 9,
+    "new_seconds": 0.492,
+    "existing_legacy_methods": 8,
+    "bounded_methods": 8,
+    "total_pass": 25,
+    "coverage": [
+      "complete ordinary callback no forced API",
+      "invalid mode rejected before capture",
+      "ACK no advance timeout",
+      "throw after effect abort no replay",
+      "unknown/false/badtype/token/forced ACK no replay",
+      "gate lost receipt callback0",
+      "duplicate gate callback0",
+      "delayed anchors/diplomacy",
+      "ledger collision and globalcap fail before END"
+    ]
+  },
+  "models": {
+    "711": {
+      "finish_reason": "length",
+      "sse_done": true,
+      "total_ms": 13703.194500179961,
+      "first_nonempty_content_delta_ms": 1659.763100091368,
+      "usage": {
+        "prompt_tokens": 10311,
+        "completion_tokens": 2000,
+        "total_tokens": 12311
+      },
+      "candidate_complete": false
+    },
+    "712": {
+      "finish_reason": "length",
+      "sse_done": true,
+      "total_ms": 9981.229200027883,
+      "first_nonempty_content_delta_ms": 881.7125000059605,
+      "usage": {
+        "prompt_tokens": 4783,
+        "completion_tokens": 1400,
+        "total_tokens": 6183
+      },
+      "candidate_complete": false
+    },
+    "713": {
+      "finish_reason": "stop",
+      "sse_done": true,
+      "total_ms": 2912.949499906972,
+      "first_nonempty_content_delta_ms": 889.695500023663,
+      "usage": {
+        "prompt_tokens": 5715,
+        "completion_tokens": 348,
+        "total_tokens": 6063
+      },
+      "candidate_complete": true
+    }
+  },
+  "review": {
+    "711": "length2000 whole rejected, no splice",
+    "712": "length1400 whole rejected, no splice; owner took over migration",
+    "713": "complete raw3 methods all3 fail in actual normal consumer fixture; first2 assert forced actions[85] but callback sends none, third uses fail_poll_once to simulate gate but flag only affects subsequent poll; falsely says callback return ignored. No raw test adopted; owner rewrote9 tests"
+  },
+  "cumulative_through713": {
+    "logical_calls": 713,
+    "complete_streams_including_one_strict_json_rejection": 660,
+    "length": 50,
+    "final_transport": 3,
+    "HTTP_attempts": 743,
+    "extra_attempts": 30,
+    "OpenCode_native_generation_tasks": 0,
+    "new_peak_inflight": 1,
+    "cached_tokens": null,
+    "owner_active_cost": null,
+    "net_savings": null
+  },
+  "maintenance": "Nov14 canonical1.19.5/latest1.19.5 success cache reused",
+  "Native_run": false,
+  "limits": "25 software methods do not prove real ordinary-END callback, fullscript B_turn/B_delta, current140 improvement, or formal TC036; legacy history not relabelled; next current owned diagnostic capture requires concrete normal workflow adapter"
+}

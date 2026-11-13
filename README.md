@@ -1,5 +1,7 @@
 # civ6_dev
 
+[完整观测驱动的普通END委托](docs/testing/baiqi-ordinary-observed-driver711713.md)：凭证／READY后才调用测试玩家流程，ACK与实际激活分读；旧强制路径须显式选择。25软件方法通过，尚未授新Native或完整性能PASS。
+
 [140冷验：状态保持、耗时仍开](docs/testing/baiqi-native140-cold333-latency-open.md)：九域全等，390自然根样本Admin p95约23ms仍超参考，包装已撤／140333已存；当前全脚本包仅准备，继续诊断和普通END驱动。
 
 [140总督需求早检查／软件](docs/testing/baiqi-governor-demand140.md)：无救急需求省掉完整忠诚来源读取，有需求重建原完整快照；9新方法、全2037pass1SDKskip，97Lua51／119包。未决回执和发令前安全门保留，继续同333冷验。

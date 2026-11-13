@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [普通END观测驱动／711–713](testing/baiqi-ordinary-observed-driver711713.md)：711712两length整拒，Owner接管；713完整6063tokens但3raw方法3失败，虚算forced动作、混poll与门且错说ACK被忽略，0采用。Owner9新／25相关过，尚未Native；累计713／660完整50length3transport743HTTP30extra，维护复用原生0／成本null。
+
 2026-11-14 [140总督需求／710](testing/baiqi-governor-demand140.md)：710完整17728tokens，raw无穷错分、虚报1城实迭129仍false、读异常逃逸及未知阻断普通流程，0原代码；Owner重写9新／31相关、全2037pass1SDKskip、97Lua51／119包。保Index原本正确，未授Native提速。累计710／659完整48length3transport740HTTP30extra，维护复用原生0／成本null。
 
 2026-11-14 [139实机与709观测工具](testing/baiqi-native139-observed709.md)：九域全等／1254根Adminp95~22ms仍开；失败计数器0调用、原函数未改后清理。709完整23366tokens但diff无效，只采版本命名方向，Owner补有界／Lua51／67兼容和实际变换Core验证；24方法过，私有包未安装。累计709／658完整48length3transport739HTTP30extra，维护复用原生0／成本null；710另包。
