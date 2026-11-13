@@ -1,0 +1,88 @@
+{
+  "schema": "civ6.controller.H-owner-timeout-I-recovery/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "fine_artifact_sha256": "51c52d5ab24ddda3bd14e9bcf42c14f11b0583514afc1ea28b7bf2e7ecd30515",
+  "H": {
+    "phase": "ABORTED",
+    "owner_error": "Owner did not close the actual friendly Goodbye before unchanged180sec deadline; no sampling or product failure inferred.",
+    "ordinary_requested_turns": [
+      85,
+      86,
+      87
+    ],
+    "closing_87_poll_age_seconds": 181.6139998435974,
+    "root_samples": 0,
+    "total_samples": 0,
+    "diagnostic_errors": 0,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "metadata_errors": 0,
+    "after_abort": "Fresh image reviewed; TEST_PLAYER Escape once closed actual friendly Goodbye, independent Native read observed88. No END replay.",
+    "saved": {
+      "bytes": 509123,
+      "sha256": "b19c5d1934a58a3680e6145f30501e03d077e05429f494ef750fecdca5c3e914"
+    },
+    "qa_restored_bindings": 7,
+    "own_observer_removed": true
+  },
+  "I": {
+    "fresh_original85_formal_reload": true,
+    "same_cold_instance": true,
+    "initial_warmup_seconds": 88.55299997329712,
+    "private_test_player_close": "Original DiplomacyActionView.KeyHandler(Keys.VK_ESCAPE); only actual87 after END87, not active local player, visible context and stopped fade animation; once-only ledger before Native, call-return and hidden separately read.",
+    "original_handler_source": "Base/Assets/UI/DiplomacyActionView.lua:2722",
+    "software": {
+      "checks": [
+        {
+          "name": "normal",
+          "passed": true,
+          "original_close_handler_calls": 1
+        },
+        {
+          "name": "hidden",
+          "passed": true,
+          "original_close_handler_calls": 0
+        },
+        {
+          "name": "wrong_turn",
+          "passed": true,
+          "original_close_handler_calls": 0
+        },
+        {
+          "name": "active_player",
+          "passed": true,
+          "original_close_handler_calls": 0
+        },
+        {
+          "name": "animation_running",
+          "passed": true,
+          "original_close_handler_calls": 0
+        },
+        {
+          "name": "already_attempted",
+          "passed": true,
+          "original_close_handler_calls": 0
+        }
+      ],
+      "passed": 6,
+      "private_driver_sha256": "171f9a48f57df5c58baa7b40d17b031e7ea2941fcebe5dfbbf37d63a56aedb02",
+      "native_source_sha256": "246409606568dc3f6f2b913334dbc626d9b59e81efc02df0d28409a6ae959cfc",
+      "native_source_port": "Original KeyHandler body; only key:number annotation removed forLua51fixture",
+      "limits": "Software branch and no-replay only; actual Native issuance and hidden confirmation still require real I visit."
+    },
+    "native_visit_result": "PENDING at this cutpoint",
+    "native_performance_result": "PENDING"
+  },
+  "new_model_calls": 0,
+  "cumulative_through736": {
+    "logical": 736,
+    "complete_streams_including_historical_json_rejection": 683,
+    "length": 50,
+    "final_transport": 3,
+    "http": 766,
+    "extra_attempts": 30
+  },
+  "limits": "H remains aborted and cannot be retroactively qualified by I. Product140 unchanged, F B_plan maximum failure remains. Original Escape callback is external TEST_PLAYER only; no product diplomacy automation, budget extension or UserForced END."
+}
