@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [恢复主332／701](testing/baiqi-main332-hint701.md)：原版Continue一次后六组已采行保持；701完整14759tokens／6936.6102ms却Lua51语法、TestWorld及假pcall整拒，Owner只读诊断8方法通过、实际推荐空表。不可据此授全图无城址／实际规划／性能。新维护1.19.5成功，累计701／650完整流48length3transport731HTTP30extra，原生0／成本null。
+
+
 2026-11-13 [136泛滥平原完工329](testing/baiqi-native136-floodplain-completed329.md)：0→102→165/200后逐区complete真、feature0保留、区域0→3；18/20继续新森林0:329:113，不能以同hash／HasBeenPlaced真误判首次未完或重放。66城帧／五区间NO_LOSS、2样本exact撤、329保存同进程重载ACK待读；主332保护，0本NativeHTTP／700另记。
 
 
