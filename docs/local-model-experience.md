@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [匹配普通END合同／725](testing/baiqi-paired-normal-contract725.md)：raw仍建议UserForced、回执只尝试无发行、无实际跨上下文桥，0采用／新测试／配对Native；Owner迁移仍待。累计725／672完整50length3transport755HTTP30extra，维护复用原生0／成本null。[Owner沙箱修正](testing/baiqi-stageA-sandbox-correction.md)独立记账，不是725代码。
+
 2026-11-14 [逐原因诊断／724](testing/baiqi-stageA-qualification-trace724.md)：raw字符串键表用#判长导致无界、畸形计数／元数据不安全，6探针全失败，0代码采用；Owner有界记录6新／23相关过，下一私有包待Native，旧3错误不猜因。累计724／671完整50length3transport754HTTP30extra，维护复用原生0／成本null。
 
 2026-11-14 [StageA中止／723](testing/baiqi-stageA-aborted86-analyzer723.md)：实际86最终7样本、3资格错误，原因未记录／未知，不能猜事件顺序。723合法完整5207tokens却7合同探针全失败，0原代码；Owner严格分析器11方法通过，Native数据不授B_plan，86已存／包装撤。累计723／670完整50length3transport753HTTP30extra，维护复用原生0／成本null；724逐原因诊断另记。

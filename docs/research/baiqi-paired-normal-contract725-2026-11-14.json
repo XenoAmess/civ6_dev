@@ -1,0 +1,56 @@
+{
+  "schema": "civ6.paired.normal-end-contract725-review/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "real_unfinished_task": "Port historical matched-pair driver from forced END to normal TEST_PLAYER callback; begin clock after military preparation immediately before ordinary RequestAction.",
+  "actual_source_findings": [
+    "tools/run_paired_acceptance.py action still sends UserForced.",
+    "Result metadata still hardcodes source_version67 although actual build_static_control permits source140.",
+    "Clock.Begin currently executes in BaiqiExecutor while reviewed normal END executes in ActionPanel. Cross-context owned bridge must be separately verified.",
+    "Static-control original domestic gates may block ordinary END; neither forced END nor manual domestic compensation qualifies."
+  ],
+  "model725": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 7628,
+      "completion_tokens": 262,
+      "total_tokens": 7890
+    },
+    "total_ms": 3293.0225001182407,
+    "ttft_ms": 1331.3672000076622,
+    "attempts": 1,
+    "candidate": {
+      "callback_contract": "def request_normal_end(turn: int, token: str) -> dict: Requires ledger write before input validation. Returns {'role':'TEST_PLAYER','turn':turn,'token':token,'status':'ATTEMPTED_BEFORE_NATIVE'}. Must verify turn is int, token is 32-char hex, and no prior READY reservation for this turn. Raises on duplicate or invalid args. No native action executed.",
+      "clock_start_site": "P6PairClock:Begin(turn) must be invoked immediately before UI.RequestAction(ActionTypes.ACTION_ENDTURN, {REASON='UserForced'}) in the action() function, after all military prep loops and SKIP dwell times, ensuring latency attribution to END only.",
+      "two_risks": [
+        "Static control variant may enforce domestic gates that block ordinary END actions, causing test blocked status without forcing or manual fill.",
+        "Cross-context bridge for BaiqiExecutor is unproven; relying on private owned bridge binding without overwriting foreign ExposedMembers risks identity mismatch on restore."
+      ],
+      "scope": "Untested: actual Native execution of paired clock Begin/End sequence, cross-context bridge identity preservation, and static control domestic gate behavior during ordinary END attempts."
+    }
+  },
+  "review": "Rejected: proposed clock site still uses UserForced and action has no military preparation loop; receipt has only attempted status and explicitly no Native action, not requested=true/forced=false issuance receipt. No actual bridge binding/identity implementation supplied.",
+  "raw_code_adopted": false,
+  "new_software_tests": 0,
+  "new_native_paired_runs": 0,
+  "b_delta_pass": false,
+  "cumulative_through725": {
+    "logical": 725,
+    "complete_streams_including_historical_json_rejection": 672,
+    "length": 50,
+    "final_transport": 3,
+    "http": 755,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 successful canonical1.19.5 cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "next": "Owner takeover of normal-END paired migration after active independent Stage A qualification diagnosis; five matched groups/25 segments and original budgets unchanged."
+}
