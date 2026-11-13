@@ -1,0 +1,131 @@
+{
+  "schema": "civ6.stageA.E-aborted-closing732/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "artifact_sha256": "9d2c4490a0b04554ae126e046b37c48cad193fa6664e5246989e9aef671c5dfa",
+  "source_version": 140,
+  "capture_source": "baiqi140-stageA-v2",
+  "native_E": {
+    "phase": "ABORTED",
+    "requested_ordinary_turns": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "actual_turn": 91,
+    "cities": 11,
+    "retained_samples": 318,
+    "qualification_errors": 0,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 25,
+      "validated": 25,
+      "errors": 0
+    },
+    "anchors_after_abort": {
+      "85": null,
+      "86": 1794606247.682,
+      "87": 1794606324.129,
+      "88": 1794606472.709,
+      "89": 1794606555.672,
+      "90": 1794606631.321,
+      "91": 1794606714.5180001
+    },
+    "capture_stop": null,
+    "frozen_export_sha256": "e11287f2d90c814b771e3cf2255b906f9f9599848cf8f02c563d7091e6411527",
+    "exact_failed_closing_subcondition": "UNKNOWN; first actual91 poll age=-1 followed by compound close assertion failure, later export includes91 anchor. No retrospective qualification.",
+    "qa_retired": {
+      "two_roots_restored": true,
+      "own_observer_removed": true
+    },
+    "saved": {
+      "bytes": 520567,
+      "sha256": "44870e8ca29f2b6b9c2a96154ac98a3c014a9643eb07154942858f7de4b48f46"
+    }
+  },
+  "model732": {
+    "usage": {
+      "prompt_tokens": 6688,
+      "completion_tokens": 401,
+      "total_tokens": 7089
+    },
+    "total_ms": 3583.466500043869,
+    "ttft_ms": 1250.0149998813868,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "raw_review": {
+      "candidate_unchanged": true,
+      "tests": [
+        {
+          "name": "ready",
+          "passed": false,
+          "actual": "NameError: name 'math' is not defined"
+        },
+        {
+          "name": "no_anchor",
+          "passed": true,
+          "actual": "False"
+        },
+        {
+          "name": "unfinished",
+          "passed": true,
+          "actual": "False"
+        },
+        {
+          "name": "pending",
+          "passed": false,
+          "actual": "NameError: name 'math' is not defined"
+        },
+        {
+          "name": "bad_counts",
+          "passed": true,
+          "actual": "ValueError: impossible proof accounting"
+        },
+        {
+          "name": "bad_flags",
+          "passed": true,
+          "actual": "ValueError: flags must be strict bool"
+        }
+      ],
+      "passed": 4,
+      "failed": 2,
+      "adoption": "No literal code adopted; owner implements exact-type and finite conversion gate. Candidate references missing math import."
+    },
+    "code_adopted": false
+  },
+  "owner_software": {
+    "new_readiness_methods": 6,
+    "passed": 6,
+    "rule": "Wait for actual91, native91 anchor, active idle player and resolved zero-error pre-anchor proof before final Native assertion; invalid metadata fails closed; original180sec deadline retained."
+  },
+  "next_native_F": {
+    "same_cold_instance": true,
+    "same_artifact": true,
+    "fresh_original85_reload": true,
+    "previous_initial_warmup_seconds": 120.55399990081787,
+    "status": "LOAD_ACK_TRUE; no F performance result at this cutpoint"
+  },
+  "cumulative": {
+    "logical": 732,
+    "complete_streams_including_historical_json_rejection": 679,
+    "length": 50,
+    "final_transport": 3,
+    "http": 762,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 canonical1.19.5 success cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "E remains aborted. No B_plan, B_delta or whole acceptance pass; no manufactured closing stop or Native anchor."
+}
