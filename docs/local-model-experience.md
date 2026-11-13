@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [普通END入口733](testing/baiqi-paired-normal-end733.md)：完整候选模块原样采用，API／顺序为Owner事前合同；6不同软件方法过，原版无参数END前即时Begin，重复／未知不重发。真实跨UI／control普通门及25段未验证；累计733／680完整50length3transport763HTTP30extra，维护复用原生0／成本null。
+
 2026-11-14 [E收尾中止／732](testing/baiqi-stageA-E-closing732.md)：318行零错误、25窗前完整证明，但首次实际91复合收尾断言失败、stop缺失，旧E不追认。后到锚点已保留、91存档／QA撤；Owner6就绪门方法过，F同产物重读85。732原6检查4过2缺math失败，0代码；累计732／679完整50length3transport762HTTP30extra，原生0／成本null。
 
 2026-11-14 [普通END驱动731](testing/baiqi-paired-normal-driver731.md)：raw两方法1失败1错误，缺真实发单／record[0]，0语义采用；Owner8新＋9旧软件方法过，五次准备5秒排除于2秒计时，动作后断线不重发。真实跨UI／25匹配段仍待；累计731／678完整50length3transport761HTTP30extra，维护复用原生0／成本null。
