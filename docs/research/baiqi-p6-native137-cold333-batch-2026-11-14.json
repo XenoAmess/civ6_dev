@@ -1,0 +1,217 @@
+{
+  "schema": "civ6.native137-cold333-batch-valid-no-latency-gain/v1",
+  "utc": "2026-11-13T16:54:11.036628+00:00",
+  "machine_id": "BF-202609141645",
+  "runtime": 137,
+  "install": {
+    "utc": "2026-11-13T16:45:08.034343+00:00",
+    "version": 137,
+    "files": 119,
+    "all_byte_match": true,
+    "source_commit": "b2306f0c5456d6f1aedf6c2018667a4831d44451",
+    "Steam_actions": 0
+  },
+  "cold_launch": {
+    "source_commit": "b2306f0c5456d6f1aedf6c2018667a4831d44451",
+    "version": 137,
+    "files": 119,
+    "proof_age_seconds": 0.002844,
+    "cpu_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "online_switches": 0
+  },
+  "same_save_loaded": {
+    "utc": "2026-11-13T16:29:27.961631+00:00",
+    "name": "Baiqi_P6_20261114_V136_NoHint333.Civ6Save",
+    "bytes": 2457122,
+    "sha256": "86317c181f65d06f12500ba1b7d78b9f18e1bc488d0996e6f2bb75e6e743c0f7",
+    "stable_repeated_read": true
+  },
+  "comparison": {
+    "comparison": "Same exact136saved333 file;136sameprocessreload and137newcoldprocess. Perfieldcomparison only; no rigorouspairedperformanceclaim",
+    "domains": {
+      "WORLD": {
+        "before": 1,
+        "after": 1,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "CITY": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "BUILDING": {
+        "before": 196,
+        "after": 196,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "DISTRICT": {
+        "before": 70,
+        "after": 70,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "PLOT": {
+        "before": 222,
+        "after": 222,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "UNIT": {
+        "before": 52,
+        "after": 52,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "allfood": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "vitals": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "food_journal": {
+        "before_rows": 5,
+        "after_rows": 5,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      }
+    }
+  },
+  "batch_natural_witness": {
+    "calls": 78,
+    "READY": 78,
+    "UNKNOWN": 0,
+    "errors": 0,
+    "shape_errors": 0,
+    "city_rows": 858,
+    "cities_per_batch": 11,
+    "elapsed_seconds": 28.296000003814697,
+    "public_method_restored": true,
+    "global_removed": true,
+    "explicit_batch_calls": 0,
+    "orders": 0
+  },
+  "natural_root_profiles": {
+    "136_same333_reloaded": {
+      "wall_seconds": 62.395999908447266,
+      "summary": {
+        "Controller.RunNow": {
+          "count": 173,
+          "p50_ms": 1.9998550415039003,
+          "p95_ms": 17.999887466431,
+          "max_ms": 26.000022888184,
+          "above20ms": 3,
+          "above50ms": 0,
+          "failed": 0
+        },
+        "Admin.Run": {
+          "count": 173,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 29.999971389771,
+          "max_ms": 44.999837875366005,
+          "above20ms": 18,
+          "above50ms": 0,
+          "failed": 0
+        }
+      },
+      "dropped": 0,
+      "invalid_clock": 0,
+      "restored": [
+        "true",
+        "true"
+      ],
+      "removed": [
+        "nil"
+      ]
+    },
+    "137_same333_cold": {
+      "wall_seconds": 112.41499996185303,
+      "summary": {
+        "Controller.RunNow": {
+          "count": 312,
+          "p50_ms": 1.9998550415039003,
+          "p95_ms": 13.999938964844,
+          "max_ms": 19.000053405762,
+          "above20ms": 0,
+          "above50ms": 0,
+          "failed": 0
+        },
+        "Admin.Run": {
+          "count": 312,
+          "p50_ms": 3.9999485015869003,
+          "p95_ms": 29.999971389771,
+          "max_ms": 44.999837875366005,
+          "above20ms": 29,
+          "above50ms": 0,
+          "failed": 0
+        }
+      },
+      "dropped": 0,
+      "invalid_clock": 0,
+      "restored": [
+        "true",
+        "true"
+      ],
+      "removed": [
+        "nil"
+      ]
+    }
+  },
+  "result": "BATCH_DATA_COMPATIBILITY_AND_CURRENT_COMPLETED_RECEIPTS_NARROW_PASS; NO_ADMIN_P95_IMPROVEMENT:136and137~30ms>20msreference. FullTC036OPEN. Retainnegativeperformanceevidenceandcontinueoptimization.",
+  "limits": [
+    "11cities,notfrozenoriginal10cityprotocolcase",
+    "136sameprocesssaved333reloadversus137freshcoldprocess,windows62.396vs112.415seconds:notrigorouspairedAB",
+    "NoallscriptBturnorpairedBdelta",
+    "3oldOBSERVEDrecordsretained; notnewNativeARM/TRANSFERREDfaultcoverage",
+    "Controllerp95~18→14msdifferentwindowsnotattributedsolelyto137batch",
+    "Perrootinclusivewallclockandprofilingoverheadnotisolated"
+  ],
+  "log": {
+    "BAIQI_errors": [],
+    "all_new_controller_requests": [],
+    "exact_scope": "Current137coldLua.log entireavailableatcutoff;doesnotcountallNativewrites"
+  },
+  "owner_sequence_errors": [
+    "UIAfocushelperreturnedrunning;oneprematurescreenshotreadwasattemptedbeforeterminalandforegroundguardrejected0capture/0input. Waitedoriginalhelperexit0beforeactualcapture/anygameinput.",
+    "Original136saved333Continueexpiredscreenshotguardreject0inputwaswronglycalledoneinputat137sourcecutoff;separatepublicerratumb2306f0correctedbeforethisNativecase;newfreshContinueactualonce."
+  ],
+  "startup": "Firstmodequeryunavailable=>0spawn;formalSteamheadernavigationinputseparatefromlaterreadonlyofflineproofage0.002844s. Oldowned14820officialexitcompletednormallywithoutresidueterminate.137startupLSQinitialrefused/thentwobasectxunqualified,0CMDuntiluniqueMainMenuqualified;originalloadACKtrueandonefreshContinue. Existinglocalizationduplicatekeysretained,notallenginelogsclean.",
+  "save137333": {
+    "utc": "2026-11-13T16:54:10.933496+00:00",
+    "name": "Baiqi_P6_20261114_V137_BatchCold333.Civ6Save",
+    "bytes": 2456314,
+    "sha256": "5aa6c2b76ad8648710d98728137d678a6ba26cf3f3965517b233d65d7be1bc63",
+    "stable_repeated_read": true
+  },
+  "new_HTTP_for_thisNative_case": 0,
+  "through704_separate": true,
+  "Steam_online_upload": 0,
+  "Workshop_version": 82,
+  "next": "CurrentbatchstillcallsOwner/Load/Clonepercity.705independentcandidateforonecallverifiedjournalworkingbankandfinalfreshwholebankequalityisunfinished;noimplementation/adoptionorNativegainatthiscutoff."
+}

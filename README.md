@@ -1,5 +1,8 @@
 # civ6_dev
 
+[137冷读333：回执兼容、耗时未改善](docs/testing/baiqi-native137-cold333-batch.md)：各资产／food／vitals及旧账本全等，78自然批回执均READY；Admin p95仍约30ms，未过20ms参考，继续修复。137333已存，Steam离线／工坊82。
+
+
 [137救粮回执批量桥／软件](docs/testing/baiqi-food-receipt-batch137.md)：保留逐城新鲜观察和最终许可，仅减少UI桥往返；11新方法、55相关、完整2007pass1SDKskip，97Lua51／119包。尚未实机或证明提速，继续同333冷验。
 
 

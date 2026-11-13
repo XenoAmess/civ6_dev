@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [137冷读333实效与负性能](testing/baiqi-native137-cold333-batch.md)：119逐字安装／新鲜offline启动，同333资产foodvitals3旧账本全等，78批858行全READY；624新根样本0丢弃，Adminp95同136约30ms，未证明提速。包装全撤，0END／本NativeHTTP，705另包；Owner焦点helper未终态的早读被守卫拒绝0截图输入，原错误保留。
+
+
 2026-11-14 [137批量回执／703704](testing/baiqi-food-receipt-batch137.md)：533边界样本0丢弃、11Inspect每救粮；703泛NO_PATCH越权预算，704raw6方法2Lua错误且假观察，均拒绝。Owner137批量保新鲜Core观察／最终许可，11新方法／55相关／全2007pass1SDKskip，97Lua51／119包；首轮nilreason兼容及loader缺path单列。尚未Native提速，累计704／653完整48length3transport734HTTP30extra，原生0／成本null。
 
 
