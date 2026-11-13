@@ -1,0 +1,304 @@
+{
+  "schema": "civ6.stageA.native-anchor-gap.inline726/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "nativeC": {
+    "artifact_sha256": "47be5f0e55ad1fd338ef49de5e7f9457efbd9bcf6e0555da7a053d7700eeb4c5",
+    "warmup_seconds": 74.17000007629395,
+    "formal_reload_original85": true,
+    "ordinary_end_turns": [
+      85
+    ],
+    "actual_turn": 86,
+    "cities": 10,
+    "initial_abort_samples": 6,
+    "final_calls": 9,
+    "final_samples": 9,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "zero_success": 0,
+    "qualification_errors": 2,
+    "reason_counts": {
+      "anchor_missing": 2
+    },
+    "native86_anchor": 1794602449.283,
+    "unknown_controller_times": [
+      1794602448.607,
+      1794602448.971
+    ],
+    "unknown_event_dropped": 0,
+    "trace_saturated": false,
+    "trace_malformed": false,
+    "export_rows": [
+      [
+        "PLAN140C_ABORT_STATS",
+        "2",
+        "9",
+        "9",
+        "0",
+        "0",
+        "0",
+        "1",
+        "true",
+        "true",
+        "10"
+      ],
+      [
+        "PLAN140C_ABORT_ANCHOR",
+        "86",
+        "1794602449.283"
+      ],
+      [
+        "PLAN140C_ABORT_REASON",
+        "anchor_missing",
+        "2"
+      ],
+      [
+        "PLAN140C_ABORT_EVENT",
+        "1",
+        "anchor_missing",
+        "Controller.RunNow",
+        "86",
+        "1794602448.6070001"
+      ],
+      [
+        "PLAN140C_ABORT_EVENT",
+        "2",
+        "anchor_missing",
+        "Controller.RunNow",
+        "86",
+        "1794602448.971"
+      ],
+      [
+        "PLAN140C_ABORT_TRACE_META",
+        "0",
+        "false",
+        "false"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "1",
+        "Controller.RunNow",
+        "0.0099999904632568359",
+        "false",
+        "1794602449.283",
+        "1794602449.293",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "2",
+        "Controller.RunNow",
+        "0.0050001144409179688",
+        "false",
+        "1794602449.323",
+        "1794602449.3280001",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "3",
+        "Controller.RunNow",
+        "0",
+        "false",
+        "1794602449.365",
+        "1794602449.365",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "4",
+        "Controller.RunNow",
+        "0.0039999485015869141",
+        "false",
+        "1794602449.4060001",
+        "1794602449.4100001",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "5",
+        "Admin.Run",
+        "0.0020000934600830078",
+        "false",
+        "1794602449.569",
+        "1794602449.5710001",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "6",
+        "Controller.RunNow",
+        "0.006999969482421875",
+        "false",
+        "1794602449.71",
+        "1794602449.717",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "7",
+        "Admin.Run",
+        "0.0020000934600830078",
+        "false",
+        "1794602449.927",
+        "1794602449.9290001",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "8",
+        "Controller.RunNow",
+        "0.0010001659393310547",
+        "false",
+        "1794602450.066",
+        "1794602450.0670002",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ],
+      [
+        "PLAN140C_ABORT_SAMPLE",
+        "9",
+        "Admin.Run",
+        "0.0010001659393310547",
+        "false",
+        "1794602450.3",
+        "1794602450.3010001",
+        "86",
+        "86",
+        "10",
+        "10",
+        "1794602449.283",
+        "true"
+      ]
+    ],
+    "checkpoint": {
+      "name": "Baiqi_P6_20261114_V140_PlanStageACAborted86.Civ6Save",
+      "bytes": 503983,
+      "sha256": "4e18c0e9cc0285356010374ba7a4ef69983a6683ccea14c162fd1aa250509e97",
+      "stable_repeated_read": true
+    },
+    "root_bindings_restored": 2,
+    "own_subscriber_removed": 1,
+    "official_exit_requested_once": true
+  },
+  "finding": "The two actual Controller.RunNow entry checks happened before the standalone QA callback recorded native86 anchor. This establishes this observer timing gap, not a general native dispatch-order rule or the reason for old unclassified three errors.",
+  "owner_fix": "Wrap actual native Activate callback with protected existing observer then call original callback with all args/returns/error identity. Match Add/Remove alias. Keep standalone first-observation subscriber, preserve first clock, and keep original gameplay callback callable with QA off after retirement.",
+  "artifact": {
+    "archive_sha256": "81d7b2a0c9ed0929310d8551360fe86b3750e8084a6cd5192a2cc4f8fbdc0aaf",
+    "instrumented_sha256": "19debd067d7645a89e66c8f0f8a44ac8d8b5859db7652fc7a105d4e1c3daec14",
+    "files": 119,
+    "lua_sources_compiled_51_and_53": 97,
+    "changed_files": [
+      "UI/BaiqiExecutor.lua"
+    ],
+    "gameplay_planning_bodies_unchanged": true,
+    "release_bodies_unchanged": false,
+    "shutdown_subscription_identity_adjusted": true,
+    "release_text_recovers_exactly": true,
+    "native_tested": false
+  },
+  "software": {
+    "new_methods": 4,
+    "window_lifecycle": 16,
+    "trace": 6,
+    "builder_actual_executor": 5,
+    "distinct_passed": 27,
+    "reverse_dispatch_actual_executor_checked": true,
+    "restricted_raw_builtins_absent": true
+  },
+  "model726": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 4863,
+      "completion_tokens": 144,
+      "total_tokens": 5007
+    },
+    "total_ms": 1813.288199948147,
+    "ttft_ms": 833.1387999933213,
+    "attempts": 1,
+    "raw_probes": [
+      {
+        "case": "all_arguments_and_nil_return_contract",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "unexpected_qa_error_must_remain_unknown",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "original_error_identity",
+        "contract_passed": true
+      }
+    ],
+    "raw_method_adopted": false,
+    "partial_adoption": "Actual Add/Remove alias statements adopted after review; inline direction and alias contract were owner-specified before POST. No independent design discovery claimed."
+  },
+  "owner_corrections": [
+    "First C export reused old save basename and guard rejected before any save; separate unique C checkpoint saved once, old save unchanged.",
+    "First reverse-dispatch Executor test stub omitted colon self for SetInitHandler/SetShutdown, creating table callback; corrected consumer stub, all5 build tests passed."
+  ],
+  "cumulative_through726": {
+    "logical": 726,
+    "complete_streams_including_historical_json_rejection": 673,
+    "length": 50,
+    "final_transport": 3,
+    "http": 756,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 successful canonical1.19.5 cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "b_plan_pass": false,
+  "tc036_pass": false,
+  "limits": "Native C aborted. Next inline artifact is prepared only. B_turn and N_req prior five-window evidence separate; B_delta normal-END migration still open."
+}

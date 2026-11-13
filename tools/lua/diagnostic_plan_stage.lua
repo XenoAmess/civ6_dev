@@ -38,6 +38,14 @@ local function NewPlanA(env,NewProfile,WrapWindow,NewTrace)
     end)
     if not ok then Unknown('anchor_event',knownTurn,knownClock) end
   end
+  function h.WrapActivation(fn)
+    assert(type(fn)=='function','Invalid native activation callback')
+    return function(...)
+      local ok=pcall(OnActivate,...)
+      if not ok then pcall(Unknown,'anchor_event') end
+      return fn(...)
+    end
+  end
   local event,remove
   local addOk=pcall(function()
     event=env.Events.PlayerTurnActivated

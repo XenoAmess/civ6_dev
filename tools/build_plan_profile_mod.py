@@ -17,6 +17,23 @@ EXECUTOR='UI/BaiqiExecutor.lua'
 HELPERS={'NewProfile':'diagnostic_profile','WrapWindow':'diagnostic_plan_window',
          'NewTrace':'diagnostic_qualification_trace','NewPlanA':'diagnostic_plan_stage'}
 INCLUDES='include("BaiqiController")\ninclude("BaiqiAdmin")\ninclude("BaiqiMissionaryPurchase")\n'
+ACTIVATION_EDITS={
+    'Events.PlayerTurnActivated.Add(Activate)':
+        'local P6PlanActivation=P6PerfPlanA.WrapActivation(Activate)\nEvents.PlayerTurnActivated.Add(P6PlanActivation)',
+    'Events.PlayerTurnActivated.Remove(Activate)':
+        'Events.PlayerTurnActivated.Remove(P6PlanActivation)',
+}
+
+
+def restore_release(text: str,prefix: str,binding: str) -> str:
+    if not text.startswith(prefix) or text.count(binding)!=1:
+        raise ValueError('Unknown diagnostic prefix or binding')
+    restored=text[len(prefix):].replace(binding,'',1)
+    for old,new in ACTIVATION_EDITS.items():
+        if restored.count(new)!=1:
+            raise ValueError('Unknown diagnostic activation binding')
+        restored=restored.replace(new,old,1)
+    return restored
 
 
 def transform(raw: str) -> tuple[str,str,str]:
@@ -34,7 +51,12 @@ def transform(raw: str) -> tuple[str,str,str]:
             'end','']
     prefix='\n'.join(lines)
     binding="assert(P6PerfPlanA.Bind(BaiqiAdmin,BaiqiController),'Stage A binding failed')\n"
-    return prefix+raw[:site]+binding+raw[site:],prefix,binding
+    text=prefix+raw[:site]+binding+raw[site:]
+    for old,new in ACTIVATION_EDITS.items():
+        if raw.count(old)!=1:
+            raise ValueError('Unknown native activation Add/Remove site')
+        text=text.replace(old,new,1)
+    return text,prefix,binding
 
 
 def build(output_dir: Path) -> dict:
@@ -51,8 +73,8 @@ def build(output_dir: Path) -> dict:
     contents={name:contained(source,name).read_bytes() for name in files}
     raw=contents[EXECUTOR].decode('utf-8')
     text,prefix,binding=transform(raw)
-    if text[len(prefix):].replace(binding,'',1)!=raw:
-        raise ValueError('Release function bodies changed')
+    if restore_release(text,prefix,binding)!=raw:
+        raise ValueError('Unexpected release text after removing declared QA edits')
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     compile51=Lua51().eval('function(s) local f,e=loadstring(s);assert(f,e) end')
@@ -79,7 +101,10 @@ def build(output_dir: Path) -> dict:
         raise ValueError('Diagnostic archive inventory changed')
     result={'mode':'baiqi140-stageA-v1','source_version':140,'files':len(files),
             'lua_sources_compiled_51_and_53':lua_count,'changed_files':changed,
-            'release_bodies_unchanged':True,'sample_capacity':4096,'aggregate_zero':False,
+            'release_bodies_unchanged':False,'gameplay_planning_bodies_unchanged':True,
+            'shutdown_subscription_identity_adjusted':True,'release_text_recovers_exactly':True,
+            'sample_capacity':4096,'aggregate_zero':False,
+            'native_activation_inline_anchor':True,
             'targets':['Admin.Run','Controller.RunNow'],'source':str(source),
             'diagnostic_source':str(target),'executor_sha256':digest(source/EXECUTOR),
             'instrumented_sha256':digest(target/EXECUTOR),'archive_sha256':digest(archive),

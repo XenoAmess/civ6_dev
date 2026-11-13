@@ -1,5 +1,7 @@
 # civ6_dev
 
+[Stage A实测缺锚点／726修正](docs/testing/baiqi-stageA-native-anchor-inline726.md)：本轮两次Controller入口比独立QA锚点早676／312ms，9样本零丢弃仍中止；C86已存／监听撤。改为真实Activate入口先观察、Add／Remove同别名，4新／27相关过，待新冷验，不追认旧错误原因。
+
 [Stage A沙箱兼容纠正](docs/testing/baiqi-stageA-sandbox-correction.md)：实机rawget／rawset为nil，Owner诊断前缀在原版Executor前失败；0END／正式样本，已退出。移除依赖后23检查再过，新私有包待冷验，旧3资格错误仍未知。
 
 [Stage A逐原因诊断／724](docs/testing/baiqi-stageA-qualification-trace724.md)：固定15桶／16事件、饱和计数与缺失元数据保持未知，6新／23相关检查过，97Lua双编译119包待新冷验。旧3资格错误仍不猜因，预算和门不变。

@@ -23,10 +23,13 @@ class BuildPlanProfileModTests(unittest.TestCase):
         self.assertEqual((result['files'],result['lua_sources_compiled_51_and_53']),(119,97))
         self.assertEqual(result['sample_capacity'],4096)
         self.assertFalse(result['aggregate_zero']);self.assertFalse(result['installed'])
+        self.assertTrue(result['release_text_recovers_exactly'])
+        self.assertTrue(result['gameplay_planning_bodies_unchanged'])
+        self.assertFalse(result['release_bodies_unchanged'])
         target=out/'Baiqi';raw=(source/builder.EXECUTOR).read_text(encoding='utf-8')
         transformed,prefix,binding=builder.transform(raw)
         self.assertEqual((target/builder.EXECUTOR).read_text(encoding='utf-8'),transformed)
-        self.assertEqual(transformed[len(prefix):].replace(binding,'',1),raw)
+        self.assertEqual(builder.restore_release(transformed,prefix,binding),raw)
         for n in before:
             if n!=builder.EXECUTOR:self.assertEqual((source/n).read_bytes(),(target/n).read_bytes())
         self.assertEqual(before,{n:hashlib.sha256((source/n).read_bytes()).hexdigest() for n in manifest_files(source)})
@@ -76,11 +79,45 @@ assert(#Activations==1 and BaiqiAdmin.Run==Original and BaiqiController.RunNow==
         self.assertFalse(out.exists())
         with self.assertRaisesRegex(ValueError,'separate'):builder.build(ROOT/'mod/Baiqi/private-diagnostic')
 
+    def test_actual_executor_inline_anchor_precedes_plan_even_with_reverse_dispatch(self):
+        code,_,_=builder.transform((ROOT/'mod/Baiqi'/builder.EXECUTOR).read_text(encoding='utf-8'))
+        lua=LuaRuntime(unpack_returned_tuples=True)
+        lua.execute('''rawget=nil;rawset=nil;Turn=85;Clock=10;Available=false;Activations={}
+Game={GetLocalPlayer=function()return 0 end,GetCurrentGameTurn=function()return Turn end}
+GameConfiguration={IsSavedGame=function()return true end}
+Automation={GetTime=function()return Clock end}
+Players={[0]={IsTurnActive=function()return true end,GetCities=function()return {GetCount=function()return 10 end}end}}
+GameInfo={Projects={}};PlayerOperations={EXECUTE_SCRIPT=1};UI={RequestPlayerOperation=function()end}
+local function Event()return {Add=function()end,Remove=function()end}end
+Events={LoadGameViewStateDone=Event(),GameCoreEventPlaybackComplete=Event(),
+ PlayerTurnActivated={Add=function(f)Activations[#Activations+1]=f end,
+ Remove=function(f)for i,v in ipairs(Activations)do if f==v then table.remove(Activations,i);return end end end}}
+ContextPtr={SetHide=function()end,LookUpControl=function()return {IsHidden=function()return false end}end,
+ SetUpdate=function()end,SetInitHandler=function(self,f)Initialize=f end,SetShutdown=function(self,f)Shutdown=f end}
+function Original(...)
+ assert(P6PerfPlanA.anchors[Turn]==Clock,'Actual plan entered before native anchor')
+ Clock=Clock+.01;return ...
+end
+function include(name)
+ if name=='BaiqiController' then BaiqiController={RunNow=Original,SetTurnGuard=function()end,
+  SetSettlementLoadKind=function()end,IsAvailable=function()return Available end,Shutdown=function()end}
+ elseif name=='BaiqiAdmin' then BaiqiAdmin={Run=function()end} end
+end''')
+        lua.execute(code)
+        lua.execute('''Initialize(true);assert(#Activations==2 and P6PerfPlanA.SetEnabled(true))
+Turn=86;Clock=20;Available=true
+for i=#Activations,1,-1 do Activations[i](0,false) end
+assert(P6PerfPlanA.qualificationErrors==0 and P6PerfPlanA.anchors[86]==20)
+assert(#P6PerfPlanA.profile.samples==1 and P6PerfPlanA.profile.samples[1].started==20)
+local ok,same=P6PerfPlanA.Restore();assert(ok and same[1]and same[2]and #Activations==1)
+Shutdown();assert(#Activations==0)''')
+
     def test_moved_or_duplicate_binding_sites_are_rejected(self):
         raw=(ROOT/'mod/Baiqi'/builder.EXECUTOR).read_text(encoding='utf-8')
         for text in (raw.replace('local ready=false','local ready=true'),
                      raw.replace('local ready=false','-- moved\nlocal ready=false'),
-                     raw+'\nlocal ready=false\n'):
+                     raw+'\nlocal ready=false\n',
+                     raw.replace('Events.PlayerTurnActivated.Remove(Activate)','Events.PlayerTurnActivated.Remove(Other)')):
             with self.subTest(text=text[-50:]):
                 with self.assertRaises(ValueError):builder.transform(text)
 

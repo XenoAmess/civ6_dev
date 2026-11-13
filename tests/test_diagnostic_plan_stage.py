@@ -76,6 +76,31 @@ assert(clean.Bind({Run=Body},{RunNow=Body}) and clean.SetEnabled(true))
 Turn=84;Fire(0);Turn=92;Fire(0);assert(clean.anchorCount==0)
 Turn=91;Fire(0);assert(clean.anchorCount==1 and clean.anchors[91]==10)''')
 
+    def test_inline_native_wrapper_anchors_before_plan_under_reverse_dispatch(self):
+        self.lua.execute('''assert(H.Bind(Admin,Controller) and H.SetEnabled(true))
+local f=H.WrapActivation(function(...)assert(Controller.RunNow(...)==0)end)
+Event.Add(f);Turn=86
+for i=#Handlers,1,-1 do Handlers[i](0,false) end
+assert(H.anchors[86]==10 and H.anchorCount==1 and H.qualificationErrors==0)
+assert(#H.profile.samples==1 and H.profile.samples[1].started==10)''')
+
+    def test_activation_wrapper_preserves_all_arguments_returns_and_error_identity(self):
+        self.lua.execute('''assert(H.Bind(Admin,Controller) and H.SetEnabled(true));Turn=86
+local f=H.WrapActivation(function(...)return select('#',...),...end)
+local n,a,b,c,d=f(0,nil,false,nil)
+assert(n==4 and a==0 and b==nil and c==false and d==nil)
+GetterError=true;local sentinel={}
+local g=H.WrapActivation(function(...)assert(select('#',...)==3);error(sentinel,0)end)
+local ok,err=pcall(g,0,nil,false)
+assert(not ok and err==sentinel and H.qualificationReasons.anchor_event==1)''')
+
+    def test_retirement_leaves_gameplay_wrapper_callable_and_matching_remove_works(self):
+        self.lua.execute('''assert(H.Bind(Admin,Controller) and H.SetEnabled(true))
+local alias=H.WrapActivation(function(...)Calls=Calls+1;return ...end);Event.Add(alias)
+local ok=H.Restore();assert(ok and #Handlers==1 and Removes==1)
+GetterError=true;assert(alias(5,nil,false)==5 and Calls==1 and H.qualificationErrors==0)
+Event.Remove(alias);assert(#Handlers==0 and Removes==2)''')
+
 
 if __name__=='__main__':
     unittest.main()
