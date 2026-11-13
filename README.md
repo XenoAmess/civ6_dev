@@ -1,5 +1,7 @@
 # civ6_dev
 
+[匹配普通END计时桥／727软件](docs/testing/baiqi-paired-normal-bridge727.md)：只计时不发游戏动作、验证既有READY且不补资格、未知不重试；新显式私有两包同前缀，10新／22相关检查过。普通驱动和真实跨UI／五组匹配仍待，未授B_delta。
+
 [Stage A实测缺锚点／726修正](docs/testing/baiqi-stageA-native-anchor-inline726.md)：本轮两次Controller入口比独立QA锚点早676／312ms，9样本零丢弃仍中止；C86已存／监听撤。改为真实Activate入口先观察、Add／Remove同别名，4新／27相关过，待新冷验，不追认旧错误原因。
 
 [Stage A沙箱兼容纠正](docs/testing/baiqi-stageA-sandbox-correction.md)：实机rawget／rawset为nil，Owner诊断前缀在原版Executor前失败；0END／正式样本，已退出。移除依赖后23检查再过，新私有包待冷验，旧3资格错误仍未知。

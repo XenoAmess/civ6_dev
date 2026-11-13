@@ -26,6 +26,14 @@ local function New(clock,getTurn,getLocal,event,capacity)
   if okAdd then subscribed=true else errors=errors+1 end
   local retireResult
   local h={marker=MARKER,capacity=capacity}
+  function h:WrapActivation(fn)
+    assert(type(fn)=='function','Invalid native activation callback')
+    return function(...)
+      local ok=pcall(OnTurn,...)
+      if not ok then errors=errors+1;pending=nil end
+      return fn(...)
+    end
+  end
   function h:Begin(turn)
     if retired or not subscribed or errors>0 or pending~=nil or #records>=capacity or not IsInt(turn) or turn>=2147483647 then refused=refused+1;return false end
     local okT,actualTurn=pcall(getTurn)

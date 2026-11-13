@@ -1,0 +1,111 @@
+{
+  "schema": "civ6.paired.normal-end-bridge727-software/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "scope": "Private QA-only clock Begin bridge after military preparation, before future normal ActionPanel END; no game actions inside bridge, no release product toggle.",
+  "software": {
+    "new_bridge_methods": 7,
+    "new_current_paired_build_methods": 3,
+    "legacy_paired_build_methods": 3,
+    "canonical_turn_clock_methods": 9,
+    "distinct_passed": 22,
+    "new_methods": 10
+  },
+  "variants": [
+    {
+      "mode": "baiqi140-paired-enabled-c3-normal-end",
+      "source_version": 140,
+      "files": 119,
+      "clock_prefix_sha256": "1500f28127b7cc970d01a381fcfe4af068adfa4f189106f3633df639af8befaa",
+      "clock_source_sha256": "9e3da8e193bdddedd7d1688ca40a3bd1316eb4f384d3b404ec6c5fa35a4cd833",
+      "end_bridge_sha256": "30eec479b721b7977b8e69a1bbdb2eac5ba4a63b09118847897e2b10fb2efd3a",
+      "archive_sha256": "78b83e2d28404320956714f87f5bec9867f876ab79f94c50b2ac0063a6c0cfb0",
+      "normal_end_bridge": true,
+      "lua51_compiled": true,
+      "normal_end_driver_ready": false,
+      "cross_context_begin_native_verified": false,
+      "native_activation_inline_stop": true
+    },
+    {
+      "mode": "baiqi140-paired-control-c3-normal-end",
+      "source_version": 140,
+      "files": 119,
+      "clock_prefix_sha256": "1500f28127b7cc970d01a381fcfe4af068adfa4f189106f3633df639af8befaa",
+      "clock_source_sha256": "9e3da8e193bdddedd7d1688ca40a3bd1316eb4f384d3b404ec6c5fa35a4cd833",
+      "end_bridge_sha256": "30eec479b721b7977b8e69a1bbdb2eac5ba4a63b09118847897e2b10fb2efd3a",
+      "archive_sha256": "66d1ca89c1e7bdde1f6d9b07a0b257b6061d6fef929500a35539dfcdd5bc1d47",
+      "normal_end_bridge": true,
+      "lua51_compiled": true,
+      "normal_end_driver_ready": false,
+      "cross_context_begin_native_verified": false,
+      "native_activation_inline_stop": true
+    }
+  ],
+  "native_cross_context_tested": false,
+  "ordinary_callback_driver_implemented": false,
+  "b_delta_pass": false,
+  "model727": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 5473,
+      "completion_tokens": 886,
+      "total_tokens": 6359
+    },
+    "total_ms": 5927.254999987781,
+    "ttft_ms": 880.2418000996113,
+    "attempts": 1,
+    "raw_probes": [
+      {
+        "case": "valid_reserved_turn_should_start_clock",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "must_not_fabricate_stage_authorization",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "getter_exception_must_be_unknown_not_throw",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "foreign_publication_must_not_create_active_handle",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "stolen_entry_cannot_begin_cached_clock",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "retire_preserves_foreign_entry",
+        "contract_passed": true
+      }
+    ],
+    "raw_code_adopted": false
+  },
+  "owner_fix": "Independent rewrite: exact existing READY/stage identity, no mutation of authorization, once-only private turn reservation before uncertain clock.Begin, protected getter/snapshot/cleanup paths, strict own publication and cached-call retirement. Inline native callback stops clock before original planning; identical enabled/control prefix and matching Shutdown alias.",
+  "cumulative_through727": {
+    "logical": 727,
+    "complete_streams_including_historical_json_rejection": 674,
+    "length": 50,
+    "final_transport": 3,
+    "http": 757,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 successful canonical1.19.5 cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "Only source140 explicit normal_end_bridge option; default historical builder interfaces retained. Driver migration, actual UI-to-UI closure invocation, ordinary control gating and matched five-group/25-segment Native experiment remain open. No B_plan or TC-036 pass."
+}

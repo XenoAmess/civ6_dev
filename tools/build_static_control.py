@@ -9,9 +9,11 @@ from tools.build_mod import contained,digest,manifest_files,package
 from tools.static_control_source import transform,edits
 
 
-def clock_prelude() -> str:
+def clock_prelude(*,normal_end_bridge: bool = False,source_version: int | None = None) -> str:
+    if type(normal_end_bridge)is not bool or (normal_end_bridge and (type(source_version)is not int or source_version!=140)):
+        raise ValueError('Normal END bridge requires actual source140')
     module=(ROOT/'tools/lua/benchmark_turn_clock.lua').read_text(encoding='utf-8')
-    return '''-- PRIVATE matched-turn diagnostic, identical in both variants.
+    prefix='''-- PRIVATE matched-turn diagnostic, identical in both variants.
 if P6PairClock~=nil then
  assert(type(P6PairClock)=='table' and P6PairClock.marker=='baiqi67-paired-clock-v1')
  assert(P6PairClock:Retire())
@@ -22,16 +24,32 @@ end)()
 P6PairClock=_P6PairNew(Automation.GetTime,Game.GetCurrentGameTurn,Game.GetLocalPlayer,Events.PlayerTurnActivated,16)
 assert(P6PairClock:Snapshot().subscribed and P6PairClock:Snapshot().errors==0)
 '''
+    if normal_end_bridge:
+        bridge=(ROOT/'tools/lua/benchmark_end_bridge.lua').read_text(encoding='utf-8')
+        prefix+='''
+assert(P6PairEndOwner==nil,'Existing paired end bridge owner')
+local _P6PairNewEnd=(function()
+'''+bridge+'''
+end)()
+P6PairEndOwner=_P6PairNewEnd({ExposedMembers=ExposedMembers,
+ GetStage=function() return P6PairStage end,GetClock=function() return P6PairClock end,
+ GetTurn=Game.GetCurrentGameTurn,GetLocal=Game.GetLocalPlayer})
+assert(P6PairEndOwner.active and P6PairEndOwner.errors==0)
+P6PairSourceVersion=140
+'''
+    return prefix
 
 
-def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control') -> dict:
+def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control',normal_end_bridge: bool = False) -> dict:
     from lupa.lua53 import LuaRuntime
     if type(paired_clock) is not bool or variant not in ('control','enabled'):raise ValueError('Invalid private variant')
+    if type(normal_end_bridge)is not bool or (normal_end_bridge and not paired_clock):raise ValueError('Normal END bridge requires matched stopwatch')
     if variant=='enabled' and not paired_clock:raise ValueError('Enabled variant requires matched stopwatch')
     source=ROOT/'mod/Baiqi';files=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
     if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106','107','108','109','110','111','112','113','114','115','116','117','118','119','120','121','122','123','124','125','126','127','128','129','130','131','132','133','134','135','136','137','138','139','140'):raise ValueError('Expected actual source67 through136')
     version=int(version)
+    if normal_end_bridge and version!=140:raise ValueError('Normal END bridge requires actual source140')
     output_dir=output_dir.resolve()
     if output_dir==source.resolve() or output_dir.is_relative_to(source.resolve()) or source.resolve().is_relative_to(output_dir):raise ValueError('Separate output required')
     if output_dir.exists():raise ValueError('New output directory required')
@@ -39,7 +57,11 @@ def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control'
     if not set(edits(version)).issubset(files):raise ValueError('Missing static control target')
     lua=LuaRuntime(unpack_returned_tuples=True)
     compile_lua=lua.eval('function(s,n) local f,e=load(s,n);assert(f,e);return true end')
-    prepared={};coverage={};prefix=clock_prelude() if paired_clock else ''
+    prepared={};coverage={};prefix=clock_prelude(normal_end_bridge=normal_end_bridge,source_version=version) if paired_clock else ''
+    compile51=None
+    if normal_end_bridge:
+        from lupa.lua51 import LuaRuntime as Lua51
+        compile51=Lua51().eval('function(s) local f,e=loadstring(s);assert(f,e) end')
     for name in files:
         if not name.endswith('.lua'):continue
         raw=contained(source,name).read_text(encoding='utf-8-sig');compile_lua(raw,name)
@@ -48,7 +70,18 @@ def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control'
             if 'P6PairClock' in result or '_P6PairNew' in result:raise ValueError('Paired-clock name collision')
             result=prefix+result
             report=report+[{'prefix':'identical paired stopwatch; before original includes/event registration'}]
+            if normal_end_bridge:
+                for old,new in {
+                    'Events.PlayerTurnActivated.Add(Activate)':
+                        'local P6PairActivation=P6PairClock:WrapActivation(Activate)\nEvents.PlayerTurnActivated.Add(P6PairActivation)',
+                    'Events.PlayerTurnActivated.Remove(Activate)':
+                        'Events.PlayerTurnActivated.Remove(P6PairActivation)',
+                }.items():
+                    if result.count(old)!=1:raise ValueError('Unknown paired native activation identity')
+                    result=result.replace(old,new,1)
+                report.append({'activation':'same alias for native entry stopwatch/Shutdown Remove; original callback body invoked'})
         compile_lua(result,name+'-static-control')
+        if compile51:compile51(raw);compile51(result)
         if report:prepared[name]=result.encode('utf-8');coverage[name]=report
     if hashes!={n:digest(contained(source,n)) for n in files}:raise ValueError('Release source changed')
     output_dir.mkdir(parents=True,exist_ok=False);target=output_dir/'Baiqi'
@@ -57,13 +90,19 @@ def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control'
         if name in prepared:dst.write_bytes(prepared[name])
         else:shutil.copy2(src,dst)
     if manifest_files(target)!=files:raise ValueError('Inventory changed')
-    archive=output_dir/(f'Baiqi-paired{version}-{variant}.zip' if paired_clock else f'Baiqi-static-control{version}.zip');package(target,archive)
+    suffix='-normal-end' if normal_end_bridge else ''
+    archive=output_dir/(f'Baiqi-paired{version}-{variant}{suffix}.zip' if paired_clock else f'Baiqi-static-control{version}.zip');package(target,archive)
     import hashlib
     result={'mode':f'baiqi{version}-paired-{variant}-c2' if paired_clock else f'baiqi{version}-static-control-c1','variant':variant,'paired_clock':paired_clock,'clock_prefix_sha256':hashlib.sha256(prefix.encode('utf-8')).hexdigest() if paired_clock else None,'clock_source_sha256':digest(ROOT/'tools/lua/benchmark_turn_clock.lua') if paired_clock else None,'source_version':version,'files':len(files),'changed_files':list(prepared),'coverage':coverage,'source_hashes':hashes,'control_hashes':{n:digest(contained(target,n)) for n in files},'archive_sha256':digest(archive),'installed':False,'limits':'Private candidate comparison only. Same manifest/assets/readonly UI guards. Control closes UI planners/recovery and Core mutation bridges/automatic bootstrap lexically before capture; enabled preserves original bodies. Legacy withdrawn-effect cleanup kept. Optional identical stopwatch before Executor callbacks, no game actions. Compile is not software/Native validity or B_delta evidence.'}
+    if normal_end_bridge:
+        result.update(mode=f'baiqi{version}-paired-{variant}-c3-normal-end',normal_end_bridge=True,
+                      end_bridge_sha256=digest(ROOT/'tools/lua/benchmark_end_bridge.lua'),lua51_compiled=True,
+                      normal_end_driver_ready=False,cross_context_begin_native_verified=False,
+                      native_activation_inline_stop=True)
     (output_dir/'static-control-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     return result
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output-dir',type=Path,required=True);parser.add_argument('--paired-clock',action='store_true');parser.add_argument('--variant',choices=('control','enabled'),default='control');args=parser.parse_args()
-    result=build(args.output_dir,paired_clock=args.paired_clock,variant=args.variant);print(json.dumps({k:result[k] for k in ('mode','files','changed_files','archive_sha256','installed')}))
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output-dir',type=Path,required=True);parser.add_argument('--paired-clock',action='store_true');parser.add_argument('--normal-end-bridge',action='store_true');parser.add_argument('--variant',choices=('control','enabled'),default='control');args=parser.parse_args()
+    result=build(args.output_dir,paired_clock=args.paired_clock,variant=args.variant,normal_end_bridge=args.normal_end_bridge);print(json.dumps({k:result[k] for k in ('mode','files','changed_files','archive_sha256','installed')}))
