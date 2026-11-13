@@ -2,7 +2,7 @@
 
 2026-11-14，BF-202609141645。[逐项证据](../research/baiqi-p6-ordinary-observed-driver711713-2026-11-14.json)。`run_observed_acceptance.run`默认要求注入测试玩家普通回合流程；观测器本身先独占记录凭证、启用完整测量并验证READY门，再调用一次外部流程。外部流程负责已有军队待命／队列处理，并在读到无REASON正式END的ACK后返回精确字典。原独立poll仍需读到实际换回合和激活锚点，ACK本身不算推进成功。未知／异常中止测量，不重放该回调。
 
-回调签名为`request_normal_end(turn, token)`；返回必须恰为`{'turn': turn, 'token': token, 'requested': True, 'forced': False}`，turn须实际int。缺回调、非法／混用模式在建测量目录前拒绝。旧UserForced路径只准显式`legacy_forced=True`作历史复现，不能称为普通回合；公开消费者测试已相应标明。原始85／十城、86—90五个10秒窗、91关闭锚点、4096上限、33上下文、校准和外交门不变，发布版未添加开关。
+回调签名为`request_normal_end(turn, token)`；返回必须恰为`{'turn': turn, 'token': token, 'requested': True, 'forced': False}`，turn须实际int。这里的ACK精确指普通调用返回的凭证；原接口没有原生布尔接单回执，不能称作引擎已接受，也不能用busy跳变代替实际换回合。缺回调、非法／混用模式在建测量目录前拒绝。旧UserForced路径只准显式`legacy_forced=True`作历史复现，不能称为普通回合；公开消费者测试已相应标明。原始85／十城、86—90五个10秒窗、91关闭锚点、4096上限、33上下文、校准和外交门不变，发布版未添加开关。
 
 9新方法0.492秒、既有8驱动及8有界方法，共25通过。覆盖ACK但不推进仍超时、发单效果后异常不重放、错误ACK／token／类型／forced标志、门回执丢失或重复时回调0次、延迟锚点、外交、独占记录冲突与全局配额拒绝。夹具没有通过调用其UserForced入口伪装普通输入。尚未实机运行这个回调适配器，不能授完整性能或正常游戏队列新PASS。
 

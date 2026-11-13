@@ -1,5 +1,7 @@
 # civ6_dev
 
+[140普通回合完整观测的失败证据](docs/testing/baiqi-observed140-normal-partial714715.md)：冻结十城85／78秒预热后，普通85→86→87已分读；UnitPanel丢37样本触发中止，全部计数已关，1362样本原件保留。继续修复采集完整性，不授性能PASS。
+
 [完整观测驱动的普通END委托](docs/testing/baiqi-ordinary-observed-driver711713.md)：凭证／READY后才调用测试玩家流程，ACK与实际激活分读；旧强制路径须显式选择。25软件方法通过，尚未授新Native或完整性能PASS。
 
 [140冷验：状态保持、耗时仍开](docs/testing/baiqi-native140-cold333-latency-open.md)：九域全等，390自然根样本Admin p95约23ms仍超参考，包装已撤／140333已存；当前全脚本包仅准备，继续诊断和普通END驱动。

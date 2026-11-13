@@ -5,8 +5,9 @@ chooses diplomacy, or changes the mod's mandatory domestic delegation.
 
 Ordinary mode requires request_normal_end(turn, token). The callback handles the
 test-player queue outside this observer and returns exactly {turn, token,
-requested: True, forced: False} after reading an ordinary END ACK. This is only
-a submission receipt: the independent poll must still observe activation.
+requested: True, forced: False} after reading the ordinary END call-return
+receipt. This records issuance; engine acceptance and activation remain
+separate observations. The independent poll must still observe activation.
 Unknown outcomes abort without replay. Historical UserForced reproduction
 requires explicit legacy_forced=True and cannot be combined with the callback.
 """
@@ -70,7 +71,7 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
             raise RuntimeError('Unexpected end-turn receipt')
         if not legacy_forced:
             # The callback owns ordinary queue handling and reads its native END
-            # ACK. Unknown outcomes stop this capture; no action is retried.
+            # call-return receipt. Unknown outcomes stop capture; no retry.
             ack=request_normal_end(turn,token)
             if (type(ack) is not dict or set(ack)!={'turn','token','requested','forced'}
                 or type(ack['turn']) is not int or ack['turn']!=turn or ack['token']!=token
