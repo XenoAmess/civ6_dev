@@ -1,0 +1,131 @@
+{
+  "schema": "civ6.stageA.private-tooling/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "scope": "Independent source140 Admin.Run and Controller.RunNow first10s native86..90 window timing. Release function bodies remain byte-identical after removing QA prefix/bind statement.",
+  "source_version": 140,
+  "changed_files": [
+    "UI/BaiqiExecutor.lua"
+  ],
+  "files": 119,
+  "lua_sources_compiled_51_and_53": 97,
+  "archive_sha256": "cd860daae7e81b09fd7f1b5d23d62069e3e6b0a0d58325f41d11b709b2e21fb5",
+  "sample_capacity": 4096,
+  "aggregate_zero": false,
+  "software_tests": {
+    "new_window_lifecycle_builder_methods": 17,
+    "canonical_profile_methods": 10,
+    "canonical_zero_profile_methods": 6,
+    "distinct_passed": 33,
+    "product_full_suite_repeated": false
+  },
+  "model_reviews": [
+    {
+      "model_call": 721,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "strict_json": "VALID",
+      "usage": {
+        "prompt_tokens": 2449,
+        "completion_tokens": 443,
+        "total_tokens": 2892
+      },
+      "total_ms": 3402.4956000503153,
+      "ttft_ms": 493.7293999828398,
+      "attempts": 1,
+      "raw_contract_probes": [
+        {
+          "case": "disabled_still_profiles",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        },
+        {
+          "case": "outside_window_still_profiles",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        },
+        {
+          "case": "getter_blocks_body",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        },
+        {
+          "case": "undefined_pack",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: [string \"<python>\"]:19: attempt to call global 'Pack' (a nil value)"
+        },
+        {
+          "case": "old_row_overwritten",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        }
+      ],
+      "raw_code_adopted": false,
+      "owner_action": "Independent rewrite and canonical Lua51/real Executor integration verification."
+    },
+    {
+      "model_call": 722,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "strict_json": "VALID",
+      "usage": {
+        "prompt_tokens": 2811,
+        "completion_tokens": 534,
+        "total_tokens": 3345
+      },
+      "total_ms": 4151.950299972668,
+      "ttft_ms": 534.6441001165658,
+      "attempts": 1,
+      "raw_contract_probes": [
+        {
+          "case": "missing_real_wrapper_ports",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        },
+        {
+          "case": "qa_getter_blocks_later_callback",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        },
+        {
+          "case": "restore_out_of_scope_targets",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        },
+        {
+          "case": "nonfinite_anchor_not_unknown",
+          "passed": false,
+          "error": "[string \"<python>\"]:1: assertion failed!"
+        }
+      ],
+      "raw_code_adopted": false,
+      "owner_action": "Independent rewrite and canonical Lua51/real Executor integration verification."
+    }
+  ],
+  "native_stageA_tested": false,
+  "tc036_pass": false,
+  "cumulative_http": {
+    "logical": 722,
+    "complete_streams_including_one_historical_strict_json_rejection": 669,
+    "length_rejections": 50,
+    "final_transport_failures": 3,
+    "http_attempts": 752,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode": {
+    "daily_maintenance": "2026-11-14 canonical1.19.5 latest1.19.5 successful cache reused",
+    "native_generation_sessions": 0
+  },
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "owner_corrections": [
+    "First raw721 probe harness used leading semicolon rejected by Lua51 before completing all probes; corrected harness then all5 expected contract probes failed.",
+    "One owner capacity test mutated metadata instead of passing constructor capacity; corrected to NewProfile(clock,1).",
+    "First builder tests omitted Baiqi/ ZIP prefix and mocked globally shared XML parser before inventory validation; corrected ZIP consumer and scoped inventory/version gate simulation. No product change."
+  ],
+  "delivery_state": "Prepared only, not yet installed or sampled. Current Stage B is separately documented; B_plan and B_delta remain open."
+}

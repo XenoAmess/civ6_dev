@@ -1,5 +1,7 @@
 # civ6_dev
 
+[独立规划计时工具／721722](docs/testing/baiqi-stageA-tooling721722.md)：只改私有Executor，锚点先于原版回调、两公开目标后于真实include绑定；17新／33相关方法过，97Lua双编译119包，仅准备未Native。两原候选均拒，继续补B_plan与匹配对照。
+
 [140五窗观测完整](docs/testing/baiqi-native140-quota-fivewindows.md)：33上下文／1721保留样本零丢弃，396切换凭证审计通过；86—90耗时约203／330／571／710／253ms、写入11／10／19／12／29，均在对应预算。B_plan及匹配B_delta仍开放，未授整例PASS；91已存、QA监听已撤，继续独立规划计时。
 
 [Trial B失败与下一轮Core配额／720](docs/testing/baiqi-trialB-next-quota720.md)：到90十城、外交及时处理；Core128局部满后丢7，1437保留，全关／90已存。新规则仅140从UnitFlag转384给Core，总额4096不变，21方法过，待新冷测，不回改旧失败数据。

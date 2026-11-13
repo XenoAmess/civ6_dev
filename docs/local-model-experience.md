@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [独立StageA／721722](testing/baiqi-stageA-tooling721722.md)：721窗外仍计时／Pack未定义／旧行误写，5探针全失败；722缺端口／异常阻断／Restore作用域等4探针全失败，均0原代码。Owner重写窗口与自有生命周期，17新／33相关过，当前140私有包仅准备。累计722／669完整50length3transport752HTTP30extra，维护复用原生0／成本null；[新五窗Native](testing/baiqi-native140-quota-fivewindows.md)单列B_turn／Nreq在预算，整例仍开。
+
 2026-11-14 [Trial B与720配额](testing/baiqi-trialB-next-quota720.md)：90Core128满丢7／全局1437，原件保留不授PASS；下一轮从UnitFlag转384给Core，总4096不变。720完整6876tokens，采门分支与赋值片段，非完整替换；Owner3新／21相关过，尚未新Native。累计720／667完整50length3transport750HTTP30extra，维护复用原生0／成本null。
 
 2026-11-14 [窗外Native及718719](testing/baiqi-window140-timeout-post-end719.md)：872样本零drop／198切换行，END后外交漏报导致超时，鲜图TEST_PLAYER Esc后读到88，不重发／追开。718漏Admin及private include门，719仍受age门且raw1回归失败，均0原代码；Owner2新／27相关过。累计719／666完整50length3transport749HTTP30extra，维护复用原生0／成本null。
