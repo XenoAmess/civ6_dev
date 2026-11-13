@@ -1,5 +1,7 @@
 # civ6_dev
 
+[Stage A v2完整窗前区间证明／729](docs/testing/baiqi-stageA-v2-preanchor729.md)：精确RunNow(false)仍完整计时占4096，待真实锚点证明确在窗前；未解决／跨界仍拒绝，v1旧FAIL不追认。15新／60相关检查过，真实Controller.Update消费者与97Lua双编译119包待冷验，预算不变。
+
 [D86仍缺锚点／独立87参数实证728](docs/testing/baiqi-stageA-nativeD-arguments728.md)：D86最终9样本／1资格错误，保留失败；独立普通86→87确见首个RunNow(false)比本通知观察早324ms，9入口／1通知零丢弃，包装已撤／两档已存。7软件方法过，继续区间证明，不追认旧数据或授B_plan。
 
 [匹配普通END计时桥／727软件](docs/testing/baiqi-paired-normal-bridge727.md)：只计时不发游戏动作、验证既有READY且不补资格、未知不重试；新显式私有两包同前缀，10新／22相关检查过。普通驱动和真实跨UI／五组匹配仍待，未授B_delta。

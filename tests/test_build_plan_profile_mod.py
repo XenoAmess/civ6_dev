@@ -33,7 +33,7 @@ class BuildPlanProfileModTests(unittest.TestCase):
         for n in before:
             if n!=builder.EXECUTOR:self.assertEqual((source/n).read_bytes(),(target/n).read_bytes())
         self.assertEqual(before,{n:hashlib.sha256((source/n).read_bytes()).hexdigest() for n in manifest_files(source)})
-        with zipfile.ZipFile(out/'Baiqi-plan140-stageA-v1.zip') as z:
+        with zipfile.ZipFile(out/'Baiqi-plan140-stageA-v2.zip') as z:
             self.assertEqual(len(z.namelist()),119)
             for n in before:self.assertEqual(z.read('Baiqi/'+n),(target/n).read_bytes())
 
@@ -82,6 +82,13 @@ assert(#Activations==1 and BaiqiAdmin.Run==Original and BaiqiController.RunNow==
     def test_actual_executor_inline_anchor_precedes_plan_even_with_reverse_dispatch(self):
         code,_,_=builder.transform((ROOT/'mod/Baiqi'/builder.EXECUTOR).read_text(encoding='utf-8'))
         lua=LuaRuntime(unpack_returned_tuples=True)
+        controller=(ROOT/'mod/Baiqi/Lua/BaiqiController.lua').read_text(encoding='utf-8')
+        start=controller.index('function BaiqiController.Update(')
+        end=controller.index('function BaiqiController.GetStatus',start)
+        lua.globals().InstallActualUpdate=lua.execute('''return function()
+local C={interval=.25};local elapsed=0;local pendingUnits={};local pendingCities={};local pendingPurchase
+local function PlayerContext()return {activeTurn=true}end
+'''+controller[start:end]+'\nend')
         lua.execute('''rawget=nil;rawset=nil;Turn=85;Clock=10;Available=false;Activations={}
 Game={GetLocalPlayer=function()return 0 end,GetCurrentGameTurn=function()return Turn end}
 GameConfiguration={IsSavedGame=function()return true end}
@@ -93,22 +100,29 @@ Events={LoadGameViewStateDone=Event(),GameCoreEventPlaybackComplete=Event(),
  PlayerTurnActivated={Add=function(f)Activations[#Activations+1]=f end,
  Remove=function(f)for i,v in ipairs(Activations)do if f==v then table.remove(Activations,i);return end end end}}
 ContextPtr={SetHide=function()end,LookUpControl=function()return {IsHidden=function()return false end}end,
- SetUpdate=function()end,SetInitHandler=function(self,f)Initialize=f end,SetShutdown=function(self,f)Shutdown=f end}
+ SetUpdate=function(self,f)UpdateHandler=f end,SetInitHandler=function(self,f)Initialize=f end,SetShutdown=function(self,f)Shutdown=f end}
 function Original(...)
- assert(P6PerfPlanA.anchors[Turn]==Clock,'Actual plan entered before native anchor')
+ if select(1,...)~=false then assert(P6PerfPlanA.anchors[Turn]==Clock,'Actual order-enabled plan entered before native anchor')end
  Clock=Clock+.01;return ...
 end
 function include(name)
  if name=='BaiqiController' then BaiqiController={RunNow=Original,SetTurnGuard=function()end,
   SetSettlementLoadKind=function()end,IsAvailable=function()return Available end,Shutdown=function()end}
+  InstallActualUpdate()
  elseif name=='BaiqiAdmin' then BaiqiAdmin={Run=function()end} end
 end''')
         lua.execute(code)
         lua.execute('''Initialize(true);assert(#Activations==2 and P6PerfPlanA.SetEnabled(true))
 Turn=86;Clock=20;Available=true
+UpdateHandler(.25)
+assert(P6PerfPlanA.preAnchor.pending==1 and P6PerfPlanA.qualificationErrors==0)
+Clock=22
 for i=#Activations,1,-1 do Activations[i](0,false) end
-assert(P6PerfPlanA.qualificationErrors==0 and P6PerfPlanA.anchors[86]==20)
-assert(#P6PerfPlanA.profile.samples==1 and P6PerfPlanA.profile.samples[1].started==20)
+assert(P6PerfPlanA.qualificationErrors==0 and P6PerfPlanA.anchors[86]==22)
+assert(P6PerfPlanA.preAnchor.pending==0 and P6PerfPlanA.preAnchor.validated==1)
+assert(#P6PerfPlanA.profile.samples==2 and P6PerfPlanA.profile.samples[1].started==20)
+assert(P6PerfPlanA.profile.samples[1].preAnchor and P6PerfPlanA.profile.samples[1].anchor==22)
+assert(P6PerfPlanA.profile.samples[2].started==22 and not P6PerfPlanA.profile.samples[2].preAnchor)
 local ok,same=P6PerfPlanA.Restore();assert(ok and same[1]and same[2]and #Activations==1)
 Shutdown();assert(#Activations==0)''')
 

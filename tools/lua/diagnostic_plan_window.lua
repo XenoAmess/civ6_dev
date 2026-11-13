@@ -29,6 +29,11 @@ local function WrapWindow(h,label,fn,env)
   local function Boolean(v) return type(v)=='boolean' end
   return function(...)
     if h.enabled~=true then return fn(...) end
+    local argumentCount=select('#',...)
+    local first=select(1,...)
+    local allowance='other'
+    if first==nil then allowance='nil'
+    elseif type(first)=='boolean'then allowance=tostring(first)end
     local turn=Read('Turn',Integer)
     if turn==nil then Unknown('turn');return fn(...) end
     if turn<86 or turn>90 then return fn(...) end
@@ -40,10 +45,15 @@ local function WrapWindow(h,label,fn,env)
     if not active then return fn(...) end
     local anchor=h.anchors[turn]
     local now=Read('Now',Finite)
-    if not Finite(anchor) then Unknown('anchor_missing',turn,now);return fn(...) end
+    local preAnchor=false
+    if not Finite(anchor) then
+      if h.deferPreAnchor==true and label=='Controller.RunNow'and argumentCount==1
+        and first==false and now~=nil then preAnchor=true
+      else Unknown('anchor_missing',turn,now);return fn(...)end
+    end
     if now==nil then Unknown('clock',turn);return fn(...) end
-    if now<anchor then Unknown('before_anchor',turn,now);return fn(...) end
-    if now>=anchor+10 then return fn(...) end
+    if not preAnchor and now<anchor then Unknown('before_anchor',turn,now);return fn(...) end
+    if not preAnchor and now>=anchor+10 then return fn(...) end
     local cities=Read('CityCount',Integer)
     if cities==nil then Unknown('city_before',turn,now);return fn(...) end
     local count=#profile.samples
@@ -62,7 +72,11 @@ local function WrapWindow(h,label,fn,env)
       row.turnStart=turn;row.turnEnd=afterTurn
       row.cityStart=cities;row.cityEnd=afterCities
       row.anchor=anchor
-      row.windowEligible=Finite(row.started) and row.started>=anchor and row.started<anchor+10
+      row.windowEligible=not preAnchor and Finite(row.started) and row.started>=anchor and row.started<anchor+10
+      if h.deferPreAnchor==true then
+        row.preAnchor=preAnchor;row.argumentCount=argumentCount;row.allowOrders=allowance
+        if preAnchor then h.preAnchor:Record(row,turn)end
+      end
     end
     if not result[1] then error(result[2],0) end
     return unpack(result,2,result.n)

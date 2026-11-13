@@ -15,7 +15,8 @@ from tools.build_mod import contained,digest,manifest_files,package
 
 EXECUTOR='UI/BaiqiExecutor.lua'
 HELPERS={'NewProfile':'diagnostic_profile','WrapWindow':'diagnostic_plan_window',
-         'NewTrace':'diagnostic_qualification_trace','NewPlanA':'diagnostic_plan_stage'}
+         'NewTrace':'diagnostic_qualification_trace','NewDeferred':'diagnostic_preanchor_proof',
+         'NewPlanA':'diagnostic_plan_stage'}
 INCLUDES='include("BaiqiController")\ninclude("BaiqiAdmin")\ninclude("BaiqiMissionaryPurchase")\n'
 ACTIVATION_EDITS={
     'Events.PlayerTurnActivated.Add(Activate)':
@@ -47,7 +48,7 @@ def transform(raw: str) -> tuple[str,str,str]:
     for name,stem in HELPERS.items():
         helper=(ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8')
         lines.append(f' local {name}=(function()\n{helper}\nend)()')
-    lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace)',
+    lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace,NewDeferred)',
             'end','']
     prefix='\n'.join(lines)
     binding="assert(P6PerfPlanA.Bind(BaiqiAdmin,BaiqiController),'Stage A binding failed')\n"
@@ -96,15 +97,16 @@ def build(output_dir: Path) -> dict:
     changed=[name for name in files if contained(target,name).read_bytes()!=contents[name]]
     if changed!=[EXECUTOR]:
         raise ValueError('Unexpected diagnostic differences')
-    archive=output_dir/'Baiqi-plan140-stageA-v1.zip'
+    archive=output_dir/'Baiqi-plan140-stageA-v2.zip'
     if package(target,archive)!=files:
         raise ValueError('Diagnostic archive inventory changed')
-    result={'mode':'baiqi140-stageA-v1','source_version':140,'files':len(files),
+    result={'mode':'baiqi140-stageA-v2','source_version':140,'files':len(files),
             'lua_sources_compiled_51_and_53':lua_count,'changed_files':changed,
             'release_bodies_unchanged':False,'gameplay_planning_bodies_unchanged':True,
             'shutdown_subscription_identity_adjusted':True,'release_text_recovers_exactly':True,
             'sample_capacity':4096,'aggregate_zero':False,
             'native_activation_inline_anchor':True,
+            'pre_anchor_proof':'Exact single false Controller call; retained whole interval must end before actual Native anchor, pending must resolve. No budget relaxation.',
             'targets':['Admin.Run','Controller.RunNow'],'source':str(source),
             'diagnostic_source':str(target),'executor_sha256':digest(source/EXECUTOR),
             'instrumented_sha256':digest(target/EXECUTOR),'archive_sha256':digest(archive),

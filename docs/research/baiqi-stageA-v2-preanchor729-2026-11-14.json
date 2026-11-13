@@ -1,0 +1,109 @@
+{
+  "schema": "civ6.stageA.v2.preanchor-proof729-software/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "diagnostic_source": "baiqi140-stageA-v2",
+  "product_version_changed": false,
+  "qualification": "Only exact Controller.RunNow(false), one argument, before any known native anchor is canonically timed and retained pending. A real native callback must later prove finite ordered complete interval started<anchor and ended<=anchor, same turn and known city metadata. Overlap/unresolved/unknown still fail; no early true/nil/Admin exception.",
+  "capacity": 4096,
+  "pre_anchor_rows_charge_capacity": true,
+  "p95_budget_ms": 20,
+  "max_budget_ms": 50,
+  "minimum_pure_ten_each": 100,
+  "artifact": {
+    "mode": "baiqi140-stageA-v2",
+    "source_version": 140,
+    "files": 119,
+    "lua_sources_compiled_51_and_53": 97,
+    "changed_files": [
+      "UI/BaiqiExecutor.lua"
+    ],
+    "archive_sha256": "9d2c4490a0b04554ae126e046b37c48cad193fa6664e5246989e9aef671c5dfa",
+    "instrumented_sha256": "192246ff7478429c7636e25c44c50f7cbec240cf5f0cee08f81b1102d44d3474",
+    "gameplay_planning_bodies_unchanged": true,
+    "shutdown_subscription_identity_adjusted": true,
+    "release_text_recovers_exactly": true
+  },
+  "software": {
+    "new_proof_methods": 7,
+    "new_window_integration_methods": 4,
+    "new_analyzer_methods": 4,
+    "new_total": 15,
+    "existing_plan_argument_window_stage_methods": 23,
+    "existing_builder_methods": 5,
+    "unchanged_trace_methods": 6,
+    "existing_v1_analyzer_methods": 11,
+    "distinct_passed": 60,
+    "actual_Controller_Update_and_Executor_consumer_checked": true
+  },
+  "legacy_v1": "Strict original shape and pre-anchor rejection retained; old failed captures are not relabeled, reset or given new eligibility.",
+  "model729": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 4916,
+      "completion_tokens": 669,
+      "total_tokens": 5585
+    },
+    "total_ms": 5430.759799899533,
+    "ttft_ms": 1116.2815999705344,
+    "attempts": 1,
+    "raw_probes": [
+      {
+        "case": "self_contained_finite_helper_required",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:31: attempt to call global 'Finite' (a nil value)"
+      },
+      {
+        "case": "already_known_anchor_must_resolve_actual_new_row",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "pending_count_clears_after_actual_resolution",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "duplicate_record_cannot_inflate_or_silently_succeed",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "backwards_interval_must_be_unknown",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "unknown_callback_cannot_throw_outward",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      }
+    ],
+    "raw_code_adopted": false,
+    "probe_notes": "Two isolated raw probes supply only a test Finite predicate to expose downstream bookkeeping/interval bugs; candidate text is unchanged and not adopted."
+  },
+  "native_v2_tested": false,
+  "b_plan_pass": false,
+  "b_delta_pass": false,
+  "tc036_pass": false,
+  "cumulative_through729": {
+    "logical": 729,
+    "complete_streams_including_historical_json_rejection": 676,
+    "length": 50,
+    "final_transport": 3,
+    "http": 759,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 successful canonical1.19.5 cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "Software qualification rule declared before v2 Native sampling. Window is tied to observed real native callback time; physical engine emission time/resolution remain unknown. Previous Stage B evidence separate; full functional acceptance remains open."
+}

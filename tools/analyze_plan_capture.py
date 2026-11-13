@@ -12,6 +12,7 @@ ROOT_FIELDS={'source','enabled','retired','subscribed','bound','qualification_er
 PROFILE_FIELDS={'capacity','aggregate_zero','total_calls','dropped','invalid_clock','zero_success'}
 SAMPLE_FIELDS={'name','seconds','failed','started','ended','turnStart','turnEnd',
                'cityStart','cityEnd','anchor','windowEligible'}
+V2_SAMPLE_FIELDS=SAMPLE_FIELDS|{'preAnchor','argumentCount','allowOrders'}
 
 
 def _object(value,fields,label):
@@ -39,8 +40,11 @@ def _number(value,label):
 
 
 def analyze_plan_capture(data):
-    d=_object(data,ROOT_FIELDS,'capture')
-    if d['source']!='baiqi140-stageA-v1':
+    if not isinstance(data,dict):
+        raise ValueError('Unknown capture object')
+    v2=data.get('source')=='baiqi140-stageA-v2'
+    d=_object(data,ROOT_FIELDS|({'pre_anchor'}if v2 else set()),'capture')
+    if d['source']not in ('baiqi140-stageA-v1','baiqi140-stageA-v2'):
         raise ValueError('Unknown Stage A source')
     if (d['enabled']is not False or d['retired']is not False
             or d['subscribed']is not True or d['bound']is not True):
@@ -49,6 +53,12 @@ def analyze_plan_capture(data):
         raise ValueError('Unqualified diagnostic reads')
     if _integer(d['closing_actual_turn'],'closing turn')!=91:
         raise ValueError('Missing closing actual91')
+    pre=None
+    if v2:
+        pre=_object(d['pre_anchor'],{'pending','recorded','validated','errors'},'pre-anchor proof')
+        for key,value in pre.items():_integer(value,'pre-anchor '+key)
+        if pre['pending']!=0 or pre['errors']!=0 or pre['recorded']!=pre['validated']:
+            raise ValueError('Unresolved or invalid pre-anchor proof')
     start=_number(d['capture_start'],'capture start');stop=_number(d['capture_stop'],'capture stop')
     anchors=_object(d['anchors'],{str(t)for t in range(86,92)},'anchors')
     a={t:_number(anchors[str(t)],'anchor')for t in range(86,92)}
@@ -71,8 +81,11 @@ def analyze_plan_capture(data):
     coverage={name:{str(t):0 for t in range(86,91)}for name in TARGETS}
     classes={name:{'pure_ten':0,'10_to_11':0,'eleven_city':0,'turn_crossing':0,
                    'other_city_state':0,'outside_window':0}for name in TARGETS}
+    if v2:
+        for counts in classes.values():counts['before_native_anchor']=0
+    pre_rows=0
     for index,row in enumerate(rows):
-        s=_object(row,SAMPLE_FIELDS,'sample')
+        s=_object(row,V2_SAMPLE_FIELDS if v2 else SAMPLE_FIELDS,'sample')
         name=s['name']
         if not isinstance(name,str) or name not in TARGETS:
             raise ValueError('Unknown planning target')
@@ -92,8 +105,24 @@ def analyze_plan_capture(data):
         if before not in range(86,91) or not before<=after<=91:
             raise ValueError('Invalid sample turn range')
         anchor=_number(s['anchor'],'sample anchor')
-        if anchor!=a[before] or left<anchor:
+        if anchor!=a[before]:
             raise ValueError('Sample is not bound to its native anchor')
+        if v2:
+            if type(s['preAnchor'])is not bool:
+                raise ValueError('Unknown pre-anchor row flag')
+            argc=_integer(s['argumentCount'],'argument count')
+            allowance=s['allowOrders']
+            if type(allowance)is not str or allowance not in ('false','true','nil','other'):
+                raise ValueError('Unknown original argument metadata')
+            if s['preAnchor']:
+                if (name!='Controller.RunNow' or argc!=1 or allowance!='false'
+                        or s['windowEligible']is not False or left>=anchor or right>anchor
+                        or before!=after):
+                    raise ValueError('Invalid whole-call pre-anchor proof')
+                classes[name]['before_native_anchor']+=1;pre_rows+=1
+                continue
+        if left<anchor:
+            raise ValueError('Sample starts before its native anchor without proof')
         eligible=left<anchor+10
         if s['windowEligible']is not eligible:
             raise ValueError('Contradictory sample window flag')
@@ -108,6 +137,8 @@ def analyze_plan_capture(data):
             elif c0==11 and c1==11:group='eleven_city'
             else:group='other_city_state'
         classes[name][group]+=1
+    if v2 and pre_rows!=pre['validated']:
+        raise ValueError('Pre-anchor proof accounting mismatch')
     result={}
     for name in TARGETS:
         ordered=sorted(values[name]);n=len(ordered)
@@ -115,10 +146,12 @@ def analyze_plan_capture(data):
         maximum=ordered[-1]if n else None
         result[name]={'pure_ten_count':n,'p95_ms':p95,'max_ms':maximum,
                       'budget_ok':n>=100 and p95<=20 and maximum<=50}
-    return {'source':d['source'],'sample_quality_ok':True,'samples':total,
+    report={'source':d['source'],'sample_quality_ok':True,'samples':total,
             'classification_counts':classes,'eligible_calls_by_turn':coverage,
             'targets':result,'overall_budget_ok':all(v['budget_ok']for v in result.values()),
             'limits':'Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.'}
+    if v2:report['pre_anchor']=dict(pre)
+    return report
 
 
 def main():

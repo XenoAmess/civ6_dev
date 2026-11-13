@@ -3,7 +3,7 @@ local function Finite(v)
   return type(v)=='number' and v==v and v>-math.huge and v<math.huge
 end
 
-local function NewPlanA(env,NewProfile,WrapWindow,NewTrace)
+local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred)
   local h={source='baiqi140-stageA-v1',enabled=false,anchors={},qualificationErrors=0,
     bound=false,retired=false,subscribed=false,anchorCount=0}
   if type(NewTrace)=='function' then
@@ -13,6 +13,13 @@ local function NewPlanA(env,NewProfile,WrapWindow,NewTrace)
   else h.RecordUnknown=function() h.qualificationErrors=h.qualificationErrors+1 end end
   local function Unknown(reason,turn,clock) h.RecordUnknown(reason,'lifecycle',turn,clock) end
   h.profile=NewProfile(function() return env.Automation.GetTime() end,4096)
+  h.deferPreAnchor=type(NewDeferred)=='function'
+  if h.deferPreAnchor then
+    h.source='baiqi140-stageA-v2'
+    h.preAnchor=NewDeferred(h.profile,h.anchors,function(reason,turn)
+      h.RecordUnknown(reason,'Controller.RunNow',turn)
+    end)
+  end
   local ports={
     Now=function() return env.Automation.GetTime() end,
     Turn=function() return env.Game.GetCurrentGameTurn() end,
@@ -34,6 +41,7 @@ local function NewPlanA(env,NewProfile,WrapWindow,NewTrace)
       knownClock=now
       if h.anchors[turn]==nil then
         h.anchors[turn]=now;h.anchorCount=h.anchorCount+1
+        if h.deferPreAnchor and turn>=86 and turn<=90 then h.preAnchor:Resolve(turn,now)end
       end
     end)
     if not ok then Unknown('anchor_event',knownTurn,knownClock) end
