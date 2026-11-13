@@ -1,5 +1,7 @@
 # civ6_dev
 
+[普通END配对驱动／731软件](docs/testing/baiqi-paired-normal-driver731.md)：默认测试玩家回调，READY／发行／原生换回合分读，未知不重发；8新＋9旧方法通过。真实跨UI和五组25段仍待，未授B_delta。
+
 [Stage A v2完整窗前区间证明／729](docs/testing/baiqi-stageA-v2-preanchor729.md)：精确RunNow(false)仍完整计时占4096，待真实锚点证明确在窗前；未解决／跨界仍拒绝，v1旧FAIL不追认。15新／60相关检查过，真实Controller.Update消费者与97Lua双编译119包待冷验，预算不变。
 
 [D86仍缺锚点／独立87参数实证728](docs/testing/baiqi-stageA-nativeD-arguments728.md)：D86最终9样本／1资格错误，保留失败；独立普通86→87确见首个RunNow(false)比本通知观察早324ms，9入口／1通知零丢弃，包装已撤／两档已存。7软件方法过，继续区间证明，不追认旧数据或授B_plan。

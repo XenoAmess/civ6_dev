@@ -4,7 +4,7 @@ from paired_driver_harness import Harness
 from tools.run_paired_acceptance import run
 
 
-def execute(h):return run(h.query,h.visible,h.close,h.now,h.sleep,h.emit,h.ledger,variant='enabled',fixture_sha256='1'*64)
+def execute(h):return run(h.query,h.visible,h.close,h.now,h.sleep,h.emit,h.ledger,variant='enabled',fixture_sha256='1'*64,legacy_forced=True)
 
 
 class PairedDriverTests(unittest.TestCase):

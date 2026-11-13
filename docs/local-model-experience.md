@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [普通END驱动731](testing/baiqi-paired-normal-driver731.md)：raw两方法1失败1错误，缺真实发单／record[0]，0语义采用；Owner8新＋9旧软件方法过，五次准备5秒排除于2秒计时，动作后断线不重发。真实跨UI／25匹配段仍待；累计731／678完整50length3transport761HTTP30extra，维护复用原生0／成本null。
+
 2026-11-14 [匹配版本／模式730](testing/baiqi-paired-source-mode730.md)：完整6344tokens候选8合同检查通过，完整校验助手采用，依赖来自实际consumer导入。Owner关键字接入5新／14相关过，25行为软件夹具非Native；旧67及0分母未知／预算保持。累计730／677完整50length3transport760HTTP30extra，维护复用原生0／成本null。
 
 2026-11-14 [v2窗前区间证明／729](testing/baiqi-stageA-v2-preanchor729.md)：raw6合同探针全失败，缺Finite／新行漏解／pending不减／重复／倒序／unknown外抛，0代码采用。Owner显式v2只在真实锚点后证完整区间、仍占4096，15新／60相关过，实际Controller.Update消费者核对，待新Native；v1旧FAIL不回改。累计729／676完整50length3transport759HTTP30extra，维护复用原生0／成本null。
