@@ -1,5 +1,7 @@
 # civ6_dev
 
+[140冷验：状态保持、耗时仍开](docs/testing/baiqi-native140-cold333-latency-open.md)：九域全等，390自然根样本Admin p95约23ms仍超参考，包装已撤／140333已存；当前全脚本包仅准备，继续诊断和普通END驱动。
+
 [140总督需求早检查／软件](docs/testing/baiqi-governor-demand140.md)：无救急需求省掉完整忠诚来源读取，有需求重建原完整快照；9新方法、全2037pass1SDKskip，97Lua51／119包。未决回执和发令前安全门保留，继续同333冷验。
 
 [139冷验及观测包准备](docs/testing/baiqi-native139-observed709.md)：同333九域全等，1254根样本Admin p95约22ms仍超参考；139333已存。当前有界全脚本包24方法验证、仅准备未安装，继续总督无需求路径与完整压力验收。
