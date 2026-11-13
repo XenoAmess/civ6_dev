@@ -1,5 +1,7 @@
 # civ6_dev
 
+[Stage A沙箱兼容纠正](docs/testing/baiqi-stageA-sandbox-correction.md)：实机rawget／rawset为nil，Owner诊断前缀在原版Executor前失败；0END／正式样本，已退出。移除依赖后23检查再过，新私有包待冷验，旧3资格错误仍未知。
+
 [Stage A逐原因诊断／724](docs/testing/baiqi-stageA-qualification-trace724.md)：固定15桶／16事件、饱和计数与缺失元数据保持未知，6新／23相关检查过，97Lua双编译119包待新冷验。旧3资格错误仍不猜因，预算和门不变。
 
 [独立Stage A首次中止／723分析器](docs/testing/baiqi-stageA-aborted86-analyzer723.md)：普通85→86出现3个资格错误，最终7样本零丢弃，原因仍未知；包装／监听已撤、86已存。严格分析器11检查过，继续逐原因诊断，不授B_plan或整例PASS。

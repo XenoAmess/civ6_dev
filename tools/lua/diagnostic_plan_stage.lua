@@ -6,7 +6,10 @@ end
 local function NewPlanA(env,NewProfile,WrapWindow,NewTrace)
   local h={source='baiqi140-stageA-v1',enabled=false,anchors={},qualificationErrors=0,
     bound=false,retired=false,subscribed=false,anchorCount=0}
-  if type(NewTrace)=='function' then h.RecordUnknown=NewTrace(h)
+  if type(NewTrace)=='function' then
+    local ready
+    h.RecordUnknown,ready=NewTrace(h)
+    if ready~=true then h.qualificationErrors=h.qualificationErrors+1 end
   else h.RecordUnknown=function() h.qualificationErrors=h.qualificationErrors+1 end end
   local function Unknown(reason,turn,clock) h.RecordUnknown(reason,'lifecycle',turn,clock) end
   h.profile=NewProfile(function() return env.Automation.GetTime() end,4096)

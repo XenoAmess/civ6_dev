@@ -37,7 +37,7 @@ class BuildPlanProfileModTests(unittest.TestCase):
     def test_actual_executor_registers_anchor_before_includes_and_wraps_after(self):
         raw=(ROOT/'mod/Baiqi'/builder.EXECUTOR).read_text(encoding='utf-8')
         code,_,_=builder.transform(raw);lua=LuaRuntime(unpack_returned_tuples=True)
-        lua.execute('''Turn=86;Clock=10;Includes=0;Activations={}
+        lua.execute('''rawget=nil;rawset=nil;Turn=86;Clock=10;Includes=0;Activations={}
 Game={GetLocalPlayer=function() return 0 end,GetCurrentGameTurn=function() return Turn end}
 Automation={GetTime=function() return Clock end}
 Players={[0]={IsTurnActive=function() return true end,

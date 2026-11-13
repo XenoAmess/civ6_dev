@@ -1,6 +1,6 @@
 -- Bounded QA evidence only. No SDK reads or gameplay operations.
 local function NewQualificationTrace(h)
-  if type(h)~='table' then return function() return false end end
+  if type(h)~='table' then return function() return false end,false end
   local maximum=2147483647
   local allowed={turn=true,player=true,active=true,anchor_missing=true,clock=true,
     before_anchor=true,city_before=true,city_after=true,turn_after=true,
@@ -19,36 +19,42 @@ local function NewQualificationTrace(h)
     if v==maximum then saturated=true;return maximum end
     return v+1
   end
-  rawset(h,'qualificationReasons',reasons)
-  rawset(h,'qualificationEvents',events)
-  rawset(h,'qualificationEventDropped',0)
-  rawset(h,'qualificationSaturated',false)
-  rawset(h,'qualificationTraceMalformed',false)
-  return function(reason,label,turn,knownClock)
+  local initialized=pcall(function()
+    h.qualificationReasons=reasons;h.qualificationEvents=events
+    h.qualificationEventDropped=0;h.qualificationSaturated=false;h.qualificationTraceMalformed=false
+  end)
+  local function Record(reason,label,turn,knownClock)
+    if not initialized then return false end
     local ok=pcall(function()
-      rawset(h,'qualificationErrors',Add(rawget(h,'qualificationErrors')))
+      h.qualificationErrors=Add(h.qualificationErrors)
       if type(reason)~='string' or not allowed[reason] then reason='unknown' end
       if type(label)~='string' or not labels[label] then label='unknown' end
-      local count=rawget(reasons,reason)
+      local count=reasons[reason]
       if count==nil then count=0 end
-      rawset(reasons,reason,Add(count))
+      reasons[reason]=Add(count)
       if eventCount<16 then
         eventCount=eventCount+1
         local event={reason=reason,label=label}
         if Integer(turn) then event.turn=turn end
         if Finite(knownClock) then event.clock=knownClock end
-        rawset(events,eventCount,event)
+        events[eventCount]=event
       else dropped=Add(dropped) end
-      if rawget(h,'qualificationReasons')~=reasons or rawget(h,'qualificationEvents')~=events then
+      if h.qualificationReasons~=reasons or h.qualificationEvents~=events then
         malformed=true
       end
-      rawset(h,'qualificationReasons',reasons);rawset(h,'qualificationEvents',events)
-      rawset(h,'qualificationEventDropped',dropped)
-      rawset(h,'qualificationSaturated',saturated)
-      rawset(h,'qualificationTraceMalformed',malformed)
+      h.qualificationReasons=reasons;h.qualificationEvents=events
+      h.qualificationEventDropped=dropped
+      h.qualificationSaturated=saturated
+      h.qualificationTraceMalformed=malformed
     end)
+    if not ok then
+      pcall(function()
+        h.qualificationErrors=maximum;h.qualificationTraceMalformed=true;h.qualificationSaturated=true
+      end)
+    end
     return ok
   end
+  return Record,initialized
 end
 
 return NewQualificationTrace

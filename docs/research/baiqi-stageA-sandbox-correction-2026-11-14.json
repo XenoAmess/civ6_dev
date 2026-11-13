@@ -1,0 +1,39 @@
+{
+  "schema": "civ6.stageA.owner-sandbox-correction/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 140,
+  "failed_artifact_sha256": "41157faa5033b768dd3374685499129e17f9948f578e0f78b939fbf170e5118b",
+  "failure": "Owner-introduced rawget/rawset dependency; actual BaiqiExecutor Lua context reports both nil, QA constructor fails before includes and public binding.",
+  "actual_readback": {
+    "turn": 85,
+    "local_player": 0,
+    "rawget_type": "nil",
+    "rawset_type": "nil",
+    "P6PerfPlanA_type": "nil"
+  },
+  "ordinary_end_calls": 0,
+  "formal_reload": false,
+  "formal_samples": 0,
+  "gameplay_executor_body_loaded": false,
+  "startup_log": "NewQualificationTrace at injectedExecutor line159: function expected instead of nil; NewPlanA and top-level stack retained privately.",
+  "rollback": "Official owned-game exit requested once, no mode switch or Steam termination; original85 protected fixture verified. Prefix failed before its subscriber/bind registration.",
+  "owner_fix": "Use protected ordinary table operations only. Trace returns explicit initialization readiness; lifecycle cannot enable after failed trace initialization. Per-record failures return false and conservatively poison known qualification state where writable.",
+  "new_artifact_sha256": "47be5f0e55ad1fd338ef49de5e7f9457efbd9bcf6e0555da7a053d7700eeb4c5",
+  "new_instrumented_sha256": "0ef7164a214048956c2eae2fc37ec303084a2ae9de353732ef64a8f584bf33a4",
+  "software": {
+    "trace_methods": 6,
+    "window_lifecycle_methods": 13,
+    "actual_builder_methods": 4,
+    "distinct_passed": 23,
+    "rawget_rawset_removed_in_test_sandbox": true,
+    "lua_sources_compiled_51_and_53": 97,
+    "files": 119
+  },
+  "native_new_artifact_tested": false,
+  "old_three_qualification_errors_reason": "UNKNOWN; not related retrospectively to this new startup defect.",
+  "model_call_for_fix": null,
+  "model725": "Separate real unfinished paired normal-END clock contract candidate, not owner-fix generation or maintenance.",
+  "tc036_pass": false,
+  "limits": "Owner compatibility correction and separate failed startup evidence only; no B_plan or full performance claim."
+}

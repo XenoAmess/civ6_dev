@@ -13,7 +13,7 @@ class DiagnosticQualificationTraceTests(unittest.TestCase):
                           ('diagnostic_plan_window','WrapWindow')]:
             self.lua.globals()[name]=self.lua.execute(
                 (ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8'))
-        self.lua.execute('H={qualificationErrors=0};Record=NewTrace(H)')
+        self.lua.execute('rawget=nil;rawset=nil;H={qualificationErrors=0};Record=NewTrace(H)')
 
     def test_fixed_reason_buckets_and_first_sixteen_events_are_bounded(self):
         self.lua.execute('''for i=1,100 do assert(Record('foreign'..i,'Admin.Run',86,10+i)) end
@@ -40,10 +40,10 @@ assert(not NewTrace(nil)('turn','Admin.Run',86,10))''')
     def test_hostile_metatable_and_replaced_exposed_tables_do_not_throw(self):
         self.lua.execute('''local h=setmetatable({qualificationErrors=0},{__newindex=function()error('write')end,
  __index=function()error('read')end})
-local r=NewTrace(h);assert(r('turn','Admin.Run',86,10) and rawget(h,'qualificationErrors')==1)
-rawset(h,'qualificationReasons',false);rawset(h,'qualificationEvents',false)
-assert(r('player','Admin.Run',86,10) and h.qualificationTraceMalformed)
-assert(h.qualificationReasons.player==1 and #h.qualificationEvents==2)''')
+local r,ready=NewTrace(h);assert(ready==false and r('turn','Admin.Run',86,10)==false)
+H.qualificationReasons=false;H.qualificationEvents=false
+assert(Record('player','Admin.Run',86,10) and H.qualificationTraceMalformed)
+assert(H.qualificationReasons.player==1 and #H.qualificationEvents==1)''')
 
     def test_real_window_records_missing_anchor_without_suppressing_original(self):
         self.lua.execute('''Clock=10;Calls=0
