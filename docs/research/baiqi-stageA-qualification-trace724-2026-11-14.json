@@ -1,0 +1,90 @@
+{
+  "schema": "civ6.stageA.qualification-trace724/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "scope": "Next private diagnostic adds bounded per-reason evidence only; no reason inferred for old three unknowns and no acceptance gate relaxed.",
+  "source_version": 140,
+  "archive_sha256": "41157faa5033b768dd3374685499129e17f9948f578e0f78b939fbf170e5118b",
+  "instrumented_sha256": "fd65d81ee413c2bd7d5a597c9e530776775096009af103a4d8398cba79165872",
+  "files": 119,
+  "changed_files": [
+    "UI/BaiqiExecutor.lua"
+  ],
+  "lua_sources_compiled_51_and_53": 97,
+  "fixed_reason_buckets_max": 15,
+  "retained_error_events": 16,
+  "counter_max": 2147483647,
+  "unknown_metadata": "Absent, nonfinite, noninteger turn/clock values are omitted; no invented zero.",
+  "software": {
+    "new_trace_methods": 6,
+    "current_window_lifecycle_methods": 13,
+    "current_builder_methods": 4,
+    "distinct_passed": 23
+  },
+  "model724": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 3298,
+      "completion_tokens": 330,
+      "total_tokens": 3628
+    },
+    "total_ms": 2757.058500079438,
+    "ttft_ms": 650.6003001704812,
+    "attempts": 1,
+    "raw_probes": [
+      {
+        "case": "unknown_reason_map_unbounded",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "events_exposed_on_real_h",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "malformed_count_must_not_throw",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "saturating_counter",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "reason_count_not_boolean",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      },
+      {
+        "case": "unknown_metadata_not_copied",
+        "contract_passed": false,
+        "error": "[string \"<python>\"]:1: assertion failed!"
+      }
+    ],
+    "raw_code_adopted": false
+  },
+  "owner_action": "Rewrite bounded allowlist and private counters; reason codes at existing unknown gates; actual canonical Lua51 consumer tests plus current artifact assembly.",
+  "native_next_artifact_tested": false,
+  "product_functions_changed": false,
+  "tc036_pass": false,
+  "cumulative_through724": {
+    "logical": 724,
+    "complete_streams_including_historical_json_rejection": 671,
+    "length": 50,
+    "final_transport": 3,
+    "http": 754,
+    "extra_attempts": 30,
+    "new_peak_inflight": 1
+  },
+  "opencode_native_sessions": 0,
+  "maintenance": "Nov14 successful canonical1.19.5 cache reused",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  }
+}

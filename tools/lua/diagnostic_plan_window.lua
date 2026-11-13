@@ -16,8 +16,9 @@ local function WrapWindow(h,label,fn,env)
   assert(type(fn)=='function' and type(label)=='string' and type(env)=='table')
   local profile=h.profile
   local timed=profile:Wrap(label,fn)
-  local function Unknown()
-    h.qualificationErrors=h.qualificationErrors+1
+  local function Unknown(reason,turn,now)
+    if type(h.RecordUnknown)=='function' then h.RecordUnknown(reason,label,turn,now)
+    else h.qualificationErrors=h.qualificationErrors+1 end
   end
   local function Read(name,valid)
     local getter=env[name]
@@ -29,20 +30,22 @@ local function WrapWindow(h,label,fn,env)
   return function(...)
     if h.enabled~=true then return fn(...) end
     local turn=Read('Turn',Integer)
-    if turn==nil then Unknown();return fn(...) end
+    if turn==nil then Unknown('turn');return fn(...) end
     if turn<86 or turn>90 then return fn(...) end
     local pid=Read('LocalPlayer',Integer)
-    if pid==nil then Unknown();return fn(...) end
+    if pid==nil then Unknown('player',turn);return fn(...) end
     if pid~=0 then return fn(...) end
     local active=Read('Active',Boolean)
-    if active==nil then Unknown();return fn(...) end
+    if active==nil then Unknown('active',turn);return fn(...) end
     if not active then return fn(...) end
     local anchor=h.anchors[turn]
     local now=Read('Now',Finite)
-    if not Finite(anchor) or now==nil or now<anchor then Unknown();return fn(...) end
+    if not Finite(anchor) then Unknown('anchor_missing',turn,now);return fn(...) end
+    if now==nil then Unknown('clock',turn);return fn(...) end
+    if now<anchor then Unknown('before_anchor',turn,now);return fn(...) end
     if now>=anchor+10 then return fn(...) end
     local cities=Read('CityCount',Integer)
-    if cities==nil then Unknown();return fn(...) end
+    if cities==nil then Unknown('city_before',turn,now);return fn(...) end
     local count=#profile.samples
     local dropped,invalid=profile.dropped,profile.invalidClock
     local result=Pack(pcall(timed,...))
@@ -50,10 +53,11 @@ local function WrapWindow(h,label,fn,env)
     local afterTurn=Read('Turn',Integer)
     local afterCities=Read('CityCount',Integer)
     local row=profile.samples[#profile.samples]
-    if afterTurn==nil or afterCities==nil then Unknown() end
+    if afterTurn==nil then Unknown('turn_after',turn,now)
+    elseif afterCities==nil then Unknown('city_after',turn,now) end
     if profile.dropped~=dropped or profile.invalidClock~=invalid or #profile.samples<=count
       or type(row)~='table' or row.name~=label then
-      Unknown()
+      Unknown('sample_missing',turn,now)
     else
       row.turnStart=turn;row.turnEnd=afterTurn
       row.cityStart=cities;row.cityEnd=afterCities

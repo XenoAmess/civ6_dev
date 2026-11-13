@@ -15,7 +15,7 @@ from tools.build_mod import contained,digest,manifest_files,package
 
 EXECUTOR='UI/BaiqiExecutor.lua'
 HELPERS={'NewProfile':'diagnostic_profile','WrapWindow':'diagnostic_plan_window',
-         'NewPlanA':'diagnostic_plan_stage'}
+         'NewTrace':'diagnostic_qualification_trace','NewPlanA':'diagnostic_plan_stage'}
 INCLUDES='include("BaiqiController")\ninclude("BaiqiAdmin")\ninclude("BaiqiMissionaryPurchase")\n'
 
 
@@ -30,7 +30,7 @@ def transform(raw: str) -> tuple[str,str,str]:
     for name,stem in HELPERS.items():
         helper=(ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8')
         lines.append(f' local {name}=(function()\n{helper}\nend)()')
-    lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow)',
+    lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace)',
             'end','']
     prefix='\n'.join(lines)
     binding="assert(P6PerfPlanA.Bind(BaiqiAdmin,BaiqiController),'Stage A binding failed')\n"

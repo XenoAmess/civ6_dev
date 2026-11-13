@@ -10,6 +10,7 @@ class DiagnosticPlanStageTests(unittest.TestCase):
         self.lua=LuaRuntime(unpack_returned_tuples=True)
         for stem,name in [('diagnostic_profile','NewProfile'),
                           ('diagnostic_plan_window','WrapWindow'),
+                          ('diagnostic_qualification_trace','NewTrace'),
                           ('diagnostic_plan_stage','NewPlanA')]:
             self.lua.globals()[name]=self.lua.execute(
                 (ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8'))
@@ -25,7 +26,7 @@ Env={Game={GetLocalPlayer=function() if GetterError then error('qa') end;return 
 function Body(...) Calls=Calls+1;Clock=Clock+0.01;return ... end
 Admin={Run=Body};Controller={RunNow=Body}
 function Fire(pid) for _,f in ipairs(Handlers) do f(pid) end end
-H=NewPlanA(Env,NewProfile,WrapWindow)''')
+H=NewPlanA(Env,NewProfile,WrapWindow,NewTrace)''')
 
     def test_first_anchor_precedes_gameplay_and_duplicate_keeps_first_time(self):
         self.lua.execute('''assert(Adds==1 and H.profile.capacity==4096 and not H.profile.aggregateZero)
@@ -46,6 +47,7 @@ assert(H.profile.samples[1].name=='Controller.RunNow' and H.qualificationErrors=
         self.lua.execute('''assert(H.Bind(Admin,Controller) and H.SetEnabled(true))
 Event.Add(function() Calls=Calls+1 end);GetterError=true;Fire(0)
 assert(Calls==1 and H.qualificationErrors==1 and H.anchorCount==0)
+assert(H.qualificationReasons.anchor_event==1 and H.qualificationEvents[1].label=='lifecycle')
 GetterError=false;LP=1;Fire(1);assert(H.qualificationErrors==1)
 LP=0;Turn=0/0;Fire(0);assert(H.qualificationErrors==2 and Calls==3)''')
 
@@ -59,7 +61,7 @@ assert(not H.SetEnabled(true) and not H.Bind(Admin,Controller))
 H.Restore();Fire(0);assert(Removes==1 and Calls==1 and H.retired and not H.enabled)''')
 
     def test_add_remove_unknown_never_claims_success_or_retries_unknown_remove(self):
-        self.lua.execute('''AddError=true;local bad=NewPlanA(Env,NewProfile,WrapWindow)
+        self.lua.execute('''AddError=true;local bad=NewPlanA(Env,NewProfile,WrapWindow,NewTrace)
 assert(bad.qualificationErrors==1 and bad.subscribed==nil and not bad.Bind(Admin,Controller))
 RemoveError=true;local ok=bad.Restore();assert(not ok and bad.qualificationErrors==2)
 local old=Removes;ok=bad.Restore();assert(not ok and Removes==old)
@@ -69,7 +71,7 @@ assert(not bad.SetEnabled(true))''')
         self.lua.execute('''local before=Admin.Run
 assert(not H.Bind(Admin,{}) and Admin.Run==before and not H.bound)
 assert(H.Bind(Admin,Controller) and not H.SetEnabled(true))
-local clean=NewPlanA(Env,NewProfile,WrapWindow)
+local clean=NewPlanA(Env,NewProfile,WrapWindow,NewTrace)
 assert(clean.Bind({Run=Body},{RunNow=Body}) and clean.SetEnabled(true))
 Turn=84;Fire(0);Turn=92;Fire(0);assert(clean.anchorCount==0)
 Turn=91;Fire(0);assert(clean.anchorCount==1 and clean.anchors[91]==10)''')
