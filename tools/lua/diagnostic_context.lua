@@ -16,9 +16,10 @@ local function NewContext(key,env,NewProfile,NewRoots,NewCounter,NewLeaves)
   local root=NewRoots(NewProfile,clock,capacity,{aggregate_zero=aggregate})
   local quotaAllowed=env.UnknownQuota~=true
   local enabled,retired=false,false
+  local timingEnabled=true
   local buckets,anchors={},{}
   local bucketCount=0
-  local stats={registryErrors=0,anchorErrors=0,anchorDropped=0,bucketErrors=0,bucketDropped=0}
+  local stats={registryErrors=0,anchorErrors=0,anchorDropped=0,bucketErrors=0,bucketDropped=0,timingChanges=0}
   if not quotaAllowed then stats.registryErrors=stats.registryErrors+1 end
   local function Bucket()
     local ok,turn=pcall(getTurn)
@@ -37,11 +38,23 @@ local function NewContext(key,env,NewProfile,NewRoots,NewCounter,NewLeaves)
     assert(type(value)=='boolean','Invalid diagnostic record flag')
     if retired then return false end
     if value and not quotaAllowed then return false end
-    enabled=value;root:SetEnabled(value);return true
+    enabled=value;root:SetEnabled(enabled and timingEnabled);return true
+  end
+  -- Only function timing changes. Native write buckets and activation anchors
+  -- continue to follow enabled for the entire turn.
+  function h:SetTimingEnabled(value)
+    assert(type(value)=='boolean','Invalid diagnostic timing flag')
+    if retired then return false end
+    if value~=timingEnabled then
+      if stats.timingChanges>=128 then return false end
+      stats.timingChanges=stats.timingChanges+1
+    end
+    timingEnabled=value;root:SetEnabled(enabled and timingEnabled);return true
   end
   function h:Snapshot()
     return {key=key,marker=MARKER,profile=root.profile,leaves=leaves.stats,
-      buckets=buckets,anchors=anchors,stats=stats,enabled=enabled,retired=retired,subscribed=subscribed}
+      buckets=buckets,anchors=anchors,stats=stats,enabled=enabled,retired=retired,subscribed=subscribed,
+      timingEnabled=timingEnabled}
   end
   function h:Reset()
     assert(not enabled,'Disable diagnostic recording before Reset')
@@ -50,6 +63,7 @@ local function NewContext(key,env,NewProfile,NewRoots,NewCounter,NewLeaves)
     p.zeroSuccess=0
     buckets={};anchors={};bucketCount=0
     stats.anchorErrors=0;stats.anchorDropped=0;stats.bucketErrors=0;stats.bucketDropped=0
+    stats.timingChanges=0
     for _,c in ipairs(leaves.stats.counters) do c.totalCalls=0;c.callbackErrors=0 end
   end
   function h:Retire()
@@ -82,7 +96,8 @@ local function NewContext(key,env,NewProfile,NewRoots,NewCounter,NewLeaves)
     assert(count<80,'Diagnostic registry full')
     registry=candidate
     entry={marker=MARKER,Snapshot=function() return h:Snapshot() end,
-      SetEnabled=function(v) return h:SetEnabled(v) end,Reset=function() return h:Reset() end,
+      SetEnabled=function(v) return h:SetEnabled(v) end,SetTimingEnabled=function(v) return h:SetTimingEnabled(v) end,
+      Reset=function() return h:Reset() end,
       Retire=function() return h:Retire() end,ReadClock=function() return clock() end}
     registry.entries[key]=entry
   end)

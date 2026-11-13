@@ -1,5 +1,7 @@
 # civ6_dev
 
+[窗外计时控制与审计／716软件](docs/testing/baiqi-window-timing716.md)：只暂停固定窗外的函数计时，整回合写入／锚点继续；变化元数据强制绑定完整边界凭证，缺失或可能碰窗即拒绝。14新／66相关方法过，4096不变，待新私有包实测。
+
 [140普通回合完整观测的失败证据](docs/testing/baiqi-observed140-normal-partial714715.md)：冻结十城85／78秒预热后，普通85→86→87已分读；UnitPanel丢37样本触发中止，全部计数已关，1362样本原件保留。继续修复采集完整性，不授性能PASS。
 
 [完整观测驱动的普通END委托](docs/testing/baiqi-ordinary-observed-driver711713.md)：凭证／READY后才调用测试玩家流程，ACK与实际激活分读；旧强制路径须显式选择。25软件方法通过，尚未授新Native或完整性能PASS。

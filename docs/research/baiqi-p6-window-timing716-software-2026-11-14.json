@@ -1,0 +1,87 @@
+{
+  "schema": "civ6.window-timing-context716-software/v1",
+  "utc": "2026-11-13T18:45:05.930733+00:00",
+  "machine_id": "BF-202609141645",
+  "release_version": 140,
+  "release_source_changed": false,
+  "motivation": "ordinary-END experiment aborted after UnitPanel64 quota dropped37,1362 globally retained; frozen cap4096 not raised",
+  "implementation": {
+    "API": "Context/registry SetTimingEnabled(boolean), defaulttrue",
+    "effective_root_recording": "enabled and timingEnabled",
+    "wholeturn_recording": "enabled continues to gate anchors and native write buckets independently",
+    "transition_counter": "real changes only, max128, exported TIMING_CONTROL requires complete phase evidence if nonzero",
+    "reset": "preserves timing flag while clearing accounting, so paused reset cannot silently appear restored",
+    "retire": "both controls cannot re-enable retired context"
+  },
+  "auditor": {
+    "required": "exact pause/resume pairs for each context before END85..90, before/after local clocks, recording/subscription true and retired false",
+    "clock_handling": "full offset lower/upper bounds produce conservative disable-to-resume envelopes; any possible overlap with fixed10second window rejected",
+    "activation_guard": "pause only after current window end and resume before earliest next activation including closing91",
+    "missing_evidence": "nonzero counters without phases, mismatched counters, absent/duplicate/reordered phases, unbounded mode, unrestored final flag all reject",
+    "unchanged": "strict allcontext sample sequence/drop checks, cap4096, wholeturn native write budget and existing clock calibration"
+  },
+  "verification": {
+    "new_methods": 14,
+    "existing_related_methods": 52,
+    "unique_passing_methods": 66,
+    "new_group13_seconds": 0.044,
+    "export_retest9_seconds": 0.056,
+    "existing_initial_related": "52 methods,3 outdated dump row-position/count assertions after new TIMING_CONTROL metadata;44 non-dump methods passed",
+    "corrected_consumer": "8 existing dump methods plus1new legacy exporter compatibility all9pass; other44 not needlessly repeated",
+    "owner_wrapper_failure": "initial else1 syntax error before tests; corrected before real52-method run",
+    "actual_transformed_current_Core_fastpath": "passed within existing current builder6 methods",
+    "lua51_helpers": "actual canonical context/profiler/leaves/exporter exercised with cached wrappers, nil returns and throws"
+  },
+  "prepared_artifact": {
+    "mode": "baiqi140-q21-bounded",
+    "source_version": 140,
+    "files": 119,
+    "lua_compile_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "global_retained_sample_capacity": 4096,
+    "archive_sha256": "95063a7a89731ea5998d290886152090e8e1f6ade38c6f5e5d4012fd2142bc58",
+    "installed": false
+  },
+  "model716": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "total_ms": 4135.314600076526,
+    "first_nonempty_content_delta_ms": 1600.3929001744837,
+    "usage": {
+      "prompt_tokens": 9865,
+      "completion_tokens": 349,
+      "total_tokens": 10214
+    },
+    "candidate_complete": true
+  },
+  "review716": {
+    "raw_code_adopted": false,
+    "reason": "candidate gives prose, no applicable patch; proposed h:Wrap registration-time fn(...) changes wrapper contract and is not legal vararg use in actual non-vararg function; requiring nonzero anchors/writes during every pause also invalid when no event/write occurs; calling wall envelopes CPU measurement incorrect",
+    "owner_design_preceded_POST": "independent timing only outside windows while retaining fullturn writes/anchors was explicit owner input; no independent discovery credited",
+    "owner_additions": [
+      "unchanged cached Wrap",
+      "bounded transition accounting/export",
+      "mandatory phase audit tied to transition counters",
+      "conservative clock uncertainty and closing activation check",
+      "legacy no-feature exporter compatibility"
+    ]
+  },
+  "cumulative_through716": {
+    "logical_calls": 716,
+    "complete_streams_including_one_strict_json_rejection": 663,
+    "length": 50,
+    "final_transport": 3,
+    "HTTP_attempts": 746,
+    "extra_attempts": 30,
+    "OpenCode_native_generation_tasks": 0,
+    "new_peak_inflight": 1,
+    "cached_tokens": null,
+    "owner_active_cost": null,
+    "net_savings": null
+  },
+  "maintenance": "Nov14 canonical1.19.5/latest1.19.5 success cache reused",
+  "Native_windowed": false,
+  "status": "software verified, private current140 artifact prepared not installed, no current B_turn/B_plan/B_delta or TC036 pass; continue concrete driver integration and cold original85 retest"
+}

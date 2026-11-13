@@ -36,7 +36,7 @@ def _number(value,*,exported=False):
     return result
 
 
-def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,89,90),closing_turn=91,pid=0,*,sample_budget=None):
+def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,89,90),closing_turn=91,pid=0,*,sample_budget=None,timing_phases=None):
     if not _sequence(expected_keys) or not expected_keys or len(expected_keys)>80:
         raise ValueError('Expected explicit context keys')
     if any(not isinstance(k,str) or not k for k in expected_keys) or len(set(expected_keys))!=len(expected_keys):
@@ -60,6 +60,7 @@ def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,8
     anchor_ids={k:set() for k in keys}
     writes={}
     zeros={}
+    timing_controls={}
     for row in rows:
         if not _sequence(row) or len(row)<2 or not isinstance(row[1],str) or row[1] not in keys:
             raise ValueError('Malformed row or unknown context')
@@ -95,9 +96,17 @@ def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,8
             zero,capacity=(_integer(x) for x in f)
             if capacity<1:raise ValueError('Invalid context sample quota')
             zeros[key]=(zero,capacity)
+        elif kind=='TIMING_CONTROL':
+            if len(f)!=2 or key in timing_controls or f[1]!='true':
+                raise ValueError('Duplicate or unrestored timing control')
+            timing_controls[key]=_integer(f[0])
         else:
             raise ValueError('Unknown exported row kind')
     if set(meta)!=keys:raise ValueError('Missing context metadata')
+    if timing_controls and set(timing_controls)!=keys:
+        raise ValueError('Incomplete timing control metadata')
+    if any(timing_controls.values()) and timing_phases is None:
+        raise ValueError('Timing changes require complete phase evidence')
     if sample_budget is not None:
         if set(zeros)!=keys or sum(cap for _,cap in zeros.values())>sample_budget:
             raise ValueError('Incomplete or over-budget global sample allocation')
@@ -165,7 +174,16 @@ def analyze_capture(rows,brackets,expected_keys,capture_bounds,turns=(86,87,88,8
             k:sum(n for key,_,n in selected if key==k) for k in sorted(keys) if any(key==k for key,_,_ in selected)}}
     complete=[write_turn(t) for t in turns]
     partial=[write_turn(t) for t in sorted({t for _,t,_ in writes if t not in turns})]
-    return {'windows':windows,'complete_turn_writes':complete,'partial_turn_writes':partial,
+    timing_coverage={}
+    if timing_phases is not None:
+        if sample_budget is None:
+            raise ValueError('Window timing requires explicit retained-sample budget')
+        expected_changes=2*(len(turns)+1)
+        if set(timing_controls)!=keys or any(n!=expected_changes for n in timing_controls.values()):
+            raise ValueError('Timing transition counters disagree with required phase pairs')
+        from tools.observation_timing_coverage import validate_timing_phases
+        timing_coverage['timing_coverage']=validate_timing_phases(timing_phases,expected_keys,bounds,windows,capture_bounds,starts[closing_turn])
+    return {**timing_coverage,'windows':windows,'complete_turn_writes':complete,'partial_turn_writes':partial,
             'clock_bounds':bounds,'local_anchor_counts':anchor_counts,'contexts':len(keys),'samples':len(samples),
             'aggregate_zero_success_calls':sum(n for n,_ in zeros.values()) if sample_budget is not None else None,
             'configured_retained_sample_budget':sum(cap for _,cap in zeros.values()) if sample_budget is not None else None,

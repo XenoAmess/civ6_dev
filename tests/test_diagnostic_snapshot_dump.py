@@ -27,8 +27,9 @@ function Run() return Dump(R,{'UI/Test.lua'},Emit) end''')
         self.lua.execute('''local before=H:Snapshot();local status=Run();local after=H:Snapshot()
 assert(status.contexts==1 and status.samples==1 and status.anchors==1 and status.writes==1 and status.errors==0)
 assert(Rows[1][1]=='META' and Rows[1][16]==3 and Rows[1][17]==true and Rows[1][18]==false)
-assert(Rows[2][1]=='SAMPLE' and Rows[2][5]==120.125 and Rows[2][8]==false)
-assert(Rows[3][1]=='ANCHOR' and Rows[3][5]==85 and Rows[4][1]=='WRITE' and Rows[4][5]==3)
+assert(Rows[2][1]=='TIMING_CONTROL' and Rows[2][3]==0 and Rows[2][4]==true)
+assert(Rows[3][1]=='SAMPLE' and Rows[3][5]==120.125 and Rows[3][8]==false)
+assert(Rows[4][1]=='ANCHOR' and Rows[4][5]==85 and Rows[5][1]=='WRITE' and Rows[5][5]==3)
 assert(before.profile.samples==after.profile.samples and before.buckets==after.buckets and not after.enabled and Adds==1 and Removes==0)''')
 
     def test_enabled_registry_or_snapshot_rejected_without_control_mutation(self):
@@ -58,7 +59,7 @@ assert(calls==1 and s.errors==1 and s.contexts==0 and s.samples==0)''')
     def test_snapshot_throw_continues_other_context_and_duplicates_rejected(self):
         self.lua.execute('''R.entries['UI/Broken.lua']={marker='baiqi67-q19',Snapshot=function() error('broken') end}
 local s=Dump(R,{'UI/Broken.lua','UI/Test.lua','UI/Test.lua'},Emit)
-assert(s.errors==2 and s.contexts==1 and s.samples==1 and #Rows==4)''')
+assert(s.errors==2 and s.contexts==1 and s.samples==1 and #Rows==5)''')
 
     def test_turn_and_api_order_and_count_values_are_not_collapsed(self):
         self.lua.execute('''local s=H:Snapshot();s.buckets[86]={Z=7,A=2};s.buckets[2]={X=1}
@@ -72,9 +73,15 @@ assert(writes[3][3]==86 and writes[3][4]=='A' and writes[3][5]==2 and writes[4][
 local h=NewContext('UI/Bound.lua',Env,NewProfile,NewRoots,NewCounter,NewLeaves)
 local fn=h:Wrap('zero',function() return 4 end);h:SetEnabled(true);fn();fn();h:SetEnabled(false)
 Rows={};local status=Dump(R,{'UI/Bound.lua'},Emit)
-assert(status.errors==0 and status.contexts==1 and status.samples==0 and #Rows==2)
-assert(Rows[1][1]=='META' and Rows[1][3]==2 and Rows[2][1]=='ZERO' and Rows[2][3]==2 and Rows[2][4]==1)
+assert(status.errors==0 and status.contexts==1 and status.samples==0 and #Rows==3)
+assert(Rows[1][1]=='META' and Rows[1][3]==2 and Rows[2][1]=='TIMING_CONTROL')
+assert(Rows[3][1]=='ZERO' and Rows[3][3]==2 and Rows[3][4]==1)
 h.profile.zeroSuccess=nil;Rows={};assert(Dump(R,{'UI/Bound.lua'},Emit).errors==1)''')
+
+    def test_old_context_without_timing_feature_keeps_original_export_shape(self):
+        self.lua.execute('''local old=H:Snapshot();old.stats.timingChanges=nil;old.timingEnabled=nil
+R.entries['UI/Test.lua'].Snapshot=function()return old end
+local s=Run();assert(s.errors==0 and #Rows==4 and Rows[2][1]=='SAMPLE')''')
 
 
 if __name__=='__main__':unittest.main()
