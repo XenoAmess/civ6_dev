@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [139实机与709观测工具](testing/baiqi-native139-observed709.md)：九域全等／1254根Adminp95~22ms仍开；失败计数器0调用、原函数未改后清理。709完整23366tokens但diff无效，只采版本命名方向，Owner补有界／Lua51／67兼容和实际变换Core验证；24方法过，私有包未安装。累计709／658完整48length3transport739HTTP30extra，维护复用原生0／成本null；710另包。
+
 2026-11-14 [139需求门／708](testing/baiqi-food-demand139.md)：raw708救粮旧City仍4完整busy读／1无用flag，偏好nil待决flag实际0应1；救粮0代码、偏好仅方向经Owner修正。Owner9新／全2022pass1SDKskip、97Lua51／119包，未Native提速。累计708／657完整48length3transport738HTTP30extra，原生0／成本null。
 
 

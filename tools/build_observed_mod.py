@@ -1,4 +1,4 @@
-"""Build a private source67 diagnostic copy; never install or modify release files."""
+"""Build a private source67/139 diagnostic copy; never install release files."""
 from __future__ import annotations
 
 import argparse
@@ -16,6 +16,7 @@ from tools.lua_function_instrument import instrument,lua_string
 from tools.lua_write_instrument import instrument_writes
 from tools.diagnostic_quotas import bounded_quotas,MAX_RETAINED_SAMPLES
 
+# Runtime instrumentation schema; retained for compatibility, not a product version.
 MARKER='baiqi67-q19'
 HELPERS={'NewProfile':'diagnostic_profile','NewRoots':'diagnostic_owned_roots',
          'NewCounter':'diagnostic_queries','NewLeaves':'diagnostic_write_leaves',
@@ -56,8 +57,11 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
     source=ROOT/'mod/Baiqi'
     files=manifest_files(source)
     info=ET.fromstring((source/'Baiqi.modinfo').read_bytes())
-    if info.get('version')!='67':
-        raise ValueError('Diagnostic assembler requires actual source67')
+    version=info.get('version')
+    if version not in ('67','139'):
+        raise ValueError('Diagnostic assembler requires actual source67 or139')
+    if version=='139' and not bounded_zero:
+        raise ValueError('Source139 diagnostics require bounded_zero and the frozen4096 cap')
     expected=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
     expected+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
     quotas=bounded_quotas(expected) if bounded_zero else None
@@ -68,6 +72,11 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
         raise ValueError('Diagnostic output must be a new directory')
     lua=LuaRuntime(unpack_returned_tuples=True)
     compile_lua=lua.eval('function(s,n) local f,e=load(s,n);assert(f,e);return true end')
+    compile_lua51=None
+    if version=='139':
+        from lupa.lua51 import LuaRuntime as Lua51Runtime
+        lua51=Lua51Runtime(unpack_returned_tuples=True)
+        compile_lua51=lua51.eval('function(s,n) local f,e=loadstring(s,n);assert(f,e);return true end')
     prepared={}
     coverage={}
     hashes={name:digest(contained(source,name)) for name in files}
@@ -76,7 +85,13 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
             raw=contained(source,name).read_text(encoding='utf-8-sig')
             compile_lua(raw,name)
             text,coverage[name]=transform(raw,name,quotas)
+            if version=='139':
+                text=text.replace('-- BAIQI_DIAGNOSTIC_ONLY: source67 owned definitions and Native leaves.',
+                                  '-- BAIQI_DIAGNOSTIC_ONLY: source139; runtime instrumentation schema baiqi67-q19.',1)
             compile_lua(text,name+'-q19')
+            if compile_lua51:
+                compile_lua51(raw,name)
+                compile_lua51(text,name+'-q21-bounded')
             prepared[name]=text.encode('utf-8')
     if hashes!={name:digest(contained(source,name)) for name in files}:
         raise ValueError('Release source changed during diagnostic preparation')
@@ -92,10 +107,10 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
     changed=[name for name in files if digest(contained(target,name))!=hashes[name]]
     if set(changed)!=set(prepared):
         raise ValueError('Unexpected diagnostic source differences')
-    mode='baiqi67-q21-bounded' if bounded_zero else MARKER
-    archive=output_dir/('Baiqi-diagnostic67-q21-bounded.zip' if bounded_zero else 'Baiqi-diagnostic67-q19.zip')
+    mode=f'baiqi{version}-q21-bounded' if bounded_zero else MARKER
+    archive=output_dir/(f'Baiqi-diagnostic{version}-q21-bounded.zip' if bounded_zero else 'Baiqi-diagnostic67-q19.zip')
     package(target,archive)
-    result={'mode':mode,'source_version':67,'files':len(files),'changed_files':changed,
+    result={'mode':mode,'source_version':int(version),'files':len(files),'changed_files':changed,
             'expected_entry_keys':sorted(expected),'source_hashes':hashes,
             'aggregate_zero':bounded_zero,'context_quotas':quotas,
             'global_retained_sample_capacity':MAX_RETAINED_SAMPLES if bounded_zero else None,
@@ -103,6 +118,9 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
             'helper_hashes':{stem:digest(ROOT/f'tools/lua/{stem}.lua') for stem in HELPERS.values()},
             'coverage':coverage,'archive_sha256':digest(archive),'installed':False,
             'limits':'Private inclusive walltime envelope, Native/vanilla callees included. Clock resolution, runtime active contexts and full-window completeness require actual evidence. No product controls.'}
+    if version=='139':
+        result['runtime_marker']=MARKER
+        result['lua_compile_versions']=['5.1','5.3']
     (output_dir/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     return result
 

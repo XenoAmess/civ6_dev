@@ -1,0 +1,308 @@
+{
+  "schema": "civ6.native139-and-observed-tool709/v1",
+  "utc": "2026-11-13T17:57:56.392763+00:00",
+  "machine_id": "BF-202609141645",
+  "runtime": 139,
+  "source_commit": "8e0bee4e617fb90b65350775dbe64f1fd3aa3def",
+  "install": {
+    "files": 119,
+    "all_byte_match": true,
+    "fresh_offline_proof_age_seconds": 0.0062,
+    "Steam_switches": 0
+  },
+  "fixture": {
+    "source_version": 136,
+    "turn": 333,
+    "sha256": "86317c181f65d06f12500ba1b7d78b9f18e1bc488d0996e6f2bb75e6e743c0f7",
+    "test_player_END": 0
+  },
+  "world_comparison": {
+    "comparison": "Same exact136saved333 file;136sameprocessreload and139newcoldprocess. Perfieldcomparison only; no rigorouspairedperformanceclaim",
+    "domains": {
+      "WORLD": {
+        "before": 1,
+        "after": 1,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "CITY": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "BUILDING": {
+        "before": 196,
+        "after": 196,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "DISTRICT": {
+        "before": 70,
+        "after": 70,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "PLOT": {
+        "before": 222,
+        "after": 222,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "UNIT": {
+        "before": 52,
+        "after": 52,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "allfood": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "vitals": {
+        "before": 11,
+        "after": 11,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      },
+      "food_journal": {
+        "before_rows": 5,
+        "after_rows": 5,
+        "equal": true,
+        "only_before": [],
+        "only_after": []
+      }
+    }
+  },
+  "root_profiles": {
+    "136_same333_reloaded": {
+      "wall_seconds": 62.395999908447266,
+      "summary": {
+        "Controller.RunNow": {
+          "count": 173,
+          "p50_ms": 1.9998550415039003,
+          "p95_ms": 17.999887466431,
+          "max_ms": 26.000022888184,
+          "above20ms": 3,
+          "above50ms": 0,
+          "failed": 0
+        },
+        "Admin.Run": {
+          "count": 173,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 29.999971389771,
+          "max_ms": 44.999837875366005,
+          "above20ms": 18,
+          "above50ms": 0,
+          "failed": 0
+        }
+      },
+      "dropped": 0,
+      "invalid_clock": 0,
+      "restored": [
+        "true",
+        "true"
+      ],
+      "removed": [
+        "nil"
+      ]
+    },
+    "139_same333_cold": {
+      "wall_seconds": 226.6159999370575,
+      "summary": {
+        "Controller.RunNow": {
+          "count": 627,
+          "p50_ms": 1.9998550415039003,
+          "p95_ms": 15.000104904175,
+          "max_ms": 26.999950408936,
+          "above20ms": 5,
+          "above50ms": 0,
+          "failed": 0
+        },
+        "Admin.Run": {
+          "count": 627,
+          "p50_ms": 3.000020980835,
+          "p95_ms": 22.000074386597,
+          "max_ms": 31.999826431274,
+          "above20ms": 41,
+          "above50ms": 0,
+          "failed": 0
+        }
+      },
+      "dropped": 0,
+      "invalid_clock": 0,
+      "restored": [
+        "true",
+        "true"
+      ],
+      "removed": [
+        "nil"
+      ]
+    }
+  },
+  "profile_limits": "11city exploratory windows in different processes; no strict paired gain claim, no allscript B_turn or B_delta pass; Admin p95 remains above20ms reference",
+  "demand_witness": {
+    "install_failed": true,
+    "run_calls": 0,
+    "busy_reads": 0,
+    "both_original_functions_confirmed_unchanged": true,
+    "unused_global_removed": true,
+    "no_success_claim": true
+  },
+  "governor_read": {
+    "cities": 11,
+    "unassigned_negative_loyalty_cities": 0,
+    "all_rates_positive": true,
+    "orders": 0,
+    "full_breakdown_reads": 0
+  },
+  "checkpoint": {
+    "utc": "2026-11-13T17:56:57.556650+00:00",
+    "name": "Baiqi_P6_20261114_V139_FoodDemandCold333.Civ6Save",
+    "bytes": 2456324,
+    "sha256": "306993f96c9ef0f402f4f8369f52c89f85962ca305395f0fc336354e9cbcf220",
+    "stable_repeated_read": true
+  },
+  "private_observed_artifact": {
+    "source_version": 139,
+    "mode": "baiqi139-q21-bounded",
+    "runtime_marker": "baiqi67-q19",
+    "files": 119,
+    "expected_entry_keys": [
+      "Lua/BaiqiGameplay.lua",
+      "UI/BaiqiChooseArtifact.lua",
+      "UI/BaiqiCityPanel.lua",
+      "UI/BaiqiCityPanelOverview.lua",
+      "UI/BaiqiCityStates.lua",
+      "UI/BaiqiCivicsChooser.lua",
+      "UI/BaiqiCivicsTree.lua",
+      "UI/BaiqiDedicationPopup.lua",
+      "UI/BaiqiDiplomacyActionView.lua",
+      "UI/BaiqiExecutor.lua",
+      "UI/BaiqiGovernmentScreen.lua",
+      "UI/BaiqiGovernorAssignmentChooser.lua",
+      "UI/BaiqiGovernorDetailsPanel.lua",
+      "UI/BaiqiGovernorPanel.lua",
+      "UI/BaiqiGreatPeoplePopup.lua",
+      "UI/BaiqiGreatWorkShowcase.lua",
+      "UI/BaiqiHistoricMoments.lua",
+      "UI/BaiqiLeaderScene.lua",
+      "UI/BaiqiNaturalDisasterPopup.lua",
+      "UI/BaiqiNaturalWonderPopup.lua",
+      "UI/BaiqiNotificationPanel.lua",
+      "UI/BaiqiPantheonChooser.lua",
+      "UI/BaiqiPlotInfo.lua",
+      "UI/BaiqiProductionPanel.lua",
+      "UI/BaiqiReligionScreen.lua",
+      "UI/BaiqiResearchChooser.lua",
+      "UI/BaiqiTechCivicCompletedPopup.lua",
+      "UI/BaiqiTechTree.lua",
+      "UI/BaiqiTradeRouteChooser.lua",
+      "UI/BaiqiUnitFlagManager.lua",
+      "UI/BaiqiUnitPanel.lua",
+      "UI/BaiqiWorldCrisisPopup.lua",
+      "UI/BaiqiWorldInput.lua"
+    ],
+    "context_quotas": {
+      "UI/BaiqiWorldInput.lua": 16,
+      "UI/BaiqiDiplomacyActionView.lua": 16,
+      "UI/BaiqiLeaderScene.lua": 16,
+      "UI/BaiqiUnitPanel.lua": 64,
+      "UI/BaiqiProductionPanel.lua": 16,
+      "UI/BaiqiCityPanel.lua": 64,
+      "UI/BaiqiCityPanelOverview.lua": 16,
+      "UI/BaiqiPlotInfo.lua": 16,
+      "UI/BaiqiTechTree.lua": 192,
+      "UI/BaiqiCivicsTree.lua": 16,
+      "UI/BaiqiGovernmentScreen.lua": 384,
+      "UI/BaiqiGovernorPanel.lua": 16,
+      "UI/BaiqiGovernorDetailsPanel.lua": 16,
+      "UI/BaiqiGovernorAssignmentChooser.lua": 16,
+      "UI/BaiqiTradeRouteChooser.lua": 16,
+      "UI/BaiqiGreatPeoplePopup.lua": 16,
+      "UI/BaiqiWorldCrisisPopup.lua": 16,
+      "UI/BaiqiCityStates.lua": 16,
+      "UI/BaiqiResearchChooser.lua": 64,
+      "UI/BaiqiCivicsChooser.lua": 16,
+      "UI/BaiqiUnitFlagManager.lua": 768,
+      "UI/BaiqiReligionScreen.lua": 16,
+      "UI/BaiqiPantheonChooser.lua": 16,
+      "UI/BaiqiDedicationPopup.lua": 16,
+      "UI/BaiqiNaturalDisasterPopup.lua": 16,
+      "UI/BaiqiTechCivicCompletedPopup.lua": 16,
+      "UI/BaiqiNotificationPanel.lua": 16,
+      "UI/BaiqiNaturalWonderPopup.lua": 16,
+      "UI/BaiqiHistoricMoments.lua": 16,
+      "UI/BaiqiGreatWorkShowcase.lua": 16,
+      "UI/BaiqiChooseArtifact.lua": 16,
+      "UI/BaiqiExecutor.lua": 2032,
+      "Lua/BaiqiGameplay.lua": 128
+    },
+    "global_retained_sample_capacity": 4096,
+    "lua_compile_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "archive_sha256": "b2aff5568ae3f14d72e74d9ba7b9e80af5e6d22fa93db5fd9c6c45e5cb9d3518",
+    "installed": false
+  },
+  "tool_checks": {
+    "passing_methods": 24,
+    "new_methods": 6,
+    "first_owner_loader_error": "one module import missing tests sys.path, before its8 tests; corrected discovery ran those8 successfully",
+    "raw709_apply_check": "exit128 No valid patches; no raw patch applied",
+    "source67_metadata_shape_preserved": true,
+    "source139_unbounded_rejected": true,
+    "actual_transformed_core_fastpath_and_override_test": true,
+    "Native_allscript": false
+  },
+  "model709": {
+    "finish_reason": "stop",
+    "sse_done": true,
+    "total_ms": 17345.63019988127,
+    "first_nonempty_content_delta_ms": 2824.445999925956,
+    "usage": {
+      "prompt_tokens": 20866,
+      "completion_tokens": 2500,
+      "total_tokens": 23366
+    },
+    "candidate_complete": true
+  },
+  "review709": {
+    "adoption": "partial version and artifact naming direction, owner rewritten",
+    "owner_fixes": [
+      "valid patch",
+      "current source bounded only",
+      "raw and transformed Lua5.1 compilation",
+      "source67 metadata compatibility",
+      "actual transformed InspectBatch canonical/override behavior proof"
+    ],
+    "code_execution": 0,
+    "game_orders": 0
+  },
+  "cumulative_through709": {
+    "logical_calls": 709,
+    "complete_streams_including_one_strict_json_rejection": 658,
+    "length": 48,
+    "final_transport": 3,
+    "HTTP_attempts": 739,
+    "extra_attempts": 30,
+    "OpenCode_native_generation_tasks": 0,
+    "new_peak_inflight": 1,
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "maintenance": "Nov14 shared daily OpenCode1.19.5 check passed/latest1.19.5; canonical adapter cache reused; no model code-generation capability inferred",
+  "remaining": "710candidate is a separate unfinished governor demand task; keep its counts separate until reviewed implementation"
+}
