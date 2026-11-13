@@ -152,6 +152,50 @@ function bridge.Inspect(...)
   local ok,a,b,c=pcall(Inspect,...);if ok then return a,b,c end
   return "UNAVAILABLE",nil,"inspect_unavailable"
 end
+-- One UI/Core crossing, with the same fresh per-city observation as Inspect.
+-- These receipts never grant a command; Prepare and the final Inspect stay fresh.
+local function InspectBatch(pid,requests)
+  if type(requests)~="table" or getmetatable(requests)~=nil then return "UNAVAILABLE" end
+  local count,maximum=0,0
+  for k in pairs(requests) do
+    count=count+1
+    if count>128 or not J.Integer(k) or k<1 or k>128 then return "UNAVAILABLE" end
+    maximum=math.max(maximum,k)
+  end
+  if count==0 or maximum~=count then return "UNAVAILABLE" end
+  local p=Owner(pid,false);if not p then return "UNAVAILABLE" end
+  local turn=Static(Game,"GetCurrentGameTurn");if not J.Integer(turn) then return "UNAVAILABLE" end
+  local inspect,batch=bridge.Inspect,bridge.InspectBatch
+  if type(inspect)~="function" or type(batch)~="function" then return "UNAVAILABLE" end
+  local own=Method(p,"GetCities");local seen,validated={},{}
+  -- Complete request validation precedes every receipt observer, including writes.
+  for i=1,count do
+    local r=requests[i]
+    if type(r)~="table" or getmetatable(r)~=nil or not J.Integer(r.cityID)
+      or seen[r.cityID] or (r.token~=nil and (type(r.token)~="string" or #r.token>96)) then return "UNAVAILABLE" end
+    for k in pairs(r) do if k~="cityID" and k~="token" then return "UNAVAILABLE" end end
+    local c=Method(own,"FindID",r.cityID)
+    if not c or Method(c,"GetID")~=r.cityID or Method(c,"GetOwner")~=pid then return "UNAVAILABLE" end
+    seen[r.cityID]=true
+    validated[i]={cityID=r.cityID,token=r.token}
+  end
+  local result={}
+  for i=1,count do
+    if Owner(pid,false)~=p or Static(Game,"GetCurrentGameTurn")~=turn
+      or bridge.Inspect~=inspect or bridge.InspectBatch~=batch then return "UNAVAILABLE" end
+    local r=validated[i]
+    local stage,token,why=inspect(pid,r.cityID,r.token)
+    result[J.Key(r.cityID)]={cityID=r.cityID,stage=stage,token=token,reason=why}
+  end
+  if Owner(pid,false)~=p or Static(Game,"GetCurrentGameTurn")~=turn
+    or bridge.Inspect~=inspect or bridge.InspectBatch~=batch then return "UNAVAILABLE" end
+  return "READY",result
+end
+function bridge.InspectBatch(...)
+  local ok,status,rows=pcall(InspectBatch,...)
+  if ok then return status,rows end
+  return "UNAVAILABLE"
+end
 function bridge.Prepare(...)
   local ok,a,b,c=pcall(Prepare,...);if ok then return a,b,c end
   return false,nil,"prepare_unavailable"

@@ -1,5 +1,8 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [137批量回执／703704](testing/baiqi-food-receipt-batch137.md)：533边界样本0丢弃、11Inspect每救粮；703泛NO_PATCH越权预算，704raw6方法2Lua错误且假观察，均拒绝。Owner137批量保新鲜Core观察／最终许可，11新方法／55相关／全2007pass1SDKskip，97Lua51／119包；首轮nilreason兼容及loader缺path单列。尚未Native提速，累计704／653完整48length3transport734HTTP30extra，原生0／成本null。
+
+
 2026-11-14 [333自然等待／702与计时](testing/baiqi-nohint333-profile702.md)：1普通END7军SKIP、11城NO_LOSS；232根样本Adminp95=27ms，184子样本救粮p95=18ms，非十城或配对PASS。702完整20966tokens／8282.8177ms却虚公开local、混所属及循环口径，整拒；Owner旧进程适配拒绝后独立实际332→333比较，旧原件保留。累计702／651完整48length3transport732HTTP30extra，原生0／成本null。
 
 

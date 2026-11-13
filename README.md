@@ -1,5 +1,8 @@
 # civ6_dev
 
+[137救粮回执批量桥／软件](docs/testing/baiqi-food-receipt-batch137.md)：保留逐城新鲜观察和最终许可，仅减少UI桥往返；11新方法、55相关、完整2007pass1SDKskip，97Lua51／119包。尚未实机或证明提速，继续同333冷验。
+
+
 [136／333普通推进与Admin耗时缺口](docs/testing/baiqi-nohint333-profile702.md)：移民自然等待后自动待命、11城无人损；232根计时无丢弃，Admin p95约27ms高于20ms参考。184子计时已还原，333已存，继续定位修复，未授性能通过。
 
 

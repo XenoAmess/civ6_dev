@@ -130,12 +130,52 @@ local function Source(s,plan)
       and Int(row.sourceX,0,s.mapWidth-1) and Int(row.sourceY,0,s.mapHeight-1) then return row.sourceX,row.sourceY end
   end
 end
+local stages={OPEN=true,ARMED=true,TRANSFERRED=true,OBSERVED=true,UNKNOWN=true,UNAVAILABLE=true}
+local function Batch(E,pid,turn,player,list)
+  local b=Bridge(E);if not b then return nil,false end
+  if b.InspectBatch==nil then return nil,true end -- Older Core: retain individual reads.
+  if type(b.InspectBatch)~="function" then return nil,false end
+  local inspect,prepare,method=b.Inspect,b.Prepare,b.InspectBatch
+  local requests,ids={},{}
+  for _,c in ipairs(list) do
+    local id=Identity(c,pid).id;local held=pending[id]
+    requests[#requests+1]={cityID=id,token=held and held.token}
+    ids[string.format("%.0f",id)]=id
+  end
+  local ok,status,rows=pcall(method,pid,requests)
+  if not ok or status~="READY" or type(rows)~="table" or getmetatable(rows)~=nil
+    or Bridge(E)~=b or b.Inspect~=inspect or b.Prepare~=prepare or b.InspectBatch~=method
+    or Player(E,pid,turn)~=player then return nil,false end
+  local count=0
+  for k,r in pairs(rows) do
+    count=count+1
+    if count>#requests or ids[k]==nil or type(r)~="table" or getmetatable(r)~=nil
+      or r.cityID~=ids[k] or stages[r.stage]~=true
+      or (r.token~=nil and (type(r.token)~="string" or #r.token>96))
+      or (r.reason~=nil and (type(r.reason)~="string" or #r.reason>128)) then return nil,false end
+    for field in pairs(r) do
+      if field~="cityID" and field~="stage" and field~="token" and field~="reason" then return nil,false end
+    end
+    if (r.stage=="OPEN" and r.token~=nil)
+      or ((r.stage=="ARMED" or r.stage=="TRANSFERRED" or r.stage=="OBSERVED")
+        and (type(r.token)~="string" or #r.token==0)) then return nil,false end
+  end
+  if count~=#requests then return nil,false end
+  return {bridge=b,inspect=inspect,prepare=prepare,method=method,rows=rows},true
+end
 local deniedBeforePersist={owner_or_bridge=true,invalid_journal=true,prior_unresolved=true,prior_plot_unresolved=true,
   journal_limit=true,invalid_identity=true,invalid_record=true,old_identity_mismatch=true,snapshot_changed=true,same_plot=true}
-local function City(E,pid,turn,player,own,c,t)
+local function City(E,pid,turn,player,own,c,t,batch)
   local identity=Identity(c,pid);local held=pending[identity.id];local b=Bridge(E);if not b then return false end
   local prepare,inspect=b.Prepare,b.Inspect
-  local stage,token=Call(b,"Inspect",pid,identity.id,held and held.token)
+  local stage,token
+  if batch then
+    if b~=batch.bridge or prepare~=batch.prepare or inspect~=batch.inspect or b.InspectBatch~=batch.method
+      or Player(E,pid,turn)~=player then return false end
+    local row=batch.rows[string.format("%.0f",identity.id)]
+    if not row or row.cityID~=identity.id then return false end
+    stage,token=row.stage,row.token
+  else stage,token=Call(b,"Inspect",pid,identity.id,held and held.token) end
   if held then
     if held.player~=pid or not SameCity(held,identity) then return false end
     if held.token==nil or (stage~="OBSERVED" and stage~="TRANSFERRED") or token~=held.token then return false end
@@ -201,8 +241,9 @@ function BaiqiFoodTileRescueRunner.Run(E,pid)
       local s=Identity(c,pid);if #list>=128 or seen[s.id] then return end;seen[s.id]=true;list[#list+1]=c
     end
     if #list~=count or Method(own,"GetCount")~=count then return end
+    local batch,ready=Batch(E,pid,turn,player,list);if not ready then return end
     for _,c in ipairs(list) do
-      local ok,sent=pcall(City,E,pid,turn,player,own,c,t)
+      local ok,sent=pcall(City,E,pid,turn,player,own,c,t,batch)
       if ok and sent then return end
     end
   end)
