@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [MANY生成FAIL／阶段日志775](testing/baiqi-pressure-generation-failure-trace775.md)：首次MANY创建访问冲突、根因未知，自有错误框一次确认后自然退出，主／NoSite存档SHA重新全等。775候选0采用，Owner12项过及新trace包未Native；默认772包全部字节摘要全等。累计775／720完整／805HTTP。
+
 2026-11-14 [独立压力性能协议774](testing/baiqi-pressure-performance-protocol.md)：保持旧预算与25段中位规则，NoSite实际1／2—6／7，配对至6窗后停；候选误写初始动作和统计且主要英文，0采用，Owner重写并核对原协议字节未改。累计774／719完整／804HTTP；尚无压力性能通过。
 
 2026-11-14 [无落点夹具773](testing/baiqi-pressure-nosite-fixture773.md)：新世界实际T1、10／1城、完整1144可见，1133水／11城／0裸地，独立几何证书成立；人工准备不记AI效果，性能仍未测。773length整份未读弃用，Owner6项过及一次Native快照；累计773／718完整／803HTTP。

@@ -103,3 +103,32 @@ class BuildPressureMapTests(unittest.TestCase):
                 (base/'tools/lua/pressure_fixture_geometry.lua').write_bytes(b'not valid lua' if bad=='core' else core)
                 with patch.object(builder,'ROOT',base), self.assertRaises(Exception):builder.build(base/'out')
                 self.assertFalse((base/'out').exists())
+
+    def test_trace_entries_keep_actual_callbacks_and_native_sequence(self):
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)/'trace';result=builder.build(out,trace_generation=True)
+            self.assertTrue(result['generation_trace'])
+            self.assertEqual(result['trace_sha256'],hashlib.sha256((builder.ROOT/'tools/lua/pressure_generation_trace.lua').read_bytes()).hexdigest())
+            for version in ('lua51','lua53'):
+                for variant,path in builder.MAPS.items():
+                    script=(out/'PressureMaps'/path).read_text(encoding='utf-8')
+                    lua,env=self.runtime(script,version)
+                    logs=[]
+                    lua.globals().TraceSink=lambda stage,n:logs.append((stage,n))
+                    lua.execute('function print(marker,variant,stage,n) TraceSink(stage,n)end')
+                    self.assertEqual((env.reads,len(env.log)),(0,0))
+                    lua.globals().GetMapInitData('MAPSIZE_TINY')
+                    self.assertEqual(len(env.log),0)
+                    generated=lua.globals().GenerateMap()
+                    self.assertEqual((generated.variant,len(env.log)),(variant,1149))
+                    self.assertIn(('TERRAIN_END',1144),logs)
+                    self.assertIn(('LOGGING_ERRORS',0),logs)
+                    self.assertIn(('START1_END',0),logs)
+                    with self.assertRaisesRegex(Exception,'already attempted'):lua.globals().GenerateMap()
+                    self.assertEqual(len(env.log),1149)
+            lua,env=self.runtime((out/'PressureMaps'/builder.MAPS['MANY']).read_text(encoding='utf-8'))
+            lua.execute('function print(...)error("logger",0)end')
+            result=lua.globals().GenerateMap()
+            self.assertEqual((result.variant,len(env.log)),('MANY',1149))
+            with self.assertRaises(ValueError):builder.build(Path(temp)/'bad',trace_generation=1)
+            self.assertFalse((Path(temp)/'bad').exists())

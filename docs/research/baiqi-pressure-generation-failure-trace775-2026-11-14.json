@@ -1,0 +1,208 @@
+{
+  "schema": "civ6.pressure-generation-failure-trace775/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "Native_failure": {
+    "case": "pressure142b-MANY",
+    "status": "FAIL_ACCESS_VIOLATION_DURING_NEW_WORLD_CREATION",
+    "owned_PID": 13172,
+    "birth": 1794655286.7166457,
+    "reused_instance_after_certified_NO_SITE": true,
+    "setting": "GS/Ancient/Standard/Prince/Baiqi/Cleopatra/noBarb/0citystates/44x26",
+    "game_seed": 616018721,
+    "map_seed": 616018722,
+    "official_start_handler_calls": 1,
+    "last_durable_Lua_line": "GenerateRandomMap: Map Seed = 616018722",
+    "terminal_geometry_or_loadready_markers": 0,
+    "crash_dialog_title": "Unhandled Exception: EXCEPTION_ACCESS_VIOLATION in CivilizationVI_DX12.exe",
+    "stack": "WM_GETTEXT readonly exactownedEdit:759 chars, read-address0x31aca924, all stackframes ???, no usable symbols",
+    "root_cause": "UNKNOWN; no evidence isolates terrain/hills/chokes/continents/renderer/warmreuse",
+    "manual_fixture_city_or_visibility_setup_calls": 0,
+    "Native_map_generation_write_count": null,
+    "new_world_ready": false,
+    "pressure_qualified": false,
+    "Continue_ESC": 0,
+    "END": 0,
+    "military_or_civilian_orders": 0,
+    "unknown_action_replays": 0,
+    "screenshots": 0,
+    "recovery": "Exact owned error-dialog OK via BM_CLICK once, independently PIDnaturallygone,0process_termination_calls,0Steamactions."
+  },
+  "protected_saves_fresh_byte_verified_after_crash": {
+    "pressure142-pre-fixture-main334-save": {
+      "utc": "2026-11-14T11:19:16.385046+00:00",
+      "name": "Baiqi_P6_20261114_V142_PrePressureFixtureMain334.Civ6Save",
+      "bytes": 2460247,
+      "sha256": "f70b50de5f2d8d6f1ce6689d306f0015ae6f4b4d46bcc7a4f07b147357e661cf",
+      "stable_repeated_read": true
+    },
+    "pressure142a-nosite-ready1-save": {
+      "utc": "2026-11-14T11:39:51.766187+00:00",
+      "name": "Baiqi_P6_20261114_V142_PressureNoSiteReady1.Civ6Save",
+      "bytes": 295622,
+      "sha256": "92f43e9ca5fa38adef7d0e602d50d3e11da6d65f9cfbd6db496292113c8b9aa0",
+      "stable_repeated_read": true
+    }
+  },
+  "model": {
+    "task": 775,
+    "usage": {
+      "prompt_tokens": 5564,
+      "completion_tokens": 3457,
+      "total_tokens": 9021
+    },
+    "total_ms": 21059.381699888036,
+    "first_content_ms": 860.6517999432981,
+    "attempts": 1,
+    "complete_stop_DONE_strictJSON": true,
+    "adopted_code_lines": 0,
+    "adopted_tests": 0,
+    "disposition": "Rejected; Owner trace and builder integration",
+    "raw_review": {
+      "implementation_lines": 156,
+      "test_lines": 144,
+      "adopted_code_lines": 0,
+      "adopted_tests": 0,
+      "Native_actions": 0,
+      "raw_python_compile": "PASS",
+      "lua51_parse": "PASS",
+      "lua51_actual_module_return": "None",
+      "lua51_bridge_Map_identity": false,
+      "lua51_bridge_real_consumer": {
+        "error": "[string \"<python>\"]:15: assertion failed!\nstack traceback:\n\t[string \"<python>\"]:67: in function <[string \"<python>\"]:18>\n\t[string \"<python>\"]:116: in function 'SetStartingPlot'\n\t[C]: in function 'error'",
+        "terrain": {
+          "logging_errors": 0,
+          "terrain_attempts": 1144,
+          "terrain_completed": 1144
+        },
+        "fake_mutations": 1147
+      },
+      "lua53_parse": "PASS",
+      "lua53_actual_module_return": "None",
+      "lua53_bridge_Map_identity": false,
+      "lua53_bridge_real_consumer": {
+        "error": "[string \"<python>\"]:15: assertion failed!\nstack traceback:\n\t[string \"<python>\"]:67: in function <[string \"<python>\"]:18>\n\t[string \"<python>\"]:116: in method 'SetStartingPlot'\n\t[C]: in function 'error'",
+        "terrain": {
+          "terrain_attempts": 1144,
+          "terrain_completed": 1144,
+          "logging_errors": 0
+        },
+        "fake_mutations": 1147
+      }
+    },
+    "raw_suite": "Python parses,7methods executed all ERROR at runtime.eval(local E statements) on first Lua51 instance; Lua53 suite not reached. Tests never load module; Python colon expressions on subscript targets are annotations, not colon method dispatch.",
+    "raw_source_errors": "Missing returned MakeTrace; Map identity replaced; missing strictenum validation; Player self forwarded proxy; args/returns dropped; no1145guard.156Lua/144test lines exceeded130 each.",
+    "Owner_bridge_limits": "Explicit appended return MakeTrace only for independent synthetic inspection, not rawmodule validity/adoption. BothLua51/53 realgeometryconsumer reached1147fake mutations then failed Player0originalself assertion. Nativeactions0.",
+    "request_sha256": "fe32b824feb282f347e4618b8ecd6e1538b3c8888ac4aa93268c2474915c5a68",
+    "provenance": {
+      "schema": "civ6.local-model-adapter-provenance/v1",
+      "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+      "shared_commit": "ca785f2e10e6f4ab5c0e44b9359cc9f511c8b776",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+      "overrides": {
+        "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+      },
+      "timeout_override": null,
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+    },
+    "owner_phase_utc": [
+      {
+        "utc": "2026-11-14T12:02:37.037830+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T12:02:37.397738+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T12:03:24.926440+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T12:04:58.979558+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T12:04:59.147740+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T12:13:33.180604+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      }
+    ]
+  },
+  "software_validation": {
+    "command": "python -X utf8 -m unittest tests.test_pressure_generation_trace tests.test_build_pressure_map_mod -v",
+    "methods": 12,
+    "passed": 12,
+    "new_methods": 7,
+    "Lua": "Both51/53 actualgeometry+generatedentry+fakeports, exactnativecallorder/self/argument and return nilholes/errorobject,loggerthrowdoesnotchangeNativeexecution,1145rejected,Snapshotcopy",
+    "default_prepared_package_metadata_all_fields_exact_equal_772": true,
+    "release142119_source_hashes_unchanged": true,
+    "trace_scope": "ConstructornoNativecalls/loggers;Mapidentitykept,actualportsvalidatedbeforewrapping. OnlyprivateGenerateMap andmapinit logging, noingamecallbacks/AI/SteamAPI. C++accessviolation cannotbe caughtorrootcausedbyLua wrapper."
+  },
+  "prepared_trace_package": {
+    "mode": "baiqi-pressure-map-trace-v1",
+    "installed": false,
+    "native_generated": false,
+    "files": 4,
+    "package_file_sha256": {
+      "PressureMaps.modinfo": "7e549f58e7197354d9ff8031c0369473d167d643af93dcb4d96b6eff5ce9bb4a",
+      "Config/PressureMaps.xml": "c235f5aade0b1bf74671eef757fb07220be1079b64695e8e0b531621afbd68a5",
+      "Maps/P6PressureNoSite.lua": "8884a691f2172b610b3e65aabdb6a7cdc825acb15c49f9937fd584e0d29fa278",
+      "Maps/P6PressureMany.lua": "79a29ae1fba23d5ee59336c23d0a238bcf7b739d8c01c60c1be2bf17de6632fc"
+    },
+    "map_scripts": {
+      "NO_SITE": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureNoSite.lua",
+      "MANY": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureMany.lua"
+    },
+    "layout_sha256": "779df0744db6a8f40e70d0784f3041f2b78c22ca56d19892e6426714f62a6d5f",
+    "geometry_sha256": "b8cd23eaf0f0f72b1587610947c3c0e4824d9818c060a9d76b25e8557cb76ef6",
+    "generation_trace": true,
+    "trace_sha256": "e45dea29a5b70377e398622997ae84c7750371f0a4b14bba7120a887d3226225"
+  },
+  "trace_installed": false,
+  "trace_Native_generated": false,
+  "file_sha256": {
+    "tools/lua/pressure_generation_trace.lua": "e45dea29a5b70377e398622997ae84c7750371f0a4b14bba7120a887d3226225",
+    "tests/test_pressure_generation_trace.py": "fa50c9407163d4f0a7ef79e8ec1239bb5509d3d6bc45bf77bfe9ddc43f495a03",
+    "tools/build_pressure_map_mod.py": "dc787d59ff84a5655f4d094c24da8dbf15ad1ce1e34b891850c5bb90ec7f6782",
+    "tests/test_build_pressure_map_mod.py": "b48d00dfab0305cf49bd4b6dbc4b408d09353997eb5ba0a0d2ef0e1d79cbc518"
+  },
+  "new_client_POST_peak": 1,
+  "server_parallelism": null,
+  "cumulative": {
+    "logical_calls": 775,
+    "complete_streams_including_historical_json_rejection": 720,
+    "length": 52,
+    "final_transport": 3,
+    "actual_HTTP": 805,
+    "extra_attempts": 30
+  },
+  "maintenance": "Canonical1.19.5 Nov14 successcache reused; newOpenCode-native generation/tool sessions0.",
+  "owner_cost_limits": "RawOwnerwitnessfirstfailed missingROOTsys.path beforeLua; helperfixed and originalfilesassertedexact/nooverwrite. Raw suite/bridge duringcorrection after this ownererror, no phasebackdating;12Owner methods/build checks in correction; unmeasured earlierNativecrashdiag/publication. Noexclusiveactivecost/net savings.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0,
+  "TC036_full_status": "PARTIAL",
+  "next": "After clean delivery install newprivate tracedaddon onlywithownedgamegone; freshcurrentSteamofflineproof andfreshownedprocess, start separateMANY attempt. Do not replay failedworld or claimrootcause fixed. Naturalcensus andallpressurebudgets stillopen."
+}

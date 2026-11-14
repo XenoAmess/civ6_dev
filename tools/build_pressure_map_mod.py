@@ -30,8 +30,8 @@ def _lua(value):
     raise ValueError('Unsupported layout literal')
 
 
-def _entry(core, layout, variant):
-    return '''-- PRIVATE artificial initial geometry, never an AI construction claim.
+def _entry(core, layout, variant, *, trace=None):
+    text = '''-- PRIVATE artificial initial geometry, never an AI construction claim.
 include "MapEnums"
 local GenerateGeometry=(function()
 ''' + core + '\nend)()\nlocal layout=' + _lua(layout) + '''
@@ -50,6 +50,28 @@ function GenerateMap()
   return result
 end
 '''
+    if trace is not None:
+        emit = "print('P6_PRESSURE_MAP_TRACE','" + variant + "',stage,n)"
+        text = text.replace('include "MapEnums"', "pcall(print,'P6_PRESSURE_MAP_TRACE','" + variant + "','ENTRY_LOADED',0)\ninclude \"MapEnums\"", 1)
+        text = text.replace('local generated=false', 'local MakeTrace=(function()\n' + trace + '\nend)()\nlocal generated=false', 1)
+        text = text.replace('function GetMapInitData(mapSize)', 'function GetMapInitData(mapSize)\n  ' + emit.replace('print(', 'pcall(print,', 1).replace('stage,n', "'INITDATA',mapSize"), 1)
+        old = '''  local result=GenerateGeometry({in_generation=true,Map=Map,TerrainBuilder=TerrainBuilder,
+    AreaBuilder=AreaBuilder,Players=Players,grass=g_TERRAIN_TYPE_GRASS,
+    ocean=g_TERRAIN_TYPE_OCEAN,hills=g_TERRAIN_TYPE_GRASS_HILLS},layout,"''' + variant + '''")'''
+        new = '''  local Emit=function(stage,n) ''' + emit + ''' end
+  pcall(Emit,'GENERATE_BEGIN',0)
+  local env,Snapshot=MakeTrace({in_generation=true,Map=Map,TerrainBuilder=TerrainBuilder,
+    AreaBuilder=AreaBuilder,Players=Players,grass=g_TERRAIN_TYPE_GRASS,
+    ocean=g_TERRAIN_TYPE_OCEAN,hills=g_TERRAIN_TYPE_GRASS_HILLS},Emit)
+  local result=GenerateGeometry(env,layout,"''' + variant + '''")
+  local trace=Snapshot()
+  pcall(Emit,'GENERATE_END',trace.terrain_completed)
+  pcall(Emit,'LOGGING_ERRORS',trace.logging_errors)'''
+        if text.count(old) != 1:
+            raise ValueError('Unknown generation trace binding')
+        text = text.replace(old, new, 1)
+        text = text.replace("  print('P6_PRESSURE_MAP_GEOMETRY_READY',", "  pcall(print,'P6_PRESSURE_MAP_GEOMETRY_READY',", 1)
+    return text
 
 
 def _xml(root):
@@ -89,7 +111,9 @@ def _config():
     return _xml(root)
 
 
-def build(output_dir: Path) -> dict:
+def build(output_dir: Path, *, trace_generation: bool = False) -> dict:
+    if type(trace_generation) is not bool:
+        raise ValueError('Trace mode must be a boolean')
     output_dir = Path(output_dir).resolve()
     if output_dir.exists() or any(output_dir.is_relative_to(ROOT / p) for p in ('mod', 'tools', 'tests', 'docs')):
         raise ValueError('New separate output directory required')
@@ -97,9 +121,11 @@ def build(output_dir: Path) -> dict:
     core_bytes = (ROOT / 'tools/lua/pressure_fixture_geometry.lua').read_bytes()
     layout = json.loads(layout_bytes.decode('utf-8'))
     _layout(layout)
+    trace_bytes = (ROOT / 'tools/lua/pressure_generation_trace.lua').read_bytes() if trace_generation else None
     files = {'PressureMaps.modinfo': _manifest(), 'Config/PressureMaps.xml': _config()}
     for variant, path in MAPS.items():
-        files[path] = _entry(core_bytes.decode('utf-8'), layout, variant).encode('utf-8')
+        files[path] = _entry(core_bytes.decode('utf-8'), layout, variant,
+                             trace=trace_bytes.decode('utf-8') if trace_bytes is not None else None).encode('utf-8')
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     for runtime in (Lua51(), Lua53()):
@@ -116,6 +142,8 @@ def build(output_dir: Path) -> dict:
                   package_file_sha256={p: sha((package / p).read_bytes()) for p in files},
                   map_scripts={v: '{' + UUID + '}' + p for v, p in MAPS.items()},
                   layout_sha256=sha(layout_bytes), geometry_sha256=sha(core_bytes))
+    if trace_generation:
+        result.update(mode='baiqi-pressure-map-trace-v1', generation_trace=True, trace_sha256=sha(trace_bytes))
     (output_dir / 'pressure-map-build.json').write_bytes((json.dumps(result, indent=2) + '\n').encode('utf-8'))
     return result
 
@@ -123,5 +151,7 @@ def build(output_dir: Path) -> dict:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir', type=Path, required=True)
-    result = build(parser.parse_args().output_dir)
+    parser.add_argument('--trace-generation', action='store_true')
+    args = parser.parse_args()
+    result = build(args.output_dir, trace_generation=args.trace_generation)
     print(json.dumps({k: result[k] for k in ('mode', 'files', 'installed', 'native_generated')}))
