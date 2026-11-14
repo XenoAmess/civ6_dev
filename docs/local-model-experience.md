@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [无落点夹具773](testing/baiqi-pressure-nosite-fixture773.md)：新世界实际T1、10／1城、完整1144可见，1133水／11城／0裸地，独立几何证书成立；人工准备不记AI效果，性能仍未测。773length整份未读弃用，Owner6项过及一次Native快照；累计773／718完整／803HTTP。
+
 2026-11-14 [私有压力地图772](testing/baiqi-pressure-map-addon772.md)：候选入口双Lua解析失败／4哈希不符，0采用；Owner5项过，独立地图包与静态control只准备未安装，334无Native动作。累计772／718完整／802HTTP。
 
 2026-11-14 [压力地形770—771](testing/baiqi-pressure-geometry770771.md)：两完整候选原测试7全error／8中5error，0采用；Owner12项验证新地图纯几何与严格全图证书。未Native、未改142主334；MANY不冒充≥12入池。累计771／717完整／801HTTP。
