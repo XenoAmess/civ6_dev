@@ -872,3 +872,8 @@ C：金币300时先在原生确认框物理取消，仍敌城／300金币／2行
 ### 2026-11-04：修复观测容量后继续五回合
 
 [q21实际五窗](../../research/baiqi-p6-native67-q21-bounded314315-evidence-2026-11-04.json)在全局4096配额内保留1804区间、聚合33038零值正常调用，0丢弃／错误。86—90观测去重258／379／568／267／662ms，每回合完整写API尝试11／10／21／12／24；军队19原有坐标不变，新骑士留城心待命，11城队列空0，91回合已存档。外交由测试玩家代理关闭，不要求用户点击。B_delta配对对照未完成，TC-036与全功能验收均未通过；旧q20存储配置偏差仍保留，不追认。
+
+
+## 2026-11-15：源码142压力矩阵继续
+
+[MANY四项完整](../baiqi-pressure-many-complete.md)已过；[NO_SITE J/K前三项](../baiqi-pressure-nosite-fullscript-K.md)通过，五窗最大约181ms、整回合请求最大3。NO_SITE[首组5段](../baiqi-pressure-nosite-pairN-group1.md)已审计推送，中位差约−5ms／比例−0.78%；其余组继续，TC-036仍PARTIAL，未授全40项。Steam查询未知时停在冷启之前，[第二组门恢复](../baiqi-pressure-nosite-menu-state-recovery.md)取得新鲜后台离线证明后才首启；正式测量无构建／测试／HTTP，0人工内政或UserForced。
