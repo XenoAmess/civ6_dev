@@ -1101,3 +1101,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [805最终性能审阅](testing/baiqi-performance142-complete805.md)：八压力格及原85全部满足冻结合同，Owner授已测范围TC-036 PASS；拒模型把全40功能／未测规则集当额外门。R4实际label已明确，最终汇总再显式映射，0代码／测试采用。累计805／746完整／56length／835HTTP，未知成本null。
+
+
+2026-11-15 [803后续采用及主334恢复](testing/baiqi-ordinary142-main334-restored803.md)：4双Lua／8守卫、Name stem及先保存false回执等Owner修正后部分采用，实际普通142119匹配、一次载入／Continue、334／11城就绪；军队原排队仍在，0END334。历史未审切点不回写，后到Native窄通过与全功能分列。
