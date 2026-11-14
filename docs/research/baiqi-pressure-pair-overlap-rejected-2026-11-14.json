@@ -1,0 +1,207 @@
+{
+  "schema": "civ6.pressure-pair-environment-rejection/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "invalidation": {
+    "utc": "2026-11-14T15:56:32.454810+00:00",
+    "case": "pressurepair142-1-enabled",
+    "status": "ENVIRONMENT_INVALID_ENTIRE_SIDE",
+    "reason": "Owner started NoSite private builds during load, then automatic sequence entered formal measurement while builds still active. Build completion UTC15:54:24.147303 follows formal run start15:53:59.235970.",
+    "completed_capture_exists_at_persisted_invalidation": true,
+    "raw_metrics_visible_by_persisted_invalidation": true,
+    "ordering_correction": "Decision and user commentary were based on live progress at9 before reading final durations. Initial attempt to persist precompletion rejection failed its guard because capture had already finished. Pendingtool then displayed actual durations. This exclusive record is later; do not claim a successful precompletion persisted record.",
+    "current_live_progress": "Completed11/save/officialexit; quietownedresiduewait",
+    "all_originals_retained": true,
+    "no_segment_filtering_or_outlier_removal": true,
+    "retry": "Independentnewcoldcampaign pressurepair142r; allfivegroups use r-label; samefixture/pins/budgets, noadoptionofinvalidfirstside",
+    "owner_error": true,
+    "model_error": false,
+    "Steam_online": 0
+  },
+  "invalid_capture": {
+    "utc": "2026-11-14T15:55:31.576065+00:00",
+    "pair": 1,
+    "archive_sha256": "cbd60e54a764a79ea3ba3d2086eee193bcc0069a489ec5c4d2c62baa4af18678",
+    "variant": "enabled",
+    "run_id": "enabled-59d68ca38658407fbc8276d5b4d70c68",
+    "fixture_sha256": "459a46e5d23d0600db7bd682a8d99f44218cc1812ba34bd6cdbe07993340da0a",
+    "source_version": 142,
+    "errors": 0,
+    "refused": 0,
+    "records": [
+      {
+        "from_turn": 6,
+        "to_turn": 7,
+        "pid": 0,
+        "started": 1794671647.75,
+        "ended": 1794671648.662,
+        "seconds": 0.9119999408721924
+      },
+      {
+        "from_turn": 7,
+        "to_turn": 8,
+        "pid": 0,
+        "started": 1794671665.607,
+        "ended": 1794671666.557,
+        "seconds": 0.9499998092651367
+      },
+      {
+        "from_turn": 8,
+        "to_turn": 9,
+        "pid": 0,
+        "started": 1794671684.138,
+        "ended": 1794671684.9880002,
+        "seconds": 0.8500001430511475
+      },
+      {
+        "from_turn": 9,
+        "to_turn": 10,
+        "pid": 0,
+        "started": 1794671701.799,
+        "ended": 1794671702.525,
+        "seconds": 0.7260000705718994
+      },
+      {
+        "from_turn": 10,
+        "to_turn": 11,
+        "pid": 0,
+        "started": 1794671719.151,
+        "ended": 1794671720.16,
+        "seconds": 1.0090000629425049
+      }
+    ],
+    "requested_turns": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "cities": 10,
+    "phase": "COMPLETE",
+    "token": "59d68ca38658407fbc8276d5b4d70c68",
+    "end_mode": "ORDINARY_CALLBACK",
+    "forced": false,
+    "source": "baiqi142-pressure-paired-v1",
+    "initial_turn": 6
+  },
+  "invalid_capture_sha256": "972fe3c63d7d630f3518143fa597207027c36a18549948dbcc13719b90d0bf51",
+  "checkpoint": {
+    "utc": "2026-11-14T15:55:32.571115+00:00",
+    "name": "Baiqi_P6_20261114_V142_PressurePair1Enabled11.Civ6Save",
+    "bytes": 327236,
+    "sha256": "77cc62880947b1417a4467b0b2b58649cac59e842103b9991910b0523506c702",
+    "stable_repeated_read": true
+  },
+  "raw_metric_disposition": "Allfive rawsegments retained; entirefirstsideexcludedfromperformance, nocontrolside/pairedgroupclaim",
+  "runtime_functionality": "FiveordinarycrosscontextBegin/actualinlineactivationstops,0clockerror/refused,stopactual11/noEND11; validflowevidenceonly, notperformance",
+  "fresh_R_campaign": {
+    "utc": "2026-11-14T15:56:49.404541+00:00",
+    "label_prefix": "pressurepair142r",
+    "source_version": 142,
+    "source": "baiqi142-pressure-paired-v1",
+    "initial_turn": 6,
+    "fixture_sha256": "459a46e5d23d0600db7bd682a8d99f44218cc1812ba34bd6cdbe07993340da0a",
+    "sequence": [
+      [
+        1,
+        "enabled"
+      ],
+      [
+        1,
+        "control"
+      ],
+      [
+        2,
+        "control"
+      ],
+      [
+        2,
+        "enabled"
+      ],
+      [
+        3,
+        "enabled"
+      ],
+      [
+        3,
+        "control"
+      ],
+      [
+        4,
+        "control"
+      ],
+      [
+        4,
+        "enabled"
+      ],
+      [
+        5,
+        "enabled"
+      ],
+      [
+        5,
+        "control"
+      ]
+    ],
+    "paired_groups": 5,
+    "raw_segments": 25,
+    "invalid_previous_side": "pressurepair142-1-enabled",
+    "lock": "Beforeformalrun throughCOMPLETE; noHTTP/build/tests untilclosed. Filereads/progress/Native solewriter only.",
+    "no_R_campaign_capture_exists_at_freeze": true,
+    "old_invalid_side_durations_already_visible": true
+  },
+  "NoSite_prepared": {
+    "utc": "2026-11-14T15:54:24.147303+00:00",
+    "packages": {
+      "stageA": {
+        "mode": "baiqi142-pressure-stageA-v1",
+        "source_version": 142,
+        "initial_turn": 1,
+        "files": 119,
+        "archive_sha256": "ce5e5020f89679913026da3b60a46db49536c0c469df7d2812461f935faf2019"
+      },
+      "observed": {
+        "mode": "baiqi142-pressure-observed-v1",
+        "source_version": 142,
+        "initial_turn": 1,
+        "files": 119,
+        "archive_sha256": "4520c9b7d5ae48f87db1e396911a36487272bf15a63e09abdfab1626056c1993"
+      },
+      "enabled": {
+        "mode": "baiqi142-pressure-paired-enabled-v1",
+        "source_version": 142,
+        "initial_turn": 1,
+        "files": 119,
+        "archive_sha256": "951c61bb80b7a6a3bf28b714fbbfda83935c9f880bc52b31a646b52469e418f4"
+      },
+      "control": {
+        "mode": "baiqi142-pressure-paired-control-v1",
+        "source_version": 142,
+        "initial_turn": 1,
+        "files": 119,
+        "archive_sha256": "a41fad0ba906cd7900e81125c06fd68c2617689de88a1e2648bc626e777b9b39"
+      }
+    },
+    "installed": false,
+    "Native_queries": 0,
+    "Native_performance": "NOT_RUN"
+  },
+  "limits": {
+    "MANY_B_delta": "NOT_RUN_VALIDLY",
+    "NoSite_Native_performance": "NOT_RUN",
+    "MANY_B_plan_B_turn_N_req": "PriorH/I PASS unaffected",
+    "TC036": "PARTIAL",
+    "new_HTTP": 0,
+    "cumulative_logical": 789,
+    "Steam_online": 0,
+    "screenshots": 0,
+    "source142119_changed": false,
+    "owner_errors": [
+      "Buildpreparation overlapped formalmeasurement; noautomaticexclusivityguard in original sequence",
+      "Initialprecompletionpersistenceguardfailedbecausecapturealreadyfinished; thenpendingtoolrevealedmetrics. Correctedrecordispostcompletion, notsuccessfulprecompletionrecord",
+      "Freshcampaignpreparefirstfilenameowner_owner lookupfailedafterwritinginvalidation; correctednamingbeforeanyRNativeaction",
+      "PreparehelpercosmeticfinalstdoutsaidBEFORE_RESULTS, contradictedbyrecord; thatclaimiswithdrawn. Actualpersistedinvalidationpostcompletion."
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [压力配对重叠拒绝](testing/baiqi-pressure-pair-overlap-rejected.md)：首启用侧跨UI五次普通END／原生激活流程完成，但Owner构建与正式采样重叠，整侧不计B_delta、原值全保留。拒绝记录实际晚于capture完成，撤回早落盘说法；新r系列预先冻结并加正式活动标记，暂停构建／测试／HTTP。NO_SITE四包仅准备，累计789不变。
+
 2026-11-14 [压力配对子脚本789](testing/baiqi-pressure-paired-child789.md)：候选pre_guard未调用、替换未核及状态守卫遗漏，Owner适配旧流程，仅采用正确pressure桥字面量；16双Lua编译／32预检替身通过，Native配对仍待。请求虚构header及旧marker、首次Owner换行注入语法错误分账。累计789／731完整／819HTTP，0原生工具会话。
 
 2026-11-14 [MANY全脚本Native I／788](testing/baiqi-pressure-many-fullscript-I.md)：33上下文1201保留、198校准／396切换通过，五窗并集124—229ms、整回合写入2／2／2／2／4，MANY B_turn／N_req过，B_delta／NO_SITE仍待。788骨架部分采用，Owner补严格门与分布；原TAB正确，Owner转义误读用AST[9]纠正，0测试代码。累计至788为730完整／818HTTP，后继789另记。
