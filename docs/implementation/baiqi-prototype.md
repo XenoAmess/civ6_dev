@@ -379,3 +379,6 @@ python tools\build_mod.py --install
 [实现与软件范围](../testing/baiqi-settler-goals-persistence-84.md)：独立property／严格schema／Core深拷贝存读／UI恢复与原安全守卫，未改FOUND journal。完整1202pass1SDK环境skip、74Lua51、96文件包；安装／运行仍83，84冷实机待验，不授历史旧档目标猜测或未决恢复。
 
 - [85实机：在途计划冷读后继续建城](../testing/baiqi-settler-goals-native-85.md)：原84排队61计划保留，普通回合65自主建北京并清理目标；66粮仓5/65与完成态重载保持。当前85／96文件，公开Alpha2仍82，恢复与人口成本未全部通过。
+
+
+2026-11-15：[142供电340观察](../testing/baiqi-power142-observed340.md)确认广州完全供电与长沙发电厂完成／自主社区修复98/131，独立现场已存；不授持续供电或修复完成，人口归因和剩余军队回合流程继续。产品142未改。
