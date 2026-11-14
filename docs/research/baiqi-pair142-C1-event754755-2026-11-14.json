@@ -1,0 +1,140 @@
+{
+  "schema": "civ6.source142-first-complete-pair-event754755/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "complete_pairs": 1,
+  "required_pairs": 5,
+  "matched_segments": [
+    {
+      "turn": 86,
+      "enabled_seconds": 2.250999927520752,
+      "control_seconds": 3.9670000076293945,
+      "delta_ms": -1716.0000801086426,
+      "ratio_percent": -43.25687110684157
+    },
+    {
+      "turn": 87,
+      "enabled_seconds": 3.551999807357788,
+      "control_seconds": 3.3499999046325684,
+      "delta_ms": 201.99990272521973,
+      "ratio_percent": 6.0298480142009225
+    },
+    {
+      "turn": 88,
+      "enabled_seconds": 5.38100004196167,
+      "control_seconds": 5.21399998664856,
+      "delta_ms": 167.00005531311035,
+      "ratio_percent": 3.202916297290867
+    },
+    {
+      "turn": 89,
+      "enabled_seconds": 7.520999908447266,
+      "control_seconds": 7.263000011444092,
+      "delta_ms": 257.9998970031738,
+      "ratio_percent": 3.5522497121940124
+    },
+    {
+      "turn": 90,
+      "enabled_seconds": 4.559000015258789,
+      "control_seconds": 2.745000123977661,
+      "delta_ms": 1813.999891281128,
+      "ratio_percent": 66.08378176145723
+    }
+  ],
+  "first_pair_median_delta_ms": 201.99990272521973,
+  "first_pair_median_ratio_percent": 3.5522497121940124,
+  "overall_B_delta_budget_ok": null,
+  "control_errors": 0,
+  "control_refused": 0,
+  "control_actual_final_turn": 90,
+  "control_final_cities": 10,
+  "control_no_END90": true,
+  "control_same_program_affinity_three_settings": true,
+  "control_save_bytes": 510947,
+  "control_save_sha256": "3621ed4f8441adc14e417ff1a5a411c61a1d93d8b5bdc4f773112c8d635f84dd",
+  "control_official_exit_once": true,
+  "control_owned_game_gone": true,
+  "control_quiet_residue_wait_seconds": 312.730195,
+  "models": [
+    {
+      "id": 754,
+      "started_at_utc": "2026-11-14T02:51:42.317582+00:00",
+      "attempts": 1,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "strict_json": "VALID",
+      "total_ms": 12574.324100045487,
+      "usage": {
+        "prompt_tokens": 60014,
+        "completion_tokens": 690,
+        "total_tokens": 60704
+      },
+      "cached_prompt_tokens": null
+    },
+    {
+      "id": 755,
+      "started_at_utc": "2026-11-14T02:56:43.690901+00:00",
+      "attempts": 1,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "strict_json": "VALID",
+      "total_ms": 6773.747999919578,
+      "usage": {
+        "prompt_tokens": 5431,
+        "completion_tokens": 1018,
+        "total_tokens": 6449
+      },
+      "cached_prompt_tokens": null
+    }
+  ],
+  "review754": {
+    "adopted": false,
+    "reason": "Repeats completed477/478 negative/positive probe, incorrectly calls UnitManager.HasPendingOperations/GetOperationType instead of actual unit methods. A negative unit queue getter cannot prove global predispatch/network emptiness or authorize replay. Current ARMED hold is intentional duplicate prevention, not a proven new bug in Tick. No new Native probe run."
+  },
+  "review755": {
+    "complete_raw_module_adopted": false,
+    "raw_behavioral_checks": 16,
+    "raw_passed": 4,
+    "raw_failed": 12,
+    "raw_shape": "Requested function but returned table.New; Owner adapter only for isolated behavioral tests, no candidate edits or Native use.",
+    "defects": [
+      "row time/turn locals out of scope become nil",
+      "ipairs loses nil tails and argc clamps to8",
+      "extra arity falsely qualified",
+      "nonzero local player allowed",
+      "bind error after registration leaves live observer",
+      "successful Remove retains subscribed=true; failed Remove falsely setsfalse"
+    ],
+    "owner_software_distinct_new_methods": 10,
+    "owner_related_methods_including_new": 369,
+    "owner_related_passed": 369,
+    "owner_Lua_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "native_installed": false,
+    "native_signature_and_save_semantics": "UNKNOWN"
+  },
+  "primary_local_source": {
+    "WorldTracker.lua": "Base/Assets/UI/WorldTracker.lua:947 declares ownerID/unitID/operationID, 1050Add/1089Remove same callback",
+    "TutorialUIRoot.lua": "Base/Assets/UI/TutorialUIRoot.lua:2746 matching declared parameters; actual emitted arity/timing/save behavior require Native evidence"
+  },
+  "cumulative": {
+    "logical_calls": 755,
+    "complete_streams_including_historical_json_rejection": 702,
+    "length": 50,
+    "final_transport": 3,
+    "actual_HTTP": 785,
+    "extra_attempts": 30
+  },
+  "new_calls_actual_peak": 1,
+  "maintenance": "CanonicalOpenCode1.19.5 daily success cache reused; new native generation/tool sessions0.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "next": "Restore actualrelease142 and coldload protectedmain333, readonly compatibility and passive event evidence before remainingfour matchedpairs. Frozen thresholds/order unchanged.",
+  "limits": "First pair raw data only, no full25segment B_delta/TC036/fullfunctional pass. Observer software does not fix or authorize replay of old ARMED savewindow. Main333 coldcompat and actual event signature still pending."
+}
