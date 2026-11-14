@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [只读查询恢复790—791](testing/baiqi-pressure-visibility790791.md)：R1实际两帧为2386／0字节tag4，LSQ成功后只读CMD已提交，T6选中一次、0SKIP／END；撤桥确认后收尾。790函数主体采用、原7测试3错／恢复未发现，Owner22唯一方法过；791混淆后读／失败帧及元数据历史证明，整篇拒。仅固定纯读最多3次，不放宽帧／不重试动作；新日维护1.19.5通过。累计791／733完整／821HTTP，后续Native待验。
+
 2026-11-14 [压力配对重叠拒绝](testing/baiqi-pressure-pair-overlap-rejected.md)：首启用侧跨UI五次普通END／原生激活流程完成，但Owner构建与正式采样重叠，整侧不计B_delta、原值全保留。拒绝记录实际晚于capture完成，撤回早落盘说法；新r系列预先冻结并加正式活动标记，暂停构建／测试／HTTP。NO_SITE四包仅准备，累计789不变。
 
 2026-11-14 [压力配对子脚本789](testing/baiqi-pressure-paired-child789.md)：候选pre_guard未调用、替换未核及状态守卫遗漏，Owner适配旧流程，仅采用正确pressure桥字面量；16双Lua编译／32预检替身通过，Native配对仍待。请求虚构header及旧marker、首次Owner换行注入语法错误分账。累计789／731完整／819HTTP，0原生工具会话。

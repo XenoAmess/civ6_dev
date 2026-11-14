@@ -1,0 +1,137 @@
+{
+  "schema": "civ6.pressure-visibility-read-repair790791/v1",
+  "date": "2026-11-15",
+  "timezone": "Asia/Shanghai",
+  "machine_id": "BF-202609141645",
+  "failure": {
+    "case": "pressurepair142r-1-enabled",
+    "utc": "2026-11-14T16:02:46.877807+00:00",
+    "error": "TunerFrameError size0 tag4",
+    "receipt_sha256": "0967ee9d30b958ada7847a33aafe03b8a5884917cb09aca9f55a372529d5df16",
+    "wire_frames": [
+      {
+        "payload_bytes": 2386,
+        "tag": 4
+      },
+      {
+        "payload_bytes": 0,
+        "tag": 4
+      }
+    ],
+    "successful_LSQ_contexts": 126,
+    "context95": "DiplomacyActionView",
+    "CMD_submission": "SourcequeriesLSQ/matches95 then sendsCMD; secondrecvfailed. CMDattemptsent, execution/returnunknown. It was purevisibilityprint.",
+    "not_LSQ_failure": true,
+    "later_independent_read": "T6active/ABORTED/ends6reservationtrue/0clockrecords/nopending/retired/unsubscribed/errors0/refused0/bridgeinactive",
+    "reservation_not_issuance": true,
+    "military_select": 1,
+    "military_SKIP": 0,
+    "ordinary_END": 0,
+    "manual_civilian_or_domestic_input": 0,
+    "diagnostic_retirement_confirmed": true,
+    "formal_lock_reconciled": true,
+    "save": {
+      "utc": "2026-11-14T16:06:07.877646+00:00",
+      "name": "Baiqi_P6_20261115_V142_PressurePairR1Aborted6.Civ6Save",
+      "bytes": 323975,
+      "sha256": "a0e29a92be697d138c292f94c4e8c1e8859349db3708148591908801450530f1",
+      "stable_repeated_read": true
+    },
+    "exit_residue": {
+      "utc": "2026-11-14T16:09:19.622126+00:00",
+      "owned_PID_gone": true,
+      "quiet_owned_residue_terminate_count": 1,
+      "Steam_actions": 0
+    },
+    "save_helper_owner_correction": "Trailingsemicolon pluscheckpointhelpersemicolon causedLua51compilefailure beforeintent/Native; removedtrailingsemicolon, exactlyonesave."
+  },
+  "repair": {
+    "public_tool": "tools/paired_visibility_read.py",
+    "query_context": "DiplomacyActionView",
+    "query_body": "print('PAIR142_DIPLO',not ContextPtr:IsHidden())",
+    "retry_only": [
+      "OSError",
+      "EOFError"
+    ],
+    "attempts": "strictint1..3,default3",
+    "delay_seconds": 0.25,
+    "malformed_or_ERR": "Immediatefailure,no retry",
+    "final_exception": "Originalexceptionobject preserved",
+    "action_retry": false,
+    "frame_parser_changed": false,
+    "Native_verified_after_repair": false
+  },
+  "validation": {
+    "utc": "2026-11-14T16:10:59.572134+00:00",
+    "new_methods_passed": 9,
+    "existing_pressure_endpoint_methods_passed": 5,
+    "existing_player_callback_methods_passed": 8,
+    "total_passed_unique_methods": 22,
+    "owner_runner_correction": "Initialpackage-style unittest invocation omitted tests directory for legacybareimport; 9new+5endpoint passed, legacycallback importfailed; added actualtestsroot and ran onlynot-yet-executed callback methods.",
+    "Native_queries": 0,
+    "frame_parser_relaxed": false,
+    "END_SKIP_retry": false
+  },
+  "raw790_tests": {
+    "discovered": 7,
+    "failures": 0,
+    "errors": 3,
+    "transient_recovery_discovered": false,
+    "Native_queries": 0,
+    "note": "Positivefixturesusecolonspacetextwhereactualwireiscontextprefix+TAB; recoverymethodmissingtest_prefix. Rawtestsnotadopted."
+  },
+  "models": {
+    "790": {
+      "usage": {
+        "prompt_tokens": 5843,
+        "completion_tokens": 917,
+        "total_tokens": 6760
+      },
+      "total_ms": 8839.273100020364,
+      "first_nonempty_content_delta_ms": 2106.831599958241,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "cached_prompt_tokens_if_reported": null,
+      "adoption": "Functionbody adopted with variable rename/docstring and unusedtimeimportremoved; rawtests0adopted (7discovered/3errors, recoverymethodnotdiscovered, wrongwirepositivefixtures). Owner9meaningfulmethods plus13existing =22pass."
+    },
+    "791": {
+      "usage": {
+        "prompt_tokens": 10007,
+        "completion_tokens": 1099,
+        "total_tokens": 11106
+      },
+      "total_ms": 10976.174600189552,
+      "first_nonempty_content_delta_ms": 2189.3398000393063,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "cached_prompt_tokens_if_reported": null,
+      "adoption": "0text/codeadopted. CorrectLSQ/context95/CMDsend observation noted, but failedreceipt confused with laterfailure-read receipt; inventedthirdtag3frame in failingwire, Native_actions0 metadata misused as allhistoryproof, unsupportedvisibilitystatechange/guardnotprotocolcause. Owner source+machinechecks separately establish only submittedreadonlyCMD, noobservedreturnvalue/serverrootcause."
+    }
+  },
+  "HTTP": {
+    "new_logical": 2,
+    "POSTs": 2,
+    "peak_in_flight": 2,
+    "overlap_seconds": 8.839213,
+    "cumulative_logical": 791,
+    "cumulative_complete": 733,
+    "cumulative_length": 55,
+    "cumulative_final_transport": 3,
+    "cumulative_HTTP": 821,
+    "cumulative_extra_HTTP": 30,
+    "cached_tokens": null,
+    "owner_total_cost_ms": null,
+    "net_savings": null,
+    "OpenCode_daily": "FreshNov15same-machine/usercheck: installed1.19.5/latest1.19.5,updatedfalse. Concurrentcallsharesuccesscache/lock; noNative-toolgensession."
+  },
+  "limits": {
+    "MANY_B_delta": "Stillunmeasuredvalidly; firstoverlappedsideexcluded/R1zeroENDaborted",
+    "H_I_MANY_threebudgets": "PriorindependentPASSunchanged",
+    "NO_SITE": "Packagespreparedonly, noNativeperformance",
+    "TC036": "PARTIAL",
+    "Steam_online_or_upload": 0,
+    "screenshots": 0,
+    "source142119_changed": false,
+    "raw_trace_and_model_originals": "Ignoredprivate .local-model, notuploaded"
+  }
+}
