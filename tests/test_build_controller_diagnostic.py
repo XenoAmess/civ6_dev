@@ -109,5 +109,37 @@ assert(#h.profile.samples==4 and T.calls==3 and h.errors==0)
         for value in (None,0,1,'true'):
             with self.subTest(value=value),self.assertRaises(ValueError):suffix(include_pre_observer=value)
 
+    def test_twelve_real_children_compile_under_lua51_local_limit(self):
+        children=('PlayerContext','RefreshSettlement','ReadBack','ProcessCity','ProcessBuilder','ProcessSettler',
+                  'KnownExpansionSupport','SettlementSites','PathStep','ProcessNaturalistPurchase','ProcessDistrictPerson','ProcessCreative')
+        with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
+            out=Path(temp)/'twelve';result=build(out,children=children,include_pre_observer=True)
+            self.assertTrue(result['lua51_compiled']);self.assertTrue(result['lua53_compiled'])
+            self.assertEqual(result['children'],list(children));self.assertEqual(result['profile_count'],1)
+            self.assertTrue((out/'Baiqi/Lua/BaiqiController.lua').read_bytes().startswith((ROOT/'mod/Baiqi/Lua/BaiqiController.lua').read_bytes()))
+
+    def test_scoped_child_restorers_preserve_foreign_identity_and_cached_forwarding(self):
+        children=tuple('Child'+str(i)for i in range(12))
+        lua=LuaRuntime(unpack_returned_tuples=True)
+        raw='''T={time=1,calls=0,callbacks={}}
+Automation={GetTime=function()T.time=T.time+.001;return T.time end}
+Game={GetCurrentGameTurn=function()return 88 end,GetLocalPlayer=function()return 0 end}
+Players={[0]={IsTurnActive=function()return true end,GetCities=function()return{GetCount=function()return 10 end}end}}
+Events={PlayerTurnActivated={Add=function(f)T.callbacks[1]=f end,Remove=function(f)assert(T.callbacks[1]==f);T.callbacks={}end}}
+'''
+        for name in children:raw+=f'local function {name}(...)T.calls=T.calls+1;return false,nil,... end\n'
+        raw+='BaiqiController={RunNow=function(...)return Child0(...)end}\n'
+        raw+=suffix(children,include_pre_observer=True,source_version=141)
+        raw+='''local h=P6ControllerNested;assert(#h.bindings==13 and h.SetEnabled(true))
+local cached=BaiqiController.RunNow;local foreign=function()return 19 end;Child11=foreign
+local function check(...)assert(select('#',...)==4);local a,b,c,d=...;assert(a==false and b==nil and c==9 and d==nil)end
+check(cached(9,nil));local samples=#h.profile.samples;assert(samples==2)
+local ok,same=h.Restore();assert(ok and #same==13 and not same[13]and Child11==foreign)
+for i=1,12 do assert(same[i])end
+check(cached(9,nil));assert(#h.profile.samples==samples and T.calls==2)
+local ok2,same2=h.Restore();assert(ok2 and same2==same and #T.callbacks==0)
+'''
+        lua.execute(raw)
+
 
 if __name__=='__main__':unittest.main()

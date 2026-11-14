@@ -67,8 +67,22 @@ if added then d.subscribed=true else d.errors=d.errors+1 end
 local root={original=BaiqiController.RunNow}
 root.wrapped=d.WrapRoot(root.original);BaiqiController.RunNow=root.wrapped;d.bindings[1]=root
 '''
+    scoped=len(children)>6
+    if scoped:text+='local restorers={}\n'
     for index,name in enumerate(children,2):
-        text+=f'''local binding{index}={{original={name}}}
+        if scoped:
+            text+=f'''do
+ local original={name};local wrapped=d.WrapChild('{name}',original)
+ {name}=wrapped;d.bindings[{index}]={{original=original,wrapped=wrapped}}
+ restorers[{index}]=function()
+  local same={name}==wrapped
+  if same then {name}=original end
+  return same
+ end
+end
+'''
+        else:
+            text+=f'''local binding{index}={{original={name}}}
 binding{index}.wrapped=d.WrapChild('{name}',{name});{name}=binding{index}.wrapped;d.bindings[{index}]=binding{index}
 '''
     text+='''local attempted,removed,same=false,false,nil
@@ -79,7 +93,8 @@ function d.Restore()
  if same[1]then BaiqiController.RunNow=root.original end
 '''
     for index,name in enumerate(children,2):
-        text+=f''' same[{index}]={name}==binding{index}.wrapped
+        if scoped:text+=f' same[{index}]=restorers[{index}]()\n'
+        else:text+=f''' same[{index}]={name}==binding{index}.wrapped
  if same[{index}]then {name}=binding{index}.original end
 '''
     text+=''' if added then

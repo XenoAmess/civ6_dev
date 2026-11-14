@@ -1,0 +1,317 @@
+{
+  "schema": "civ6.stageA141-fail-scoped-diagnostic743/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 141,
+  "stageA": {
+    "utc": "2026-11-14T00:27:05.282208+00:00",
+    "facts_sha256": "b6b3a5ec737fc01ce2a78fa01719f05f26d45782bc089b283a6d43c4548dc9e8",
+    "cities": 11,
+    "source": "baiqi141-stageA-v2",
+    "sample_quality_ok": true,
+    "samples": 313,
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 114,
+        "10_to_11": 0,
+        "eleven_city": 17,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 144,
+        "10_to_11": 0,
+        "eleven_city": 20,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 18
+      }
+    },
+    "eligible_calls_by_turn": {
+      "Admin.Run": {
+        "86": 26,
+        "87": 26,
+        "88": 26,
+        "89": 27,
+        "90": 26
+      },
+      "Controller.RunNow": {
+        "86": 33,
+        "87": 32,
+        "88": 33,
+        "89": 31,
+        "90": 35
+      }
+    },
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 114,
+        "p95_ms": 20.999908447265625,
+        "max_ms": 26.999950408935547,
+        "budget_ok": false
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 144,
+        "p95_ms": 18.000125885009766,
+        "max_ms": 428.00021171569824,
+        "budget_ok": false
+      }
+    },
+    "overall_budget_ok": false,
+    "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 18,
+      "validated": 18,
+      "errors": 0
+    }
+  },
+  "largest_samples": [
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.42800021171569824,
+      "failed": false,
+      "started": 1794615791.205,
+      "ended": 1794615791.6330001,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615787.743,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.03699994087219238,
+      "failed": false,
+      "started": 1794615710.1690001,
+      "ended": 1794615710.206,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615706.6430001,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.03299999237060547,
+      "failed": false,
+      "started": 1794615707.953,
+      "ended": 1794615707.986,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615706.6430001,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.03299999237060547,
+      "failed": false,
+      "started": 1794615710.568,
+      "ended": 1794615710.601,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615706.6430001,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.026999950408935547,
+      "failed": false,
+      "started": 1794615707.477,
+      "ended": 1794615707.504,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615706.6430001,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.026000022888183594,
+      "failed": false,
+      "started": 1794615711.75,
+      "ended": 1794615711.776,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615706.6430001,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.025999784469604492,
+      "failed": false,
+      "started": 1794615710.2480001,
+      "ended": 1794615710.274,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615706.6430001,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.023000001907348633,
+      "failed": false,
+      "started": 1794615708.2710001,
+      "ended": 1794615708.2940001,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794615706.6430001,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    }
+  ],
+  "initial_warmup_seconds": 73.56299996376038,
+  "initial_source_commit": "1affcfe51b15ea72d99cad33736cb7bf5e45d79a",
+  "capture_head_docs_only_advanced": "adbc0fb0fb83e22464526cc38144046367a068d8",
+  "artifact_sha256": "9102d076a5b3db4e9bc5a47dcdfddd02f719b772befb7d089942a16317f9acc1",
+  "ordinary_end_requested_turns": [
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  ],
+  "closing_actual_turn": 91,
+  "final_cities": 11,
+  "founding_log_evidence": [
+    "BaiqiExecutor: BAIQI|request|turn=90|id=0:90:52|source=BACKGROUND|unit=4390940|operation=FOUND_CITY|plot=808|from=808",
+    "BaiqiExecutor: BAIQI|observed|turn=90|id=0:90:52|unit=4390940|kind=FOUND_CITY|city=720906|proof=core_durable_empty_site_city_and_consumed_settler|token=settle:0:1"
+  ],
+  "saved": {
+    "bytes": 520585,
+    "sha256": "b9ec2ea7eee3aefc2fb3ec7672e8b0c356a974d008bf123447c985bc20a26be8"
+  },
+  "official_exit_once": true,
+  "qa_roots_restored": 2,
+  "own_observer_removed": true,
+  "owned_quiet_residue_wait_seconds": 193.949486,
+  "owned_game_gone": true,
+  "Steam_actions": 0,
+  "diagnostic_tool_fix": {
+    "owner_initial12_child_compile_failed_Lua51_200_locals": true,
+    "product_body_changed": false,
+    "new_tests": 2,
+    "relevant_tests_passed": 11,
+    "prior_full_suite_total": 2198,
+    "prior_full_suite_passed": 2197,
+    "prior_SDK_skipped": 1,
+    "full_suite_not_rerun_for_tool_only_change": true,
+    "six_child_defaults_byte_identical_to_frozen140_G_and_J": true,
+    "twelve_child_private_artifact_sha256": "341227e7ca5fa4787f23056aca067d40a540bfff5332aeb7a85eca86e8e940ba",
+    "files": 119,
+    "lua51_and53_compiled": 97,
+    "children": [
+      "PlayerContext",
+      "RefreshSettlement",
+      "ReadBack",
+      "ProcessCity",
+      "ProcessBuilder",
+      "ProcessSettler",
+      "KnownExpansionSupport",
+      "SettlementSites",
+      "PathStep",
+      "ProcessNaturalistPurchase",
+      "ProcessDistrictPerson",
+      "ProcessCreative"
+    ],
+    "pool_count": 1,
+    "capacity": 4096,
+    "installed": false
+  },
+  "model743": {
+    "usage": {
+      "prompt_tokens": 18127,
+      "completion_tokens": 513,
+      "total_tokens": 18640
+    },
+    "total_ms": 6194.194599986076,
+    "ttft_ms": 2459.8369000013918,
+    "review": {
+      "complete_stop_done_json": true,
+      "actual_target_checks": [
+        {
+          "function": "Research",
+          "unique_actual_lexical_matches": 1
+        },
+        {
+          "function": "PowerResearchChoice",
+          "unique_actual_lexical_matches": 1
+        },
+        {
+          "function": "GovernorRescue",
+          "unique_actual_lexical_matches": 1
+        },
+        {
+          "function": "Governors",
+          "unique_actual_lexical_matches": 1
+        },
+        {
+          "function": "Religion",
+          "unique_actual_lexical_matches": 1
+        },
+        {
+          "function": "Government",
+          "unique_actual_lexical_matches": 1
+        }
+      ],
+      "adopted_instrumentation_or_optimization": 0,
+      "review": "All six names real. PowerResearchChoice actual sites/path/bridge loops merit measurement, but no causal proof. GovernorRescue snapshots are both full snapshots only after a nonnil first plan, not one demand and one full snapshot. Proposed observer-before-instrumentation requirement conflicts with retaining pre-observer entries. Owner has not implemented Admin attribution yet; scope remains pending."
+    }
+  },
+  "cumulative": {
+    "logical": 743,
+    "complete_streams_including_historical_json_rejection": 690,
+    "length": 50,
+    "final_transport": 3,
+    "http": 773,
+    "extra_attempts": 30,
+    "new_peak": 1
+  },
+  "maintenance": "Nov14 canonical1.19.5 passed cache reused; OpenCode native0",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "141 still FAILS B_plan; not a performance fix or regression causal proof. 428ms includes Native/vanilla/scheduling and remains internally unattributed. Formal140F history unchanged. Full TC036, new141 B_turn/N_req, matched B_delta, protected main333 reload and full functional acceptance remain open. Next K diagnostic is prepared only."
+}
