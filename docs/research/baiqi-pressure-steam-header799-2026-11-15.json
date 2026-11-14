@@ -1,0 +1,123 @@
+{
+  "schema": "civ6.steam-header799-and-n1control-recovery/v1",
+  "date": "2026-11-15",
+  "machine_id": "BF-202609141645",
+  "model": {
+    "usage": {
+      "prompt_tokens": 1879,
+      "completion_tokens": 3069,
+      "total_tokens": 4948
+    },
+    "total_ms": 18725.501700071618,
+    "first_nonempty_content_delta_ms": 454.9354000482708,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "cached_prompt_tokens_if_reported": null
+  },
+  "review": {
+    "utc": "2026-11-14T18:44:43.417247+00:00",
+    "raw_test_harness": "Function and testfields combined; tests lack import but explicitly assume same module",
+    "raw_tests_run": 8,
+    "raw_failures": 1,
+    "raw_errors": 0,
+    "raw_mock_error": "ElementInfo properties read unset inner-self attrs; silent fallback masks node values",
+    "mock_only_corrected_tests_run": 8,
+    "mock_only_corrected_failures": 0,
+    "mock_only_corrected_errors": 0,
+    "raw_missing_witnesses": [
+      "cycle_test not discovered",
+      "test_no_action_invoked is pass",
+      "throwing property not actually supplied",
+      "no true invalid-HWND or boundedrect check"
+    ],
+    "Owner_corrections": [
+      "main_hwnd exactint",
+      "owned callback exactTrue",
+      "rect exactints/order/abs<=1000000"
+    ],
+    "adopted_import_mock_corrected_tests_run": 8,
+    "owner_extra_checks": 17,
+    "adoption": "Core bounded read-only traversal/pattern inspection with Owner guards; no actions or Native game queries",
+    "Steam_live_reads": 0
+  },
+  "actual_readonly_chain": {
+    "node_count": 5,
+    "types": [
+      "Text",
+      "Document",
+      "Pane",
+      "Pane",
+      "Window"
+    ],
+    "first_header_label": "Steam",
+    "first_header_type": "Text",
+    "first_InvokePattern": "available",
+    "mode_read": false,
+    "inputs": 0,
+    "activation": false,
+    "focus_change": false,
+    "screenshots": 0
+  },
+  "recovery": {
+    "initial_query": "unavailable; gamecoldlaunch rejected before intent/Popen",
+    "original_failed_sequence_preserved": true,
+    "old_MenuItem_lookup": "0matches/0Invoke",
+    "Text_Invoke_returned": "Independentmodequery remainedunavailable; noofflineclaim",
+    "main_tree": "Bounded384first, subsequentwholemain1159descendants/0modeitems; nootherwindowcontentread",
+    "targeted_header_INPUT_returned": "Notmodeconfirmation; independentqueryunavailable",
+    "official_main_URI_navigation": 1,
+    "pointer_navigation": "Movedwithinownedheader250,10thenverified44,10; foregroundguardchanged beforeplannedclick, so clicknotissued. Separatebackgroundread thenactualvisibleGoOnlineMenuItem. Causeofearlierfailuresnotproved.",
+    "mode_switches": 0,
+    "fresh_readonly_proof": {
+      "utc": "2026-11-14T18:53:02.087411+00:00",
+      "steam_pid": 14904,
+      "steam_birth": 1794062890.679772,
+      "mode": "offline",
+      "input_sent": false,
+      "activation_api_called": false,
+      "focus_changed": false,
+      "window_move_api_called": false,
+      "screenshot_used": false
+    },
+    "actual_first_coldlaunch_PID": 23640,
+    "birth": 1794682382.0926967,
+    "proof_age_seconds": 0.003585,
+    "CPU_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "coldlaunch_replays": 0,
+    "Steam_restarts_or_terminates": 0,
+    "login_online_uploads": 0,
+    "game_effects": "N1controlstartup only; actualformalpairedrun notyetmeasured"
+  },
+  "private_helper_sha256": "679216f77b3bb1cc8c51ba299204ddb0851fa97ba007669781b1f45a56c2264c",
+  "cumulative": {
+    "logical": 799,
+    "complete": 741,
+    "length": 55,
+    "final_transport": 3,
+    "HTTP": 829,
+    "extra_HTTP": 30,
+    "new_HTTP": 1,
+    "actual_peak": 1,
+    "daily_maintenance": "Nov15same-machine/user1.19.5successfulcache reused",
+    "OpenCode_native_tool_sessions": 0,
+    "owner_full_cost_ms": null,
+    "net_savings": null
+  },
+  "limits": {
+    "source142_changed": false,
+    "TC036": "PARTIAL",
+    "B_delta": "Pendingall5groups; N1enabledfiveactualsegmentsseparatepublished",
+    "formal_HTTP_overlap": false,
+    "model_game_actions": 0,
+    "scope": "Diagnosticcorepartlyadopted; officialnavigation/recoveryOwnerimplemented; APIreceiptnevermodeproof"
+  }
+}
