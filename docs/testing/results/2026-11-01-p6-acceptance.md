@@ -880,3 +880,6 @@ C：金币300时先在原生确认框物理取消，仍敌城／300金币／2行
 
 
 2026-11-15后续：[源码142 TC-036实测通过](../baiqi-performance142-complete805.md)，原85及MANY／NO_SITE八压力格完整。NO_SITE第4组采用全新R4替代环境重叠失效启用侧，原有效对照保留；全部尖峰另列。仅已测GS单人夹具／机器，全40项及旧ARMED恢复FAIL继续，历史PARTIAL不回写。
+
+
+2026-11-15：[普通334→335队列窄链](../baiqi-ordinary806-main335-queue-completed.md)通过，原弓箭手55,36／pendingfalse／queue=nil，独立335READY，11城无人损；正式保存未重载。一次普通END，0新MOVE／SKIP／人工内政，旧ARMED恢复及全40项继续。

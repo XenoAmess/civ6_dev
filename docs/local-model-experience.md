@@ -1104,3 +1104,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [803后续采用及主334恢复](testing/baiqi-ordinary142-main334-restored803.md)：4双Lua／8守卫、Name stem及先保存false回执等Owner修正后部分采用，实际普通142119匹配、一次载入／Continue、334／11城就绪；军队原排队仍在，0END334。历史未审切点不回写，后到Native窄通过与全功能分列。
+
+
+2026-11-15 [806普通335与排队实效](testing/baiqi-ordinary806-main335-queue-completed.md)：候选错模块层及unknown覆盖漏，Owner修正后9Lua／8Python守卫过；一次普通END334执行旧军队路线到址并清队列，随后独立335READY／11城无人损、正式保存。ACK／实效／换回合分读，0重发或内政填补；旧FOUND恢复FAIL不追授。累计806／747完整／836HTTP。
