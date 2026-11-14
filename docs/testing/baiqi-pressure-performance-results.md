@@ -21,4 +21,5 @@ MANY的两规划目标分别140／160个纯十城样本，p95为2.000093／1.000
 
 NO_SITE独立K：1180保留／16845聚合零调用，33上下文、198时钟／396切换完整；五窗最大181.001425ms，整回合请求最大3，收尾7的4次另列。继续五组配对。
 
-NO_SITE配对进度：[NO_SITE已完成1/5组、5/25段](baiqi-pressure-nosite-pairN-group1.md)；总体B_delta仍未知。
+
+NO_SITE配对进度：[NO_SITE已完成2/5组、10/25段](baiqi-pressure-nosite-pairN-group2.md)；总体B_delta仍未知。
