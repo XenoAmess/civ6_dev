@@ -23,8 +23,9 @@ def selected_children(children):
     return tuple(children)
 
 
-def suffix(children=CHILDREN,*,include_pre_observer=False):
+def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140):
     children=selected_children(children)
+    if type(source_version)is not int or source_version not in (140,141):raise ValueError('Expected source140 or141')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
@@ -98,7 +99,7 @@ end
         old="d.source='baiqi140-controller-children-v1'"
         assert text.count(old)==1
         text=text.replace(old,"d.source='baiqi140-controller-children-v2'",1)
-    return text
+    return text.replace('baiqi140-controller-children-',f'baiqi{source_version}-controller-children-')
 
 
 def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
@@ -107,8 +108,9 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
     children=selected_children(children)
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
-    if ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')!='140':
-        raise ValueError('Expected current source140')
+    version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
+    if version not in ('140','141'):raise ValueError('Expected actual source140 or141')
+    version=int(version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():
         raise ValueError('New private output directory required')
@@ -117,7 +119,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:
             raise ValueError('Unknown lexical child '+name)
     hashes={name:digest(contained(source,name))for name in names}
-    appended=suffix(children,include_pre_observer=include_pre_observer).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
+    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
     prepared['Lua/BaiqiController.lua']=raw+appended
     c51=Lua51().eval('function(s)local f,e=loadstring(s);assert(f,e)end')
     c53=Lua53().eval('function(s)local f,e=load(s);assert(f,e)end')
@@ -127,8 +129,8 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
     out.mkdir(parents=True,exist_ok=False);target=out/'Baiqi'
     for name,data in prepared.items():
         path=contained(target,name);path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
-    archive=out/'Baiqi-controller140-coarse.zip';package(target,archive)
-    result=dict(mode='baiqi140-controller-children-v1',source_version=140,files=len(names),
+    archive=out/f'Baiqi-controller{version}-coarse.zip';package(target,archive)
+    result=dict(mode=f'baiqi{version}-controller-children-v1',source_version=version,files=len(names),
                 changed_files=['Lua/BaiqiController.lua'],source_hashes=hashes,
                 instrumented_hashes={name:digest(contained(target,name))for name in names},
                 helper_hashes={name:digest(ROOT/f'tools/lua/{name}.lua')for name in HELPERS},
@@ -137,7 +139,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
                 original_controller_exact_prefix=True,lua51_compiled=True,lua53_compiled=True,installed=False,
                 limits='Coarse diagnosis only. Starts after this QA observer saw the native anchor; earlier entries intentionally unmeasured. Child instrumentation changes root cost; never a B_plan or all-script performance pass.')
     if include_pre_observer:
-        result.update(mode='baiqi140-controller-children-v2',include_pre_observer_active_calls=True,
+        result.update(mode=f'baiqi{version}-controller-children-v2',include_pre_observer_active_calls=True,
                       limits='Diagnosis only. All active88/89 entries before the own native observer plus10seconds after it are retained; classify intervals against actual observed anchors, never invent a physical event timestamp or grant performance pass.')
         result['helper_hashes']['diagnostic_preobserver_qualifier']=digest(ROOT/'tools/lua/diagnostic_preobserver_qualifier.lua')
     (out/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

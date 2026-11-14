@@ -37,18 +37,20 @@ def restore_release(text: str,prefix: str,binding: str) -> str:
     return restored
 
 
-def transform(raw: str) -> tuple[str,str,str]:
+def transform(raw: str,source_version: int = 140) -> tuple[str,str,str]:
+    if type(source_version)is not int or source_version not in (140,141):raise ValueError('Expected source140 or141')
     if raw.count(INCLUDES)!=1 or raw.count('local ready=false\n')!=1:
         raise ValueError('Current Executor include/bind site is unknown')
     site=raw.index('local ready=false\n')
     if raw.index(INCLUDES)+len(INCLUDES)!=site:
         raise ValueError('Expected public definitions immediately before ready state')
-    lines=['-- BAIQI_DIAGNOSTIC_ONLY: independent source140 Stage A.',
+    lines=[f'-- BAIQI_DIAGNOSTIC_ONLY: independent source{source_version} Stage A.',
            "assert(P6PerfPlanA==nil,'Existing Stage A diagnostic owner')",'do']
     for name,stem in HELPERS.items():
         helper=(ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8')
         lines.append(f' local {name}=(function()\n{helper}\nend)()')
-    lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace,NewDeferred)',
+    version_arg='' if source_version==140 else ',141'
+    lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace,NewDeferred'+version_arg+')',
             'end','']
     prefix='\n'.join(lines)
     binding="assert(P6PerfPlanA.Bind(BaiqiAdmin,BaiqiController),'Stage A binding failed')\n"
@@ -63,8 +65,9 @@ def transform(raw: str) -> tuple[str,str,str]:
 def build(output_dir: Path) -> dict:
     source=ROOT/'mod/Baiqi'
     files=manifest_files(source)
-    if ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')!='140':
-        raise ValueError('Independent Stage A assembler requires actual source140')
+    version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
+    if version not in ('140','141'):raise ValueError('Independent Stage A assembler requires actual source140 or141')
+    version=int(version)
     output_dir=output_dir.resolve()
     if (output_dir==source.resolve() or output_dir.is_relative_to(source.resolve())
             or source.resolve().is_relative_to(output_dir)):
@@ -73,7 +76,7 @@ def build(output_dir: Path) -> dict:
         raise ValueError('Diagnostic output must be a new directory')
     contents={name:contained(source,name).read_bytes() for name in files}
     raw=contents[EXECUTOR].decode('utf-8')
-    text,prefix,binding=transform(raw)
+    text,prefix,binding=transform(raw,version)
     if restore_release(text,prefix,binding)!=raw:
         raise ValueError('Unexpected release text after removing declared QA edits')
     from lupa.lua51 import LuaRuntime as Lua51
@@ -97,10 +100,10 @@ def build(output_dir: Path) -> dict:
     changed=[name for name in files if contained(target,name).read_bytes()!=contents[name]]
     if changed!=[EXECUTOR]:
         raise ValueError('Unexpected diagnostic differences')
-    archive=output_dir/'Baiqi-plan140-stageA-v2.zip'
+    archive=output_dir/f'Baiqi-plan{version}-stageA-v2.zip'
     if package(target,archive)!=files:
         raise ValueError('Diagnostic archive inventory changed')
-    result={'mode':'baiqi140-stageA-v2','source_version':140,'files':len(files),
+    result={'mode':f'baiqi{version}-stageA-v2','source_version':version,'files':len(files),
             'lua_sources_compiled_51_and_53':lua_count,'changed_files':changed,
             'release_bodies_unchanged':False,'gameplay_planning_bodies_unchanged':True,
             'shutdown_subscription_identity_adjusted':True,'release_text_recovers_exactly':True,

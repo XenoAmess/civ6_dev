@@ -3,8 +3,10 @@ local function Finite(v)
   return type(v)=='number' and v==v and v>-math.huge and v<math.huge
 end
 
-local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred)
-  local h={source='baiqi140-stageA-v1',enabled=false,anchors={},qualificationErrors=0,
+local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred,sourceVersion)
+  if sourceVersion==nil then sourceVersion=140 end
+  assert(type(sourceVersion)=='number'and(sourceVersion==140 or sourceVersion==141),'Unknown source version')
+  local h={source='baiqi'..sourceVersion..'-stageA-v1',enabled=false,anchors={},qualificationErrors=0,
     bound=false,retired=false,subscribed=false,anchorCount=0}
   if type(NewTrace)=='function' then
     local ready
@@ -15,7 +17,7 @@ local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred)
   h.profile=NewProfile(function() return env.Automation.GetTime() end,4096)
   h.deferPreAnchor=type(NewDeferred)=='function'
   if h.deferPreAnchor then
-    h.source='baiqi140-stageA-v2'
+    h.source='baiqi'..sourceVersion..'-stageA-v2'
     h.preAnchor=NewDeferred(h.profile,h.anchors,function(reason,turn)
       h.RecordUnknown(reason,'Controller.RunNow',turn)
     end)

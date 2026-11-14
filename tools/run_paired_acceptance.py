@@ -6,7 +6,8 @@ from tools.run_observed_acceptance import _payload
 
 
 def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Path,*,variant,fixture_sha256,
-        request_normal_end=None,legacy_forced=False):
+        request_normal_end=None,legacy_forced=False,expected_source_version=140):
+    if type(expected_source_version)is not int or expected_source_version not in (140,141):raise ValueError('Invalid source version')
     if type(legacy_forced)is not bool:raise TypeError('legacy_forced must be an explicit boolean')
     if legacy_forced:
         if request_normal_end is not None:raise ValueError('Legacy forced mode cannot use normal callback')
@@ -38,16 +39,16 @@ print('P6_PAIR_END',{turn})
             if receipt!=[str(turn)]:raise RuntimeError('Unknown end-turn action ACK; do not replay')
         else:
             code=common+f'''
-assert(Players[0]:IsTurnActive() and s.source_version==140 and s.normal_end==true and P6PairSourceVersion==140)
+assert(Players[0]:IsTurnActive() and s.source_version=={expected_source_version} and s.normal_end==true and P6PairSourceVersion=={expected_source_version})
 local owner=P6PairEndOwner;assert(owner and owner.active and owner.errors==0 and owner.refused==0
- and owner.entry==ExposedMembers.P6BaiqiPairEndBridge and owner.entry.source_version==140)
+ and owner.entry==ExposedMembers.P6BaiqiPairEndBridge and owner.entry.source_version=={expected_source_version})
 local c=P6PairClock:Snapshot();assert(c.pending==nil and #c.records=={turn-85} and c.errors==0 and c.refused==0 and c.subscribed and not c.retired)
 s.ends[{turn}]=true
 print('P6_PAIR_READY',{turn},P6PairSourceVersion)
 '''
             receipt=_payload(query('BaiqiExecutor',code),'P6_PAIR_READY')
-            if receipt!=[str(turn),'140']:raise RuntimeError('Unknown ordinary READY reservation; no callback or retry')
-            actual_source_version=140
+            if receipt!=[str(turn),str(expected_source_version)]:raise RuntimeError('Unknown ordinary READY reservation; no callback or retry')
+            actual_source_version=expected_source_version
             ack=request_normal_end(turn,token)
             if (type(ack)is not dict or set(ack)!={'turn','token','requested','forced'}
                     or type(ack['turn'])is not int or ack['turn']!=turn or ack['token']!=token
@@ -74,9 +75,9 @@ local c=P6PairClock:Snapshot()
 assert(c.marker=='baiqi67-paired-clock-v1' and c.subscribed and not c.retired and c.errors==0 and c.refused==0 and #c.records==0 and c.pending==nil)
 local s={{token={quoted},phase='RECORDING',ends={{}},baseline={{}},start=Automation.GetTime()}}
 s.normal_end={str(not legacy_forced).lower()};s.source_version=P6PairSourceVersion
-'''+('''assert(P6PairSourceVersion==140 and P6PairEndOwner and P6PairEndOwner.active
+'''+('''assert(P6PairSourceVersion==VERSION and P6PairEndOwner and P6PairEndOwner.active
  and P6PairEndOwner.errors==0 and P6PairEndOwner.refused==0)
-'''if not legacy_forced else'')+'''
+'''.replace('VERSION',str(expected_source_version))if not legacy_forced else'')+'''
 P6PairStage=s
 for _,u in Players[0]:GetUnits():Members() do local row=GameInfo.Units[u:GetUnitType()]
  if row and not BaiqiPolicy.CivilianType(row.UnitType) then s.baseline[#s.baseline+1]={id=u:GetID(),x=u:GetX(),y=u:GetY()} end end

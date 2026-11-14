@@ -2471,21 +2471,56 @@ local function ProcessSettler(ctx, player, state, unit)
     settlerSearches[id]=search
   end
   local oldTarget=settlementTargets[id]
-  if oldTarget~=nil then
-    local oldPlot=Map.GetPlotByIndex(oldTarget)
-    if not oldPlot or not Revealed(oldPlot)or oldPlot:IsWater()or oldPlot:IsImpassable()
-      or oldPlot:IsCity()or not SettlementFeatureAllowed(oldPlot)
-      or(oldPlot:GetOwner()~=-1 and oldPlot:GetOwner()~=ctx.player)
-      or KnownExpansionSupport(oldPlot,player,ctx.player)~=true then
-      if reservations[oldTarget]==id then reservations[oldTarget]=nil end
-      settlementTargets[id]=nil;search.tested[oldTarget]=true
-      SettlerGoalBridge("Forget",ctx.player,id)
+  local oldPlot
+  local function ForgetOld()
+    if reservations[oldTarget]==id then reservations[oldTarget]=nil end
+    settlementTargets[id]=nil;search.tested[oldTarget]=true
+    -- The rejected proposal ID stays tested even when storage is unavailable.
+    -- A later Read can restore the proposal, but cannot repeat this cleanup.
+    SettlerGoalBridge("Forget",ctx.player,id)
+  end
+  if oldTarget~=nil and not search.tested[oldTarget] then
+    local reserved=reservations[oldTarget]
+    if reserved~=nil and reserved~=id then
+      search.tested[oldTarget]=true
+    else
+      oldPlot=Map.GetPlotByIndex(oldTarget)
+      if not oldPlot or oldPlot:GetIndex()~=oldTarget or not Revealed(oldPlot)
+        or oldPlot:IsWater()or oldPlot:IsImpassable()or oldPlot:IsCity()
+        or not SettlementFeatureAllowed(oldPlot)
+        or(oldPlot:GetOwner()~=-1 and oldPlot:GetOwner()~=ctx.player) then
+        ForgetOld();oldPlot=nil
+      elseif KnownExpansionSupport(oldPlot,player,ctx.player)~=true then
+        ForgetOld()
+        -- Do not add another potentially expensive site scan to this callback.
+        return false,true
+      end
     end
   end
   local mayFound=player:GetCities():GetCount()==0 or settlementTargets[id]==here:GetIndex()
   if mayFound and KnownExpansionSupport(here,player,ctx.player)==true and Safe(here,player) and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
     settlerSearches[id]=nil
     return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
+  end
+  if oldPlot and oldTarget~=here:GetIndex() then
+    -- A remembered goal already precedes native rankings. Validate its current
+    -- route directly; no positive eligibility survives this callback.
+    search.tested[oldTarget]=true
+    local step=PathStep(unit,oldPlot,player,state)
+    if step then
+      local s,g=SettlerGoalBridge("Remember",ctx.player,id,oldTarget,oldPlot:GetX(),oldPlot:GetY())
+      if s~="READY"or not SettlerGoalProposal(g,id)or g.plot~=oldTarget
+        or g.x~=oldPlot:GetX()or g.y~=oldPlot:GetY()then
+        settlerSearches[id]=nil
+        Reason("settler_goal:"..id,"移民等待行军计划保存与资格确认")
+        return false
+      end
+      reservations[oldTarget]=id;settlementTargets[id]=oldTarget;settlerSearches[id]=nil
+      return RequestCivilian(ctx,state,unit,"MOVE_TO",step)
+    end
+    -- Alternatives are still unqueried. The existing continuation contract
+    -- resumes their fresh native enumeration on the next callback.
+    return false,true
   end
   local sites,more=SettlementSites(player,state,true,search.tested,id,settlementTargets[id])
   local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())

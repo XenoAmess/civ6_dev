@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [141移民直达／J与738—741](testing/baiqi-source141-settler-J738741.md)：J76根201行，77ms根含Settler67ms及两次支持读取，另71ms根归因未知。738—741均拒采用；Owner141直达、分次备选与最终资格7新／83相关过，版本边界5过，全量2198项通过含1SDK跳过。141实机与正式性能待验，累计741／688完整50length3transport771HTTP30extra，两组实际峰2，原生0／成本null。
+
 2026-11-14 [I未重现／v2覆盖737](testing/baiqi-controller-I-preobserver737.md)：65根190行审计过，根12／Settler8ms未重现，原因与早期调用未知、不授修复。原版Escape回执和隐藏实际分读，90已存／QA撤。737完整predicate字面采用，8合同检查及3新／9相关构建过，旧v1字节保持；v2保留active通知前入口，待新冷Native。累计737／684完整50length3transport767HTTP30extra，原生0／成本null。
 
 2026-11-14 [G移民尖峰／735736](testing/baiqi-controller-G-settler735736.md)：840行64根零错误，两个88根含Settler65／82ms，不能归内部或授性能；90存档／七绑定撤。735六源码修改唯一可编译但非本轮尖峰路径、0语义测试／采用；736原6探针2过4失败（备选／more等），0采用。H细分3新／6相关检查过，仅准备；累计736／683完整50length3transport766HTTP30extra，原生0／成本null。

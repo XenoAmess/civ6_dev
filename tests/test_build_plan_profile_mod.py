@@ -27,13 +27,13 @@ class BuildPlanProfileModTests(unittest.TestCase):
         self.assertTrue(result['gameplay_planning_bodies_unchanged'])
         self.assertFalse(result['release_bodies_unchanged'])
         target=out/'Baiqi';raw=(source/builder.EXECUTOR).read_text(encoding='utf-8')
-        transformed,prefix,binding=builder.transform(raw)
+        transformed,prefix,binding=builder.transform(raw,141)
         self.assertEqual((target/builder.EXECUTOR).read_text(encoding='utf-8'),transformed)
         self.assertEqual(builder.restore_release(transformed,prefix,binding),raw)
         for n in before:
             if n!=builder.EXECUTOR:self.assertEqual((source/n).read_bytes(),(target/n).read_bytes())
         self.assertEqual(before,{n:hashlib.sha256((source/n).read_bytes()).hexdigest() for n in manifest_files(source)})
-        with zipfile.ZipFile(out/'Baiqi-plan140-stageA-v2.zip') as z:
+        with zipfile.ZipFile(out/'Baiqi-plan141-stageA-v2.zip') as z:
             self.assertEqual(len(z.namelist()),119)
             for n in before:self.assertEqual(z.read('Baiqi/'+n),(target/n).read_bytes())
 
@@ -74,7 +74,7 @@ assert(#Activations==1 and BaiqiAdmin.Run==Original and BaiqiController.RunNow==
         files=manifest_files(ROOT/'mod/Baiqi')
         with patch.object(builder,'manifest_files',return_value=files):
             with patch.object(builder.ET,'fromstring') as parse:
-                parse.return_value.get.return_value='141'
+                parse.return_value.get.return_value='142'
                 with self.assertRaisesRegex(ValueError,'actual source140'):builder.build(out)
         self.assertFalse(out.exists())
         with self.assertRaisesRegex(ValueError,'separate'):builder.build(ROOT/'mod/Baiqi/private-diagnostic')

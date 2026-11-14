@@ -13,8 +13,9 @@ class ControllerDiagnosticBuildTests(unittest.TestCase):
             self.assertEqual(result['files'],119);self.assertEqual(result['profile_count'],1)
             self.assertEqual(result['sample_capacity'],4096)
             self.assertEqual([n for n in names if digest(source/n)!=digest(target/n)],['Lua/BaiqiController.lua'])
-            self.assertEqual((target/'Lua/BaiqiController.lua').read_bytes(),(source/'Lua/BaiqiController.lua').read_bytes()+suffix().encode('utf-8'))
-            with zipfile.ZipFile(out/'Baiqi-controller140-coarse.zip')as z:
+            self.assertEqual(result['source_version'],141)
+            self.assertEqual((target/'Lua/BaiqiController.lua').read_bytes(),(source/'Lua/BaiqiController.lua').read_bytes()+suffix(source_version=141).encode('utf-8'))
+            with zipfile.ZipFile(out/'Baiqi-controller141-coarse.zip')as z:
                 self.assertEqual(set(z.namelist()),{'Baiqi/'+n for n in names})
                 for n in names:self.assertEqual(z.read('Baiqi/'+n),(target/n).read_bytes())
 
@@ -98,7 +99,7 @@ assert(#h.profile.samples==4 and T.calls==3 and h.errors==0)
     def test_v2_actual_build_and_default_bytes_stay_separate(self):
         with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
             out=Path(temp)/'v2';result=build(out,include_pre_observer=True)
-            self.assertEqual(result['mode'],'baiqi140-controller-children-v2')
+            self.assertEqual(result['mode'],'baiqi141-controller-children-v2')
             self.assertTrue(result['include_pre_observer_active_calls'])
             self.assertIn('diagnostic_preobserver_qualifier',result['helper_hashes'])
             self.assertIn("d.source='baiqi140-controller-children-v1'",suffix())

@@ -10,11 +10,11 @@ from tools.run_paired_acceptance import run
 
 
 class NormalHarness(Harness):
-    def __init__(self,**kwargs):
+    def __init__(self,*,source_version=140,**kwargs):
         super().__init__(**kwargs)
         self.ready_unknown=False
         self.lua.execute('ExposedMembers={};Players[0].IsTurnActive=function()return true end')
-        self.lua.execute(clock_prelude(normal_end_bridge=True,source_version=140))
+        self.lua.execute(clock_prelude(normal_end_bridge=True,source_version=source_version))
         self.lua.execute('''
 UI.RequestAction=function(action,args)
  assert(action==2 and args==nil)

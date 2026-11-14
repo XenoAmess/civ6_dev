@@ -32,7 +32,7 @@ class PairedCurrentModeTests(unittest.TestCase):
     def test_mixed_source_or_invalid_option_cannot_be_accepted(self):
         p=current_pairs();p[2]['control']['source_version']=67
         with self.assertRaises(ValueError):analyze_pairs(p,SHA,expected_source_version=140,require_ordinary=True)
-        for version,ordinary in ((True,False),(141,False),(67,True),(140,1)):
+        for version,ordinary in ((True,False),(142,False),(67,True),(140,1)):
             with self.assertRaises(ValueError):validate_capture_mode({},version,ordinary)
 
     def test_legacy67_shape_remains_and140_requires_an_explicit_source_choice(self):

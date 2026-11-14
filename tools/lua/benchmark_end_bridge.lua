@@ -4,6 +4,7 @@ local function NewEndBridge(env)
   local marker='baiqi-paired-end-bridge-v1'
   local h={active=false,errors=0,refused=0,entry=nil}
   local exposed,clock,entry
+  local sourceVersion=140
   local attempts={}
   local function Error() h.errors=math.min(2147483647,h.errors+1) end
   local function Refused() h.refused=math.min(2147483647,h.refused+1);return false end
@@ -27,7 +28,7 @@ local function NewEndBridge(env)
         or attempts[turn]~=nil then return false end
       local stage=env.GetStage()
       if type(stage)~='table' or stage.phase~='RECORDING' or stage.token~=token
-        or stage.normal_end~=true or stage.source_version~=140 or type(stage.ends)~='table'
+        or stage.normal_end~=true or stage.source_version~=sourceVersion or entry.source_version~=sourceVersion or type(stage.ends)~='table'
         or stage.ends[turn]~=true then return false end
       if env.GetTurn()~=turn or env.GetLocal()~=0 or env.GetClock()~=clock then return false end
       if not SnapshotValid(clock:Snapshot(),turn-85,false) then return false end
@@ -64,12 +65,14 @@ local function NewEndBridge(env)
     for _,name in ipairs({'GetStage','GetClock','GetTurn','GetLocal'}) do
       assert(type(env[name])=='function')
     end
+    if env.source_version~=nil then sourceVersion=env.source_version end
+    assert(type(sourceVersion)=='number'and(sourceVersion==140 or sourceVersion==141),'Unknown source version')
     exposed=env.ExposedMembers
     assert(exposed[key]==nil,'Foreign paired end bridge')
     clock=env.GetClock()
     assert(type(clock)=='table' and clock.marker=='baiqi67-paired-clock-v1'
       and type(clock.Begin)=='function' and type(clock.Snapshot)=='function')
-    entry={marker=marker,source_version=140,Begin=Begin}
+    entry={marker=marker,source_version=sourceVersion,Begin=Begin}
     exposed[key]=entry
     assert(exposed[key]==entry)
     h.entry=entry;h.active=true

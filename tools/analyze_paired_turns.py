@@ -7,12 +7,12 @@ def _finite(value):
 
 
 def validate_capture_mode(capture, expected_source_version, require_ordinary):
-    if type(expected_source_version) is not int or expected_source_version not in (67, 140):
-        raise ValueError('expected_source_version must be int 67 or 140')
+    if type(expected_source_version) is not int or expected_source_version not in (67, 140, 141):
+        raise ValueError('expected_source_version must be int 67,140 or141')
     if type(require_ordinary) is not bool:
         raise ValueError('require_ordinary must be bool')
-    if require_ordinary and expected_source_version != 140:
-        raise ValueError('require_ordinary requires expected_source_version 140')
+    if require_ordinary and expected_source_version not in (140,141):
+        raise ValueError('require_ordinary requires expected_source_version 140 or141')
     if not isinstance(capture, collections.abc.Mapping):
         raise ValueError('capture must be a mapping')
     if type(capture.get('source_version')) is not int or capture.get('source_version') != expected_source_version:
