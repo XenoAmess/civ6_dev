@@ -1107,3 +1107,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [806普通335与排队实效](testing/baiqi-ordinary806-main335-queue-completed.md)：候选错模块层及unknown覆盖漏，Owner修正后9Lua／8Python守卫过；一次普通END334执行旧军队路线到址并清队列，随后独立335READY／11城无人损、正式保存。ACK／实效／换回合分读，0重发或内政填补；旧FOUND恢复FAIL不追授。累计806／747完整／836HTTP。
+
+
+2026-11-15 [807—809与原版使者](testing/baiqi-original-envoy809-ordinary338.md)：807数字键迭代／once map修正28场景；808配置API／Index／燃料新鲜读修正9场景仅准备；809原版回调17场景过后实际82→81／安条克2→3。两次338等待超时保留，fresh337Active暴露使者阻塞，TEST_PLAYER外交后新普通输入及谴责Esc，实际338。累计809／750完整／839HTTP，未知成本null。

@@ -1,5 +1,7 @@
 # civ6_dev
 
+[142原版使者与338就绪](docs/testing/baiqi-original-envoy809-ordinary338.md)：TEST_PLAYER库存82→81、安条克2→3；原版外交解除使者阻塞并处理来访，实际338。军事学院／食品市场自然完成，0人工内政；五回合后续继续。
+
 [普通334→335排队军令完成](docs/testing/baiqi-ordinary806-main335-queue-completed.md)：一次普通END后原弓箭手到达55,36并清队列，独立335就绪、11城无人损，已保存；旧ARMED建城恢复仍FAIL。
 
 [142 TC-036实测性能通过](docs/testing/baiqi-performance142-complete805.md)：原85及MANY／NO_SITE两种压力场景全部满足冻结预算；NO_SITE25配对段中位增加约12ms／2.02%，全部尖峰保留。完整40项功能与旧ARMED恢复FAIL继续验收。
