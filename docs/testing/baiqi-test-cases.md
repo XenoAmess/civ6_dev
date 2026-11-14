@@ -300,7 +300,7 @@
 <a id="tc-036"></a>
 ### TC-036 十城性能与有界工作
 
-当前142：[原始85夹具四项冻结预算通过](baiqi-performance142-frozen760.md)，[原N规划分布已补](baiqi-plan-distribution761762.md)；[自然池实机仅11／10](baiqi-census142a-frontier765.md)，未达冻结≥12且未穷尽；无合法城址／候选很多压力及完整报告矩阵仍PARTIAL。
+当前142：[原始85夹具四项冻结预算通过](baiqi-performance142-frozen760.md)，[原N规划分布已补](baiqi-plan-distribution761762.md)；[原夹具自然池仅11／10](baiqi-census142a-frontier765.md)，未达冻结≥12且未穷尽。[独立无落点夹具完整几何已实测](baiqi-pressure-nosite-fixture773.md)，[压力协议已冻结](baiqi-pressure-performance-protocol.md)；压力自然调用／性能与完整报告矩阵仍PARTIAL。
 
 - 需求：BR-026、BR-028。夹具：F08，冻结 `B_plan`、`B_turn`、`B_delta`、`N_req`、样本长度和预热长度。
 - 步骤：用匹配的十城白绮托管与禁用模组的对照副本测量；记录每次规划与每回合累计耗时、请求数、额外回合耗时；加入无合法城址／候选很多的压力状态。

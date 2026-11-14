@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [独立压力性能协议774](testing/baiqi-pressure-performance-protocol.md)：保持旧预算与25段中位规则，NoSite实际1／2—6／7，配对至6窗后停；候选误写初始动作和统计且主要英文，0采用，Owner重写并核对原协议字节未改。累计774／719完整／804HTTP；尚无压力性能通过。
+
 2026-11-14 [无落点夹具773](testing/baiqi-pressure-nosite-fixture773.md)：新世界实际T1、10／1城、完整1144可见，1133水／11城／0裸地，独立几何证书成立；人工准备不记AI效果，性能仍未测。773length整份未读弃用，Owner6项过及一次Native快照；累计773／718完整／803HTTP。
 
 2026-11-14 [私有压力地图772](testing/baiqi-pressure-map-addon772.md)：候选入口双Lua解析失败／4哈希不符，0采用；Owner5项过，独立地图包与静态control只准备未安装，334无Native动作。累计772／718完整／802HTTP。
