@@ -13,4 +13,5 @@ MANY的两规划目标分别140／160个纯十城样本，p95为2.000093／1.000
 
 [首配对侧整轮拒绝](baiqi-pressure-pair-overlap-rejected.md)：普通跨UI流程跑通，但Owner构建与正式测量重叠，保留全部原值、不给B_delta通过；新pressurepair142r系列按同一冻结口径重测。
 
-配对进度：[MANY已完成1/5组、5/25段](baiqi-pressure-many-pairS-group1.md)；总体B_delta仍未知。
+
+配对进度：[MANY已完成2/5组、10/25段](baiqi-pressure-many-pairS-group2.md)；总体B_delta仍未知。
