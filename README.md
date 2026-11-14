@@ -1,6 +1,6 @@
 # civ6_dev
 
-[MANY压力全脚本I](docs/testing/baiqi-pressure-many-fullscript-I.md)：33上下文五窗最大229ms、完整回合最多4次提交，B_turn／N_req通过；[压力矩阵](docs/testing/baiqi-pressure-performance-results.md)中MANY三格已过，配对与NO_SITE性能继续验收，TC-036仍PARTIAL。
+[MANY压力四项通过](docs/testing/baiqi-pressure-many-complete.md)：规划、33上下文全脚本、完整回合提交及五组25配对段均满足冻结预算；总体差值中位约7ms／比例0.78%，所有尖峰保留。[压力矩阵](docs/testing/baiqi-pressure-performance-results.md)中的NO_SITE继续实机验收，TC-036仍PARTIAL。
 
 [142正常333→334／事件四参](docs/testing/baiqi-event142B-normal334-757.md)：11城无人损、334已存，军队排队路线仍未完成，旧ARMED不重发。
 

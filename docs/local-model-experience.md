@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [MANY四预算Native齐备](testing/baiqi-pressure-many-complete.md)：S系列10冷进程／25匹配段，50有序军队请求一致、0clock错误，差值中位6.999969ms／比例0.780376%过；2段>500ms、5段>10%全保留，p95／max不临时加门。H／I独立结果合并只授MANY，NO_SITE继续，TC-036仍PARTIAL。无新HTTP，累计795保持。
+
 2026-11-15 [NO_SITE驱动794—795准备](testing/baiqi-pressure-nosite-driver794795.md)：794混子CLI／错回执目录与虚构EXE字段，795预检替换两模式未命中、step跨UI取错全局；原件保留，Owner基于H窄移植，仅采用794只读函数。实际42＋16双Lua编译／13收尾场景过，未Native。累计795／737完整／825HTTP，模型只在已停采样的退出期调用。
 
 2026-11-15 [NO_SITE载入793准备](testing/baiqi-pressure-nosite-stageA-fixture793.md)：实际92f/T1与h日历1/2/6适配，原候选漏mode初始化，离线NameError可复现；Owner补CLI绑定和Root导入路径，其余主体采用。4双Lua编译／18正负守卫过，尚未安装或Native；仅在S3采样结束后调用。累计793／735完整／823HTTP，0原生工具会话。

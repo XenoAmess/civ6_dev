@@ -1,8 +1,8 @@
 # TC-036 独立压力场景性能协议
 
-执行进度见[压力性能矩阵](baiqi-pressure-performance-results.md)：MANY的B_plan及[全脚本B_turn／N_req](baiqi-pressure-many-fullscript-I.md)已取得Native通过，MANY配对与NO_SITE性能仍待实际采样，TC-036保持PARTIAL。下列冻结口径不变。
+执行进度见[压力性能矩阵](baiqi-pressure-performance-results.md)：[MANY四项预算已取得Native通过](baiqi-pressure-many-complete.md)，NO_SITE性能仍待实际采样，TC-036保持PARTIAL。下列冻结口径不变。
 
-T6候选的[完整初始细读已完成](baiqi-pressure-initial-readiness786787.md)：玩家125金／净5、10个纪念碑队列，AI40金／净6／移民队列，双方各1勇士；1144全可见几何再核验。下述早期“待细读”步骤已满足；H／I分别完成各自诊断配置预热、正式重载及采样，配对阶段仍待。
+T6候选的[完整初始细读已完成](baiqi-pressure-initial-readiness786787.md)：玩家125金／净5、10个纪念碑队列，AI40金／净6／移民队列，双方各1勇士；1144全可见几何再核验。下述早期“待细读”步骤已满足；H／I完成各自诊断配置预热、正式重载及采样，S系列另完成10冷进程五组配对。
 
 2026-11-14，负责人在独立压力性能正式采样前冻结本补充。[协议1](baiqi-performance-protocol.md)及原始85夹具既有结论不变；当前实际结论见上方矩阵。每个压力夹具分别完成规划、全脚本／请求与匹配对照矩阵，才可合并判定TC-036。
 
@@ -29,4 +29,4 @@ MANY已另取得[自然12资格](baiqi-pressure-natural12-fixture.md)：从T6观
 
 测试玩家仅执行军队、正常外交和受支持的普通结束回合。禁止人工补生产／文职内政、私有RunNow、伪推荐、UserForced、重复同单位同回合SKIP及不明动作重放。结束ACK、排队指令执行和实际换回合分别读回。主334保存点独立保护，压力准备动作不用于主世界。
 
-最终报告按NO_SITE／MANY分别列上述四行，每行包含计时方法、实际原始数据指纹、质量／覆盖、分布、超限次数及原因。当前NO_SITE有无几何落点证书，MANY_WATER1已从精确T6基线取得自然≥12入池；MANY三格已通过，其余保持未测。全部矩阵、真实压力资格和冻结预算成立，才授完整TC-036通过。
+最终报告按NO_SITE／MANY分别列上述四行，每行包含计时方法、实际原始数据指纹、质量／覆盖、分布、超限次数及原因。当前NO_SITE有无几何落点证书，MANY_WATER1已从精确T6基线取得自然≥12入池且四项预算通过；NO_SITE保持未测。全部矩阵、真实压力资格和冻结预算成立，才授完整TC-036通过。
