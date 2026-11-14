@@ -1,0 +1,172 @@
+{
+  "schema": "civ6.paired142-group2-model758/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "product_source_changed": false,
+  "completed_matched_groups": 2,
+  "matched_segments_completed": 10,
+  "required_groups": 5,
+  "required_segments": 25,
+  "actual_group2_order": [
+    "control",
+    "enabled"
+  ],
+  "group2_side_evidence": [
+    "baiqi-pair142-2-control-2026-11-14.json",
+    "baiqi-pair142-2-enabled-2026-11-14.json"
+  ],
+  "matched_rows": [
+    {
+      "turn": 86,
+      "enabled_seconds": 2.7029998302459717,
+      "control_seconds": 4.708999872207642,
+      "delta_ms": -2006.00004196167,
+      "ratio_percent": -42.59928002548937
+    },
+    {
+      "turn": 87,
+      "enabled_seconds": 2.7219998836517334,
+      "control_seconds": 3.9090001583099365,
+      "delta_ms": -1187.0002746582031,
+      "ratio_percent": -30.36582825751035
+    },
+    {
+      "turn": 88,
+      "enabled_seconds": 9.260999917984009,
+      "control_seconds": 7.090000152587891,
+      "delta_ms": 2170.999765396118,
+      "ratio_percent": 30.620588415695458
+    },
+    {
+      "turn": 89,
+      "enabled_seconds": 7.513000011444092,
+      "control_seconds": 7.541000127792358,
+      "delta_ms": -28.0001163482666,
+      "ratio_percent": -0.37130507722804784
+    },
+    {
+      "turn": 90,
+      "enabled_seconds": 7.275000095367432,
+      "control_seconds": 4.608999967575073,
+      "delta_ms": 2666.0001277923584,
+      "ratio_percent": 57.843353147060604
+    }
+  ],
+  "group2_median_delta_ms": -28.0001163482666,
+  "group2_median_of_each_segment_ratio_percent": -0.37130507722804784,
+  "overall_B_delta_verdict": null,
+  "source142_B_plan_B_turn_N_req": "Passed separately under frozen evidence; not remeasured or reawarded here.",
+  "group2_control_final90_cities": 10,
+  "group2_enabled_final90_cities": 11,
+  "group2_control_exit_followup": {
+    "seconds_since_official_exit": 197.363645,
+    "windows": 0,
+    "listeners": 0,
+    "cpu_delta2s": 0,
+    "saved_sha256": "1bab6a1fed0bfdb4d0f27e7505ff6353e965a54866e0c0f51ba8ed15c7b2c5d3",
+    "own_terminated_after_qualified_quiet": true,
+    "own_PID_gone_observed": true,
+    "Steam_actions": 0
+  },
+  "group2_enabled_exit_followup": "PENDING at publication cut; original exit once and stable saved90 separately recorded.",
+  "model758": {
+    "task": "First review of newly written private per-side evidence publisher and actual group2 control artifact before future reliance",
+    "started_at_utc": "2026-11-14T05:11:26.011896+00:00",
+    "attempts": 1,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "total_ms": 8053.177899913862,
+    "first_content_ms": 2329.515199875459,
+    "usage": {
+      "prompt_tokens": 16659,
+      "completion_tokens": 844,
+      "total_tokens": 17503
+    },
+    "adoption": "Zero findings or code adopted; static source review, no new runtime tests claimed.",
+    "findings_review": [
+      {
+        "candidate": "Baseline could be wrong/corrupted or captured from another process.",
+        "owner": "Rejected as hypothetical input corruption, explicitly outside this trusted-owner bookkeeping task. Actual supplied pair142_environment_owner binds current owned PID/birth to cold launch, reads live EXE SHA/CPU/settings; baseline creation only first1enabled, later exact equality. Separate actual first-pair evidence already published. Candidate does not give actual trace or a counterexample within the supplied producers.",
+        "affects_actual_C2": false
+      },
+      {
+        "candidate": "Publisher does not re-check live PID/create_time; forged receipt/capture could match.",
+        "owner": "Rejected as hypothetical tampering; actual identity() re-reads live PID/birth/exe and query endpoint binding at Native operation consumers. Publication after official exit does not require a live game process. Candidate acknowledges real identity check yet does not trace actual failure.",
+        "affects_actual_C2": false
+      },
+      {
+        "candidate": "No cross-record increasing time check; out-of-order records could pass.",
+        "owner": "Directly false: supplied publisher asserts started>=previous ended+10 for each i1..4, with each ended>=started. Inverted ordering violates existing assertion. Explicit clock physical precision/session attribution limits remain; no new check or copied test needed.",
+        "affects_actual_C2": false
+      }
+    ],
+    "owner_bookkeeping_changes": "Updated future side cumulative count to758 and added E2 stale-screenshot pre-input rejection. Neither is model-generated/adopted code; historical C2 publication at757 retained.",
+    "owner_phase_utc": [
+      {
+        "utc": "2026-11-14T05:09:07.962450+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; may overlap active Native acceptance. Not exclusive active cost or net savings. Phase helper creation before PREP_BEGIN not measured."
+      },
+      {
+        "utc": "2026-11-14T05:11:25.505260+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; may overlap active Native acceptance. Not exclusive active cost or net savings. Phase helper creation before PREP_BEGIN not measured."
+      },
+      {
+        "utc": "2026-11-14T05:11:41.658752+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; may overlap active Native acceptance. Not exclusive active cost or net savings. Phase helper creation before PREP_BEGIN not measured."
+      },
+      {
+        "utc": "2026-11-14T05:12:22.319508+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; may overlap active Native acceptance. Not exclusive active cost or net savings. Phase helper creation before PREP_BEGIN not measured."
+      },
+      {
+        "utc": "2026-11-14T05:12:23.603384+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; may overlap active Native acceptance. Not exclusive active cost or net savings. Phase helper creation before PREP_BEGIN not measured."
+      },
+      {
+        "utc": "2026-11-14T05:14:29.715588+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; may overlap active Native acceptance. Not exclusive active cost or net savings. Phase helper creation before PREP_BEGIN not measured."
+      }
+    ],
+    "phase_wall_seconds": {
+      "prep_wall_seconds": 137.54281,
+      "review_wall_seconds": 40.660756,
+      "correction_wall_seconds": 126.112204
+    },
+    "phase_limits": "Recorded before drafting each phase; intervals overlap active Native acceptance and include task switching/Native checks. Not exclusive active costs. Private phase helper creation, later publication authoring, validation/wait/git separately unmeasured; no net savings claim.",
+    "input_sources": 9,
+    "request_sha256": "b5266e2736ae2b45421bdf3dd68997b59b2459cb0f462196c9703cdc5e8c3b2e",
+    "input_hash_label": "Actual frozen REQUEST SHA256; not a publisher-only source hash.",
+    "raw_tests": 0
+  },
+  "cumulative": {
+    "logical_calls": 758,
+    "complete_streams_including_historical_json_rejection": 705,
+    "length": 50,
+    "final_transport": 3,
+    "actual_HTTP": 788,
+    "extra_attempts": 30
+  },
+  "new_calls_actual_peak": 1,
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 daily success cache reused. OpenCode native newgeneration/toolsessions0.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "next": "Group3 enabled then control, group4 control then enabled, group5 enabled then control; same original85/frozen142packages/env/budgets.",
+  "limits": "Only two matched groups; overall25 medians and fullTC036 remain unknown. Negative group2 median is not causal speedup. Enabled11 vscontrol10 world trajectories differ, all observed elapsed retained. OldARMED recoveryFAIL/fullfunctional matrix open; Steam offline/no upload."
+}
