@@ -1,0 +1,175 @@
+{
+  "schema": "civ6.nosite-stageA-J/v1",
+  "date": "2026-11-15",
+  "machine_id": "BF-202609141645",
+  "fixture": {
+    "name": "NO_SITE original92f",
+    "bytes": 295622,
+    "sha256": "92f43e9ca5fa38adef7d0e602d50d3e11da6d65f9cfbd6db496292113c8b9aa0",
+    "initial_turn": 1,
+    "windows": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "closing_turn": 7,
+    "initial_full_read": "SeparateJinitial actual10/net5/pop1/food1/monumentqueues;AI10/net6/pop1/emptyqueue;fourunits;1144water1133/city11/bare0"
+  },
+  "Native": {
+    "pid": 25324,
+    "birth": 1794678842.7317228,
+    "fresh_Steam_offline_age_seconds": 0.003881,
+    "cpu_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "package_sha256": "ce5e5020f89679913026da3b60a46db49536c0c469df7d2812461f935faf2019",
+    "files": 119,
+    "warm_seconds_before_formal_reload": 112.77499985694885,
+    "formal_reload": "Exactsame92f, restoreownHAPIbeforereload;currentlog0/29/53,oneownedEsc,actual126contexts,freshT1zerosamples/errors",
+    "ordinary_END_turns": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "actual_activations": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "military_SKIP_requests": 6,
+    "military_unit": 131073,
+    "END7": 0,
+    "diplomacy_visits": 0,
+    "manual_civilian_or_domestic_inputs": 0,
+    "manual_recommendation_or_planner_calls": 0,
+    "formal_build_tests_HTTP_overlap": false,
+    "capture_span_seconds": 104.38700008392334,
+    "save": {
+      "utc": "2026-11-14T18:04:30.228611+00:00",
+      "name": "Baiqi_P6_20261115_V142_PressureNoSitePlanObserved7.Civ6Save",
+      "bytes": 299157,
+      "sha256": "e474788472b19a0db732196e9abaa2805a144e05d723a0938676290d6fcb8f64",
+      "stable_repeated_read": true
+    },
+    "own_diagnostics_restored": true,
+    "official_exit_once": true,
+    "process_gone": "Pendingquiet-ownedfollowup atpublicationcut",
+    "Steam_online_or_upload": 0,
+    "screenshots": 0
+  },
+  "results": {
+    "utc": "2026-11-14T18:03:31.157062+00:00",
+    "facts_sha256": "9f1a2f86688ada58940b83e09c247de74842511bf350331c1ca0b376146106ac",
+    "cities": 10,
+    "source": "baiqi142-pressure-stageA-v1",
+    "initial_turn": 1,
+    "sample_quality_ok": true,
+    "samples": 296,
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 138,
+        "10_to_11": 0,
+        "eleven_city": 0,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 155,
+        "10_to_11": 0,
+        "eleven_city": 0,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 3
+      }
+    },
+    "eligible_calls_by_turn": {
+      "Admin.Run": {
+        "2": 27,
+        "3": 27,
+        "4": 28,
+        "5": 28,
+        "6": 28
+      },
+      "Controller.RunNow": {
+        "2": 31,
+        "3": 30,
+        "4": 31,
+        "5": 32,
+        "6": 31
+      }
+    },
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 138,
+        "p50_ms": 2.000093460083008,
+        "p95_ms": 9.000062942504883,
+        "max_ms": 20.999908447265625,
+        "above_20ms_count": 1,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 155,
+        "p50_ms": 0.9999275207519531,
+        "p95_ms": 2.000093460083008,
+        "max_ms": 6.999969482421875,
+        "above_20ms_count": 0,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      }
+    },
+    "overall_budget_ok": true,
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 3,
+      "validated": 3,
+      "errors": 0
+    },
+    "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass."
+  },
+  "profile": {
+    "capacity": 4096,
+    "aggregate_zero": false,
+    "total_calls": 296,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "zero_success": 0
+  },
+  "pre_anchor": {
+    "pending": 0,
+    "recorded": 3,
+    "validated": 3,
+    "errors": 0
+  },
+  "facts_sha256": "9f1a2f86688ada58940b83e09c247de74842511bf350331c1ca0b376146106ac",
+  "raw_log_sha256": "c7201dda311b0c0af8f82107e6567b8b43786160901578921e8a11571865a3c4",
+  "limits": {
+    "NO_SITE_B_plan": "PASS p95<=20/max<=50 both>=100pure10",
+    "NO_SITE_B_turn_N_req_B_delta": "NOT_RUN",
+    "TC036": "PARTIAL",
+    "literal_zero_timings": "Retained, notzeroCPUclaim",
+    "new_HTTP": 0,
+    "cumulative_logical": 795,
+    "OpenCode_native_sessions": 0,
+    "source142119_changed": false,
+    "release_zip_sha256": "2457efbafd3e9d4206d9afc03f9b2d54b09d67a03473451d02dc5fdafad2ce48"
+  }
+}
