@@ -1,5 +1,7 @@
 # civ6_dev
 
+[MANY压力全脚本I](docs/testing/baiqi-pressure-many-fullscript-I.md)：33上下文五窗最大229ms、完整回合最多4次提交，B_turn／N_req通过；[压力矩阵](docs/testing/baiqi-pressure-performance-results.md)中MANY三格已过，配对与NO_SITE性能继续验收，TC-036仍PARTIAL。
+
 [142正常333→334／事件四参](docs/testing/baiqi-event142B-normal334-757.md)：11城无人损、334已存，军队排队路线仍未完成，旧ARMED不重发。
 
 当前源码142：[移民支持检查预算与完整软件验证](docs/testing/baiqi-source142-support-budget745746.md)，2220项中2219通过、1项SDK环境跳过，97Lua双编译／119文件包。[独立142 N正式五窗B_plan通过](docs/testing/baiqi-stageA142-N.md)：Admin13／21ms、Controller7／20ms；[142全脚本B_turn／N_req通过](docs/testing/baiqi-allscript142-pair751752.md)，[主333冷读九域全等](docs/testing/baiqi-release142-cold333.md)；[五组25匹配段已齐](docs/testing/baiqi-pair142-group5.md)，[四项冻结预算在该夹具通过](docs/testing/baiqi-performance142-frozen760.md)；TC036压力和完整功能验收仍开放。
