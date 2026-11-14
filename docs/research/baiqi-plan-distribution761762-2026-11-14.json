@@ -1,0 +1,334 @@
+{
+  "schema": "civ6.plan-distribution-and-pressure-review761762/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "mod_source_changed": false,
+  "new_game_inputs": 0,
+  "new_Native_performance_samples": 0,
+  "old_N_facts_reanalysis": {
+    "facts_sha256": "45de4cd80752bcb2fb55c95424b9eacba323ad269965485cb5a45b668804bacf",
+    "original_summary_sha256": "798b5b6292423fbfe7cb0a8b8c146a1339c82f015d1cdc14ecf5b220126daf67",
+    "new_summary_sha256": "ec2019e907e3b9eab787b63e218303f9659b5e0051cf2d82f63df4acc6547f9a",
+    "expected_source_version": 142,
+    "legacy_fields_exactly_equal": true,
+    "original_summary_fields_exactly_equal": true,
+    "old_summary_extra_keys": [
+      "cities",
+      "facts_sha256",
+      "utc"
+    ],
+    "new_Native_actions": 0,
+    "retained_original_data_reanalysis_only": true,
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 116,
+        "p50_ms": 1.9998550415039062,
+        "p95_ms": 13.000011444091797,
+        "max_ms": 21.000146865844727,
+        "above_20ms_count": 1,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 144,
+        "p50_ms": 1.0001659393310547,
+        "p95_ms": 6.999969482421875,
+        "max_ms": 20.000219345092773,
+        "above_20ms_count": 1,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      }
+    }
+  },
+  "classification_counts": {
+    "Admin.Run": {
+      "pure_ten": 116,
+      "10_to_11": 0,
+      "eleven_city": 16,
+      "turn_crossing": 0,
+      "other_city_state": 0,
+      "outside_window": 0,
+      "before_native_anchor": 0
+    },
+    "Controller.RunNow": {
+      "pure_ten": 144,
+      "10_to_11": 0,
+      "eleven_city": 19,
+      "turn_crossing": 0,
+      "other_city_state": 0,
+      "outside_window": 0,
+      "before_native_anchor": 17
+    }
+  },
+  "pre_anchor": {
+    "pending": 0,
+    "recorded": 17,
+    "validated": 17,
+    "errors": 0
+  },
+  "reporting_definitions": {
+    "p50": "nearest rank ceil(.5*n)-1 on validated pure-ten milliseconds, empty null",
+    "overrun_counts": "strict unrounded >20ms and >50ms, each target independently, empty0",
+    "budget": "unchanged: n>=100 AND p95<=20 AND max<=50. A >20ms count is not a per-call20ms budget."
+  },
+  "model761": {
+    "usage": {
+      "prompt_tokens": 75540,
+      "completion_tokens": 875,
+      "total_tokens": 76415
+    },
+    "attempts": 1,
+    "total_ms": 20053.887599846348,
+    "first_content_ms": 12552.198499906808,
+    "complete_stop_DONE_strictJSON": true,
+    "request_sha256": "e2083b1779c5936f0ea92f8be221e1cf350f81d80edcbceee39a2ce491502c7a",
+    "owner_phase_utc": [
+      {
+        "utc": "2026-11-14T08:01:26.261846+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T08:03:25.165853+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T08:05:33.855304+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:06:22.596108+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:07:40.652807+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:18:40.152959+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      }
+    ],
+    "phase_wall_seconds": [
+      {
+        "phase": "PREP",
+        "seconds": 118.904007
+      },
+      {
+        "phase": "PREP",
+        "seconds": 48.740804
+      },
+      {
+        "phase": "REVIEW",
+        "seconds": 659.500152
+      }
+    ],
+    "phase_limits": "Wall includes overlapping review/task switching. Earlier discovery/helper setup and publication unmeasured. The 21-test suite ran before VERIFICATION_BEGIN (unsupported phase call rejected without append); that recorded interval covers retained-data reanalysis only. Owner active cost and net savings unknown.",
+    "provenance": {
+      "schema": "civ6.local-model-adapter-provenance/v1",
+      "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+      "shared_commit": "3b8e3b42ea1fdcecadd07df6cba208f02d933df5",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+      "overrides": {
+        "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+      },
+      "timeout_override": null,
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+    },
+    "task": "First actual-source pressure-census plan proposal, not code",
+    "disposition": "REJECTED",
+    "raw_code_adopted": false,
+    "raw_candidate_runtime_tests": 0,
+    "reasons": [
+      "Calls GetSettlementRecommendations(12) argument a proven native limit; no API cap witness supplied.",
+      "No-legal criterion omits exhaustion. Reachable two-candidate case A support=false, B support=true with oneValidation returns after A: candidate criterion falsely reports none while B is unvisited.",
+      "unique_admitted conflates candidate pool admission with visited cheap-filter acceptance; counters do not share a denominator.",
+      "Proposed anchors are generic descriptions, not unique executable replacements or a complete retirement protocol. Mostly repeats Owner field suggestions."
+    ],
+    "counterexample_validation": "Source control-flow review only; no Native execution and no raw model code execution.",
+    "api_check": "FoundingSite and CivilianMoveTarget are real current local functions; not rejected as nonexistent."
+  },
+  "model762": {
+    "usage": {
+      "prompt_tokens": 9836,
+      "completion_tokens": 1956,
+      "total_tokens": 11792
+    },
+    "attempts": 1,
+    "total_ms": 25420.444499934092,
+    "first_content_ms": 2873.54930001311,
+    "complete_stop_DONE_strictJSON": true,
+    "request_sha256": "a24b3e5d7bd7288f54257bdd07384a84d4e6746fe5e0a545041df7080b9aaf69",
+    "owner_phase_utc": [
+      {
+        "utc": "2026-11-14T08:01:26.943650+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T08:03:25.378385+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T08:05:34.036389+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:06:22.770474+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:07:42.159274+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:26:21.553589+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:26:21.716363+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:30:12.004991+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:30:45.660779+00:00",
+        "phase": "VERIFICATION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T08:30:46.106874+00:00",
+        "phase": "VERIFICATION_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      }
+    ],
+    "phase_wall_seconds": [
+      {
+        "phase": "PREP",
+        "seconds": 118.434735
+      },
+      {
+        "phase": "PREP",
+        "seconds": 48.734085
+      },
+      {
+        "phase": "REVIEW",
+        "seconds": 1119.394315
+      },
+      {
+        "phase": "CORRECTION",
+        "seconds": 230.288628
+      },
+      {
+        "phase": "VERIFICATION",
+        "seconds": 0.446095
+      }
+    ],
+    "phase_limits": "Wall includes overlapping review/task switching. Earlier discovery/helper setup and publication unmeasured. The 21-test suite ran before VERIFICATION_BEGIN (unsupported phase call rejected without append); that recorded interval covers retained-data reanalysis only. Owner active cost and net savings unknown.",
+    "provenance": {
+      "schema": "civ6.local-model-adapter-provenance/v1",
+      "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+      "shared_commit": "3b8e3b42ea1fdcecadd07df6cba208f02d933df5",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+      "overrides": {
+        "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+      },
+      "timeout_override": null,
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+    },
+    "task": "Additive planning p50 and strict threshold counts with tests",
+    "disposition": "PRODUCT_ANALYZER_HUNK_ADOPTED_LITERAL; TESTS_CORRECTED",
+    "product_replacement_hunks_adopted": 1,
+    "product_code_exact_literal": true,
+    "raw_candidate_runtime_tests": 4,
+    "raw_test_outcome": "3pass/1fail/0errors, exact floating comparison failure at 1.0000000000012221 versus1.0",
+    "owner_correction": "Exactly three assertions in fourth raw test changed to assertAlmostEqual places9, no production rounding. Two Owner methods cover rare50ms call retaining p95 pass and every excluded class including proved preanchor.",
+    "new_Native_credit": false
+  },
+  "raw762_witness": {
+    "utc": "2026-11-14T08:18:42.411351+00:00",
+    "scenario": "Literal raw replacement and raw test module in isolated module namespace; current real fixture modules supplied, no production file edits.",
+    "raw_tests": 4,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 3,
+    "failure_ids": [
+      "candidate762tests.AnalyzePlanDistributionTests.test_input_immutability_and_legacy_budget"
+    ],
+    "error_ids": [],
+    "baseline_file_sha256": "34ddbace17c6c7a8fa8fc921e62118d7d7819babf3857b6cf3654ffc2b684c74",
+    "exact_unique_anchor_count": 1,
+    "mod_source_edits": 0,
+    "game_inputs": 0
+  },
+  "software_validation": {
+    "related_tests_run": 21,
+    "passed": 21,
+    "new_distribution_methods": 6,
+    "raw_candidate_methods": 4,
+    "raw_candidate_passed": 3,
+    "raw_candidate_failed": 1,
+    "raw_candidate_errors": 0,
+    "owner_tests_added": 2,
+    "old_reports_exactly_equal_after_removing_three_new_target_fields": true,
+    "game_or_package_validation_not_repeated": "Reporting-only tool and tests, unchanged release142119 files. No new Native credit."
+  },
+  "cumulative": {
+    "logical_calls": 762,
+    "complete_streams_including_historical_json_rejection": 709,
+    "length": 50,
+    "final_transport": 3,
+    "actual_HTTP": 792,
+    "extra_attempts": 30
+  },
+  "new_client_POST_peak": 2,
+  "new_client_POST_overlap_seconds": 20.054144,
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 daily successful cache reused; OpenCode native newgeneration/tool sessions0.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "server_running_parallelism": null,
+    "KV_cache": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "TC036_full_status": "PARTIAL; original N distribution added, no-legal-site and many-candidate Native pressure states still unqualified. Other timing stages are separate reports, not newly expanded by this work.",
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0,
+  "current_game": "Owned release142 normal334/11cities, no END334 requested in this unit; previous protected save preserved."
+}

@@ -144,8 +144,12 @@ def analyze_plan_capture(data,*,expected_source_version=140):
     for name in TARGETS:
         ordered=sorted(values[name]);n=len(ordered)
         p95=ordered[math.ceil(.95*n)-1]if n else None
+        p50=ordered[math.ceil(.5*n)-1]if n else None
         maximum=ordered[-1]if n else None
-        result[name]={'pure_ten_count':n,'p95_ms':p95,'max_ms':maximum,
+        above20=sum(1 for v in ordered if v>20)
+        above50=sum(1 for v in ordered if v>50)
+        result[name]={'pure_ten_count':n,'p50_ms':p50,'p95_ms':p95,'max_ms':maximum,
+                      'above_20ms_count':above20,'above_50ms_count':above50,
                       'budget_ok':n>=100 and p95<=20 and maximum<=50}
     report={'source':d['source'],'sample_quality_ok':True,'samples':total,
             'classification_counts':classes,'eligible_calls_by_turn':coverage,
