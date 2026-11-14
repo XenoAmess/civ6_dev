@@ -10,8 +10,8 @@ from tools.static_control_source import transform,edits
 
 
 def clock_prelude(*,normal_end_bridge: bool = False,source_version: int | None = None) -> str:
-    if type(normal_end_bridge)is not bool or (normal_end_bridge and (type(source_version)is not int or source_version not in (140,141))):
-        raise ValueError('Normal END bridge requires actual source140 or141')
+    if type(normal_end_bridge)is not bool or (normal_end_bridge and (type(source_version)is not int or source_version not in (140,141,142))):
+        raise ValueError('Normal END bridge requires actual source140,141 or142')
     module=(ROOT/'tools/lua/benchmark_turn_clock.lua').read_text(encoding='utf-8')
     prefix='''-- PRIVATE matched-turn diagnostic, identical in both variants.
 if P6PairClock~=nil then
@@ -39,7 +39,7 @@ P6PairSourceVersion=140
 '''
     if normal_end_bridge:
         prefix=prefix.replace('P6PairSourceVersion=140',f'P6PairSourceVersion={source_version}')
-        if source_version==141:prefix=prefix.replace('ExposedMembers=ExposedMembers,','ExposedMembers=ExposedMembers,source_version=141,',1)
+        if source_version!=140:prefix=prefix.replace('ExposedMembers=ExposedMembers,',f'ExposedMembers=ExposedMembers,source_version={source_version},',1)
     return prefix
 
 
@@ -50,9 +50,9 @@ def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control'
     if variant=='enabled' and not paired_clock:raise ValueError('Enabled variant requires matched stopwatch')
     source=ROOT/'mod/Baiqi';files=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106','107','108','109','110','111','112','113','114','115','116','117','118','119','120','121','122','123','124','125','126','127','128','129','130','131','132','133','134','135','136','137','138','139','140','141'):raise ValueError('Expected actual source67 through141')
+    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106','107','108','109','110','111','112','113','114','115','116','117','118','119','120','121','122','123','124','125','126','127','128','129','130','131','132','133','134','135','136','137','138','139','140','141','142'):raise ValueError('Expected actual source67 through142')
     version=int(version)
-    if normal_end_bridge and version not in (140,141):raise ValueError('Normal END bridge requires actual source140 or141')
+    if normal_end_bridge and version not in (140,141,142):raise ValueError('Normal END bridge requires actual source140,141 or142')
     output_dir=output_dir.resolve()
     if output_dir==source.resolve() or output_dir.is_relative_to(source.resolve()) or source.resolve().is_relative_to(output_dir):raise ValueError('Separate output required')
     if output_dir.exists():raise ValueError('New output directory required')

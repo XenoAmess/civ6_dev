@@ -1,0 +1,95 @@
+{
+  "schema": "civ6.source142-support-read-budget745746/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "scope": "Opt-in one expensive KnownExpansionSupport invocation per ProcessSettler fallback callback. Cheap structural/foreign filtering continues in current callback. Only attempted IDs retained; no positive permission. Empty-result more is propagated by ProcessSettler. Recruitment/default full enumeration and final RequestCivilian unchanged.",
+  "source_author": "Owner after original745 contract shortcomings and consumer review",
+  "models": [
+    {
+      "model": 745,
+      "usage": {
+        "prompt_tokens": 17853,
+        "completion_tokens": 777,
+        "total_tokens": 18630
+      },
+      "total_ms": 10315.564000047743,
+      "ttft_ms": 3709.163600113243,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "raw_review": {
+        "candidate_unchanged": true,
+        "methods": 4,
+        "failures": 2,
+        "errors": 2,
+        "adopted_at_cutpoint": false
+      }
+    },
+    {
+      "model": 746,
+      "usage": {
+        "prompt_tokens": 17930,
+        "completion_tokens": 726,
+        "total_tokens": 18656
+      },
+      "total_ms": 10061.760100070387,
+      "ttft_ms": 4798.231000080705,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "raw_review": {
+        "candidate_unchanged": true,
+        "methods": 9,
+        "failures": 2,
+        "errors": 0,
+        "adopted_at_cutpoint": false
+      }
+    }
+  ],
+  "adoption": "745 narrow bounded fallback proposal reviewed and revised; no complete raw function adopted. Owner code merges existing original loop with strict pre-query option guards, attempt-ID marking, support-read budget and necessary caller continuation. 746 no tests/code adopted.",
+  "owner_contract_correction": "745 prompt assumed original consumer propagated more for empty results and constrained edits to function+one call. Actual consumer did not. Owner corrected consumer after checking real source; do not attribute missing consumer hunk solely to candidate. First Owner limit counted cheap invalid candidates too, breaking existing foreign-filter timing test; narrowed to support reads and restored original test behavior, no weakened oracle.",
+  "software": {
+    "full_total": 2220,
+    "full_passed": 2219,
+    "SDK_skipped": 1,
+    "full_seconds": 133.795,
+    "new_support_budget_methods": 4,
+    "related_settler_methods_passed": 87,
+    "version_boundary_methods_passed": 6,
+    "new_explicit142_version_method": 1,
+    "first_full_run": {
+      "total": 2219,
+      "failures": 1,
+      "skipped": 1,
+      "failure": "test_new_foreign_recommendation_is_filtered_on_resume; implementation fixed, existing test unchanged"
+    },
+    "source_version": 142,
+    "files": 119,
+    "lua51_and53": 97,
+    "release_sha256": "2457efbafd3e9d4206d9afc03f9b2d54b09d67a03473451d02dc5fdafad2ce48",
+    "installed": false
+  },
+  "formal142_prepared": {
+    "artifact_sha256": "a04706aeeda55d9fa0e7ba07d6c1b0f1610cd286345e9d7aef9d51f4549cc555",
+    "installed": false,
+    "files": 119,
+    "lua51_and53": 97
+  },
+  "legacy141_admin_suffix_exact_bytes_preserved": true,
+  "actual_http_overlap_seconds": 10.062363,
+  "actual_peak": 2,
+  "cumulative": {
+    "logical": 746,
+    "complete_streams_including_historical_json_rejection": 693,
+    "length": 50,
+    "final_transport": 3,
+    "http": 776,
+    "extra_attempts": 30
+  },
+  "maintenance": "Nov14 canonical1.19.5 passed cache reused; OpenCode native0",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "142 compiled/software only, not installed/Native tested. Existing running AdminL is frozen141, independent source and attribution. Formal141 B_plan FAIL remains, one31ms support plus25ms path may still exceed max50; no speed or full acceptance claim. Full142 allscripts/matchedpairs/main333 restore remain open."
+}

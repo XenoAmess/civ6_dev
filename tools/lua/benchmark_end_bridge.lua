@@ -66,7 +66,7 @@ local function NewEndBridge(env)
       assert(type(env[name])=='function')
     end
     if env.source_version~=nil then sourceVersion=env.source_version end
-    assert(type(sourceVersion)=='number'and(sourceVersion==140 or sourceVersion==141),'Unknown source version')
+    assert(type(sourceVersion)=='number'and(sourceVersion==140 or sourceVersion==141 or sourceVersion==142),'Unknown source version')
     exposed=env.ExposedMembers
     assert(exposed[key]==nil,'Foreign paired end bridge')
     clock=env.GetClock()

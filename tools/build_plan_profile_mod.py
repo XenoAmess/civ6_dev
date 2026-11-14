@@ -38,7 +38,7 @@ def restore_release(text: str,prefix: str,binding: str) -> str:
 
 
 def transform(raw: str,source_version: int = 140) -> tuple[str,str,str]:
-    if type(source_version)is not int or source_version not in (140,141):raise ValueError('Expected source140 or141')
+    if type(source_version)is not int or source_version not in (140,141,142):raise ValueError('Expected source140,141 or142')
     if raw.count(INCLUDES)!=1 or raw.count('local ready=false\n')!=1:
         raise ValueError('Current Executor include/bind site is unknown')
     site=raw.index('local ready=false\n')
@@ -49,7 +49,7 @@ def transform(raw: str,source_version: int = 140) -> tuple[str,str,str]:
     for name,stem in HELPERS.items():
         helper=(ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8')
         lines.append(f' local {name}=(function()\n{helper}\nend)()')
-    version_arg='' if source_version==140 else ',141'
+    version_arg='' if source_version==140 else f',{source_version}'
     lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace,NewDeferred'+version_arg+')',
             'end','']
     prefix='\n'.join(lines)
@@ -66,7 +66,7 @@ def build(output_dir: Path) -> dict:
     source=ROOT/'mod/Baiqi'
     files=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('140','141'):raise ValueError('Independent Stage A assembler requires actual source140 or141')
+    if version not in ('140','141','142'):raise ValueError('Independent Stage A assembler requires actual source140,141 or142')
     version=int(version)
     output_dir=output_dir.resolve()
     if (output_dir==source.resolve() or output_dir.is_relative_to(source.resolve())

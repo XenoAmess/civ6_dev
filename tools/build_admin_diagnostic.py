@@ -14,7 +14,8 @@ RUNNERS=('BaiqiFloodPurchase','BaiqiFoodFocusRunner','BaiqiFoodTileRescueRunner'
 HELPERS=('diagnostic_profile','diagnostic_child_profile','diagnostic_named_nested_profile')
 
 
-def suffix():
+def suffix(*,source_version=141):
+    if type(source_version)is not int or source_version not in (141,142):raise ValueError('Expected source141 or142')
     text='\n-- PRIVATE Admin diagnosis; original release is the exact prefix.\ndo\n'
     text+="assert(P6AdminNested==nil,'Existing Admin diagnostic owner')\n"
     for variable,stem in zip(('NewProfile','WrapChild','NewNamed'),HELPERS):
@@ -94,20 +95,22 @@ end
 P6AdminNested=d
 end
 '''
-    return text
+    return text.replace('baiqi141-admin-children-v1',f'baiqi{source_version}-admin-children-v1')
 
 
 def build(output_dir:Path):
     from lupa.lua51 import LuaRuntime as L51
     from lupa.lua53 import LuaRuntime as L53
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
-    if ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')!='141':raise ValueError('Expected actual source141')
+    version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
+    if version not in ('141','142'):raise ValueError('Expected actual source141 or142')
+    version=int(version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():raise ValueError('New private output required')
     contents={name:contained(source,name).read_bytes()for name in names};raw=contents['Lua/BaiqiAdmin.lua']
     for name in CHILDREN:
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:raise ValueError('Unknown Admin child '+name)
-    prepared=dict(contents);prepared['Lua/BaiqiAdmin.lua']=raw+suffix().encode('utf-8')
+    prepared=dict(contents);prepared['Lua/BaiqiAdmin.lua']=raw+suffix(source_version=version).encode('utf-8')
     c51=L51().eval('function(s)local f,e=loadstring(s);assert(f,e)end');c53=L53().eval('function(s)local f,e=load(s);assert(f,e)end')
     for name,data in prepared.items():
         if name.endswith('.lua'):c51(data.decode('utf-8-sig'));c53(data.decode('utf-8-sig'))
@@ -115,8 +118,8 @@ def build(output_dir:Path):
     out.mkdir(parents=True,exist_ok=False);target=out/'Baiqi'
     for name,data in prepared.items():
         path=contained(target,name);path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
-    archive=out/'Baiqi-admin141-children.zip';assert package(target,archive)==names
-    result=dict(mode='baiqi141-admin-children-v1',source_version=141,files=len(names),
+    archive=out/f'Baiqi-admin{version}-children.zip';assert package(target,archive)==names
+    result=dict(mode=f'baiqi{version}-admin-children-v1',source_version=version,files=len(names),
                 source_hashes={name:digest(source/name)for name in names},instrumented_hashes={name:digest(target/name)for name in names},
                 helper_hashes={stem:digest(ROOT/f'tools/lua/{stem}.lua')for stem in HELPERS},
                 changed_files=['Lua/BaiqiAdmin.lua'],archive_sha256=digest(archive),

@@ -1,0 +1,13 @@
+# 142每回调一次扩张支持检查与745／746审阅
+
+2026-11-14，BF-202609141645。[原值、采用、负责人修正与验证](../research/baiqi-source142-support-budget745746-2026-11-14.json)。K的105ms根含Settler97ms／Sites70ms及3次支持检查，仍不重现正式428。产品升142：仅ProcessSettler的备选调用显式启用每回调至多一次KnownExpansionSupport，候选被否决时标记已尝试ID并按真实more续行；不保存正面许可。廉价的结构／外国领土过滤保持在本回调完成，RecruitAllowed及其他默认调用仍完整枚举，最终RequestCivilian资格不改。
+
+745完整原稿在4项Owner实际控制器方法中2失败／2Lua断言错误：未知／坏选项并未在原生读取前拒绝、正面尝试ID未记、空结果的more未被实际调度消费者传递而提前SKIP。Owner给它的合同自身也有遗漏：误以为旧消费者可处理空结果more，并限制只改函数与一条调用；缺失消费者修改不能全归模型。Owner合并原循环、严格选项守卫、尝试ID和真正消费者续行，未完整字面采用原稿；窄分次方案经审阅修正后使用。
+
+746原样9方法，7个继承的旧测试过，两个新增方法在将Python列表当Lua推荐表后引发ipairs userdata错误，停在脚本错误断言；未抵达有效预算断言，0测试／代码采用。它还重置candidate_source且调用Lua表不存在的get，不构成可注入候选的有效新测试。
+
+第一轮Owner全量2219项发现一处旧foreign recommendation时序回归：把廉价外国地块也计作整次预算，令下一合法地块多等回调。实现收窄为支持检查预算，旧测试完全保留。修正后4新／87相关移民方法过，6版本边界方法含新增142普通END／capture严格版本测试过。最终2220项中2219通过、1SDK环境跳过，133.795秒；97Lua51／53、119文件发布包SHA256 `2457efbafd3e9d4206d9afc03f9b2d54b09d67a03473451d02dc5fdafad2ce48`。初版142构建另行保留，最终包和正式待测Stage A包SHA256 `a04706aeeda55d9fa0e7ba07d6c1b0f1610cd286345e9d7aef9d51f4549cc555`已重建，不混用旧包。
+
+工具显式支持142，历史140／141默认和67旧分析行为保持。正运行AdminL仍是已冻结141原文和独立产物；其默认141诊断后缀逐字核对保持，不能拿它替142实机验收。142当前未安装／Native未测，也不能保证单个31ms支持加25ms路径的回调已低于50ms；正式141的Adminp95 21／Controllermax428 FAIL不变。继续Admin归因、142冷实机与剩余验收。
+
+745／746各单attempt／完整stop／DONE／严格JSON，实际POST_BEGIN至ATTEMPT_END交叠10.062363秒、峰2。具体tokens和耗时见JSON；累计746／693完整流（含历史JSON拒绝）／50length／3最终transport／776HTTP／30extra。维护成功cache复用、OpenCode原生0；缓存tokens／Owner主动成本／净节省null。

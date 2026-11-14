@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [142支持检查预算／745746](testing/baiqi-source142-support-budget745746.md)：745原4项2失败2错误，Owner也漏空结果more合同；修正消费者与一次支持检查、保留廉价过滤，4新／87相关过。746原9中7继承过2新失败，0采用。最终2220项含1SDK跳过／97Lua双编译119包；142 Native未验，AdminL冻结141，旧性能FAIL保持。累计746／693完整50length3transport776HTTP30extra，实际峰2／原生0／成本null。
+
 2026-11-14 [K移民备选仍聚集校验](testing/baiqi-controller141-K.md)：79根1159行审计过；105ms根含Settler97／Sites70／Path25，支持多次，不重现正式428／不授性能。City本轮max8，不追归旧J。90已存／13绑定撤／自有退出残留清理；745746窄候选待审，142未实现，AdminL未装。
 
 2026-11-14 [Admin141独立包仅准备](testing/baiqi-admin141-diagnostic-prepared.md)：Owner3新构建／生命周期方法过，九局部加三实际runner、13绑定、单4096池，仅追加Admin原文精确前缀。97Lua51／53／119包，尚无Native；744只授完整helper、743无实现采用，HTTP仍744。

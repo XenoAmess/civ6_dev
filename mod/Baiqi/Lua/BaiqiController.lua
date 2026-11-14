@@ -2388,7 +2388,9 @@ local function SettlementFeatureAllowed(plot)
   return ok and allowed==true
 end
 
-local function SettlementSites(player, state, firstOnly, excluded, unitID, preferredIndex)
+local function SettlementSites(player, state, firstOnly, excluded, unitID, preferredIndex, oneValidation)
+  assert(oneValidation==nil or type(oneValidation)=="boolean","Unknown settlement validation mode")
+  assert(oneValidation~=true or(firstOnly==true and type(excluded)=="table"),"Missing settlement continuation state")
   local result,candidates = {},{}
   local ai = player:GetGrandStrategicAI()
   if ai == nil then return result end
@@ -2420,17 +2422,22 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
     return a.index<b.index
   end)
   for i,candidate in ipairs(candidates) do
+    if oneValidation then excluded[candidate.index]=true end
+    local supportChecked=false
     local plot=Map.GetPlotByIndex(candidate.index)
     if plot and plot:GetIndex()==candidate.index and Revealed(plot) and not plot:IsWater()
       and not plot:IsImpassable() and not plot:IsCity() and SettlementFeatureAllowed(plot)
       and (plot:GetOwner()==-1 or plot:GetOwner()==contextID) and Safe(plot,player) then
+      supportChecked=true
       if KnownExpansionSupport(plot,player,contextID)==true then
         result[#result+1] = {index=candidate.index, score=candidate.score, legal=true, revealed=true, safe=true,
           protected=false, plot=plot}
         if firstOnly then return result,i<#candidates end
       end
     end
+    if oneValidation and supportChecked then return result,i<#candidates end
   end
+  if oneValidation then return result,false end
   return result
 end
 
@@ -2522,7 +2529,7 @@ local function ProcessSettler(ctx, player, state, unit)
     -- resumes their fresh native enumeration on the next callback.
     return false,true
   end
-  local sites,more=SettlementSites(player,state,true,search.tested,id,settlementTargets[id])
+  local sites,more=SettlementSites(player,state,true,search.tested,id,settlementTargets[id],true)
   local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
   if not mayFound and target and target.index==here:GetIndex() and KnownExpansionSupport(here,player,ctx.player)==true and Safe(here, player)
     and UnitManager.CanStartOperation(unit, UnitOperationTypes.FOUND_CITY) == true then
@@ -2545,8 +2552,8 @@ local function ProcessSettler(ctx, player, state, unit)
       settlerSearches[id]=nil
       return RequestCivilian(ctx, state, unit, "MOVE_TO", step)
     end
-    if more==true then return false,true end
   end
+  if more==true then return false,true end
   settlerSearches[id]=nil
   Reason("settler:"..unit:GetID(), "移民等待已探明的安全城址或路线")
   return false

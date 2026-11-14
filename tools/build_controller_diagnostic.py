@@ -25,7 +25,7 @@ def selected_children(children):
 
 def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140):
     children=selected_children(children)
-    if type(source_version)is not int or source_version not in (140,141):raise ValueError('Expected source140 or141')
+    if type(source_version)is not int or source_version not in (140,141,142):raise ValueError('Expected source140,141 or142')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
@@ -124,7 +124,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('140','141'):raise ValueError('Expected actual source140 or141')
+    if version not in ('140','141','142'):raise ValueError('Expected actual source140,141 or142')
     version=int(version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():

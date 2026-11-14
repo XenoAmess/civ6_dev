@@ -7,7 +7,7 @@ from tools.run_observed_acceptance import _payload
 
 def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Path,*,variant,fixture_sha256,
         request_normal_end=None,legacy_forced=False,expected_source_version=140):
-    if type(expected_source_version)is not int or expected_source_version not in (140,141):raise ValueError('Invalid source version')
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142):raise ValueError('Invalid source version')
     if type(legacy_forced)is not bool:raise TypeError('legacy_forced must be an explicit boolean')
     if legacy_forced:
         if request_normal_end is not None:raise ValueError('Legacy forced mode cannot use normal callback')

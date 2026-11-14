@@ -10,7 +10,7 @@ class PairedNormalBuildTests(unittest.TestCase):
         out=ROOT/'.local-model/paired-normal-build-tests'/uuid4().hex
         enabled=build(out/'enabled',paired_clock=True,variant='enabled',normal_end_bridge=True)
         control=build(out/'control',paired_clock=True,variant='control',normal_end_bridge=True)
-        self.assertEqual(enabled['source_version'],141)
+        self.assertEqual(enabled['source_version'],142)
         self.assertEqual(enabled['clock_prefix_sha256'],control['clock_prefix_sha256'])
         self.assertEqual(enabled['end_bridge_sha256'],control['end_bridge_sha256'])
         for info in (enabled,control):

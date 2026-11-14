@@ -5,7 +5,7 @@ end
 
 local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred,sourceVersion)
   if sourceVersion==nil then sourceVersion=140 end
-  assert(type(sourceVersion)=='number'and(sourceVersion==140 or sourceVersion==141),'Unknown source version')
+  assert(type(sourceVersion)=='number'and(sourceVersion==140 or sourceVersion==141 or sourceVersion==142),'Unknown source version')
   local h={source='baiqi'..sourceVersion..'-stageA-v1',enabled=false,anchors={},qualificationErrors=0,
     bound=false,retired=false,subscribed=false,anchorCount=0}
   if type(NewTrace)=='function' then
