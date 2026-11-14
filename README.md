@@ -1,5 +1,7 @@
 # civ6_dev
 
+[811人口减少已被动复现，逐城原因仍开](docs/testing/baiqi-passive-population811-power812.md)：原339保护；两城−1、UI/Core各3保留／0错丢，监听已撤。广州合法港口75/180与工业供电项目资格已核，下一步独立供电分支跟踪。
+
 [339人口减少已存，归因继续](docs/testing/baiqi-population339-diagnosis810.md)：长沙16→15、广州19→18，0END339。沙尘暴总人口损失与正粮食快照已核，逐城原因待独立复现；广州供电6/7另查。
 
 [142原版使者与338就绪](docs/testing/baiqi-original-envoy809-ordinary338.md)：TEST_PLAYER库存82→81、安条克2→3；原版外交解除使者阻塞并处理来访，实际338。军事学院／食品市场自然完成，0人工内政；五回合后续继续。
