@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [742预算测试未达断言](testing/baiqi-model742-city-budget.md)：原稿3项均访问nil全局city而出错，0采用，不算产品回归。Config表引用的Owner初始错误理由已撤回；735未采用、71ms归因未知，141已预热73.563秒待正式捕获。累计742／689完整50length3transport772HTTP30extra，峰1／原生0／成本null。
+
 2026-11-14 [141移民直达／J与738—741](testing/baiqi-source141-settler-J738741.md)：J76根201行，77ms根含Settler67ms及两次支持读取，另71ms根归因未知。738—741均拒采用；Owner141直达、分次备选与最终资格7新／83相关过，版本边界5过，全量2198项通过含1SDK跳过。141实机与正式性能待验，累计741／688完整50length3transport771HTTP30extra，两组实际峰2，原生0／成本null。
 
 2026-11-14 [I未重现／v2覆盖737](testing/baiqi-controller-I-preobserver737.md)：65根190行审计过，根12／Settler8ms未重现，原因与早期调用未知、不授修复。原版Escape回执和隐藏实际分读，90已存／QA撤。737完整predicate字面采用，8合同检查及3新／9相关构建过，旧v1字节保持；v2保留active通知前入口，待新冷Native。累计737／684完整50length3transport767HTTP30extra，原生0／成本null。

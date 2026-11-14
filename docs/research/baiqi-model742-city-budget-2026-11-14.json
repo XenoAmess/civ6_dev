@@ -1,0 +1,47 @@
+{
+  "schema": "civ6.model742-city-budget-review/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 141,
+  "usage": {
+    "prompt_tokens": 16906,
+    "completion_tokens": 2610,
+    "total_tokens": 19516
+  },
+  "total_ms": 19319.816400064155,
+  "ttft_ms": 2322.361099999398,
+  "finish_reason": "stop",
+  "sse_done": true,
+  "review": {
+    "candidate_unchanged": true,
+    "methods": 3,
+    "failures": 0,
+    "errors": 3,
+    "adopted": false,
+    "reasons": [
+      "Exactly2 tests requested; returned3",
+      "Rawsetup accesses nil globals city and queue; actualmock objects are lexical locals and reachable through TestWorld.objects",
+      "Budget1 first Granary consumes one attempted candidate but test also expects laterMonument request",
+      "District test leaves original buildings consumingbudget before districtloop and mock Map does not supply distinctplots1..5",
+      "No actual budget-count assertion or735semantic pass was reached"
+    ],
+    "owner_correction": "C is a direct reference to BaiqiConfig, so setting candidatesPerCity after loading remains valid. Initial owner contrary reason is withdrawn before publication."
+  },
+  "adopted_code_or_tests": 0,
+  "new_http_peak": 1,
+  "cumulative": {
+    "logical": 742,
+    "complete_streams_including_historical_json_rejection": 689,
+    "length": 50,
+    "final_transport": 3,
+    "http": 772,
+    "extra_attempts": 30
+  },
+  "maintenance": "Nov14 canonical1.19.5 cache reused; OpenCode native0",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "735 candidate remains unadopted; city attribution for J71ms remains unknown. Raw742 errors are fixture setup defects, not product regression or a new Native/performance result. Current141 cold run has loaded original85, warmed73.562999963760376sec, and requested formal reload once; capture not started at this publication point."
+}
