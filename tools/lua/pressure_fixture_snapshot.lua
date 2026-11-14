@@ -16,7 +16,7 @@ local function Port(object,name)
 end
 return function(E,layout)
   assert(type(E)=='table' and E.setup_stage=='READY','Private preparation ledger required')
-  local paths={NO_SITE='P6PressureNoSite.lua',MANY='P6PressureMany.lua'}
+  local paths={NO_SITE='P6PressureNoSite.lua',MANY='P6PressureMany.lua',MANY_WATER1='P6PressureManyWater1.lua'}
   assert(paths[E.variant]~=nil,'Invalid variant')
   Keys(layout,{'schema','fixture_id','width','height','wrap_x','slots'})
   assert(layout.schema=='civ6.pressure-layout/v1' and layout.fixture_id=='P6_PRESSURE_LAYOUT_V1'

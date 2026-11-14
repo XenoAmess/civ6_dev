@@ -1,0 +1,462 @@
+{
+  "schema": "civ6.pressure-water-anchor776777/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "models": {
+    "776": {
+      "usage": {
+        "prompt_tokens": 3811,
+        "completion_tokens": 1167,
+        "total_tokens": 4978
+      },
+      "total_ms": 10787.15889994055,
+      "first_content_ms": 2283.32050004974,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "raw_review": {
+        "anchors": [
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 1,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 2,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 3,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 4,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 5,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 6,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 7,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/benchmark_end_bridge.lua",
+            "hunk": 8,
+            "matches": 1
+          }
+        ],
+        "test_module_content": "tests/test_pressure_end_bridge.py",
+        "no_complete_test_code": true,
+        "native_actions": 0,
+        "tampered_entry_accepted": true
+      },
+      "request_sha256": "e1f6a3b467c97912f8884eded057597adc7bd76f9d13399fbb4fbc45046e6cd6",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "f01ab904932da19589dde41d2570c19ef04050d9",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "owner_phase_utc": [
+        {
+          "utc": "2026-11-14T12:27:16.827146+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:27:17.378127+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:29:15.747593+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:34:52.982241+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:34:53.157454+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:45:46.033706+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "disposition": "Partial code adopted as8hunk basis; Owner strengthened entry metadata and indentation;0rawtests",
+      "owner_correction": "Raw bridge accepts mismatched entry.initial_turn/source/marker and beginsclock. Ownerchecksallthree againstpressurecontract beforeBegin. test_module was onlyfilename, no actualtests. Owner5methods withrealclock/5segments/dualLua/bounds/unknownpending/foreignretire.",
+      "partial_adoption_limits": "Do not claim finalentire8hunksliteral dueOwnerfieldchecks/indent changes."
+    },
+    "777": {
+      "usage": {
+        "prompt_tokens": 12705,
+        "completion_tokens": 3297,
+        "total_tokens": 16002
+      },
+      "total_ms": 22693.213999969885,
+      "first_content_ms": 2275.151299778372,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "raw_review": {
+        "anchors": [
+          {
+            "file": "tools/lua/pressure_fixture_geometry.lua",
+            "hunk": 1,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/pressure_fixture_geometry.lua",
+            "hunk": 2,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/pressure_fixture_geometry.lua",
+            "hunk": 3,
+            "matches": 1
+          },
+          {
+            "file": "tools/qualify_pressure_geometry.py",
+            "hunk": 1,
+            "matches": 1
+          },
+          {
+            "file": "tools/qualify_pressure_geometry.py",
+            "hunk": 2,
+            "matches": 1
+          },
+          {
+            "file": "tools/lua/pressure_fixture_snapshot.lua",
+            "hunk": 1,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 1,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 2,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 3,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 4,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 5,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 6,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 7,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 8,
+            "matches": 1
+          },
+          {
+            "file": "tools/build_pressure_map_mod.py",
+            "hunk": 9,
+            "matches": 1
+          }
+        ],
+        "test_module_content": "tests/test_pressure_many_water1.py",
+        "no_complete_test_code": true,
+        "native_actions": 0,
+        "MANY": {
+          "reported_land_tiles": 1143,
+          "fake_actual_land_tiles": 1144,
+          "slot_grass_tiles": 11
+        },
+        "MANY_WATER1": {
+          "reported_land_tiles": 1143,
+          "fake_actual_land_tiles": 1143,
+          "slot_grass_tiles": 0
+        },
+        "valid_ordered_status": "READY_MANY_GEOMETRY_ONLY",
+        "valid_reversed_status": "NOT_QUALIFIED",
+        "wrong_water_index1_first_row_status": "READY_MANY_GEOMETRY_ONLY"
+      },
+      "request_sha256": "7e68c1b30d7b28e8b9915564dbd8d5a1f3156df6b7fd3ce00d6553f31f6b44c1",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "f01ab904932da19589dde41d2570c19ef04050d9",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "owner_phase_utc": [
+        {
+          "utc": "2026-11-14T12:27:17.023214+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:27:17.559963+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:29:15.890755+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:34:53.300022+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:34:53.472558+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T12:45:46.238418+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "disposition": "Partial code adoption (variant header/path, option/constant/CLI pieces); Owner corrected terrain, qualifier and refactored localmap plumbing;0rawtests",
+      "owner_correction": "RawMANYreport1143despite1144land, new11cityslotsallhillsnotgrass, noanchorcity0prewriteguard. Rawqualifier usesfirstlistrow, rejectsvalidreversed and falselyacceptswrongwaterindex1placedfirst. Buildermodewrong andduplicateboolmanifest/config replacedwithlocalmapdict. NewOwner6methods, actual5filebuilder+snapshotconsumer.",
+      "partial_adoption_limits": "test_module filenameonly; no tests supplied, no rawtest pass claim. Validdecl/optionhunks retained, not wholemodule."
+    }
+  },
+  "fresh_C_failure": {
+    "owned_PID": 12380,
+    "birth": 1794658554.3865013,
+    "fresh_offline_age_seconds": 0.003767,
+    "same_settings_and_seeds_as_B": true,
+    "game_seed": 616018721,
+    "map_seed": 616018722,
+    "official_start_calls": 1,
+    "screenshots": 0,
+    "status": "FAIL_ACCESS_VIOLATION",
+    "last_durable_phase": "CONTINENTS_BEGIN",
+    "known_completed_native_setter_calls": 1144,
+    "area_and_choke_returned": true,
+    "continent_call_returned": false,
+    "marker_scope": "LastdurableLua boundary, notC++rootcause proof. Noindependentactualworldsnapshot available.",
+    "trace_markers": [
+      [
+        "ENTRY_LOADED",
+        "0"
+      ],
+      [
+        "INITDATA",
+        "-601637951"
+      ],
+      [
+        "GENERATE_BEGIN",
+        "0"
+      ],
+      [
+        "TERRAIN_BEGIN",
+        "0"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "128"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "256"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "384"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "512"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "640"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "768"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "896"
+      ],
+      [
+        "TERRAIN_PROGRESS",
+        "1024"
+      ],
+      [
+        "TERRAIN_END",
+        "1144"
+      ],
+      [
+        "AREA_BEGIN",
+        "0"
+      ],
+      [
+        "AREA_END",
+        "0"
+      ],
+      [
+        "CHOKE_BEGIN",
+        "0"
+      ],
+      [
+        "CHOKE_END",
+        "0"
+      ],
+      [
+        "CONTINENTS_BEGIN",
+        "0"
+      ]
+    ],
+    "log_sha256": "386932877ff771e23ffbe501ba7745eb902b7397d7b19592353e72181dbd0fec",
+    "dialog_stack_characters": 334,
+    "read_address": "0x6c09a014",
+    "usable_symbols": false,
+    "deep_root_cause": "UNKNOWN",
+    "warm_reuse_only_explanation": "Not sufficient: freshprocess alsofailed.",
+    "manual_city_or_visibility_preparation": 0,
+    "Continue_ESC": 0,
+    "END": 0,
+    "crash_OK": 1,
+    "actual_process_naturally_gone": true,
+    "process_termination_calls": 0,
+    "Steam_actions": 0,
+    "failed_world_replays": 0
+  },
+  "bridge776": {
+    "API": "Optionalenv.initial_turn T0..2147483641 requires source142, distinctpressureentrymarker/source/T;legacyenvabsentkeeps85/oldfields",
+    "software": "21methods passed, including5new; realclock/5actual-labelsegments at0/1/max andlegacy85, bothLua51/53; invalidbeforeclockread/publication, tamperrejection, unknownpendingnoretry, foreign/retire preserved",
+    "Native_END_calls": 0,
+    "readiness": "Bridgeonly;pairedbuilder/analyzer/Pythonrequestendpoint/playerdriverstill85, notwholepressurepairready."
+  },
+  "water777": {
+    "variant": "MANY_WATER1",
+    "map_script": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureManyWater1.lua",
+    "layout": "Same44x26/11slots, exactlyindex0ocean,11slotsgrass, other1132grasshills;1143land",
+    "gate": "Index0mustnotcityslot beforeanysetter; Pythonusesphysicalindex ratherthanroworder. OldMANYonewaterstillNOT_QUALIFIED.",
+    "qualification": "Fullvisiblemap READY_MANY_GEOMETRY_ONLY onlywhenonewaterat0;global_no_admissible_geometry/many_candidate_pressure alwaysNone. Realadmitted>=12 andallbudgetsunchanged.",
+    "hypothesis": "PhysicalwateranchormayavoidNativecontinent-generationfailure; NOTNATIVEPROVEN/NOTROOTCAUSEFIX.",
+    "legacy_scope": "OldNO_SITE/MANYsemantics preserved; sharedcoreextensionchangesembeddedbytes/hash evenoldvariants, original772/775privateartifacts retained unchanged. No retrospectivebyteequalclaim.",
+    "default_registry_MAPS_mutated": false,
+    "software": "36mapmethods passed, including6new, Lua51/53 realgeometry/actualgeneratedentry/snapshot+strictPythonconsumer/5fileXML+hashes. Firstnewmodule imported17TestCase methods causing23discovery; switchedtomodulealiases toavoiddouble-discovery; final36uniquemapmethods."
+  },
+  "combined_software_methods": 57,
+  "new_software_methods": 11,
+  "prepared_five_file_package": {
+    "mode": "baiqi-pressure-map-water1-v1",
+    "installed": false,
+    "native_generated": false,
+    "files": 5,
+    "package_file_sha256": {
+      "PressureMaps.modinfo": "825b06c0f41d5d30d86000c67c39c52977d352aa694d9050133e6f8920b88aad",
+      "Config/PressureMaps.xml": "7f60cd3767c41f42f9470c7436d55b34388bc04ab82fb0be58883e29d245b74d",
+      "Maps/P6PressureNoSite.lua": "bfc0f32397dece7b874bdfc489cd414ebd96e9eec44db076aad84a1c925dae16",
+      "Maps/P6PressureMany.lua": "a8a9ea2f23aca421b05c4f5393371dc5c9db1b04995db4e8c930b7a5afcaaf2b",
+      "Maps/P6PressureManyWater1.lua": "7c6480a261dd3fad9bcf2b7a13c00b00f6421366af6b7c5523b379514fcbca85"
+    },
+    "map_scripts": {
+      "NO_SITE": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureNoSite.lua",
+      "MANY": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureMany.lua",
+      "MANY_WATER1": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureManyWater1.lua"
+    },
+    "layout_sha256": "779df0744db6a8f40e70d0784f3041f2b78c22ca56d19892e6426714f62a6d5f",
+    "geometry_sha256": "478fbcb5c76de04be5d498558b831e014cfcdd26c77c1413535cff5957f39806",
+    "generation_trace": true,
+    "trace_sha256": "e45dea29a5b70377e398622997ae84c7750371f0a4b14bba7120a887d3226225",
+    "many_water_anchor": true
+  },
+  "installed": false,
+  "water1_Native_generations": 0,
+  "release142119_source_hashes_unchanged": true,
+  "file_sha256": {
+    "tools/lua/benchmark_end_bridge.lua": "ff363bb9a5a234051971e834bf874677b718016c945d95523d95538eae850ee6",
+    "tests/test_pressure_end_bridge.py": "b709612a82a7626e11580753e08a1572172486e35e250be8b05c22bf18865829",
+    "tools/lua/pressure_fixture_geometry.lua": "478fbcb5c76de04be5d498558b831e014cfcdd26c77c1413535cff5957f39806",
+    "tools/qualify_pressure_geometry.py": "868884fd26a5ca1027d3b211fa82f846e792a43346a615abf5f27b767d4e6a0f",
+    "tools/lua/pressure_fixture_snapshot.lua": "c273ce887e25e1653aca78bcc06354a81b103c5c71eb9ae32fd5b0704670889f",
+    "tools/build_pressure_map_mod.py": "e8beb8ed42a4b95818cceb2abca4561bfd1e1f52def445215448a40f9f65dd59",
+    "tests/test_pressure_many_water1.py": "a00901ed00b30404443d8e05feca311e92b06af967f71b367dc40cc94e510f7a"
+  },
+  "new_client_POST_peak": 2,
+  "new_client_POST_peak2_overlap_seconds": 10.778911,
+  "server_parallelism": null,
+  "cumulative": {
+    "logical_calls": 777,
+    "complete_streams_including_historical_json_rejection": 722,
+    "length": 52,
+    "final_transport": 3,
+    "actual_HTTP": 807,
+    "extra_attempts": 30
+  },
+  "maintenance": "Canonical1.19.5 Nov14 successcache reused; newOpenCode-native generation/tool sessions0.",
+  "owner_cost_limits": "Initialbridgehunkadoption/entrycheck happened before recordedcorrection, unmeasured. Source/SDK/crashdiagnosis andpublication unmeasured; rawwitness inreview, tests/buildincorrection, walls overlap. Noexclusiveactivecost/net savings.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0,
+  "TC036_full_status": "PARTIAL",
+  "next": "Freshindependentwater1Nativeattempt afterinstallwithgamegone/currentSteamoffline proof; neverrepeatfailedall-landworld. Preserve mainf70b andNO_SITE92f4. Then actualfullworldcertificate/naturaladmittedpool/performance, notfromgeometryalone."
+}

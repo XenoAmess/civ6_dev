@@ -52,10 +52,12 @@ def qualify_pressure_geometry(data, layout):
     expected = _layout(layout)
     _object(data, 'source fixture_id variant setup_stage turn width height cities plots')
     if (data['source'] != 'baiqi-pressure-geometry-v1' or data['fixture_id'] != FIXTURE_ID
-            or data['variant'] not in ('NO_SITE', 'MANY') or data['setup_stage'] != 'READY'
+            or data['variant'] not in ('NO_SITE', 'MANY', 'MANY_WATER1') or data['setup_stage'] != 'READY'
             or type(data['width']) is not int or data['width'] != WIDTH
             or type(data['height']) is not int or data['height'] != HEIGHT):
         raise ValueError('Unexpected snapshot')
+    if data['variant'] == 'MANY_WATER1' and (0, 0) in expected:
+        raise ValueError('Water anchor cannot be a city slot')
     turn = _integer(data['turn'], 2147483647)
     cities = data['cities']
     if type(cities) is not list or len(cities) != 11:
@@ -75,6 +77,7 @@ def qualify_pressure_geometry(data, layout):
     if type(plots) is not list or len(plots) != WIDTH * HEIGHT:
         raise ValueError('Incomplete plot coverage')
     seen, water_tiles, city_tiles, bare_land_tiles = set(), 0, 0, 0
+    water_at_zero = False
     for plot in plots:
         _object(plot, 'index x y water city visible owner')
         index, position = _integer(plot['index'], WIDTH * HEIGHT - 1), _position(plot)
@@ -94,12 +97,16 @@ def qualify_pressure_geometry(data, layout):
                 raise ValueError('Noncity plot owner must be omitted as null')
             if plot['water']:
                 water_tiles += 1
+                if index == 0:
+                    water_at_zero = True
             else:
                 bare_land_tiles += 1
     variant, status, no_geometry = data['variant'], 'NOT_QUALIFIED', None
     if variant == 'NO_SITE' and bare_land_tiles == 0:
         status, no_geometry = 'QUALIFIED_NO_ADMISSIBLE_GEOMETRY', True
     elif variant == 'MANY' and water_tiles == 0:
+        status = 'READY_MANY_GEOMETRY_ONLY'
+    elif variant == 'MANY_WATER1' and water_tiles == 1 and water_at_zero:
         status = 'READY_MANY_GEOMETRY_ONLY'
     return {'status': status, 'variant': variant, 'turn': turn, 'inspected_plots': len(seen),
             'water_tiles': water_tiles, 'city_tiles': city_tiles, 'bare_land_tiles': bare_land_tiles,

@@ -17,7 +17,7 @@ local function Port(object,name)
 end
 return function(E,layout,variant)
   assert(type(E)=='table' and E.in_generation==true,'Generation context required')
-  assert(variant=='NO_SITE' or variant=='MANY','Invalid geometry variant')
+  assert(variant=='NO_SITE' or variant=='MANY' or variant=='MANY_WATER1','Invalid geometry variant')
   Keys(layout,{'schema','fixture_id','width','height','wrap_x','slots'})
   assert(layout.schema=='civ6.pressure-layout/v1' and layout.fixture_id=='P6_PRESSURE_LAYOUT_V1',
     'Unexpected fixture')
@@ -40,6 +40,7 @@ return function(E,layout,variant)
     end
   end
   assert(counts[0]==10 and counts[1]==1 and starts[0]~=nil and starts[1]~=nil,'Invalid owners/starts')
+  assert(variant~='MANY_WATER1' or not occupied[0],'Water anchor cannot be a city slot')
   Integer(E.grass);Integer(E.ocean);Integer(E.hills)
   assert(E.grass~=E.ocean and E.grass~=E.hills and E.ocean~=E.hills,'Terrain indices must differ')
   Port(E.Map,'GetGridSize');Port(E.Map,'GetPlotByIndex')
@@ -58,7 +59,8 @@ return function(E,layout,variant)
     plots[index]=plot
   end
   for index=0,1143 do
-    local terrain=occupied[index] and E.grass or (variant=='NO_SITE' and E.ocean or E.hills)
+    local water=variant=='NO_SITE' or (variant=='MANY_WATER1' and index==0)
+    local terrain=occupied[index] and E.grass or (water and E.ocean or E.hills)
     E.TerrainBuilder.SetTerrainType(plots[index],terrain)
   end
   E.AreaBuilder.Recalculate()
@@ -67,5 +69,5 @@ return function(E,layout,variant)
   E.Players[0]:SetStartingPlot(plots[starts[0]])
   E.Players[1]:SetStartingPlot(plots[starts[1]])
   return {status='MAP_GEOMETRY_READY',variant=variant,width=44,height=26,
-    land_tiles=variant=='NO_SITE' and 11 or 1144,city_setup_complete=false}
+    land_tiles=variant=='NO_SITE' and 11 or (variant=='MANY_WATER1' and 1143 or 1144),city_setup_complete=false}
 end
