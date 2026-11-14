@@ -105,5 +105,27 @@ class OperationEventTests(unittest.TestCase):
             self.assertEqual(l.eval('h.errors'),3)
             self.assertEqual(l.eval('#h.samples'),0)
 
+    def test_unknown_arity_preserves_scalar_prefix_and_does_not_retain_objects(self):
+        for l in self.runtimes():
+            l.execute('h=New(env,8);S.fn(0,1,2,123,false,nil,{})')
+            self.assertEqual(l.eval('h.invalid'),1)
+            self.assertEqual(l.eval('h.unexpectedArity'),1)
+            self.assertEqual(l.eval('h.structuralInvalid'),0)
+            self.assertEqual(l.eval('h.samples[1].argc'),7)
+            self.assertFalse(l.eval('h.samples[1].qualified'))
+            self.assertEqual(l.eval('h.samples[1].argvalues[4]'),123)
+            self.assertFalse(l.eval('h.samples[1].argvalues[5]'))
+            self.assertIsNone(l.eval('h.samples[1].argvalues[6]'))
+            self.assertIsNone(l.eval('h.samples[1].argvalues[7]'))
+
+    def test_bounded_text_original_length_and_structural_faults_are_separate(self):
+        for l in self.runtimes():
+            l.execute("h=New(env,8);S.fn(0,1,2,string.rep('q',300));S.fn(0,-1,2)")
+            self.assertEqual(l.eval('#h.samples[1].argvalues[4]'),256)
+            self.assertEqual(l.eval('h.samples[1].arglengths[4]'),300)
+            self.assertEqual(l.eval('h.invalid'),2)
+            self.assertEqual(l.eval('h.unexpectedArity'),1)
+            self.assertEqual(l.eval('h.structuralInvalid'),1)
+
 
 if __name__=='__main__':unittest.main()

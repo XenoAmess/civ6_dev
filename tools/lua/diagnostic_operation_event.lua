@@ -8,27 +8,37 @@ local function New(env,capacity)
     assert(type(env[name])=='function','Missing observer dependency')
   end
   local h={samples={},capacity=capacity,seen=0,ignored=0,invalid=0,dropped=0,
-           errors=0,enabled=false,subscribed=false,retired=false,cleanupKnown=true}
+           errors=0,enabled=false,subscribed=false,retired=false,cleanupKnown=true,
+           structuralInvalid=0,unexpectedArity=0}
   local function Count(key)h[key]=math.min(2147483647,h[key]+1)end
   local function Record(...)
     local argc=select('#',...)
     local ownerID,unitID,operationID=...
-    if not Integer(ownerID,0,2147483647) then Count('invalid');return end
+    if not Integer(ownerID,0,2147483647) then Count('invalid');Count('structuralInvalid');return end
     local pid=env.GetLocal()
-    if pid~=0 then Count('invalid');return end
+    if pid~=0 then Count('invalid');Count('structuralInvalid');return end
     if ownerID~=pid then Count('ignored');return end
     if not Integer(unitID,0,2147483647)
-      or not Integer(operationID,-2147483648,4294967295) then Count('invalid');return end
+      or not Integer(operationID,-2147483648,4294967295) then Count('invalid');Count('structuralInvalid');return end
     local turn,now=env.GetTurn(),env.Now()
     if not Integer(turn,0,2147483647) or type(now)~='number'
-      or now~=now or now<0 or now>=math.huge then Count('invalid');return end
+      or now~=now or now<0 or now>=math.huge then Count('invalid');Count('structuralInvalid');return end
     local types={}
     for i=1,math.min(argc,8)do types[i]=type((select(i,...)))end
     local qualified=argc==3
-    if not qualified then Count('invalid')end
+    if not qualified then Count('invalid');Count('unexpectedArity')end
     if #h.samples>=capacity then Count('dropped');return end
+    local values,lengths={},{}
+    for i=1,math.min(argc,8)do
+      local value=select(i,...)
+      if types[i]=='number' or types[i]=='boolean' then values[i]=value
+      elseif types[i]=='string' then
+        lengths[i]=#value;values[i]=string.sub(value,1,256)
+      end
+    end
     h.samples[#h.samples+1]={ownerID=ownerID,unitID=unitID,operationID=operationID,
-      turn=turn,time=now,argc=argc,qualified=qualified,argtypes=types}
+      turn=turn,time=now,argc=argc,qualified=qualified,argtypes=types,
+      argvalues=values,arglengths=lengths}
   end
   local function Observer(...)
     if not h.enabled then return end
