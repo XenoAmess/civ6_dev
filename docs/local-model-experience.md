@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [推荐返回域只读](testing/baiqi-recommendation-domain142.md)：85与210各按12／13／12额外getter，分别全11／全3且集合相同，不授API硬上限或≥12压力；主334最新6082…已恢复，0END，无新HTTP，累计766不变。
+
 2026-11-14 [视野边缘766](testing/baiqi-visible-fringe766.md)：6000length未读整弃，Owner接管几何BFS5项＋双解析过；主334只读一侦察兵三步37节点0未探明，不授压力／移动方案，0END334。累计766／712完整／51length／796HTTP，原生0。
 
 2026-11-14 [自然选址实机／765](testing/baiqi-census142a-frontier765.md)：原85普通到88，54军队SKIP／3END，两自然池11／10零坏行，未达≥12且有未访问，压力不授；观察撤、119发布恢复、主334冷读就绪。765两Lua解析FAIL0采用，Owner只读6项过／Native52单位0行，不授探索方案。累计765／712完整／795HTTP。
