@@ -1,0 +1,226 @@
+{
+  "schema": "civ6.source142-allscript-and-pair-preparation/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "observed_artifact_sha256": "29abe6879a8c77786e54a7dd163caca4612c74b960ae412dc546737f7c6e8c42",
+  "initial_warmup_seconds": 70.927000045776,
+  "formal_reload_original85": true,
+  "ordinary_requested_turns": [
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  ],
+  "final_actual_turn": 91,
+  "final_cities": 10,
+  "summary": {
+    "contexts": 33,
+    "samples": 1735,
+    "aggregate_zero_success_calls": 37509,
+    "configured_retained_sample_budget": 4096,
+    "windows": [
+      {
+        "turn": 86,
+        "start_ui": 1794622663.108,
+        "end_ui": 1794622673.108,
+        "observed_union_ms": 443.00007820129395,
+        "clipped_inclusive_sum_ms_not_cpu": 472.99981117248535,
+        "sample_rows_intersecting": 201
+      },
+      {
+        "turn": 87,
+        "start_ui": 1794622713.006,
+        "end_ui": 1794622723.006,
+        "observed_union_ms": 365.001916885376,
+        "clipped_inclusive_sum_ms_not_cpu": 384.0017318725586,
+        "sample_rows_intersecting": 200
+      },
+      {
+        "turn": 88,
+        "start_ui": 1794622769.684,
+        "end_ui": 1794622779.684,
+        "observed_union_ms": 190.99903106689453,
+        "clipped_inclusive_sum_ms_not_cpu": 200.99902153015137,
+        "sample_rows_intersecting": 136
+      },
+      {
+        "turn": 89,
+        "start_ui": 1794622831.825,
+        "end_ui": 1794622841.825,
+        "observed_union_ms": 187.99948692321777,
+        "clipped_inclusive_sum_ms_not_cpu": 192.99960136413574,
+        "sample_rows_intersecting": 148
+      },
+      {
+        "turn": 90,
+        "start_ui": 1794622885.652,
+        "end_ui": 1794622895.652,
+        "observed_union_ms": 552.0029067993164,
+        "clipped_inclusive_sum_ms_not_cpu": 600.0027656555176,
+        "sample_rows_intersecting": 250
+      }
+    ],
+    "complete_turn_writes": [
+      {
+        "turn": 86,
+        "calls": 11,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 11
+        }
+      },
+      {
+        "turn": 87,
+        "calls": 10,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 10
+        }
+      },
+      {
+        "turn": 88,
+        "calls": 19,
+        "by_context": {
+          "Lua/BaiqiGameplay.lua": 3,
+          "UI/BaiqiExecutor.lua": 16
+        }
+      },
+      {
+        "turn": 89,
+        "calls": 12,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 12
+        }
+      },
+      {
+        "turn": 90,
+        "calls": 28,
+        "by_context": {
+          "Lua/BaiqiGameplay.lua": 4,
+          "UI/BaiqiExecutor.lua": 24
+        }
+      }
+    ],
+    "partial_turn_writes": [
+      {
+        "turn": 91,
+        "calls": 12,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 12
+        }
+      }
+    ],
+    "observed_b_turn_budget_ok": true,
+    "observed_n_req_budget_ok": true,
+    "facts_sha256": "b800a077f31e5c60d8bfa5a3510b0816b349807a8bb3823cbe69d37611bc2a66"
+  },
+  "timing_contexts": 33,
+  "timing_transition_rows": 396,
+  "calibration_triples": 198,
+  "anchor_rows": 792,
+  "write_rows": 36,
+  "export_errors": 0,
+  "qa_anchors_retired": 33,
+  "official_exit_once": true,
+  "owned_game_gone": true,
+  "save_bytes": 515276,
+  "save_sha256": "bd2b0d1f03338ff11148e74b271fa79459e605839ce5e0fdb70452606adfe5eb",
+  "offline_proof_age_seconds": 0.003025,
+  "Steam_online_or_upload_actions": 0,
+  "Steam_navigation": "Initial readonly unavailable blocked launch before spawn/attempt ledger. One official header navigation (activation/Esc/header click, no mode selection), then independent background readonly current-instance offline proof; navigation is not proof.",
+  "models": [
+    {
+      "id": 751,
+      "started_at_utc": "2026-11-14T02:15:23.327591+00:00",
+      "attempts": 1,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "strict_json": "VALID",
+      "total_ms": 9506.248199846596,
+      "usage": {
+        "prompt_tokens": 9019,
+        "completion_tokens": 1228,
+        "total_tokens": 10247
+      },
+      "cached_prompt_tokens": null
+    },
+    {
+      "id": 752,
+      "started_at_utc": "2026-11-14T02:18:11.714522+00:00",
+      "attempts": 1,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "strict_json": "VALID",
+      "total_ms": 7496.83120008558,
+      "usage": {
+        "prompt_tokens": 6418,
+        "completion_tokens": 1017,
+        "total_tokens": 7435
+      },
+      "cached_prompt_tokens": null
+    }
+  ],
+  "review751": {
+    "adoption": "Reviewed two-argument callback, exact4field ACK and ordinary driver reuse; no code generated/adopted.",
+    "owner_context_correction": "Owner provided historical private scripts but omitted actual current build_static_control.py and paired_normal_end.py under mistaken filenames; candidate could not verify these missing consumers.",
+    "rejected": [
+      "Historical67 initial/formal/save scripts cannot be reused unchanged: old labels/receipts collide and final checkpoint saysV67; require fresh142 names and retire bridge+clock before reload.",
+      "Old wrapper has no explicit expected_source_version check; actual software driver has default140 and must receive142 explicitly.",
+      "OnClose is not established Native action; use observed original KeyHandler(Keys.VK_ESCAPE) only in qualified TEST_PLAYER fixture scene.",
+      "test-game-pid does not contain CPU affinity; actual launch receipt binds affinity."
+    ],
+    "limits": "No current142 pair Native result. Control queue viability remains to be tested, no domestic filler allowed."
+  },
+  "review752": {
+    "raw_tests": 3,
+    "raw_failures": 1,
+    "raw_errors": 1,
+    "raw_passes": 1,
+    "adoption": "Complete module rejected. Owner independently implemented real endpoint orchestration and boundary guards; no literal candidate function adopted.",
+    "static_review": [
+      "missing request_end import",
+      "no diplomacy check between select and step",
+      "no for-else exhaustion guard",
+      "no pre-issuance reservation",
+      "isinstance/version equality accepts invalid numeric shapes"
+    ],
+    "software_new_owner_methods": 8,
+    "software_related_methods": 51,
+    "software_related_passed": 51,
+    "limits": "Actual Lua clock/bridge software harness maps UI contexts to one runtime; no Native cross-context or B_delta credit."
+  },
+  "paired142_prepared": {
+    "enabled_archive_sha256": "f9e4319c3c98a924ae515693548287c27a12129958fab724d9cb3c6a7b08d461",
+    "control_archive_sha256": "5aff1fa604b4e8a5b1aadf3d8db31a86a8673afc5f0c144ba488abb7e6bf8bba",
+    "both_Lua51_Lua53_compile": true,
+    "state": "prepared only, not installed or Native"
+  },
+  "cumulative": {
+    "logical_calls": 752,
+    "complete_streams_including_historical_json_rejection": 699,
+    "length": 50,
+    "final_transport": 3,
+    "actual_HTTP": 782,
+    "extra_attempts": 30
+  },
+  "new_calls_actual_peak": 1,
+  "maintenance": "OpenCode1.19.5 successful daily cache reused, new native generation/tool sessions0.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "142 independentN B_plan passed separately. This run proves complete fixed5window B_turn and wholeturn N_req only; no causal speed comparison or matched B_delta/fullTC036/fullfunctional pass. N ended11cities, this independent observed run10cities; do not claim deterministic identical world effects. Main333 coldcompat and release restore pending.",
+  "private_consumer_step": {
+    "original_sha256": "6c81e765718f6fe5f3238def245e3bc549b48653d84d90659db5be536db3e961",
+    "safe_sha256": "b6bead204b6f5585ef3e6a2a451f7e98a0d761c05e648a7510a42ce86918e000",
+    "Lua_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "scenarios_per_version": 2,
+    "no_selection_or_qualified_SKIP": "zero END calls in both; SKIP only on qualified unit",
+    "scope": "Software only; actual UI globals remain context-owned, Executor stage preflight separate from ActionPanel exposed bridge."
+  }
+}
