@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [NO_SITE输入审计798](testing/baiqi-pressure-nosite-input798.md)：核心采用并补record精确int；原测试MappingProxyType导入失败0执行，Owner只修导入后18过，另6负／1前缀TAB深不变正例过。0Native，累计798／740完整／828HTTP，原生工具0。
+
 2026-11-15 [NO_SITE全脚本796—797准备](testing/baiqi-pressure-nosite-fullscript796797.md)：796完整载入主体原样采用，Owner过度转义误判由实际AST／码点撤回；797核心采用并补typed launch／finitebirth，原正例行数及配额错误拒测，Owner1正22负过。K33／4096与198／396原件要求准备、未Native；累计797／739完整／827HTTP，原生工具0。
 
 2026-11-15 [MANY四预算Native齐备](testing/baiqi-pressure-many-complete.md)：S系列10冷进程／25匹配段，50有序军队请求一致、0clock错误，差值中位6.999969ms／比例0.780376%过；2段>500ms、5段>10%全保留，p95／max不临时加门。H／I独立结果合并只授MANY，NO_SITE继续，TC-036仍PARTIAL。无新HTTP，累计795保持。
