@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [744命名根完整采用](testing/baiqi-named-root744.md)：新单独helper记录时绑定Admin／Controller标签，原稿12方法及同12采用集成过，原nested／K不变；仍非Admin Native归因或提速。累计744／691完整50length3transport774HTTP30extra，峰1／原生0／成本null。
+
 2026-11-14 [141正式仍FAIL／743](testing/baiqi-stageA141-fail-743.md)：313行质量通过，Admin114样本p95 21ms／Controller144样本max428ms不放宽。90十变十一城有Core效果证明，91已存／QA撤／自有退出残留清理。12子项编译局部变量超限Owner工具修复，2新／11相关过、G/J六子项字节保留；K仅准备。743六函数名真实、理由／范围有误，0实现采用。累计743／690完整50length3transport773HTTP30extra，原生0／成本null。
 
 2026-11-14 [742预算测试未达断言](testing/baiqi-model742-city-budget.md)：原稿3项均访问nil全局city而出错，0采用，不算产品回归。Config表引用的Owner初始错误理由已撤回；735未采用、71ms归因未知，141已预热73.563秒待正式捕获。累计742／689完整50length3transport772HTTP30extra，峰1／原生0／成本null。
