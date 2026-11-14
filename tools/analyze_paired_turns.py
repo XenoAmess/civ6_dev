@@ -6,7 +6,7 @@ def _finite(value):
     except (OverflowError,ValueError):return False
 
 
-def validate_capture_mode(capture, expected_source_version, require_ordinary):
+def validate_capture_mode(capture, expected_source_version, require_ordinary, initial_turn=None):
     if type(expected_source_version) is not int or expected_source_version not in (67, 140, 141, 142):
         raise ValueError('expected_source_version must be int 67,140 or141')
     if type(require_ordinary) is not bool:
@@ -17,6 +17,14 @@ def validate_capture_mode(capture, expected_source_version, require_ordinary):
         raise ValueError('capture must be a mapping')
     if type(capture.get('source_version')) is not int or capture.get('source_version') != expected_source_version:
         raise ValueError('source_version mismatch')
+    if initial_turn is None:
+        if capture.get('source') == 'baiqi142-pressure-paired-v1' or 'initial_turn' in capture:
+            raise ValueError('Pressure capture requires pressure analyzer')
+    else:
+        if (expected_source_version != 142 or require_ordinary is not True
+                or capture.get('source') != 'baiqi142-pressure-paired-v1'
+                or type(capture.get('initial_turn')) is not int or capture['initial_turn'] != initial_turn):
+            raise ValueError('Pressure capture metadata mismatch')
     if require_ordinary:
         if capture.get('end_mode') != 'ORDINARY_CALLBACK':
             raise ValueError('end_mode must be ORDINARY_CALLBACK')
@@ -25,12 +33,14 @@ def validate_capture_mode(capture, expected_source_version, require_ordinary):
         if capture.get('phase') != 'COMPLETE':
             raise ValueError('phase must be COMPLETE')
         req = capture.get('requested_turns')
-        if not isinstance(req, list) or len(req) != 5 or any(type(t) is not int or t != 85+i for i, t in enumerate(req)):
-            raise ValueError('requested_turns must be [85,86,87,88,89]')
+        first = 85 if initial_turn is None else initial_turn
+        if not isinstance(req, list) or len(req) != 5 or any(type(t) is not int or t != first+i for i, t in enumerate(req)):
+            raise ValueError('requested_turns do not match calendar')
     return True
 
 
-def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_ordinary=False):
+def _analyze_core(pairs, fixture_sha256, expected_source_version, require_ordinary, initial_turn):
+    first = 85 if initial_turn is None else initial_turn
     if not isinstance(pairs, collections.abc.Sequence) or isinstance(pairs, (str, bytes, bytearray, collections.abc.Mapping)):
         raise ValueError('pairs must be a sequence of 5 mappings')
     if len(pairs) != 5:
@@ -70,7 +80,7 @@ def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_
             seen_run_ids.add(run_id)
             if capture.get('fixture_sha256') != fixture_sha256:
                 raise ValueError('fixture_sha256 mismatch')
-            validate_capture_mode(capture,expected_source_version,require_ordinary)
+            validate_capture_mode(capture,expected_source_version,require_ordinary,initial_turn)
             if any(type(capture.get(k)) is not int or capture.get(k)!=0 for k in ('errors','refused')):
                 raise ValueError('errors and refused must be 0')
             records = capture.get('records')
@@ -87,9 +97,9 @@ def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_
                 ended = rec.get('ended')
                 seconds = rec.get('seconds')
 
-                if not isinstance(ft, int) or isinstance(ft, bool) or ft != 85 + i:
+                if not isinstance(ft, int) or isinstance(ft, bool) or ft != first + i:
                     raise ValueError('from_turn mismatch')
-                if not isinstance(tt, int) or isinstance(tt, bool) or tt != 86 + i:
+                if not isinstance(tt, int) or isinstance(tt, bool) or tt != first + 1 + i:
                     raise ValueError('to_turn mismatch')
                 if not isinstance(pid, int) or isinstance(pid, bool) or pid != 0:
                     raise ValueError('pid must be 0')
@@ -112,7 +122,7 @@ def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_
 
                 all_records.append({
                     'pair': idx + 1,
-                    'turn': i+86,
+                    'turn': first+i+1,
                     'variant': variant,
                     'seconds': seconds
                 })
@@ -135,7 +145,7 @@ def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_
                 raise ValueError('Derived timing metric overflow')
             matched_deltas.append({
                 'pair': p_idx + 1,
-                'turn': i+86,
+                'turn': first+i+1,
                 'enabled_seconds': e_s,
                 'control_seconds': c_s,
                 'delta_ms': delta_ms,
@@ -173,4 +183,28 @@ def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_
     }
     if require_ordinary or expected_source_version!=67:
         result.update(source_version=expected_source_version,ordinary_required=require_ordinary)
+    return result
+
+
+def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_ordinary=False):
+    return _analyze_core(pairs, fixture_sha256, expected_source_version, require_ordinary, None)
+
+
+def analyze_pressure_pairs(pairs, fixture_sha256, *, initial_turn):
+    """Analyze actual pressure-calendar labels without rewriting capture data."""
+    if type(initial_turn) is not int or not 0 <= initial_turn <= 2147483641:
+        raise ValueError('Invalid pressure initial_turn')
+    result = _analyze_core(pairs, fixture_sha256, 142, True, initial_turn)
+
+    def distribution(values, threshold, key):
+        if any(v is None for v in values):
+            return dict(p50=None,p95=None,max=None,**{key:None})
+        ordered = sorted(values)
+        return dict(p50=statistics.median(ordered),p95=ordered[math.ceil(.95*len(ordered))-1],
+                    max=ordered[-1],**{key:sum(v>threshold for v in values)})
+
+    result.update(source='baiqi142-pressure-paired-v1',initial_turn=initial_turn,
+                  pressure_distributions={
+                      'delta_ms':distribution([r['delta_ms'] for r in result['matched_rows']],500,'over_500_count'),
+                      'ratio_percent':distribution([r['ratio_percent'] for r in result['matched_rows']],10,'over_10_count')})
     return result

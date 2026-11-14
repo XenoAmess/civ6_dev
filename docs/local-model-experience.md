@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [单水域Native／778—780](testing/baiqi-pressure-water1-native778780.md)：新实例生成成功并冻结人口4／金币100基线6be8…，人工准备不授AI效果；QA仅3位置，尚无≥12自然压力。779入口部分采用、9原测试6错；780分析器类型／模式／零分母由Owner补，778length整弃。62相关过含11新，累计780／724完整／810HTTP。
+
 2026-11-14 [压力776—777](testing/baiqi-pressure-water-anchor776777.md)：freshMANY在CONTINENTS_BEGIN后访问冲突，根因未知；新MANY_WATER1只软件准备不降低≥12。776桥篡改拒绝／777物理索引和草原中心由Owner补，原测试仅路径；57相关过含11新，累计777／722完整／807HTTP。
 
 2026-11-14 [MANY生成FAIL／阶段日志775](testing/baiqi-pressure-generation-failure-trace775.md)：首次MANY创建访问冲突、根因未知，自有错误框一次确认后自然退出，主／NoSite存档SHA重新全等。775候选0采用，Owner12项过及新trace包未Native；默认772包全部字节摘要全等。累计775／720完整／805HTTP。
