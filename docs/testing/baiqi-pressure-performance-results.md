@@ -23,6 +23,7 @@ NO_SITE独立K：1180保留／16845聚合零调用，33上下文、198时钟／3
 
 
 
-NO_SITE配对进度：[NO_SITE已完成3/5组、15/25段](baiqi-pressure-nosite-pairN-group3.md)；总体B_delta仍未知。
 
-[N4原启用侧整轮拒绝与互斥修复](baiqi-pressure-N4-invalid-admission804.md)：803HTTP与正式采样重叠，全部5段排除，已完成3组15段不变；保留有效N4对照，继续独立冷启替代。
+[N4原启用侧整轮拒绝与互斥修复](baiqi-pressure-N4-invalid-admission804.md)：803HTTP与正式采样重叠，全部5段排除，判废时已完成3组15段；有效N4对照保留，后续独立R4替代见当前进度。
+
+NO_SITE配对进度：[NO_SITE已完成4/5组、20/25段](baiqi-pressure-nosite-pairN-group4.md)；总体B_delta仍未知。
