@@ -1,0 +1,662 @@
+{
+  "schema": "civ6.natural-settlement142a-and-frontier765/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "release_source_edits": 0,
+  "census_artifact_sha256": "6cee1c5bb47c30ac6aa78c655d736033a2c559987fb69a0663eeb5941b7d9139",
+  "fixture_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+  "Native_census": {
+    "actual_turn": 88,
+    "total_calls": 2,
+    "dropped": 0,
+    "invalid_rows": 0,
+    "capacity": 256,
+    "samples": [
+      {
+        "admitted": 11,
+        "ai_available": true,
+        "caller": "settler_alternatives",
+        "cheap_pass": 1,
+        "cities_end": 10,
+        "cities_start": 10,
+        "ended": 1794646819.742,
+        "excluded_supplied": true,
+        "exhausted": false,
+        "failed": false,
+        "first_only": true,
+        "hints_kind": "table",
+        "one_validation": true,
+        "preferred_supplied": false,
+        "raw_hints": 11,
+        "returned": 1,
+        "started": 1794646819.739,
+        "support_false": 0,
+        "support_true": 1,
+        "support_unknown": 0,
+        "turn_end": 88,
+        "turn_start": 88,
+        "visited": 1
+      },
+      {
+        "admitted": 10,
+        "ai_available": true,
+        "caller": "settler_alternatives",
+        "cheap_pass": 1,
+        "cities_end": 10,
+        "cities_start": 10,
+        "ended": 1794646820.811,
+        "excluded_supplied": true,
+        "exhausted": false,
+        "failed": false,
+        "first_only": true,
+        "hints_kind": "table",
+        "one_validation": true,
+        "preferred_supplied": true,
+        "raw_hints": 11,
+        "returned": 0,
+        "started": 1794646820.809,
+        "support_false": 1,
+        "support_true": 0,
+        "support_unknown": 0,
+        "turn_end": 88,
+        "turn_start": 88,
+        "visited": 1
+      }
+    ],
+    "classifications": [
+      {
+        "index": 1,
+        "caller": "settler_alternatives",
+        "outcome": "HAS_ACCEPTED_SITE",
+        "many_candidate_pool": false,
+        "global_no_legal_site": null,
+        "visited": 1,
+        "unvisited": 10
+      },
+      {
+        "index": 2,
+        "caller": "settler_alternatives",
+        "outcome": "PARTIAL_UNVISITED",
+        "many_candidate_pool": false,
+        "global_no_legal_site": null,
+        "visited": 1,
+        "unvisited": 9
+      }
+    ],
+    "qualification_errors": [],
+    "no_new_planner_or_game_action_during_export": true,
+    "scope": "Observed natural current candidate pool only; no global map legality proof."
+  },
+  "qualification": {
+    "observation_tool_real_UI": "PASS for these two actual natural SettlementSites calls",
+    "many_candidate_pressure": "NOT_REACHED; observed11/10 below previously frozen12, no posthoc threshold change",
+    "no_legal_site_pressure": "NOT_PROVED; first proposal accepted, second leaves9unvisited, neither exhaustive/global",
+    "performance_budget_requalification": false,
+    "scope": "Diagnostic local function observations only. Not independent B_plan/B_turn/N_req/B_delta capture; no formal timing budget or complete TC036 credit."
+  },
+  "actual_TEST_PLAYER_inputs": {
+    "military_SKIP_request_calls": 54,
+    "sameunit_sameturn_replays": 0,
+    "ordinary_END_calls": 3,
+    "END_turns": [
+      85,
+      86,
+      87
+    ],
+    "UserForced": false,
+    "END88_calls": 0,
+    "actual_readbacks": [
+      86,
+      87,
+      88
+    ],
+    "normal87_original_farewell_Escape_once": true,
+    "manual_domestic_commands": 0,
+    "events": [
+      {
+        "turn": 85,
+        "seq": 1,
+        "unit_id": 1048576,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 85,
+        "seq": 2,
+        "unit_id": 131073,
+        "unit_type": "UNIT_WARRIOR"
+      },
+      {
+        "turn": 85,
+        "seq": 3,
+        "unit_id": 327683,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 85,
+        "seq": 4,
+        "unit_id": 524292,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 85,
+        "seq": 5,
+        "unit_id": 1835013,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 85,
+        "seq": 6,
+        "unit_id": 786438,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 85,
+        "seq": 7,
+        "unit_id": 1245193,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 85,
+        "seq": 8,
+        "unit_id": 3735562,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 85,
+        "seq": 9,
+        "unit_id": 1441803,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 85,
+        "seq": 10,
+        "unit_id": 2162700,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 85,
+        "seq": 11,
+        "unit_id": 4128783,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 85,
+        "seq": 12,
+        "unit_id": 2097168,
+        "unit_type": "UNIT_ARCHER"
+      },
+      {
+        "turn": 85,
+        "seq": 13,
+        "unit_id": 2424851,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 85,
+        "seq": 14,
+        "unit_id": 2686997,
+        "unit_type": "UNIT_ARCHER"
+      },
+      {
+        "turn": 85,
+        "seq": 15,
+        "unit_id": 2818071,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 85,
+        "seq": 16,
+        "unit_id": 3604507,
+        "unit_type": "UNIT_GREAT_ADMIRAL"
+      },
+      {
+        "turn": 85,
+        "seq": 17,
+        "unit_id": 3997727,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 85,
+        "seq": 18,
+        "unit_id": 4063264,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 86,
+        "seq": 1,
+        "unit_id": 1048576,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 86,
+        "seq": 2,
+        "unit_id": 131073,
+        "unit_type": "UNIT_WARRIOR"
+      },
+      {
+        "turn": 86,
+        "seq": 3,
+        "unit_id": 327683,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 86,
+        "seq": 4,
+        "unit_id": 524292,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 86,
+        "seq": 5,
+        "unit_id": 1835013,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 86,
+        "seq": 6,
+        "unit_id": 786438,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 86,
+        "seq": 7,
+        "unit_id": 1245193,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 86,
+        "seq": 8,
+        "unit_id": 3735562,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 86,
+        "seq": 9,
+        "unit_id": 1441803,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 86,
+        "seq": 10,
+        "unit_id": 2162700,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 86,
+        "seq": 11,
+        "unit_id": 4128783,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 86,
+        "seq": 12,
+        "unit_id": 2097168,
+        "unit_type": "UNIT_ARCHER"
+      },
+      {
+        "turn": 86,
+        "seq": 13,
+        "unit_id": 2424851,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 86,
+        "seq": 14,
+        "unit_id": 2686997,
+        "unit_type": "UNIT_ARCHER"
+      },
+      {
+        "turn": 86,
+        "seq": 15,
+        "unit_id": 2818071,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 86,
+        "seq": 16,
+        "unit_id": 3604507,
+        "unit_type": "UNIT_GREAT_ADMIRAL"
+      },
+      {
+        "turn": 86,
+        "seq": 17,
+        "unit_id": 3997727,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 86,
+        "seq": 18,
+        "unit_id": 4063264,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 87,
+        "seq": 1,
+        "unit_id": 1048576,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 87,
+        "seq": 2,
+        "unit_id": 131073,
+        "unit_type": "UNIT_WARRIOR"
+      },
+      {
+        "turn": 87,
+        "seq": 3,
+        "unit_id": 327683,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 87,
+        "seq": 4,
+        "unit_id": 524292,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 87,
+        "seq": 5,
+        "unit_id": 1835013,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 87,
+        "seq": 6,
+        "unit_id": 786438,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 87,
+        "seq": 7,
+        "unit_id": 1245193,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 87,
+        "seq": 8,
+        "unit_id": 3735562,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 87,
+        "seq": 9,
+        "unit_id": 1441803,
+        "unit_type": "UNIT_SCOUT"
+      },
+      {
+        "turn": 87,
+        "seq": 10,
+        "unit_id": 2162700,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 87,
+        "seq": 11,
+        "unit_id": 4128783,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 87,
+        "seq": 12,
+        "unit_id": 2097168,
+        "unit_type": "UNIT_ARCHER"
+      },
+      {
+        "turn": 87,
+        "seq": 13,
+        "unit_id": 2424851,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 87,
+        "seq": 14,
+        "unit_id": 2686997,
+        "unit_type": "UNIT_ARCHER"
+      },
+      {
+        "turn": 87,
+        "seq": 15,
+        "unit_id": 2818071,
+        "unit_type": "UNIT_HORSEMAN"
+      },
+      {
+        "turn": 87,
+        "seq": 16,
+        "unit_id": 3604507,
+        "unit_type": "UNIT_GREAT_ADMIRAL"
+      },
+      {
+        "turn": 87,
+        "seq": 17,
+        "unit_id": 3997727,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      },
+      {
+        "turn": 87,
+        "seq": 18,
+        "unit_id": 4063264,
+        "unit_type": "UNIT_CHINESE_CROUCHING_TIGER"
+      }
+    ],
+    "limit": "Requests/call returns and actual turn activations, not every unit physical operation completion."
+  },
+  "observer_lifecycle": {
+    "cold_owned_process_birth": 1794646282.3437455,
+    "cold_offline_proof": true,
+    "formal_original85_load_once": true,
+    "targeted_current_load_Escape_once": true,
+    "natural85_86_87_had_no_SettlementSites_calls": true,
+    "retired": true,
+    "records": 2,
+    "capacity": 256,
+    "dropped": 0,
+    "invalid_rows": 0,
+    "original_gameplay_selection_calls_not_added": true,
+    "metadata_reads_added": true,
+    "private_diagnostic88_save": {
+      "utc": "2026-11-14T09:01:10.571167+00:00",
+      "name": "Baiqi_P6_20261114_V142_CensusObserved88.Civ6Save",
+      "bytes": 509026,
+      "sha256": "66950df8a321608a17cadce055a70f9dcf1ccd9df1fdf391e337a8381cd2bdbb",
+      "stable_repeated_read": true
+    },
+    "exit_followup": {
+      "utc": "2026-11-14T09:05:15.510253+00:00",
+      "owner": {
+        "pid": 22384,
+        "created_at": 1794646282.3437455,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "owned_PID_gone": true,
+      "process_termination_calls": 1
+    }
+  },
+  "main_restore": {
+    "original_protected334_save": {
+      "utc": "2026-11-14T04:33:09.679095+00:00",
+      "name": "Baiqi_P6_20261114_V142_NormalMain334.Civ6Save",
+      "bytes": 2460843,
+      "sha256": "4eec091cdc7a338328d1f55f9b5a1c69ca98c9d4a0cb5b019b59a6e1a456d43f",
+      "stable_repeated_read": true
+    },
+    "pre_census_separate334_save": {
+      "utc": "2026-11-14T08:47:28.235583+00:00",
+      "name": "Baiqi_P6_20261114_V142_PreCensusMain334.Civ6Save",
+      "bytes": 2460216,
+      "sha256": "57ba0f5f48eb45ddceff947f33aa9f884c5dafbd50040fcbe78109e939e4ae38",
+      "stable_repeated_read": true
+    },
+    "main_exit_followup": {
+      "utc": "2026-11-14T08:51:04.014348+00:00",
+      "owner": {
+        "pid": 21520,
+        "created_at": 1794641094.2684717,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "owned_PID_gone": true,
+      "process_termination_calls": 1
+    },
+    "release": {
+      "utc": "2026-11-14T09:05:19.999182+00:00",
+      "files": 119,
+      "all_byte_match": true,
+      "release_archive_sha256": "2457efbafd3e9d4206d9afc03f9b2d54b09d67a03473451d02dc5fdafad2ce48",
+      "Steam_actions": 0
+    },
+    "new_cold_owned_process_birth": 1794647131.3608809,
+    "fresh_offline_proof": true,
+    "official_pre_census334_load_once": true,
+    "targeted_current_load_Escape_once": true,
+    "actual_ready334": [
+      "334",
+      "11",
+      "function",
+      "function"
+    ],
+    "P6SettlementCensus_and_prior_performance_objects_absent": true,
+    "END334_calls": 0,
+    "cold_9domain_equality": "NOT_CLAIMED; natural domestic actions may run on load."
+  },
+  "model765": {
+    "task": "First still-unwritten readonly scout/ranger adjacent-frontier fixture inventory; explicit Owner API/design supplied",
+    "usage": {
+      "prompt_tokens": 2505,
+      "completion_tokens": 3462,
+      "total_tokens": 5967
+    },
+    "total_ms": 21131.902299821377,
+    "first_content_ms": 490.76309986412525,
+    "attempts": 1,
+    "complete_stop_DONE_strictJSON": true,
+    "disposition": "REJECTED; Owner implementation and tests",
+    "raw_code_adopted": 0,
+    "raw_tests_adopted": 0,
+    "raw_compile_witness": {
+      "lua51": {
+        "compiled": false,
+        "error_type": "LuaSyntaxError",
+        "error": "[string \"<python>\"]:76: '=' expected near 'end'"
+      },
+      "lua53": {
+        "compiled": false,
+        "error_type": "LuaSyntaxError",
+        "error": "[string \"<python>\"]:76: syntax error near 'end'"
+      },
+      "raw_runtime_tests": 0,
+      "reason": "Compile qualification failed before runtime witness; no raw code or tests adopted.",
+      "mod_source_edits": 0,
+      "game_inputs": 0
+    },
+    "independent_source_errors": [
+      "Uses unsupported continue syntax, both Lua51/53 parse fail before runtime.",
+      "Compares numeric GetUnitType to strings instead of supplied GameInfo.Units[row] example.",
+      "Uses global UnitManager rather than supplied E, discards Members iterator state, invents E.Map.GetIndex outside explicit port.",
+      "Requires IsRevealed true instead of collecting false, writes source coordinates to target fields, no promised sorting."
+    ],
+    "Owner_input_limits": "Task did not spell LEADER_BAIQI literal or clearly type row.unit_type (Owner uses numeric ID), so do not count candidate literal Baiqi or output type alone as independent finding. Adjacent unrevealed geometry alone does not measure future reveal after movement; pressure fixture preparation usefulness remains unvalidated.",
+    "Owner_software": {
+      "owner_lua_sha256": "3a90fc1bc408728f63c5980571caed5a220774c6f23ae7c81a3ce92c5fe1e118",
+      "compiled51": true,
+      "compiled53": true,
+      "Owner_Lua51_unittest_methods": 6,
+      "passed": 6,
+      "raw_candidate_code_or_tests_adopted": 0,
+      "Native_scout_inventory_not_executed": true,
+      "game_commands": 0,
+      "test_phase_note": "6 methods ran during correction, subsequent verification phase covers dual parse only."
+    },
+    "Owner_readonly_Native_inventory": {
+      "actual334": true,
+      "status": "COMPLETE",
+      "inspected_own_units": 52,
+      "rows": 0,
+      "orders_or_UI_selection": 0,
+      "scope": "Bounded read contract only; zero qualifying adjacent scout/ranger rows does not prove no exploration options, no legal settlement or pressure completion."
+    },
+    "request_sha256": "673b7687f0fa900d825725fe23fb3755dfe834a6870f15b3388a5bf47d11d15a",
+    "provenance": {
+      "schema": "civ6.local-model-adapter-provenance/v1",
+      "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+      "shared_commit": "ea69362299b38f975c1df887d976d023c7e6b5f1",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+      "overrides": {
+        "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+      },
+      "timeout_override": null,
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+    },
+    "owner_phase_utc": [
+      {
+        "utc": "2026-11-14T09:03:46.133959+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T09:04:56.209730+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T09:05:43.386548+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T09:07:10.842730+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T09:07:11.107777+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T09:08:28.143110+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T09:08:28.301068+00:00",
+        "phase": "VERIFICATION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T09:08:47.803076+00:00",
+        "phase": "VERIFICATION_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      }
+    ],
+    "cost_limits": "Wall includes lifecycle/task switching. Six tests ran inside correction, dual parse inside verification. Earlier fixture discovery/highlevel planning and later publication unmeasured; no exclusive activecost/net savings."
+  },
+  "cumulative": {
+    "logical_calls": 765,
+    "complete_streams_including_historical_json_rejection": 712,
+    "length": 50,
+    "final_transport": 3,
+    "actual_HTTP": 795,
+    "extra_attempts": 30
+  },
+  "new_model_client_POST_peak": 1,
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 success cache reused; new native generation/tool sessions0.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "Owner_active_time": null,
+    "net_savings": null
+  },
+  "TC036_full_status": "PARTIAL",
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0,
+  "next": "Qualify a real pressure fixture using visibility frontier beyond the current adjacent ring and actual owned eligible military inventory before any TEST_PLAYER exploration. Do not lower12 or substitute fake recommendations. Continue other functional matrix and oldARMED recovery without replay."
+}
