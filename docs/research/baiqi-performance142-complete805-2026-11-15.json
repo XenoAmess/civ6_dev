@@ -1,0 +1,125 @@
+{
+  "schema": "civ6.performance142-complete805/v1",
+  "date": "2026-11-15",
+  "machine_id": "BF-202609141645",
+  "recorded_utc": "2026-11-14T20:57:11.867084+00:00",
+  "source_version": 142,
+  "release_zip_sha256": "2457efbafd3e9d4206d9afc03f9b2d54b09d67a03473451d02dc5fdafad2ce48",
+  "sources": [
+    {
+      "file": "baiqi-performance142-frozen760-2026-11-14.json",
+      "sha256": "620cb7bbf757c1575e6e78d88c71ed6e5ceed0a5ba6a76e63658b851c0f56254"
+    },
+    {
+      "file": "baiqi-pressure-many-stageA-H-2026-11-14.json",
+      "sha256": "d70371fb52f594e5c550db4653e7af24c2f6b2ad42749c0d3175be8f83d15239"
+    },
+    {
+      "file": "baiqi-pressure-many-fullscript-I-2026-11-14.json",
+      "sha256": "b2b6cd3c8a6ab787b6a2001080f9db78ff790fa85eaccdbc4499bdffde843e17"
+    },
+    {
+      "file": "baiqi-pressure-many-pairS-group5-2026-11-15.json",
+      "sha256": "6f6bfb0139afb6d8a5d8446b1ac4a2355f70f927fee5d237f3e444d56f927a7a"
+    },
+    {
+      "file": "baiqi-pressure-nosite-stageA-J-2026-11-15.json",
+      "sha256": "1e16d8f5ba4ad82442020e28d816e29329fb2227eb707971043a1c91a8fd160e"
+    },
+    {
+      "file": "baiqi-pressure-nosite-fullscript-K-2026-11-15.json",
+      "sha256": "7aaaf36753b518729ac361c640a827c1fd7e103ffe36ca4ccd2b56c3cf9fa2d7"
+    },
+    {
+      "file": "baiqi-pressure-nosite-pairN-group5-2026-11-15.json",
+      "sha256": "66344075512275556a632bace18959cb355eac954ad30aef7dba569a69ad0380"
+    }
+  ],
+  "TC036": "PASS within measured GS single-player fixtures and machine; no universal ruleset/map/machine or full40 functional credit",
+  "pressure_matrix": {
+    "MANY_WATER1": {
+      "B_plan": "PASS",
+      "B_turn": "PASS",
+      "N_req": "PASS",
+      "B_delta": "PASS"
+    },
+    "NO_SITE": {
+      "B_plan": "PASS",
+      "B_turn": "PASS",
+      "N_req": "PASS",
+      "B_delta": "PASS"
+    }
+  },
+  "NO_SITE_delta_distribution": {
+    "delta_ms": {
+      "p50": 11.999845504760742,
+      "p95": 431.99992179870605,
+      "max": 651.9999504089355,
+      "over_500_count": 1
+    },
+    "ratio_percent": {
+      "p50": 2.020175667100289,
+      "p95": 81.81814897816439,
+      "max": 95.60117671118662,
+      "over_10_count": 8
+    }
+  },
+  "NO_SITE_R4_identity": {
+    "canonical_evidence": "baiqi-pressure-nosite-pairN-4-enabled-2026-11-15.json",
+    "actual_label": "pressurepair142r4-4-enabled",
+    "actual_PID": 24492,
+    "birth": 1794687370.927157,
+    "excluded_label": "pressurepair142n-4-enabled",
+    "excluded_all5": true,
+    "valid_original_control_reused": true,
+    "actual_cold_sides": 11,
+    "valid_cold_sides": 10,
+    "selection_basis": "Owner803HTTP overlap; whole side excluded independent of final elapsed values; durable decision after capture completion"
+  },
+  "model805": {
+    "usage": {
+      "prompt_tokens": 28787,
+      "completion_tokens": 2622,
+      "total_tokens": 31409
+    },
+    "total_ms": 19596.829199930653,
+    "first_nonempty_content_delta_ms": 3885.180399985984,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "cached_prompt_tokens_if_reported": null
+  },
+  "review805": {
+    "input": "Selected actual reported metadata and contracts; not independent raw frame/coverage re-audit",
+    "adopted": "Numerical cross-check as review note; final row explicitly maps canonical N4 enabled evidence to actual fresh R4",
+    "rejected": [
+      "CRITICAL source ambiguity is overstated: actual side file already explicitly labels R4 and replacement; no wrong input found. Aggregate row is made clearer in final report.",
+      "Full40 functional acceptance and all untested rulesets are not additional TC036 gates. Historical PARTIAL snapshots do not override later complete evidence.",
+      "HIGH/MEDIUM findings with required_action=None are confirmations, not defects."
+    ],
+    "code_adopted": 0,
+    "new_tests": 0,
+    "authority": "Owner checked exact TC036 and frozen pressure protocol, all seven source reports and replacement identity; HTTP result grants no acceptance by itself"
+  },
+  "cumulative": {
+    "logical": 805,
+    "complete": 746,
+    "length": 56,
+    "final_transport": 3,
+    "HTTP": 835,
+    "extra_HTTP": 30,
+    "new_HTTP": 1,
+    "actual_new_peak": 1,
+    "daily_maintenance": "Nov15 same-machine/user successful1.19.5 cache reused",
+    "OpenCode_native_tool_sessions": 0,
+    "owner_full_cost_ms": null,
+    "net_savings": null
+  },
+  "limits": {
+    "all40_functional": "INCOMPLETE; old ARMED recoveryFAIL remains",
+    "old_140_141_FAIL": "Preserved",
+    "source142_product_changes": 0,
+    "Steam_online_or_upload": 0,
+    "screenshots": 0,
+    "cause": "Wallclock and world differences retained; not exclusive/sole causal mod CPU"
+  }
+}

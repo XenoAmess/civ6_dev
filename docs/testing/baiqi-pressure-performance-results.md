@@ -1,30 +1,12 @@
 # TC-036 压力性能矩阵
 
-2026-11-15，BF-202609141645。按[冻结协议](baiqi-pressure-performance-protocol.md)执行；原85夹具结论保持，各压力格独立记录。[MANY四项完整汇总](baiqi-pressure-many-complete.md)。
+2026-11-15，BF-202609141645。源码142在已测GS单人环境的两种压力场景八项预算全部PASS；结合原85夹具，[TC-036实测通过与完整报告](baiqi-performance142-complete805.md)。冻结[协议](baiqi-pressure-performance-protocol.md)未改，全40项功能验收继续。
 
 | 场景与精确初始点 | B_plan | B_turn | N_req | B_delta |
 | --- | --- | --- | --- | --- |
-| MANY_WATER1，T6，459a46e5… | **PASS**，[Native H证据](baiqi-pressure-many-stageA-H.md) | **PASS**，[Native I证据](baiqi-pressure-many-fullscript-I.md) | **PASS**，[Native I证据](baiqi-pressure-many-fullscript-I.md) | **PASS**，[25段](baiqi-pressure-many-pairS-group5.md) |
-| NO_SITE，T1，92f43e9c… | **PASS**，[Native J](baiqi-pressure-nosite-stageA-J.md) | **PASS**，[Native K](baiqi-pressure-nosite-fullscript-K.md) | **PASS**，[Native K](baiqi-pressure-nosite-fullscript-K.md) |**PASS**，[25段](baiqi-pressure-nosite-pairN-group5.md) |
+| MANY_WATER1，T6，459a46e5… | **PASS**，[H](baiqi-pressure-many-stageA-H.md) | **PASS**，[I](baiqi-pressure-many-fullscript-I.md) | **PASS**，[I](baiqi-pressure-many-fullscript-I.md) | **PASS**，[25段](baiqi-pressure-many-pairS-group5.md) |
+| NO_SITE，T1，92f43e9c… | **PASS**，[J](baiqi-pressure-nosite-stageA-J.md) | **PASS**，[K](baiqi-pressure-nosite-fullscript-K.md) | **PASS**，[K](baiqi-pressure-nosite-fullscript-K.md) | **PASS**，[25段](baiqi-pressure-nosite-pairN-group5.md) |
 
-MANY的两规划目标分别140／160个纯十城样本，p95为2.000093／1.000166ms、最大4.000187／21.999836ms，满足冻结p95≤20、最大≤50。304保留行包含4个已验证激活前样本，后者单列；0丢弃／无效时钟，4096总容量不变。
+[MANY完整分布](baiqi-pressure-many-complete.md)；NO_SITE完整分布、请求桶、覆盖、样本质量及R4替代的精确映射见[最终报告](baiqi-performance142-complete805.md)。所有尖峰／世界差异保留，固定中位预算不增加逐段门，不作因果CPU解释。
 
-独立全脚本I覆盖33上下文，1201保留样本，198时钟校准／396计时切换全通过。五窗并集142.000198／124.001265／154.000282／127.997398／228.997707ms，最大低于1000ms；完整回合写入2／2／2／2／4，最大低于64。收尾12的2次写入另列。MANY五组配对已齐，中位差6.999969ms／比例0.780376%满足冻结判据；2段>500ms／5段>10%均保留。完整矩阵和全套报告尚未完成，TC-036仍PARTIAL；继续NO_SITE性能测量。
-
-[首配对侧整轮拒绝](baiqi-pressure-pair-overlap-rejected.md)：普通跨UI流程跑通，但Owner构建与正式测量重叠，整侧拒绝、原值保留；r系列另在0END时中止。随后s系列按同一口径完成25段，不将旧失败混入。
-
-
-
-
-
-配对进度：[MANY已完成5/5组、25/25段](baiqi-pressure-many-pairS-group5.md)；最终判定见该报告。
-
-NO_SITE独立K：1180保留／16845聚合零调用，33上下文、198时钟／396切换完整；五窗最大181.001425ms，整回合请求最大3，收尾7的4次另列。继续五组配对。
-
-
-
-
-[N4原启用侧整轮拒绝与互斥修复](baiqi-pressure-N4-invalid-admission804.md)：803HTTP与正式采样重叠，全部5段排除，判废时已完成3组15段；有效N4对照保留，后续独立R4替代见当前进度。
-
-
-NO_SITE配对进度：[NO_SITE已完成5/5组、25/25段](baiqi-pressure-nosite-pairN-group5.md)；最终判定见该报告。
+[MANY旧重叠整侧](baiqi-pressure-pair-overlap-rejected.md)与[原N4启用侧失效](baiqi-pressure-N4-invalid-admission804.md)独立保留、不混入有效样本。N4使用全新R4启用侧及原有效对照；实际NO_SITE共11冷侧／10有效侧，未按数值筛选。各阶段文档PARTIAL均保留为历史切点。

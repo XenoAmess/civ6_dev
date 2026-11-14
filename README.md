@@ -1,12 +1,10 @@
 # civ6_dev
 
-[NO_SITE全脚本K两项通过](docs/testing/baiqi-pressure-nosite-fullscript-K.md)：33上下文完整，五窗最大约181ms、整回合请求最多3；结合J已过前三项，五组配对继续，TC-036仍PARTIAL。
-
-[MANY压力四项通过](docs/testing/baiqi-pressure-many-complete.md)：规划、33上下文全脚本、完整回合提交及五组25配对段均满足冻结预算；总体差值中位约7ms／比例0.78%，所有尖峰保留。[压力矩阵](docs/testing/baiqi-pressure-performance-results.md)中的NO_SITE继续实机验收，TC-036仍PARTIAL。
+[142 TC-036实测性能通过](docs/testing/baiqi-performance142-complete805.md)：原85及MANY／NO_SITE两种压力场景全部满足冻结预算；NO_SITE25配对段中位增加约12ms／2.02%，全部尖峰保留。完整40项功能与旧ARMED恢复FAIL继续验收。
 
 [142正常333→334／事件四参](docs/testing/baiqi-event142B-normal334-757.md)：11城无人损、334已存，军队排队路线仍未完成，旧ARMED不重发。
 
-当前源码142：[移民支持检查预算与完整软件验证](docs/testing/baiqi-source142-support-budget745746.md)，2220项中2219通过、1项SDK环境跳过，97Lua双编译／119文件包。[独立142 N正式五窗B_plan通过](docs/testing/baiqi-stageA142-N.md)：Admin13／21ms、Controller7／20ms；[142全脚本B_turn／N_req通过](docs/testing/baiqi-allscript142-pair751752.md)，[主333冷读九域全等](docs/testing/baiqi-release142-cold333.md)；[五组25匹配段已齐](docs/testing/baiqi-pair142-group5.md)，[四项冻结预算在该夹具通过](docs/testing/baiqi-performance142-frozen760.md)；TC036压力和完整功能验收仍开放。
+当前源码142：[移民支持检查预算与完整软件验证](docs/testing/baiqi-source142-support-budget745746.md)，2220项中2219通过、1项SDK环境跳过，97Lua双编译／119文件包。[独立142 N正式五窗B_plan通过](docs/testing/baiqi-stageA142-N.md)：Admin13／21ms、Controller7／20ms；[142全脚本B_turn／N_req通过](docs/testing/baiqi-allscript142-pair751752.md)，[主333冷读九域全等](docs/testing/baiqi-release142-cold333.md)；[五组25匹配段已齐](docs/testing/baiqi-pair142-group5.md)，[四项冻结预算在该夹具通过](docs/testing/baiqi-performance142-frozen760.md)；TC-036已按上述实测范围通过，完整功能验收仍开放。
 
 [141正式五窗仍FAIL](docs/testing/baiqi-stageA141-fail-743.md)：Admin p95约21ms／Controller最大428ms；[K分项](docs/testing/baiqi-controller141-K.md)确认备选扫描仍聚集支持检查，[L Admin分项](docs/testing/baiqi-admin141-L.md)未重现超限，均不授性能通过。[M启动卡住与同包N恢复](docs/testing/baiqi-startup-M747748-recovery.md)保留零游戏输入／零采样失败及私密转储边界，Steam持续离线。
 
