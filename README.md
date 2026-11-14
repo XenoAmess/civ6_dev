@@ -1,5 +1,11 @@
 # civ6_dev
 
+当前源码142：[移民支持检查预算与完整软件验证](docs/testing/baiqi-source142-support-budget745746.md)，2220项中2219通过、1项SDK环境跳过，97Lua双编译／119文件包。独立142 N正式五窗采样正在执行，完整实机／主333兼容及整例验收仍开放。
+
+[141正式五窗仍FAIL](docs/testing/baiqi-stageA141-fail-743.md)：Admin p95约21ms／Controller最大428ms；[K分项](docs/testing/baiqi-controller141-K.md)确认备选扫描仍聚集支持检查，[L Admin分项](docs/testing/baiqi-admin141-L.md)未重现超限，均不授性能通过。[M启动卡住与同包N恢复](docs/testing/baiqi-startup-M747748-recovery.md)保留零游戏输入／零采样失败及私密转储边界，Steam持续离线。
+
+下列保留各版本历史记录；当前状态以本段及对应证据为准。
+
 [G实机定位移民尖峰](docs/testing/baiqi-controller-G-settler735736.md)：64根／840行零错误，两个88控制器根内ProcessSettler约65／82ms；90已存／七绑定撤，继续细分选址与路线。生产候选未采用、移民提前返回语义失败未采用，产品140和性能FAIL保持。
 
 [F完整Stage A：Controller最大90ms未过](docs/testing/baiqi-stageA-F-complete-fail.md)：311行零错误、22窗前完整证明，两个目标纯十城116／143样本；Admin19／23ms达到，Controller12／90ms仍FAIL。91已存／QA撤，继续定位尖峰，不授B_plan或整例通过。
