@@ -12,6 +12,7 @@ import unittest
 from unittest.mock import patch
 
 from tools import local_model as adapter
+from tools import performance_admission as admission
 
 
 SHARED_ROOT = adapter.PROJECT_ROOT.parent / 'local-model-operations'
@@ -241,6 +242,46 @@ class LocalModelTests(unittest.TestCase):
         self.assertEqual(argv[argv.index('--owner') + 1], 'test-owner')
         self.assertEqual(argv[argv.index('--stop-file') + 1], str(self.root / 'STOP.json'))
         self.assertNotIn('test-owner', json.dumps(request))
+
+    def test_formal_admission_blocks_before_shared_cli_or_output(self):
+        with patch.object(adapter, 'PROJECT_ROOT', self.root):
+            handle = admission.begin_formal(self.root, {'case': 'offline fixture'})
+            code, runner = self.run_cli()
+            self.assertEqual(code, 1)
+            runner.assert_not_called()
+            self.assertFalse(self.output.exists())
+            admission.finish_formal(handle)
+
+    def test_shared_cli_and_request_preparation_hold_model_reservation(self):
+        def exchange(argv, **kwargs):
+            with self.assertRaises(admission.AdmissionError):
+                admission.begin_formal(self.root)
+            self.assertFalse((self.root/'.local-model/p6-formal-performance-active.json').exists())
+            return self.exchange(argv, **kwargs)
+        with patch.object(adapter, 'PROJECT_ROOT', self.root):
+            self.assertEqual(self.run_cli(fake=exchange)[0], 0)
+        self.assertEqual(list((self.root/'.local-model/model-activity').iterdir()), [])
+
+    def test_interrupted_dispatch_retains_reservation_for_reconciliation(self):
+        with patch.object(adapter, 'PROJECT_ROOT', self.root):
+            with self.assertRaises(KeyboardInterrupt):
+                self.run_cli(fake=lambda *a, **k: (_ for _ in ()).throw(KeyboardInterrupt()))
+        leases = list((self.root/'.local-model/model-activity').iterdir())
+        self.assertEqual(len(leases), 1)
+        with self.assertRaises(admission.AdmissionError):
+            admission.begin_formal(self.root)
+        # This fake never spawned a child; explicit release after that proof.
+        record = json.loads(leases[0].read_text(encoding='utf-8'))
+        admission.release_model({'root': str(self.root), 'path': str(leases[0]),
+                                 'nonce': record['nonce'], 'role': admission.MODEL})
+
+    def test_help_and_parse_errors_do_not_reserve_model_activity(self):
+        with patch.object(adapter, 'PROJECT_ROOT', self.root), contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            for argv, status in [(['--help'], 0), ([], 2)]:
+                with self.assertRaises(SystemExit) as raised:
+                    adapter.main(argv)
+                self.assertEqual(raised.exception.code, status)
+        self.assertFalse((self.root/'.local-model/model-activity').exists())
 
 
 if __name__ == '__main__':

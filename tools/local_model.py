@@ -12,6 +12,8 @@ import tempfile
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
+from tools.performance_admission import AdmissionError, model_activity
 DEFAULT_CONFIG = PROJECT_ROOT / 'docs/local-model-executor-config.json'
 
 
@@ -99,6 +101,15 @@ def main(argv=None):
     parser.add_argument('--owner', default=os.environ.get('LOCAL_MODEL_OWNER'))
     parser.add_argument('--stop-file', type=Path)
     args = parser.parse_args(argv)
+    try:
+        with model_activity(PROJECT_ROOT, {'task_id': args.task_id or args.output_dir.name, 'owner': args.owner}):
+            return _execute(args)
+    except AdmissionError as exc:
+        print('local_model.py: admission blocked: ' + str(exc), file=sys.stderr)
+        return 1
+
+
+def _execute(args):
     try:
         if not 1 <= args.max_tokens <= 16000:
             raise ValueError('max-tokens must be 1..16000')

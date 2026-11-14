@@ -34,6 +34,9 @@ def _payload(messages,marker):
 
 def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budget=None,
         request_normal_end=None,legacy_forced=False,pressure_initial_turn=None):
+    from tools.performance_admission import assert_no_model_activity
+    if (Path.cwd()/'.local-model/p6-formal-performance-active.json').exists():
+        assert_no_model_activity(Path.cwd())
     if type(legacy_forced) is not bool:
         raise TypeError('legacy_forced must be an explicit boolean')
     if legacy_forced:

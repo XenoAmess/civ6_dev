@@ -7,6 +7,9 @@ from tools.run_observed_acceptance import _payload
 
 def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Path,*,variant,fixture_sha256,
         request_normal_end=None,legacy_forced=False,expected_source_version=140,pressure_initial_turn=None):
+    from tools.performance_admission import assert_no_model_activity
+    if (Path.cwd()/'.local-model/p6-formal-performance-active.json').exists():
+        assert_no_model_activity(Path.cwd())
     if type(expected_source_version)is not int or expected_source_version not in (140,141,142):raise ValueError('Invalid source version')
     if type(legacy_forced)is not bool:raise TypeError('legacy_forced must be an explicit boolean')
     pressure=pressure_initial_turn is not None

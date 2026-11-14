@@ -23,3 +23,8 @@ tools/local_model.py只准备输入、委托共享CLI并检查候选JSON对象�
 普通HTTP候选与OpenCode原生工具模式分别更新共享能力案例；OpenCode每日检查不算原生工具生成任务。通用经验写共享仓库，游戏证据保留本项目公开反链；原始请求、SSE、候选和机器日志只留被忽略的.local-model/。维护共享仓库也遵循精确stage、main、每个完整单元验证后提交推送。
 
 原指南、配置及截至76a41d8的完整经验已[精确归档](https://github.com/XenoAmess/local-model-operations/tree/c652acd43805d6b0df333238278cc9ea870a485d/docs/history/civ6-2026-11-02)，迁移来源、哈希和限定见[经验入口](local-model-experience.md)。
+
+
+## 正式性能采样互斥
+
+[804真实重叠与修复](testing/baiqi-pressure-N4-invalid-admission804.md)后，tools/local_model.py在参数解析后、请求准备及共享CLI之前取得模型租约；正式标记存在即拒绝。采样方用tools.performance_admission.begin_formal建立标记并检查在途租约，实际COMPLETE后才finish_formal。BaseException留存租约／正式失败留存标记，负责人先核对子进程及原件再显式释放，不按时间或PID消失自动清理；双检查避免检查与入场间竞态。共享每日维护／配置／SSE／重试仍是唯一权威。构建及测试也继续遵守正式锁；此互斥不把任意外部shell操作变成自动受管任务。

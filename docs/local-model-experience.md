@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [N4环境重叠／双向互斥804](testing/baiqi-pressure-N4-invalid-admission804.md)：Owner803在正式4E内POST，整侧五段拒绝，判废记录时已完成、不冒称完成前。802length未读；804骨架部分采用、原11测4错，Owner45检查含24竞争／真实CLI拒绝过，待新冷启。累计804／745完整／56length／834HTTP。
+
 2026-11-15 [普通142主334冷启准备801](testing/baiqi-pressure-main334-launch-preparation801.md)：部分采用并补os、精确Steam身份／freshage、marker值、实际平面回执消费者；Owner21隔离检查过，0启动／Steam查询／主334加载。累计801／743完整／831HTTP，原生工具0。
 
 2026-11-15 [普通142恢复准备800](testing/baiqi-pressure-return142-preparation800.md)：骨架部分采用，补正式锁／精确完成态／清单值／真实XML版本拒绝及意图哈希；Owner16隔离检查过，0安装或主334加载。N3采样停止后1POST，累计800／742完整／830HTTP。
