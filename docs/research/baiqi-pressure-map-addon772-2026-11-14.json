@@ -1,0 +1,205 @@
+{
+  "schema": "civ6.pressure-map-addon772/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "model": {
+    "task": 772,
+    "usage": {
+      "prompt_tokens": 6230,
+      "completion_tokens": 3442,
+      "total_tokens": 9672
+    },
+    "total_ms": 20537.309299921617,
+    "first_content_ms": 949.7648000251502,
+    "attempts": 1,
+    "complete_stop_DONE_strictJSON": true,
+    "disposition": "REJECTED; 0 raw candidate code lines/tests adopted",
+    "raw_review": {
+      "raw_suite_exit": 1,
+      "implementation_lines": 211,
+      "test_lines": 76,
+      "raw_tests": 6,
+      "adopted_code_lines": 0,
+      "adopted_tests": 0,
+      "Native_actions": 0,
+      "lua51_generated_compile": "[string \"<python>\"]:3: unexpected symbol near 'local'",
+      "lua53_generated_compile": "[string \"<python>\"]:3: unexpected symbol near 'local'",
+      "update_database_file_children": [],
+      "raw_package_byte_hash_mismatches": [
+        "PressureMaps.modinfo",
+        "Config/PressureMaps.xml",
+        "Maps/P6PressureNoSite.lua",
+        "Maps/P6PressureMany.lua"
+      ],
+      "metadata_json": "VALID"
+    },
+    "manual_raw_functions": [
+      {
+        "name": "test_build_and_metadata",
+        "status": "PASS"
+      },
+      {
+        "name": "test_existing_output_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "test_layout_validation",
+        "status": "PASS"
+      },
+      {
+        "name": "test_lua53_generate_many",
+        "status": "ERROR",
+        "type": "LuaSyntaxError",
+        "message": "error loading code: [string \"<python>\"]:1: <eof> expected near '='"
+      },
+      {
+        "name": "test_lua53_generate_no_site",
+        "status": "ERROR",
+        "type": "LuaSyntaxError",
+        "message": "error loading code: [string \"<python>\"]:1: <eof> expected near '='"
+      },
+      {
+        "name": "test_second_generate_throws",
+        "status": "ERROR",
+        "type": "LuaSyntaxError",
+        "message": "error loading code: [string \"<python>\"]:1: <eof> expected near '='"
+      }
+    ],
+    "source_review": "Invalid module embedding local geometry = followed by statements; missing MapEnums; GenerateMap(E) requires unsupplied E; UpdateDatabase missing File child. Four Windows byte hashes differ. Metadata JSON is VALID.",
+    "request_sha256": "b33f1069ea82feac472e9a98384defbe7f2267f0f86e53c12d02b0c552e78c4b",
+    "provenance": {
+      "schema": "civ6.local-model-adapter-provenance/v1",
+      "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+      "shared_commit": "c4f24dd52f1a62cc17d06a92985a138b2d469748",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+      "overrides": {
+        "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+      },
+      "timeout_override": null,
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+    },
+    "owner_phase_utc": [
+      {
+        "utc": "2026-11-14T11:10:57.219190+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T11:10:58.109409+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T11:11:55.431694+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T11:12:55.442904+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T11:12:55.630916+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      },
+      {
+        "utc": "2026-11-14T11:15:00.758359+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+      }
+    ]
+  },
+  "owner_software": {
+    "test_command": "python -X utf8 -m unittest tests.test_build_pressure_map_mod -v",
+    "methods_passed": 5,
+    "generated_entry_versions": [
+      "Lua51",
+      "Lua53"
+    ],
+    "callbacks": "Load/GetMapInitData zero writes. Actual no-argument GenerateMap builds E from global ports and MapEnums. Success or failure cannot replay.",
+    "manifest": "Four files, three payload File references; two AddMap StandardMaps rows and two per-map overrides/2player/0citystate size rows. Actual write_bytes digests.",
+    "build_command": "python -X utf8 tools/build_pressure_map_mod.py --output-dir .local-model/acceptance-p6-20261101/resume136-20261114/pressure-map772-final-prepared",
+    "release119_source_hashes_unchanged": true,
+    "files_sha256": {
+      "tools/build_pressure_map_mod.py": "0e77957fb13fa2888c6862d6c3659bfcff6f3b031688d674aaa8671d40bd5844",
+      "tests/test_build_pressure_map_mod.py": "777f64a270cefab45c9892aff31c2d0f1c8868b517ea3ad7a524706a7a107be9"
+    }
+  },
+  "prepared_addon": {
+    "mode": "baiqi-pressure-map-v1",
+    "installed": false,
+    "native_generated": false,
+    "files": 4,
+    "package_file_sha256": {
+      "PressureMaps.modinfo": "7e549f58e7197354d9ff8031c0369473d167d643af93dcb4d96b6eff5ce9bb4a",
+      "Config/PressureMaps.xml": "c235f5aade0b1bf74671eef757fb07220be1079b64695e8e0b531621afbd68a5",
+      "Maps/P6PressureNoSite.lua": "a0d30271f2b2fc1e4e0495892ad1535abd557fd4790a218fc5d8e31fdd6cec7b",
+      "Maps/P6PressureMany.lua": "569448c843519de1ca9bc435b8d226662ad718c6cf15195b0ffb30be0bef71b5"
+    },
+    "map_scripts": {
+      "NO_SITE": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureNoSite.lua",
+      "MANY": "{e8b15363-c9b9-4dcb-b575-117d9308d426}Maps/P6PressureMany.lua"
+    },
+    "layout_sha256": "779df0744db6a8f40e70d0784f3041f2b78c22ca56d19892e6426714f62a6d5f",
+    "geometry_sha256": "b8cd23eaf0f0f72b1587610947c3c0e4824d9818c060a9d76b25e8557cb76ef6"
+  },
+  "prepared_static_control": {
+    "mode": "baiqi142-static-control-c1",
+    "files": 119,
+    "changed_files": [
+      "Lua/BaiqiController.lua",
+      "Lua/BaiqiGPIntentGameplay.lua",
+      "Lua/BaiqiSettlerGoalsGameplay.lua",
+      "Lua/BaiqiCreativeIntentGameplay.lua",
+      "Lua/BaiqiProphetIntentGameplay.lua",
+      "Lua/BaiqiReligiousIntentGameplay.lua",
+      "Lua/BaiqiNaturalistIntentGameplay.lua",
+      "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua",
+      "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+      "Lua/BaiqiArchaeologyIntentGameplay.lua",
+      "UI/BaiqiExecutor.lua",
+      "Lua/BaiqiAdmin.lua"
+    ],
+    "archive_sha256": "3f14bff5ddb7b93448d31d6b7e2c0ce1cc1b4e8cabcc29f8fe06ffcfafb6f70c",
+    "installed": false
+  },
+  "Native_preparation_API_source_facts": {
+    "Create_city": "WorldBuilderPlacement1125 calls Create(playerIndex,plot); dispatch456/461/474/484/506 passes numeric plotIndex. Ordinary Core applicability and result/readback UNVERIFIED; 0 Create calls.",
+    "population_and_kill": "AustraliaScenario792 ChangePopulation(1),807/840/1354 UnitManager.Kill(unit), primary examples only; 0 invocations.",
+    "progress": "GetUnitCost(index) primary UI examples; AddProgress member exists, signature still unclosed and 0 invocation."
+  },
+  "new_client_POST_peak": 1,
+  "server_parallelism": null,
+  "cumulative": {
+    "logical_calls": 772,
+    "complete_streams_including_historical_json_rejection": 718,
+    "length": 51,
+    "final_transport": 3,
+    "actual_HTTP": 802,
+    "extra_attempts": 30
+  },
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 success cache reused, new native-generation/tool sessions0.",
+  "owner_cost_limits": "Initial SDK/highlevel prep unmeasured; raw build/parser/hash witnesses in review. Pytest unavailable environment; six plain functions run with stdlib:3PASS3ERROR. Five Owner tests and CLI build in correction. No exclusive activecost/net savings.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "current_main": "Normal334 release142; 0 Native queries/actions in this package; main not yet saved/exited for pressure preparation.",
+  "installed_by_this_package": false,
+  "Native_new_worlds": 0,
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0,
+  "TC036_full_status": "PARTIAL",
+  "next": "Fresh protected334 checkpoint; official exit and fresh offline proof before isolated new world; private static-control/addon install only after owned game gone."
+}

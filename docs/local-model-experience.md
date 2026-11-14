@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [私有压力地图772](testing/baiqi-pressure-map-addon772.md)：候选入口双Lua解析失败／4哈希不符，0采用；Owner5项过，独立地图包与静态control只准备未安装，334无Native动作。累计772／718完整／802HTTP。
+
 2026-11-14 [压力地形770—771](testing/baiqi-pressure-geometry770771.md)：两完整候选原测试7全error／8中5error，0采用；Owner12项验证新地图纯几何与严格全图证书。未Native、未改142主334；MANY不冒充≥12入池。累计771／717完整／801HTTP。
 
 2026-11-14 [压力日历767—769](testing/baiqi-pressure-calendar767769.md)：新压力标识保实际T，不改旧85；767函数原码／769构建hunks原码采用，768锚点范围及变量遮蔽纠正，坏测试另记。相关79过含19新，旧N全字段全等；119／97双编译私有包未Native。实际在途峰3，累计769／715完整／799HTTP。
