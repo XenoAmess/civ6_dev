@@ -1,0 +1,285 @@
+{
+  "schema": "civ6.pressure-geometry770771/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "models": {
+    "770": {
+      "usage": {
+        "prompt_tokens": 3001,
+        "completion_tokens": 2866,
+        "total_tokens": 5867
+      },
+      "total_ms": 22165.76480004005,
+      "first_content_ms": 894.3344000726938,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "raw_review": {
+        "task": 770,
+        "utc": "2026-11-14T11:01:08.300974+00:00",
+        "suite_exit": 1,
+        "implementation_lines": 105,
+        "test_lines": 56,
+        "adopted_code_lines": 0,
+        "adopted_tests": 0,
+        "native_actions": 0,
+        "lua51_compile": "[string \"<python>\"]:45: unexpected symbol near '/'",
+        "lua53_compile": "PASS"
+      },
+      "disposition": "REJECTED; 0 candidate code lines or tests adopted; Owner implementation",
+      "request_sha256": "1ee4ddef3edf54bbbd65c59c39bc17c057c7107bf0c238f1c32988d634a2719b",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "621cb0ba6033eceb8f4a6f42670c9dfc297149c9",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "owner_phase_utc": [
+        {
+          "utc": "2026-11-14T10:47:51.330937+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:54:50.306702+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:01:07.503027+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:01:34.824356+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:01:35.048355+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:05:57.915550+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "source_review": "Unsupported // in Lua51; exported global Generate rather than return function; enum finite/integral and exact layout checks missing; no upfront mutation-port checks. Raw test uses nonexistent lupa.lua51.Lua, JSON literal directly as Lua, missing StampContinents, and an empty pass for order. Raw7 tests all error before actual candidate generation."
+    },
+    "771": {
+      "usage": {
+        "prompt_tokens": 3002,
+        "completion_tokens": 3900,
+        "total_tokens": 6902
+      },
+      "total_ms": 27720.327300019562,
+      "first_content_ms": 1044.7064000181854,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "raw_review": {
+        "task": 771,
+        "utc": "2026-11-14T11:01:09.260606+00:00",
+        "suite_exit": 1,
+        "implementation_lines": 212,
+        "test_lines": 111,
+        "adopted_code_lines": 0,
+        "adopted_tests": 0,
+        "native_actions": 0,
+        "valid_snapshot_witness": {
+          "exception": "KeyError",
+          "message": "4"
+        }
+      },
+      "disposition": "REJECTED; 0 candidate code lines or tests adopted; Owner implementation",
+      "request_sha256": "325a269473f4edc481f2f44a9d0c3e4d32c791f59599e6be49460c7b883e7122",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "621cb0ba6033eceb8f4a6f42670c9dfc297149c9",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "owner_phase_utc": [
+        {
+          "utc": "2026-11-14T10:47:51.544964+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:54:50.541536+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:01:07.708998+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:01:34.831847+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:01:35.248588+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T11:05:58.154001+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "source_review": "Valid snapshot raises KeyError4: coordinate set unpacked as coordinate/owner. No per-owner ID uniqueness; layout exact-root/types and fixture ID missing, bools admitted as int, city flags/owners not fully cross-checked. Raw212 implementation lines exceeds180; 8 methods exceeds <8; embedded duplicate layout instead of actual input. Raw8 tests3 pass5 errors; no raw code adopted."
+    }
+  },
+  "software_validation": {
+    "command": "python -X utf8 -m unittest tests.test_pressure_fixture_geometry tests.test_qualify_pressure_geometry -v",
+    "methods": 12,
+    "passed": 12,
+    "initial_owner_test_failure": "One Lua table proxy equality assertion failed despite equal contents; replaced by actual fields/all11 slots content comparison, final12 pass. No implementation failure on this Owner test run.",
+    "Lua51_and_Lua53": "Both variants executed against synthetic ports; exact1144 terrain writes, full1144 preflight before firstwrite, ordered area/choke/continent and two starts; final plot invalidation and setter failure stop checked.",
+    "Python": "Exact schema/types/complete visible1144/city identity-owner-footprint; malformed raises ValueError; valid terrain mismatch NOT_QUALIFIED; overlapping IDs across owners permitted; inputs immutable.",
+    "release119_hashes_equal_previous142_build": true,
+    "new_files_sha256": {
+      "tools/fixtures/pressure_layout_v1.json": "779df0744db6a8f40e70d0784f3041f2b78c22ca56d19892e6426714f62a6d5f",
+      "tools/lua/pressure_fixture_geometry.lua": "b8cd23eaf0f0f72b1587610947c3c0e4824d9818c060a9d76b25e8557cb76ef6",
+      "tools/qualify_pressure_geometry.py": "b8424f5f0b91421f462b080ab7a2d572739af495e09df546778d30a8959f8b06",
+      "tests/test_pressure_fixture_geometry.py": "0438313cd32f2b62ef9eaaff1b2c716dcaa113a48b3996e86cf3837b607c3803",
+      "tests/test_qualify_pressure_geometry.py": "1323c0a12dd2a8e65fea95f2ca2fa7ade7e910d646ab76c836eb9e7666c28f03"
+    }
+  },
+  "layout": {
+    "schema": "civ6.pressure-layout/v1",
+    "fixture_id": "P6_PRESSURE_LAYOUT_V1",
+    "width": 44,
+    "height": 26,
+    "wrap_x": false,
+    "slots": [
+      {
+        "owner": 0,
+        "x": 4,
+        "y": 4,
+        "start": true
+      },
+      {
+        "owner": 0,
+        "x": 12,
+        "y": 4,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 20,
+        "y": 4,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 28,
+        "y": 4,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 36,
+        "y": 4,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 4,
+        "y": 16,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 12,
+        "y": 16,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 20,
+        "y": 16,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 28,
+        "y": 16,
+        "start": false
+      },
+      {
+        "owner": 0,
+        "x": 36,
+        "y": 16,
+        "start": false
+      },
+      {
+        "owner": 1,
+        "x": 20,
+        "y": 24,
+        "start": true
+      }
+    ]
+  },
+  "qualification_limits": {
+    "map_geometry": "NO_SITE11 planned land plots still require actual10human/1opponent cities. MANYall-land not a recommendation pool count.",
+    "no_site_certificate": "Only a genuinely current complete visible snapshot with every plot water or city proves required Controller notWater/notCity gate excludes all plots. Not full engine-rule or other-civilization claim.",
+    "many_candidate_pressure": null,
+    "setup_stage": "No map entry/addon/native creation/export implemented by this unit. E.in_generation is private caller contract, not native authorization/proof.",
+    "product": "No release switch, paused ownership control or granary/liberate plot behavior added."
+  },
+  "new_client_POST_peak": 2,
+  "new_client_POST_peak2_overlap_seconds": 22.162093,
+  "server_running_parallelism": null,
+  "cumulative": {
+    "logical_calls": 771,
+    "complete_streams_including_historical_json_rejection": 717,
+    "length": 51,
+    "final_transport": 3,
+    "actual_HTTP": 801,
+    "extra_attempts": 30
+  },
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 success cache reused; new native-generation/tool sessions0.",
+  "owner_cost_limits": "Initial candidate reading precedes REVIEW_BEGIN and is unmeasured; raw suites in review.12 Owner methods in correction, phase walls overlap across tasks. Earlier SDK/high-level discovery and publication unmeasured. No exclusive activecost/net savings claim.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "current_main": "Release142 normal334 retained; no Native queries/actions in this unit, 0 END or fixture mutations.",
+  "Native_pressure_runs": 0,
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0,
+  "TC036_full_status": "PARTIAL",
+  "next": "Assemble map entry/addon using actual SDK registration; preserve protected main and fresh offline proof before disposable world; independently qualify actual post-setup state then natural calls/performance."
+}
