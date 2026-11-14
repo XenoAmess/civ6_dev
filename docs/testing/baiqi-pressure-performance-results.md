@@ -4,7 +4,7 @@
 
 | 场景与精确初始点 | B_plan | B_turn | N_req | B_delta |
 | --- | --- | --- | --- | --- |
-| MANY_WATER1，T6，459a46e5… | **PASS**，[Native H证据](baiqi-pressure-many-stageA-H.md) | **PASS**，[Native I证据](baiqi-pressure-many-fullscript-I.md) | **PASS**，[Native I证据](baiqi-pressure-many-fullscript-I.md) | 未测 |
+| MANY_WATER1，T6，459a46e5… | **PASS**，[Native H证据](baiqi-pressure-many-stageA-H.md) | **PASS**，[Native I证据](baiqi-pressure-many-fullscript-I.md) | **PASS**，[Native I证据](baiqi-pressure-many-fullscript-I.md) | **PASS**，[25段](baiqi-pressure-many-pairS-group5.md) |
 | NO_SITE，T1，92f43e9c… | 未测 | 未测 | 未测 | 未测 |
 
 MANY的两规划目标分别140／160个纯十城样本，p95为2.000093／1.000166ms、最大4.000187／21.999836ms，满足冻结p95≤20、最大≤50。304保留行包含4个已验证激活前样本，后者单列；0丢弃／无效时钟，4096总容量不变。
@@ -16,4 +16,5 @@ MANY的两规划目标分别140／160个纯十城样本，p95为2.000093／1.000
 
 
 
-配对进度：[MANY已完成4/5组、20/25段](baiqi-pressure-many-pairS-group4.md)；总体B_delta仍未知。
+
+配对进度：[MANY已完成5/5组、25/25段](baiqi-pressure-many-pairS-group5.md)；最终判定见该报告。
