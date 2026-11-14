@@ -1,5 +1,7 @@
 # civ6_dev
 
+[142正常333→334／事件四参](docs/testing/baiqi-event142B-normal334-757.md)：11城无人损、334已存，军队排队路线仍未完成，旧ARMED不重发。
+
 当前源码142：[移民支持检查预算与完整软件验证](docs/testing/baiqi-source142-support-budget745746.md)，2220项中2219通过、1项SDK环境跳过，97Lua双编译／119文件包。[独立142 N正式五窗B_plan通过](docs/testing/baiqi-stageA142-N.md)：Admin13／21ms、Controller7／20ms；[142全脚本B_turn／N_req通过](docs/testing/baiqi-allscript142-pair751752.md)，[主333冷读九域全等](docs/testing/baiqi-release142-cold333.md)；[匹配第一组已齐](docs/testing/baiqi-pair142-C1-event754755.md)，剩余四组和整例验收仍开放。
 
 [141正式五窗仍FAIL](docs/testing/baiqi-stageA141-fail-743.md)：Admin p95约21ms／Controller最大428ms；[K分项](docs/testing/baiqi-controller141-K.md)确认备选扫描仍聚集支持检查，[L Admin分项](docs/testing/baiqi-admin141-L.md)未重现超限，均不授性能通过。[M启动卡住与同包N恢复](docs/testing/baiqi-startup-M747748-recovery.md)保留零游戏输入／零采样失败及私密转储边界，Steam持续离线。
