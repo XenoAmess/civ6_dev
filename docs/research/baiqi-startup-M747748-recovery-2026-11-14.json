@@ -1,0 +1,186 @@
+{
+  "schema": "civ6.startup-M-hang747748-recovery/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "artifact_sha256": "a04706aeeda55d9fa0e7ba07d6c1b0f1610cd286345e9d7aef9d51f4549cc555",
+  "M": {
+    "phase": "STARTUP_FAILED_BEFORE_MAINMENU",
+    "owned_pid": 15944,
+    "qualified_endpoints": 0,
+    "LSQ_both4318_4319_timeouts": true,
+    "CMD_load_continue_end_save_inputs": 0,
+    "samples": 0,
+    "ghost_foreground_process": "dwm.exe",
+    "configuration_log_reconfiguration_succeeded_before_art_files_finished": true,
+    "cause": null,
+    "normal_close_requested_once_but_not_processed": true,
+    "terminated_only_owned_hung_startup_after_private_dump": true,
+    "quiet_exit_residue": false,
+    "owned_process_gone": true,
+    "owner_initial_wrong_win32gui_IsHungAppWindow_guard_failed_before_any_close_attempt": true,
+    "guard_corrected_to_typed_user32_API": true
+  },
+  "private_dump": {
+    "bytes": 345902,
+    "sha256": "39a8df52847300ee4abc612f4f953cfd03f9482dcd60800457271b01a3f3f2af",
+    "type": 0,
+    "thread_sample_seconds": 2.037662000162527,
+    "sample_top_thread": {
+      "thread_id": 8244,
+      "cpu_delta": 2.046875
+    },
+    "snapshot_mapping": {
+      "module_count": 133,
+      "thread_count": 34,
+      "hot_thread_id": 8244,
+      "rip_hex": "0x7ffcdb66deb4",
+      "rsp_hex": "0x14aac8",
+      "module_basename": "ntdll.dll",
+      "module_offset_hex": "0x9deb4",
+      "stream_metadata": [
+        {
+          "type": 3,
+          "size": 1636
+        },
+        {
+          "type": 4,
+          "size": 14368
+        },
+        {
+          "type": 5,
+          "size": 628
+        },
+        {
+          "type": 7,
+          "size": 56
+        },
+        {
+          "type": 15,
+          "size": 1364
+        },
+        {
+          "type": 21,
+          "size": 492
+        },
+        {
+          "type": 22,
+          "size": 152
+        },
+        {
+          "type": 24,
+          "size": 52
+        },
+        {
+          "type": 0,
+          "size": 0
+        },
+        {
+          "type": 0,
+          "size": 0
+        },
+        {
+          "type": 0,
+          "size": 0
+        },
+        {
+          "type": 0,
+          "size": 0
+        }
+      ],
+      "limits": "Single context PC mapping only. No unwinding, source-symbol callstack, CPU origin or hang-cause proof. Rawdump private; no process/API/Game/Steam actions."
+    },
+    "raw_public": false,
+    "source": "https://learn.microsoft.com/en-us/windows/win32/api/minidumpapiset/nf-minidumpapiset-minidumpwritedump",
+    "structures": [
+      "https://learn.microsoft.com/en-us/windows/win32/api/minidumpapiset/ns-minidumpapiset-minidump_module",
+      "https://learn.microsoft.com/en-us/windows/desktop/api/minidumpapiset/ns-minidumpapiset-minidump_thread",
+      "https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-context"
+    ]
+  },
+  "models": [
+    {
+      "model": 747,
+      "usage": {
+        "prompt_tokens": 5844,
+        "completion_tokens": 1091,
+        "total_tokens": 6935
+      },
+      "total_ms": 7215.486400062218,
+      "ttft_ms": 910.785400075838,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "review": {
+        "candidate_unchanged": true,
+        "terminal": 1,
+        "dump_attempted": false,
+        "adopted": false,
+        "reason": [
+          "psutil.threads returns tuples user_time/system_time, not objects with cpu_times",
+          "second snapshot reuses same threads instead of fresh p.threads",
+          "wrong dbgshim DLL instead of documented DbgHelp",
+          "no exclusive pre-dump attempt record",
+          "no actual executable path comparison to both owner and launch"
+        ],
+        "owner_takeover": true
+      },
+      "adopted": false
+    },
+    {
+      "model": 748,
+      "usage": {
+        "prompt_tokens": 2280,
+        "completion_tokens": 2165,
+        "total_tokens": 4445
+      },
+      "total_ms": 12974.115800112486,
+      "ttft_ms": 482.98300011083484,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "review": {
+        "candidate_unchanged": true,
+        "terminal": 1,
+        "adopted": false,
+        "review": [
+          "Rejects duplicateUnusedStream0 slots as critical instead of only criticalstreamduplicates",
+          "Returns fullmodulepath not basename",
+          "Choosesfirst overlappingmodule, not reject ambiguousmatch",
+          "Output overwrites viawrite_text, not exclusivenew receipt",
+          "Hardcoded success/last_error/process_handle_closed unrelated to this reader; do not grant API actionproof",
+          "SystemInfo declaredsize not checked>=2 beforefieldread"
+        ],
+        "owner_takeover": true
+      },
+      "adopted": false
+    }
+  ],
+  "N_recovery": {
+    "same_installed_artifact_all119_files_verified_before_launch": true,
+    "no_reinstall_or_cache_code_config_edits": true,
+    "fresh_offline_proof_age_seconds": 0.004897,
+    "mainmenu_unique_context_LSQ_qualified": true,
+    "original85_load_ACK_true_once": true,
+    "formal_budget_or_whole_functional_pass": false
+  },
+  "Steam_operations": {
+    "online_switches": 0,
+    "client_terminations": 0,
+    "other_game_terminations": 0
+  },
+  "cumulative": {
+    "logical": 748,
+    "complete_streams_including_historical_json_rejection": 695,
+    "length": 50,
+    "final_transport": 3,
+    "http": 778,
+    "extra_attempts": 30,
+    "new_peak": 1
+  },
+  "maintenance": "Nov14 canonical1.19.5 success cache reused; OpenCode native0",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "limits": "M has zero Native gameplay/performance evidence; unchanged N starting successfully does not establish cause of M failure or grant performance. Single RIP maps ntdll, not an unwound stack or fault attribution. Rawdump/paths/stack memory kept ignored. Original747/748 candidates0adopted, owner collector/parser separate."
+}

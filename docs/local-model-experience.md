@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [M启动卡住／747748与N恢复](testing/baiqi-startup-M747748-recovery.md)：M双LSQ超时／Ghost，0游戏输入／采样；747线程API、748合法UnusedStream0原稿均失败0采用。Owner普通转储＋独立校验读133模块34线程、单点ntdll不授原因，保私密原件。仅自有M正常关闭未处理后终止，Steam不动；N同包无代码缓存改动启动合格／原85载入一次，142仍待验。累计748／695完整50length3transport778HTTP30extra，峰1／原生0／成本null。
+
 2026-11-14 [L Admin未重现超限](testing/baiqi-admin141-L.md)：82根904行审计过，最大Admin18ms，FoodTile8／Flood5ms，仅相对分项、不授正式采样／源码提速；141 FAIL保持。冻结141与仓库142分记，744helper实际关联／13恢复验证，90已存退出清理。正式142 M仅准备，HTTP仍746。
 
 2026-11-14 [142支持检查预算／745746](testing/baiqi-source142-support-budget745746.md)：745原4项2失败2错误，Owner也漏空结果more合同；修正消费者与一次支持检查、保留廉价过滤，4新／87相关过。746原9中7继承过2新失败，0采用。最终2220项含1SDK跳过／97Lua双编译119包；142 Native未验，AdminL冻结141，旧性能FAIL保持。累计746／693完整50length3transport776HTTP30extra，实际峰2／原生0／成本null。
