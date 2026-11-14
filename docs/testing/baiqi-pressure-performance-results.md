@@ -15,4 +15,5 @@ MANY的两规划目标分别140／160个纯十城样本，p95为2.000093／1.000
 
 
 
-配对进度：[MANY已完成3/5组、15/25段](baiqi-pressure-many-pairS-group3.md)；总体B_delta仍未知。
+
+配对进度：[MANY已完成4/5组、20/25段](baiqi-pressure-many-pairS-group4.md)；总体B_delta仍未知。
