@@ -1,0 +1,361 @@
+{
+  "schema": "civ6.source142-frozen-performance-budgets-760/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "product_source_changed_this_evidence_unit": false,
+  "scope": "Single reported GS/no-barb original ten-city85 fixture, frozen performance protocol1, this machine/executable/settings and actual142 packages; no fullfunctional/generalhardware claim.",
+  "original_fixture_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+  "evidence_sources": {
+    "B_plan": "https://github.com/XenoAmess/civ6_dev/blob/111258bd622dcac7026703cd82b9f1ae272333a8/docs/research/baiqi-stageA142-N749750-2026-11-14.json",
+    "B_turn_N_req": "https://github.com/XenoAmess/civ6_dev/blob/9d429c2223b60e06aeb17a7c894dc50e403f0718/docs/research/baiqi-allscript142-pair751752-2026-11-14.json",
+    "B_delta": "https://github.com/XenoAmess/civ6_dev/blob/3c07b5561aab3028ecb4739b8f9cb5386aa1d661/docs/research/baiqi-pair142-group5-2026-11-14.json"
+  },
+  "B_plan": {
+    "status": "PASS",
+    "artifact_sha256": "a04706aeeda55d9fa0e7ba07d6c1b0f1610cd286345e9d7aef9d51f4549cc555",
+    "retained_rows": 312,
+    "quality_ok": true,
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 116,
+        "p95_ms": 13.000011444091797,
+        "max_ms": 21.000146865844727,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 144,
+        "p95_ms": 6.999969482421875,
+        "max_ms": 20.000219345092773,
+        "budget_ok": true
+      }
+    },
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 116,
+        "10_to_11": 0,
+        "eleven_city": 16,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 144,
+        "10_to_11": 0,
+        "eleven_city": 19,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 17
+      }
+    },
+    "preanchor": {
+      "pending": 0,
+      "recorded": 17,
+      "validated": 17,
+      "errors": 0
+    },
+    "p95_limit_ms": 20,
+    "max_limit_ms": 50,
+    "pureten_minimum_per_target": 100
+  },
+  "B_turn": {
+    "status": "PASS",
+    "artifact_sha256": "29abe6879a8c77786e54a7dd163caca4612c74b960ae412dc546737f7c6e8c42",
+    "contexts": 33,
+    "retained_rows": 1735,
+    "retained_cap": 4096,
+    "aggregate_zero_success_calls": 37509,
+    "windows": [
+      {
+        "turn": 86,
+        "start_ui": 1794622663.108,
+        "end_ui": 1794622673.108,
+        "observed_union_ms": 443.00007820129395,
+        "clipped_inclusive_sum_ms_not_cpu": 472.99981117248535,
+        "sample_rows_intersecting": 201
+      },
+      {
+        "turn": 87,
+        "start_ui": 1794622713.006,
+        "end_ui": 1794622723.006,
+        "observed_union_ms": 365.001916885376,
+        "clipped_inclusive_sum_ms_not_cpu": 384.0017318725586,
+        "sample_rows_intersecting": 200
+      },
+      {
+        "turn": 88,
+        "start_ui": 1794622769.684,
+        "end_ui": 1794622779.684,
+        "observed_union_ms": 190.99903106689453,
+        "clipped_inclusive_sum_ms_not_cpu": 200.99902153015137,
+        "sample_rows_intersecting": 136
+      },
+      {
+        "turn": 89,
+        "start_ui": 1794622831.825,
+        "end_ui": 1794622841.825,
+        "observed_union_ms": 187.99948692321777,
+        "clipped_inclusive_sum_ms_not_cpu": 192.99960136413574,
+        "sample_rows_intersecting": 148
+      },
+      {
+        "turn": 90,
+        "start_ui": 1794622885.652,
+        "end_ui": 1794622895.652,
+        "observed_union_ms": 552.0029067993164,
+        "clipped_inclusive_sum_ms_not_cpu": 600.0027656555176,
+        "sample_rows_intersecting": 250
+      }
+    ],
+    "fixed_window_seconds": 10,
+    "union_limit_ms": 1000,
+    "not_CPU_time": true,
+    "not_wholeturn_script_cost": true
+  },
+  "N_req": {
+    "status": "PASS",
+    "complete_turn_writes": [
+      {
+        "turn": 86,
+        "calls": 11,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 11
+        }
+      },
+      {
+        "turn": 87,
+        "calls": 10,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 10
+        }
+      },
+      {
+        "turn": 88,
+        "calls": 19,
+        "by_context": {
+          "Lua/BaiqiGameplay.lua": 3,
+          "UI/BaiqiExecutor.lua": 16
+        }
+      },
+      {
+        "turn": 89,
+        "calls": 12,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 12
+        }
+      },
+      {
+        "turn": 90,
+        "calls": 28,
+        "by_context": {
+          "Lua/BaiqiGameplay.lua": 4,
+          "UI/BaiqiExecutor.lua": 24
+        }
+      }
+    ],
+    "partial91_separate": [
+      {
+        "turn": 91,
+        "calls": 12,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 12
+        }
+      }
+    ],
+    "limit_per_whole_turn": 64,
+    "actual_native_submission_counts_not_proxy": true
+  },
+  "B_delta": {
+    "status": "PASS",
+    "pairs": 5,
+    "matched_segments": 25,
+    "median_delta_ms": 167.00005531311035,
+    "median_of_each_control_denominator_ratio_percent": 3.202916297290867,
+    "ratio_known": true,
+    "delta_limit_ms": 500,
+    "ratio_limit_percent": 10,
+    "pair_medians": [
+      {
+        "pair": 1,
+        "median_delta_ms": 201.99990272521973,
+        "median_ratio_percent": 3.5522497121940124
+      },
+      {
+        "pair": 2,
+        "median_delta_ms": -28.0001163482666,
+        "median_ratio_percent": -0.37130507722804784
+      },
+      {
+        "pair": 3,
+        "median_delta_ms": 1868.999719619751,
+        "median_ratio_percent": 38.30975253879687
+      },
+      {
+        "pair": 4,
+        "median_delta_ms": -2213.9999866485596,
+        "median_ratio_percent": -36.09245699773181
+      },
+      {
+        "pair": 5,
+        "median_delta_ms": -2220.9999561309814,
+        "median_ratio_percent": -29.01750644631939
+      }
+    ],
+    "all_samples_and_diplomacy_retained": true,
+    "actual_player_input": {
+      "runs": 10,
+      "turns": 50,
+      "ordered_military_SKIP_sequences_same_per_turn": true,
+      "TEST_PLAYER_SKIP_request_calls": 900,
+      "ordinary_END_calls": 50,
+      "END90_calls": 0,
+      "sameunit_sameturn_duplicate": false
+    },
+    "causal_script_cost_only": false
+  },
+  "four_frozen_budget_status": "PASS for this fixture",
+  "TC036_full_status": "PARTIAL",
+  "remaining_TC036": "Actual case303-306 additionally requires no-legal-site and many-candidate pressure states, p50/p95/max and overrun reporting. This cut does not grant that complete pressure/report matrix. Zero native recommendations alone is not proof of no legal site in all allowed search domain.",
+  "fullfunctional_status": "OPEN including oldARMED recoveryFAIL and other outstanding matrix items; no unknown command replay.",
+  "last_pair_exit_followup": {
+    "utc": "2026-11-14T07:23:33.700449+00:00",
+    "source_version": 142,
+    "original_exit_once": true,
+    "seconds_since_official_exit": 182.001007,
+    "owned_PID_gone": true,
+    "process_termination_calls": 0,
+    "saved90_sha256": "0cbef67c8b03904489a9cbce18db6a48fd0fdac2a87b7b395bc359ab1c5dcf82",
+    "Steam_actions": 0,
+    "earlier_retire_check": "NoSuchProcess before any termination call; confirms this instance exited naturally, unlike prior quiet residuals.",
+    "scope": "Last group5 control process/save followup only."
+  },
+  "release_restore": {
+    "files": 119,
+    "all_byte_match": true,
+    "release_archive_sha256": "2457efbafd3e9d4206d9afc03f9b2d54b09d67a03473451d02dc5fdafad2ce48",
+    "protected_saved334_bytes": 2460843,
+    "protected_saved334_sha256": "4eec091cdc7a338328d1f55f9b5a1c69ca98c9d4a0cb5b019b59a6e1a456d43f",
+    "official_load_once": true,
+    "targeted_original_Escape_once": true,
+    "fresh_actual334_ready_cities": 11,
+    "performance_namespaces_absent": true,
+    "snapshot_food_vitals_and_old_exported_journal_readonly": true,
+    "compatibility_full9domain_equality_on334": "NOT_CLAIMED; Controller can naturally execute domestic work after load. Previous333 nine-domain equality is separate historical evidence.",
+    "END334_requests": 0,
+    "Steam_online_switches": 0,
+    "Steam_uploads": 0
+  },
+  "model760": {
+    "task": "First combined performance qualification evidence review before combined fixture decision, not code generation or independent Native test",
+    "started_at_utc": "2026-11-14T07:25:48.471993+00:00",
+    "attempts": 1,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_json": "VALID",
+    "usage": {
+      "prompt_tokens": 29118,
+      "completion_tokens": 1173,
+      "total_tokens": 30291
+    },
+    "total_ms": 11573.632099898532,
+    "first_content_ms": 4399.937700014561,
+    "partial_analysis_use": "Numeric budget checks and scoped support retained as reviewed notes. Facts preexist in supplied Native receipts; not a model discovery or new Native result. No code/defect finding adopted, no model code executed or new runtime tests.",
+    "owner_rejected_or_corrected": [
+      "Invented broader TC036 definition requiring cold compatibility/release restore/other functional checks. Provided performance protocol does not say this. Actual case303-306 pressure/report requirements are the reason fullTC036 remains partial.",
+      "Calls fixed10second script B_turn whole-turn cost; corrected to fixed-window de-duplicated union. N_req is whole-turn actual Native submissions, not a proxy.",
+      "Input audit key is actual_TEST_PLAYER_input_audit, not literal input_audit; numeric900/50 facts checked at actual field. Allocation profile current140 belongs to all-script configuration; not a source-version inference from StageA."
+    ],
+    "owner_context_limit": "Original760 request supplied frozen performance protocol, but omitted actual test-cases303-306. Owner subsequently read exact case and acceptance-plan F08 before final scope wording; lack of that context does not justify invented coldcompat requirement.",
+    "raw_code_adopted": false,
+    "raw_runtime_tests": 0,
+    "owner_phase_utc": [
+      {
+        "utc": "2026-11-14T07:24:54.661729+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T07:25:47.950130+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T07:26:28.088091+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T07:29:03.020386+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T07:29:22.605959+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T07:33:21.038060+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T07:33:27.753367+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-14T07:41:58.948851+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Wall interval only; earlier high-level scope planning/helper setup not measured. Concurrent owned release restore may proceed; no exclusive activecost/net savings claim."
+      }
+    ],
+    "phase_wall_seconds": [
+      {
+        "phase": "PREP",
+        "wall_seconds": 53.288401
+      },
+      {
+        "phase": "REVIEW",
+        "wall_seconds": 154.932295
+      },
+      {
+        "phase": "CORRECTION",
+        "wall_seconds": 238.432101
+      },
+      {
+        "phase": "CORRECTION",
+        "wall_seconds": 511.195484
+      }
+    ],
+    "phase_limits": "Recorded before phase drafts. Wall includes read/wait and task switching; private helper creation/high-level scope planning and later publication authoring not fully measured. Not exclusive activecost or net savings.",
+    "request_sha256": "4e1c1ced365360dc824a2c03db317d398d53ade0c15a9cc9a9c0a246082571ba"
+  },
+  "cumulative": {
+    "logical_calls": 760,
+    "complete_streams_including_historical_json_rejection": 707,
+    "length": 50,
+    "final_transport": 3,
+    "actual_HTTP": 790,
+    "extra_attempts": 30
+  },
+  "new_calls_actual_peak": 1,
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 daily success cache reused; OpenCode native newgeneration/toolsessions0.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "historical_failures": "140 and141 formal failures retained. No retrospective pass, threshold relaxation or sample replacement.",
+  "next": "Inspect pressure candidate producer/consumer and retained planning distributions, let local model propose narrow unfinished diagnostic, then Owner review/verification and isolated Native pressure fixtures. Continue main334 without manual domestic filler."
+}
