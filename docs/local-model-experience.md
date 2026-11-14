@@ -1125,3 +1125,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [815B实际合同修正及人口339](testing/baiqi-population815B-native339.md)：Owner密集数组合同错误、实际单记录／future nil与Core Members缺失由Native纠正；首版0END、精确撤三监听。B版15＋24双Lua场景后实机各3样本0错丢，历史累计0→3人口／7→21地块，但每个回调已总3，仍不授逐城因果。原模型0采用；Owner只供包装层源码的输入缺口如实单列。累计815保持。
+
+
+2026-11-15 [816旧158活动资格](testing/baiqi-legacy816-qualified158.md)：候选只返回字符串／虚构回合API整拒。Owner补实际UI active/strategic/busy/messages，CANCEL两式仍false；CoreGetType及平面ACK消费者适配遗漏由Owner修正、0旧命令／END。142旧基线已另存。累计816／757完整／846HTTP；817另案。

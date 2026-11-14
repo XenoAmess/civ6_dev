@@ -388,3 +388,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[815B人口诊断](../testing/baiqi-population815B-native339.md)补沙尘暴累计从0至3及两城各−1的被动前后证据，逐城原因仍未知；Core区域缺口明确PARTIAL，监听均撤并另存339，原339／自动修复342保留。产品142未改，继续其他可执行验收。
+
+
+2026-11-15：[142旧ARMED158活动资格](../testing/baiqi-legacy816-qualified158.md)补当前active／strategic门，CANCEL仍false、0重放，旧恢复FAIL保留。已保护142旧158基线与现代342，继续评估独立且有硬上限的新移民生产。

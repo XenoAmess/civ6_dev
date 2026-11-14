@@ -457,3 +457,5 @@ python tools\build_mod.py --install
 - [89传教士Core采购许可](docs/testing/baiqi-missionary-purchase-storage-89.md)：补持久许可、传播日志初始化与共用信仰检查；完整1268通过／1SDK环境跳过、79Lua5.1、101包一致。需求和发令未接，未安装，实机仍87；Steam占用期间继续不上线。
 
 - [90传教士自动采购软件链](docs/testing/baiqi-missionary-purchase-flow-90.md)：安全国内需求、一次信仰购买及回执后传播交接已接通；1287软件通过／1SDK跳过、81Lua5.1／103文件一致。未安装／实测90，安装及实机仍87，Steam占用期间不上线。
+
+[142旧ARMED158补齐活动资格](docs/testing/baiqi-legacy816-qualified158.md)：active／strategic=true时两种CANCEL仍false，未取消或重放；旧日志／演员及现代342保护，转查有界独立扩张。
