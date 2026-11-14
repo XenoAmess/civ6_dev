@@ -14,6 +14,12 @@ end
 local function WrapWindow(h,label,fn,env)
   assert(type(h)=='table' and type(h.profile)=='table' and type(h.anchors)=='table')
   assert(type(fn)=='function' and type(label)=='string' and type(env)=='table')
+  local planFirst=h.planFirstTurn
+  local planLast=h.planLastTurn
+  if planFirst==nil and planLast==nil then planFirst=86;planLast=90
+  elseif planFirst==nil or planLast==nil then error('Invalid plan window')
+  elseif not (type(planFirst)=='number' and planFirst==math.floor(planFirst) and planFirst>=1 and planFirst<=2147483646
+    and type(planLast)=='number' and planLast==math.floor(planLast) and planLast==planFirst+4 and planLast<=2147483646) then error('Invalid plan window') end
   local profile=h.profile
   local timed=profile:Wrap(label,fn)
   local function Unknown(reason,turn,now)
@@ -36,7 +42,7 @@ local function WrapWindow(h,label,fn,env)
     elseif type(first)=='boolean'then allowance=tostring(first)end
     local turn=Read('Turn',Integer)
     if turn==nil then Unknown('turn');return fn(...) end
-    if turn<86 or turn>90 then return fn(...) end
+    if turn<planFirst or turn>planLast then return fn(...) end
     local pid=Read('LocalPlayer',Integer)
     if pid==nil then Unknown('player',turn);return fn(...) end
     if pid~=0 then return fn(...) end

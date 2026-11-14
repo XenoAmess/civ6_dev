@@ -1,0 +1,354 @@
+{
+  "schema": "civ6.pressure-planning-calendar767769/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "release_source_edits": 0,
+  "new_API": {
+    "Python": "analyze_pressure_plan_capture(data), source baiqi142-pressure-stageA-v1 plus exact initial_turn/pre_anchor; actual labels preserved",
+    "builder": "--pressure-initial-turn T, Python pressure_initial_turn kwarg, source142 only; no install/run",
+    "Lua": "NewPlanA optional7th initialTurn, WrapWindow explicit h.planFirstTurn/planLastTurn, NewDeferred optional4th/5th bounds",
+    "calendar": "T0..2147483641, init/warmupT, measuredT+1..T+5 fixed10sec, closeactualT+6; actual fixture must freeze T before fresh formal run",
+    "unchanged": "Legacy140/141/142 v1/v2 hardcoded original85/86..90/closing91; exact source/schema rejection between modes, 60s warmup,4096cap,100pure10each,p95<=20/max<=50. New pressure API does not grant Bturn/Nreq/Bdelta or wholeTC036."
+  },
+  "models": {
+    "767": {
+      "usage": {
+        "prompt_tokens": 8389,
+        "completion_tokens": 5258,
+        "total_tokens": 13647
+      },
+      "total_ms": 43884.376799920574,
+      "first_content_ms": 4004.638599930331,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "raw_tests": {
+        "run": 6,
+        "passed": 5,
+        "failures": 0,
+        "errors": 1,
+        "retained_N_legacy_all_fields_equal": true
+      },
+      "request_sha256": "fdd637b95a2df0ea4c3cdc613613d8b1013f48e2e77db837682e504e0e60a0a2",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "5c0009b08ce951a8fb4e450f9f3da2550ab58b9d",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "owner_phase_utc": [
+        {
+          "utc": "2026-11-14T09:51:47.294753+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T09:55:05.095048+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T09:57:36.245955+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:07:25.314548+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:07:25.523618+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:12:44.675690+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:12:44.869897+00:00",
+          "phase": "VERIFICATION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:17:05.737820+00:00",
+          "phase": "VERIFICATION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "disposition": "NEW PRESSURE FUNCTION ADOPTED LITERAL; raw fullfile not used",
+      "product_adopted": "116-line new analyze_pressure_plan_capture function; legacy method source retained exactly, no sample renumbering.",
+      "owner_correction": "Raw add_pre fixture hardcodes86; newT0 test corrected only synthetic turnStart/turnEnd to1. Added3 Owner methods, new9 total. Owner module docstring clarified.",
+      "limits": "Raw complete file289lines exceeded requested230 and duplicates validation; no code correctness failure found in new function. Raw6methods5pass1error; oldN full report exact before and after."
+    },
+    "768": {
+      "usage": {
+        "prompt_tokens": 13093,
+        "completion_tokens": 3290,
+        "total_tokens": 16383
+      },
+      "total_ms": 31758.09819996357,
+      "first_content_ms": 4189.06749994494,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "raw_tests": {
+        "run": 7,
+        "passed": 1,
+        "failures": 0,
+        "errors": 6,
+        "Owner_contract_witness": {
+          "legacy_noarg_call_ok": false,
+          "legacy_error": "[string \"<python>\"]:45: attempt to compare number with nil",
+          "pressure211_anchor_recorded": false,
+          "fixture_note": "Software ports only. Explicit legacy anchor supplied solely to isolate argument-shadow error, not a Native record."
+        }
+      },
+      "request_sha256": "6c199fffba121afcbfc607d4bc712699eebeed63bed4bc357092b3072a3015e7",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "5c0009b08ce951a8fb4e450f9f3da2550ab58b9d",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "owner_phase_utc": [
+        {
+          "utc": "2026-11-14T09:51:48.571443+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T09:55:07.219391+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T09:57:36.822605+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:07:25.739203+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:07:26.146988+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:12:45.161230+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:12:46.180740+00:00",
+          "phase": "VERIFICATION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:17:05.941370+00:00",
+          "phase": "VERIFICATION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "disposition": "PARTIAL CODE ADOPTION WITH OWNER FLOW FIXES; 0 RAW TESTS ADOPTED",
+      "product_adopted": "Three helper candidate hunks applied; Owner corrected activation range and bound-variable shadowing.",
+      "owner_correction": "OnActivate still85..91 despite pressureT; replaced with planFirst-1..planLast+1. WrapWindow bounds first/last clashed with original first argument; renamed planFirst/planLast. Owner authored6 actual tests using real fixture Fire, preanchor and error propagation.",
+      "raw_failures": "Raw7methods1pass6errors: missing Fire in fixture; source-independent witness also showed legacy Admin.Run() comparing turn with nil and pressure211 no anchor. Raw outside test incorrectly rejected initialization210 and closing216, preanchor call remained85, argument-return test expected an unreturned count, error raised outside wrapped body; these were rejected."
+    },
+    "769": {
+      "usage": {
+        "prompt_tokens": 8688,
+        "completion_tokens": 4302,
+        "total_tokens": 12990
+      },
+      "total_ms": 39775.81699984148,
+      "first_content_ms": 3183.059399947524,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "raw_tests": {
+        "run": 4,
+        "passed": 2,
+        "failures": 0,
+        "errors": 2
+      },
+      "request_sha256": "880851589d3931abe78026a7191b3c1c3821785c8744adc9d4579b563ee58489",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "5c0009b08ce951a8fb4e450f9f3da2550ab58b9d",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "owner_phase_utc": [
+        {
+          "utc": "2026-11-14T09:51:50.229019+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T09:55:08.322743+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T09:57:37.067118+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:07:26.632307+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:07:26.836086+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:12:46.777575+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:12:46.996620+00:00",
+          "phase": "VERIFICATION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T10:17:06.164280+00:00",
+          "phase": "VERIFICATION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "disposition": "ALL THREE BUILDER CODE HUNKS ADOPTED LITERAL; 0 RAW TESTS ADOPTED",
+      "product_adopted": "Optional pressure_initial_turn kwarg and CLI flag; source142-only validation, new constructor/metadata/archive, exact release inverse.",
+      "owner_correction": "Raw tests invented builder.uuid4, two errors before any real build; source review found a valid142/T100 case incorrectly expected requires142 failure. Owner replaced tests with4 methods including actual Lua prefix metadata, invalid types/no output and CLI forwarding.",
+      "raw_limits": "Raw future integration tested with raw768 helper sources as explicitly planned dependency. Passing prefix string checks did not validate raw768 runtime anchors. No raw candidate full build occurred."
+    }
+  },
+  "software_validation": {
+    "related_tests_passed": 79,
+    "new_methods": 19,
+    "groups": {
+      "analyzers": 30,
+      "plan_Lua_wrappers": 29,
+      "builders": 9,
+      "preanchor_proof": 7,
+      "preanchor_window_integration": 4
+    },
+    "retained_N_all_old_and_distribution_fields_exact": true,
+    "N_facts_sha256": "45de4cd80752bcb2fb55c95424b9eacba323ad269965485cb5a45b668804bacf",
+    "N_report_sha256": "1fc8b6b6c29e5be14476dfa564551b18df1ce6407bfd7b193222d44bb68c8173",
+    "release_source119_hashes_equal_to_frozen142": true,
+    "Native_pressure_run": false,
+    "initial_turn0": "Software package witness only; not a frozen actual game fixture or Native sample.",
+    "test_phase_note": "79 tests ran during correction; this verification covers retained raw N reanalysis and actual dual-compile/private package only."
+  },
+  "pressure_private_build": {
+    "mode": "baiqi142-pressure-stageA-v1",
+    "source_version": 142,
+    "files": 119,
+    "lua_sources_compiled_51_and_53": 97,
+    "changed_files": [
+      "UI/BaiqiExecutor.lua"
+    ],
+    "release_bodies_unchanged": false,
+    "gameplay_planning_bodies_unchanged": true,
+    "shutdown_subscription_identity_adjusted": true,
+    "release_text_recovers_exactly": true,
+    "sample_capacity": 4096,
+    "aggregate_zero": false,
+    "native_activation_inline_anchor": true,
+    "pre_anchor_proof": "Exact single false Controller call; retained whole interval must end before actual Native anchor, pending must resolve. No budget relaxation.",
+    "targets": [
+      "Admin.Run",
+      "Controller.RunNow"
+    ],
+    "executor_sha256": "feb74cfe3eecb29060221b3edd1857b737142a0b71dcb4e673b80480770e6124",
+    "instrumented_sha256": "76e9a587c6c7762db624de2e8f10f9ffba7d2d4dce2155fc008bbf1e55e53ba9",
+    "archive_sha256": "dd67b13ac500dc39d35b50e04639d454d5a7ae95e90acefda95bd9e2e607ae90",
+    "helper_hashes": {
+      "diagnostic_profile": "a45e0d6488982c35e758b32b342fd0c147762030f626c379e6cb2b079560ea3c",
+      "diagnostic_plan_window": "f836e3398f9f75cca6f33c356e6436cc501aff2c06bc7875cac7d004fd190304",
+      "diagnostic_qualification_trace": "d805d9783ab5077701ae47774082544ffc09f965a946ea56502dba9c864c0177",
+      "diagnostic_preanchor_proof": "9f73b9a06540065683a4ce033f5e08b0f7d05c3402806be3b0ca049bc46b1651",
+      "diagnostic_plan_stage": "7a78bf4ff1d7515a58dcdbbf16d252053b38466b60505f991fddb5e2046c8a20"
+    },
+    "installed": false,
+    "limits": "Stage A only; five-window ten-city Native sample quality and performance remain unverified.",
+    "initial_turn": 0
+  },
+  "new_client_POST_peak": 3,
+  "new_client_POST_peak3_overlap_seconds": 31.758543,
+  "server_running_parallelism": null,
+  "cumulative": {
+    "logical_calls": 769,
+    "complete_streams_including_historical_json_rejection": 715,
+    "length": 51,
+    "final_transport": 3,
+    "actual_HTTP": 799,
+    "extra_attempts": 30
+  },
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 daily success cache reused; native generation/tool sessions0.",
+  "owner_cost_limits": "Preparation, review, correction phases overlap across these tasks. Earlier SDK/fixture discovery/highlevel design and later publication unmeasured.79 tests inside correction; separate verification rawN+actual build. No exclusive activecost/net savings.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "current_main": "Release142 main334 restored from608266... checkpoint, no END334 or fixture mutations; no new pressure package installed.",
+  "fixture_API_readonly": "CurrentCore CityManager.InitCity nil; WorldBuilder.CityManager getter, unit/terrain/visibility members exist. Original editor Create(player,plot) and scenario RevealAllPlots/SetStartingPlot examples found; no creation/reveal invocation, signature/applicability to regular scenario NOT_GRANTED.",
+  "TC036_full_status": "PARTIAL, controlled fixture and real pressure run still open.",
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0,
+  "next": "Prepare isolated controlled no-admissible-site and many-candidate maps with actual setup APIs and independent certificate. Extend other timing stages if required, then Native; never mutate protected main or reinterpret old11/10/baseline evidence."
+}

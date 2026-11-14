@@ -3,11 +3,23 @@ local function Finite(v)
   return type(v)=='number' and v==v and v>-math.huge and v<math.huge
 end
 
-local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred,sourceVersion)
+local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred,sourceVersion,initialTurn)
   if sourceVersion==nil then sourceVersion=140 end
   assert(type(sourceVersion)=='number'and(sourceVersion==140 or sourceVersion==141 or sourceVersion==142),'Unknown source version')
   local h={source='baiqi'..sourceVersion..'-stageA-v1',enabled=false,anchors={},qualificationErrors=0,
     bound=false,retired=false,subscribed=false,anchorCount=0}
+  if initialTurn~=nil then
+    assert(sourceVersion==142,'Pressure requires source142')
+    assert(type(initialTurn)=='number' and initialTurn==math.floor(initialTurn) and initialTurn>=0 and initialTurn<=2147483641,'Invalid initialTurn')
+    assert(type(NewDeferred)=='function','Pressure requires NewDeferred')
+    h.source='baiqi142-pressure-stageA-v1'
+    h.initialTurn=initialTurn
+    h.planFirstTurn=initialTurn+1
+    h.planLastTurn=initialTurn+5
+  else
+    h.planFirstTurn=86
+    h.planLastTurn=90
+  end
   if type(NewTrace)=='function' then
     local ready
     h.RecordUnknown,ready=NewTrace(h)
@@ -17,10 +29,16 @@ local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred,sourceVer
   h.profile=NewProfile(function() return env.Automation.GetTime() end,4096)
   h.deferPreAnchor=type(NewDeferred)=='function'
   if h.deferPreAnchor then
-    h.source='baiqi'..sourceVersion..'-stageA-v2'
-    h.preAnchor=NewDeferred(h.profile,h.anchors,function(reason,turn)
-      h.RecordUnknown(reason,'Controller.RunNow',turn)
-    end)
+    if initialTurn~=nil then
+      h.preAnchor=NewDeferred(h.profile,h.anchors,function(reason,turn)
+        h.RecordUnknown(reason,'Controller.RunNow',turn)
+      end,h.planFirstTurn,h.planLastTurn)
+    else
+      h.source='baiqi'..sourceVersion..'-stageA-v2'
+      h.preAnchor=NewDeferred(h.profile,h.anchors,function(reason,turn)
+        h.RecordUnknown(reason,'Controller.RunNow',turn)
+      end)
+    end
   end
   local ports={
     Now=function() return env.Automation.GetTime() end,
@@ -38,12 +56,12 @@ local function NewPlanA(env,NewProfile,WrapWindow,NewTrace,NewDeferred,sourceVer
       local turn=ports.Turn()
       assert(Finite(turn) and turn==math.floor(turn))
       knownTurn=turn
-      if turn<85 or turn>91 then return end
+      if turn<h.planFirstTurn-1 or turn>h.planLastTurn+1 then return end
       local now=ports.Now();assert(Finite(now))
       knownClock=now
       if h.anchors[turn]==nil then
         h.anchors[turn]=now;h.anchorCount=h.anchorCount+1
-        if h.deferPreAnchor and turn>=86 and turn<=90 then h.preAnchor:Resolve(turn,now)end
+        if h.deferPreAnchor and turn>=h.planFirstTurn and turn<=h.planLastTurn then h.preAnchor:Resolve(turn,now)end
       end
     end)
     if not ok then Unknown('anchor_event',knownTurn,knownClock) end

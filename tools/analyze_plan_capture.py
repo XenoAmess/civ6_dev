@@ -1,4 +1,4 @@
-"""Strictly qualify the independent source140 Stage A export."""
+"""Qualify legacy Stage A exports; pressure calendars use a separate API."""
 from __future__ import annotations
 
 import argparse
@@ -156,6 +156,122 @@ def analyze_plan_capture(data,*,expected_source_version=140):
             'targets':result,'overall_budget_ok':all(v['budget_ok']for v in result.values()),
             'limits':'Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.'}
     if v2:report['pre_anchor']=dict(pre)
+    return report
+
+
+def analyze_pressure_plan_capture(data):
+    if not isinstance(data,dict):
+        raise ValueError('Unknown pressure capture object')
+    d=_object(data,ROOT_FIELDS|{'pre_anchor','initial_turn'},'pressure capture')
+    if d['source']!='baiqi142-pressure-stageA-v1':
+        raise ValueError('Unknown pressure source')
+    if (d['enabled']is not False or d['retired']is not False
+            or d['subscribed']is not True or d['bound']is not True):
+        raise ValueError('Unknown pressure lifecycle')
+    if _integer(d['qualification_errors'],'qualification errors')!=0:
+        raise ValueError('Unqualified diagnostic reads')
+    T=d['initial_turn']
+    if type(T)is not int or not 0<=T<=2147483641:
+        raise ValueError('Invalid initial_turn')
+    if _integer(d['closing_actual_turn'],'closing turn')!=T+6:
+        raise ValueError('Missing closing actual T+6')
+    pre=_object(d['pre_anchor'],{'pending','recorded','validated','errors'},'pre-anchor proof')
+    for key,value in pre.items():_integer(value,'pre-anchor '+key)
+    if pre['pending']!=0 or pre['errors']!=0 or pre['recorded']!=pre['validated']:
+        raise ValueError('Unresolved or invalid pre-anchor proof')
+    start=_number(d['capture_start'],'capture start');stop=_number(d['capture_stop'],'capture stop')
+    anchors=_object(d['anchors'],{str(t)for t in range(T+1,T+7)},'anchors')
+    a={t:_number(anchors[str(t)],'anchor')for t in range(T+1,T+7)}
+    if (start>a[T+1] or stop<a[T+6] or start>stop
+            or any(a[t]>=a[t+1]for t in range(T+1,T+6))):
+        raise ValueError('Invalid native anchor/capture order')
+    if any(a[t]+10<=a[t] or a[t]+10>a[t+1]for t in range(T+1,T+6)):
+        raise ValueError('Incomplete fixed10s activity window')
+    p=_object(d['profile'],PROFILE_FIELDS,'profile')
+    if _integer(p['capacity'],'capacity')!=4096 or p['aggregate_zero']is not False:
+        raise ValueError('Unexpected sample budget or aggregation')
+    for key in ('dropped','invalid_clock','zero_success'):
+        if _integer(p[key],key)!=0:
+            raise ValueError(f'Incomplete profile: {key}')
+    total=_integer(p['total_calls'],'total calls')
+    rows=d['samples']
+    if not isinstance(rows,list) or len(rows)!=total or total>4096:
+        raise ValueError('Sample accounting/capacity mismatch')
+    values={name:[]for name in TARGETS}
+    coverage={name:{str(t):0 for t in range(T+1,T+6)}for name in TARGETS}
+    classes={name:{'pure_ten':0,'10_to_11':0,'eleven_city':0,'turn_crossing':0,
+                   'other_city_state':0,'outside_window':0,'before_native_anchor':0}for name in TARGETS}
+    pre_rows=0
+    for index,row in enumerate(rows):
+        s=_object(row,V2_SAMPLE_FIELDS,'sample')
+        name=s['name']
+        if not isinstance(name,str) or name not in TARGETS:
+            raise ValueError('Unknown planning target')
+        if s['failed']is not False:
+            raise ValueError('Failed planning call')
+        if type(s['windowEligible'])is not bool:
+            raise ValueError('Unknown window eligibility')
+        left=_number(s['started'],'sample start');right=_number(s['ended'],'sample end')
+        seconds=_number(s['seconds'],'duration')
+        if (left<start or right>stop or right<left or seconds<0
+                or abs((right-left)-seconds)>1e-6):
+            raise ValueError('Invalid sample clock/duration')
+        if not math.isfinite(seconds*1000):
+            raise ValueError('Overflowing millisecond duration')
+        before=_integer(s['turnStart'],'turn before');after=_integer(s['turnEnd'],'turn after')
+        c0=_integer(s['cityStart'],'city before');c1=_integer(s['cityEnd'],'city after')
+        if before not in range(T+1,T+6) or not before<=after<=T+6:
+            raise ValueError('Invalid sample turn range')
+        anchor=_number(s['anchor'],'sample anchor')
+        if anchor!=a[before]:
+            raise ValueError('Sample is not bound to its native anchor')
+        if type(s['preAnchor'])is not bool:
+            raise ValueError('Unknown pre-anchor row flag')
+        argc=_integer(s['argumentCount'],'argument count')
+        allowance=s['allowOrders']
+        if type(allowance)is not str or allowance not in ('false','true','nil','other'):
+            raise ValueError('Unknown original argument metadata')
+        if s['preAnchor']:
+            if (name!='Controller.RunNow' or argc!=1 or allowance!='false'
+                    or s['windowEligible']is not False or left>=anchor or right>anchor
+                    or before!=after):
+                raise ValueError('Invalid whole-call pre-anchor proof')
+            classes[name]['before_native_anchor']+=1;pre_rows+=1
+            continue
+        if left<anchor:
+            raise ValueError('Sample starts before its native anchor without proof')
+        eligible=left<anchor+10
+        if s['windowEligible']is not eligible:
+            raise ValueError('Contradictory sample window flag')
+        if not eligible:
+            group='outside_window'
+        else:
+            coverage[name][str(before)]+=1
+            if before!=after:group='turn_crossing'
+            elif c0==10 and c1==10:
+                group='pure_ten';values[name].append(seconds*1000)
+            elif c0==10 and c1==11:group='10_to_11'
+            elif c0==11 and c1==11:group='eleven_city'
+            else:group='other_city_state'
+        classes[name][group]+=1
+    if pre_rows!=pre['validated']:
+        raise ValueError('Pre-anchor proof accounting mismatch')
+    result={}
+    for name in TARGETS:
+        ordered=sorted(values[name]);n=len(ordered)
+        p95=ordered[math.ceil(.95*n)-1]if n else None
+        p50=ordered[math.ceil(.5*n)-1]if n else None
+        maximum=ordered[-1]if n else None
+        above20=sum(1 for v in ordered if v>20)
+        above50=sum(1 for v in ordered if v>50)
+        result[name]={'pure_ten_count':n,'p50_ms':p50,'p95_ms':p95,'max_ms':maximum,
+                      'above_20ms_count':above20,'above_50ms_count':above50,
+                      'budget_ok':n>=100 and p95<=20 and maximum<=50}
+    report={'source':d['source'],'initial_turn':T,'sample_quality_ok':True,'samples':total,
+            'classification_counts':classes,'eligible_calls_by_turn':coverage,
+            'targets':result,'overall_budget_ok':all(v['budget_ok']for v in result.values()),
+            'pre_anchor':dict(pre),
+            'limits':'Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.'}
     return report
 
 

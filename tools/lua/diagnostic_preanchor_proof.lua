@@ -1,10 +1,13 @@
 -- Complete, retained pre-anchor intervals remain pending until a real Native
 -- callback supplies the exact anchor. No SDK reads, actions, or invented clock.
-local function NewDeferred(profile,anchors,unknown)
+local function NewDeferred(profile,anchors,unknown,first,last)
   local function Finite(v)return type(v)=='number'and v==v and v>-math.huge and v<math.huge end
   local function Integer(v)return Finite(v)and v>=0 and v<=2147483647 and v==math.floor(v)end
   assert(type(profile)=='table'and type(profile.samples)=='table'and Integer(profile.capacity)
     and profile.capacity>=1 and profile.capacity<=4096 and type(anchors)=='table'and type(unknown)=='function')
+  if first==nil and last==nil then first=86;last=90
+  elseif first==nil or last==nil then error('Invalid bounds')
+  elseif not (Integer(first) and first>=1 and first<=2147483646 and Integer(last) and last==first+4 and last<=2147483646) then error('Invalid bounds') end
   local s={pending=0,recorded=0,validated=0,errors=0}
   local queues,seen={},{}
   local function Error(turn)
@@ -24,7 +27,7 @@ local function NewDeferred(profile,anchors,unknown)
   end
   function s:Resolve(turn,anchor)
     local ok,result=pcall(function()
-      if not Integer(turn)or turn<86 or turn>90 or not Finite(anchor)
+      if not Integer(turn)or turn<first or turn>last or not Finite(anchor)
         or anchors[turn]~=anchor then return Error(turn)end
       local q=queues[turn]
       if q==nil then return true end
@@ -41,7 +44,7 @@ local function NewDeferred(profile,anchors,unknown)
   end
   function s:Record(row,turn)
     local ok,result=pcall(function()
-      if not Integer(turn)or turn<86 or turn>90 or type(row)~='table'
+      if not Integer(turn)or turn<first or turn>last or type(row)~='table'
         or row~=profile.samples[#profile.samples] or seen[row]~=nil
         or s.recorded>=profile.capacity or row.name~='Controller.RunNow'
         or row.preAnchor~=true or row.argumentCount~=1 or row.allowOrders~='false' then return Error(turn)end
