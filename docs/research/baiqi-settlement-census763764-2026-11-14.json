@@ -1,0 +1,295 @@
+{
+  "schema": "civ6.settlement-census763764-software/v1",
+  "date": "2026-11-14",
+  "machine_id": "BF-202609141645",
+  "source_version": 142,
+  "models": {
+    "763": {
+      "task": "strict per-call classifier",
+      "usage": {
+        "prompt_tokens": 6423,
+        "completion_tokens": 2240,
+        "total_tokens": 8663
+      },
+      "total_ms": 17764.784700004384,
+      "first_content_ms": 1827.7319001499563,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "disposition": "REJECTED; Owner takeover implementation and tests",
+      "raw_code_adopted": false,
+      "raw_tests_adopted": false,
+      "phase_utc": [
+        {
+          "utc": "2026-11-14T08:34:49.517621+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:36:52.515385+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:37:06.616390+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:37:07.249415+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:39:15.177053+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:40:23.011080+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:40:23.379812+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:43:57.327887+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:43:58.853750+00:00",
+          "phase": "VERIFICATION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:45:29.387612+00:00",
+          "phase": "VERIFICATION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "phase_limits": "Intervals overlap and include task switching/waits; initial source discovery and private transformer draft before corrections unmeasured. First preparation helper SyntaxError preserved and corrected in second PREP segment. Early Owner tests were inside correction; final15/build verification separate. No exclusive activecost/net savings claim.",
+      "request_sha256": "75c8df5bb06ec18949f6335e339d028d9e02fe41c3dd3472f367f31e5b605778",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "6e1ba2aa141d8405fa95e51af359ac8276365fb8",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "reasons": [
+        "Drops failed=false, all four turn/city metadata and both clocks from exact schema, rejects actual producer row.",
+        "Accepts bool counters via isinstance(int), omits admitted<=raw_hints+preferred, no metadata/finite clock qualification.",
+        "Raw tests9run7pass2errors: malformed own partial row extra unvisited field, empty row retains support tally5."
+      ]
+    },
+    "764": {
+      "task": "flat bounded Lua collector",
+      "usage": {
+        "prompt_tokens": 4010,
+        "completion_tokens": 2029,
+        "total_tokens": 6039
+      },
+      "total_ms": 16728.489900007844,
+      "first_content_ms": 1085.4376999195665,
+      "attempts": 1,
+      "complete_stop_DONE_strictJSON": true,
+      "disposition": "REJECTED; Owner takeover implementation and tests",
+      "raw_code_adopted": false,
+      "raw_tests_adopted": false,
+      "phase_utc": [
+        {
+          "utc": "2026-11-14T08:34:49.687106+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:36:52.729937+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:37:06.784844+00:00",
+          "phase": "PREP_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:37:08.047844+00:00",
+          "phase": "PREP_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:39:15.380278+00:00",
+          "phase": "REVIEW_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:40:23.187997+00:00",
+          "phase": "REVIEW_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:40:23.656832+00:00",
+          "phase": "CORRECTION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:43:57.691293+00:00",
+          "phase": "CORRECTION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:43:59.058985+00:00",
+          "phase": "VERIFICATION_BEGIN",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        },
+        {
+          "utc": "2026-11-14T08:45:30.102309+00:00",
+          "phase": "VERIFICATION_END",
+          "owner": "civ6-root",
+          "limits": "Source discovery/high-level problem identification and this helper setup happened before recorded preparation and are unmeasured. Subsequent phase wall only; no exclusive activecost/net savings claim. Multiple preparation segments separately retain final contract assembly."
+        }
+      ],
+      "phase_limits": "Intervals overlap and include task switching/waits; initial source discovery and private transformer draft before corrections unmeasured. First preparation helper SyntaxError preserved and corrected in second PREP segment. Early Owner tests were inside correction; final15/build verification separate. No exclusive activecost/net savings claim.",
+      "request_sha256": "5d0ff9b741d30b61e08fa61f6a064af5d796a28a8131f403b8b81ed41938cce0",
+      "provenance": {
+        "schema": "civ6.local-model-adapter-provenance/v1",
+        "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+        "shared_commit": "6e1ba2aa141d8405fa95e51af359ac8276365fb8",
+        "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+        "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+        "overrides": {
+          "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+        },
+        "timeout_override": null,
+        "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+      },
+      "reasons": [
+        "Colon methods conflict with explicit DOT contract: valid dot Record passes no row and returns false as invalid; no exception in this witness.",
+        "Finite validator is used for capacity but not row values, adapted colon Record accepts NaN and inf.",
+        "Exposed enabled state permits reenable contrary to permanent stop contract.",
+        "Raw tests11run10errors (factory returned locally, tests call undefined global NewCensus). Remaining capacity-test pass catches own self.fail exception and therefore is not useful validation; Python dict and0-index Lua rows also wrong."
+      ]
+    }
+  },
+  "raw_witness": {
+    "raw763_tests": {
+      "run": 9,
+      "failures": 0,
+      "errors": 2,
+      "passed": 7,
+      "stdout": "test_empty_pool (raw763tests.TestSettlementCensus.test_empty_pool) ... ERROR\ntest_has_accepted_site (raw763tests.TestSettlementCensus.test_has_accepted_site) ... ok\ntest_immutability (raw763tests.TestSettlementCensus.test_immutability) ... ok\ntest_many_threshold (raw763tests.TestSettlementCensus.test_many_threshold) ... ok\ntest_no_ai (raw763tests.TestSettlementCensus.test_no_ai) ... ok\ntest_partial_unvisited (raw763tests.TestSettlementCensus.test_partial_unvisited) ... ERROR\ntest_reject_bad_counts (raw763tests.TestSettlementCensus.test_reject_bad_counts) ... ok\ntest_reject_bad_tally (raw763tests.TestSettlementCensus.test_reject_bad_tally) ... ok\ntest_reject_failed (raw763tests.TestSettlementCensus.test_reject_failed) ... ok\n\n======================================================================\nERROR: test_empty_pool (raw763tests.TestSettlementCensus.test_empty_pool)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"763-raw-tests\", line 30, in test_empty_pool\n  File \"763-raw-analyzer\", line 66, in classify_settlement_call\nValueError: cheap_pass <= visited required\n\n======================================================================\nERROR: test_partial_unvisited (raw763tests.TestSettlementCensus.test_partial_unvisited)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"763-raw-tests\", line 24, in test_partial_unvisited\n  File \"763-raw-analyzer\", line 18, in classify_settlement_call\nValueError: Unknown or missing fields in settlement row\n\n----------------------------------------------------------------------\nRan 9 tests in 0.005s\n\nFAILED (errors=2)\n"
+    },
+    "raw763_contract_witness": {
+      "valid_actual_producer_row_rejected": true,
+      "bool_counters_in_own_reduced_schema_accepted": "EXHAUSTED_NO_ACCEPTED_SITE_IN_POOL",
+      "impossible_admitted_gt_raw_hints_accepted": "EXHAUSTED_NO_ACCEPTED_SITE_IN_POOL"
+    },
+    "raw764_tests": {
+      "run": 11,
+      "failures": 0,
+      "errors": 10,
+      "passed": 1,
+      "stdout": "test_capacity_bound (raw764tests.SettlementCensusTests.test_capacity_bound) ... ERROR\ntest_factory_invalid_capacity (raw764tests.SettlementCensusTests.test_factory_invalid_capacity) ... ok\ntest_no_reenable (raw764tests.SettlementCensusTests.test_no_reenable) ... ERROR\ntest_record_invalid_nan_inf (raw764tests.SettlementCensusTests.test_record_invalid_nan_inf) ... ERROR\ntest_record_invalid_non_primitive_value (raw764tests.SettlementCensusTests.test_record_invalid_non_primitive_value) ... ERROR\ntest_record_invalid_non_string_key (raw764tests.SettlementCensusTests.test_record_invalid_non_string_key) ... ERROR\ntest_record_invalid_non_table (raw764tests.SettlementCensusTests.test_record_invalid_non_table) ... ERROR\ntest_record_valid_flat_row (raw764tests.SettlementCensusTests.test_record_valid_flat_row) ... ERROR\ntest_retire_permanent (raw764tests.SettlementCensusTests.test_retire_permanent) ... ERROR\ntest_snapshot_isolation (raw764tests.SettlementCensusTests.test_snapshot_isolation) ... ERROR\ntest_stop_permanent (raw764tests.SettlementCensusTests.test_stop_permanent) ... ERROR\n\n======================================================================\nERROR: test_capacity_bound (raw764tests.SettlementCensusTests.test_capacity_bound)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 73, in test_capacity_bound\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_no_reenable (raw764tests.SettlementCensusTests.test_no_reenable)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 111, in test_no_reenable\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_record_invalid_nan_inf (raw764tests.SettlementCensusTests.test_record_invalid_nan_inf)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 63, in test_record_invalid_nan_inf\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_record_invalid_non_primitive_value (raw764tests.SettlementCensusTests.test_record_invalid_non_primitive_value)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 54, in test_record_invalid_non_primitive_value\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_record_invalid_non_string_key (raw764tests.SettlementCensusTests.test_record_invalid_non_string_key)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 45, in test_record_invalid_non_string_key\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_record_invalid_non_table (raw764tests.SettlementCensusTests.test_record_invalid_non_table)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 35, in test_record_invalid_non_table\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_record_valid_flat_row (raw764tests.SettlementCensusTests.test_record_valid_flat_row)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 24, in test_record_valid_flat_row\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_retire_permanent (raw764tests.SettlementCensusTests.test_retire_permanent)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 91, in test_retire_permanent\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_snapshot_isolation (raw764tests.SettlementCensusTests.test_snapshot_isolation)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 100, in test_snapshot_isolation\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n======================================================================\nERROR: test_stop_permanent (raw764tests.SettlementCensusTests.test_stop_permanent)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"764-raw-tests\", line 83, in test_stop_permanent\n  File \"lupa/lua51.pyx\", line 466, in lupa.lua51.LuaRuntime.execute\n  File \"lupa/lua51.pyx\", line 1897, in lupa.lua51.run_lua\n  File \"lupa/lua51.pyx\", line 1911, in lupa.lua51.call_lua\n  File \"lupa/lua51.pyx\", line 1938, in lupa.lua51.execute_lua_call\n  File \"lupa/lua51.pyx\", line 1819, in lupa.lua51.raise_lua_error\nlupa.lua51.LuaError: [string \"<python>\"]:1: attempt to call global 'NewCensus' (a nil value)\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n\n----------------------------------------------------------------------\nRan 11 tests in 0.066s\n\nFAILED (errors=10)\n"
+    },
+    "raw764_contract_witness": {
+      "dot_Record_throws": false,
+      "adapted_colon_nan_accepted": true,
+      "adapted_colon_inf_accepted": true,
+      "exposed_state_can_reenable_recording": true,
+      "adaptation": "Only separate contract witness calls colon API explicitly; original test module untouched."
+    }
+  },
+  "owner_implementation": {
+    "raw_candidate_code_or_tests_adopted": 0,
+    "files": [
+      "tools/analyze_settlement_census.py",
+      "tools/lua/diagnostic_settlement_census.lua",
+      "tools/lua/diagnostic_settlement_runner.lua",
+      "tools/build_settlement_census_mod.py"
+    ],
+    "release_source_edits": 0,
+    "actual_calls_observed": "Existing SettlementSites natural entry only, tags recruit_choice/recruit_write/settler_alternatives. No manual planner invocation, no extra recommendation or support reads.",
+    "metadata_reads_added": "Two turn/city/clock reads per observed call. Original task phrase no additional Native calls is broader than intended; explicit row metadata requires these reads. Owner wording limitation, not model source error.",
+    "census_capacity": 256,
+    "planning_timing_capacity_unchanged": 4096,
+    "retirement": "Stop/Retire disable observation permanently, no planner controls; stopped Run preserves original body calls without diagnostic metadata. Exact private Controller edits invert byte-for-byte to release text; all release files restored on later cold install.",
+    "outcomes": "Separate accepted proposal, unknown, partial unvisited, empty pool, exhausted current pool; global_no_legal_site always null. Prior exclusions/reservations/path/final dispatch are not proved by pool exhaustion.",
+    "many_threshold": "Actual admitted deduplicated pool>=12, chosen before Native. Not native API cap, not global legality or a performance budget."
+  },
+  "software_validation": {
+    "tests_run": 15,
+    "passed": 15,
+    "failed": 0,
+    "nested_existing_behavior_methods": 10,
+    "Native_status": "NOT_EXECUTED",
+    "earlier_build": "Different runner before Lua53 Unpack fallback; retained privately, never installed."
+  },
+  "private_build": {
+    "mode": "baiqi142-settlement-census-v1",
+    "source_version": 142,
+    "files": 119,
+    "lua_sources_compiled_51_and_53": 97,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "release_recovers_exactly": true,
+    "selection_and_safety_call_count_unchanged": true,
+    "metadata_reads_added": "Turn/city count at entry and exit, diagnostic clock twice per observed natural call.",
+    "census_capacity": 256,
+    "timing_budget": "Separate diagnostic census; does not alter existing4096 planning sample cap or grant performance budgets.",
+    "archive_sha256": "6cee1c5bb47c30ac6aa78c655d736033a2c559987fb69a0663eeb5941b7d9139",
+    "installed": false,
+    "Native_pressure_status": "UNVERIFIED"
+  },
+  "new_client_POST_peak": 2,
+  "new_client_POST_overlap_seconds": 16.727462,
+  "cumulative": {
+    "logical_calls": 764,
+    "complete_streams_including_historical_json_rejection": 711,
+    "length": 50,
+    "final_transport": 3,
+    "actual_HTTP": 794,
+    "extra_attempts": 30
+  },
+  "maintenance": "Canonical OpenCode1.19.5 Nov14 success cache reused; new native generation/tool sessions0.",
+  "unknown_costs": {
+    "cached_tokens": null,
+    "server_running_parallelism": null,
+    "owner_active_time": null,
+    "net_savings": null
+  },
+  "Native_pressure_status": "NOT_EXECUTED in this software work package; remains next task",
+  "TC036_full_status": "PARTIAL",
+  "game_inputs_this_unit": 0,
+  "Steam_online_switches": 0,
+  "Steam_uploads": 0
+}
