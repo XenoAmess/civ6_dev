@@ -52,7 +52,7 @@ def transform(source: str,key: str,quotas: dict | None = None) -> tuple[str,dict
     return prelude(key,quotas)+chunk,{'functions':function_manifest,'write_sites':write_manifest,'top_level_chunk_wrapped':True}
 
 
-def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
+def build(output_dir: Path,*,bounded_zero: bool = False,pressure_initial_turn=None) -> dict:
     from lupa.lua53 import LuaRuntime
     source=ROOT/'mod/Baiqi'
     files=manifest_files(source)
@@ -62,6 +62,10 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
         raise ValueError('Diagnostic assembler requires actual source67,139,140,141 or142')
     if version in ('139','140','141','142') and not bounded_zero:
         raise ValueError('Current source diagnostics require bounded_zero and the frozen4096 cap')
+    if pressure_initial_turn is not None:
+        if (type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
+                or version!='142' or bounded_zero is not True):
+            raise ValueError('Pressure requires bounded source142 and strict initial turn')
     expected=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
     expected+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
     if version in ('140','141','142') and bounded_zero:
@@ -88,6 +92,9 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
             raw=contained(source,name).read_text(encoding='utf-8-sig')
             compile_lua(raw,name)
             text,coverage[name]=transform(raw,name,quotas)
+            if name=='UI/BaiqiExecutor.lua' and pressure_initial_turn is not None:
+                text=("assert(P6Q20PressureBuild==nil)\nP6Q20PressureBuild={source='baiqi142-pressure-observed-v1',"
+                      f'source_version=142,initial_turn={pressure_initial_turn}'+'}\n'+text)
             if version in ('139','140','141','142'):
                 text=text.replace('-- BAIQI_DIAGNOSTIC_ONLY: source67 owned definitions and Native leaves.',
                                   f'-- BAIQI_DIAGNOSTIC_ONLY: source{version}; runtime instrumentation schema baiqi67-q19.',1)
@@ -112,6 +119,9 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
         raise ValueError('Unexpected diagnostic source differences')
     mode=f'baiqi{version}-q21-bounded' if bounded_zero else MARKER
     archive=output_dir/(f'Baiqi-diagnostic{version}-q21-bounded.zip' if bounded_zero else 'Baiqi-diagnostic67-q19.zip')
+    if pressure_initial_turn is not None:
+        mode='baiqi142-pressure-observed-v1'
+        archive=output_dir/f'Baiqi-diagnostic142-q21-bounded-pressure-{pressure_initial_turn}.zip'
     package(target,archive)
     result={'mode':mode,'source_version':int(version),'files':len(files),'changed_files':changed,
             'expected_entry_keys':sorted(expected),'source_hashes':hashes,
@@ -126,6 +136,10 @@ def build(output_dir: Path,*,bounded_zero: bool = False) -> dict:
         result['lua_compile_versions']=['5.1','5.3']
     if version in ('140','141','142'):
         result['context_quota_profile']='current140'
+    if pressure_initial_turn is not None:
+        result.update(source='baiqi142-pressure-observed-v1',initial_turn=pressure_initial_turn,
+                      window_turns=list(range(pressure_initial_turn+1,pressure_initial_turn+6)),
+                      closing_turn=pressure_initial_turn+6)
     (output_dir/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     return result
 
@@ -134,6 +148,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',required=True,type=Path)
     parser.add_argument('--bounded-zero',action='store_true',help='Aggregate measured-zero normal calls; legacy32 or source11133 context quotas sum to frozen global4096')
+    parser.add_argument('--pressure-initial-turn',type=int)
     args=parser.parse_args()
-    result=build(args.output_dir,bounded_zero=args.bounded_zero)
+    result=build(args.output_dir,bounded_zero=args.bounded_zero,pressure_initial_turn=args.pressure_initial_turn)
     print(json.dumps({k:result[k] for k in ('mode','source_version','files','changed_files','expected_entry_keys','archive_sha256','installed')},ensure_ascii=False))

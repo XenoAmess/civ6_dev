@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [全脚本日历784—785](testing/baiqi-pressure-observed-calendar784785.md)：Owner接管784length、修785默认metadata／类型，11新＋37旧过；实际T6包7ce5…准备未装，六END到12口径保持。默认119内容及ZIP解包相同，97时间戳使容器SHA不同；Owner两处验证断言纠正单列。累计785／727完整／815HTTP。
+
 2026-11-14 [自然12资格](testing/baiqi-pressure-natural12-fixture.md)：精确T6存档459a…新观察0起，经3SKIP／3普通END至9，choice／write实际入池各12、各接受1，零丢样；原始T1各3穷尽保持。提升T6为正式候选基线，仍待初始细读／预热／完整性能矩阵；不记QA getter或候选文字功劳。
 
 2026-11-14 [驱动接管／诊断783](testing/baiqi-pressure-driver-diagnosis783.md)：Owner接管782截断范围，7新＋51旧过；T6单QA返回12不同位置，仍不授自然资格，继续正常生产触发观察。783把10调用各3写成10位置、cheap_pass当拒绝和确认缓存均拒，0采用；累计783／726完整／813HTTP。

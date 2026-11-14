@@ -33,7 +33,7 @@ def _payload(messages,marker):
 
 
 def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budget=None,
-        request_normal_end=None,legacy_forced=False):
+        request_normal_end=None,legacy_forced=False,pressure_initial_turn=None):
     if type(legacy_forced) is not bool:
         raise TypeError('legacy_forced must be an explicit boolean')
     if legacy_forced:
@@ -43,10 +43,21 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
         raise TypeError('An ordinary TEST_PLAYER end-turn callback is required')
     if sample_budget is not None and (type(sample_budget) is not int or sample_budget<1):
         raise ValueError('Expected positive retained-sample budget')
+    pressure=pressure_initial_turn is not None
+    if pressure and(type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
+                    or legacy_forced or sample_budget!=4096):
+        raise ValueError('Pressure requires bounded actual calendar, ordinary END and4096 cap')
+    first=pressure_initial_turn if pressure else 85;closing=first+6
     token=uuid.uuid4().hex
     quoted=json.dumps(token)
     requested=[]
     attempted=False
+    build_guard=f'''local pressureBuild=P6Q20PressureBuild
+assert(type(pressureBuild)=='table' and pressureBuild.source=='baiqi142-pressure-observed-v1'
+ and pressureBuild.source_version==142 and pressureBuild.initial_turn=={first})
+'''if pressure else''
+    stage_guard=(build_guard+f'''assert(s.source=='baiqi142-pressure-observed-v1' and s.source_version==142 and s.initial_turn=={first})
+''')if pressure else''
     ledger_dir=Path(ledger_dir)
     ledger_dir.mkdir(parents=True,exist_ok=True)
 
@@ -62,6 +73,7 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
                 'turn':turn,'token':token,'status':'ABOUT_TO_SUBMIT_ONCE',
                 'mode':'LEGACY_USER_FORCED' if legacy_forced else 'ORDINARY_CALLBACK',
                 'lua_sha256':hashlib.sha256(code.encode('utf-8')).hexdigest()}
+        if pressure:record.update(source='baiqi142-pressure-observed-v1',source_version=142,initial_turn=first)
         with (ledger_dir/f'end{turn}.json').open('x',encoding='utf-8',newline='\n') as stream:
             json.dump(record,stream,indent=2);stream.write('\n')
         attempted=True
@@ -86,6 +98,7 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
                 f"print('P6_Q20_END',{turn})" if legacy_forced else f"print('P6_Q20_READY',{turn})")
         return f'''
 local s=P6Q20StageB;assert(s and s.token=={quoted} and s.phase=='RECORDING')
+{stage_guard}
 assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()=={turn})
 assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and not s.ends[{turn}])
 s.ends[{turn}]=true
@@ -102,8 +115,9 @@ s.ends[{turn}]=true
 '''
         budget_finish=f'assert(sampleQuotaTotal<={sample_budget})\n'
     setup=f'''
-assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()==85 and Players[0]:GetCities():GetCount()==10)
+assert(Game.GetLocalPlayer()==0 and Game.GetCurrentGameTurn()=={first} and Players[0]:GetCities():GetCount()==10)
 assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and P6Q20StageB==nil)
+{build_guard}
 local registry=ExposedMembers.P6BaiqiOwnRegistry
 assert(registry.marker=='baiqi67-q19' and registry.enabled==false)
 local keys={{}};for key in pairs(registry.entries) do keys[#keys+1]=key end;table.sort(keys)
@@ -137,8 +151,12 @@ registry.enabled=true
 for _,key in ipairs(keys) do assert(registry.entries[key].SetEnabled(true)) end
 s.phase='RECORDING'
 '''
+    if pressure:
+        setup=setup.replace('P6Q20StageB=s',f"s.source='baiqi142-pressure-observed-v1';s.source_version=142;s.initial_turn={first};\nP6Q20StageB=s",1)
+        setup=setup.replace('local s={',"assert(#keys==33 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil)\nlocal s={",1)
     poll=f'''
 local s=P6Q20StageB;assert(s and s.token=={quoted} and s.phase=='RECORDING')
+{stage_guard}
 local registry=ExposedMembers.P6BaiqiOwnRegistry
 local errors,total=0,0
 local function Integer(v) return type(v)=='number' and v>=0 and v<math.huge and v==math.floor(v) end
@@ -171,6 +189,7 @@ print('P6_Q20_STATE',turn,string.format('%.17g',age),anchor~=nil,errors,total,Pl
         code=f'''
 local s=P6Q20StageB
 if not s or s.token~={quoted} then print('P6_Q20_STOP','SKIPPED_FOREIGN');return end
+{stage_guard if calibrate else ''}
 local registry=ExposedMembers.P6BaiqiOwnRegistry
 assert(registry.marker=='baiqi67-q19')
 registry.enabled=false
@@ -190,9 +209,9 @@ end
     try:
         if diplomacy():
             raise RuntimeError('Close current diplomacy as TEST_PLAYER before starting')
-        action(85,setup+end_code(85))
+        action(first,setup+end_code(first))
         deadline=now()+180
-        last_turn=85
+        last_turn=first
         waiting_diplomacy=False
         while now()<deadline:
             try:
@@ -209,15 +228,18 @@ end
             emit(f'Q20_STATE turn={turn} age={age:.3f} samples={samples} cities={cities} errors={errors}')
             if errors:
                 raise RuntimeError('Diagnostic coverage error; budget remains unknown')
-            if turn<last_turn or turn>91:
+            if turn<last_turn or turn>closing:
                 raise RuntimeError('Unexpected game turn')
             if turn!=last_turn:
                 last_turn=turn;deadline=now()+180
-            if turn==91 and anchored:
+            if turn==closing and anchored:
                 stopped=_payload(query('BaiqiExecutor',stop_code('COMPLETE',True)),'P6_Q20_STOP')
-                if stopped!=['COMPLETE','91']:
+                if stopped!=['COMPLETE',str(closing)]:
                     raise RuntimeError('Completion stop not confirmed')
-                return {'phase':'COMPLETE','turn':91,'requested_turns':requested,'samples':samples,'cities':cities,'token':token}
+                result={'phase':'COMPLETE','turn':closing,'requested_turns':requested,'samples':samples,'cities':cities,'token':token}
+                if pressure:result.update(source='baiqi142-pressure-observed-v1',source_version=142,initial_turn=first,
+                                          window_turns=list(range(first+1,first+6)),closing_turn=closing)
+                return result
             # A visit can arrive after END was issued and hold its transition.
             # Keep reporting visibility while awaiting actual activation; this
             # never grants another callback or repeats the earlier END.
@@ -227,7 +249,7 @@ end
                 waiting_diplomacy=True
             else:
                 waiting_diplomacy=False
-                if 86<=turn<=90 and anchored and age>=10 and ready and turn not in requested:
+                if first+1<=turn<=first+5 and anchored and age>=10 and ready and turn not in requested:
                     action(turn,end_code(turn));deadline=now()+180
             sleep(1)
         raise TimeoutError('Activation or TEST_PLAYER diplomacy wait exceeded 180 seconds')
