@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [Admin141独立包仅准备](testing/baiqi-admin141-diagnostic-prepared.md)：Owner3新构建／生命周期方法过，九局部加三实际runner、13绑定、单4096池，仅追加Admin原文精确前缀。97Lua51／53／119包，尚无Native；744只授完整helper、743无实现采用，HTTP仍744。
+
 2026-11-14 [744命名根完整采用](testing/baiqi-named-root744.md)：新单独helper记录时绑定Admin／Controller标签，原稿12方法及同12采用集成过，原nested／K不变；仍非Admin Native归因或提速。累计744／691完整50length3transport774HTTP30extra，峰1／原生0／成本null。
 
 2026-11-14 [141正式仍FAIL／743](testing/baiqi-stageA141-fail-743.md)：313行质量通过，Admin114样本p95 21ms／Controller144样本max428ms不放宽。90十变十一城有Core效果证明，91已存／QA撤／自有退出残留清理。12子项编译局部变量超限Owner工具修复，2新／11相关过、G/J六子项字节保留；K仅准备。743六函数名真实、理由／范围有误，0实现采用。累计743／690完整50length3transport773HTTP30extra，原生0／成本null。

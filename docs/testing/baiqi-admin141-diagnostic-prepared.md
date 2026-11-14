@@ -1,0 +1,9 @@
+# Admin141独立子项诊断包仅准备
+
+2026-11-14，BF-202609141645。[构建与软件检查](../research/baiqi-admin141-diagnostic-prepared-2026-11-14.json)。141正式Admin114纯十城样本p95 21ms超限，尚未归因。Owner新构建器仅向原Admin正文末尾追加，使用744的完整命名根helper与原canonical profile／child；不修改产品、既有Controllerhelper或当前K包。
+
+选择Research／PowerResearchChoice／Governors／GovernorRescue／GovernorLoyaltyDemand／Religion／Government／GreatPeople／Choose九个实际局部函数，以及BaiqiFloodPurchase.Run、BaiqiFoodFocusRunner.Run、BaiqiFoodTileRescueRunner.Run三个实际外部执行器。根为Admin.Run，根与12子项共一个4096池、无zero聚合；87—89全部active通知前入口与真实观察通知后十秒保留，区间尾部完整。Pantheon／Dedication和未选函数间正文仍未归因，嵌套不能求和，也不构成正式B_plan采样。
+
+三项新Owner方法通过：当前119文件仅Admin尾部变化，原文精确前缀和整个归档字节一致；通知前记录不造锚点、观察锚点与窗口截止、13身份恢复和退役缓存透传；外来根、外来Run覆盖和替换整个runner表均不被恢复覆盖。97Lua51／53编译通过，产物SHA256 `63db2d52b80e69ba8a9b7c6a5face0f0b5e387e515a819e07d5f1fa2ef563048`。这些是构建／软件行为，尚未安装或Native验证，不授瓶颈因果、提速或性能通过。
+
+744仅授其完整helper字面采用；其API和核心合同为Owner事前给定，构建器／生命周期／覆盖选择另算Owner实现。743提案无实现采用。当前K仍独立执行Controller归因，Admin包准备与HTTP计数无新增。
