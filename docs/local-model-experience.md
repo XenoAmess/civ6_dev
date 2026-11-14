@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [T6细读／收尾786—787](testing/baiqi-pressure-initial-readiness786787.md)：玩家125金／净5／10纪念碑，AI40／净6／移民队列，全1144几何复读；786无界66单位却DONE0，Owner8替身＋一次Native；787原hunk采用，11方法过含5新，修旧85收尾。T6 StageA ec78…准备未装；累计787／729完整／817HTTP。
+
 2026-11-14 [全脚本日历784—785](testing/baiqi-pressure-observed-calendar784785.md)：Owner接管784length、修785默认metadata／类型，11新＋37旧过；实际T6包7ce5…准备未装，六END到12口径保持。默认119内容及ZIP解包相同，97时间戳使容器SHA不同；Owner两处验证断言纠正单列。累计785／727完整／815HTTP。
 
 2026-11-14 [自然12资格](testing/baiqi-pressure-natural12-fixture.md)：精确T6存档459a…新观察0起，经3SKIP／3普通END至9，choice／write实际入池各12、各接受1，零丢样；原始T1各3穷尽保持。提升T6为正式候选基线，仍待初始细读／预热／完整性能矩阵；不记QA getter或候选文字功劳。
