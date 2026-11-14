@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [普通142恢复准备800](testing/baiqi-pressure-return142-preparation800.md)：骨架部分采用，补正式锁／精确完成态／清单值／真实XML版本拒绝及意图哈希；Owner16隔离检查过，0安装或主334加载。N3采样停止后1POST，累计800／742完整／830HTTP。
+
 2026-11-15 [Steam头部799／NO_SITE对照恢复](testing/baiqi-pressure-steam-header799.md)：只读5节点核心部分采用并补类型／矩形；原8测1失败，mock修后8过／Owner17项。菜单ACK均未当证明，指针导航后另取新鲜后台离线确认才首启23640；累计799／741完整／829HTTP。
 
 2026-11-15 [NO_SITE输入审计798](testing/baiqi-pressure-nosite-input798.md)：核心采用并补record精确int；原测试MappingProxyType导入失败0执行，Owner只修导入后18过，另6负／1前缀TAB深不变正例过。0Native，累计798／740完整／828HTTP，原生工具0。
