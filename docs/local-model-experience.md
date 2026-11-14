@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [142 E1启用五段／753](testing/baiqi-pair142-E1-cold753.md)：真实跨UI普通计时闭合五条，到90停止，无对照不授B_delta；753九域／键检查部分留用，拒绝账本map顺序推断，Owner六只读场景过、主333未Native。累计753／700完整／783HTTP，OpenCode native0。
+
 2026-11-14 [142全脚本／751752](testing/baiqi-allscript142-pair751752.md)：1735保留行／33上下文，固定五窗耗时443／365／191／188／552ms及完整写入11／10／19／12／28通过；B_delta仍待。751缺文件上下文由Owner纠正，752原3检查1过1失败1错误拒绝；Owner回调8新／51相关过。累计752／699完整／782HTTP，OpenCode native0；不授Native配对或整例。
 
 2026-11-14 [142 N正式B_plan／749750](testing/baiqi-stageA142-N.md)：312行质量合格，Admin13／21、Controller7／20ms；仅规划预算通过。749表名不能证明来源，Owner日志定位CurrentClickouts但不推断启动根因；750部分准备建议使用，旧PID与无用版本迁移建议拒绝。累计750／697完整／780HTTP，OpenCode native0。142全脚本／配对、主333继续。
