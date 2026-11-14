@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-14 [MANY规划Native H](testing/baiqi-pressure-many-stageA-H.md)：精确459aT6预热／重载，Admin140/Controller160纯十城，p95 2/1ms、max4/22ms；4pre-anchor全验证、0drop，MANY B_plan过，其他压力格未测。6SKIP/6普通END到12，存6d9b…后撤仪表。无新HTTP，累计787不变。
+
 2026-11-14 [T6细读／收尾786—787](testing/baiqi-pressure-initial-readiness786787.md)：玩家125金／净5／10纪念碑，AI40／净6／移民队列，全1144几何复读；786无界66单位却DONE0，Owner8替身＋一次Native；787原hunk采用，11方法过含5新，修旧85收尾。T6 StageA ec78…准备未装；累计787／729完整／817HTTP。
 
 2026-11-14 [全脚本日历784—785](testing/baiqi-pressure-observed-calendar784785.md)：Owner接管784length、修785默认metadata／类型，11新＋37旧过；实际T6包7ce5…准备未装，六END到12口径保持。默认119内容及ZIP解包相同，97时间戳使容器SHA不同；Owner两处验证断言纠正单列。累计785／727完整／815HTTP。
