@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [NO_SITE载入793准备](testing/baiqi-pressure-nosite-stageA-fixture793.md)：实际92f/T1与h日历1/2/6适配，原候选漏mode初始化，离线NameError可复现；Owner补CLI绑定和Root导入路径，其余主体采用。4双Lua编译／18正负守卫过，尚未安装或Native；仅在S3采样结束后调用。累计793／735完整／823HTTP，0原生工具会话。
+
 2026-11-15 [MANY S1启用／792](testing/baiqi-pressure-many-pairS-1-enabled.md)：五段普通END至11、0clock错误，5军事请求序列齐全，自有实例已退出，配对总体仍未知。792核心采用并补Mapping；原5＋Owner5方法过，Owner错称TAB／正例失败的预填文字已另留纠正。累计792／734完整／822HTTP，0新Native恢复错误重现。
 
 2026-11-15 [只读查询恢复790—791](testing/baiqi-pressure-visibility790791.md)：R1实际两帧为2386／0字节tag4，LSQ成功后只读CMD已提交，T6选中一次、0SKIP／END；撤桥确认后收尾。790函数主体采用、原7测试3错／恢复未发现，Owner22唯一方法过；791混淆后读／失败帧及元数据历史证明，整篇拒。仅固定纯读最多3次，不放宽帧／不重试动作；新日维护1.19.5通过。累计791／733完整／821HTTP，后续Native待验。
