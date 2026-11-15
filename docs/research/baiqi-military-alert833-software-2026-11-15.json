@@ -1,0 +1,94 @@
+{
+  "schema": "civ6.baiqi.model-candidate/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "case": 833,
+  "mode": "http-candidate",
+  "task": "Single selected TEST_PLAYER military ALERT candidate for real independent-settler acceptance progression",
+  "source_contract": "Actual qualified unit APIs, operation row hash, positive list and explicit context/requalification/no-replay contract supplied before implementation",
+  "model": {
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "strict_JSON": true,
+    "usage": {
+      "prompt_tokens": 1641,
+      "completion_tokens": 1110,
+      "total_tokens": 2751
+    },
+    "total_ms": 7258.710799971595,
+    "TTFT_ms": 512.9994000308216,
+    "raw_code_adopted": 0,
+    "raw_Native_executions": 0,
+    "rejection": [
+      "Hardcoded current turn162 rather than comparing actual current turn to EXPECTED.turn",
+      "SENTRY -793848223 incorrectly called AWAKE and accepted; actualAWAKE1797587246 omitted",
+      "BAIQI and single-player guards omitted",
+      "No fresh FindID twice or final full requalification",
+      "Returned tag omitted; does not meet requested complete request evidence contract"
+    ]
+  },
+  "canonical_provenance": {
+    "schema": "civ6.local-model-adapter-provenance/v1",
+    "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+    "shared_commit": "de6241082272821980410071533044d14e00023b",
+    "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+    "timeout_override": null,
+    "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+  },
+  "Owner": {
+    "implementation": "Independent rewrite, not raw model code",
+    "single_request_dual_Lua_scenarios": 46,
+    "known_pending_ALERT_END_gate_dual_Lua_scenarios": 26,
+    "actual_END_render_dual_compile": true,
+    "earlier_PREP_REVIEW_CORRECTION_active_costs": null,
+    "net_savings": null,
+    "errors_retained": [
+      "Initial independent readback source had number-adjacent and token compile error AFTER one request returned; no second military request",
+      "Later immediate SENTRY/pendingfalse assertion failed: actual pendingtrue ACTIVITY_OPERATION1225574625. This is owner outcome-assumption error, not model readback implementation.",
+      "New pure observation retained exact unit1048576@13,16, healthy/solo/queuednil/notready; no cancellation or command replay. Normal END pilot pending at this evidence cut."
+    ]
+  },
+  "Native_pilot_at_cut": {
+    "turn": 162,
+    "unit": 1048576,
+    "TEST_PLAYER_ALERT_requests": 1,
+    "request_returned": true,
+    "xy": [
+      13,
+      16
+    ],
+    "pending": true,
+    "activity": 1225574625,
+    "activity_name": "ACTIVITY_OPERATION",
+    "queued_destination": null,
+    "persistence_after_next_turn": "PENDING",
+    "BACKGROUND_military": 0
+  },
+  "ledger_through833": {
+    "logical": 833,
+    "complete": 770,
+    "length": 60,
+    "final_transport_failures": 3,
+    "HTTP_attempts": 863,
+    "retry_extras": 30,
+    "current_in_flight": 0,
+    "new_task_peak_in_flight": 1,
+    "new_OpenCode_native_generation_sessions": 0
+  },
+  "maintenance": "Canonical Nov15 same-machine same-user successful1.19.5 cache reused; daily maintenance is not native generation",
+  "private_evidence_hashes": {
+    "REQUEST.json": "bbe441737f5d9971af2806aa24129a2100d05c764bde02260bf6bb428ac1d3c0",
+    "SUMMARY.json": "4334db3737337ba2e8e85b5dc5e384da1b3370f8b7489d2c120cb72549c00f52",
+    "ATTEMPT1-CONTENT.txt": "aff92921bb66a54d897cec3c5d57e2b944365d6ccf1dc51f33766c7677d9aadb",
+    "ATTEMPT1-RESPONSE.sse": "f4116feaf55c449b040749362fec6dacb6d401db2090809dd5e383b5d7e6d35a"
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "server_concurrency": null,
+    "complete_Owner_cost": null,
+    "net_savings": null
+  }
+}

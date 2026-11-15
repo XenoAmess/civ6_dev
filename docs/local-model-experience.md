@@ -1143,3 +1143,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [830—832／145软件](testing/baiqi-source145-lazy-alternates.md)：830整拒后Owner保事务批、lazy追加及tail排序，实际续扫测试过；831白名单部分语义采用、Owner参数化保旧143/144；832 length未读，Owner旧144前缀误供单列。累计832／769完整／60length／862HTTP；831/832真实峰2，原生OpenCode0、未知成本null。
+
+
+2026-11-15 [833玩家军队警戒候选](research/baiqi-military-alert833-software-2026-11-15.json)：完整stop/DONE/JSON，1641+1110tokens、7258.7108ms／TTFT512.9994；原稿硬162、SENTRY误作AWAKE、漏领袖／SP及二次fresh重检，0代码采用／0rawNative。Owner重写46双Lua场景及已知ALERT保留门26场景；首个实际请求后只读脚本数字拼接编译错、随后过早要求SENTRY的Owner断言亦错，纯读实际pendingtrue／ACTIVITY_OPERATION，原请求未重发，跨回合持久性待后继验证。累计833／770完整／60length／3transport／863HTTP／30extra，实峰1，新OpenCode原生0，未知成本null。
