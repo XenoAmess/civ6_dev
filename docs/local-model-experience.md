@@ -1176,3 +1176,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[150洪灾恢复与852853](testing/baiqi-source150-blocked-flood.md)：两完整JSON均拒，852硬编码夹具913／未定义flag／旧拒绝门及不可达读回，853隔离setUp无change，0产品测试；Owner新增双Lua双kind回归，晚期需求红绿后全2532含1SDKskip，97Lua119包。累计853／786完整／64length／3transport／884HTTP／30extra，新增OpenCode原生0；原生效果继续，不回授原稿。
+
+
+2026-11-15：[150冷193与854](testing/baiqi-source150-native193-first-planning.md)：项目119/145及邢州9/32保持，后台排机枪，未授防洪恢复PASS；后读资格不能倒填首规划，撤回读档清理归因。854双编译但日志不输出／吞异常／缩arity／别名包装过早／无界拒用，0执行；Owner被动QA22软件场景保持实际端口调用／决策，准备同档冷验。累计854／787完整／64length／3transport／885HTTP／30extra，新增OpenCode原生0。

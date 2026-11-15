@@ -1,0 +1,168 @@
+{
+  "schema": "civ6.source150-native193-first-planning-open/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 150,
+  "product_source_commit": "bf7e6f27e328d26218752a4562c831cfe20aa392",
+  "launch": {
+    "files": 119,
+    "source_install_verified": true,
+    "fresh_current_Steam_offline": true,
+    "offline_proof_age_seconds": 0.128651,
+    "online_switches": 0,
+    "uploads": 0,
+    "first_LSQ": "only MainState/DebugHotloadCache, noCMD; later MainMenu qualified",
+    "load_once_ACK_true": true,
+    "ordered_current_instance_load_markers": true,
+    "continue_targeted_ESCAPE_once": true
+  },
+  "native193": {
+    "city": 327684,
+    "request": "0:193:1",
+    "source": "BACKGROUND",
+    "type": "UNIT_MACHINE_GUN",
+    "index": 80,
+    "hash": 1543324079,
+    "queue_size": 1,
+    "progress": 0,
+    "cost": 270,
+    "retained_industrial_project": {
+      "index": 10,
+      "hash": -1205325871,
+      "progress": 119,
+      "cost": 145
+    },
+    "barrier": {
+      "index": 113,
+      "hash": 205057393,
+      "progress": 0,
+      "cost": 480,
+      "built": false,
+      "pillaged": false,
+      "maintenance": 1,
+      "IsWonder": false,
+      "RequiresPlacement": false,
+      "MustPurchase": false
+    },
+    "prereq_district_owned_pillaged": true,
+    "BaiqiFlood_City_now": true,
+    "purchase_Holds_now": false,
+    "actual_BUILD_can_now": {
+      "barrier_APPEND": true,
+      "barrier_PREPEND": true,
+      "gun_APPEND": true,
+      "gun_PREPEND": true,
+      "each_return_arity": 2,
+      "second_return": null
+    },
+    "production_failure": "barrier not chosen; prerequisite still flooded/pillaged; firstplan cause unknown",
+    "END193": 0,
+    "player_civilian_or_production_inputs": 0
+  },
+  "persistence": {
+    "cities": 15,
+    "units": 63,
+    "xingzhou": {
+      "id": 1048590,
+      "xy": [
+        9,
+        19
+      ],
+      "population": 1,
+      "granary_progress": 9,
+      "cost": 32,
+      "built": false
+    },
+    "new_foundation_bank": "OBSERVED/settle:0:2/0:192:301/845/city1048590",
+    "founder10027070_absent": true,
+    "old8650807": "ARMED/settle:0:1/0:156:173/846 unchanged",
+    "xian65536": "builder0/149 queue kept"
+  },
+  "checkpoint": {
+    "utc": "2026-11-15T10:02:49.002961+00:00",
+    "name": "Baiqi_P6_20261115_V150_WuhanMachineGunQueued193.Civ6Save",
+    "bytes": 688430,
+    "sha256": "8f511e935d4b3075e1ab443f58763ffcb119baaf320d39a4b0c60d0bd61213c0",
+    "stable_repeated_read": true
+  },
+  "Native_log": {
+    "bytes": 8955,
+    "sha256": "df2aea8a0821ad2e72e189daa92ce9cf669552eedf19cf20dce77ba8e0e17354",
+    "raw_private": true
+  },
+  "root_cause_limits": [
+    "Current BUILD eligibility and flood=true are later observations, not measurements at request0:193:1.",
+    "No direct snapshot yet of initial queue size or flood demand/budget/qualification during firstplanning.",
+    "Source MilitaryScore about64to66 plus atmost0.9 is below barrier96, so simple military priority explanation unsupported.",
+    "Earlier commentary attributed queue disappearance to load cleanup prematurely; withdrawal recorded here. Native prune timing/cause not proved.",
+    "150 strict retained-head barrier path not exercised by observed machinegun request; no NativefixPASS."
+  ],
+  "model854": {
+    "http_status": 200,
+    "finish_reason": "stop",
+    "sse_done": true,
+    "usage": {
+      "prompt_tokens": 19622,
+      "completion_tokens": 1345,
+      "total_tokens": 20967
+    },
+    "total_ms": 11258.086199872196,
+    "first_nonempty_content_delta_ms": 2666.5671998634934,
+    "review": {
+      "both_Lua_compile_only": [
+        true,
+        true
+      ],
+      "adopted": false,
+      "Native": 0,
+      "raw_execution": 0,
+      "reason": "logs accumulated then reset without printing; pcall errors returned as success and all return arity reduced to1; originalsharedmodules wrapped before Admin reinclude, installer no-op; extraGetID/GetTurn reads; unboundedcandidate iteration; targetcontextnotpreserved across nestedcall. Rejected after source/compile review, no execution."
+    },
+    "POST_peak": 1,
+    "raw_Native": 0
+  },
+  "Owner_QA_prepared": {
+    "base_version": 150,
+    "variant": "passive firstplanning trace, not product equality",
+    "changed_files": [
+      "Lua/BaiqiController.lua",
+      "UI/BaiqiExecutor.lua"
+    ],
+    "dualLua_files": 97,
+    "files": 119,
+    "archive_sha256": "9aa631736a30364dd8f884fd0a43629d3cfe86bbd2b6ef2c8c6d33ed0e86345f",
+    "software_scenarios": 22,
+    "actual_native_port_call_and_decision_parity_scenarios": 20,
+    "nil_arity_error_context_and_cap_scenarios": 2,
+    "new_Native_reads_or_game_actions": 0,
+    "force_RunNow": 0,
+    "installed_or_Native": false,
+    "logs": "actual firstqueue size, raw and folded flood demand, budget, barrier eligibility, actual choose candidates and chosen; 96lines/32candidates with UNKNOWN tail; private aliases installed after all includes"
+  },
+  "owned_exit": "official callback once; exact PID/birth/exe plus newcurrent193 SHA, >=180s, twice allwindows0/listeners0 and CPU unchanged2s, one terminate exit15; not naturalclean exit",
+  "ledger": {
+    "logical": 854,
+    "complete": 787,
+    "length": 64,
+    "final_transport": 3,
+    "HTTP_attempts": 885,
+    "extra_attempts": 30,
+    "inflight": 0,
+    "new_OpenCode_native_generation": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "service_concurrency": null,
+    "full_Owner_active_cost": null,
+    "net_time_saving": null,
+    "performance": "UNMEASURED"
+  },
+  "claims": {
+    "cold_city_and_investment_persistence": true,
+    "native_flood_recovery": false,
+    "barrier_completed_or_drained": false,
+    "all_functional_acceptance": false,
+    "old_ARMED_recovery": "FAIL_OPEN"
+  },
+  "next": "private passive150 cold sameprotected149193; captureactualfirstplanning, then fixproven cause and return productacceptance"
+}
