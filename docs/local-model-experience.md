@@ -1234,3 +1234,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-16：[878—879与152中止90档冷读](testing/baiqi-source152-armed90-diagnosis878879.md)：878源引文／Held语义错整拒，输入未含全部警告配置闭包另记；879仅采有界记录思路，Bound多记／短路漏／pcall混淆由Owner重写。5工具检查含46双Lua既有live许可场景过，97Lua119ZIP私有QA准备。普通152冷读确认新439的ARMED0:90:50，后台自主HOLD且阻塞0，原实例cause未授。0END／原FOUND重发；累计879／808完整／68length／3transport／910HTTP，新增OpenCode原生0、未知成本null。
 
 2026-11-16：[880静态writer身份](testing/baiqi-source152-observed-writer-identity880.md)：候选Static缓存思路采，擅自去Method label隔离拒；Owner只改Static，旧transform28正向场景红、修后46双Lua场景及实际计数1次过，30相关检查。Owner测试import／unpack边界错误另记。新97Lua119ZIP／33上下文4096仅准备，产品152保持；累计880／809完整／911HTTP，OpenCode原生新增0、未知成本null。
+
+2026-11-16：[修复880后的152 StageB实机](testing/baiqi-source152-stageB-identity-fixed.md)：新labelquota152r，正式互斥内0HTTP重测，普通END85—90各一次至91；33上下文／1723保留样本／38546实测零调用，五窗219/237/484/756/410ms、完整桶11/10/19/12/35，B_turn／N_req窄PASS。UI/Core双证新439消耗、新城720906@808及OBSERVED0:90:52；旧0:90:50不重发。导出撤33／对账释放／保护91／普通119恢复及新鲜offline。无新增模型调用或原生OpenCode生成，原B_plan76msFAIL／B_delta压力仍开；后继881仅在正式释放后派发。
