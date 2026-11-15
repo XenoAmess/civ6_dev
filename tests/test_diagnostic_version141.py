@@ -68,9 +68,22 @@ class DiagnosticVersion141Tests(unittest.TestCase):
         self.assertTrue(analyze_plan_capture(d,expected_source_version=144)['overall_budget_ok'])
         with self.assertRaises(ValueError):analyze_plan_capture(d,expected_source_version=141)
 
+    def test_source145_explicit142_endpoint_and_capture_labels_remain_version_bound(self):
+        h=NormalHarness(source_version=145)
+        h.lua.execute('Game.IsAllowStrategicCommands=function()return true end;UI.CanEndTurn=function()return true end')
+        result=execute(h,lambda turn,token:request_end(h.query,turn,token,expected_source_version=145),expected_source_version=145)
+        self.assertEqual(result['source_version'],145)
+        self.assertEqual(list(h.t.actions.values()),list(range(85,90)))
+        from tools.analyze_paired_turns import validate_capture_mode
+        validate_capture_mode(result,145,True)
+        with self.assertRaises(ValueError):validate_capture_mode(result,141,True)
+        d=capture();d['source']='baiqi145-stageA-v1'
+        self.assertTrue(analyze_plan_capture(d,expected_source_version=145)['overall_budget_ok'])
+        with self.assertRaises(ValueError):analyze_plan_capture(d,expected_source_version=141)
+
     def test_unknown_versions_rejected_before_output_ledger_or_query(self):
         raw=(ROOT/'mod/Baiqi'/EXECUTOR).read_text(encoding='utf-8')
-        for value in (None,True,140.,141.,145,'141'):
+        for value in (None,True,140.,141.,146,'141'):
             with self.subTest(value=value):
                 with self.assertRaises(ValueError):suffix(source_version=value)
                 with self.assertRaises(ValueError):transform(raw,value)

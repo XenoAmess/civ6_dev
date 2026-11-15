@@ -15,7 +15,10 @@ class RetainedSettlerCapacityTests(unittest.TestCase):
             "mod/Baiqi/Lua/BaiqiPolicy.lua", "mod/Baiqi/Lua/BaiqiPlanner.lua",
             "mod/Baiqi/Lua/BaiqiController.lua",
         ):
-            self.lua.execute((ROOT / name).read_text(encoding="utf-8"))
+            source = (ROOT / name).read_text(encoding="utf-8")
+            if name == "mod/Baiqi/Lua/BaiqiController.lua":
+                source += "\nTestEnumerateRetainedSites=SettlementSites\n"
+            self.lua.execute(source)
         self.lua.execute("""
 local w=TestWorld;local o=w.objects
 w.turn=2;w.armyTypes={1};w.allowedMilitary={[201]=true};w.allowProject=true
@@ -119,6 +122,82 @@ end
         self.run_and_preserve()
         self.assertEqual(self.units(), [201])
         self.assertEqual(self.w.alternateGeometryCalls, 0)
+
+    def test_rejected_native_hint_does_not_suppress_bounded_alternative(self):
+        self.enable_bounded_alternates()
+        self.lua.execute("""
+local old=Map.GetPlotByIndex
+local water={GetIndex=function()return 46 end,GetX=function()return 9 end,GetY=function()return 3 end,
+ GetOwner=function()return -1 end,IsWater=function()return true end}
+Map.GetPlotByIndex=function(index)if index==46 then return water end;return old(index)end
+TestWorld.settlementRecommendations={{SettlingLocation=44},{SettlingLocation=46}}
+""")
+        self.run_and_preserve()
+        self.assertEqual(self.units(), [201])
+        self.assertGreater(self.w.alternateGeometryCalls, 0)
+
+    def prepare_lazy_site_query(self):
+        self.enable_bounded_alternates()
+        self.lua.execute("TestWorld.armyTypes={1,1};TestWorld.settlementRecommendations={}")
+        self.run_and_preserve(1)  # Establish the real context without recruiting.
+        self.lua.execute("""
+local w=TestWorld;local plots={}
+for _,v in ipairs({{46,9,3},{47,9,4}})do
+ local index,x,y=v[1],v[2],v[3]
+ plots[index]={GetIndex=function()return index end,GetX=function()return x end,GetY=function()return y end,
+  GetOwner=function()return -1 end,GetFeatureType=function()return -1 end,
+  IsWater=function()return false end,IsImpassable=function()return false end,IsCity=function()return false end}
+end
+local oldIndex,oldPlot=Map.GetPlotByIndex,Map.GetPlot
+Map.GetPlotByIndex=function(index)return plots[index]or oldIndex(index)end
+Map.GetPlot=function(x,y)for _,p in pairs(plots)do if p:GetX()==x and p:GetY()==y then return p end end;return oldPlot(x,y)end
+w.supportReads={};BaiqiSettlementWarning.Read=function(_,_,index)
+ w.supportReads[index]=(w.supportReads[index]or 0)+1
+ if index==46 or index==47 then return'KNOWN_NEGATIVE'end;return'NOT_APPLICABLE'
+end
+w.settlementRecommendations={{SettlingLocation=44},{SettlingLocation=46},{SettlingLocation=47}}
+TestRetainedExcluded={}
+""")
+
+    def test_lazy_fallback_preserves_one_support_check_and_more_across_callbacks(self):
+        self.prepare_lazy_site_query()
+        self.lua.execute("""
+local w=TestWorld;local player=w.objects.player;local excluded=TestRetainedExcluded
+local result,more=TestEnumerateRetainedSites(player,{},true,excluded,102,nil,true)
+assert(#result==0 and more==true and excluded[46]==true and excluded[47]==nil and excluded[45]==nil)
+assert(w.supportReads[46]==1 and w.supportReads[47]==nil and w.alternateGeometryCalls==0)
+result,more=TestEnumerateRetainedSites(player,{},true,excluded,102,nil,true)
+assert(#result==0 and more==true and excluded[47]==true and excluded[45]==nil)
+assert(w.supportReads[46]==1 and w.supportReads[47]==1 and w.supportReads[45]==nil and w.alternateGeometryCalls>0)
+result,more=TestEnumerateRetainedSites(player,{},true,excluded,102,nil,true)
+assert(#result==1 and result[1].index==45 and more==false and excluded[45]==true)
+assert(w.supportReads[46]==1 and w.supportReads[47]==1 and w.supportReads[45]==1)
+result,more=TestEnumerateRetainedSites(player,{},true,excluded,102,nil,true)
+assert(#result==0 and more==false and w.supportReads[45]==1)
+""")
+        self.assertEqual(len(self.w.unitRequests), 0)
+        self.lua.execute("assert(BaiqiSettlementJournal.Equal(TestWorld.originalBank,TestWorld.settlementBank,7))")
+
+    def test_lazy_appended_candidates_are_sorted_without_rechecking_native_prefix(self):
+        self.prepare_lazy_site_query()
+        self.lua.execute("""
+local w=TestWorld;local other={GetIndex=function()return 48 end,GetX=function()return 7 end,GetY=function()return 4 end,
+ GetOwner=function()return -1 end,GetFeatureType=function()return -1 end,
+ IsWater=function()return false end,IsImpassable=function()return false end,IsCity=function()return false end}
+local oldIndex,oldPlot,oldXY=Map.GetPlotByIndex,Map.GetPlot,Map.GetPlotXYWithRangeCheck
+Map.GetPlotByIndex=function(index)if index==48 then return other end;return oldIndex(index)end
+Map.GetPlot=function(x,y)if x==7 and y==4 then return other end;return oldPlot(x,y)end
+Map.GetPlotXYWithRangeCheck=function(x,y,dx,dy,r)
+ if x==8 and y==3 and r==2 and dx==-2 and dy==0 then return other end
+ return oldXY(x,y,dx,dy,r)
+end
+w.settlementRecommendations={{SettlingLocation=44},{SettlingLocation=46}}
+local result,more=TestEnumerateRetainedSites(w.objects.player,{},true,nil,102,nil)
+assert(#result==1 and result[1].index==45 and more==true)
+assert(w.supportReads[46]==1 and w.supportReads[45]==1 and w.supportReads[48]==nil)
+""")
+        self.assertEqual(len(self.w.unitRequests), 0)
+        self.lua.execute("assert(BaiqiSettlementJournal.Equal(TestWorld.originalBank,TestWorld.settlementBank,7))")
 
     def test_hidden_alternate_metadata_is_not_read(self):
         self.enable_bounded_alternates()

@@ -403,3 +403,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[144冷160](../testing/baiqi-source144-native160.md)普通159→160、旧日志保持；动态无效hint使raw候选非空，备用未触发。4近邻原源谓词仍过，继续145按实际失败后追加；160已保存，旧恢复FAIL保留。
+
+
+2026-11-15：[145 lazy备用软件通过](../testing/baiqi-source145-lazy-alternates.md)，原144真实缺口红→绿、29容量／102聚焦及全套过，97Lua双编译／119包一致。尚待安装与冷Native，独立扩张正案／新版性能未授，旧恢复FAIL保持。

@@ -29,3 +29,6 @@
 
 
 2026-11-15：144按[143实测缺口追加两环有界proposal](../testing/baiqi-source144-bounded-alternates.md)，唯一实际推荐受旧意图保护且没有其他候选时启用，最多19格、整批异常丢弃、全部原资格继续。不能借此重放或清除旧意图；软件通过，Native待验。
+
+
+2026-11-15：145改为[普通候选实际全部失败后才按需追加备用](../testing/baiqi-source145-lazy-alternates.md)，有效原生点保持零额外扫描，追加尾部单独排序、oneValidation保more及excluded。19格／事务隔离／旧资格及安全门保持；软件通过，Native待验。

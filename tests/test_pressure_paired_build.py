@@ -58,7 +58,8 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
                 140:'1336446353a3b83d4605433e723ff317240bd8168da4483cae193fe42111f1a3',
                 141:'361c8a12c6a31c1f310cdf4d51a135fa88d16b0ed73047198ad14ad734711bef',
                 142:'765bf987369b1e3eccf1a6844db3e10828d6ac9534659b5fa059a03a9032f818',
-                143:'1e49e304ccc9d133a430fe63a57fdbd4312e34e8cab71ddd34332328f7c52a5a'}
+                143:'1e49e304ccc9d133a430fe63a57fdbd4312e34e8cab71ddd34332328f7c52a5a',
+                144:'e4d03ead065249dadd506f3d71adc546dbaebc9039ca25f6b5bd95fec853e39d'}
         for version,digest in hashes.items():
             prefix=clock_prelude(normal_end_bridge=version is not None,source_version=version)
             self.assertEqual(hashlib.sha256(prefix.encode()).hexdigest(),digest)

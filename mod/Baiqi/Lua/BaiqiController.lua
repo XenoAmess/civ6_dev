@@ -2473,7 +2473,15 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
     if settlementCache.plots[index] then protectedHint=true end
     AddCandidate(index,100-(tonumber(rank) or 0),false)
   end
-  if protectedHint and #candidates==0 then
+  local function CandidateBefore(a,b)
+    if a.preferred~=b.preferred then return a.preferred end
+    if a.score~=b.score then return a.score>b.score end
+    return a.index<b.index
+  end
+  local fallbackAttempted=false
+  local function AddFallback()
+    if fallbackAttempted or not protectedHint then return end
+    fallbackAttempted=true
     local ok,alternates=pcall(function()
       if not settlementCache.ready or settlementCache.unresolved~=1 then return nil end
       local op
@@ -2500,14 +2508,18 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
       return proposals
     end)
     if ok and type(alternates)=="table" then
+      local firstNew=#candidates+1
       for _,candidate in ipairs(alternates) do AddCandidate(candidate.index,candidate.score,false) end
+      -- Sort only the appended tail: an already-visited native candidate must
+      -- never move across the active traversal cursor.
+      local tail={}
+      for i=firstNew,#candidates do tail[#tail+1]=candidates[i] end
+      table.sort(tail,CandidateBefore)
+      for i,candidate in ipairs(tail) do candidates[firstNew+i-1]=candidate end
     end
   end
-  table.sort(candidates,function(a,b)
-    if a.preferred~=b.preferred then return a.preferred end
-    if a.score~=b.score then return a.score>b.score end
-    return a.index<b.index
-  end)
+  if #candidates==0 then AddFallback() end
+  table.sort(candidates,CandidateBefore)
   for i,candidate in ipairs(candidates) do
     if oneValidation then excluded[candidate.index]=true end
     local supportChecked=false
@@ -2522,6 +2534,9 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
         if firstOnly then return result,i<#candidates end
       end
     end
+    -- Append only after all earlier proposals were actually rejected. The
+    -- continuation flag includes newly appended candidates before returning.
+    if #result==0 and i==#candidates then AddFallback() end
     if oneValidation and supportChecked then return result,i<#candidates end
   end
   if oneValidation then return result,false end

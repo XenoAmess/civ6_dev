@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码144：[有界备选城址软件通过](docs/testing/baiqi-source144-bounded-alternates.md)，最多两环19格、旧意图与原安全门保持；尚待冷实机。143已实测正常158→159，独立扩张正案／新版性能继续验收。
+当前源码145：[按实际拒绝结果启用备用城址，软件通过](docs/testing/baiqi-source145-lazy-alternates.md)。144已冷实测159→160并记录动态无效hint缺口；145待冷Native，旧意图保留，独立扩张正案／新版性能继续验收。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
