@@ -1218,3 +1218,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[152子函数实采](testing/baiqi-source152-coarse-native88-89.md)：544.433s预热／正式重载85、五普通END到90。80根1236行0错丢；root60@89为70ms，ProcessSettler58ms，RequestCivilian7，Site没有在此根出现。原76@88不是同调用，不认定同因；继续PathStep／Safe／支撑与原生路径计时。13绑定撤／90保护／互斥完成后释放，主210及原FAIL保持。Ownerimport路径错误独立证实发令前0记录后修正，无读档重放。
+
+
+2026-11-16：[152原生路径私有计时／871—874](testing/baiqi-source152-native-path-tool.md)：871仅采用实际消费者测点；872／873两length整拒不拼接，874缺真实上下文的双方法均提前报错整拒。Owner补14项／81相关通过、28旧默认字节不变、97双Lua119ZIP，仅QA调用点可精确逆还原；未装测，原76ms FAIL保持。跨日874已真实每日维护，原生生成0、未知成本null。

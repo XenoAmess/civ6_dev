@@ -1,0 +1,194 @@
+{
+  "schema": "civ6.source152-native-path-tool871874/v1",
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 152,
+  "models": {
+    "871": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 97393,
+        "completion_tokens": 1115,
+        "total_tokens": 98508
+      },
+      "total_ms": 34185.285500017926,
+      "first_nonempty_content_delta_ms": 23319.887900026515,
+      "review": {
+        "adopted": "measurement_points_only",
+        "candidate_code_executed": 0,
+        "Native_actions": 0,
+        "source_verified": [
+          "KnownExpansionSupport calls ExpansionStable and warning.Read",
+          "ai:GetSettlementRecommendations(12) exists"
+        ],
+        "adopted_points": [
+          "PathStep",
+          "Safe",
+          "KnownExpansionSupport",
+          "ExpansionStable",
+          "SettlementHeld",
+          "private current Native path call"
+        ],
+        "rejected_or_unproven": [
+          "Hex radius2 is19, not13 plots",
+          "RequestCivilian does not call PathStep; ProcessSettler calls it directly",
+          "Missing SettlementSites can also be valid remembered-target path; no held/stability failure inferred",
+          "No cause of original76@88 or new58@89 established"
+        ],
+        "product_patch_adopted": false
+      },
+      "POST_begin_UTC": "2026-11-15T15:46:44.740473+00:00",
+      "attempt_end_UTC": "2026-11-15T15:47:18.926141+00:00"
+    },
+    "872": {
+      "http_status": 200,
+      "finish_reason": "length",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 101647,
+        "completion_tokens": 3800,
+        "total_tokens": 105447
+      },
+      "total_ms": 49143.7071999535,
+      "first_nonempty_content_delta_ms": 25451.787599828094,
+      "review": {
+        "adopted": false,
+        "candidate_executions": 0,
+        "Native_actions": 0,
+        "reason": "finish_reason=length with DONE, incomplete3800tokens candidate retained whole; noJSONrepair/contentexecution. New873narrowcore-onlytask omits tests."
+      },
+      "POST_begin_UTC": "2026-11-15T15:46:44.740640+00:00",
+      "attempt_end_UTC": "2026-11-15T15:47:33.884402+00:00"
+    },
+    "873": {
+      "http_status": 200,
+      "finish_reason": "length",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 5412,
+        "completion_tokens": 2800,
+        "total_tokens": 8212
+      },
+      "total_ms": 16952.293999958783,
+      "first_nonempty_content_delta_ms": 875.2395000774413,
+      "review": {
+        "adopted": false,
+        "candidate_executions": 0,
+        "Native_actions": 0,
+        "reason": "Secondincomplete(length2800/DONE) after872length3800. Wholecandidate retained; noJSONrepair orpartialcode adoption. Ownerimplements scope and assigns independentactualuntestedbehavior tests874."
+      },
+      "POST_begin_UTC": "2026-11-15T15:55:01.653324+00:00",
+      "attempt_end_UTC": "2026-11-15T15:55:18.605776+00:00"
+    },
+    "874": {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 8237,
+        "completion_tokens": 851,
+        "total_tokens": 9088
+      },
+      "total_ms": 7135.8823999762535,
+      "first_nonempty_content_delta_ms": 1388.2771998178214,
+      "review": {
+        "Python_AST": true,
+        "isolated_methods": 2,
+        "errors": 2,
+        "failures": 0,
+        "adopted": false,
+        "Native_actions": 0,
+        "reason": "MissingactualAutomation/Game/Players/Events/BaiqiController fixture -> botherrorbeforebehavior; Lua53 importoverwritesLua51 thenloopsLua53twice. PathStep localnotglobal andnoreturn; noactualgetter-timeswap, nil/arity/throw coverage. ExpectedNative rowindex2 and2samples wrongforRoot+PathStep+Native. Lua53unpackshimclaimedbutnotprovided."
+      },
+      "POST_begin_UTC": "2026-11-15T16:05:37.070239+00:00",
+      "attempt_end_UTC": "2026-11-15T16:05:44.206102+00:00"
+    }
+  },
+  "actual_POST_peak": 2,
+  "actual_871872_POST_overlap_seconds": 34.185501,
+  "daily_maintenance": {
+    "871_873_client_date": "2026-11-15 successful same-machine cache",
+    "874_client_date": "2026-11-16",
+    "874_daily_check": "OpenCode1.19.5 installed and registry1.19.5, no update required, checked before HTTP",
+    "new_OpenCode_native_generation": 0
+  },
+  "ledger": {
+    "logical": 874,
+    "complete": 803,
+    "length": 68,
+    "final_transport": 3,
+    "HTTP_attempts": 905,
+    "extra_attempts": 30,
+    "inflight": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "service_concurrency": null,
+    "full_Owner_active_cost": null,
+    "net_time_saving": null
+  },
+  "software_verification": {
+    "testsRun": 81,
+    "failures": 0,
+    "errors": 0,
+    "all_pass": true,
+    "seconds": 15.849740199977532,
+    "new_methods": 14,
+    "runtime_behavior_methods_bothLua": 10,
+    "frozen_default_suffixes": 28,
+    "negative_controls": {
+      "drop_trailing_returns": {
+        "methods": 2,
+        "verified_Lua_assertion_errors": 2
+      },
+      "stale_native_binding": {
+        "methods": 2,
+        "verified_Lua_assertion_errors": 2
+      }
+    },
+    "Owner_correction": "Negativecontrols raiseLuaassertions classifiedas unittesterrors, notfailures; first runnerstoppedbeforegreensuite, leaseexplicitlyreconciled afterknownterminalVM-onlyexit; oldlogretained.",
+    "scope": "QAtoolonly, noNative/noProductchange",
+    "all97dualLua119ZIP_real_artifact_covered": true,
+    "Owner_capacity_fixture_correction": "Capacity is captured by NewProfile; fill actual4096 budget instead of mutating descriptive capacity field. Prior81-run retained with2 Lua assertion errors."
+  },
+  "artifact": {
+    "mode": "baiqi152-controller-children-v3",
+    "children": [
+      "ProcessSettler",
+      "SettlementHeld",
+      "ExpansionStable",
+      "SettlerGoalBridge",
+      "KnownExpansionSupport",
+      "SettlementSites",
+      "PathStep",
+      "Safe",
+      "GetVisibleUnits",
+      "SettlerOccupiedDetour",
+      "CivilianMoveTarget",
+      "RequestCivilian"
+    ],
+    "native_child": "Native.GetMoveToPathEx",
+    "binding_count": 14,
+    "sample_capacity": 4096,
+    "archive_sha256": "a6a6500ca7e81510f3ff33767d20d1185691803226d45d09b47128fb54411a6d",
+    "files": 119,
+    "lua51_compiled": true,
+    "lua53_compiled": true,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "original_controller_exact_prefix": false,
+    "release_text_recovers_exactly": true,
+    "native_global_binding_modified": false,
+    "limits": "Diagnosis only. One reversible private PathStep call-site change and an owned lexical Native proxy. Current Native function is evaluated before original arguments, without replacing UnitManager. Restore removes timing aliases and the observer; the private passthrough call site remains until exit. Inclusive Native-proxy timing adds instrumentation overhead and is not B_plan or whole performance evidence."
+  },
+  "source_Controller_sha256": "665e17f0e21caac866039a0c66a4e3801216196bbb045bef460334e491b472d3",
+  "installed_or_Native_at_this_cut": false,
+  "product_files_changed": 0,
+  "original_B_plan_FAIL_retained_ms": 75.9999752045,
+  "coarse_native_evidence": "https://github.com/XenoAmess/civ6_dev/blob/f60c6ccfb230b242cb5ea4e9f01b0cce75a1cdf5/docs/research/baiqi-source152-coarse-native88-89-2026-11-15.json",
+  "next": "Cold QA v3 with fresh offline proof, same frozen85, actual finer nested measurements; no instrumentation performance PASS",
+  "Steam_online_switches_or_uploads": 0
+}

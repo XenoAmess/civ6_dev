@@ -11,6 +11,33 @@ from tools.build_mod import manifest_files,contained,digest,package
 CHILDREN=('ReadBack','ProcessCity','ProcessBuilder','ProcessSettler',
           'RefreshSettlement','ArchaeologyPendingRead')
 HELPERS=('diagnostic_profile','diagnostic_child_profile','diagnostic_nested_profile')
+NATIVE_PATH_HELPER='_P6ControllerNativePath'
+NATIVE_PATH_LABEL='Native.GetMoveToPathEx'
+NATIVE_PATH_ANCHOR=b'local function PathStep('
+NATIVE_PATH_DECLARATION=b'local function _P6ControllerNativePath(fn,...) return fn(...) end\n\n'
+NATIVE_PATH_ORIGINAL=b'  local path = UnitManager.GetMoveToPathEx(unit, target:GetIndex())'
+NATIVE_PATH_PRIVATE=b'  local path = _P6ControllerNativePath(UnitManager.GetMoveToPathEx, unit, target:GetIndex())'
+
+
+def validate_native_path_option(value,include_pre_observer,source_version):
+    if type(value)is not bool:raise ValueError('Expected native path timing boolean')
+    if value and (source_version!=152 or include_pre_observer is not True):
+        raise ValueError('Native path timing requires source152 and pre-observer scope')
+
+
+def native_path_source(raw:bytes) -> bytes:
+    """Change one private call site; the live Native function remains an argument."""
+    if not isinstance(raw,bytes):raise TypeError('Expected original Controller bytes')
+    if NATIVE_PATH_HELPER.encode()in raw or raw.count(NATIVE_PATH_ANCHOR)!=1 or raw.count(NATIVE_PATH_ORIGINAL)!=1:
+        raise ValueError('Unknown or nonunique private Native path call site')
+    return raw.replace(NATIVE_PATH_ANCHOR,NATIVE_PATH_DECLARATION+NATIVE_PATH_ANCHOR,1).replace(NATIVE_PATH_ORIGINAL,NATIVE_PATH_PRIVATE,1)
+
+
+def recover_native_path_source(private:bytes) -> bytes:
+    if (not isinstance(private,bytes)or private.count(NATIVE_PATH_PRIVATE)!=1
+            or private.count(NATIVE_PATH_DECLARATION+NATIVE_PATH_ANCHOR)!=1):
+        raise ValueError('Unknown private Native path source')
+    return private.replace(NATIVE_PATH_PRIVATE,NATIVE_PATH_ORIGINAL,1).replace(NATIVE_PATH_DECLARATION+NATIVE_PATH_ANCHOR,NATIVE_PATH_ANCHOR,1)
 
 
 def selected_children(children):
@@ -23,10 +50,11 @@ def selected_children(children):
     return tuple(children)
 
 
-def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140):
+def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False):
     children=selected_children(children)
     if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
+    validate_native_path_option(native_path_timing,include_pre_observer,source_version)
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
     text+="assert(P6ControllerNested==nil,'Existing diagnostic owner')\n"
@@ -85,6 +113,14 @@ end
             text+=f'''local binding{index}={{original={name}}}
 binding{index}.wrapped=d.WrapChild('{name}',{name});{name}=binding{index}.wrapped;d.bindings[{index}]=binding{index}
 '''
+    if native_path_timing:
+        index=len(children)+2
+        text+=f'''do
+ local binding={{original={NATIVE_PATH_HELPER}}}
+ binding.wrapped=d.WrapChild('{NATIVE_PATH_LABEL}',binding.original)
+ {NATIVE_PATH_HELPER}=binding.wrapped;d.bindings[{index}]=binding
+end
+'''
     text+='''local attempted,removed,same=false,false,nil
 function d.Restore()
  if attempted then return removed,same end
@@ -96,6 +132,11 @@ function d.Restore()
         if scoped:text+=f' same[{index}]=restorers[{index}]()\n'
         else:text+=f''' same[{index}]={name}==binding{index}.wrapped
  if same[{index}]then {name}=binding{index}.original end
+'''
+    if native_path_timing:
+        index=len(children)+2
+        text+=f''' same[{index}]={NATIVE_PATH_HELPER}==d.bindings[{index}].wrapped
+ if same[{index}]then {NATIVE_PATH_HELPER}=d.bindings[{index}].original end
 '''
     text+=''' if added then
   local ok=pcall(remove,OnActivate)
@@ -114,10 +155,16 @@ end
         old="d.source='baiqi140-controller-children-v1'"
         assert text.count(old)==1
         text=text.replace(old,"d.source='baiqi140-controller-children-v2'",1)
+    if native_path_timing:
+        text=text.replace('original source is the exact prefix.',
+                          'one private Native call site recovers to the original source.',1)
+        old="d.source='baiqi140-controller-children-v2'"
+        if text.count(old)!=1:raise ValueError('Unknown Native path diagnostic owner')
+        text=text.replace(old,"d.source='baiqi140-controller-children-v3'",1)
     return text.replace('baiqi140-controller-children-',f'baiqi{source_version}-controller-children-')
 
 
-def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
+def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_path_timing=False):
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     children=selected_children(children)
@@ -126,6 +173,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
     if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152'):raise ValueError('Expected actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
+    validate_native_path_option(native_path_timing,include_pre_observer,version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():
         raise ValueError('New private output directory required')
@@ -134,8 +182,11 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:
             raise ValueError('Unknown lexical child '+name)
     hashes={name:digest(contained(source,name))for name in names}
-    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
-    prepared['Lua/BaiqiController.lua']=raw+appended
+    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version,native_path_timing=native_path_timing).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
+    private=native_path_source(raw)if native_path_timing else raw
+    if native_path_timing and recover_native_path_source(private)!=raw:
+        raise ValueError('Private Native path source does not recover exactly')
+    prepared['Lua/BaiqiController.lua']=private+appended
     c51=Lua51().eval('function(s)local f,e=loadstring(s);assert(f,e)end')
     c53=Lua53().eval('function(s)local f,e=load(s);assert(f,e)end')
     for name,data in prepared.items():
@@ -157,6 +208,12 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
         result.update(mode=f'baiqi{version}-controller-children-v2',include_pre_observer_active_calls=True,
                       limits='Diagnosis only. All active88/89 entries before the own native observer plus10seconds after it are retained; classify intervals against actual observed anchors, never invent a physical event timestamp or grant performance pass.')
         result['helper_hashes']['diagnostic_preobserver_qualifier']=digest(ROOT/'tools/lua/diagnostic_preobserver_qualifier.lua')
+    if native_path_timing:
+        result.update(mode=f'baiqi{version}-controller-children-v3',native_path_timing=True,
+                      native_child=NATIVE_PATH_LABEL,binding_count=len(children)+2,
+                      original_controller_exact_prefix=False,release_text_recovers_exactly=True,
+                      native_global_binding_modified=False,
+                      limits='Diagnosis only. One reversible private PathStep call-site change and an owned lexical Native proxy. Current Native function is evaluated before original arguments, without replacing UnitManager. Restore removes timing aliases and the observer; the private passthrough call site remains until exit. Inclusive Native-proxy timing adds instrumentation overhead and is not B_plan or whole performance evidence.')
     (out/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return result
 
@@ -164,5 +221,6 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,required=True)
     p.add_argument('--children',nargs='+',default=CHILDREN)
+    p.add_argument('--native-path-timing',action='store_true')
     p.add_argument('--include-pre-observer',action='store_true');args=p.parse_args()
-    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
+    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer,native_path_timing=args.native_path_timing);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
