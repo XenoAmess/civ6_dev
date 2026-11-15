@@ -13,7 +13,11 @@ local function NewWriteLeaves(NewCounter,isEnabled,getBucket,limits)
   local function Find(label,native,fn,method)
     for i=1,#cache do
       local row=cache[i]
-      if row.label==label and row.native==native and row.fn==fn and row.method==method then
+      -- Static reads at different sites can be capture/comparison of the same
+      -- Native writer. Share its wrapper; attribute calls to the first label.
+      -- Method closures keep their existing label/receiver/method isolation.
+      if row.native==native and row.fn==fn and row.method==method
+        and (method==nil or row.label==label) then
         return row.wrapped
       end
     end

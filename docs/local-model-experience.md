@@ -1232,3 +1232,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-16：[离岗交接](handoff-2026-11-16.md)及[结构化现场](research/baiqi-handoff-2026-11-16.json)：quota152在END90预检单位阻塞中止，随后唯一ready移民4390940，不混旧8650807；1569保留样本／33上下文已导出，缺收尾校准和完整90桶，不授B_turn／N_req。撤33监听后对账释放、另存中止90、正式退出及自有静止残留清理，普通152119文件恢复，全部保护档保持，当前无游戏／锁／模型在途，新鲜Steam离线。877仅交接笔记采用，修正其把本轮离岗停工扩成后任禁测的表述；806完整／68length／3transport／908HTTP，原生0未知成本null。
 
 2026-11-16：[878—879与152中止90档冷读](testing/baiqi-source152-armed90-diagnosis878879.md)：878源引文／Held语义错整拒，输入未含全部警告配置闭包另记；879仅采有界记录思路，Bound多记／短路漏／pcall混淆由Owner重写。5工具检查含46双Lua既有live许可场景过，97Lua119ZIP私有QA准备。普通152冷读确认新439的ARMED0:90:50，后台自主HOLD且阻塞0，原实例cause未授。0END／原FOUND重发；累计879／808完整／68length／3transport／910HTTP，新增OpenCode原生0、未知成本null。
+
+2026-11-16：[880静态writer身份](testing/baiqi-source152-observed-writer-identity880.md)：候选Static缓存思路采，擅自去Method label隔离拒；Owner只改Static，旧transform28正向场景红、修后46双Lua场景及实际计数1次过，30相关检查。Owner测试import／unpack边界错误另记。新97Lua119ZIP／33上下文4096仅准备，产品152保持；累计880／809完整／911HTTP，OpenCode原生新增0、未知成本null。

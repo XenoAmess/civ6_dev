@@ -472,3 +472,5 @@ python tools\build_mod.py --install
 
 
 [145普通163与自然学家阻塞](docs/testing/baiqi-player-alert833-native163.md)：新移民51/220；玩家军队警戒未接管文职，唯一ready自然学家原生SKIP拒绝而SLEEP允许。163已保存，0END163，继续修托管待命缺口。
+
+2026-11-16：[152全脚本QA静态writer身份缺陷已软件修复](docs/testing/baiqi-source152-observed-writer-identity880.md)。旧插桩在两个读取点制造不同函数身份，阻断live建城许可；实际transform的46双Lua场景及恰好一次计数已过，产品未改，新包实采继续。
