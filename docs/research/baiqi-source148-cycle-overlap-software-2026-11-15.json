@@ -1,0 +1,105 @@
+{
+  "schema": "civ6.source148-cycle-overlap-software/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 148,
+  "native_failure": "baiqi-source147-native181-cycle843844-2026-11-15.json",
+  "production": {
+    "failed_first_edge": "remove rejected first-edge destination from this callback geometric BFS open-set, rather than reuse it as later geometry",
+    "scope_of_negative": "current fresh search only; no persisted failure or new game property",
+    "overlap": "free primary civilian slot with known own military/support may be proposed, retaining owned visible land/terrain/Safe/reservation/native path/actual MOVE qualification",
+    "religious_overlap_target": "original requirement for empty religious layer at overlap proposal retained",
+    "target_guard": "known declared primary FormationClass preserved; absent FormationClass with known civilian role blocks; unknown type/foreign primary rejected after native qualification too",
+    "military_commands_or_escort_moves": 0,
+    "held_ability_or_old_ARMED_clears": 0,
+    "new_top_level_locals": 0
+  },
+  "software": {
+    "run": 2501,
+    "pass": 2500,
+    "skip": 1,
+    "skip_reason": "SDK environment unavailable",
+    "seconds": 146.537,
+    "Lua_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "Lua_files": 97,
+    "package_files": 119,
+    "source_zip_parity": true,
+    "archive_sha256": "e8a9df528e03be062dacf3d121c8abd9a6e47a8d85256ce12b7b465e4ed4ca0f",
+    "authoritative_private_receipt": 3,
+    "initial_receipt2": "retained draft before consumer corrections, not used for lifecycle",
+    "legacy_rendered_prefixes_None_140_147": 14,
+    "all_byte_exact": true,
+    "new_version_consumer_methods_and_pin": 7,
+    "new_water_counterexample_methods": 1,
+    "overlap_methods_each_runtime": 10,
+    "overlap_Lua_versions": [
+      "5.1",
+      "5.3"
+    ]
+  },
+  "regression_scope": {
+    "water": "147 real first-edge229273 path3 reused; software next-position paths are an inferred counterexample, not captured native228 decision trace. SameController observes229228 then148proposes272 rather than229. BothLua runtimes red on147, green on148",
+    "overlap": "old147 rejects even known own army free civilian slot;148 positive plus civilian/unknown/foreign race negatives",
+    "support_metadata": "synthetic known SUPPORT trader case preserves declared noncivilian formation semantics; whether default native plot query includes trade units remains UNKNOWN"
+  },
+  "Owner_corrections_retained": [
+    "first overlap negative mocked a second CanStart query that ordinaryMOVE does not make; corrected to actual single qualification and postcheck",
+    "first dualLua GP harness used Lua5.3 load(env) API; added Lua5.1 loadstring/setfenv support",
+    "Lua5.1 test payload had 1then token, fixed required whitespace",
+    "first full2499 in147.603s errors10/skip1: borrowed setup consumers lacked runtime attr; getattr fallback retained original default",
+    "after fixture repair, religious occupied overlap target exposed missed old exclusion; restored proposal religious-empty rule; ten consumer methods pass",
+    "overbroad formation-or-CivilianType condition narrowed to absent-formation fallback; known SUPPORT case tested",
+    "147 residue cleanup probe found owned PID already absent before attempt/terminate; independent no-game/savedSHA proves normal exit, zero terminate"
+  ],
+  "model845": {
+    "finish_reason": "length",
+    "sse_done": true,
+    "usage": {
+      "prompt_tokens": 10795,
+      "completion_tokens": 1800,
+      "total_tokens": 12595
+    },
+    "total_ms": 15317.19890004024,
+    "TTFT_ms": 1693.2669000234455,
+    "candidate_read": false,
+    "raw_code_adopted": 0,
+    "raw_code_Native": 0,
+    "decision": "length rejected whole, Owner completed actual consumer review and corrections"
+  },
+  "ledger": {
+    "logical": 845,
+    "complete": 779,
+    "length": 63,
+    "final_transport": 3,
+    "HTTP_attempts": 876,
+    "extra_attempts": 30,
+    "inflight": 0,
+    "new_task_peak": 1,
+    "new_OpenCode_native_generation_sessions": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "service_concurrency": null,
+    "full_Owner_cost": null,
+    "net_time_saving": null,
+    "source148_performance": "UNMEASURED",
+    "native_forward_progress": null
+  },
+  "protected181": {
+    "bytes": 666969,
+    "sha256": "02b381ef90bc533043d61dd4abb5c5d9c43b7228c2ca556139aed6887138d519",
+    "147_exit": "official once, naturally absent, no cleanup terminate"
+  },
+  "claims": {
+    "software_ready": true,
+    "source148_installed": false,
+    "native_overlap_clear": false,
+    "native_water_cycle_resolved": false,
+    "new_city_founded": false,
+    "all_functional_acceptance": false,
+    "old_ARMED_recovery": "FAIL_OPEN"
+  }
+}

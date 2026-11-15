@@ -4,7 +4,7 @@ from tools.paired_normal_end import request_end,request_pressure_end
 
 
 def make_callback(query,child,record,is_diplomacy_visible,*,expected_source_version=142,pressure_initial_turn=None):
-    if type(expected_source_version)is not int or expected_source_version not in (142, 143,144,145,146,147):
+    if type(expected_source_version)is not int or expected_source_version not in (142, 143,144,145,146,147,148):
         raise ValueError('Invalid source version')
     if not all(callable(f)for f in (query,child,record,is_diplomacy_visible)):
         raise TypeError('Callback dependencies must be callable')

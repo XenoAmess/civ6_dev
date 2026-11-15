@@ -24,6 +24,13 @@ Units.GetUnitsInPlot=function(plot)
  if plot:GetIndex()==42 and w.overlap then return {scientist,w.armyOnly and o.army or other} end
  if plot:GetIndex()==43 then
   w.parkingReads=w.parkingReads+1
+  if w.civilianTarget then return {other} end
+  if w.unknownTarget then return {setmetatable({GetUnitType=function()return 999 end},{__index=other})}end
+  if w.foreignOccupant then return {setmetatable({GetOwner=function()return 8 end},{__index=o.army})}end
+  if w.supportTraderTarget then
+   GameInfo.Units[66]={UnitType='UNIT_TRADER',Index=66,FormationClass='FORMATION_CLASS_SUPPORT'}
+   return {setmetatable({GetUnitType=function()return 66 end},{__index=o.army})}
+  end
   if w.occupiedTarget then return {o.army} end
  end
  return {}

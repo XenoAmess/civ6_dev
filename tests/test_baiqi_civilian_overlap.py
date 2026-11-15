@@ -2,14 +2,17 @@
 from pathlib import Path
 import unittest
 from lupa.lua53 import LuaRuntime
+from lupa.lua51 import LuaRuntime as Lua51Runtime
 from gp_intent_harness import install_gp_bridge
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class CivilianOverlapTests(unittest.TestCase):
+    runtime=LuaRuntime
+
     def setUp(self):
-        self.lua = LuaRuntime(unpack_returned_tuples=True)
+        self.lua = getattr(self,'runtime',LuaRuntime)(unpack_returned_tuples=True)
         self.lua.execute((ROOT/'tests/lua/mock_world.lua').read_text(encoding='utf-8'))
         install_gp_bridge(self.lua)
         for path in ('tests/lua/mock_scientist.lua',
@@ -35,6 +38,37 @@ class CivilianOverlapTests(unittest.TestCase):
         self.c.RunNow()
         self.assertEqual([r.op for r in self.w.unitRequests.values()], [17])
 
+    def test_free_civilian_slot_with_own_army_moves_only_the_civilian(self):
+        self.w.occupiedTarget=True
+        self.c.RunNow()
+        self.assertEqual([(r.unit,r.op)for r in self.w.unitRequests.values()],[(4,10)])
+
+    def test_known_support_metadata_does_not_consume_primary_civilian_slot(self):
+        # Defensive metadata case; no claim that native default plot queries
+        # currently include trade-layer units. Native MOVE must still qualify.
+        self.w.supportTraderTarget=True
+        self.c.RunNow()
+        self.assertEqual([(r.unit,r.op)for r in self.w.unitRequests.values()],[(4,10)])
+
+    def test_new_target_occupant_during_native_qualification_refuses_move(self):
+        for change in ('TestWorld.civilianTarget=true','TestWorld.unknownTarget=true',
+                       'TestWorld.foreignOccupant=true'):
+            # Ordinary MOVE has one native qualification, then fresh target
+            # validation; it does not use the settler fallback's extra queries.
+            for qualification in (1,):
+                with self.subTest(change=change,qualification=qualification):
+                    self.setUp()
+                    self.w.occupiedTarget=True
+                    self.lua.execute('''
+local old=UnitManager.CanStartOperation;local count=0
+UnitManager.CanStartOperation=function(u,op,...)
+ local result=old(u,op,...)
+ if op==UnitOperationTypes.MOVE_TO then count=count+1;if count=='''+str(qualification)+''' then '''+change+''' end end
+ return result
+end''')
+                    self.c.RunNow()
+                    self.assertEqual(len(self.w.unitRequests),0)
+
     def test_unstacked_army_only_and_escorted_units_never_roam(self):
         for flag in ('no_overlap', 'army_only', 'formation'):
             with self.subTest(flag=flag):
@@ -48,8 +82,9 @@ class CivilianOverlapTests(unittest.TestCase):
                 self.c.RunNow()
                 self.assertEqual(len(self.w.unitRequests), 0)
 
-    def test_foreign_hidden_occupied_water_mountain_empty_path_and_native_rejection_wait(self):
-        for flag in ('foreignTarget', 'hiddenTarget', 'occupiedTarget', 'water', 'impassable', 'noPath', 'rejectMove'):
+    def test_foreign_hidden_civilian_occupied_water_mountain_empty_path_and_native_rejection_wait(self):
+        for flag in ('foreignTarget', 'hiddenTarget', 'civilianTarget', 'unknownTarget',
+                     'foreignOccupant', 'water', 'impassable', 'noPath', 'rejectMove'):
             with self.subTest(flag=flag):
                 self.setUp()
                 self.w[flag] = True
@@ -86,6 +121,10 @@ end
 ''')
         self.c.RunNow()
         self.assertEqual(len(self.w.unitRequests), 0)
+
+
+class CivilianOverlapLua51Tests(CivilianOverlapTests):
+    runtime=Lua51Runtime
 
 
 if __name__ == '__main__':

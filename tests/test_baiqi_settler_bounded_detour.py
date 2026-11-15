@@ -117,6 +117,29 @@ for i in pairs(w.plots)do if not keep[i]then w.impassable[i]=true end end
                 lua=self.world(runtime,"TestWorld.settlerPlot=186;table.insert(TestWorld.nativePath,1,186)")
                 self.assertEqual(self.run_case(lua),[(9,5)])
 
+    def test_failed_first_native_edge_cannot_reenter_as_future_geometry(self):
+        # The 229->273 and 229->230 three-point paths were read in native181.
+        # The next-position paths model the observed 228->229 return; they are
+        # a software counterexample, not a captured native228 decision trace.
+        for runtime in (Lua51,Lua53):
+            with self.subTest(runtime=runtime.__module__):
+                lua=self.world(runtime,'''local w=TestWorld;w.settlerPlot=229
+local native=UnitManager.GetMoveToPathEx
+UnitManager.GetMoveToPathEx=function(u,index)
+ local start=w.settlerPlot
+ if index==845 then
+  local points=start==229 and{229,274}or{228,229,274}
+  for i=2,#FixturePath do points[#points+1]=FixturePath[i]end
+  return{plots=points}
+ end
+ if start==229 and(index==273 or index==230)then return{plots={229,274,index}}end
+ if start==228 and index==273 then return{plots={228,229,274,273}}end
+ return native(u,index)
+end''')
+                self.assertEqual(self.run_case(lua,count=1),[(8,5)])
+                lua.execute('TestWorld.settlerPlot=228')
+                self.assertEqual(self.run_case(lua,count=1),[(8,5),(8,6)])
+
     def test_blocked_or_unknown_corridors_wait(self):
         cases={
             'first_blocked':'TestWorld.blocked[186]=true',

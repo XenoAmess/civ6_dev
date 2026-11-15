@@ -66,7 +66,13 @@ ui.Players[7].GetProperty=function(self,key)
  return previous(self,key)
 end
 ''')
-    load = lua.eval('function(source,name,env) local fn,err=load(source,name,"t",env);assert(fn,err);return fn() end')
+    load = lua.eval('''function(source,name,env)
+ local fn,err
+ if type(loadstring)=='function'and type(setfenv)=='function'then
+  fn,err=loadstring(source,name);if fn then setfenv(fn,env)end
+ else fn,err=load(source,name,'t',env)end
+ assert(fn,err);return fn()
+end''')
     core = lua.globals().TestBridge.core
     if stored is not None:
         lua.globals().TestBridge.store = lua.globals().TestBridge.Copy(stored)

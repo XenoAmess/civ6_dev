@@ -437,9 +437,11 @@ local function CivilianMoveTarget(here, plot, unit, playerID)
     if mover and mover.UnitType~="UNIT_MISSIONARY" and BaiqiPolicy.CivilianType(mover.UnitType) then
       for _,other in pairs(primary) do
         local row=GameInfo.Units[other:GetUnitType()]
-        if mover.UnitType=="UNIT_SETTLER"and not row then return false,"unit_query_unavailable"end
+        if not row then return false,"unit_query_unavailable"end
+        if other:GetOwner()~=playerID then return false,"foreign_unit"end
         if other:GetOwner()==playerID and other:GetID()~=unit:GetID() and row
-          and row.FormationClass=="FORMATION_CLASS_CIVILIAN" then
+          and(row.FormationClass=="FORMATION_CLASS_CIVILIAN"
+            or(row.FormationClass==nil and BaiqiPolicy.CivilianType(row.UnitType)))then
           return false,"civilian_target_occupied"
         end
       end
@@ -1218,6 +1220,10 @@ local function SettlerOccupiedDetour(unit, target, player, here, path, blockedAt
       if index~=start or NativeEdge(nextIndex)then
         visited[nextIndex]=true;previous[nextIndex]=index;queue[#queue+1]=nextIndex
         if #queue>85 then return nil end
+      else
+        -- A rejected native first edge is no certificate for a later geometric
+        -- hop to the same node. Exclude that proposal for this fresh search.
+        open[nextIndex]=false
       end
     end
   end
@@ -1319,12 +1325,22 @@ local function ClearCivilianOverlap(ctx,player,state,unit)
       and (BaiqiPolicy.CivilianType(row.UnitType) or row.FormationClass=="FORMATION_CLASS_CIVILIAN") then overlap=true;break end
   end
   if not overlap then return false end
+  local function FreeSlot(plot)
+    local _,primary,religious=GetVisibleUnits(plot)
+    if type(primary)~="table"or type(religious)~="table"or next(religious)~=nil then return false end
+    local n=0
+    for _,other in pairs(primary)do
+      n=n+1
+      if n>64 or not GameInfo.Units[other:GetUnitType()]or other:GetOwner()~=ctx.player then return false end
+    end
+    return CivilianMoveTarget(here,plot,unit,ctx.player)==true
+  end
   local candidates={}
   for direction=0,5 do
     local plot=Map.GetAdjacentPlot(here:GetX(),here:GetY(),direction)
     if plot and plot:GetOwner()==ctx.player and not plot:IsWater() and not plot:IsImpassable()
       and visibility:IsVisible(plot:GetX(),plot:GetY()) and Safe(plot,player)
-      and EmptyVisiblePlot(plot) then
+      and FreeSlot(plot) then
       local reserved=false
       for _,pending in pairs(pendingUnits) do
         if pending.kind=="MOVE_TO" and pending.plot==plot:GetIndex() then reserved=true;break end
