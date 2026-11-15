@@ -1227,3 +1227,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-16：[152全脚本准备／875876](testing/baiqi-source152-stageB-preparation875876.md)：两stop完整但整拒0执行，875“已保护”无实际saves／ZIP检查，876旧锚点／formal_idle与v3mode混淆。Owner33上下文4096配额、97双Lua119ZIP准备及严格普通END驱动，未装测；原76msFAIL保持。累计876／805完整／68length／3transport／907HTTP／30extra，原生0未知成本null。
+
+
+2026-11-16：[离岗交接](handoff-2026-11-16.md)及[结构化现场](research/baiqi-handoff-2026-11-16.json)：quota152在END90预检单位阻塞中止，随后唯一ready移民4390940，不混旧8650807；1569保留样本／33上下文已导出，缺收尾校准和完整90桶，不授B_turn／N_req。撤33监听后对账释放、另存中止90、正式退出及自有静止残留清理，普通152119文件恢复，全部保护档保持，当前无游戏／锁／模型在途，新鲜Steam离线。877仅交接笔记采用，修正其把本轮离岗停工扩成后任禁测的表述；806完整／68length／3transport／908HTTP，原生0未知成本null。
