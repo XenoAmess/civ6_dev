@@ -1164,3 +1164,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[Owner149实机182](testing/baiqi-source149-native182-builder-yield.md)：建造者996自主274→273、同一新移民四步至317@9,7，旧ARMED／军队位置保持；181单次普通END被原版世界议会阻塞，TEST_PLAYER三张免费投票后实际182，原END不重发。149保存已核，行军／建城继续；新增HTTP／OpenCode原生0，累计847保持，Owner结果不回授846—847原稿。
+
+
+2026-11-15：[848邻格／849单次军令与149184](testing/baiqi-source149-native184-march-admiral.md)。两稿stop/DONE/严格JSON但848缺end双编译失败／0执行，849编译过而实际端口隔离正例0请求（原地403误作目标360）；均0采用／rawNative。Owner有界只读及100双Lua动作场景后，玩家单次解海军统帅叠放，AI移民继续至10,11、建造者自主改良。累计849／783完整／63length／3最终传输／880HTTP／30额外、0在途，原生OpenCode生成0；维护／软件／实机／未测全路分账。

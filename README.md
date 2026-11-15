@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／实机149：[182建造者自主让路，新移民已通过海岸堵点](docs/testing/baiqi-source149-native182-builder-yield.md)，14城／63单位，现场已存；继续向9,19行军／建城。完整2515含1SDK跳过；149冷重载与性能、完整功能、旧ARMED恢复FAIL仍开放。
+当前源码／实机149：[184移民已自主至10,11、让路建造者恢复改良，玩家解开新军事伟人叠放](docs/testing/baiqi-source149-native184-march-admiral.md)；182／184现场已存，继续向9,19行军／建城。149冷重载与性能、完整功能、旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
