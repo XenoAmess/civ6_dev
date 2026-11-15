@@ -10,12 +10,12 @@ def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Pa
     from tools.performance_admission import assert_no_model_activity
     if (Path.cwd()/'.local-model/p6-formal-performance-active.json').exists():
         assert_no_model_activity(Path.cwd())
-    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148):raise ValueError('Invalid source version')
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149):raise ValueError('Invalid source version')
     if type(legacy_forced)is not bool:raise TypeError('legacy_forced must be an explicit boolean')
     pressure=pressure_initial_turn is not None
     if pressure and (type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                     or expected_source_version not in (142,143,144,145,146,147,148) or legacy_forced):
-        raise ValueError('Pressure run requires actual bounded calendar, source142/143/144/145/146/147/148 and ordinary END')
+                     or expected_source_version not in (142,143,144,145,146,147,148,149) or legacy_forced):
+        raise ValueError('Pressure run requires actual bounded calendar, source142/143/144/145/146/147/148/149 and ordinary END')
     first=pressure_initial_turn if pressure else 85;last_turn_expected=first+5
     if legacy_forced:
         if request_normal_end is not None:raise ValueError('Legacy forced mode cannot use normal callback')

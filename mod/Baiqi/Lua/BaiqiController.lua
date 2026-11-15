@@ -748,11 +748,12 @@ local function SettlerQueueIdle(unit,unitType)
   return Empty(pcall(f,unit))
 end
 
-local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
+local function RequestCivilian(ctx, state, unit, operation, plot, improvement, prewrite)
   -- Re-read ownership and active player at the write boundary. No takeover flags.
   local freshCtx, freshPlayer, freshState = PlayerContext()
   ctx, state = freshCtx, freshState
   if ctx == nil or not CoreIdle() then return false, "context_changed_or_core_busy" end
+  if prewrite~=nil and(operation~="MOVE_TO"or type(prewrite)~="function")then return false,"invalid_move_guard"end
   local here=UnitPlot(unit)
   if not here then return false,"position_unavailable" end
   local allowed, reason = BaiqiPolicy.CanCivilian(ctx, UnitSnapshot(unit, state))
@@ -843,6 +844,10 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement)
   if unitType=="UNIT_MISSIONARY" and missionaryPurchase.Held() then return false,"purchase_receipt_pending" end
   if unitType=="UNIT_ARCHAEOLOGIST" and operation=="MOVE_TO" and ArchaeologyHeld(unit) then return false,"archaeology_receipt_pending" end
   if unitType=="UNIT_GREAT_PROPHET" and operation=="MOVE_TO" and ProphetHeld(unit) then return false,"prophet_receipt_pending" end
+  if prewrite~=nil then
+    local ok,current=pcall(prewrite)
+    if not ok or current~=true then return false,"movement_proposal_changed"end
+  end
   local founding
   if operation=="FOUND_CITY" then
     if KnownExpansionSupport(plot,Players[latest.player],latest.player)~=true then return false,"settlement_support_unavailable" end
@@ -1355,6 +1360,162 @@ local function ClearCivilianOverlap(ctx,player,state,unit)
     local step=PathStep(unit,plot,player,state)
     if step and step:GetIndex()==plot:GetIndex() then
       if RequestCivilian(ctx,state,unit,"MOVE_TO",plot) then return true end
+    end
+  end
+  return false
+end
+
+-- Only an otherwise idle builder may yield a visible choke on a nonheld
+-- settler's existing native route. This does not move or order that settler.
+function settlementCache.YieldBuilder(ctx,player,state,unit)
+  local def=unit and GameInfo.Units[unit:GetUnitType()]
+  if not def or def.UnitType~="UNIT_BUILDER"then return false end
+  local id,kind,start,key=unit:GetID(),unit:GetUnitType(),UnitIndex(unit),UnitKey(unit)
+  if not start or not BaiqiSettlementJournal.UnitKey(id)then return false end
+  local stamp,epoch=Game.GetCurrentGameTurn(),settlementWorldEpoch
+  local manager,vis=UnitManager,visibility
+  local bindings={path=manager.GetMoveToPathEx,queue=manager.GetQueuedDestination,
+    activity=manager.GetActivityType,can=manager.CanStartOperation,writer=manager.RequestOperation,
+    plot=Map.GetPlot,byIndex=Map.GetPlotByIndex,primary=Units.GetUnitsInPlot,religious=Units.GetUnitsInPlotLayerID,
+    goals=ExposedMembers.BaiqiSettlerGoalsBridge,intents=ExposedMembers.BaiqiSettlementIntentBridge,
+    operation=UnitOperationTypes.MOVE_TO}
+  local goalRead=type(bindings.goals)=="table"and bindings.goals.Read
+  local snapshot=type(bindings.intents)=="table"and bindings.intents.Snapshot
+  if type(bindings.path)~="function"or type(bindings.can)~="function"or type(bindings.writer)~="function"
+    or type(bindings.queue)~="function"or type(bindings.activity)~="function"
+    or type(goalRead)~="function"or type(snapshot)~="function"then return false end
+  local function Bound()
+    return UnitManager==manager and manager.GetMoveToPathEx==bindings.path
+      and manager.GetQueuedDestination==bindings.queue and manager.GetActivityType==bindings.activity
+      and manager.CanStartOperation==bindings.can and manager.RequestOperation==bindings.writer
+      and Map.GetPlot==bindings.plot and Map.GetPlotByIndex==bindings.byIndex
+      and Units.GetUnitsInPlot==bindings.primary and Units.GetUnitsInPlotLayerID==bindings.religious
+      and ExposedMembers.BaiqiSettlerGoalsBridge==bindings.goals and bindings.goals.Read==goalRead
+      and ExposedMembers.BaiqiSettlementIntentBridge==bindings.intents and bindings.intents.Snapshot==snapshot
+      and visibility==vis and PlayersVisibility[ctx.player]==vis and UnitOperationTypes.MOVE_TO==bindings.operation
+  end
+  local function Empty(...)return select("#",...)<=1 and select(1,...)==nil end
+  local function False(...)return select("#",...)==1 and select(1,...)==false end
+  local function Idle(u)
+    return type(u.HasPendingOperations)=="function"and False(u:HasPendingOperations())
+      and type(bindings.queue)=="function"and Empty(bindings.queue(u))
+  end
+  local function Fresh()
+    local ok,u,why=pcall(function()
+      local c,p,s=PlayerContext();local u=p and p:GetUnits():FindID(id)
+      if not c or c.player~=ctx.player or not CoreIdle()or Game.GetCurrentGameTurn()~=stamp
+        or settlementWorldEpoch~=epoch or not Bound()or pendingUnits[id]~=nil
+        or not BaiqiPolicy.MatchesID(u,id)or u:GetOwner()~=ctx.player or u:GetUnitType()~=kind
+        or UnitIndex(u)~=start or u:GetFormationUnitCount()~=1
+        or u:IsDead()~=false or u:IsDelayedDeath()~=false or not Idle(u)then return nil,"hold"end
+      if u:GetMovesRemaining()<=0 or type(u.IsReadyToMove)~="function"or u:IsReadyToMove()~=true
+        or type(bindings.activity)~="function"or bindings.activity(u)~=ActivityTypes.ACTIVITY_AWAKE
+        or not BaiqiPolicy.CanCivilian(c,UnitSnapshot(u,s))then return nil,"done"end
+      local here=UnitPlot(u)
+      if not here or here:GetOwner()~=ctx.player or not Revealed(here)
+        or vis:IsVisible(here:GetX(),here:GetY())~=true or not Safe(here,p)then return nil,"done"end
+      return u
+    end)
+    return ok and u or nil,ok and why or "hold"
+  end
+  local function Hold()
+    unitEvaluated[key]="native_wait"
+    local ok,k=pcall(function()
+      local p=Players[ctx.player];local u=p and p:GetUnits():FindID(id)
+      if BaiqiPolicy.MatchesID(u,id)and u:GetOwner()==ctx.player and u:GetUnitType()==kind then return UnitKey(u)end
+    end)
+    if ok and k then unitEvaluated[k]="native_wait"end
+    Reason("builder_yield:"..id,"建造者等待通行资格重新确认；其他内政继续执行")
+    return false
+  end
+  local fresh,why=Fresh()
+  if not fresh then if why=="hold"then return Hold()end;return false end
+  local pathQueries=0
+  local function Claim(selected)
+    local ok,result=pcall(function()
+      if not Bound()or not Fresh()then return nil end
+      local status,bank=SettlementBridge("Snapshot",ctx.player)
+      local J=BaiqiSettlementJournal
+      if status~="READY"or not J.Validate(bank,ctx.player)then return nil end
+      local candidates,count={},0
+      for _,s in player:GetUnits():Members()do
+        count=count+1;if count>256 then return nil end
+        local row=GameInfo.Units[s:GetUnitType()];if not row then return nil end
+        if row.UnitType=="UNIT_SETTLER"and(selected==nil or s:GetID()==selected)then candidates[#candidates+1]=s:GetID()end
+      end
+      table.sort(candidates)
+      for _,sid in ipairs(candidates)do
+        local s=player:GetUnits():FindID(sid);local cell=UnitPlot(s)
+        if BaiqiPolicy.MatchesID(s,sid)and s:GetOwner()==ctx.player and s:GetFormationUnitCount()==1
+          and s:IsDead()==false and s:IsDelayedDeath()==false and Idle(s)and cell
+          and pendingUnits[sid]==nil and not SettlementHeld(s)and bank.operations[J.UnitKey(sid)]==nil then
+          local gs,goal=SettlerGoalBridge("Read",ctx.player,sid)
+          if gs=="READY"and SettlerGoalProposal(goal,sid)then
+            -- Two initial proposals, with one reserved query for the selected
+            -- settler's fresh native path at the actual write boundary.
+            pathQueries=pathQueries+1;if pathQueries>(selected and 3 or 2)then return nil end
+            local route=bindings.path(s,goal.plot);local points=route and route.plots
+            if type(points)=="table"and #points>=2 and #points<=C.pathLimit
+              and points[1]==cell:GetIndex()and points[#points]==goal.plot then
+              local seen,cache,valid,blocked,previous={},{},true,false,nil
+              local entries=0;for k in pairs(points)do entries=entries+1;if entries>C.pathLimit or not GeometryInteger(k)or k<1 or k>#points then valid=false;break end end
+              if entries~=#points then valid=false end
+              for i,index in ipairs(points)do
+                local p=Map.GetPlotByIndex(index)
+                if not GeometryInteger(index)or seen[index]or not p or p:GetIndex()~=index
+                  or not Revealed(p)or(p:GetOwner()~=-1 and p:GetOwner()~=ctx.player)
+                  or not Safe(p,player,cache)or(previous and Map.GetPlotDistance(previous:GetX(),previous:GetY(),p:GetX(),p:GetY())~=1)then valid=false;break end
+                seen[index]=true;previous=p
+                if i>=2 and i<=4 and index==start and vis:IsVisible(p:GetX(),p:GetY())==true then blocked=true end
+              end
+              if valid and blocked then return{settler=sid,from=cell:GetIndex(),goal=goal,plots=seen,bank=bank}end
+            end
+          end
+        end
+      end
+    end)
+    return ok and result or nil
+  end
+  local claim=Claim();if not claim then return false end
+  local function Parking(plot,current)
+    local here=UnitPlot(fresh);local index=plot and plot:GetIndex()
+    if not here or not plot or current.plots[index]or reservations[index]~=nil
+      or plot:GetOwner()~=ctx.player or plot:IsWater()or plot:IsImpassable()or not Revealed(plot)
+      or vis:IsVisible(plot:GetX(),plot:GetY())~=true or not Safe(plot,player)
+      or Map.GetPlotDistance(here:GetX(),here:GetY(),plot:GetX(),plot:GetY())~=1 then return false end
+    for _,op in pairs(current.bank.operations)do if op.stage=="ARMED"and op.plot==index then return false end end
+    local count=0;for _,pending in pairs(pendingUnits)do count=count+1;if count>256 then return false end;if pending.kind=="MOVE_TO"and pending.plot==index then return false end end
+    local _,primary,religious=GetVisibleUnits(plot)
+    if type(primary)~="table"or type(religious)~="table"or next(religious)~=nil then return false end
+    count=0;for _,other in pairs(primary)do count=count+1;if count>64 or not GameInfo.Units[other:GetUnitType()]or other:GetOwner()~=ctx.player then return false end end
+    return CivilianMoveTarget(here,plot,fresh,ctx.player)==true
+  end
+  local function Edge(plot)
+    local route=bindings.path(fresh,plot:GetIndex());local points=route and route.plots
+    if type(points)~="table"or #points~=2 or points[1]~=start or points[2]~=plot:GetIndex()then return false end
+    local count=0;for k in pairs(points)do count=count+1;if(k~=1 and k~=2)or count>2 then return false end end
+    return count==2
+  end
+  local choices={};local here=UnitPlot(fresh)
+  for direction=0,5 do local p=Map.GetAdjacentPlot(here:GetX(),here:GetY(),direction);if p and Parking(p,claim)then choices[#choices+1]=p:GetIndex()end end
+  table.sort(choices)
+  for _,index in ipairs(choices)do
+    fresh=Fresh();if not fresh then return Hold()end
+    local plot=Map.GetPlotByIndex(index)
+    if Parking(plot,claim)and Edge(plot)then
+      local x,y=plot:GetX(),plot:GetY()
+      local function Current()
+        fresh=Fresh();if not fresh then return false end
+        local current=Claim(claim.settler)
+        local p=Map.GetPlotByIndex(index)
+        if not current or current.from~=claim.from or current.goal.plot~=claim.goal.plot
+          or current.goal.x~=claim.goal.x or current.goal.y~=claim.goal.y
+          or not p or p:GetX()~=x or p:GetY()~=y or not Parking(p,current)or not Edge(p)then return false end
+        return Fresh()~=nil
+      end
+      local sent,reason=RequestCivilian(ctx,state,fresh,"MOVE_TO",plot,nil,Current)
+      if sent then return true end
+      if reason~="engine_rejected"or not Fresh()then return Hold()end
     end
   end
   return false
@@ -3163,6 +3324,8 @@ local function WaitBuilderRoute(ctx,player,state,unit,search)
   builderSearches[unit:GetID()]=nil
   if not BuilderRouteValid(ctx,state,unit,search) then return false,false end
   unitEvaluated[UnitKey(unit)]=true
+  if settlementCache.YieldBuilder(ctx,player,state,unit)then return true,false end
+  if unitEvaluated[UnitKey(unit)]=="native_wait"then return false,false end
   local here=UnitPlot(unit)
   if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then return true,false end
   if ClearCivilianOverlap(ctx,player,state,unit) then return true,false end
@@ -3296,6 +3459,7 @@ local function ProcessBuilder(ctx, player, state, unit)
     end
   end
   builderSearches[id]=nil
+  if settlementCache.YieldBuilder(ctx,player,state,unit)then return true end
   return false
 end
 
@@ -4696,7 +4860,8 @@ local function Tick(allowOrders)
             if submitted then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
             if quarantined then status="先知等待持久化许可与新鲜身份核对；其他内政继续执行";return end
           end
-          local held=(BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
+          local held=(snapshot.type=="UNIT_BUILDER"and unitEvaluated[unitKey]=="native_wait")
+            or (BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
             or (snapshot.type=="UNIT_SETTLER" and SettlementHeld(unit))
             or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
             or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
@@ -4713,7 +4878,7 @@ local function Tick(allowOrders)
         end
       end
       local waiting=pendingUnits[unit:GetID()]
-      if (not waiting and unitEvaluated[UnitKey(unit)])
+      if (not waiting and unitEvaluated[UnitKey(unit)]==true)
         or (waiting and waiting.persistent and (waiting.elapsed or 0)>=C.productionObservationSeconds) then
         if RequestCivilianStandby(unit) then
           status="文职单位本回合自动待命；原能力回执继续保留";return

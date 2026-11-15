@@ -1,0 +1,105 @@
+{
+  "schema": "civ6.source149-builder-yield-software/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 149,
+  "trigger": "source148 actual idle builder9961524 at274 on new settler10027070 native route, with independent legal two-point parking paths",
+  "production": {
+    "priority": "ordinary repair/build/recommendation and route work first; yield only before exhausted-builder idle wait",
+    "two_consumers": [
+      "ProcessBuilder exhausted",
+      "WaitBuilderRoute exhausted"
+    ],
+    "movement": "only verified awake ready solo builder to adjacent owned visible safe land outside selected native route, claims, armed plots and occupied primary civilian/religious slots; known own military may remain in its separate slot",
+    "proposal": "existing validated goal of live solo nonheld settler, no native queue/pending/private pending; dense revealed safe adjacent native route and builder in first3 future positions",
+    "final_prewrite": "after actual CanStartOperation, refresh builder/queue/pending/identity/bindings, same settler/from/goal/native path and parking edge before NextRequest or game write",
+    "bounded": "own-unit scan256, path48, initial goal-path queries2 plus reserved final1; adjacent parking only6; pending256/occupants64",
+    "uncertain_native": "private current-turn native_wait prevents ordinary SKIP/standby from cancelling newly pending work; reset with existing turn dictionary",
+    "new_top_level_locals": 0,
+    "game_properties": 0,
+    "military_or_escort_commands": 0,
+    "held_ability_or_old_ARMED_clear_replay": 0
+  },
+  "software": {
+    "run": 2515,
+    "pass": 2514,
+    "skip": 1,
+    "skip_reason": "SDK environment unavailable",
+    "seconds": 164.9,
+    "new_builder_methods": 7,
+    "builder_Lua_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "new_version_consumer_and_pin_methods": 7,
+    "compile_Lua_files": 97,
+    "package_files": 119,
+    "Lua51": true,
+    "Lua53": true,
+    "source_zip_parity": true,
+    "archive_sha256": "f2e0ef87b64e375a48d118d8398aa39fb42577368c2d9996121150c2a0bdd58c",
+    "authoritative_private_receipt": 2,
+    "receipt1": "retained pre-budget-correction draft; never lifecycle",
+    "legacy_prefixes": 16,
+    "byte_exact": true
+  },
+  "retained_failures": {
+    "old148_valid_fixture_red": 14,
+    "first_full_before_budget_case": {
+      "run": 2514,
+      "pass": 2513,
+      "skip": 1,
+      "seconds": 201.534
+    },
+    "new_second_settler_budget_red": 2
+  },
+  "Owner_corrections": [
+    "847 REQUEST incorrectly stated builder ID1, while actual mock_world builderID3 and armyID1; candidate followed wrongID. Root first fixture inherited same input error. Original REQUEST unchanged; not a model error or full-closure review",
+    "new fixture initially omitted ActivityTypes; added actual awake constant, not weakened product guard",
+    "route-wait private test hook initially skipped real passive RunNow(false) initialization; fixed consumer initialization, not product",
+    "pending test initially rejected legitimate unrelated settler request; narrowed assertion to protected builder and kept no-military checks",
+    "mechanical prefix baseline omitted147; retained partial baseline, combined verified historical147 pins and148 pre-edit pins for all16",
+    "review found two initial proposals used final query budget; new true second-settler counterexample failed bothLua, then reserved third final query passed",
+    "old148 official exit left owned quiet residue; protected save and PID/birth/exe, >=180s, twice zero all windows/listeners and unchanged CPU2s verified before one terminate(exit15), no kill escalation",
+    "subsequent absence-reader wrongly inferred natural exit after known residue terminate; raw retained, corrected receipt explicitly withdraws inference",
+    "publication helper stripped leading whitespace from git porcelain and failed file-set assertion before staging; corrected raw status parsing, reused already written evidence without replaying creation"
+  ],
+  "models846847": {
+    "new_HTTP": 0,
+    "raw_code_adopted": 0,
+    "raw_test_adopted": 0,
+    "raw_Native": 0,
+    "Owner_takeover": true,
+    "input_ID_gap_added_after_review": true
+  },
+  "ledger": {
+    "logical": 847,
+    "complete": 781,
+    "length": 63,
+    "final_transport": 3,
+    "HTTP_attempts": 878,
+    "extra_attempts": 30,
+    "inflight": 0,
+    "new_OpenCode_native_generation_sessions": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "service_concurrency": null,
+    "full_Owner_cost": null,
+    "net_time_saving": null,
+    "source149_performance": "UNMEASURED"
+  },
+  "protected148181": {
+    "bytes": 666356,
+    "sha256": "14aa77f8fc0b9bf291ecd67f545f266e77ae6a171277800935ce21e1156ae4d2"
+  },
+  "claims": {
+    "software_ready": true,
+    "source149_installed": false,
+    "native_builder_yield": false,
+    "native_forward_progress": false,
+    "new_city_founded": false,
+    "all_functional_acceptance": false,
+    "old_ARMED_recovery": "FAIL_OPEN"
+  }
+}

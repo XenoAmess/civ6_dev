@@ -47,6 +47,7 @@ GameInfo={Buildings=rows({
 CityOperationTypes={BUILD=1,PARAM_BUILDING_TYPE=2,PARAM_DISTRICT_TYPE=3,PARAM_UNIT_TYPE=4,
   PARAM_PROJECT_TYPE=5,PARAM_INSERT_MODE=6,VALUE_APPEND=7,PARAM_X=8,PARAM_Y=9}
 UnitOperationTypes={MOVE_TO=10,FOUND_CITY=11,BUILD_IMPROVEMENT=12,REPAIR=13,PARAM_X=14,PARAM_Y=15,PARAM_IMPROVEMENT_TYPE=16,SKIP_TURN=17}
+ActivityTypes={ACTIVITY_AWAKE=1797587246}
 PlayerOperations={EXECUTE_SCRIPT=1}
 YieldTypes={PRODUCTION=0}
 local plot={}
@@ -89,6 +90,8 @@ for object,definition in pairs({[army]=0,[settler]=1,[builder]=2}) do
   object.GetType=function(self)return self:GetUnitType()end
   object.IsDead=function()return false end
   object.IsDelayedDeath=function()return false end
+  object.HasPendingOperations=function()return false end
+  object.IsReadyToMove=function()return true end
   object.GetOwner=function() return 7 end
   object.GetID=function() return definition+1 end
   object.GetPlotId=function() return 42 end
@@ -136,6 +139,7 @@ CityManager.RequestCommand=function(c,op,params)
 end
 UnitManager={CanStartOperation=function() return true end,RequestOperation=function(u,op,params) W.unitRequests[#W.unitRequests+1]={unit=u:GetID(),op=op,params=params} end}
 UnitManager.GetQueuedDestination=function()return W.queuedDestination end
+UnitManager.GetActivityType=function()return ActivityTypes.ACTIVITY_AWAKE end
 UI={GetHeadSelectedCity=function() return nil end,GetHeadSelectedUnit=function() return nil end,
  IsGameCoreBusy=function() return W.busy or false end,IsProcessingMessages=function() return W.processing or false end}
 local function event() return {Add=function() end,Remove=function() end} end

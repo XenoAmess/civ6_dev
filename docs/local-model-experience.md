@@ -1158,3 +1158,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[837提案等待只读诊断](testing/baiqi-source146-new-settler173.md)：7414+653tokens／5690.8944ms／TTFT1315.4805完整；原查询Game冒号／虚构formation/delayed端口／缺界拒用，0rawNative。Owner漏classifier和桥／proposal定义，不授全闭包；实际UI0.5而Core0/LIVE，解释当前门的可能等待，不断言死延迟／race根因。新移民已真实出生和3步后台移动，建城继续。累计837／774完整60length3transport867HTTP30extra，原生OpenCode0、未知成本null。
+
+
+2026-11-15：[Owner149让路与847输入纠正](testing/baiqi-source149-builder-yield.md)。原REQUEST把builder3误称ID1，候选跟随不归模型；原件保留、不授全闭包。Owner真实双Lua接管含第二目标预算红绿，完整2515含1SDKskip、97Lua119包；未重POST，累计847保持，0新增OpenCode原生生成，Native继续。
