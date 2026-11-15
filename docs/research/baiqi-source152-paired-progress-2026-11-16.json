@@ -1,12 +1,12 @@
 {
   "date": "2026-11-16",
-  "updated_utc": "2026-11-15T19:39:11.283560+00:00",
+  "updated_utc": "2026-11-15T20:03:48.143819+00:00",
   "machine": "BF-202609141645",
   "source_version": 152,
   "required_groups": 5,
-  "completed_groups": 1,
-  "completed_sides": 3,
-  "status": "PARTIAL 1/5 groups; no B_delta grant",
+  "completed_groups": 2,
+  "completed_sides": 4,
+  "status": "PARTIAL 2/5 groups; no B_delta grant",
   "groups": [
     {
       "pair": 1,
@@ -250,7 +250,113 @@
         "phase": "COMPLETE",
         "end_mode": "ORDINARY_CALLBACK",
         "forced": false
-      }
+      },
+      "enabled": {
+        "variant": "enabled",
+        "run_id": "enabled-6ebc205e1fc8401e9446f255ee4fc170",
+        "archive_sha256": "31ad0999f79dd7cc692af18349d8deca4270b8120073a9d7d51fb21116bacf88",
+        "fixture_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+        "source_version": 152,
+        "errors": 0,
+        "refused": 0,
+        "records": [
+          {
+            "from_turn": 85,
+            "to_turn": 86,
+            "pid": 0,
+            "started": 1794772512.94,
+            "ended": 1794772515.424,
+            "seconds": 2.4839999675750732
+          },
+          {
+            "from_turn": 86,
+            "to_turn": 87,
+            "pid": 0,
+            "started": 1794772600.951,
+            "ended": 1794772607.111,
+            "seconds": 6.1600000858306885
+          },
+          {
+            "from_turn": 87,
+            "to_turn": 88,
+            "pid": 0,
+            "started": 1794772714.18,
+            "ended": 1794772745.456,
+            "seconds": 31.276000022888184
+          },
+          {
+            "from_turn": 88,
+            "to_turn": 89,
+            "pid": 0,
+            "started": 1794772865.682,
+            "ended": 1794772873.787,
+            "seconds": 8.105000019073486
+          },
+          {
+            "from_turn": 89,
+            "to_turn": 90,
+            "pid": 0,
+            "started": 1794772959.491,
+            "ended": 1794772962.315,
+            "seconds": 2.824000120162964
+          }
+        ],
+        "requested_turns": [
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "cities": 11,
+        "phase": "COMPLETE",
+        "end_mode": "ORDINARY_CALLBACK",
+        "forced": false
+      },
+      "matched_rows": [
+        {
+          "from_turn": 85,
+          "to_turn": 86,
+          "enabled_seconds": 2.4839999675750732,
+          "control_seconds": 4.351000070571899,
+          "delta_ms": -1867.0001029968262,
+          "ratio_percent": -42.90967760778331
+        },
+        {
+          "from_turn": 86,
+          "to_turn": 87,
+          "enabled_seconds": 6.1600000858306885,
+          "control_seconds": 3.3630001544952393,
+          "delta_ms": 2796.999931335449,
+          "ratio_percent": 83.16978301641672
+        },
+        {
+          "from_turn": 87,
+          "to_turn": 88,
+          "enabled_seconds": 31.276000022888184,
+          "control_seconds": 6.632999897003174,
+          "delta_ms": 24643.00012588501,
+          "ratio_percent": 371.5211896357613
+        },
+        {
+          "from_turn": 88,
+          "to_turn": 89,
+          "enabled_seconds": 8.105000019073486,
+          "control_seconds": 10.058000087738037,
+          "delta_ms": -1953.0000686645508,
+          "ratio_percent": -19.417379713940374
+        },
+        {
+          "from_turn": 89,
+          "to_turn": 90,
+          "enabled_seconds": 2.824000120162964,
+          "control_seconds": 2.940999984741211,
+          "delta_ms": -116.99986457824707,
+          "ratio_percent": -3.9782341103460532
+        }
+      ],
+      "pair_median_delta_ms": -116.99986457824707,
+      "pair_median_ratio_percent": -3.9782341103460532
     }
   ],
   "completed_side_evidence": [
@@ -506,8 +612,95 @@
       "HTTP_during_formal": 0,
       "heavy_tests_during_formal": 0,
       "official_exit_once": true,
-      "residue_cleanup": "PENDING after official exit",
+      "residue_cleanup": {
+        "utc": "2026-11-15T19:42:31.318008+00:00",
+        "exit_code": 15,
+        "terminate_count": 1,
+        "kill_escalations": 0,
+        "natural_exit_claimed": false
+      },
       "archive_sha256": "b3cfb74bbd2852b446c52cf973cb1ea173fd0b23580dec7009aece505c137bea"
+    },
+    {
+      "pair": 2,
+      "variant": "enabled",
+      "label": "pair152-2-enabled",
+      "capture": {
+        "variant": "enabled",
+        "run_id": "enabled-6ebc205e1fc8401e9446f255ee4fc170",
+        "archive_sha256": "31ad0999f79dd7cc692af18349d8deca4270b8120073a9d7d51fb21116bacf88",
+        "fixture_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+        "source_version": 152,
+        "errors": 0,
+        "refused": 0,
+        "records": [
+          {
+            "from_turn": 85,
+            "to_turn": 86,
+            "pid": 0,
+            "started": 1794772512.94,
+            "ended": 1794772515.424,
+            "seconds": 2.4839999675750732
+          },
+          {
+            "from_turn": 86,
+            "to_turn": 87,
+            "pid": 0,
+            "started": 1794772600.951,
+            "ended": 1794772607.111,
+            "seconds": 6.1600000858306885
+          },
+          {
+            "from_turn": 87,
+            "to_turn": 88,
+            "pid": 0,
+            "started": 1794772714.18,
+            "ended": 1794772745.456,
+            "seconds": 31.276000022888184
+          },
+          {
+            "from_turn": 88,
+            "to_turn": 89,
+            "pid": 0,
+            "started": 1794772865.682,
+            "ended": 1794772873.787,
+            "seconds": 8.105000019073486
+          },
+          {
+            "from_turn": 89,
+            "to_turn": 90,
+            "pid": 0,
+            "started": 1794772959.491,
+            "ended": 1794772962.315,
+            "seconds": 2.824000120162964
+          }
+        ],
+        "requested_turns": [
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "cities": 11,
+        "phase": "COMPLETE",
+        "end_mode": "ORDINARY_CALLBACK",
+        "forced": false
+      },
+      "save": {
+        "utc": "2026-11-15T20:03:27.940612+00:00",
+        "name": "Baiqi_P6_20261116_V152_Pair2Enabled90.Civ6Save",
+        "bytes": 518736,
+        "sha256": "d67bde3ca22f384f8a05f7c82f416e196edc9d670d9dc2d5e8fd46f65d60e965",
+        "stable_repeated_read": true
+      },
+      "formal_reconciled": true,
+      "clock_and_bridge_retired": true,
+      "HTTP_during_formal": 0,
+      "heavy_tests_during_formal": 0,
+      "official_exit_once": true,
+      "residue_cleanup": "PENDING after official exit",
+      "archive_sha256": "31ad0999f79dd7cc692af18349d8deca4270b8120073a9d7d51fb21116bacf88"
     }
   ],
   "no_spikes_removed": true,

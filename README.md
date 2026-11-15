@@ -1,6 +1,6 @@
 # civ6_dev
 
-持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：首组两侧均完成普通85→90并保存；五段配对中位增加3076ms／55.95%，该组超预算，尚余四组，不能授B_delta通过。继续交替顺序实采、原规划FAIL与功能矩阵；阶段提交不是停工点。
+持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
 最新：[152修复私有QA后B_turn／N_req实机通过](docs/testing/baiqi-source152-stageB-identity-fixed.md)：五窗最大756ms、每回合最多35次提交，实际91／11城；4390940建城由UI与Core双证。产品未改，B_plan原76ms FAIL及B_delta／压力／完整验收仍开放。
 
