@@ -82,12 +82,19 @@ def selected_children(children):
     return tuple(children)
 
 
-def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False,detour_native_timing=False):
+def validate_turn90(value,source_version,include_pre_observer):
+    if type(value)is not bool:raise ValueError('Expected explicit turn90 boolean')
+    if value and (source_version!=153 or include_pre_observer is not True):
+        raise ValueError('Turn90 diagnosis requires source153 and pre-observer coverage')
+
+
+def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False,detour_native_timing=False,include_turn90=False):
     children=selected_children(children)
     if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     validate_native_path_option(native_path_timing,include_pre_observer,source_version)
     validate_native_path_option(detour_native_timing,include_pre_observer,source_version)
+    validate_turn90(include_turn90,source_version,include_pre_observer)
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
     text+="assert(P6ControllerNested==nil,'Existing diagnostic owner')\n"
@@ -215,10 +222,18 @@ end
         if text.count(old)!=1:raise ValueError('Unknown detour diagnostic owner')
         text=text.replace(old,"d.source='baiqi140-controller-children-v4'",1)
         text=text.replace('original source is the exact prefix.','private Native call sites recover to original source.',1)
+    if include_turn90:
+        guard='if t~=88 and t~=89 then return nil end'
+        prior='v4'if detour_native_timing else 'v3'if native_path_timing else 'v2'
+        label=f"d.source='baiqi140-controller-children-{prior}'"
+        if text.count(guard)!=1 or text.count(label)!=1:
+            raise ValueError('Unknown turn90 diagnostic anchors')
+        text=text.replace(guard,'if t~=88 and t~=89 and t~=90 then return nil end',1)
+        text=text.replace(label,"d.source='baiqi140-controller-children-v5'",1)
     return text.replace('baiqi140-controller-children-',f'baiqi{source_version}-controller-children-')
 
 
-def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_path_timing=False,detour_native_timing=False):
+def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_path_timing=False,detour_native_timing=False,include_turn90=False):
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     children=selected_children(children)
@@ -229,6 +244,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
     version=int(version)
     validate_native_path_option(native_path_timing,include_pre_observer,version)
     validate_native_path_option(detour_native_timing,include_pre_observer,version)
+    validate_turn90(include_turn90,version,include_pre_observer)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():
         raise ValueError('New private output directory required')
@@ -237,7 +253,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:
             raise ValueError('Unknown lexical child '+name)
     hashes={name:digest(contained(source,name))for name in names}
-    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version,native_path_timing=native_path_timing,detour_native_timing=detour_native_timing).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
+    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version,native_path_timing=native_path_timing,detour_native_timing=detour_native_timing,include_turn90=include_turn90).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
     private=native_path_source(raw)if native_path_timing else raw
     if native_path_timing and recover_native_path_source(private)!=raw:
         raise ValueError('Private Native path source does not recover exactly')
@@ -281,6 +297,10 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
                       original_controller_exact_prefix=False,release_text_recovers_exactly=True,
                       native_global_binding_modified=False,
                       limits='Diagnosis only. Two reversible detour pcall adapters preserve the current/cached Native function argument and its identity checks. Optional PathStep adapter remains separate. All scopes share the frozen4096 profile; no B_plan or whole performance pass.')
+    if include_turn90:
+        result.update(mode=f'baiqi{version}-controller-children-v5',include_turn90=True,
+                      focus_turns=[88,89,90],binding_count=len(children)+1+int(native_path_timing)+2*int(detour_native_timing),
+                      limits='Diagnosis only. Explicit source153 opt-in retains active88/89/90 entries before the own observer and within its ten-second window. Same4096 capacity and exact restoration; instrumentation is not B_plan or whole performance evidence.')
     (out/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return result
 
@@ -290,5 +310,6 @@ if __name__=='__main__':
     p.add_argument('--children',nargs='+',default=CHILDREN)
     p.add_argument('--native-path-timing',action='store_true')
     p.add_argument('--detour-native-timing',action='store_true')
+    p.add_argument('--include-turn90',action='store_true')
     p.add_argument('--include-pre-observer',action='store_true');args=p.parse_args()
-    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer,native_path_timing=args.native_path_timing,detour_native_timing=args.detour_native_timing);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
+    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer,native_path_timing=args.native_path_timing,detour_native_timing=args.detour_native_timing,include_turn90=args.include_turn90);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
