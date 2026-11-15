@@ -1173,3 +1173,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[149冷读／普通193与850851](testing/baiqi-source149-cold193-flood.md)：邢州粮仓9/32，四军队各一次FORTIFY后普通END192实际193；武汉工业区洪灾使项目119/145与区域修复均被拒，防洪坝合法但Add过滤，继续150。850编译但宿主输出／资格合同不足拒用；851length整弃。Owner双Lua／Native只读分账，累计851／784完整／64length／3transport／882HTTP／30extra，新增OpenCode原生0。
+
+
+2026-11-15：[150洪灾恢复与852853](testing/baiqi-source150-blocked-flood.md)：两完整JSON均拒，852硬编码夹具913／未定义flag／旧拒绝门及不可达读回，853隔离setUp无change，0产品测试；Owner新增双Lua双kind回归，晚期需求红绿后全2532含1SDKskip，97Lua119包。累计853／786完整／64length／3transport／884HTTP／30extra，新增OpenCode原生0；原生效果继续，不回授原稿。

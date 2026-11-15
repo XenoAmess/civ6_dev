@@ -56,7 +56,7 @@ class DiagnosticVersionRenderTests(unittest.TestCase):
 
     def test_exact_type_and_unknown_kind_or_version_rejected(self):
         class IntSubclass(int):pass
-        for value in (True,143.0,"143",None,150,IntSubclass(143)):
+        for value in (True,143.0,"143",None,151,IntSubclass(143)):
             with self.assertRaises(ValueError):
                 render_helper(self.template("benchmark_end_bridge"),"benchmark_end_bridge",value)
         with self.assertRaises(ValueError):render_helper("return {}","unknown",143)
@@ -135,7 +135,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,150)
+            with self.assertRaises(ValueError):render_helper(text,kind,151)
 
     def test_source147_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -145,7 +145,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,150)
+            with self.assertRaises(ValueError):render_helper(text,kind,151)
 
     def test_source148_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -155,7 +155,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,150)
+            with self.assertRaises(ValueError):render_helper(text,kind,151)
 
     def test_source149_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -165,7 +165,18 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,150)
+            with self.assertRaises(ValueError):render_helper(text,kind,151)
+
+    def test_source150_current_render_compiles_with_new_version_and_preserves_raw_file(self):
+        for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
+            text=self.template(kind);rendered=render_helper(text,kind,150)
+            self.assertIn("sourceVersion==150",rendered)
+            self.assertIn("baiqi150-pressure-",rendered)
+            self.assertNotIn("baiqi145-pressure-",rendered)
+            for L in (L51,L53):L().compile(rendered)
+            self.assertEqual(self.template(kind),text)
+            with self.assertRaises(ValueError):render_helper(text,kind,151)
+
 
 
 
@@ -245,6 +256,26 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertEqual([r.to_turn for r in g.P6PairClock.Snapshot(g.P6PairClock).records.values()],[2,3,4,5,6])
             self.assertIsNone(g.P6PairStage.ends[6])
 
+    def test_source150_current_pressure_prefix_runs_all_five_segments_in_both_lua_versions(self):
+        for L in (L51,L53):
+            lua=L(unpack_returned_tuples=True)
+            lua.execute("""
+Turn=1;Clock=10;Callbacks={};ExposedMembers={}
+Game={GetCurrentGameTurn=function()return Turn end,GetLocalPlayer=function()return 0 end}
+Automation={GetTime=function()return Clock end}
+Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove=function()end}}
+""")
+            lua.execute(clock_prelude(normal_end_bridge=True,source_version=150,pressure_initial_turn=1))
+            lua.execute("P6PairStage={phase='RECORDING',token=string.rep('a',32),ends={},normal_end=true,source_version=150,source='baiqi150-pressure-paired-v1',initial_turn=1}")
+            g=lua.globals()
+            for turn in range(1,6):
+                g.Turn=turn;g.Clock=100+20*turn;g.P6PairStage.ends[turn]=True
+                self.assertTrue(g.ExposedMembers.P6BaiqiPairEndBridge.Begin(turn,"a"*32))
+                g.Turn=turn+1;g.Clock+=2;lua.execute("for _,f in ipairs(Callbacks)do f(0,false)end")
+            self.assertEqual([r.to_turn for r in g.P6PairClock.Snapshot(g.P6PairClock).records.values()],[2,3,4,5,6])
+            self.assertIsNone(g.P6PairStage.ends[6])
+
+
 
 
 
@@ -266,6 +297,11 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
     def test_source148_prefixes_remain_byte_exact(self):
         for pressure,expected in ((None,'50776a504b9faa56c076197cd341aef22180a4b6081f7ef55e8d9d803941329e'),(1,'aa9adad19a8e6dc3a8996ec8cfd29d43a88426bc43f88e115548ad779fd708f7')):
             text=clock_prelude(normal_end_bridge=True,source_version=148,pressure_initial_turn=pressure)
+            self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),expected)
+
+    def test_source149_prefixes_remain_byte_exact(self):
+        for pressure,expected in ((None,'87f9bd0d9adf002c56d634a0bb3888a750eec27a23306ea04380da9b0ce98f5b'),(1,'8152088523417961f3631d17264c5594a95e09fe52fb99cc2fa3f3d4a73f0539')):
+            text=clock_prelude(normal_end_bridge=True,source_version=149,pressure_initial_turn=pressure)
             self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),expected)
 
 

@@ -1,0 +1,142 @@
+{
+  "schema": "civ6.source150-blocked-flood-software/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 150,
+  "trigger": "149 Native193 Wuhan invested IndustrialZone project119/145 stranded; flooded but not submerged prerequisite cannot repair, barrier native legal and demandtrue",
+  "change": {
+    "retained_kinds": [
+      "project",
+      "building_repair"
+    ],
+    "candidates": "exact prerequisite repair or emergency floodbarrier identified from actual GameInfo, all other work still excluded",
+    "native_authority": "existing two CanProduce modes and repeated CanStartOperation, maintenance, context/turn/fullID/queue checks unchanged",
+    "prewrite": "after final blocked-head native check, refresh barrier identity/index and flood demand then recheck scope/queue; no write on drift",
+    "readback": "pending captures exact barrier hash/index, current head verifies identity and sole retained signature or Nativeprune with stored unfinished investment; no built/drained assertion",
+    "no_new_top_level_locals": true,
+    "military_or_civilian_player_fill": 0,
+    "manual_controls_or_ARMED_clear": 0,
+    "refunds_or_replayed_investment": 0
+  },
+  "software": {
+    "run": 2532,
+    "pass": 2531,
+    "skip": 1,
+    "skip_reason": "SDK environment unavailable",
+    "seconds": 342.018,
+    "new_regression_methods": 10,
+    "new_cases": "both Lua5.1/5.3 and both retained kinds; preserve/prune, late demand/identity/work/turn/owner drift, native refusal, unresolved writer, lost investment and changed head",
+    "new_version_methods": 7,
+    "compile_Lua": 97,
+    "package_files": 119,
+    "Lua51": true,
+    "Lua53": true,
+    "archive_sha256": "a908ddd1ab4e785cdc76ab1cbe306448b3b37f7252efe6e023a60c75724f04f8",
+    "zip_source_parity": true,
+    "legacy_prefixes": 18,
+    "legacy_byte_exact": true,
+    "private_authoritative_receipt": 1
+  },
+  "red_green": {
+    "149_new_methods": {
+      "run": 10,
+      "failures": 8
+    },
+    "first150_late_demand_counterexamples": 8,
+    "final_targeted_methods": 10,
+    "targeted_seconds": 42.991
+  },
+  "models": [
+    {
+      "number": 852,
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 32104,
+        "completion_tokens": 2415,
+        "total_tokens": 34519
+      },
+      "total_ms": 25260.773099958897,
+      "first_nonempty_content_delta_ms": 9707.29640009813,
+      "review": {
+        "unique_sequential_anchors": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "both_Lua_compile_only": [
+          true,
+          true
+        ],
+        "execution": 0,
+        "adopted": false,
+        "Native": 0,
+        "reason": "strict district filter remains; blockedWork.floodBarrier never set; blockedFlood undefined; hardcoded mock hash913 vs actual205057393; new readback after earlier branch returns unreachable, incorrectly requires completed barrier to acknowledge queued work"
+      }
+    },
+    {
+      "number": 853,
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 43141,
+        "completion_tokens": 1050,
+        "total_tokens": 44191
+      },
+      "total_ms": 17514.46340000257,
+      "first_nonempty_content_delta_ms": 9571.382499998435,
+      "review": {
+        "Python_parse": true,
+        "isolated_setUp_failure": "'BlockedProjectQueueTests' object has no attribute 'change'",
+        "product_tests_completed": 0,
+        "adopted": false,
+        "Native": 0,
+        "reason": "self.case is wrapper lacking change/chosen/w; mock_flood and Lua module helper not loaded; oldWriter invoked before override so asserts district; repair test resets and discards barrier fixture; no real dualLua coverage"
+      }
+    }
+  ],
+  "actual_model_concurrency": {
+    "POST_peak": 2,
+    "overlap_seconds": 17.485752,
+    "service_concurrency": null
+  },
+  "ledger": {
+    "logical": 853,
+    "complete": 786,
+    "length": 64,
+    "final_transport": 3,
+    "HTTP_attempts": 884,
+    "extra_attempts": 30,
+    "inflight": 0,
+    "new_OpenCode_native_generation": 0
+  },
+  "Owner": "both candidates rejected; Owner authored product and actual dualLua public-consumer regression. No automatic execution/adoption or model game actions. Candidate853 Python isolated setUp failed before Lua, not a completed product test. Candidate852 only compiled merged ignored candidate, not executed.",
+  "environment": {
+    "protected149193": {
+      "bytes": 688880,
+      "sha256": "d0163b4d0a25954a76a19a2799c0501d6ef488a0112c607281578271351be463"
+    },
+    "owned149_exit": "original callback once; quiet residue >=180s, twice allwindows0/listeners0 and CPU unchanged2s, exact PID/birth/exe/save checked, one terminate exit15/no escalation",
+    "online_switches": 0,
+    "uploads": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "full_Owner_active_cost": null,
+    "net_time_saving": null,
+    "source150_performance": "UNMEASURED"
+  },
+  "claims": {
+    "software_ready": true,
+    "source150_installed": false,
+    "native_flood_queue_recovered": false,
+    "barrier_completed_or_drained": false,
+    "all_functional_acceptance": false,
+    "old_ARMED_recovery": "FAIL_OPEN"
+  },
+  "next": "install150 only after owned149absence proof, fresh currentSteamoffline proof, official protected149193 coldload, observe backgroundbarrier request and retained119/145, ordinary production progress"
+}

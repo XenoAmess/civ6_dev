@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／实机149：[邢州冷读保持、普通193粮仓0→9/32；武汉洪灾项目停产已定位](docs/testing/baiqi-source149-cold193-flood.md)。继续150防洪坝恢复路径与193冷验；149性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码150：[洪灾受阻项目／建筑修复可前置防洪坝，软件2532项含1SDK跳过](docs/testing/baiqi-source150-blocked-flood.md)，97Lua双编译119包；继续149保护193冷验。邢州冷读及粮仓9/32已证，150实机恢复、性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 

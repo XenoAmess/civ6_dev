@@ -4146,13 +4146,16 @@ local function ProcessCity(ctx, player, state, city)
   local buildingFood,foodSurplus,foodStock=BuildingFoodHints(city)
   local candidates, checked, projectCandidates, hasProjectResume = {}, 0, {}, false
   local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject,floodBarrier,resumeProject)
-    if blockedWork and blockedWork.kind=="project" then
-      if kind~="district" or repair~=true or placement~=nil or row.Hash~=blockedWork.prereqHash
-        or row.Index~=blockedWork.prereqIndex or row.DistrictType~=blockedWork.prereqType then return end
-    end
-    if blockedWork and blockedWork.kind=="building_repair" then
-      if kind~="district" or repair~=true or placement~=nil or row.Hash~=blockedWork.prereqHash
-        or row.Index~=blockedWork.prereqIndex or row.DistrictType~=blockedWork.prereqType then return end
+    if blockedWork and (blockedWork.kind=="project" or blockedWork.kind=="building_repair") then
+      local prerequisiteRepair=kind=="district" and repair==true and placement==nil
+        and row.Hash==blockedWork.prereqHash and row.Index==blockedWork.prereqIndex
+        and row.DistrictType==blockedWork.prereqType
+      local barrier=floodBarrier==true and GameInfo.Buildings.BUILDING_FLOOD_BARRIER
+      local protectsFloodedWork=barrier and kind=="building" and placement==nil
+        and row.BuildingType=="BUILDING_FLOOD_BARRIER" and row.Index==barrier.Index and row.Hash==barrier.Hash
+      -- A flooded district may be impossible to repair until its barrier is built.
+      -- The reserved emergency candidate still needs all native and final demand checks.
+      if not prerequisiteRepair and not protectsFloodedWork then return end
     end
     if kind=="project" and projectCandidates[row.Hash] then return end
     if checked >= C.candidatesPerCity then return end
@@ -4163,6 +4166,7 @@ local function ProcessCity(ctx, player, state, city)
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
       score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true,
       prayerProject=prayerProject==true,powerProject=powerProject==true,floodBarrier=floodBarrier==true,
+      floodBarrierIndex=floodBarrier==true and row.Index or nil,
       resumeProject=resumeProject==true,projectIndex=resumeProject==true and row.Index or nil}
     if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c,completedHead,blockedHead)
@@ -4367,6 +4371,19 @@ local function ProcessCity(ctx, player, state, city)
     or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true
     or not QueueReady(city,q,completedHead,blockedHead,blockedWork) or Game.GetCurrentGameTurn()~=turn
     or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player) then return false end
+  if blockedHead and choice.floodBarrier then
+    local barrier=GameInfo.Buildings.BUILDING_FLOOD_BARRIER
+    if not barrier or barrier.BuildingType~="BUILDING_FLOOD_BARRIER" or barrier.Hash~=choice.hash
+      or barrier.Index~=choice.floodBarrierIndex or not FloodBarrierWanted(latest,latestPlayer,city) then
+      cityEvaluated[cityID]=nil
+      Reason("flood_changed:"..cityID,"Coastal flood demand changed; replan production")
+      return false
+    end
+    if barrier.Hash~=choice.hash or barrier.Index~=choice.floodBarrierIndex
+      or barrier.BuildingType~="BUILDING_FLOOD_BARRIER" or not CoreIdle()
+      or not QueueReady(city,q,completedHead,blockedHead,blockedWork) or Game.GetCurrentGameTurn()~=turn
+      or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=latest.player then return false end
+  end
   if choice.resumeProject then
     if q:CanProduce(choice.hash,true)~=true or q:CanProduce(choice.hash,false,true)~=true
       or CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)~=true then return false end
@@ -4383,7 +4400,8 @@ local function ProcessCity(ctx, player, state, city)
   local id=NextRequest(CityRequestKey(city,choice))
   if id==nil then return false end
   pendingCities[city:GetID()]={id=id,hash=choice.hash,kind=choice.kind,elapsed=0,replacesHead=completedHead,prependsHead=blockedHead,blockedWork=blockedWork,
-    firstHolySite=choice.firstHolySite,prayerProject=choice.prayerProject}
+    firstHolySite=choice.firstHolySite,prayerProject=choice.prayerProject,floodBarrier=choice.floodBarrier,
+    floodBarrierIndex=choice.floodBarrierIndex}
   if choice.kind=="unit" then
     submittedUnits[cityID]=submittedUnits[cityID] or {}
     submittedUnits[cityID][choice.hash]=true
@@ -4616,8 +4634,16 @@ local function ReadBack(player)
           local row=head and tables[pending.kind][head[fields[pending.kind]]]
           if not row or row.Hash~=pending.hash then return false end
           local work=pending.blockedWork
+          local barrierHead=false
+          if pending.floodBarrier==true then
+            local barrier=GameInfo.Buildings.BUILDING_FLOOD_BARRIER
+            if pending.kind~="building" or not barrier or barrier.BuildingType~="BUILDING_FLOOD_BARRIER"
+              or barrier.Hash~=pending.hash or barrier.Index~=pending.floodBarrierIndex
+              or barrier.Index~=head.BuildingType then return false end
+            barrierHead=true -- The queued barrier is observed; drainage/completion is not claimed.
+          end
           if work and work.kind=="project" then
-            if work.buildingIndex~=nil or pending.kind~="district" or pending.hash~=work.prereqHash then return false end
+            if work.buildingIndex~=nil or (not barrierHead and (pending.kind~="district" or pending.hash~=work.prereqHash)) then return false end
             local old=GameInfo.Projects[work.projectIndex]
             local district=GameInfo.Districts[work.prereqType]
             if not old or old.Index~=work.projectIndex or old.Hash~=work.hash or old.ProjectType~=work.projectType
@@ -4632,7 +4658,7 @@ local function ReadBack(player)
             return true
           end
           if work and work.kind=="building_repair" then
-            if work.projectIndex~=nil or pending.kind~="district" or pending.hash~=work.prereqHash then return false end
+            if work.projectIndex~=nil or (not barrierHead and (pending.kind~="district" or pending.hash~=work.prereqHash)) then return false end
             local old=GameInfo.Buildings[work.buildingIndex]
             local district=GameInfo.Districts[work.prereqType]
             if not old or old.Index~=work.buildingIndex or old.Hash~=work.hash or old.BuildingType~=work.buildingType
