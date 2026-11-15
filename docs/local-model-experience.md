@@ -1215,3 +1215,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15补正：[152解叠证据](testing/baiqi-source152-native208-210-865866.md)的631占位者7012401/type9实际是玩家将军，type14为大科学家，当前GS原生GameInfo已独立核对。FORMATION_CLASS_CIVILIAN只说明格位，不能当托管角色；将军原209军事SKIP保持TEST_PLAYER，无后台军令或验收扩大。旧文职标签已纠正，所有安全候选占位结论保持。
+
+
+2026-11-15：[152子函数实采](testing/baiqi-source152-coarse-native88-89.md)：544.433s预热／正式重载85、五普通END到90。80根1236行0错丢；root60@89为70ms，ProcessSettler58ms，RequestCivilian7，Site没有在此根出现。原76@88不是同调用，不认定同因；继续PathStep／Safe／支撑与原生路径计时。13绑定撤／90保护／互斥完成后释放，主210及原FAIL保持。Ownerimport路径错误独立证实发令前0记录后修正，无读档重放。

@@ -1,0 +1,1622 @@
+{
+  "schema": "civ6.source152-coarse-native88-89/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 152,
+  "source_commit_at_launch": "cc2500ab37342c22fafef4f6bf3d1981165f20a3",
+  "source_Controller_sha256": "665e17f0e21caac866039a0c66a4e3801216196bbb045bef460334e491b472d3",
+  "diagnostic_archive_sha256": "07864e7e69e7db00a14be76711a6cfcc1d440fd50642649d3788ab87e2452457",
+  "children": [
+    "PlayerContext",
+    "ReadBack",
+    "ProcessCity",
+    "ProcessBuilder",
+    "ProcessSettler",
+    "RefreshSettlement",
+    "RetryCivilianOverlap",
+    "RequestCivilian",
+    "AdvanceBuilderRoute",
+    "PrepareBuilderPathPacket",
+    "ValidateBuilderPathPacket",
+    "SettlementSites"
+  ],
+  "bindings": 13,
+  "sample_capacity": 4096,
+  "profile_count": 1,
+  "actual_warmup_seconds": 544.433000087738,
+  "frozen85_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+  "CPU_affinity": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "fresh_offline_launch": true,
+  "prelaunch_query": "Unavailable before anylaunchintent/Popen; officialSteamheadernavigation once isnotproof. Independentfreshreadonlyofflineproof thenlaunch.",
+  "summary": {
+    "utc": "2026-11-15T15:39:01.506095+00:00",
+    "source": "baiqi152-controller-children-v2",
+    "diagnostic_accounting_ok": true,
+    "roots": 80,
+    "samples": 1236,
+    "observer_phase_counts": {
+      "whole_before_observer": 18,
+      "overlaps_observer": 0,
+      "observed_window": 62,
+      "outside_window_started": 0
+    },
+    "cities": 11,
+    "largest_roots": [
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.07000017166137695,
+          "started": 1794757022.303,
+          "ended": 1794757022.3730001,
+          "failed": false,
+          "rootId": 60,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 1.0001659393310547,
+          "RefreshSettlement": 1.0001659393310547,
+          "ReadBack": 0,
+          "ProcessCity": 0.9999275207519531,
+          "RetryCivilianOverlap": 1.9998550415039062,
+          "RequestCivilian": 7.000207901000977,
+          "ProcessSettler": 58.00008773803711
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.05800008773803711,
+            "started": 1794757022.315,
+            "ended": 1794757022.3730001,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0070002079010009766,
+            "started": 1794757022.366,
+            "ended": 1794757022.3730001,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0019998550415039062,
+            "started": 1794757022.311,
+            "ended": 1794757022.313,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757022.303,
+            "ended": 1794757022.3040001,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757022.366,
+            "ended": 1794757022.367,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757022.3040001,
+            "ended": 1794757022.305,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757022.306,
+            "ended": 1794757022.307,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757022.303,
+            "ended": 1794757022.303,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.03099989891052246,
+          "started": 1794757023.0770001,
+          "ended": 1794757023.108,
+          "failed": false,
+          "rootId": 61,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 0,
+          "ReadBack": 0.9999275207519531,
+          "ProcessCity": 1.0001659393310547,
+          "RetryCivilianOverlap": 0.9999275207519531,
+          "RequestCivilian": 5.000114440917969,
+          "ProcessSettler": 20.999908447265625
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.020999908447265625,
+            "started": 1794757023.0870001,
+            "ended": 1794757023.108,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.005000114440917969,
+            "started": 1794757023.103,
+            "ended": 1794757023.108,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757023.08,
+            "ended": 1794757023.081,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757023.0770001,
+            "ended": 1794757023.078,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757023.078,
+            "ended": 1794757023.079,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757023.081,
+            "ended": 1794757023.082,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757023.085,
+            "ended": 1794757023.086,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794757023.078,
+            "ended": 1794757023.078,
+            "failed": false,
+            "rootId": 61,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.024000167846679688,
+          "started": 1794757020.981,
+          "ended": 1794757021.005,
+          "failed": false,
+          "rootId": 57,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 1.0001659393310547,
+          "ReadBack": 0.9999275207519531,
+          "ProcessCity": 0.9999275207519531,
+          "RequestCivilian": 6.999969482421875,
+          "ProcessBuilder": 14.000177383422852
+        },
+        "largest_children": [
+          {
+            "name": "ProcessBuilder",
+            "seconds": 0.014000177383422852,
+            "started": 1794757020.991,
+            "ended": 1794757021.005,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.006999969482421875,
+            "started": 1794757020.9980001,
+            "ended": 1794757021.005,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757020.981,
+            "ended": 1794757020.982,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757020.982,
+            "ended": 1794757020.983,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757020.9850001,
+            "ended": 1794757020.986,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757020.986,
+            "ended": 1794757020.987,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757020.9950001,
+            "ended": 1794757020.996,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757020.981,
+            "ended": 1794757020.981,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.015000104904174805,
+          "started": 1794757027.246,
+          "ended": 1794757027.2610002,
+          "failed": false,
+          "rootId": 73,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0.9999275207519531,
+          "ReadBack": 0,
+          "ProcessCity": 1.0001659393310547,
+          "RetryCivilianOverlap": 1.0001659393310547
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757027.247,
+            "ended": 1794757027.2480001,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757027.26,
+            "ended": 1794757027.2610002,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757027.246,
+            "ended": 1794757027.247,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757027.2480001,
+            "ended": 1794757027.249,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757027.249,
+            "ended": 1794757027.25,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757027.256,
+            "ended": 1794757027.257,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757027.246,
+            "ended": 1794757027.246,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794757027.247,
+            "ended": 1794757027.247,
+            "failed": false,
+            "rootId": 73,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.014000177383422852,
+          "started": 1794757024.586,
+          "ended": 1794757024.6000001,
+          "failed": false,
+          "rootId": 65,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ProcessCity": 1.0001659393310547,
+          "RetryCivilianOverlap": 1.0001659393310547
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757024.589,
+            "ended": 1794757024.5900002,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757024.599,
+            "ended": 1794757024.6000001,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757024.5870001,
+            "ended": 1794757024.588,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757024.595,
+            "ended": 1794757024.596,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757024.595,
+            "ended": 1794757024.596,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757024.586,
+            "ended": 1794757024.586,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794757024.5870001,
+            "ended": 1794757024.5870001,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794757024.5870001,
+            "ended": 1794757024.5870001,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.01399993896484375,
+          "started": 1794756927.8500001,
+          "ended": 1794756927.864,
+          "failed": false,
+          "rootId": 11,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0,
+          "ReadBack": 0.9999275207519531,
+          "ProcessCity": 0,
+          "RetryCivilianOverlap": 0,
+          "SettlementSites": 5.000114440917969,
+          "RequestCivilian": 0.9999275207519531,
+          "ProcessSettler": 11.00015640258789
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.01100015640258789,
+            "started": 1794756927.853,
+            "ended": 1794756927.864,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementSites",
+            "seconds": 0.005000114440917969,
+            "started": 1794756927.853,
+            "ended": 1794756927.858,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0009999275207519531,
+            "started": 1794756927.8500001,
+            "ended": 1794756927.851,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0009999275207519531,
+            "started": 1794756927.8630002,
+            "ended": 1794756927.864,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794756927.8500001,
+            "ended": 1794756927.8500001,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794756927.8500001,
+            "ended": 1794756927.8500001,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794756927.851,
+            "ended": 1794756927.851,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794756927.851,
+            "ended": 1794756927.851,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.01399993896484375,
+          "started": 1794757025.1100001,
+          "ended": 1794757025.124,
+          "failed": false,
+          "rootId": 66,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0.9999275207519531,
+          "ReadBack": 0,
+          "ProcessCity": 1.0001659393310547,
+          "RetryCivilianOverlap": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757025.112,
+            "ended": 1794757025.1130002,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.1100001,
+            "ended": 1794757025.111,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.117,
+            "ended": 1794757025.118,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.1230001,
+            "ended": 1794757025.124,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757025.1100001,
+            "ended": 1794757025.1100001,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794757025.111,
+            "ended": 1794757025.111,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757025.111,
+            "ended": 1794757025.111,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757025.112,
+            "ended": 1794757025.112,
+            "failed": false,
+            "rootId": 66,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.01399993896484375,
+          "started": 1794757027.5900002,
+          "ended": 1794757027.604,
+          "failed": false,
+          "rootId": 74,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ProcessCity": 0.9999275207519531,
+          "RetryCivilianOverlap": 1.0001659393310547
+        },
+        "largest_children": [
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757027.599,
+            "ended": 1794757027.6000001,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757027.591,
+            "ended": 1794757027.592,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757027.592,
+            "ended": 1794757027.593,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757027.5900002,
+            "ended": 1794757027.5900002,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794757027.591,
+            "ended": 1794757027.591,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794757027.591,
+            "ended": 1794757027.591,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757027.591,
+            "ended": 1794757027.591,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757027.592,
+            "ended": 1794757027.592,
+            "failed": false,
+            "rootId": 74,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.013000011444091797,
+          "started": 1794757021.841,
+          "ended": 1794757021.854,
+          "failed": false,
+          "rootId": 58,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 0,
+          "ReadBack": 0.9999275207519531,
+          "ProcessCity": 1.0001659393310547
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757021.843,
+            "ended": 1794757021.844,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757021.841,
+            "ended": 1794757021.842,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757021.844,
+            "ended": 1794757021.845,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757021.851,
+            "ended": 1794757021.852,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757021.841,
+            "ended": 1794757021.841,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794757021.841,
+            "ended": 1794757021.841,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757021.842,
+            "ended": 1794757021.842,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757021.843,
+            "ended": 1794757021.843,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.013000011444091797,
+          "started": 1794757024.198,
+          "ended": 1794757024.211,
+          "failed": false,
+          "rootId": 64,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 1.0001659393310547,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ProcessCity": 1.0001659393310547,
+          "RetryCivilianOverlap": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757024.201,
+            "ended": 1794757024.2020001,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757024.205,
+            "ended": 1794757024.206,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757024.2,
+            "ended": 1794757024.201,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757024.206,
+            "ended": 1794757024.207,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757024.1990001,
+            "ended": 1794757024.1990001,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794757024.1990001,
+            "ended": 1794757024.1990001,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794757024.1990001,
+            "ended": 1794757024.1990001,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757024.2,
+            "ended": 1794757024.2,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.013000011444091797,
+          "started": 1794757025.164,
+          "ended": 1794757025.177,
+          "failed": false,
+          "rootId": 67,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0.9999275207519531,
+          "ReadBack": 0,
+          "ProcessCity": 0.9999275207519531,
+          "RetryCivilianOverlap": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.164,
+            "ended": 1794757025.165,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.1660001,
+            "ended": 1794757025.167,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.1690001,
+            "ended": 1794757025.17,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.173,
+            "ended": 1794757025.174,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757025.176,
+            "ended": 1794757025.177,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757025.164,
+            "ended": 1794757025.164,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794757025.165,
+            "ended": 1794757025.165,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757025.1660001,
+            "ended": 1794757025.1660001,
+            "failed": false,
+            "rootId": 67,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.010999917984008789,
+          "started": 1794757026.842,
+          "ended": 1794757026.853,
+          "failed": false,
+          "rootId": 72,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ProcessCity": 1.0001659393310547,
+          "RetryCivilianOverlap": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794757026.843,
+            "ended": 1794757026.844,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757026.844,
+            "ended": 1794757026.845,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757026.845,
+            "ended": 1794757026.846,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RetryCivilianOverlap",
+            "seconds": 0.0009999275207519531,
+            "started": 1794757026.852,
+            "ended": 1794757026.853,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794757026.842,
+            "ended": 1794757026.842,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794757026.842,
+            "ended": 1794757026.842,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794757026.842,
+            "ended": 1794757026.842,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794757026.843,
+            "ended": 1794757026.843,
+            "failed": false,
+            "rootId": 72,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      }
+    ],
+    "facts_sha256": "d9f5d8022ff8c8cb7e383b8b1e22f780ac5ca8d12a22b37bdf76a4cb2abef650",
+    "limits": "Selected coarse children only, inclusive times; no summing nested rows or B_plan/whole performance pass. Root entry city count only; no inferred end-state. All active pre-observer entries retained; actual interval phases classified against observed anchors without physical-event inference."
+  },
+  "all_samples": "docs/research/baiqi-source152-coarse-native-samples-2026-11-15.json",
+  "public_samples_sha256": "72d7c7e0f59bed406ded62c3a293294645b4ff8a23c379963e27102ce466283c",
+  "all_measured_maximum_ms": {
+    "PlayerContext": 1.0001659393310547,
+    "RefreshSettlement": 1.0001659393310547,
+    "ReadBack": 1.0001659393310547,
+    "Controller.RunNow": 70.00017166137695,
+    "ProcessCity": 7.000207901000977,
+    "RequestCivilian": 7.000207901000977,
+    "ProcessBuilder": 14.000177383422852,
+    "RetryCivilianOverlap": 1.9998550415039062,
+    "SettlementSites": 5.000114440917969,
+    "ProcessSettler": 58.00008773803711,
+    "PrepareBuilderPathPacket": 0.9999275207519531,
+    "ValidateBuilderPathPacket": 1.0001659393310547,
+    "AdvanceBuilderRoute": 3.000020980834961
+  },
+  "root_maximum_by_turn_ms": {
+    "88": 13.99993896484375,
+    "89": 70.00017166137695
+  },
+  "root60_all_rows": [
+    {
+      "name": "PlayerContext",
+      "seconds": 0.0,
+      "started": 1794757022.303,
+      "ended": 1794757022.303,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "RefreshSettlement",
+      "seconds": 0.0010001659393310547,
+      "started": 1794757022.303,
+      "ended": 1794757022.3040001,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ReadBack",
+      "seconds": 0.0,
+      "started": 1794757022.3040001,
+      "ended": 1794757022.3040001,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0009999275207519531,
+      "started": 1794757022.3040001,
+      "ended": 1794757022.305,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.305,
+      "ended": 1794757022.305,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.305,
+      "ended": 1794757022.305,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.305,
+      "ended": 1794757022.305,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.306,
+      "ended": 1794757022.306,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.306,
+      "ended": 1794757022.306,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.306,
+      "ended": 1794757022.306,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.306,
+      "ended": 1794757022.306,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0009999275207519531,
+      "started": 1794757022.306,
+      "ended": 1794757022.307,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessCity",
+      "seconds": 0.0,
+      "started": 1794757022.307,
+      "ended": 1794757022.307,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "PlayerContext",
+      "seconds": 0.0,
+      "started": 1794757022.31,
+      "ended": 1794757022.31,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "PlayerContext",
+      "seconds": 0.0,
+      "started": 1794757022.311,
+      "ended": 1794757022.311,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "RetryCivilianOverlap",
+      "seconds": 0.0019998550415039062,
+      "started": 1794757022.311,
+      "ended": 1794757022.313,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "PlayerContext",
+      "seconds": 0.0010001659393310547,
+      "started": 1794757022.366,
+      "ended": 1794757022.367,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "PlayerContext",
+      "seconds": 0.0,
+      "started": 1794757022.368,
+      "ended": 1794757022.368,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "RequestCivilian",
+      "seconds": 0.0070002079010009766,
+      "started": 1794757022.366,
+      "ended": 1794757022.3730001,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "ProcessSettler",
+      "seconds": 0.05800008773803711,
+      "started": 1794757022.315,
+      "ended": 1794757022.3730001,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.07000017166137695,
+      "started": 1794757022.303,
+      "ended": 1794757022.3730001,
+      "failed": false,
+      "rootId": 60,
+      "rootTurn": 89,
+      "rootCities": 10,
+      "observer_phase": "observed_window"
+    }
+  ],
+  "observed": {
+    "root60_turn89_ms": 70.00017166137695,
+    "ProcessSettler_ms": 58.00008773803711,
+    "RequestCivilian_ms": 7.000207901000977,
+    "SettlementSites_in_root60": false,
+    "SettlementSites_wholecase_max_ms": 5.000114440917969
+  },
+  "limits": [
+    "Selected nested children inclusive; do notaddoverlappingchildrows",
+    "Root70@89 isnotoriginal76@88 invocation; noassumptionofidenticalcause orcost",
+    "PathStep/Safe/KnownExpansionSupport/Native.GetMoveToPathEx stillunmeasured separately",
+    "InstrumentationaddsRootcost; cannotreplaceoriginalvalidB_planFAIL orgrantperformancePASS",
+    "Rootentrycitycounts only, noassumedendcounts"
+  ],
+  "player_inputs": {
+    "ordinary_supported_ENDs": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "each_once": true,
+    "actual_activations": [
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "END90": 0,
+    "military_SKIP_by_turn": {
+      "85": 18,
+      "86": 18,
+      "87": 18,
+      "88": 18,
+      "89": 18
+    },
+    "farewell87_original_once": true,
+    "UserForced": false,
+    "manual_civilian_production_research": 0,
+    "BACKGROUND_military_or_diplomacy": 0
+  },
+  "owner_driver_correction": {
+    "utc": "2026-11-15T15:30:32.273014+00:00",
+    "owner": {
+      "pid": 24648,
+      "created_at": 1794755649.7341588,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "classification": "HOST_IMPORT_FAILURE_BEFORE_FIRST_NATIVE_CALL_OR_CAPTURE_INTENT",
+    "messages": [
+      {
+        "tag": 4,
+        "payload": "0\u0000Main State\u00001\u0000DebugHotloadCache\u00002\u0000BaiqiGameplay\u00003\u0000WorldCongress\u00004\u0000GameCore_Tuner\u00005\u0000WorldInput\u00006\u0000StrategicView\u00007\u0000ARXManager\u00008\u0000MapLabelManager\u00009\u0000WorldViewIconsManager\u000010\u0000DistrictPlotIconManager\u000011\u0000SettlerInfluenceIconManager\u000012\u0000PlotInfo\u000013\u0000CityBannerManager\u000014\u0000UnitFlagManager\u000015\u0000TourismBannerManager\u000016\u0000MapPinManager\u000017\u0000SelectedUnit\u000018\u0000WorldViewPlotMessages\u000019\u0000SettlerWarningIconManager\u000020\u0000PowerLensManager\u000021\u0000GenVFX\u000022\u0000CameraManager\u000023\u0000PlotToolTip\u000024\u0000StatusMessagePanel\u000025\u0000NotificationPanel\u000026\u0000ConfirmKick\u000027\u0000ChatPanel\u000028\u0000TutorialGoals\u000029\u0000WorldTracker\u000030\u0000WorldCrisisTracker\u000031\u0000MapPinListPanel\u000032\u0000MapSearchPanel\u000033\u0000MinimapPanel\u000034\u0000CityPanel\u000035\u0000UnitPanel\u000036\u0000ActionPanel\u000037\u0000MultiplayerTurnManager\u000038\u0000TopPanel\u000039\u0000DiplomacyRibbon\u000040\u0000CityStates\u000041\u0000EspionageOverview\u000042\u0000WorldRankings\u000043\u0000TradeOverview\u000044\u0000ReportsList\u000045\u0000PartialScreenHooks\u000046\u0000ProductionManager\u000047\u0000ProductionPanel\u000048\u0000EdgeScroll\u000049\u0000FullscreenMapPopup\u000050\u0000TechTree\u000051\u0000CivicsTree\u000052\u0000ClimateScreen\u000053\u0000GovernmentScreen\u000054\u0000ReligionScreen\u000055\u0000GreatWorksOverview\u000056\u0000GreatWorkShowcase\u000057\u0000GreatPeoplePopup\u000058\u0000GlobalResourcePopup\u000059\u0000ReportScreen\u000060\u0000LaunchBar\u000061\u0000TradeRouteChooser\u000062\u0000TradeOriginChooser\u000063\u0000CivicsChooser\u000064\u0000ResearchChooser\u000065\u0000EspionageChooser\u000066\u0000PantheonChooser\u000067\u0000CityPanelOverview\u000068\u0000CityPanelCulture\u000069\u0000CityPanelPower\u000070\u0000ModalLensPanel\u000071\u0000EraCompletePopup\u000072\u0000NaturalWonderPopup\u000073\u0000NaturalDisasterPopup\u000074\u0000RockBandMoviePopup\u000075\u0000RockBandPopup\u000076\u0000WonderBuiltPopup\u000077\u0000ProjectBuiltPopup\u000078\u0000MapPinPopup\u000079\u0000PBCNotificationPopup\u000080\u0000RazeCity\u000081\u0000BoostUnlockedPopup\u000082\u0000TechCivicCompletedPopup\u000083\u0000UnitPromotionPopup\u000084\u0000EspionagePopup\u000085\u0000EventPopup\u000086\u0000Automation_NarrationPopup\u000087\u0000ChooseArtifact\u000088\u0000EspionageEscape\u000089\u0000UnitCaptured\u000090\u0000InGamePopup\u000091\u0000WorldCongressPopup\u000092\u0000WorldCongressBetweenTurns\u000093\u0000WorldCongressIntro\u000094\u0000LeaderScene\u000095\u0000DiplomacyActionView\u000096\u0000DiplomacyDealView\u000097\u0000DeclareWarPopup\u000098\u0000EndGameMenu\u000099\u0000SaveGameMenu\u0000100\u0000PlayerChange\u0000101\u0000NewTurnPanel\u0000102\u0000CivilopediaScreen\u0000103\u0000PausePanel\u0000104\u0000SwitchLayoutPopup\u0000105\u0000HotSeatBackground\u0000106\u0000LoadGameMenu\u0000107\u0000SaveGameMenu\u0000108\u0000Options\u0000109\u0000InGameTopOptionsMenu\u0000110\u0000BaiqiExecutor\u0000111\u0000DedicationPopup\u0000112\u0000DisloyalCityChooser\u0000113\u0000EraProgressPanel\u0000114\u0000EraReviewPopup\u0000115\u0000ExpansionIntro\u0000116\u0000GovernorAssignmentChooser\u0000117\u0000GovernorDetailsPanel\u0000118\u0000GovernorPanel\u0000119\u0000HistoricMoments\u0000120\u0000WorldCrisisPopup\u0000121\u0000InGame\u0000122\u0000AdvisorPopup\u0000123\u0000TutorialWorldAnchor\u0000124\u0000TutorialUIRoot\u0000125\u0000InvitePopup"
+      },
+      {
+        "tag": -1,
+        "payload": "O\u0000BaiqiExecutor: CONTROLLER152A_HOST_IMPORT_STOP_NOT_ISSUED\t85\tfalse\t0\t0\ttrue"
+      },
+      {
+        "tag": 3,
+        "payload": ""
+      }
+    ],
+    "game_actions": 0,
+    "old_console_retained": true,
+    "repair": "Added repository root tosys.path before tools.performance_admission import, sameactiveformalnonce retained",
+    "reload_replays": 0
+  },
+  "QA_restoration": {
+    "bindings": 13,
+    "all_identity_checks": true,
+    "original_observer_removed": true,
+    "recording_stopped": true,
+    "saved": {
+      "utc": "2026-11-15T15:40:18.348798+00:00",
+      "name": "Baiqi_P6_20261115_V152_ControllerChildrenSpike90.Civ6Save",
+      "bytes": 518762,
+      "sha256": "69b0dfe68ec9794c2d928732a3564d112c79acca3071b2db67f20318c0c34d8e",
+      "stable_repeated_read": true
+    },
+    "official_exit_once": true,
+    "natural_exit_not_claimed": true
+  },
+  "formal_exclusion": {
+    "admitted_before_reload": true,
+    "released_after_complete_export_and_exact_retire": true,
+    "HTTP_or_heavy_tests_during": 0
+  },
+  "claims": {
+    "diagnostic_accounting": "PASS",
+    "native_settler_inner_cost_investigation": "CONTINUE",
+    "current152_B_plan": "FAIL retained76ms",
+    "whole_performance_or_functional": "NOT_PASS"
+  },
+  "main210_protected": true,
+  "Steam_online_switches_or_uploads": 0,
+  "next": "871diagnosis/872truncatedtoolcandidate/873narrowcore afterformalrelease; transparentprivatepathcalltiming beforeanyproductoptimization"
+}
