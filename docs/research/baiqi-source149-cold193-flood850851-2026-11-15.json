@@ -1,0 +1,196 @@
+{
+  "schema": "civ6.source149-cold193-flood-blocker/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 149,
+  "source_commit": "7d0c358723b6b632db44d17ea92eefe38dcad6b9",
+  "product_changes": 0,
+  "cold192": {
+    "same149_install_files_verified": 119,
+    "installed_file_copies": 0,
+    "formal_load_once_ACK": true,
+    "current_instance_ordered_load_markers": true,
+    "city": 1048590,
+    "xy": [
+      9,
+      19
+    ],
+    "population": 1,
+    "cities": 15,
+    "units": 63,
+    "granary_progress": 0,
+    "cost": 32,
+    "consumed_founder_absent": true,
+    "new_bank_stage": "OBSERVED",
+    "new_token": "settle:0:2",
+    "new_request": "0:192:301",
+    "goal_bridge": "READY/nil",
+    "old_ARMED_unchanged": true
+  },
+  "TEST_PLAYER192": {
+    "restored_private_wait_metadata": 22,
+    "rejected_old_alert_metadata": 4,
+    "private_metadata_native_commands": 0,
+    "four_new_FORTIFY_ids": [
+      131073,
+      327683,
+      524292,
+      2097168
+    ],
+    "each_fortify_once": true,
+    "after": "actual SENTRY / readyfalse / no pending / empty queue",
+    "new_profile_scenarios_bothLua": 40,
+    "ordinary_END192_once": true,
+    "one_argument_ACTION_ENDTURN": true,
+    "UserForced": false,
+    "actual_turn193_independent": true,
+    "civilian_or_production_commands": 0
+  },
+  "ordinary193": {
+    "city": 1048590,
+    "granary_progress_before": 0,
+    "granary_progress_after": 9,
+    "cost": 32,
+    "turns_left": 3,
+    "completed": false,
+    "new_bank_OBSERVED_and_old_ARMED_preserved": true,
+    "END193": 0
+  },
+  "wuhan193_FAIL": {
+    "city": 327684,
+    "population": 22,
+    "xy": [
+      8,
+      10
+    ],
+    "queue_size": 1,
+    "current_hash": 0,
+    "head": {
+      "ProjectType": 10,
+      "Directive": 3,
+      "Modifiers": 0,
+      "Location": [
+        -9999,
+        -9999
+      ]
+    },
+    "project_hash": -1205325871,
+    "progress": 119,
+    "cost": 145,
+    "project_visibleCan": true,
+    "project_fullCan": false,
+    "project_failure": "所需项目地点受到破坏。",
+    "prereq_district": {
+      "index": 9,
+      "hash": -1698135861,
+      "owned": true,
+      "pillaged": true,
+      "xy": [
+        7,
+        10
+      ],
+      "complete": true,
+      "lowland": 2,
+      "flooded": true,
+      "submerged": false,
+      "fullCanRepair": false,
+      "failure": "洪灾区域，无法修复。"
+    },
+    "barrier": {
+      "index": 113,
+      "hash": 205057393,
+      "fullCan": true,
+      "BaiqiFlood_City": true,
+      "purchase_Holds": false
+    },
+    "source_cause": "Add only admits prerequisite district repair for retained invested projects/building repairs; emergency barrier rejected before native legality. ReadBack also assumes district repair. Source150 patch not yet written at this evidence cut.",
+    "status": "FAIL_OPEN"
+  },
+  "checkpoint": {
+    "utc": "2026-11-15T09:24:34.584958+00:00",
+    "name": "Baiqi_P6_20261115_V149_XingzhouColdProgress193.Civ6Save",
+    "bytes": 688880,
+    "sha256": "d0163b4d0a25954a76a19a2799c0501d6ef488a0112c607281578271351be463",
+    "stable_repeated_read": true
+  },
+  "Steam": {
+    "fresh_background_offline_before_launch": true,
+    "online_switches": 0,
+    "uploads": 0,
+    "mode_proof_screenshots_or_focus": 0,
+    "first_query_unavailable": "one official header navigation then independent current-instance readonly offline proof"
+  },
+  "models": [
+    {
+      "number": 850,
+      "http_status": 200,
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 10078,
+        "completion_tokens": 435,
+        "total_tokens": 10513
+      },
+      "total_ms": 5376.206999877468,
+      "first_nonempty_content_delta_ms": 1846.8420999124646,
+      "adopted": false,
+      "raw_Native": 0,
+      "compile_both_Lua": true,
+      "candidate_executions": 0,
+      "whole_length_unread": false
+    },
+    {
+      "number": 851,
+      "http_status": 200,
+      "finish_reason": "length",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 2369,
+        "completion_tokens": 1800,
+        "total_tokens": 4169
+      },
+      "total_ms": 12437.818000093102,
+      "first_nonempty_content_delta_ms": 1839.0192000661045,
+      "adopted": false,
+      "raw_Native": 0,
+      "compile_both_Lua": false,
+      "candidate_executions": 0,
+      "whole_length_unread": true
+    }
+  ],
+  "model_concurrency": {
+    "actual_POST_peak": 2,
+    "overlap_seconds": 5.36714,
+    "service_concurrency": null
+  },
+  "reviews": {
+    "850": "compiles Lua5.1/5.3 but returns table rather than console printing required by host, missing context/fullID/pcall/arity and required row/progress/CanProduce/prerequisite facts; no execution/adoption",
+    "851": "1800 output budget exhausted; entire length body unread, no JSON candidate parse/compile/adoption. Owner budget cost separate",
+    "Owner": "bounded standalone actual collector dualcompiled, Native192 and193 readonly. CanProduce full returns bool plus nil or failuretable; arity preserved, unknown not treated false. Owner fixture whitespace error 0tests retained before corrected40dualLua cases. Original850 request source completion added before firstPOST, request unchanged afterward."
+  },
+  "ledger_at_851": {
+    "logical": 851,
+    "complete": 784,
+    "length": 64,
+    "final_transport": 3,
+    "HTTP_attempts": 882,
+    "extra_attempts": 30,
+    "inflight": 0,
+    "new_OpenCode_native_generation": 0
+  },
+  "claims": {
+    "new_city_cold_persistence": true,
+    "ordinary_new_city_progress": true,
+    "granary_completed": false,
+    "wuhan_flood_recovered": false,
+    "all_functional_acceptance": false,
+    "source149_performance": "UNMEASURED",
+    "old_ARMED_recovery": "FAIL_OPEN"
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "full_Owner_active_cost": null,
+    "net_time_saving": null
+  },
+  "next": "Source150 prepend legal emergency barrier while retaining unfinished investment, necessary software validation then offline cold193 Native; no manual production filler"
+}

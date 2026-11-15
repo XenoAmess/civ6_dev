@@ -1170,3 +1170,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[149192邢州实机](testing/baiqi-source149-xingzhou-founded192.md)：同一自然训练演员跨145—149继续，149冷181至192自主到址／FOUND，Core空址新城＋演员消耗双证明，Token2 OBSERVED／目标清理、自动粮仓0/32，正式新档已核。0人工文职或队列填补，原ARMED保持；193进度／冷重载及其他生产、4军队阻塞继续，模型累计849不变、0新增OpenCode原生。hash0不能按GameInfo.Units[0]显示来声称生产移民。
+
+
+2026-11-15：[149冷读／普通193与850851](testing/baiqi-source149-cold193-flood.md)：邢州粮仓9/32，四军队各一次FORTIFY后普通END192实际193；武汉工业区洪灾使项目119/145与区域修复均被拒，防洪坝合法但Add过滤，继续150。850编译但宿主输出／资格合同不足拒用；851length整弃。Owner双Lua／Native只读分账，累计851／784完整／64length／3transport／882HTTP／30extra，新增OpenCode原生0。
