@@ -397,3 +397,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[143冷实机159](../testing/baiqi-source143-cold159.md)已一次正常换回合并保持旧记录；只推荐旧受保护点造成独立扩张正案未完成，实际4个其他谓词通过点支持下一轮有界备选修复。新159已存；143性能未测，旧恢复FAIL保留。
+
+
+2026-11-15：[144有界备选软件通过](../testing/baiqi-source144-bounded-alternates.md)，旧意图附近两环19格，保全部安全与派发资格；97Lua双编译／119包一致。尚未安装／Native或性能，旧恢复FAIL保留。

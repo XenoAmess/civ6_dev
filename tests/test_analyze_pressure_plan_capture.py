@@ -40,6 +40,14 @@ class PressureAnalyzerTests(unittest.TestCase):
         d['source']='baiqi142-pressure-stageA-v1'
         with self.assertRaises(ValueError):analyze_pressure_plan_capture(d,expected_source_version=143)
 
+    def test_source144_source143_validates_exact_matching_tag(self):
+        d=self._pressure();d['source']='baiqi144-pressure-stageA-v1'
+        s=analyze_pressure_plan_capture(d,expected_source_version=144)
+        self.assertTrue(s['overall_budget_ok'])
+        with self.assertRaises(ValueError):analyze_pressure_plan_capture(d)
+        d['source']='baiqi142-pressure-stageA-v1'
+        with self.assertRaises(ValueError):analyze_pressure_plan_capture(d,expected_source_version=144)
+
     def test_invalid_initial_turn(self):
         d = self._pressure(210)
         d['initial_turn'] = True

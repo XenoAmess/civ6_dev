@@ -1134,3 +1134,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [824—825／143冷159](testing/baiqi-source143-cold159.md)：824部分机械适配但漏实际owner、重复锚点／发明parser／二次turn，Owner21门后Native11MOVE。Owner宽替换夹具误改target index单列。825城市查单位／index公式／truthy可见性整拒，Owner只读census及原源谓词读出4备用点，未授路径或建城。累计825／764完整／855HTTP；826另案。
+
+
+2026-11-15 [826—828／144软件](testing/baiqi-source144-bounded-alternates.md)：826漏pcall及半截候选风险由Owner事务式批收集纠正；827四精确renderer片段采用、旧143输出保持；828 length未读，Owner接管实际Controller测试。累计828／766完整／59length／858HTTP，实峰1，新OpenCode原生0，未知成本null。

@@ -83,6 +83,103 @@ w.originalBank=J.Clone(b,7)
         self.assertEqual(self.units(), [])
         self.assertGreater(self.w.settlementQueries, 0)
 
+    def enable_bounded_alternates(self):
+        self.lua.execute("""
+local w=TestWorld;local oldXY=Map.GetPlotXYWithRangeCheck
+w.settlementRecommendations={{SettlingLocation=44}};w.alternateGeometryCalls=0
+Map.GetPlotXYWithRangeCheck=function(x,y,dx,dy,r)
+ if x==8 and y==3 and r==2 then
+  w.alternateGeometryCalls=w.alternateGeometryCalls+1
+  if w.overlargeGeometry and (dx~=0 or dy~=0)then
+   local index=1000+(dx+2)*5+(dy+2)
+   return {GetIndex=function()return index end,GetX=function()return x+dx end,GetY=function()return y+dy end}
+  end
+  if dx==-1 and dy==0 then return Map.GetPlotByIndex(45)end
+ end
+ return oldXY(x,y,dx,dy,r)
+end
+""")
+
+    def test_sole_protected_hint_uses_bounded_alternate_without_old_orders(self):
+        self.enable_bounded_alternates()
+        self.run_and_preserve(3)
+        self.assertEqual(self.units(), [201])
+        self.assertGreater(self.w.alternateGeometryCalls, 0)
+
+    def test_no_protected_hint_does_not_search_alternates(self):
+        self.enable_bounded_alternates()
+        self.lua.execute("TestWorld.settlementRecommendations={}")
+        self.run_and_preserve()
+        self.assertEqual(self.units(), [])
+        self.assertEqual(self.w.alternateGeometryCalls, 0)
+
+    def test_native_alternative_keeps_original_priority_without_fallback_scan(self):
+        self.enable_bounded_alternates()
+        self.lua.execute("TestWorld.settlementRecommendations={{SettlingLocation=44},{SettlingLocation=45}}")
+        self.run_and_preserve()
+        self.assertEqual(self.units(), [201])
+        self.assertEqual(self.w.alternateGeometryCalls, 0)
+
+    def test_hidden_alternate_metadata_is_not_read(self):
+        self.enable_bounded_alternates()
+        self.lua.execute("""
+local vis=PlayersVisibility[7]
+vis.IsVisible=function(self,x,y)return x~=7 end
+local plot=Map.GetPlotByIndex(45)
+plot.GetOwner=function()error('HIDDEN_METADATA_READ')end
+""")
+        self.run_and_preserve()
+        self.assertEqual(self.units(), [])
+        self.assertNotIn("脚本错误", self.c.GetStatus())
+
+    def test_fallback_exception_discards_partial_proposals_and_other_work_continues(self):
+        self.enable_bounded_alternates()
+        self.lua.execute("""
+local seenAlternative=false;local vis=PlayersVisibility[7]
+vis.IsVisible=function(self,x,y)
+ if x==7 and y==3 then seenAlternative=true;return true end
+ if seenAlternative and x==8 and y==3 then
+  TestWorld.afterProposalThrows=(TestWorld.afterProposalThrows or 0)+1;error('AFTER_FIRST_PROPOSAL')
+ end
+ return true
+end
+""")
+        self.run_and_preserve()
+        self.assertEqual(self.units(), [])
+        self.assertEqual(len(self.w.cityRequests), 2)
+        self.assertGreater(self.w.afterProposalThrows, 0)
+        self.assertNotIn("脚本错误", self.c.GetStatus())
+
+    def test_more_than_nineteen_geometry_cells_declines_alternates(self):
+        self.enable_bounded_alternates()
+        self.w.overlargeGeometry = True
+        self.run_and_preserve()
+        self.assertEqual(self.units(), [])
+        self.assertGreater(self.w.alternateGeometryCalls, 19)
+        self.assertNotIn("脚本错误", self.c.GetStatus())
+
+    def test_fallback_rechecks_live_native_hint_before_production_dispatch(self):
+        self.enable_bounded_alternates()
+        self.w.loseSettlementSite = True
+        self.run_and_preserve()
+        self.assertEqual(self.units(), [])
+        self.assertGreater(self.w.settlementQueries, 1)
+
+    def test_alternate_feature_and_city_distance_guards_still_apply(self):
+        for condition in ("feature", "city_distance"):
+            with self.subTest(condition=condition):
+                self.setUp()
+                self.enable_bounded_alternates()
+                if condition == "feature":
+                    self.lua.execute("Map.GetPlotByIndex(45).GetFeatureType=function()return 999 end")
+                else:
+                    self.lua.execute("""
+local old=Map.GetPlotDistance
+Map.GetPlotDistance=function(x,y,cx,cy)if x==7 and cx==2 then return 2 end;return old(x,y,cx,cy)end
+""")
+                self.run_and_preserve()
+                self.assertEqual(self.units(), [])
+
     def test_alternative_site_disappears_before_dispatch(self):
         self.w.loseSettlementSite = True
         self.run_and_preserve()

@@ -89,7 +89,7 @@ class CurrentObservedBuildTests(unittest.TestCase):
             f'<Mod id="{MOD_ID}" version="999"><Files><File>empty.lua</File></Files></Mod>',
             encoding='utf-8')
         output = self.base / 'unsupported-output'
-        with patch.object(builder, 'ROOT', base), self.assertRaisesRegex(ValueError, 'actual source67,139,140,141,142 or143'):
+        with patch.object(builder, 'ROOT', base), self.assertRaisesRegex(ValueError, 'actual source67,139,140,141,142,143 or144'):
             builder.build(output, bounded_zero=True)
         self.assertFalse(output.exists())
 

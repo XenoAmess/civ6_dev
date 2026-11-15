@@ -2467,8 +2467,41 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
   -- remains a proposal only: every eligibility, path and dispatch check below
   -- still reads current state. Recruitment never supplies a preferred index.
   if preferredIndex~=nil then AddCandidate(preferredIndex,100,true) end
+  local protectedHint=false
   for rank, recommendation in pairs(ai:GetSettlementRecommendations(12) or {}) do
-    AddCandidate(recommendation.SettlingLocation,100-(tonumber(rank) or 0),false)
+    local index=recommendation.SettlingLocation
+    if settlementCache.plots[index] then protectedHint=true end
+    AddCandidate(index,100-(tonumber(rank) or 0),false)
+  end
+  if protectedHint and #candidates==0 then
+    local ok,alternates=pcall(function()
+      if not settlementCache.ready or settlementCache.unresolved~=1 then return nil end
+      local op
+      for _,record in pairs(settlementCache.records) do
+        if record.stage=="ARMED" then op=record;break end
+      end
+      if not op then return nil end
+      local actor=player:GetUnits():FindID(op.unitID)
+      if not actor or not settlementCache.IsRetained(player,actor) then return nil end
+      if visibility:IsRevealed(op.x,op.y)~=true or visibility:IsVisible(op.x,op.y)~=true then return nil end
+      local oldPlot=Map.GetPlotByIndex(op.plot)
+      if not oldPlot or oldPlot:GetIndex()~=op.plot or oldPlot:GetX()~=op.x or oldPlot:GetY()~=op.y then return nil end
+      local cells=NeighborhoodGeometry(oldPlot,2)
+      if not cells or #cells>19 then return nil end
+      local proposals={}
+      for _,cell in ipairs(cells) do
+        if visibility:IsRevealed(cell.x,cell.y)==true and visibility:IsVisible(cell.x,cell.y)==true then
+          local distance=Map.GetPlotDistance(op.x,op.y,cell.x,cell.y)
+          if GeometryInteger(distance) and distance<=2 then
+            proposals[#proposals+1]={index=cell.index,score=50-distance}
+          end
+        end
+      end
+      return proposals
+    end)
+    if ok and type(alternates)=="table" then
+      for _,candidate in ipairs(alternates) do AddCandidate(candidate.index,candidate.score,false) end
+    end
   end
   table.sort(candidates,function(a,b)
     if a.preferred~=b.preferred then return a.preferred end

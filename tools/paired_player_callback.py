@@ -4,7 +4,7 @@ from tools.paired_normal_end import request_end,request_pressure_end
 
 
 def make_callback(query,child,record,is_diplomacy_visible,*,expected_source_version=142,pressure_initial_turn=None):
-    if type(expected_source_version)is not int or expected_source_version not in (142, 143):
+    if type(expected_source_version)is not int or expected_source_version not in (142, 143,144):
         raise ValueError('Invalid source version')
     if not all(callable(f)for f in (query,child,record,is_diplomacy_visible)):
         raise TypeError('Callback dependencies must be callable')
@@ -12,7 +12,7 @@ def make_callback(query,child,record,is_diplomacy_visible,*,expected_source_vers
     if pressure and(type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641):
         raise ValueError('Invalid pressure initial_turn')
     first=pressure_initial_turn if pressure else 85
-    src_tag='baiqi143-pressure-paired-v1' if expected_source_version==143 else 'baiqi142-pressure-paired-v1'
+    src_tag=f'baiqi{expected_source_version}-pressure-paired-v1'
     metadata={'source':src_tag,'initial_turn':first}if pressure else{}
 
     def visible_guard():

@@ -10,12 +10,12 @@ def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Pa
     from tools.performance_admission import assert_no_model_activity
     if (Path.cwd()/'.local-model/p6-formal-performance-active.json').exists():
         assert_no_model_activity(Path.cwd())
-    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143):raise ValueError('Invalid source version')
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144):raise ValueError('Invalid source version')
     if type(legacy_forced)is not bool:raise TypeError('legacy_forced must be an explicit boolean')
     pressure=pressure_initial_turn is not None
     if pressure and (type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                     or expected_source_version not in (142,143) or legacy_forced):
-        raise ValueError('Pressure run requires actual bounded calendar, source142/143 and ordinary END')
+                     or expected_source_version not in (142,143,144) or legacy_forced):
+        raise ValueError('Pressure run requires actual bounded calendar, source142/143/144 and ordinary END')
     first=pressure_initial_turn if pressure else 85;last_turn_expected=first+5
     if legacy_forced:
         if request_normal_end is not None:raise ValueError('Legacy forced mode cannot use normal callback')
@@ -24,7 +24,7 @@ def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Pa
     if not isinstance(fixture_sha256,str) or len(fixture_sha256)!=64 or any(c not in '0123456789abcdef' for c in fixture_sha256):raise ValueError('Expected fixture hash')
     token=uuid.uuid4().hex;quoted=json.dumps(token);requested=[];attempted=False;actual_source_version=None
     # Read these headers again at each reservation, poll, issuance and stop.
-    src_tag='baiqi143-pressure-paired-v1' if expected_source_version==143 else 'baiqi142-pressure-paired-v1'
+    src_tag=f'baiqi{expected_source_version}-pressure-paired-v1'
     pressure_headers=f'''
 assert(s.source=='{src_tag}' and s.initial_turn=={first} and s.source_version=={expected_source_version} and s.normal_end==true)
 local pressureOwner=P6PairEndOwner
