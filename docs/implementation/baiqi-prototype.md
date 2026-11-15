@@ -394,3 +394,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[143有界独立扩张软件通过](../testing/baiqi-source143-retained-capacity.md)，保留旧ARMED演员／记录并保护目标；完整回归及97Lua双编译／119包一致。尚未安装／Native，旧恢复FAIL与142性能证据各保原范围。
+
+
+2026-11-15：[143冷实机159](../testing/baiqi-source143-cold159.md)已一次正常换回合并保持旧记录；只推荐旧受保护点造成独立扩张正案未完成，实际4个其他谓词通过点支持下一轮有界备选修复。新159已存；143性能未测，旧恢复FAIL保留。

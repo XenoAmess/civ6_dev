@@ -461,3 +461,5 @@ python tools\build_mod.py --install
 - [90传教士自动采购软件链](docs/testing/baiqi-missionary-purchase-flow-90.md)：安全国内需求、一次信仰购买及回执后传播交接已接通；1287软件通过／1SDK跳过、81Lua5.1／103文件一致。未安装／实测90，安装及实机仍87，Steam占用期间不上线。
 
 [142旧ARMED158补齐活动资格](docs/testing/baiqi-legacy816-qualified158.md)：active／strategic=true时两种CANCEL仍false，未取消或重放；旧日志／演员及现代342保护，转查有界独立扩张。
+
+[143冷实机159与真实选址缺口](docs/testing/baiqi-source143-cold159.md)：普通158→159、旧意图保持；AI仅推荐受保护846，4个其他点通过现有安全／边境谓词但未入推荐。已保存159，继续有界备选实现，未授独立扩张通过。
