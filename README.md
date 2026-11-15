@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码146：[173新移民已自主出生并行军3步](docs/testing/baiqi-source146-new-settler173.md)，南京生产接续、旧ARMED保持；继续到址／建城及新版性能。自然学家自动睡眠已实测，完整功能与旧ARMED恢复FAIL仍开放。
+当前源码146：[独立移民已到178，文职占位与山地堵路已定位](docs/testing/baiqi-source146-route178-blocked.md)，现场已存，有界绕行修复及建城继续。173自主出生／生产接续和自然学家睡眠已有实测；146性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 

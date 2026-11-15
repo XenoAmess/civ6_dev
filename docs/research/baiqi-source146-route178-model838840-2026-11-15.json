@@ -1,0 +1,321 @@
+{
+  "schema": "civ6.source146-route178/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 146,
+  "source_commit": "4138d4a46007aadab7f99e8a010c038b901dfd38",
+  "source_files": 119,
+  "source_ZIP_sha256": "81954b49b38566214cf90679ddd7571af2d82b76163230c94750272421b1b769",
+  "owner": {
+    "PID": 20908,
+    "birth": 1794712999.830288
+  },
+  "observed_turns": [
+    {
+      "turn": 173,
+      "settlers": [
+        [
+          "8650807",
+          "10",
+          "19",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ],
+        [
+          "10027070",
+          "9",
+          "2",
+          "0.5",
+          "1",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_count": 14
+    },
+    {
+      "turn": 174,
+      "settlers": [
+        [
+          "8650807",
+          "10",
+          "19",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ],
+        [
+          "10027070",
+          "9",
+          "2",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_count": 14
+    },
+    {
+      "turn": 175,
+      "settlers": [
+        [
+          "8650807",
+          "10",
+          "19",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ],
+        [
+          "10027070",
+          "10",
+          "5",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_count": 14
+    },
+    {
+      "turn": 176,
+      "settlers": [
+        [
+          "8650807",
+          "10",
+          "19",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ],
+        [
+          "10027070",
+          "10",
+          "5",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_count": 14
+    },
+    {
+      "turn": 177,
+      "settlers": [
+        [
+          "8650807",
+          "10",
+          "19",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ],
+        [
+          "10027070",
+          "10",
+          "5",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_count": 14
+    }
+  ],
+  "actual_turn178": true,
+  "TEST_PLAYER": {
+    "military_SKIP_requests173_177": 35,
+    "ordinary_END173_177": 5,
+    "new_original_button_step177": 1,
+    "prior_END177_completed_before_followup": true,
+    "UserForced": false,
+    "civilian_production_inputs": 0,
+    "first_END177_did_not_advance": true
+  },
+  "settler": {
+    "id": 10027070,
+    "position178": [
+      10,
+      5
+    ],
+    "persistent_goal": [
+      845,
+      9,
+      19
+    ],
+    "native_route_length": 20,
+    "revealed_owner_or_unowned_rejections": 0,
+    "unknown_visible_unit_queries": 0,
+    "visible_hostiles_near_native_route": 0,
+    "first275_11_6_civilian": 4194337,
+    "alternative274_10_6_civilian": 9961524,
+    "another318_10_7_civilian": 6357005,
+    "east_mountains": [
+      188,
+      232,
+      276
+    ],
+    "reason": "Known own civilian stack blockade; strict single-hop detour cannot choose viable first edge"
+  },
+  "bounded_graph_readonly": {
+    "node_count": 53,
+    "proposed_route": [
+      230,
+      186,
+      229,
+      273,
+      317,
+      362,
+      363,
+      407,
+      451,
+      494,
+      538,
+      582,
+      626,
+      670,
+      715,
+      716,
+      760,
+      805,
+      848,
+      847,
+      891,
+      890,
+      845
+    ],
+    "first_edge": [
+      230,
+      186
+    ],
+    "first_edge_native_exact2_and_CanMOVE": true,
+    "future_hops_native_qualified": false,
+    "water_proposal": 229,
+    "commands": 0,
+    "product_fix_applied": false
+  },
+  "old_intent": {
+    "unit": 8650807,
+    "stage": "ARMED",
+    "token": "settle:0:1",
+    "request": "0:156:173",
+    "plot": 846,
+    "preserved": true
+  },
+  "checkpoint": {
+    "name": "Baiqi_P6_20261115_V146_SettlerCivilianBlocked178.Civ6Save",
+    "bytes": 666383,
+    "sha256": "8759e6bb32483e29cc40df6b963617b2687bf22fa6b9602e17fe60ba07eaeb47",
+    "reloaded": false
+  },
+  "models": {
+    "838": {
+      "usage": {
+        "prompt_tokens": 7523,
+        "completion_tokens": 1110,
+        "total_tokens": 8633
+      },
+      "total_ms": 8632.152300095186,
+      "TTFT_ms": 1348.39679999277,
+      "HTTP_attempts": 1,
+      "complete_stop_DONE_strict_JSON": true,
+      "raw_code_adopted": 0,
+      "raw_code_Native": 0,
+      "reasons": [
+        "Game.GetLocalPlayer returns numeric ID, query treats it as player object",
+        "u:GetPlot invented; private Controller locals unavailable in ActionPanel",
+        "claimed guards/limits not implemented; no bounds or UNKNOWN markers",
+        "incorrectly treats fogged revealed route as automatic Safe failure"
+      ],
+      "request_sha256": "fc096a52cd1cf70dbe9a8a7207b1e11b862d5323b1ddf7fc1af6d323a20de90c",
+      "shared_commit": "1b4a8a136925860b5d96485f28f521153ba45e33",
+      "full_source_closure_audited": false
+    },
+    "839": {
+      "usage": {
+        "prompt_tokens": 11168,
+        "completion_tokens": 1611,
+        "total_tokens": 12779
+      },
+      "total_ms": 11665.98519985564,
+      "TTFT_ms": 1728.2381998375058,
+      "HTTP_attempts": 1,
+      "complete_stop_DONE_strict_JSON": true,
+      "raw_code_adopted": 0,
+      "raw_code_Native": 0,
+      "reasons": [
+        "only relaxes distance with old one-hop join; real231 has join0",
+        "permits worsening despite contract; changes prior tie ordering",
+        "proposed test joins blocked path[2] although loop starts3",
+        "Owner obtained mountain geometry after request; original request retained"
+      ],
+      "request_sha256": "78878f948542a6b1ae9ebfdba1391233efb08ae75c68774d0efba050536ffc8d",
+      "shared_commit": "1b4a8a136925860b5d96485f28f521153ba45e33",
+      "full_source_closure_audited": false
+    },
+    "840": {
+      "usage": {
+        "prompt_tokens": 11655,
+        "completion_tokens": 2390,
+        "total_tokens": 14045
+      },
+      "total_ms": 16658.89019984752,
+      "TTFT_ms": 1791.4455998688936,
+      "HTTP_attempts": 1,
+      "complete_stop_DONE_strict_JSON": true,
+      "raw_code_adopted": 0,
+      "raw_code_Native": 0,
+      "reasons": [
+        "goto incompatible with Lua5.1, table.reverse unavailable, visited={start=true} marks string key",
+        "Available requires adjacency from original here, so BFS cannot traverse beyond first ring",
+        "goal bypasses availability checks; no originalLength+6 implementation",
+        "no final full route occupancy/adjacency checks or second native qualification"
+      ],
+      "request_sha256": "f8a73c2cc8c1e6f128813e78d705e154906c2c43b216c54fd76275986923642c",
+      "shared_commit": "1b4a8a136925860b5d96485f28f521153ba45e33",
+      "full_source_closure_audited": false
+    }
+  },
+  "ledger": {
+    "logical": 840,
+    "complete": 777,
+    "length": 60,
+    "final_transport": 3,
+    "HTTP_attempts": 870,
+    "extra_attempts": 30,
+    "current_inflight": 0,
+    "peak_each_new_task": 1,
+    "new_task_overlap": false,
+    "OpenCode_native_generation_sessions": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "service_concurrency": null,
+    "full_Owner_cost": null,
+    "net_time_saving": null,
+    "future_embark_legality": null,
+    "source146_performance": "UNMEASURED"
+  },
+  "Owner_errors_retained": [
+    "177 ports query completed and saved before filesystem log path lookup failed; corrected Logs root, no input",
+    "Archer178 getter used u:GetActivityType (nil), failed read-only before requests; corrected UnitManager.GetActivityType",
+    "No candidate raw code executed; no permissive detour adopted before mountain readback"
+  ],
+  "claims": {
+    "independent_birth_and_movement": true,
+    "new_city_founded": false,
+    "route_repair": false,
+    "all_functional_acceptance": false,
+    "old_ARMED_recovery": "FAIL_OPEN"
+  }
+}

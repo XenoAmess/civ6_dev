@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [178真实堵路／838—840](testing/baiqi-source146-route178-blocked.md)：三候选均0原代码采用；数值ID／私有闭包、未满足绕山、Lua5.1／BFS资格错误分列，山地事实晚于839请求的Owner输入缺口保留。实际53节点只读图有23点几何候选，未来水路未授原生许可；178正式保存。累计840／777完整／60length／3最终传输失败／870HTTP／30额外，0在途／0新增OpenCode原生生成。
+
 2026-11-15 [N4环境重叠／双向互斥804](testing/baiqi-pressure-N4-invalid-admission804.md)：Owner803在正式4E内POST，整侧五段拒绝，判废记录时已完成、不冒称完成前。802length未读；804骨架部分采用、原11测4错，Owner45检查含24竞争／真实CLI拒绝过，待新冷启。累计804／745完整／56length／834HTTP。
 
 2026-11-15 [普通142主334冷启准备801](testing/baiqi-pressure-main334-launch-preparation801.md)：部分采用并补os、精确Steam身份／freshage、marker值、实际平面回执消费者；Owner21隔离检查过，0启动／Steam查询／主334加载。累计801／743完整／831HTTP，原生工具0。
