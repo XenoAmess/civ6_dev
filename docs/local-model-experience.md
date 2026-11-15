@@ -1206,3 +1206,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[152性能准备／867868](testing/baiqi-source152-performance-preparation867868.md)：实际并行2。867完整19157tokens，仅导入无HTTP检查未调用，Owner加正式／模型空闲及前置安装存档检查后部分采用，97双Lua119ZIP规划包准备。868非法Python导入、XML当JSON，整拒；Owner规范构建配对各97Lua119ZIP／同前缀桥，启用1文件、对照12。0安装实采，不继承142性能。主210已保护，正式退出后静默残留单terminate15。累计868／799完整／66length／3transport／899HTTP／30extra，原生0、未知成本null。
+
+
+2026-11-15：[152正式B_plan FAIL](testing/baiqi-source152-stageA-fail.md)：391.911s预热后正式重载同85档，六普通END／五窗86—90，312行0错丢、21preanchor另列。纯十城Admin111 p9518/max21ms过，Controller142 p9517/max76ms未过；最坏88激活后首个无参调用，下一次49ms，不推定原因或滤除。完整raw／保存91／精确撤钩／官方退出，正式nonce仅完成后释放，0HTTP重型测试。869870新诊断在释放后，现152其余性能不追授。

@@ -1,0 +1,323 @@
+{
+  "schema": "civ6.source152-stageA-fail/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 152,
+  "source_commit": "07cd874cd776eddab683f28e1043095adc5b9447",
+  "StageA_archive_sha256": "503a6e8be3d90be9df1f64e4df6db839cc5bfcd2c5ed32d46130476a789c0ff9",
+  "source_Controller_sha256": "665e17f0e21caac866039a0c66a4e3801216196bbb045bef460334e491b472d3",
+  "helper_hashes": {
+    "diagnostic_profile": "a45e0d6488982c35e758b32b342fd0c147762030f626c379e6cb2b079560ea3c",
+    "diagnostic_plan_window": "f836e3398f9f75cca6f33c356e6436cc501aff2c06bc7875cac7d004fd190304",
+    "diagnostic_qualification_trace": "d805d9783ab5077701ae47774082544ffc09f965a946ea56502dba9c864c0177",
+    "diagnostic_preanchor_proof": "9f73b9a06540065683a4ce033f5e08b0f7d05c3402806be3b0ca049bc46b1651",
+    "diagnostic_plan_stage": "7a78bf4ff1d7515a58dcdbbf16d252053b38466b60505f991fddb5e2046c8a20"
+  },
+  "fixture": {
+    "sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+    "bytes": 503809,
+    "initial_turn": 85,
+    "initial_cities": 10,
+    "final_turn": 91,
+    "final_cities": 11,
+    "actual_warmup_seconds": 391.91100001335144,
+    "fresh_offline_launch": true,
+    "proof_age_seconds": 0.214804,
+    "CPU_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "summary": {
+    "utc": "2026-11-15T14:48:46.730663+00:00",
+    "facts_sha256": "4bdc3ab8cc37a88dbab51be31b5a12055c7a113080bcf9fcf9c58455ae9c1f04",
+    "cities": 11,
+    "source": "baiqi152-stageA-v2",
+    "sample_quality_ok": true,
+    "samples": 312,
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 111,
+        "10_to_11": 0,
+        "eleven_city": 17,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 142,
+        "10_to_11": 0,
+        "eleven_city": 21,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 21
+      }
+    },
+    "eligible_calls_by_turn": {
+      "Admin.Run": {
+        "86": 28,
+        "87": 27,
+        "88": 24,
+        "89": 25,
+        "90": 24
+      },
+      "Controller.RunNow": {
+        "86": 33,
+        "87": 30,
+        "88": 33,
+        "89": 32,
+        "90": 35
+      }
+    },
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 111,
+        "p50_ms": 2.000093460083008,
+        "p95_ms": 17.999887466430664,
+        "max_ms": 21.000146865844727,
+        "above_20ms_count": 2,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 142,
+        "p50_ms": 1.9998550415039062,
+        "p95_ms": 17.000198364257812,
+        "max_ms": 75.99997520446777,
+        "above_20ms_count": 7,
+        "above_50ms_count": 1,
+        "budget_ok": false
+      }
+    },
+    "overall_budget_ok": false,
+    "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 21,
+      "validated": 21,
+      "errors": 0
+    }
+  },
+  "all_samples": "docs/research/baiqi-source152-stageA-samples-2026-11-15.json",
+  "public_samples_sha256": "bd7669be53df863996e5a3739cb7b590a52e66d774344d46bff924241c3fed64",
+  "raw_facts_sha256": "4bdc3ab8cc37a88dbab51be31b5a12055c7a113080bcf9fcf9c58455ae9c1f04",
+  "top8": [
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.07599997520446777,
+      "failed": false,
+      "started": 1794753841.423,
+      "ended": 1794753841.499,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794753841.422,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.04900002479553223,
+      "failed": false,
+      "started": 1794753841.765,
+      "ended": 1794753841.8140001,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794753841.422,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.03399991989135742,
+      "failed": false,
+      "started": 1794753759.959,
+      "ended": 1794753759.993,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794753759.039,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.0279998779296875,
+      "failed": false,
+      "started": 1794753844.486,
+      "ended": 1794753844.514,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794753841.422,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.026999950408935547,
+      "failed": false,
+      "started": 1794753762.858,
+      "ended": 1794753762.885,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794753759.039,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.026000022888183594,
+      "failed": false,
+      "started": 1794753844.864,
+      "ended": 1794753844.89,
+      "turnStart": 88,
+      "turnEnd": 88,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794753841.422,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Controller.RunNow",
+      "seconds": 0.024000167846679688,
+      "failed": false,
+      "started": 1794754027.958,
+      "ended": 1794754027.982,
+      "turnStart": 90,
+      "turnEnd": 90,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794754025.652,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 1,
+      "allowOrders": "true"
+    },
+    {
+      "name": "Admin.Run",
+      "seconds": 0.021000146865844727,
+      "failed": false,
+      "started": 1794753759.938,
+      "ended": 1794753759.959,
+      "turnStart": 87,
+      "turnEnd": 87,
+      "cityStart": 10,
+      "cityEnd": 10,
+      "anchor": 1794753759.039,
+      "windowEligible": true,
+      "preAnchor": false,
+      "argumentCount": 0,
+      "allowOrders": "nil"
+    }
+  ],
+  "formal_admission": {
+    "before_formal_reload": true,
+    "finished_after_complete_dump_and_exact_QA_retire": true,
+    "HTTP_during_formal": 0,
+    "heavy_tests_during_formal": 0,
+    "nonce_retained_privately": true
+  },
+  "player_inputs": {
+    "ordinary_supported_ENDs": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "END_count_each": 1,
+    "military_SKIP_by_turn": {
+      "85": 18,
+      "86": 18,
+      "87": 18,
+      "88": 18,
+      "89": 18,
+      "90": 19
+    },
+    "actual_activations": [
+      86,
+      87,
+      88,
+      89,
+      90,
+      91
+    ],
+    "END91": 0,
+    "UserForced": false,
+    "manual_civilian_or_production_or_research": 0,
+    "original87farewell_handler_once": true,
+    "driver_safety": "Added original4UIendchecks andexclusiveENDflag; refusedlegacyDoEndTurn fallback ifmilitarySKIPeligibilitychanged. Actual3consumersdualcompiled, noextraENDs.",
+    "QA_never_forced_Controller_RunNow": true
+  },
+  "capture": {
+    "utc": "2026-11-15T14:48:31.409918+00:00",
+    "token": "ff4d80e77d7547f6a4069373e96245fb",
+    "phase": "COMPLETE",
+    "turn": 91,
+    "requested_turns": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "capture_start": 1794753585.638,
+    "capture_stop": 1794754111.364,
+    "samples": 312
+  },
+  "QA_retired": true,
+  "checkpoint": {
+    "utc": "2026-11-15T14:49:26.532336+00:00",
+    "name": "Baiqi_P6_20261115_V152_PlanStageAAComplete91.Civ6Save",
+    "bytes": 520613,
+    "sha256": "421bcfc78335b2c2c1e84feab117d9f946956f635b517d7eb0f7e3e6f91d4f94",
+    "stable_repeated_read": true
+  },
+  "official_exit_once": true,
+  "lifecycle_scope": "No claimofnaturalprocessend; followupownedresiduecheckrequired ifstillalive.",
+  "claims": {
+    "B_plan": "FAIL current152: Controllermax76ms>50ms, validpure10sample",
+    "Admin_budget": "PASS onlythiscase",
+    "B_turn": "UNMEASURED152",
+    "N_req": "UNMEASURED152",
+    "B_delta": "UNMEASURED152",
+    "whole_TC036_152": "NOT_PASS",
+    "whole_functional_matrix": "OPEN",
+    "historical142_PASS": "retainsoriginalspecificscope, nottransferred",
+    "cause": "UNPROVEN; first88nativeactivationnil-entry76ms, nextnil49ms. Noattributiontohelpers/OSnoise/JSONpolling."
+  },
+  "preserved": "All312 samples, spikeandsubthreshold49 retained;21preanchorrows and38eleven-cityrows separate. Nooutlierfilter/replacementrerun/budgetrelaxation orNativewritertimeexcluded. Main210ordinarysave remainsprotected.",
+  "next": "Real869source-diagnosis and870detailedartifact tasks after formal finished, no productfixbeforecauseevidence; currentSource152coarse88/89childsampling next.",
+  "Steam_online_switches_or_uploads": 0
+}
