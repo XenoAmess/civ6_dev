@@ -1212,3 +1212,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[152尖峰诊断／869870](testing/baiqi-source152-spike-diagnosis869870.md)：869十词法名都存在，建造者续行在Tick直接调用，采用分阶段测点；修正Economy串联／深递归推测，不采因果。870语法与marker正确，但遗漏正式／CPU／实际安装存档检查、只查ZIP存在，整拒；Owner“wrong marker”字段另更正。实际12scoped测点／97双Lua119ZIP精确前缀准备，未装测，原76msFAIL不覆盖。StageA进程已自行消失0terminate，主210／QA91保持。累计870／801完整／66length／3transport／901HTTP／30extra，原生0未知成本null。
+
+
+2026-11-15补正：[152解叠证据](testing/baiqi-source152-native208-210-865866.md)的631占位者7012401/type9实际是玩家将军，type14为大科学家，当前GS原生GameInfo已独立核对。FORMATION_CLASS_CIVILIAN只说明格位，不能当托管角色；将军原209军事SKIP保持TEST_PLAYER，无后台军令或验收扩大。旧文职标签已纠正，所有安全候选占位结论保持。
