@@ -406,3 +406,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[145 lazy备用软件通过](../testing/baiqi-source145-lazy-alternates.md)，原144真实缺口红→绿、29容量／102聚焦及全套过，97Lua双编译／119包一致。尚待安装与冷Native，独立扩张正案／新版性能未授，旧恢复FAIL保持。
+
+
+2026-11-15：[145冷161独立生产已排队](../testing/baiqi-source145-native161-queued.md)，南京后台新移民请求与Native队列配对，0/220、预计11回合；旧ARMED及演员保持。161已存，继续出生／移动／建城；END161后原版议会尚阻塞，未授162或新版性能，旧恢复FAIL保留。
