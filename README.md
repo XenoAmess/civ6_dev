@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码148：[水路往返与文职叠放修复的软件验证通过](docs/testing/baiqi-source148-cycle-overlap.md)，2501项含1SDK跳过、97Lua双编译／119包；继续181冷验。实际移出／持续行军／建城、148性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码／实机148：[181重叠阻塞已自主清除、军队原位单体](docs/testing/baiqi-source148-native181-overlap-cycle.md)，新水路往返仍FAIL，现场已存，继续空闲建造者让路／行军修复。2501软件含1SDK跳过；换回合、到址／建城、148性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
