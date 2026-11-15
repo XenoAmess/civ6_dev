@@ -465,3 +465,6 @@ python tools\build_mod.py --install
 [143冷实机159与真实选址缺口](docs/testing/baiqi-source143-cold159.md)：普通158→159、旧意图保持；AI仅推荐受保护846，4个其他点通过现有安全／边境谓词但未入推荐。已保存159，继续有界备选实现，未授独立扩张通过。
 
 [144冷实机160与动态推荐缺口](docs/testing/baiqi-source144-native160.md)：预算／训练资格及Native队列已核，两个负忠诚远端hint压住近邻备选；160已保存，继续修按实际验证失败触发，未授独立扩张／新版性能。
+
+
+[145普通163与自然学家阻塞](docs/testing/baiqi-player-alert833-native163.md)：新移民51/220；玩家军队警戒未接管文职，唯一ready自然学家原生SKIP拒绝而SLEEP允许。163已保存，0END163，继续修托管待命缺口。

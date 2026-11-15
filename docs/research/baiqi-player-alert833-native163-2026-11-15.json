@@ -1,0 +1,148 @@
+{
+  "schema": "civ6.baiqi.player-alert-native/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "version": 145,
+  "source_commit": "a8b0f2bc79bfbfe750d3373b300a1c2659265570",
+  "ordinary": {
+    "original_congress_submit161": 1,
+    "ordinary_END_in_original_submit": 1,
+    "Owner_END161_replays": 0,
+    "actual162": true,
+    "ordinary_END162": 1,
+    "actual163": true,
+    "END163": 0
+  },
+  "settler_progress": {
+    "city": 655369,
+    "type": "UNIT_SETTLER",
+    "cost": 220,
+    "turn161": 0,
+    "turn162": 34,
+    "turn163": 51,
+    "newborn": false,
+    "old_ARMED_retained": true
+  },
+  "military": {
+    "source": "TEST_PLAYER",
+    "pinned_prior_SKIP161_cohort": 34,
+    "preexisting_sentry1114120_changed": false,
+    "pilot162_id": 1048576,
+    "pilot_xy": [
+      13,
+      16
+    ],
+    "pilot_requests": 1,
+    "pilot_after_actual163": {
+      "same_xy": true,
+      "pending": true,
+      "activity": 1225574625,
+      "activity_name": "ACTIVITY_OPERATION",
+      "ready_move": false,
+      "ready_select": false,
+      "queued": null
+    },
+    "other_ALERT163": 26,
+    "total_ALERT_requests": 27,
+    "independent_same_position_wait_readbacks": 27,
+    "SKIP162": 33,
+    "SKIP163": 7,
+    "new_BG_military_orders": 0,
+    "military_MOVE": 0,
+    "civilian_inputs": 0,
+    "production_inputs": 0,
+    "whole_batch_next_turn_and_cold_reload": "PENDING"
+  },
+  "verification": {
+    "owner_ALERT_dual_Lua_scenarios": 46,
+    "known_ALERT_END_gate_dual_Lua_scenarios": 26,
+    "actual_END_dual_compile": true
+  },
+  "blocker": {
+    "turn": 163,
+    "name": "ENDTURN_BLOCKING_UNITS",
+    "unit_total": 62,
+    "unique_ready": 1,
+    "pending": 41,
+    "sole_ready": {
+      "id": 9306162,
+      "type": "UNIT_NATURALIST",
+      "xy": [
+        15,
+        17
+      ],
+      "owner": 0,
+      "moves": 4,
+      "formation": 1,
+      "damage": 0,
+      "pending": false,
+      "queued": null,
+      "activity": "ACTIVITY_AWAKE",
+      "current_plot_owner": 0,
+      "visible": true,
+      "SKIP_native_legal": false,
+      "SLEEP_native_legal": true,
+      "SKIP_hash": 745019656,
+      "SLEEP_hash": -41338758,
+      "SLEEP_enum": null,
+      "safe_park_candidate": "NONE_OBSERVED_BY_CONTROLLER"
+    },
+    "diagnosis": "Current standby only attempts SKIP; no legal idle fallback for this naturalist. Product repair PENDING, no manual fill."
+  },
+  "save163": {
+    "utc": "2026-11-15T03:01:49.113577+00:00",
+    "name": "Baiqi_P6_20261115_V145_NaturalistBlocked163.Civ6Save",
+    "bytes": 644722,
+    "sha256": "4cf2b8223b1ffc7f080f5a3a178bfaf4071f08d86c91348dce6707dd702ecc34",
+    "stable_repeated_read": true
+  },
+  "model834": {
+    "usage": {
+      "prompt_tokens": 1050,
+      "completion_tokens": 483,
+      "total_tokens": 1533
+    },
+    "total_ms": 3491.959200007841,
+    "TTFT_ms": 401.8962001428008,
+    "stop_DONE_JSON": true,
+    "adoption": "PARTIAL_READONLY",
+    "Owner_corrections": [
+      "Count unique ready units rather than adding both booleanflags",
+      "selected owner",
+      "final blocker read"
+    ],
+    "verification": "Dual Lua compile, no-write source audit, actual Native census; no redundant mocks"
+  },
+  "Owner_errors_preserved": [
+    "Independent readback numeric adjacency compile error after pilot request",
+    "Immediate SENTRY assertion rejected actual pending ACTIVITY_OPERATION; no request replay",
+    "resumeB Python ternary missing whitespace before any new input",
+    "END wrapper lacked life global before main/intent; corrected then only one END162",
+    "Readonly CanStartOperation unqualified true third argument raised; qualified nil form under pcall only afterwards"
+  ],
+  "ledger_through834": {
+    "logical": 834,
+    "complete": 771,
+    "length": 60,
+    "final_transport": 3,
+    "HTTP": 864,
+    "extra_retries": 30,
+    "current_in_flight": 0,
+    "new_OpenCode_native_sessions": 0,
+    "task_peak": 1
+  },
+  "model835": "Successor real product repair separately recorded",
+  "unknown": {
+    "Owner_active_cost": null,
+    "cached_tokens": null,
+    "server_concurrency": null,
+    "net_savings": null
+  },
+  "private_receipt_sha256": {
+    "legacy145-normal-turn162-END-returned.json": "4937c2b45992ac392da4f5e3cceee3367f6d2fbcb486cfa637622f0a9448f942",
+    "legacy145cold160-alert163b-phase-complete.json": "aa226887a27d00d37e30fcef4356a209848e56c3a695d8072f801d07cf29fd74",
+    "legacy145cold160-player-skips-162-complete.json": "dd70e727ee952f59c12c51475ddcdf10e3d5a1cd26a5e77f78c778b6fcad6242",
+    "legacy145cold160-player-skips-163-complete.json": "7f17caf2d65615671eebdef48c447d4eca24fdbc5c050edc1aee9af45cad0dcf",
+    "legacy145cold160-census834-025620200440.json": "aab12fefef8d7ca4dc6cc6755eb08a55e1d60dc7e00b4eb53146e8edd57321fc"
+  }
+}
