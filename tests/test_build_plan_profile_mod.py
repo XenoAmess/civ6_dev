@@ -76,7 +76,7 @@ assert(#Activations==1 and BaiqiAdmin.Run==Original and BaiqiController.RunNow==
         files=manifest_files(ROOT/'mod/Baiqi')
         with patch.object(builder,'manifest_files',return_value=files):
             with patch.object(builder.ET,'fromstring') as parse:
-                parse.return_value.get.return_value='152'
+                parse.return_value.get.return_value='153'
                 with self.assertRaisesRegex(ValueError,'actual source140'):builder.build(out)
         self.assertFalse(out.exists())
         with self.assertRaisesRegex(ValueError,'separate'):builder.build(ROOT/'mod/Baiqi/private-diagnostic')

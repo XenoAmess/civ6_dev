@@ -1315,7 +1315,7 @@ end
 -- A newly recruited civilian can share its spawn tile with an idle civilian,
 -- making native SKIP illegal. Move only that unescorted civilian out of the
 -- overlap, after its normal task and wait have both failed. Never roam alone.
-local function ClearCivilianOverlap(ctx,player,state,unit)
+local function ClearCivilianOverlap(ctx,player,state,unit,prewrite)
   local here=UnitPlot(unit)
   local def=GameInfo.Units[unit:GetUnitType()]
   if not def or not BaiqiPolicy.ActionAllowed(def.UnitType,"MOVE_TO") or not here
@@ -1359,7 +1359,9 @@ local function ClearCivilianOverlap(ctx,player,state,unit)
   for _,plot in ipairs(candidates) do
     local step=PathStep(unit,plot,player,state)
     if step and step:GetIndex()==plot:GetIndex() then
-      if RequestCivilian(ctx,state,unit,"MOVE_TO",plot) then return true end
+      local index,x,y=plot:GetIndex(),plot:GetX(),plot:GetY()
+      local guard=prewrite and function()return prewrite(plot,index,x,y)==true end or nil
+      if RequestCivilian(ctx,state,unit,"MOVE_TO",plot,nil,guard) then return true end
     end
   end
   return false
@@ -4717,6 +4719,77 @@ local function ReadBack(player)
   end
 end
 
+local function CivilianWorkHeld(unit,kind,key)
+  return (kind=="UNIT_BUILDER"and unitEvaluated[key]=="native_wait")
+    or (BaiqiPolicy.DistrictGreatPersonClass(kind)and DistrictPersonHeld(unit))
+    or (kind=="UNIT_SETTLER"and SettlementHeld(unit))
+    or (BaiqiPolicy.CreativeGreatPersonClass(kind)and CreativeHeld(unit))
+    or (kind=="UNIT_MISSIONARY"and MissionaryHeld(unit))
+    or (kind=="UNIT_GREAT_PROPHET"and ProphetHeld(unit))
+    or (kind=="UNIT_NATURALIST"and NaturalistHeld(unit))
+    or (kind=="UNIT_ARCHAEOLOGIST"and ArchaeologyHeld(unit))
+end
+
+-- A later arrival or disappearing threat does not change this actor's UnitKey.
+-- Reconsider only overlap parking, never repeat its already evaluated task.
+local function RetryCivilianOverlap(ctx,player,state,unit)
+  local id,kind,index=unit:GetID(),unit:GetUnitType(),UnitIndex(unit)
+  local key,stamp,epoch=UnitKey(unit),turn,settlementWorldEpoch
+  local def=GameInfo.Units[kind]
+  if not def or not BaiqiPolicy.CivilianType(def.UnitType)or not index
+    or unitEvaluated[key]~=true or pendingUnits[id]~=nil then return false end
+  local name=def.UnitType
+  local manager=UnitManager
+  local can,writer,queue,path=manager.CanStartOperation,manager.RequestOperation,manager.GetQueuedDestination,manager.GetMoveToPathEx
+  local byIndex,activity=Map.GetPlotByIndex,manager.GetActivityType
+  local skipRow=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN
+  local skip=skipRow and skipRow.Hash
+  if type(can)~="function"or type(writer)~="function"or type(queue)~="function"
+    or type(path)~="function"or type(activity)~="function"or not BaiqiPolicy.Number(skip)then return false end
+  local function Bound()
+    return UnitManager==manager and manager.CanStartOperation==can and manager.RequestOperation==writer
+      and manager.GetQueuedDestination==queue and manager.GetMoveToPathEx==path
+      and manager.GetActivityType==activity and Map.GetPlotByIndex==byIndex
+      and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN==skipRow and skipRow.Hash==skip
+  end
+  local function Empty(ok,...)return ok and select("#",...)<=1 and (...)==nil end
+  local function False(ok,...)return ok and select("#",...)==1 and (...)==false end
+  local function Fresh()
+    local ok,fresh=pcall(function()
+      local c,p,s=PlayerContext();local u=p and p:GetUnits():FindID(id)
+      if not c or c.player~=ctx.player or not CoreIdle()or not Bound()or turn~=stamp
+        or Game.GetCurrentGameTurn()~=stamp or settlementWorldEpoch~=epoch
+        or pendingUnits[id]~=nil or unitEvaluated[key]~=true
+        or not BaiqiPolicy.MatchesID(u,id)or u:GetOwner()~=ctx.player or u:GetUnitType()~=kind
+        or UnitIndex(u)~=index or UnitKey(u)~=key or not BaiqiPolicy.CanCivilian(c,UnitSnapshot(u,s))
+        or type(u.IsReadyToMove)~="function"or u:IsReadyToMove()~=true
+        or type(u.IsReadyToSelect)~="function"or u:IsReadyToSelect()~=true
+        or type(u.IsDead)~="function"or u:IsDead()~=false
+        or type(u.IsDelayedDeath)~="function"or u:IsDelayedDeath()~=false
+        or type(u.HasPendingOperations)~="function"or not False(pcall(u.HasPendingOperations,u))
+        or not Empty(pcall(queue,u))or activity(u)~=ActivityTypes.ACTIVITY_AWAKE
+        or CivilianWorkHeld(u,name,key)then return nil end
+      if not CoreIdle()or not Bound()or turn~=stamp or Game.GetCurrentGameTurn()~=stamp
+        or settlementWorldEpoch~=epoch or pendingUnits[id]~=nil then return nil end
+      return u
+    end)
+    return ok and fresh or nil
+  end
+  local fresh=Fresh()
+  if not fresh or not False(pcall(can,fresh,skip,nil,{}))or not Fresh()then return false end
+  return ClearCivilianOverlap(ctx,player,state,fresh,function(plot,target,x,y)
+    local current=Fresh();local cell=byIndex(target)
+    if not current or not cell or cell:GetIndex()~=target or cell:GetX()~=x or cell:GetY()~=y
+      or cell:GetOwner()~=ctx.player or cell:IsWater()~=false or cell:IsImpassable()~=false
+      or not Revealed(cell)or visibility:IsVisible(x,y)~=true then return false end
+    local here=UnitPlot(current)
+    return here~=nil and here:GetOwner()==ctx.player and Revealed(here)
+      and visibility:IsVisible(here:GetX(),here:GetY())==true
+      and Map.GetPlotDistance(here:GetX(),here:GetY(),x,y)==1
+      and Safe(here,player)and Safe(cell,player)and CivilianMoveTarget(here,cell,current,ctx.player)==true
+  end)
+end
+
 local function Tick(allowOrders)
   planningStarted=PlanningTime()
   if stopped then return end
@@ -4886,14 +4959,7 @@ local function Tick(allowOrders)
             if submitted then status="先知自动前往圣地并取得建教资格，等待实际结果";return end
             if quarantined then status="先知等待持久化许可与新鲜身份核对；其他内政继续执行";return end
           end
-          local held=(snapshot.type=="UNIT_BUILDER"and unitEvaluated[unitKey]=="native_wait")
-            or (BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) and DistrictPersonHeld(unit))
-            or (snapshot.type=="UNIT_SETTLER" and SettlementHeld(unit))
-            or (BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) and CreativeHeld(unit))
-            or (snapshot.type=="UNIT_MISSIONARY" and MissionaryHeld(unit))
-            or (snapshot.type=="UNIT_GREAT_PROPHET" and ProphetHeld(unit))
-            or (snapshot.type=="UNIT_NATURALIST" and NaturalistHeld(unit))
-            or (snapshot.type=="UNIT_ARCHAEOLOGIST" and ArchaeologyHeld(unit))
+          local held=CivilianWorkHeld(unit,snapshot.type,unitKey)
           local here=not held and UnitPlot(unit)
           if here and RequestCivilian(ctx,state,unit,"SKIP_TURN",here) then
             status="文职单位本回合等待安全任务；军队由你指挥";return
@@ -4908,6 +4974,9 @@ local function Tick(allowOrders)
         or (waiting and waiting.persistent and (waiting.elapsed or 0)>=C.productionObservationSeconds) then
         if RequestCivilianStandby(unit) then
           status="文职单位本回合自动待命；原能力回执继续保留";return
+        end
+        if not waiting and RetryCivilianOverlap(ctx,player,state,unit)then
+          status="文职单位重新检查并移出重叠地块；军队由你指挥";return
         end
       end
     end

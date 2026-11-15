@@ -1197,3 +1197,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[151回合前置859—861](testing/baiqi-source151-end-preflight859861.md)已远端核验，39相关检查／20历史字节保持；[修复206／862准备](testing/baiqi-source151-repairs206-plan862.md)工业区及两建筑独立owned/intact、旧119点保持，项目未授恢复。862把QA ZIP与release哈希比拒，Owner实际97119／4096包仅准备未安装。被动事件false保存首稿Lua51红案及驱动凭证名／临时阻塞修正均单列，无游戏重放。累计862／794完整／65length／3transport／893HTTP／30extra，OpenCode原生新增0，151性能未测。
+
+
+2026-11-15：[152晚到叠放／863864](testing/baiqi-source152-late-overlap863864.md)：两任务完整源并行峰值2，863补丁未移出旧评估分支、两公开正例0请求拒；864缺bridge，一失败一错误／一空过拒。Owner原151六红、16新双Lua方法／58相关及全2578中2577pass1SDKskip、97Lua119包22旧前缀保持。Native151208初有半径2敌人，玩家一次城防后19格敌0仍三文职堵塞；音乐家LEGACY_UNKNOWN不得移动，已撤QA并保存。软件与原稿／Native分账，未授152实效，继续冷验。累计864／796完整／65length／3transport／895HTTP／30extra，OpenCode原生新增0。

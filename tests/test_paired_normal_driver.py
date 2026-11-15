@@ -14,7 +14,7 @@ class NormalHarness(Harness):
         super().__init__(**kwargs)
         self.ready_unknown=False
         self.lua.execute('ExposedMembers={};Players[0].IsTurnActive=function()return true end')
-        if source_version == 151:
+        if source_version in (151, 152):
             self.lua.execute('''UI.HasSentTurnComplete=function()return false end
 Players[0].CanUnreadyTurn=function()return false end
 CheckUnitsHaveMovesState=function()return false end

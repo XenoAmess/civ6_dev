@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／实机151：[206武汉工业区、工坊和工厂已自动修复，旧项目119点保持；规划性能包已准备](docs/testing/baiqi-source151-repairs206-plan862.md)。继续普通回合跟踪社区完工后的旧项目；151性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码152／实机仍151：[208安全叠放阻塞与152软件修复](docs/testing/baiqi-source152-late-overlap863864.md)。全2578中2577pass1SDKskip／97Lua119包；151工业区、工坊和工厂已修复，旧项目119点保持。继续152冷验与项目恢复；完整功能、性能和旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
