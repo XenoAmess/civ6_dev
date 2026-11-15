@@ -17,6 +17,38 @@ NATIVE_PATH_ANCHOR=b'local function PathStep('
 NATIVE_PATH_DECLARATION=b'local function _P6ControllerNativePath(fn,...) return fn(...) end\n\n'
 NATIVE_PATH_ORIGINAL=b'  local path = UnitManager.GetMoveToPathEx(unit, target:GetIndex())'
 NATIVE_PATH_PRIVATE=b'  local path = _P6ControllerNativePath(UnitManager.GetMoveToPathEx, unit, target:GetIndex())'
+DETOUR_ANCHOR=b'local function SettlerOccupiedDetour('
+DETOUR_HELPERS=(('_P6DetourPath1','Native.DetourChoicePath'),('_P6DetourPath2','Native.DetourFirstEdgePath'))
+DETOUR_DECLARATION=b''.join(f'local function {name}(fn,...) return fn(...) end\n'.encode()for name,_ in DETOUR_HELPERS)+b'\n'
+DETOUR_SITES=(
+    (b'      local ok,edge=pcall(UnitManager.GetMoveToPathEx,unit,choice.index)',
+     b'      local ok,edge=pcall(_P6DetourPath1,UnitManager.GetMoveToPathEx,unit,choice.index)'),
+    (b'    local ok,edge=pcall(pathQuery,unit,index)',
+     b'    local ok,edge=pcall(_P6DetourPath2,pathQuery,unit,index)'),
+)
+
+
+def instrument_detour_paths(raw:bytes) -> bytes:
+    if not isinstance(raw,bytes):raise TypeError('Expected original Controller bytes')
+    if any(name.encode()in raw for name,_ in DETOUR_HELPERS)or raw.count(DETOUR_ANCHOR)!=1:
+        raise ValueError('Unknown detour anchor or helper collision')
+    if any(raw.count(old)!=1 for old,_ in DETOUR_SITES):raise ValueError('Nonunique detour Native call site')
+    result=raw.replace(DETOUR_ANCHOR,DETOUR_DECLARATION+DETOUR_ANCHOR,1)
+    for old,new in DETOUR_SITES:result=result.replace(old,new,1)
+    return result
+
+
+def recover_detour_paths(private:bytes) -> bytes:
+    inserted=DETOUR_DECLARATION+DETOUR_ANCHOR
+    if not isinstance(private,bytes):raise TypeError('Expected private Controller bytes')
+    if private.count(inserted)!=1 or private.count(DETOUR_ANCHOR)!=1 or any(private.count(new)!=1 for _,new in DETOUR_SITES):
+        raise ValueError('Unknown detour instrumentation')
+    result=private.replace(inserted,DETOUR_ANCHOR,1)
+    for old,new in DETOUR_SITES:result=result.replace(new,old,1)
+    # A leftover/foreign use must not silently become part of the recovered source.
+    if any(name.encode()in result for name,_ in DETOUR_HELPERS):raise ValueError('Foreign detour helper reference')
+    if any(result.count(old)!=1 for old,_ in DETOUR_SITES):raise ValueError('Foreign original detour site')
+    return result
 
 
 def validate_native_path_option(value,include_pre_observer,source_version):
@@ -50,11 +82,12 @@ def selected_children(children):
     return tuple(children)
 
 
-def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False):
+def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False,detour_native_timing=False):
     children=selected_children(children)
     if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     validate_native_path_option(native_path_timing,include_pre_observer,source_version)
+    validate_native_path_option(detour_native_timing,include_pre_observer,source_version)
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
     text+="assert(P6ControllerNested==nil,'Existing diagnostic owner')\n"
@@ -121,6 +154,15 @@ binding{index}.wrapped=d.WrapChild('{name}',{name});{name}=binding{index}.wrappe
  {NATIVE_PATH_HELPER}=binding.wrapped;d.bindings[{index}]=binding
 end
 '''
+    if detour_native_timing:
+        for offset,(name,label) in enumerate(DETOUR_HELPERS):
+            index=len(children)+2+int(native_path_timing)+offset
+            text+=f'''do
+ local binding={{original={name}}}
+ binding.wrapped=d.WrapChild('{label}',binding.original)
+ {name}=binding.wrapped;d.bindings[{index}]=binding
+end
+'''
     text+='''local attempted,removed,same=false,false,nil
 function d.Restore()
  if attempted then return removed,same end
@@ -137,6 +179,12 @@ function d.Restore()
         index=len(children)+2
         text+=f''' same[{index}]={NATIVE_PATH_HELPER}==d.bindings[{index}].wrapped
  if same[{index}]then {NATIVE_PATH_HELPER}=d.bindings[{index}].original end
+'''
+    if detour_native_timing:
+        for offset,(name,_) in enumerate(DETOUR_HELPERS):
+            index=len(children)+2+int(native_path_timing)+offset
+            text+=f''' same[{index}]={name}==d.bindings[{index}].wrapped
+ if same[{index}]then {name}=d.bindings[{index}].original end
 '''
     text+=''' if added then
   local ok=pcall(remove,OnActivate)
@@ -161,10 +209,16 @@ end
         old="d.source='baiqi140-controller-children-v2'"
         if text.count(old)!=1:raise ValueError('Unknown Native path diagnostic owner')
         text=text.replace(old,"d.source='baiqi140-controller-children-v3'",1)
+    if detour_native_timing:
+        prior='v3'if native_path_timing else'v2'
+        old=f"d.source='baiqi140-controller-children-{prior}'"
+        if text.count(old)!=1:raise ValueError('Unknown detour diagnostic owner')
+        text=text.replace(old,"d.source='baiqi140-controller-children-v4'",1)
+        text=text.replace('original source is the exact prefix.','private Native call sites recover to original source.',1)
     return text.replace('baiqi140-controller-children-',f'baiqi{source_version}-controller-children-')
 
 
-def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_path_timing=False):
+def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_path_timing=False,detour_native_timing=False):
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     children=selected_children(children)
@@ -174,6 +228,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
     if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152'):raise ValueError('Expected actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
     validate_native_path_option(native_path_timing,include_pre_observer,version)
+    validate_native_path_option(detour_native_timing,include_pre_observer,version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():
         raise ValueError('New private output directory required')
@@ -182,10 +237,15 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:
             raise ValueError('Unknown lexical child '+name)
     hashes={name:digest(contained(source,name))for name in names}
-    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version,native_path_timing=native_path_timing).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
+    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version,native_path_timing=native_path_timing,detour_native_timing=detour_native_timing).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
     private=native_path_source(raw)if native_path_timing else raw
     if native_path_timing and recover_native_path_source(private)!=raw:
         raise ValueError('Private Native path source does not recover exactly')
+    if detour_native_timing:
+        private=instrument_detour_paths(private)
+        recovered=recover_detour_paths(private)
+        if native_path_timing:recovered=recover_native_path_source(recovered)
+        if recovered!=raw:raise ValueError('Private detour source does not recover exactly')
     prepared['Lua/BaiqiController.lua']=private+appended
     c51=Lua51().eval('function(s)local f,e=loadstring(s);assert(f,e)end')
     c53=Lua53().eval('function(s)local f,e=load(s);assert(f,e)end')
@@ -214,6 +274,13 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
                       original_controller_exact_prefix=False,release_text_recovers_exactly=True,
                       native_global_binding_modified=False,
                       limits='Diagnosis only. One reversible private PathStep call-site change and an owned lexical Native proxy. Current Native function is evaluated before original arguments, without replacing UnitManager. Restore removes timing aliases and the observer; the private passthrough call site remains until exit. Inclusive Native-proxy timing adds instrumentation overhead and is not B_plan or whole performance evidence.')
+    if detour_native_timing:
+        result.update(mode=f'baiqi{version}-controller-children-v4',detour_native_timing=True,
+                      detour_native_children=[label for _,label in DETOUR_HELPERS],
+                      binding_count=len(children)+3+int(native_path_timing),
+                      original_controller_exact_prefix=False,release_text_recovers_exactly=True,
+                      native_global_binding_modified=False,
+                      limits='Diagnosis only. Two reversible detour pcall adapters preserve the current/cached Native function argument and its identity checks. Optional PathStep adapter remains separate. All scopes share the frozen4096 profile; no B_plan or whole performance pass.')
     (out/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return result
 
@@ -222,5 +289,6 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,required=True)
     p.add_argument('--children',nargs='+',default=CHILDREN)
     p.add_argument('--native-path-timing',action='store_true')
+    p.add_argument('--detour-native-timing',action='store_true')
     p.add_argument('--include-pre-observer',action='store_true');args=p.parse_args()
-    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer,native_path_timing=args.native_path_timing);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
+    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer,native_path_timing=args.native_path_timing,detour_native_timing=args.detour_native_timing);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
