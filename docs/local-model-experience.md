@@ -1203,3 +1203,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[152实机208—210／865866](testing/baiqi-source152-native208-210-865866.md)：建造者冷解叠、大商人在玩家清除落点邻域敌军后BACKGROUND632→588；音乐家LEGACY_UNKNOWN保持。普通END208／209各一次到210，武汉119点旧项目恢复209并事件完成210。原生MOVE true不等于落点Safe，更正旧表述。865 length拒，866两个Lua过但全部Safe关闭仍过，拒；Owner一致几何4个隔离负对照失败、相关62过。两存档／监听已撤，0人工内政／BG军令。累计866／797完整／66length／3transport／897HTTP／30extra，新增OpenCode原生0、未知成本null。
+
+
+2026-11-15：[152性能准备／867868](testing/baiqi-source152-performance-preparation867868.md)：实际并行2。867完整19157tokens，仅导入无HTTP检查未调用，Owner加正式／模型空闲及前置安装存档检查后部分采用，97双Lua119ZIP规划包准备。868非法Python导入、XML当JSON，整拒；Owner规范构建配对各97Lua119ZIP／同前缀桥，启用1文件、对照12。0安装实采，不继承142性能。主210已保护，正式退出后静默残留单terminate15。累计868／799完整／66length／3transport／899HTTP／30extra，原生0、未知成本null。
