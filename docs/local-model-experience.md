@@ -1236,3 +1236,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-16：[880静态writer身份](testing/baiqi-source152-observed-writer-identity880.md)：候选Static缓存思路采，擅自去Method label隔离拒；Owner只改Static，旧transform28正向场景红、修后46双Lua场景及实际计数1次过，30相关检查。Owner测试import／unpack边界错误另记。新97Lua119ZIP／33上下文4096仅准备，产品152保持；累计880／809完整／911HTTP，OpenCode原生新增0、未知成本null。
 
 2026-11-16：[修复880后的152 StageB实机](testing/baiqi-source152-stageB-identity-fixed.md)：新labelquota152r，正式互斥内0HTTP重测，普通END85—90各一次至91；33上下文／1723保留样本／38546实测零调用，五窗219/237/484/756/410ms、完整桶11/10/19/12/35，B_turn／N_req窄PASS。UI/Core双证新439消耗、新城720906@808及OBSERVED0:90:52；旧0:90:50不重发。导出撤33／对账释放／保护91／普通119恢复及新鲜offline。无新增模型调用或原生OpenCode生成，原B_plan76msFAIL／B_delta压力仍开；后继881仅在正式释放后派发。
+
+2026-11-16：[881配对包复核](testing/baiqi-source152-paired-preflight881.md)：manifest/ZIP及enabled逆变换框架部分采用；control实际代码未核／truthy标记／cwd helper／重复ZIP由Owner补规范变换字节核验。5项正负检查过，已有152两包全部复核，0新建包／安装／Native，B_delta仍0配对。881换行anchor经AST正确，不误报；累计881／810完整／912HTTP、OpenCode原生新增0、未知成本null。
