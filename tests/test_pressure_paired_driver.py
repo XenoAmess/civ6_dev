@@ -128,6 +128,31 @@ class PressurePairedDriverTests(unittest.TestCase):
         self.assertEqual(len(h.t.actions),0)
         self.assertEqual(len(list(h.ledger.glob('end-*.json'))),1)
 
+    def test_source147_source143_real_driver_analyzer_and_wrong_receipt(self):
+        from tools.analyze_paired_turns import analyze_pressure_pairs
+        pairs=[]
+        for i in range(1,6):
+            order=['enabled','control']if i%2 else['control','enabled']
+            pair=dict(pair=i,order=order)
+            for variant in order:
+                h=PressureHarness(source_version=147);pair[variant]=h.run(variant=variant)
+                self.assertEqual(list(h.t.actions.values()),[1,2,3,4,5])
+                self.assertEqual(pair[variant]['source'],'baiqi147-pressure-paired-v1')
+            pairs.append(pair)
+        result=analyze_pressure_pairs(pairs,'0'*64,initial_turn=1,expected_source_version=147)
+        self.assertEqual(len(result['matched_rows']),25)
+        pairs[0]['enabled']['source']='baiqi142-pressure-paired-v1'
+        with self.assertRaises(ValueError):
+            analyze_pressure_pairs(pairs,'0'*64,initial_turn=1,expected_source_version=147)
+        h=PressureHarness(source_version=147)
+        def bad(turn,token):
+            return dict(turn=turn,token=token,requested=True,forced=False,initial_turn=1,
+                        source='baiqi142-pressure-paired-v1',source_version=147)
+        with self.assertRaisesRegex(RuntimeError,'issuance receipt'):h.run(bad)
+        self.assertEqual(len(h.t.actions),0)
+        self.assertEqual(len(list(h.ledger.glob('end-*.json'))),1)
+
+
 
     def test_all_five_actual_segments_and_no_closing_end(self):
         for first in(0,1,2147483641):

@@ -54,7 +54,12 @@ class SettlerOccupiedRouteTests(unittest.TestCase):
         self.w.blocked[43] = True
         self.run_callbacks()
         self.assertEqual(self.requests(), [(2, 10, 2, 4)])
-        self.assertEqual([q.target for q in self.w.pathQueries.values()], [46, 47])
+        # The bounded corridor now preserves the original goal instead of
+        # discarding it merely because its first native step is occupied.
+        targets=[q.target for q in self.w.pathQueries.values()]
+        self.assertEqual(targets[0],46)
+        self.assertTrue(all(target in (46,44)for target in targets))
+        self.assertEqual(self.w.goalProposals['2'].plot,46)
 
     def test_all_first_steps_blocked_waits_without_moving_any_blocker(self):
         self.w.blocked[43], self.w.blocked[44] = True, True

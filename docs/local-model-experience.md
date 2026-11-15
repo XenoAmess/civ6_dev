@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-15 [147有界绕行／841—842](testing/baiqi-source147-bounded-detour.md)：Owner接管839—840，补堵点锚定、前4点检测和完整复核；完整2480含1SDK跳过／119包，实机继续。841length未读；842军队待命候选拒绝，未授Native。累计842／778完整／61length／3最终传输／872HTTP／30额外，0在途，OpenCode原生生成0。
+
 2026-11-15 [178真实堵路／838—840](testing/baiqi-source146-route178-blocked.md)：三候选均0原代码采用；数值ID／私有闭包、未满足绕山、Lua5.1／BFS资格错误分列，山地事实晚于839请求的Owner输入缺口保留。实际53节点只读图有23点几何候选，未来水路未授原生许可；178正式保存。累计840／777完整／60length／3最终传输失败／870HTTP／30额外，0在途／0新增OpenCode原生生成。
 
 2026-11-15 [N4环境重叠／双向互斥804](testing/baiqi-pressure-N4-invalid-admission804.md)：Owner803在正式4E内POST，整侧五段拒绝，判废记录时已完成、不冒称完成前。802length未读；804骨架部分采用、原11测4错，Owner45检查含24竞争／真实CLI拒绝过，待新冷启。累计804／745完整／56length／834HTTP。

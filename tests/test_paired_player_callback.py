@@ -94,7 +94,7 @@ class PairedPlayerCallbackTests(unittest.TestCase):
             h,events,records,children,make=self.setup_case()
             with self.assertRaises(ValueError):make()(turn,token)
             self.assertEqual(events,[])
-        for version in (True,140,142.,147):
+        for version in (True,140,142.,148):
             h,events,records,children,make=self.setup_case()
             with self.assertRaises(ValueError):make(expected_source_version=version)
             self.assertEqual(events,[])

@@ -118,11 +118,22 @@ class SettlerDetourTests(unittest.TestCase):
         self.run_turn()
         self.assertEqual(self.moves(), [])
 
-    def test_no_progress_neighbor_is_not_random_exploration(self):
+    def test_equal_distance_neighbor_needs_complete_qualified_corridor(self):
         self.lua.execute('''
             local old=Map.GetPlotDistance
             Map.GetPlotDistance=function(x,y,x2,y2)
               if x==2 and y==4 and x2==8 and y2==4 then return 7 end
+              return old(x,y,x2,y2)
+            end
+        ''')
+        self.run_turn()
+        self.assertEqual(self.moves(), [(2, 4)])
+
+    def test_bounded_corridor_cannot_start_more_than_one_tile_away(self):
+        self.lua.execute('''
+            local old=Map.GetPlotDistance
+            Map.GetPlotDistance=function(x,y,x2,y2)
+              if x==2 and y==4 and x2==8 and y2==4 then return 9 end
               return old(x,y,x2,y2)
             end
         ''')

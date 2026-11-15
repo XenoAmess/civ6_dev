@@ -437,6 +437,7 @@ local function CivilianMoveTarget(here, plot, unit, playerID)
     if mover and mover.UnitType~="UNIT_MISSIONARY" and BaiqiPolicy.CivilianType(mover.UnitType) then
       for _,other in pairs(primary) do
         local row=GameInfo.Units[other:GetUnitType()]
+        if mover.UnitType=="UNIT_SETTLER"and not row then return false,"unit_query_unavailable"end
         if other:GetOwner()==playerID and other:GetID()~=unit:GetID() and row
           and row.FormationClass=="FORMATION_CLASS_CIVILIAN" then
           return false,"civilian_target_occupied"
@@ -1070,13 +1071,14 @@ end
 -- that strictly approach it and adjoin the validated route beyond its blocker.
 -- Only the proposed first edge receives native authority; every later hop is
 -- planned again. No detour object or cached path authorizes a future command.
-local function SettlerOccupiedDetour(unit, target, player, here, path)
+local function SettlerOccupiedDetour(unit, target, player, here, path, blockedAt)
   local ctx=PlayerContext()
   local row=unit and GameInfo.Units[unit:GetUnitType()]
   if not ctx or not row or row.UnitType~="UNIT_SETTLER"
     or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,{})) then return nil end
   local id,kind,start=unit:GetID(),unit:GetUnitType(),here:GetIndex()
   local goal=target:GetIndex()
+  local stamp,epoch=Game.GetCurrentGameTurn(),settlementWorldEpoch
   local distance=Map.GetPlotDistance(here:GetX(),here:GetY(),target:GetX(),target:GetY())
   if not BaiqiPolicy.Number(distance) or distance<=0 then return nil end
   local geometry=NeighborhoodGeometry(here,1)
@@ -1085,6 +1087,7 @@ local function SettlerOccupiedDetour(unit, target, player, here, path)
     local latest,p,s=PlayerContext()
     local fresh=p and p:GetUnits():FindID(id)
     return latest and latest.player==ctx.player and CoreIdle()
+      and Game.GetCurrentGameTurn()==stamp and settlementWorldEpoch==epoch
       and BaiqiPolicy.MatchesID(fresh,id) and fresh:GetOwner()==ctx.player
       and fresh:GetUnitType()==kind and UnitIndex(fresh)==start
       and BaiqiPolicy.CanCivilian(latest,UnitSnapshot(fresh,s))
@@ -1103,7 +1106,7 @@ local function SettlerOccupiedDetour(unit, target, player, here, path)
     return CivilianMoveTarget(here,plot,unit,ctx.player)==true
   end
   local choices={}
-  for _,cell in ipairs(geometry) do
+  for _,cell in ipairs(blockedAt==2 and geometry or {}) do
     local plot=Map.GetPlotByIndex(cell.index)
     if cell.index~=start and plot and plot:GetIndex()==cell.index
       and Map.GetPlotDistance(here:GetX(),here:GetY(),plot:GetX(),plot:GetY())==1
@@ -1143,6 +1146,109 @@ local function SettlerOccupiedDetour(unit, target, player, here, path)
       end
     end
   end
+  -- A choke point may require first walking away from the destination. Search
+  -- only the native route plus a radius-three neighborhood of that blocker.
+  -- Anchoring at the blocker keeps the same corridor available after the first
+  -- observed step, even when the next native route initially doubles back.
+  local anchor=blockedAt and Map.GetPlotByIndex(path[blockedAt])
+  local nearby=anchor and NeighborhoodGeometry(anchor,3)
+  if not nearby or #nearby>37 or #path>C.pathLimit then return nil end
+  local nodes,count={},0
+  local function Add(index,x,y)
+    local plot=Map.GetPlotByIndex(index)
+    if not plot or plot:GetIndex()~=index or(x~=nil and(plot:GetX()~=x or plot:GetY()~=y))then return false end
+    if not nodes[index]then
+      count=count+1;if count>85 then return false end
+      nodes[index]={index=index,x=plot:GetX(),y=plot:GetY()}
+    end
+    return true
+  end
+  for _,index in ipairs(path)do if not Add(index)then return nil end end
+  for _,cell in ipairs(nearby)do if not Add(cell.index,cell.x,cell.y)then return nil end end
+  local function Open(index,cache)
+    local cell=nodes[index];local plot=cell and Map.GetPlotByIndex(index)
+    if not plot or plot:GetIndex()~=index or plot:GetX()~=cell.x or plot:GetY()~=cell.y
+      or not Revealed(plot)or visibility:IsVisible(cell.x,cell.y)~=true
+      or(plot:GetOwner()~=-1 and plot:GetOwner()~=ctx.player)or plot:IsImpassable()
+      or not Safe(plot,player,cache)then return false end
+    local _,primary=GetVisibleUnits(plot)
+    if type(primary)~="table"then return false end
+    local n=0
+    for _,other in pairs(primary)do
+      n=n+1;local def=GameInfo.Units[other:GetUnitType()]
+      if n>64 or not def then return false end
+      if other:GetOwner()==ctx.player and other:GetID()~=id
+        and(def.FormationClass=="FORMATION_CLASS_CIVILIAN"or def.UnitType=="UNIT_BUILDER"or def.UnitType=="UNIT_SETTLER")then return false end
+    end
+    return true
+  end
+  local pathQuery,qualify=UnitManager.GetMoveToPathEx,UnitManager.CanStartOperation
+  local operation,xKey,yKey=UnitOperationTypes.MOVE_TO,UnitOperationTypes.PARAM_X,UnitOperationTypes.PARAM_Y
+  local function NativeEdge(index)
+    if not Fresh()or UnitManager.GetMoveToPathEx~=pathQuery or UnitManager.CanStartOperation~=qualify
+      or UnitOperationTypes.MOVE_TO~=operation or UnitOperationTypes.PARAM_X~=xKey or UnitOperationTypes.PARAM_Y~=yKey then return false end
+    local plot=Map.GetPlotByIndex(index)
+    if not plot or Map.GetPlotDistance(here:GetX(),here:GetY(),plot:GetX(),plot:GetY())~=1 then return false end
+    local ok,edge=pcall(pathQuery,unit,index)
+    if not ok or type(edge)~="table"or type(edge.plots)~="table"or #edge.plots~=2
+      or edge.plots[1]~=start or edge.plots[2]~=index or not Fresh()then return false end
+    local params={[xKey]=plot:GetX(),[yKey]=plot:GetY()}
+    local qualified,allowed=pcall(qualify,unit,operation,nil,params)
+    return qualified and allowed==true and Fresh()
+      and UnitManager.GetMoveToPathEx==pathQuery and UnitManager.CanStartOperation==qualify
+      and UnitOperationTypes.MOVE_TO==operation and UnitOperationTypes.PARAM_X==xKey and UnitOperationTypes.PARAM_Y==yKey
+  end
+  local open,cache={},{}
+  for index in pairs(nodes)do open[index]=Open(index,cache)end
+  if not open[start]or not open[goal]or not Fresh()then return nil end
+  local queue,visited,previous={start},{[start]=true},{}
+  local head=1
+  while head<=#queue and not visited[goal]do
+    local index=queue[head];head=head+1
+    local cell=nodes[index];local neighbors={}
+    local geometry=NeighborhoodGeometry(Map.GetPlotByIndex(index),1)
+    if not geometry or #geometry>7 then return nil end
+    for _,nextCell in ipairs(geometry)do
+      local nextIndex=nextCell.index
+      if open[nextIndex]and not visited[nextIndex]
+        and Map.GetPlotDistance(cell.x,cell.y,nextCell.x,nextCell.y)==1 then neighbors[#neighbors+1]=nextIndex end
+    end
+    table.sort(neighbors)
+    for _,nextIndex in ipairs(neighbors)do
+      if index~=start or NativeEdge(nextIndex)then
+        visited[nextIndex]=true;previous[nextIndex]=index;queue[#queue+1]=nextIndex
+        if #queue>85 then return nil end
+      end
+    end
+  end
+  if not visited[goal]then return nil end
+  local route,index={},goal
+  while index do
+    table.insert(route,1,index);if #route>85 then return nil end
+    index=previous[index]
+  end
+  if #route<2 or #route>C.pathLimit or #route>#path+6 or route[1]~=start then return nil end
+  local first=nodes[route[2]]
+  if Map.GetPlotDistance(first.x,first.y,target:GetX(),target:GetY())>distance+1 then return nil end
+  local function Valid()
+    if not Fresh()then return false end
+    local cache={}
+    for i,index in ipairs(route)do
+      if not Open(index,cache)then return false end
+      local a,b=nodes[route[i-1]],nodes[index]
+      if a and Map.GetPlotDistance(a.x,a.y,b.x,b.y)~=1 then return false end
+    end
+    -- Preserve the existing native-route threat and ownership checks too.
+    for _,index in ipairs(path)do
+      local plot=Map.GetPlotByIndex(index)
+      if not plot or not Revealed(plot)or not Safe(plot,player,cache)
+        or(plot:GetOwner()~=-1 and plot:GetOwner()~=ctx.player)then return false end
+    end
+    return Fresh()
+  end
+  if Valid()and NativeEdge(first.index)and Valid()and NativeEdge(first.index)and Valid()then
+    return Map.GetPlotByIndex(first.index)
+  end
   return nil
 end
 
@@ -1167,9 +1273,29 @@ local function PathStep(unit, target, player, state)
     local legal,reason=CivilianMoveTarget(here,step,unit,contextID)
     if not legal then
       if row.UnitType=="UNIT_SETTLER" and reason=="civilian_target_occupied" then
-        return SettlerOccupiedDetour(unit,target,player,here,path.plots)
+        return SettlerOccupiedDetour(unit,target,player,here,path.plots,2)
       end
       return nil
+    end
+    if row.UnitType=="UNIT_SETTLER"then
+      -- Look only a few native points ahead. Otherwise a fresh native path can
+      -- send the settler back to a free tile immediately before the same choke.
+      for i=3,math.min(#path.plots,4)do
+        local plot=Map.GetPlotByIndex(path.plots[i])
+        if plot and visibility:IsVisible(plot:GetX(),plot:GetY())==true then
+          local _,primary=GetVisibleUnits(plot)
+          if type(primary)~="table"then return nil end
+          local n=0
+          for _,other in pairs(primary)do
+            n=n+1;local def=GameInfo.Units[other:GetUnitType()]
+            if n>64 or not def then return nil end
+            if other:GetOwner()==contextID and other:GetID()~=unit:GetID()
+              and(def.FormationClass=="FORMATION_CLASS_CIVILIAN"or def.UnitType=="UNIT_BUILDER"or def.UnitType=="UNIT_SETTLER")then
+              return SettlerOccupiedDetour(unit,target,player,here,path.plots,i)
+            end
+          end
+        end
+      end
     end
   end
   return step

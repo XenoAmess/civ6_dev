@@ -1,0 +1,120 @@
+{
+  "schema": "civ6.source147-bounded-detour-software/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 147,
+  "native_counterexample": "baiqi-source146-route178-model838840-2026-11-15.json",
+  "production_change": {
+    "scope": "Settler occupied route only, no new top-level Lua local",
+    "old_immediate_strict_detour": "retained first when path[2] is occupied",
+    "new_fallback": "original native path union radius3 centered on first known civilian blocker in path positions2..4",
+    "max_union_nodes": 85,
+    "max_radius_cells": 37,
+    "max_native_and_proposed_points": 48,
+    "max_extra_points": 6,
+    "BFS": "deterministic index order, full goal route, first step at most one distance away",
+    "first_native_edge": "exact2points and current CanStartOperation, final repeated qualifications",
+    "future_hops": "proposals only, recomputed after actual movement; no stored permission or game-property schema changes",
+    "revalidation": "chosen route current visibility, identity, adjacency, Safe, ownership, primary civilian vacancy and known types; original native route Safe/owner too; fresh actor/player/turn/Core/solo",
+    "lookahead": "up to4 native points to avoid stepping backward to the same blocker",
+    "unknown_first_primary_type": "settler rejects as unavailable",
+    "army_or_blocker_orders": 0,
+    "journal_clears_or_schema_changes": 0
+  },
+  "software": {
+    "full_run": 2480,
+    "pass": 2479,
+    "skip": 1,
+    "skip_reason": "SDK environment unavailable",
+    "seconds": 145.123,
+    "settler_related_methods": 92,
+    "new_bounded_methods": 4,
+    "new_method_subcases_per_Lua": 44,
+    "Lua_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "Lua_files": 97,
+    "package_files": 119,
+    "source_zip_parity": true,
+    "archive_sha256": "08a9309a61fbd92fe52fbfb68e5b6f963d5f1462c4e45bb3c2cd28294d9329cd",
+    "legacy_rendered_prefixes_None_140_146": 12,
+    "all_byte_exact": true,
+    "new_version_consumer_methods_and_pin": 7
+  },
+  "regression_evidence": {
+    "old146_valid_harness": "positive first-away and after-step backtracking fail in both Lua versions; unknown occupant also exposes unsafe direct step",
+    "initial_harness_failure": "goalProposals initialized only by later include; Owner explicitly initialized fixture, retained error log",
+    "first_patch_negative_fixture_error": "open real graph still had alternate safe corridors; negative assertions narrowed to explicit single-corridor cutset, positive keeps full53 native geometry",
+    "old_related_tests_changed": "equal-distance complete certified corridor now allowed; blocked original goal retained instead of forcing alternate goal; old failures retained",
+    "new_TEST_PLAYER_native_actions": 0
+  },
+  "fixture": {
+    "path": "tests/fixtures/settler_blocked_route178.json",
+    "nodes": 53,
+    "geometry_source": "actual146178 native read",
+    "ownership": "normalized for software tests",
+    "private_save": "not committed"
+  },
+  "models": {
+    "841": {
+      "finish_reason": "length",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 19979,
+        "completion_tokens": 1600,
+        "total_tokens": 21579
+      },
+      "total_ms": 12982.341399881989,
+      "TTFT_ms": 2693.6045000329614,
+      "raw_code_adopted": 0,
+      "raw_code_Native": 0,
+      "request_sha256": "f75f58573942e98345de3e185e700677d917d0dcc7bdc02ab5b6e6a12e4bd5f3",
+      "candidate_read": false,
+      "decision": "length rejected whole; Owner reviewed patch and continued checks"
+    },
+    "842": {
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 2019,
+        "completion_tokens": 1033,
+        "total_tokens": 3052
+      },
+      "total_ms": 6762.044199975207,
+      "TTFT_ms": 460.26109997183084,
+      "raw_code_adopted": 0,
+      "raw_code_Native": 0,
+      "request_sha256": "7746001aa97169f2b81f2f467e18cd1c1af229dbb499889af5dc662d78a4d45f",
+      "decision": "Rejected: passes operation row not Hash, no unique pre-request ledger/pcall, accepts destination0, no return-arity, missing human/hotseat/paused and final queue/binding checks; Owner TEST_PLAYER fortify preparation pending"
+    }
+  },
+  "ledger": {
+    "logical": 842,
+    "complete": 778,
+    "length": 61,
+    "final_transport": 3,
+    "HTTP_attempts": 872,
+    "extra_attempts": 30,
+    "inflight": 0,
+    "new_tasks_peak": 1,
+    "new_tasks_overlap": false,
+    "new_OpenCode_native_generation_sessions": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "service_concurrency": null,
+    "full_Owner_cost": null,
+    "net_time_saving": null,
+    "source147_performance": "UNMEASURED",
+    "future_water_legality": null
+  },
+  "claims": {
+    "software_ready": true,
+    "source147_installed": false,
+    "native_detour": false,
+    "new_city_founded": false,
+    "all_functional_acceptance": false,
+    "old_ARMED_recovery": "FAIL_OPEN"
+  }
+}

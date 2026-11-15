@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码146：[独立移民已到178，文职占位与山地堵路已定位](docs/testing/baiqi-source146-route178-blocked.md)，现场已存，有界绕行修复及建城继续。173自主出生／生产接续和自然学家睡眠已有实测；146性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码147：[移民有界绕行软件通过](docs/testing/baiqi-source147-bounded-detour.md)，2480项含1项SDK跳过、97Lua双编译／119文件包；接续178堵路存档冷验。自主出生与既有移动已有实测，147实际绕行／建城／性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
