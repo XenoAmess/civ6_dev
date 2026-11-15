@@ -1209,3 +1209,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[152正式B_plan FAIL](testing/baiqi-source152-stageA-fail.md)：391.911s预热后正式重载同85档，六普通END／五窗86—90，312行0错丢、21preanchor另列。纯十城Admin111 p9518/max21ms过，Controller142 p9517/max76ms未过；最坏88激活后首个无参调用，下一次49ms，不推定原因或滤除。完整raw／保存91／精确撤钩／官方退出，正式nonce仅完成后释放，0HTTP重型测试。869870新诊断在释放后，现152其余性能不追授。
+
+
+2026-11-15：[152尖峰诊断／869870](testing/baiqi-source152-spike-diagnosis869870.md)：869十词法名都存在，建造者续行在Tick直接调用，采用分阶段测点；修正Economy串联／深递归推测，不采因果。870语法与marker正确，但遗漏正式／CPU／实际安装存档检查、只查ZIP存在，整拒；Owner“wrong marker”字段另更正。实际12scoped测点／97双Lua119ZIP精确前缀准备，未装测，原76msFAIL不覆盖。StageA进程已自行消失0terminate，主210／QA91保持。累计870／801完整／66length／3transport／901HTTP／30extra，原生0未知成本null。
