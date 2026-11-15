@@ -1,5 +1,7 @@
 # civ6_dev
 
+当前源码143：[有界独立扩张软件通过](docs/testing/baiqi-source143-retained-capacity.md)，旧ARMED保留、额外生产硬限1；完整回归通过，尚待安装／冷实机。142性能PASS保留原测量范围。
+
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
 [142自动修复完成并重载保持](docs/testing/baiqi-automatic-repairs342-814.md)：长沙／广州社区341／342自主修复，后续队列及供电经正式342重载一致；玩家军队流程解除阻塞，0人工内政。人口归因与旧恢复FAIL继续。
@@ -18,7 +20,7 @@
 
 [142正常333→334／事件四参](docs/testing/baiqi-event142B-normal334-757.md)：11城无人损、334已存，军队排队路线仍未完成，旧ARMED不重发。
 
-当前源码142：[移民支持检查预算与完整软件验证](docs/testing/baiqi-source142-support-budget745746.md)，2220项中2219通过、1项SDK环境跳过，97Lua双编译／119文件包。[独立142 N正式五窗B_plan通过](docs/testing/baiqi-stageA142-N.md)：Admin13／21ms、Controller7／20ms；[142全脚本B_turn／N_req通过](docs/testing/baiqi-allscript142-pair751752.md)，[主333冷读九域全等](docs/testing/baiqi-release142-cold333.md)；[五组25匹配段已齐](docs/testing/baiqi-pair142-group5.md)，[四项冻结预算在该夹具通过](docs/testing/baiqi-performance142-frozen760.md)；TC-036已按上述实测范围通过，完整功能验收仍开放。
+已实测142：[移民支持检查预算与完整软件验证](docs/testing/baiqi-source142-support-budget745746.md)，2220项中2219通过、1项SDK环境跳过，97Lua双编译／119文件包。[独立142 N正式五窗B_plan通过](docs/testing/baiqi-stageA142-N.md)：Admin13／21ms、Controller7／20ms；[142全脚本B_turn／N_req通过](docs/testing/baiqi-allscript142-pair751752.md)，[主333冷读九域全等](docs/testing/baiqi-release142-cold333.md)；[五组25匹配段已齐](docs/testing/baiqi-pair142-group5.md)，[四项冻结预算在该夹具通过](docs/testing/baiqi-performance142-frozen760.md)；TC-036已按上述实测范围通过，完整功能验收仍开放。
 
 [141正式五窗仍FAIL](docs/testing/baiqi-stageA141-fail-743.md)：Admin p95约21ms／Controller最大428ms；[K分项](docs/testing/baiqi-controller141-K.md)确认备选扫描仍聚集支持检查，[L Admin分项](docs/testing/baiqi-admin141-L.md)未重现超限，均不授性能通过。[M启动卡住与同包N恢复](docs/testing/baiqi-startup-M747748-recovery.md)保留零游戏输入／零采样失败及私密转储边界，Steam持续离线。
 

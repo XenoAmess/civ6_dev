@@ -95,7 +95,7 @@ class PairedVisibilityReadTest(unittest.TestCase):
             callback = make_callback(query, child, Mock(),
                 lambda: read_visibility(query, Mock(), Mock()), pressure_initial_turn=6)
             self.assertIs(callback(6, token), ack)
-            end.assert_called_once_with(query, 6, token, initial_turn=6)
+            end.assert_called_once_with(query, 6, token, initial_turn=6, expected_source_version=142)
         self.assert_reads_only(query, 4)
         child.assert_called_once_with('select', 6, 1)
 

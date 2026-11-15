@@ -38,7 +38,8 @@ local turnGuard
 local status = "内政托管开启；军队等待你的命令"
 local contextID, visibility
 local lastReasons = {}
-local settlementLoadKind,settlementReady,settlementRecords=nil,false,{}
+local settlementLoadKind
+local settlementCache={ready=false,records={},plots={},unresolved=0}
 
 local function Log(kind, details)
   print("BAIQI|"..kind.."|turn="..tostring(Game.GetCurrentGameTurn()).."|"..(details or ""))
@@ -541,29 +542,81 @@ local function SettlementRecord(op,playerID,unitID)
 end
 
 local function RefreshSettlement(playerID)
-  local method=settlementReady and "Snapshot" or "Initialize"
+  local method=settlementCache.ready and "Snapshot" or "Initialize"
   local s,bank=SettlementBridge(method,playerID,settlementLoadKind)
   local J=BaiqiSettlementJournal
   if s~="READY" or type(J)~="table" or not J.Validate(bank,playerID) then
-    settlementReady=false;return
+    settlementCache.ready=false;return
   end
-  settlementRecords=J.Clone(bank,playerID).operations;settlementReady=true
+  settlementCache.snapshot=J.Clone(bank,playerID)
+  settlementCache.records=settlementCache.snapshot.operations;settlementCache.ready=true
   -- Restore intents even when the original actor is absent from the live list.
   -- A different pending operation is never overwritten by a restored record.
-  for _,op in pairs(settlementRecords) do
+  local heldPlots,unresolved={},0
+  for _,op in pairs(settlementCache.records) do
+    if op.stage=="ARMED" or op.stage=="LEGACY_UNKNOWN" then unresolved=unresolved+1 end
+    if op.stage=="ARMED" then heldPlots[op.plot]=true end
     if (op.stage=="ARMED" or op.stage=="LEGACY_UNKNOWN") and pendingUnits[op.unitID]==nil then
       pendingUnits[op.unitID]={id=op.requestID,kind="FOUND_CITY",operation=UnitOperationTypes.FOUND_CITY,
         plot=op.plot,from=op.plot,elapsed=0,persistent=true,token=op.token,restored=true}
       Log("settler_intent_restored","unit="..op.unitID.."|token="..op.token.."|stage="..op.stage)
     end
   end
+  settlementCache.plots,settlementCache.unresolved=heldPlots,unresolved
 end
 
 local function SettlementHeld(unit)
-  if not settlementReady then return true end
+  if not settlementCache.ready then return true end
   local key=BaiqiSettlementJournal.UnitKey(unit:GetID())
-  local op=key and settlementRecords[key]
+  local op=key and settlementCache.records[key]
   return op~=nil and op.stage~="PREPARED"
+end
+
+-- A retained actor still counts as live; this check never orders it.
+-- One separate production slot can keep expansion moving; it is not a finding
+-- that the old request failed. A second unresolved record closes the allowance.
+function settlementCache.IsRetained(player,unit)
+  local ok,held=pcall(function()
+    if C.maxSettlers~=1 or settlementLoadKind~=true or not settlementCache.ready
+      or settlementCache.unresolved~=1 or player~=Players[contextID] then return false end
+    local J=BaiqiSettlementJournal
+    local id=unit:GetID()
+    if not J.Integer(id,2147483647) then return false end
+    local key=J.UnitKey(id)
+    local op=key and SettlementRecord(settlementCache.records[key],contextID,id)
+    local current=Game.GetCurrentGameTurn()
+    if not op or op.stage~="ARMED" or op.conflictingCity~=false
+      or not J.Integer(current,2147483647) or op.turn>=current then return false end
+    local pending=pendingUnits[id]
+    if not pending or pending.kind~="FOUND_CITY" or pending.persistent~=true
+      or pending.restored~=true or pending.token~=op.token
+      or pending.id~=op.requestID or pending.plot~=op.plot then return false end
+    local function Same(actor)
+      if not BaiqiPolicy.MatchesID(actor,id) or actor:GetOwner()~=contextID then return false end
+      local row=GameInfo.Units[actor:GetUnitType()]
+      return row and row.UnitType=="UNIT_SETTLER" and actor:IsDead()==false
+        and actor:IsDelayedDeath()==false and actor:GetDamage()==0
+        and actor:GetFormationUnitCount()==1 and actor:GetMovesRemaining()>0
+        and actor:GetX()==op.x and actor:GetY()==op.y
+        and actor:HasPendingOperations()==false
+        and type(UnitManager.GetQueuedDestination)=="function"
+        and UnitManager.GetQueuedDestination(actor)==nil
+    end
+    if not Same(unit) or not Same(player:GetUnits():FindID(id)) then return false end
+    -- Snapshot is read-only. A new/changed journal closes this proposal before
+    -- production dispatch, even when the turn's cached counter still says one.
+    local s,bank=SettlementBridge("Snapshot",contextID)
+    if s~="READY" or not J.Equal(bank,settlementCache.snapshot,contextID) then return false end
+    local unresolved=0
+    for _,record in pairs(bank.operations) do
+      if record.stage=="ARMED" or record.stage=="LEGACY_UNKNOWN" then
+        unresolved=unresolved+1
+        if unresolved>1 then return false end
+      end
+    end
+    return unresolved==1
+  end)
+  return ok and held==true
 end
 
 -- A bounded known-border heuristic, not a native loyalty prediction. A lack of
@@ -2397,7 +2450,8 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
   local seen={}
   local function AddCandidate(index,score,preferred)
     local reserved=reservations[index]
-    if BaiqiPolicy.Number(index) and index>=0 and index%1==0 and not (excluded and excluded[index])
+    if BaiqiPolicy.Number(index) and index>=0 and index%1==0 and not settlementCache.plots[index]
+      and not (excluded and excluded[index])
       and (unitID==nil or reserved==nil or reserved==unitID) then
       local candidate=seen[index]
       if candidate then
@@ -3167,7 +3221,7 @@ local function Economy(player)
   local s = {cities=player:GetCities():GetCount(), army=0, builders=0, settlers=0,
     militaryRoles={recon=0,frontline=0,ranged=0,siege=0,support=0,naval=0,air=0},
     traders=0,queuedTraders=0,tradeCapacity=player.GetTrade and player:GetTrade():GetOutgoingRouteCapacity() or 0,
-    queuedArmy=0, queuedBuilders=0, queuedSettlers=0, reservedSettlers=0, committedMaintenance=0,
+    queuedArmy=0, queuedBuilders=0, queuedSettlers=0, reservedSettlers=0, retainedSettlers=0, committedMaintenance=0,
     gold=player:GetTreasury():GetGoldBalance(), netGold=player:GetTreasury():GetGoldYield()-player:GetTreasury():GetTotalMaintenance()}
   local function CountMilitary(row)
     local role=BaiqiPlanner.MilitaryRole(row)
@@ -3176,7 +3230,9 @@ local function Economy(player)
   for _, unit in player:GetUnits():Members() do
     local row=GameInfo.Units[unit:GetUnitType()]
     if row.UnitType=="UNIT_BUILDER" then s.builders=s.builders+1
-    elseif row.UnitType=="UNIT_SETTLER" then s.settlers=s.settlers+1
+    elseif row.UnitType=="UNIT_SETTLER" then
+      s.settlers=s.settlers+1
+      if settlementCache.IsRetained(player,unit) then s.retainedSettlers=s.retainedSettlers+1 end
     elseif row.UnitType=="UNIT_TRADER" then s.traders=s.traders+1
     elseif Military(row) then s.army=s.army+1;CountMilitary(row) end
   end

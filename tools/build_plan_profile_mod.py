@@ -12,6 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 if __package__ in (None,''):
     sys.path.insert(0,str(ROOT))
 from tools.build_mod import contained,digest,manifest_files,package
+from tools.diagnostic_version_render import render_helper
 
 EXECUTOR='UI/BaiqiExecutor.lua'
 HELPERS={'NewProfile':'diagnostic_profile','WrapWindow':'diagnostic_plan_window',
@@ -38,9 +39,9 @@ def restore_release(text: str,prefix: str,binding: str) -> str:
 
 
 def transform(raw: str,source_version: int = 140,*,pressure_initial_turn: int | None = None) -> tuple[str,str,str]:
-    if type(source_version)is not int or source_version not in (140,141,142):raise ValueError('Expected source140,141 or142')
+    if type(source_version)is not int or source_version not in (140,141,142,143):raise ValueError('Expected source140,141,142 or143')
     if pressure_initial_turn is not None:
-        if source_version != 142: raise ValueError('Pressure initial turn requires source142')
+        if source_version not in (142,143): raise ValueError('Pressure initial turn requires source142/143')
         if type(pressure_initial_turn) is not int or isinstance(pressure_initial_turn, bool) or not (0 <= pressure_initial_turn <= 2147483641):
             raise ValueError('Invalid pressure initial turn')
     if raw.count(INCLUDES)!=1 or raw.count('local ready=false\n')!=1:
@@ -52,9 +53,10 @@ def transform(raw: str,source_version: int = 140,*,pressure_initial_turn: int | 
            "assert(P6PerfPlanA==nil,'Existing Stage A diagnostic owner')",'do']
     for name,stem in HELPERS.items():
         helper=(ROOT/f'tools/lua/{stem}.lua').read_text(encoding='utf-8')
+        if stem=='diagnostic_plan_stage':helper=render_helper(helper,stem,source_version)
         lines.append(f' local {name}=(function()\n{helper}\nend)()')
     if pressure_initial_turn is not None:
-        lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace,NewDeferred,142,'+str(pressure_initial_turn)+')']
+        lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace,NewDeferred,'+str(source_version)+','+str(pressure_initial_turn)+')']
     else:
         version_arg='' if source_version==140 else f',{source_version}'
         lines+=[' P6PerfPlanA=NewPlanA({Game=Game,Players=Players,Automation=Automation,Events=Events},NewProfile,WrapWindow,NewTrace,NewDeferred'+version_arg+')']
@@ -73,10 +75,10 @@ def build(output_dir: Path,*,pressure_initial_turn: int | None = None) -> dict:
     source=ROOT/'mod/Baiqi'
     files=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('140','141','142'):raise ValueError('Independent Stage A assembler requires actual source140,141 or142')
+    if version not in ('140','141','142','143'):raise ValueError('Independent Stage A assembler requires actual source140,141,142 or143')
     version=int(version)
     if pressure_initial_turn is not None:
-        if version != 142: raise ValueError('Pressure initial turn requires source142')
+        if version not in (142,143): raise ValueError('Pressure initial turn requires source142/143')
         if type(pressure_initial_turn) is not int or isinstance(pressure_initial_turn, bool) or not (0 <= pressure_initial_turn <= 2147483641):
             raise ValueError('Invalid pressure initial turn')
     output_dir=output_dir.resolve()
@@ -112,8 +114,8 @@ def build(output_dir: Path,*,pressure_initial_turn: int | None = None) -> dict:
     if changed!=[EXECUTOR]:
         raise ValueError('Unexpected diagnostic differences')
     if pressure_initial_turn is not None:
-        archive=output_dir/'Baiqi-plan142-pressure-stageA-v1.zip'
-        mode='baiqi142-pressure-stageA-v1'
+        archive=output_dir/f'Baiqi-plan{version}-pressure-stageA-v1.zip'
+        mode=f'baiqi{version}-pressure-stageA-v1'
     else:
         archive=output_dir/f'Baiqi-plan{version}-stageA-v2.zip'
         mode=f'baiqi{version}-stageA-v2'
@@ -135,6 +137,9 @@ def build(output_dir: Path,*,pressure_initial_turn: int | None = None) -> dict:
             'installed':False,'limits':'Stage A only; five-window ten-city Native sample quality and performance remain unverified.'}
     if pressure_initial_turn is not None:
         result['initial_turn']=pressure_initial_turn
+    if version==143:
+        helper=(ROOT/'tools/lua/diagnostic_plan_stage.lua').read_text(encoding='utf-8')
+        result['rendered_helper_hashes']={'diagnostic_plan_stage':hashlib.sha256(render_helper(helper,'diagnostic_plan_stage',version).encode('utf-8')).hexdigest()}
     (output_dir/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return result
 

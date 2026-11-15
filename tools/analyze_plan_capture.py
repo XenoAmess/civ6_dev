@@ -40,7 +40,7 @@ def _number(value,label):
 
 
 def analyze_plan_capture(data,*,expected_source_version=140):
-    if type(expected_source_version)is not int or expected_source_version not in (140,141,142):raise ValueError('Expected source140,141 or142')
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143):raise ValueError('Expected source140,141,142 or143')
     if not isinstance(data,dict):
         raise ValueError('Unknown capture object')
     v2=data.get('source')==f'baiqi{expected_source_version}-stageA-v2'
@@ -159,11 +159,13 @@ def analyze_plan_capture(data,*,expected_source_version=140):
     return report
 
 
-def analyze_pressure_plan_capture(data):
+def analyze_pressure_plan_capture(data,*,expected_source_version=142):
+    if type(expected_source_version)is not int or expected_source_version not in (142,143):
+        raise ValueError('Invalid pressure source version')
     if not isinstance(data,dict):
         raise ValueError('Unknown pressure capture object')
     d=_object(data,ROOT_FIELDS|{'pre_anchor','initial_turn'},'pressure capture')
-    if d['source']!='baiqi142-pressure-stageA-v1':
+    if d['source']!=f'baiqi{expected_source_version}-pressure-stageA-v1':
         raise ValueError('Unknown pressure source')
     if (d['enabled']is not False or d['retired']is not False
             or d['subscribed']is not True or d['bound']is not True):
@@ -279,7 +281,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--expected-source-version',type=int,choices=(140,141,142),default=140)
+    p.add_argument('--expected-source-version',type=int,choices=(140,141,142,143),default=140)
     a=p.parse_args();result=analyze_plan_capture(json.loads(a.input.read_text(encoding='utf-8')),expected_source_version=a.expected_source_version)
     with a.output.open('x',encoding='utf-8')as f:json.dump(result,f,ensure_ascii=False,indent=2);f.write('\n')
     print(json.dumps(result,ensure_ascii=False))

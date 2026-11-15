@@ -1,4 +1,6 @@
 from pathlib import Path
+from tools.static_control_source import resolve_source_version
+CURRENT_VERSION=resolve_source_version()
 from uuid import uuid4
 import hashlib,importlib,json,unittest
 from tools.build_static_control import ROOT,build,clock_prelude
@@ -42,8 +44,8 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
         infos=[build(out/v,paired_clock=True,normal_end_bridge=True,variant=v,pressure_initial_turn=1)for v in('enabled','control')]
         self.assertEqual(infos[0]['clock_prefix_sha256'],infos[1]['clock_prefix_sha256'])
         for v,info in zip(('enabled','control'),infos):
-            self.assertEqual((info['files'],info['source_version'],info['source'],info['initial_turn']),(119,142,'baiqi142-pressure-paired-v1',1))
-            self.assertEqual(info['mode'],f'baiqi142-pressure-paired-{v}-v1')
+            self.assertEqual((info['files'],info['source_version'],info['source'],info['initial_turn']),(119,CURRENT_VERSION,f'baiqi{CURRENT_VERSION}-pressure-paired-v1',1))
+            self.assertEqual(info['mode'],f'baiqi{CURRENT_VERSION}-pressure-paired-{v}-v1')
             self.assertEqual(info['paired_end_turns'],[1,2,3,4,5]);self.assertEqual(info['paired_activation_turns'],[2,3,4,5,6])
             self.assertFalse(info['installed']);self.assertFalse(info['normal_end_driver_ready']);self.assertFalse(info['cross_context_begin_native_verified'])
             self.assertTrue(info['lua51_compiled']);self.assertTrue(info['native_activation_inline_stop'])

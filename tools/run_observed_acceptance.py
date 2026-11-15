@@ -33,12 +33,14 @@ def _payload(messages,marker):
 
 
 def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budget=None,
-        request_normal_end=None,legacy_forced=False,pressure_initial_turn=None):
+        request_normal_end=None,legacy_forced=False,pressure_initial_turn=None,expected_source_version=142):
     from tools.performance_admission import assert_no_model_activity
     if (Path.cwd()/'.local-model/p6-formal-performance-active.json').exists():
         assert_no_model_activity(Path.cwd())
     if type(legacy_forced) is not bool:
         raise TypeError('legacy_forced must be an explicit boolean')
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143):
+        raise ValueError('Invalid source version')
     if legacy_forced:
         if request_normal_end is not None:
             raise ValueError('Choose one TEST_PLAYER end-turn mode')
@@ -48,18 +50,19 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
         raise ValueError('Expected positive retained-sample budget')
     pressure=pressure_initial_turn is not None
     if pressure and(type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                    or legacy_forced or sample_budget!=4096):
+                    or legacy_forced or sample_budget!=4096 or expected_source_version not in (142,143)):
         raise ValueError('Pressure requires bounded actual calendar, ordinary END and4096 cap')
     first=pressure_initial_turn if pressure else 85;closing=first+6
+    pressure_source=f'baiqi{expected_source_version}-pressure-observed-v1'
     token=uuid.uuid4().hex
     quoted=json.dumps(token)
     requested=[]
     attempted=False
     build_guard=f'''local pressureBuild=P6Q20PressureBuild
-assert(type(pressureBuild)=='table' and pressureBuild.source=='baiqi142-pressure-observed-v1'
- and pressureBuild.source_version==142 and pressureBuild.initial_turn=={first})
+assert(type(pressureBuild)=='table' and pressureBuild.source=='{pressure_source}'
+ and pressureBuild.source_version=={expected_source_version} and pressureBuild.initial_turn=={first})
 '''if pressure else''
-    stage_guard=(build_guard+f'''assert(s.source=='baiqi142-pressure-observed-v1' and s.source_version==142 and s.initial_turn=={first})
+    stage_guard=(build_guard+f'''assert(s.source=='{pressure_source}' and s.source_version=={expected_source_version} and s.initial_turn=={first})
 ''')if pressure else''
     ledger_dir=Path(ledger_dir)
     ledger_dir.mkdir(parents=True,exist_ok=True)
@@ -76,7 +79,7 @@ assert(type(pressureBuild)=='table' and pressureBuild.source=='baiqi142-pressure
                 'turn':turn,'token':token,'status':'ABOUT_TO_SUBMIT_ONCE',
                 'mode':'LEGACY_USER_FORCED' if legacy_forced else 'ORDINARY_CALLBACK',
                 'lua_sha256':hashlib.sha256(code.encode('utf-8')).hexdigest()}
-        if pressure:record.update(source='baiqi142-pressure-observed-v1',source_version=142,initial_turn=first)
+        if pressure:record.update(source=pressure_source,source_version=expected_source_version,initial_turn=first)
         with (ledger_dir/f'end{turn}.json').open('x',encoding='utf-8',newline='\n') as stream:
             json.dump(record,stream,indent=2);stream.write('\n')
         attempted=True
@@ -155,7 +158,7 @@ for _,key in ipairs(keys) do assert(registry.entries[key].SetEnabled(true)) end
 s.phase='RECORDING'
 '''
     if pressure:
-        setup=setup.replace('P6Q20StageB=s',f"s.source='baiqi142-pressure-observed-v1';s.source_version=142;s.initial_turn={first};\nP6Q20StageB=s",1)
+        setup=setup.replace('P6Q20StageB=s',f"s.source='{pressure_source}';s.source_version={expected_source_version};s.initial_turn={first};\nP6Q20StageB=s",1)
         setup=setup.replace('local s={',"assert(#keys==33 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil)\nlocal s={",1)
     poll=f'''
 local s=P6Q20StageB;assert(s and s.token=={quoted} and s.phase=='RECORDING')
@@ -240,7 +243,7 @@ end
                 if stopped!=['COMPLETE',str(closing)]:
                     raise RuntimeError('Completion stop not confirmed')
                 result={'phase':'COMPLETE','turn':closing,'requested_turns':requested,'samples':samples,'cities':cities,'token':token}
-                if pressure:result.update(source='baiqi142-pressure-observed-v1',source_version=142,initial_turn=first,
+                if pressure:result.update(source=pressure_source,source_version=expected_source_version,initial_turn=first,
                                           window_turns=list(range(first+1,first+6)),closing_turn=closing)
                 return result
             # A visit can arrive after END was issued and hold its transition.

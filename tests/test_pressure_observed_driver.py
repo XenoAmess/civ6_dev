@@ -8,9 +8,11 @@ from tools.run_observed_acceptance import run
 
 
 class PressureObservedDriverTests(unittest.TestCase):
-    def case(self,first=6):
+    def case(self,first=6,source_version=142):
         h=DriverHarness();h.world.turn=first
         h.lua.execute("P6Q20PressureBuild={source='baiqi142-pressure-observed-v1',source_version=142}")
+        h.lua.globals().P6Q20PressureBuild.source=f'baiqi{source_version}-pressure-observed-v1'
+        h.lua.globals().P6Q20PressureBuild.source_version=source_version
         h.lua.globals().P6Q20PressureBuild.initial_turn=first
         ledger=Path('.local-model/pressure-observed-driver-tests')/uuid4().hex;calls=[];h.pressure_callback_times=[]
         def callback(turn,token):
@@ -23,8 +25,19 @@ class PressureObservedDriverTests(unittest.TestCase):
             return dict(turn=turn,token=token,requested=True,forced=False)
         def execute(cb=None,**options):
             return run(h.query,h.diplomacy_visible,h.now,h.sleep,h.emit,ledger,sample_budget=4096,
-                       request_normal_end=callback if cb is None else cb,pressure_initial_turn=first,**options)
+                       request_normal_end=callback if cb is None else cb,pressure_initial_turn=first,
+                       expected_source_version=source_version,**options)
         return h,ledger,calls,callback,execute
+
+    def test_source143_six_ends_and_wrong_build_tag(self):
+        h,ledger,calls,cb,execute=self.case(source_version=143);r=execute()
+        self.assertEqual(calls,[6,7,8,9,10,11])
+        self.assertEqual((r['source'],r['source_version']),('baiqi143-pressure-observed-v1',143))
+        self.assertFalse((ledger/'end12.json').exists());self.assertTrue(h.all_recording(False))
+        h,ledger,calls,cb,execute=self.case(source_version=143)
+        h.lua.globals().P6Q20PressureBuild.source='baiqi142-pressure-observed-v1'
+        with self.assertRaises(Exception):execute()
+        self.assertEqual(calls,[]);self.assertTrue(h.all_recording(False))
 
     def test_six_actual_ends_five_windows_close_without_closing_end(self):
         for first in(0,6,2147483641):

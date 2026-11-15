@@ -10,12 +10,12 @@ def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Pa
     from tools.performance_admission import assert_no_model_activity
     if (Path.cwd()/'.local-model/p6-formal-performance-active.json').exists():
         assert_no_model_activity(Path.cwd())
-    if type(expected_source_version)is not int or expected_source_version not in (140,141,142):raise ValueError('Invalid source version')
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143):raise ValueError('Invalid source version')
     if type(legacy_forced)is not bool:raise TypeError('legacy_forced must be an explicit boolean')
     pressure=pressure_initial_turn is not None
     if pressure and (type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                     or expected_source_version!=142 or legacy_forced):
-        raise ValueError('Pressure run requires actual bounded calendar, source142 and ordinary END')
+                     or expected_source_version not in (142,143) or legacy_forced):
+        raise ValueError('Pressure run requires actual bounded calendar, source142/143 and ordinary END')
     first=pressure_initial_turn if pressure else 85;last_turn_expected=first+5
     if legacy_forced:
         if request_normal_end is not None:raise ValueError('Legacy forced mode cannot use normal callback')
@@ -24,13 +24,14 @@ def run(query,is_diplomacy_visible,close_diplomacy,now,sleep,emit,ledger_dir: Pa
     if not isinstance(fixture_sha256,str) or len(fixture_sha256)!=64 or any(c not in '0123456789abcdef' for c in fixture_sha256):raise ValueError('Expected fixture hash')
     token=uuid.uuid4().hex;quoted=json.dumps(token);requested=[];attempted=False;actual_source_version=None
     # Read these headers again at each reservation, poll, issuance and stop.
+    src_tag='baiqi143-pressure-paired-v1' if expected_source_version==143 else 'baiqi142-pressure-paired-v1'
     pressure_headers=f'''
-assert(s.source=='baiqi142-pressure-paired-v1' and s.initial_turn=={first} and s.source_version==142 and s.normal_end==true)
+assert(s.source=='{src_tag}' and s.initial_turn=={first} and s.source_version=={expected_source_version} and s.normal_end==true)
 local pressureOwner=P6PairEndOwner
 assert(pressureOwner and pressureOwner.active and pressureOwner.errors==0 and pressureOwner.refused==0
  and pressureOwner.entry==ExposedMembers.P6BaiqiPairEndBridge
  and pressureOwner.entry.marker=='baiqi-paired-end-bridge-pressure-v1'
- and pressureOwner.entry.source=='baiqi142-pressure-paired-v1' and pressureOwner.entry.source_version==142
+ and pressureOwner.entry.source=='{src_tag}' and pressureOwner.entry.source_version=={expected_source_version}
  and pressureOwner.entry.initial_turn=={first})
 '''if pressure else''
     ledger_dir.mkdir(parents=True,exist_ok=False)
@@ -74,7 +75,7 @@ print('P6_PAIR_READY',{turn},P6PairSourceVersion)
                     or type(ack['turn'])is not int or ack['turn']!=turn or ack['token']!=token
                     or ack['requested']is not True or ack['forced']is not False
                     or(pressure and(type(ack['initial_turn'])is not int or ack['initial_turn']!=first
-                       or ack['source']!='baiqi142-pressure-paired-v1' or type(ack['source_version'])is not int or ack['source_version']!=142))):
+                       or ack['source']!=src_tag or type(ack['source_version'])is not int or ack['source_version']!=expected_source_version))):
                 raise RuntimeError('Unknown ordinary issuance receipt; do not replay')
             post=f'''
 local s=P6PairStage;assert(s and s.token=={quoted} and s.phase=='RECORDING')
@@ -106,7 +107,7 @@ for _,u in Players[0]:GetUnits():Members() do local row=GameInfo.Units[u:GetUnit
  if row and not BaiqiPolicy.CivilianType(row.UnitType) then s.baseline[#s.baseline+1]={id=u:GetID(),x=u:GetX(),y=u:GetY()} end end
 '''
     if pressure:
-        setup=setup.replace('P6PairStage=s',f"s.source='baiqi142-pressure-paired-v1';s.initial_turn={first};\n"+pressure_headers+'P6PairStage=s',1)
+        setup=setup.replace('P6PairStage=s',f"s.source='{src_tag}';s.initial_turn={first};\n"+pressure_headers+'P6PairStage=s',1)
     poll=f'''
 local s=P6PairStage;assert(s and s.token=={quoted} and s.phase=='RECORDING')
 {pressure_headers}
@@ -164,7 +165,7 @@ print('P6_PAIR_META',final.errors,final.refused,final.retired,final.subscribed,G
                     if len(records)!=5:raise RuntimeError('Incomplete paired capture')
                     result={'variant':variant,'run_id':variant+'-'+token,'fixture_sha256':fixture_sha256,'source_version':actual_source_version,'errors':0,'refused':0,'records':records,'requested_turns':requested,'cities':int(meta[5]),'phase':'COMPLETE','token':token,
                             'end_mode':'LEGACY_USER_FORCED'if legacy_forced else'ORDINARY_CALLBACK','forced':legacy_forced}
-                    if pressure:result.update(source='baiqi142-pressure-paired-v1',initial_turn=first)
+                    if pressure:result.update(source=src_tag,initial_turn=first)
                     return result
                 if turn not in requested:action(turn);deadline=now()+180
             sleep(.25)

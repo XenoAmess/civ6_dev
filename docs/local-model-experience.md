@@ -1128,3 +1128,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [816旧158活动资格](testing/baiqi-legacy816-qualified158.md)：候选只返回字符串／虚构回合API整拒。Owner补实际UI active/strategic/busy/messages，CANCEL两式仍false；CoreGetType及平面ACK消费者适配遗漏由Owner修正、0旧命令／END。142旧基线已另存。累计816／757完整／846HTTP；817另案。
+
+
+2026-11-15 [817—823与143软件](testing/baiqi-source143-retained-capacity.md)：817缺生产者、818错误Clone对象、819漏工具分支、821锚点计数错误／漏正常门、822混版标签及ACK遗漏均经Owner逐源纠正；820／823 length未读。保临发令第二记录反例与Owner局部变量／原红JSON覆盖纠错。累计823／762完整／853HTTP，实峰2／3，新增OpenCode原生工具0，未知成本null。

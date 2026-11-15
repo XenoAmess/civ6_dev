@@ -7,15 +7,16 @@ ROOT=Path(__file__).resolve().parents[1]
 if __package__ in (None,''):sys.path.insert(0,str(ROOT))
 from tools.build_mod import contained,digest,manifest_files,package
 from tools.static_control_source import transform,edits
+from tools.diagnostic_version_render import render_helper
 
 
 def clock_prelude(*,normal_end_bridge: bool = False,source_version: int | None = None,pressure_initial_turn: int | None = None) -> str:
-    if type(normal_end_bridge)is not bool or (normal_end_bridge and (type(source_version)is not int or source_version not in (140,141,142))):
-        raise ValueError('Normal END bridge requires actual source140,141 or142')
+    if type(normal_end_bridge)is not bool or (normal_end_bridge and (type(source_version)is not int or source_version not in (140,141,142,143))):
+        raise ValueError('Normal END bridge requires actual source140,141,142 or143')
     if pressure_initial_turn is not None:
         if (type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                or not normal_end_bridge or source_version!=142):
-            raise ValueError('Pressure calendar requires source142 normal END bridge and bounded integer')
+                or not normal_end_bridge or source_version not in (142,143)):
+            raise ValueError('Pressure calendar requires source142/143 normal END bridge and bounded integer')
     module=(ROOT/'tools/lua/benchmark_turn_clock.lua').read_text(encoding='utf-8')
     prefix='''-- PRIVATE matched-turn diagnostic, identical in both variants.
 if P6PairClock~=nil then
@@ -30,6 +31,7 @@ assert(P6PairClock:Snapshot().subscribed and P6PairClock:Snapshot().errors==0)
 '''
     if normal_end_bridge:
         bridge=(ROOT/'tools/lua/benchmark_end_bridge.lua').read_text(encoding='utf-8')
+        bridge=render_helper(bridge,'benchmark_end_bridge',source_version)
         prefix+='''
 assert(P6PairEndOwner==nil,'Existing paired end bridge owner')
 local _P6PairNewEnd=(function()
@@ -45,8 +47,8 @@ P6PairSourceVersion=140
         prefix=prefix.replace('P6PairSourceVersion=140',f'P6PairSourceVersion={source_version}')
         if source_version!=140:prefix=prefix.replace('ExposedMembers=ExposedMembers,',f'ExposedMembers=ExposedMembers,source_version={source_version},',1)
         if pressure_initial_turn is not None:
-            prefix=prefix.replace('ExposedMembers=ExposedMembers,source_version=142,',
-                                  f'ExposedMembers=ExposedMembers,source_version=142,initial_turn={pressure_initial_turn},',1)
+            prefix=prefix.replace(f'ExposedMembers=ExposedMembers,source_version={source_version},',
+                                  f'ExposedMembers=ExposedMembers,source_version={source_version},initial_turn={pressure_initial_turn},',1)
     return prefix
 
 
@@ -57,13 +59,13 @@ def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control'
     if variant=='enabled' and not paired_clock:raise ValueError('Enabled variant requires matched stopwatch')
     source=ROOT/'mod/Baiqi';files=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106','107','108','109','110','111','112','113','114','115','116','117','118','119','120','121','122','123','124','125','126','127','128','129','130','131','132','133','134','135','136','137','138','139','140','141','142'):raise ValueError('Expected actual source67 through142')
+    if version not in ('67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106','107','108','109','110','111','112','113','114','115','116','117','118','119','120','121','122','123','124','125','126','127','128','129','130','131','132','133','134','135','136','137','138','139','140','141','142','143'):raise ValueError('Expected actual source67 through143')
     version=int(version)
-    if normal_end_bridge and version not in (140,141,142):raise ValueError('Normal END bridge requires actual source140,141 or142')
+    if normal_end_bridge and version not in (140,141,142,143):raise ValueError('Normal END bridge requires actual source140,141,142 or143')
     if pressure_initial_turn is not None:
         if (type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                or not paired_clock or not normal_end_bridge or version!=142):
-            raise ValueError('Pressure calendar requires source142 paired ordinary END and bounded integer')
+                or not paired_clock or not normal_end_bridge or version not in (142,143)):
+            raise ValueError('Pressure calendar requires source142/143 paired ordinary END and bounded integer')
     output_dir=output_dir.resolve()
     if output_dir==source.resolve() or output_dir.is_relative_to(source.resolve()) or source.resolve().is_relative_to(output_dir):raise ValueError('Separate output required')
     if output_dir.exists():raise ValueError('New output directory required')
@@ -115,9 +117,12 @@ def build(output_dir: Path,*,paired_clock: bool = False,variant: str = 'control'
                       normal_end_driver_ready=False,cross_context_begin_native_verified=False,
                       native_activation_inline_stop=True)
     if pressure_initial_turn is not None:
-        result.update(mode=f'baiqi142-pressure-paired-{variant}-v1',source='baiqi142-pressure-paired-v1',
+        result.update(mode=f'baiqi{version}-pressure-paired-{variant}-v1',source=f'baiqi{version}-pressure-paired-v1',
                       initial_turn=pressure_initial_turn,paired_end_turns=list(range(pressure_initial_turn,pressure_initial_turn+5)),
                       paired_activation_turns=list(range(pressure_initial_turn+1,pressure_initial_turn+6)))
+    if normal_end_bridge and version==143:
+        template=(ROOT/'tools/lua/benchmark_end_bridge.lua').read_text(encoding='utf-8')
+        result['rendered_end_bridge_sha256']=hashlib.sha256(render_helper(template,'benchmark_end_bridge',version).encode('utf-8')).hexdigest()
     (output_dir/'static-control-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     return result
 

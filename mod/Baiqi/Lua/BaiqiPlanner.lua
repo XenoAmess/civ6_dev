@@ -77,9 +77,16 @@ function BaiqiPlanner.AllowRecruit(role, s, c)
   if s.resourceAffordable ~= true or s.gold < c.goldReserve
     or s.netGold - s.committedMaintenance - s.maintenance < c.netGoldMin then return false end
   if role == "settler" then
-    return number(s.cityPopulation) and s.cityPopulation >= c.settlerMinPop
-      and number(s.settlers) and number(s.queuedSettlers) and number(s.reservedSettlers)
-      and s.settlers + s.queuedSettlers + s.reservedSettlers < c.maxSettlers and s.hasSafeSite == true
+    if not number(s.cityPopulation) or s.cityPopulation<c.settlerMinPop
+      or s.hasSafeSite~=true or not number(c.maxSettlers)
+      or c.maxSettlers<1 or c.maxSettlers%1~=0 then return false end
+    for _,key in ipairs({"settlers","queuedSettlers","reservedSettlers"}) do
+      if not number(s[key]) or s[key]<0 or s[key]%1~=0 then return false end
+    end
+    local total=s.settlers+s.queuedSettlers+s.reservedSettlers
+    if total<c.maxSettlers then return true end
+    return c.maxSettlers==1 and total==1 and s.settlers==1
+      and s.queuedSettlers==0 and s.reservedSettlers==0 and s.retainedSettlers==1
   elseif role == "builder" then
     return number(s.builders) and number(s.queuedBuilders)
       and s.builders + s.queuedBuilders < math.max(1, math.ceil(s.cities * c.buildersPerCity))

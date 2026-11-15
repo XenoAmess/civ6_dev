@@ -7,10 +7,11 @@ from tools.paired_player_callback import make_callback
 
 
 class PressureHarness(normal.NormalHarness):
-    def __init__(self,first=1,**kwargs):
-        super().__init__(source_version=142,**kwargs);self.first=first;self.t.turn=first
+    def __init__(self,first=1,source_version=142,**kwargs):
+        super().__init__(source_version=source_version,**kwargs);self.first=first;self.t.turn=first
+        self.pressure_source_version=source_version
         self.lua.execute('assert(P6PairEndOwner.Retire());P6PairEndOwner=nil')
-        self.lua.execute(clock_prelude(normal_end_bridge=True,source_version=142,pressure_initial_turn=first))
+        self.lua.execute(clock_prelude(normal_end_bridge=True,source_version=source_version,pressure_initial_turn=first))
         self.t.visitAt=first+2
         self.lua.execute('''Game.IsAllowStrategicCommands=function()return true end;UI.CanEndTurn=function()return true end
 UI.RequestAction=function(...)assert(select('#',...)==1 and (...)==2)
@@ -22,15 +23,39 @@ UI.RequestAction=function(...)assert(select('#',...)==1 and (...)==2)
     def record(self,name,value):
         with(self.ledger/(name+'.json')).open('x',encoding='utf-8')as f:json.dump(value,f)
     def callback(self):
-        return make_callback(self.query,self.child,self.record,self.visible,pressure_initial_turn=self.first)
+        return make_callback(self.query,self.child,self.record,self.visible,pressure_initial_turn=self.first,expected_source_version=self.pressure_source_version)
     def run(self,callback=None,**kwargs):
         return run(self.query,self.visible,self.close,self.now,self.sleep,self.emit,self.ledger,
-                   variant=kwargs.pop('variant','enabled'),fixture_sha256='0'*64,expected_source_version=142,
+                   variant=kwargs.pop('variant','enabled'),fixture_sha256='0'*64,expected_source_version=self.pressure_source_version,
                    request_normal_end=self.callback()if callback is None else callback,
                    pressure_initial_turn=self.first,**kwargs)
 
 
 class PressurePairedDriverTests(unittest.TestCase):
+    def test_source143_real_driver_analyzer_and_wrong_receipt(self):
+        from tools.analyze_paired_turns import analyze_pressure_pairs
+        pairs=[]
+        for i in range(1,6):
+            order=['enabled','control']if i%2 else['control','enabled']
+            pair=dict(pair=i,order=order)
+            for variant in order:
+                h=PressureHarness(source_version=143);pair[variant]=h.run(variant=variant)
+                self.assertEqual(list(h.t.actions.values()),[1,2,3,4,5])
+                self.assertEqual(pair[variant]['source'],'baiqi143-pressure-paired-v1')
+            pairs.append(pair)
+        result=analyze_pressure_pairs(pairs,'0'*64,initial_turn=1,expected_source_version=143)
+        self.assertEqual(len(result['matched_rows']),25)
+        pairs[0]['enabled']['source']='baiqi142-pressure-paired-v1'
+        with self.assertRaises(ValueError):
+            analyze_pressure_pairs(pairs,'0'*64,initial_turn=1,expected_source_version=143)
+        h=PressureHarness(source_version=143)
+        def bad(turn,token):
+            return dict(turn=turn,token=token,requested=True,forced=False,initial_turn=1,
+                        source='baiqi142-pressure-paired-v1',source_version=143)
+        with self.assertRaisesRegex(RuntimeError,'issuance receipt'):h.run(bad)
+        self.assertEqual(len(h.t.actions),0)
+        self.assertEqual(len(list(h.ledger.glob('end-*.json'))),1)
+
     def test_all_five_actual_segments_and_no_closing_end(self):
         for first in(0,1,2147483641):
             h=PressureHarness(first);r=h.run()

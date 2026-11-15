@@ -7,22 +7,22 @@ def _finite(value):
 
 
 def validate_capture_mode(capture, expected_source_version, require_ordinary, initial_turn=None):
-    if type(expected_source_version) is not int or expected_source_version not in (67, 140, 141, 142):
+    if type(expected_source_version) is not int or expected_source_version not in (67, 140, 141, 142, 143):
         raise ValueError('expected_source_version must be int 67,140 or141')
     if type(require_ordinary) is not bool:
         raise ValueError('require_ordinary must be bool')
-    if require_ordinary and expected_source_version not in (140,141,142):
+    if require_ordinary and expected_source_version not in (140,141,142,143):
         raise ValueError('require_ordinary requires expected_source_version 140 or141')
     if not isinstance(capture, collections.abc.Mapping):
         raise ValueError('capture must be a mapping')
     if type(capture.get('source_version')) is not int or capture.get('source_version') != expected_source_version:
         raise ValueError('source_version mismatch')
     if initial_turn is None:
-        if capture.get('source') == 'baiqi142-pressure-paired-v1' or 'initial_turn' in capture:
+        if capture.get('source') in ('baiqi142-pressure-paired-v1', 'baiqi143-pressure-paired-v1') or 'initial_turn' in capture:
             raise ValueError('Pressure capture requires pressure analyzer')
     else:
-        if (expected_source_version != 142 or require_ordinary is not True
-                or capture.get('source') != 'baiqi142-pressure-paired-v1'
+        if (expected_source_version not in (142, 143) or require_ordinary is not True
+                or capture.get('source') != f'baiqi{expected_source_version}-pressure-paired-v1'
                 or type(capture.get('initial_turn')) is not int or capture['initial_turn'] != initial_turn):
             raise ValueError('Pressure capture metadata mismatch')
     if require_ordinary:
@@ -190,11 +190,13 @@ def analyze_pairs(pairs, fixture_sha256, *, expected_source_version=67, require_
     return _analyze_core(pairs, fixture_sha256, expected_source_version, require_ordinary, None)
 
 
-def analyze_pressure_pairs(pairs, fixture_sha256, *, initial_turn):
+def analyze_pressure_pairs(pairs, fixture_sha256, *, initial_turn, expected_source_version=142):
     """Analyze actual pressure-calendar labels without rewriting capture data."""
     if type(initial_turn) is not int or not 0 <= initial_turn <= 2147483641:
         raise ValueError('Invalid pressure initial_turn')
-    result = _analyze_core(pairs, fixture_sha256, 142, True, initial_turn)
+    if type(expected_source_version) is not int or expected_source_version not in (142, 143):
+        raise ValueError('Invalid pressure source version')
+    result = _analyze_core(pairs, fixture_sha256, expected_source_version, True, initial_turn)
 
     def distribution(values, threshold, key):
         if any(v is None for v in values):
@@ -203,7 +205,7 @@ def analyze_pressure_pairs(pairs, fixture_sha256, *, initial_turn):
         return dict(p50=statistics.median(ordered),p95=ordered[math.ceil(.95*len(ordered))-1],
                     max=ordered[-1],**{key:sum(v>threshold for v in values)})
 
-    result.update(source='baiqi142-pressure-paired-v1',initial_turn=initial_turn,
+    result.update(source='baiqi143-pressure-paired-v1' if expected_source_version==143 else 'baiqi142-pressure-paired-v1',initial_turn=initial_turn,
                   pressure_distributions={
                       'delta_ms':distribution([r['delta_ms'] for r in result['matched_rows']],500,'over_500_count'),
                       'ratio_percent':distribution([r['ratio_percent'] for r in result['matched_rows']],10,'over_10_count')})

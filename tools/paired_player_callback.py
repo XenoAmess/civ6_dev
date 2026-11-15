@@ -4,7 +4,7 @@ from tools.paired_normal_end import request_end,request_pressure_end
 
 
 def make_callback(query,child,record,is_diplomacy_visible,*,expected_source_version=142,pressure_initial_turn=None):
-    if type(expected_source_version)is not int or expected_source_version!=142:
+    if type(expected_source_version)is not int or expected_source_version not in (142, 143):
         raise ValueError('Invalid source version')
     if not all(callable(f)for f in (query,child,record,is_diplomacy_visible)):
         raise TypeError('Callback dependencies must be callable')
@@ -12,7 +12,8 @@ def make_callback(query,child,record,is_diplomacy_visible,*,expected_source_vers
     if pressure and(type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641):
         raise ValueError('Invalid pressure initial_turn')
     first=pressure_initial_turn if pressure else 85
-    metadata={'source':'baiqi142-pressure-paired-v1','initial_turn':first}if pressure else{}
+    src_tag='baiqi143-pressure-paired-v1' if expected_source_version==143 else 'baiqi142-pressure-paired-v1'
+    metadata={'source':src_tag,'initial_turn':first}if pressure else{}
 
     def visible_guard():
         if is_diplomacy_visible() is not False:
@@ -45,7 +46,7 @@ def make_callback(query,child,record,is_diplomacy_visible,*,expected_source_vers
         visible_guard()
         record(f'issuance-{turn}-attempt',{'turn':turn,'token':token,'forced':False,
                                          'meaning':'About to call ordinary endpoint once',**metadata})
-        ack=(request_pressure_end(query,turn,token,initial_turn=first)if pressure
+        ack=(request_pressure_end(query,turn,token,initial_turn=first,expected_source_version=expected_source_version)if pressure
              else request_end(query,turn,token,expected_source_version=expected_source_version))
         record(f'issuance-{turn}-returned',{'ack':ack,
                   'meaning':'Call returned; engine acceptance and activation require independent readback'})

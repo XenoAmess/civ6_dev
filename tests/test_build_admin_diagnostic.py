@@ -1,4 +1,6 @@
 from pathlib import Path
+from tools.static_control_source import resolve_source_version
+CURRENT_VERSION=resolve_source_version()
 import tempfile,unittest,zipfile
 from lupa.lua51 import LuaRuntime
 from tools.build_admin_diagnostic import ROOT,CHILDREN,RUNNERS,build,suffix
@@ -11,8 +13,8 @@ class AdminDiagnosticTests(unittest.TestCase):
             out=Path(temp)/'prepared';d=build(out);source=ROOT/'mod/Baiqi';target=out/'Baiqi';names=manifest_files(source)
             self.assertEqual(d['files'],119);self.assertEqual(d['profile_count'],1);self.assertEqual(d['sample_capacity'],4096)
             self.assertEqual([n for n in names if digest(source/n)!=digest(target/n)],['Lua/BaiqiAdmin.lua'])
-            self.assertEqual((target/'Lua/BaiqiAdmin.lua').read_bytes(),(source/'Lua/BaiqiAdmin.lua').read_bytes()+suffix(source_version=142).encode('utf-8'))
-            with zipfile.ZipFile(out/'Baiqi-admin142-children.zip')as z:
+            self.assertEqual((target/'Lua/BaiqiAdmin.lua').read_bytes(),(source/'Lua/BaiqiAdmin.lua').read_bytes()+suffix(source_version=CURRENT_VERSION).encode('utf-8'))
+            with zipfile.ZipFile(out/f'Baiqi-admin{CURRENT_VERSION}-children.zip')as z:
                 self.assertEqual(set(z.namelist()),{'Baiqi/'+n for n in names})
                 for n in names:self.assertEqual(z.read('Baiqi/'+n),(target/n).read_bytes())
 

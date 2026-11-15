@@ -391,3 +391,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[142旧ARMED158活动资格](../testing/baiqi-legacy816-qualified158.md)补当前active／strategic门，CANCEL仍false、0重放，旧恢复FAIL保留。已保护142旧158基线与现代342，继续评估独立且有硬上限的新移民生产。
+
+
+2026-11-15：[143有界独立扩张软件通过](../testing/baiqi-source143-retained-capacity.md)，保留旧ARMED演员／记录并保护目标；完整回归及97Lua双编译／119包一致。尚未安装／Native，旧恢复FAIL与142性能证据各保原范围。

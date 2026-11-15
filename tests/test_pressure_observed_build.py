@@ -1,5 +1,7 @@
 """Real private packages, no installation or Native execution."""
 from pathlib import Path
+from tools.static_control_source import resolve_source_version
+CURRENT_VERSION=resolve_source_version()
 import importlib,json,tempfile,unittest,zipfile
 from unittest.mock import patch
 from tools import build_observed_mod as builder
@@ -17,7 +19,7 @@ class PressureObservedBuildTests(unittest.TestCase):
 
     def test_metadata_actual_calendar_and_only_executor_payload_differs(self):
         a,b=self.legacy,self.pressure
-        self.assertEqual((b['source'],b['source_version'],b['initial_turn']),('baiqi142-pressure-observed-v1',142,6))
+        self.assertEqual((b['source'],b['source_version'],b['initial_turn']),(f'baiqi{CURRENT_VERSION}-pressure-observed-v1',CURRENT_VERSION,6))
         self.assertEqual(b['window_turns'],[7,8,9,10,11]);self.assertEqual(b['closing_turn'],12)
         self.assertEqual([k for k in a['instrumented_hashes']if a['instrumented_hashes'][k]!=b['instrumented_hashes'][k]],['UI/BaiqiExecutor.lua'])
         for key in('source_hashes','coverage','expected_entry_keys','context_quotas','helper_hashes','files','lua_compile_versions'):
@@ -36,13 +38,13 @@ class PressureObservedBuildTests(unittest.TestCase):
             lua.execute("Game={GetCurrentGameTurn=function()error('No Native reads in header')end}")
             lua.execute(header)
             self.assertEqual(lua.eval('P6Q20PressureBuild.initial_turn'),6)
-            self.assertEqual(lua.eval('P6Q20PressureBuild.source_version'),142)
+            self.assertEqual(lua.eval('P6Q20PressureBuild.source_version'),CURRENT_VERSION)
             lua.execute('Foreign=P6Q20PressureBuild')
             with self.assertRaises(module.LuaError):lua.execute(header)
             self.assertTrue(lua.eval('P6Q20PressureBuild==Foreign'))
 
     def test_archive_source_hashes_and_saved_metadata(self):
-        archive=self.root/'pressure/Baiqi-diagnostic142-q21-bounded-pressure-6.zip'
+        archive=self.root/f'pressure/Baiqi-diagnostic{CURRENT_VERSION}-q21-bounded-pressure-6.zip'
         self.assertTrue(archive.is_file());self.assertFalse(self.pressure['installed'])
         with zipfile.ZipFile(archive)as z:
             self.assertEqual(set(z.namelist()),{'Baiqi/'+n for n in self.pressure['source_hashes']})

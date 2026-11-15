@@ -3,6 +3,9 @@ import tempfile,json,unittest,zipfile
 from lupa.lua51 import LuaRuntime
 from tools.build_controller_diagnostic import ROOT,CHILDREN,build,suffix,selected_children
 from tools.build_mod import digest,manifest_files
+from tools.static_control_source import resolve_source_version
+
+CURRENT_VERSION=resolve_source_version()
 
 
 class ControllerDiagnosticBuildTests(unittest.TestCase):
@@ -13,9 +16,9 @@ class ControllerDiagnosticBuildTests(unittest.TestCase):
             self.assertEqual(result['files'],119);self.assertEqual(result['profile_count'],1)
             self.assertEqual(result['sample_capacity'],4096)
             self.assertEqual([n for n in names if digest(source/n)!=digest(target/n)],['Lua/BaiqiController.lua'])
-            self.assertEqual(result['source_version'],142)
-            self.assertEqual((target/'Lua/BaiqiController.lua').read_bytes(),(source/'Lua/BaiqiController.lua').read_bytes()+suffix(source_version=142).encode('utf-8'))
-            with zipfile.ZipFile(out/'Baiqi-controller142-coarse.zip')as z:
+            self.assertEqual(result['source_version'],CURRENT_VERSION)
+            self.assertEqual((target/'Lua/BaiqiController.lua').read_bytes(),(source/'Lua/BaiqiController.lua').read_bytes()+suffix(source_version=CURRENT_VERSION).encode('utf-8'))
+            with zipfile.ZipFile(out/f'Baiqi-controller{CURRENT_VERSION}-coarse.zip')as z:
                 self.assertEqual(set(z.namelist()),{'Baiqi/'+n for n in names})
                 for n in names:self.assertEqual(z.read('Baiqi/'+n),(target/n).read_bytes())
 
@@ -99,7 +102,7 @@ assert(#h.profile.samples==4 and T.calls==3 and h.errors==0)
     def test_v2_actual_build_and_default_bytes_stay_separate(self):
         with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
             out=Path(temp)/'v2';result=build(out,include_pre_observer=True)
-            self.assertEqual(result['mode'],'baiqi142-controller-children-v2')
+            self.assertEqual(result['mode'],f'baiqi{CURRENT_VERSION}-controller-children-v2')
             self.assertTrue(result['include_pre_observer_active_calls'])
             self.assertIn('diagnostic_preobserver_qualifier',result['helper_hashes'])
             self.assertIn("d.source='baiqi140-controller-children-v1'",suffix())
