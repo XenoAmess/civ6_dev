@@ -1188,3 +1188,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[151实机193](testing/baiqi-source151-native193-flood-research.md)：正式冷读后台一次切电脑413/664，research_observed与独立当前55／激光333.73046875/925均保持；0人工研究／生产，26已验证wait元数据恢复、9军队各一次SKIP，0END193切点已另存，继续普通194及防洪。无新增HTTP／OpenCode原生，累计857保持，不回授原稿。
+
+
+2026-11-15：[151普通195](testing/baiqi-source151-native195-computers-barriers.md)：电脑完成后原激光333.73保持，三城各原价135自动防洪坝／观察，武汉实际地块淹没转false但区域仍pillaged；项目119保留、邢州人口2粮仓24/32。194玩家受损战士16双Lua守卫后一次FORTIFY，195军队新阻塞继续；0人工内政／新HTTP／OpenCode原生，累计857保持。直连恢复Git不切Steam。
