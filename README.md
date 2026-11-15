@@ -463,3 +463,5 @@ python tools\build_mod.py --install
 [142旧ARMED158补齐活动资格](docs/testing/baiqi-legacy816-qualified158.md)：active／strategic=true时两种CANCEL仍false，未取消或重放；旧日志／演员及现代342保护，转查有界独立扩张。
 
 [143冷实机159与真实选址缺口](docs/testing/baiqi-source143-cold159.md)：普通158→159、旧意图保持；AI仅推荐受保护846，4个其他点通过现有安全／边境谓词但未入推荐。已保存159，继续有界备选实现，未授独立扩张通过。
+
+[144冷实机160与动态推荐缺口](docs/testing/baiqi-source144-native160.md)：预算／训练资格及Native队列已核，两个负忠诚远端hint压住近邻备选；160已保存，继续修按实际验证失败触发，未授独立扩张／新版性能。

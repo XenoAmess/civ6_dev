@@ -400,3 +400,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[144有界备选软件通过](../testing/baiqi-source144-bounded-alternates.md)，旧意图附近两环19格，保全部安全与派发资格；97Lua双编译／119包一致。尚未安装／Native或性能，旧恢复FAIL保留。
+
+
+2026-11-15：[144冷160](../testing/baiqi-source144-native160.md)普通159→160、旧日志保持；动态无效hint使raw候选非空，备用未触发。4近邻原源谓词仍过，继续145按实际失败后追加；160已保存，旧恢复FAIL保留。

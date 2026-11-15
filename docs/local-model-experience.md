@@ -1137,3 +1137,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15 [826—828／144软件](testing/baiqi-source144-bounded-alternates.md)：826漏pcall及半截候选风险由Owner事务式批收集纠正；827四精确renderer片段采用、旧143输出保持；828 length未读，Owner接管实际Controller测试。累计828／766完整／59length／858HTTP，实峰1，新OpenCode原生0，未知成本null。
+
+
+2026-11-15 [829—830／144冷160](testing/baiqi-source144-native160.md)：829字段枚举部分采用、计数和nil边界Owner修正，Native公共queue0移民但私有槽未知。830删异常批隔离、过早触发／循环后追加不验证，整拒。真实两个负忠诚hint压住近邻备选继续修；累计830／768完整／860HTTP，原生OpenCode0，未知成本null。
