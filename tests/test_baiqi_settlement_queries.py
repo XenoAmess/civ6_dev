@@ -39,7 +39,7 @@ class SettlementQueryTests(unittest.TestCase):
     def test_existing_queued_settler_skips_query_and_uses_legal_fallback(self):
         self.w.productionHash, self.w.allowProject = 201, True
         self.lua.execute('TestWorld.queues[66]={{UnitType=1}}')
-        self.c.RunNow()
+        self.c.RunNow(); self.c.RunNow()  # Reach the second city without a turn change.
         self.assertEqual(self.w.settlementQueries or 0, 0)
         self.assertEqual(len(self.w.cityRequests), 1)
         self.assertEqual((self.w.cityRequests[1].city, self.w.cityRequests[1].params[5]), (67, 301))
@@ -58,7 +58,7 @@ class SettlementQueryTests(unittest.TestCase):
         self.c.RunNow()
         self.assertEqual(self.w.settlementQueries, 2)
         self.assertEqual(len(self.w.cityRequests), 0)
-        self.c.RunNow()
+        self.c.RunNow(); self.c.RunNow()  # Complete the two-city retry cycle.
         self.assertEqual(len(self.w.cityRequests), 1)
         self.assertEqual(self.w.cityRequests[1].params[5], 301)
 

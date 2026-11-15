@@ -1,4 +1,4 @@
-"""Build an isolated source152 live-FOUND diagnostic; never install or run it."""
+"""Build an isolated source152/153 live-FOUND diagnostic; never install or run it."""
 from pathlib import Path
 import argparse
 import json
@@ -75,8 +75,9 @@ def build(output):
     from lupa.lua51 import LuaRuntime as L51
     from lupa.lua53 import LuaRuntime as L53
     source = ROOT / 'mod/Baiqi'
-    if ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version') != '152':
-        raise ValueError('Only source152 is qualified')
+    version = ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version')
+    if version not in ('152', '153'):
+        raise ValueError('Only source152/153 is qualified')
     out = Path(output).resolve()
     if not out.is_relative_to(ROOT / '.local-model') or out.exists():
         raise ValueError('New private output directory required')
@@ -98,9 +99,9 @@ def build(output):
         p.parent.mkdir(parents=True, exist_ok=True)
         with p.open('xb') as f:
             f.write(raw)
-    archive = out / 'Baiqi-found-dispatch152.zip'
+    archive = out / f'Baiqi-found-dispatch{version}.zip'
     package(target, archive)
-    result = {'mode': 'baiqi152-found-dispatch-v1', 'source_version': 152, 'files': len(names),
+    result = {'mode': f'baiqi{version}-found-dispatch-v1', 'source_version': int(version), 'files': len(names),
               'changed_files': [controller], 'source_hashes': {n: digest(source / n) for n in names},
               'instrumented_hashes': {n: digest(target / n) for n in names},
               'helper_sha256': digest(HELPER), 'archive_sha256': digest(archive),

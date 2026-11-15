@@ -19,6 +19,7 @@ local elapsed, turn, requestCount, serial = 0, -1, 0, 0
 local attempts, pendingUnits, pendingCities, reservations = {}, {}, {}, {}
 local submittedUnits = {}
 local cityEvaluated, unitEvaluated, settlementTargets = {}, {}, {}
+local cityCursor=0
 local planningStarted,builderResumeStreak=nil,0
 local builderSearches={}
 local builderRejectedGoals={}
@@ -2988,7 +2989,11 @@ local function ProcessSettler(ctx, player, state, unit)
     search.tested[oldTarget]=true
     local step=PathStep(unit,oldPlot,player,state)
     if step then
-      local s,g=SettlerGoalBridge("Remember",ctx.player,id,oldTarget,oldPlot:GetX(),oldPlot:GetY())
+      -- An existing proposal needs a fresh read, not another save/actor scan.
+      -- The path and final native command boundary still qualify this move.
+      local s,g
+      if goal~=nil then s,g=SettlerGoalBridge("Read",ctx.player,id)
+      else s,g=SettlerGoalBridge("Remember",ctx.player,id,oldTarget,oldPlot:GetX(),oldPlot:GetY()) end
       if s~="READY"or not SettlerGoalProposal(g,id)or g.plot~=oldTarget
         or g.x~=oldPlot:GetX()or g.y~=oldPlot:GetY()then
         settlerSearches[id]=nil
@@ -4790,6 +4795,24 @@ local function RetryCivilianOverlap(ctx,player,state,unit)
   end)
 end
 
+-- The cursor schedules work only; it never carries a native object or permission.
+-- Re-read membership on every callback, and keep every actual city write guarded
+-- by ProcessCity's existing current owner, queue, price and legality checks.
+local function NextCityForPlanning(player)
+  local ok,city,index=pcall(function()
+    local wanted=cityCursor+1;local seen,first=0,nil
+    for _,candidate in player:GetCities():Members()do
+      seen=seen+1
+      if first==nil then first=candidate end
+      if seen==wanted then return candidate,wanted end
+    end
+    if first~=nil then return first,1 end
+    return nil,0
+  end)
+  cityCursor=ok and index or 0
+  if ok then return city end
+end
+
 local function Tick(allowOrders)
   planningStarted=PlanningTime()
   if stopped then return end
@@ -4802,6 +4825,7 @@ local function Tick(allowOrders)
   local current=type(Game.GetCurrentGameTurn)=="function" and Game.GetCurrentGameTurn()
   if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
+    cityCursor=0
     builderResumeStreak=0
     purchaseSearch=nil;purchaseDoneTurn=-1;purchaseResumeStreak=0
     turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}; builderRejectedGoals={}; settlerSearches={}
@@ -4889,9 +4913,8 @@ local function Tick(allowOrders)
     end
   end
   builderResumeStreak=0
-  for _,city in player:GetCities():Members() do
-    if ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
-  end
+  local city=NextCityForPlanning(player)
+  if city and ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
   -- One city's quote per callback, at most two purchase continuations before
   -- normal unit scheduling. Scalar failed IDs never authorize a later command.
   if missionaryPurchase.streak<2 then

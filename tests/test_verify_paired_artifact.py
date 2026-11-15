@@ -30,7 +30,7 @@ class VerifyPairedArtifactTests(unittest.TestCase):
         return out
 
     def rewrite(self, out, variant, metadata):
-        archive = out / f'Baiqi-paired152-{variant}-normal-end.zip'
+        archive = out / f'Baiqi-paired{metadata["source_version"]}-{variant}-normal-end.zip'
         package(out / 'Baiqi', archive)
         metadata['archive_sha256'] = digest(archive)
         (out / 'static-control-build.json').write_text(json.dumps(metadata), encoding='utf-8')
@@ -67,13 +67,16 @@ class VerifyPairedArtifactTests(unittest.TestCase):
 
     def test_tampered_archive_is_rejected(self):
         out = self.copy('enabled')
-        with (out / 'Baiqi-paired152-enabled-normal-end.zip').open('ab') as f:
+        version = json.loads((out / 'static-control-build.json').read_text(encoding='utf-8'))['source_version']
+        with (out / f'Baiqi-paired{version}-enabled-normal-end.zip').open('ab') as f:
             f.write(b'tampered')
         with self.assertRaisesRegex(ValueError, 'Archive hash'):
             verify_pair(out, ROOT / 'mod/Baiqi', 'enabled')
 
     def test_duplicate_archive_entries_reject_even_with_updated_digest(self):
-        out = self.copy('enabled');archive = out / 'Baiqi-paired152-enabled-normal-end.zip'
+        out = self.copy('enabled')
+        version = json.loads((out / 'static-control-build.json').read_text(encoding='utf-8'))['source_version']
+        archive = out / f'Baiqi-paired{version}-enabled-normal-end.zip'
         import warnings
         with warnings.catch_warnings():
             warnings.simplefilter('ignore', UserWarning)

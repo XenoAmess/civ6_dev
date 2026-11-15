@@ -80,7 +80,7 @@ Events.UnitAddedToMap=TestEvent();Events.UnitRemovedFromMap=TestEvent()
         self.c.RunNow(); self.c.RunNow()
         self.w.rejectStandby = False
         self.lua.execute('TestWorld.queues[66]={{UnitType=6},{UnitType=5}};Events.UnitAddedToMap.Fire(7,105)')
-        self.c.RunNow()
+        self.c.RunNow(); self.c.RunNow()  # Same-turn full cycle; city 66 stays busy.
         self.assertEqual((len(self.w.cityRequests), self.w.cityRequests[1].city), (1, 67))
         self.assertEqual(len(self.w.queues[66]), 2)
         self.c.Shutdown()

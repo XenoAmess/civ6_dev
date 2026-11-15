@@ -1,4 +1,4 @@
-"""Read-only qualification of held source152 ordinary-END paired packages."""
+"""Read-only qualification of held source152/153 ordinary-END paired packages."""
 from pathlib import Path
 import hashlib
 import json
@@ -21,11 +21,13 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
     if variant not in ('enabled', 'control'):
         raise ValueError('Invalid paired variant')
     meta = json.loads((prepared / 'static-control-build.json').read_text(encoding='utf-8'))
-    if not isinstance(meta, dict) or type(meta.get('source_version')) is not int or meta['source_version'] != 152:
-        raise ValueError('Expected source152 metadata')
-    if ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version') != '152':
-        raise ValueError('Expected actual source152')
-    if meta.get('variant') != variant or meta.get('mode') != f'baiqi152-paired-{variant}-c3-normal-end':
+    version = ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version')
+    if version not in ('152', '153'):
+        raise ValueError('Expected actual source152/153')
+    version = int(version)
+    if not isinstance(meta, dict) or type(meta.get('source_version')) is not int or meta['source_version'] != version:
+        raise ValueError('Expected matching source152/153 metadata')
+    if meta.get('variant') != variant or meta.get('mode') != f'baiqi{version}-paired-{variant}-c3-normal-end':
         raise ValueError('Variant or mode mismatch')
     if any(meta.get(k) is not True for k in ('paired_clock', 'normal_end_bridge', 'native_activation_inline_stop', 'lua51_compiled')):
         raise ValueError('Ordinary END bridge flags mismatch')
@@ -39,14 +41,14 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
         raise ValueError('Source or prepared hash mismatch')
     expected_changed = {'UI/BaiqiExecutor.lua'}
     if variant == 'control':
-        expected_changed |= set(edits(152))
+        expected_changed |= set(edits(version))
     changed = {n for n in names if source_hashes[n] != target_hashes[n]}
     declared = meta.get('changed_files')
     if not isinstance(declared, list) or len(declared) != len(expected_changed) or set(declared) != expected_changed or changed != expected_changed:
         raise ValueError('Changed file set mismatch')
-    prefix = clock_prelude(normal_end_bridge=True, source_version=152)
+    prefix = clock_prelude(normal_end_bridge=True, source_version=version)
     bridge = render_helper((ROOT / 'tools/lua/benchmark_end_bridge.lua').read_text(encoding='utf-8'),
-                           'benchmark_end_bridge', 152)
+                           'benchmark_end_bridge', version)
     sha = lambda s: hashlib.sha256(s.encode('utf-8')).hexdigest()
     if meta.get('clock_prefix_sha256') != sha(prefix) or meta.get('rendered_end_bridge_sha256') != sha(bridge):
         raise ValueError('Current clock or bridge hash mismatch')
@@ -57,7 +59,7 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
     }
     for n in expected_changed:
         raw = contained(source, n).read_text(encoding='utf-8-sig')
-        expected = transform(raw, n, 152)[0] if variant == 'control' else raw
+        expected = transform(raw, n, version)[0] if variant == 'control' else raw
         if n == 'UI/BaiqiExecutor.lua':
             expected = prefix + expected
             for old, new in aliases.items():
@@ -66,7 +68,7 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
                 expected = expected.replace(old, new, 1)
         if contained(target, n).read_bytes() != expected.encode('utf-8'):
             raise ValueError('Prepared source differs from canonical paired transformation: ' + n)
-    archive = prepared / f'Baiqi-paired152-{variant}-normal-end.zip'
+    archive = prepared / f'Baiqi-paired{version}-{variant}-normal-end.zip'
     if digest(archive) != meta.get('archive_sha256'):
         raise ValueError('Archive hash mismatch')
     with zipfile.ZipFile(archive) as z:

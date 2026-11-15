@@ -24,7 +24,11 @@ class FirstHolySiteTests(unittest.TestCase):
         self.lua.execute(source)
 
     def chosen(self):
-        self.c.RunNow()
+        # City planning now visits one current member per callback.
+        for _ in range(len(self.w.cities)):
+            self.c.RunNow()
+            if len(self.w.cityRequests):
+                break
         self.assertEqual(len(self.w.cityRequests), 1)
         self.assertEqual(len(self.w.unitRequests), 0)
         params = self.w.cityRequests[1].params

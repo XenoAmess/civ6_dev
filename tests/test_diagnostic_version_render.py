@@ -56,7 +56,7 @@ class DiagnosticVersionRenderTests(unittest.TestCase):
 
     def test_exact_type_and_unknown_kind_or_version_rejected(self):
         class IntSubclass(int):pass
-        for value in (True,143.0,"143",None,153,IntSubclass(143)):
+        for value in (True,143.0,"143",None,154,IntSubclass(143)):
             with self.assertRaises(ValueError):
                 render_helper(self.template("benchmark_end_bridge"),"benchmark_end_bridge",value)
         with self.assertRaises(ValueError):render_helper("return {}","unknown",143)
@@ -135,7 +135,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,153)
+            with self.assertRaises(ValueError):render_helper(text,kind,154)
 
     def test_source147_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -145,7 +145,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,153)
+            with self.assertRaises(ValueError):render_helper(text,kind,154)
 
     def test_source148_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -155,7 +155,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,153)
+            with self.assertRaises(ValueError):render_helper(text,kind,154)
 
     def test_source149_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -165,7 +165,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,153)
+            with self.assertRaises(ValueError):render_helper(text,kind,154)
 
     def test_source150_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -175,7 +175,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,153)
+            with self.assertRaises(ValueError):render_helper(text,kind,154)
 
     def test_source151_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -185,7 +185,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,153)
+            with self.assertRaises(ValueError):render_helper(text,kind,154)
 
     def test_source152_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -195,7 +195,32 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,153)
+            with self.assertRaises(ValueError):render_helper(text,kind,154)
+
+    def test_source153_render_and_pressure_clock_keep_version_boundaries(self):
+        for kind in ('benchmark_end_bridge','diagnostic_plan_stage'):
+            raw=self.template(kind)
+            rendered=render_helper(raw,kind,153)
+            self.assertIn('sourceVersion==153',rendered)
+            self.assertIn('baiqi153-pressure-',rendered)
+            self.assertNotIn('baiqi152-pressure-',rendered)
+            for L in (L51,L53):L().compile(rendered)
+            self.assertEqual(raw,self.template(kind))
+        for L in (L51,L53):
+            lua=L(unpack_returned_tuples=True)
+            lua.execute('''Turn=1;Clock=10;Callbacks={};ExposedMembers={}
+Game={GetCurrentGameTurn=function()return Turn end,GetLocalPlayer=function()return 0 end}
+Automation={GetTime=function()return Clock end}
+Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove=function()end}}''')
+            lua.execute(clock_prelude(normal_end_bridge=True,source_version=153,pressure_initial_turn=1))
+            lua.execute("P6PairStage={phase='RECORDING',token=string.rep('a',32),ends={},normal_end=true,source_version=153,source='baiqi153-pressure-paired-v1',initial_turn=1}")
+            g=lua.globals()
+            for turn in range(1,6):
+                g.Turn=turn;g.Clock=100+20*turn;g.P6PairStage.ends[turn]=True
+                self.assertTrue(g.ExposedMembers.P6BaiqiPairEndBridge.Begin(turn,'a'*32))
+                g.Turn=turn+1;g.Clock+=2;lua.execute('for _,f in ipairs(Callbacks)do f(0,false)end')
+            self.assertEqual([r.to_turn for r in g.P6PairClock.Snapshot(g.P6PairClock).records.values()],[2,3,4,5,6])
+            self.assertIsNone(g.P6PairStage.ends[6])
 
 
 

@@ -117,7 +117,7 @@ assert(Access.getSecond()==foreign and Access.second()=='foreign')
             out = Path(temp) / 'v4'
             result = diagnostic.build(out, children=FINE, include_pre_observer=True,
                                       native_path_timing=True, detour_native_timing=True)
-            self.assertEqual(result['mode'], 'baiqi152-controller-children-v4')
+            self.assertEqual(result['mode'], f'baiqi{result["source_version"]}-controller-children-v4')
             self.assertEqual(result['binding_count'], 16)
             self.assertEqual(result['sample_capacity'], 4096)
             self.assertEqual(result['changed_files'], ['Lua/BaiqiController.lua'])

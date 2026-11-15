@@ -20,7 +20,11 @@ class PrayerProductionTests(unittest.TestCase):
         self.c = self.lua.globals().BaiqiController
 
     def chosen(self):
-        self.c.RunNow()
+        # One full city cycle, without advancing the turn or simulating an ACK.
+        for _ in range(len(self.w.cities)):
+            self.c.RunNow()
+            if len(self.w.cityRequests):
+                break
         self.assertEqual(len(self.w.cityRequests),1)
         self.assertEqual(len(self.w.unitRequests),0)
         params=self.w.cityRequests[1].params

@@ -65,6 +65,8 @@ end
         self.assertEqual(paths,[(2,46),(4,47)])
 
     def test_unknown_remember_still_prevents_movement(self):
+        # A new proposal still requires storage; an existing goal now uses Read.
+        self.lua.execute("TestWorld.goalProposals['2']=nil")
         self.lua.execute("ExposedMembers.BaiqiSettlerGoalsBridge.Remember=function()return'UNAVAILABLE'end")
         self.step();self.assertEqual(self.moves(),[])
 

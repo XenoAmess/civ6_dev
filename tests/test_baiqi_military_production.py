@@ -19,6 +19,10 @@ class BaiqiMilitaryProductionTests(unittest.TestCase):
     def units(self):
         return [r.params[4] for r in self.w.cityRequests.values() if r.params[4] is not None]
 
+    def city_cycle(self):
+        # Both actual fixture cities receive a callback in this same turn.
+        self.c.RunNow(); self.c.RunNow()
+
     def test_same_tick_pending_commitment_balances_melee_and_ranged_without_army_orders(self):
         self.c.RunNow()
         self.c.RunNow()
@@ -61,7 +65,7 @@ class BaiqiMilitaryProductionTests(unittest.TestCase):
 
     def test_existing_and_queued_frontline_deficit_selects_ranged(self):
         self.lua.execute('TestWorld.armyTypes={6};TestWorld.queues[66]={{UnitType=6}}')
-        self.c.RunNow()
+        self.city_cycle()
         self.assertEqual(self.units(), [205])
 
     def test_support_naval_and_siege_do_not_displace_available_frontline_or_campus(self):
@@ -87,7 +91,7 @@ TestWorld.objects.city.GetBuildQueue=function(city)
  return q
 end
 ''')
-        self.c.RunNow()
+        self.city_cycle()
         self.assertEqual(self.units(), [])
         self.assertEqual(self.w.cityRequests[1].city, 67)
         self.assertEqual(self.w.cityRequests[1].params[5], 301)
@@ -107,7 +111,7 @@ end
         self.c.RunNow()
         self.assertEqual(self.units(), [])
         self.assertEqual(len(self.w.cityRequests), 0)
-        self.c.RunNow()
+        self.city_cycle()
         self.assertEqual(self.units(), [])
         self.assertEqual(self.w.cityRequests[1].city, 66)
         self.assertEqual(self.w.cityRequests[1].params[5], 301)
@@ -124,7 +128,7 @@ TestWorld.blockSecondCity=true
         self.c.RunNow()  # Observe the actual accepted unit entry.
         self.lua.execute('TestWorld.queues[66]={{ProjectType=0}};TestWorld.blockSecondCity=false')
         self.c.RefreshProduction()
-        self.c.RunNow()
+        self.city_cycle()
         self.assertEqual(self.units(), [201])
         self.assertEqual(self.w.cityRequests[2].params[5], 301)
 
@@ -164,7 +168,7 @@ TestWorld.blockSecondCity=true
         self.c.RunNow()
         # Next-turn fixture: original unit is no longer queued or alive.
         self.lua.execute('TestWorld.turn=2;TestWorld.queues[66]={{ProjectType=0}};TestWorld.blockSecondCity=false')
-        self.c.RunNow()
+        self.city_cycle()
         self.assertEqual(self.units(), [201, 201])
 
 

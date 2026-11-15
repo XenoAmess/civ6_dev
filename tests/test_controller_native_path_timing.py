@@ -161,7 +161,7 @@ class NativePathArtifactTests(unittest.TestCase):
         source=diagnostic.ROOT/'mod/Baiqi';original=(source/'Lua/BaiqiController.lua').read_bytes()
         with tempfile.TemporaryDirectory(dir=diagnostic.ROOT/'.local-model')as temp:
             out=Path(temp)/'v3';result=diagnostic.build(out,children=FINE,include_pre_observer=True,native_path_timing=True)
-            self.assertEqual(result['mode'],'baiqi152-controller-children-v3')
+            self.assertEqual(result['mode'],f'baiqi{result["source_version"]}-controller-children-v3')
             self.assertEqual(result['binding_count'],14)
             self.assertFalse(result['original_controller_exact_prefix'])
             self.assertTrue(result['release_text_recovers_exactly'])
@@ -171,11 +171,11 @@ class NativePathArtifactTests(unittest.TestCase):
             self.assertEqual(sum(n.endswith('.lua')for n in names),97)
             changed=[n for n in names if digest(source/n)!=digest(target/n)]
             self.assertEqual(changed,['Lua/BaiqiController.lua'])
-            appended=diagnostic.suffix(FINE,include_pre_observer=True,source_version=152,native_path_timing=True).encode()
+            appended=diagnostic.suffix(FINE,include_pre_observer=True,source_version=result['source_version'],native_path_timing=True).encode()
             data=(target/'Lua/BaiqiController.lua').read_bytes();self.assertTrue(data.endswith(appended))
             self.assertEqual(diagnostic.recover_native_path_source(data[:-len(appended)]),original)
             self.assertEqual((source/'Lua/BaiqiController.lua').read_bytes(),original)
-            with zipfile.ZipFile(out/'Baiqi-controller152-coarse.zip')as archive:
+            with zipfile.ZipFile(out/f'Baiqi-controller{result["source_version"]}-coarse.zip')as archive:
                 self.assertEqual(set(archive.namelist()),{'Baiqi/'+n for n in names})
                 for n in names:self.assertEqual(archive.read('Baiqi/'+n),(target/n).read_bytes())
 

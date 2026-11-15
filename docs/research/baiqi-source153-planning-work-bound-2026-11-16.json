@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "product_source_version": 153,
+  "source152_trigger": {
+    "evidence": "baiqi-source152-broad-D-2026-11-16.json",
+    "same_root": 10,
+    "turn": 88,
+    "root_ms": 64.999819,
+    "ProcessSettler_ms": 55.999994,
+    "original_stageA_max_ms": 75.999975,
+    "status": "Both preserved valid source152 overruns; no cross-run attribution"
+  },
+  "changes": [
+    "One current city probe per planning callback, ordinal round robin over current Members; no stored native object or permission. Remaining normal civilian scheduling continues when that city makes no request.",
+    "Retained persistent settler proposal is freshly Read after PathStep instead of another Remember; coordinates/plot/ID checked against planned proposal, all current path and final native guards retained. Unpersisted/new proposal still Remember."
+  ],
+  "software": {
+    "full_suite": {
+      "tests": 2627,
+      "passed": 2626,
+      "skipped": 1,
+      "skip_reason": "Civ6 SDK environment unavailable",
+      "seconds": 197.352
+    },
+    "new_regressions": 10,
+    "source152_new_regression_run": {
+      "tests": 8,
+      "failures": 7,
+      "passed": 1
+    },
+    "regression_contracts": [
+      "All ten busy cities visited in ten active callbacks, at most one expensive city preflight per callback",
+      "Fresh membership shrink/growth and absent GetCount still progress",
+      "Passive callback does not probe city queues",
+      "Busy cities do not starve normal idle builder scheduling",
+      "Retained proposal move without Remember; absent/malformed/changed fresh proposal prevents move; unpersisted target still persisted"
+    ],
+    "test_fixture_changes": "Same-turn full city-cycle retries replace immediate other-city expectations; no turn advance, fake ACK, civilian action or relaxed final queue/legality assertions. Existing direct-goal Remember-unavailable fixture now actually clears persistent proposal first.",
+    "ordinary_files": 119,
+    "lua51_and_lua53": 97,
+    "ordinary_zip_sha256": "04c38d42b3ef43466a64e4908a041eee50705ab86ea5523669aade6722afbdd7",
+    "StageA_prepared_sha256": "49f105d07264fbd5958eba51619c951bf1fc9733c0e38ce92f0fd863a1c8c7fe",
+    "first_full_run": {
+      "tests": 2624,
+      "failures": 45,
+      "errors": 4,
+      "skipped": 1,
+      "outcome": "Failed; retained raw. City-cycle fixtures and version assertions corrected after checking actual traces, no product safety guard removed."
+    },
+    "owner_harness_errors": [
+      "First affected-suite wrapper omitted project root from sys.path; seven imports failed before tools ran, corrected.",
+      "Owner initially replaced a frozen Lua source152 literal with Python f syntax; both Lua fixtures failed. Corrected exact literal before successful full suite."
+    ]
+  },
+  "model892": {
+    "task": "civ6-892-settler-planning-candidate",
+    "supplied_before_owner_edit": true,
+    "actual_source_version_in_request": 152,
+    "actual_POST_attempts": 3,
+    "headers_received": 0,
+    "timeouts_ms": [
+      180007.99690000713,
+      180026.90920000896,
+      180025.05080006085
+    ],
+    "finish_reason": null,
+    "SSE_DONE": false,
+    "candidate_adopted": false,
+    "scope": "Real unfinished implementation candidate with full APIs/consumers and D same-root evidence; no response, Owner implemented independently. Task-specific stop set after third POST already in flight; canonical adapter retained current attempt then terminal failure. No game action replay."
+  },
+  "ledger_through_892": {
+    "logical": 892,
+    "complete": 816,
+    "length": 68,
+    "final_transport": 8,
+    "HTTP_attempts": 929,
+    "extra_attempts": 36,
+    "inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "OpenCode": "Same-machine Nov16 successful cached daily maintenance 1.19.5, no new code-generation/tool capability granted",
+  "unknown": {
+    "cached_tokens": null,
+    "backend_root_cause": null,
+    "server_jobs_inflight": null,
+    "owner_active_cost": null,
+    "net_time_saved": null
+  },
+  "Native_source153": "NOT_YET_RUN",
+  "remaining": "All four source153 performance budgets, pressure/paired matrix and full mod acceptance remain open. Source152 first two paired groups remain historical incomplete 2/5, not transferred."
+}

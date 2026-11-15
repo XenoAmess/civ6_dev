@@ -25,11 +25,12 @@ class FoundDispatchDiagnosticTests(unittest.TestCase):
             changed = [n for n, sha in result['source_hashes'].items()
                        if sha != result['instrumented_hashes'][n]]
             self.assertEqual(changed, ['Lua/BaiqiController.lua'])
-            with zipfile.ZipFile(out / 'Baiqi-found-dispatch152.zip') as z:
+            archive = out / f'Baiqi-found-dispatch{result["source_version"]}.zip'
+            with zipfile.ZipFile(archive) as z:
                 self.assertEqual(set(z.namelist()), {'Baiqi/' + n for n in result['source_hashes']})
                 for n in result['source_hashes']:
                     self.assertEqual(z.read('Baiqi/' + n), (out / 'Baiqi' / n).read_bytes())
-            self.assertEqual(digest(out / 'Baiqi-found-dispatch152.zip'), result['archive_sha256'])
+            self.assertEqual(digest(archive), result['archive_sha256'])
             with self.assertRaises(ValueError):
                 build(out)
 

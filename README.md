@@ -1,6 +1,6 @@
 # civ6_dev
 
-最新诊断：[152绕行计时C](docs/testing/baiqi-source152-detour-diagnosis-C.md)：80根／147行完整导出，两个绕行测点均未命中，不关闭原76ms FAIL。已准备覆盖主路径的16绑定私有包，产品未改，继续实机定位。
+当前源码153：[规划分散与移民计划复核](docs/testing/baiqi-source153-planning-work-bound.md)。针对[152同次65ms根／56ms移民处理](docs/testing/baiqi-source152-broad-D.md)，城市检查改为每回调一城；已有计划重新读取，保留全部新鲜命令复核。2627项中2626通过、1项SDK环境跳过，97Lua双编译／119文件包。153尚未实机复测，原76ms与65ms FAIL不关闭，完整验收继续。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
@@ -10,7 +10,7 @@
 
 接手入口：[2026-11-16开发交接](docs/handoff-2026-11-16.md)记录接手时现场；接手后的全脚本完成与配对进展以上方新证据为准，保护原件不变。
 
-当前源码与实机152：[208—210解叠与旧工业项目完成](docs/testing/baiqi-source152-native208-210-865866.md)。后台移动未受保护文职、保留音乐家未知意图；武汉排洪、修复后119点旧项目恢复并实际完成。新增目标威胁／占格回归相关62过；完整功能、当前版本性能和旧ARMED恢复FAIL仍开放。 当前152十城[B_plan实测FAIL：控制器max76ms](docs/testing/baiqi-source152-stageA-fail.md)，原样保留并继续定位。
+实机历史152：[208—210解叠与旧工业项目完成](docs/testing/baiqi-source152-native208-210-865866.md)。后台移动未受保护文职、保留音乐家未知意图；武汉排洪、修复后119点旧项目恢复并实际完成。新增目标威胁／占格回归相关62过；完整功能、当前版本性能和旧ARMED恢复FAIL仍开放。 当前152十城[B_plan实测FAIL：控制器max76ms](docs/testing/baiqi-source152-stageA-fail.md)，原样保留并继续定位。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 

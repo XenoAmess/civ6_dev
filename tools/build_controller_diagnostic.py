@@ -53,8 +53,8 @@ def recover_detour_paths(private:bytes) -> bytes:
 
 def validate_native_path_option(value,include_pre_observer,source_version):
     if type(value)is not bool:raise ValueError('Expected native path timing boolean')
-    if value and (source_version!=152 or include_pre_observer is not True):
-        raise ValueError('Native path timing requires source152 and pre-observer scope')
+    if value and (source_version not in (152,153) or include_pre_observer is not True):
+        raise ValueError('Native path timing requires source152/153 and pre-observer scope')
 
 
 def native_path_source(raw:bytes) -> bytes:
@@ -84,7 +84,7 @@ def selected_children(children):
 
 def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False,detour_native_timing=False):
     children=selected_children(children)
-    if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
+    if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     validate_native_path_option(native_path_timing,include_pre_observer,source_version)
     validate_native_path_option(detour_native_timing,include_pre_observer,source_version)
@@ -225,7 +225,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152'):raise ValueError('Expected actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
+    if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153'):raise ValueError('Expected actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
     validate_native_path_option(native_path_timing,include_pre_observer,version)
     validate_native_path_option(detour_native_timing,include_pre_observer,version)
