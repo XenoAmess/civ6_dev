@@ -1240,3 +1240,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-16：[881配对包复核](testing/baiqi-source152-paired-preflight881.md)：manifest/ZIP及enabled逆变换框架部分采用；control实际代码未核／truthy标记／cwd helper／重复ZIP由Owner补规范变换字节核验。5项正负检查过，已有152两包全部复核，0新建包／安装／Native，B_delta仍0配对。881换行anchor经AST正确，不误报；累计881／810完整／912HTTP、OpenCode原生新增0、未知成本null。
 
 2026-11-16：[882—885及152首组启用侧](testing/baiqi-source152-pair1-enabled-diagnostics882885.md)：882仅功能分组思路，883重复测点／跨次推论拒；884两pcall适配思路经Owner碰撞／恢复门修正，31检查及97Lua119包准备；885只去冗余child核包，Native载荷before/after字节全同。首启用五段实际90／11城已存并对账退出，非配对PASS；对照继续。累计885／814完整／916HTTP，新增OpenCode原生0、成本null。
+
+2026-11-16：[888—891真实证据审阅传输失败](research/baiqi-source152-model888891-transport-failures-2026-11-16.json)：4并行各两次180秒无响应头超时，正式停止后保8份原件、0候选采用；canonical网络元数据GET返回502，0新增generation，根因未知。Owner接管范围、继续独立Native。仅安装／冷启动允许与HTTP重叠，正式开始仍0在途。累计891／816完整／68length／7最终传输／926HTTP／34额外，OpenCode原生0、未知成本null。
