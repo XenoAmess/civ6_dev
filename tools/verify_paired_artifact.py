@@ -22,7 +22,7 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
         raise ValueError('Invalid paired variant')
     meta = json.loads((prepared / 'static-control-build.json').read_text(encoding='utf-8'))
     version = ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('152', '153'):
+    if version not in ('152', '153','154'):
         raise ValueError('Expected actual source152/153')
     version = int(version)
     if not isinstance(meta, dict) or type(meta.get('source_version')) is not int or meta['source_version'] != version:

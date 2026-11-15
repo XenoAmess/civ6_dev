@@ -181,7 +181,7 @@ class DiagnosticVersion141Tests(unittest.TestCase):
 
     def test_unknown_versions_rejected_before_output_ledger_or_query(self):
         raw=(ROOT/'mod/Baiqi'/EXECUTOR).read_text(encoding='utf-8')
-        for value in (None,True,140.,141.,154,'141'):
+        for value in (None,True,140.,141.,155,'141'):
             with self.subTest(value=value):
                 with self.assertRaises(ValueError):suffix(source_version=value)
                 with self.assertRaises(ValueError):transform(raw,value)

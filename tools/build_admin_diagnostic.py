@@ -15,7 +15,7 @@ HELPERS=('diagnostic_profile','diagnostic_child_profile','diagnostic_named_neste
 
 
 def suffix(*,source_version=141):
-    if type(source_version)is not int or source_version not in (141,142,143,144,145,146,147,148,149,150,151,152,153):raise ValueError('Expected source141,142,143,144,145,146,147,148,149,150,151 or152')
+    if type(source_version)is not int or source_version not in (141,142,143,144,145,146,147,148,149,150,151,152,153,154):raise ValueError('Expected source141,142,143,144,145,146,147,148,149,150,151 or152')
     text='\n-- PRIVATE Admin diagnosis; original release is the exact prefix.\ndo\n'
     text+="assert(P6AdminNested==nil,'Existing Admin diagnostic owner')\n"
     for variable,stem in zip(('NewProfile','WrapChild','NewNamed'),HELPERS):
@@ -103,7 +103,7 @@ def build(output_dir:Path):
     from lupa.lua53 import LuaRuntime as L53
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('141','142','143','144','145','146','147','148','149','150','151','152','153'):raise ValueError('Expected actual source141,142,143,144,145,146,147,148,149,150,151 or152')
+    if version not in ('141','142','143','144','145','146','147','148','149','150','151','152','153','154'):raise ValueError('Expected actual source141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():raise ValueError('New private output required')

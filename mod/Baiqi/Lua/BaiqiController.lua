@@ -4232,7 +4232,10 @@ local function ProcessCity(ctx, player, state, city)
   for _,index in pairs(Map.GetCityPlots():GetPurchasedPlots(city) or {}) do plots[#plots+1]=index end
   table.sort(plots)
   for row in GameInfo.Districts() do
-    if row.DistrictType~="DISTRICT_CITY_CENTER" and q:CanProduce(row.Hash,true) then
+    -- Disabled districts cannot enter Add; avoid their entire placement scan.
+    -- Add and the final writer still repeat both native production modes.
+    if row.DistrictType~="DISTRICT_CITY_CENTER" and q:CanProduce(row.Hash,true)==true
+      and q:CanProduce(row.Hash,false,true)==true then
       if q:HasBeenPlaced(row.Hash) then
         local priority=BaiqiPlanner.AmenityProductionScore(districtPriority[row.DistrictType] or 35,
           row.Entertainment,amenities,amenitiesNeeded)

@@ -64,14 +64,14 @@ local ok2,same2=h.Restore();assert(ok2 and same2==same)
         source=d.ROOT/'mod/Baiqi';raw=(source/'Lua/BaiqiController.lua').read_bytes()
         with tempfile.TemporaryDirectory(dir=d.ROOT/'.local-model')as temp:
             out=Path(temp)/'v5';result=d.build(out,children=CHILDREN,include_pre_observer=True,native_path_timing=True,include_turn90=True)
-            self.assertEqual((result['mode'],result['focus_turns'],result['binding_count'],result['sample_capacity']),('baiqi153-controller-children-v5',[88,89,90],14,4096))
+            self.assertEqual((result['mode'],result['focus_turns'],result['binding_count'],result['sample_capacity']),(f'baiqi{result["source_version"]}-controller-children-v5',[88,89,90],14,4096))
             self.assertTrue(result['lua51_compiled']and result['lua53_compiled'])
             names=manifest_files(out/'Baiqi');self.assertEqual(len(names),119)
             self.assertEqual([n for n in names if digest(source/n)!=digest(out/'Baiqi'/n)],['Lua/BaiqiController.lua'])
-            extra=d.suffix(CHILDREN,include_pre_observer=True,source_version=153,native_path_timing=True,include_turn90=True).encode()
+            extra=d.suffix(CHILDREN,include_pre_observer=True,source_version=result['source_version'],native_path_timing=True,include_turn90=True).encode()
             private=(out/'Baiqi/Lua/BaiqiController.lua').read_bytes();self.assertTrue(private.endswith(extra))
             self.assertEqual(d.recover_native_path_source(private[:-len(extra)]),raw)
-            with zipfile.ZipFile(out/'Baiqi-controller153-coarse.zip')as z:
+            with zipfile.ZipFile(out/f'Baiqi-controller{result["source_version"]}-coarse.zip')as z:
                 self.assertEqual(len(z.namelist()),119)
                 for n in names:self.assertEqual(z.read('Baiqi/'+n),(out/'Baiqi'/n).read_bytes())
 
