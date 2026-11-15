@@ -1161,3 +1161,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[Owner149让路与847输入纠正](testing/baiqi-source149-builder-yield.md)。原REQUEST把builder3误称ID1，候选跟随不归模型；原件保留、不授全闭包。Owner真实双Lua接管含第二目标预算红绿，完整2515含1SDKskip、97Lua119包；未重POST，累计847保持，0新增OpenCode原生生成，Native继续。
+
+
+2026-11-15：[Owner149实机182](testing/baiqi-source149-native182-builder-yield.md)：建造者996自主274→273、同一新移民四步至317@9,7，旧ARMED／军队位置保持；181单次普通END被原版世界议会阻塞，TEST_PLAYER三张免费投票后实际182，原END不重发。149保存已核，行军／建城继续；新增HTTP／OpenCode原生0，累计847保持，Owner结果不回授846—847原稿。
