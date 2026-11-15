@@ -1,5 +1,14 @@
 from tools.run_observed_acceptance import _payload
 
+def _source151_preflight(source_version):
+    if source_version != 151:
+        return ''
+    return '''assert(type(UI.HasSentTurnComplete)=='function' and UI.HasSentTurnComplete()==false)
+assert(type(Players[0].CanUnreadyTurn)=='function' and Players[0]:CanUnreadyTurn()==false)
+assert(type(CheckUnitsHaveMovesState)=='function' and CheckUnitsHaveMovesState()==false)
+assert(type(CheckCityRangeAttackState)=='function' and CheckCityRangeAttackState()==false)
+'''
+
 def request_end(query, turn, token,*,expected_source_version=140):
     if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151):raise ValueError('Invalid source version')
     if type(turn) is not int or not (85 <= turn <= 89):
@@ -10,7 +19,7 @@ def request_end(query, turn, token,*,expected_source_version=140):
 assert(Game.GetCurrentGameTurn()=={turn} and Game.GetLocalPlayer()==0 and Players[0]:IsTurnActive() and Game.IsAllowStrategicCommands(0) and UI.CanEndTurn() and not UI.IsGameCoreBusy() and not UI.IsProcessingMessages())
 local bridge=ExposedMembers.P6BaiqiPairEndBridge
 assert(bridge and bridge.marker=='baiqi-paired-end-bridge-v1' and bridge.source_version=={expected_source_version} and type(bridge.Begin)=='function')
-assert(bridge.Begin({turn},"{token}"))
+{_source151_preflight(expected_source_version)}assert(bridge.Begin({turn},"{token}"))
 UI.RequestAction(ActionTypes.ACTION_ENDTURN)
 print('P6_PAIR_ORDINARY_ISSUED',{turn},"{token}")
 '''
@@ -35,7 +44,7 @@ def request_pressure_end(query, turn, token, *, initial_turn, expected_source_ve
 assert(Game.GetCurrentGameTurn()=={turn} and Game.GetLocalPlayer()==0 and Players[0]:IsTurnActive() and Game.IsAllowStrategicCommands(0) and UI.CanEndTurn() and not UI.IsGameCoreBusy() and not UI.IsProcessingMessages())
 local bridge=ExposedMembers.P6BaiqiPairEndBridge
 assert(bridge and bridge.marker=='baiqi-paired-end-bridge-pressure-v1' and bridge.source_version=={expected_source_version} and bridge.source=='{src_tag}' and bridge.initial_turn=={initial_turn} and type(bridge.Begin)=='function')
-assert(bridge.Begin({turn},"{token}"))
+{_source151_preflight(expected_source_version)}assert(bridge.Begin({turn},"{token}"))
 UI.RequestAction(ActionTypes.ACTION_ENDTURN)
 print('P6_PRESSURE_PAIR_ORDINARY_ISSUED',{turn},"{token}",{initial_turn})
 '''

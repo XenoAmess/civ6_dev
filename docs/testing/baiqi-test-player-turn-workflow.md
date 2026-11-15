@@ -13,3 +13,6 @@
 每个游戏动作前保存唯一尝试凭证，核当前自有进程和真实端点；一个Native写者串行执行，子进程终态后再操作。结果未知时先读回，不靠HTTP重试或重复脚本重放。阶段结束恢复观察器、清理QA临时命名空间、保存现场；模式确认和Steam离线规则仍按[既有流程](../steam-offline-workflow.md)。
 
 任一步前置门或命令失败，立即停止依赖执行链。exec返回session表示尚未完成，必须等待终态并检查退出码，才能继续下一Native调用。不可在一批命令中忽略前序失败或把多个仍运行的查询误当串行完成。[371准备期错误及恢复](baiqi-queue-right-click-73.md)已保留，不能计为游戏命令已执行。
+
+
+2026-11-15补充：[151实机199／201与工具前置](baiqi-source151-end-preflight859861.md)表明Notification阻塞0、CanEnd=true、无就绪军队仍可能存在原版城市远程攻击提示。应读CheckUnitsHaveMovesState／CheckCityRangeAttackState／CanUnreadyTurn／HasSentTurnComplete，151正式配对工具在Begin前拒绝这些状态及未知值。测试玩家可用原版右键略过城防提示；同回合后续出现不同通知ID，须新鲜核对并建立新意图。不得将一次ACK或计时桥接当换回合；不自动修改文职队列。
