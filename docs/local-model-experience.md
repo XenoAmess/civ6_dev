@@ -1194,3 +1194,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[151粮仓196／858](testing/baiqi-source151-granary196-upgrade858.md)：跨版本同演员自然训练→建城→首建筑原生拥有并排下一项完整，非全部151训练。858编译但误nil队列为table，实际双Lua正例0请求拒；Owner52+16软件后一次玩家升级395／新完整ID11075604和卧虎军FORTIFY，0后台军令。首Owner测试器吞退休后异常的断言过宽已加强52再过，未重发游戏动作。累计858／790完整／65length／3transport／889HTTP／30extra，OpenCode原生新增0。
+
+
+2026-11-15：[151回合前置859—861](testing/baiqi-source151-end-preflight859861.md)已远端核验，39相关检查／20历史字节保持；[修复206／862准备](testing/baiqi-source151-repairs206-plan862.md)工业区及两建筑独立owned/intact、旧119点保持，项目未授恢复。862把QA ZIP与release哈希比拒，Owner实际97119／4096包仅准备未安装。被动事件false保存首稿Lua51红案及驱动凭证名／临时阻塞修正均单列，无游戏重放。累计862／794完整／65length／3transport／893HTTP／30extra，OpenCode原生新增0，151性能未测。
