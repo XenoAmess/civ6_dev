@@ -1,10 +1,12 @@
 # civ6_dev
 
+持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：首组两侧均完成普通85→90并保存；五段配对中位增加3076ms／55.95%，该组超预算，尚余四组，不能授B_delta通过。继续交替顺序实采、原规划FAIL与功能矩阵；阶段提交不是停工点。
+
 最新：[152修复私有QA后B_turn／N_req实机通过](docs/testing/baiqi-source152-stageB-identity-fixed.md)：五窗最大756ms、每回合最多35次提交，实际91／11城；4390940建城由UI与Core双证。产品未改，B_plan原76ms FAIL及B_delta／压力／完整验收仍开放。
 
 接续进展：[152中止90档冷读与建城许可诊断](docs/testing/baiqi-source152-armed90-diagnosis878879.md)：新移民4390940自身持有`0:90:50`的ARMED记录；普通152重载后后台自动HOLD、单位阻塞消失。原捕获的live许可拒绝原因仍未知；私有QA记录器与双Lua回归通过，产品未改，性能FAIL保持。
 
-接手入口：[2026-11-16开发交接](docs/handoff-2026-11-16.md)。普通152安装已恢复、原件与保护档已核对；最新全脚本验收到90回合单位阻塞后中止，已撤监听／释放互斥，具体停点与下一步见交接。
+接手入口：[2026-11-16开发交接](docs/handoff-2026-11-16.md)记录接手时现场；接手后的全脚本完成与配对进展以上方新证据为准，保护原件不变。
 
 当前源码与实机152：[208—210解叠与旧工业项目完成](docs/testing/baiqi-source152-native208-210-865866.md)。后台移动未受保护文职、保留音乐家未知意图；武汉排洪、修复后119点旧项目恢复并实际完成。新增目标威胁／占格回归相关62过；完整功能、当前版本性能和旧ARMED恢复FAIL仍开放。 当前152十城[B_plan实测FAIL：控制器max76ms](docs/testing/baiqi-source152-stageA-fail.md)，原样保留并继续定位。
 
