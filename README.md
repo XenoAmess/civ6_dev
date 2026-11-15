@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码153：[正式规划B有效FAIL](docs/testing/baiqi-source153-stageA-B-fail.md)：302条完整，Admin纯十城104样本通过；Controller141样本p95约29ms／max83ms，4次超过50ms。软件修复未解决性能，继续定位；新增覆盖90回合的私有细分工具66检查通过、尚未实采。完整功能与性能验收未完成。
+当前源码153：[正式B规划FAIL](docs/testing/baiqi-source153-stageA-B-fail.md)保持。新增[90回合诊断E](docs/testing/baiqi-source153-city-diagnosis-E.md)：116根／1233行完整，同一十城根61ms中单座城市ProcessCity58ms；完整14绑定已还原。继续修城市候选扫描，未授性能或完整Mod通过。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
