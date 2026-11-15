@@ -1,0 +1,234 @@
+{
+  "schema": "civ6.source147-native181-cycle/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source_version": 147,
+  "source_commit": "684f6b3c9ccace4e90e3b25a98c508f9c2d6bdc9",
+  "source_ZIP_sha256": "08a9309a61fbd92fe52fbfb68e5b6f963d5f1462c4e45bb3c2cd28294d9329cd",
+  "actual_turns": [
+    178,
+    179,
+    180,
+    181
+  ],
+  "city_count": 14,
+  "END181": 0,
+  "stop": "60second passive end-readiness wait exhausted, blockers remained; controller terminal1 verified before independentNativequery",
+  "TEST_PLAYER": {
+    "military_SKIP_requests": 28,
+    "ordinary_END178_180": 3,
+    "fortify178": 1,
+    "UserForced": false,
+    "civilian_inputs": 0,
+    "production_inputs": 0,
+    "unknown_replay": 0
+  },
+  "settler": {
+    "unit": 10027070,
+    "current": [
+      229,
+      9,
+      5
+    ],
+    "goal": [
+      845,
+      9,
+      19
+    ],
+    "cycles": [
+      {
+        "turn": 179,
+        "requests": [
+          "0:179:14",
+          "0:179:15"
+        ],
+        "observed_points": [
+          229,
+          228,
+          229
+        ]
+      },
+      {
+        "turn": 181,
+        "requests": [
+          "0:181:51",
+          "0:181:52"
+        ],
+        "observed_points": [
+          229,
+          228,
+          229
+        ]
+      }
+    ],
+    "current_UI_moves": 4,
+    "current_activity": "HOLD",
+    "pending": false,
+    "queued": null,
+    "Native_goal_path181": [
+      229,
+      274,
+      275,
+      319,
+      364,
+      407,
+      451,
+      494,
+      538,
+      582,
+      626,
+      670,
+      715,
+      716,
+      717,
+      718,
+      762,
+      806,
+      805,
+      804,
+      847,
+      891,
+      890,
+      845
+    ],
+    "native_neighbor_read_scope": "after backgroundSKIP, not a per-decision trace of179/181",
+    "neighbor273": [
+      229,
+      274,
+      273
+    ],
+    "neighbor230": [
+      229,
+      274,
+      230
+    ],
+    "neighbor274": [],
+    "neighbor186": [
+      229,
+      186
+    ],
+    "neighbor185": [
+      229,
+      185
+    ],
+    "neighbor228": [
+      229,
+      228
+    ],
+    "all_neighbor_CanMOVE": true,
+    "Owner_inference": "Failed first native edge remains globally open in geometric BFS, so it can reappear as a future node via another first hop; consistent with bounce, exact historical decision trace not sampled"
+  },
+  "blocker": {
+    "ready_units": [
+      10485781,
+      4194337
+    ],
+    "xy": [
+      11,
+      6
+    ],
+    "SKIP": false,
+    "SLEEP": false,
+    "new_builder": {
+      "id": 10485781,
+      "moves": 2,
+      "charges": 3,
+      "formation": 1,
+      "pending": false,
+      "queued": null,
+      "ready_both": true
+    },
+    "clear_overlap_requires": "EmptyVisiblePlot rejects own military primary occupants",
+    "native_qualified_direct_targets": {
+      "230": [
+        275,
+        230
+      ],
+      "231": [
+        275,
+        231
+      ],
+      "319": [
+        275,
+        319
+      ]
+    },
+    "targets_have_only_own_military": true,
+    "mountain276_CanMOVE_true_but_empty_path": true,
+    "permission_not_executed": true
+  },
+  "old_ARMED": {
+    "unit": 8650807,
+    "stage": "ARMED",
+    "token": "settle:0:1",
+    "request": "0:156:173",
+    "plot": 846,
+    "preserved": true
+  },
+  "checkpoint": {
+    "name": "Baiqi_P6_20261115_V147_WaterCycleBlocked181.Civ6Save",
+    "bytes": 666969,
+    "sha256": "02b381ef90bc533043d61dd4abb5c5d9c43b7228c2ca556139aed6887138d519",
+    "reloaded": false
+  },
+  "models": {
+    "843": {
+      "finish_reason": "stop",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 15788,
+        "completion_tokens": 1218,
+        "total_tokens": 17006
+      },
+      "total_ms": 10741.460600169376,
+      "TTFT_ms": 2242.126500001177,
+      "raw_code_adopted": 0,
+      "raw_code_Native": 0,
+      "decision": "Reject: incorrect across-move Safe cache speculation, regression is bare pass with erroneous water230, monotonic-distance fix would break proven178 step-away; first-native-path query direction only, Owner native evidence independently collected"
+    },
+    "844": {
+      "finish_reason": "length",
+      "sse_done": true,
+      "usage": {
+        "prompt_tokens": 13522,
+        "completion_tokens": 2000,
+        "total_tokens": 15522
+      },
+      "total_ms": 13589.091299800202,
+      "TTFT_ms": 2012.2932998929173,
+      "raw_code_adopted": 0,
+      "raw_code_Native": 0,
+      "candidate_read": false,
+      "decision": "length rejected whole, Owner takes actual overlap consumer"
+    }
+  },
+  "ledger": {
+    "logical": 844,
+    "complete": 779,
+    "length": 62,
+    "final_transport": 3,
+    "HTTP_attempts": 875,
+    "extra_attempts": 30,
+    "inflight": 0,
+    "new_tasks_peak": 1,
+    "new_tasks_overlap": false,
+    "new_OpenCode_native_generation_sessions": 0
+  },
+  "unknown": {
+    "cached_tokens": null,
+    "service_concurrency": null,
+    "full_Owner_cost": null,
+    "net_time_saving": null,
+    "future_native_edges": null,
+    "performance147": "UNMEASURED"
+  },
+  "claims": {
+    "178_bypass_two_steps": "PASS_NARROW",
+    "continuous_goal_progress": "FAIL",
+    "new_city_founded": false,
+    "normal181_END": "BLOCKED_NO_REQUEST",
+    "all_functional_acceptance": false,
+    "old_ARMED_recovery": "FAIL_OPEN"
+  },
+  "next": "Reject geometrically reused failed first-edge nodes in current search; permit known own military alongside overlap-only civilian relocation with fresh safeguards. Source not edited at evidence cut."
+}

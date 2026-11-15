@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／实机147：[178冷验已自主绕出堵点两步](docs/testing/baiqi-source147-native178-bypass.md)，新移民10,5→10,4→9,5，原目标与旧ARMED保持，已另存；继续后续行军／建城。2480软件含1SDK跳过；147性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码／实机147：[181水路往返FAIL及文职叠放阻塞已定位](docs/testing/baiqi-source147-native181-cycle-blocker.md)，现场已存，继续窄修复／冷验。178两步绕出仍是窄通过；2480软件含1SDK跳过。持续到址／建城、147性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
