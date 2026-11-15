@@ -1,0 +1,69 @@
+{
+  "schema": "civ6.baiqi.player-turn-audit/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source": 146,
+  "product_source_unchanged": true,
+  "trigger": {
+    "unit": 1048576,
+    "actual_turn": 164,
+    "known_TEST_PLAYER_ALERT": true,
+    "activity": -793848223,
+    "activity_name": "ACTIVITY_SENTRY",
+    "pending": true,
+    "same_position": true,
+    "queued": null,
+    "both_ready": false
+  },
+  "first_END164_wrapper_failure": {
+    "Native_VM_refusal_line": 24,
+    "issued_ledger_write_line": 28,
+    "BEGIN_line": 29,
+    "RequestAction_line": 30,
+    "no_BEGIN_marker": true,
+    "fresh_issued164": null,
+    "fresh_UIHasSentTurnComplete": false,
+    "prior_END164_action_count": 0,
+    "original_unknown_wrapper_receipt_retained": true,
+    "classification": "PROVEN_NOT_ISSUED, additive classification based on exact source and VM location"
+  },
+  "test_gate_fix": {
+    "only_exact_recorded_player_waits": true,
+    "allowed_pending_activities": [
+      "ACTIVITY_OPERATION",
+      "ACTIVITY_SENTRY"
+    ],
+    "unknown_waits_or_queued_orders": "REFUSE",
+    "no_military_requests_or_cancels": true,
+    "Owner_test_fixture_error": "Initial146 isolated gate test kept P6Legacy145 metadata names. This caused false failure.",
+    "Owner_execution_order_error": "Corrected first END164 was dispatched even though that fixture check had failed. This is an Owner workflow failure, not a model or product error.",
+    "later_corrected_dual_Lua_scenarios": 28,
+    "success_does_not_erase_error": true
+  },
+  "actual_first_END164_after_proven_VM_refusal": {
+    "unique_new_intent_prefix": "legacy146-normal-qualified164",
+    "same_never_reset_issued_ledger": true,
+    "one_argument_normal_RequestAction": true,
+    "UserForced": false,
+    "ACK": true,
+    "actual_next_turn": 165,
+    "training": [
+      "165",
+      "655369",
+      "7",
+      "-798712536",
+      "1",
+      "87",
+      "220",
+      "8"
+    ],
+    "new_settler_birth": "PENDING"
+  },
+  "followup": "Bounded normal165..173 window continued, stop on new actor/city, population loss or blocker",
+  "model_calls_new": 0,
+  "private_receipt_sha256": {
+    "legacy146-normal-qualified164-turn164-END-returned.json": "6e06c92b6e88d779b60547889f5828f11c89fda0779accfa4aa1bc995d771384",
+    "legacy146cold163-training-read-033704520104.json": "2e50dc2f7dee6004b4d19d517137b251eec762223ee9fa72a1ca878abf3b3d79"
+  },
+  "Owner_active_cost": null
+}
