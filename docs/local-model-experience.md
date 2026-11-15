@@ -1179,3 +1179,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[150冷193与854](testing/baiqi-source150-native193-first-planning.md)：项目119/145及邢州9/32保持，后台排机枪，未授防洪恢复PASS；后读资格不能倒填首规划，撤回读档清理归因。854双编译但日志不输出／吞异常／缩arity／别名包装过早／无界拒用，0执行；Owner被动QA22软件场景保持实际端口调用／决策，准备同档冷验。累计854／787完整／64length／3transport／885HTTP／30extra，新增OpenCode原生0。
+
+
+2026-11-15：[首规划及855—857](testing/baiqi-source150-firstplanning-exclusion.md)：trace首队列0／需求真预算足但排除资格false，实际电脑未有413/664，激光333.73/925被研究零进度门保护；不绕生产门，继续151紧急切换保旧投入。855漏关键模式／丢多返回拒，856实际双Lua正例0请求拒，8576500length整弃。累计857／789完整／65length／3transport／888HTTP／30extra，新增OpenCode原生0。

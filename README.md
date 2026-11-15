@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／实机150：[193冷读保留项目119/145和邢州粮仓9/32，但武汉仍排机枪，防洪恢复FAIL开放](docs/testing/baiqi-source150-native193-first-planning.md)。2532项含1SDK跳过、97Lua119包；继续被动首规划冷读诊断，性能、完整功能与旧ARMED恢复FAIL保持。
+当前源码／实机150：[首次规划实证防洪坝缺电脑科技，AI被非零激光研究保护挡住](docs/testing/baiqi-source150-firstplanning-exclusion.md)。继续151紧急研究切换并核旧投入保留，原生产资格不绕过；邢州9/32保持，性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
