@@ -1167,3 +1167,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[848邻格／849单次军令与149184](testing/baiqi-source149-native184-march-admiral.md)。两稿stop/DONE/严格JSON但848缺end双编译失败／0执行，849编译过而实际端口隔离正例0请求（原地403误作目标360）；均0采用／rawNative。Owner有界只读及100双Lua动作场景后，玩家单次解海军统帅叠放，AI移民继续至10,11、建造者自主改良。累计849／783完整／63length／3最终传输／880HTTP／30额外、0在途，原生OpenCode生成0；维护／软件／实机／未测全路分账。
+
+
+2026-11-15：[149192邢州实机](testing/baiqi-source149-xingzhou-founded192.md)：同一自然训练演员跨145—149继续，149冷181至192自主到址／FOUND，Core空址新城＋演员消耗双证明，Token2 OBSERVED／目标清理、自动粮仓0/32，正式新档已核。0人工文职或队列填补，原ARMED保持；193进度／冷重载及其他生产、4军队阻塞继续，模型累计849不变、0新增OpenCode原生。hash0不能按GameInfo.Units[0]显示来声称生产移民。
