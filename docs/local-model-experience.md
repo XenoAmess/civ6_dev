@@ -1224,3 +1224,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-16：[152原生路径细分实采](testing/baiqi-source152-native-path-native88-89.md)：72.611s预热／正式重载，同85到90，83根1313行零错丢，4次移民处理；本轮根最大15／移民12／原生路径1ms，未复现前76／70／58尖峰，不记修复或PASS。14绑定撤／新90保护、原210／91／旧90不变；互斥导出后释放，0HTTP或重测。
+
+
+2026-11-16：[152全脚本准备／875876](testing/baiqi-source152-stageB-preparation875876.md)：两stop完整但整拒0执行，875“已保护”无实际saves／ZIP检查，876旧锚点／formal_idle与v3mode混淆。Owner33上下文4096配额、97双Lua119ZIP准备及严格普通END驱动，未装测；原76msFAIL保持。累计876／805完整／68length／3transport／907HTTP／30extra，原生0未知成本null。
