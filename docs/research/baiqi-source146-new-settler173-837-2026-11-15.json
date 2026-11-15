@@ -1,0 +1,209 @@
+{
+  "schema": "civ6.baiqi.independent-settler-birth/v1",
+  "date": "2026-11-15",
+  "machine": "BF-202609141645",
+  "source": 146,
+  "source_commit": "4138d4a46007aadab7f99e8a010c038b901dfd38",
+  "background_production_chain": {
+    "queued161_request": "0:161:2",
+    "city": 655369,
+    "city_xy": [
+      11,
+      1
+    ],
+    "type": "UNIT_SETTLER",
+    "saved_queue161": true,
+    "progress164": 69,
+    "progress165": 87,
+    "progress166": 105,
+    "progress168": 138,
+    "progress170": 174,
+    "progress171": 196,
+    "progress172": 217,
+    "cost_before_completion": 220,
+    "initial173_transient": {
+      "city_population": 8,
+      "production_hash": 0,
+      "stored_progress": 217,
+      "new_unit_not_yet_in_collection": true,
+      "driver_stopped_no_END173": true
+    },
+    "later173": {
+      "new_unit": 10027070,
+      "city_population": 7,
+      "unit_progress_reset": 0,
+      "next_unit_cost": 235,
+      "queued_settlers": 0,
+      "city_next_production": "DISTRICT_ENTERTAINMENT_COMPLEX",
+      "source_request_next": "0:173:235"
+    },
+    "dedicated_native_UnitAdded_or_ProductionCompleted_listener": "NOT_INSTALLED; attribution from continuous queue/progress, new actor from city and population sequence"
+  },
+  "movement": {
+    "source": "BACKGROUND",
+    "actor": 10027070,
+    "moves": [
+      {
+        "request": "0:173:259",
+        "from": 55,
+        "to": 54,
+        "observed": true
+      },
+      {
+        "request": "0:173:260",
+        "from": 54,
+        "to": 53,
+        "observed": true
+      },
+      {
+        "request": "0:173:261",
+        "from": 53,
+        "to": 97,
+        "observed": true
+      }
+    ],
+    "xy_from": [
+      11,
+      1
+    ],
+    "xy_to": [
+      9,
+      2
+    ],
+    "formation": 1,
+    "damage": 0,
+    "pending": false,
+    "queued": null,
+    "TEST_PLAYER_civilian_commands": 0
+  },
+  "goal": {
+    "property": "BAIQI_SETTLER_GOALS_V1",
+    "version": 1,
+    "owner": 0,
+    "map": [
+      44,
+      26
+    ],
+    "goals": 1,
+    "actor": 10027070,
+    "target": 845,
+    "xy": [
+      9,
+      19
+    ],
+    "UI_moves": 0.5,
+    "UI_ready_move": true,
+    "UI_ready_select": false,
+    "Core_classification": "LIVE",
+    "Core_moves": 0,
+    "Core_dead": false,
+    "Core_delayed": false,
+    "inference": "Core goal Remember requires moves>0; observed Core0 is consistent with waiting. Actual Remember return reason was not sampled, snapshots not atomic; no unique cause or permanent failure claim.",
+    "next_turn_followup": "PENDING"
+  },
+  "old": {
+    "actor": 8650807,
+    "xy": [
+      10,
+      19
+    ],
+    "stage": "ARMED",
+    "token": "settle:0:1",
+    "request": "0:156:173",
+    "target": 846,
+    "unchanged": true,
+    "FOUND_liveness": "FAIL_OPEN"
+  },
+  "world": {
+    "turn": 173,
+    "cities": 14,
+    "public_live_settlers": 2,
+    "public_queued_settlers": 0,
+    "reserved_private": null,
+    "END173_at_save": 0,
+    "new_owned_city": "PENDING"
+  },
+  "normal_turn_followups": {
+    "END170_first_call_ACK_no_actual171": true,
+    "original_button_followup170_once": true,
+    "prior_issued_ledger_not_reset": true,
+    "fresh_no_units_no_blocker_no_unready": true,
+    "actual171_independent": true,
+    "UserForced": false
+  },
+  "player_wait_driver": {
+    "167_original_step3_VM_context_refusal_before_request": true,
+    "specific_failed_context_boolean": "UNKNOWN; Core busy was suspected, not captured at failure",
+    "explicit_NOT_ISSUED_classification": true,
+    "original167_successful_SKIP": 2,
+    "new167_adaptive_SKIP": 5,
+    "no_prior_skip_replay": true,
+    "new_dual_Lua_scenarios": 32,
+    "defer_means_no_military_request": "May include view selection before final defer; no request marker/issued flag",
+    "first_test_correction": "Owner incorrectly expected deferred eligibility to stay false on a later fresh call; fixed replay check only for issued/unknown requests, tested defer then first valid request",
+    "168_transient_units_blocker_later_zero_no_ready": true,
+    "later_orchestration": "Passively wait <=60sec for settling, preserve completed military phase, no extra game order to clear transient blocker"
+  },
+  "save173": {
+    "utc": "2026-11-15T04:19:12.850419+00:00",
+    "name": "Baiqi_P6_20261115_V146_NewSettlerBorn173.Civ6Save",
+    "bytes": 656528,
+    "sha256": "47c89dd26f6f5d2e1bc083cccb96715af53ed3bc10f2d4fc976e82488ee36166",
+    "stable_repeated_read": true,
+    "reloaded": false
+  },
+  "model837": {
+    "usage": {
+      "prompt_tokens": 7414,
+      "completion_tokens": 653,
+      "total_tokens": 8067
+    },
+    "ms": 5690.894400002435,
+    "TTFT_ms": 1315.4804999940097,
+    "stop_DONE_JSON": true,
+    "adoption": "Partial source reason-branch mapping only; raw query rejected,0 raw Native/code",
+    "rejected_query": [
+      "Game:GetLocalPlayer instead of actual static call",
+      "Invented GetFormationType/IsDelayed methods",
+      "Missing bounds and missing property not explicitly UNKNOWN"
+    ],
+    "unsupported_theories": [
+      "Dead/delayed or race root cause not established; actual Core classification LIVE"
+    ],
+    "Owner_input_gap": "Omitted actual SettlementUnitCore classifier and Controller511-531 bridge/proposal despite supplying complete goal modules; REQUEST unchanged, no full closure audit claim"
+  },
+  "ledger_through837": {
+    "logical": 837,
+    "complete": 774,
+    "length": 60,
+    "final_transport": 3,
+    "HTTP": 867,
+    "extra_retries": 30,
+    "current_in_flight": 0,
+    "new_OpenCode_native_sessions": 0,
+    "new_task_peak": 1
+  },
+  "claims": {
+    "independent_queue": "NATIVE_PASS",
+    "new_actor_birth": "NATIVE_POSITIVE",
+    "background_movement_three_steps": "NATIVE_PASS_ON_THIS_TRACE",
+    "new_city_found": "PENDING",
+    "complete_acceptance": "OPEN",
+    "source146_TC036": "UNMEASURED"
+  },
+  "Steam": {
+    "online_switches": 0,
+    "uploads": 0
+  },
+  "unknown": {
+    "Owner_active_cost": null,
+    "cached_tokens": null,
+    "server_concurrency": null,
+    "net_savings": null
+  },
+  "private_receipt_sha256": {
+    "legacy146cold163-goal837-owner-read-042409490409.json": "039af71e04b1281fa36fcd24aa283ddb2db77f119f67a109926cbe7bb4971f6a",
+    "legacy146cold163-birth173-read-041638354121.json": "cf0787e2ad2cea5365d2821d6f6de5d98fa1d6f77ec35b57f8cc8cceee5f7e99",
+    "legacy146cold163-original-followup170-returned.json": "eb5e70de2e528b5cbfeaae4ab873b9c55a2e855d83ddd4c373ba8cc85ce8be13"
+  }
+}

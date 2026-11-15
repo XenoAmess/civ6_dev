@@ -415,3 +415,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[146冷实机睡眠／普通164](../testing/baiqi-source146-native164-naturalist-sleep.md)：后台唯一SLEEP解除自然学家阻塞，164保持位置／建园次数／睡眠；27玩家警戒冷载保持。南京移民69/220、旧ARMED保持，164已存；出生／行军／建城和新版性能继续。
+
+
+2026-11-15：[146新移民173](../testing/baiqi-source146-new-settler173.md)：独立10027070出生、人口8→7／队列接续，后台3MOVE配对到9,2，持久目标845@9,19，旧ARMED保持；173已存，继续到址／建城，不授新版性能。

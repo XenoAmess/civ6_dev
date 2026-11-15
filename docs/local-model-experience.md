@@ -1149,3 +1149,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[834—836与146软件](testing/baiqi-source146-naturalist-sleep.md)：834只读普查部分采用、Owner纠正双ready计数；835错unit队列getter／改旧persistent待命／漏重复许可及nil拒绝，0代码采用，Owner重写并单查购买OPEN。836两小渲染门及测试部分采用；首次完整两旧146非法夹具改147后2467pass/1SDKskip。Owner bootstrap写次数和反例cwd错误分列，原件保留。累计836/773完整60length3transport866HTTP30extra，原生OpenCode0、未知成本null。
+
+
+2026-11-15：[837提案等待只读诊断](testing/baiqi-source146-new-settler173.md)：7414+653tokens／5690.8944ms／TTFT1315.4805完整；原查询Game冒号／虚构formation/delayed端口／缺界拒用，0rawNative。Owner漏classifier和桥／proposal定义，不授全闭包；实际UI0.5而Core0/LIVE，解释当前门的可能等待，不断言死延迟／race根因。新移民已真实出生和3步后台移动，建城继续。累计837／774完整60length3transport867HTTP30extra，原生OpenCode0、未知成本null。
