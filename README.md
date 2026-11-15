@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码155：[候选筛选与内政分次调度](docs/testing/baiqi-source155-pruning-scheduling.md)。2648项中2647通过／1SDK跳过，97Lua双编译／119文件包；尚未实测。154正式规划FAIL保留，当前性能与完整Mod验收继续。
+当前源码155：[正式B_plan通过](docs/testing/baiqi-source155-stageA-pass.md)。303条完整，Admin纯十城116样本p95约3ms／max7ms，Controller144样本p95约12ms／max31ms；下一步当前155全脚本B_turn／N_req、配对与其余功能验收。完整Mod仍未验收完成，旧版FAIL保留。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
