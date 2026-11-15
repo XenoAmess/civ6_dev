@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码146：[自然学家无公园时自动睡眠，软件通过](docs/testing/baiqi-source146-naturalist-sleep.md)，待从163故障档冷复测。145已自主排队新移民并自然生产到51/220；出生、行军、建城与新版性能继续，旧ARMED恢复FAIL保留。
+当前源码146：[冷实机自主睡眠解除自然学家阻塞，普通回合到164](docs/testing/baiqi-source146-native164-naturalist-sleep.md)。南京新移民已自然生产到69/220；出生、行军、建城与新版性能继续，旧ARMED恢复FAIL保留。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
