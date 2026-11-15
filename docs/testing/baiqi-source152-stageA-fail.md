@@ -17,3 +17,6 @@
 
 
 后续：[十二子函数受控实采](baiqi-source152-coarse-native88-89.md)取得另一89回合70ms根／移民处理58ms；不同调用、增加诊断开销，不覆盖本篇原76ms有效FAIL，继续原生路径及安全检查细分。
+
+
+后续：[原生路径细分实采](baiqi-source152-native-path-native88-89.md)83根1313行，本轮最大根15ms／移民12ms／PathStep原生调用1ms；本轮未复现，不能覆盖本篇76ms有效FAIL或宣称已修复。

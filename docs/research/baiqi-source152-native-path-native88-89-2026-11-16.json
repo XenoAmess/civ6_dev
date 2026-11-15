@@ -1,0 +1,1154 @@
+{
+  "schema": "civ6.source152-native-path-native88-89/v1",
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 152,
+  "source_commit_at_launch": "a7d1e6701a001d58b85cd7861f9f1288744f0653",
+  "source_Controller_sha256": "665e17f0e21caac866039a0c66a4e3801216196bbb045bef460334e491b472d3",
+  "diagnostic_archive_sha256": "a6a6500ca7e81510f3ff33767d20d1185691803226d45d09b47128fb54411a6d",
+  "children": [
+    "ProcessSettler",
+    "SettlementHeld",
+    "ExpansionStable",
+    "SettlerGoalBridge",
+    "KnownExpansionSupport",
+    "SettlementSites",
+    "PathStep",
+    "Safe",
+    "GetVisibleUnits",
+    "SettlerOccupiedDetour",
+    "CivilianMoveTarget",
+    "RequestCivilian"
+  ],
+  "native_child": "Native.GetMoveToPathEx",
+  "bindings": 14,
+  "sample_capacity": 4096,
+  "profile_count": 1,
+  "actual_warmup_seconds": 72.61100006103516,
+  "frozen85_sha256": "107298ae7f1047d017c1570e52cdb2efcfa3ea8db369d95015a8dc63b2703b44",
+  "CPU_affinity": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "fresh_offline_launch": true,
+  "prelaunch_query": "Initial unavailable before launchintent/Popen, officialSteamheader navigation once, then independentfreshreadonly offline proof",
+  "summary": {
+    "utc": "2026-11-15T16:37:37.796357+00:00",
+    "source": "baiqi152-controller-children-v3",
+    "diagnostic_accounting_ok": true,
+    "roots": 83,
+    "samples": 1313,
+    "observer_phase_counts": {
+      "whole_before_observer": 19,
+      "overlaps_observer": 0,
+      "observed_window": 64,
+      "outside_window_started": 0
+    },
+    "cities": 11,
+    "largest_roots": [
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.014999866485595703,
+          "started": 1794760460.6000001,
+          "ended": 1794760460.615,
+          "failed": false,
+          "rootId": 11,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "SettlementHeld": 0,
+          "ExpansionStable": 0.9999275207519531,
+          "SettlerGoalBridge": 1.0001659393310547,
+          "GetVisibleUnits": 0.9999275207519531,
+          "Safe": 0.9999275207519531,
+          "KnownExpansionSupport": 3.999948501586914,
+          "SettlementSites": 5.000114440917969,
+          "Native.GetMoveToPathEx": 1.0001659393310547,
+          "CivilianMoveTarget": 0.9999275207519531,
+          "PathStep": 3.999948501586914,
+          "RequestCivilian": 1.9998550415039062,
+          "ProcessSettler": 12.000083923339844
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.012000083923339844,
+            "started": 1794760460.603,
+            "ended": 1794760460.615,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementSites",
+            "seconds": 0.005000114440917969,
+            "started": 1794760460.603,
+            "ended": 1794760460.608,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.003999948501586914,
+            "started": 1794760460.604,
+            "ended": 1794760460.608,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.003999948501586914,
+            "started": 1794760460.608,
+            "ended": 1794760460.612,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0019998550415039062,
+            "started": 1794760460.6130002,
+            "ended": 1794760460.615,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760460.609,
+            "ended": 1794760460.6100001,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760460.612,
+            "ended": 1794760460.6130002,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760460.607,
+            "ended": 1794760460.608,
+            "failed": false,
+            "rootId": 11,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.009999990463256836,
+          "started": 1794760460.1560001,
+          "ended": 1794760460.1660001,
+          "failed": false,
+          "rootId": 6,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {},
+        "largest_children": []
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.00800013542175293,
+          "started": 1794760460.204,
+          "ended": 1794760460.2120001,
+          "failed": false,
+          "rootId": 7,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {},
+        "largest_children": []
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.006999969482421875,
+          "started": 1794760460.964,
+          "ended": 1794760460.971,
+          "failed": false,
+          "rootId": 12,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {},
+        "largest_children": []
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.006000041961669922,
+          "started": 1794760461.316,
+          "ended": 1794760461.322,
+          "failed": false,
+          "rootId": 13,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "SettlementHeld": 0,
+          "ExpansionStable": 0,
+          "SettlerGoalBridge": 0.9999275207519531,
+          "KnownExpansionSupport": 1.9998550415039062,
+          "GetVisibleUnits": 0,
+          "Safe": 1.0001659393310547,
+          "Native.GetMoveToPathEx": 0,
+          "CivilianMoveTarget": 0,
+          "PathStep": 2.000093460083008,
+          "RequestCivilian": 0,
+          "ProcessSettler": 4.999876022338867
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.004999876022338867,
+            "started": 1794760461.3170002,
+            "ended": 1794760461.322,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.002000093460083008,
+            "started": 1794760461.319,
+            "ended": 1794760461.321,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.0019998550415039062,
+            "started": 1794760461.3170002,
+            "ended": 1794760461.319,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760461.32,
+            "ended": 1794760461.321,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760461.319,
+            "ended": 1794760461.32,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760461.321,
+            "ended": 1794760461.322,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementHeld",
+            "seconds": 0.0,
+            "started": 1794760461.3170002,
+            "ended": 1794760461.3170002,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0,
+            "started": 1794760461.3170002,
+            "ended": 1794760461.3170002,
+            "failed": false,
+            "rootId": 13,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.004999876022338867,
+          "started": 1794760549.9980001,
+          "ended": 1794760550.003,
+          "failed": false,
+          "rootId": 56,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "GetVisibleUnits": 1.0001659393310547,
+          "Safe": 1.0001659393310547,
+          "CivilianMoveTarget": 0,
+          "RequestCivilian": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760550.001,
+            "ended": 1794760550.002,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760550.001,
+            "ended": 1794760550.002,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760549.999,
+            "ended": 1794760550.0,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760550.0,
+            "ended": 1794760550.001,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760550.0,
+            "ended": 1794760550.001,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760550.002,
+            "ended": 1794760550.003,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760549.999,
+            "ended": 1794760549.999,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760549.999,
+            "ended": 1794760549.999,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.004999876022338867,
+          "started": 1794760551.4390001,
+          "ended": 1794760551.444,
+          "failed": false,
+          "rootId": 60,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "SettlementHeld": 0,
+          "ExpansionStable": 0,
+          "SettlerGoalBridge": 0,
+          "KnownExpansionSupport": 2.000093460083008,
+          "GetVisibleUnits": 0,
+          "Safe": 0,
+          "Native.GetMoveToPathEx": 0.9999275207519531,
+          "CivilianMoveTarget": 0,
+          "PathStep": 0.9999275207519531,
+          "RequestCivilian": 0.9999275207519531,
+          "ProcessSettler": 3.999948501586914
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.003999948501586914,
+            "started": 1794760551.44,
+            "ended": 1794760551.444,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.002000093460083008,
+            "started": 1794760551.44,
+            "ended": 1794760551.4420002,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760551.4420002,
+            "ended": 1794760551.443,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760551.4420002,
+            "ended": 1794760551.443,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760551.443,
+            "ended": 1794760551.444,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementHeld",
+            "seconds": 0.0,
+            "started": 1794760551.44,
+            "ended": 1794760551.44,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0,
+            "started": 1794760551.44,
+            "ended": 1794760551.44,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0,
+            "started": 1794760551.44,
+            "ended": 1794760551.44,
+            "failed": false,
+            "rootId": 60,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.004000186920166016,
+          "started": 1794760460.445,
+          "ended": 1794760460.4490001,
+          "failed": false,
+          "rootId": 10,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "GetVisibleUnits": 0,
+          "Safe": 1.0001659393310547,
+          "RequestCivilian": 1.0001659393310547
+        },
+        "largest_children": [
+          {
+            "name": "Safe",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760460.448,
+            "ended": 1794760460.4490001,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760460.448,
+            "ended": 1794760460.4490001,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760460.446,
+            "ended": 1794760460.447,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760460.447,
+            "ended": 1794760460.448,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760460.447,
+            "ended": 1794760460.447,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760460.447,
+            "ended": 1794760460.447,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760460.447,
+            "ended": 1794760460.447,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760460.447,
+            "ended": 1794760460.447,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.004000186920166016,
+          "started": 1794760551.083,
+          "ended": 1794760551.0870001,
+          "failed": false,
+          "rootId": 59,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "SettlementHeld": 0,
+          "ExpansionStable": 0,
+          "SettlerGoalBridge": 1.0001659393310547,
+          "KnownExpansionSupport": 2.000093460083008,
+          "GetVisibleUnits": 0,
+          "Safe": 0.9999275207519531,
+          "Native.GetMoveToPathEx": 0,
+          "CivilianMoveTarget": 0,
+          "PathStep": 0.9999275207519531,
+          "RequestCivilian": 0,
+          "ProcessSettler": 4.000186920166016
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.004000186920166016,
+            "started": 1794760551.083,
+            "ended": 1794760551.0870001,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.002000093460083008,
+            "started": 1794760551.083,
+            "ended": 1794760551.085,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760551.086,
+            "ended": 1794760551.0870001,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760551.085,
+            "ended": 1794760551.086,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760551.085,
+            "ended": 1794760551.086,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementHeld",
+            "seconds": 0.0,
+            "started": 1794760551.083,
+            "ended": 1794760551.083,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0,
+            "started": 1794760551.083,
+            "ended": 1794760551.083,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0,
+            "started": 1794760551.083,
+            "ended": 1794760551.083,
+            "failed": false,
+            "rootId": 59,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.003999948501586914,
+          "started": 1794760462.398,
+          "ended": 1794760462.402,
+          "failed": false,
+          "rootId": 16,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "GetVisibleUnits": 0,
+          "Safe": 1.0001659393310547,
+          "Native.GetMoveToPathEx": 0.9999275207519531,
+          "PathStep": 0.9999275207519531,
+          "CivilianMoveTarget": 0,
+          "RequestCivilian": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "Safe",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760462.399,
+            "ended": 1794760462.4,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760462.4,
+            "ended": 1794760462.401,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760462.4,
+            "ended": 1794760462.401,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760462.401,
+            "ended": 1794760462.402,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760462.399,
+            "ended": 1794760462.399,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760462.399,
+            "ended": 1794760462.399,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760462.399,
+            "ended": 1794760462.399,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760462.399,
+            "ended": 1794760462.399,
+            "failed": false,
+            "rootId": 16,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.003999948501586914,
+          "started": 1794760463.1100001,
+          "ended": 1794760463.114,
+          "failed": false,
+          "rootId": 18,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "GetVisibleUnits": 0,
+          "Safe": 1.0001659393310547,
+          "RequestCivilian": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "Safe",
+            "seconds": 0.0010001659393310547,
+            "started": 1794760463.112,
+            "ended": 1794760463.1130002,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760463.111,
+            "ended": 1794760463.112,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760463.1130002,
+            "ended": 1794760463.114,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760463.1130002,
+            "ended": 1794760463.114,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760463.111,
+            "ended": 1794760463.111,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760463.111,
+            "ended": 1794760463.111,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760463.111,
+            "ended": 1794760463.111,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760463.111,
+            "ended": 1794760463.111,
+            "failed": false,
+            "rootId": 18,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.003000020980834961,
+          "started": 1794760461.685,
+          "ended": 1794760461.688,
+          "failed": false,
+          "rootId": 14,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "GetVisibleUnits": 0.9999275207519531,
+          "Safe": 0.9999275207519531,
+          "Native.GetMoveToPathEx": 0,
+          "PathStep": 0.9999275207519531,
+          "CivilianMoveTarget": 0,
+          "RequestCivilian": 0
+        },
+        "largest_children": [
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760461.687,
+            "ended": 1794760461.688,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760461.687,
+            "ended": 1794760461.688,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.0009999275207519531,
+            "started": 1794760461.687,
+            "ended": 1794760461.688,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760461.686,
+            "ended": 1794760461.686,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760461.686,
+            "ended": 1794760461.686,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760461.686,
+            "ended": 1794760461.686,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760461.686,
+            "ended": 1794760461.686,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "GetVisibleUnits",
+            "seconds": 0.0,
+            "started": 1794760461.686,
+            "ended": 1794760461.686,
+            "failed": false,
+            "rootId": 14,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      }
+    ],
+    "facts_sha256": "814c8deae753ab28299bf5fe35468961530dbd6931e2446b849eef9228003aa7",
+    "limits": "Selected coarse children only, inclusive times; no summing nested rows or B_plan/whole performance pass. Root entry city count only; no inferred end-state. All active pre-observer entries retained; actual interval phases classified against observed anchors without physical-event inference."
+  },
+  "all_samples": "docs/research/baiqi-source152-native-path-samples-2026-11-16.json",
+  "public_samples_sha256": "41d710531bf82005e4da11cd7b87c4ab916a4c0118d421068df8b348c39ea17b",
+  "all_measured_maximum_ms": {
+    "Controller.RunNow": 14.999866485595703,
+    "GetVisibleUnits": 1.0001659393310547,
+    "Safe": 1.0001659393310547,
+    "RequestCivilian": 1.9998550415039062,
+    "SettlementHeld": 0,
+    "ExpansionStable": 0.9999275207519531,
+    "SettlerGoalBridge": 1.0001659393310547,
+    "KnownExpansionSupport": 3.999948501586914,
+    "SettlementSites": 5.000114440917969,
+    "Native.GetMoveToPathEx": 1.0001659393310547,
+    "CivilianMoveTarget": 1.0001659393310547,
+    "PathStep": 3.999948501586914,
+    "ProcessSettler": 12.000083923339844
+  },
+  "call_counts": {
+    "Controller.RunNow": 83,
+    "GetVisibleUnits": 1058,
+    "Safe": 87,
+    "RequestCivilian": 14,
+    "SettlementHeld": 8,
+    "ExpansionStable": 12,
+    "SettlerGoalBridge": 8,
+    "KnownExpansionSupport": 4,
+    "SettlementSites": 1,
+    "Native.GetMoveToPathEx": 6,
+    "CivilianMoveTarget": 22,
+    "PathStep": 6,
+    "ProcessSettler": 4
+  },
+  "root_maximum_by_turn_ms": {
+    "88": 14.999866485595703,
+    "89": 4.999876022338867
+  },
+  "not_reproduced": {
+    "original_76ms_StageA": true,
+    "previous_70ms_coarse_or_58ms_ProcessSettler": true,
+    "same_cause_established": false,
+    "repair_or_performance_PASS": false
+  },
+  "product_changes": 0,
+  "limits": [
+    "Separate invocation and instrumentation, retain original76ms valid B_plan FAIL",
+    "Inclusive selected child timings include instrumentation; no subtracting cross-call maxima",
+    "Native timer covers unique PathStep GetMoveToPathEx call only, not every other Native path consumer",
+    "No observed expensive path API in this run does not exclude its cost in another invocation",
+    "Root entrycitycounts only; no assumed endcounts"
+  ],
+  "player_inputs": {
+    "ordinary_supported_ENDs": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "each_once": true,
+    "actual_activations": [
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "END90": 0,
+    "military_SKIP_by_turn": {
+      "85": 18,
+      "86": 18,
+      "87": 18,
+      "88": 18,
+      "89": 18
+    },
+    "farewell87_original_once": true,
+    "UserForced": false,
+    "manual_civilian_production_research": 0,
+    "BACKGROUND_military_or_diplomacy": 0
+  },
+  "QA_restoration": {
+    "bindings": 14,
+    "all_identity_checks": true,
+    "original_observer_removed": true,
+    "recording_stopped": true,
+    "private_passthrough_callsite_remains_until_process_exit": true,
+    "native_global_binding_not_modified": true,
+    "saved": {
+      "utc": "2026-11-15T16:37:43.287137+00:00",
+      "name": "Baiqi_P6_20261116_V152_ControllerNativePath90.Civ6Save",
+      "bytes": 518764,
+      "sha256": "fe11209dbfee6b236a8e58401171c89420fc90b64a196e6b7d54a5e596538036",
+      "stable_repeated_read": true
+    },
+    "official_exit_once": true,
+    "natural_exit_not_claimed": true
+  },
+  "formal_exclusion": {
+    "admitted_before_reload": true,
+    "released_after_complete_export_and_exact_retire": true,
+    "HTTP_or_heavy_tests_during": 0
+  },
+  "previous_coarse_owned_residue": {
+    "utc": "2026-11-15T16:24:09.289810+00:00",
+    "exit": 15,
+    "terminate_calls": 1,
+    "kill_escalations": 0
+  },
+  "main210_stageA91_coarse90_protected": true,
+  "Steam_online_switches_or_uploads": 0,
+  "next": "Review unmeasured/root-only entries and other remaining acceptance work; never recast nonreproduction as fixed or rerun forPASS"
+}
