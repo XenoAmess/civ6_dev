@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／实机151：[195电脑完成、三城后台防洪坝取得、武汉工业区地块已排水](docs/testing/baiqi-source151-native195-computers-barriers.md)；邢州人口2／粮仓24/32。继续军队玩家流程、区域修复与旧项目／新城生产，151性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码／实机151：[196邢州粮仓已建、AI自动排纪念碑；玩家旧战士原版升级已核](docs/testing/baiqi-source151-granary196-upgrade858.md)。195三城防洪坝与武汉排水保持，继续普通回合跟踪工业区修复／旧项目；151性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 

@@ -1191,3 +1191,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[151普通195](testing/baiqi-source151-native195-computers-barriers.md)：电脑完成后原激光333.73保持，三城各原价135自动防洪坝／观察，武汉实际地块淹没转false但区域仍pillaged；项目119保留、邢州人口2粮仓24/32。194玩家受损战士16双Lua守卫后一次FORTIFY，195军队新阻塞继续；0人工内政／新HTTP／OpenCode原生，累计857保持。直连恢复Git不切Steam。
+
+
+2026-11-15：[151粮仓196／858](testing/baiqi-source151-granary196-upgrade858.md)：跨版本同演员自然训练→建城→首建筑原生拥有并排下一项完整，非全部151训练。858编译但误nil队列为table，实际双Lua正例0请求拒；Owner52+16软件后一次玩家升级395／新完整ID11075604和卧虎军FORTIFY，0后台军令。首Owner测试器吞退休后异常的断言过宽已加强52再过，未重发游戏动作。累计858／790完整／65length／3transport／889HTTP／30extra，OpenCode原生新增0。
