@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码151：[紧急防洪研究可切换未完成科技并验证原投入保留，软件2549项含1SDK跳过](docs/testing/baiqi-source151-flood-research.md)，97Lua双编译119包；继续保护193冷验，原防洪资格不绕过，性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码／实机151：[193后台切电脑413/664，激光333.73046875/925投入原生保持](docs/testing/baiqi-source151-native193-flood-research.md)，已存；继续普通回合解锁防洪坝、区域修复与新城生产。2549项含1SDK跳过，151性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 
