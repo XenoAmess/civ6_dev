@@ -59,7 +59,7 @@ GameInfo.Technologies=setmetatable({TECH_COMPUTERS=r,[55]=r},{__index=old,__call
 local t=Players[7]:GetTechs();t.GetResearchProgress=function()if w.progressShock then w.progressShock()end;return w.progress end
 t.HasTech=function(_,i)if i==55 then return w.owned end;return false end
 t.CanResearch=function(_,i)if i==55 then return w.can end;return true end
-t.GetResearchPath=function(_,h)if w.pathShock then w.pathShock()end;return {h}end
+t.GetResearchPath=function(_,h)if w.pathShock then w.pathShock()end;return {h==555 and 55 or h}end
 local send=UI.RequestPlayerOperation;UI.RequestPlayerOperation=function(...)
  send(...);if w.throwWriter then error('unknown after native dispatch')end end
 ''')
@@ -72,9 +72,9 @@ local send=UI.RequestPlayerOperation;UI.RequestPlayerOperation=function(...)
         for current in (-1,0):
             self.setUp();self.w.tech=current;self.a.Run();self.a.Run()
             self.assertEqual(len(self.w.requests),1);r=self.w.requests[1]
-            self.assertEqual((r.pid,r.op,r.params.tech[1],r.params.mode),(7,1,555,3))
-    def test_positive_unknown_and_nonzero_progress_are_preserved(self):
-        for value in (1,None,-1,float('inf')):
+            self.assertEqual((r.pid,r.op,r.params.tech[1],r.params.mode),(7,1,55,3))
+    def test_unknown_and_invalid_progress_are_preserved(self):
+        for value in (None,-1,float('inf')):
             with self.subTest(value=value):
                 self.setUp();self.w.progress=value;self.a.Run();self.assertEqual(len(self.w.requests),0)
     def test_unknown_flood_unavailable_technology_and_existing_target_keep_research(self):

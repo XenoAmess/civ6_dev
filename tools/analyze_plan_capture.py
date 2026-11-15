@@ -40,7 +40,7 @@ def _number(value,label):
 
 
 def analyze_plan_capture(data,*,expected_source_version=140):
-    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149 or150')
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150 or151')
     if not isinstance(data,dict):
         raise ValueError('Unknown capture object')
     v2=data.get('source')==f'baiqi{expected_source_version}-stageA-v2'
@@ -160,7 +160,7 @@ def analyze_plan_capture(data,*,expected_source_version=140):
 
 
 def analyze_pressure_plan_capture(data,*,expected_source_version=142):
-    if type(expected_source_version)is not int or expected_source_version not in (142,143,144,145,146,147,148,149,150):
+    if type(expected_source_version)is not int or expected_source_version not in (142,143,144,145,146,147,148,149,150,151):
         raise ValueError('Invalid pressure source version')
     if not isinstance(data,dict):
         raise ValueError('Unknown pressure capture object')
@@ -281,7 +281,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--expected-source-version',type=int,choices=(140,141,142,143,144,145,146,147,148,149,150),default=140)
+    p.add_argument('--expected-source-version',type=int,choices=(140,141,142,143,144,145,146,147,148,149,150,151),default=140)
     a=p.parse_args();result=analyze_plan_capture(json.loads(a.input.read_text(encoding='utf-8')),expected_source_version=a.expected_source_version)
     with a.output.open('x',encoding='utf-8')as f:json.dump(result,f,ensure_ascii=False,indent=2);f.write('\n')
     print(json.dumps(result,ensure_ascii=False))

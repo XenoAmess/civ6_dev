@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码／实机150：[首次规划实证防洪坝缺电脑科技，AI被非零激光研究保护挡住](docs/testing/baiqi-source150-firstplanning-exclusion.md)。继续151紧急研究切换并核旧投入保留，原生产资格不绕过；邢州9/32保持，性能、完整功能与旧ARMED恢复FAIL仍开放。
+当前源码151：[紧急防洪研究可切换未完成科技并验证原投入保留，软件2549项含1SDK跳过](docs/testing/baiqi-source151-flood-research.md)，97Lua双编译119包；继续保护193冷验，原防洪资格不绕过，性能、完整功能与旧ARMED恢复FAIL仍开放。
 
 [815B人口诊断新增累计前后证据](docs/testing/baiqi-population815B-native339.md)：沙尘暴0→3人口／7→21地块，两城各−1复现；仍不能逐城归因。Owner历史API／Core合同已纠正、监听已撤／另存，继续其余验收。
 

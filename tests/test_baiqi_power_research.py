@@ -85,7 +85,7 @@ Players[7].GetCities=function()return {FindID=function()return c end,Members=fun
 
     def test_emergency_flood_research_has_priority_over_renewables(self):
         self.lua.execute('TestFlood.flooded=true');self.a.Run()
-        self.assertEqual(len(self.w.requests),1);self.assertEqual(self.w.requests[1].params.tech[1],555)
+        self.assertEqual(len(self.w.requests),1);self.assertEqual(self.w.requests[1].params.tech[1],55)
 
     def test_last_read_rejects_demand_fuel_ownership_metadata_turn_or_progress_drift(self):
         for change in ('TestAdmin.power.free=8','TestAdmin.power.fuel=-1',

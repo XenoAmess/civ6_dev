@@ -119,7 +119,7 @@ end
 
     def test_flood_emergency_still_wins(self):
         self.change('TestFlood.flooded=true');self.a.Run()
-        self.assertEqual(self.w.requests[1].params.tech[1],555);self.assertEqual(self.w.bridgeCalls,0)
+        self.assertEqual(self.w.requests[1].params.tech[1],55);self.assertEqual(self.w.bridgeCalls,0)
 
     def test_raw_plot_scan_bound_is_shared_across_goals(self):
         self.change('w.plotReads=0;Map.GetCityPlots=function()local t={};for i=1,129 do t[i]=100 end;return {GetPurchasedPlots=function()return t end}end;local old=Map.GetPlotByIndex;Map.GetPlotByIndex=function(i)w.plotReads=w.plotReads+1;return old(i)end')

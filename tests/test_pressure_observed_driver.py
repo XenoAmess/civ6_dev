@@ -109,6 +109,17 @@ class PressureObservedDriverTests(unittest.TestCase):
         with self.assertRaises(Exception):execute()
         self.assertEqual(calls,[]);self.assertTrue(h.all_recording(False))
 
+    def test_source151_source143_six_ends_and_wrong_build_tag(self):
+        h,ledger,calls,cb,execute=self.case(source_version=151);r=execute()
+        self.assertEqual(calls,[6,7,8,9,10,11])
+        self.assertEqual((r['source'],r['source_version']),('baiqi151-pressure-observed-v1',151))
+        self.assertFalse((ledger/'end12.json').exists());self.assertTrue(h.all_recording(False))
+        h,ledger,calls,cb,execute=self.case(source_version=151)
+        h.lua.globals().P6Q20PressureBuild.source='baiqi142-pressure-observed-v1'
+        with self.assertRaises(Exception):execute()
+        self.assertEqual(calls,[]);self.assertTrue(h.all_recording(False))
+
+
 
 
 

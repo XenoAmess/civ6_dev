@@ -224,10 +224,42 @@ local function PowerTechnology(pid)
     GameConfiguration=GameConfiguration,UI=UI,GameInfo=GameInfo,PlayersVisibility=PlayersVisibility,
     Map=Map,ExposedMembers=ExposedMembers,leader=BaiqiConfig.leader},pid,turn)
 end
+local function ResearchInvestment(techs,index)
+  local ok,value=pcall(function()
+    local function finite(n)return type(n)=="number" and n==n and n>-math.huge and n<math.huge end
+    if not finite(index) or index<0 or index%1~=0 or index>2147483647 then return nil end
+    local row=GameInfo.Technologies[index]
+    if not row or row.Index~=index or not finite(row.Hash) or row.Hash==0 or row.Hash%1~=0
+      or type(row.TechnologyType)~="string" or row.TechnologyType==""
+      or techs:HasTech(index)~=false then return nil end
+    local progress,cost=techs:GetResearchProgress(index),techs:GetResearchCost(index)
+    if not finite(progress) or progress<=0 or not finite(cost) or cost<=progress then return nil end
+    return {index=index,hash=row.Hash,type=row.TechnologyType,progress=progress,cost=cost}
+  end)
+  if ok then return value end
+end
+local function ResearchRetained(techs,saved)
+  local ok,retained=pcall(function()
+    local row=GameInfo.Technologies[saved.index]
+    if not row or row.Index~=saved.index or row.Hash~=saved.hash or row.TechnologyType~=saved.type then return false end
+    if techs:HasTech(saved.index)==true then return true end -- Legitimately completed work is retained too.
+    local current=ResearchInvestment(techs,saved.index)
+    return current~=nil and current.hash==saved.hash and current.type==saved.type and current.progress>=saved.progress
+  end)
+  return ok and retained==true
+end
 local function Research(pid,player,techs)
   if pendingResearch then
     if pendingResearch.player~=pid then return end
-    if techs:GetResearchingTech()==pendingResearch.index or techs:HasTech(pendingResearch.index)==true then
+    local observed=techs:GetResearchingTech()==pendingResearch.index or techs:HasTech(pendingResearch.index)==true
+    if observed and pendingResearch.interrupted then
+      local row=GameInfo.Technologies[pendingResearch.index]
+      observed=row~=nil and row.Index==pendingResearch.index and row.Hash==pendingResearch.hash
+        and row.TechnologyType==pendingResearch.type and ResearchRetained(techs,pendingResearch.interrupted)
+        and ResearchPlayer(pid,player)
+        and (techs:GetResearchingTech()==pendingResearch.index or techs:HasTech(pendingResearch.index)==true)
+    end
+    if observed then
       print("BAIQI|research_observed|turn="..turn.."|index="..pendingResearch.index)
       pendingResearch=nil
     else
@@ -239,11 +271,22 @@ local function Research(pid,player,techs)
     end
   end
   local current=techs:GetResearchingTech()
-  if type(current)~="number" or current< -1 or current%1~=0 then return end
-  if current>=0 and techs:GetResearchProgress(current)~=0 then return end
+  if type(current)~="number" or current< -1 or current>2147483647 or current%1~=0 then return end
+  local progressOK,currentProgress=pcall(function()
+    if current>=0 then return techs:GetResearchProgress(current) end
+    return 0
+  end)
+  if not progressOK or type(currentProgress)~="number" or currentProgress~=currentProgress
+    or currentProgress<0 or currentProgress>=math.huge then return end
   local row=FloodTechnology(techs)
   if row and row.Index==current then return end
   local floodCity=row and FloodResearchCity(pid,player)
+  local interrupted
+  if currentProgress>0 then
+    if not floodCity then return end -- Ordinary and power research keep their existing investment protection.
+    interrupted=ResearchInvestment(techs,current)
+    if not interrupted or interrupted.progress~=currentProgress then return end
+  end
   local power
   if not floodCity then
     power=PowerTechnology(pid)
@@ -257,12 +300,20 @@ local function Research(pid,player,techs)
     end
   end
   if not row then return end
+  local targetIndex,targetHash,targetType=row.Index,row.Hash,row.TechnologyType
   local path=techs:GetResearchPath(row.Hash)
   if type(path)~="table" or next(path)==nil or not ResearchPlayer(pid,player) then return end
   if floodCity then
     if BaiqiFlood.City(FloodEnvironment(),pid,floodCity,turn)~=true then return end
     local latest=FloodTechnology(techs)
-    if not latest or latest.Index~=row.Index or latest.Hash~=row.Hash then return end
+    if not latest or latest.Index~=targetIndex or latest.Hash~=targetHash or latest.TechnologyType~=targetType then return end
+    if getmetatable(path)~=nil then return end
+    local count=0
+    for key,value in pairs(path)do
+      count=count+1
+      if count>1 or key~=1 or value~=targetIndex then return end
+    end
+    if count~=1 then return end -- The native direct path contains an index, never a hash.
   end
   if power then
     local latest=PowerTechnology(pid)
@@ -280,10 +331,22 @@ local function Research(pid,player,techs)
     if count~=1 then return end
   end
   if techs:HasTech(row.Index)~=false or techs:CanResearch(row.Index)~=true
-    or techs:GetResearchingTech()~=current or (current>=0 and techs:GetResearchProgress(current)~=0)
+    or techs:GetResearchingTech()~=current or (current>=0 and techs:GetResearchProgress(current)~=currentProgress)
     or not ResearchPlayer(pid,player) then return end
+  if interrupted then
+    if BaiqiFlood.City(FloodEnvironment(),pid,floodCity,turn)~=true then return end
+    local target=FloodTechnology(techs)
+    if not target or target.Index~=targetIndex or target.Hash~=targetHash or target.TechnologyType~=targetType then return end
+    local latest=ResearchInvestment(techs,current)
+    if not latest then return end
+    for _,key in ipairs({"index","hash","type","progress","cost"})do
+      if latest[key]~=interrupted[key] then return end
+    end
+    if techs:GetResearchingTech()~=current or not ResearchPlayer(pid,player) then return end
+  end
+  if floodCity and (row.Index~=targetIndex or row.Hash~=targetHash or row.TechnologyType~=targetType) then return end
   Once("tech:"..row.Index,function()
-    pendingResearch={player=pid,index=row.Index,hash=row.Hash,turn=turn}
+    pendingResearch={player=pid,index=row.Index,hash=row.Hash,type=row.TechnologyType,turn=turn,interrupted=interrupted}
     if floodCity then print("BAIQI|flood_research_request|turn="..turn.."|city="..floodCity.."|index="..row.Index) end
     if power then print("BAIQI|power_research_request|turn="..turn.."|city="..power.city.."|index="..row.Index
       .."|improvement="..power.improvement.."|goal="..power.goalIndex.."|plot="..power.sitePlot) end

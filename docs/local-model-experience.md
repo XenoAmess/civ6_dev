@@ -1182,3 +1182,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[首规划及855—857](testing/baiqi-source150-firstplanning-exclusion.md)：trace首队列0／需求真预算足但排除资格false，实际电脑未有413/664，激光333.73/925被研究零进度门保护；不绕生产门，继续151紧急切换保旧投入。855漏关键模式／丢多返回拒，856实际双Lua正例0请求拒，8576500length整弃。累计857／789完整／65length／3transport／888HTTP／30extra，新增OpenCode原生0。
+
+
+2026-11-15：[Owner151软件](testing/baiqi-source151-flood-research.md)：856／857拒后独立实现紧急防洪研究中断／旧投入ACK，10双Lua方法含nil合零、目标可变行红绿，53相关过；首次全2549两旧fixtureHash555断言失败，纠正为实机Index55再全绿。97Lua119包20历史前缀，累计857不变／新增OpenCode原生0，Native继续不授原稿。
