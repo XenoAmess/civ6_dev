@@ -1200,3 +1200,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-15：[152晚到叠放／863864](testing/baiqi-source152-late-overlap863864.md)：两任务完整源并行峰值2，863补丁未移出旧评估分支、两公开正例0请求拒；864缺bridge，一失败一错误／一空过拒。Owner原151六红、16新双Lua方法／58相关及全2578中2577pass1SDKskip、97Lua119包22旧前缀保持。Native151208初有半径2敌人，玩家一次城防后19格敌0仍三文职堵塞；音乐家LEGACY_UNKNOWN不得移动，已撤QA并保存。软件与原稿／Native分账，未授152实效，继续冷验。累计864／796完整／65length／3transport／895HTTP／30extra，OpenCode原生新增0。
+
+
+2026-11-15：[152实机208—210／865866](testing/baiqi-source152-native208-210-865866.md)：建造者冷解叠、大商人在玩家清除落点邻域敌军后BACKGROUND632→588；音乐家LEGACY_UNKNOWN保持。普通END208／209各一次到210，武汉119点旧项目恢复209并事件完成210。原生MOVE true不等于落点Safe，更正旧表述。865 length拒，866两个Lua过但全部Safe关闭仍过，拒；Owner一致几何4个隔离负对照失败、相关62过。两存档／监听已撤，0人工内政／BG军令。累计866／797完整／66length／3transport／897HTTP／30extra，新增OpenCode原生0、未知成本null。
