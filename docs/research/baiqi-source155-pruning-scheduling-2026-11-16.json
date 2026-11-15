@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 155,
+  "trigger": {
+    "source154_formal": "Valid B_plan FAIL: Admin p95 21ms; Controller p95 27ms/max112ms; all289 retained.",
+    "source153_same_root": "E root93 pure-ten turn90: Controller61ms/ProcessCity58ms."
+  },
+  "changes": [
+    "ProcessCity uses the existing pure Planner.Choose to avoid native eligibility/site/recruitment work for candidates that cannot outrank the current legal best. Earliest equal-score tie and repair weighting retained. Resume-project qualification still runs because its eligibility affects building ranking.",
+    "BaiqiAdmin.Run schedules seven domains across seven ordinary valid callbacks: research/civics, flood purchase, food focus/tile rescue, religion/dedication, governors, great people, government/policies. New turn starts research; inactive or invalid context consumes no slot. Only scalar phase is retained; each domain reads current native state and original guards."
+  ],
+  "policy_effect": "Skipped uninspected district placements and units no longer consume candidate slots; later eligible candidates can fit the same512 cap. General Add still increments checked before domination pruning. Existing final native checks and64 requests/turn cap retained. Scheduling can delay a domain until its next slot (seven callbacks, about2.45s at0.35s cadence); functional continuity requires Native regression.",
+  "tests": {
+    "new_methods": 11,
+    "old154_result": "11 methods:3 failures+4 Lua assertion errors before editing product; positive controls passed. Raw retained.",
+    "new155_result": "All11 new methods pass in Lua5.1/5.3. Ranking/dominance/tie/repair/fresh final rejection plus domain coverage/current-window/inactive/new-turn/unknown-request tests.",
+    "first_full_suite": "2648 tests,45 failures/7errors/1SDK skip. Reviewed failures were old single-callback expectations plus changed equal-candidate eligibility count; raw retained.",
+    "fixture_adaptation": "Explicit run_admin_cycle drives seven actual Run callbacks at unchanged fixture turn, without applying acknowledgements or replacing product Run. Existing effects/fresh guards/no-replay assertions retained. New scheduling tests still call actual single callbacks. District eligibility count2 is planning+final, with later equal-ranked candidate pruned.",
+    "full_suite": {
+      "total": 2648,
+      "passed": 2647,
+      "skipped": 1,
+      "skip_reason": "Civ6 SDK unavailable",
+      "seconds": 204.584
+    },
+    "Lua51_and_Lua53": 97,
+    "files": 119,
+    "second_full_suite": "2648 tests,3 failing scope-drift subcases. Whole-cycle driving allowed a later newly-qualified turn; narrowed research to its first callback and food to its first food slot, preserving zero-write assertion at the drifting boundary. No product change; raw retained.",
+    "Lua53_pruning_supplement": "Six actual candidate-pruning methods also run separately with Lua5.3; full suite uses Lua5.1 for these six. All passed."
+  },
+  "ordinary_zip_sha256": "6db7397bb50de14af71875664e39afe1e883cb53ea46fce1aac11643cd3cba47",
+  "StageA_prepared_sha256": "d7d2121d920310760903a83283b9451735746a1b2c10fbd1581d96d8346430e9",
+  "model896897": [
+    {
+      "task": "civ6-896-city-priority-pruning",
+      "actual_source154_and_consumers_supplied_before_owner_product_edit": true,
+      "POST_attempts": 2,
+      "attempts": [
+        {
+          "started_at_utc": "2026-11-15T23:10:43.438636+00:00",
+          "total_ms": 180032.44689991698,
+          "failure": "TimeoutError('timed out')"
+        },
+        {
+          "started_at_utc": "2026-11-15T23:13:53.971914+00:00",
+          "total_ms": 180034.22749997117,
+          "failure": "TimeoutError('timed out')"
+        }
+      ],
+      "response_headers": 0,
+      "finish_reason": null,
+      "SSE_DONE": false,
+      "adopted": false
+    },
+    {
+      "task": "civ6-897-admin-sliced-scheduling",
+      "actual_source154_and_consumers_supplied_before_owner_product_edit": true,
+      "POST_attempts": 2,
+      "attempts": [
+        {
+          "started_at_utc": "2026-11-15T23:10:43.442758+00:00",
+          "total_ms": 180013.5604001116,
+          "failure": "TimeoutError('timed out')"
+        },
+        {
+          "started_at_utc": "2026-11-15T23:13:54.142631+00:00",
+          "total_ms": 180032.50030009076,
+          "failure": "TimeoutError('timed out')"
+        }
+      ],
+      "response_headers": 0,
+      "finish_reason": null,
+      "SSE_DONE": false,
+      "adopted": false
+    }
+  ],
+  "model_handling": "Two real independent scopes dispatched in parallel. Both second POSTs already in flight when task-specific stop-before-retry was recorded; both ended naturally after180s. No raw candidate/game action executed; Owner independently implemented. No kill or lease deletion.",
+  "ledger_through_897": {
+    "logical": 897,
+    "complete": 816,
+    "length": 68,
+    "final_transport": 13,
+    "HTTP_attempts": 936,
+    "extra_attempts": 38,
+    "inflight": 0,
+    "peak_actual_POST_this_pair": 2,
+    "OpenCode_native_generation": 0
+  },
+  "OpenCode": "Nov16 same-client cached daily success1.19.5; ordinary HTTP timeouts do not grant native code generation capability.",
+  "unknown": {
+    "cached_tokens": null,
+    "backend_cause": null,
+    "server_jobs": null,
+    "Owner_active_cost": null,
+    "net_time_saved": null
+  },
+  "Native155": "NOT_YET_RUN",
+  "remaining": "Current B_plan/B_turn/N_req/B_delta/pressure and complete-mod acceptance remain open. Prior fail retained; no claimed performance improvement."
+}

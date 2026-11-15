@@ -1,3 +1,4 @@
+from tests.admin_cycle import run_admin_cycle
 from pathlib import Path
 import json,unittest
 from lupa.lua51 import LuaRuntime
@@ -27,7 +28,7 @@ class GovernorLoyaltyConsumerTests(unittest.TestCase):
         self.w.policyChanged=True
 
     def run_admin(self,count=2):
-        for _ in range(count):self.admin.Run()
+        for _ in range(count):run_admin_cycle(self.admin)
 
     def test_crisis_outranks_population_and_waits_for_real_assignment(self):
         self.run_admin()

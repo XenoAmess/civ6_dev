@@ -1,3 +1,4 @@
+from tests.admin_cycle import run_admin_cycle
 from pathlib import Path
 import unittest,uuid,hashlib,json
 import xml.etree.ElementTree as ET
@@ -34,7 +35,7 @@ class StaticControlUITests(unittest.TestCase):
         for control in (False,True):
             lua=LuaRuntime(unpack_returned_tuples=True);lua.execute((ROOT/'tests/lua/mock_admin.lua').read_text(encoding='utf-8'))
             load(lua,'Lua/BaiqiConfig.lua',control);load(lua,'Lua/BaiqiAdmin.lua',control)
-            lua.globals().BaiqiAdmin.Run();w=lua.globals().TestAdmin
+            run_admin_cycle(lua.globals().BaiqiAdmin);w=lua.globals().TestAdmin
             self.assertEqual(len(w.requests),0 if control else 2)
             self.assertEqual(w.policyCalls,0 if control else 1)
 

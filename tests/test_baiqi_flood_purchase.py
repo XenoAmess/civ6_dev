@@ -1,3 +1,4 @@
+from tests.admin_cycle import run_admin_cycle
 """Paid flood response through the actual runner and Admin; no terrain simulation."""
 from pathlib import Path
 import os
@@ -49,7 +50,7 @@ CityManager={CanStartCommand=function(city,op,visible,p,reasons)
         self.assertEqual(self.w.balance,2000) # Request alone is not a debit/effect.
     def test_admin_invokes_runner_during_existing_positive_progress_research(self):
         source=Path(os.environ.get('BAIQI_FLOOD_PURCHASE_ADMIN')or ROOT/'mod/Baiqi/Lua/BaiqiAdmin.lua')
-        self.lua.execute(source.read_text(encoding='utf-8'));self.lua.globals().BaiqiAdmin.Run()
+        self.lua.execute(source.read_text(encoding='utf-8'));run_admin_cycle(self.lua.globals().BaiqiAdmin)
         self.assertEqual(len(self.w.purchases),1);self.assertEqual(len(self.w.requests),0)
     def test_both_native_modes_require_explicit_true(self):
         for key,value in (('canVisible',False),('canFull',False),('canVisible',None),('canFull',1)):

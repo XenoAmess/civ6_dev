@@ -1,3 +1,4 @@
+from tests.admin_cycle import run_admin_cycle
 """Salvageable coastal damage can justify research switching without losing investment."""
 import unittest
 from lupa.lua51 import LuaRuntime as Lua51
@@ -47,7 +48,7 @@ end
     def test_urgent_flood_switches_to_direct_index_path_and_preserves_old_investment(self):
         for runtime in (Lua51, Lua53):
             case = self.fixture(runtime)
-            case.a.Run(); case.a.Run()
+            run_admin_cycle(case.a); run_admin_cycle(case.a)
             self.assertEqual(len(case.w.requests), 1)
             request = case.w.requests[1]
             self.assertEqual((request.pid, request.op, request.params.tech[1], request.params.mode), (7, 1, 55, 3))
@@ -60,7 +61,7 @@ end
                            'TestAdmin.owned=true', 'TestAdmin.can=false', 'TestAdmin.can=nil',
                            'TestAdmin.tech=55'):
                 case = self.fixture(runtime)
-                case.lua.execute(change); case.a.Run()
+                case.lua.execute(change); run_admin_cycle(case.a)
                 self.assertEqual(len(case.w.requests), 0)
 
     def test_invalid_or_unknown_old_investment_never_authorizes_switch(self):
@@ -73,7 +74,7 @@ end
                            'GameInfo.Technologies[0].TechnologyType=nil'):
                 with self.subTest(lua=runtime, change=change):
                     case = self.fixture(runtime)
-                    case.lua.execute('local w=TestAdmin;'+change); case.a.Run()
+                    case.lua.execute('local w=TestAdmin;'+change); run_admin_cycle(case.a)
                     self.assertEqual(len(case.w.requests), 0)
 
     def test_path_read_cannot_cover_old_target_demand_or_scope_drift(self):
@@ -87,6 +88,8 @@ end
                 with self.subTest(lua=runtime, change=change):
                     case = self.fixture(runtime)
                     case.lua.execute('TestAdmin.pathShock=function()local w=TestAdmin;'+change+' end')
+                    # Observe the drifting research callback itself. Later
+                    # callbacks can legitimately qualify a new current turn.
                     case.a.Run(); self.assertEqual(len(case.w.requests), 0)
 
     def test_future_hash_sparse_or_ambiguous_paths_are_rejected(self):
@@ -94,7 +97,7 @@ end
             for path in ('{555}', '{55,56}', '{[2]=55}', '{[0]=55}', '{["1"]=55}',
                          'setmetatable({55},{})'):
                 case = self.fixture(runtime)
-                case.lua.execute('TestAdmin.badPath='+path); case.a.Run()
+                case.lua.execute('TestAdmin.badPath='+path); run_admin_cycle(case.a)
                 self.assertEqual(len(case.w.requests), 0)
 
     def test_initial_unknown_progress_cannot_be_coerced_to_zero(self):
@@ -106,20 +109,20 @@ t.GetResearchProgress=function(self,index)
  if index==0 then n=n+1;if n==1 then return '''+first+''' end;return 0 end
  return previous(self,index)
 end''')
-                case.a.Run(); self.assertEqual(len(case.w.requests), 0)
+                run_admin_cycle(case.a); self.assertEqual(len(case.w.requests), 0)
 
     def test_target_hash_drift_does_not_requalify_the_mutated_row(self):
         for runtime in (Lua51, Lua53):
             case = self.fixture(runtime)
             case.lua.execute('TestAdmin.pathShock=function()GameInfo.Technologies[55].Hash=556 end')
-            case.a.Run(); self.assertEqual(len(case.w.requests), 0)
+            run_admin_cycle(case.a); self.assertEqual(len(case.w.requests), 0)
 
     def test_unknown_or_throwing_writer_is_never_replayed(self):
         for runtime in (Lua51, Lua53):
             for throws in (False, True):
                 case = self.fixture(runtime)
-                case.w.throwWriter = throws; case.a.Run(); case.w.throwWriter = False
-                case.w.turn = 2; case.a.Run(); case.a.Run()
+                case.w.throwWriter = throws; run_admin_cycle(case.a); case.w.throwWriter = False
+                case.w.turn = 2; run_admin_cycle(case.a); run_admin_cycle(case.a)
                 self.assertEqual(len(case.w.requests), 1)
                 self.assertNotIn('research_observed', self.logs(case))
 
@@ -129,22 +132,22 @@ end''')
                            'w.oldProgress=0/0', 'w.oldCost=nil', 'w.oldOwned=nil',
                            'w.throwOldProgress=true', 'GameInfo.Technologies[0].Hash=101'):
                 case = self.fixture(runtime)
-                case.a.Run(); self.assertEqual(len(case.w.requests), 1)
+                run_admin_cycle(case.a); self.assertEqual(len(case.w.requests), 1)
                 case.w.tech = 55
-                case.lua.execute('local w=TestAdmin;'+change); case.a.Run()
+                case.lua.execute('local w=TestAdmin;'+change); run_admin_cycle(case.a)
                 self.assertNotIn('research_observed', self.logs(case))
                 case.w.tech = -1; case.w.owned = True; case.w.turn = 2
-                case.a.Run(); case.a.Run()
+                run_admin_cycle(case.a); run_admin_cycle(case.a)
                 self.assertEqual(len(case.w.requests), 1)
 
     def test_retained_or_legitimately_completed_old_work_allows_observed_ack(self):
         for runtime in (Lua51, Lua53):
             for change in ('', 'TestAdmin.oldProgress=334', 'TestAdmin.oldOwned=true'):
                 case = self.fixture(runtime)
-                case.a.Run(); self.assertEqual(len(case.w.requests), 1)
-                case.w.tech = 55; case.lua.execute(change); case.a.Run()
+                run_admin_cycle(case.a); self.assertEqual(len(case.w.requests), 1)
+                case.w.tech = 55; case.lua.execute(change); run_admin_cycle(case.a)
                 self.assertIn('research_observed', self.logs(case))
-                case.w.tech = -1; case.w.owned = True; case.w.turn = 2; case.a.Run()
+                case.w.tech = -1; case.w.owned = True; case.w.turn = 2; run_admin_cycle(case.a)
                 self.assertEqual(len(case.w.requests), 2)
 
 

@@ -158,7 +158,10 @@ class FoodFocusConsumerTests(unittest.TestCase):
             with self.subTest(code=code):
                 self.setUp()
                 self.lua.execute('TestAdmin.onFocusPermission=function()' + code + ' end')
-                self.run_admin(1)
+                # Reach the food slot once; do not run a later callback after
+                # the deliberate turn change establishes a new valid context.
+                for _ in range(3):
+                    self.fixture.admin.Run()
                 self.assertEqual(len(self.w.focusRequests), 0)
 
     def test_writer_replaced_during_permission_is_not_called(self):

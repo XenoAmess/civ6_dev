@@ -7,7 +7,7 @@ include("BaiqiFoodTileRescueRunner")
 include("BaiqiFlood")
 include("BaiqiFloodPurchase")
 BaiqiAdmin={}
-local attempted,turn={},-1
+local attempted,turn,adminPhase={},-1,0
 local techPriority={TECH_MINING=90,TECH_ANIMAL_HUSBANDRY=85,TECH_ARCHERY=80,TECH_BRONZE_WORKING=75,TECH_WHEEL=70}
 local civicPriority={CIVIC_CODE_OF_LAWS=100,CIVIC_CRAFTSMANSHIP=90,CIVIC_FOREIGN_TRADE=85,CIVIC_EARLY_EMPIRE=80,CIVIC_STATE_WORKFORCE=75,CIVIC_POLITICAL_PHILOSOPHY=70}
 local policyPriority={POLICY_URBAN_PLANNING=100,POLICY_DISCIPLINE=95,POLICY_AGOGE=90,POLICY_COLONIZATION=85,POLICY_ILKUM=80}
@@ -784,43 +784,54 @@ function BaiqiAdmin.Run()
   if not player or not config or config:GetLeaderTypeName()~=BaiqiConfig.leader
     or not config:IsHuman() or not player:IsTurnActive() or not Game.IsAllowStrategicCommands(pid) then return end
   local current=Game.GetCurrentGameTurn()
-  if current~=turn then turn=current;attempted={} end
-  local techs,culture=player:GetTechs(),player:GetCulture()
-  if type(BaiqiFloodPurchase)=="table" and type(BaiqiFloodPurchase.Run)=="function" then
-    BaiqiFloodPurchase.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,Players=Players,
-      PlayerConfigurations=PlayerConfigurations,GameInfo=GameInfo,PlayersVisibility=PlayersVisibility,
-      Map=Map,TerrainManager=TerrainManager,CityManager=CityManager,CityCommandTypes=CityCommandTypes,
-      config=BaiqiConfig},pid)
+  if current~=turn then turn=current;attempted={};adminPhase=0 end
+  -- Work scheduling only: no native object or positive permission survives
+  -- between calls. Each domain reads the current context and its original gates.
+  local phase=adminPhase;adminPhase=(adminPhase+1)%7
+  if phase==1 then
+    if type(BaiqiFloodPurchase)=="table" and type(BaiqiFloodPurchase.Run)=="function" then
+      BaiqiFloodPurchase.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,Players=Players,
+        PlayerConfigurations=PlayerConfigurations,GameInfo=GameInfo,PlayersVisibility=PlayersVisibility,
+        Map=Map,TerrainManager=TerrainManager,CityManager=CityManager,CityCommandTypes=CityCommandTypes,
+        config=BaiqiConfig},pid)
+    end
+    return
   end
-  local researchOK=pcall(Research,pid,player,techs)
-  if not researchOK then Once("research-read-error",function() print("BAIQI|research_wait|turn="..turn.."|reason=native_read_or_request_unknown") end) end
-  if culture:GetProgressingCivic()==-1 then
-    local row=Choose(GameInfo.Civics,function(r) return not culture:HasCivic(r.Index) and culture:CanProgress(r.Index) end,
-      function(r) return culture:GetCultureCost(r.Index) end,civicPriority,"CivicType")
-    if row then
-      local path=culture:GetCivicPath(row.Hash)
-      if type(path)=="table" and next(path)~=nil then
-        Once("civic:"..row.Index,function() UI.RequestPlayerOperation(pid,PlayerOperations.PROGRESS_CIVIC,
-          {[PlayerOperations.PARAM_CIVIC_TYPE]=path,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}) end)
+  if phase==2 then
+    if type(BaiqiFoodFocusRunner)=="table" and type(BaiqiFoodFocusRunner.Run)=="function" then
+      BaiqiFoodFocusRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
+        Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
+        CityCommandTypes=CityCommandTypes,YieldTypes=YieldTypes,leader=BaiqiConfig.leader},pid)
+    end
+    if type(BaiqiFoodTileRescueRunner)=="table" and type(BaiqiFoodTileRescueRunner.Run)=="function" then
+      BaiqiFoodTileRescueRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
+        Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
+        CityCommandTypes=CityCommandTypes,CityCommandResults=CityCommandResults,YieldTypes=YieldTypes,
+        Map=Map,PlayersVisibility=PlayersVisibility,ExposedMembers=ExposedMembers,leader=BaiqiConfig.leader},pid)
+    end
+    return
+  end
+  if phase==3 then Pantheon(pid,player);Religion(pid,player);Dedication(pid);return end
+  if phase==4 then Governors(pid,player);return end
+  if phase==5 then GreatPeople(pid);return end
+  local culture=player:GetCulture()
+  if phase==0 then
+    local techs=player:GetTechs()
+    local researchOK=pcall(Research,pid,player,techs)
+    if not researchOK then Once("research-read-error",function() print("BAIQI|research_wait|turn="..turn.."|reason=native_read_or_request_unknown") end) end
+    if culture:GetProgressingCivic()==-1 then
+      local row=Choose(GameInfo.Civics,function(r) return not culture:HasCivic(r.Index) and culture:CanProgress(r.Index) end,
+        function(r) return culture:GetCultureCost(r.Index) end,civicPriority,"CivicType")
+      if row then
+        local path=culture:GetCivicPath(row.Hash)
+        if type(path)=="table" and next(path)~=nil then
+          Once("civic:"..row.Index,function() UI.RequestPlayerOperation(pid,PlayerOperations.PROGRESS_CIVIC,
+            {[PlayerOperations.PARAM_CIVIC_TYPE]=path,[PlayerOperations.PARAM_INSERT_MODE]=PlayerOperations.VALUE_EXCLUSIVE}) end)
+        end
       end
     end
+    return
   end
-  if type(BaiqiFoodFocusRunner)=="table" and type(BaiqiFoodFocusRunner.Run)=="function" then
-    BaiqiFoodFocusRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
-      Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
-      CityCommandTypes=CityCommandTypes,YieldTypes=YieldTypes,leader=BaiqiConfig.leader},pid)
-  end
-  if type(BaiqiFoodTileRescueRunner)=="table" and type(BaiqiFoodTileRescueRunner.Run)=="function" then
-    BaiqiFoodTileRescueRunner.Run({Game=Game,GameConfiguration=GameConfiguration,UI=UI,
-      Players=Players,PlayerConfigurations=PlayerConfigurations,CityManager=CityManager,
-      CityCommandTypes=CityCommandTypes,CityCommandResults=CityCommandResults,YieldTypes=YieldTypes,
-      Map=Map,PlayersVisibility=PlayersVisibility,ExposedMembers=ExposedMembers,leader=BaiqiConfig.leader},pid)
-  end
-  Pantheon(pid,player)
-  Religion(pid,player)
-  Governors(pid,player)
-  Dedication(pid)
-  GreatPeople(pid)
   if Government(pid,culture) then return end
   -- Fill open slots only in the game's free policy window. Never pay to unlock it.
   if culture:PolicyChangeMade() or not (culture:CivicCompletedThisTurn() or culture:GetNumPolicySlotsOpen()>0) then return end

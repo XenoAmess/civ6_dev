@@ -96,7 +96,8 @@ end
 ''')
         self.case.run_city(1)
         self.assertEqual(self.w.workReads, 2)
-        self.assertEqual(self.w.eligibilityChecks, 3)
+        # Equal-ranked later candidates cannot win; retain planning and final checks.
+        self.assertEqual(self.w.eligibilityChecks, 2)
 
     def test_repair_and_busy_queue_do_not_read_placement_food(self):
         self.w.repair = True

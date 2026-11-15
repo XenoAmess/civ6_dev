@@ -4152,6 +4152,14 @@ local function ProcessCity(ctx, player, state, city)
   if not amenitiesOK then amenities,amenitiesNeeded=nil,nil end
   local buildingFood,foodSurplus,foodStock=BuildingFoodHints(city)
   local candidates, checked, projectCandidates, hasProjectResume = {}, 0, {}, false
+  local bestCandidate
+  -- Ranking only, local to this call. Native authority is always checked again.
+  local function CouldWin(score,repair,index)
+    if not BaiqiPolicy.Number(score) then return false end
+    if bestCandidate==nil then return true end
+    local proposal={legal=true,score=score,repair=repair,index=index}
+    return BaiqiPlanner.Choose({paused=false,queueEmpty=true},{bestCandidate,proposal})==proposal
+  end
   local function Add(kind,row,score,repair,placement,firstHolySite,prayerProject,powerProject,floodBarrier,resumeProject)
     if blockedWork and (blockedWork.kind=="project" or blockedWork.kind=="building_repair") then
       local prerequisiteRepair=kind=="district" and repair==true and placement==nil
@@ -4167,18 +4175,22 @@ local function ProcessCity(ctx, player, state, city)
     if kind=="project" and projectCandidates[row.Hash] then return end
     if checked >= C.candidatesPerCity then return end
     checked=checked+1
-    -- Both CanProduce modes are required by the shipped ProductionPanel.
-    -- Exclusion checks alone can say true for a building behind an unknown tech.
-    if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
+    -- Retained-project eligibility also sets hasProjectResume for building
+    -- ranking; preserve that read even when another candidate already wins.
+    if resumeProject~=true and not CouldWin(score,repair,checked) then return end
     local c={kind=kind,hash=row.Hash,index=checked,type=row.BuildingType or row.DistrictType or row.UnitType or row.ProjectType,
       score=score,repair=repair,placement=placement,firstHolySite=firstHolySite==true,
       prayerProject=prayerProject==true,powerProject=powerProject==true,floodBarrier=floodBarrier==true,
       floodBarrierIndex=floodBarrier==true and row.Index or nil,
       resumeProject=resumeProject==true,projectIndex=resumeProject==true and row.Index or nil}
+    -- Both original native modes remain required before this candidate enters
+    -- the legal pool, and the selected action repeats them at the final boundary.
+    if q:CanProduce(row.Hash,true) ~= true or q:CanProduce(row.Hash,false,true) ~= true then return end
     if attempts[CityRequestKey(city,c)] then return end
     local params=BuildParams(c,completedHead,blockedHead)
     if params and CityManager.CanStartOperation(city,CityOperationTypes.BUILD,params,true)==true then
       c.legal=true;candidates[#candidates+1]=c
+      bestCandidate=BaiqiPlanner.Choose({paused=false,queueEmpty=true},{bestCandidate or c,c})
       if kind=="project" and row.Hash~=nil then projectCandidates[row.Hash]=true end
       if resumeProject==true then hasProjectResume=true end
     end
@@ -4253,6 +4265,9 @@ local function ProcessCity(ctx, player, state, city)
         end
         priority=BaiqiPlanner.AmenityProductionScore(priority,row.Entertainment,amenities,amenitiesNeeded)
         for _, index in ipairs(plots) do
+          -- Later equal-score sites lose the existing index tie. No skipped
+          -- site supplies permission, and a selected site is still revalidated.
+          if not CouldWin(priority,false,checked+1) then break end
           local plot=Map.GetPlotByIndex(index)
           if plot and plot:GetOwner()==ctx.player and ClearPlot(plot,state,player,row,city)
             and plot:CanHaveDistrict(row.Index,ctx.player,city:GetID())
@@ -4268,14 +4283,14 @@ local function ProcessCity(ctx, player, state, city)
     local role=row.UnitType=="UNIT_BUILDER" and "builder" or (row.UnitType=="UNIT_SETTLER" and "settler"
       or (row.UnitType=="UNIT_TRADER" and "trader" or (row.UnitType=="UNIT_ARCHAEOLOGIST" and "archaeologist" or (Military(row) and "military" or nil))))
     if role then
-      economy.maintenance=row.Maintenance or 0
-      economy.resourceAffordable=q:CanProduce(row.Hash,false,true)==true
-      economy.archaeologistDemand=role=="archaeologist" and economy.resourceAffordable and ArchaeologistDemand(ctx,player,city) or false
-      if RecruitAllowed(role,economy,player,state) then
-        local priority=role=="settler" and 105 or (role=="builder" and 95 or (role=="trader" and 75 or 55))
-        if role=="archaeologist" then priority=73 end
-        if role=="military" then priority=BaiqiPlanner.MilitaryScore(row,economy,C) end
-        if priority then Add("unit",row,priority,false) end
+      local priority=role=="settler" and 105 or (role=="builder" and 95 or (role=="trader" and 75 or 55))
+      if role=="archaeologist" then priority=73 end
+      if role=="military" then priority=BaiqiPlanner.MilitaryScore(row,economy,C) end
+      if priority and CouldWin(priority,false,checked+1) then
+        economy.maintenance=row.Maintenance or 0
+        economy.resourceAffordable=q:CanProduce(row.Hash,false,true)==true
+        economy.archaeologistDemand=role=="archaeologist" and economy.resourceAffordable and ArchaeologistDemand(ctx,player,city) or false
+        if RecruitAllowed(role,economy,player,state) then Add("unit",row,priority,false) end
       end
     end
   end
