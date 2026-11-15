@@ -409,3 +409,6 @@ python tools\build_mod.py --install
 
 
 2026-11-15：[145冷161独立生产已排队](../testing/baiqi-source145-native161-queued.md)，南京后台新移民请求与Native队列配对，0/220、预计11回合；旧ARMED及演员保持。161已存，继续出生／移动／建城；END161后原版议会尚阻塞，未授162或新版性能，旧恢复FAIL保留。
+
+
+2026-11-15：[146自然学家待命软件通过](../testing/baiqi-source146-naturalist-sleep.md)：仅原生SKIP明确拒绝且park／购买／原生队列已知空闲时尝试SLEEP，保旧待命及新鲜许可；2467pass/1SDKskip、97双Lua/119包。冷163解除阻塞与移民后续待验，旧FAIL保持。

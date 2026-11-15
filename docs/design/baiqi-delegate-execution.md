@@ -32,3 +32,6 @@
 
 
 2026-11-15：145改为[普通候选实际全部失败后才按需追加备用](../testing/baiqi-source145-lazy-alternates.md)，有效原生点保持零额外扫描，追加尾部单独排序、oneValidation保more及excluded。19格／事务隔离／旧资格及安全门保持；软件通过，Native待验。
+
+
+2026-11-15：[146自然学家无目标自动睡眠](../testing/baiqi-source146-naturalist-sleep.md)作为原生SKIP拒绝后的窄后备；不能替换原生队列或未知park／购买许可，不新增玩家文职入口。软件验证通过，实际163故障冷复测待验。

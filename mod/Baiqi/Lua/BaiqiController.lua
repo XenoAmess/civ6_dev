@@ -988,12 +988,78 @@ local function RequestCivilianStandby(unit)
     return fresh
   end
   local fresh=Eligible()
-  if not fresh or UnitManager.CanStartOperation(fresh,operation,nil,{})~=true then return false end
-  fresh=Eligible()
   if not fresh then return false end
+  local canSkip=UnitManager.CanStartOperation(fresh,operation,nil,{})
+  local operationName="SKIP_TURN"
+  if canSkip==true then
+    fresh=Eligible()
+    if not fresh then return false end
+  elseif canSkip==false and unitType=="UNIT_NATURALIST" then
+    -- Naturalists can have no park site while native SKIP is unavailable.
+    -- Sleep only an idle, uncommitted naturalist; never replace a park,
+    -- purchase receipt or a queued operation with a waiting order.
+    local sleepRow=GameInfo.UnitOperations.UNITOPERATION_SLEEP
+    local sleep=sleepRow and sleepRow.Hash
+    local can,writer=UnitManager.CanStartOperation,UnitManager.RequestOperation
+    local queued=UnitManager.GetQueuedDestination
+    local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiNaturalistIntentBridge
+    local inspect=type(bridge)=="table" and bridge.Inspect
+    local purchase=type(ExposedMembers)=="table" and ExposedMembers.BaiqiNaturalistPurchaseBridge
+    local inspectPurchase=type(purchase)=="table" and purchase.Inspect
+    local at,playerID=turn,contextID
+    if not BaiqiPolicy.Number(sleep) or sleep%1~=0
+      or type(can)~="function" or type(writer)~="function" or type(queued)~="function"
+      or type(inspect)~="function" or type(inspectPurchase)~="function" then return false end
+    local function Empty(ok,...)
+      return ok and select("#",...)<=1 and (...)==nil
+    end
+    local function NativeIdle(current)
+      if type(current.HasPendingOperations)~="function" then return false end
+      local ok,pending=pcall(current.HasPendingOperations,current)
+      return ok and pending==false and Empty(pcall(queued,current))
+    end
+    local function SleepEligible()
+      local current=Eligible()
+      if not current or turn~=at or contextID~=playerID or pendingUnits[unitID]~=nil
+        or pendingPurchase~=nil
+        or type(ExposedMembers)~="table" or ExposedMembers.BaiqiNaturalistIntentBridge~=bridge
+        or bridge.version~=1 or bridge.marker~="baiqi-naturalist-intent-v1" or bridge.Inspect~=inspect
+        or ExposedMembers.BaiqiNaturalistPurchaseBridge~=purchase
+        or purchase.version~=1 or purchase.marker~="baiqi-naturalist-purchase-v1" or purchase.Inspect~=inspectPurchase
+        or UnitManager.CanStartOperation~=can or UnitManager.RequestOperation~=writer
+        or UnitManager.GetQueuedDestination~=queued
+        or GameInfo.UnitOperations.UNITOPERATION_SLEEP~=sleepRow or sleepRow.Hash~=sleep
+        or not NativeIdle(current) then return nil end
+      local ok,stage=pcall(inspect,playerID,unitID)
+      local purchaseOK,purchaseStage=pcall(inspectPurchase,playerID)
+      if not ok or (stage~="OPEN" and stage~="OBSERVED") or not purchaseOK or purchaseStage~="OPEN"
+        or not NativeIdle(current) then return nil end
+      -- The protected receipt read is not a permission to survive a changed
+      -- native context. Keep the final identity/readiness check fresh too.
+      if not CoreIdle() or UnitManager.CanStartOperation~=can or UnitManager.RequestOperation~=writer
+        or UnitManager.GetQueuedDestination~=queued then return nil end
+      local latest=Eligible()
+      if not latest or not NativeIdle(latest)
+        or pendingUnits[unitID]~=nil or pendingPurchase~=nil
+        or ExposedMembers.BaiqiNaturalistIntentBridge~=bridge or bridge.Inspect~=inspect
+        or ExposedMembers.BaiqiNaturalistPurchaseBridge~=purchase or purchase.Inspect~=inspectPurchase
+        or GameInfo.UnitOperations.UNITOPERATION_SLEEP~=sleepRow or sleepRow.Hash~=sleep
+        or not CoreIdle() then return nil end
+      return latest
+    end
+    fresh=SleepEligible()
+    if not fresh or can(fresh,sleep,nil,{})~=true then return false end
+    fresh=SleepEligible()
+    if not fresh or can(fresh,sleep,nil,{})~=true then return false end
+    fresh=SleepEligible()
+    if not fresh then return false end
+    operation,operationName=sleep,"SLEEP"
+  else
+    return false
+  end
   local id=NextRequest("standby:"..unitID..":"..turn)
   if not id then return false end
-  Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation=SKIP_TURN|reason=entrusted_standby")
+  Log("request","id="..id.."|source=BACKGROUND|unit="..unitID.."|operation="..operationName.."|reason=entrusted_standby")
   local ok,err=pcall(UnitManager.RequestOperation,fresh,operation,{})
   if not ok then Log("standby_unknown","id="..id.."|unit="..unitID.."|reason="..tostring(err)) end
   return true
