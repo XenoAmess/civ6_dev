@@ -1,6 +1,8 @@
 # civ6_dev
 
-当前源码160：[所有者／编队未知原因提示的软件修复](docs/research/baiqi-source160-unknown-reasons-software-2026-11-17.json)已完成；7项新回归通过，完整2748运行中的14处陈旧QA版本断言修正后，相关91项重检通过，1项SDK跳过。119文件／97Lua双编译，实机复测接着执行；当前160性能与完整功能仍未完成，旧8650807恢复FAIL保留。
+当前源码160：[所有者／编队未知原因提示的软件修复](docs/research/baiqi-source160-unknown-reasons-software-2026-11-17.json)已完成；7项新回归通过，完整2748运行中的14处陈旧QA版本断言修正后，相关91项重检通过，1项SDK跳过。119文件／97Lua双编译，两个未知原因分支的实机复测已完成，继续请求结果分支；当前160性能与完整功能仍未完成，旧8650807恢复FAIL保留。
+
+[160未知编队／所有者原因实机复测已通过](docs/research/baiqi-source160-unknown-reasons-native76-http931-2026-11-17.json)：76两个独立阶段各一条原因、0目标请求，全部恢复后自然传播2→1并保存；继续请求未到达引擎的结果记录分支，尚非TC-040整项通过。
 
 159既有证据：[旧创作等待修复的软件验证](docs/testing/baiqi-source159-legacy-creative-standby.md)，[真实音乐家阻塞档已自动睡眠、保留未知意图并普通90→91保存](docs/testing/baiqi-source159-legacy-creative-native91.md)。[159五城99→119的TC-037实机限定通过](docs/research/baiqi-source159-fivecity99-119-2026-11-17.json)：6建筑／4普通区域／24处配对改良，0人工内政，119已保存未重载。当前159冻结性能及完整功能未完成；158中止、157性能FAIL与旧8650807恢复FAIL保留，阶段提交后继续执行。
 

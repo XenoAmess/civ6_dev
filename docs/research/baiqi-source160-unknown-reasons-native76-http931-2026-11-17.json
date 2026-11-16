@@ -1,0 +1,239 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-16T22:16:37.463751+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "PASS_UNKNOWN_FORMATION_AND_OWNER_REASON_REFUSAL_RECOVERY_SUBCASES",
+  "whole_TC040": "OPEN_REQUEST_NOT_FORWARDED_NATIVE_CLAUSE; do not declare whole case passed yet",
+  "whole_mod": "OPEN",
+  "old8650807": "FAIL_UNRESOLVED",
+  "current160_performance": "NOT_RUN",
+  "build": {
+    "ordinary_sha256": "d5283623173b71ea65a8183e88114fdc816c0bbd2b14df34013d414fee9bad8b",
+    "private_deferred_formation_sha256": "0a5f20522be5fe4288bdc6e68bd436cdbe562465cefeca1b39824249494015b5",
+    "files": 119,
+    "Lua51_Lua53_sources": 97,
+    "product_commit": "47940041273f4c88e37864a57bff25ad5f557efe"
+  },
+  "fixture": {
+    "name": "Baiqi_P6_20261102_V43_MissionarySetup75.Civ6Save",
+    "bytes": 483801,
+    "sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88",
+    "origin": "Explicit historical QA setup, not normal missionary training"
+  },
+  "environment": {
+    "owner": {
+      "pid": 4440,
+      "created_at": 1794866261.1838834,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "new_cold_launch": true,
+    "CPU_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "offline_readonly_proof_age_seconds": 0.102173,
+    "offline": true,
+    "Steam_online_uploads_mode_changes": 0,
+    "initial_endpoint": "Read-only refused/unready LSQ replies during normal startup, then current owned MainMenu qualified; no load/END replay"
+  },
+  "test_player": {
+    "military_SKIPs75": 14,
+    "ordinary_END75": 1,
+    "actual_turn": 76,
+    "UserForced": 0,
+    "manual_domestic": 0,
+    "manual_spread": 0
+  },
+  "common_fresh_actor76": {
+    "owner": 0,
+    "id": 3735581,
+    "unitType": "UNIT_MISSIONARY",
+    "position": [
+      16,
+      14
+    ],
+    "moves": 4,
+    "charges": 2,
+    "actual_formation": 1,
+    "ready_move": true,
+    "ready_select": true,
+    "native_pending": false,
+    "UI_queued_destination": null,
+    "religion": 1,
+    "own_created_religion": 1,
+    "own_city": 65536,
+    "city_majority": -1,
+    "native_can_spread": true,
+    "old_journal": [
+      "OBSERVED",
+      "religion:0:1",
+      3
+    ]
+  },
+  "formation_phase": {
+    "fault": "Copy only the real Controller snapshot formationCount=nil; actual engine getter still executes",
+    "counter": [
+      14,
+      16
+    ],
+    "natural_Controller_Update": [
+      25,
+      48
+    ],
+    "target_SDK_operations": 0,
+    "target_SDK_commands": 0,
+    "errors_drops": 0,
+    "three_SDK_observer_bindings_owned": true,
+    "actor_unchanged": true,
+    "actual_turn76_reason_count": 1,
+    "actual_reason": "BaiqiExecutor: BAIQI|wait|turn=76|key=civilian-eligibility:3735581|reason=文职处于护送编队或编队信息不明，等待可确认的独立状态",
+    "retired_mask_count": 20,
+    "retired_before64": true
+  },
+  "phase_switch": {
+    "method": "In one owned UI Lua command restore exact original UnitSnapshot and retire/clear its fault, then install and arm the independent copied policy-input owner=nil fault. No game writer or Controller.Update is called by the switch.",
+    "overlapping_active_blockers": false,
+    "fault_rearm": false,
+    "independent_owner_phase_proof": "After original snapshot restoration, natural owner-fault counter grows while exact fresh Native legal actor remains unchanged and zero target requests."
+  },
+  "owner_phase": {
+    "fault": "Real UnitSnapshot/getters run normally; only copied input to the actual policy has owner=nil",
+    "counter": [
+      2,
+      5
+    ],
+    "natural_Controller_Update": [
+      53,
+      56
+    ],
+    "target_SDK_operations": 0,
+    "target_SDK_commands": 0,
+    "errors_drops": 0,
+    "three_SDK_observer_bindings_owned": true,
+    "actor_unchanged": true,
+    "actual_turn76_reason_count": 1,
+    "actual_reason": "BaiqiExecutor: BAIQI|wait|turn=76|key=civilian-eligibility:3735581|reason=文职所有权变更或无法确认，等待可核验的己方单位状态",
+    "retired_mask_count": 9,
+    "retired_before64": true
+  },
+  "native_log_audit": {
+    "utc": "2026-11-16T22:06:13.298125+00:00",
+    "source_version": 160,
+    "actual_turn": 76,
+    "same_log_prefix_verified": true,
+    "Native_queries": 0,
+    "formation_reason_count": 1,
+    "owner_reason_count": 1,
+    "actual_lines": [
+      "BaiqiExecutor: BAIQI|wait|turn=76|key=civilian-eligibility:3735581|reason=文职处于护送编队或编队信息不明，等待可确认的独立状态",
+      "BaiqiExecutor: BAIQI|wait|turn=76|key=civilian-eligibility:3735581|reason=文职所有权变更或无法确认，等待可核验的己方单位状态"
+    ],
+    "phase_order_indices": {
+      "formation_reason": 322,
+      "formation_retired_owner_armed": 341,
+      "owner_reason": 342,
+      "owner_retired": 367
+    },
+    "target_background_requests": [
+      "BaiqiExecutor: BAIQI|request|turn=76|id=0:76:15|source=BACKGROUND|unit=3735581|operation=SPREAD_RELIGION|city=65536|charges=2"
+    ],
+    "request_after_both_restorations": true,
+    "log_sha256": "e3705b0a0a36648f421ffbf6f03efb925eaf4d4bd34cd1b5d1ffb8dbf31c5ba7",
+    "log_bytes": 26227,
+    "interpretation": "Each independently held unknown-input phase produced exactly one current-turn reason across its natural update window. Only the subsequent restored phase submitted one spread. No duplicate reason or request was deleted/filtered from these target/current-turn matches."
+  },
+  "unmasked_positive": {
+    "actual_turn": 76,
+    "SDK_BACKGROUND_spread_hash": 1592408602,
+    "requests": 1,
+    "requestID": "0:76:15",
+    "charges": [
+      2,
+      1
+    ],
+    "moves": [
+      4,
+      0
+    ],
+    "new_journal": [
+      "OBSERVED",
+      "religion:0:2",
+      2
+    ],
+    "manual_spread": 0,
+    "scope": "Actual request, charge cost and independent observed journal change, not proof of whole-city conversion"
+  },
+  "cleanup": {
+    "original_UnitSnapshot_restored": true,
+    "original_policy_binding_restored": true,
+    "three_SDK_observer_bindings_restored": true,
+    "all_diagnostic_globals_cleared": true,
+    "ActionPanel_QA_markers_cleared": true
+  },
+  "save": {
+    "utc": "2026-11-16T22:08:00.008843+00:00",
+    "name": "Baiqi_P6_20261117_V160_UnknownReasonCompare76.Civ6Save",
+    "bytes": 485016,
+    "sha256": "8abb0efed89d1e240c6ee069d3c1a0b0f13f72b3fa0b8f2eb5201d0a92311973",
+    "stable_repeated_read": true
+  },
+  "save_ACK": true,
+  "save_stable_repeated_read": true,
+  "saved76_reloaded_at_publication": false,
+  "software": {
+    "source160_prior_scope": "7new reason regressions, full2748with14staleQAguardfailures/1SDKskip then91affectedchecksPASS; no second full green claim",
+    "cycle_stage_reader_switch": "AST literal composition and Lua51/Lua53 compile before Native; no driver execution or mocked intent file mutation",
+    "Owner_validator_correction": "Initial AST walk also matched a child subprocess exit-code assignment; NameError stopped rendering before Native/metadata. Filtered only string-composition nodes, recompiled actual stage/reader/switch successfully."
+  },
+  "new_request_not_forwarded_tool": {
+    "module": "tools/lua/diagnostic_unforwarded_operation.lua",
+    "sha256": "8e86acc26bf77e87e953554e56c26b7f6666fc4575aeebf40b94b52182a7d933",
+    "purpose": "A controlled SDK-surface call is intercepted before Native forwarding, so engine acceptance is not fabricated. Record attempted/intercepted/native-forwarded/outcome separately.",
+    "software_tests": 6,
+    "runtime_executions": 11,
+    "test_scope": "5transparency/stack/overflow/identity tests eachLua51/Lua53 plus1actualControllerLua53 persistentARMED/no-retry test. All passed.",
+    "Native": "NOT_RUN",
+    "contract": "ExacttargetMISSIONARY/SPREAD blocked while armed, even on repeats or64row overflow. Other actors/actions preserve original args/returns/errors once. Retire own outer observer first, then blocker; foreign bindings preserved. No game property, cost, movement or receipt is manufactured."
+  },
+  "model931": {
+    "task": "Real unfinished request-not-forwarded fault before Owner implementation",
+    "sources": 11,
+    "source_bytes": 407669,
+    "POST": 1,
+    "http_status": 404,
+    "total_ms": 45.438800007104874,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_file": "No flag because fast natural terminal between polls; actual EVENTS1POST/no retry."
+  },
+  "ledger": {
+    "logical": 931,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 47,
+    "generation_POST": 970,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "maintenance": "Nov17same-machine/user canonical successful1.19.5cache retained",
+  "raw_evidence": "LOCAL_ONLY ignored reason160a-* current Native Lua/logs, model931 request/failure and protected saves; no account data/private save bytes uploaded.",
+  "limits": [
+    "These are controlled copied-read unknown states, not actual unavailable C++ getters.",
+    "The former159 missing-reason gap is fixed and Native bounded for the two independent phases. The remaining request-outcome fault is software prepared, not yet Native passed.",
+    "No wholeTC040, real Missionary escort, current performance or oldARMED recovery promotion."
+  ]
+}
