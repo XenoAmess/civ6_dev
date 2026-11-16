@@ -1,0 +1,773 @@
+{
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 157,
+  "product_changes": 0,
+  "actual_budget_failure": "https://github.com/XenoAmess/civ6_dev/blob/8215869c02ac3f58f379e53b54362d7a5ab153c7/docs/research/baiqi-source157-original85-plan-2026-11-16.json",
+  "current_failure_audit": {
+    "utc": "2026-11-16T14:46:45.801914+00:00",
+    "canonical": {
+      "source": "baiqi157-stageA-v2",
+      "sample_quality_ok": true,
+      "samples": 321,
+      "classification_counts": {
+        "Admin.Run": {
+          "pure_ten": 120,
+          "10_to_11": 0,
+          "eleven_city": 8,
+          "turn_crossing": 0,
+          "other_city_state": 0,
+          "outside_window": 0,
+          "before_native_anchor": 0
+        },
+        "Controller.RunNow": {
+          "pure_ten": 149,
+          "10_to_11": 0,
+          "eleven_city": 9,
+          "turn_crossing": 0,
+          "other_city_state": 0,
+          "outside_window": 0,
+          "before_native_anchor": 35
+        }
+      },
+      "eligible_calls_by_turn": {
+        "Admin.Run": {
+          "86": 25,
+          "87": 27,
+          "88": 27,
+          "89": 25,
+          "90": 24
+        },
+        "Controller.RunNow": {
+          "86": 33,
+          "87": 31,
+          "88": 33,
+          "89": 31,
+          "90": 30
+        }
+      },
+      "targets": {
+        "Admin.Run": {
+          "pure_ten_count": 120,
+          "p50_ms": 0.9999275207519531,
+          "p95_ms": 8.00013542175293,
+          "max_ms": 91.99976921081543,
+          "above_20ms_count": 1,
+          "above_50ms_count": 1,
+          "budget_ok": false
+        },
+        "Controller.RunNow": {
+          "pure_ten_count": 149,
+          "p50_ms": 3.000020980834961,
+          "p95_ms": 41.99981689453125,
+          "max_ms": 177.99997329711914,
+          "above_20ms_count": 13,
+          "above_50ms_count": 4,
+          "budget_ok": false
+        }
+      },
+      "overall_budget_ok": false,
+      "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+      "pre_anchor": {
+        "pending": 0,
+        "recorded": 35,
+        "validated": 35,
+        "errors": 0
+      }
+    },
+    "all_pure_long_rows_above20ms": [
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.17799997329711914,
+        "failed": false,
+        "started": 1794839920.992,
+        "ended": 1794839921.17,
+        "turnStart": 89,
+        "turnEnd": 89,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839920.956,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 0,
+        "allowOrders": "nil",
+        "ms": 177.99997329711914,
+        "anchor_offset": 0.03600001335144043
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.16299986839294434,
+        "failed": false,
+        "started": 1794839804.923,
+        "ended": 1794839805.086,
+        "turnStart": 88,
+        "turnEnd": 88,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839804.6890001,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 0,
+        "allowOrders": "nil",
+        "ms": 162.99986839294434,
+        "anchor_offset": 0.23399996757507324
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.09800004959106445,
+        "failed": false,
+        "started": 1794839808.101,
+        "ended": 1794839808.1990001,
+        "turnStart": 88,
+        "turnEnd": 88,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839804.6890001,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 98.00004959106445,
+        "anchor_offset": 3.4119999408721924
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.09199976921081543,
+        "failed": false,
+        "started": 1794840046.5900002,
+        "ended": 1794840046.682,
+        "turnStart": 90,
+        "turnEnd": 90,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794840041.1100001,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 0,
+        "allowOrders": "nil",
+        "ms": 91.99976921081543,
+        "anchor_offset": 5.480000019073486
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.05200004577636719,
+        "failed": false,
+        "started": 1794839922.764,
+        "ended": 1794839922.816,
+        "turnStart": 89,
+        "turnEnd": 89,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839920.956,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 52.00004577636719,
+        "anchor_offset": 1.807999849319458
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.046000003814697266,
+        "failed": false,
+        "started": 1794839806.205,
+        "ended": 1794839806.251,
+        "turnStart": 88,
+        "turnEnd": 88,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839804.6890001,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 46.000003814697266,
+        "anchor_offset": 1.5159997940063477
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.04499983787536621,
+        "failed": false,
+        "started": 1794839924.9290001,
+        "ended": 1794839924.974,
+        "turnStart": 89,
+        "turnEnd": 89,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839920.956,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 44.99983787536621,
+        "anchor_offset": 3.9730000495910645
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.04200005531311035,
+        "failed": false,
+        "started": 1794839603.121,
+        "ended": 1794839603.163,
+        "turnStart": 86,
+        "turnEnd": 86,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839601.316,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 42.00005531311035,
+        "anchor_offset": 1.8050000667572021
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.04199981689453125,
+        "failed": false,
+        "started": 1794840043.0970001,
+        "ended": 1794840043.139,
+        "turnStart": 90,
+        "turnEnd": 90,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794840041.1100001,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 41.99981689453125,
+        "anchor_offset": 1.9869999885559082
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.031999826431274414,
+        "failed": false,
+        "started": 1794839604.275,
+        "ended": 1794839604.307,
+        "turnStart": 86,
+        "turnEnd": 86,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839601.316,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 31.999826431274414,
+        "anchor_offset": 2.9590001106262207
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.031000137329101562,
+        "failed": false,
+        "started": 1794839807.379,
+        "ended": 1794839807.41,
+        "turnStart": 88,
+        "turnEnd": 88,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839804.6890001,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 31.000137329101562,
+        "anchor_offset": 2.68999981880188
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.029999971389770508,
+        "failed": false,
+        "started": 1794840047.316,
+        "ended": 1794840047.346,
+        "turnStart": 90,
+        "turnEnd": 90,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794840041.1100001,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 29.999971389770508,
+        "anchor_offset": 6.205999851226807
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.023999929428100586,
+        "failed": false,
+        "started": 1794839603.519,
+        "ended": 1794839603.543,
+        "turnStart": 86,
+        "turnEnd": 86,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839601.316,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 23.999929428100586,
+        "anchor_offset": 2.203000068664551
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.023000001907348633,
+        "failed": false,
+        "started": 1794839602.42,
+        "ended": 1794839602.443,
+        "turnStart": 86,
+        "turnEnd": 86,
+        "cityStart": 10,
+        "cityEnd": 10,
+        "anchor": 1794839601.316,
+        "windowEligible": true,
+        "preAnchor": false,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "ms": 23.000001907348633,
+        "anchor_offset": 1.1040000915527344
+      }
+    ],
+    "per_turn_and_original_allowance": [
+      {
+        "name": "Admin.Run",
+        "allowOrders": "nil",
+        "turn": 86,
+        "count": 25,
+        "p50": 0.9999275207519531,
+        "p95": 2.000093460083008,
+        "max": 3.999948501586914
+      },
+      {
+        "name": "Admin.Run",
+        "allowOrders": "nil",
+        "turn": 87,
+        "count": 27,
+        "p50": 0.0,
+        "p95": 8.00013542175293,
+        "max": 9.999990463256836
+      },
+      {
+        "name": "Admin.Run",
+        "allowOrders": "nil",
+        "turn": 88,
+        "count": 27,
+        "p50": 0.9999275207519531,
+        "p95": 8.999824523925781,
+        "max": 10.999917984008789
+      },
+      {
+        "name": "Admin.Run",
+        "allowOrders": "nil",
+        "turn": 89,
+        "count": 25,
+        "p50": 0.0,
+        "p95": 6.999969482421875,
+        "max": 9.999990463256836
+      },
+      {
+        "name": "Admin.Run",
+        "allowOrders": "nil",
+        "turn": 90,
+        "count": 16,
+        "p50": 0.9999275207519531,
+        "p95": 91.99976921081543,
+        "max": 91.99976921081543
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "nil",
+        "turn": 86,
+        "count": 6,
+        "p50": 4.000067710876465,
+        "p95": 15.999794006347656,
+        "max": 15.999794006347656
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "nil",
+        "turn": 87,
+        "count": 4,
+        "p50": 3.5001039505004883,
+        "p95": 11.999845504760742,
+        "max": 11.999845504760742
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "nil",
+        "turn": 88,
+        "count": 5,
+        "p50": 3.000020980834961,
+        "p95": 162.99986839294434,
+        "max": 162.99986839294434
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "nil",
+        "turn": 89,
+        "count": 4,
+        "p50": 1.4998912811279297,
+        "p95": 177.99997329711914,
+        "max": 177.99997329711914
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "nil",
+        "turn": 90,
+        "count": 3,
+        "p50": 6.999969482421875,
+        "p95": 9.000062942504883,
+        "max": 9.000062942504883
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "true",
+        "turn": 86,
+        "count": 27,
+        "p50": 1.0001659393310547,
+        "p95": 31.999826431274414,
+        "max": 42.00005531311035
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "true",
+        "turn": 87,
+        "count": 27,
+        "p50": 1.0001659393310547,
+        "p95": 17.999887466430664,
+        "max": 19.00005340576172
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "true",
+        "turn": 88,
+        "count": 28,
+        "p50": 6.000041961669922,
+        "p95": 46.000003814697266,
+        "max": 98.00004959106445
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "true",
+        "turn": 89,
+        "count": 27,
+        "p50": 2.000093460083008,
+        "p95": 44.99983787536621,
+        "max": 52.00004577636719
+      },
+      {
+        "name": "Controller.RunNow",
+        "allowOrders": "true",
+        "turn": 90,
+        "count": 18,
+        "p50": 6.999969482421875,
+        "p95": 41.99981689453125,
+        "max": 41.99981689453125
+      }
+    ],
+    "limits": "Offline actual321 records only; no exclusion/filter change to canonical FAIL, no Native/model request or exclusiveCPU/rootcause claim."
+  },
+  "models": [
+    {
+      "logical": 917,
+      "sources": 17,
+      "source_bytes": 578323,
+      "actual_POST": "2026-11-16T14:45:39.506377+00:00",
+      "actual_END": "2026-11-16T14:45:39.539740+00:00",
+      "http_status": 404,
+      "total_ms": 33.46229996532202,
+      "generation_POST": 1,
+      "extra_POST": 0,
+      "candidate_count": 0,
+      "adoption": 0,
+      "request_killed": false,
+      "stop_marker": "Written only after actual POST to prevent further task retry; current request ended naturally. Does not explain404.",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP",
+      "phases": [
+        {
+          "utc": "2026-11-16T14:44:59.764744+00:00",
+          "phase": "PREP_BEGIN",
+          "limits": "Earlier summary/source reading exists, full Owner activecost/net savings unknown."
+        },
+        {
+          "utc": "2026-11-16T14:45:38.941591+00:00",
+          "phase": "PREP_CORRECTION",
+          "limits": "Initial preparation referenced missing tools/profile_selection.py; no POST. Corrected to actual tests/test_profile_selection.py. Earlier summary/source reading exists, full Owner activecost/net savings unknown."
+        },
+        {
+          "utc": "2026-11-16T14:45:38.946076+00:00",
+          "phase": "PREP_END",
+          "sources": 17,
+          "bytes": 578323
+        }
+      ],
+      "Owner_active_cost": null,
+      "net_savings": null
+    },
+    {
+      "logical": 918,
+      "sources": 7,
+      "source_bytes": 74956,
+      "actual_POST": "2026-11-16T14:48:45.154547+00:00",
+      "actual_END": "2026-11-16T14:48:45.170644+00:00",
+      "http_status": 404,
+      "total_ms": 16.18029992096126,
+      "generation_POST": 1,
+      "extra_POST": 0,
+      "candidate_count": 0,
+      "adoption": 0,
+      "request_killed": false,
+      "stop_marker": "Written only after actual POST to prevent further task retry; current request ended naturally. Does not explain404.",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP",
+      "phases": [
+        {
+          "utc": "2026-11-16T14:48:44.577070+00:00",
+          "phase": "PREP_BEGIN",
+          "limits": "Earlier builder/source inspection exists; fullOwner activecost/net savings unknown."
+        },
+        {
+          "utc": "2026-11-16T14:48:44.579931+00:00",
+          "phase": "PREP_END",
+          "sources": 7,
+          "bytes": 74956
+        }
+      ],
+      "Owner_active_cost": null,
+      "net_savings": null
+    }
+  ],
+  "ledger_through918": {
+    "logical": 918,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 34,
+    "generation_POST": 957,
+    "extra_POST": 38,
+    "inflight": 0,
+    "metadata_GET_separate": 2,
+    "TCP_separate": 1,
+    "OpenCode_native_generation": 0
+  },
+  "QA_change": {
+    "file": "tools/build_admin_diagnostic.py",
+    "option": "include_turn90=False / --include-turn90",
+    "true_requires_source157": true,
+    "default_helper_SHA256": {
+      "141": "fc37bbb67d6be95bceafca55df9b719a4882ca09fb260dc3efdd7a672a0850a3",
+      "157": "bde61aa6e70cc1a887be2b2492888462022210fc52697a96083fcf761fa25d77"
+    },
+    "scope_true": [
+      87,
+      88,
+      89,
+      90
+    ],
+    "bindings": "root +9 lexical +3 runner.Run",
+    "sample_capacity": 4096,
+    "profile_count": 1,
+    "native_gameplay_by_observer": 0
+  },
+  "verification": {
+    "new_methods": 8,
+    "new_passed": 8,
+    "new_seconds": 3.938,
+    "existing_methods": 3,
+    "existing_passed": 3,
+    "existing_seconds": 3.354,
+    "old_TDD_run": {
+      "methods": 8,
+      "expected_failure": 1,
+      "missing_option_errors": 8
+    },
+    "engines": [
+      "Lua5.1",
+      "Lua5.3"
+    ],
+    "full_suite_rerun": false,
+    "actual_package_files": 119,
+    "actual_package_lua51_lua53": 97,
+    "runtime_prepared": {
+      "archive_sha256": "f81889f4ca237031f6b2d7237d255669f6942db2bca427af6c376e7c7f9fbb66",
+      "player_actual15_payloads_dualLua": [
+        {
+          "turn": 85,
+          "mode": "select",
+          "sha256": "f7f51b9a8a7565571b6c6705bd4b26db8be92d8e48b20c0188b288ecb32e6246"
+        },
+        {
+          "turn": 85,
+          "mode": "step",
+          "sha256": "580d7d51c361102d88b792e5af056208a5cf7a37ba58eb34fcc479a10ebcb091"
+        },
+        {
+          "turn": 85,
+          "mode": "end",
+          "sha256": "041268eb8b65c06584dec4688d0f86b7bf02ff282a62525a93a29286fe8a2144"
+        },
+        {
+          "turn": 86,
+          "mode": "select",
+          "sha256": "532fcb43892d1eae1ae8b829bff92f33b984e8ca5e9df91837e8ba2919ebc5e0"
+        },
+        {
+          "turn": 86,
+          "mode": "step",
+          "sha256": "5750fb72fa79449900ff2079ae19f28c3e554de15828720cda72246d68302808"
+        },
+        {
+          "turn": 86,
+          "mode": "end",
+          "sha256": "607ed37120e7d8e783c8eaf3222da88ff6529e0b79152a2caa19c626aa333698"
+        },
+        {
+          "turn": 87,
+          "mode": "select",
+          "sha256": "1e37ae28d97ffc8cc50874098bfb8c0c0ad5faa19bd60adc003ace95e391ccce"
+        },
+        {
+          "turn": 87,
+          "mode": "step",
+          "sha256": "ee11e194b1cc361bbf0c2a2644d9b0a07a5f0c6efe08ac5c1b3e00d641a32fef"
+        },
+        {
+          "turn": 87,
+          "mode": "end",
+          "sha256": "18cb43ab564b33dd3e4e512364f1c1840f724fa4c8c4352554eb82d94d8ffc33"
+        },
+        {
+          "turn": 88,
+          "mode": "select",
+          "sha256": "3aa3fa10ed9760c512b59ace9489f564aabc6c509617e7c5b130900a16215ae9"
+        },
+        {
+          "turn": 88,
+          "mode": "step",
+          "sha256": "bad69894234e3c70290b15afc8d57d059fb45433978d40b93b75582c0afa3ce6"
+        },
+        {
+          "turn": 88,
+          "mode": "end",
+          "sha256": "66cfa6d745728a1ebc26ec9314d2104537305766bd9de9462c3277ea148bce1f"
+        },
+        {
+          "turn": 89,
+          "mode": "select",
+          "sha256": "1bca8e3087160060e96d6fd6859e98a2694fb665162a34a637d755aa8597b2cb"
+        },
+        {
+          "turn": 89,
+          "mode": "step",
+          "sha256": "451aa215a4bcbd186e099536e6327af9a7df371aefdbea691e2b298cf0ed48f2"
+        },
+        {
+          "turn": 89,
+          "mode": "end",
+          "sha256": "ee891c2a62b85b51563a8fbc091260b874bfc5495d9c353370cfe7136b39e70d"
+        }
+      ],
+      "profile_preflight85_89_dualLua": true,
+      "finish_actual3_payloads_dualLua": [
+        {
+          "API": "save_checkpoint",
+          "sha256": "90974c04ddd5e145e088f47a74ecaea13e57d5c56c948cd7d583a906c900da58"
+        },
+        {
+          "API": "query",
+          "sha256": "c51054488b50c98f036364be886549110ea15cc104a5573360b6a182a1aa2a82"
+        },
+        {
+          "API": "query",
+          "sha256": "c304584f890c23de3749551d366b210c3177410a4baf2752e80d153f94258f6c"
+        }
+      ],
+      "AST_scripts": 16,
+      "Native_calls": 0,
+      "game_actions": 0,
+      "limits": "Actual renderer/payload/guard syntax only. No Native result. Readiness-patch first edit was rejected before targetwrite due indentation, then corrected. Diagnostic wall watchdog360 only; fixed10s/4096 and budget thresholds unchanged."
+    },
+    "preparation_errors": "Initial917inputs referenced nonexistent tools/profile_selection.py and were rejected beforePOST; actual tests/test_profile_selection.py then supplied. Source157 plan episode first draft indentation rejected beforeNative; corrected/AST checked beforeactual321row run. No gameplay replay."
+  },
+  "prepared_diagnostics": {
+    "controller": {
+      "mode": "baiqi157-controller-children-v5",
+      "children": [
+        "ReadBack",
+        "ProcessCity",
+        "ProcessBuilder",
+        "ProcessSettler",
+        "ProcessTrader",
+        "ProcessMissionary",
+        "ProcessNaturalist",
+        "ProcessArchaeologist",
+        "ProcessDistrictPerson",
+        "ProcessCreative",
+        "ProcessProphet",
+        "ClearCivilianOverlap"
+      ],
+      "binding_count": 14,
+      "sample_capacity": 4096,
+      "profile_count": 1,
+      "focus_turns": [
+        88,
+        89,
+        90
+      ],
+      "archive_sha256": "f81889f4ca237031f6b2d7237d255669f6942db2bca427af6c376e7c7f9fbb66",
+      "changed_files": [
+        "Lua/BaiqiController.lua"
+      ],
+      "release_text_recovers_exactly": true,
+      "native_global_binding_modified": false,
+      "lua51_compiled": true,
+      "lua53_compiled": true
+    },
+    "admin": {
+      "mode": "baiqi157-admin-children-v2",
+      "children": [
+        "Research",
+        "PowerResearchChoice",
+        "Governors",
+        "GovernorRescue",
+        "GovernorLoyaltyDemand",
+        "Religion",
+        "Government",
+        "GreatPeople",
+        "Choose",
+        "BaiqiFloodPurchase.Run",
+        "BaiqiFoodFocusRunner.Run",
+        "BaiqiFoodTileRescueRunner.Run"
+      ],
+      "sample_capacity": 4096,
+      "profile_count": 1,
+      "focus_turns": [
+        87,
+        88,
+        89,
+        90
+      ],
+      "archive_sha256": "2c73ed29458b1e72b7ba55d879050fc16679e73ad93ddb919ec30d32b3f8f723",
+      "changed_files": [
+        "Lua/BaiqiAdmin.lua"
+      ],
+      "original_admin_exact_prefix": true,
+      "lua51_compiled": true,
+      "lua53_compiled": true
+    }
+  },
+  "limits": "Two separate future diagnoses; do not combine4096profiles or treat prepared/compiled asNative. Selected12Controller consumers may leave resume/other functions unattributed. Actual long-root typed caller remainsunknown until observed. No unchanged-acceptance retry, budget change, priorrow exclusion or currentPASS.",
+  "next_Native": "NOT_RUN",
+  "old_8650807_recovery": "FAIL_UNRESOLVED",
+  "full_mod_acceptance": "OPEN",
+  "Steam_online_or_upload": 0,
+  "unknown": {
+    "backend_cause": null,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  }
+}

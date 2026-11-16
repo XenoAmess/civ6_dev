@@ -14,8 +14,14 @@ RUNNERS=('BaiqiFloodPurchase','BaiqiFoodFocusRunner','BaiqiFoodTileRescueRunner'
 HELPERS=('diagnostic_profile','diagnostic_child_profile','diagnostic_named_nested_profile')
 
 
-def suffix(*,source_version=141):
+def validate_turn90(value,source_version):
+    if type(value)is not bool or(value and(type(source_version)is not int or source_version!=157)):
+        raise ValueError('Explicit turn90 diagnosis requires source157 and an exact boolean')
+
+
+def suffix(*,source_version=141,include_turn90=False):
     if type(source_version)is not int or source_version not in (141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157):raise ValueError('Expected source141,142,143,144,145,146,147,148,149,150,151 or152')
+    validate_turn90(include_turn90,source_version)
     text='\n-- PRIVATE Admin diagnosis; original release is the exact prefix.\ndo\n'
     text+="assert(P6AdminNested==nil,'Existing Admin diagnostic owner')\n"
     for variable,stem in zip(('NewProfile','WrapChild','NewNamed'),HELPERS):
@@ -95,22 +101,29 @@ end
 P6AdminNested=d
 end
 '''
+    if include_turn90:
+        guard='if t<87 or t>89 then return nil end'
+        label='baiqi141-admin-children-v1'
+        if text.count(guard)!=1 or text.count(label)!=1:raise ValueError('Unknown Admin turn90 diagnostic anchors')
+        return text.replace(guard,'if t<87 or t>90 then return nil end',1).replace(label,f'baiqi{source_version}-admin-children-v2',1)
     return text.replace('baiqi141-admin-children-v1',f'baiqi{source_version}-admin-children-v1')
 
 
-def build(output_dir:Path):
+def build(output_dir:Path,*,include_turn90=False):
+    if type(include_turn90)is not bool:raise ValueError('Expected explicit turn90 boolean')
     from lupa.lua51 import LuaRuntime as L51
     from lupa.lua53 import LuaRuntime as L53
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
     if version not in ('141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156','157'):raise ValueError('Expected actual source141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
+    validate_turn90(include_turn90,version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():raise ValueError('New private output required')
     contents={name:contained(source,name).read_bytes()for name in names};raw=contents['Lua/BaiqiAdmin.lua']
     for name in CHILDREN:
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:raise ValueError('Unknown Admin child '+name)
-    prepared=dict(contents);prepared['Lua/BaiqiAdmin.lua']=raw+suffix(source_version=version).encode('utf-8')
+    prepared=dict(contents);prepared['Lua/BaiqiAdmin.lua']=raw+suffix(source_version=version,include_turn90=include_turn90).encode('utf-8')
     c51=L51().eval('function(s)local f,e=loadstring(s);assert(f,e)end');c53=L53().eval('function(s)local f,e=load(s);assert(f,e)end')
     for name,data in prepared.items():
         if name.endswith('.lua'):c51(data.decode('utf-8-sig'));c53(data.decode('utf-8-sig'))
@@ -127,10 +140,13 @@ def build(output_dir:Path):
                 aggregate_zero=False,focus_turns=[87,88,89],include_pre_observer_active_calls=True,
                 observed_window_seconds=10,original_admin_exact_prefix=True,lua51_compiled=True,lua53_compiled=True,
                 installed=False,limits='Diagnosis only. All active87..89 pre-observer entries plus10seconds after observed anchors retained. Inclusive children cannot be summed. Unselected Admin body remains unattributed. Not formal B_plan or whole performance evidence.')
+    if include_turn90:
+        result.update(mode=f'baiqi{version}-admin-children-v2',include_turn90=True,focus_turns=[87,88,89,90],
+                      limits='Diagnosis only. All active87..90 pre-observer entries plus10seconds after observed anchors retained. Inclusive children cannot be summed. Unselected Admin body remains unattributed. Not formal B_plan or whole performance evidence.')
     (out/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return result
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,required=True);a=p.parse_args()
-    d=build(a.output_dir);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
+    p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--include-turn90',action='store_true');a=p.parse_args()
+    d=build(a.output_dir,include_turn90=a.include_turn90);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))

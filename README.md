@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码157：[先知／创作伟人按原优先级延迟寻路，软件回归通过](docs/testing/baiqi-source157-lazy-great-person-routes.md)，尚未实机验收。[156原85规划耗时FAIL](docs/testing/baiqi-source156-original85-plan.md)仍有效；156 MANY和NO_SITE四项预算通过仅限各自版本与夹具。继续当前性能、20回合、控制权及恢复等功能。整个Mod尚未验收完成。
+当前源码157：[先知／创作伟人按原优先级延迟寻路，软件回归通过](docs/testing/baiqi-source157-lazy-great-person-routes.md)，[当前157原85实测仍FAIL：Admin最大92ms／Controller最大178ms](docs/testing/baiqi-source157-original85-plan.md)，[继续分段定位](docs/testing/baiqi-source157-diagnostic-turn90-http917918.md)；156 MANY和NO_SITE四项预算通过仅限各自版本与夹具。继续当前性能、20回合、控制权及恢复等功能。整个Mod尚未验收完成。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
