@@ -5,7 +5,7 @@
   "source_version": 159,
   "kind": "FINITE40_CLAUSE_AND_EVIDENCE_AUDIT_NOT40_NEW_NATIVE_RESULTS",
   "scope": "GS local single-player and actual promised vanilla UI; no new Base/RaF/MP/hotseat/UI-combination cross-product",
-  "frozen_cases_sha256": "6b56913629336d54534f5619b91c090a7eeca985c9a208110ebae4d5a1d5c05b",
+  "frozen_cases_sha256": "02724953dab1d29370899e6e1db58a2d6ed997af294139e2e04bf54ce775cc7c",
   "cases": [
     {
       "tc": "TC-001",
@@ -540,5 +540,8 @@
     "Owner reviewed canonical cases, actual historical index and selected cited reports; entries still needing per-branch source impact or full original evidence are explicitly OPEN.",
     "Model404 is development-service response, not runtime model-independence proof.",
     "Source equality does not fill missing Native positive or negative branches."
-  ]
+  ],
+  "frozen_cases_normalized_utf8_sha256": "6b56913629336d54534f5619b91c090a7eeca985c9a208110ebae4d5a1d5c05b",
+  "frozen_cases_hash_method": "frozen_cases_sha256 hashes actual local bytes; normalized_utf8 hashes Python universal-newline UTF-8 text, not the same representation on CRLF worktree",
+  "Owner_validation_correction": "Initial audit draft hashed normalized text but labeled it as file bytes. Owner validation detected mismatch; shell orchestration erroneously continued to local commit2a6f382 before inspecting that failure. No push or Native action in this validation batch. Follow-up linear correction before publication distinguishes both hashes; original local commit retained. Frozen testcase file unchanged."
 }
