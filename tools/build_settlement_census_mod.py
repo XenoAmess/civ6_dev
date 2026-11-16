@@ -1,4 +1,4 @@
-"""Prepare a reversible private observer of existing source142 settlement calls."""
+"""Prepare a reversible private observer of existing source142/155 settlement calls."""
 from __future__ import annotations
 import argparse
 import hashlib
@@ -36,7 +36,9 @@ EDITS=(
 )
 
 
-def transform(raw: str) -> tuple[str,str]:
+def transform(raw: str, *, source_version: int = 142) -> tuple[str,str]:
+    if type(source_version) is not int or source_version not in (142,155):
+        raise ValueError('Census requires exact source142 or155')
     text=raw
     for old,new in EDITS:
         if text.count(old)!=1:
@@ -45,7 +47,7 @@ def transform(raw: str) -> tuple[str,str]:
     collector=(ROOT/'tools/lua/diagnostic_settlement_census.lua').read_text(encoding='utf-8')
     runner=(ROOT/'tools/lua/diagnostic_settlement_runner.lua').read_text(encoding='utf-8')
     prefix='\n'.join([
-        '-- BAIQI_DIAGNOSTIC_ONLY: natural source142 settlement census; no gameplay commands.',
+        f'-- BAIQI_DIAGNOSTIC_ONLY: natural source{source_version} settlement census; no gameplay commands.',
         'assert(P6SettlementCensus==nil,"Existing settlement census owner")','do',
         ' local NewCensus=(function()\n'+collector+'\n end)()',
         ' P6SettlementCensus=NewCensus(256)',
@@ -71,14 +73,16 @@ def restore_release(text: str,prefix: str) -> str:
 
 def build(output_dir: Path) -> dict:
     source=ROOT/'mod/Baiqi'
-    if ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')!='142':
-        raise ValueError('Census requires actual source142')
+    version_text=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
+    if version_text not in ('142','155'):
+        raise ValueError('Census requires actual source142 or155')
+    version=int(version_text)
     output_dir=output_dir.resolve()
     if (output_dir.exists() or output_dir==source.resolve()
         or output_dir.is_relative_to(source.resolve()) or source.resolve().is_relative_to(output_dir)):
         raise ValueError('Census output must be a separate new directory')
     files=manifest_files(source);contents={name:contained(source,name).read_bytes()for name in files}
-    raw=contents[CONTROLLER].decode('utf-8');text,prefix=transform(raw)
+    raw=contents[CONTROLLER].decode('utf-8');text,prefix=transform(raw,source_version=version)
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     c51=Lua51().eval('function(s) local f,e=loadstring(s);assert(f,e) end')
@@ -96,9 +100,9 @@ def build(output_dir: Path) -> dict:
         dst.write_bytes(text.encode('utf-8')if name==CONTROLLER else data)
     changed=[name for name in files if contained(target,name).read_bytes()!=contents[name]]
     if manifest_files(target)!=files or changed!=[CONTROLLER]:raise ValueError('Unexpected census package differences')
-    archive=output_dir/'Baiqi-settlement142-census.zip'
+    archive=output_dir/f'Baiqi-settlement{version}-census.zip'
     if package(target,archive)!=files:raise ValueError('Census archive inventory changed')
-    result={'mode':'baiqi142-settlement-census-v1','source_version':142,'files':len(files),
+    result={'mode':f'baiqi{version}-settlement-census-v1','source_version':version,'files':len(files),
         'lua_sources_compiled_51_and_53':count,'changed_files':changed,'release_recovers_exactly':True,
         'selection_and_safety_call_count_unchanged':True,'metadata_reads_added':'Turn/city count at entry and exit, diagnostic clock twice per observed natural call.',
         'census_capacity':256,'timing_budget':'Separate diagnostic census; does not alter existing4096 planning sample cap or grant performance budgets.',
