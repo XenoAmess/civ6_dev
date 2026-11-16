@@ -1,0 +1,222 @@
+{
+  "date": "2026-11-17",
+  "publication_utc": "2026-11-16T20:28:32.500434+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 159,
+  "kind": "NATIVE_CONTROLLED_FORMATION_SNAPSHOT_UNKNOWN_SUBCASE",
+  "subcase_status": "PASS",
+  "whole_TC020": "OPEN_REAL_MISSIONARY_ESCORT_NOT_QUALIFIED",
+  "whole_TC040": "OPEN_OWNER_AND_LEGALITY_UNKNOWN_BRANCHES_NOT_RUN",
+  "whole_mod": "OPEN",
+  "old_8650807": "FAIL_UNRESOLVED",
+  "current159_performance": "NOT_RUN",
+  "fixture": {
+    "name": "Baiqi_P6_20261102_V43_MissionarySetup75.Civ6Save",
+    "bytes": 483801,
+    "sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88",
+    "origin": "Historical explicit QA missionary fixture; not normal unit training evidence"
+  },
+  "fault": "Original UnitSnapshot/getters execute once. For exactowner0/fullID3735581/MISSIONARY and originalformation1 only, copy snapshot with nil formationCount, maximum64. Deferred Arm used; no engine getter stub or military command.",
+  "staging75": {
+    "held75_PASS": false,
+    "moves": 0,
+    "charges": 2,
+    "unarmed_product_before_test": "Actual normal Source159 spread3->2 at75, raw journal OBSERVED religion:0:1 priorcharges3; initialreader observed after effect. No QA manual spread.",
+    "TEST_PLAYER_military_SKIPs": 14,
+    "direct_ordinary_END75": 1,
+    "UserForced": 0,
+    "military_prep_before_Arm": true
+  },
+  "qualified76": {
+    "before": {
+      "id": 3735581,
+      "x": 16,
+      "y": 14,
+      "moves": 4.0,
+      "spread_charges": 2,
+      "formation_count": 1,
+      "ready_move": true,
+      "ready_select": true,
+      "native_pending": false,
+      "queued_destination": null,
+      "unit_religion": 1,
+      "created_religion": 1,
+      "city_majority": -1,
+      "native_can_spread": true,
+      "journal_stage": "OBSERVED",
+      "journal_token": "religion:0:1",
+      "journal_prior_charges": 3,
+      "own_domestic_target_legal": true
+    },
+    "after": {
+      "id": 3735581,
+      "x": 16,
+      "y": 14,
+      "moves": 4.0,
+      "spread_charges": 2,
+      "formation_count": 1,
+      "ready_move": true,
+      "ready_select": true,
+      "native_pending": false,
+      "queued_destination": null,
+      "unit_religion": 1,
+      "created_religion": 1,
+      "city_majority": -1,
+      "native_can_spread": true,
+      "journal_stage": "OBSERVED",
+      "journal_token": "religion:0:1",
+      "journal_prior_charges": 3,
+      "own_domestic_target_legal": true
+    },
+    "mask_count": [
+      17,
+      19
+    ],
+    "natural_Update_count": [
+      33,
+      55
+    ],
+    "target_SDK_operations": 0,
+    "target_SDK_commands": 0,
+    "identity_errors": 0,
+    "drops": 0,
+    "all_three_observer_bindings_owned": true,
+    "counter_delta_rule": "Staging calls atheld75 do not qualify. Actual76 fresh Native legal spread and unchanged eligible actor +2masked snapshots/+22naturalUpdates define the observed fault window."
+  },
+  "fault_retire_boundary": {
+    "mask_count": 31,
+    "expired": false,
+    "actual_return": "restored",
+    "fresh_ready_premise_rechecked": true
+  },
+  "unmasked_positive": {
+    "actual_turn": 76,
+    "actor": {
+      "id": 3735581,
+      "x": 16,
+      "y": 14,
+      "moves": 0.0,
+      "spread_charges": 1,
+      "formation_count": 1,
+      "ready_move": false,
+      "ready_select": false,
+      "native_pending": false,
+      "queued_destination": null,
+      "unit_religion": 1,
+      "created_religion": 1,
+      "city_majority": -1,
+      "native_can_spread": false,
+      "journal_stage": "OBSERVED",
+      "journal_token": "religion:0:2",
+      "journal_prior_charges": 2,
+      "own_domestic_target_legal": true
+    },
+    "Native_spread_hash": 1592408602,
+    "target_requests": 1,
+    "target_commands": 0,
+    "manual_spread": 0,
+    "effect_scope": "Actual SDK spread attempt + charges2->1/moves4->0 + new OBSERVED religion:0:2 priorcharges2; does not establish city conversion or all religion branches."
+  },
+  "restoration": {
+    "UnitSnapshot_original_restored": true,
+    "three_observer_bindings_restored": true,
+    "diagnostic_globals_cleared": true,
+    "player_QA_markers_cleared_before_save": true
+  },
+  "save": {
+    "utc": "2026-11-16T20:22:48.000952+00:00",
+    "name": "Baiqi_P6_20261117_V159_FormationUnknownCompare76.Civ6Save",
+    "bytes": 485022,
+    "sha256": "abdc227e419fed5c07cac792a671fec601ad0fc915fe1068ac020e31175fc92c",
+    "stable_repeated_read": true
+  },
+  "save_ACK": true,
+  "reload_of_saved76": "NOT_RUN",
+  "instance_kept_for_next_authorized_test": true,
+  "game_owner": {
+    "pid": 22832,
+    "created_at": 1794858815.3667407,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "Steam": {
+    "launch_mode": "offline",
+    "readonly_proof_age_at_launch_seconds": 0.096575,
+    "online": 0,
+    "uploads": 0,
+    "note": "Initial unavailable query stopped before launch intent; official Steam header navigation separate from later fresh background readonly proof."
+  },
+  "Owner_errors_preserved": [
+    "First preparation matched wrong indentation after package build; no Native, corrected package reuse verifies hashes/transform exactly.",
+    "Adapted dry validator mocked Native query but initially did not mock Path.open in reader branch; wrote exclusive initial intent in dry run. Actual live reader refused before CMD. Preserved mock intent, patched dry IO, used new r1 actual read; no load/continue/END replay.",
+    "Player preparation had extra indentation caught by AST before file dispatch; fixed before Native."
+  ],
+  "software": {
+    "private_files": 119,
+    "Lua51_and_Lua53_sources": 97,
+    "initial_actual_render_hash_saves_AST_check": "PASS but dry IO side effect separately corrected; no Native generation claim",
+    "observer_current_recheck": {
+      "utc": "2026-11-16T20:11:07.847690+00:00",
+      "cases": 12,
+      "engines": [
+        "Lua51",
+        "Lua53"
+      ],
+      "PASS": true,
+      "witnesses": [
+        "exact args/nil varargs/multiple returns and one original call",
+        "foreign writer preserved while other owned bindings restored",
+        "64 row capacity and defensive snapshot copy",
+        "identity getter failure still forwards actual original",
+        "exact restore/idempotent retirement and no subsequent observations",
+        "same owner/fullID but unknown actual type is an observation error"
+      ],
+      "Native_calls": 0,
+      "Native": "NOT_RUN",
+      "scope": "Private this-context observer only; zero count requires matching live bindings, zero identity errors/drops, natural Update progress, independently qualified actor and bounded fault window.",
+      "source_sha256": "5b0e78bcecdc445bc8ae75e0f0f7fdaab4c2739327a8037281bed1a587060e0c",
+      "new_hook_not_added": "926 proposed pre-arm gate not implemented/adopted. Use existing staging75 then independently qualify actual76; no held75 PASS."
+    },
+    "new_full_product_suite": false
+  },
+  "model926": {
+    "sources": 11,
+    "source_bytes": 336638,
+    "POST": 1,
+    "http_status": 404,
+    "total_ms": 32.255300087854266,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "Owner_choice": "No extra pre-arm RunNow/Update gate implemented. Reused existing tested stage75 fault, independently qualified actual76 before counting window.",
+    "OpenCode": "Nov17 successful1.19.5 maintenance cache reused; native-generation0"
+  },
+  "ledger": {
+    "logical": 926,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 42,
+    "generation_POST": 965,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "raw_evidence": "LOCAL_ONLY ignored formation159m-* receipts/logs/current private package and per-CMD Native receipts; protected private saves not uploaded.",
+  "limits": [
+    "No real missionary escort formation2 witness; NativeENTER_FORMATIONfalse atheld75 cannot close it.",
+    "No actual Native GetFormationUnitCount unavailable injection. This is copied-snapshot unknown only.",
+    "No wholeTC020/040, military class matrix, city conversion, save reload, performance or old8650807 recovery promotion."
+  ],
+  "private_package_preparation_record": {
+    "utc": "2026-11-16T19:50:14.976926+00:00",
+    "source_version": 159,
+    "files": 119,
+    "dualLua": 97,
+    "archive_sha256": "cad855ece306fc6ab0a3613c56943de1486d5a91c15fc9362a2a7885bad8e5c2",
+    "source159_ordinary119_protected": true,
+    "Native": "NOT_RUN",
+    "deferred_snapshot_mask_only": true,
+    "legacy156_continue_bug_avoided": "Uses actual verified legacy159a current-load/owned HWND, not broken copied pair155 lifecycle."
+  }
+}
