@@ -1,0 +1,659 @@
+{
+  "local_date": "2026-11-17",
+  "machine": "BF-202609141645",
+  "product_version": 157,
+  "product_changes": 0,
+  "mode": "private diagnostic only, not frozen budget PASS",
+  "actual_load": "PASS new scoped17binding package loaded in Civ6, previous failed package retained",
+  "package_sha256": "8d9076155c885691c7689730656aac51b718d5599afe0a9ec0015f968a713d72",
+  "capture": {
+    "utc": "2026-11-16T16:35:44.951502+00:00",
+    "token": "29c80cf3e1b748fcbf2fa15395b09905",
+    "phase": "COMPLETE",
+    "turn": 90,
+    "requested_turns": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "capture_start": 1794846449.655,
+    "capture_stop": 1794846944.932,
+    "samples": 532,
+    "roots": 114,
+    "diagnosis_only": true
+  },
+  "observer_phases": {
+    "whole_before_observer": 19,
+    "overlaps_observer": 0,
+    "observed_window": 95,
+    "outside_window_started": 0
+  },
+  "review": {
+    "utc": "2026-11-16T16:39:07.998670+00:00",
+    "rows": 532,
+    "roots": 114,
+    "stats": [
+      {
+        "name": "Controller.RunNow",
+        "count": 114,
+        "p50_ms": 2.000093460083008,
+        "p95_ms": 39.00003433227539,
+        "max_ms": 108.99996757507324
+      },
+      {
+        "name": "ExpansionStable",
+        "count": 17,
+        "p50_ms": 0.0,
+        "p95_ms": 2.000093460083008,
+        "max_ms": 2.000093460083008
+      },
+      {
+        "name": "FoundingSite",
+        "count": 2,
+        "p50_ms": 0.0,
+        "p95_ms": 0.0,
+        "max_ms": 0.0
+      },
+      {
+        "name": "KnownExpansionSupport",
+        "count": 8,
+        "p50_ms": 2.000093460083008,
+        "p95_ms": 23.999929428100586,
+        "max_ms": 23.999929428100586
+      },
+      {
+        "name": "Native.FoundRequestOperation",
+        "count": 1,
+        "p50_ms": 0.9999275207519531,
+        "p95_ms": 0.9999275207519531,
+        "max_ms": 0.9999275207519531
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "count": 13,
+        "p50_ms": 3.000020980834961,
+        "p95_ms": 42.999982833862305,
+        "max_ms": 42.999982833862305
+      },
+      {
+        "name": "PathStep",
+        "count": 13,
+        "p50_ms": 9.999990463256836,
+        "p95_ms": 45.00007629394531,
+        "max_ms": 45.00007629394531
+      },
+      {
+        "name": "ProcessSettler",
+        "count": 5,
+        "p50_ms": 13.99993896484375,
+        "p95_ms": 37.999868392944336,
+        "max_ms": 37.999868392944336
+      },
+      {
+        "name": "RequestCivilian",
+        "count": 34,
+        "p50_ms": 1.000046730041504,
+        "p95_ms": 6.999969482421875,
+        "max_ms": 9.000062942504883
+      },
+      {
+        "name": "Safe",
+        "count": 191,
+        "p50_ms": 0.9999275207519531,
+        "p95_ms": 3.000020980834961,
+        "max_ms": 6.000041961669922
+      },
+      {
+        "name": "SettlementBridge",
+        "count": 113,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 9.999990463256836
+      },
+      {
+        "name": "SettlementHeld",
+        "count": 10,
+        "p50_ms": 0.0,
+        "p95_ms": 0.0,
+        "max_ms": 0.0
+      },
+      {
+        "name": "SettlementSites",
+        "count": 1,
+        "p50_ms": 3.000020980834961,
+        "p95_ms": 3.000020980834961,
+        "max_ms": 3.000020980834961
+      },
+      {
+        "name": "SettlerGoalBridge",
+        "count": 10,
+        "p50_ms": 1.000046730041504,
+        "p95_ms": 3.999948501586914,
+        "max_ms": 3.999948501586914
+      }
+    ],
+    "all_native_found_roots": [
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.016000032424926758,
+          "started": 1794846935.961,
+          "ended": 1794846935.977,
+          "failed": false,
+          "rootId": 99,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "native": {
+          "name": "Native.FoundRequestOperation",
+          "seconds": 0.0009999275207519531,
+          "started": 1794846935.976,
+          "ended": 1794846935.977,
+          "failed": false,
+          "rootId": 99,
+          "rootTurn": 90,
+          "rootCities": 10
+        },
+        "all_same_root_rows": [
+          {
+            "name": "SettlementBridge",
+            "seconds": 0.0,
+            "started": 1794846935.961,
+            "ended": 1794846935.961,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementHeld",
+            "seconds": 0.0,
+            "started": 1794846935.963,
+            "ended": 1794846935.963,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0,
+            "started": 1794846935.963,
+            "ended": 1794846935.963,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0,
+            "started": 1794846935.963,
+            "ended": 1794846935.963,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0009999275207519531,
+            "started": 1794846935.9650002,
+            "ended": 1794846935.966,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.003000020980834961,
+            "started": 1794846935.963,
+            "ended": 1794846935.966,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0,
+            "started": 1794846935.968,
+            "ended": 1794846935.968,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.0019998550415039062,
+            "started": 1794846935.966,
+            "ended": 1794846935.968,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0,
+            "started": 1794846935.968,
+            "ended": 1794846935.968,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementHeld",
+            "seconds": 0.0,
+            "started": 1794846935.968,
+            "ended": 1794846935.968,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0010001659393310547,
+            "started": 1794846935.968,
+            "ended": 1794846935.969,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0,
+            "started": 1794846935.971,
+            "ended": 1794846935.971,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.0019998550415039062,
+            "started": 1794846935.969,
+            "ended": 1794846935.971,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "FoundingSite",
+            "seconds": 0.0,
+            "started": 1794846935.971,
+            "ended": 1794846935.971,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0,
+            "started": 1794846935.971,
+            "ended": 1794846935.971,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementBridge",
+            "seconds": 0.0010001659393310547,
+            "started": 1794846935.971,
+            "ended": 1794846935.9720001,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementBridge",
+            "seconds": 0.0009999275207519531,
+            "started": 1794846935.9720001,
+            "ended": 1794846935.973,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlementBridge",
+            "seconds": 0.0009999275207519531,
+            "started": 1794846935.973,
+            "ended": 1794846935.974,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "FoundingSite",
+            "seconds": 0.0,
+            "started": 1794846935.974,
+            "ended": 1794846935.974,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "Safe",
+            "seconds": 0.0,
+            "started": 1794846935.974,
+            "ended": 1794846935.974,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ExpansionStable",
+            "seconds": 0.0,
+            "started": 1794846935.976,
+            "ended": 1794846935.976,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.002000093460083008,
+            "started": 1794846935.974,
+            "ended": 1794846935.976,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.FoundRequestOperation",
+            "seconds": 0.0009999275207519531,
+            "started": 1794846935.976,
+            "ended": 1794846935.977,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.009000062942504883,
+            "started": 1794846935.968,
+            "ended": 1794846935.977,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.01399993896484375,
+            "started": 1794846935.963,
+            "ended": 1794846935.977,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "Controller.RunNow",
+            "seconds": 0.016000032424926758,
+            "started": 1794846935.961,
+            "ended": 1794846935.977,
+            "failed": false,
+            "rootId": 99,
+            "rootTurn": 90,
+            "rootCities": 10,
+            "observer_phase": "observed_window"
+          }
+        ]
+      }
+    ],
+    "longest_root_all_rows": [
+      {
+        "name": "SettlementBridge",
+        "seconds": 0.0,
+        "started": 1794846742.595,
+        "ended": 1794846742.595,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Safe",
+        "seconds": 0.0019998550415039062,
+        "started": 1794846742.607,
+        "ended": 1794846742.609,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Safe",
+        "seconds": 0.003000020980834961,
+        "started": 1794846742.611,
+        "ended": 1794846742.614,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0,
+        "started": 1794846742.614,
+        "ended": 1794846742.614,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "PathStep",
+        "seconds": 0.003000020980834961,
+        "started": 1794846742.611,
+        "ended": 1794846742.614,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Safe",
+        "seconds": 0.003000020980834961,
+        "started": 1794846742.615,
+        "ended": 1794846742.618,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.01399993896484375,
+        "started": 1794846742.618,
+        "ended": 1794846742.632,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "PathStep",
+        "seconds": 0.01699995994567871,
+        "started": 1794846742.615,
+        "ended": 1794846742.632,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Safe",
+        "seconds": 0.0009999275207519531,
+        "started": 1794846742.6330001,
+        "ended": 1794846742.634,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.019999980926513672,
+        "started": 1794846742.634,
+        "ended": 1794846742.654,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "PathStep",
+        "seconds": 0.020999908447265625,
+        "started": 1794846742.6330001,
+        "ended": 1794846742.654,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Safe",
+        "seconds": 0.0010001659393310547,
+        "started": 1794846742.655,
+        "ended": 1794846742.6560001,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.042999982833862305,
+        "started": 1794846742.657,
+        "ended": 1794846742.7,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "PathStep",
+        "seconds": 0.04500007629394531,
+        "started": 1794846742.655,
+        "ended": 1794846742.7,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "RequestCivilian",
+        "seconds": 0.002000093460083008,
+        "started": 1794846742.701,
+        "ended": 1794846742.703,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.10899996757507324,
+        "started": 1794846742.595,
+        "ended": 1794846742.704,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      }
+    ],
+    "limits": "Same-root inclusive intervals only, no summing overlap or inferring exit city count/pure-ten. No causal transfer to earlier134/178/250ms roots."
+  },
+  "end_turns_once": [
+    85,
+    86,
+    87,
+    88,
+    89
+  ],
+  "END90": 0,
+  "manual_domestic_actions": 0,
+  "forced_END": 0,
+  "save": {
+    "turn": 90,
+    "cities": 11,
+    "bytes": 518849,
+    "sha256": "46bfd1a5b92efae04180cfd5d3dd237593311552cd2832c58f38f977bd2a5af8"
+  },
+  "restored_bindings": 17,
+  "event_retired": true,
+  "formal_released": true,
+  "official_Exit_once": true,
+  "cleanup": {
+    "utc": "2026-11-16T16:37:20.681672+00:00",
+    "absence": {
+      "absent": true
+    },
+    "terminate_count": 0,
+    "natural_exit_claimed": false
+  },
+  "formal_new_model_HTTP_and_heavy_checks": 0,
+  "limits": [
+    "Root19 at88 entered10cities, exit count unknown;109ms includes fourPathStep but typed caller not selected. No sum of inclusive nested intervals.",
+    "Same-ID merchant move/activation appears in turn88/89 logs but no atomic root-to-actor mapping; caller remains UNKNOWN.",
+    "Found native1ms belongs to separate root99 at90 total16ms; cannot exclude cause of earlier121/178/250ms calls.",
+    "Earlier actual ordinary157 BplanFAIL Admin92/Controllerp9542max178 remains. Many/NoSite156 results do not transfer."
+  ],
+  "model922": {
+    "sources": 14,
+    "source_bytes": 370407,
+    "http_status": 404,
+    "total_ms": 23.271899903193116,
+    "candidate": 0,
+    "adoption": 0,
+    "extra_POST": 0,
+    "generation_POST": 1,
+    "terminal": {
+      "utc": "2026-11-16T16:49:12.031628+00:00",
+      "task": 922,
+      "exit_code": 1,
+      "current_request_killed": false
+    },
+    "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "maintenance": "Nov17 same-machine/user successful daily cache reused; no new native generation",
+    "initial_preparation_failure": "Two incorrect source names rejected before phase file or POST; corrected to actual GPJournal/GPIntentGameplay.",
+    "stop_note": "Inherited stop-file reason mentioned Admin task; actual request/task/sources are bounded DistrictPerson product task. Marker only cancelled further retries after actual POST; no current request killed."
+  },
+  "ledger_through922": {
+    "logical": 922,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 38,
+    "generation_POST": 961,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "whole_mod": "OPEN",
+  "old8650807": "FAIL_UNRESOLVED",
+  "Steam_online_upload": 0
+}
