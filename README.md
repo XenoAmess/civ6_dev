@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码159：[旧创作伟人未知记录改用经原生许可的安全等待，98相关检查及119文件／97Lua双编译通过](docs/testing/baiqi-source159-legacy-creative-standby.md)，尚待90阻塞档实机复测。158原85在90中止、157性能FAIL、旧8650807恢复FAIL保留；继续性能、五城20回合、控制权及恢复，阶段提交后继续执行。
+当前源码159：[旧创作等待修复的软件验证](docs/testing/baiqi-source159-legacy-creative-standby.md)，[真实音乐家阻塞档已自动睡眠、保留未知意图并普通90→91保存](docs/testing/baiqi-source159-legacy-creative-native91.md)。当前159冻结性能、五城20回合及完整功能未完成；158中止、157性能FAIL与旧8650807恢复FAIL保留，阶段提交后继续执行。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 

@@ -1262,3 +1262,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-17：[158真实90中止与924](testing/baiqi-source158-aborted90-http924.md)：READY预留不等于END调用；真实阻塞仍优先于两项false检查。既有SKIP提交后仍AWAKE，原因未知，0创作ActionCharges不证明耗尽；保留LEGACY_UNKNOWN。924完整16来源357065字节一次404，累计924/816完整/68length/40最终失败/963生成POST/38额外，0采用／OpenCode原生0。
 
 2026-11-17：[159旧创作等待软件修正](testing/baiqi-source159-legacy-creative-standby.md)。0次数不等于作品耗尽，SLEEP不清未知token；首全2734有3诊断主块局部变量编译错误，嵌入既有函数作用域后98相关通过、119/97双编译，未重跑全套／未Native。首定向71错误cwd119夹具错误独立保留，正确cwd71过。软件包0新POST／0模型采用，累计924账本不变，原生OpenCode0。
+
+2026-11-17：[159真实音乐家恢复91](testing/baiqi-source159-legacy-creative-native91.md)：后台一次SLEEP，旧LEGACY_UNKNOWNtoken保持，普通END90一次且独立实际91/11城另存；只授本阻塞档，当前性能/20回合/旧移民FAIL不转授。资格只读本地工具终态未消费先启动回合父驱动的Owner次序失误及实际资格JSON在输入前的UTC保留，0并行Native写者/重放。本包0新HTTP，924账本/原生OpenCode0保持。
