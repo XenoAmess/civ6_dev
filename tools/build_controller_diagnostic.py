@@ -277,6 +277,13 @@ end
         labels=re.findall(r"d\.source='baiqi140-controller-children-v[1-5]'",text)
         if len(labels)!=1:raise ValueError('Unknown founding writer diagnostic owner')
         text=text.replace(labels[0],"d.source='baiqi140-controller-children-v6'",1)
+        # Civ6's compiler rejects the real Controller plus the diagnostic's
+        # active locals in one frame even when stock Lua compiles it. Capture
+        # the original lexical cells; allocate owner locals on a new frame.
+        prefix,body=text.split('\ndo\n',1)
+        if not prefix.startswith('\n-- PRIVATE coarse diagnosis;')or prefix.count('\n')!=1 or not body.endswith('P6ControllerNested=d\nend\n'):
+            raise ValueError('Unknown founding writer scope anchors')
+        text=prefix+'\n;(function()\n'+body[:-len('end\n')]+'end)()\n'
     return text.replace('baiqi140-controller-children-',f'baiqi{source_version}-controller-children-')
 
 

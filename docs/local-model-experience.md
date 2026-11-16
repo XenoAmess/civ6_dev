@@ -1252,3 +1252,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-16：[917／918当前实测失败后的窄诊断](testing/baiqi-source157-diagnostic-turn90-http917918.md)。两次真实HTTP404分别33.4623／16.1803ms、0候选采用；当前157依然FAIL。Admin观察范围必须包含实际尖峰回合；新增显式范围保持默认字节和同一容量，分段包准备／软件通过不授Native。累计918／816完整／68length／34最终失败／957生成POST／38额外，OpenCode原生0。
 
 2026-11-16：[Source157原生FOUND私有测点](testing/baiqi-source157-found-writer-timing.md)。920失败后Owner直接实现，14新＋42相关软件检查过；默认字节保持、函数身份／pcall结果与一次性提交保持，同一4096。只准备未Native，不将未重现Admin或移民分段误判为性能修复。此包新增模型POST0、候选采用0；未知Owner主动成本／净节时保持null。
+
+2026-11-17：[私有寄存器实机失败与921](testing/baiqi-source157-game-register-limit-http921.md)。Stock双Lua编译不等于Civ6编译；保留0END失败包，隔离QA初始化帧后主寄存器200→185，17软件方法过，仍待新冷验。Nov17每日维护成功1.19.5，HTTP921一次404／47.9762ms，0候选采用；累计921／816完整／68length／37最终失败／960生成POST／38额外，OpenCode原生0，未知成本null。
