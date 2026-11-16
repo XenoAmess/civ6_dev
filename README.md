@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码155：原85四预算通过；MANY[B_plan](docs/testing/baiqi-source155-pressure-many-plan.md)、[B_turn／N_req](docs/testing/baiqi-source155-pressure-many-fullscript.md)通过，[五组B_delta为FAIL](docs/testing/baiqi-source155-many-paired-final.md)。NO_SITE矩阵与其余功能验收继续，整个Mod尚未验收完成。
+当前源码156：[执行器节奏修正与2676项软件检查通过／1SDK跳过](docs/testing/baiqi-source156-executor-cadence.md)。当前实机复测待执行；155 MANY比例预算FAIL保留，NO_SITE矩阵、其余功能及整个Mod验收继续开放。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 

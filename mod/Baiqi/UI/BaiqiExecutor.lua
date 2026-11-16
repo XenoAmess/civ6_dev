@@ -5,6 +5,7 @@ include("BaiqiMissionaryPurchase")
 local ready=false
 local adminStopped=false
 local adminElapsed=0
+local updateElapsed=0
 local recoveryNeeded=false
 local awaitingStandby=false
 local acknowledgedTurn
@@ -34,6 +35,7 @@ local function StandbyAvailable()
   if count>0 then return false end
 end
 local function Recover()
+  if not recoveryNeeded and not awaitingStandby then return end
   if not Visible() or not TurnReady() or not BaiqiController.IsAvailable() then return end
   local available=StandbyAvailable()
   if awaitingStandby and available==true then
@@ -48,6 +50,13 @@ local function Recover()
   recoveryNeeded=false
 end
 local function Update(delta)
+  -- Batch frame time before entering Native UI/player reads. Event callbacks
+  -- still run immediately, and every periodic pass rechecks current authority.
+  if type(delta)~="number" or delta~=delta or delta<0 or delta==math.huge then return end
+  updateElapsed=updateElapsed+delta
+  if updateElapsed<BaiqiConfig.interval then return end
+  delta=updateElapsed
+  updateElapsed=0
   if Visible() then
     if TurnReady() and BaiqiController.IsAvailable() then
       Recover()

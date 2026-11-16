@@ -58,17 +58,17 @@ def build(output_dir: Path,*,bounded_zero: bool = False,pressure_initial_turn=No
     files=manifest_files(source)
     info=ET.fromstring((source/'Baiqi.modinfo').read_bytes())
     version=info.get('version')
-    if version not in ('67','139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155'):
+    if version not in ('67','139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156'):
         raise ValueError('Diagnostic assembler requires actual source67,139,140,141,142,143,144,145,146,147,148,149,150,151 or152')
-    if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155') and not bounded_zero:
+    if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156') and not bounded_zero:
         raise ValueError('Current source diagnostics require bounded_zero and the frozen4096 cap')
     if pressure_initial_turn is not None:
         if (type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                or version not in ('142','143','144','145','146','147','148','149','150','151','152','153','154','155') or bounded_zero is not True):
+                or version not in ('142','143','144','145','146','147','148','149','150','151','152','153','154','155','156') or bounded_zero is not True):
             raise ValueError('Pressure requires bounded source142/143/144/145/146/147/148/149/150/151/152 and strict initial turn')
     expected=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
     expected+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
-    if version in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155') and bounded_zero:
+    if version in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156') and bounded_zero:
         quotas = bounded_quotas(expected, allocation='current140')
     else:
         quotas = bounded_quotas(expected) if bounded_zero else None
@@ -80,7 +80,7 @@ def build(output_dir: Path,*,bounded_zero: bool = False,pressure_initial_turn=No
     lua=LuaRuntime(unpack_returned_tuples=True)
     compile_lua=lua.eval('function(s,n) local f,e=load(s,n);assert(f,e);return true end')
     compile_lua51=None
-    if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155'):
+    if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156'):
         from lupa.lua51 import LuaRuntime as Lua51Runtime
         lua51=Lua51Runtime(unpack_returned_tuples=True)
         compile_lua51=lua51.eval('function(s,n) local f,e=loadstring(s,n);assert(f,e);return true end')
@@ -95,7 +95,7 @@ def build(output_dir: Path,*,bounded_zero: bool = False,pressure_initial_turn=No
             if name=='UI/BaiqiExecutor.lua' and pressure_initial_turn is not None:
                 text=(f"assert(P6Q20PressureBuild==nil)\nP6Q20PressureBuild={{source='baiqi{version}-pressure-observed-v1',"
                       f'source_version={version},initial_turn={pressure_initial_turn}'+'}\n'+text)
-            if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155'):
+            if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156'):
                 text=text.replace('-- BAIQI_DIAGNOSTIC_ONLY: source67 owned definitions and Native leaves.',
                                   f'-- BAIQI_DIAGNOSTIC_ONLY: source{version}; runtime instrumentation schema baiqi67-q19.',1)
             compile_lua(text,name+'-q19')
@@ -131,10 +131,10 @@ def build(output_dir: Path,*,bounded_zero: bool = False,pressure_initial_turn=No
             'helper_hashes':{stem:digest(ROOT/f'tools/lua/{stem}.lua') for stem in HELPERS.values()},
             'coverage':coverage,'archive_sha256':digest(archive),'installed':False,
             'limits':'Private inclusive walltime envelope, Native/vanilla callees included. Clock resolution, runtime active contexts and full-window completeness require actual evidence. No product controls.'}
-    if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155'):
+    if version in ('139','140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156'):
         result['runtime_marker']=MARKER
         result['lua_compile_versions']=['5.1','5.3']
-    if version in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155'):
+    if version in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156'):
         result['context_quota_profile']='current140'
     if pressure_initial_turn is not None:
         result.update(source=f'baiqi{version}-pressure-observed-v1',initial_turn=pressure_initial_turn,

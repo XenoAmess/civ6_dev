@@ -63,8 +63,10 @@ def restore_release(text: str,insertion: str) -> str:
 
 def build(output_dir: Path, owner: int, unit_id: int, unit_type: str, limit: int=64) -> dict:
     source=ROOT/'mod/Baiqi'
-    if ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')!='155':
-        raise ValueError('Formation diagnostic requires actual source155')
+    version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
+    if version not in ('155','156'):
+        raise ValueError('Formation diagnostic requires actual source155 or156')
+    version=int(version)
     output_dir=output_dir.resolve()
     if output_dir.exists()or output_dir==source.resolve()or output_dir.is_relative_to(source.resolve())or source.resolve().is_relative_to(output_dir):
         raise ValueError('Output must be a new separate directory')
@@ -85,8 +87,8 @@ def build(output_dir: Path, owner: int, unit_id: int, unit_type: str, limit: int
         p=contained(target,n);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(text.encode('utf-8')if n==CONTROLLER else v)
     changed=[n for n in files if contained(target,n).read_bytes()!=contents[n]]
     if manifest_files(target)!=files or changed!=[CONTROLLER]:raise ValueError('Unexpected package differences')
-    archive=output_dir/'Baiqi-formation155-unknown.zip';assert package(target,archive)==files
-    result={'source_version':155,'mode':'baiqi155-formation-snapshot-unknown-v1','files':len(files),
+    archive=output_dir/f'Baiqi-formation{version}-unknown.zip';assert package(target,archive)==files
+    result={'source_version':version,'mode':f'baiqi{version}-formation-snapshot-unknown-v1','files':len(files),
         'target':{'owner':owner,'unit_id':unit_id,'unit_type':unit_type},'interception_limit':limit,'record_capacity':64,
         'lua_sources_compiled_51_and_53':count,'changed_files':changed,'release_recovers_exactly':True,
         'source_hashes':{n:hashlib.sha256(v).hexdigest()for n,v in contents.items()},

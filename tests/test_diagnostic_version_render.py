@@ -56,7 +56,7 @@ class DiagnosticVersionRenderTests(unittest.TestCase):
 
     def test_exact_type_and_unknown_kind_or_version_rejected(self):
         class IntSubclass(int):pass
-        for value in (True,143.0,"143",None,156,IntSubclass(143)):
+        for value in (True,143.0,"143",None,157,IntSubclass(143)):
             with self.assertRaises(ValueError):
                 render_helper(self.template("benchmark_end_bridge"),"benchmark_end_bridge",value)
         with self.assertRaises(ValueError):render_helper("return {}","unknown",143)
@@ -135,7 +135,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,156)
+            with self.assertRaises(ValueError):render_helper(text,kind,157)
 
     def test_source147_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -145,7 +145,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,156)
+            with self.assertRaises(ValueError):render_helper(text,kind,157)
 
     def test_source148_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -155,7 +155,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,156)
+            with self.assertRaises(ValueError):render_helper(text,kind,157)
 
     def test_source149_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -165,7 +165,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,156)
+            with self.assertRaises(ValueError):render_helper(text,kind,157)
 
     def test_source150_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -175,7 +175,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,156)
+            with self.assertRaises(ValueError):render_helper(text,kind,157)
 
     def test_source151_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -185,7 +185,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,156)
+            with self.assertRaises(ValueError):render_helper(text,kind,157)
 
     def test_source152_current_render_compiles_with_new_version_and_preserves_raw_file(self):
         for kind in ("benchmark_end_bridge", "diagnostic_plan_stage"):
@@ -195,7 +195,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             self.assertNotIn("baiqi145-pressure-",rendered)
             for L in (L51,L53):L().compile(rendered)
             self.assertEqual(self.template(kind),text)
-            with self.assertRaises(ValueError):render_helper(text,kind,156)
+            with self.assertRaises(ValueError):render_helper(text,kind,157)
 
     def test_source153_render_and_pressure_clock_keep_version_boundaries(self):
         for kind in ('benchmark_end_bridge','diagnostic_plan_stage'):

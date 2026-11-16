@@ -76,7 +76,7 @@ assert(#Activations==1 and BaiqiAdmin.Run==Original and BaiqiController.RunNow==
         files=manifest_files(ROOT/'mod/Baiqi')
         with patch.object(builder,'manifest_files',return_value=files):
             with patch.object(builder.ET,'fromstring') as parse:
-                parse.return_value.get.return_value='156'
+                parse.return_value.get.return_value='157'
                 with self.assertRaisesRegex(ValueError,'actual source140'):builder.build(out)
         self.assertFalse(out.exists())
         with self.assertRaisesRegex(ValueError,'separate'):builder.build(ROOT/'mod/Baiqi/private-diagnostic')
@@ -93,6 +93,7 @@ local function PlayerContext()return {activeTurn=true}end
 '''+controller[start:end]+'\nend')
         lua.execute('''rawget=nil;rawset=nil;Turn=85;Clock=10;Available=false;Activations={}
 Game={GetLocalPlayer=function()return 0 end,GetCurrentGameTurn=function()return Turn end}
+BaiqiConfig={interval=.25}
 GameConfiguration={IsSavedGame=function()return true end}
 Automation={GetTime=function()return Clock end}
 Players={[0]={IsTurnActive=function()return true end,GetCities=function()return {GetCount=function()return 10 end}end}}
