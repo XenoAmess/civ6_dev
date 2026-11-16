@@ -1,0 +1,4471 @@
+{
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 157,
+  "diagnosis_only": true,
+  "current_Bplan": "FAIL preserved at8215869; no performance pass from this run",
+  "product_changes": 0,
+  "build": {
+    "mode": "baiqi157-controller-children-v5",
+    "children": [
+      "ReadBack",
+      "ProcessCity",
+      "ProcessBuilder",
+      "ProcessSettler",
+      "ProcessTrader",
+      "ProcessMissionary",
+      "ProcessNaturalist",
+      "ProcessArchaeologist",
+      "ProcessDistrictPerson",
+      "ProcessCreative",
+      "ProcessProphet",
+      "ClearCivilianOverlap"
+    ],
+    "binding_count": 14,
+    "sample_capacity": 4096,
+    "profile_count": 1,
+    "focus_turns": [
+      88,
+      89,
+      90
+    ],
+    "archive_sha256": "f81889f4ca237031f6b2d7237d255669f6942db2bca427af6c376e7c7f9fbb66",
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "release_text_recovers_exactly": true,
+    "native_global_binding_modified": false
+  },
+  "summary": {
+    "utc": "2026-11-16T15:12:00.335854+00:00",
+    "source": "baiqi157-controller-children-v5",
+    "diagnostic_accounting_ok": true,
+    "roots": 110,
+    "samples": 340,
+    "observer_phase_counts": {
+      "whole_before_observer": 15,
+      "overlaps_observer": 0,
+      "observed_window": 95,
+      "outside_window_started": 0
+    },
+    "cities": 11,
+    "largest_roots": [
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.13400006294250488,
+          "started": 1794841886.47,
+          "ended": 1794841886.604,
+          "failed": false,
+          "rootId": 98,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 1.0001659393310547,
+          "ProcessCity": 0.9999275207519531,
+          "ProcessCreative": 1.9998550415039062,
+          "ProcessSettler": 121.00005149841309
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.12100005149841309,
+            "started": 1794841886.483,
+            "ended": 1794841886.604,
+            "failed": false,
+            "rootId": 98,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCreative",
+            "seconds": 0.0019998550415039062,
+            "started": 1794841886.4750001,
+            "ended": 1794841886.477,
+            "failed": false,
+            "rootId": 98,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0010001659393310547,
+            "started": 1794841886.471,
+            "ended": 1794841886.4720001,
+            "failed": false,
+            "rootId": 98,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794841886.4720001,
+            "ended": 1794841886.473,
+            "failed": false,
+            "rootId": 98,
+            "rootTurn": 90,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.03900003433227539,
+          "started": 1794841779.675,
+          "ended": 1794841779.714,
+          "failed": false,
+          "rootId": 53,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0,
+          "ProcessCity": 0,
+          "Native.GetMoveToPathEx": 1.9998550415039062,
+          "ProcessSettler": 36.00001335144043
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.03600001335144043,
+            "started": 1794841779.678,
+            "ended": 1794841779.714,
+            "failed": false,
+            "rootId": 53,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.0019998550415039062,
+            "started": 1794841779.7020001,
+            "ended": 1794841779.704,
+            "failed": false,
+            "rootId": 53,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841779.675,
+            "ended": 1794841779.675,
+            "failed": false,
+            "rootId": 53,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794841779.676,
+            "ended": 1794841779.676,
+            "failed": false,
+            "rootId": 53,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.03900003433227539,
+          "started": 1794841882.652,
+          "ended": 1794841882.691,
+          "failed": false,
+          "rootId": 88,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0,
+          "ProcessCity": 37.999868392944336
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.037999868392944336,
+            "started": 1794841882.653,
+            "ended": 1794841882.691,
+            "failed": false,
+            "rootId": 88,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841882.652,
+            "ended": 1794841882.652,
+            "failed": false,
+            "rootId": 88,
+            "rootTurn": 90,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.023999929428100586,
+          "started": 1794841781.153,
+          "ended": 1794841781.177,
+          "failed": false,
+          "rootId": 57,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0,
+          "ProcessCity": 0,
+          "ProcessDistrictPerson": 13.99993896484375
+        },
+        "largest_children": [
+          {
+            "name": "ProcessDistrictPerson",
+            "seconds": 0.01399993896484375,
+            "started": 1794841781.163,
+            "ended": 1794841781.177,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841781.154,
+            "ended": 1794841781.154,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794841781.155,
+            "ended": 1794841781.155,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.023000001907348633,
+          "started": 1794841887.921,
+          "ended": 1794841887.944,
+          "failed": false,
+          "rootId": 101,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 10.999917984008789,
+          "ProcessCity": 0,
+          "ProcessDistrictPerson": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "ReadBack",
+            "seconds": 0.010999917984008789,
+            "started": 1794841887.923,
+            "ended": 1794841887.934,
+            "failed": false,
+            "rootId": 101,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ProcessDistrictPerson",
+            "seconds": 0.0009999275207519531,
+            "started": 1794841887.94,
+            "ended": 1794841887.941,
+            "failed": false,
+            "rootId": 101,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794841887.934,
+            "ended": 1794841887.934,
+            "failed": false,
+            "rootId": 101,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.019999980926513672,
+          "started": 1794841780.805,
+          "ended": 1794841780.825,
+          "failed": false,
+          "rootId": 56,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0,
+          "ProcessCity": 0,
+          "Native.GetMoveToPathEx": 1.9998550415039062,
+          "ProcessDistrictPerson": 15.000104904174805
+        },
+        "largest_children": [
+          {
+            "name": "ProcessDistrictPerson",
+            "seconds": 0.015000104904174805,
+            "started": 1794841780.81,
+            "ended": 1794841780.825,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.0019998550415039062,
+            "started": 1794841780.8170002,
+            "ended": 1794841780.819,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841780.806,
+            "ended": 1794841780.806,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794841780.806,
+            "ended": 1794841780.806,
+            "failed": false,
+            "rootId": 56,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.01699995994567871,
+          "started": 1794841885.108,
+          "ended": 1794841885.125,
+          "failed": false,
+          "rootId": 94,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0
+        },
+        "largest_children": [
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841885.109,
+            "ended": 1794841885.109,
+            "failed": false,
+            "rootId": 94,
+            "rootTurn": 90,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.014000177383422852,
+          "started": 1794841777.435,
+          "ended": 1794841777.4490001,
+          "failed": false,
+          "rootId": 46,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0,
+          "ProcessCity": 0.9999275207519531,
+          "ProcessBuilder": 9.000062942504883
+        },
+        "largest_children": [
+          {
+            "name": "ProcessBuilder",
+            "seconds": 0.009000062942504883,
+            "started": 1794841777.44,
+            "ended": 1794841777.4490001,
+            "failed": false,
+            "rootId": 46,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794841777.436,
+            "ended": 1794841777.437,
+            "failed": false,
+            "rootId": 46,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841777.436,
+            "ended": 1794841777.436,
+            "failed": false,
+            "rootId": 46,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.014000177383422852,
+          "started": 1794841881.912,
+          "ended": 1794841881.926,
+          "failed": false,
+          "rootId": 86,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0
+        },
+        "largest_children": [
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841881.913,
+            "ended": 1794841881.913,
+            "failed": false,
+            "rootId": 86,
+            "rootTurn": 90,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.01399993896484375,
+          "started": 1794841889.924,
+          "ended": 1794841889.938,
+          "failed": false,
+          "rootId": 108,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0,
+          "ProcessCity": 0,
+          "ProcessBuilder": 3.999948501586914
+        },
+        "largest_children": [
+          {
+            "name": "ProcessBuilder",
+            "seconds": 0.003999948501586914,
+            "started": 1794841889.933,
+            "ended": 1794841889.937,
+            "failed": false,
+            "rootId": 108,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841889.925,
+            "ended": 1794841889.925,
+            "failed": false,
+            "rootId": 108,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794841889.926,
+            "ended": 1794841889.926,
+            "failed": false,
+            "rootId": 108,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.013000011444091797,
+          "started": 1794841884.553,
+          "ended": 1794841884.566,
+          "failed": false,
+          "rootId": 93,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0.9999275207519531,
+          "ProcessCity": 0,
+          "ProcessBuilder": 6.999969482421875
+        },
+        "largest_children": [
+          {
+            "name": "ProcessBuilder",
+            "seconds": 0.006999969482421875,
+            "started": 1794841884.559,
+            "ended": 1794841884.566,
+            "failed": false,
+            "rootId": 93,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0009999275207519531,
+            "started": 1794841884.5540001,
+            "ended": 1794841884.555,
+            "failed": false,
+            "rootId": 93,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794841884.555,
+            "ended": 1794841884.555,
+            "failed": false,
+            "rootId": 93,
+            "rootTurn": 90,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.013000011444091797,
+          "started": 1794841888.4490001,
+          "ended": 1794841888.4620001,
+          "failed": false,
+          "rootId": 104,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "ReadBack": 0
+        },
+        "largest_children": [
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794841888.451,
+            "ended": 1794841888.451,
+            "failed": false,
+            "rootId": 104,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      }
+    ],
+    "facts_sha256": "7c605d0c38cc8836bb52e77f499461cc97d3d487e880d948b1d0eaa20a6ab1cf",
+    "limits": "Selected coarse children only, inclusive times; no summing nested rows or B_plan/whole performance pass. Root entry city count only; no inferred end-state. All active pre-observer entries retained; actual interval phases classified against observed anchors without physical-event inference."
+  },
+  "stats": [
+    {
+      "name": "ClearCivilianOverlap",
+      "count": 1,
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "max_ms": 0.0
+    },
+    {
+      "name": "Controller.RunNow",
+      "count": 110,
+      "p50_ms": 1.9998550415039062,
+      "p95_ms": 19.999980926513672,
+      "max_ms": 134.00006294250488
+    },
+    {
+      "name": "Native.GetMoveToPathEx",
+      "count": 10,
+      "p50_ms": 0.9999275207519531,
+      "p95_ms": 3.000020980834961,
+      "max_ms": 3.000020980834961
+    },
+    {
+      "name": "ProcessBuilder",
+      "count": 16,
+      "p50_ms": 3.000020980834961,
+      "p95_ms": 9.000062942504883,
+      "max_ms": 9.000062942504883
+    },
+    {
+      "name": "ProcessCity",
+      "count": 78,
+      "p50_ms": 0.0,
+      "p95_ms": 3.999948501586914,
+      "max_ms": 37.999868392944336
+    },
+    {
+      "name": "ProcessCreative",
+      "count": 3,
+      "p50_ms": 0.9999275207519531,
+      "p95_ms": 1.9998550415039062,
+      "max_ms": 1.9998550415039062
+    },
+    {
+      "name": "ProcessDistrictPerson",
+      "count": 8,
+      "p50_ms": 1.999974250793457,
+      "p95_ms": 15.000104904174805,
+      "max_ms": 15.000104904174805
+    },
+    {
+      "name": "ProcessSettler",
+      "count": 5,
+      "p50_ms": 6.999969482421875,
+      "p95_ms": 121.00005149841309,
+      "max_ms": 121.00005149841309
+    },
+    {
+      "name": "ProcessTrader",
+      "count": 3,
+      "p50_ms": 2.000093460083008,
+      "p95_ms": 4.999876022338867,
+      "max_ms": 4.999876022338867
+    },
+    {
+      "name": "ReadBack",
+      "count": 106,
+      "p50_ms": 0.0,
+      "p95_ms": 1.0001659393310547,
+      "max_ms": 10.999917984008789
+    }
+  ],
+  "all_raw_facts": {
+    "source": "baiqi157-controller-children-v5",
+    "capture": {
+      "utc": "2026-11-16T15:11:34.697761+00:00",
+      "token": "d8237bb8a6da4c91a921656e3055b49c",
+      "phase": "COMPLETE",
+      "turn": 90,
+      "requested_turns": [
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "capture_start": 1794841356.935,
+      "capture_stop": 1794841894.6430001,
+      "samples": 340,
+      "roots": 110,
+      "diagnosis_only": true
+    },
+    "meta": [
+      "110",
+      "340",
+      "340",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4096",
+      "1794841356.9349999",
+      "1794841894.6430001",
+      "11"
+    ],
+    "anchors": {
+      "86": 1794841467.78,
+      "87": 1794841582.897,
+      "88": 1794841678.246,
+      "89": 1794841777.433,
+      "90": 1794841880.754
+    },
+    "samples": [
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841677.83,
+        "ended": 1794841677.83,
+        "failed": false,
+        "rootId": 1,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841677.829,
+        "ended": 1794841677.83,
+        "failed": false,
+        "rootId": 1,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841678.246,
+        "ended": 1794841678.246,
+        "failed": false,
+        "rootId": 2,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.003999948501586914,
+        "started": 1794841678.246,
+        "ended": 1794841678.25,
+        "failed": false,
+        "rootId": 2,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841678.246,
+        "ended": 1794841678.25,
+        "failed": false,
+        "rootId": 2,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841678.276,
+        "ended": 1794841678.276,
+        "failed": false,
+        "rootId": 3,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841678.276,
+        "ended": 1794841678.276,
+        "failed": false,
+        "rootId": 3,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841678.276,
+        "ended": 1794841678.277,
+        "failed": false,
+        "rootId": 3,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841678.276,
+        "ended": 1794841678.277,
+        "failed": false,
+        "rootId": 3,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841678.295,
+        "ended": 1794841678.295,
+        "failed": false,
+        "rootId": 4,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841678.328,
+        "ended": 1794841678.328,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841678.329,
+        "ended": 1794841678.329,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.0,
+        "started": 1794841678.329,
+        "ended": 1794841678.329,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841678.328,
+        "ended": 1794841678.329,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841678.4190001,
+        "ended": 1794841678.4190001,
+        "failed": false,
+        "rootId": 6,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.003999948501586914,
+        "started": 1794841678.4190001,
+        "ended": 1794841678.423,
+        "failed": false,
+        "rootId": 6,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841678.4190001,
+        "ended": 1794841678.423,
+        "failed": false,
+        "rootId": 6,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841678.45,
+        "ended": 1794841678.45,
+        "failed": false,
+        "rootId": 7,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841678.45,
+        "ended": 1794841678.45,
+        "failed": false,
+        "rootId": 7,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCreative",
+        "seconds": 0.0,
+        "started": 1794841678.45,
+        "ended": 1794841678.45,
+        "failed": false,
+        "rootId": 7,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessTrader",
+        "seconds": 0.002000093460083008,
+        "started": 1794841678.451,
+        "ended": 1794841678.453,
+        "failed": false,
+        "rootId": 7,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003000020980834961,
+        "started": 1794841678.45,
+        "ended": 1794841678.453,
+        "failed": false,
+        "rootId": 7,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841678.676,
+        "ended": 1794841678.676,
+        "failed": false,
+        "rootId": 8,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841678.676,
+        "ended": 1794841678.676,
+        "failed": false,
+        "rootId": 8,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841678.68,
+        "ended": 1794841678.681,
+        "failed": false,
+        "rootId": 8,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessSettler",
+        "seconds": 0.006000041961669922,
+        "started": 1794841678.677,
+        "ended": 1794841678.683,
+        "failed": false,
+        "rootId": 8,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.006999969482421875,
+        "started": 1794841678.676,
+        "ended": 1794841678.683,
+        "failed": false,
+        "rootId": 8,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841679.0310001,
+        "ended": 1794841679.0310001,
+        "failed": false,
+        "rootId": 9,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841679.0310001,
+        "ended": 1794841679.0310001,
+        "failed": false,
+        "rootId": 9,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841679.0310001,
+        "ended": 1794841679.032,
+        "failed": false,
+        "rootId": 9,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841679.391,
+        "ended": 1794841679.391,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841679.391,
+        "ended": 1794841679.391,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0,
+        "started": 1794841679.394,
+        "ended": 1794841679.394,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessSettler",
+        "seconds": 0.003999948501586914,
+        "started": 1794841679.391,
+        "ended": 1794841679.395,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841679.391,
+        "ended": 1794841679.395,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841679.747,
+        "ended": 1794841679.747,
+        "failed": false,
+        "rootId": 11,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841679.747,
+        "ended": 1794841679.747,
+        "failed": false,
+        "rootId": 11,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.0,
+        "started": 1794841679.7480001,
+        "ended": 1794841679.7480001,
+        "failed": false,
+        "rootId": 11,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841679.747,
+        "ended": 1794841679.7480001,
+        "failed": false,
+        "rootId": 11,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841680.104,
+        "ended": 1794841680.104,
+        "failed": false,
+        "rootId": 12,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841680.104,
+        "ended": 1794841680.104,
+        "failed": false,
+        "rootId": 12,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841680.104,
+        "ended": 1794841680.105,
+        "failed": false,
+        "rootId": 12,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841680.461,
+        "ended": 1794841680.461,
+        "failed": false,
+        "rootId": 13,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841680.461,
+        "ended": 1794841680.461,
+        "failed": false,
+        "rootId": 13,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841680.461,
+        "ended": 1794841680.4620001,
+        "failed": false,
+        "rootId": 13,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841680.8170002,
+        "ended": 1794841680.8170002,
+        "failed": false,
+        "rootId": 14,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841680.8170002,
+        "ended": 1794841680.8170002,
+        "failed": false,
+        "rootId": 14,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841680.819,
+        "ended": 1794841680.82,
+        "failed": false,
+        "rootId": 14,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.003000020980834961,
+        "started": 1794841680.818,
+        "ended": 1794841680.821,
+        "failed": false,
+        "rootId": 14,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841680.8170002,
+        "ended": 1794841680.821,
+        "failed": false,
+        "rootId": 14,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841681.198,
+        "ended": 1794841681.1990001,
+        "failed": false,
+        "rootId": 15,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841681.1990001,
+        "ended": 1794841681.1990001,
+        "failed": false,
+        "rootId": 15,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.009999990463256836,
+        "started": 1794841681.198,
+        "ended": 1794841681.208,
+        "failed": false,
+        "rootId": 15,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841681.5540001,
+        "ended": 1794841681.5540001,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841681.5540001,
+        "ended": 1794841681.5540001,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0,
+        "started": 1794841681.556,
+        "ended": 1794841681.556,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.002000093460083008,
+        "started": 1794841681.556,
+        "ended": 1794841681.558,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841681.558,
+        "ended": 1794841681.559,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.003000020980834961,
+        "started": 1794841681.56,
+        "ended": 1794841681.563,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.007999897003173828,
+        "started": 1794841681.555,
+        "ended": 1794841681.563,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.008999824523925781,
+        "started": 1794841681.5540001,
+        "ended": 1794841681.563,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841681.914,
+        "ended": 1794841681.914,
+        "failed": false,
+        "rootId": 17,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841681.914,
+        "ended": 1794841681.914,
+        "failed": false,
+        "rootId": 17,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841681.914,
+        "ended": 1794841681.915,
+        "failed": false,
+        "rootId": 17,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841682.274,
+        "ended": 1794841682.274,
+        "failed": false,
+        "rootId": 18,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841682.274,
+        "ended": 1794841682.274,
+        "failed": false,
+        "rootId": 18,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841682.275,
+        "ended": 1794841682.276,
+        "failed": false,
+        "rootId": 18,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ClearCivilianOverlap",
+        "seconds": 0.0,
+        "started": 1794841682.276,
+        "ended": 1794841682.276,
+        "failed": false,
+        "rootId": 18,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.002000093460083008,
+        "started": 1794841682.274,
+        "ended": 1794841682.276,
+        "failed": false,
+        "rootId": 18,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841682.635,
+        "ended": 1794841682.635,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841682.635,
+        "ended": 1794841682.635,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841682.635,
+        "ended": 1794841682.6360002,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841682.994,
+        "ended": 1794841682.994,
+        "failed": false,
+        "rootId": 20,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841682.994,
+        "ended": 1794841682.994,
+        "failed": false,
+        "rootId": 20,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841682.994,
+        "ended": 1794841682.9950001,
+        "failed": false,
+        "rootId": 20,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841683.354,
+        "ended": 1794841683.354,
+        "failed": false,
+        "rootId": 21,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841683.354,
+        "ended": 1794841683.354,
+        "failed": false,
+        "rootId": 21,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841683.354,
+        "ended": 1794841683.355,
+        "failed": false,
+        "rootId": 21,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841683.596,
+        "ended": 1794841683.596,
+        "failed": false,
+        "rootId": 22,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841683.596,
+        "ended": 1794841683.596,
+        "failed": false,
+        "rootId": 22,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841683.596,
+        "ended": 1794841683.5970001,
+        "failed": false,
+        "rootId": 22,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841683.718,
+        "ended": 1794841683.718,
+        "failed": false,
+        "rootId": 23,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841683.718,
+        "ended": 1794841683.718,
+        "failed": false,
+        "rootId": 23,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841683.718,
+        "ended": 1794841683.719,
+        "failed": false,
+        "rootId": 23,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841684.078,
+        "ended": 1794841684.078,
+        "failed": false,
+        "rootId": 24,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841684.078,
+        "ended": 1794841684.078,
+        "failed": false,
+        "rootId": 24,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841684.078,
+        "ended": 1794841684.079,
+        "failed": false,
+        "rootId": 24,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841684.437,
+        "ended": 1794841684.437,
+        "failed": false,
+        "rootId": 25,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841684.437,
+        "ended": 1794841684.437,
+        "failed": false,
+        "rootId": 25,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841684.437,
+        "ended": 1794841684.438,
+        "failed": false,
+        "rootId": 25,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841684.795,
+        "ended": 1794841684.795,
+        "failed": false,
+        "rootId": 26,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841684.795,
+        "ended": 1794841684.795,
+        "failed": false,
+        "rootId": 26,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841684.795,
+        "ended": 1794841684.796,
+        "failed": false,
+        "rootId": 26,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841685.153,
+        "ended": 1794841685.153,
+        "failed": false,
+        "rootId": 27,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841685.153,
+        "ended": 1794841685.153,
+        "failed": false,
+        "rootId": 27,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841685.153,
+        "ended": 1794841685.154,
+        "failed": false,
+        "rootId": 27,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841685.513,
+        "ended": 1794841685.513,
+        "failed": false,
+        "rootId": 28,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841685.513,
+        "ended": 1794841685.513,
+        "failed": false,
+        "rootId": 28,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841685.513,
+        "ended": 1794841685.514,
+        "failed": false,
+        "rootId": 28,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841685.874,
+        "ended": 1794841685.874,
+        "failed": false,
+        "rootId": 29,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841685.874,
+        "ended": 1794841685.874,
+        "failed": false,
+        "rootId": 29,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0019998550415039062,
+        "started": 1794841685.8730001,
+        "ended": 1794841685.875,
+        "failed": false,
+        "rootId": 29,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841686.234,
+        "ended": 1794841686.234,
+        "failed": false,
+        "rootId": 30,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841686.234,
+        "ended": 1794841686.234,
+        "failed": false,
+        "rootId": 30,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841686.234,
+        "ended": 1794841686.2350001,
+        "failed": false,
+        "rootId": 30,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841686.593,
+        "ended": 1794841686.593,
+        "failed": false,
+        "rootId": 31,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841686.593,
+        "ended": 1794841686.593,
+        "failed": false,
+        "rootId": 31,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841686.593,
+        "ended": 1794841686.594,
+        "failed": false,
+        "rootId": 31,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841686.957,
+        "ended": 1794841686.957,
+        "failed": false,
+        "rootId": 32,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841686.957,
+        "ended": 1794841686.957,
+        "failed": false,
+        "rootId": 32,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841686.957,
+        "ended": 1794841686.958,
+        "failed": false,
+        "rootId": 32,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841687.3170002,
+        "ended": 1794841687.3170002,
+        "failed": false,
+        "rootId": 33,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841687.3170002,
+        "ended": 1794841687.3170002,
+        "failed": false,
+        "rootId": 33,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841687.3170002,
+        "ended": 1794841687.318,
+        "failed": false,
+        "rootId": 33,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841687.6790001,
+        "ended": 1794841687.6790001,
+        "failed": false,
+        "rootId": 34,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841687.6790001,
+        "ended": 1794841687.6790001,
+        "failed": false,
+        "rootId": 34,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841687.6790001,
+        "ended": 1794841687.68,
+        "failed": false,
+        "rootId": 34,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841688.043,
+        "ended": 1794841688.043,
+        "failed": false,
+        "rootId": 35,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841688.043,
+        "ended": 1794841688.043,
+        "failed": false,
+        "rootId": 35,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841688.043,
+        "ended": 1794841688.0440001,
+        "failed": false,
+        "rootId": 35,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841773.289,
+        "ended": 1794841773.29,
+        "failed": false,
+        "rootId": 36,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003000020980834961,
+        "started": 1794841773.287,
+        "ended": 1794841773.29,
+        "failed": false,
+        "rootId": 36,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841773.7020001,
+        "ended": 1794841773.7020001,
+        "failed": false,
+        "rootId": 37,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841773.701,
+        "ended": 1794841773.7020001,
+        "failed": false,
+        "rootId": 37,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841774.082,
+        "ended": 1794841774.082,
+        "failed": false,
+        "rootId": 38,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841774.081,
+        "ended": 1794841774.082,
+        "failed": false,
+        "rootId": 38,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841774.44,
+        "ended": 1794841774.44,
+        "failed": false,
+        "rootId": 39,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0019998550415039062,
+        "started": 1794841774.4390001,
+        "ended": 1794841774.441,
+        "failed": false,
+        "rootId": 39,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841774.81,
+        "ended": 1794841774.81,
+        "failed": false,
+        "rootId": 40,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841774.809,
+        "ended": 1794841774.81,
+        "failed": false,
+        "rootId": 40,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841775.175,
+        "ended": 1794841775.175,
+        "failed": false,
+        "rootId": 41,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841775.174,
+        "ended": 1794841775.175,
+        "failed": false,
+        "rootId": 41,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841775.551,
+        "ended": 1794841775.551,
+        "failed": false,
+        "rootId": 42,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841775.551,
+        "ended": 1794841775.551,
+        "failed": false,
+        "rootId": 42,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841775.924,
+        "ended": 1794841775.924,
+        "failed": false,
+        "rootId": 43,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841775.924,
+        "ended": 1794841775.924,
+        "failed": false,
+        "rootId": 43,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841776.275,
+        "ended": 1794841776.275,
+        "failed": false,
+        "rootId": 44,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841776.274,
+        "ended": 1794841776.275,
+        "failed": false,
+        "rootId": 44,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841776.631,
+        "ended": 1794841776.631,
+        "failed": false,
+        "rootId": 45,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841776.631,
+        "ended": 1794841776.631,
+        "failed": false,
+        "rootId": 45,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841777.436,
+        "ended": 1794841777.436,
+        "failed": false,
+        "rootId": 46,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841777.436,
+        "ended": 1794841777.437,
+        "failed": false,
+        "rootId": 46,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.009000062942504883,
+        "started": 1794841777.44,
+        "ended": 1794841777.4490001,
+        "failed": false,
+        "rootId": 46,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.014000177383422852,
+        "started": 1794841777.435,
+        "ended": 1794841777.4490001,
+        "failed": false,
+        "rootId": 46,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841777.638,
+        "ended": 1794841777.638,
+        "failed": false,
+        "rootId": 47,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841777.639,
+        "ended": 1794841777.639,
+        "failed": false,
+        "rootId": 47,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.006000041961669922,
+        "started": 1794841777.64,
+        "ended": 1794841777.6460001,
+        "failed": false,
+        "rootId": 47,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.00800013542175293,
+        "started": 1794841777.638,
+        "ended": 1794841777.6460001,
+        "failed": false,
+        "rootId": 47,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841778.05,
+        "ended": 1794841778.05,
+        "failed": false,
+        "rootId": 48,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841778.116,
+        "ended": 1794841778.116,
+        "failed": false,
+        "rootId": 49,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.002000093460083008,
+        "started": 1794841778.116,
+        "ended": 1794841778.118,
+        "failed": false,
+        "rootId": 49,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841778.3930001,
+        "ended": 1794841778.3930001,
+        "failed": false,
+        "rootId": 50,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841778.3930001,
+        "ended": 1794841778.3930001,
+        "failed": false,
+        "rootId": 50,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.003000020980834961,
+        "started": 1794841778.394,
+        "ended": 1794841778.397,
+        "failed": false,
+        "rootId": 50,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841778.3930001,
+        "ended": 1794841778.397,
+        "failed": false,
+        "rootId": 50,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841778.776,
+        "ended": 1794841778.776,
+        "failed": false,
+        "rootId": 51,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841778.776,
+        "ended": 1794841778.776,
+        "failed": false,
+        "rootId": 51,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841778.777,
+        "ended": 1794841778.778,
+        "failed": false,
+        "rootId": 51,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.002000093460083008,
+        "started": 1794841778.776,
+        "ended": 1794841778.778,
+        "failed": false,
+        "rootId": 51,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841779.234,
+        "ended": 1794841779.2350001,
+        "failed": false,
+        "rootId": 52,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841779.2350001,
+        "ended": 1794841779.2350001,
+        "failed": false,
+        "rootId": 52,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCreative",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841779.239,
+        "ended": 1794841779.24,
+        "failed": false,
+        "rootId": 52,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.010999917984008789,
+        "started": 1794841779.233,
+        "ended": 1794841779.244,
+        "failed": false,
+        "rootId": 52,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841779.675,
+        "ended": 1794841779.675,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841779.676,
+        "ended": 1794841779.676,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0019998550415039062,
+        "started": 1794841779.7020001,
+        "ended": 1794841779.704,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessSettler",
+        "seconds": 0.03600001335144043,
+        "started": 1794841779.678,
+        "ended": 1794841779.714,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.03900003433227539,
+        "started": 1794841779.675,
+        "ended": 1794841779.714,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841780.247,
+        "ended": 1794841780.247,
+        "failed": false,
+        "rootId": 54,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841780.247,
+        "ended": 1794841780.247,
+        "failed": false,
+        "rootId": 54,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841780.253,
+        "ended": 1794841780.254,
+        "failed": false,
+        "rootId": 54,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessSettler",
+        "seconds": 0.006999969482421875,
+        "started": 1794841780.2480001,
+        "ended": 1794841780.255,
+        "failed": false,
+        "rootId": 54,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.009000062942504883,
+        "started": 1794841780.247,
+        "ended": 1794841780.256,
+        "failed": false,
+        "rootId": 54,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841780.399,
+        "ended": 1794841780.399,
+        "failed": false,
+        "rootId": 55,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841780.399,
+        "ended": 1794841780.399,
+        "failed": false,
+        "rootId": 55,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.0,
+        "started": 1794841780.4,
+        "ended": 1794841780.4,
+        "failed": false,
+        "rootId": 55,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.002000093460083008,
+        "started": 1794841780.398,
+        "ended": 1794841780.4,
+        "failed": false,
+        "rootId": 55,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841780.806,
+        "ended": 1794841780.806,
+        "failed": false,
+        "rootId": 56,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841780.806,
+        "ended": 1794841780.806,
+        "failed": false,
+        "rootId": 56,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "seconds": 0.0019998550415039062,
+        "started": 1794841780.8170002,
+        "ended": 1794841780.819,
+        "failed": false,
+        "rootId": 56,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.015000104904174805,
+        "started": 1794841780.81,
+        "ended": 1794841780.825,
+        "failed": false,
+        "rootId": 56,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.019999980926513672,
+        "started": 1794841780.805,
+        "ended": 1794841780.825,
+        "failed": false,
+        "rootId": 56,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841781.154,
+        "ended": 1794841781.154,
+        "failed": false,
+        "rootId": 57,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841781.155,
+        "ended": 1794841781.155,
+        "failed": false,
+        "rootId": 57,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.01399993896484375,
+        "started": 1794841781.163,
+        "ended": 1794841781.177,
+        "failed": false,
+        "rootId": 57,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.023999929428100586,
+        "started": 1794841781.153,
+        "ended": 1794841781.177,
+        "failed": false,
+        "rootId": 57,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841781.504,
+        "ended": 1794841781.505,
+        "failed": false,
+        "rootId": 58,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841781.505,
+        "ended": 1794841781.505,
+        "failed": false,
+        "rootId": 58,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessTrader",
+        "seconds": 0.002000093460083008,
+        "started": 1794841781.506,
+        "ended": 1794841781.5080001,
+        "failed": false,
+        "rootId": 58,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.004000186920166016,
+        "started": 1794841781.504,
+        "ended": 1794841781.5080001,
+        "failed": false,
+        "rootId": 58,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841781.868,
+        "ended": 1794841781.868,
+        "failed": false,
+        "rootId": 59,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841781.868,
+        "ended": 1794841781.868,
+        "failed": false,
+        "rootId": 59,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.002000093460083008,
+        "started": 1794841781.868,
+        "ended": 1794841781.8700001,
+        "failed": false,
+        "rootId": 59,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841782.227,
+        "ended": 1794841782.227,
+        "failed": false,
+        "rootId": 60,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841782.227,
+        "ended": 1794841782.227,
+        "failed": false,
+        "rootId": 60,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.004999876022338867,
+        "started": 1794841782.226,
+        "ended": 1794841782.231,
+        "failed": false,
+        "rootId": 60,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841782.571,
+        "ended": 1794841782.571,
+        "failed": false,
+        "rootId": 61,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841782.571,
+        "ended": 1794841782.571,
+        "failed": false,
+        "rootId": 61,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841782.571,
+        "ended": 1794841782.572,
+        "failed": false,
+        "rootId": 61,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841782.932,
+        "ended": 1794841782.932,
+        "failed": false,
+        "rootId": 62,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841782.932,
+        "ended": 1794841782.932,
+        "failed": false,
+        "rootId": 62,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841782.932,
+        "ended": 1794841782.933,
+        "failed": false,
+        "rootId": 62,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841782.94,
+        "ended": 1794841782.94,
+        "failed": false,
+        "rootId": 63,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841782.94,
+        "ended": 1794841782.94,
+        "failed": false,
+        "rootId": 63,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841782.94,
+        "ended": 1794841782.941,
+        "failed": false,
+        "rootId": 63,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841783.299,
+        "ended": 1794841783.299,
+        "failed": false,
+        "rootId": 64,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841783.299,
+        "ended": 1794841783.299,
+        "failed": false,
+        "rootId": 64,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841783.299,
+        "ended": 1794841783.3,
+        "failed": false,
+        "rootId": 64,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841783.6920002,
+        "ended": 1794841783.6920002,
+        "failed": false,
+        "rootId": 65,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841783.6920002,
+        "ended": 1794841783.6920002,
+        "failed": false,
+        "rootId": 65,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841783.691,
+        "ended": 1794841783.695,
+        "failed": false,
+        "rootId": 65,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841784.05,
+        "ended": 1794841784.05,
+        "failed": false,
+        "rootId": 66,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841784.051,
+        "ended": 1794841784.051,
+        "failed": false,
+        "rootId": 66,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.005000114440917969,
+        "started": 1794841784.05,
+        "ended": 1794841784.055,
+        "failed": false,
+        "rootId": 66,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841784.426,
+        "ended": 1794841784.426,
+        "failed": false,
+        "rootId": 67,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841784.426,
+        "ended": 1794841784.426,
+        "failed": false,
+        "rootId": 67,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841784.426,
+        "ended": 1794841784.43,
+        "failed": false,
+        "rootId": 67,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841784.792,
+        "ended": 1794841784.792,
+        "failed": false,
+        "rootId": 68,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841784.792,
+        "ended": 1794841784.792,
+        "failed": false,
+        "rootId": 68,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003000020980834961,
+        "started": 1794841784.7910001,
+        "ended": 1794841784.7940001,
+        "failed": false,
+        "rootId": 68,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841784.907,
+        "ended": 1794841784.907,
+        "failed": false,
+        "rootId": 69,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841784.907,
+        "ended": 1794841784.907,
+        "failed": false,
+        "rootId": 69,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841784.907,
+        "ended": 1794841784.908,
+        "failed": false,
+        "rootId": 69,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841785.1430001,
+        "ended": 1794841785.1430001,
+        "failed": false,
+        "rootId": 70,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841785.1430001,
+        "ended": 1794841785.1430001,
+        "failed": false,
+        "rootId": 70,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841785.1430001,
+        "ended": 1794841785.144,
+        "failed": false,
+        "rootId": 70,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841785.5,
+        "ended": 1794841785.5,
+        "failed": false,
+        "rootId": 71,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841785.5,
+        "ended": 1794841785.5,
+        "failed": false,
+        "rootId": 71,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841785.5,
+        "ended": 1794841785.501,
+        "failed": false,
+        "rootId": 71,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841785.858,
+        "ended": 1794841785.858,
+        "failed": false,
+        "rootId": 72,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841785.858,
+        "ended": 1794841785.858,
+        "failed": false,
+        "rootId": 72,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841785.858,
+        "ended": 1794841785.859,
+        "failed": false,
+        "rootId": 72,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841786.218,
+        "ended": 1794841786.218,
+        "failed": false,
+        "rootId": 73,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841786.218,
+        "ended": 1794841786.218,
+        "failed": false,
+        "rootId": 73,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841786.218,
+        "ended": 1794841786.218,
+        "failed": false,
+        "rootId": 73,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841786.575,
+        "ended": 1794841786.575,
+        "failed": false,
+        "rootId": 74,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841786.575,
+        "ended": 1794841786.575,
+        "failed": false,
+        "rootId": 74,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841786.575,
+        "ended": 1794841786.576,
+        "failed": false,
+        "rootId": 74,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841786.933,
+        "ended": 1794841786.933,
+        "failed": false,
+        "rootId": 75,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841786.933,
+        "ended": 1794841786.933,
+        "failed": false,
+        "rootId": 75,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841786.933,
+        "ended": 1794841786.934,
+        "failed": false,
+        "rootId": 75,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841787.289,
+        "ended": 1794841787.289,
+        "failed": false,
+        "rootId": 76,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841787.289,
+        "ended": 1794841787.289,
+        "failed": false,
+        "rootId": 76,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841787.289,
+        "ended": 1794841787.29,
+        "failed": false,
+        "rootId": 76,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841878.915,
+        "ended": 1794841878.915,
+        "failed": false,
+        "rootId": 77,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841878.915,
+        "ended": 1794841878.915,
+        "failed": false,
+        "rootId": 77,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841879.3170002,
+        "ended": 1794841879.3170002,
+        "failed": false,
+        "rootId": 78,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841879.316,
+        "ended": 1794841879.3170002,
+        "failed": false,
+        "rootId": 78,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841880.053,
+        "ended": 1794841880.053,
+        "failed": false,
+        "rootId": 79,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841880.052,
+        "ended": 1794841880.053,
+        "failed": false,
+        "rootId": 79,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841880.4060001,
+        "ended": 1794841880.4060001,
+        "failed": false,
+        "rootId": 80,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841880.405,
+        "ended": 1794841880.4060001,
+        "failed": false,
+        "rootId": 80,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "whole_before_observer"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841880.754,
+        "ended": 1794841880.754,
+        "failed": false,
+        "rootId": 81,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.003000020980834961,
+        "started": 1794841880.755,
+        "ended": 1794841880.7580001,
+        "failed": false,
+        "rootId": 81,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.004000186920166016,
+        "started": 1794841880.754,
+        "ended": 1794841880.7580001,
+        "failed": false,
+        "rootId": 81,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841880.788,
+        "ended": 1794841880.788,
+        "failed": false,
+        "rootId": 82,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841880.788,
+        "ended": 1794841880.788,
+        "failed": false,
+        "rootId": 82,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.002000093460083008,
+        "started": 1794841880.789,
+        "ended": 1794841880.7910001,
+        "failed": false,
+        "rootId": 82,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003000020980834961,
+        "started": 1794841880.788,
+        "ended": 1794841880.7910001,
+        "failed": false,
+        "rootId": 82,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0,
+        "started": 1794841880.8240001,
+        "ended": 1794841880.8240001,
+        "failed": false,
+        "rootId": 83,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841881.165,
+        "ended": 1794841881.165,
+        "failed": false,
+        "rootId": 84,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841881.165,
+        "ended": 1794841881.165,
+        "failed": false,
+        "rootId": 84,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.003000020980834961,
+        "started": 1794841881.165,
+        "ended": 1794841881.168,
+        "failed": false,
+        "rootId": 84,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003000020980834961,
+        "started": 1794841881.165,
+        "ended": 1794841881.168,
+        "failed": false,
+        "rootId": 84,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841881.548,
+        "ended": 1794841881.549,
+        "failed": false,
+        "rootId": 85,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841881.549,
+        "ended": 1794841881.549,
+        "failed": false,
+        "rootId": 85,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.003000020980834961,
+        "started": 1794841881.55,
+        "ended": 1794841881.553,
+        "failed": false,
+        "rootId": 85,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.006000041961669922,
+        "started": 1794841881.547,
+        "ended": 1794841881.553,
+        "failed": false,
+        "rootId": 85,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841881.913,
+        "ended": 1794841881.913,
+        "failed": false,
+        "rootId": 86,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.014000177383422852,
+        "started": 1794841881.912,
+        "ended": 1794841881.926,
+        "failed": false,
+        "rootId": 86,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841882.278,
+        "ended": 1794841882.278,
+        "failed": false,
+        "rootId": 87,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.006999969482421875,
+        "started": 1794841882.278,
+        "ended": 1794841882.285,
+        "failed": false,
+        "rootId": 87,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841882.652,
+        "ended": 1794841882.652,
+        "failed": false,
+        "rootId": 88,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.037999868392944336,
+        "started": 1794841882.653,
+        "ended": 1794841882.691,
+        "failed": false,
+        "rootId": 88,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.03900003433227539,
+        "started": 1794841882.652,
+        "ended": 1794841882.691,
+        "failed": false,
+        "rootId": 88,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841883.003,
+        "ended": 1794841883.003,
+        "failed": false,
+        "rootId": 89,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841883.003,
+        "ended": 1794841883.004,
+        "failed": false,
+        "rootId": 89,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841883.361,
+        "ended": 1794841883.361,
+        "failed": false,
+        "rootId": 90,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841883.361,
+        "ended": 1794841883.361,
+        "failed": false,
+        "rootId": 90,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841883.361,
+        "ended": 1794841883.362,
+        "failed": false,
+        "rootId": 90,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841883.361,
+        "ended": 1794841883.362,
+        "failed": false,
+        "rootId": 90,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841883.718,
+        "ended": 1794841883.718,
+        "failed": false,
+        "rootId": 91,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.005000114440917969,
+        "started": 1794841883.718,
+        "ended": 1794841883.723,
+        "failed": false,
+        "rootId": 91,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.005000114440917969,
+        "started": 1794841883.718,
+        "ended": 1794841883.723,
+        "failed": false,
+        "rootId": 91,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841884.0770001,
+        "ended": 1794841884.078,
+        "failed": false,
+        "rootId": 92,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841884.078,
+        "ended": 1794841884.078,
+        "failed": false,
+        "rootId": 92,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessTrader",
+        "seconds": 0.004999876022338867,
+        "started": 1794841884.078,
+        "ended": 1794841884.083,
+        "failed": false,
+        "rootId": 92,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.00599980354309082,
+        "started": 1794841884.0770001,
+        "ended": 1794841884.083,
+        "failed": false,
+        "rootId": 92,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841884.5540001,
+        "ended": 1794841884.555,
+        "failed": false,
+        "rootId": 93,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841884.555,
+        "ended": 1794841884.555,
+        "failed": false,
+        "rootId": 93,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.006999969482421875,
+        "started": 1794841884.559,
+        "ended": 1794841884.566,
+        "failed": false,
+        "rootId": 93,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.013000011444091797,
+        "started": 1794841884.553,
+        "ended": 1794841884.566,
+        "failed": false,
+        "rootId": 93,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841885.109,
+        "ended": 1794841885.109,
+        "failed": false,
+        "rootId": 94,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.01699995994567871,
+        "started": 1794841885.108,
+        "ended": 1794841885.125,
+        "failed": false,
+        "rootId": 94,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841885.331,
+        "ended": 1794841885.332,
+        "failed": false,
+        "rootId": 95,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.010000228881835938,
+        "started": 1794841885.33,
+        "ended": 1794841885.3400002,
+        "failed": false,
+        "rootId": 95,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841885.682,
+        "ended": 1794841885.682,
+        "failed": false,
+        "rootId": 96,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841885.683,
+        "ended": 1794841885.683,
+        "failed": false,
+        "rootId": 96,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.005000114440917969,
+        "started": 1794841885.684,
+        "ended": 1794841885.6890001,
+        "failed": false,
+        "rootId": 96,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0070002079010009766,
+        "started": 1794841885.682,
+        "ended": 1794841885.6890001,
+        "failed": false,
+        "rootId": 96,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841886.106,
+        "ended": 1794841886.106,
+        "failed": false,
+        "rootId": 97,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841886.106,
+        "ended": 1794841886.106,
+        "failed": false,
+        "rootId": 97,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841886.107,
+        "ended": 1794841886.108,
+        "failed": false,
+        "rootId": 97,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.002000093460083008,
+        "started": 1794841886.106,
+        "ended": 1794841886.108,
+        "failed": false,
+        "rootId": 97,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841886.471,
+        "ended": 1794841886.4720001,
+        "failed": false,
+        "rootId": 98,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841886.4720001,
+        "ended": 1794841886.473,
+        "failed": false,
+        "rootId": 98,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessCreative",
+        "seconds": 0.0019998550415039062,
+        "started": 1794841886.4750001,
+        "ended": 1794841886.477,
+        "failed": false,
+        "rootId": 98,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "ProcessSettler",
+        "seconds": 0.12100005149841309,
+        "started": 1794841886.483,
+        "ended": 1794841886.604,
+        "failed": false,
+        "rootId": 98,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.13400006294250488,
+        "started": 1794841886.47,
+        "ended": 1794841886.604,
+        "failed": false,
+        "rootId": 98,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.00599980354309082,
+        "started": 1794841886.8730001,
+        "ended": 1794841886.879,
+        "failed": false,
+        "rootId": 99,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.007999897003173828,
+        "started": 1794841886.871,
+        "ended": 1794841886.879,
+        "failed": false,
+        "rootId": 99,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.003000020980834961,
+        "started": 1794841887.266,
+        "ended": 1794841887.269,
+        "failed": false,
+        "rootId": 100,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003999948501586914,
+        "started": 1794841887.265,
+        "ended": 1794841887.269,
+        "failed": false,
+        "rootId": 100,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.010999917984008789,
+        "started": 1794841887.923,
+        "ended": 1794841887.934,
+        "failed": false,
+        "rootId": 101,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841887.934,
+        "ended": 1794841887.934,
+        "failed": false,
+        "rootId": 101,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessDistrictPerson",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841887.94,
+        "ended": 1794841887.941,
+        "failed": false,
+        "rootId": 101,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.023000001907348633,
+        "started": 1794841887.921,
+        "ended": 1794841887.944,
+        "failed": false,
+        "rootId": 101,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.0010001659393310547,
+        "started": 1794841888.086,
+        "ended": 1794841888.0870001,
+        "failed": false,
+        "rootId": 102,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841888.2680001,
+        "ended": 1794841888.2680001,
+        "failed": false,
+        "rootId": 103,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0009999275207519531,
+        "started": 1794841888.2680001,
+        "ended": 1794841888.269,
+        "failed": false,
+        "rootId": 103,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.004000186920166016,
+        "started": 1794841888.274,
+        "ended": 1794841888.278,
+        "failed": false,
+        "rootId": 103,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.012000083923339844,
+        "started": 1794841888.267,
+        "ended": 1794841888.279,
+        "failed": false,
+        "rootId": 103,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841888.451,
+        "ended": 1794841888.451,
+        "failed": false,
+        "rootId": 104,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.013000011444091797,
+        "started": 1794841888.4490001,
+        "ended": 1794841888.4620001,
+        "failed": false,
+        "rootId": 104,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841888.8170002,
+        "ended": 1794841888.8170002,
+        "failed": false,
+        "rootId": 105,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.006999969482421875,
+        "started": 1794841888.816,
+        "ended": 1794841888.823,
+        "failed": false,
+        "rootId": 105,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841889.1890001,
+        "ended": 1794841889.1890001,
+        "failed": false,
+        "rootId": 106,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841889.1890001,
+        "ended": 1794841889.1890001,
+        "failed": false,
+        "rootId": 106,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.0019998550415039062,
+        "started": 1794841889.193,
+        "ended": 1794841889.195,
+        "failed": false,
+        "rootId": 106,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.006999969482421875,
+        "started": 1794841889.188,
+        "ended": 1794841889.195,
+        "failed": false,
+        "rootId": 106,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841889.538,
+        "ended": 1794841889.538,
+        "failed": false,
+        "rootId": 107,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.003000020980834961,
+        "started": 1794841889.538,
+        "ended": 1794841889.5410001,
+        "failed": false,
+        "rootId": 107,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841889.925,
+        "ended": 1794841889.925,
+        "failed": false,
+        "rootId": 108,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessCity",
+        "seconds": 0.0,
+        "started": 1794841889.926,
+        "ended": 1794841889.926,
+        "failed": false,
+        "rootId": 108,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "ProcessBuilder",
+        "seconds": 0.003999948501586914,
+        "started": 1794841889.933,
+        "ended": 1794841889.937,
+        "failed": false,
+        "rootId": 108,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.01399993896484375,
+        "started": 1794841889.924,
+        "ended": 1794841889.938,
+        "failed": false,
+        "rootId": 108,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841890.283,
+        "ended": 1794841890.283,
+        "failed": false,
+        "rootId": 109,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.009999990463256836,
+        "started": 1794841890.282,
+        "ended": 1794841890.292,
+        "failed": false,
+        "rootId": 109,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "ReadBack",
+        "seconds": 0.0,
+        "started": 1794841890.705,
+        "ended": 1794841890.705,
+        "failed": false,
+        "rootId": 110,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Controller.RunNow",
+        "seconds": 0.006999969482421875,
+        "started": 1794841890.704,
+        "ended": 1794841890.711,
+        "failed": false,
+        "rootId": 110,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      }
+    ]
+  },
+  "closed": {
+    "checkpoint": {
+      "utc": "2026-11-16T15:12:23.066119+00:00",
+      "name": "Baiqi_P6_20261116_V157_ControllerCoarse90.Civ6Save",
+      "bytes": 518835,
+      "sha256": "40c36117ae9eebb97d7f00ad3d9357d79d48f4139695d7e2960c8b72f31e3ce2",
+      "stable_repeated_read": true
+    },
+    "formal_finish": {
+      "utc": "2026-11-16T15:13:08.485144+00:00",
+      "nonce": "f5d348f648654fdb823fd41b9fdf9e1f",
+      "diagnostic_capture_complete": true,
+      "all_raw_exported": true,
+      "14_bindings_restored_and_exact_event_retired": true,
+      "HTTP_during_capture": 0,
+      "B_plan_PASS_claim": false
+    },
+    "process_cleanup": {
+      "utc": "2026-11-16T15:16:41.198505+00:00",
+      "exit_code": 15,
+      "terminate_count": 1,
+      "kill_escalations": 0,
+      "natural_exit_claimed": false
+    },
+    "official_exit_once": true,
+    "Steam_mode": "offline",
+    "offline_proof_UTC": "2026-11-16T14:55:40.905421+00:00",
+    "offline_proof_age_seconds": 4.285922,
+    "CPU": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "program_sha256": "1adb1a2bca31f9db6be14d6e22d30d2dfcb6dcd8de3abd9a81e7bea396b39417",
+    "formal_model_HTTP": 0,
+    "formal_builds": 0,
+    "formal_heavy_checks": 0
+  },
+  "interpretation": "New root98@90 entry10cities134ms contains ProcessSettler121ms, Creative2ms/City1ms/ReadBack1ms. Root53@89 entry10cities39ms contains Settler36ms and one NativePath2ms. Root88@90 entry10cities39ms contains City38ms. Typed diagnosis identifies this NEW call only. Root exit city count unrecorded: do not call it pure-ten or equate it with prior178/250ms pure-ten failures. Native proxy covers only GetMoveToPathEx inside PathStep; no row does not exclude all Native work. Nested rows not summed.",
+  "preparation_corrections": {
+    "capture_attempt_children": {
+      "before_capture_attempt": true,
+      "episode_state": {
+        "utc": "2026-11-16T14:57:31.219063+00:00",
+        "phase": "WAITING_CURRENT_LOAD",
+        "load_phase": "load",
+        "counts": [
+          1,
+          0,
+          0
+        ]
+      },
+      "actual_children": [
+        "ReadBack",
+        "ProcessCity",
+        "ProcessBuilder",
+        "ProcessSettler",
+        "ProcessTrader",
+        "ProcessMissionary",
+        "ProcessNaturalist",
+        "ProcessArchaeologist",
+        "ProcessDistrictPerson",
+        "ProcessCreative",
+        "ProcessProphet",
+        "ClearCivilianOverlap"
+      ],
+      "change": "Only future capture attempt declared child names corrected to actual prepared package; no observer/product/counters/gameplay change. Collector already verifies actual selected names."
+    },
+    "limits": "Future capture intent list corrected before any run/capture attempt; actual instrumented bindings/package/collector already correct. No counter reset/gameplay replay. Root function/metadata semantics unchanged."
+  },
+  "model919": {
+    "sources": 17,
+    "source_bytes": 466450,
+    "actual_POST": "2026-11-16T15:15:32.523719+00:00",
+    "actual_END": "2026-11-16T15:15:32.576363+00:00",
+    "http_status": 404,
+    "total_ms": 52.82880016602576,
+    "candidate_count": 0,
+    "adoption": 0,
+    "generation_POST": 1,
+    "extra_POST": 0,
+    "request_killed": false,
+    "stop_marker": "After actual POST only, prevents another task retry; current request completed naturally.",
+    "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP",
+    "phase_events": [
+      {
+        "utc": "2026-11-16T15:15:30.584126+00:00",
+        "phase": "PREP_BEGIN",
+        "limits": "Earlier newsummary reading/QA preparation exists, fullOwner activecost/net savings unknown."
+      },
+      {
+        "utc": "2026-11-16T15:15:30.588211+00:00",
+        "phase": "PREP_END",
+        "sources": 17,
+        "bytes": 466450
+      }
+    ],
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "ledger_through919": {
+    "logical": 919,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 35,
+    "generation_POST": 958,
+    "extra_POST": 38,
+    "inflight": 0,
+    "metadata_GET_separate": 2,
+    "TCP_separate": 1,
+    "OpenCode_native_generation": 0
+  },
+  "next_Admin90": {
+    "status": "PREPARED_NOT_NATIVE",
+    "actual15player_and3finish_dualLua": true,
+    "runtime": {
+      "archive_sha256": "2c73ed29458b1e72b7ba55d879050fc16679e73ad93ddb919ec30d32b3f8f723",
+      "player_actual15_payloads_dualLua": [
+        {
+          "turn": 85,
+          "mode": "select",
+          "sha256": "6df6d46d12b85200e9c63dc9a148ce0dd8f9b93b30f8ce9d620b35ed2ea4c963"
+        },
+        {
+          "turn": 85,
+          "mode": "step",
+          "sha256": "660d9b454d265f65f7afa42e5ef9a765cee04a8e2c513cca5035ae60709586b9"
+        },
+        {
+          "turn": 85,
+          "mode": "end",
+          "sha256": "f2ce9f2ff8616e75cc6e239a56d8d4758128085b918268fcb530e0ca97d28868"
+        },
+        {
+          "turn": 86,
+          "mode": "select",
+          "sha256": "c109e8e16c7c248ebb702b5b5ce1fdc2cc843718f3eec5f0bfdfcc9f1d2eb893"
+        },
+        {
+          "turn": 86,
+          "mode": "step",
+          "sha256": "b12bee61149582a68de4adc90353434ce789f3be59362051ec95485997cce54c"
+        },
+        {
+          "turn": 86,
+          "mode": "end",
+          "sha256": "e77ba339da5dc8a140ab282669c898833d56870177794143aa28d50b6d82a452"
+        },
+        {
+          "turn": 87,
+          "mode": "select",
+          "sha256": "57cb047e14bd6da8f5de871b29db277e70144f00e2f5cd8d51340c73397709ca"
+        },
+        {
+          "turn": 87,
+          "mode": "step",
+          "sha256": "0451a9cbf02ef3b20d2765d2ad292465dfd27412beb2fda9653323c3f73a25b7"
+        },
+        {
+          "turn": 87,
+          "mode": "end",
+          "sha256": "d47a34770a6edb4fbdf78b283360f0c4b4bc81c4f15f497bab98af4d7022ceaa"
+        },
+        {
+          "turn": 88,
+          "mode": "select",
+          "sha256": "befc909211e272612a1970ff0413858dd5ebfe3bbf1660cbca144e04a1044cbc"
+        },
+        {
+          "turn": 88,
+          "mode": "step",
+          "sha256": "04d4e955e3711f67014a63e2764f89969ab7268cf1fef062652dcd2fd2081812"
+        },
+        {
+          "turn": 88,
+          "mode": "end",
+          "sha256": "6d74ecb24980df184e2a638d1c64e40793986e72ec2eb51db53e7139b18aea66"
+        },
+        {
+          "turn": 89,
+          "mode": "select",
+          "sha256": "accefa7aae5ee9538fd24f967498ef97c297403d2a15e5bc4327401f17d17345"
+        },
+        {
+          "turn": 89,
+          "mode": "step",
+          "sha256": "75393ec7272ba2fa77bbd20cbe0c03e078dcea0983c3b65d389e8b11ce574965"
+        },
+        {
+          "turn": 89,
+          "mode": "end",
+          "sha256": "4c1aef134155bb804843021a23dfad05b1930cf8e561f39fbe9d8e44f96aa5ca"
+        }
+      ],
+      "profile_preflight85_89_dualLua": true,
+      "finish_actual3_payloads_dualLua": [
+        {
+          "API": "save_checkpoint",
+          "sha256": "36e0dc2e337d8f06fc349b387b10befd5ec31b0bf8f9ae7fe21bf6f46274a5a0"
+        },
+        {
+          "API": "query",
+          "sha256": "a161d9d379d6f6b935df84715b76488c76ffbbf63b28d947a703c3d460c29f91"
+        },
+        {
+          "API": "query",
+          "sha256": "5fd31523eb7911414c49eb5a1fc5234de7b6b677b0ee4235adb8b7398c78afda"
+        }
+      ],
+      "AST_scripts": 17,
+      "Native_calls": 0,
+      "game_actions": 0,
+      "limits": "Actual renderer/payload/guard syntax only. No Native result. Readiness-patch first edit was rejected before targetwrite due indentation, then corrected. Diagnostic wall watchdog360 only; fixed10s/4096 and budget thresholds unchanged."
+    },
+    "preparation_error": "Initial generator rejected one/two-space anchor mismatch before writing consumer or Native; corrected and all16 AST+actualpayloads validated.",
+    "archive_sha256": "2c73ed29458b1e72b7ba55d879050fc16679e73ad93ddb919ec30d32b3f8f723"
+  },
+  "full_mod_acceptance": "OPEN",
+  "old_8650807_recovery": "FAIL_UNRESOLVED",
+  "Steam_online_or_upload": 0,
+  "unknown": {
+    "root98_exit_city_count": null,
+    "earlier178ms_root_cause": null,
+    "backend_cause": null,
+    "cached_tokens": null
+  }
+}
