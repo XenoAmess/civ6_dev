@@ -4,6 +4,8 @@
 
 [159实机76的编队快照未知子分支](docs/research/baiqi-source159-formation-unknown76-http926-2026-11-17.json)已通过停发与恢复阳性；不等于真实传教士护送或TC-040整项通过，继续补测。
 
+[159传教士新鲜行动资格下的原版护送候选实读](docs/research/baiqi-source159-missionary-escort-eligibility76-http927928-2026-11-17.json)：传教士4行动／原生可传播，但ENTER_FORMATION为false，同格侦察兵与音乐家互列候选；仅证明本场景无法原版编队，不授TC-020整项通过。所有者／合法性未知钩子7项软件检查通过、实机待测。
+
 [159的40项有限执行清单](docs/research/baiqi-source159-finite40-audit925-2026-11-17.json)已逐条列出既有证据与缺口；没有新增整项PASS，继续实机闭合。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
