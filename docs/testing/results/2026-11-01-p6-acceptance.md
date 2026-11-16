@@ -992,3 +992,14 @@ Executor观察器224样本＝107招募判断＋23城市＋93单位操作＋1单�
 实际76传教士3735581@16,14，4行动／2次传播／实际编队1、两项ready true、原生待办false／排队nil、Native传播true、自己宗教1／本城多数−1，旧OBSERVED religion:0:1／prior3不变。复制未知17→23，自然Update40→63，目标SDK操作／命令0，观察错误／丢弃0、三绑定归属有效。恢复前再次核当前合格状态，masked27未过64，真实策略绑定恢复。后台同76传播一次1592408602，4→0行动、2→1次、新OBSERVED religion:0:2／prior2；不宣称城市已转换。
 
 策略和三个观察绑定已恢复，诊断及玩家QA标记清理。官方保存ACK true，485038字节／SHA256 8a38c83b98b5ca7d34643ccdc923b7c07eb59475c52bda2c1c99e6ff8ffaddfc，稳定读回未重载。新钩子代码与59ab8a6相同，复用7项软件验证，另在Native前以AST字面量组合验证完整实际装载Lua的双编译，无执行驱动／模拟写意图。无新增模型调用／产品变更／完整套件或性能采样，累计928保持。TC-040合法性未知与请求结果归因继续；旧8650807恢复FAIL、当前159性能NOT_RUN及完整验收仍开放，阶段提交后继续。
+
+
+## 2026-11-17：159传播资格未知拒绝，合法待命分账，普通77恢复
+
+[结构化证据与929](../../research/baiqi-source159-legality-unknown76-native77-http929-2026-11-17.json)。仅TC-040传播资格未知受控子分支通过，整项继续请求结果／原因界限审阅。同一自有实例官方重新载入保护75，75／76各14次TEST_PLAYER军事待命、各一次普通END，实际77；0UserForced／人工内政。Unused编队钩子先以0mask恢复，所有者未知未同时安装，单独观测传播Native资格。
+
+目标3735581的真实CanStartOperation(fresh, spread.Hash, nil)原返回true，被钩子改nil恰一次，原Native只执行一次且真实单返回；QA ReadOriginal另行读真实资格、不制造mask。76窗口保持16,14／实际owner0／编队1／传播2／旧OBSERVED religion:0:1 prior3，0传播请求。随后后台另行合法SKIP_TURN 745019656一次，moves仍4但readyMove／Select变false；0其他操作／命令，错误／丢弃0，三观察绑定归属有效。自然Update64→77而mask保持1，符合该回合已评估去重，不要求制造重复故障命中。
+
+故障恢复原绑定后未改ready／moves／日志，先完成玩家军事与普通END76，实际77后台传播一次1592408602，次数2→1，新OBSERVED religion:0:2 prior2。该阳性在下一自然回合，未冒称同回合对照。Qualifier和三个观察绑定恢复，诊断和玩家QA标记清理，官方保存ACK true，484986字节／SHA256 cb4947e8c299a6d9a9486e89f7b4c7bcd060c5674fd346ce21f46b7e27d8e5db，稳定读取未重载。产品159未改、既有7项软件检查范围保持，没有完整产品或性能重跑。
+
+929是在发现外部原创Native事件研究后，对旧ARMED所需“始终允许的被动Core资格事件观察器”先请求候选，10来源380283字节，单POST404／41.5410ms，自然终态1、0完整候选／采用／extra。此调用快于派发器轮询，未写stop文件，EVENTS确认仅1次真实POST。负责人新本地观察器16项双Lua软件通过；初始测试把两个VM的值混传，已在任何Native前纠正。外部[原创研究](https://cru121.github.io/civ6-gamecore-reference/lua-veto-events.html)仅作线索；该仓库自述大量条目为静态／AI辅助分析、接口与版本需实测，事件表存在不等于引擎回调已观察。本项目未因此安装CE／注入DLL／否决动作／重放旧FOUND或授队列清空保证。累计929／816完整／68length／45最终请求失败／968生成POST／38extra，0在途；Nov17成功维护1.19.5缓存、OpenCode原生生成0保持。旧8650807恢复FAIL、当前159性能NOT_RUN及完整验收继续。

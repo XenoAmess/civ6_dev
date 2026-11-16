@@ -4,9 +4,11 @@
 
 [159实机76的编队快照未知子分支](docs/research/baiqi-source159-formation-unknown76-http926-2026-11-17.json)已通过停发与恢复阳性；不等于真实传教士护送或TC-040整项通过，继续补测。
 
-[159传教士新鲜行动资格下的原版护送候选实读](docs/research/baiqi-source159-missionary-escort-eligibility76-http927928-2026-11-17.json)：传教士4行动／原生可传播，但ENTER_FORMATION为false，同格侦察兵与音乐家互列候选；仅证明本场景无法原版编队，不授TC-020整项通过。所有者／合法性未知钩子7项软件检查通过、实机待测。
+[159传教士新鲜行动资格下的原版护送候选实读](docs/research/baiqi-source159-missionary-escort-eligibility76-http927928-2026-11-17.json)：传教士4行动／原生可传播，但ENTER_FORMATION为false，同格侦察兵与音乐家互列候选；仅证明本场景无法原版编队，不授TC-020整项通过。所有者／合法性未知钩子7项软件检查通过，后续实机子分支证据见下文。
 
 [159所有者快照未知实机子分支通过](docs/research/baiqi-source159-owner-unknown76-native-2026-11-17.json)：实际76合格传教士停发，恢复真实策略绑定后同回合正常传播；仅复制策略输入，不宣称引擎所有者getter缺失。合法性与请求结果分支继续。
+
+[159传播资格未知实机拒绝、自然77恢复](docs/research/baiqi-source159-legality-unknown76-native77-http929-2026-11-17.json)：0传播、1次独立合法待命，撤钩后普通换回合传播2→1；不写成全部单位请求为零。TC-040请求结果与原因界限继续审阅。
 
 [159的40项有限执行清单](docs/research/baiqi-source159-finite40-audit925-2026-11-17.json)已逐条列出既有证据与缺口；没有新增整项PASS，继续实机闭合。
 

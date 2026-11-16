@@ -1,0 +1,281 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-16T21:16:45.179425+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 159,
+  "subcase": "TC040 exact Missionary Native SPREAD qualification true-to-nil refusal and natural next-turn recovery",
+  "status": "PASS_LIMITED_SPREAD_QUALIFICATION_SUBCASE",
+  "whole_TC040": "OPEN_REQUEST_OUTCOME_AND_BOUNDED_REASON_REVIEW; not a blanket zero-unit-orders result",
+  "whole_TC020": "OPEN_REAL_MISSIONARY_ESCORT_UNAVAILABLE_IN_TESTED_NATIVE_SCENE",
+  "whole_mod": "OPEN",
+  "old_8650807": "FAIL_UNRESOLVED",
+  "current159_performance": "NOT_RUN",
+  "fixture": {
+    "name": "Baiqi_P6_20261102_V43_MissionarySetup75.Civ6Save",
+    "bytes": 483801,
+    "sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88",
+    "origin": "Explicit QA setup, not normal training"
+  },
+  "environment": {
+    "owner": {
+      "pid": 22832,
+      "created_at": 1794858815.3667407,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "new_cold_launch": false,
+    "same_owned_process": true,
+    "official_reload_once": true,
+    "private_archive_sha256": "cad855ece306fc6ab0a3613c56943de1486d5a91c15fc9362a2a7885bad8e5c2",
+    "source159_product_changed": false,
+    "unused_formation_fault": "Retired unarmed0masks before installing this independent qualifier fault"
+  },
+  "fault": {
+    "module": "tools/lua/diagnostic_legality_unknown.lua",
+    "sha256": "3a4635395ee79422323d1e5b18d18d15a7a5bbf475564b989f4386a3402203df",
+    "target": {
+      "owner": 0,
+      "id": 3735581,
+      "unitType": "UNIT_MISSIONARY",
+      "action_hash": 1592408602
+    },
+    "method": "Real Native qualifier executes once with unchanged arguments. Only exact target/action with original first return boolean true has that result replaced by nil; other returns/nil holes/errors and other actors/actions pass unchanged.",
+    "original_function_unavailable": false,
+    "limit": 64,
+    "rearm": false,
+    "qualification_probe": "ReadOriginal invokes the actual captured Native qualifier; probe calls do not add fault masks or game orders.",
+    "scope": "Only SPREAD legality becomes unknown; independently legal standby is deliberately not masked."
+  },
+  "test_player": {
+    "military_SKIPs75": 14,
+    "military_SKIPs76": 14,
+    "ordinary_END75": 1,
+    "ordinary_END76": 1,
+    "UserForced": 0,
+    "manual_domestic": 0,
+    "manual_spread": 0
+  },
+  "qualified_negative76": {
+    "actual_original_true_background_SPREAD_checks_masked": 1,
+    "actual_consumer_arguments": "unit, spread.Hash, nil (one trailing argument; not guessed four-argument form)",
+    "original_return_arity": 1,
+    "SDK_spread_requests": 0,
+    "SDK_standby_requests": 1,
+    "standby_hash": 745019656,
+    "SDK_other_requests": 0,
+    "SDK_commands": 0,
+    "journal": [
+      "OBSERVED",
+      "religion:0:1",
+      3
+    ],
+    "actual_charges": 2,
+    "actual_position": [
+      16,
+      14
+    ],
+    "actual_owner": 0,
+    "formation": 1,
+    "moves": 4,
+    "ready_move": false,
+    "ready_select": false,
+    "native_unmasked_SPREAD_still_true": true,
+    "native_pending": false,
+    "queued_destination": null,
+    "fault_mask_count": [
+      1,
+      1
+    ],
+    "natural_Controller_Update": [
+      64,
+      77
+    ],
+    "identity_errors": 0,
+    "observer_drops": 0,
+    "all_observer_bindings_owned": true,
+    "interpretation": "The specific unknown spread check was refused. A separately qualified SKIP made the unit not-ready while preserving4moves; this is not zero all-unit requests and no manual readiness restoration was used."
+  },
+  "restore76": {
+    "qualifier_return": "restored",
+    "original_qualifier_binding_owned": true,
+    "fault_not_expired": true,
+    "reason_for_next_turn_comparison": "Unit had completed ordinary standby and was not-ready; require natural next turn rather than fake same-turn readiness or replaying work."
+  },
+  "unmasked_positive77": {
+    "actual_turn": 77,
+    "BACKGROUND_spread_requests": 1,
+    "hash": 1592408602,
+    "charges": [
+      2,
+      1
+    ],
+    "journal": [
+      "OBSERVED",
+      "religion:0:2",
+      2
+    ],
+    "same_turn_comparison": false,
+    "manual_spread": 0,
+    "source_rows": [
+      [
+        "L_ENV",
+        "77",
+        "true",
+        "true",
+        "false",
+        "false"
+      ],
+      [
+        "L_ACTOR",
+        "3735581",
+        "16",
+        "14",
+        "0",
+        "1",
+        "1",
+        "false",
+        "false",
+        "false",
+        "nil",
+        "false",
+        "OBSERVED",
+        "religion:0:2",
+        "2",
+        "1"
+      ],
+      [
+        "L_FAULT",
+        "45",
+        "1",
+        "1",
+        "false",
+        "true",
+        "true",
+        "false",
+        "false",
+        "true",
+        "0",
+        "6"
+      ],
+      [
+        "L_OBSERVER",
+        "660",
+        "2",
+        "0",
+        "0",
+        "0",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "L_WRITE",
+        "operation",
+        "745019656",
+        "76",
+        "0",
+        "3735581",
+        "UNIT_MISSIONARY"
+      ],
+      [
+        "L_WRITE",
+        "operation",
+        "1592408602",
+        "77",
+        "0",
+        "3735581",
+        "UNIT_MISSIONARY"
+      ],
+      [
+        "L_COUNTS",
+        "1",
+        "1",
+        "0"
+      ],
+      [
+        "L_MASK",
+        "1",
+        "0",
+        "3735581",
+        "UNIT_MISSIONARY",
+        "1592408602",
+        "true",
+        "1",
+        "1"
+      ],
+      [
+        "L_NEGATIVE",
+        "false"
+      ]
+    ]
+  },
+  "cleanup": {
+    "original_qualifier_restored": true,
+    "three_passive_observer_bindings_restored": true,
+    "diagnostic_globals_cleared": true,
+    "ActionPanel_QA_markers_cleared": true
+  },
+  "save": {
+    "utc": "2026-11-16T21:14:37.050824+00:00",
+    "name": "Baiqi_P6_20261117_V159_LegalityUnknownCompare77.Civ6Save",
+    "bytes": 484986,
+    "sha256": "cb4947e8c299a6d9a9486e89f7b4c7bcd060c5674fd346ce21f46b7e27d8e5db",
+    "stable_repeated_read": true
+  },
+  "save_ACK": true,
+  "save_stable_repeated_read": true,
+  "saved77_reloaded_at_publication": false,
+  "software": {
+    "changed_helper_since59ab8a6": false,
+    "previous_seven_tests": "2actualControllerLua53 +5helpertransparency checks eachLua51/Lua53",
+    "new_assembled_stage_and_reader": "AST/literal composition and Lua51/Lua53 compilation before Native; no driver execution, mock game action or filesystem mutation during render",
+    "new_product_full_suite": false,
+    "new_performance_sampling": false
+  },
+  "model929": {
+    "task": "New unfinished allow-only GameEvents native-caller observer for oldARMED investigation after discovering an external original-research lead; not the completed legality driver",
+    "sources": 10,
+    "source_bytes": 380283,
+    "POST": 1,
+    "http_status": 404,
+    "total_ms": 41.54099989682436,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "fast_terminal_note": "Generation finished between polling intervals; no stop file was written, and actual EVENTS confirm exactly one POST/no retry.",
+    "Owner_new_observer": "Local-only allow-only prototype,16Lua51/53softwarechecks passed after fixing a test harness error that mixed values from different Lua runtimes; Native caller not yet proven."
+  },
+  "external_research_lead": {
+    "url": "https://cru121.github.io/civ6-gamecore-reference/lua-veto-events.html",
+    "status": "Original author reports vanilla native GameEvents.CanStartOperation callbacks. It is a diagnostic lead only; this project has not observed that callback yet.",
+    "limits": "Repository warns many entries are static/AI-assisted and build-specific; an event table with Add does not prove an engine caller. No CE, DLL injection, event.Call, veto, journal replay or engine-queue barrier is authorized by this lead."
+  },
+  "ledger": {
+    "logical": 929,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 45,
+    "generation_POST": 968,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "maintenance": "Same-machine/user Nov17 canonical successful1.19.5 cache retained",
+  "Steam": {
+    "online": 0,
+    "uploads": 0,
+    "mode_switches": 0,
+    "new_launch": false
+  },
+  "raw_evidence": "LOCAL_ONLY ignored legality159g-* receipts/logs/current Native Lua, model929 request/failure originals and protected private saves; no account/game install/private-save publication.",
+  "limits": [
+    "This is a controlled unknown qualification result; it is not an actually absent/throwing engine API.",
+    "No unknown SPREAD submission occurred; one separately legal standby request is retained explicitly.",
+    "No city conversion, real Missionary escort, old ARMED recovery, new performance pass or whole-mod completion claim.",
+    "Actual source code and SDK traces support specific spread denial; remaining request outcome and reason-message bounds require finite clause review."
+  ]
+}
