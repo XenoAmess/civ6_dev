@@ -11,14 +11,15 @@ OWNER=(ROOT/'tools/lua/diagnostic_owner_unknown.lua').read_text(encoding='utf-8'
 LEGAL=(ROOT/'tools/lua/diagnostic_legality_unknown.lua').read_text(encoding='utf-8')
 
 
-def world(runtime):
+def world(runtime,controller_source=None):
     lua=runtime(unpack_returned_tuples=True);logs=[]
     lua.globals().print=lambda *args:logs.append(' '.join(map(str,args)))
     for name in ('mock_world','mock_missionary'):
         lua.execute((ROOT/f'tests/lua/{name}.lua').read_text(encoding='utf-8'))
     install_religious_bridge(lua)
     for name in ('BaiqiConfig','BaiqiPolicy','BaiqiPlanner','BaiqiController'):
-        lua.execute((ROOT/f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
+        code=controller_source if name=='BaiqiController'and controller_source is not None else (ROOT/f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8')
+        lua.execute(code)
     w=lua.globals().TestWorld;w.withMissionary=True
     return lua,w,lua.globals().BaiqiController,logs
 

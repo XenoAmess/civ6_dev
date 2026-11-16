@@ -5050,7 +5050,14 @@ local function Tick(allowOrders)
       local unitKey=UnitKey(unit)
       if not unitEvaluated[unitKey] and pendingUnits[unit:GetID()]==nil then
         local snapshot=UnitSnapshot(unit,state)
-        if snapshot.plot~=nil and BaiqiPolicy.CanCivilian(ctx,snapshot) then
+        local allowed,denied
+        if snapshot.plot~=nil then allowed,denied=BaiqiPolicy.CanCivilian(ctx,snapshot) end
+        if denied=="owner_mismatch" then
+          Reason("civilian-eligibility:"..tostring(snapshot.id),"文职所有权变更或无法确认，等待可核验的己方单位状态")
+        elseif denied=="formation_or_unknown" then
+          Reason("civilian-eligibility:"..tostring(snapshot.id),"文职处于护送编队或编队信息不明，等待可确认的独立状态")
+        end
+        if snapshot.plot~=nil and allowed then
           unitEvaluated[unitKey]=true
           if snapshot.type=="UNIT_SETTLER" then
             local submitted,continuing=ProcessSettler(ctx,player,state,unit)

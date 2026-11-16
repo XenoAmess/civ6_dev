@@ -86,7 +86,7 @@ local ok2,same2=h.Restore();assert(ok2 and same2==same)
                 with self.assertRaises(ValueError):builder.suffix(source_version=157,include_turn90=value)
                 with self.assertRaises(ValueError):builder.build(out,include_turn90=value)
                 self.assertFalse(out.exists())
-            for version in(141,156,160,True,157.0,'157'):
+            for version in(141,156,161,True,157.0,'157'):
                 with self.assertRaises(ValueError):builder.suffix(source_version=version,include_turn90=True)
             with patch.object(builder.ET,'fromstring')as parse:
                 parse.return_value.get.return_value='156';out=Path(temp)/'legacy'
@@ -96,13 +96,13 @@ local ok2,same2=h.Restore();assert(ok2 and same2==same)
     def test_actual_package_changes_only_admin_and_metadata_is_explicit(self):
         with tempfile.TemporaryDirectory(dir=builder.ROOT/'.local-model')as temp:
             out=Path(temp)/'prepared';d=builder.build(out,include_turn90=True)
-            self.assertEqual((d['source_version'],d['mode'],d['files']),(159,'baiqi159-admin-children-v2',119))
+            self.assertEqual((d['source_version'],d['mode'],d['files']),(160,'baiqi160-admin-children-v2',119))
             self.assertEqual(d['focus_turns'],[87,88,89,90]);self.assertIs(d['include_turn90'],True)
             self.assertEqual((d['profile_count'],d['sample_capacity']),(1,4096))
             self.assertEqual(d['changed_files'],['Lua/BaiqiAdmin.lua'])
             self.assertTrue(d['lua51_compiled']and d['lua53_compiled']and d['original_admin_exact_prefix'])
             raw=(builder.ROOT/'mod/Baiqi/Lua/BaiqiAdmin.lua').read_bytes()
-            self.assertEqual((out/'Baiqi/Lua/BaiqiAdmin.lua').read_bytes(),raw+builder.suffix(source_version=159,include_turn90=True).encode())
+            self.assertEqual((out/'Baiqi/Lua/BaiqiAdmin.lua').read_bytes(),raw+builder.suffix(source_version=160,include_turn90=True).encode())
 
     def test_cli_exposes_explicit_turn90_option(self):
         p=subprocess.run([sys.executable,str(builder.ROOT/'tools/build_admin_diagnostic.py'),'--help'],capture_output=True,text=True)
