@@ -1,0 +1,202 @@
+{
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 156,
+  "product_commit": "b7faffd205ac89005d4908a6532be1c3a3f707b4",
+  "model914": {
+    "task": "civ6-914-armed-clearance-event-audit",
+    "actual_source_files": 15,
+    "actual_source_bytes": 413973,
+    "actual_POST": "2026-11-16T12:28:32.339503+00:00",
+    "actual_END": "2026-11-16T12:28:32.367074+00:00",
+    "http_status": 404,
+    "total_ms": 27.672800002619624,
+    "http_headers_ms": null,
+    "finish_reason": null,
+    "sse_done": false,
+    "candidate_count": 0,
+    "adopted": false,
+    "generation_POST": 1,
+    "extra_POST": 0,
+    "current_request_killed": false,
+    "stop_marker": "Written after observed POST_BEGIN to prevent another task-specific retry; does not explain HTTP404 or mean this request was killed.",
+    "max_tokens": 2400,
+    "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "shared_commit": "1f3d2a8b1fc7a5dea0e3c922bd7bd4c43d949c29",
+    "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP",
+    "phase_events": [
+      {
+        "utc": "2026-11-16T12:21:15.530682+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall intervals only; earlier problem framing/reading/helper setup unknown. Native parent can advance concurrently; active/exclusive cost and net savings unknown. Do not infer complete preparation cost from this interval."
+      },
+      {
+        "utc": "2026-11-16T12:22:08.215434+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Wall intervals only; earlier problem framing/reading/helper setup unknown. Native parent can advance concurrently; active/exclusive cost and net savings unknown. Do not infer complete preparation cost from this interval."
+      },
+      {
+        "utc": "2026-11-16T12:29:13.568951+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall intervals only; earlier problem framing/reading/helper setup unknown. Native parent can advance concurrently; active/exclusive cost and net savings unknown. Do not infer complete preparation cost from this interval."
+      },
+      {
+        "utc": "2026-11-16T12:30:27.139056+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Owner response/result/source-scope review before normalized publication; early response reading predates REVIEW_BEGIN and remains unknown. Wall interval only, no exclusive/active/net savings claim."
+      }
+    ],
+    "earlier_framing_and_reading_cost": null,
+    "owner_active_cost": null,
+    "net_savings": null
+  },
+  "ledger_through914": {
+    "logical": 914,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 30,
+    "generation_POST": 953,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "metadata_GET_separate": 2,
+    "TCP_separate": 1
+  },
+  "owner_review": {
+    "actual_primary_consumer_inventory_files": 8,
+    "primary_fact": "Shipped UnitPanel subscribes UnitOperationsCleared with unit callback and refreshes UI. UnitOperationDeactivated and WorldInput visual movement cancel are distinct.",
+    "not_proved": "No supplied Lua proves a global/perunit submission barrier, C++ queue completeness or authority to clear/replay old8650807 ARMED. Event name and ordinary-turn count do not provide that proof.",
+    "next_diagnostic": "Prepare transparent exact-unit finite Native event observation plus independently qualified live unit/turn/context facts, then evaluate actual evidence. No observer/event generated or Native cancellation attempted by914.",
+    "Native": "NOT_RUN",
+    "old_8650807_recovery": "FAIL_UNRESOLVED"
+  },
+  "independent_preparation": {
+    "fivecity_setup_complete_drivers_AST": {
+      "utc": "2026-11-16T11:59:00.252456+00:00",
+      "checks": "Two prepared drivers AST and each actual literal consumer exists/parses; manual sequencing review of setup and complete done. No script import, Native, game input, build, Lua compile or model request. Not Native qualification.",
+      "drivers": [
+        {
+          "driver": "five156_setup_episode_owner.py",
+          "sha256": "1d12c99a9bcb852f0c913c4e06aae4d914750f58a26ec77d6459b541d4c97986",
+          "actual_literal_consumers": [
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            },
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            },
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            },
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            },
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            },
+            {
+              "part": "settled",
+              "dependency": "five156_settled_owner.py"
+            },
+            {
+              "part": "finance",
+              "dependency": "five156_finance_owner.py"
+            },
+            {
+              "part": "sample",
+              "dependency": "five156_sample_owner.py"
+            },
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            },
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            },
+            {
+              "part": "lifecycle",
+              "dependency": "five156_lifecycle_owner.py"
+            }
+          ]
+        },
+        {
+          "driver": "five156_complete_episode_owner.py",
+          "sha256": "c5bc2bbc1aa47556caa337c1d1db6a5e50ef1c1447ea6ea0e4eda97ee0d62a4d",
+          "actual_literal_consumers": [
+            {
+              "part": "finance",
+              "dependency": "five156_finance_owner.py"
+            },
+            {
+              "part": "finish",
+              "dependency": "five156_finish_owner.py"
+            },
+            {
+              "part": "finish",
+              "dependency": "five156_finish_owner.py"
+            },
+            {
+              "part": "cleanup",
+              "dependency": "five156_cleanup_owner.py"
+            },
+            {
+              "part": "budget_export",
+              "dependency": "five156_budget_export_owner.py"
+            },
+            {
+              "part": "cleanup",
+              "dependency": "five156_cleanup_owner.py"
+            }
+          ]
+        }
+      ],
+      "Native": "NOT_RUN"
+    },
+    "original85_sequential_actual_scripts_AST": 26,
+    "formation_lifecycle119_fixture_navigation": "Private prepared, all119/source/fixture checked and three actual nav consumers rendered/AST plus actual Load dualLua. Native NOT_RUN.",
+    "formation_private_BG_observer": {
+      "utc": "2026-11-16T12:12:11.991541+00:00",
+      "cases": 12,
+      "engines": [
+        "Lua51",
+        "Lua53"
+      ],
+      "PASS": true,
+      "witnesses": [
+        "exact args/nil varargs/multiple returns and one original call",
+        "foreign writer preserved while other owned bindings restored",
+        "64 row capacity and defensive snapshot copy",
+        "identity getter failure still forwards actual original",
+        "exact restore/idempotent retirement and no subsequent observations",
+        "same owner/fullID but unknown actual type is an observation error"
+      ],
+      "Native_calls": 0,
+      "Native": "NOT_RUN",
+      "scope": "Private this-context observer only; zero count requires matching live bindings, zero identity errors/drops, natural Update progress, independently qualified actor and bounded fault window."
+    },
+    "formation_first_static_failure": "Owner marker edit introduced unexpected indent; AST rejected before import, query, install or launch. Fixed one indent; subsequent actual static checks PASS.",
+    "formation_scope": "Copied nil formation snapshot with actual getter still running; no real escort/getter absence claim. Mechanical Arm can precede ordinary75->76 in a HOLD fixture, but positive window requires actual76 ready/positive moves/Native legal target and mask1..63/notexpired. All actual actor/window facts remain unknown.",
+    "manual_Builder_BUILD_and_Missionary_MOVE_SPREAD": "OPEN separate Native requirements"
+  },
+  "formal_release_before_POST": "2026-11-16T12:28:09.050325+00:00",
+  "Steam_online_or_upload": 0,
+  "product_changes": 0,
+  "new_Native_calls_from_this_work_package": 0,
+  "full_mod_acceptance": "OPEN",
+  "unknown": {
+    "backend_cause_or_jobs": null,
+    "cached_tokens": null,
+    "Owner_exclusive_cost": null
+  }
+}
