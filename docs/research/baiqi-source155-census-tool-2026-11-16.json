@@ -32,13 +32,39 @@
   "model900": {
     "task": "civ6-900-census-source155",
     "actual_sources_and_consumers_supplied_before_owner_edit": true,
-    "status_at_publication": "IN_FLIGHT",
+    "status_at_publication": "Already terminal before software commit; initial IN_FLIGHT entry was stale and is corrected here.",
     "adopted": false,
     "Owner_independent_implementation_after_repeated_service_faults": true,
-    "raw_candidate_executed": false
+    "raw_candidate_executed": false,
+    "final_status": "TRANSPORT_TIMEOUT",
+    "POST_attempts": 1,
+    "total_ms": 180019.9411001522,
+    "response_headers": 0,
+    "finish_reason": null,
+    "SSE_DONE": false
   },
   "formal_overlap": "Tests and build occur after group3 control formal release during own process exit wait; no HTTP/build/heavy-test overlap with formal.",
   "MANY": "Current155 natural admitted>=12 still required before formal pressure capture.",
   "NO_SITE": "Current scene geometry read still required.",
-  "full_mod_acceptance": "OPEN"
+  "full_mod_acceptance": "OPEN",
+  "publication_correction": "Owner read terminal only after software push. POST began02:23:53UTC and180s timeout ended before02:26:58UTC commit; initial pending wording was stale, no candidate or game effect credited.",
+  "ledger_through_900": {
+    "logical": 900,
+    "complete": 816,
+    "length": 68,
+    "final_transport": 16,
+    "HTTP_attempts": 939,
+    "extra_attempts": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "owner_orchestration_error": {
+    "stage": "pair155-4-control install",
+    "failure_before_mutation": "Traceback (most recent call last):\n  File \"C:\\workspace\\civ6_dev\\.local-model\\pair155_lifecycle_owner.py\", line 73, in <module>\n    {'install':do_install,'launch':do_launch,'begin':do_begin,'finish':do_finish}[mode](pair,variant)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\workspace\\civ6_dev\\.local-model\\pair155_lifecycle_owner.py\", line 35, in do_install\n    base.check_formal_idle();base.check_no_game_running();head=base.check_git_state();saves();d=artifact(variant)\n                                                               ~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\workspace\\civ6_dev\\.local-model\\ordinary142_main334_launch_owner.py\", line 44, in check_git_state\n    raise RuntimeError(f\"Git working tree not clean: {status}\")\nRuntimeError: Git working tree not clean: M tools/build_settlement_census_mod.py\n?? tests/test_settlement_census_source155.py\n",
+    "install_attempt_absent": true,
+    "launch_attempt_absent": true,
+    "game_actions": 0,
+    "cause": "QA tool/test changes remained uncommitted when next cold-side clean-worktree check ran. Source3 progress committed independently, then QA commit completed.",
+    "recovery": "Re-enter installation only after clean pushed HEAD, fresh r2 orchestration log; no Native actions or prior valid groups replayed."
+  }
 }
