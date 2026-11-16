@@ -1,6 +1,8 @@
 # civ6_dev
 
-当前源码160：[所有者／编队未知原因提示的软件修复](docs/research/baiqi-source160-unknown-reasons-software-2026-11-17.json)已完成；7项新回归通过，完整2748运行中的14处陈旧QA版本断言修正后，相关91项重检通过，1项SDK跳过。119文件／97Lua双编译，TC-040四个受控分支已按版本来源闭合；当前160性能与其余完整功能仍未完成，旧8650807恢复FAIL保留。
+[Source160原85 B_plan按冻结预算通过](docs/research/baiqi-source160-original85-plan-http934935-2026-11-17.json)：Admin118个纯十城样本p95／max约2／10ms，Controller143个约11／49ms；317原值全留、普通91收尾／保存／撤钩／释放完成。继续B_turn、N_req、25配对段与压力矩阵；尚非TC-036或整个mod通过。
+
+当前源码160：[所有者／编队未知原因提示的软件修复](docs/research/baiqi-source160-unknown-reasons-software-2026-11-17.json)已完成；7项新回归通过，完整2748运行中的14处陈旧QA版本断言修正后，相关91项重检通过，1项SDK跳过。119文件／97Lua双编译，TC-040四个受控分支已按版本来源闭合；当前160其余性能与完整功能仍未完成，旧8650807恢复FAIL保留。
 
 [160未知编队／所有者原因实机复测已通过](docs/research/baiqi-source160-unknown-reasons-native76-http931-2026-11-17.json)：76两个独立阶段各一条原因、0目标请求，全部恢复后自然传播2→1并保存；继续请求未到达引擎的结果记录分支，尚非TC-040整项通过。
 
