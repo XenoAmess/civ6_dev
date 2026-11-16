@@ -1,0 +1,366 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-16T21:38:17.926438+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 159,
+  "kind": "VANILLA_CORE_QUALIFICATION_EVENT_NATIVE_OBSERVATION_AND_UNKNOWN_REASON_GAP",
+  "whole_mod": "OPEN",
+  "whole_TC040": "FAIL_MISSING_UNKNOWN_OWNER_FORMATION_WAIT_REASON; refusal/recovery subcases remain limited PASS",
+  "old_8650807": "FAIL_UNRESOLVED",
+  "current159_performance": "NOT_RUN",
+  "original_research_lead": {
+    "url": "https://cru121.github.io/civ6-gamecore-reference/lua-veto-events.html",
+    "use": "An original-author runtime/static research lead, followed by the independent local Native observation below. No API availability or queue-barrier claim was imported without local evidence.",
+    "repository_limits": "https://github.com/cru121/civ6-gamecore-reference states that many generated entries use static/AI-assisted analysis; addresses and inferred signatures are not general engine guarantees."
+  },
+  "same_instance": {
+    "owner": {
+      "pid": 22832,
+      "created_at": 1794858815.3667407,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "new_cold_launch": false,
+    "private_archive_sha256": "cad855ece306fc6ab0a3613c56943de1486d5a91c15fc9362a2a7885bad8e5c2",
+    "source159_product_changed": false,
+    "files": 119,
+    "Lua51_Lua53_sources": 97
+  },
+  "observer_contract": {
+    "allow_only": "The Core GameEvents.CanStartOperation callback always returns boolean true, including overflow, capture failure, retirement and unknown argument shapes. No veto or gameplay writer.",
+    "raw_events": [
+      "UnitOperationsCleared",
+      "UnitOperationAdded",
+      "UnitOperationDeactivated"
+    ],
+    "capacity_target": 64,
+    "capacity_other_scope": 8,
+    "other_scope_limit_note": "Only first8 non-target callback samples retained; total seen includes further other-scope calls. Target dropped0 is not a claim that all unrelated samples were retained.",
+    "typed_arity": "Preserve number/boolean/string/nil-hole information with bounded primitive arguments. No synthetic event.Call/TestAll/TestAny.",
+    "retirement": "Capture original Add/Remove and exact callback identities, remove only owned handlers and restore owned SDK wrappers; foreign bindings preserved.",
+    "exact_sources_sha256": {
+      ".local-model/armed159h_allow_event_owner.lua": "d141f5fb2bfdc706f6f14a46b0eeee1a04b59b8115a7eb1727dc5418e4d944d4",
+      ".local-model/armed156_raw_event_observer_owner.lua": "4a807c4268285dd1b76969db681e84705fcbb1931714d23eea54368e365cb726",
+      ".local-model/armed159h_bg_observer_owner.lua": "48f08e0b7b7f37c0e89c22bb88520c018ab2e62c537913b51b897d51f3ac6ad7"
+    }
+  },
+  "independent_scout_pilot77": {
+    "actual_unit": {
+      "owner": 0,
+      "id": 524292,
+      "type": "UNIT_SCOUT",
+      "position": [
+        16,
+        14
+      ],
+      "moves": 3,
+      "ready_move": true,
+      "ready_select": true,
+      "formation": 1
+    },
+    "native_qualifier": "UnitManager.CanStartOperation(scout, SKIP.Hash, nil, {})",
+    "native_return": true,
+    "operation_hash": 745019656,
+    "operation_Index": 36,
+    "actual_Core_callback_count": 1,
+    "actual_arguments": [
+      0,
+      524292,
+      36
+    ],
+    "actual_arity": 3,
+    "QA_native_qualification_reads": 1,
+    "QA_native_game_orders": 0,
+    "positions_moves_ready_unchanged": true,
+    "observer_retired": true,
+    "old8650807_tested_by_this_pilot": false
+  },
+  "old_fixture": {
+    "name": "Baiqi_P6_20261108_V85_ArmedLegacy158.Civ6Save",
+    "bytes": 629900,
+    "sha256": "53a08d9f9eff2fb65a5bc93a11b938b78c5f18a09b50c75dddb6b58a73d9c579",
+    "original_source": 85,
+    "actual_turn": 158,
+    "official_same_process_reload_once": true,
+    "current_load_markers_and_owned_HWND_continue": true,
+    "unused_private_formation_wrapper": "Retired unarmed with0masks before observation"
+  },
+  "old158_state": {
+    "cities": 14,
+    "units_initial": 58,
+    "map": [
+      44,
+      26
+    ],
+    "seed": 20261101,
+    "actor": {
+      "owner": 0,
+      "id": 8650807,
+      "type": "UNIT_SETTLER",
+      "position": [
+        10,
+        19
+      ],
+      "moves": 2,
+      "formation": 1,
+      "ready_move": false,
+      "ready_select": false,
+      "native_pending": false,
+      "UI_queued_destination": null,
+      "Core_operation_type": -1
+    },
+    "target": {
+      "index": 846,
+      "position": [
+        10,
+        19
+      ],
+      "owner": -1,
+      "is_city": false
+    },
+    "UI_and_Core_raw_intent": {
+      "stage": "ARMED",
+      "token": "settle:0:1",
+      "requestID": "0:156:173",
+      "plot": 846,
+      "empty": true,
+      "conflictingCity": false
+    },
+    "generic_CANCEL_original_UI_signatures": [
+      "unit, CANCEL.Hash, true",
+      "unit, CANCEL.Hash, false, true"
+    ],
+    "generic_CANCEL_results": [
+      false,
+      false
+    ],
+    "signature_note": "Shipped UnitPanel467..471 confirms these generic signatures; ENTER_FORMATION uses a different special nil,true candidate-list form, which does not invalidate the earlier CANCEL qualification."
+  },
+  "old158_readonly_native_qualifications": [
+    {
+      "operation": "FOUND_CITY",
+      "hash": 1463004268,
+      "Index": 14,
+      "return": true,
+      "actual_Core_callback_arguments": [
+        0,
+        8650807,
+        14
+      ]
+    },
+    {
+      "operation": "SKIP_TURN",
+      "hash": 745019656,
+      "Index": 36,
+      "return": false,
+      "actual_Core_callback_arguments": [
+        0,
+        8650807,
+        36
+      ]
+    }
+  ],
+  "old158_window": {
+    "UI_natural_Controller_Update": [
+      2,
+      9
+    ],
+    "target_SDK_operations": 0,
+    "target_SDK_commands": 0,
+    "SDK_identity_errors": 0,
+    "SDK_drops": 0,
+    "SDK_three_bindings_owned": true,
+    "target_raw_UI_events": 0,
+    "target_raw_Core_events": 0,
+    "raw_UI_Core_errors_drops": 0,
+    "all_six_raw_event_bindings_owned": true,
+    "Core_allow_seen_all_actors": [
+      10,
+      28
+    ],
+    "Core_allow_target_seen": [
+      0,
+      2
+    ],
+    "Core_allow_target_arity": 3,
+    "Core_allow_target_drops_errors_unknown_scope": 0,
+    "Core_allow_binding_owned": true,
+    "old_actor_target_and_ARMED_unchanged": true,
+    "QA_FOUND_MOVE_CANCEL_requests": 0,
+    "QA_journal_writes": 0,
+    "ordinary_END158": 0
+  },
+  "critical_interpretation": [
+    "The third Core callback argument is the database operation Index14/36, not the corresponding operation hash.",
+    "A readonly Native SKIP qualification returned false yet still produced the callback. Callback observation therefore does not establish a submitted request, acceptance or completion.",
+    "The callback carried only player/fullunitID/operationIndex in this sample, not the original requestID or journal token. It cannot by itself distinguish a late old FOUND from a new replay.",
+    "Native FOUND qualification true, empty unit queue, pendingfalse and operation-1 do not establish a global inbound dispatch/cancellation barrier. No old FOUND was resent and no ARMED record was cleared."
+  ],
+  "cleanup": {
+    "all_Core_allow_and_UI_Core_raw_callbacks_removed": true,
+    "three_UI_SDK_bindings_restored": true,
+    "diagnostic_globals_cleared": true
+  },
+  "save": {
+    "utc": "2026-11-16T21:31:18.492115+00:00",
+    "name": "Baiqi_P6_20261117_V159_LegacyArmedObserver158.Civ6Save",
+    "bytes": 630020,
+    "sha256": "e72176aef359bea925614812c00860c73a2d2aa2102ee9f24acf2a351db9629d",
+    "stable_repeated_read": true
+  },
+  "save_ACK": true,
+  "save_stable_repeated_read": true,
+  "save_reloaded": false,
+  "unknown_reason_gap": {
+    "requirement": "BR026: skipped and failed actions have reasons, bounded request/result tracking and no repeated spam.",
+    "verified_complete_log_audit": {
+      "utc": "2026-11-16T21:33:27.745401+00:00",
+      "source_version": 159,
+      "Native_queries": 0,
+      "cases": [
+        {
+          "kind": "formation",
+          "before": "formation159m-load-before-Lua.log",
+          "after": "formation159e-reload-before-Lua.log",
+          "verified_same_log_prefix": true,
+          "suffix_bytes": 16651,
+          "target_wait_count": 1,
+          "target_wait_lines": [
+            "BaiqiExecutor: BAIQI|wait|turn=75|key=missionary:3735581|reason=传教士等待安全国内路径或原生传播资格"
+          ],
+          "native_marker_count": 36,
+          "native_marker_examples": [
+            "BaiqiExecutor: F76_ENV\t75\tfalse\ttrue\tfalse\tfalse",
+            "BaiqiExecutor: F76_ACTOR\t3735581\t16\t14\t0\t2\t1\tfalse\tfalse\tfalse\tnil\t1\t1\t-1\tfalse\tOBSERVED\treligion:0:1\t3\ttrue",
+            "BaiqiExecutor: F76_DIAG\t53600\t3160\t17\ttrue\ttrue\tfalse\tfalse\t64\t25\t0\t0\t0\t0\ttrue\ttrue\ttrue",
+            "BaiqiExecutor: F76_POSITIVE_PREMISE\tfalse",
+            "BaiqiExecutor: F76_ENV\t76\ttrue\tfalse\tfalse\ttrue"
+          ],
+          "log_sha256": "8c2321de9b62698d301667181e7ce8ce02a9c3af1ef0acee52145d8327e52532"
+        },
+        {
+          "kind": "owner",
+          "before": "owner159f-reload-before-Lua.log",
+          "after": "legality159g-reload-before-Lua.log",
+          "verified_same_log_prefix": true,
+          "suffix_bytes": 15938,
+          "target_wait_count": 1,
+          "target_wait_lines": [
+            "BaiqiExecutor: BAIQI|wait|turn=75|key=missionary:3735581|reason=传教士等待安全国内路径或原生传播资格"
+          ],
+          "native_marker_count": 32,
+          "native_marker_examples": [
+            "BaiqiExecutor: F76_ENV\t76\ttrue\ttrue\tfalse\tfalse",
+            "BaiqiExecutor: F76_ACTOR\t3735581\t16\t14\t0\t2\t1\tfalse\tfalse\tfalse\tnil\t1\t1\t-1\tfalse\tOBSERVED\treligion:0:1\t3\ttrue",
+            "BaiqiExecutor: F76_DIAG\t289\t17\t17\ttrue\ttrue\tfalse\tfalse\t64\t26\t0\t0\t0\t0\ttrue\ttrue\ttrue",
+            "BaiqiExecutor: F76_POSITIVE_PREMISE\tfalse",
+            "BaiqiExecutor: F76_ENV\t76\ttrue\tfalse\tfalse\ttrue"
+          ],
+          "log_sha256": "3d6c314ab8942de766d2469028f4f1c1431ad7384f48c7f0b725f59533143952"
+        },
+        {
+          "kind": "legality",
+          "before": "legality159g-reload-before-Lua.log",
+          "after": "armed159h-reload-before-Lua.log",
+          "verified_same_log_prefix": true,
+          "suffix_bytes": 28523,
+          "target_wait_count": 2,
+          "target_wait_lines": [
+            "BaiqiExecutor: BAIQI|wait|turn=75|key=missionary:3735581|reason=传教士等待安全国内路径或原生传播资格",
+            "BaiqiExecutor: BAIQI|wait|turn=76|key=missionary:3735581|reason=传教士等待安全国内路径或原生传播资格"
+          ],
+          "native_marker_count": 12,
+          "native_marker_examples": [
+            "BaiqiExecutor: L_NEGATIVE\tfalse",
+            "BaiqiExecutor: L_NEGATIVE\tfalse",
+            "BaiqiExecutor: L_NEGATIVE\tfalse",
+            "BaiqiExecutor: L_NEGATIVE\ttrue",
+            "BaiqiExecutor: L_NEGATIVE\ttrue"
+          ],
+          "log_sha256": "d98497997eb0c6650a5bbe6e823e316113f477fff49ca6e9afb7404cb2aa0c1a"
+        }
+      ],
+      "source_Reason": [
+        "local contextID, visibility",
+        "local lastReasons = {}",
+        "local settlementLoadKind",
+        "local settlementCache={ready=false,records={},plots={},unresolved=0}",
+        "",
+        "local function Log(kind, details)",
+        "  print(\"BAIQI|\"..kind..\"|turn=\"..tostring(Game.GetCurrentGameTurn())..\"|\"..(details or \"\"))",
+        "end",
+        "",
+        "local function Reason(key, text)",
+        "  status = text",
+        "  if lastReasons[key] ~= text then Log(\"wait\", \"key=\"..key..\"|reason=\"..text); lastReasons[key] = text end",
+        "end",
+        ""
+      ],
+      "source_policy_gate": [
+        "  for _,unit in player:GetUnits():Members() do",
+        "    local def=GameInfo.Units[unit:GetUnitType()]",
+        "    if def and BaiqiPolicy.CivilianType(def.UnitType) then",
+        "      local unitKey=UnitKey(unit)",
+        "      if not unitEvaluated[unitKey] and pendingUnits[unit:GetID()]==nil then",
+        "        local snapshot=UnitSnapshot(unit,state)",
+        "        if snapshot.plot~=nil and BaiqiPolicy.CanCivilian(ctx,snapshot) then",
+        "          unitEvaluated[unitKey]=true",
+        "          if snapshot.type==\"UNIT_SETTLER\" then",
+        "            local submitted,continuing=ProcessSettler(ctx,player,state,unit)",
+        "            if submitted then status=\"已提交移民操作，等待实际结果\"; return end"
+      ],
+      "interpretation": "Native receipt and complete same-prefix log bytes are separate evidence. Do not infer a missing reason merely from filtered logs if Native prints are not emitted to this logger. Tick currently ignores the false-policy reason at its top scheduling gate; policy returns owner_mismatch/formation_or_unknown but no reason is logged there."
+    },
+    "Native_reproduction": "During Source159 actual76 copied formation and owner faults, the qualified actor was denied safely. The complete same-prefix logs contain only that actor earlier turn75 generic wait, with no actual76 owner/formation denial reason. Both have Native markers proving the test interval is present in the log.",
+    "source_cause": "Tick5053 discards the false CanCivilian reason; policy returns owner_mismatch or formation_or_unknown, but Tick scheduling gate does not call Reason for either.",
+    "classification": "Acceptance gap in explainability, not unsafe Native execution; do not mark allTC040 PASS.",
+    "next_fix": "Implement a narrow bounded reason for the two existing policy denials, preserving original short-circuit and exactly one policy call. No ordinary no_moves/trade-busy spam, no control takeover, no changed gameplay permission. Product candidate requested before Owner code."
+  },
+  "software": {
+    "current_allow_event_cases": 18,
+    "current_old_target_SDK_cases": 12,
+    "prior_raw_event_cases": 10,
+    "all_under": [
+      "Lua51",
+      "Lua53"
+    ],
+    "Native_orders_during_software": 0,
+    "Owner_initial_fixture_error": "The first allow-only test mixed functions from distinct Lua VMs, stopped before Native. Corrected to one VM per witness; old16 case report retained, latest explicit target configuration has18 cases.",
+    "new_product_full_suite": false,
+    "new_performance": false
+  },
+  "model930": {
+    "task": "New real product gap: bounded reason for unknown owner/formation policy rejection, before Owner implementation",
+    "sources": 15,
+    "source_bytes": 440854,
+    "POST": 1,
+    "http_status": 404,
+    "total_ms": 32.932299887761474,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_file": "Absent because actual request terminated between polls; EVENTS show1POST/no retry."
+  },
+  "ledger": {
+    "logical": 930,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 46,
+    "generation_POST": 969,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "maintenance": "Nov17same-machine/user successful OpenCode1.19.5 canonical cache retained",
+  "Steam": {
+    "online": 0,
+    "uploads": 0,
+    "mode_switches": 0,
+    "new_cold_launch": false
+  },
+  "raw_evidence": "LOCAL_ONLY ignored armed159h-* native receipts, exact observer Lua/test modules, model930 raw request/failure and protected private saves. The Scout pilot normalized record uses the earlier legality159g-scout-allow-event-pilot stem; Native intent/response filenames use armed159h-scout-*."
+}

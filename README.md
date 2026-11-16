@@ -10,6 +10,8 @@
 
 [159传播资格未知实机拒绝、自然77恢复](docs/research/baiqi-source159-legality-unknown76-native77-http929-2026-11-17.json)：0传播、1次独立合法待命，撤钩后普通换回合传播2→1；不写成全部单位请求为零。TC-040请求结果与原因界限继续审阅。
 
+[159旧ARMED与Core资格事件实读、未知原因提示缺口](docs/research/baiqi-source159-core-qualification-armed158-reason-gap-http930-2026-11-17.json)：旧8650807原生FOUND可行且Core回调已实测，但ARMED仍未完成、未重发。TC-040新增明确缺口：所有者／编队未知虽停发，缺当回合原因提示，接着修复。
+
 [159的40项有限执行清单](docs/research/baiqi-source159-finite40-audit925-2026-11-17.json)已逐条列出既有证据与缺口；没有新增整项PASS，继续实机闭合。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
