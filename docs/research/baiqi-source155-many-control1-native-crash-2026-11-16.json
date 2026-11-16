@@ -1,0 +1,239 @@
+{
+  "date": "2026-11-16",
+  "publication_utc": "2026-11-16T05:10:21.822758+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 155,
+  "source_commit": "dececb481552d6745d7e517dff0da53d5301315c",
+  "invalid_side": "manypair155-1-control",
+  "verdict": "INVALID_INITIAL_LOAD_EXCLUDE_WHOLE_SIDE_BEFORE_ARITHMETIC",
+  "dialog": {
+    "utc": "2026-11-16T05:01:44.351869+00:00",
+    "owner": {
+      "pid": 20224,
+      "created_at": 1794804977.3929734,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "dialogs": [
+      {
+        "hwnd": 23528574,
+        "title": "Unhandled Exception: EXCEPTION_ACCESS_VIOLATION in CivilizationVI_DX12.exe",
+        "children": [
+          {
+            "hwnd": 34146092,
+            "id": 1001,
+            "class": "Button",
+            "text": "&OK",
+            "enabled": true
+          },
+          {
+            "hwnd": 16254390,
+            "id": 1002,
+            "class": "Button",
+            "text": "&Copy To Clipboard",
+            "enabled": true
+          },
+          {
+            "hwnd": 27657324,
+            "id": 1003,
+            "class": "Edit",
+            "text": "",
+            "enabled": true
+          }
+        ]
+      }
+    ],
+    "read_only": true,
+    "Native_queries": 0,
+    "window_actions": 0
+  },
+  "crash_detail": {
+    "utc": "2026-11-16T05:02:50.512800+00:00",
+    "owner": {
+      "pid": 20224,
+      "created_at": 1794804977.3929734,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "dialog_title": "Unhandled Exception: EXCEPTION_ACCESS_VIOLATION in CivilizationVI_DX12.exe",
+    "edit_text": "Unhandled Exception\r\nCode:  EXCEPTION_ACCESS_VIOLATION\r\nError reading address 0x406bf000\r\n\r\nCall Stack\r\n-----------------------------------------------------\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n??? ! ???   ???, line 0\r\n",
+    "read_return": 1,
+    "Native_queries": 0,
+    "game_actions": 0
+  },
+  "reconciliation": {
+    "utc": "2026-11-16T05:05:56.783467+00:00",
+    "owner": {
+      "pid": 20224,
+      "created_at": 1794804977.3929734,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "original_process_absent": true,
+    "official_crash_dialog_OK": 1,
+    "OnExitGame_calls": 0,
+    "force_terminate": 0,
+    "captured_segments": 0,
+    "clock_state": "UNREADABLE after native crash; no formal or driver run reached",
+    "TEST_PLAYER_select_skip_END": 0,
+    "formal_admission": false,
+    "save_after_crash": "UNAVAILABLE; original fixture and all prior saves verified intact",
+    "outcome": "INVALID_SIDE_EXCLUDE_BEFORE_ARITHMETIC",
+    "root_cause": null
+  },
+  "official_crash_OK_attempt": {
+    "utc": "2026-11-16T05:03:05.810419+00:00",
+    "owner": {
+      "pid": 20224,
+      "created_at": 1794804977.3929734,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "dialog": {
+      "hwnd": 23528574,
+      "title": "Unhandled Exception: EXCEPTION_ACCESS_VIOLATION in CivilizationVI_DX12.exe",
+      "children": [
+        {
+          "hwnd": 34146092,
+          "id": 1001,
+          "class": "Button",
+          "text": "&OK",
+          "enabled": true
+        },
+        {
+          "hwnd": 16254390,
+          "id": 1002,
+          "class": "Button",
+          "text": "&Copy To Clipboard",
+          "enabled": true
+        },
+        {
+          "hwnd": 27657324,
+          "id": 1003,
+          "class": "Edit",
+          "text": "",
+          "enabled": true
+        }
+      ]
+    },
+    "action": "Exact owned crash dialog official OK once; not a normal OnExitGame or force kill.",
+    "no_replay": true
+  },
+  "official_crash_OK_return": {
+    "utc": "2026-11-16T05:03:05.817813+00:00",
+    "send_return": [
+      1,
+      0
+    ],
+    "outcome": "UNKNOWN pending process/window readback"
+  },
+  "parent_terminal": {
+    "utc": "2026-11-16T05:02:33.422599+00:00",
+    "side": "manypair155-1-control",
+    "phase": "HALTED_NO_REPLAY",
+    "error": "RuntimeError('Explicit owner stop marker; no further action')"
+  },
+  "replacement": {
+    "utc": "2026-11-16T05:05:56.796093+00:00",
+    "kept_completed": "manypair155-1-enabled-r1",
+    "excluded": "manypair155-1-control",
+    "replacement": "manypair155-1-control-r1",
+    "remaining_plan": [
+      [
+        1,
+        "control"
+      ],
+      [
+        2,
+        "control"
+      ],
+      [
+        2,
+        "enabled"
+      ],
+      [
+        3,
+        "enabled"
+      ],
+      [
+        3,
+        "control"
+      ],
+      [
+        4,
+        "control"
+      ],
+      [
+        4,
+        "enabled"
+      ],
+      [
+        5,
+        "enabled"
+      ],
+      [
+        5,
+        "control"
+      ]
+    ],
+    "remaining_labels": [
+      "manypair155-1-control-r1",
+      "manypair155-2-control",
+      "manypair155-2-enabled",
+      "manypair155-3-enabled",
+      "manypair155-3-control",
+      "manypair155-4-control",
+      "manypair155-4-enabled",
+      "manypair155-5-enabled",
+      "manypair155-5-control"
+    ],
+    "game_actions": 0,
+    "budgets_changed": false,
+    "product_changed": false,
+    "cause_not_inferred": true
+  },
+  "runtime_validation": {
+    "utc": "2026-11-16T05:06:35.971716+00:00",
+    "source_version": 155,
+    "initial_turn": 6,
+    "both_variants_both_actual_player_modes_Lua51_53": 4,
+    "Native_queries": 0,
+    "all119_source_clock_archive_match": true,
+    "replacement": "manypair155-1-control-r1",
+    "valid_enabled_not_repeated": true
+  },
+  "actual_initial_Network_LoadGame": 1,
+  "current_load_complete_marker": false,
+  "formal_admission": false,
+  "captured_segments": 0,
+  "TEST_PLAYER_select_skip_END": 0,
+  "post_crash_save": "UNAVAILABLE; not fabricated. All protected original and completed-side saves reverified.",
+  "product_or_control_source_changed": false,
+  "program_affinity_budget_changed": false,
+  "numeric_selection": false,
+  "root_cause": null,
+  "normal_OnExitGame_claim": false,
+  "model906": {
+    "task": "civ6-906-native-crash-review",
+    "POST_attempts": 1,
+    "total_ms": 180020.5888999626,
+    "response_headers": 0,
+    "finish_reason": null,
+    "SSE_DONE": false,
+    "adopted": false,
+    "scope": "Actual new owned Native load crash; real producer/control source/metadata/log/exception supplied before Owner source cause review.",
+    "handling": "Let actual request end naturally after task-specific stop; no forcedkill or lease edits."
+  },
+  "ledger_through_906": {
+    "logical": 906,
+    "complete": 816,
+    "length": 68,
+    "final_transport": 22,
+    "HTTP_attempts": 945,
+    "extra_attempts": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "Owner_errors": [
+    "First crash edit-reader assumed pywin32 SendMessageTimeout was scalar, assertion failed after read-only length request; typed Win32 read corrected,0gameactions.",
+    "While preparing906, Owner accidentally ran905 historical preparation/dispatcher instead of reader. Existing-output guards rejected before POST; original905 REQUEST/SSE/SUMMARY preserved, task/args fixed text regenerated,0newHTTP/gameaction."
+  ],
+  "Steam_online_or_upload": 0,
+  "full_mod_acceptance": "OPEN"
+}
