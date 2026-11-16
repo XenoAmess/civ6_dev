@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码155：[B_plan](docs/testing/baiqi-source155-stageA-pass.md)与[全脚本B_turn／N_req](docs/testing/baiqi-source155-stageB-pass.md)通过；[配对已完成2／5组](docs/testing/baiqi-source155-paired-progress.md)，B_delta尚未判定。继续配对、压力与其余功能验收，整个Mod尚未验收完成。 [第三组协议中止](docs/testing/baiqi-source155-pair3-transport-abort.md)仅有四段＋pending，全侧排除，已准备独立r1替代；不重发END。
+当前源码155：[B_plan](docs/testing/baiqi-source155-stageA-pass.md)与[全脚本B_turn／N_req](docs/testing/baiqi-source155-stageB-pass.md)通过；[配对已完成3／5组](docs/testing/baiqi-source155-paired-progress.md)，B_delta尚未判定。继续配对、压力与其余功能验收，整个Mod尚未验收完成。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
