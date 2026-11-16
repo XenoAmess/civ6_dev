@@ -996,8 +996,92 @@ local function RequestCivilianStandby(unit)
     if not SettlerQueueIdle(fresh,unitType)then return nil end
     return fresh
   end
+  -- Legacy creator receipts remain unknown, even when the native charge counter
+  -- is zero (that value also occurs before normal creation). Sleep is waiting,
+  -- never proof that an old creation failed or permission to replay it.
+  local function LegacyCreativeSleep(unit,unitType,eligible)
+    if not BaiqiPolicy.CreativeGreatPersonClass(unitType) then return false,false end
+    local manager=UnitManager
+    local can,writer,queue,activity=manager.CanStartOperation,manager.RequestOperation,
+      manager.GetQueuedDestination,manager.GetActivityType
+    local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiCreativeIntentBridge
+    local inspect=type(bridge)=="table" and bridge.Inspect
+    local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SLEEP
+    local operation=row and row.Hash
+    if type(can)~="function" or type(writer)~="function" or type(queue)~="function"
+      or type(activity)~="function" or not BaiqiPolicy.Number(operation) or operation%1~=0
+      or type(inspect)~="function" or bridge.version~=1 or bridge.marker~="baiqi-creative-intent-v1" then return false,false end
+    local id,at,playerID=unit:GetID(),turn,contextID
+    local function Read(current)
+      local ok,value=pcall(function()
+        local stage,token=inspect(playerID,id)
+        if stage~="LEGACY_UNKNOWN" or type(token)~="string" or token=="" then return nil end
+        local gp=type(current.GetGreatPerson)=="function" and current:GetGreatPerson()
+        if not gp or type(gp.GetActionCharges)~="function" or gp:GetActionCharges()~=0 then return nil end
+        local individual=GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
+        local class=GameInfo.GreatPersonClasses[gp:GetClass()]
+        local expected=BaiqiPolicy.CreativeGreatPersonClass(unitType)
+        local index=UnitIndex(current)
+        if not individual or not class or individual.GreatPersonClassType~=expected
+          or class.GreatPersonClassType~=expected or not index
+          or not BaiqiPolicy.Number(individual.Index) or individual.Index<0 or individual.Index%1~=0
+          or not BaiqiPolicy.Number(class.Index) or class.Index<0 or class.Index%1~=0 then return nil end
+        return {token=token,individual=individual.Index,class=class.Index,plot=index}
+      end)
+      return ok and value or nil
+    end
+    local expected=Read(unit)
+    if not expected then return false,false end
+    local function Bound()
+      return UnitManager==manager and manager.CanStartOperation==can and manager.RequestOperation==writer
+        and manager.GetQueuedDestination==queue and manager.GetActivityType==activity
+        and type(ExposedMembers)=="table" and ExposedMembers.BaiqiCreativeIntentBridge==bridge
+        and bridge.Inspect==inspect and bridge.version==1 and bridge.marker=="baiqi-creative-intent-v1"
+        and GameInfo.UnitOperations.UNITOPERATION_SLEEP==row and row.Hash==operation
+    end
+    local function Empty(ok,...)return ok and select("#",...)<=1 and (...)==nil end
+    local function False(ok,...)return ok and select("#",...)==1 and (...)==false end
+    local function Idle(current)
+      if type(current.HasPendingOperations)~="function" then return false end
+      return False(pcall(current.HasPendingOperations,current)) and Empty(pcall(queue,current))
+    end
+    local function Current()
+      if not Bound() or turn~=at or contextID~=playerID or pendingUnits[id]~=nil or pendingPurchase~=nil then return nil end
+      local current=eligible()
+      local value=current and Read(current)
+      if not value or value.token~=expected.token or value.individual~=expected.individual
+        or value.class~=expected.class or value.plot~=expected.plot or not Idle(current) then return nil end
+      local latest=eligible()
+      if not latest or UnitIndex(latest)~=expected.plot or not Idle(latest) or not Bound() or not CoreIdle() then return nil end
+      return latest
+    end
+    local fresh=Current()
+    if not fresh then return true,false end
+    local legal=can(fresh,operation,nil,{})
+    fresh=Current()
+    if not fresh then return true,false end
+    -- Native rejection keeps the original SKIP path available. Its eligibility
+    -- and native permission are queried anew after this helper returns.
+    if legal~=true then return false,false end
+    if can(fresh,operation,nil,{})~=true then return true,false end
+    fresh=Current()
+    if not fresh then return true,false end
+    local request=NextRequest("standby:"..id..":"..turn)
+    if not request then return true,false end
+    Log("request","id="..request.."|source=BACKGROUND|unit="..id.."|operation=SLEEP|reason=legacy_creative_standby")
+    local ok,err=pcall(writer,fresh,operation,{})
+    if not ok then Log("standby_unknown","id="..request.."|unit="..id.."|reason="..tostring(err)) end
+    return true,true
+  end
+
   local fresh=Eligible()
   if not fresh then return false end
+  if BaiqiPolicy.CreativeGreatPersonClass(unitType) then
+    local handled,sent=LegacyCreativeSleep(fresh,unitType,Eligible)
+    if handled then return sent end
+    fresh=Eligible()
+    if not fresh then return false end
+  end
   local canSkip=UnitManager.CanStartOperation(fresh,operation,nil,{})
   local operationName="SKIP_TURN"
   if canSkip==true then

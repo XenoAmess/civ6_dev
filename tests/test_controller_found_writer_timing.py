@@ -119,7 +119,7 @@ class FoundWriterArtifactTests(unittest.TestCase):
                 out=Path(temp)/str(i)
                 with self.assertRaises(ValueError):diagnostic.build(out,include_pre_observer=True,found_native_timing=value)
                 self.assertFalse(out.exists())
-            for version,pre in((156,True),(159,True),(157,False),(157.0,True),(True,True)):
+            for version,pre in((156,True),(160,True),(157,False),(157.0,True),(True,True)):
                 with self.assertRaises(ValueError):diagnostic.suffix(source_version=version,include_pre_observer=pre,found_native_timing=True)
             out=Path(temp)/'no-scope'
             with self.assertRaises(ValueError):diagnostic.build(out,found_native_timing=True)
@@ -130,10 +130,10 @@ class FoundWriterArtifactTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=diagnostic.ROOT/'.local-model')as temp:
             options=dict(children=FINE,include_pre_observer=True,native_path_timing=True,detour_native_timing=True,include_turn90=True,found_native_timing=True)
             out=Path(temp)/'all';d=diagnostic.build(out,**options)
-            self.assertEqual((d['source_version'],d['mode'],d['binding_count']),(158,'baiqi158-controller-children-v6',17))
+            self.assertEqual((d['source_version'],d['mode'],d['binding_count']),(159,'baiqi159-controller-children-v6',17))
             self.assertEqual((d['sample_capacity'],d['profile_count']),(4096,1));self.assertEqual(d['changed_files'],['Lua/BaiqiController.lua'])
             self.assertTrue(d['release_text_recovers_exactly']and d['lua51_compiled']and d['lua53_compiled']);self.assertFalse(d['native_global_binding_modified'])
-            suffix=diagnostic.suffix(source_version=158,**options).encode();private=(out/'Baiqi/Lua/BaiqiController.lua').read_bytes();self.assertTrue(private.endswith(suffix))
+            suffix=diagnostic.suffix(source_version=159,**options).encode();private=(out/'Baiqi/Lua/BaiqiController.lua').read_bytes();self.assertTrue(private.endswith(suffix))
             recovered=diagnostic.recover_found_writer_source(private[:-len(suffix)])
             recovered=diagnostic.recover_native_path_source(diagnostic.recover_detour_paths(recovered))
             self.assertEqual(recovered,raw);self.assertEqual((source/'Lua/BaiqiController.lua').read_bytes(),raw)

@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码158：[分段伟人寻路软件2727通过／1SDK跳过](docs/testing/baiqi-source158-bounded-district-routes.md)，[新实机在90因旧音乐家单位阻塞中止](docs/testing/baiqi-source158-aborted90-http924.md)：309行零资格错误但缺91校准，不授性能通过。157原85性能FAIL与旧8650807恢复FAIL保留；继续修复阻塞并完成性能、五城20回合、控制权及恢复，阶段提交后继续执行。
+当前源码159：[旧创作伟人未知记录改用经原生许可的安全等待，98相关检查及119文件／97Lua双编译通过](docs/testing/baiqi-source159-legacy-creative-standby.md)，尚待90阻塞档实机复测。158原85在90中止、157性能FAIL、旧8650807恢复FAIL保留；继续性能、五城20回合、控制权及恢复，阶段提交后继续执行。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
