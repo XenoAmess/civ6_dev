@@ -1250,3 +1250,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-16：[916真实任务失败与Source157负责人实现](testing/baiqi-source157-lazy-great-person-routes.md)。先保留Source156原85 FAIL，再单独细分；不同根与重叠计时不能相减相加认定根因。源码可证的多余查询由双Lua真实消费者验证，仍须独立Native验收。HTTP916一次404，累计916／816完整／68length／32最终失败／955生成POST／38额外；OpenCode原生0，未知主动成本／净收益保持null。
 
 2026-11-16：[917／918当前实测失败后的窄诊断](testing/baiqi-source157-diagnostic-turn90-http917918.md)。两次真实HTTP404分别33.4623／16.1803ms、0候选采用；当前157依然FAIL。Admin观察范围必须包含实际尖峰回合；新增显式范围保持默认字节和同一容量，分段包准备／软件通过不授Native。累计918／816完整／68length／34最终失败／957生成POST／38额外，OpenCode原生0。
+
+2026-11-16：[Source157原生FOUND私有测点](testing/baiqi-source157-found-writer-timing.md)。920失败后Owner直接实现，14新＋42相关软件检查过；默认字节保持、函数身份／pcall结果与一次性提交保持，同一4096。只准备未Native，不将未重现Admin或移民分段误判为性能修复。此包新增模型POST0、候选采用0；未知Owner主动成本／净节时保持null。

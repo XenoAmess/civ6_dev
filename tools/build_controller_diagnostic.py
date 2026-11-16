@@ -26,6 +26,35 @@ DETOUR_SITES=(
     (b'    local ok,edge=pcall(pathQuery,unit,index)',
      b'    local ok,edge=pcall(_P6DetourPath2,pathQuery,unit,index)'),
 )
+FOUND_WRITER_HELPER='_P6ControllerFoundWriter'
+FOUND_WRITER_LABEL='Native.FoundRequestOperation'
+FOUND_WRITER_ANCHOR=b'local function RequestCivilian('
+FOUND_WRITER_DECLARATION=b'local function _P6ControllerFoundWriter(fn,...) return fn(...) end\n\n'
+FOUND_WRITER_ORIGINAL=b'      local called=pcall(foundingNative.writer,fresh,action,params)'
+FOUND_WRITER_PRIVATE=b'      local called=pcall(_P6ControllerFoundWriter,foundingNative.writer,fresh,action,params)'
+
+
+def found_writer_source(raw:bytes) -> bytes:
+    if not isinstance(raw,bytes):raise TypeError('Expected original Controller bytes')
+    if FOUND_WRITER_HELPER.encode()in raw or raw.count(FOUND_WRITER_ANCHOR)!=1 or raw.count(FOUND_WRITER_ORIGINAL)!=1:
+        raise ValueError('Unknown or nonunique founding writer call site')
+    return raw.replace(FOUND_WRITER_ANCHOR,FOUND_WRITER_DECLARATION+FOUND_WRITER_ANCHOR,1).replace(FOUND_WRITER_ORIGINAL,FOUND_WRITER_PRIVATE,1)
+
+
+def recover_found_writer_source(private:bytes) -> bytes:
+    inserted=FOUND_WRITER_DECLARATION+FOUND_WRITER_ANCHOR
+    if not isinstance(private,bytes)or private.count(inserted)!=1 or private.count(FOUND_WRITER_ANCHOR)!=1 or private.count(FOUND_WRITER_PRIVATE)!=1:
+        raise ValueError('Unknown founding writer instrumentation')
+    result=private.replace(inserted,FOUND_WRITER_ANCHOR,1).replace(FOUND_WRITER_PRIVATE,FOUND_WRITER_ORIGINAL,1)
+    if FOUND_WRITER_HELPER.encode()in result or result.count(FOUND_WRITER_ORIGINAL)!=1:
+        raise ValueError('Foreign founding writer helper reference')
+    return result
+
+
+def validate_found_option(value,include_pre_observer,source_version):
+    if type(value)is not bool:raise ValueError('Expected founding writer timing boolean')
+    if value and(type(source_version)is not int or source_version!=157 or include_pre_observer is not True):
+        raise ValueError('Founding writer timing requires source157 and pre-observer scope')
 
 
 def instrument_detour_paths(raw:bytes) -> bytes:
@@ -88,13 +117,14 @@ def validate_turn90(value,source_version,include_pre_observer):
         raise ValueError('Turn90 diagnosis requires source153/154 and pre-observer coverage')
 
 
-def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False,detour_native_timing=False,include_turn90=False):
+def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False,detour_native_timing=False,include_turn90=False,found_native_timing=False):
     children=selected_children(children)
     if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     validate_native_path_option(native_path_timing,include_pre_observer,source_version)
     validate_native_path_option(detour_native_timing,include_pre_observer,source_version)
     validate_turn90(include_turn90,source_version,include_pre_observer)
+    validate_found_option(found_native_timing,include_pre_observer,source_version)
     modules=[(ROOT/f'tools/lua/{name}.lua').read_text(encoding='utf-8')for name in HELPERS]
     text='\n-- PRIVATE coarse diagnosis; original source is the exact prefix.\ndo\n'
     text+="assert(P6ControllerNested==nil,'Existing diagnostic owner')\n"
@@ -170,6 +200,14 @@ end
  {name}=binding.wrapped;d.bindings[{index}]=binding
 end
 '''
+    if found_native_timing:
+        index=len(children)+2+int(native_path_timing)+2*int(detour_native_timing)
+        text+=f'''do
+ local binding={{original={FOUND_WRITER_HELPER}}}
+ binding.wrapped=d.WrapChild('{FOUND_WRITER_LABEL}',binding.original)
+ {FOUND_WRITER_HELPER}=binding.wrapped;d.bindings[{index}]=binding
+end
+'''
     text+='''local attempted,removed,same=false,false,nil
 function d.Restore()
  if attempted then return removed,same end
@@ -192,6 +230,11 @@ function d.Restore()
             index=len(children)+2+int(native_path_timing)+offset
             text+=f''' same[{index}]={name}==d.bindings[{index}].wrapped
  if same[{index}]then {name}=d.bindings[{index}].original end
+'''
+    if found_native_timing:
+        index=len(children)+2+int(native_path_timing)+2*int(detour_native_timing)
+        text+=f''' same[{index}]={FOUND_WRITER_HELPER}==d.bindings[{index}].wrapped
+ if same[{index}]then {FOUND_WRITER_HELPER}=d.bindings[{index}].original end
 '''
     text+=''' if added then
   local ok=pcall(remove,OnActivate)
@@ -230,10 +273,14 @@ end
             raise ValueError('Unknown turn90 diagnostic anchors')
         text=text.replace(guard,'if t~=88 and t~=89 and t~=90 then return nil end',1)
         text=text.replace(label,"d.source='baiqi140-controller-children-v5'",1)
+    if found_native_timing:
+        labels=re.findall(r"d\.source='baiqi140-controller-children-v[1-5]'",text)
+        if len(labels)!=1:raise ValueError('Unknown founding writer diagnostic owner')
+        text=text.replace(labels[0],"d.source='baiqi140-controller-children-v6'",1)
     return text.replace('baiqi140-controller-children-',f'baiqi{source_version}-controller-children-')
 
 
-def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_path_timing=False,detour_native_timing=False,include_turn90=False):
+def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_path_timing=False,detour_native_timing=False,include_turn90=False,found_native_timing=False):
     from lupa.lua51 import LuaRuntime as Lua51
     from lupa.lua53 import LuaRuntime as Lua53
     children=selected_children(children)
@@ -245,6 +292,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
     validate_native_path_option(native_path_timing,include_pre_observer,version)
     validate_native_path_option(detour_native_timing,include_pre_observer,version)
     validate_turn90(include_turn90,version,include_pre_observer)
+    validate_found_option(found_native_timing,include_pre_observer,version)
     out=output_dir.resolve()
     if not out.is_relative_to(ROOT/'.local-model')or out.exists():
         raise ValueError('New private output directory required')
@@ -253,7 +301,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
         if len(re.findall(r'\blocal\s+function\s+'+name+r'\s*\(',raw.decode('utf-8-sig')))!=1:
             raise ValueError('Unknown lexical child '+name)
     hashes={name:digest(contained(source,name))for name in names}
-    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version,native_path_timing=native_path_timing,detour_native_timing=detour_native_timing,include_turn90=include_turn90).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
+    appended=suffix(children,include_pre_observer=include_pre_observer,source_version=version,native_path_timing=native_path_timing,detour_native_timing=detour_native_timing,include_turn90=include_turn90,found_native_timing=found_native_timing).encode('utf-8');prepared={name:contained(source,name).read_bytes()for name in names}
     private=native_path_source(raw)if native_path_timing else raw
     if native_path_timing and recover_native_path_source(private)!=raw:
         raise ValueError('Private Native path source does not recover exactly')
@@ -262,6 +310,11 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
         recovered=recover_detour_paths(private)
         if native_path_timing:recovered=recover_native_path_source(recovered)
         if recovered!=raw:raise ValueError('Private detour source does not recover exactly')
+    if found_native_timing:
+        private=found_writer_source(private);recovered=recover_found_writer_source(private)
+        if detour_native_timing:recovered=recover_detour_paths(recovered)
+        if native_path_timing:recovered=recover_native_path_source(recovered)
+        if recovered!=raw:raise ValueError('Private founding writer source does not recover exactly')
     prepared['Lua/BaiqiController.lua']=private+appended
     c51=Lua51().eval('function(s)local f,e=loadstring(s);assert(f,e)end')
     c53=Lua53().eval('function(s)local f,e=load(s);assert(f,e)end')
@@ -301,6 +354,11 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
         result.update(mode=f'baiqi{version}-controller-children-v5',include_turn90=True,
                       focus_turns=[88,89,90],binding_count=len(children)+1+int(native_path_timing)+2*int(detour_native_timing),
                       limits='Diagnosis only. Explicit source153 opt-in retains active88/89/90 entries before the own observer and within its ten-second window. Same4096 capacity and exact restoration; instrumentation is not B_plan or whole performance evidence.')
+    if found_native_timing:
+        result.update(mode=f'baiqi{version}-controller-children-v6',found_native_timing=True,
+                      found_native_child=FOUND_WRITER_LABEL,binding_count=len(children)+2+int(native_path_timing)+2*int(detour_native_timing),
+                      original_controller_exact_prefix=False,release_text_recovers_exactly=True,native_global_binding_modified=False,
+                      limits='Diagnosis only. One reversible private founding pcall passthrough preserves the stored writer lookup, current arguments and once/error semantics. Native bindings and live permission checks remain original. All selected timers share one4096 profile; no B_plan or whole performance pass.')
     (out/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return result
 
@@ -311,5 +369,6 @@ if __name__=='__main__':
     p.add_argument('--native-path-timing',action='store_true')
     p.add_argument('--detour-native-timing',action='store_true')
     p.add_argument('--include-turn90',action='store_true')
+    p.add_argument('--found-native-timing',action='store_true')
     p.add_argument('--include-pre-observer',action='store_true');args=p.parse_args()
-    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer,native_path_timing=args.native_path_timing,detour_native_timing=args.detour_native_timing,include_turn90=args.include_turn90);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
+    d=build(args.output_dir,children=args.children,include_pre_observer=args.include_pre_observer,native_path_timing=args.native_path_timing,detour_native_timing=args.detour_native_timing,include_turn90=args.include_turn90,found_native_timing=args.found_native_timing);print(json.dumps({k:d[k]for k in('mode','files','archive_sha256','installed')}))
