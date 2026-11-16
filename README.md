@@ -1,5 +1,7 @@
 # civ6_dev
 
+[Source160原85 B_turn／N_req通过](docs/research/baiqi-source160-original85-fullscript-2026-11-17.json)：33上下文、780保留函数样本／4096容量；五窗最大约311ms，完整回合最多34次提交。普通91、保存／撤钩／释放完成，继续五组25配对段和当前MANY／NO_SITE矩阵；整个mod验收仍未完成。
+
 [Source160原85 B_plan按冻结预算通过](docs/research/baiqi-source160-original85-plan-http934935-2026-11-17.json)：Admin118个纯十城样本p95／max约2／10ms，Controller143个约11／49ms；317原值全留、普通91收尾／保存／撤钩／释放完成。继续B_turn、N_req、25配对段与压力矩阵；尚非TC-036或整个mod通过。
 
 当前源码160：[所有者／编队未知原因提示的软件修复](docs/research/baiqi-source160-unknown-reasons-software-2026-11-17.json)已完成；7项新回归通过，完整2748运行中的14处陈旧QA版本断言修正后，相关91项重检通过，1项SDK跳过。119文件／97Lua双编译，TC-040四个受控分支已按版本来源闭合；当前160其余性能与完整功能仍未完成，旧8650807恢复FAIL保留。
