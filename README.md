@@ -2,6 +2,8 @@
 
 当前源码159：[旧创作等待修复的软件验证](docs/testing/baiqi-source159-legacy-creative-standby.md)，[真实音乐家阻塞档已自动睡眠、保留未知意图并普通90→91保存](docs/testing/baiqi-source159-legacy-creative-native91.md)。当前159冻结性能、五城20回合及完整功能未完成；158中止、157性能FAIL与旧8650807恢复FAIL保留，阶段提交后继续执行。
 
+[159的40项有限执行清单](docs/research/baiqi-source159-finite40-audit925-2026-11-17.json)已逐条列出既有证据与缺口；没有新增整项PASS，继续实机闭合。
+
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
 最新：[152修复私有QA后B_turn／N_req实机通过](docs/testing/baiqi-source152-stageB-identity-fixed.md)：五窗最大756ms、每回合最多35次提交，实际91／11城；4390940建城由UI与Core双证。产品未改，B_plan原76ms FAIL及B_delta／压力／完整验收仍开放。
