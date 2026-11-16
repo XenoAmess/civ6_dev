@@ -1,0 +1,3004 @@
+{
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 157,
+  "diagnosis_only": true,
+  "current_Bplan": "FAIL preserved at8215869; original92ms pure-ten Admin spike not reproduced or explained",
+  "product_changes": 0,
+  "build": {
+    "mode": "baiqi157-admin-children-v2",
+    "children": [
+      "Research",
+      "PowerResearchChoice",
+      "Governors",
+      "GovernorRescue",
+      "GovernorLoyaltyDemand",
+      "Religion",
+      "Government",
+      "GreatPeople",
+      "Choose",
+      "BaiqiFloodPurchase.Run",
+      "BaiqiFoodFocusRunner.Run",
+      "BaiqiFoodTileRescueRunner.Run"
+    ],
+    "sample_capacity": 4096,
+    "profile_count": 1,
+    "focus_turns": [
+      87,
+      88,
+      89,
+      90
+    ],
+    "archive_sha256": "2c73ed29458b1e72b7ba55d879050fc16679e73ad93ddb919ec30d32b3f8f723",
+    "changed_files": [
+      "Lua/BaiqiAdmin.lua"
+    ],
+    "original_admin_exact_prefix": true
+  },
+  "binding_count": 13,
+  "summary": {
+    "utc": "2026-11-16T15:37:48.550599+00:00",
+    "source": "baiqi157-admin-children-v2",
+    "diagnostic_accounting_ok": true,
+    "roots": 89,
+    "samples": 220,
+    "observer_phase_counts": {
+      "whole_before_observer": 0,
+      "overlaps_observer": 0,
+      "observed_window": 89,
+      "outside_window_started": 0
+    },
+    "cities": 11,
+    "largest_roots": [
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.013000011444091797,
+          "started": 1794843427.037,
+          "ended": 1794843427.05,
+          "failed": false,
+          "rootId": 84,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFoodFocusRunner.Run": 3.000020980834961,
+          "BaiqiFoodTileRescueRunner.Run": 9.999990463256836
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFoodTileRescueRunner.Run",
+            "seconds": 0.009999990463256836,
+            "started": 1794843427.04,
+            "ended": 1794843427.05,
+            "failed": false,
+            "rootId": 84,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "BaiqiFoodFocusRunner.Run",
+            "seconds": 0.003000020980834961,
+            "started": 1794843427.037,
+            "ended": 1794843427.04,
+            "failed": false,
+            "rootId": 84,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.009000062942504883,
+          "started": 1794843426.649,
+          "ended": 1794843426.658,
+          "failed": false,
+          "rootId": 83,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFloodPurchase.Run": 9.000062942504883
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFloodPurchase.Run",
+            "seconds": 0.009000062942504883,
+            "started": 1794843426.649,
+            "ended": 1794843426.658,
+            "failed": false,
+            "rootId": 83,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.006999969482421875,
+          "started": 1794843206.217,
+          "ended": 1794843206.224,
+          "failed": false,
+          "rootId": 36,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFoodFocusRunner.Run": 2.000093460083008,
+          "BaiqiFoodTileRescueRunner.Run": 4.999876022338867
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFoodTileRescueRunner.Run",
+            "seconds": 0.004999876022338867,
+            "started": 1794843206.219,
+            "ended": 1794843206.224,
+            "failed": false,
+            "rootId": 36,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "BaiqiFoodFocusRunner.Run",
+            "seconds": 0.002000093460083008,
+            "started": 1794843206.217,
+            "ended": 1794843206.219,
+            "failed": false,
+            "rootId": 36,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.006000041961669922,
+          "started": 1794843202.737,
+          "ended": 1794843202.743,
+          "failed": false,
+          "rootId": 27,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PowerResearchChoice": 2.000093460083008,
+          "Choose": 0.9999275207519531,
+          "Research": 5.000114440917969
+        },
+        "largest_children": [
+          {
+            "name": "Research",
+            "seconds": 0.005000114440917969,
+            "started": 1794843202.737,
+            "ended": 1794843202.742,
+            "failed": false,
+            "rootId": 27,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PowerResearchChoice",
+            "seconds": 0.002000093460083008,
+            "started": 1794843202.737,
+            "ended": 1794843202.739,
+            "failed": false,
+            "rootId": 27,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Choose",
+            "seconds": 0.0009999275207519531,
+            "started": 1794843202.74,
+            "ended": 1794843202.741,
+            "failed": false,
+            "rootId": 27,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.006000041961669922,
+          "started": 1794843203.455,
+          "ended": 1794843203.461,
+          "failed": false,
+          "rootId": 29,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFoodFocusRunner.Run": 2.000093460083008,
+          "BaiqiFoodTileRescueRunner.Run": 3.999948501586914
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFoodTileRescueRunner.Run",
+            "seconds": 0.003999948501586914,
+            "started": 1794843203.457,
+            "ended": 1794843203.461,
+            "failed": false,
+            "rootId": 29,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "BaiqiFoodFocusRunner.Run",
+            "seconds": 0.002000093460083008,
+            "started": 1794843203.455,
+            "ended": 1794843203.457,
+            "failed": false,
+            "rootId": 29,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.006000041961669922,
+          "started": 1794843205.846,
+          "ended": 1794843205.852,
+          "failed": false,
+          "rootId": 35,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFloodPurchase.Run": 3.999948501586914
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFloodPurchase.Run",
+            "seconds": 0.003999948501586914,
+            "started": 1794843205.8470001,
+            "ended": 1794843205.851,
+            "failed": false,
+            "rootId": 35,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.005000114440917969,
+          "started": 1794843100.846,
+          "ended": 1794843100.851,
+          "failed": false,
+          "rootId": 2,
+          "rootTurn": 87,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFloodPurchase.Run": 4.000186920166016
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFloodPurchase.Run",
+            "seconds": 0.004000186920166016,
+            "started": 1794843100.846,
+            "ended": 1794843100.8500001,
+            "failed": false,
+            "rootId": 2,
+            "rootTurn": 87,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.005000114440917969,
+          "started": 1794843309.208,
+          "ended": 1794843309.213,
+          "failed": false,
+          "rootId": 50,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFloodPurchase.Run": 5.000114440917969
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFloodPurchase.Run",
+            "seconds": 0.005000114440917969,
+            "started": 1794843309.208,
+            "ended": 1794843309.213,
+            "failed": false,
+            "rootId": 50,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.004999876022338867,
+          "started": 1794843313.459,
+          "ended": 1794843313.464,
+          "failed": false,
+          "rootId": 58,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFoodFocusRunner.Run": 0.9999275207519531,
+          "BaiqiFoodTileRescueRunner.Run": 3.999948501586914
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFoodTileRescueRunner.Run",
+            "seconds": 0.003999948501586914,
+            "started": 1794843313.46,
+            "ended": 1794843313.464,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "BaiqiFoodFocusRunner.Run",
+            "seconds": 0.0009999275207519531,
+            "started": 1794843313.459,
+            "ended": 1794843313.46,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.004000186920166016,
+          "started": 1794843101.211,
+          "ended": 1794843101.2150002,
+          "failed": false,
+          "rootId": 3,
+          "rootTurn": 87,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFoodFocusRunner.Run": 1.0001659393310547,
+          "BaiqiFoodTileRescueRunner.Run": 3.000020980834961
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFoodTileRescueRunner.Run",
+            "seconds": 0.003000020980834961,
+            "started": 1794843101.2120001,
+            "ended": 1794843101.2150002,
+            "failed": false,
+            "rootId": 3,
+            "rootTurn": 87,
+            "rootCities": 10
+          },
+          {
+            "name": "BaiqiFoodFocusRunner.Run",
+            "seconds": 0.0010001659393310547,
+            "started": 1794843101.211,
+            "ended": 1794843101.2120001,
+            "failed": false,
+            "rootId": 3,
+            "rootTurn": 87,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.003000020980834961,
+          "started": 1794843313.089,
+          "ended": 1794843313.092,
+          "failed": false,
+          "rootId": 57,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "BaiqiFloodPurchase.Run": 3.000020980834961
+        },
+        "largest_children": [
+          {
+            "name": "BaiqiFloodPurchase.Run",
+            "seconds": 0.003000020980834961,
+            "started": 1794843313.089,
+            "ended": 1794843313.092,
+            "failed": false,
+            "rootId": 57,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Admin.Run",
+          "seconds": 0.003000020980834961,
+          "started": 1794843425.353,
+          "ended": 1794843425.356,
+          "failed": false,
+          "rootId": 80,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "GreatPeople": 3.000020980834961
+        },
+        "largest_children": [
+          {
+            "name": "GreatPeople",
+            "seconds": 0.003000020980834961,
+            "started": 1794843425.353,
+            "ended": 1794843425.356,
+            "failed": false,
+            "rootId": 80,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      }
+    ],
+    "facts_sha256": "4dc7f40794142a62200a9ff25dac0976b2b392248cb8f51cdba2b6d3b8c3d4df",
+    "limits": "Selected coarse children only, inclusive times; no summing nested rows or B_plan/whole performance pass. Root entry city count only; no inferred end-state. All active pre-observer entries retained; actual interval phases classified against observed anchors without physical-event inference."
+  },
+  "stats": [
+    {
+      "name": "Admin.Run",
+      "count": 89,
+      "p50_ms": 0.9999275207519531,
+      "p95_ms": 6.000041961669922,
+      "max_ms": 13.000011444091797
+    },
+    {
+      "name": "BaiqiFloodPurchase.Run",
+      "count": 13,
+      "p50_ms": 2.000093460083008,
+      "p95_ms": 9.000062942504883,
+      "max_ms": 9.000062942504883
+    },
+    {
+      "name": "BaiqiFoodFocusRunner.Run",
+      "count": 13,
+      "p50_ms": 0.9999275207519531,
+      "p95_ms": 3.000020980834961,
+      "max_ms": 3.000020980834961
+    },
+    {
+      "name": "BaiqiFoodTileRescueRunner.Run",
+      "count": 13,
+      "p50_ms": 0.9999275207519531,
+      "p95_ms": 9.999990463256836,
+      "max_ms": 9.999990463256836
+    },
+    {
+      "name": "Choose",
+      "count": 2,
+      "p50_ms": 0.9999275207519531,
+      "p95_ms": 0.9999275207519531,
+      "max_ms": 0.9999275207519531
+    },
+    {
+      "name": "Government",
+      "count": 11,
+      "p50_ms": 0.0,
+      "p95_ms": 0.9999275207519531,
+      "max_ms": 0.9999275207519531
+    },
+    {
+      "name": "GovernorLoyaltyDemand",
+      "count": 13,
+      "p50_ms": 0.0,
+      "p95_ms": 0.9999275207519531,
+      "max_ms": 0.9999275207519531
+    },
+    {
+      "name": "GovernorRescue",
+      "count": 13,
+      "p50_ms": 0.0,
+      "p95_ms": 0.9999275207519531,
+      "max_ms": 0.9999275207519531
+    },
+    {
+      "name": "Governors",
+      "count": 13,
+      "p50_ms": 0.0,
+      "p95_ms": 2.000093460083008,
+      "max_ms": 2.000093460083008
+    },
+    {
+      "name": "GreatPeople",
+      "count": 11,
+      "p50_ms": 0.0,
+      "p95_ms": 3.000020980834961,
+      "max_ms": 3.000020980834961
+    },
+    {
+      "name": "PowerResearchChoice",
+      "count": 1,
+      "p50_ms": 2.000093460083008,
+      "p95_ms": 2.000093460083008,
+      "max_ms": 2.000093460083008
+    },
+    {
+      "name": "Religion",
+      "count": 13,
+      "p50_ms": 0.0,
+      "p95_ms": 0.9999275207519531,
+      "max_ms": 0.9999275207519531
+    },
+    {
+      "name": "Research",
+      "count": 15,
+      "p50_ms": 0.0,
+      "p95_ms": 5.000114440917969,
+      "max_ms": 5.000114440917969
+    }
+  ],
+  "all_raw_facts": {
+    "source": "baiqi157-admin-children-v2",
+    "capture": {
+      "utc": "2026-11-16T15:37:18.952762+00:00",
+      "token": "8fa5ab3dbdf24e888c4d53a354596132",
+      "phase": "COMPLETE",
+      "turn": 90,
+      "requested_turns": [
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "capture_start": 1794842884.4390001,
+      "capture_stop": 1794843438.894,
+      "samples": 220,
+      "roots": 89,
+      "diagnosis_only": true
+    },
+    "meta": [
+      "89",
+      "220",
+      "220",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4096",
+      "1794842884.4390001",
+      "1794843438.8940001",
+      "11"
+    ],
+    "anchors": {
+      "86": 1794842992.2350001,
+      "87": 1794843099.654,
+      "88": 1794843200.719,
+      "89": 1794843307.408,
+      "90": 1794843419.469
+    },
+    "samples": [
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843100.4880002,
+        "ended": 1794843100.4880002,
+        "failed": false,
+        "rootId": 1,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843100.4880002,
+        "ended": 1794843100.4880002,
+        "failed": false,
+        "rootId": 1,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.004000186920166016,
+        "started": 1794843100.846,
+        "ended": 1794843100.8500001,
+        "failed": false,
+        "rootId": 2,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.005000114440917969,
+        "started": 1794843100.846,
+        "ended": 1794843100.851,
+        "failed": false,
+        "rootId": 2,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0010001659393310547,
+        "started": 1794843101.211,
+        "ended": 1794843101.2120001,
+        "failed": false,
+        "rootId": 3,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.003000020980834961,
+        "started": 1794843101.2120001,
+        "ended": 1794843101.2150002,
+        "failed": false,
+        "rootId": 3,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.004000186920166016,
+        "started": 1794843101.211,
+        "ended": 1794843101.2150002,
+        "failed": false,
+        "rootId": 3,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843101.562,
+        "ended": 1794843101.562,
+        "failed": false,
+        "rootId": 4,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843101.562,
+        "ended": 1794843101.562,
+        "failed": false,
+        "rootId": 4,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843101.91,
+        "ended": 1794843101.91,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843101.91,
+        "ended": 1794843101.91,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0,
+        "started": 1794843101.91,
+        "ended": 1794843101.91,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843101.91,
+        "ended": 1794843101.91,
+        "failed": false,
+        "rootId": 5,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0,
+        "started": 1794843102.267,
+        "ended": 1794843102.267,
+        "failed": false,
+        "rootId": 6,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843102.267,
+        "ended": 1794843102.267,
+        "failed": false,
+        "rootId": 6,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843102.627,
+        "ended": 1794843102.627,
+        "failed": false,
+        "rootId": 7,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843102.627,
+        "ended": 1794843102.627,
+        "failed": false,
+        "rootId": 7,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843102.984,
+        "ended": 1794843102.984,
+        "failed": false,
+        "rootId": 8,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843102.984,
+        "ended": 1794843102.984,
+        "failed": false,
+        "rootId": 8,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.0,
+        "started": 1794843103.3470001,
+        "ended": 1794843103.3470001,
+        "failed": false,
+        "rootId": 9,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843103.3470001,
+        "ended": 1794843103.3470001,
+        "failed": false,
+        "rootId": 9,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843103.707,
+        "ended": 1794843103.707,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843103.707,
+        "ended": 1794843103.707,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843103.707,
+        "ended": 1794843103.707,
+        "failed": false,
+        "rootId": 10,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843104.068,
+        "ended": 1794843104.068,
+        "failed": false,
+        "rootId": 11,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843104.068,
+        "ended": 1794843104.068,
+        "failed": false,
+        "rootId": 11,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843104.43,
+        "ended": 1794843104.43,
+        "failed": false,
+        "rootId": 12,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843104.43,
+        "ended": 1794843104.43,
+        "failed": false,
+        "rootId": 12,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0,
+        "started": 1794843104.43,
+        "ended": 1794843104.43,
+        "failed": false,
+        "rootId": 12,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843104.43,
+        "ended": 1794843104.43,
+        "failed": false,
+        "rootId": 12,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0,
+        "started": 1794843104.787,
+        "ended": 1794843104.787,
+        "failed": false,
+        "rootId": 13,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843104.787,
+        "ended": 1794843104.787,
+        "failed": false,
+        "rootId": 13,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843105.153,
+        "ended": 1794843105.153,
+        "failed": false,
+        "rootId": 14,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843105.153,
+        "ended": 1794843105.153,
+        "failed": false,
+        "rootId": 14,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843105.507,
+        "ended": 1794843105.507,
+        "failed": false,
+        "rootId": 15,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843105.507,
+        "ended": 1794843105.507,
+        "failed": false,
+        "rootId": 15,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.0,
+        "started": 1794843105.866,
+        "ended": 1794843105.866,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843105.866,
+        "ended": 1794843105.866,
+        "failed": false,
+        "rootId": 16,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843106.226,
+        "ended": 1794843106.226,
+        "failed": false,
+        "rootId": 17,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843106.226,
+        "ended": 1794843106.227,
+        "failed": false,
+        "rootId": 17,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843106.226,
+        "ended": 1794843106.227,
+        "failed": false,
+        "rootId": 17,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843106.584,
+        "ended": 1794843106.584,
+        "failed": false,
+        "rootId": 18,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843106.584,
+        "ended": 1794843106.584,
+        "failed": false,
+        "rootId": 18,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843106.955,
+        "ended": 1794843106.955,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843106.955,
+        "ended": 1794843106.955,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0,
+        "started": 1794843106.955,
+        "ended": 1794843106.955,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843106.955,
+        "ended": 1794843106.955,
+        "failed": false,
+        "rootId": 19,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0,
+        "started": 1794843107.315,
+        "ended": 1794843107.315,
+        "failed": false,
+        "rootId": 20,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843107.315,
+        "ended": 1794843107.315,
+        "failed": false,
+        "rootId": 20,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843107.676,
+        "ended": 1794843107.676,
+        "failed": false,
+        "rootId": 21,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843107.676,
+        "ended": 1794843107.676,
+        "failed": false,
+        "rootId": 21,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843108.036,
+        "ended": 1794843108.036,
+        "failed": false,
+        "rootId": 22,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843108.036,
+        "ended": 1794843108.036,
+        "failed": false,
+        "rootId": 22,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.0,
+        "started": 1794843108.399,
+        "ended": 1794843108.399,
+        "failed": false,
+        "rootId": 23,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843108.399,
+        "ended": 1794843108.399,
+        "failed": false,
+        "rootId": 23,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843108.7610002,
+        "ended": 1794843108.7610002,
+        "failed": false,
+        "rootId": 24,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843108.7610002,
+        "ended": 1794843108.762,
+        "failed": false,
+        "rootId": 24,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843108.7610002,
+        "ended": 1794843108.762,
+        "failed": false,
+        "rootId": 24,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843109.118,
+        "ended": 1794843109.118,
+        "failed": false,
+        "rootId": 25,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843109.118,
+        "ended": 1794843109.118,
+        "failed": false,
+        "rootId": 25,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843109.476,
+        "ended": 1794843109.476,
+        "failed": false,
+        "rootId": 26,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843109.476,
+        "ended": 1794843109.476,
+        "failed": false,
+        "rootId": 26,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0,
+        "started": 1794843109.476,
+        "ended": 1794843109.476,
+        "failed": false,
+        "rootId": 26,
+        "rootTurn": 87,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843109.476,
+        "ended": 1794843109.476,
+        "failed": false,
+        "rootId": 26,
+        "rootTurn": 87,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "PowerResearchChoice",
+        "seconds": 0.002000093460083008,
+        "started": 1794843202.737,
+        "ended": 1794843202.739,
+        "failed": false,
+        "rootId": 27,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Choose",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843202.74,
+        "ended": 1794843202.741,
+        "failed": false,
+        "rootId": 27,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Research",
+        "seconds": 0.005000114440917969,
+        "started": 1794843202.737,
+        "ended": 1794843202.742,
+        "failed": false,
+        "rootId": 27,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.006000041961669922,
+        "started": 1794843202.737,
+        "ended": 1794843202.743,
+        "failed": false,
+        "rootId": 27,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843203.172,
+        "ended": 1794843203.174,
+        "failed": false,
+        "rootId": 28,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843203.172,
+        "ended": 1794843203.174,
+        "failed": false,
+        "rootId": 28,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843203.455,
+        "ended": 1794843203.457,
+        "failed": false,
+        "rootId": 29,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.003999948501586914,
+        "started": 1794843203.457,
+        "ended": 1794843203.461,
+        "failed": false,
+        "rootId": 29,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.006000041961669922,
+        "started": 1794843203.455,
+        "ended": 1794843203.461,
+        "failed": false,
+        "rootId": 29,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843203.845,
+        "ended": 1794843203.845,
+        "failed": false,
+        "rootId": 30,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843203.845,
+        "ended": 1794843203.845,
+        "failed": false,
+        "rootId": 30,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843204.1890001,
+        "ended": 1794843204.1890001,
+        "failed": false,
+        "rootId": 31,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843204.1890001,
+        "ended": 1794843204.1890001,
+        "failed": false,
+        "rootId": 31,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0,
+        "started": 1794843204.1890001,
+        "ended": 1794843204.1890001,
+        "failed": false,
+        "rootId": 31,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843204.1890001,
+        "ended": 1794843204.1890001,
+        "failed": false,
+        "rootId": 31,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0,
+        "started": 1794843204.545,
+        "ended": 1794843204.545,
+        "failed": false,
+        "rootId": 32,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843204.545,
+        "ended": 1794843204.546,
+        "failed": false,
+        "rootId": 32,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843205.14,
+        "ended": 1794843205.141,
+        "failed": false,
+        "rootId": 33,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843205.14,
+        "ended": 1794843205.141,
+        "failed": false,
+        "rootId": 33,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843205.496,
+        "ended": 1794843205.497,
+        "failed": false,
+        "rootId": 34,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843205.496,
+        "ended": 1794843205.497,
+        "failed": false,
+        "rootId": 34,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.003999948501586914,
+        "started": 1794843205.8470001,
+        "ended": 1794843205.851,
+        "failed": false,
+        "rootId": 35,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.006000041961669922,
+        "started": 1794843205.846,
+        "ended": 1794843205.852,
+        "failed": false,
+        "rootId": 35,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843206.217,
+        "ended": 1794843206.219,
+        "failed": false,
+        "rootId": 36,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.004999876022338867,
+        "started": 1794843206.219,
+        "ended": 1794843206.224,
+        "failed": false,
+        "rootId": 36,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.006999969482421875,
+        "started": 1794843206.217,
+        "ended": 1794843206.224,
+        "failed": false,
+        "rootId": 36,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843206.593,
+        "ended": 1794843206.593,
+        "failed": false,
+        "rootId": 37,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0010001659393310547,
+        "started": 1794843206.593,
+        "ended": 1794843206.594,
+        "failed": false,
+        "rootId": 37,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843206.953,
+        "ended": 1794843206.953,
+        "failed": false,
+        "rootId": 38,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843206.953,
+        "ended": 1794843206.953,
+        "failed": false,
+        "rootId": 38,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0,
+        "started": 1794843206.953,
+        "ended": 1794843206.953,
+        "failed": false,
+        "rootId": 38,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843206.953,
+        "ended": 1794843206.953,
+        "failed": false,
+        "rootId": 38,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0,
+        "started": 1794843207.309,
+        "ended": 1794843207.309,
+        "failed": false,
+        "rootId": 39,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843207.309,
+        "ended": 1794843207.309,
+        "failed": false,
+        "rootId": 39,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843207.671,
+        "ended": 1794843207.671,
+        "failed": false,
+        "rootId": 40,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843207.671,
+        "ended": 1794843207.671,
+        "failed": false,
+        "rootId": 40,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843208.029,
+        "ended": 1794843208.029,
+        "failed": false,
+        "rootId": 41,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843208.029,
+        "ended": 1794843208.029,
+        "failed": false,
+        "rootId": 41,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.0,
+        "started": 1794843208.387,
+        "ended": 1794843208.387,
+        "failed": false,
+        "rootId": 42,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843208.387,
+        "ended": 1794843208.387,
+        "failed": false,
+        "rootId": 42,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843208.7450001,
+        "ended": 1794843208.7450001,
+        "failed": false,
+        "rootId": 43,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843208.7450001,
+        "ended": 1794843208.746,
+        "failed": false,
+        "rootId": 43,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843208.7450001,
+        "ended": 1794843208.746,
+        "failed": false,
+        "rootId": 43,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843209.107,
+        "ended": 1794843209.107,
+        "failed": false,
+        "rootId": 44,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843209.107,
+        "ended": 1794843209.107,
+        "failed": false,
+        "rootId": 44,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843209.4650002,
+        "ended": 1794843209.4650002,
+        "failed": false,
+        "rootId": 45,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843209.4650002,
+        "ended": 1794843209.4650002,
+        "failed": false,
+        "rootId": 45,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843209.4650002,
+        "ended": 1794843209.466,
+        "failed": false,
+        "rootId": 45,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843209.4650002,
+        "ended": 1794843209.466,
+        "failed": false,
+        "rootId": 45,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843209.848,
+        "ended": 1794843209.849,
+        "failed": false,
+        "rootId": 46,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843209.848,
+        "ended": 1794843209.849,
+        "failed": false,
+        "rootId": 46,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843210.209,
+        "ended": 1794843210.209,
+        "failed": false,
+        "rootId": 47,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843210.209,
+        "ended": 1794843210.209,
+        "failed": false,
+        "rootId": 47,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843210.589,
+        "ended": 1794843210.589,
+        "failed": false,
+        "rootId": 48,
+        "rootTurn": 88,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843210.589,
+        "ended": 1794843210.589,
+        "failed": false,
+        "rootId": 48,
+        "rootTurn": 88,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843308.762,
+        "ended": 1794843308.762,
+        "failed": false,
+        "rootId": 49,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843308.7610002,
+        "ended": 1794843308.762,
+        "failed": false,
+        "rootId": 49,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.005000114440917969,
+        "started": 1794843309.208,
+        "ended": 1794843309.213,
+        "failed": false,
+        "rootId": 50,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.005000114440917969,
+        "started": 1794843309.208,
+        "ended": 1794843309.213,
+        "failed": false,
+        "rootId": 50,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843309.559,
+        "ended": 1794843309.56,
+        "failed": false,
+        "rootId": 51,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843309.56,
+        "ended": 1794843309.56,
+        "failed": false,
+        "rootId": 51,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843309.559,
+        "ended": 1794843309.56,
+        "failed": false,
+        "rootId": 51,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843309.921,
+        "ended": 1794843309.921,
+        "failed": false,
+        "rootId": 52,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843309.921,
+        "ended": 1794843309.923,
+        "failed": false,
+        "rootId": 52,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843310.956,
+        "ended": 1794843310.957,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843310.956,
+        "ended": 1794843310.957,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0019998550415039062,
+        "started": 1794843310.956,
+        "ended": 1794843310.958,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0019998550415039062,
+        "started": 1794843310.956,
+        "ended": 1794843310.958,
+        "failed": false,
+        "rootId": 53,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0,
+        "started": 1794843311.961,
+        "ended": 1794843311.961,
+        "failed": false,
+        "rootId": 54,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843311.961,
+        "ended": 1794843311.961,
+        "failed": false,
+        "rootId": 54,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843312.325,
+        "ended": 1794843312.325,
+        "failed": false,
+        "rootId": 55,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843312.325,
+        "ended": 1794843312.326,
+        "failed": false,
+        "rootId": 55,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843312.686,
+        "ended": 1794843312.686,
+        "failed": false,
+        "rootId": 56,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843312.686,
+        "ended": 1794843312.686,
+        "failed": false,
+        "rootId": 56,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.003000020980834961,
+        "started": 1794843313.089,
+        "ended": 1794843313.092,
+        "failed": false,
+        "rootId": 57,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.003000020980834961,
+        "started": 1794843313.089,
+        "ended": 1794843313.092,
+        "failed": false,
+        "rootId": 57,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843313.459,
+        "ended": 1794843313.46,
+        "failed": false,
+        "rootId": 58,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.003999948501586914,
+        "started": 1794843313.46,
+        "ended": 1794843313.464,
+        "failed": false,
+        "rootId": 58,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.004999876022338867,
+        "started": 1794843313.459,
+        "ended": 1794843313.464,
+        "failed": false,
+        "rootId": 58,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843313.831,
+        "ended": 1794843313.831,
+        "failed": false,
+        "rootId": 59,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0019998550415039062,
+        "started": 1794843313.831,
+        "ended": 1794843313.833,
+        "failed": false,
+        "rootId": 59,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843314.842,
+        "ended": 1794843314.843,
+        "failed": false,
+        "rootId": 60,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843314.842,
+        "ended": 1794843314.843,
+        "failed": false,
+        "rootId": 60,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843314.842,
+        "ended": 1794843314.843,
+        "failed": false,
+        "rootId": 60,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843314.842,
+        "ended": 1794843314.844,
+        "failed": false,
+        "rootId": 60,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0,
+        "started": 1794843315.187,
+        "ended": 1794843315.187,
+        "failed": false,
+        "rootId": 61,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843315.187,
+        "ended": 1794843315.187,
+        "failed": false,
+        "rootId": 61,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843315.5440001,
+        "ended": 1794843315.5440001,
+        "failed": false,
+        "rootId": 62,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843315.5440001,
+        "ended": 1794843315.5440001,
+        "failed": false,
+        "rootId": 62,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843315.918,
+        "ended": 1794843315.918,
+        "failed": false,
+        "rootId": 63,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843315.918,
+        "ended": 1794843315.918,
+        "failed": false,
+        "rootId": 63,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.0,
+        "started": 1794843316.276,
+        "ended": 1794843316.276,
+        "failed": false,
+        "rootId": 64,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843316.276,
+        "ended": 1794843316.276,
+        "failed": false,
+        "rootId": 64,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843316.631,
+        "ended": 1794843316.632,
+        "failed": false,
+        "rootId": 65,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843316.632,
+        "ended": 1794843316.632,
+        "failed": false,
+        "rootId": 65,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843316.631,
+        "ended": 1794843316.6330001,
+        "failed": false,
+        "rootId": 65,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843316.9880002,
+        "ended": 1794843316.9880002,
+        "failed": false,
+        "rootId": 66,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843316.9880002,
+        "ended": 1794843316.9880002,
+        "failed": false,
+        "rootId": 66,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843317.344,
+        "ended": 1794843317.344,
+        "failed": false,
+        "rootId": 67,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843317.344,
+        "ended": 1794843317.344,
+        "failed": false,
+        "rootId": 67,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0,
+        "started": 1794843317.344,
+        "ended": 1794843317.344,
+        "failed": false,
+        "rootId": 67,
+        "rootTurn": 89,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843317.344,
+        "ended": 1794843317.344,
+        "failed": false,
+        "rootId": 67,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843419.887,
+        "ended": 1794843419.887,
+        "failed": false,
+        "rootId": 68,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Choose",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843419.887,
+        "ended": 1794843419.888,
+        "failed": false,
+        "rootId": 68,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843419.887,
+        "ended": 1794843419.888,
+        "failed": false,
+        "rootId": 68,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.0,
+        "started": 1794843420.242,
+        "ended": 1794843420.242,
+        "failed": false,
+        "rootId": 69,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843420.242,
+        "ended": 1794843420.242,
+        "failed": false,
+        "rootId": 69,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843420.602,
+        "ended": 1794843420.602,
+        "failed": false,
+        "rootId": 70,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843420.602,
+        "ended": 1794843420.603,
+        "failed": false,
+        "rootId": 70,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843420.602,
+        "ended": 1794843420.603,
+        "failed": false,
+        "rootId": 70,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843420.958,
+        "ended": 1794843420.958,
+        "failed": false,
+        "rootId": 71,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0010001659393310547,
+        "started": 1794843420.958,
+        "ended": 1794843420.959,
+        "failed": false,
+        "rootId": 71,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0,
+        "started": 1794843421.6230001,
+        "ended": 1794843421.6230001,
+        "failed": false,
+        "rootId": 72,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0,
+        "started": 1794843421.6230001,
+        "ended": 1794843421.6230001,
+        "failed": false,
+        "rootId": 72,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843421.6230001,
+        "ended": 1794843421.624,
+        "failed": false,
+        "rootId": 72,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843421.6230001,
+        "ended": 1794843421.624,
+        "failed": false,
+        "rootId": 72,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843422.0410001,
+        "ended": 1794843422.042,
+        "failed": false,
+        "rootId": 73,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843422.0410001,
+        "ended": 1794843422.042,
+        "failed": false,
+        "rootId": 73,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843422.3930001,
+        "ended": 1794843422.3930001,
+        "failed": false,
+        "rootId": 74,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0010001659393310547,
+        "started": 1794843422.392,
+        "ended": 1794843422.3930001,
+        "failed": false,
+        "rootId": 74,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843422.798,
+        "ended": 1794843422.798,
+        "failed": false,
+        "rootId": 75,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0010001659393310547,
+        "started": 1794843422.797,
+        "ended": 1794843422.798,
+        "failed": false,
+        "rootId": 75,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843423.223,
+        "ended": 1794843423.2250001,
+        "failed": false,
+        "rootId": 76,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843423.223,
+        "ended": 1794843423.2250001,
+        "failed": false,
+        "rootId": 76,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.0,
+        "started": 1794843423.55,
+        "ended": 1794843423.55,
+        "failed": false,
+        "rootId": 77,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.0010001659393310547,
+        "started": 1794843423.55,
+        "ended": 1794843423.551,
+        "failed": false,
+        "rootId": 77,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0010001659393310547,
+        "started": 1794843423.55,
+        "ended": 1794843423.551,
+        "failed": false,
+        "rootId": 77,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843423.907,
+        "ended": 1794843423.908,
+        "failed": false,
+        "rootId": 78,
+        "rootTurn": 90,
+        "rootCities": 10
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843423.907,
+        "ended": 1794843423.908,
+        "failed": false,
+        "rootId": 78,
+        "rootTurn": 90,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843424.3960001,
+        "ended": 1794843424.397,
+        "failed": false,
+        "rootId": 79,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843424.3960001,
+        "ended": 1794843424.397,
+        "failed": false,
+        "rootId": 79,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.0019998550415039062,
+        "started": 1794843424.3960001,
+        "ended": 1794843424.398,
+        "failed": false,
+        "rootId": 79,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0029997825622558594,
+        "started": 1794843424.3960001,
+        "ended": 1794843424.399,
+        "failed": false,
+        "rootId": 79,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.003000020980834961,
+        "started": 1794843425.353,
+        "ended": 1794843425.356,
+        "failed": false,
+        "rootId": 80,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.003000020980834961,
+        "started": 1794843425.353,
+        "ended": 1794843425.356,
+        "failed": false,
+        "rootId": 80,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843425.808,
+        "ended": 1794843425.809,
+        "failed": false,
+        "rootId": 81,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843425.808,
+        "ended": 1794843425.809,
+        "failed": false,
+        "rootId": 81,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843426.175,
+        "ended": 1794843426.175,
+        "failed": false,
+        "rootId": 82,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843426.175,
+        "ended": 1794843426.175,
+        "failed": false,
+        "rootId": 82,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFloodPurchase.Run",
+        "seconds": 0.009000062942504883,
+        "started": 1794843426.649,
+        "ended": 1794843426.658,
+        "failed": false,
+        "rootId": 83,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.009000062942504883,
+        "started": 1794843426.649,
+        "ended": 1794843426.658,
+        "failed": false,
+        "rootId": 83,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "BaiqiFoodFocusRunner.Run",
+        "seconds": 0.003000020980834961,
+        "started": 1794843427.037,
+        "ended": 1794843427.04,
+        "failed": false,
+        "rootId": 84,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "BaiqiFoodTileRescueRunner.Run",
+        "seconds": 0.009999990463256836,
+        "started": 1794843427.04,
+        "ended": 1794843427.05,
+        "failed": false,
+        "rootId": 84,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.013000011444091797,
+        "started": 1794843427.037,
+        "ended": 1794843427.05,
+        "failed": false,
+        "rootId": 84,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Religion",
+        "seconds": 0.0,
+        "started": 1794843427.423,
+        "ended": 1794843427.423,
+        "failed": false,
+        "rootId": 85,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843427.423,
+        "ended": 1794843427.424,
+        "failed": false,
+        "rootId": 85,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GovernorLoyaltyDemand",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843427.766,
+        "ended": 1794843427.767,
+        "failed": false,
+        "rootId": 86,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "GovernorRescue",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843427.766,
+        "ended": 1794843427.767,
+        "failed": false,
+        "rootId": 86,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Governors",
+        "seconds": 0.002000093460083008,
+        "started": 1794843427.766,
+        "ended": 1794843427.7680001,
+        "failed": false,
+        "rootId": 86,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.002000093460083008,
+        "started": 1794843427.766,
+        "ended": 1794843427.7680001,
+        "failed": false,
+        "rootId": 86,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "GreatPeople",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843428.624,
+        "ended": 1794843428.625,
+        "failed": false,
+        "rootId": 87,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0009999275207519531,
+        "started": 1794843428.624,
+        "ended": 1794843428.625,
+        "failed": false,
+        "rootId": 87,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Government",
+        "seconds": 0.0,
+        "started": 1794843429.016,
+        "ended": 1794843429.016,
+        "failed": false,
+        "rootId": 88,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0019998550415039062,
+        "started": 1794843429.015,
+        "ended": 1794843429.017,
+        "failed": false,
+        "rootId": 88,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      },
+      {
+        "name": "Research",
+        "seconds": 0.0,
+        "started": 1794843429.379,
+        "ended": 1794843429.379,
+        "failed": false,
+        "rootId": 89,
+        "rootTurn": 90,
+        "rootCities": 11
+      },
+      {
+        "name": "Admin.Run",
+        "seconds": 0.0,
+        "started": 1794843429.379,
+        "ended": 1794843429.379,
+        "failed": false,
+        "rootId": 89,
+        "rootTurn": 90,
+        "rootCities": 11,
+        "observer_phase": "observed_window"
+      }
+    ]
+  },
+  "closed": {
+    "checkpoint": {
+      "utc": "2026-11-16T15:38:07.806647+00:00",
+      "name": "Baiqi_P6_20261116_V157_AdminCoarse90.Civ6Save",
+      "bytes": 518825,
+      "sha256": "b18da9f400a8fe2a5d83c14acb22e4469889d55236ef23155e3fb2296c78479b",
+      "stable_repeated_read": true
+    },
+    "formal_finish": {
+      "utc": "2026-11-16T15:38:57.517595+00:00",
+      "nonce": "5f2c4082ba9e43e88d961776f81dee62",
+      "diagnostic_capture_complete": true,
+      "all_raw_exported": true,
+      "13_bindings_restored_and_exact_event_retired": true,
+      "HTTP_during_capture": 0,
+      "B_plan_PASS_claim": false
+    },
+    "process_cleanup": {
+      "utc": "2026-11-16T15:42:29.390255+00:00",
+      "exit_code": 15,
+      "terminate_count": 1,
+      "kill_escalations": 0,
+      "natural_exit_claimed": false
+    },
+    "official_exit_once": true,
+    "Steam_mode": "offline",
+    "offline_proof_UTC": "2026-11-16T15:21:38.430035+00:00",
+    "offline_proof_age_seconds": 5.698302,
+    "CPU": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "program_sha256": "1adb1a2bca31f9db6be14d6e22d30d2dfcb6dcd8de3abd9a81e7bea396b39417",
+    "formal_model_HTTP": 0,
+    "formal_builds": 0,
+    "formal_heavy_checks": 0
+  },
+  "interpretation": "Independent Admin87..90 scope89roots220rows zeroerrors/drop; all89 roots observedwindow, no preobserver rows inthisrun. Largest root13ms@90 entry11cities contains FoodTileRescue10/FoodFocus3. Entry10city88root7ms contains FoodTile5/Focus2. No92ms spike reproduced; no causal fix or B_plan PASS. Root exit city count unknown and children inclusive; do not sum overlaps.",
+  "formal_auxiliary_note": {
+    "utc": "2026-11-16T15:42:19.102064+00:00",
+    "file": "admin157h_fixture_owner.py",
+    "file_mtime_UTC": "2026-11-16T15:26:29.539692+00:00",
+    "capture_start_epoch": 1794842884.4390001,
+    "edit_before_capture_start": true,
+    "edit_during_formal_reload": true,
+    "change": "One inherited stage narrative string in the future begin_formal metadata changed from DETOUR_NATIVE_PATH_DIAGNOSIS_PRE_RELOAD_THROUGH_DUMP_RETIRE to ADMIN_CHILD_DIAGNOSIS_PRE_RELOAD_THROUGH_DUMP_RETIRE. Existing begin had already returned; no existing formal record rewritten, no Lua payload/binding/product/counter/action change. Existing formal metadata retains its original observed scope/mode; source mode/label are correct Admin157v2. No all-auxiliary-work or zero CPU impact claim.",
+    "source_of_error": "Owner edited without checking current phase; corrected description too late for existing begin. Retain disclosed run; diagnosis only, not budget acceptance.",
+    "console_note": "Inherited FOURTEEN_BINDINGS_RETIRED human print is inaccurate for Admin. Actual retire Lua asserted #same==13 and all13 true; metadata/build and13-restored proof determine actual count."
+  },
+  "model920": {
+    "sources": 13,
+    "source_bytes": 443251,
+    "actual_POST": "2026-11-16T15:23:23.190230+00:00",
+    "actual_END": "2026-11-16T15:23:23.219176+00:00",
+    "http_status": 404,
+    "total_ms": 29.04710010625422,
+    "candidate_count": 0,
+    "adoption": 0,
+    "generation_POST": 1,
+    "extra_POST": 0,
+    "request_killed": false,
+    "stop_marker": "After actual POST only, prevents task retry; current request ended naturally.",
+    "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP",
+    "phase_events": [
+      {
+        "utc": "2026-11-16T15:23:22.341626+00:00",
+        "phase": "PREP_BEGIN",
+        "limits": "Earlier actualController found-dispatch source reading exists; fullOwner activecost/net savings unknown."
+      },
+      {
+        "utc": "2026-11-16T15:23:22.345404+00:00",
+        "phase": "PREP_END",
+        "sources": 13,
+        "bytes": 443251
+      }
+    ],
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "ledger_through920": {
+    "logical": 920,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 36,
+    "generation_POST": 959,
+    "extra_POST": 38,
+    "inflight": 0,
+    "metadata_GET_separate": 2,
+    "TCP_separate": 1,
+    "OpenCode_native_generation": 0
+  },
+  "next_Found_writer_probe": "NOT_IMPLEMENTED / NOT_NATIVE at publication. Model920 task requests private precise pcall passthrough timing preserving stored writer identity/current arguments/error/once semantics and default bytes. No hotwork moved outside frozen planning boundary, Native global replacement or replay authority.",
+  "full_mod_acceptance": "OPEN",
+  "old_8650807_recovery": "FAIL_UNRESOLVED",
+  "Steam_online_or_upload": 0,
+  "unknown": {
+    "root_exit_city_count": null,
+    "earlier92ms_root_cause": null,
+    "backend_cause": null,
+    "cached_tokens": null
+  }
+}
