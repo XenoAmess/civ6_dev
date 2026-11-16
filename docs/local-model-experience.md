@@ -1258,3 +1258,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-17：[作用域修复Native与922](testing/baiqi-source157-found-scope-native-http922.md)：实机114根532行零错，109ms包含四路径、具体上层未知；另根建城原生1ms不排除旧尖峰。HTTP922一次404，14来源370407字节，0采用；累计922/816完整/68length/38最终失败/961生成POST/38额外，OpenCode原生0。
 
 2026-11-17：[Source158分段伟人寻路](testing/baiqi-source158-bounded-district-routes.md)：新返回协议须隔离旧RequestCivilian的reason字符串，首次全套实际捕获一处行为回归，exact true后完整2727pass／1SDKskip，尚未Native。923真实40例审计任务一次404／28.2294ms，0候选采用，审计仍未完成；累计923/816完整/68length/39最终失败/962生成POST/38额外，OpenCode原生0。
+
+2026-11-17：[158真实90中止与924](testing/baiqi-source158-aborted90-http924.md)：READY预留不等于END调用；真实阻塞仍优先于两项false检查。既有SKIP提交后仍AWAKE，原因未知，0创作ActionCharges不证明耗尽；保留LEGACY_UNKNOWN。924完整16来源357065字节一次404，累计924/816完整/68length/40最终失败/963生成POST/38额外，0采用／OpenCode原生0。
