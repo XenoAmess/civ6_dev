@@ -37,7 +37,7 @@ class CensusVersionTests(unittest.TestCase):
     def test_unknown_versions_and_nonexact_types_are_rejected(self):
         class IntSubclass(int):
             pass
-        for value in (True, 155.0, '155', None, 141, 154, 157, IntSubclass(155)):
+        for value in (True, 155.0, '155', None, 141, 154, 158, IntSubclass(155)):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 transform(self.source(), source_version=value)
 
@@ -45,11 +45,11 @@ class CensusVersionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             output = Path(folder) / 'prepared'
             data = build(output)
-            self.assertEqual(data['source_version'], 156)
-            self.assertEqual(data['mode'], 'baiqi156-settlement-census-v1')
+            self.assertEqual(data['source_version'], 157)
+            self.assertEqual(data['mode'], 'baiqi157-settlement-census-v1')
             self.assertEqual(data['changed_files'], ['Lua/BaiqiController.lua'])
             self.assertEqual(data['census_capacity'], 256)
-            self.assertTrue((output / 'Baiqi-settlement156-census.zip').is_file())
+            self.assertTrue((output / 'Baiqi-settlement157-census.zip').is_file())
             self.assertEqual(data['files'], len(data['source_hashes']))
             self.assertEqual(data['Native_pressure_status'], 'UNVERIFIED')
             self.assertTrue(data['release_recovers_exactly'])

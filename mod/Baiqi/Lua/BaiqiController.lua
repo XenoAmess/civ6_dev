@@ -2641,9 +2641,8 @@ local function ProcessProphet(ctx,player,state,unit)
           if district:GetType()==required.Index and district:IsComplete()==true and district:IsPillaged()==false then
             local plot=Map.GetPlot(district:GetX(),district:GetY())
             if plot and plot:GetOwner()==ctx.player then
-              local step=PathStep(unit,plot,player,state)
-              if step then targets[#targets+1]={plot=plot,step=step,index=plot:GetIndex(),
-                distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())} end
+              targets[#targets+1]={plot=plot,index=plot:GetIndex(),
+                distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
             end
           end
         end
@@ -2651,7 +2650,11 @@ local function ProcessProphet(ctx,player,state,unit)
     end
   end
   table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
-  if targets[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",targets[1].step) end
+  -- Distance/index determines the destination; only query paths until it is reachable.
+  for _,target in ipairs(targets) do
+    local step=PathStep(unit,target.plot,player,state)
+    if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+  end
   Reason("prophet:"..unit:GetID(),"先知等待已建成的安全圣地与原生建教资格")
   return false
 end
@@ -2773,12 +2776,14 @@ local function ProcessCreative(ctx,player,state,unit)
   end
   local paths={}
   for _,site in ipairs(sites) do
-    local step=PathStep(unit,site.plot,player,state)
-    if step then paths[#paths+1]={step=step,index=site.plot:GetIndex(),
-      distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),site.plot:GetX(),site.plot:GetY())} end
+    paths[#paths+1]={plot=site.plot,index=site.plot:GetIndex(),
+      distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),site.plot:GetX(),site.plot:GetY())}
   end
   table.sort(paths,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
-  if paths[1] then return RequestCivilian(ctx,state,unit,"MOVE_TO",paths[1].step) end
+  for _,target in ipairs(paths) do
+    local step=PathStep(unit,target.plot,player,state)
+    if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+  end
   Reason("creative:"..unitID,"创作等待安全且有匹配空槽的自有建筑")
   return false
 end

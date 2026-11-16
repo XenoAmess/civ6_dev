@@ -1,0 +1,1625 @@
+{
+  "date": "2026-11-16",
+  "machine": "BF-202609141645",
+  "source_version": 157,
+  "change": {
+    "consumers": [
+      "ProcessProphet",
+      "ProcessCreative"
+    ],
+    "behavior": "Sort existing eligible targets by the same distance/index priority, query routes until the first reachable target, return that RequestCivilian result without trying another destination after refusal. Activation-first, durable intent, formation and final native permission checks retained.",
+    "not_changed": [
+      "ProcessDistrictPerson",
+      "Executor cadence",
+      "Native global bindings",
+      "performance budgets"
+    ],
+    "cause_limit": "Source-proven redundant route queries; coarse root15 typed caller and cause of earlier original85 250ms root remain UNKNOWN."
+  },
+  "software": {
+    "full_suite_first": {
+      "methods": 2693,
+      "passed": 2691,
+      "failures": 1,
+      "SDK_environment_skips": 1,
+      "seconds": 333.965,
+      "failure": "New deferred formation test expected156 after source bump157; only test expectation corrected."
+    },
+    "focused_recheck": {
+      "module": "test_formation_unknown_deferred",
+      "methods": 8,
+      "passed": 8,
+      "seconds": 4.388,
+      "log": ".local-model\\acceptance-continue-20261116\\source157-deferred-version-recheck.log"
+    },
+    "software_qualification_ok": true,
+    "full_suite_rerun": false,
+    "new_methods": 8,
+    "new_configurations": 32,
+    "engines": [
+      "Lua5.1",
+      "Lua5.3"
+    ],
+    "old156_red_run": {
+      "expected_failed_subcases": 16,
+      "errors": 0
+    },
+    "first_red_run": "Earlier harness preparation run had12 failed subcases and8 Lua5.1 creative setup errors; preserved before fixing only test loader compatibility. Not product failures.",
+    "new_cases": [
+      "nearest",
+      "unreachable nearest",
+      "distance tie",
+      "all unreachable",
+      "native refusal",
+      "formation changes before submit",
+      "escorted",
+      "activation first"
+    ],
+    "creative_harness": "Adds loadstring/setfenv for Lua5.1, keeps Lua5.3 load; product loader unchanged.",
+    "files": 119,
+    "lua51_and_lua53_compiled": 97,
+    "ordinary_archive_sha256": "1c6472572b2861d75b9cee9f28efcbeb918304c29abeb92aa65d60070efee750",
+    "source_hashes": {
+      "Baiqi.modinfo": "f89809185425e14012ce80bb02484ce06ba4d7fb2b03db9b0d33513667634255",
+      "Baiqi.dep": "a33cdf8c5797db4ba59608d2947e7bcc7c6bb00fe2ba4ff14c96c0423e2706ae",
+      "ArtDefs/Leaders.artdef": "08ba8547d0eb8e9df3a6e52409ceabf868758224aa5510102d50e7eca84898de",
+      "UI/BaiqiDiplomacyActionView.lua": "0019d52dcf8de5f779d75b826fd1557ff09e5929fe238cd248518fb153bccb7d",
+      "UI/BaiqiLeaderScene.lua": "b471425795db905107e69b8514776fcae0b2420b728bba8d542a66ab372600f6",
+      "Art/Baiqi_SelectionForeground.dds": "6eb8ed45aeebfb7c21724c6dc4fb99883264897a4afb30a30d754741e4c03f48",
+      "Art/Baiqi_Leader32.dds": "0771f1085c62f9e80a2b4f11077cab8f9750d964b50d5e443561b651b010aef7",
+      "Art/Baiqi_Leader45.dds": "843d73803c98e4bde8a989fdc24c096347bcdbc8d290e64c49c1da1b203516c4",
+      "Art/Baiqi_Leader50.dds": "1da2b41dad44ea67ec53e3e41bab9d0eed4e0a36a4bcdb538b1f935502c44ab8",
+      "Art/Baiqi_Leader55.dds": "5a61cf5cfac4587111f411d8486a85342eb892be29a5abf178d639dab44fe015",
+      "Art/Baiqi_Leader64.dds": "f852cb618d3d097f98fcef9bac652fb86303a1b712ceb1ad7fd90f32011ee669",
+      "Art/Baiqi_Leader80.dds": "ac71912d96de3cfc0336fad7d9fe59100a4bf47ea9707c58836dac4fa7d198cf",
+      "Art/Baiqi_Leader256.dds": "38d8d855a1223b9cda89688b739098030f67cd319d739a6a598a61c887eccb1d",
+      "Art/Baiqi_LeaderForeground.dds": "50aaf785bebe196b74772bc923036b75b0d7f51b5a838ffccc3c31d6094c4fac",
+      "Art/Baiqi_LoadingBackground.dds": "a4cdbf3e7284d5e34e5023b71c733cf5e0c4cf7a5717fc9577ba09420e96f5eb",
+      "Art/Baiqi_DiplomacyBackground.dds": "1e230dfcd3700ec97f8710130287e00d9da56b7f09375b767652b640a958fc84",
+      "Config/BaiqiConfig.sql": "0d819aeba0cd8c9fed3a2192091aa2a8e047292f8c8312c8b899283ecb9cbc7f",
+      "Data/Baiqi.sql": "cf0ff7715623b1a539cf4ddff4de4bf19d60ac56f69d04e320225bf70ae41c45",
+      "Data/BaiqiStandby.sql": "6f56df4c8f6355dd4d073dd102a591c88b2789dc92218d0ec463818230bda4fa",
+      "Data/BaiqiIcons.sql": "0658fc841559108ed1b86a2a82ab8410d0423d6539d6b5075e77a6d0ba66c333",
+      "Data/BaiqiColors.xml": "f9972697780b70ec1f40fe4a4ed30a933aeaba0094198e8cc169296936a94f74",
+      "Text/BaiqiText.xml": "c3456c808b0f6886f361dd3b14cb464287708f5b22847af4844ec9f058f4534d",
+      "Lua/BaiqiConfig.lua": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+      "Lua/BaiqiPolicy.lua": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+      "Lua/BaiqiSettlementWarning.lua": "69cb71fc87c87301978f25eb04a42e88b044ea007b38aab0437652c9c5dd574f",
+      "Lua/BaiqiPlanner.lua": "0fce74f390cacd1339c4c26b954d9a916d32f19c95e9c5e7e557cd77e76fd5ef",
+      "Lua/BaiqiController.lua": "01bf67dd0c3fece48defa6947bd05cdef504169925a4c6d7e35f80ef7094677a",
+      "Lua/BaiqiGameplay.lua": "57fd0de3fd1ac0aa32e5070376c7626d16957c4c0dee59092b4562f52493e952",
+      "Lua/BaiqiRequisition.lua": "dbc2b638b4bae15b05ea18e33ebba50a7c31ae3437752b1baa496de7847b1af9",
+      "Lua/BaiqiCapture.lua": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+      "Lua/BaiqiGPIntentGameplay.lua": "6b16b8f54453b66ce56bd47a7e01aeb3362f6f3d2bbb51865dc2efb7ca3c0dc9",
+      "Lua/BaiqiGPJournal.lua": "596486c712e919db42eb45648ee111dd736e2c9f547d87ddaef1601846fedd49",
+      "Lua/BaiqiSettlementJournal.lua": "415c7329abae0b20a85d03b0e65b683682bb95d1cbe11d9b939ad29e5bc2ca28",
+      "Lua/BaiqiSettlementStateCore.lua": "6ebc7e7abfc0f055e4b88c6e68c7fd4cfe7edb3d35f98599b899e97096a8b071",
+      "Lua/BaiqiSettlementUnitCore.lua": "f5da0bf115a97b49fbded695f61c851d8dfa3c35c1283da7083991fe6beb6aad",
+      "Lua/BaiqiSettlementTileCore.lua": "0e8bee1ea5a1c946bf9e508aefcf163eac580ecaf8b7b730c2c20648ef9f2a09",
+      "Lua/BaiqiSettlementIntentCore.lua": "4554b7f4a9ead96b8cda2078edf9e86ad4f236db268590290f918b15061d1283",
+      "Lua/BaiqiSettlementIntentGameplay.lua": "c14c741670ebee3719d2d511746ad0118a3145c2a39b5e9c344bc3cf8daf5548",
+      "Lua/BaiqiSettlerGoals.lua": "61efb57c395b55e71ed236a3c987a025b97a227b4dbd0d2710c918b058507821",
+      "Lua/BaiqiSettlerGoalsCore.lua": "2c4864375afdf94f8abee0199e8b39f8c1496458f1cb4808950853452f4961fa",
+      "Lua/BaiqiSettlerGoalsGameplay.lua": "e66d5d7774587ac59fadf0b63b2abb40ac951d283981f321001ee19e0be6c90c",
+      "Lua/BaiqiPowerSitesCore.lua": "54ebdef6428aea7c1f7e853cea4eddcc18ef6a7945fa4e8b5f9080f92d4a51eb",
+      "Lua/BaiqiPowerSitesGameplay.lua": "b711bca77c8f918e0c2ecfa965bbc6279d57e3e6e4ffd6e9885e5c066f09142a",
+      "Lua/BaiqiCreativeJournal.lua": "6399ec11de6a7647a259e1088b4de86751e31b9cc06e54a691b32e2bb3cb6731",
+      "Lua/BaiqiCreativeIntentGameplay.lua": "429d160b05be5c1c65d2a0da440b00243ee217bf8a0fffbec2fde0762ff128a7",
+      "Lua/BaiqiReligiousJournal.lua": "456faee0547984145ff5f83f2c6778a96161bfffb99edf252780e4e612e601a3",
+      "Lua/BaiqiProphetJournal.lua": "5bd8a0429cb331ff819f5125889361648cdab402d1ba497e213f86d713256ce5",
+      "Lua/BaiqiProphetIntentGameplay.lua": "c1f8d03044ee824ac4104e0df2c2456da6c35fadaa2e7bfc397b199d0fb71dc9",
+      "Lua/BaiqiReligiousIntentGameplay.lua": "d9000645f191f8fae89b57737bf196dab727b624b315dd029a88dfb92ede8476",
+      "Lua/BaiqiHeritageCandidates.lua": "0204da5155562803ebbfadc4553369746f80c7f48baf4f9be20e65ce4d85bbcf",
+      "Lua/BaiqiHeritageActions.lua": "f432cbc9afb7d8ef8f75d78c3c497bc8a5b27c816f7903ba63ace5cdc01eca2a",
+      "Lua/BaiqiNaturalistUnit.lua": "f8620415fa70c297aa4fe01a8b7e5debcdfc88f2b972e94afc0126615a79943b",
+      "Lua/BaiqiNaturalistJournal.lua": "2da1476d35b4a53fb5a41e008741e43cf292091ee6c628d97ab0bf52ee779346",
+      "Lua/BaiqiNaturalistIntentGameplay.lua": "7120e88f59993d61bba0d7194bc316b4ef3f9cf37655f629bdd9709265c849d3",
+      "Lua/BaiqiNaturalistPurchase.lua": "c066f33c53821c47d8151bb31dc1bebd0beb139e9df3c49f551c57d87977573e",
+      "Lua/BaiqiMissionaryPurchase.lua": "8515d1733d8f59d6f153bf93aed6a0a8ba8bd3aec51f53d1399ad39cf1d54237",
+      "Lua/BaiqiMissionaryPurchaseSubmit.lua": "fcf1ced0b68572b964947f94e4c2a4ed0993262657e4f5889203643104c9ccd6",
+      "Lua/BaiqiMissionaryPurchaseDemand.lua": "25b05c99517bc8d65a4fc53441bd8b3e8c74018bc6cee5acd50e3b8e70147883",
+      "Lua/BaiqiMissionaryPurchaseJournal.lua": "01d77584dad638034240cfe32bab1cb05f705ad236a79d2cc9f1f6afaeeb7be2",
+      "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua": "238b2867aa621097bfd1c5929f60fc09b0a0324396aaac90adfb5b7bd8792c6c",
+      "Lua/BaiqiFaithPurchaseGuard.lua": "87ac052e9b74666dad070c19a8554f05c54eedd4309fe8059eec7332ec4a48bf",
+      "Lua/BaiqiMissionaryPurchaseSnapshot.lua": "9321b7208dd73a29ca0913c5ebf4d196ba562bd1638c3af6ba46628d12a7671f",
+      "Lua/BaiqiNaturalistPurchaseSnapshot.lua": "916f0c2579f11e9b9486dd3f0344cbc175a16c6824567bf3681a66903db6bf3e",
+      "Lua/BaiqiNaturalistPurchaseJournal.lua": "0ae422ec87b7aae019e2beacbf11b0dc68684a7232434ec306bef005c089bc7f",
+      "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": "0eb45b9e7faa8f1cbac2efe6fd3d39322e76e27d9411cac6851a99c86e1bf6bb",
+      "Lua/BaiqiArchaeologistUnit.lua": "4adbe0cd7f3cad6a3bd3a1938f772677c6d9c53b1617fe8e9aa95c067f01c848",
+      "Lua/BaiqiArchaeologyHome.lua": "0eb1d8a022aced7fc81887a6d76383fc0f6a50fdf51dd292a994bb61b5391044",
+      "Lua/BaiqiPendingArtifact.lua": "86e38d3a421a610826cc6a1da3880950461f8cf87bf731137103d0adc0e70d6a",
+      "Lua/BaiqiArchaeologyJournal.lua": "e1f1f2a7521fa6c0871e092a891194401ad60a3cf58ebc0257c14b3f43bfdf8e",
+      "Lua/BaiqiArchaeologyIntentGameplay.lua": "47e8f1239649dd27957caf9adeb2353716e9a3c515ecc4f71bf8a67a91e336df",
+      "Lua/BaiqiArchaeologyReceiptEvents.lua": "c5a490b95b4ee2786b400f30f076bb121b1542dd65aea114ae3bdde1efd93731",
+      "Lua/BaiqiActions.lua": "e651579f165db402ade1cf1dd9218313f4a6598505bb1a8af73ad627d5d8715a",
+      "UI/BaiqiExecutor.xml": "4503fe229775d340a07eac1c2c074d560e5364808cb87d6c4ecfc9cdb7bbf712",
+      "UI/BaiqiExecutor.lua": "8d3a74475f8e0000e999e5babca5b3e12863a36f0bf64c270cd222537f45dfc6",
+      "Lua/BaiqiUIGuard.lua": "a97c063499d1d3ccbc345195969fa51f77cc5019d041a11cacc3901fb6133660",
+      "Lua/BaiqiUILoader.lua": "ac45361dc50d653be99e3369a5aa58c033099088e1a781995317d8f29386ea31",
+      "Lua/BaiqiGPViewData.lua": "8666a3b8ba6c2f89a33295e90cafc4865733752a79bebb7f147718e8337c7661",
+      "Lua/BaiqiGPViewport.lua": "00ee09f15c43c63a0e852a9ca956a844753378987de0410d1028c3d9a3531c61",
+      "Lua/BaiqiAdmin.lua": "cfed13335b6cd214b8ace7805cd6547c7ff792cd73e7ac12365f2bbb0889bdc4",
+      "Lua/BaiqiFlood.lua": "164aaf8a13133a94b62330570b82cb4f9a7b1d8eb7a9fe283b143cf06dfc38c1",
+      "Lua/BaiqiFloodPurchase.lua": "17a3f7b3e314f6b620ac1613b004c803616100b633c8ce67d5b87b758aef0c80",
+      "Lua/BaiqiGovernorLoyalty.lua": "e8d60a56d68a6a820be6dee041a454e5fc348484c0fb6a3850b0c68fa90f895b",
+      "Lua/BaiqiFoodFocus.lua": "53aa95aeabae85ac1542572611c5cfc5bc6cb2ae6f890c605e3716bac0da6df8",
+      "Lua/BaiqiFoodFocusRunner.lua": "a887d3c7964689d8b805f94d0981a6717837d01a66c7701404b5e1708ad972dd",
+      "Lua/BaiqiFoodTileRescue.lua": "34b73e2dbc010885317772902a471508faf8f3e32630b13a9510570ee9974bd6",
+      "Lua/BaiqiFoodTileRescueRunner.lua": "3ffb5c2e8c78aa19d1d4d54d1ca015549c2bf66e0e0731c5f22281ea4774a3f8",
+      "Lua/BaiqiFoodTileJournal.lua": "e6da70ca5559acf862c46217e95f22c0ec4bcbb0b7872a85f99c9aec50c2e8a8",
+      "Lua/BaiqiFoodTileIntentGameplay.lua": "6bde9b4b6407c3329925d525205041df3afd18e01c184d167f4b4ed5846928ef",
+      "Lua/BaiqiCrisisViewport.lua": "bee526267c3fae9d70b3399213113ebee519d9af304a7fb2ac5ba2c6d827b2f3",
+      "UI/BaiqiWorldCrisisPopup.lua": "fa2fec4841ebfbeb1d8ca761e91b4af22b3695ac3bee7e4a0dc45d0e122a3bce",
+      "UI/BaiqiWorldInput.lua": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+      "UI/BaiqiUnitPanel.lua": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+      "UI/BaiqiProductionPanel.lua": "7d8b522f88992ac4d090d046344d16165b0705a846926257c7fafd63e2c10a70",
+      "UI/BaiqiCityPanel.lua": "79a1665fd65750e2b2e28e9e5e0a9cd9843186635c7d157775c307b6cd009faa",
+      "UI/BaiqiCityPanelOverview.lua": "c6e0b7cd06ee5286b1e7cb78eae30a522db5eb4538955af4f2bb9b75ce708d40",
+      "UI/BaiqiPlotInfo.lua": "7f182a626cb5aac88201892bd96b2488ba3f275bed2af6e6ba60e385a3656510",
+      "UI/BaiqiTechTree.lua": "e8da4c900af8415906aae5738f24c83e2708ca15346a4d7380c680aadc27a6d1",
+      "UI/BaiqiCivicsTree.lua": "8aec1b387759b0b9d02f7621697bf5c630b16381ddf475188b095a40406ee528",
+      "UI/BaiqiGovernmentScreen.lua": "4114156af941fdd9ba83c220168f477cb7b812e36ae8e2b60b384259abea0485",
+      "UI/BaiqiGovernorPanel.lua": "8f9c4716f4caff8f1c11fe034552bc241f1f760bbfd69a107845aa3c1ae45acf",
+      "UI/BaiqiGovernorDetailsPanel.lua": "c33ef6f055743a18f126f1ca949751b9dce2f16c16718fdace817ce8c810babc",
+      "UI/BaiqiGovernorAssignmentChooser.lua": "bffca192849acc5809d4fc6ae0d92256759ba8f48e1408f8af55aa4ae54255f3",
+      "UI/BaiqiTradeRouteChooser.lua": "7b1f586b22d9a4edad0b0d1c02f858e75bcabe52365c9be19e6a3f8da36f1411",
+      "UI/BaiqiGreatPeoplePopup.lua": "157bb1007e91503b5007a876f9ea3248765548da5ff7041e69242ae2f3d50574",
+      "UI/BaiqiCityStates.lua": "d5f7e1b7ffb5f7b367fbaefb41ff39252f0391745486df08148644dafea9e35f",
+      "Data/BaiqiRetiredEffects.sql": "edda554efc4cd788bf180e92e96ec5fca4b980ae0f698b95a482793efdfaab3c",
+      "UI/BaiqiResearchChooser.lua": "6ad9590926f657f67b409ecbc87e3a2deef2bbe682a5d3bcc0a7a2c2597728e6",
+      "UI/BaiqiCivicsChooser.lua": "ff84d26c3b108a986ca48fae5f242d250866004dc13725d2da4746b065bb00ff",
+      "UI/BaiqiUnitFlagManager.lua": "793d6a5a8debc4d485dbd7b1848fbf49075508aed779d04b59164d880dbd1a2b",
+      "UI/BaiqiReligionScreen.lua": "d3ed6b098b24e32c53883960ed2be16d59a23e01078712e0a0ee36c36d92c588",
+      "UI/BaiqiPantheonChooser.lua": "6f1253713e96729e799b2f8f553de0433d60a08534c8801a8559183aae198733",
+      "UI/BaiqiDedicationPopup.lua": "a08653f2e7f3a68e928fcda373ecf9ac84b3443ec89f2c492ccf655e43199672",
+      "UI/BaiqiNaturalDisasterPopup.lua": "2177294ae0104ec0b7737d185899c640e012091cfbc42658fe041438a9198f67",
+      "UI/BaiqiTechCivicCompletedPopup.lua": "08de0946713b4204cfbcf4ce3e1ff8cd3a380d096b5ae99b5228bf812da924f1",
+      "UI/BaiqiNotificationPanel.lua": "6f7b0c259d97075a8f3bf1485aca4b3db6dacfeacf053bd87b20fa8e159e532b",
+      "UI/BaiqiNaturalWonderPopup.lua": "db572e935b114e171ce29369abecef5dbf8ce0b944ce71b6c54ed9b6afc9b320",
+      "UI/BaiqiHistoricMoments.lua": "e8019bcfafbe524ebb26af9aa81a1f477b0e31050dfe3935eba12f5ff188ccae",
+      "UI/BaiqiChooseArtifact.lua": "6ac97af2e09ac19d65100528de73035d4dcbf2e531b96b5c16befe868e71b792",
+      "UI/BaiqiGreatWorkShowcase.lua": "48f6b7d88d09edbe6026114dcb1a6e276fb1662b847e012117831e4beb216eb8"
+    },
+    "QA_registrations": 17,
+    "legacy_defaults": "Preserved; unknown next version test values moved to158."
+  },
+  "prior156_Native_coarse_diagnosis": {
+    "source_version": 156,
+    "diagnosis_only": true,
+    "fixture": "Original frozen ten-city85",
+    "archive_sha256": "6e0a032d7f3172535739f9528069a7969e1ceb5fb28cca0f3a1193f2a529285f",
+    "binding_count": 14,
+    "capacity": 4096,
+    "roots": 113,
+    "samples": 1250,
+    "observer_phase_counts": {
+      "whole_before_observer": 21,
+      "overlaps_observer": 0,
+      "observed_window": 92,
+      "outside_window_started": 0
+    },
+    "accounting_ok": true,
+    "requested_turns": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "actual_turn": 90,
+    "cities": 11,
+    "stats": [
+      {
+        "name": "Controller.RunNow",
+        "count": 113,
+        "p50_ms": 4.000186920166016,
+        "p95_ms": 40.9998893737793,
+        "max_ms": 88.00005912780762,
+        "over50_count": 4
+      },
+      {
+        "name": "PlayerContext",
+        "count": 565,
+        "p50_ms": 0.0,
+        "p95_ms": 0.9999275207519531,
+        "max_ms": 1.0001659393310547,
+        "over50_count": 0
+      },
+      {
+        "name": "RefreshSettlement",
+        "count": 110,
+        "p50_ms": 0.0,
+        "p95_ms": 1.9998550415039062,
+        "max_ms": 2.000093460083008,
+        "over50_count": 0
+      },
+      {
+        "name": "ReadBack",
+        "count": 110,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 8.00013542175293,
+        "over50_count": 0
+      },
+      {
+        "name": "ProcessCity",
+        "count": 84,
+        "p50_ms": 0.0,
+        "p95_ms": 6.999969482421875,
+        "max_ms": 39.00003433227539,
+        "over50_count": 0
+      },
+      {
+        "name": "ProcessBuilder",
+        "count": 18,
+        "p50_ms": 3.000020980834961,
+        "p95_ms": 9.000062942504883,
+        "max_ms": 9.000062942504883,
+        "over50_count": 0
+      },
+      {
+        "name": "ProcessSettler",
+        "count": 5,
+        "p50_ms": 34.999847412109375,
+        "p95_ms": 52.99997329711914,
+        "max_ms": 52.99997329711914,
+        "over50_count": 1
+      },
+      {
+        "name": "ArchaeologyPendingRead",
+        "count": 89,
+        "p50_ms": 0.0,
+        "p95_ms": 0.9999275207519531,
+        "max_ms": 1.0001659393310547,
+        "over50_count": 0
+      },
+      {
+        "name": "ProcessNaturalistPurchase",
+        "count": 78,
+        "p50_ms": 0.0,
+        "p95_ms": 0.9999275207519531,
+        "max_ms": 1.0001659393310547,
+        "over50_count": 0
+      },
+      {
+        "name": "KnownExpansionSupport",
+        "count": 8,
+        "p50_ms": 4.999995231628418,
+        "p95_ms": 19.00005340576172,
+        "max_ms": 19.00005340576172,
+        "over50_count": 0
+      },
+      {
+        "name": "SettlerGoalBridge",
+        "count": 10,
+        "p50_ms": 0.0,
+        "p95_ms": 7.999897003173828,
+        "max_ms": 7.999897003173828,
+        "over50_count": 0
+      },
+      {
+        "name": "PathStep",
+        "count": 13,
+        "p50_ms": 6.999969482421875,
+        "p95_ms": 35.00008583068848,
+        "max_ms": 35.00008583068848,
+        "over50_count": 0
+      },
+      {
+        "name": "RequestCivilian",
+        "count": 34,
+        "p50_ms": 1.0001659393310547,
+        "p95_ms": 6.000041961669922,
+        "max_ms": 9.000062942504883,
+        "over50_count": 0
+      },
+      {
+        "name": "Native.GetMoveToPathEx",
+        "count": 13,
+        "p50_ms": 1.0001659393310547,
+        "p95_ms": 32.000064849853516,
+        "max_ms": 32.000064849853516,
+        "over50_count": 0
+      }
+    ],
+    "largest_roots": [
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.08800005912780762,
+          "started": 1794836631.279,
+          "ended": 1794836631.367,
+          "failed": false,
+          "rootId": 15,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 1.0001659393310547,
+          "RefreshSettlement": 0.9999275207519531,
+          "ReadBack": 1.0001659393310547,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 0.9999275207519531,
+          "ProcessNaturalistPurchase": 0,
+          "Native.GetMoveToPathEx": 32.000064849853516,
+          "PathStep": 35.00008583068848,
+          "RequestCivilian": 0.9999275207519531
+        },
+        "largest_children": [
+          {
+            "name": "PathStep",
+            "seconds": 0.03500008583068848,
+            "started": 1794836631.329,
+            "ended": 1794836631.364,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.032000064849853516,
+            "started": 1794836631.332,
+            "ended": 1794836631.364,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.020000219345092773,
+            "started": 1794836631.297,
+            "ended": 1794836631.3170002,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.016000032424926758,
+            "started": 1794836631.301,
+            "ended": 1794836631.3170002,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.011999845504760742,
+            "started": 1794836631.3170002,
+            "ended": 1794836631.329,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.009999990463256836,
+            "started": 1794836631.319,
+            "ended": 1794836631.329,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.0029997825622558594,
+            "started": 1794836631.2940001,
+            "ended": 1794836631.297,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0010001659393310547,
+            "started": 1794836631.28,
+            "ended": 1794836631.2810001,
+            "failed": false,
+            "rootId": 15,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.0690000057220459,
+          "started": 1794836739.328,
+          "ended": 1794836739.397,
+          "failed": false,
+          "rootId": 64,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 1.0001659393310547,
+          "RefreshSettlement": 0,
+          "ReadBack": 8.00013542175293,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 0,
+          "ProcessNaturalistPurchase": 0,
+          "Native.GetMoveToPathEx": 19.00005340576172,
+          "PathStep": 32.000064849853516,
+          "RequestCivilian": 1.0001659393310547
+        },
+        "largest_children": [
+          {
+            "name": "PathStep",
+            "seconds": 0.032000064849853516,
+            "started": 1794836739.352,
+            "ended": 1794836739.384,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.01900005340576172,
+            "started": 1794836739.355,
+            "ended": 1794836739.374,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.00800013542175293,
+            "started": 1794836739.329,
+            "ended": 1794836739.3370001,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.0010001659393310547,
+            "started": 1794836739.385,
+            "ended": 1794836739.3860002,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0010001659393310547,
+            "started": 1794836739.389,
+            "ended": 1794836739.39,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836739.328,
+            "ended": 1794836739.329,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794836739.329,
+            "ended": 1794836739.329,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0,
+            "started": 1794836739.3370001,
+            "ended": 1794836739.3370001,
+            "failed": false,
+            "rootId": 64,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.06200003623962402,
+          "started": 1794836628.854,
+          "ended": 1794836628.9160001,
+          "failed": false,
+          "rootId": 8,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 0,
+          "ReadBack": 2.000093460083008,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 0,
+          "ProcessNaturalistPurchase": 0,
+          "SettlerGoalBridge": 7.999897003173828,
+          "KnownExpansionSupport": 16.99995994567871,
+          "Native.GetMoveToPathEx": 5.99980354309082,
+          "PathStep": 16.99995994567871,
+          "RequestCivilian": 6.000041961669922,
+          "ProcessSettler": 52.99997329711914
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.05299997329711914,
+            "started": 1794836628.862,
+            "ended": 1794836628.915,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.01699995994567871,
+            "started": 1794836628.867,
+            "ended": 1794836628.884,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.01699995994567871,
+            "started": 1794836628.884,
+            "ended": 1794836628.901,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.007999897003173828,
+            "started": 1794836628.901,
+            "ended": 1794836628.909,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.006000041961669922,
+            "started": 1794836628.909,
+            "ended": 1794836628.915,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.00599980354309082,
+            "started": 1794836628.8860002,
+            "ended": 1794836628.892,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.002000093460083008,
+            "started": 1794836628.855,
+            "ended": 1794836628.857,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836628.854,
+            "ended": 1794836628.855,
+            "failed": false,
+            "rootId": 8,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.051000118255615234,
+          "started": 1794836629.434,
+          "ended": 1794836629.4850001,
+          "failed": false,
+          "rootId": 10,
+          "rootTurn": 88,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0,
+          "ReadBack": 0.9999275207519531,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 0,
+          "ProcessNaturalistPurchase": 0,
+          "SettlerGoalBridge": 1.0001659393310547,
+          "KnownExpansionSupport": 18.000125885009766,
+          "Native.GetMoveToPathEx": 19.999980926513672,
+          "PathStep": 24.99985694885254,
+          "RequestCivilian": 3.000020980834961,
+          "ProcessSettler": 48.00009727478027
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.04800009727478027,
+            "started": 1794836629.437,
+            "ended": 1794836629.4850001,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.02499985694885254,
+            "started": 1794836629.456,
+            "ended": 1794836629.481,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.019999980926513672,
+            "started": 1794836629.457,
+            "ended": 1794836629.477,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.018000125885009766,
+            "started": 1794836629.438,
+            "ended": 1794836629.456,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.003000020980834961,
+            "started": 1794836629.482,
+            "ended": 1794836629.4850001,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0010001659393310547,
+            "started": 1794836629.481,
+            "ended": 1794836629.482,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836629.434,
+            "ended": 1794836629.435,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836629.434,
+            "ended": 1794836629.434,
+            "failed": false,
+            "rootId": 10,
+            "rootTurn": 88,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.04499983787536621,
+          "started": 1794836737.1130002,
+          "ended": 1794836737.158,
+          "failed": false,
+          "rootId": 58,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 0,
+          "ProcessNaturalistPurchase": 0,
+          "SettlerGoalBridge": 1.0001659393310547,
+          "KnownExpansionSupport": 19.00005340576172,
+          "Native.GetMoveToPathEx": 0.9999275207519531,
+          "PathStep": 6.999969482421875,
+          "RequestCivilian": 4.999876022338867,
+          "ProcessSettler": 34.999847412109375
+        },
+        "largest_children": [
+          {
+            "name": "ProcessSettler",
+            "seconds": 0.034999847412109375,
+            "started": 1794836737.1230001,
+            "ended": 1794836737.158,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "KnownExpansionSupport",
+            "seconds": 0.01900005340576172,
+            "started": 1794836737.126,
+            "ended": 1794836737.145,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PathStep",
+            "seconds": 0.006999969482421875,
+            "started": 1794836737.145,
+            "ended": 1794836737.152,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.004999876022338867,
+            "started": 1794836737.153,
+            "ended": 1794836737.158,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "SettlerGoalBridge",
+            "seconds": 0.0010001659393310547,
+            "started": 1794836737.152,
+            "ended": 1794836737.153,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836737.1130002,
+            "ended": 1794836737.114,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "Native.GetMoveToPathEx",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836737.1460001,
+            "ended": 1794836737.147,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794836737.114,
+            "ended": 1794836737.114,
+            "failed": false,
+            "rootId": 58,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.0409998893737793,
+          "started": 1794836838.6790001,
+          "ended": 1794836838.72,
+          "failed": false,
+          "rootId": 85,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 39.00003433227539
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.03900003433227539,
+            "started": 1794836838.681,
+            "ended": 1794836838.72,
+            "failed": false,
+            "rootId": 85,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836838.6790001,
+            "ended": 1794836838.68,
+            "failed": false,
+            "rootId": 85,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794836838.68,
+            "ended": 1794836838.68,
+            "failed": false,
+            "rootId": 85,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794836838.68,
+            "ended": 1794836838.68,
+            "failed": false,
+            "rootId": 85,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0,
+            "started": 1794836838.681,
+            "ended": 1794836838.681,
+            "failed": false,
+            "rootId": 85,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836838.718,
+            "ended": 1794836838.718,
+            "failed": false,
+            "rootId": 85,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836838.718,
+            "ended": 1794836838.718,
+            "failed": false,
+            "rootId": 85,
+            "rootTurn": 90,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.039999961853027344,
+          "started": 1794836847.888,
+          "ended": 1794836847.928,
+          "failed": false,
+          "rootId": 111,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0.9999275207519531,
+          "RefreshSettlement": 2.000093460083008,
+          "ReadBack": 0,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 36.99994087219238
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.03699994087219238,
+            "started": 1794836847.891,
+            "ended": 1794836847.928,
+            "failed": false,
+            "rootId": 111,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.002000093460083008,
+            "started": 1794836847.889,
+            "ended": 1794836847.891,
+            "failed": false,
+            "rootId": 111,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836847.888,
+            "ended": 1794836847.889,
+            "failed": false,
+            "rootId": 111,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794836847.891,
+            "ended": 1794836847.891,
+            "failed": false,
+            "rootId": 111,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0,
+            "started": 1794836847.891,
+            "ended": 1794836847.891,
+            "failed": false,
+            "rootId": 111,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836847.927,
+            "ended": 1794836847.927,
+            "failed": false,
+            "rootId": 111,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836847.927,
+            "ended": 1794836847.927,
+            "failed": false,
+            "rootId": 111,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.03399991989135742,
+          "started": 1794836842.288,
+          "ended": 1794836842.322,
+          "failed": false,
+          "rootId": 96,
+          "rootTurn": 90,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 32.000064849853516
+        },
+        "largest_children": [
+          {
+            "name": "ProcessCity",
+            "seconds": 0.032000064849853516,
+            "started": 1794836842.29,
+            "ended": 1794836842.322,
+            "failed": false,
+            "rootId": 96,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836842.289,
+            "ended": 1794836842.289,
+            "failed": false,
+            "rootId": 96,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794836842.289,
+            "ended": 1794836842.289,
+            "failed": false,
+            "rootId": 96,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794836842.29,
+            "ended": 1794836842.29,
+            "failed": false,
+            "rootId": 96,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0,
+            "started": 1794836842.29,
+            "ended": 1794836842.29,
+            "failed": false,
+            "rootId": 96,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836842.319,
+            "ended": 1794836842.319,
+            "failed": false,
+            "rootId": 96,
+            "rootTurn": 90,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836842.321,
+            "ended": 1794836842.321,
+            "failed": false,
+            "rootId": 96,
+            "rootTurn": 90,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.02500009536743164,
+          "started": 1794836738.948,
+          "ended": 1794836738.973,
+          "failed": false,
+          "rootId": 63,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0,
+          "ReadBack": 1.9998550415039062,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 1.0001659393310547,
+          "ProcessNaturalistPurchase": 0
+        },
+        "largest_children": [
+          {
+            "name": "ReadBack",
+            "seconds": 0.0019998550415039062,
+            "started": 1794836738.9490001,
+            "ended": 1794836738.951,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0010001659393310547,
+            "started": 1794836738.951,
+            "ended": 1794836738.9520001,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836738.948,
+            "ended": 1794836738.948,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794836738.9490001,
+            "ended": 1794836738.9490001,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0,
+            "started": 1794836738.951,
+            "ended": 1794836738.951,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessNaturalistPurchase",
+            "seconds": 0.0,
+            "started": 1794836738.9520001,
+            "ended": 1794836738.9520001,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836738.957,
+            "ended": 1794836738.957,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836738.958,
+            "ended": 1794836738.958,
+            "failed": false,
+            "rootId": 63,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.02499985694885254,
+          "started": 1794836739.703,
+          "ended": 1794836739.728,
+          "failed": false,
+          "rootId": 65,
+          "rootTurn": 89,
+          "rootCities": 10,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0,
+          "ReadBack": 0,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 0.9999275207519531,
+          "ProcessNaturalistPurchase": 0,
+          "RequestCivilian": 9.000062942504883
+        },
+        "largest_children": [
+          {
+            "name": "RequestCivilian",
+            "seconds": 0.009000062942504883,
+            "started": 1794836739.718,
+            "ended": 1794836739.727,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836739.703,
+            "ended": 1794836739.704,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836739.703,
+            "ended": 1794836739.703,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0,
+            "started": 1794836739.703,
+            "ended": 1794836739.703,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794836739.703,
+            "ended": 1794836739.703,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0,
+            "started": 1794836739.703,
+            "ended": 1794836739.703,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "ProcessNaturalistPurchase",
+            "seconds": 0.0,
+            "started": 1794836739.704,
+            "ended": 1794836739.704,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836739.705,
+            "ended": 1794836739.705,
+            "failed": false,
+            "rootId": 65,
+            "rootTurn": 89,
+            "rootCities": 10
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.02499985694885254,
+          "started": 1794836848.676,
+          "ended": 1794836848.701,
+          "failed": false,
+          "rootId": 113,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 0,
+          "RefreshSettlement": 0.9999275207519531,
+          "ReadBack": 0,
+          "ArchaeologyPendingRead": 0,
+          "ProcessCity": 0,
+          "ProcessNaturalistPurchase": 0
+        },
+        "largest_children": [
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836848.676,
+            "ended": 1794836848.677,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836848.676,
+            "ended": 1794836848.676,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794836848.677,
+            "ended": 1794836848.677,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0,
+            "started": 1794836848.678,
+            "ended": 1794836848.678,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794836848.678,
+            "ended": 1794836848.678,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ProcessNaturalistPurchase",
+            "seconds": 0.0,
+            "started": 1794836848.678,
+            "ended": 1794836848.678,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836848.68,
+            "ended": 1794836848.68,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836848.681,
+            "ended": 1794836848.681,
+            "failed": false,
+            "rootId": 113,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      },
+      {
+        "root": {
+          "name": "Controller.RunNow",
+          "seconds": 0.02200007438659668,
+          "started": 1794836844.543,
+          "ended": 1794836844.565,
+          "failed": false,
+          "rootId": 102,
+          "rootTurn": 90,
+          "rootCities": 11,
+          "observer_phase": "observed_window"
+        },
+        "child_maximum_ms": {
+          "PlayerContext": 1.0001659393310547,
+          "RefreshSettlement": 2.000093460083008,
+          "ReadBack": 0,
+          "ArchaeologyPendingRead": 0.9999275207519531,
+          "ProcessCity": 0,
+          "ProcessNaturalistPurchase": 0,
+          "ProcessBuilder": 6.999969482421875
+        },
+        "largest_children": [
+          {
+            "name": "ProcessBuilder",
+            "seconds": 0.006999969482421875,
+            "started": 1794836844.558,
+            "ended": 1794836844.565,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "RefreshSettlement",
+            "seconds": 0.002000093460083008,
+            "started": 1794836844.543,
+            "ended": 1794836844.545,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0010001659393310547,
+            "started": 1794836844.56,
+            "ended": 1794836844.561,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ArchaeologyPendingRead",
+            "seconds": 0.0009999275207519531,
+            "started": 1794836844.545,
+            "ended": 1794836844.546,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "PlayerContext",
+            "seconds": 0.0,
+            "started": 1794836844.543,
+            "ended": 1794836844.543,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ReadBack",
+            "seconds": 0.0,
+            "started": 1794836844.545,
+            "ended": 1794836844.545,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ProcessCity",
+            "seconds": 0.0,
+            "started": 1794836844.546,
+            "ended": 1794836844.546,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          },
+          {
+            "name": "ProcessNaturalistPurchase",
+            "seconds": 0.0,
+            "started": 1794836844.546,
+            "ended": 1794836844.546,
+            "failed": false,
+            "rootId": 102,
+            "rootTurn": 90,
+            "rootCities": 11
+          }
+        ]
+      }
+    ],
+    "limitations": "Nested Native path time is inside PathStep; never sum overlapping timers. Different instrumented run does not replace earlier B_plan FAIL or prove its sole cause. Root15 may have other typed callers not selected as children.",
+    "save": {
+      "name": "Baiqi_P6_20261116_V156_ControllerCoarse90.Civ6Save",
+      "bytes": 518845,
+      "sha256": "e8ff8a063d6aeefb94908c1674532fee7dfb1ca69a974ad155250399e052db3f"
+    },
+    "closed": {
+      "exported": true,
+      "bindings_restored": 14,
+      "event_retired": true,
+      "formal_released": true,
+      "official_exit_once": true,
+      "utc": "2026-11-16T13:51:57.123552+00:00",
+      "exit_code": 15,
+      "terminate_count": 1,
+      "kill_escalations": 0,
+      "natural_exit_claimed": false
+    },
+    "formal_external_work": {
+      "model_HTTP": 0,
+      "builds": 0,
+      "heavy_checks": 0
+    },
+    "runtime_notes": "Readiness guard now waits on a fresh false result before END intent. Test-player watchdog360s permits19 military units; frozen windows/budgets unchanged. Inline adapter Lua compile guards are not claimed absent."
+  },
+  "model916": {
+    "task": "civ6-916-lazy-great-person-paths",
+    "sources": 20,
+    "source_bytes": 703874,
+    "actual_POST": "2026-11-16T13:56:47.047076+00:00",
+    "actual_END": "2026-11-16T13:56:47.104120+00:00",
+    "http_status": 404,
+    "total_ms": 57.17319995164871,
+    "candidate_count": 0,
+    "adoption": 0,
+    "generation_POST": 1,
+    "extra_POST": 0,
+    "request_killed": false,
+    "stop_marker_written": false,
+    "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+    "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP",
+    "source_before_owner_implementation": true,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "ledger_through916": {
+    "logical": 916,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 32,
+    "generation_POST": 955,
+    "extra_POST": 38,
+    "inflight": 0,
+    "metadata_GET_separate": 2,
+    "TCP_separate": 1,
+    "OpenCode_native_generation": 0
+  },
+  "current157_Native": "NOT_RUN; no current performance or full functional PASS transferred from156.",
+  "current_original85_performance": "OPEN; prior156 Adminmax54 / Controllerp9534,max250 FAIL retained.",
+  "old_8650807_recovery": "FAIL_UNRESOLVED",
+  "full_mod_acceptance": "OPEN",
+  "Steam_online_or_upload": 0,
+  "unknown": {
+    "backend_cause": null,
+    "cached_tokens": null,
+    "root15_typed_caller": null,
+    "source157_performance": null
+  }
+}

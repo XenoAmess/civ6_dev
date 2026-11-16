@@ -35,6 +35,11 @@ Players[7].GetProperty=function(self,key)
  return previous(self,key)
 end
 ''')
-    load = lua.eval('function(source,name,env) local fn,err=load(source,name,"t",env);assert(fn,err);return fn() end')
+    load = lua.eval('''function(source,name,env)
+local fn,err
+if loadstring then fn,err=loadstring(source,name);if fn then setfenv(fn,env) end
+else fn,err=load(source,name,"t",env) end
+assert(fn,err);return fn()
+end''')
     for name in ('BaiqiCreativeJournal', 'BaiqiCreativeIntentGameplay'):
         load((ROOT / f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'), name, lua.globals().TestBridge.core)
