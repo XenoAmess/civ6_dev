@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码159：[旧创作等待修复的软件验证](docs/testing/baiqi-source159-legacy-creative-standby.md)，[真实音乐家阻塞档已自动睡眠、保留未知意图并普通90→91保存](docs/testing/baiqi-source159-legacy-creative-native91.md)。当前159冻结性能、五城20回合及完整功能未完成；158中止、157性能FAIL与旧8650807恢复FAIL保留，阶段提交后继续执行。
+当前源码159：[旧创作等待修复的软件验证](docs/testing/baiqi-source159-legacy-creative-standby.md)，[真实音乐家阻塞档已自动睡眠、保留未知意图并普通90→91保存](docs/testing/baiqi-source159-legacy-creative-native91.md)。[159五城99→119的TC-037实机限定通过](docs/research/baiqi-source159-fivecity99-119-2026-11-17.json)：6建筑／4普通区域／24处配对改良，0人工内政，119已保存未重载。当前159冻结性能及完整功能未完成；158中止、157性能FAIL与旧8650807恢复FAIL保留，阶段提交后继续执行。
 
 [159的40项有限执行清单](docs/research/baiqi-source159-finite40-audit925-2026-11-17.json)已逐条列出既有证据与缺口；没有新增整项PASS，继续实机闭合。
 
