@@ -70,6 +70,8 @@ end
     def test_duplicates_only_query_one_path_when_unreachable_before_fallback(self):
         self.lua.execute('TestWorld.targets={43,43,44};TestWorld.blocked[43]=true')
         self.c.RunNow()
+        self.assertEqual((self.paths(),len(self.w.unitRequests)), ([43],0))
+        self.c.RunNow()
         self.assertEqual(self.paths(), [43, 44])
         self.assertEqual((self.w.unitRequests[1].params[14], self.w.unitRequests[1].params[15]), (2, 4))
 
@@ -86,6 +88,8 @@ end
 
     def test_all_unreachable_wait_without_moving(self):
         self.lua.execute('TestWorld.blocked={[43]=true,[44]=true,[45]=true}')
+        self.c.RunNow()
+        self.c.RunNow()
         self.c.RunNow()
         self.assertEqual(self.paths(), [43, 44, 45])
         self.assertEqual([r.op for r in self.w.unitRequests.values()], [17])
@@ -153,6 +157,7 @@ end
                 self.setUp()
                 self.lua.execute('TestWorld.targets={42,45,44};TestWorld.blocked[44]=true;TestWorld.steps[45]=43')
                 self.c.RunNow()
+                self.c.RunNow()
                 self.w.scientistPlot = 43
                 self.lua.execute(change+';TestWorld.blocked[44]=false')
                 self.w.turn += 1
@@ -162,6 +167,8 @@ end
 
     def test_exhausted_wave_retries_when_conditions_change_on_later_turn(self):
         self.lua.execute('TestWorld.blocked={[43]=true,[44]=true,[45]=true}')
+        self.c.RunNow()
+        self.c.RunNow()
         self.c.RunNow()
         self.lua.execute('TestWorld.blocked={}')
         self.w.turn += 1
@@ -174,6 +181,8 @@ end
         self.c.RunNow()
         self.w.scientistPlot = 43
         self.lua.execute('TestWorld.targets={42,44,45};TestWorld.blocked[45]=true')
+        self.c.RunNow()
+        self.assertEqual((self.paths(),len(self.w.unitRequests)), ([45,45],1))
         self.c.RunNow()
         self.assertEqual(self.paths(), [45, 45, 44])
         self.assertEqual((self.w.unitRequests[2].params[14], self.w.unitRequests[2].params[15]), (2, 3))

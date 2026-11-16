@@ -2483,10 +2483,12 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
   end
   -- Retained border destinations can be checked without rescanning every city
   -- border. Native path and final write guards still run on every movement.
+  local pathQueried=false
   if border and plan.target and not plan.blocked[plan.target] then
     AddTarget(Map.GetPlotByIndex(plan.target))
     local target=seen[plan.target]
     if target and UnitIndex(unit)~=plan.target then
+      pathQueried=true
       local step=PathStep(unit,target.plot,player,state)
       if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
       plan.blocked[plan.target]="route"
@@ -2538,6 +2540,7 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
   if plan.target and not plan.blocked[plan.target] then
     local target=seen[plan.target]
     if hereIndex==plan.target then return false end
+    pathQueried=true
     local step=PathStep(unit,target.plot,player,state)
     if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
     plan.blocked[plan.target]="route";plan.target=nil
@@ -2545,6 +2548,11 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
   table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
   for _,target in ipairs(targets) do
     if target.index~=hereIndex and not plan.blocked[target.index] then
+      -- Scalar route failures survive only the existing search wave. Resume
+      -- through Tick with fresh identity, formation and target checks; never
+      -- issue fallback standby while unexamined destinations remain.
+      if pathQueried then return false,true end
+      pathQueried=true
       local step=PathStep(unit,target.plot,player,state)
       if step then
         plan.target=target.index
@@ -4997,7 +5005,13 @@ local function Tick(allowOrders)
             if submitted then status="已提交国内考古任务，等待实际文物";return end
             if continuing then unitEvaluated[unitKey]=nil;return end
           elseif BaiqiPolicy.DistrictGreatPersonClass(snapshot.type) then
-            if ProcessDistrictPerson(ctx,player,state,unit) then status="已提交文职伟人内政任务，等待实际结果";return end
+            local submitted,continuing=ProcessDistrictPerson(ctx,player,state,unit)
+            if submitted then status="已提交文职伟人内政任务，等待实际结果";return end
+            if continuing==true then
+              unitEvaluated[unitKey]=nil
+              status="文职伟人继续检查安全路线；军队由你指挥"
+              return
+            end
           elseif BaiqiPolicy.CreativeGreatPersonClass(snapshot.type) then
             if ProcessCreative(ctx,player,state,unit) then status="已提交自动创作，等待实际作品";return end
           elseif snapshot.type=="UNIT_GREAT_PROPHET" then

@@ -70,7 +70,7 @@ def restore_release(text: str,insertion: str) -> str:
 def build(output_dir: Path, owner: int, unit_id: int, unit_type: str, limit: int=64, *, defer_start: bool=False) -> dict:
     source=ROOT/'mod/Baiqi'
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('155','156','157'):
+    if version not in ('155','156','157','158'):
         raise ValueError('Formation diagnostic requires actual source155,156 or157')
     version=int(version)
     output_dir=output_dir.resolve()

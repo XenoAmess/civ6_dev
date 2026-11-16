@@ -100,6 +100,8 @@ end
     def test_retained_border_destination_moves_next_step_without_rescanning_borders(self):
         self.w.noPath = 43
         self.c.RunNow()
+        self.assertEqual(len(self.w.unitRequests), 0)
+        self.c.RunNow()
         self.assertEqual((self.w.unitRequests[1].params[14], self.w.unitRequests[1].params[15]), (2, 4))
         scans = self.w.borderScans
         self.w.scientistPlot = 46
@@ -112,6 +114,7 @@ end
 
     def test_retained_border_target_that_turns_foreign_is_replanned_before_write(self):
         self.w.noPath = 43
+        self.c.RunNow()
         self.c.RunNow()
         self.w.scientistPlot = 46
         self.w.noPath = None
