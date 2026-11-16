@@ -27,6 +27,19 @@ s.rows[1].id=0;assert(a.Read().rows[1].id==3735581)
 assert(not a.Arm(0,3735581,'UNIT_MISSIONARY',1592408602));assert(a.Retire())
 """)
 
+    def test_bounded_capture_preserves_arguments_and_failure_never_leaks_target_request(self):
+        self.each("""
+local writes,captures=0,0;local fail=false
+local U={RequestOperation=function()writes=writes+1 end};local I={Units={[60]={UnitType='UNIT_MISSIONARY'}}}
+local u={GetOwner=function()return 0 end,GetID=function()return 3735581 end,GetUnitType=function()return 60 end}
+local capture=function(w,code,...)captures=captures+1;assert(w==u and code==1592408602 and select('#',...)==2);if fail then error('capture')end;return '77;0;3735581;4;1;true' end
+local a=New(U,I,0,3735581,'UNIT_MISSIONARY',1592408602,2,capture);assert(a.Arm(0,3735581,'UNIT_MISSIONARY',1592408602))
+U.RequestOperation(u,1592408602,nil,'x');assert(a.Read().rows[1].observation=='77;0;3735581;4;1;true')
+fail=true;U.RequestOperation(u,1592408602,nil,'x');U.RequestOperation(u,1592408602,nil,'x')
+assert(writes==0 and captures==2 and a.Read().intercepted==3 and a.Read().observationErrors==1 and a.Read().dropped==1)
+assert(a.Retire())
+""")
+
     def test_other_action_exact_args_nil_holes_returns_and_error_once(self):
         self.each("""
 local function pack(...)return{n=select('#',...),...}end
