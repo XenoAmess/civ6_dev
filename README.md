@@ -1,6 +1,6 @@
 # civ6_dev
 
-当前源码156：[软件2676过／1SDK跳过](docs/testing/baiqi-source156-executor-cadence.md)；[MANY自然12候选资格实机通过](docs/testing/baiqi-source156-many-qualification-http910.md)，继续原T6五组性能对照。155 MANY比例预算FAIL保留，NO_SITE矩阵、其余功能及整个Mod验收继续开放。
+当前源码156：[MANY自然12资格](docs/testing/baiqi-source156-many-qualification-http910.md)及[五组B_delta实测PASS](docs/testing/baiqi-source156-many-paired-final.md)。其余当前性能矩阵与20回合／控制权／恢复等功能继续，整个Mod尚未验收完成。
 
 持续验收：[152配对进度原值](docs/research/baiqi-source152-paired-progress-2026-11-16.json)：前两组四侧均完成普通85→90并保存；组中位差分别3076ms／55.95%与−117ms／−3.98%，31.276秒长段保留。五组尚未完成，不授B_delta通过；优先用新增绕行测点定位原规划76ms FAIL，再继续其余性能／功能验收。阶段提交不是停工点。
 
