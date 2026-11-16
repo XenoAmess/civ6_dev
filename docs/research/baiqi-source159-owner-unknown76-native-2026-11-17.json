@@ -1,0 +1,188 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-16T21:04:13.815549+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 159,
+  "subcase": "TC040 controlled copied policy-input owner unknown",
+  "status": "PASS_LIMITED_SUBCASE",
+  "whole_TC040": "OPEN_LEGALITY_AND_REQUEST_OUTCOME_REVIEW",
+  "whole_mod": "OPEN",
+  "old_8650807": "FAIL_UNRESOLVED",
+  "current159_performance": "NOT_RUN",
+  "fixture": {
+    "name": "Baiqi_P6_20261102_V43_MissionarySetup75.Civ6Save",
+    "bytes": 483801,
+    "sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88",
+    "origin": "Explicit historical QA missionary setup, not normal unit training"
+  },
+  "environment": {
+    "owner": {
+      "pid": 22832,
+      "created_at": 1794858815.3667407,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "same_owned_process": true,
+    "new_cold_launch": false,
+    "official_reload_once": true,
+    "current_load_markers_and_owned_HWND_continue": true,
+    "private_archive_sha256": "cad855ece306fc6ab0a3613c56943de1486d5a91c15fc9362a2a7885bad8e5c2",
+    "files": 119,
+    "Lua51_Lua53_sources": 97,
+    "source159_product_changed": false
+  },
+  "controlled_fault": {
+    "module": "tools/lua/diagnostic_owner_unknown.lua",
+    "module_sha256": "74b00b7c958cbcfd06bb33a6160c7db1e0666f8fdbf9c79b0284718f4afad9eb",
+    "target": {
+      "owner": 0,
+      "id": 3735581,
+      "type": "UNIT_MISSIONARY"
+    },
+    "method": "Controller UnitSnapshot and Native getters execute normally. Only exact incoming real policy snapshot is copied, copy.owner=nil, then the real BaiqiPolicy.CanCivilian runs once. Actual unit owner remains0.",
+    "actual_engine_owner_getter_missing": false,
+    "private_unused_formation_fault": "Retired unarmed with0masks before owner fault install; not combined with owner unknown.",
+    "limit": 64,
+    "rearm": false,
+    "same_context_policy_binding_owned": true,
+    "foreign_binding_policy": "Preserved, never overwritten"
+  },
+  "staging75": {
+    "held75_PASS": false,
+    "TEST_PLAYER_military_SKIPs": 14,
+    "ordinary_END75": 1,
+    "UserForced": 0,
+    "manual_domestic": 0
+  },
+  "qualified76": {
+    "actor_before": [
+      "F76_ACTOR",
+      "3735581",
+      "16",
+      "14",
+      "4",
+      "2",
+      "1",
+      "true",
+      "true",
+      "false",
+      "nil",
+      "1",
+      "1",
+      "-1",
+      "true",
+      "OBSERVED",
+      "religion:0:1",
+      "3",
+      "true"
+    ],
+    "actor_after": [
+      "F76_ACTOR",
+      "3735581",
+      "16",
+      "14",
+      "4",
+      "2",
+      "1",
+      "true",
+      "true",
+      "false",
+      "nil",
+      "1",
+      "1",
+      "-1",
+      "true",
+      "OBSERVED",
+      "religion:0:1",
+      "3",
+      "true"
+    ],
+    "description": "Exact3735581@16,14, actualowner0, moves4/charges2/form1, readyMove/Selecttrue, nativependingfalse/queuednil, ownreligion1, owncitymajority-1, actualNativeSpreadtrue; priorOBSERVEDreligion0:1/priorcharges3 unchanged.",
+    "masked_policy_inputs": [
+      17,
+      23
+    ],
+    "natural_Controller_Update": [
+      40,
+      63
+    ],
+    "target_SDK_operations": 0,
+    "target_SDK_commands": 0,
+    "observer_identity_errors": 0,
+    "observer_drops": 0,
+    "three_observer_bindings_owned": true
+  },
+  "retire_boundary": {
+    "fresh_positive_actor_rechecked": true,
+    "masked": 27,
+    "expired": false,
+    "real_CanCivilian_binding_restored": true,
+    "return": "restored"
+  },
+  "unmasked_same76": {
+    "target_BACKGROUND_spread_hash": 1592408602,
+    "requests": 1,
+    "charges": [
+      2,
+      1
+    ],
+    "moves": [
+      4,
+      0
+    ],
+    "new_journal": [
+      "OBSERVED",
+      "religion:0:2",
+      2
+    ],
+    "manual_spread": 0,
+    "scope": "Real spread request, charge cost and observed journal change; not proof of full city conversion"
+  },
+  "cleanup": {
+    "original_policy_binding_restored": true,
+    "three_observer_bindings_restored": true,
+    "all_diagnostic_globals_cleared": true,
+    "ActionPanel_QA_markers_cleared": true
+  },
+  "save": {
+    "utc": "2026-11-16T21:02:28.154340+00:00",
+    "name": "Baiqi_P6_20261117_V159_OwnerUnknownCompare76.Civ6Save",
+    "bytes": 485038,
+    "sha256": "8a38c83b98b5ca7d34643ccdc923b7c07eb59475c52bda2c1c99e6ff8ffaddfc",
+    "stable_repeated_read": true
+  },
+  "save_ACK": true,
+  "save_stable_repeated_read": true,
+  "saved76_reloaded_at_publication": false,
+  "software": {
+    "prior_seven_tests": "Passed in59ab8a6; two realControllerLua53 and five helper transparency tests eachLua51/53. No new helper change.",
+    "assembled_stage": "AST literals/string composition only, no driver exec/query/IO mock; Lua51/53 compile passed before Native",
+    "new_full_product_suite": false,
+    "new_performance": false
+  },
+  "models": {
+    "new_calls": 0,
+    "candidate928": "Prior HTTP404,0candidate/adoption; Owner hook independently reviewed/tested before Native",
+    "ledger": {
+      "logical": 928,
+      "complete": 816,
+      "length": 68,
+      "final_request_failures": 44,
+      "generation_POST": 967,
+      "extra_POST": 38,
+      "inflight": 0,
+      "OpenCode_native_generation": 0
+    }
+  },
+  "Steam": {
+    "new_launch": false,
+    "online": 0,
+    "uploads": 0,
+    "mode_switches": 0
+  },
+  "raw_evidence": "LOCAL_ONLY ignored owner159f-* JSON/logs, exact authored Native Lua and SDK receipts, protected private saves; not uploaded.",
+  "limits": [
+    "Owner unknown is a copied policy-input fault, not a missing/throwing engine owner getter.",
+    "No all-type/ruleset transfer, no wholeTC040, oldARMED fix, current performance pass or whole-mod completion.",
+    "Continue independent legality unknown branch with actual Native positive qualification; separate legally qualified standby from denied spread."
+  ]
+}
