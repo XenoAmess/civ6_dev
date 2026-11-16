@@ -1,4 +1,4 @@
-"""Read-only qualification of held source152/153 ordinary-END paired packages."""
+"""Read-only qualification of ordinary-END and explicitly pinned pressure pairs."""
 from pathlib import Path
 import hashlib
 import json
@@ -11,7 +11,8 @@ from tools.diagnostic_version_render import render_helper
 from tools.static_control_source import edits, transform
 
 
-def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
+def verify_pair(prepared: Path, source: Path, variant: str, *,
+                pressure_initial_turn: int | None = None) -> dict:
     """Check files and canonical transformations; never build, install or run Lua.
 
     The caller still owns lifecycle, fresh process/offline/admission checks and
@@ -20,6 +21,9 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
     prepared, source = Path(prepared), Path(source)
     if variant not in ('enabled', 'control'):
         raise ValueError('Invalid paired variant')
+    if pressure_initial_turn is not None and (type(pressure_initial_turn) is not int
+            or not 0 <= pressure_initial_turn <= 2147483641):
+        raise ValueError('Invalid expected pressure initial turn')
     meta = json.loads((prepared / 'static-control-build.json').read_text(encoding='utf-8'))
     version = ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version')
     if version not in ('152', '153','154','155'):
@@ -27,8 +31,23 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
     version = int(version)
     if not isinstance(meta, dict) or type(meta.get('source_version')) is not int or meta['source_version'] != version:
         raise ValueError('Expected matching source152/153 metadata')
-    if meta.get('variant') != variant or meta.get('mode') != f'baiqi{version}-paired-{variant}-c3-normal-end':
+    mode = (f'baiqi{version}-paired-{variant}-c3-normal-end' if pressure_initial_turn is None
+            else f'baiqi{version}-pressure-paired-{variant}-v1')
+    if meta.get('variant') != variant or meta.get('mode') != mode:
         raise ValueError('Variant or mode mismatch')
+    if pressure_initial_turn is None:
+        if any(k in meta for k in ('source', 'initial_turn', 'paired_end_turns', 'paired_activation_turns')):
+            raise ValueError('Unexpected pressure calendar in ordinary pair')
+    else:
+        def exact_turns(value, first):
+            return (type(value) is list and len(value) == 5
+                    and all(type(v) is int and v == expected
+                            for v, expected in zip(value, range(first, first + 5))))
+        if (meta.get('source') != f'baiqi{version}-pressure-paired-v1'
+                or type(meta.get('initial_turn')) is not int or meta['initial_turn'] != pressure_initial_turn
+                or not exact_turns(meta.get('paired_end_turns'), pressure_initial_turn)
+                or not exact_turns(meta.get('paired_activation_turns'), pressure_initial_turn + 1)):
+            raise ValueError('Pressure source or frozen calendar mismatch')
     if any(meta.get(k) is not True for k in ('paired_clock', 'normal_end_bridge', 'native_activation_inline_stop', 'lua51_compiled')):
         raise ValueError('Ordinary END bridge flags mismatch')
     names = manifest_files(source)
@@ -46,7 +65,8 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
     declared = meta.get('changed_files')
     if not isinstance(declared, list) or len(declared) != len(expected_changed) or set(declared) != expected_changed or changed != expected_changed:
         raise ValueError('Changed file set mismatch')
-    prefix = clock_prelude(normal_end_bridge=True, source_version=version)
+    prefix = clock_prelude(normal_end_bridge=True, source_version=version,
+                           pressure_initial_turn=pressure_initial_turn)
     bridge = render_helper((ROOT / 'tools/lua/benchmark_end_bridge.lua').read_text(encoding='utf-8'),
                            'benchmark_end_bridge', version)
     sha = lambda s: hashlib.sha256(s.encode('utf-8')).hexdigest()
@@ -68,7 +88,8 @@ def verify_pair(prepared: Path, source: Path, variant: str) -> dict:
                 expected = expected.replace(old, new, 1)
         if contained(target, n).read_bytes() != expected.encode('utf-8'):
             raise ValueError('Prepared source differs from canonical paired transformation: ' + n)
-    archive = prepared / f'Baiqi-paired{version}-{variant}-normal-end.zip'
+    suffix = '' if pressure_initial_turn is None else f'-pressure-{pressure_initial_turn}'
+    archive = prepared / f'Baiqi-paired{version}-{variant}-normal-end{suffix}.zip'
     if digest(archive) != meta.get('archive_sha256'):
         raise ValueError('Archive hash mismatch')
     with zipfile.ZipFile(archive) as z:
