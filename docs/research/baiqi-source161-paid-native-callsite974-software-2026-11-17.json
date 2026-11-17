@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T15:22:28.657550+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 161,
+  "status": "PRIVATE_NATIVE_CALLSITE_OBSERVER_SOFTWARE_ONLY",
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "software": {
+    "utc": "2026-11-17T15:18:03.816151+00:00",
+    "source_version": 161,
+    "actual_VM_runs": [
+      {
+        "VM": "Lua51",
+        "scenario": "success",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "transfer_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "transfer_after",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "debit_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "finish_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "finish_applied_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "metadata_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "direct_passthrough",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "success",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "transfer_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "transfer_after",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "debit_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "finish_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "finish_applied_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "metadata_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "direct_passthrough",
+        "actual_transformed_Capture_mock_executed": true
+      }
+    ],
+    "exact_inverse": true,
+    "source_hashes": {
+      "paid161_native974_owner.lua": "2f8cff58962d032a0fb2134dfddbc55d30e80a81bb9832f3e0ff2f76ef2d908b",
+      "paid161_native974_transform_owner.py": "0b870d569280641d850688d3bf00e122819218941b991d987002c9a659703a6c",
+      "paid161_native974_validate_owner.py": "3e0e5aa5c95000881d73c1de0d7f42cbcc4b66a56823ad20838e813526ac495a"
+    },
+    "Native_actions": 0,
+    "Native": "NOT_RUN",
+    "scope": "Exact three private Capture callsites; mock action counts are not Native proof. Target0/2162700 -> city524295@41,19,turn114. Original self/nil returns/error object, foreign retirement, metadata failure, bounded rows and duplicate rejection verified."
+  },
+  "model_task": {
+    "number": 974,
+    "actual_POST": 1,
+    "status": 404,
+    "adopted": false,
+    "Owner_work_started_after_candidate_terminal": true
+  },
+  "review": [
+    "Exact private BaiqiCapture three-callsite transformation, with inverse recovering the released161 source hash. Native TransferCity/ChangeGoldBalance/FinishMoves globals remain untouched. Observer wraps only actual original callsites and invokes the same native function/self/arguments once; full nil/false return arity and exact thrown error object pass through.",
+    "Only quoted actor0/2162700, enemy1/city524295@41,19 at actualturn114 is recorded. Before/after snapshots preserve quote/record phase, actual actor/city/treasury getter values and typed errors. Getter/metadata failures cannot veto the original native action.",
+    "64-row bounded detached export, counts separate from rows/drops, foreign bridge reference preserved at retirement. These are mock executable checks, not game Native call counts.",
+    "Initial Owner test incorrectly required all native attempt counts unchanged after a duplicate in the explicitly failing-before-application FinishMoves fixture. Actual unchanged Capture.Request first recovers a positively charged same-turn FINISHING record; while movement remains it can try FinishMoves again. Corrected test requires no second transfer/debit, records both attempts, and separately confirms already-applied movement is never spent again. No product change or Native failure was inferred from this test mistake.",
+    "Original Source161 P5 exclusive73548 halted before normalEND24. This observer has not been installed or used in the game. Paid-city actual map interaction/backend phases/fault/assets/reload matrix remain open."
+  ],
+  "next": "Combine with already-qualified UI map observer and raw city/army snapshot only after originalP5 is safely closed, then fresh offline owned cold instance and actual selected-army map interaction. No previous HWND/PID reuse or independent side panel."
+}

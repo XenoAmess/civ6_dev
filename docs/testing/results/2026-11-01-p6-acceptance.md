@@ -1480,3 +1480,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: Source161 product fixes and real-file software verification
 
 [Fixes, complete regression, model969–976 failures and retained Native gaps](../../research/baiqi-source161-software-fixes-http969-976-2026-11-17.json). 2759 tests with one SDK skip;97 Lua sources compile in both engines;119 ZIP members match source. Three fixes cover old state cleanup after marker2, unknown unit-type rejection and unblocked read overhead. Source161 Native remains NOT_RUN, old865 recovery and MANY/NO_SITE performance remain FAIL. Historical HTTP scope clarified:963 and966 each ran while the owned game was alive between halted parents, not during an active exclusive Native parent; no runtime model generation claim follows.
+
+
+## 2026-11-17: paid-city native callsite observer974 software
+
+[Exact three callsites, inverse and16 VM scenarios](../../research/baiqi-source161-paid-native-callsite974-software-2026-11-17.json). Original native globals unchanged; actual invocation/self/return arity/error identity preserved, target-scoped64-row before/after metadata cannot veto action. No Native package/install/paid interaction has occurred. Current P5 first parent halted before normalEND24; its failure remains separate. Paid-city full matrix remains OPEN.
