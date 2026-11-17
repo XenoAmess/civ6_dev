@@ -1,0 +1,1314 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T14:27:17.370080+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "READONLY_WAKE_VISIBILITY_AND_STRICT_QUALIFICATION_TRUE_NOT_RECOVERY",
+  "whole_mod": "OPEN_CONTINUE",
+  "product_change": false,
+  "fixture": {
+    "stem": "Baiqi_P6_20261117_V160_LegacyPassive158",
+    "bytes": 629881,
+    "sha256": "529e8654beb9bc8500aab900fda04da8ad32099f3a149b6ccbab2ce7bf27aa11",
+    "turn": 158
+  },
+  "first_parent": {
+    "session": 93889,
+    "actual_exit": 1,
+    "failure": "Stock MainMenu log exceeded private1MiB preflight before any load intent"
+  },
+  "second_parent": {
+    "session": 42793,
+    "actual_exit": 1,
+    "first_new_checkpoint_load_completed": true,
+    "failure": "Actual UI rawget unavailable at probe line90 before qualifications"
+  },
+  "third_parent": {
+    "session": 58459,
+    "actual_exit": 0,
+    "both_halts_preserved": true,
+    "new_probe_labels": "968"
+  },
+  "actual_qualification": {
+    "utc": "2026-11-17T14:15:21.328707+00:00",
+    "qualified_readonly_snapshot": true,
+    "before_core": {
+      "context": "GameCore_Tuner",
+      "bank": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "8650807": {
+            "token": "settle:0:1",
+            "sequence": 1,
+            "unitID": 8650807,
+            "unitType": "UNIT_SETTLER",
+            "x": 10,
+            "y": 19,
+            "plot": 846,
+            "turn": 156,
+            "requestID": "0:156:173",
+            "stage": "ARMED",
+            "empty": true,
+            "conflictingCity": false,
+            "cityID": null
+          }
+        }
+      },
+      "snapshot": {
+        "actor": {
+          "activity": {
+            "status": "UNKNOWN_MISSING"
+          },
+          "dead": false,
+          "delayed": false,
+          "formation": 1,
+          "id": 8650807,
+          "moves": 2,
+          "operation": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "number",
+                "value": -1
+              }
+            }
+          },
+          "owner": 0,
+          "pending": false,
+          "ready_to_move": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "ready_to_select": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "unit_type": "UNIT_SETTLER",
+          "x": 10,
+          "y": 19
+        },
+        "enums": {
+          "activity_AWAKE": {
+            "status": "VALUE",
+            "value": 1797587246
+          },
+          "activity_HOLD": {
+            "status": "VALUE",
+            "value": 75236491
+          },
+          "activity_SLEEP": {
+            "status": "VALUE",
+            "value": 38434027
+          },
+          "command_CANCEL": {
+            "status": "VALUE",
+            "value": 533311341
+          },
+          "operation_FOUND_CITY": {
+            "status": "VALUE",
+            "value": 1463004268
+          },
+          "operation_SKIP_TURN": {
+            "status": "UNKNOWN_MISSING"
+          }
+        },
+        "target": {
+          "index": 846,
+          "is_city": false,
+          "owner": -1,
+          "revealed": true,
+          "visible": true,
+          "x": 10,
+          "y": 19
+        },
+        "world": {
+          "active": true,
+          "cities": 14,
+          "strategic": true,
+          "turn": 158,
+          "units": 58
+        }
+      },
+      "wire_rows": 82,
+      "operation_quiescence_proved": false
+    },
+    "UI": {
+      "context": "BaiqiExecutor",
+      "bank": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "8650807": {
+            "token": "settle:0:1",
+            "sequence": 1,
+            "unitID": 8650807,
+            "unitType": "UNIT_SETTLER",
+            "x": 10,
+            "y": 19,
+            "plot": 846,
+            "turn": 156,
+            "requestID": "0:156:173",
+            "stage": "ARMED",
+            "empty": true,
+            "conflictingCity": false,
+            "cityID": null
+          }
+        }
+      },
+      "snapshot": {
+        "SDK": {
+          "commandBinding": true,
+          "commands": 0,
+          "dropped": 0,
+          "identityErrors": 0,
+          "operationBinding": true,
+          "operations": 0,
+          "retired": false,
+          "rows": {},
+          "updateBinding": true,
+          "updates": 2123
+        },
+        "UI": {
+          "busy": false,
+          "processing": false
+        },
+        "UI_events": {
+          "byEvent": {},
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "expected_unit_type": "UNIT_SETTLER",
+          "hooks": {
+            "1": {
+              "addReturned": true,
+              "name": "UnitOperationsCleared",
+              "referenceKnown": true
+            },
+            "2": {
+              "addReturned": true,
+              "name": "UnitOperationAdded",
+              "referenceKnown": true
+            },
+            "3": {
+              "addReturned": true,
+              "name": "UnitOperationDeactivated",
+              "referenceKnown": true
+            },
+            "4": {
+              "addReturned": true,
+              "name": "UnitCommandStarted",
+              "referenceKnown": true
+            },
+            "5": {
+              "addReturned": true,
+              "name": "UnitMoveComplete",
+              "referenceKnown": true
+            },
+            "6": {
+              "addReturned": true,
+              "name": "UnitMovementPointsChanged",
+              "referenceKnown": true
+            }
+          },
+          "id": 8650807,
+          "installationOk": true,
+          "malformed": 0,
+          "other": 0,
+          "owner": 0,
+          "registrationErrors": 0,
+          "removeErrors": 0,
+          "retired": false,
+          "rows": {},
+          "target": 0
+        },
+        "actor": {
+          "activity": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "number",
+                "value": 75236491
+              }
+            }
+          },
+          "dead": false,
+          "delayed": false,
+          "formation": 1,
+          "id": 8650807,
+          "moves": 2,
+          "operation": {
+            "status": "UNKNOWN_MISSING"
+          },
+          "owner": 0,
+          "pending": false,
+          "queued": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "nil"
+              }
+            }
+          },
+          "ready_to_move": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "ready_to_select": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "unit_type": "UNIT_SETTLER",
+          "x": 10,
+          "y": 19
+        },
+        "enums": {
+          "activity_AWAKE": {
+            "status": "VALUE",
+            "value": 1797587246
+          },
+          "activity_HOLD": {
+            "status": "VALUE",
+            "value": 75236491
+          },
+          "activity_SLEEP": {
+            "status": "VALUE",
+            "value": 38434027
+          },
+          "command_CANCEL": {
+            "status": "VALUE",
+            "value": 533311341
+          },
+          "operation_FOUND_CITY": {
+            "status": "VALUE",
+            "value": 1463004268
+          },
+          "operation_SKIP_TURN": {
+            "status": "UNKNOWN_MISSING"
+          },
+          "readonly_probe962": {
+            "Native_orders": 0,
+            "SDK_after": {
+              "commandBinding": true,
+              "commands": 0,
+              "dropped": 0,
+              "identityErrors": 0,
+              "operationBinding": true,
+              "operations": 0,
+              "retired": false,
+              "rows": {},
+              "updateBinding": true,
+              "updates": 2123
+            },
+            "SDK_before": {
+              "commandBinding": true,
+              "commands": 0,
+              "dropped": 0,
+              "identityErrors": 0,
+              "operationBinding": true,
+              "operations": 0,
+              "retired": false,
+              "rows": {},
+              "updateBinding": true,
+              "updates": 2123
+            },
+            "UnitManager": {
+              "keys": {
+                "1": {
+                  "name": "CanStartCommand",
+                  "value_type": "function"
+                },
+                "2": {
+                  "name": "CanStartOperation",
+                  "value_type": "function"
+                },
+                "3": {
+                  "name": "GetAbilitySummaries",
+                  "value_type": "function"
+                },
+                "4": {
+                  "name": "GetActivityType",
+                  "value_type": "function"
+                },
+                "5": {
+                  "name": "GetCommandHelpText",
+                  "value_type": "function"
+                },
+                "6": {
+                  "name": "GetCommandResults",
+                  "value_type": "function"
+                },
+                "7": {
+                  "name": "GetCommandTargets",
+                  "value_type": "function"
+                },
+                "8": {
+                  "name": "GetEstablishInCityTime",
+                  "value_type": "function"
+                },
+                "9": {
+                  "name": "GetMoveToPath",
+                  "value_type": "function"
+                },
+                "10": {
+                  "name": "GetMoveToPathEx",
+                  "value_type": "function"
+                },
+                "11": {
+                  "name": "GetOperationConfirmationText",
+                  "value_type": "function"
+                },
+                "12": {
+                  "name": "GetOperationDetailText",
+                  "value_type": "function"
+                },
+                "13": {
+                  "name": "GetOperationTargets",
+                  "value_type": "function"
+                },
+                "14": {
+                  "name": "GetQueuedDestination",
+                  "value_type": "function"
+                },
+                "15": {
+                  "name": "GetReachableMovement",
+                  "value_type": "function"
+                },
+                "16": {
+                  "name": "GetReachableTargets",
+                  "value_type": "function"
+                },
+                "17": {
+                  "name": "GetReachableZonesOfControl",
+                  "value_type": "function"
+                },
+                "18": {
+                  "name": "GetResultProbability",
+                  "value_type": "function"
+                },
+                "19": {
+                  "name": "GetTimeToComplete",
+                  "value_type": "function"
+                },
+                "20": {
+                  "name": "GetTravelTime",
+                  "value_type": "function"
+                },
+                "21": {
+                  "name": "GetTypeName",
+                  "value_type": "function"
+                },
+                "22": {
+                  "name": "GetUnit",
+                  "value_type": "function"
+                },
+                "23": {
+                  "name": "GetUnitArmyMaintenance",
+                  "value_type": "function"
+                },
+                "24": {
+                  "name": "GetUnitCorpsMaintenance",
+                  "value_type": "function"
+                },
+                "25": {
+                  "name": "GetUnitMaintenance",
+                  "value_type": "function"
+                },
+                "26": {
+                  "name": "GetUnitTypeBaseLifespan",
+                  "value_type": "function"
+                },
+                "27": {
+                  "name": "IsUnit",
+                  "value_type": "function"
+                },
+                "28": {
+                  "name": "RequestCommand",
+                  "value_type": "function"
+                },
+                "29": {
+                  "name": "RequestCommandImmediate",
+                  "value_type": "function"
+                },
+                "30": {
+                  "name": "RequestOperation",
+                  "value_type": "function"
+                }
+              },
+              "status": "VALUE"
+            },
+            "actor_after": {
+              "cities": 14,
+              "dead": false,
+              "delayed": false,
+              "formation": 1,
+              "id": 8650807,
+              "moves": 2,
+              "owner": 0,
+              "pending": false,
+              "turn": 158,
+              "unit_type": "UNIT_SETTLER",
+              "units": 58,
+              "x": 10,
+              "y": 19
+            },
+            "actor_before": {
+              "cities": 14,
+              "dead": false,
+              "delayed": false,
+              "formation": 1,
+              "id": 8650807,
+              "moves": 2,
+              "owner": 0,
+              "pending": false,
+              "turn": 158,
+              "unit_type": "UNIT_SETTLER",
+              "units": 58,
+              "x": 10,
+              "y": 19
+            },
+            "clear_or_retry_permitted": false,
+            "command_row": {
+              "row": {
+                "CommandType": "UNITCOMMAND_WAKE",
+                "Hash": 200562917,
+                "Index": 3
+              },
+              "status": "VALUE"
+            },
+            "enum": {
+              "status": "VALUE",
+              "value": 200562917
+            },
+            "full_bank_unchanged": true,
+            "operation_quiescence_proved": false,
+            "qualification_calls": 2,
+            "role": "READONLY_API_AND_WAKE_QUALIFICATION",
+            "strict_original_four_arg_shape": {
+              "arity": 2,
+              "status": "VALUE",
+              "values": {
+                "1": {
+                  "kind": "boolean",
+                  "value": true
+                },
+                "2": {
+                  "kind": "nil"
+                }
+              }
+            },
+            "unit_index": {
+              "status": "UNKNOWN_RAWGET_UNAVAILABLE"
+            },
+            "unit_index_type": "nil",
+            "unit_metatable": {
+              "keys": {
+                "1": {
+                  "name": "__index",
+                  "value_type": "table"
+                }
+              },
+              "status": "VALUE"
+            },
+            "visibility": {
+              "arity": 1,
+              "status": "VALUE",
+              "values": {
+                "1": {
+                  "kind": "boolean",
+                  "value": true
+                }
+              }
+            }
+          }
+        },
+        "target": {
+          "index": 846,
+          "is_city": false,
+          "owner": -1,
+          "revealed": true,
+          "visible": true,
+          "x": 10,
+          "y": 19
+        },
+        "world": {
+          "active": true,
+          "cities": 14,
+          "strategic": true,
+          "turn": 158,
+          "units": 58
+        }
+      },
+      "wire_rows": 327,
+      "operation_quiescence_proved": false
+    },
+    "after_Core": {
+      "context": "GameCore_Tuner",
+      "bank": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "8650807": {
+            "token": "settle:0:1",
+            "sequence": 1,
+            "unitID": 8650807,
+            "unitType": "UNIT_SETTLER",
+            "x": 10,
+            "y": 19,
+            "plot": 846,
+            "turn": 156,
+            "requestID": "0:156:173",
+            "stage": "ARMED",
+            "empty": true,
+            "conflictingCity": false,
+            "cityID": null
+          }
+        }
+      },
+      "snapshot": {
+        "actor": {
+          "activity": {
+            "status": "UNKNOWN_MISSING"
+          },
+          "dead": false,
+          "delayed": false,
+          "formation": 1,
+          "id": 8650807,
+          "moves": 2,
+          "operation": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "number",
+                "value": -1
+              }
+            }
+          },
+          "owner": 0,
+          "pending": false,
+          "ready_to_move": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "ready_to_select": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "unit_type": "UNIT_SETTLER",
+          "x": 10,
+          "y": 19
+        },
+        "enums": {
+          "activity_AWAKE": {
+            "status": "VALUE",
+            "value": 1797587246
+          },
+          "activity_HOLD": {
+            "status": "VALUE",
+            "value": 75236491
+          },
+          "activity_SLEEP": {
+            "status": "VALUE",
+            "value": 38434027
+          },
+          "command_CANCEL": {
+            "status": "VALUE",
+            "value": 533311341
+          },
+          "operation_FOUND_CITY": {
+            "status": "VALUE",
+            "value": 1463004268
+          },
+          "operation_SKIP_TURN": {
+            "status": "UNKNOWN_MISSING"
+          }
+        },
+        "target": {
+          "index": 846,
+          "is_city": false,
+          "owner": -1,
+          "revealed": true,
+          "visible": true,
+          "x": 10,
+          "y": 19
+        },
+        "world": {
+          "active": true,
+          "cities": 14,
+          "strategic": true,
+          "turn": 158,
+          "units": 58
+        }
+      },
+      "wire_rows": 82,
+      "operation_quiescence_proved": false
+    },
+    "after_UI": {
+      "context": "BaiqiExecutor",
+      "bank": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "8650807": {
+            "token": "settle:0:1",
+            "sequence": 1,
+            "unitID": 8650807,
+            "unitType": "UNIT_SETTLER",
+            "x": 10,
+            "y": 19,
+            "plot": 846,
+            "turn": 156,
+            "requestID": "0:156:173",
+            "stage": "ARMED",
+            "empty": true,
+            "conflictingCity": false,
+            "cityID": null
+          }
+        }
+      },
+      "snapshot": {
+        "SDK": {
+          "commandBinding": true,
+          "commands": 0,
+          "dropped": 0,
+          "identityErrors": 0,
+          "operationBinding": true,
+          "operations": 0,
+          "retired": false,
+          "rows": {},
+          "updateBinding": true,
+          "updates": 2629
+        },
+        "UI": {
+          "busy": false,
+          "processing": false
+        },
+        "UI_events": {
+          "byEvent": {},
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "expected_unit_type": "UNIT_SETTLER",
+          "hooks": {
+            "1": {
+              "addReturned": true,
+              "name": "UnitOperationsCleared",
+              "referenceKnown": true
+            },
+            "2": {
+              "addReturned": true,
+              "name": "UnitOperationAdded",
+              "referenceKnown": true
+            },
+            "3": {
+              "addReturned": true,
+              "name": "UnitOperationDeactivated",
+              "referenceKnown": true
+            },
+            "4": {
+              "addReturned": true,
+              "name": "UnitCommandStarted",
+              "referenceKnown": true
+            },
+            "5": {
+              "addReturned": true,
+              "name": "UnitMoveComplete",
+              "referenceKnown": true
+            },
+            "6": {
+              "addReturned": true,
+              "name": "UnitMovementPointsChanged",
+              "referenceKnown": true
+            }
+          },
+          "id": 8650807,
+          "installationOk": true,
+          "malformed": 0,
+          "other": 0,
+          "owner": 0,
+          "registrationErrors": 0,
+          "removeErrors": 0,
+          "retired": false,
+          "rows": {},
+          "target": 0
+        },
+        "actor": {
+          "activity": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "number",
+                "value": 75236491
+              }
+            }
+          },
+          "dead": false,
+          "delayed": false,
+          "formation": 1,
+          "id": 8650807,
+          "moves": 2,
+          "operation": {
+            "status": "UNKNOWN_MISSING"
+          },
+          "owner": 0,
+          "pending": false,
+          "queued": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "nil"
+              }
+            }
+          },
+          "ready_to_move": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "ready_to_select": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "unit_type": "UNIT_SETTLER",
+          "x": 10,
+          "y": 19
+        },
+        "enums": {
+          "activity_AWAKE": {
+            "status": "VALUE",
+            "value": 1797587246
+          },
+          "activity_HOLD": {
+            "status": "VALUE",
+            "value": 75236491
+          },
+          "activity_SLEEP": {
+            "status": "VALUE",
+            "value": 38434027
+          },
+          "command_CANCEL": {
+            "status": "VALUE",
+            "value": 533311341
+          },
+          "operation_FOUND_CITY": {
+            "status": "VALUE",
+            "value": 1463004268
+          },
+          "operation_SKIP_TURN": {
+            "status": "UNKNOWN_MISSING"
+          }
+        },
+        "target": {
+          "index": 846,
+          "is_city": false,
+          "owner": -1,
+          "revealed": true,
+          "visible": true,
+          "x": 10,
+          "y": 19
+        },
+        "world": {
+          "active": true,
+          "cities": 14,
+          "strategic": true,
+          "turn": 158,
+          "units": 58
+        }
+      },
+      "wire_rows": 143,
+      "operation_quiescence_proved": false
+    },
+    "raw_bank_unchanged": true,
+    "Native_orders": 0,
+    "original865_recovery": "FAIL_UNRESOLVED",
+    "operation_quiescence_proved": false,
+    "clear_or_retry_permitted": false,
+    "new_qualification_labels": "968",
+    "prior_failed_probe_intent_preserved": true
+  },
+  "final_retired_raw": {
+    "utc": "2026-11-17T14:18:13.236713+00:00",
+    "raw_persistence_qualified": true,
+    "UI": {
+      "context": "BaiqiExecutor",
+      "bank": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "8650807": {
+            "token": "settle:0:1",
+            "sequence": 1,
+            "unitID": 8650807,
+            "unitType": "UNIT_SETTLER",
+            "x": 10,
+            "y": 19,
+            "plot": 846,
+            "turn": 156,
+            "requestID": "0:156:173",
+            "stage": "ARMED",
+            "empty": true,
+            "conflictingCity": false,
+            "cityID": null
+          }
+        }
+      },
+      "snapshot": {
+        "SDK": {
+          "commandBinding": false,
+          "commands": 0,
+          "dropped": 0,
+          "identityErrors": 0,
+          "operationBinding": false,
+          "operations": 0,
+          "retired": true,
+          "rows": {},
+          "updateBinding": false,
+          "updates": 2787
+        },
+        "UI": {
+          "busy": false,
+          "processing": false
+        },
+        "UI_events": {
+          "byEvent": {},
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "expected_unit_type": "UNIT_SETTLER",
+          "hooks": {
+            "1": {
+              "addReturned": true,
+              "name": "UnitOperationsCleared",
+              "referenceKnown": true,
+              "removeReturned": true
+            },
+            "2": {
+              "addReturned": true,
+              "name": "UnitOperationAdded",
+              "referenceKnown": true,
+              "removeReturned": true
+            },
+            "3": {
+              "addReturned": true,
+              "name": "UnitOperationDeactivated",
+              "referenceKnown": true,
+              "removeReturned": true
+            },
+            "4": {
+              "addReturned": true,
+              "name": "UnitCommandStarted",
+              "referenceKnown": true,
+              "removeReturned": true
+            },
+            "5": {
+              "addReturned": true,
+              "name": "UnitMoveComplete",
+              "referenceKnown": true,
+              "removeReturned": true
+            },
+            "6": {
+              "addReturned": true,
+              "name": "UnitMovementPointsChanged",
+              "referenceKnown": true,
+              "removeReturned": true
+            }
+          },
+          "id": 8650807,
+          "installationOk": true,
+          "malformed": 0,
+          "other": 0,
+          "owner": 0,
+          "registrationErrors": 0,
+          "removeErrors": 0,
+          "retired": true,
+          "retirementComplete": true,
+          "rows": {},
+          "target": 0
+        },
+        "actor": {
+          "activity": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "number",
+                "value": 75236491
+              }
+            }
+          },
+          "dead": false,
+          "delayed": false,
+          "formation": 1,
+          "id": 8650807,
+          "moves": 2,
+          "operation": {
+            "status": "UNKNOWN_MISSING"
+          },
+          "owner": 0,
+          "pending": false,
+          "queued": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "nil"
+              }
+            }
+          },
+          "ready_to_move": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "ready_to_select": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "unit_type": "UNIT_SETTLER",
+          "x": 10,
+          "y": 19
+        },
+        "enums": {
+          "activity_AWAKE": {
+            "status": "VALUE",
+            "value": 1797587246
+          },
+          "activity_HOLD": {
+            "status": "VALUE",
+            "value": 75236491
+          },
+          "activity_SLEEP": {
+            "status": "VALUE",
+            "value": 38434027
+          },
+          "command_CANCEL": {
+            "status": "VALUE",
+            "value": 533311341
+          },
+          "operation_FOUND_CITY": {
+            "status": "VALUE",
+            "value": 1463004268
+          },
+          "operation_SKIP_TURN": {
+            "status": "UNKNOWN_MISSING"
+          }
+        },
+        "target": {
+          "index": 846,
+          "is_city": false,
+          "owner": -1,
+          "revealed": true,
+          "visible": true,
+          "x": 10,
+          "y": 19
+        },
+        "world": {
+          "active": true,
+          "cities": 14,
+          "strategic": true,
+          "turn": 158,
+          "units": 58
+        }
+      },
+      "wire_rows": 150,
+      "operation_quiescence_proved": false
+    },
+    "Core": {
+      "context": "GameCore_Tuner",
+      "bank": {
+        "version": 1,
+        "owner": 0,
+        "serial": 1,
+        "operations": {
+          "8650807": {
+            "token": "settle:0:1",
+            "sequence": 1,
+            "unitID": 8650807,
+            "unitType": "UNIT_SETTLER",
+            "x": 10,
+            "y": 19,
+            "plot": 846,
+            "turn": 156,
+            "requestID": "0:156:173",
+            "stage": "ARMED",
+            "empty": true,
+            "conflictingCity": false,
+            "cityID": null
+          }
+        }
+      },
+      "snapshot": {
+        "actor": {
+          "activity": {
+            "status": "UNKNOWN_MISSING"
+          },
+          "dead": false,
+          "delayed": false,
+          "formation": 1,
+          "id": 8650807,
+          "moves": 2,
+          "operation": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "number",
+                "value": -1
+              }
+            }
+          },
+          "owner": 0,
+          "pending": false,
+          "ready_to_move": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "ready_to_select": {
+            "arity": 1,
+            "status": "VALUE",
+            "values": {
+              "1": {
+                "kind": "boolean",
+                "value": false
+              }
+            }
+          },
+          "unit_type": "UNIT_SETTLER",
+          "x": 10,
+          "y": 19
+        },
+        "enums": {
+          "activity_AWAKE": {
+            "status": "VALUE",
+            "value": 1797587246
+          },
+          "activity_HOLD": {
+            "status": "VALUE",
+            "value": 75236491
+          },
+          "activity_SLEEP": {
+            "status": "VALUE",
+            "value": 38434027
+          },
+          "command_CANCEL": {
+            "status": "VALUE",
+            "value": 533311341
+          },
+          "operation_FOUND_CITY": {
+            "status": "VALUE",
+            "value": 1463004268
+          },
+          "operation_SKIP_TURN": {
+            "status": "UNKNOWN_MISSING"
+          }
+        },
+        "target": {
+          "index": 846,
+          "is_city": false,
+          "owner": -1,
+          "revealed": true,
+          "visible": true,
+          "x": 10,
+          "y": 19
+        },
+        "world": {
+          "active": true,
+          "cities": 14,
+          "strategic": true,
+          "turn": 158,
+          "units": 58
+        }
+      },
+      "wire_rows": 82,
+      "operation_quiescence_proved": false
+    },
+    "Native_orders": 0,
+    "original865_recovery": "FAIL_UNRESOLVED",
+    "operation_quiescence_proved": false
+  },
+  "save": {
+    "utc": "2026-11-17T14:18:57.109567+00:00",
+    "name": "Baiqi_P6_20261117_V160_WakeQualification158.Civ6Save",
+    "bytes": 629895,
+    "sha256": "6008ed2dc8cbce71d7f839c6ae0e2c352f00f708786d8f9bf5cb844930c68a6c",
+    "stable_repeated_read": true
+  },
+  "owned_exit": {
+    "utc": "2026-11-17T14:24:39.415701+00:00",
+    "exit_code": 15,
+    "terminate_count": 1,
+    "kill_escalations": 0,
+    "natural_exit_claimed": false
+  },
+  "private_complete_log": {
+    "bytes": 15268902,
+    "sha256": "68c9c6133618cee7af39fc09041c8bf8d5a5cc061f249e81de970e8638f44b1c",
+    "raw_not_committed": true
+  },
+  "actual_actions": {
+    "new_passive158_loads": 1,
+    "original158_loads": 0,
+    "load_replays": 0,
+    "ENDs": 0,
+    "Native_operations": 0,
+    "Native_commands": 0,
+    "WAKE_commands": 0,
+    "CANCEL_commands": 0,
+    "FOUND_requests": 0,
+    "journal_clears": 0
+  },
+  "developer_generation_scope": {
+    "POSTs_while_an_exclusive_Native_parent_was_running": 0,
+    "POSTs_while_owned_game_process_was_alive_between_halted_parents": 2,
+    "task_ids": [
+      967,
+      968
+    ],
+    "not_game_runtime_generation": true,
+    "not_formal_performance_interval": true
+  },
+  "Steam": {
+    "mode": "offline",
+    "fresh_proof_utc": "2026-11-17T13:48:33.230537+00:00",
+    "online_switches": 0,
+    "uploads": 0
+  },
+  "software968": {
+    "original_failure_VM": [
+      {
+        "VM": "Lua51",
+        "actual_original_renderer_missing_rawget_reproduced": true,
+        "qualification_calls_before_error": 0
+      },
+      {
+        "VM": "Lua53",
+        "actual_original_renderer_missing_rawget_reproduced": true,
+        "qualification_calls_before_error": 0
+      }
+    ],
+    "candidate_VM_cases": 22,
+    "source_hashes": {
+      "wake160_witness_owner.py": "db1b8e97b8749923ae2c1650e5ecc992d56f9d81ccb463eb208d1a5743d0e085",
+      "legacy160_probe962_owner.py": "4d937c24170c8fab42b5fdcc2e3a790afd3eba4f71542c2328f7e763d3c730c6",
+      "wake160_lifecycle_owner.py": "6b4aff54a90f818e1e64874ef2105f0161347ec35fbe184385f553b6f6b73b59",
+      "wake160_large_log967_owner.py": "d32c61ea20800970c1771b1f3b852d48c9b6bce05e298e5e656d236e85f47cee"
+    },
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "scope": "Actual missing-rawget/table-metatable branch now reproduced and unknown explicitly preserved. New labels prevent repeating original failed probe intent."
+  },
+  "model968": {
+    "task": 968,
+    "begin": "2026-11-17T14:05:35.826980+00:00",
+    "end": "2026-11-17T14:05:35.932653+00:00",
+    "total_ms": 107.95100010000169,
+    "http_status": 404,
+    "POST": 1,
+    "extra_POST": 0,
+    "terminal": 1,
+    "complete": false,
+    "adopted": false,
+    "stop_file_exists": true,
+    "current_request_killed": false,
+    "sources": 6,
+    "source_bytes": 17947
+  },
+  "ledger": {
+    "logical": 968,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 84,
+    "generation_POST": 1007,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "review": [
+    "Actual UI WAKE enum200562917 matches full GameInfo UNITCOMMAND_WAKE row/index3. Original visible three-argument qualification returns true; original strict four-argument shape returns true,nil. Exact same actor/world and complete original ARMED bank remain unchanged before/after both qualifications and all independent Core/UI readbacks.",
+    "This demonstrates a legally available wake primitive for the held original settler. It does not demonstrate that executing WAKE clears an operation queue, that any native barrier occurred, or that old intent may be removed/retried. No command/operation/END/clear/retry was issued.",
+    "UnitManager namespace inventory contains30keys; actual RequestCommandImmediate exists but no semantics or permission to use it are inferred from its name. Unit metatable has one key; rawget is unavailable and index inventory remains explicit UNKNOWN_RAWGET_UNAVAILABLE. No guessed clear API was invoked.",
+    "Original first16VM mock used a plain unit table and missed the real metatable/rawget branch. Actual failure is retained, original source bytes saved, then both Lua engines reproduce the failure before any qualification. Corrected22VM cases cover nil/false/throwing rawget and explicit unknown while preserving independent visibility/strict booleans. New968receipt labels avoid reusing the original failed query intent.",
+    "Stock MainMenu carousel errors and large original log prefix remain retained; future-only bounded64MiB log reads keep exact SHA/owner/marker order and one-use owned Escape. No game file or Steam-online workaround. The loaded new checkpoint was not reloaded or the original158 hunted.",
+    "Own observers retired, final Core/UI raw bank checked, new158save629895/SHA6008ed2dc8cbce71d7f839c6ae0e2c352f00f708786d8f9bf5cb844930c68a6c verified, officialexitonce and exact quiet residue closed. Recovery58459actualexit0 grants only readonly diagnostic completion; old865 recovery remainsFAIL.",
+    "Developer HTTP tasks967/968 occurred while the game process was alive between stopped Native parents, not during active exclusive Native consumers or a formal performance token. They returned404 without adoption and were not runtime game model calls. Future reports distinguish these windows explicitly.",
+    "Next integrate three verified product fixes/version161, real-file regression/build and original P5 retest, then a separately qualified BACKGROUND wake prototype to observe actual native queue events without clearing journal or faking civilian input. MANY/NO_SITE valid failures remain."
+  ]
+}
