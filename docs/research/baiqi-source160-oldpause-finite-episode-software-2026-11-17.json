@@ -1,0 +1,464 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T12:07:23.484115+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "FUTURE_FINITE_P5_OLDPAUSE_EPISODE_SOFTWARE_ONLY",
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "software": {
+    "utc": "2026-11-17T12:03:15.757474+00:00",
+    "machine": "BF-202609141645",
+    "player_guard_Lua_compilations": [
+      {
+        "VM": "Lua51",
+        "turn": 24,
+        "mode": "select"
+      },
+      {
+        "VM": "Lua51",
+        "turn": 24,
+        "mode": "step"
+      },
+      {
+        "VM": "Lua51",
+        "turn": 24,
+        "mode": "end"
+      },
+      {
+        "VM": "Lua51",
+        "turn": 25,
+        "mode": "select"
+      },
+      {
+        "VM": "Lua51",
+        "turn": 25,
+        "mode": "step"
+      },
+      {
+        "VM": "Lua51",
+        "turn": 25,
+        "mode": "end"
+      },
+      {
+        "VM": "Lua53",
+        "turn": 24,
+        "mode": "select"
+      },
+      {
+        "VM": "Lua53",
+        "turn": 24,
+        "mode": "step"
+      },
+      {
+        "VM": "Lua53",
+        "turn": 24,
+        "mode": "end"
+      },
+      {
+        "VM": "Lua53",
+        "turn": 25,
+        "mode": "select"
+      },
+      {
+        "VM": "Lua53",
+        "turn": 25,
+        "mode": "step"
+      },
+      {
+        "VM": "Lua53",
+        "turn": 25,
+        "mode": "end"
+      }
+    ],
+    "retire_and_actual_save_payload_dualLua_compiled": true,
+    "official_load_VM_cases": [
+      {
+        "VM": "Lua51",
+        "phase": "load",
+        "actual_official_load_payload_mock_executed_once": true
+      },
+      {
+        "VM": "Lua51",
+        "phase": "reload26",
+        "actual_official_load_payload_mock_executed_once": true
+      },
+      {
+        "VM": "Lua53",
+        "phase": "load",
+        "actual_official_load_payload_mock_executed_once": true
+      },
+      {
+        "VM": "Lua53",
+        "phase": "reload26",
+        "actual_official_load_payload_mock_executed_once": true
+      }
+    ],
+    "finite_mock_flows": [
+      {
+        "failure": null,
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "load_ready",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            24,
+            1
+          ],
+          [
+            "player",
+            "end",
+            24
+          ],
+          [
+            "arrival",
+            25
+          ],
+          [
+            "witness",
+            "turn25"
+          ],
+          [
+            "player",
+            "select",
+            25,
+            1
+          ],
+          [
+            "player",
+            "end",
+            25
+          ],
+          [
+            "arrival",
+            26
+          ],
+          [
+            "witness",
+            "turn26"
+          ],
+          [
+            "finish",
+            "accounting26"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "reload26"
+          ],
+          [
+            "load_ready",
+            "reload26"
+          ],
+          [
+            "witness",
+            "reload26"
+          ],
+          [
+            "finish",
+            "retire-reload26"
+          ],
+          [
+            "witness",
+            "final26"
+          ],
+          [
+            "finish",
+            "final26"
+          ],
+          [
+            "finish",
+            "exit"
+          ],
+          [
+            "cleanup"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "player",
+          "end",
+          24
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "load_ready",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            24,
+            1
+          ],
+          [
+            "player",
+            "end",
+            24
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "finish",
+          "accounting26"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "load_ready",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            24,
+            1
+          ],
+          [
+            "player",
+            "end",
+            24
+          ],
+          [
+            "arrival",
+            25
+          ],
+          [
+            "witness",
+            "turn25"
+          ],
+          [
+            "player",
+            "select",
+            25,
+            1
+          ],
+          [
+            "player",
+            "end",
+            25
+          ],
+          [
+            "arrival",
+            26
+          ],
+          [
+            "witness",
+            "turn26"
+          ],
+          [
+            "finish",
+            "accounting26"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "lifecycle",
+          "load",
+          "reload26"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "load_ready",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            24,
+            1
+          ],
+          [
+            "player",
+            "end",
+            24
+          ],
+          [
+            "arrival",
+            25
+          ],
+          [
+            "witness",
+            "turn25"
+          ],
+          [
+            "player",
+            "select",
+            25,
+            1
+          ],
+          [
+            "player",
+            "end",
+            25
+          ],
+          [
+            "arrival",
+            26
+          ],
+          [
+            "witness",
+            "turn26"
+          ],
+          [
+            "finish",
+            "accounting26"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "reload26"
+          ]
+        ]
+      }
+    ],
+    "source_hashes": {
+      "oldpause160_lifecycle_owner.py": "9c9e716e57978561ed363d893609ee6d2d509c26c63f20d44b2b8835698c35a0",
+      "oldpause160_witness_owner.py": "f9186374d703aa38adce81f9315f3ae3c7f29666e903ba7f876471ca5dbb72e1",
+      "oldpause160_player_owner.py": "bb643d2e4f3f05f5974830ce0ce30842bfb1c42dad2a3f6ea236f62093477488",
+      "oldpause160_arrival_owner.py": "c564ddc54841b0922711894f41adc2eba1f0651f8dc2262f8855a53030ad51cc",
+      "oldpause160_finish_owner.py": "8ecd57c86cb6db7d2bc434f59cfc5391d0b293474189bb2463de82a60a500ad4",
+      "oldpause160_cleanup_owner.py": "85b9b0ef35f06995591525713cba90e37e9511c92b680047342a13d028698c91",
+      "oldpause160_episode_owner.py": "e3fd592e84135fcf837e2279a196ca9770f81c51a08231f6095213198622becb",
+      "oldpause160_fresh_owner.py": "76550ce7389750389592418b7fc0fa02fbfc39392293da77f65efcf708edb71b",
+      "oldpause160_qualifier959_owner.py": "cceff5d8a3b363f588277d818a00a4937694f8da9e131c7c4bc2c33dae96402d"
+    },
+    "Native_queries": 0,
+    "Native_installs": 0,
+    "Native_ENDs": 0,
+    "P5_original_loaded": false,
+    "scope": "Future119identical-package admission, originalP5load/twoordinaryEND24/25/new26save+reload/ownedretire/exit finite software only. Production/input effects require actual independent review."
+  },
+  "plan": [
+    "Only after current160TC039,original865passive andoldP2rights eachactuallyclosed: noGame/formal/models, cleanGit, originalP5hash andprior119package exact match.",
+    "Reuse only alreadyidentical951/952119QApackage afteroldP2; verification records0fileinstallmutations. NewfreshcoldSteamproof/exe/CPU1..8 andoneowner stillrequired.",
+    "OriginalP5FiveCitiesStart T24once -> natural olddisabledpropertycleanup rawpairs -> ownfreshknownqueues/builders ->ownedbridge retire BEFORE ordinaryEND24/25 -> independent25/26frames ->new26save ->reloadNEW26once ->raw/freshclean ->ownedretire ->final26save/exitquiet.",
+    "NoEND26/originalreloadhunt/forcedEND/manualcivilian orproduction. Only qualifiedTEST_PLAYER militarySKIP/ordinaryEND/standardshown diplomacy. Eachunknownchild result stopsdependents withoutreplay.",
+    "Automatictask/queueeffect andmanualtakeover conclusions remainPENDINGOwneractualraw/logreview; cleanup orsinglequeueprogress doesnotaloneproveAIselectedproduction."
+  ],
+  "Owner_review": [
+    "NineconsumerSHAadmission plus actualsharedsavefixSHA and959raw4VM/11bad+fresh6VM/9bad. Twelve Lua guard compilation fixtures, four actualofficialloadpayloads executed onceperLua/mock andfour finiteflows includeunknownEND/save/reload stopping; these are not twelve actualfullplayerexecutions or realP5migration.",
+    "Player/select/step/end,arrival andcleanup adapters are narrowlyderived fromexistingqualified953consumers. Realreadonlybridge name remainsP6OldRights160ReadBridge whilenewowninput/intent namespaces useOldPause160.",
+    "Initialsoftwarefixture assumedspacedrangeonly and suppliedaDummycode lackingrequiredDoEndTurn/RequestAction needles; Owner correctedthetestfixture. NoNative/P5input was sent or consumerlogicweakened.",
+    "Allcurrentmodbytes/archivesremain160. MainNativeTC039twoactualreloads alreadyclosed; nextoriginal865thenoldP2 remain actualwork beforethisfutureentry."
+  ],
+  "entry": ".local-model/oldpause160_admission_owner.py run",
+  "Native_queries": 0,
+  "Native_ENDs": 0,
+  "P5_original_loaded": false,
+  "new_model_POST": 0,
+  "ledger": {
+    "logical": 961,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 77,
+    "generation_POST": 1000,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  }
+}
