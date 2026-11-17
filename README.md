@@ -1,5 +1,7 @@
 # civ6_dev
 
+[Source160原85五组25段B_delta：PASS](docs/research/baiqi-source160-original85-paired-final-2026-11-17.json)，差值中位-49.000263ms、逐段比例中位-1.181583%；全部原值、实际输入和生命周期证据保留。当前160压力矩阵与其余功能／恢复验收继续，整个mod仍未验收完成。
+
 [Source160原85前两组配对已闭合](docs/research/baiqi-source160-original85-pairs12-census-preparation-2026-11-17.json)：10段原值及保存／撤钩／退出齐全，剩余三组继续；所有尖峰保留，B_delta尚未裁定。当前160独立压力自然观察器已准备，MANY／NO_SITE新资格及实机矩阵仍待执行，整个mod验收未完成。
 
 [Source160原85 B_turn／N_req通过](docs/research/baiqi-source160-original85-fullscript-2026-11-17.json)：33上下文、780保留函数样本／4096容量；五窗最大约311ms，完整回合最多34次提交。普通91、保存／撤钩／释放完成，继续五组25配对段和当前MANY／NO_SITE矩阵；整个mod验收仍未完成。
