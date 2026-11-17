@@ -1580,3 +1580,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: private full-save preflight987 / HTTP987988
 
 [Inline import/prefix index fix with37 contracts and full302SHA retained](../../research/baiqi-private-save-qualifier987-http987988-2026-11-18.json). Same original bytecode47 functions including actual inline-import chain, no global import/module patch or hash cache. Actual profiled16.09s baseline vs3.55s new run recorded separately, no game speedup/budget claim. Stale299 future consumer repinned with2 loadVM/5 finite flows;32 fixture+14 actual-product VM reused unchanged. Two new real tasks404 each, measuredPOSTpeak1/adoption0; ledger988. Deliver then continue Native, valid old865/performance failures remain.
+
+
+## 2026-11-18: known pre-Popen mode halt / owned old reporter close / independent software
+
+[Steam halt, normal historical reporter Cancel, explicit handoff and5-flow future resume](../../research/baiqi-source161-steam-halt-reporter-close-resume-2026-11-18.json).46458exit1 before any game launch/load/input. Original Nov7 reporter linked to own parent624, normalCancel once/process gone/no kill/no report, desktop returned to HOI4 peer; current mode unknown until peer restore plus own fresh read. No time-based resume. [WPR98825 mock/thread cases](../../research/baiqi-private-wpr988-owned-protocol-software-2026-11-18.json) are software protocol only, trace0; actual runner/watcher/ETW/QPC/Native capture unverified. No new HTTP or fullmod/performance pass; continue independent work and actual tests when desktop released.
