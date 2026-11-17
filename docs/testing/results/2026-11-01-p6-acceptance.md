@@ -1490,3 +1490,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: Source161 original old-pause cleanup, two normal turns and new reload
 
 [Raw before/after migration, all five queues, gold, retained first halt and safe closure](../../research/baiqi-source161-oldpause-two-turns-reload-native-2026-11-17.json). Original marker2+enabledfalse naturally becomes stateNil; ordinary24→25→26 once each, new26save/reload once and final unchanged queues/gold. Gold+9.80078125 each turn; no reload bonus. Original pre-END halt was real military stacking, resolved by one TEST_PLAYER own scout move and five normal military SKIPs across the two turns; no civilian substitute/UserForced/END26. Original73548exit1 retained; remaining15874exit0. Owner R2 validation ordering defect is recorded, not relabeled clean admission. Exact TC022/039 migration/persistence branch passes; manual UI/complete matrix still open, old865 and pressure performance FAIL remain. Continue work.
+
+
+## 2026-11-17: private Source161 natural BACKGROUND WAKE prototype969 software
+
+[100 factory/getter/integration VM runs,8 damaged-frame rejections,2 load VMs and4 finite flows](../../research/baiqi-source161-background-wake969-prototype-software-2026-11-17.json). Diagnostic119/97dualLua restores exact current source. One old865 WAKE only under original natural Controller idle/authority and reserved request budget, two visible/two strict qualifications, one diagnostic intent persisted before call. No manual civilian input/END/FOUND/pending clear/recovery. Original ARMED remains; missing Core channels typedunknown. Not installed or Native-tested yet. First60-upvalue build failure retained; V2 compiles. Continue exact owned Native probe; old865 recovery and pressure FAIL stay open.
