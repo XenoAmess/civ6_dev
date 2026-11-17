@@ -1463,3 +1463,10 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 [Actual failure checkpoint,3 correlated BACKGROUND production queues and owned closure](../../research/baiqi-source160-oldpause-failure-native-closure-2026-11-17.json). Stale enabledfalse survives marker2 cleanup, but current controller is available and3 granary requests match queue-observed and fresh actual hashes. This does not prove two-turn/complete-building/input-guard acceptance. Original45761 failed before END; abort99632 actually exited0 after readonly capture, QA bridge retirement, new failed24save and official exit/own quiet residue.0END/manual domestic/original replay. Fix/retest continues; current160 remains unchanged.
 
 [Paid-city live observer integration software](../../research/baiqi-source160-paidcity-live965-software-2026-11-17.json) passes14VM/4badframes using actual Actions with mock engine; no current160 paid-city Native/physical/backend-count pass.
+
+
+## 2026-11-17: future161 three-fix regression preparation
+
+[33 actual targeted regressions against three exact private candidates](../../research/baiqi-source161-future-three-fix-regressions-2026-11-17.json).4new tests expose3current160nonpasses; proposed958unknown-type guard/961blocked-first read predicate/966independent old-state cleanup pass33tests. Current119source and installed game remain160 and unchanged. Integration/versioned build/Native retest are pending.
+
+[Bounded large preload log qualification967](../../research/baiqi-source160-large-preload-log967-software-2026-11-17.json) preserves original stockMainMenu carousel errors, full prefix/SHA/owner/unique ordered markers and one-use input. Actual1.96MBprefix/tempfile,6badlogs/conflicting schema/oversize rejection pass; only future wake reader cap64MiB, original shared helper unchanged. Sole42793firstload in progress; no replay/recovery pass.

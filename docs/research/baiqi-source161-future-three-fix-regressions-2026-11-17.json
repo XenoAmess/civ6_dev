@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T13:59:02.487892+00:00",
+  "machine": "BF-202609141645",
+  "current_product_version": 160,
+  "future_version": 161,
+  "status": "THREE_FUTURE_PRODUCT_FIXES_33_REGRESSIONS_PASS_NOT_APPLIED",
+  "product_change": false,
+  "all119_current160_bytes_match_frozen_source": true,
+  "whole_mod": "OPEN_CONTINUE",
+  "regressions": {
+    "utc": "2026-11-17T13:51:11.401208+00:00",
+    "source_version": 160,
+    "future_version": 161,
+    "product_change": false,
+    "proposal_hashes": {
+      "mod/Baiqi/Lua/BaiqiGameplay.lua": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441",
+      "mod/Baiqi/Lua/BaiqiRequisition.lua": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+      "mod/Baiqi/Lua/BaiqiUIGuard.lua": "5e25ced0120bba447b9e57243e58ca840b5575bd1545095887a693f29731a948"
+    },
+    "proposed_test_hashes": {
+      "test_baiqi_requisition.py": "c686a982bb4a56d33384d26593885b37fc911210e7a44fdccab5e84547520998",
+      "test_baiqi_guard.py": "17dccbc80607296bd0b20559333b4f02f7b13acd40021d2eccd331e8c0f78228"
+    },
+    "new_tests": 4,
+    "actual_current_source_new_tests": {
+      "run": 4,
+      "failures": 1,
+      "errors": 2,
+      "expected_nonpasses": 3
+    },
+    "proposed_source_actual_tests": {
+      "run": 33,
+      "failures": 0,
+      "errors": 0
+    },
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "scope": "Test process substitutes only three exact candidate Lua reads; tracked source/tests and installed files unchanged. Actual original capture/guard/static-control tests execute, plus4 meaningful regressions. No fixed-version Native or full-suite pass."
+  },
+  "review": [
+    "Proposed958 guards integer unit type before GameInfo lookup: nil/false/string/nonfinite SDK UI type rejects wrong_unit without throwing or using Core fallback. Proposed961 checks blocked key before current write authority, removing redundant identity reads for unblocked native methods while keeping blocked writes fresh. Proposed966 clears legacy control properties independently of completed plot migration.",
+    "Four new regression methods were added only to private future test copies: unknown UI type, old state after completed rights migration, unblocked culture reads avoiding write-authority queries and cached culture writes retaining current authority. Against actual current160,4 new tests run and3 fail/error as expected. Against exact three candidate Lua read substitutions, actual capture/guard/static-control tests plus these regressions run33/33 successfully.",
+    "Only test-process Path.read_text calls for three exact mod Lua paths are substituted. Tracked source/tests, source119 package and installed current game bytes remain unchanged. Native process uses original160; no whole-suite, fixed-version gameplay, performance or old865 recovery pass is granted.",
+    "Integrate these concrete candidates with version bump after current160 diagnostic closure, rerun affected checks against real files/build, then actual original P5 upgrade retest and remaining acceptance."
+  ]
+}

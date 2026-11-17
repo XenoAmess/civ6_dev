@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-17",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "FUTURE_ONLY_BOUNDED_LARGE_PRELOAD_LOG_READER_SOFTWARE_PASS",
+  "whole_mod": "OPEN_CONTINUE",
+  "product_change": false,
+  "original_parent": {
+    "session": 93889,
+    "actual_terminal_exit_code": 1,
+    "stop": "before baseline/load intent or Network.LoadGame; old1MiB log size assertion"
+  },
+  "actual_preload_log_size": 4314146,
+  "stock_error": {
+    "file": "Installed Base/Assets/UI/FrontEnd/MainMenu.lua",
+    "line": 1373,
+    "stack": [
+      "CarouselGetOffsetValue",
+      "CarouselFinishedScrollingToEntry",
+      "OnUpdate"
+    ],
+    "type": "nil index repeated",
+    "root_cause": "UNKNOWN",
+    "MainMenu_file_in_mod119": false
+  },
+  "bounded_reader": {
+    "utc": "2026-11-17T13:55:32.175542+00:00",
+    "source_hashes": {
+      "wake160_large_log967_owner.py": "d32c61ea20800970c1771b1f3b852d48c9b6bce05e298e5e656d236e85f47cee",
+      "wake160_lifecycle_owner.py": "6b4aff54a90f818e1e64874ef2105f0161347ec35fbe184385f553b6f6b73b59",
+      "pair155_continue_owner.py": "94eafa9cf4aaad4f624225797fd192b8289c257f4c588d9dfbd1e0e15c2e2f93"
+    },
+    "actual_large_prefix_bytes": 1960000,
+    "large_prefix_and_exact_markers_accepted": true,
+    "actual_large_temporary_file_read": true,
+    "oversize_file_rejected_before_read": true,
+    "malformed_log_rejections": 6,
+    "conflicting_schema_rejected": true,
+    "continue_program_AST_cases": 2,
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "scope": "Futurewake only bounded large prefix reader; original shared1MiB helper untouched. All stock errors remain in original/full private log."
+  },
+  "model967": {
+    "task": 967,
+    "begin": "2026-11-17T13:53:40.378957+00:00",
+    "end": "2026-11-17T13:53:40.397675+00:00",
+    "total_ms": 18.970200093463063,
+    "http_status": 404,
+    "POST": 1,
+    "extra_POST": 0,
+    "terminal": 1,
+    "complete": false,
+    "adopted": false,
+    "stop_file_exists": true,
+    "current_request_killed": false,
+    "sources": 6,
+    "source_bytes": 35562
+  },
+  "ledger": {
+    "logical": 967,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 83,
+    "generation_POST": 1006,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "review": [
+    "All original stock errors are retained; no log truncation/deletion, primary game-file patch, update callback disable or Steam-online action. The actual stack points at original MainMenu, while the mod119 manifest has no MainMenu replacement. This does not identify the original error cause.",
+    "Only future wake diagnostic uses a64MiB cap. Reader checks stat before opening and requests at most cap+1 bytes to handle growth. Exact full baseline bytes/hash/owner and unique ordered load-return/controller-ready/view-ready markers remain required. Original shared1MiB helper and historical consumers stay unchanged.",
+    "Actual1,960,000-byte prefix and temporary-file read pass; six malformed logs, conflicting baseline byte-count schemas and oversized file reject. Both actual generated Continue programs AST-check with all3 file reads bounded; original one-use owned-HWND Escape logic is preserved.",
+    "Original93889halt is retained. New sole42793 starts the first new-passive158 load only after proving no earlier baseline/attempt/returned file exists, then proceeds to readonly probe/retire/save/exit. No load/END replay; this record does not claim that parent completed or recovered865.",
+    "967 was a real unfinished log qualification task before Owner implementation; one canonical POST naturally404/18.9702ms with no adopted candidate. Stop flag after actualPOST_BEGIN prevents more retries; no current request killed or alternate route."
+  ]
+}
