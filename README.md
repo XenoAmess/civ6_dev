@@ -1,8 +1,10 @@
 # civ6_dev
 
-当前源码161：[三项修复及完整软件回归](docs/research/baiqi-source161-software-fixes-http969-976-2026-11-17.json)。2759项测试通过、1项SDK环境跳过，97份Lua双版本编译、119文件普通包逐字节核对；旧暂停属性清理等三项修复已入源码。[原始旧暂停档已完成自然清理、两个普通回合和新档重载](docs/research/baiqi-source161-oldpause-two-turns-reload-native-2026-11-17.json)，只授该迁移／持续生产分支。[原移民私有诊断已实测一次WAKE、随后一次普通后台SKIP，并保存退出](docs/research/baiqi-source161-wake978-native-closed-http980-2026-11-18.json)；队列清除事件出现在SKIP之后，旧ARMED完整保留，尚未证明可安全恢复建城。[当前40项源码影响与证据缺口](docs/research/baiqi-source161-finite40-impact976-2026-11-18.json)不等于40项新测试通过。原移民恢复、MANY／NO_SITE有效性能FAIL及其余功能矩阵仍未闭合，整个mod验收未完成，继续执行。
+当前源码161：[三项修复及完整软件回归](docs/research/baiqi-source161-software-fixes-http969-976-2026-11-17.json)。完整运行2759项，其中1项SDK环境跳过，97份Lua双版本编译、119文件普通包逐字节核对；旧暂停属性清理等三项修复已入源码。[原始旧暂停档已完成自然清理、两个普通回合和新档重载](docs/research/baiqi-source161-oldpause-two-turns-reload-native-2026-11-17.json)，只授该迁移／持续生产分支。[原移民私有诊断已实测一次WAKE、随后一次普通后台SKIP，并保存退出](docs/research/baiqi-source161-wake978-native-closed-http980-2026-11-18.json)；队列清除事件出现在SKIP之后，旧ARMED完整保留，尚未证明可安全恢复建城。[当前40项源码影响与证据缺口](docs/research/baiqi-source161-finite40-impact976-2026-11-18.json)不等于40项新测试通过。原移民恢复、MANY／NO_SITE有效性能FAIL及其余功能矩阵仍未闭合，整个mod验收未完成，继续执行。
 
 [当前161征城实机限定分支](docs/research/baiqi-source161-paid-map-complete-reload-native-2026-11-18.json)：一次物理右键与确认，原生转城／扣费／耗行动各1次；金币恰减300、军队4→0，新城由后台排入粮仓。完成态正式重载及一次已完成请求的防重结算均保持原结果，观察器／保存／退出已收尾。取消、普通进攻、阈值、故障、冷进程重载和特殊资产矩阵仍需继续，不授整项征城或整个mod通过。
+
+[当前161独立取消用例](docs/research/baiqi-source161-independent-cancel-native-http986-2026-11-18.json)已实测：物理右键打开报价后，实际移开光标并取消；UI／Core前后状态一致，0征城请求、0普通进攻、0转城／扣费／耗行动，保存与退出已收尾。该限定分支不替代普通进攻、费用边界或整项TC-023验收，继续执行。
 
 [Source160原85五组25段B_delta：PASS](docs/research/baiqi-source160-original85-paired-final-2026-11-17.json)，差值中位-49.000263ms、逐段比例中位-1.181583%；全部原值、实际输入和生命周期证据保留。当前160压力矩阵与其余功能／恢复验收继续，整个mod仍未验收完成。
 
