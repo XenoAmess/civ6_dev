@@ -1,0 +1,354 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T06:27:10.366894+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "FINITE_PASSIVE_OLD865_EPISODE_SOFTWARE_PREPARED_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "model946": {
+    "purpose": "New finite old865 passive cold lifecycle/witness/save/cleanup orchestration before Owner implementation, not repeat of implemented UI factory or raw getter",
+    "sources": 12,
+    "source_bytes": 94964,
+    "generation_POST": 1,
+    "http_status": 404,
+    "total_ms": 18.082400085404515,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_after_current_flag_written": true,
+    "POST_before_group5control_formal": true
+  },
+  "software": {
+    "utc": "2026-11-17T06:27:03.078661+00:00",
+    "source_version": 160,
+    "source_hashes": {
+      "legacy160_lifecycle_owner.py": "661fac4d5f3b0d7ee5cf954e65405f38d3ee56a9291acb7f9e9e0a17790aba24",
+      "legacy160_witness_owner.py": "1c0fc83ca88a14dbb51e134de741529079ff5923b00fdc1e967393b89d63e655",
+      "legacy160_finish_owner.py": "5a5bd2d2f4c44a1dda5c0169c591b5b8c27a3eaefdab12a6d026bf5c1096a70e",
+      "legacy160_cleanup_owner.py": "8781ca361122dcb8e4bf8419c18bbed994f84185df3823cc1c083da3e4151f3c",
+      "legacy160_episode_owner.py": "0a39be9a6b232b67275129206633179432a59f656c66c3347cf3407c4de98286"
+    },
+    "actual_load_and_guard_VM_executions": [
+      {
+        "VM": "Lua51",
+        "case": "actual_load_payload_exact_original_and_duplicate_rejected",
+        "guard_rejects": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "live_raw_guard",
+        "guard_rejects": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "retired_raw_guard",
+        "guard_rejects": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "stage_changed",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "request_changed",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "full_ID_aliased",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "wrong_type",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "target_SDK_request",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "UI_event_unknown_arg",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "foreign_UI_hook",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "unexpected_retired",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "actual_load_payload_exact_original_and_duplicate_rejected",
+        "guard_rejects": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "live_raw_guard",
+        "guard_rejects": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "retired_raw_guard",
+        "guard_rejects": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "stage_changed",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "request_changed",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "full_ID_aliased",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "wrong_type",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "target_SDK_request",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "UI_event_unknown_arg",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "foreign_UI_hook",
+        "guard_rejects": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "unexpected_retired",
+        "guard_rejects": true
+      }
+    ],
+    "actual_flow_under_mock_children": [
+      {
+        "unknown_outcome": null,
+        "actual_run_flow": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "initial158"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "witness",
+            "final-retired"
+          ],
+          [
+            "finish",
+            "save"
+          ],
+          [
+            "finish",
+            "exit"
+          ],
+          [
+            "close"
+          ]
+        ]
+      },
+      {
+        "unknown_outcome": "load",
+        "actual_run_flow": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load"
+          ]
+        ]
+      },
+      {
+        "unknown_outcome": "save",
+        "actual_run_flow": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "initial158"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "witness",
+            "final-retired"
+          ],
+          [
+            "finish",
+            "save"
+          ]
+        ]
+      }
+    ],
+    "predecessor_missing_prerequisite_rejections": [
+      "raw_persistence_qualified",
+      "official_save_verified",
+      "observer_retired",
+      "phase",
+      "terminate_count",
+      "natural_exit_claimed"
+    ],
+    "namespace_isolated_from_TC039": true,
+    "current_package_119_and_zip_inverse_verified": true,
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "original158_loaded": false,
+    "old865_recovery": "FAIL_UNRESOLVED",
+    "scope": "Actual original158load payload and guard execute only with mocked world/events/SDK/Network; actual finite orchestration uses mocked children. No old158Nativeactivity/command/cancellation or recovery evidence."
+  },
+  "private_single_use_sources": [
+    {
+      "local_only": ".local-model/legacy160_lifecycle_owner.py",
+      "sha256": "661fac4d5f3b0d7ee5cf954e65405f38d3ee56a9291acb7f9e9e0a17790aba24"
+    },
+    {
+      "local_only": ".local-model/legacy160_witness_owner.py",
+      "sha256": "1c0fc83ca88a14dbb51e134de741529079ff5923b00fdc1e967393b89d63e655"
+    },
+    {
+      "local_only": ".local-model/legacy160_finish_owner.py",
+      "sha256": "5a5bd2d2f4c44a1dda5c0169c591b5b8c27a3eaefdab12a6d026bf5c1096a70e"
+    },
+    {
+      "local_only": ".local-model/legacy160_cleanup_owner.py",
+      "sha256": "8781ca361122dcb8e4bf8419c18bbed994f84185df3823cc1c083da3e4151f3c"
+    },
+    {
+      "local_only": ".local-model/legacy160_episode_owner.py",
+      "sha256": "0a39be9a6b232b67275129206633179432a59f656c66c3347cf3407c4de98286"
+    }
+  ],
+  "planned_entry": ".local-model/legacy160_episode_owner.py run",
+  "planned_finite_flow": [
+    "Require actualNoSitefive-group capture closure and actualTC039witness/save/retire/exit/residue closure, noGame/noFormal/noModels; verify original158 and all protectedsavechain",
+    "Verify current160/private119files/ZIP/inverse/helper hashes and managed predecessor, backup119/marker, isolated coldlaunch namespace and freshcurrentSteamofflineproof/exe/CPU/LSQ ownership",
+    "Exactlyone MainMenuofficial original158load/currentload readiness/oneownedEscape; no END orreload",
+    "Complete independent rawUI/Core pairs with>=8naturalSDKUpdate progress, no directUpdate/qualification/targetorders/receiptwrites",
+    "OwnedSDK and UIcallbackRetire, complete retiredrawpair, officialnewpassive158save while originalARMED unchanged",
+    "Finitewitnesscomplete with FAIL_UNRESOLVED, officialexitonce and exactownedquiet180sec/noWindow/listeners/2sCPU/terminateonce cleanup"
+  ],
+  "Owner_review": [
+    "Actual current package and ZIP119/source/instrumentation hashes and exact inverse pass, and the isolated legacy stage namespace does not modify the distinct TC039 stage globals. Only coldlaunch receipt wording specializes from performance to passive diagnostic.",
+    "Actual original158load payload compiles/executes onLua5.1/5.3 with mockedNetwork and exact filename/location/type; a second same-payload invocation rejects before another mockedload. Fresh live/retired save guards and8faults each reject targetstage/request/fullID/type/SDKrequest/eventunknownarg/foreignhook/unexpectedretirement.22VMexecutions are software only.",
+    "Actual run_flow under3mock-child conditions requires1load/no END/no replay, retire->retiredread->save->exit->cleanup; unknown load halts all witness/finish/cleanup and unknownsave halts exit/cleanup.6incomplete predecessor conditions reject actual guard, so future admission cannot bypassTC039 or NoSiteclosure.",
+    "Raw getter responses are preserved before parse. Bounded natural-progress reads use fresh readonly labels and compare complete rawbanks; a changed/missing original actor or changed bank halts for Owner diagnosis without rerunning the exclusive parent.",
+    "Explicit SDK/UI retirement protects each call independently and only restores exact owned references; finitecleanup uses real witness/save/observer closure rather than inventing performanceformal-finished.",
+    "No actual old158load/activity/callback/WAKE/CANCEL/FOUND action has occurred. Original865 recovery remains FAIL. The new episode diagnoses; it does not claim a safe cancellation barrier or authorize clearing/reissuing an ARMED request."
+  ],
+  "installed_primary_command_data_readonly": {
+    "files": [
+      {
+        "relative": "Base/Assets/Gameplay/Data/UnitCommands.xml",
+        "bytes": 6334,
+        "sha256": "86bef51e6370211443672bb3971cbdc85ad5db4739eaae9072e49965197c3461"
+      },
+      {
+        "relative": "Base/Assets/Gameplay/Data/UnitOperations.xml",
+        "bytes": 18269,
+        "sha256": "00c3c77e74f571471299564c4f6c1a277c9f09d650420dbb01314c27ba8b698f"
+      }
+    ],
+    "UNITCOMMAND_WAKE_definition_found": true,
+    "primary_definition_lines": [
+      11,
+      35
+    ],
+    "primary_UI_reference": "Base/Assets/UI/WorldTracker.lua:955 compares UnitCommandTypes.WAKE",
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "runtime_enum_eligibility_or_effect": "UNKNOWN",
+    "all_queue_quiescence": "NOT_PROVED",
+    "game_assets_committed": false
+  },
+  "ledger": {
+    "logical": 946,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 62,
+    "generation_POST": 985,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "next": [
+    "Finish finalMANYcontrol then auditall10actual inputs/25segments and preserve anyFAIL",
+    "Continue currentNoSiteallfourbudgets; thenactualTC039episode",
+    "Onlyafterthoseclose run the newold865passiveepisode; actualfailure stillrequiresfix/retest andotherfinitefunction/compatibilitywork remains"
+  ]
+}
