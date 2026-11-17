@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T12:27:50.547747+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "OWNER_LOAD_BASELINE_SCHEMA_FIXED_FULL_CONSUMERS_VERIFIED_RECOVERY_PENDING",
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "failure": "Legacybaselineproducer recordsbytes, sharedreader expectedbyte_count; secondparent15373failed before loadingconfirmation record or PostMessage. Original98482CLIhalt and15373schemahalt eachactualexit1 retained.",
+  "software": {
+    "utc": "2026-11-17T12:21:47.069697+00:00",
+    "machine": "BF-202609141645",
+    "actual_full_rendered_programs_mock_executed": [
+      {
+        "baseline_count_schema": "byte_count",
+        "mode": "read",
+        "real_generated_program_executed": true,
+        "mock_PostMessage_calls": 0
+      },
+      {
+        "baseline_count_schema": "byte_count",
+        "mode": "send",
+        "real_generated_program_executed": true,
+        "mock_PostMessage_calls": 2
+      },
+      {
+        "baseline_count_schema": "bytes",
+        "mode": "read",
+        "real_generated_program_executed": true,
+        "mock_PostMessage_calls": 0
+      },
+      {
+        "baseline_count_schema": "bytes",
+        "mode": "send",
+        "real_generated_program_executed": true,
+        "mock_PostMessage_calls": 2
+      },
+      {
+        "baseline_count_schema": "both",
+        "mode": "read",
+        "real_generated_program_executed": true,
+        "mock_PostMessage_calls": 0
+      },
+      {
+        "baseline_count_schema": "both",
+        "mode": "send",
+        "real_generated_program_executed": true,
+        "mock_PostMessage_calls": 2
+      }
+    ],
+    "bad_baseline_rejections": 7,
+    "common_helper_sha256": "e715fdf56d5e63492455d82a097e8793bc9ff176d82945677bf88d2afa5fcfb5",
+    "Native_queries": 0,
+    "Native_inputs": 0,
+    "original_evidence_files_modified": 0,
+    "scope": "Actual shared reader and generated Legacy read/send programs; allOS/owner/windows/PostMessage mocked in temporary CWD. Accepts oldbytes/currentbyte_count onlywithmatchingidentity/size/SHA, bothfieldsconflictreject."
+  },
+  "source_fingerprints": {
+    "utc": "2026-11-17T12:24:32.434038+00:00",
+    "tested_normalized_source_sha256": "e715fdf56d5e63492455d82a097e8793bc9ff176d82945677bf88d2afa5fcfb5",
+    "current_raw_source_sha256": "94eafa9cf4aaad4f624225797fd192b8289c257f4c588d9dfbd1e0e15c2e2f93",
+    "UTF8_text_reader_normalizes_Windows_newlines": true,
+    "actual_programs_tested": 6,
+    "bad_baselines_rejected": 7,
+    "Native_queries": 0,
+    "Native_inputs": 0,
+    "limit": "Original test receipt stored normalized UTF8 text hash under common_helper_sha256. It did not record original raw bytes. Current raw bytes are pinned here; generated code reads the exact tested normalized text. Original evidence remains unchanged."
+  },
+  "Owner_review": [
+    "Sharedreadonlyqualification now acceptsbytes/byte_count only when everypresentcount isint andequalsactualprefix length, ownerexactlymatches, SHAequal. Missing/conflictingcount,badowner/hash/bool/fraction fail. No oldevidence JSON is edited or backfilled.",
+    "Six actualgeneratedLegacyread/send programs execute against temporary logs/receipts andcompletelymockedpsutil/Win32. Threeproducerforms eachread0mockmessages/sendexact2; actualSHA/prefix/markerordering/time/owner/window andoneuseintent path is exercised. Seven badbaselines reject. No actualgamewindow/input/Nativequery.",
+    "First R3 admission compared normalized-text SHA against rawbytes and stopped before any intent/consumer. V1 had storedthe text-reader-normalizedUTF8hash. Separate currentrawSHA plus matchingtestednormalizedSHA reconcileWindowsnewline representation; earlierrawbytes were not recorded and are not retroactivelyclaimed. Originalreceipt stays unchanged.",
+    "Sole93076remainingparent verifiesbothhashes,current6876birth/119package, absenttargetedescapeintent andcurrentloadlogs, thenperformsfirstactualconfirmation andonlypassivewitness/retire/save/exit. Nooriginal158reload/END/unitorder/qualification probe. Recovery stillpending, not865recoveryPASS.",
+    "The same strictcompatible reader also servesfutureP2/P5legacybaseline producers usingbytes, avoidingthe sameconsumer mismatch there. No sourcegame/119package/Steamconfiguration change."
+  ],
+  "new_model_POST": 0,
+  "ledger": {
+    "logical": 961,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 77,
+    "generation_POST": 1000,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "old8650807": "FAIL_UNRESOLVED"
+}
