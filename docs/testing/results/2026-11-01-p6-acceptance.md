@@ -1605,3 +1605,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 actual ordinary attack; TC023 fixture review PASS
 
 [Physical original middle-button choice, actual combat and versioned branch review](../../research/baiqi-source162-normal-attack-native-tc023-review-http991992-2026-11-18.json). Fresh offline current162 original copy; right1/OS pointer away before normal-choice1; original continuation actor2162700/target41,19 once. Moves4->0, armydamage0->25, citydamage150->175/enemyowner1/pop1; gold unchanged, paid request/Transfer/debit/Finish0 and bank/result/cooldownnil. Saved/retired/exited, exact own188s residue terminate1/kill0. Owner focus/emitter/persisted-JSON HALTs retained; closure-only33482exit0 no replay. TC023 reviewed PASS for this frozen fixture by eight exact161/162 consumer hashes and explicit161 cancel/paid-confirm reuse; TC024/fullmod remainOPEN.991992 actual404/noadoption afterclosure, ledger992. Continue HP boundaries and missing manual-control cases.
+
+
+## 2026-11-18: Source162 HP71 refusal prepared
+
+[One-use health-only fixture, actual product refusal VM and driver guards](../../research/baiqi-source162-city-hp71-preparation-2026-11-18.json). Native NOT_RUN. Config35%/actual max200 gives inclusiveHP70; target71 should city_healthy.162 dual-Lua fixture runs,14 actual Actions/Quote/Capture/OnRequisition VM flows,2 load-once VM,12 prepare/completion and5 admission flows,6 real driver emitter/call tests. Preserve full original310 SHA checks using a same-code alias entering existing987 projection, no codec/global changes. Original cold copy/physical input/independent refusal/save/exit still to execute; HP69/70 and fullmod remainOPEN.
