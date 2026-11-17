@@ -1,0 +1,604 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T06:15:56.554859+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "FUTURE_NO_SITE_EPISODE_FORMAL_COPY_FLOW_SOFTWARE_VERIFIED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "new_generation_POST": 0,
+  "software": {
+    "utc": "2026-11-17T06:10:17.512470+00:00",
+    "future_AST_files": 143,
+    "source_hashes": {
+      "pressure160_nosite_plan_episode_owner.py": "4c8e779b8b50ed75504890ce7d9a03b8c63d33ee97b1ff89ef68bda1f92d161a",
+      "pressure160_nosite_observed_episode_owner.py": "f47d385cd9b5e98db331c53ef7e17825a9a44846fdec6b749937c446afabbbe0",
+      "pressure160_formal_copy_owner.py": "b85ba1f829d4723b14f0709f17ccab94c97f247afe06b454982675825dd4e8ba"
+    },
+    "actual_parent_mocked_flows": [
+      {
+        "mode": "plan",
+        "simulated_failure": null,
+        "actual_parent_try_flow": [
+          [
+            "call",
+            "lifecycle",
+            "install"
+          ],
+          [
+            "call",
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "call",
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "call",
+            "fixture",
+            "load"
+          ],
+          [
+            "wait_load",
+            "load"
+          ],
+          [
+            "call",
+            "initial"
+          ],
+          [
+            "call",
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "call",
+            "lifecycle",
+            "begin"
+          ],
+          [
+            "freeze",
+            "pressure160-nosite-plan"
+          ],
+          [
+            "call",
+            "fixture",
+            "reload"
+          ],
+          [
+            "wait_load",
+            "reload"
+          ],
+          [
+            "call",
+            "fixture",
+            "formal-ready"
+          ],
+          [
+            "call",
+            "run"
+          ],
+          [
+            "call",
+            "collect"
+          ],
+          [
+            "call",
+            "finish",
+            "save"
+          ],
+          [
+            "call",
+            "finish",
+            "retire"
+          ],
+          [
+            "call",
+            "lifecycle",
+            "finish"
+          ],
+          [
+            "call",
+            "finish",
+            "exit"
+          ],
+          [
+            "cleanup"
+          ],
+          [
+            "emit",
+            "STAGEA_CLOSED_PENDING_OWNER_REVIEW"
+          ]
+        ]
+      },
+      {
+        "mode": "plan",
+        "simulated_failure": "freeze",
+        "actual_parent_try_flow": [
+          [
+            "call",
+            "lifecycle",
+            "install"
+          ],
+          [
+            "call",
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "call",
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "call",
+            "fixture",
+            "load"
+          ],
+          [
+            "wait_load",
+            "load"
+          ],
+          [
+            "call",
+            "initial"
+          ],
+          [
+            "call",
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "call",
+            "lifecycle",
+            "begin"
+          ],
+          [
+            "freeze",
+            "pressure160-nosite-plan"
+          ],
+          [
+            "emit",
+            "HALTED_NO_REPLAY"
+          ]
+        ]
+      },
+      {
+        "mode": "plan",
+        "simulated_failure": "run",
+        "actual_parent_try_flow": [
+          [
+            "call",
+            "lifecycle",
+            "install"
+          ],
+          [
+            "call",
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "call",
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "call",
+            "fixture",
+            "load"
+          ],
+          [
+            "wait_load",
+            "load"
+          ],
+          [
+            "call",
+            "initial"
+          ],
+          [
+            "call",
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "call",
+            "lifecycle",
+            "begin"
+          ],
+          [
+            "freeze",
+            "pressure160-nosite-plan"
+          ],
+          [
+            "call",
+            "fixture",
+            "reload"
+          ],
+          [
+            "wait_load",
+            "reload"
+          ],
+          [
+            "call",
+            "fixture",
+            "formal-ready"
+          ],
+          [
+            "call",
+            "run"
+          ],
+          [
+            "emit",
+            "HALTED_NO_REPLAY"
+          ]
+        ]
+      },
+      {
+        "mode": "observed",
+        "simulated_failure": null,
+        "actual_parent_try_flow": [
+          [
+            "call",
+            "lifecycle",
+            "install"
+          ],
+          [
+            "call",
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "call",
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "call",
+            "fixture",
+            "load"
+          ],
+          [
+            "wait_load",
+            "load"
+          ],
+          [
+            "call",
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "call",
+            "fixture",
+            "begin"
+          ],
+          [
+            "freeze",
+            "pressure160-nosite-observed"
+          ],
+          [
+            "call",
+            "fixture",
+            "reload"
+          ],
+          [
+            "wait_load",
+            "reload"
+          ],
+          [
+            "call",
+            "fixture",
+            "formal-preflight"
+          ],
+          [
+            "call",
+            "run"
+          ],
+          [
+            "call",
+            "collect"
+          ],
+          [
+            "call",
+            "finish",
+            "save"
+          ],
+          [
+            "call",
+            "finish",
+            "retire"
+          ],
+          [
+            "call",
+            "finish_formal"
+          ],
+          [
+            "call",
+            "finish",
+            "exit"
+          ],
+          [
+            "call",
+            "analyze"
+          ],
+          [
+            "cleanup"
+          ],
+          [
+            "emit",
+            "STAGEB_CLOSED_PENDING_OWNER_REVIEW"
+          ]
+        ]
+      },
+      {
+        "mode": "observed",
+        "simulated_failure": "freeze",
+        "actual_parent_try_flow": [
+          [
+            "call",
+            "lifecycle",
+            "install"
+          ],
+          [
+            "call",
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "call",
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "call",
+            "fixture",
+            "load"
+          ],
+          [
+            "wait_load",
+            "load"
+          ],
+          [
+            "call",
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "call",
+            "fixture",
+            "begin"
+          ],
+          [
+            "freeze",
+            "pressure160-nosite-observed"
+          ],
+          [
+            "emit",
+            "HALTED_NO_REPLAY"
+          ]
+        ]
+      },
+      {
+        "mode": "observed",
+        "simulated_failure": "run",
+        "actual_parent_try_flow": [
+          [
+            "call",
+            "lifecycle",
+            "install"
+          ],
+          [
+            "call",
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "call",
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "call",
+            "fixture",
+            "load"
+          ],
+          [
+            "wait_load",
+            "load"
+          ],
+          [
+            "call",
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "call",
+            "fixture",
+            "begin"
+          ],
+          [
+            "freeze",
+            "pressure160-nosite-observed"
+          ],
+          [
+            "call",
+            "fixture",
+            "reload"
+          ],
+          [
+            "wait_load",
+            "reload"
+          ],
+          [
+            "call",
+            "fixture",
+            "formal-preflight"
+          ],
+          [
+            "call",
+            "run"
+          ],
+          [
+            "emit",
+            "HALTED_NO_REPLAY"
+          ]
+        ]
+      }
+    ],
+    "actual_filesystem_copier_positive": [
+      "plan",
+      "observed"
+    ],
+    "mismatched_or_exclusive_copies_rejected": [
+      "plan-exclusive-second-copy",
+      "plan-nonce",
+      "plan-role",
+      "plan-version",
+      "plan-label",
+      "observed-exclusive-second-copy",
+      "observed-nonce",
+      "observed-role",
+      "observed-version",
+      "observed-label"
+    ],
+    "Native_queries": 0,
+    "actual_NoSite_formal_admission": false,
+    "Owner_correction": "Two newly inserted archive-before-reload blocks had one extra indentation level. Read/AST review caught this before executing either future parent. Corrected exact indentation; actual try-flow verifies begin->copy->reload and halts on copy or unknownrun failure.",
+    "scope": "Syntax and actual parent flow with mocked children plus actual FS copier on actualMANYadmission-shaped syntheticNoSite fixtures; no new game/modbuild/HTTP/performance result."
+  },
+  "Owner_review": [
+    "The future NoSite plan and fullscript parent newly inserted archive-before-reload blocks initially had three leading spaces, while their actual try bodies use one. A first correction left two and AST still rejected before running either parent. The final one-space correction passes143actual-source AST parses. No game action, save/load or formal state was created by either syntax failure.",
+    "Actual parent try bodies run under mocked child/endpoint/load/cleanup functions in6cases: two stages each normal, archive failure or unknown run failure. They enforce begin->exactrecordcopy->officialreload; no dependent reload after failed archive, no collect/save/retire/release/exit/cleanup after unknown run.",
+    "Actual filesystem copier executes in an isolated ignored directory using prior realMANYadmission-shaped records specialized to syntheticNoSite labels. Two positive copies preserve exact record and do not alter active source;8nonce/role/version/label mismatches plus2second-copy exclusive-write attempts reject. These are not actualNoSite formal admissions.",
+    "The copy verifies current label/source160/nonce/FORMAL_PERFORMANCE and a stable repeated file read, writes an exclusive frozen record immediately after admission and before official reload. It neither queries nor mutates the game and cannot independently release a formal reservation.",
+    "All Native NoSite planning/fullscript measurements remain future. Existing qualified geometry is separate; ordinary calendars, caps/budgets/source artifacts and currentMANYsoleparent remain unchanged."
+  ],
+  "ledger": {
+    "logical": 945,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 61,
+    "generation_POST": 984,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "next": [
+    "Complete soleMANYparent36451all5paired groups and account all10actual inputs/25segments",
+    "Then executeNoSiteplan followedbyfullscript withtheverified archive-before-reload sequence",
+    "Finish NoSitepairedmatrix andfinitefunction/recovery acceptance; no stop at this software commit"
+  ]
+}
