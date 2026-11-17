@@ -1,0 +1,484 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T09:31:33.275987+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "FINITE_OLD_RIGHTS_EPISODE_SOFTWARE_PREPARED_ONLY",
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "MANY_B_delta": "VALID_FAIL_RETAINED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "model953": {
+    "purpose": "New finite old-rights lifecycle/player/witness candidate before Owner implementation",
+    "sources": 16,
+    "source_bytes": 183416,
+    "generation_POST": 1,
+    "http_status": 404,
+    "total_ms": 23.467799881473184,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_after_current_flag_written": false,
+    "before_NoSite_group4_control_formal": true
+  },
+  "software": {
+    "utc": "2026-11-17T09:28:51.725139+00:00",
+    "source_version": 160,
+    "VM_fixtures": [
+      {
+        "VM": "Lua51",
+        "actual_boot_export_decode_qualification": true,
+        "mock_engine": true
+      },
+      {
+        "VM": "Lua51",
+        "rendered_END_problem": null,
+        "mock_Native_END_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "rendered_END_problem": "city_blocker",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "rendered_END_problem": "unready",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "rendered_END_problem": "military_moves",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "rendered_END_problem": "multiplayer",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "rendered_END_problem": "duplicate_END",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "rendered_END_problem": "busy",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "actual_boot_export_decode_qualification": true,
+        "mock_engine": true
+      },
+      {
+        "VM": "Lua53",
+        "rendered_END_problem": null,
+        "mock_Native_END_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "rendered_END_problem": "city_blocker",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "rendered_END_problem": "unready",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "rendered_END_problem": "military_moves",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "rendered_END_problem": "multiplayer",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "rendered_END_problem": "duplicate_END",
+        "mock_Native_END_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "rendered_END_problem": "busy",
+        "mock_Native_END_calls": 0
+      }
+    ],
+    "bad_boot_rejections": 24,
+    "mock_episode_flows": [
+      {
+        "failure": null,
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            1,
+            1
+          ],
+          [
+            "player",
+            "end",
+            1
+          ],
+          [
+            "arrival",
+            2
+          ],
+          [
+            "witness",
+            "accounting2"
+          ],
+          [
+            "player",
+            "select",
+            2,
+            1
+          ],
+          [
+            "player",
+            "end",
+            2
+          ],
+          [
+            "arrival",
+            3
+          ],
+          [
+            "witness",
+            "accounting3"
+          ],
+          [
+            "finish",
+            "accounting3"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "reload3"
+          ],
+          [
+            "witness",
+            "reload3"
+          ],
+          [
+            "finish",
+            "retire-reload3"
+          ],
+          [
+            "witness",
+            "final3"
+          ],
+          [
+            "finish",
+            "final3"
+          ],
+          [
+            "finish",
+            "exit"
+          ]
+        ]
+      },
+      {
+        "failure": "load",
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ]
+        ]
+      },
+      {
+        "failure": "end1",
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            1,
+            1
+          ],
+          [
+            "player",
+            "end",
+            1
+          ]
+        ]
+      },
+      {
+        "failure": "accounting3save",
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            1,
+            1
+          ],
+          [
+            "player",
+            "end",
+            1
+          ],
+          [
+            "arrival",
+            2
+          ],
+          [
+            "witness",
+            "accounting2"
+          ],
+          [
+            "player",
+            "select",
+            2,
+            1
+          ],
+          [
+            "player",
+            "end",
+            2
+          ],
+          [
+            "arrival",
+            3
+          ],
+          [
+            "witness",
+            "accounting3"
+          ],
+          [
+            "finish",
+            "accounting3"
+          ]
+        ]
+      },
+      {
+        "failure": "reload3",
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ],
+          [
+            "finish",
+            "retire-initial"
+          ],
+          [
+            "player",
+            "select",
+            1,
+            1
+          ],
+          [
+            "player",
+            "end",
+            1
+          ],
+          [
+            "arrival",
+            2
+          ],
+          [
+            "witness",
+            "accounting2"
+          ],
+          [
+            "player",
+            "select",
+            2,
+            1
+          ],
+          [
+            "player",
+            "end",
+            2
+          ],
+          [
+            "arrival",
+            3
+          ],
+          [
+            "witness",
+            "accounting3"
+          ],
+          [
+            "finish",
+            "accounting3"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "reload3"
+          ]
+        ]
+      },
+      {
+        "failure": "initialwitness",
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "witness",
+            "initial"
+          ]
+        ]
+      }
+    ],
+    "actual_load_payloads_dualLua_compiled": [
+      {
+        "context": "MainMenu",
+        "code_sha256": "19da417d1a0217ee94fc50ee65e6c91d955db9ea787b42423af96c1fdfb2a718"
+      },
+      {
+        "context": "BaiqiExecutor",
+        "code_sha256": "b8acc90670011ccf402e0bc020a464fe3a830c70e75cdfda5b486df0ed295526"
+      }
+    ],
+    "source_hashes": {
+      "oldrights160_lifecycle_owner.py": "d9fae52a1fb5f93ea17877c4158f17b8333337880b7e8a86c4bba3501c48d7c9",
+      "oldrights160_witness_owner.py": "357238812d227dd9bf53bbf4ae0becb0261932c564c11996f8f4cb089a90d120",
+      "oldrights160_player_owner.py": "acb52e8d95825fcb5f35caa3bdd988b2c86f0da5be7a2092ba35c16c409a588a",
+      "oldrights160_finish_owner.py": "58460215e4bc39b7e8c08f03d05fb226612478b0d4e586cb5897f32cc5a8e079",
+      "oldrights160_arrival_owner.py": "61cb07a4a692ea0aee58d38cb6ca13222d470c294705716cfc0607703cf400f8",
+      "oldrights160_cleanup_owner.py": "21f4ecbcb40cf665f9447f15dbb7010a35c59e6a93b6fa25a8e3700ff4227c04",
+      "oldrights160_episode_owner.py": "39f5286c826bcc93a6ee75c7bc12698e5c0a10a5bf410f0676be7edfe45b46ae"
+    },
+    "artifact_sha256": "b12916400aed62c5d011e8c1c2635a03f89f436a8a0554f4c140d609aac031c6",
+    "Native_queries": 0,
+    "Native_installs": 0,
+    "Native_ENDs": 0,
+    "actual_old_rights_episode": "NOT_RUN",
+    "whole_TC032": "OPEN",
+    "scope": "Actual new qualification and rendered END/load consumers with mock engine/transport, plus bounded orchestration. No actual old save, migration/accounting/bridge/save/exit or whole-case PASS."
+  },
+  "entry": {
+    "local_only": ".local-model/oldrights160_admission_owner.py run",
+    "sha256": "bf75479174795414f00f9deb84074f7b5340d7924df9141aea0748fe842c260e",
+    "guard": "7 exact verified consumer hashes, actual prior NoSite/END/TC039/legacy closure, no game/formal/models; current source/private119/97/inverse/ZIP and all old/new saves remain qualified."
+  },
+  "Owner_review": [
+    "One future cold original P2GranaryCommitted T1 load; independent full raw boot/UI/Core proof of old bank/flags, actual natural-cleanup pairs and current clean state, before/after gold/cities/granary/actor identities. Raw properties are read, not manufactured. Existing private952 factory/archive and product stay byte-unchanged.",
+    "The initial observer retires immediately after initial full export, before ordinary END1. Two real ordinary END1->2->3 are planned, each with qualified military-only SKIP/exhaustion and full original readiness/one-use marker; next2/3 active/UIidle require separate readback. No forced END, civilian or domestic inputs.",
+    "Player inputs reject visible/unknown diplomacy; arrival may use only the original TEST_PLAYER farewell handler for a real shown inactive-turn visit, once per visit. No background diplomacy/military. Unknown END/load/save halts dependents without replay.",
+    "Independent fresh Core/UI getter snapshots retain actual income/maintenance/gold at2 and3. Current SQL already zeroes removed modifier amounts before Lua; equal food is not evidence of old benefits under current SQL. Natural income, AI effects and outside costs still need Owner accounting interpretation.",
+    "One official new3 save, reload that new3 once with initial observer already retired, complete clean reload export/current own retire, fresh final reads and final new3 save; official exit and exact-owned180s/zero-windows-listeners/2sCPU residue closure. All old protected sources and newly captured NoSite/MANY/END/TC039/legacy saves are retained.",
+    "16 VM fixtures comprise2 actual bridge/export/boot qualification and14 rendered ordinary-END cases (one allowed and6 blocked per Lua version).24 invalid boot snapshots reject;6 mock finite flows stop on unknown original load/END1/save/reload/initial witness;2 actual official-load payloads compile Lua51/53 under fake transport. Mock input prints and save names are software only.",
+    "Full-suite testing, Native bridge/old save/accounting/reload/save/exit are NOT_RUN for this episode. P5 disabled-state/manual-input witness remains separate. A future completed raw episode still requires Owner income/asset review; whole TC032/mod and original865 recovery are not granted."
+  ],
+  "ledger": {
+    "logical": 953,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 69,
+    "generation_POST": 992,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "next": [
+    "Continue sole90424 remainingNoSitepairedsides then global25 actualinput/lifecycle audit",
+    "AfterNoSite run verified preciseEND diagnostic, current160TC039 and old865 passive witness, then this finite old-rights episode before changing current160 source",
+    "Use actual evidence to fix/retest MANY and old865 defects; continue paidcity/control/oldpause/compatibility/TC038 finite coverage"
+  ]
+}
