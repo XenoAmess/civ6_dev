@@ -1,0 +1,413 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T07:15:28.490902+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "PREPOPEN_OFFLINE_PROOF_EXPIRY_REPAIR_SOFTWARE_PREPARED_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "MANY_B_delta": "VALID_FAIL_RETAINED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "model948": {
+    "purpose": "Real new prePopen fresh-offline-proof expiry repair andNoSitefullscriptcontinuation before Owner implementation",
+    "sources": 11,
+    "source_bytes": 65097,
+    "generation_POST": 1,
+    "http_status": 404,
+    "total_ms": 16.84290007688105,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_after_current_flag_written": true,
+    "formal_active_at_dispatch": false
+  },
+  "actual_failed_prePopen_context": {
+    "actual_parent_terminal": 1,
+    "old_parent_state": {
+      "utc": "2026-11-17T06:53:36.520855+00:00",
+      "episode": "pressure160-nosite-observed",
+      "phase": "HALTED_NO_REPLAY",
+      "error": "RuntimeError('lifecycle terminal1; preserve state, no dependent action')"
+    },
+    "old_attempt_utc": "2026-11-17T06:53:16.092870+00:00",
+    "proof_utc": "2026-11-17T06:53:15.930412+00:00",
+    "proof_mode": "offline",
+    "failure_terminal_utc": "2026-11-17T06:53:36.520855+00:00",
+    "proof_age_at_parent_failure_seconds": 20.590443,
+    "failure_source_line": 54,
+    "next_Popen_line": 55,
+    "canonical_launch_receipt_exists": false,
+    "original_load_attempt_exists": false,
+    "old_intents_must_be_preserved": true
+  },
+  "software": {
+    "utc": "2026-11-17T07:12:44.986720+00:00",
+    "source_version": 160,
+    "source_hashes": {
+      "cold_admission948_core_owner.py": "4617781f659f3523ba572affce48c707b7a8a131df2ea462975284652b6473f6",
+      "pressure160_nosite_observed_admission_r1_launch_owner.py": "e01e7332aadc80f0fb1363b8b0110996d71b447cc70738a4c9ab058319a608c9",
+      "pressure160_nosite_observed_admission_r1_episode_owner.py": "7f43239a577ef48df2a7819312ef00a9fc9f504441430542ff4ee94c0d08b626"
+    },
+    "actual_core_gate_cases": [
+      {
+        "fault": null,
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence",
+          "new_exclusive_intent",
+          "spawn_once"
+        ]
+      },
+      {
+        "fault": "mode",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "input",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "PID",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "birth",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "stale15",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "negative_age",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "missingUTC",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "changed_file",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "game_present",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence"
+        ]
+      },
+      {
+        "fault": "intent_delay15",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence",
+          "new_exclusive_intent"
+        ]
+      },
+      {
+        "fault": "unknown_spawn",
+        "actual_core_order": [
+          "full_preflight",
+          "new_background_proof",
+          "fast_fence",
+          "new_exclusive_intent",
+          "spawn_once"
+        ]
+      }
+    ],
+    "actual_resume_tail_flows": [
+      {
+        "unknown_child": null,
+        "actual_original_tail": [
+          [
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "fixture",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "fixture",
+            "begin"
+          ],
+          [
+            "archive",
+            "pressure160-nosite-observed"
+          ],
+          [
+            "fixture",
+            "reload"
+          ],
+          [
+            "ready",
+            "reload"
+          ],
+          [
+            "fixture",
+            "formal-preflight"
+          ],
+          [
+            "run"
+          ],
+          [
+            "collect"
+          ],
+          [
+            "finish",
+            "save"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "finish_formal"
+          ],
+          [
+            "finish",
+            "exit"
+          ],
+          [
+            "analyze"
+          ],
+          [
+            "cleanup"
+          ],
+          [
+            "emit",
+            "STAGEB_CLOSED_PENDING_OWNER_REVIEW"
+          ]
+        ]
+      },
+      {
+        "unknown_child": "load",
+        "actual_original_tail": [
+          [
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "fixture",
+            "load"
+          ]
+        ]
+      },
+      {
+        "unknown_child": "run",
+        "actual_original_tail": [
+          [
+            "environment"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "fixture",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "fixture",
+            "warmup"
+          ],
+          [
+            "emit",
+            "WARMUP_62_SECONDS"
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            30
+          ],
+          [
+            "sleep",
+            2
+          ],
+          [
+            "fixture",
+            "begin"
+          ],
+          [
+            "archive",
+            "pressure160-nosite-observed"
+          ],
+          [
+            "fixture",
+            "reload"
+          ],
+          [
+            "ready",
+            "reload"
+          ],
+          [
+            "fixture",
+            "formal-preflight"
+          ],
+          [
+            "run"
+          ]
+        ]
+      }
+    ],
+    "actual_admission_fallback_flows": [
+      {
+        "case": null,
+        "actions": [
+          [
+            "admission_r1_launch",
+            "launch"
+          ]
+        ]
+      },
+      {
+        "case": "unavailable",
+        "actions": [
+          [
+            "admission_r1_launch",
+            "launch"
+          ],
+          [
+            "admission_r1_launch",
+            "header"
+          ],
+          [
+            "admission_r1_launch",
+            "launch"
+          ]
+        ]
+      },
+      {
+        "case": "unknown",
+        "actions": [
+          [
+            "admission_r1_launch",
+            "launch"
+          ]
+        ]
+      }
+    ],
+    "actual_spawn_and_first_receipt_with_mockPopen": true,
+    "current119_artifact_ZIP_and_helper_checks": true,
+    "slow_preflight42s_before_new_proof_passes": true,
+    "stale_or_changed_conditions_abort_before_Popen": true,
+    "Native_Popen": 0,
+    "Native_queries": 0,
+    "game_load_or_END": 0,
+    "old_intents_or_parent_modified": false,
+    "scope": "Actual gate/order/tail/spawn code under mocked proof/time/process/children, isolated QA filesystem. First realR1launch/currentSteamproof and actualNoSitecapture still pending."
+  },
+  "private_sources": [
+    {
+      "local_only": ".local-model/cold_admission948_core_owner.py",
+      "sha256": "4617781f659f3523ba572affce48c707b7a8a131df2ea462975284652b6473f6"
+    },
+    {
+      "local_only": ".local-model/pressure160_nosite_observed_admission_r1_launch_owner.py",
+      "sha256": "e01e7332aadc80f0fb1363b8b0110996d71b447cc70738a4c9ab058319a608c9"
+    },
+    {
+      "local_only": ".local-model/pressure160_nosite_observed_admission_r1_episode_owner.py",
+      "sha256": "7f43239a577ef48df2a7819312ef00a9fc9f504441430542ff4ee94c0d08b626"
+    }
+  ],
+  "new_entry": ".local-model/pressure160_nosite_observed_admission_r1_episode_owner.py run",
+  "Owner_review": [
+    "Originalparent8826terminal1 after the second launch passed a newbackgroundofflinequery but then spent the proofTTL in postproof checks. ProofUTC06:53:15.930412, exclusiveattemptUTC06:53:16.092870, parentfailureUTC06:53:36.520855:20.590443s. Traceback is line54 beforePopen55. No canonicallaunchreceipt/firstload/formal/END exists. Oldintent/trace/failure state remain evidence.",
+    "Newr1preflight retains all full protectedsave hashes, currentprivate/release119/ZIP/helper/exe/CPU/options/git checks beforefreshproof. CurrentdocsHEAD may differ from oldinstall receipt, but all119source/private/managed hashes are reverified and both commits recorded; no reinstall or oldreceipt edit.",
+    "After a newcanonicalbackgroundreadonlyproof, fast noGame/stat(dev,inode,size,mtime)/ownerpointer/currentHEAD checks run, then exactSteamPID/birth/flags and finite0<=age<15 rechecked before and after newexclusiveintent IO. A changed file, foreignclient, unavailablemode or staleproof still rejects beforePopen. No screenshots/focus/windowmove/configrewrite/online/login/foreignprocess action.",
+    "NewPopenintent has a newr1name citing the original prePopen attempt hash. Firstactualcanonicallaunchreceipt is created only once and records actualgamebirth proofage plus prePopenage. UnknownPopen is not retried. SoftwaremockPID99/MockCivilization.exe is explicitly an isolated fixture, not a game process.",
+    "Newparent snapshots the oldfailedstate byte-exact, uses newr1state and unique logserial10000+, then reuses only originalhelperdefinitions and actual tailafterlaunch. No import-time originalepisodeexecution, install replay, load replay or duplicatedEND. If initialmodeunavailable, a newunique officialheader action may precede a newquery; headerACKis notproof. Canonicalfinalphase updates only after actualsuccess, with original failure preserved separately.",
+    "12actualgate cases include slow42spreflight before freshproof, exact15sexpiry, negativeage/missingtimestamp/mode/input/PID/birth/file/game/intentdelay andunknownspawn.3actualtail mockflows preserveformalarchive-before-reload andhaltunknownload/run;3actualadmission mockflows constrainfallback; actualspawn/firstreceipt code runs only with mockPopen/process andisolatedfiles. Current119/ZIP/helper qualification is readonly actualfilesystem."
+  ],
+  "ledger": {
+    "logical": 948,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 64,
+    "generation_POST": 987,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "next": [
+    "Execute fresh r1admission andfinish realNoSitefullscript/requests lifecycle withoutprojectcommitsduringadmission",
+    "Publish actualresult andcontinueNoSitepairedmatrix orcause-supportedpreciseMANYdiagnostic",
+    "RetainMANYFAILandold865FAIL; finishfinitefunction/compatibility/migration rather thanstopatthisrepair"
+  ]
+}
