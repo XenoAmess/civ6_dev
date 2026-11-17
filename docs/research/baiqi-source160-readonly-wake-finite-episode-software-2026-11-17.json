@@ -1,0 +1,314 @@
+{
+  "date": "2026-11-17",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "Native": "NOT_RUN",
+  "episode_software": {
+    "utc": "2026-11-17T13:14:31.187189+00:00",
+    "source_hashes": {
+      "wake160_lifecycle_owner.py": "a19eac98d40daa2404fb1da3efe21cb33f3b68b0bcb37c4eae20732e746a0c6d",
+      "wake160_witness_owner.py": "b8bec37a4392c0c5ca2fb1dfbad77cc092e1d6ba9f06b5dd19f23844a13c4724",
+      "wake160_finish_owner.py": "32614ac9be55b8d835fe2c5f1e83c80cc8950752ebfbab48321b10a166a92423",
+      "wake160_cleanup_owner.py": "e34084748ce6f6e4aef08e904d0b959108590aa458c7b1cf662e4d36c7a299af",
+      "wake160_episode_owner.py": "4feee3cc160be018385a9cb0e7afa06a71c50c87d31b93333dbb825387fb931a",
+      "legacy160_probe962_owner.py": "116257b6e5939c2edb40089169da49ab4f3a43704aba00e928c3e034d66ca06e",
+      "legacy160_snapshot_core_owner.py": "a4fd9d8581570232a9583133a2cf4e88d7160da3443f66aa425568d1012a652f",
+      "legacy160_finish_owner.py": "5a5bd2d2f4c44a1dda5c0169c591b5b8c27a3eaefdab12a6d026bf5c1096a70e",
+      "pair155_continue_owner.py": "94eafa9cf4aaad4f624225797fd192b8289c257f4c588d9dfbd1e0e15c2e2f93",
+      "p6_save_checkpoint_owner.py": "1d01d0043bd4bd788e635379c9361aad0caf5f1d07e2e7c27033a11f0c1213fb"
+    },
+    "official_load_VM_cases": [
+      {
+        "VM": "Lua51",
+        "first_load_mock_executed": true,
+        "duplicate_rejected": true,
+        "save_and_retire_guard_compilations": 2
+      },
+      {
+        "VM": "Lua53",
+        "first_load_mock_executed": true,
+        "duplicate_rejected": true,
+        "save_and_retire_guard_compilations": 2
+      }
+    ],
+    "finite_mock_flows": [
+      {
+        "failure": null,
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "qualification"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "witness",
+            "final-retired"
+          ],
+          [
+            "finish",
+            "save"
+          ],
+          [
+            "finish",
+            "exit"
+          ],
+          [
+            "cleanup"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "qualification"
+        ],
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "qualification"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "finish",
+          "retire"
+        ],
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "qualification"
+          ],
+          [
+            "finish",
+            "retire"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "finish",
+          "save"
+        ],
+        "calls": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "endpoint"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "qualification"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "witness",
+            "final-retired"
+          ],
+          [
+            "finish",
+            "save"
+          ]
+        ]
+      }
+    ],
+    "continue_program_AST": 2,
+    "Native_queries": 0,
+    "Native_commands": 0,
+    "scope": "Future readonly Native API/WAKE qualification finite episode only; no command, cancellation, old record clear or retry."
+  },
+  "probe_software": {
+    "source_sha256": "116257b6e5939c2edb40089169da49ab4f3a43704aba00e928c3e034d66ca06e",
+    "base_sha256": "a4fd9d8581570232a9583133a2cf4e88d7160da3443f66aa425568d1012a652f",
+    "VM_cases": [
+      {
+        "VM": "Lua51",
+        "case": "strictfalse",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "stricttrue",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "missing",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "mismatch",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "qualificationerror",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "bankmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "worldmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "forbiddenoperation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "strictfalse",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "stricttrue",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "missing",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "mismatch",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "qualificationerror",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "bankmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "worldmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "forbiddenoperation",
+        "rejected": true
+      }
+    ],
+    "Native_queries": 0,
+    "Native_commands": 0,
+    "primary_schema_correction": "Original installed UnitCommands XML uses CommandType=UNITCOMMAND_WAKE; V1 mock alias WAKE did not test the real lookup. V2 uses full actual key. Original V1 receipt retained; no Native V1 use.",
+    "scope": "Readonly API inventory and original UI visibility/strict call shapes only; no cancellation proof or retry authority."
+  },
+  "review": [
+    "Future sole parent loads only the new current160 LegacyPassive158 checkpoint629881/SHA529e8654beb9bc8500aab900fda04da8ad32099f3a149b6ccbab2ce7bf27aa11. Original158 is not replayed. Exact prior P5 closure and installed119 hashes, fresh Steam offline proof, owned PID/birth/exe/endpoint and common file fence precede each action.",
+    "Read Core bank before, one UI readonly API/WAKE visibility+strict qualification probe, Core and UI again after, all complete raw banks equal and target SDK operation/command counts0. Then retire own observations, final fresh Core/UI, official new158 save and exact owned exit. No END/unit order or old intent clear/retry.",
+    "Primary installed UnitCommands XML identifies CommandType UNITCOMMAND_WAKE. Owner caught the V1 mock-only WAKE alias before any Native probe, corrected the getter and mock to use full database key, and retained V1 receipts. V2 still passes16 actual Lua51/Lua53 mock executions. Earlier V1 software record is superseded for execution.",
+    "Two official-load VM cases execute the actual new-checkpoint payload and reject duplicate without a second mock load; four finite flow cases stop dependent steps on unknown qualification/retirement/save. Continue programs were AST checked; save/retire payloads compiled in both Lua engines. These checks are not actual game loads or command acceptance.",
+    "Even a positive WAKE qualification does not prove cancellation, quiescence or recovery. Unknown activity/operation/getter/enumeration remains explicit. Old865 recovery and both pressure B_delta failures remain open."
+  ],
+  "new_generation_POST": 0,
+  "ledger": {
+    "logical": 963,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 79,
+    "generation_POST": 1002,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  }
+}

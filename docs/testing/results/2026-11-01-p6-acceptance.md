@@ -1436,3 +1436,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: readonly WAKE qualification software and actual old-rights cleanup witness correction
 
 [Exact software checks and first-load facts](../../research/baiqi-source160-readonly-wake962-cleanup-witness963-software-2026-11-17.json). The original P2 finite parent stopped before its first END because the QA expected equal dirty-cleanup yields. Actual source food/housing 3/4 -> 4/6 and recipient 6/10 -> 5/8 remove the withdrawn effect; gold remains1850 and assets/actor remain unchanged. Owner corrected only the private QA witness, preserving the original failure/raw boot; recorded actual data and25 negative cases pass. Remaining ordinary turns/new-save reload are pending in this record. The separate readonly WAKE/API probe passes16 mocked VM cases but has not run in game and grants no cancellation/retry permission. Both new model tasks returned404 without adoption. Whole mod remains open; both pressure performance failures and old865 recovery failure remain.
+
+
+## 2026-11-17: finite readonly WAKE/API episode prepared
+
+[Software checks, actual database-key correction and execution boundaries](../../research/baiqi-source160-readonly-wake-finite-episode-software-2026-11-17.json). The future diagnostic uses the new passive158 checkpoint, one readonly qualification probe and complete raw-bank before/after reads, then owned retirement/save/exit.16 probe VM cases,2 actual load-payload mock executions and4 finite flows pass. Primary XML review caught the V1 mock alias; V2 uses actual UNITCOMMAND_WAKE. No Native probe has run and no cancellation/retry/recovery pass is granted.
