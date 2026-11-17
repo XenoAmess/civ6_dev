@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T11:36:55.258163+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "OLDPAUSE_OWN_QUEUE_AND_BUILDER_READONLY_SOFTWARE_ONLY",
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "software": {
+    "utc": "2026-11-17T11:35:47.587752+00:00",
+    "machine": "BF-202609141645",
+    "VM_runs": [
+      {
+        "VM": "Lua51",
+        "queue_status": "EMPTY"
+      },
+      {
+        "VM": "Lua51",
+        "queue_status": "KNOWN"
+      },
+      {
+        "VM": "Lua51",
+        "queue_status": "UNKNOWN"
+      },
+      {
+        "VM": "Lua53",
+        "queue_status": "EMPTY"
+      },
+      {
+        "VM": "Lua53",
+        "queue_status": "KNOWN"
+      },
+      {
+        "VM": "Lua53",
+        "queue_status": "UNKNOWN"
+      }
+    ],
+    "bad_or_missing_rejections": 9,
+    "module_sha256": "76550ce7389750389592418b7fc0fa02fbfc39392293da77f65efcf708edb71b",
+    "actual_queue_helper": "tools/lua/diagnostic_production_snapshot.lua",
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "P5_original_loaded": false,
+    "scope": "Fresh UI own queues/builder states/mandatory availability only; unknown queues remain unknown. No real production or migration PASS."
+  },
+  "Owner_review": [
+    "Continuation of959oldpause witness task after failed real candidate. A separate freshUIgetter uses actualtools/lua/diagnostic_production_snapshot.lua and real consumer APIs already used in159normal window, not new guessed queue methods.",
+    "Reads own city fullID/position/population/queue hash/kind/index/progress/cost/turns and own unit fullID/type/position/movement/formation/dead/delayed/builder charges plus currentmandatoryavailability/rawstate-type/treasury. No setter, order, RunNow or manually supplied production.",
+    "Fixed bounded hex scalar protocol retains explicit nil/false and UNKNOWN queue reason. Exact world/city/unit field coverage, final row counts/context/turn/city/unit bounds and builder charge availability checked before dependent interpretation.",
+    "SixLua51/53software runs use actualQueue helper forEMPTY/KNOWN/UNKNOWN; nine missingbuilder/bad/truncated frames reject. Unknown queue is retained and prevents complete-production evidence.",
+    "Initial zero-result mockGetProperty caused type()argument error; parentheses force a single nil argument. This getter correction ran only in software; no game input or currentTC039module changed.",
+    "One fresh frame is not actualautomatedproduction. P5 original load, two normalturn task/queue progress, no manual takeover and newsave/reload remainNOT_RUN.",
+    "Docs-only delivery takes place after currentTC039original78load returned. Its remaining consumers do not read Gitclean-state; no install/launch overlaps this publication and mod119bytes remain unchanged."
+  ],
+  "ledger": {
+    "logical": 961,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 77,
+    "generation_POST": 1000,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "new_model_POST": 0,
+  "Native_queries": 0,
+  "Native_orders": 0,
+  "old8650807": "FAIL_UNRESOLVED"
+}
