@@ -1431,3 +1431,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17：原158旧865被动实采完成，恢复FAIL保留
 
 [完整UI／Core原始意图、HOLD状态及六事件注册撤除](../../research/baiqi-source160-original865-passive-native-2026-11-17.json)。原158仅载一次，0重载／END／文职命令／资格探针；自然SDK更新93，目标0请求／0事件。8650807原位／2移动／编队1，UI活动75236491确为HOLD，就绪false，UI队列nil、Core操作−1；UI操作getter／Core活动getter缺失及SKIP枚举未知均保留。六事件订阅成功不等于取消屏障，原settle:0:1／0:156:173／ARMED不变，不能凭空队列或冷进程清除。两个Owner确认前HALT／exit1保留，93076接续首次确认及剩余流程实际exit0；0原档重放。撤钩后官方158保存、官方退出及自有安静残留闭合。下一旧P2收益与旧P5继续；整个mod仍开放。
+
+
+## 2026-11-17: readonly WAKE qualification software and actual old-rights cleanup witness correction
+
+[Exact software checks and first-load facts](../../research/baiqi-source160-readonly-wake962-cleanup-witness963-software-2026-11-17.json). The original P2 finite parent stopped before its first END because the QA expected equal dirty-cleanup yields. Actual source food/housing 3/4 -> 4/6 and recipient 6/10 -> 5/8 remove the withdrawn effect; gold remains1850 and assets/actor remain unchanged. Owner corrected only the private QA witness, preserving the original failure/raw boot; recorded actual data and25 negative cases pass. Remaining ordinary turns/new-save reload are pending in this record. The separate readonly WAKE/API probe passes16 mocked VM cases but has not run in game and grants no cancellation/retry permission. Both new model tasks returned404 without adoption. Whole mod remains open; both pressure performance failures and old865 recovery failure remain.

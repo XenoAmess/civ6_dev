@@ -1,0 +1,204 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T13:03:46.840819+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "requests": [
+    {
+      "task": 962,
+      "begin": "2026-11-17T12:44:13.764358+00:00",
+      "end": "2026-11-17T12:44:13.804622+00:00",
+      "total_ms": 40.381900034844875,
+      "http_status": 404,
+      "POST": 1,
+      "extra_POST": 0,
+      "terminal": 1,
+      "complete": false,
+      "adopted": false,
+      "stop_file_exists": false,
+      "current_request_killed": false,
+      "sources": 9,
+      "source_bytes": 400404,
+      "scope": "NewactualHOLD readonlyAPIinventory/WAKEqualification; Owner implementation pending; no Native qualification yet."
+    },
+    {
+      "task": 963,
+      "begin": "2026-11-17T12:56:04.755348+00:00",
+      "end": "2026-11-17T12:56:04.790819+00:00",
+      "total_ms": 35.60449997894466,
+      "http_status": 404,
+      "POST": 1,
+      "extra_POST": 0,
+      "terminal": 1,
+      "complete": false,
+      "adopted": false,
+      "stop_file_exists": true,
+      "current_request_killed": false,
+      "sources": 8,
+      "source_bytes": 113677
+    }
+  ],
+  "readonly_probe962_software": {
+    "source_sha256": "a24cf891c5463978aba3c19812e0afe56aa2e5d1c500c7cfb61661de03cdac6f",
+    "base_sha256": "a4fd9d8581570232a9583133a2cf4e88d7160da3443f66aa425568d1012a652f",
+    "VM_cases": [
+      {
+        "VM": "Lua51",
+        "case": "strictfalse",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "stricttrue",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "missing",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "mismatch",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "qualificationerror",
+        "rejected": false
+      },
+      {
+        "VM": "Lua51",
+        "case": "bankmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "worldmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua51",
+        "case": "forbiddenoperation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "strictfalse",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "stricttrue",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "missing",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "mismatch",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "qualificationerror",
+        "rejected": false
+      },
+      {
+        "VM": "Lua53",
+        "case": "bankmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "worldmutation",
+        "rejected": true
+      },
+      {
+        "VM": "Lua53",
+        "case": "forbiddenoperation",
+        "rejected": true
+      }
+    ],
+    "Native_queries": 0,
+    "Native_commands": 0,
+    "scope": "Readonly API inventory and original UI visibility/strict call shapes only; no cancellation proof or retry authority."
+  },
+  "probe962_Native": "NOT_RUN",
+  "actual_oldrights_failure": {
+    "original_parent_session": 67165,
+    "actual_terminal_exit_code": 1,
+    "before_first_END": true,
+    "initial_boot_raw_preserved": true,
+    "reason": "QA assumed first dirty cleanup yields equal; actual old effect removal changed food/housing."
+  },
+  "actual_first_natural_cleanup": {
+    "turn": 1,
+    "source_food": [
+      3,
+      4
+    ],
+    "source_housing": [
+      4,
+      6
+    ],
+    "recipient_food": [
+      6,
+      5
+    ],
+    "recipient_housing": [
+      10,
+      8
+    ],
+    "player0_gold": [
+      1850,
+      1850
+    ],
+    "source_and_recipient_granaries_preserved": true,
+    "source_and_recipient_owners_ids_coordinates_population_preserved": true,
+    "actor0_262147_coordinates_moves_preserved": true,
+    "rights_after": null,
+    "cleaned_after": 2,
+    "source_OUT_after": 0,
+    "recipient_IN_after": 0
+  },
+  "qa_correction963_software": {
+    "utc": "2026-11-17T12:57:47.530067+00:00",
+    "source_sha256": "6f96c3a13b4fd59e45c2f36bcc30559f95fdacac357c3591ce0508544c46d5d3",
+    "boot_sha256": "e30a5bd4f7faa4ef5a5e24f1ca614dbfaf28f860893ecf924469dd17fd2f205a",
+    "actual_recorded_boot_accepted": true,
+    "negative_rejections": 25,
+    "already_clean_pair_accepted": true,
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "scope": "Correct measured cleanup yield removal; no income or whole TC032 pass."
+  },
+  "review": [
+    "Current SQL Amount0 did not imply equal first engine reads; actual dirty pair restores source +1 food/+2 housing and removes recipient -1 food/-2 housing. Exact observed vector is required in this finite fixture; all unrelated fields and complete historical requisition remain equal. Clean repeated pairs require equal yields.",
+    "Original HALT and raw boot are preserved. A sole recovery parent reuses recorded boot without original-load/cleanup/query replay, then reads fresh UI/Core and continues only remaining ordinary turns/save/new-save-reload steps. Its final result remains pending in this software record.",
+    "Qualification probe only inventories bounded exposed keys and compares original UI three/four argument CanStartCommand shapes when actual WAKE row/hash/enum match. Missing bindings are unknown; positive qualification never grants native cancellation, intent clear or replay. Sixteen mocked VM executions include journal/world mutation and forbidden SDK request rejection; no Native probe yet.",
+    "Both real unfinished tasks were dispatched before Owner implementation. Each canonical adapter POST naturally returned404; no complete SSE/stop/JSON candidate or adoption. One963stop-file was written after actual POST_BEGIN; fast962terminal had no stop-file. No current request killed, no route/model/config change, no runtime-service-unavailable inference.",
+    "Owner initially introduced one indentation error in the private witness correction and one local row name shadow in the private probe. Software validation rejected both before Native use; corrected sources are pinned by the receipts."
+  ],
+  "ledger": {
+    "logical": 963,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 79,
+    "generation_POST": 1002,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "MANY_B_delta": "VALID_FAIL_RETAINED",
+  "NO_SITE_B_delta": "VALID_FAIL_RETAINED",
+  "old8650807": "FAIL_UNRESOLVED"
+}
