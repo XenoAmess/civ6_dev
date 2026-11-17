@@ -1310,3 +1310,12 @@ MANY／NO_SITE各新增当前160五组冷配对消费者共20Python体；首次�
 [真实API、两VM／20坏帧拒绝／7流程及实机边界](../../research/baiqi-source160-precise-end-consumers-http950-2026-11-17.json)：事前15源82763B，一次POST404／20.761900ms／0完整采用extra，快速自然结束，无stop文件不补造。Owner补独立冷启动／新鲜离线闸、单次普通END6→7、33上下文校准与完整有界标签导出、保存撤钩释放退出流程。入口核8消费者SHA及NoSite十侧完整关闭。使用实际bridge.Begin→UI.RequestAction普通接口；任务文字中的OnEndTurn未被假设成调用入口。
 
 两Lua VM执行真实组合Executor与另32真实Context工厂的模拟函数、共享模拟时钟；软件END1秒／原Activate5秒分开，20坏帧拒绝、4有限流程和3未知END／激活／导出停止检查通过。没有真实33源码集成、Native END、保存或退出效果，未修复性能。累计950／816完整／68length／66最终请求失败／989POST／38extra／0在途，OpenCode原生生成0。NoSite五组、MANY15.018333%有效FAIL、原865恢复及全mod验收继续。
+
+
+## 2026-11-17：951旧经营权／旧关闭原件与只读观察准备
+
+[两原档实际指纹、119／97私有包及18VM边界](../../research/baiqi-source160-oldrights-reader-http951-2026-11-17.json)：本机P2经营权已提交档635917B／332b81dd…，P5旧关闭五城档386793B／468f8022…均与历史原件SHA一致，未重载。事前13源163205B，一次POST404／20.574500ms／0完整采用extra，当前请求自然结束，实际写stop只拦后续重试。
+
+Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读快照，产品不改；保留nil／false及未知／错误／丢弃，实际原清理体逆变换字节一致。18双Lua软件执行与4未知源码拒绝通过：getter失败不拦清理、原错误保留、首清8模拟写／二次0新增，金币和订单未变。当前SQL先归零旧收益，不能拿后续清标志的同收益伪造旧收益存在或迁移全过。尚无Native原档重载、清理收益／两结算点／再存再载和旧关闭输入实效，TC022／032继续。
+
+累计951／816完整／68length／67最终请求失败／990POST／38extra／0在途；OpenCode原生0。NoSite五组、MANY有效FAIL、原865恢复及全mod验收继续。

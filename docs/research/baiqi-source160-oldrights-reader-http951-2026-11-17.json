@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T08:52:57.775127+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "PRIVATE_OLD_RIGHTS_GETTER_SOFTWARE_PREPARED_ONLY",
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "MANY_B_delta": "VALID_FAIL_RETAINED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "model951": {
+    "purpose": "Actual new bounded old-rights/pause pre/post getter before Owner implementation",
+    "sources": 13,
+    "source_bytes": 163205,
+    "generation_POST": 1,
+    "http_status": 404,
+    "total_ms": 20.57449985295534,
+    "candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_after_current_flag_written": true,
+    "before_NoSite_group3_enabled_formal": true
+  },
+  "actual_local_original_fixture_fingerprints": [
+    {
+      "name": "Baiqi_P2_20261031_GranaryCommitted.Civ6Save",
+      "bytes": 635917,
+      "sha256": "332b81dd88b29c9ab355d14781721b8d12a93e4a5712d7a41b600ba14b01f79f"
+    },
+    {
+      "name": "Baiqi_P5_20261101_FiveCitiesStart.Civ6Save",
+      "bytes": 386793,
+      "sha256": "468f8022ae59ea10ffaa4b02b5ea62005f0473dbd31fb08419ecd441ff8a47bd"
+    }
+  ],
+  "inventory_scope": "Filesystem hashes match historical P2/P5 originals; no new load or internal-property witness.",
+  "private_package": {
+    "mode": "baiqi160-oldrights-passive-v1",
+    "files": 119,
+    "Lua51_Lua53_sources": 97,
+    "changed_files": [
+      "Lua/BaiqiGameplay.lua"
+    ],
+    "archive_sha256": "9a586a218f85f04ce6e37d10b2fe266da564a77fa6fc113977cd95f866d865e5",
+    "scope": "Only own bounded read snapshots before/after naturally invoked original cleanup. No invocation, property writes, refund, replay, unit order or live proof from this build."
+  },
+  "software": {
+    "utc": "2026-11-17T08:51:47.189192+00:00",
+    "VM_executions": [
+      {
+        "VM": "Lua51",
+        "case": "actual_natural_cleanup_before_after_idempotent"
+      },
+      {
+        "VM": "Lua51",
+        "case": "getter_error_does_not_veto_actual_cleanup"
+      },
+      {
+        "VM": "Lua51",
+        "case": "original_cleanup_error_is_preserved"
+      },
+      {
+        "VM": "Lua51",
+        "case": "explicit_nil_false_and_detached_copy"
+      },
+      {
+        "VM": "Lua51",
+        "case": "cycle_is_unknown_and_cleanup_still_runs"
+      },
+      {
+        "VM": "Lua51",
+        "case": "node_bound_is_unknown_not_complete"
+      },
+      {
+        "VM": "Lua51",
+        "case": "nonfinite_is_explicit_unknown"
+      },
+      {
+        "VM": "Lua51",
+        "case": "sparse_alive_ids_rejected"
+      },
+      {
+        "VM": "Lua51",
+        "case": "bounded_capture_drop_and_invalid_label"
+      },
+      {
+        "VM": "Lua53",
+        "case": "actual_natural_cleanup_before_after_idempotent"
+      },
+      {
+        "VM": "Lua53",
+        "case": "getter_error_does_not_veto_actual_cleanup"
+      },
+      {
+        "VM": "Lua53",
+        "case": "original_cleanup_error_is_preserved"
+      },
+      {
+        "VM": "Lua53",
+        "case": "explicit_nil_false_and_detached_copy"
+      },
+      {
+        "VM": "Lua53",
+        "case": "cycle_is_unknown_and_cleanup_still_runs"
+      },
+      {
+        "VM": "Lua53",
+        "case": "node_bound_is_unknown_not_complete"
+      },
+      {
+        "VM": "Lua53",
+        "case": "nonfinite_is_explicit_unknown"
+      },
+      {
+        "VM": "Lua53",
+        "case": "sparse_alive_ids_rejected"
+      },
+      {
+        "VM": "Lua53",
+        "case": "bounded_capture_drop_and_invalid_label"
+      }
+    ],
+    "actual_Gameplay_overlay_executions": 18,
+    "unknown_shape_rejections": 4,
+    "helper_sha256": "53d88f7a96ed711cd8708d2975cea6074799c6b8af5f9c40a715f827521910be",
+    "private_archive_sha256": "9a586a218f85f04ce6e37d10b2fe266da564a77fa6fc113977cd95f866d865e5",
+    "exact_original_Gameplay_inverse": true,
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "original_save_reload": "NOT_RUN",
+    "scope": "Actual original cleanup body and private getter wrapper with software properties/cities/units/events. No real legacy migration, no refund/income or whole TC022/032 pass."
+  },
+  "Owner_review": [
+    "Pure getter factory retains at most4 captures,4096raw nodes/capture,12raw levels/512table members/4096byte strings and explicit errors/drop/UNKNOWN rather than silently accepting truncation. Nil/false/types remain distinct; returned values are detached copies.",
+    "Reads actual current Game rights/cleaned/P2 fixture properties, all bounded alive-player STATE/requisition/gold/income/maintenance/counts, historical source16,5 and recipient17,11 identity/food/housing/granary/plotflags, actor0/262147 and turn bounds. Getter errors never invoke cleanup or issue game actions. Fixed city targets cover the old-rights witness only; P5 production/manual-input witness remains separate.",
+    "Private package changes only Gameplay: source-qualified exact original RetireLegacyControls body renamed, bounded own getter snapshots before/after the naturally invoked original callback. Original body remains byte-identical and inverse restores all original Gameplay bytes. Original errors are propagated, not converted into successful cleanup; no cleanup/event invocation by the helper.",
+    "18 actual overlay VM executions use software Game/properties/cities/units/events: first actual callback clears old flags/state once, second is idempotent; 8mock writes remain8, mock gold1850/order0 remain unchanged. This is not Native migration/income evidence.",
+    "Getters failing, cyclic/oversize/nonfinite values and sparse alive lists become explicit unknown/errors; snapshot/capture bounds and detached copies checked.4 altered or double-instrumented original source shapes rejected, including exact-byte drift.",
+    "Current retired-effects SQL zeroes old modifier amounts before the first Lua read. Matching food before/after a later flag cleanup does not prove an old benefit existed under current SQL. Historical old benefit, original raw old-bank/property evidence, actual current cleanup, two accounting points and save/reload must be reported separately.",
+    "No real old save loaded, no observer exported from Native, no cold lifecycle/end-input integration or whole TC022/TC032 pass. Private helper/file hashes and old save fingerprints are preparation only; remaining functional, migration and performance acceptance continues."
+  ],
+  "private_sources": [
+    {
+      "local_only": ".local-model/oldrights160_snapshot_owner.lua",
+      "sha256": "53d88f7a96ed711cd8708d2975cea6074799c6b8af5f9c40a715f827521910be"
+    },
+    {
+      "local_only": ".local-model/oldrights160_boot_package_owner.py",
+      "sha256": "ee2297f832ceb43dd6b69af9efb659fa4b019297678b0128448dd63ac7115c58"
+    },
+    {
+      "local_only": ".local-model/oldrights160_validate951_owner.py",
+      "sha256": "14643f5a65bbaa3a965b8def0c3110de6a3a939cb25bdb633542fcf9b02f8e0b"
+    },
+    {
+      "local_only": ".local-model/legacy160_fixture_inventory_owner.py",
+      "sha256": "9699cd52cad0205d11dd48dceb49fc2f3f23e57ef534064cd1033753cc2af9ba"
+    }
+  ],
+  "ledger": {
+    "logical": 951,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 67,
+    "generation_POST": 990,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "next": [
+    "Continue sole90424 NoSite5pairs; only analyze final25 after all10 input/lifecycle closures",
+    "Run prepared preciseEND one-shot diagnostic after NoSite; cause-supported fix/retest then finite current160 raw repeated-load and old865 diagnosis",
+    "Implement Native old-rights getter export/lifecycle, actual original load/current cleanup/two accounting points/save+reload; separate P5 disabled-state input/production witness"
+  ]
+}
