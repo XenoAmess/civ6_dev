@@ -1510,3 +1510,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: future978 Core authority and explicit Arm diagnostics software
 
 [New nonce/property,48helper/26integration/16codec/13fence cases and finite flows](../../research/baiqi-source161-core-authority-wake978-software-2026-11-18.json). Config getter missing permits authoritative Core player fallback; present false/throw/noncallable remains denied, actual source/error/Arm result retained. Actual missing getter is still hypothesis, not Native fact. New protected zero-command checkpoint only, old969 intent mustnil; no clear/retry/END/manualcivilian. Exact oneWAKE then optional one ordinary backgroundSKIP counted separately under unchanged Controller.119/97dualLua inverse; shipping product unchanged. Continue actual978Native; recovery/performance FAIL remain.
+
+
+## 2026-11-18: actual Core human fallback / WAKE / standby; zero-result capture bug979
+
+[Original halt/raw1WAKE+1SKIP/four actual events, zero-return readback and future-only fix](../../research/baiqi-source161-native-zero-result-getter979-2026-11-18.json). Native Coreconfig.IsHumannil/playertrue now directly observed. Prior969getter returns0values: assigned/parenthesizedtype nil, directtype function in Civ6, not a real property. Strict original parser retained; corrected producer10arity/16codec/8bad/4continuation flows. No second action/reload/clear; same live game still awaiting newly labeled read/retire/save/exit. Queueclear follows standby, not WAKE-alone cancellation/recovery; old865FAIL retained.979HTTP1between stopped parents while gamealive/404/noadoption,0activeNativeconsumer overlap. Continue.
