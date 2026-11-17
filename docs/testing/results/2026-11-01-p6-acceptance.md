@@ -1209,3 +1209,10 @@ MANY／NO_SITE各新增当前160五组冷配对消费者共20Python体；首次�
 [119文件／97双Lua／32实际集成VM与5拒绝检查](../../research/baiqi-source160-legacy-passive-boot-2026-11-17.json)：沿944事前任务继续Owner实现，无新模型POST。旧SDK仅精确身份断言专化为0/8650807/UNIT_SETTLER，透传主体字节不变；仅Executor在Controller include返回后、原准备流程前安装SDK与六UI事件观察，精确逆变换还原原件。双重独立pcall撤钩不能否决原退出，注册／构造失败会清理已加UI回调。
 
 这是私有软件准备，尚未安装／旧158冷读／取消／建城／日志修复，不授Native队列静止或旧865恢复；FAIL保持。MANY／NO_SITE和功能、旧迁移验收继续，整个mod未完成。
+
+
+## 2026-11-17：945旧865完整原始状态读取软件检查
+
+[12次实际getter双Lua执行／30拒绝检查与限制](../../research/baiqi-source160-legacy-raw-snapshot-http945-2026-11-17.json)：新未完成读取任务12源111868字节、一次POST404／38.574000ms／0候选采用extra，Owner接管。直接读取完整13字段建城回执、演员／目标／活动／已知枚举及同上下文SDK／UI事件表，字符串hex保留换行、tab与nil；缺失或抛错活动API明确UNKNOWN／ERROR。禁止资格探针、快照修复、原版请求或清除重发。12mockVM覆盖三条不同阶段记录、serial3与目标sequence1、退钩及未知API，30损坏流／差异负例均拒绝。
+
+这些是软件检查，尚无旧158冷读档／实际活动或恢复证明，旧865FAIL不变。累计945／816完整／68length／61最终请求失败／984POST／38extra／0在途；OpenCode维护与原生生成0分开。当前MANY最后一组和NO_SITE／功能／迁移验收继续，整个mod未完成。

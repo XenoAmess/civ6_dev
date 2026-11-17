@@ -1,0 +1,182 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T06:05:41.663666+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "OLD865_RAW_SNAPSHOT_GETTER_SOFTWARE_VERIFIED_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "model945": {
+    "purpose": "New complete bounded old865 raw bank/activity/SDK/UI lifecycle getter before Owner implementation, distinct from already implemented observer factory/bootstrap",
+    "sources": 12,
+    "source_bytes": 111868,
+    "generation_POST": 1,
+    "http_status": 404,
+    "total_ms": 38.57400012202561,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_after_current_flag_written": true,
+    "POST_before_group4enabled_formal": true
+  },
+  "software": {
+    "utc": "2026-11-17T06:04:11.843233+00:00",
+    "source_version": 160,
+    "source_sha256": "a4fd9d8581570232a9583133a2cf4e88d7160da3443f66aa425568d1012a652f",
+    "actual_getter_VM_executions": [
+      {
+        "VM": "Lua51",
+        "context": "BaiqiExecutor",
+        "case": "raw_allbanks_nil_hex",
+        "rows": 199
+      },
+      {
+        "VM": "Lua51",
+        "context": "GameCore_Tuner",
+        "case": "raw_allbanks_nil_hex",
+        "rows": 114
+      },
+      {
+        "VM": "Lua51",
+        "context": "BaiqiExecutor",
+        "case": "both_observers_retired",
+        "rows": 182
+      },
+      {
+        "VM": "Lua51",
+        "context": "BaiqiExecutor",
+        "case": "activity_missing_explicit_unknown",
+        "rows": 170
+      },
+      {
+        "VM": "Lua51",
+        "context": "BaiqiExecutor",
+        "case": "activity_throw_explicit_error",
+        "rows": 172
+      },
+      {
+        "VM": "Lua51",
+        "context": "BaiqiExecutor",
+        "case": "cfg_false_cannot_fallback_to_true_player",
+        "getter_rejected": true
+      },
+      {
+        "VM": "Lua53",
+        "context": "BaiqiExecutor",
+        "case": "raw_allbanks_nil_hex",
+        "rows": 199
+      },
+      {
+        "VM": "Lua53",
+        "context": "GameCore_Tuner",
+        "case": "raw_allbanks_nil_hex",
+        "rows": 114
+      },
+      {
+        "VM": "Lua53",
+        "context": "BaiqiExecutor",
+        "case": "both_observers_retired",
+        "rows": 182
+      },
+      {
+        "VM": "Lua53",
+        "context": "BaiqiExecutor",
+        "case": "activity_missing_explicit_unknown",
+        "rows": 170
+      },
+      {
+        "VM": "Lua53",
+        "context": "BaiqiExecutor",
+        "case": "activity_throw_explicit_error",
+        "rows": 172
+      },
+      {
+        "VM": "Lua53",
+        "context": "BaiqiExecutor",
+        "case": "cfg_false_cannot_fallback_to_true_player",
+        "getter_rejected": true
+      }
+    ],
+    "malformed_snapshots_or_compare_rejected": [
+      "native_ERR",
+      "partial_no_DONE",
+      "duplicate_META",
+      "duplicate_NODE",
+      "wrong_full_ID",
+      "wrong_owner",
+      "wrong_unit_type",
+      "wrong_stage",
+      "wrong_request",
+      "wrong_token",
+      "false_empty",
+      "changed_conflict",
+      "nil_to_fake_city",
+      "SDK_request",
+      "SDK_command",
+      "SDK_error",
+      "SDK_drop",
+      "SDK_foreign",
+      "UI_drop",
+      "UI_error",
+      "UI_registration",
+      "UI_removal",
+      "event_count",
+      "busy_UI",
+      "turn",
+      "nonfinite",
+      "overflow",
+      "hex_invalid",
+      "bool_as_sequence",
+      "Core_UI_raw_bank_difference"
+    ],
+    "complete_synthetic_banks": 3,
+    "serial3_target_sequence1_preserved": true,
+    "raw_event_tab_newline_nil_preserved": true,
+    "unknown_activity_missing_or_throw_explicit": true,
+    "qualification_calls": 0,
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "original865_recovery": "FAIL_UNRESOLVED",
+    "scope": "Actual getter and actual private bootstrap under mocked SDK/events/world with three synthetic journal records; no game transport, cancellation or queue-quiescence proof."
+  },
+  "private_single_use_sources": [
+    {
+      "local_only": ".local-model/legacy160_snapshot_core_owner.py",
+      "sha256": "a4fd9d8581570232a9583133a2cf4e88d7160da3443f66aa425568d1012a652f"
+    },
+    {
+      "local_only": ".local-model/legacy160_validate_snapshot945_owner.py",
+      "sha256": "9451daeed7dce57b715baa5f914ef980a719ddc3efec7789a1eb81b228978155"
+    }
+  ],
+  "Owner_review": [
+    "Only raw GetProperty settlement bank metadata plus all13known fields of<=256operations, exact fullID/type/actor and currentworld/visible-target reads. No Snapshot/Inspect/reconcile/Clone/module include or write, and no native CanStartOperation/CanStartCommand probes that would create permission callbacks.",
+    "UI and Core getter use actual GetUnitType/GetType APIs respectively. New UnitManager.GetActivityType and optional operation/ready/queued getters preserve VALUE/nil or explicit UNKNOWN_MISSING/ERROR/UNKNOWN_UNSUPPORTED rather than inventing AWAKE. Known enum values are read conditionally; no WAKE command support is inferred.",
+    "Complete same-context SDK and UI observer Read tables are exported with bounded tree nodes; strings encode raw bytes as hex so tabs/newlines and nil-inclusive event args survive the line protocol. Max10000rows/6500tree nodes/depth12, complete counters/endturn and raw frames remain required. Unknown string encoding rejects interpretation while raw hex stays in response evidence.",
+    "Parser independently checks journal schema/stages/request IDs and full raw original ARMED fields, bank serial independent of target sequence, exact actor, target visibility, zero target SDKorders/errors/drops, known bound event callbacks/counts/rawargs and owned retirement. Independent Core/UI comparison does not claim atomic snapshots or native quiescence.",
+    "Before testing, Owner review corrected a Lua boolean fallback that could otherwise let cfg.IsHuman=false fall back to player.IsHuman=true; explicit if/elseif now preserves authoritative false. Six hook names and event aggregates/typed arguments are checked against actual source, not accepted merely by count.",
+    "Actual boot+getter mock executions12 acrossLua5.1/5.3 cover both contexts, original sequence1 with bankserial3/three distinct-stage synthetic records, raw tab/newline/nil, both observers retired, missing/throwing activity and cfgfalse rejection.30negative wire/compare cases reject unknown/partial/duplicate/aliased/changed bank/SDK/error/drop/foreign/nonfinite/overflow/encoding data.",
+    "This is software-only; no install, original158coldload, actual activity/lifecycle/cancel/FOUND action or recovery. No empty queue/inactive actor/cold process notification can authorize clearing or replaying original ARMED."
+  ],
+  "ledger": {
+    "logical": 945,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 61,
+    "generation_POST": 984,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "next": [
+    "Complete currentMANYall5pairs/NO_SITEmatrix",
+    "ActualTC039finite78->79/repeated79loads",
+    "Newold865startup lifecycle+rawgetter Native witness; preserve old recoveryFAIL until actualcorrelatedeffect or verifiedsafe recovery exists"
+  ]
+}
