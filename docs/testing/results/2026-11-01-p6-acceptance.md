@@ -1520,3 +1520,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: actual978 one WAKE / one standby closed; recovery remainsFAIL
 
 [Corrected same-instance readback, four native events and complete closure](../../research/baiqi-source161-wake978-native-closed-http980-2026-11-18.json).38272actualexit0, no additional orders/reloads/old-journal writes after original39736 halt. New158save629859bytes/SHA dd0dcee365435b619911a4a76752706b967c361d6f350a40d04f3f26d96c055b; observers retired and officialexit/quiet exact-owner residue closed. Core human fallback proved; clear followed ordinarySKIP and is not WAKE-alone/global pending proof. Old865bank staysARMED/FAIL.980one canonical404 after closure/noadoption; Owner proceeds with durable event correlation and remaining paid/input/economy/performance gaps.
+
+
+## 2026-11-18: Source161 paid-city Native admission981 software
+
+[119-file package,118equal files,97dualLua,24readerVM/2once-loadVM/4finiteflows](../../research/baiqi-source161-paid-native981-admission-software-2026-11-18.json). Only existing Capture974callsite metadata changes; baseline driver stops before mapinput for fresh runtime/ROI qualification. Native not yet started; no backend/asset/fullcase grant.981realadmissionreview404/noadoption before Owner work and after gameclosure. Continue actual selected-army map interaction.
