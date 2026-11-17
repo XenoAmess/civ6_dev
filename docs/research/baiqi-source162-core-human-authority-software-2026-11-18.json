@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-17T22:59:17.457454+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "MALFORMED_CORE_CONFIG_HUMAN_PORT_REJECTED_SOFTWARE_VERIFIED",
+  "whole_mod": "OPEN_CONTINUE",
+  "change": "Twelve Core owner checks may consult player.IsHuman only when config.IsHuman is absent (nil). A present nonfunction config getter is unknown and cannot authorize journal access or a grant. Existing function false/nil/error paths remain denied; actual Native nil-config/function-player ABI remains supported.",
+  "changed_mod_files": [
+    "Baiqi.modinfo",
+    "Lua/BaiqiArchaeologyIntentGameplay.lua",
+    "Lua/BaiqiCreativeIntentGameplay.lua",
+    "Lua/BaiqiFoodTileIntentGameplay.lua",
+    "Lua/BaiqiGPIntentGameplay.lua",
+    "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua",
+    "Lua/BaiqiNaturalistIntentGameplay.lua",
+    "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+    "Lua/BaiqiProphetIntentGameplay.lua",
+    "Lua/BaiqiReligiousIntentGameplay.lua",
+    "Lua/BaiqiSettlementIntentCore.lua",
+    "Lua/BaiqiSettlementStateCore.lua",
+    "Lua/BaiqiSettlerGoalsCore.lua"
+  ],
+  "unchanged_mod_files": 106,
+  "validation": {
+    "new_regression_methods": 6,
+    "actual_isolated_Core_fixture_worlds": 229,
+    "before_fix": {
+      "methods": 4,
+      "noncallable_subtest_failures": 60,
+      "raw_retained": true
+    },
+    "after_fix": "All six regression methods pass, including missing-port compatibility, present invalid ports, false/unknown/throwing getter results, authoritative config true, uncertain player ports and an unchanged ARMED settlement record after denied Prepare/Commit/Inspect/Initialize.",
+    "full_suite": {
+      "started": "2026-11-17T22:51:50.557260+00:00",
+      "ended": "2026-11-17T22:57:28.117775+00:00",
+      "exit_code": 0,
+      "wall_seconds": 337.5605335000437,
+      "log": "source162-full-suite-r1.log",
+      "total": 2765,
+      "non_skipped_passed": 2764,
+      "SDK_skipped": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "Lua51_Lua53_sources_compiled": 97,
+    "ordinary_package_files": 119,
+    "all_archive_members_match_source": true,
+    "ordinary_archive_sha256": "1d73d6771e4f14155c9248b6e5d1e916a6381c4615fb04e65d2baa1680c42c88",
+    "QA_tools": 17,
+    "QA_tool_diff": "Only reviewed explicit source-version tuple extensions. Future163 remains rejected; sample4096, timing thresholds and normal END contracts unchanged. Five current-build expectation methods and seven future-version guards updated; historical explicit-version tests retained."
+  },
+  "local_model": {
+    "task": 990,
+    "candidate": "POST404_NO_COMPLETE_CANDIDATE_NO_ADOPTION",
+    "Owner_took_over_after_failure": true,
+    "canonical_daily_OpenCode": "Nov18 cached success1.19.6",
+    "OpenCode_native_generation": 0,
+    "tokens": null,
+    "cached_tokens": null,
+    "cost": null,
+    "net_savings": null,
+    "prior_task_evidence": "baiqi-source161-stale-gold299-ui-core-native-http989990-2026-11-18.json"
+  },
+  "Native162": "NOT_RUN; previous161 private package still installed at this delivery.",
+  "remaining": [
+    "Execute the independent current-version normal-attack popup branch with actual military effects and zero paid-callsite effects.",
+    "Old865 recovery remains FAIL; durable metadata-only Core event recording is unfinished, no journal clear/retry permission.",
+    "MANY and NO_SITE paired performance remain valid FAIL; no performance grant follows this fix.",
+    "Full paid-city, player control, religion, escort, finance, network and compatibility cases remain open."
+  ]
+}

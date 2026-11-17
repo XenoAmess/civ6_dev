@@ -35,7 +35,7 @@ local function Owner(pid,active)
   if not Object(player) or not Object(config) or Method(config,"GetLeaderTypeName")(config)~=C.leader then return nil end
   local human
   if type(config.IsHuman)=="function" then human=config:IsHuman()
-  elseif type(player.IsHuman)=="function" then human=player:IsHuman() end
+  elseif config.IsHuman==nil and type(player.IsHuman)=="function" then human=player:IsHuman() end
   if human~=true or (active and Method(player,"IsTurnActive")(player)~=true)
     or type(player.GetProperty)~="function" or type(player.SetProperty)~="function" then return nil end
   return player

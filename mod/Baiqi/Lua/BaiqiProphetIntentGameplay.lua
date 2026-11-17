@@ -11,7 +11,7 @@ local function Owner(pid,active)
   if not player or not config or config:GetLeaderTypeName()~=C.leader then return nil end
   local human
   if type(config.IsHuman)=="function" then human=config:IsHuman()
-  elseif type(player.IsHuman)=="function" then human=player:IsHuman() end
+  elseif config.IsHuman==nil and type(player.IsHuman)=="function" then human=player:IsHuman() end
   if human~=true or (active and (player:IsTurnActive()~=true
     or type(Game.IsAllowStrategicCommands)~="function" or Game.IsAllowStrategicCommands(pid)~=true))
     or type(player.GetProperty)~="function" or type(player.SetProperty)~="function" then return nil end

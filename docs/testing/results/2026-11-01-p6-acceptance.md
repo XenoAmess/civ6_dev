@@ -1590,3 +1590,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: actual stale funds299 UI/Core refusal branches PASS
 
 [Fresh offline resume/physical stale confirm/explicit separate QA backend request](../../research/baiqi-source161-stale-gold299-ui-core-native-http989990-2026-11-18.json). Setup299 separate from ability. Physical confirm showed changed-quote notice, UIrequests0 and full UI/Core scene unchanged/native0; then explicit QA request1 yielded REJECTED/insufficient_gold, banknil/gold299/army4/enemycity/native0. Save/retire/officialexit complete. Original9473 Owner cleanup-schema HALT retained; new evidence-derived authority/5 negatives then cleanup-only54379exit0, no game action replay.989990 genuine new tasks afterclosure404/noadoption, ledger990. Limited branches only; normalattack/fullmatrix/old865/performanceFAIL remain, continue.
+
+
+## 2026-11-18: Source162 Core authority fix
+
+[Actual-consumer regression and ordinary package](../../research/baiqi-source162-core-human-authority-software-2026-11-18.json). 12 owner checks reject a present nonfunction config human port; nil config port retains actual player fallback. Before fix60 actual subtest failures; after fix6 methods/229 Core fixture worlds pass. Full2765 total/2764 passed/1 SDK skip,97 dual-Lua compiles,119 archive members. Model990 previously404/no candidate; Owner fix only. Native162 NOT_RUN; full acceptance and old865/performance failures remain open, continue.

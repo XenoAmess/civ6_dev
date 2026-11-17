@@ -36,7 +36,7 @@ local function Owner(pid,active)
     or config:GetLeaderTypeName()~=BaiqiConfig.leader then return nil end
   local human
   if type(config.IsHuman)=="function" then human=config:IsHuman()
-  elseif type(player.IsHuman)=="function" then human=player:IsHuman() end
+  elseif config.IsHuman==nil and type(player.IsHuman)=="function" then human=player:IsHuman() end
   local key=BaiqiConfig.missionaryPurchaseIntentKey
   if human~=true or (active and (type(player.IsTurnActive)~="function" or player:IsTurnActive()~=true))
     or type(player.GetProperty)~="function" or type(player.SetProperty)~="function"

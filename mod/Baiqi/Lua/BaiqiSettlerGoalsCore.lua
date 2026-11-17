@@ -24,7 +24,7 @@ function M.Create(C,G,J,U,E)
       if not p or not c or c:GetLeaderTypeName()~=C.leader then return nil end
       local human
       if type(c.IsHuman)=='function'then human=c:IsHuman()
-      elseif type(p.IsHuman)=='function'then human=p:IsHuman()end
+      elseif c.IsHuman==nil and type(p.IsHuman)=='function'then human=p:IsHuman()end
       if human~=true or type(p.GetProperty)~='function'or type(p.SetProperty)~='function'then return nil end
       if active and(p:IsTurnActive()~=true or E.Game.IsAllowStrategicCommands(pid)~=true
         or not J.Integer(E.Game.GetCurrentGameTurn(),MAX))then return nil end

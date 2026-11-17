@@ -23,7 +23,7 @@ local function Owner(pid,active)
     local ok_h, val_h = pcall(function() return c:IsHuman() end)
     if not ok_h or val_h ~= true then return nil end
     human = true
-  elseif type(p.IsHuman)=="function" then
+  elseif c.IsHuman==nil and type(p.IsHuman)=="function" then
     local ok_h, val_h = pcall(function() return p:IsHuman() end)
     if not ok_h or val_h ~= true then return nil end
     human = true
