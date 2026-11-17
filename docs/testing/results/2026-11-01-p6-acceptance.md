@@ -1575,3 +1575,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: stale funds299 UI/Core refusal software admission
 
 [32 helperVM +14 actual-sourceVM +2 loadVM +5/7 finite flows](../../research/baiqi-source161-stale-gold299-admission986-2026-11-18.json). Fresh original eligible map popup first, separately durable QA gold299 preparation afterward. Physical stale confirm must prove UIrequest0/no ordinary attack/full unchanged world before separately labeled QA backend request must prove REJECTED/insufficient_gold/native0. Same cold copy/two sequential verified steps, no Native grant yet. NewHTTP0, wholemod and valid failures remain open; continue.
+
+
+## 2026-11-18: private full-save preflight987 / HTTP987988
+
+[Inline import/prefix index fix with37 contracts and full302SHA retained](../../research/baiqi-private-save-qualifier987-http987988-2026-11-18.json). Same original bytecode47 functions including actual inline-import chain, no global import/module patch or hash cache. Actual profiled16.09s baseline vs3.55s new run recorded separately, no game speedup/budget claim. Stale299 future consumer repinned with2 loadVM/5 finite flows;32 fixture+14 actual-product VM reused unchanged. Two new real tasks404 each, measuredPOSTpeak1/adoption0; ledger988. Deliver then continue Native, valid old865/performance failures remain.
