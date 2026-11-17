@@ -1525,3 +1525,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source161 paid-city Native admission981 software
 
 [119-file package,118equal files,97dualLua,24readerVM/2once-loadVM/4finiteflows](../../research/baiqi-source161-paid-native981-admission-software-2026-11-18.json). Only existing Capture974callsite metadata changes; baseline driver stops before mapinput for fresh runtime/ROI qualification. Native not yet started; no backend/asset/fullcase grant.981realadmissionreview404/noadoption before Owner work and after gameclosure. Continue actual selected-army map interaction.
+
+
+## 2026-11-18: paid baseline Owner type assertion halt; same-instance982 qualification
+
+[Original6404exit1, actualHORSEMAN dualread36020exit0 and future-only contract](../../research/baiqi-source161-paid-actual-horseman-contract982-2026-11-18.json). Historical WARRIOR assumption was wrong; fullactor2162700actualHORSEMAN/moves4/form1 and target/quote300 qualified bothcontexts, native transfer/debit/Finishall0. No reload/map/confirm/END replay.12contractcases/10reject/6compile, original965parser unchanged.982HTTP1between stopped consumers while gamealive/404/noadoption,0activeNativeoverlap. Continue before-assets/UI observer/selected view, then fresh physical map qualification; no fullpaid or modPASS.
