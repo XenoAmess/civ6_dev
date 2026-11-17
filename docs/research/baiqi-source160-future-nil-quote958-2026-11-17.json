@@ -1,0 +1,199 @@
+{
+  "utc": "2026-11-17T11:09:36.669379+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "FUTURE_ONE_LINE_NIL_TYPE_GUARD_SOFTWARE_VERIFIED_NOT_APPLIED",
+  "original_sha256": "dbc2b638b4bae15b05ea18e33ebba50a7c31ae3437752b1baa496de7847b1af9",
+  "candidate_sha256": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+  "old_line": "  local row=index~=nil and GameInfo.Units[index]",
+  "proposed_line": "  local row=integer(index) and GameInfo.Units[index] or nil",
+  "exact_inverse": true,
+  "original_defect_VM": [
+    {
+      "VM": "Lua51",
+      "real_original_Quote_nil_UI_type_throws": true
+    },
+    {
+      "VM": "Lua53",
+      "real_original_Quote_nil_UI_type_throws": true
+    }
+  ],
+  "candidate_VM_runs": [
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_nil"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_false"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_true"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_'UNIT_WARRIOR'"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_{}"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_function()end"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_0/0"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_math.huge"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_-math.huge"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_-1"
+    },
+    {
+      "VM": "Lua51",
+      "case": "reject_UI_type_0.5"
+    },
+    {
+      "VM": "Lua51",
+      "case": "normal_class_MELEE"
+    },
+    {
+      "VM": "Lua51",
+      "case": "normal_class_ANTI_CAVALRY"
+    },
+    {
+      "VM": "Lua51",
+      "case": "normal_class_LIGHT_CAVALRY"
+    },
+    {
+      "VM": "Lua51",
+      "case": "normal_class_HEAVY_CAVALRY"
+    },
+    {
+      "VM": "Lua51",
+      "case": "genuine_Core_GetType_only_success"
+    },
+    {
+      "VM": "Lua51",
+      "case": "GameInfo.Units[0].Domain='DOMAIN_SEA'"
+    },
+    {
+      "VM": "Lua51",
+      "case": "GameInfo.Units[0].PromotionClass='PROMOTION_CLASS_RANGED'"
+    },
+    {
+      "VM": "Lua51",
+      "case": "GameInfo.Units[0]=nil"
+    },
+    {
+      "VM": "Lua51",
+      "case": "nil_actor_and_absent_both_type_methods"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_nil"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_false"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_true"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_'UNIT_WARRIOR'"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_{}"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_function()end"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_0/0"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_math.huge"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_-math.huge"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_-1"
+    },
+    {
+      "VM": "Lua53",
+      "case": "reject_UI_type_0.5"
+    },
+    {
+      "VM": "Lua53",
+      "case": "normal_class_MELEE"
+    },
+    {
+      "VM": "Lua53",
+      "case": "normal_class_ANTI_CAVALRY"
+    },
+    {
+      "VM": "Lua53",
+      "case": "normal_class_LIGHT_CAVALRY"
+    },
+    {
+      "VM": "Lua53",
+      "case": "normal_class_HEAVY_CAVALRY"
+    },
+    {
+      "VM": "Lua53",
+      "case": "genuine_Core_GetType_only_success"
+    },
+    {
+      "VM": "Lua53",
+      "case": "GameInfo.Units[0].Domain='DOMAIN_SEA'"
+    },
+    {
+      "VM": "Lua53",
+      "case": "GameInfo.Units[0].PromotionClass='PROMOTION_CLASS_RANGED'"
+    },
+    {
+      "VM": "Lua53",
+      "case": "GameInfo.Units[0]=nil"
+    },
+    {
+      "VM": "Lua53",
+      "case": "nil_actor_and_absent_both_type_methods"
+    }
+  ],
+  "product_change": false,
+  "installation_change": false,
+  "Native_queries": 0,
+  "Native_orders": 0,
+  "Owner_review": [
+    "Uses existing integer guard before actual GameInfo lookup; unknown nil/boolean/string/table/function/nonfinite/negative/fractional type rejects safely. ExistingUIgetter returningnil never falls back to CoreGetType. GenuineCoreGetType-only and all4allowedcaptureclasses retain actual transfer/debit/Finish once in software.",
+    "Only a private proposed source is saved. Current160 product, all119archives and current Native episode are unchanged. After outstanding160evidence, integrate with any other evidence-supported fixes, bumpversion, run affected regression and necessaryNative. No current product fix/PASS claimed.",
+    "Does not change malformed native getter function invocation, arbitrary malformed GameInfo rows, all gameplay APIs or wholefaultmatrix. Old865recovery/performance and fullmod remainOPEN."
+  ],
+  "date": "2026-11-17",
+  "publication_utc": "2026-11-17T11:27:45.493509+00:00",
+  "whole_mod": "OPEN_CONTINUE",
+  "MANY_B_delta": "VALID_FAIL_RETAINED",
+  "NO_SITE_B_delta": "VALID_FAIL_RETAINED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "new_model_POST_for_Owner_software": 0
+}

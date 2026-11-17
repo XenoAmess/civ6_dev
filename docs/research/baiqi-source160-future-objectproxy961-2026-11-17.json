@@ -1,0 +1,65 @@
+{
+  "utc": "2026-11-17T11:26:39.332726+00:00",
+  "machine": "BF-202609141645",
+  "status": "FUTURE_PREDICATE_ONLY_UI_READ_OPTIMIZATION_NOT_APPLIED",
+  "source_version": 160,
+  "original_sha256": "a97c063499d1d3ccbc345195969fa51f77cc5019d041a11cacc3901fb6133660",
+  "candidate_sha256": "5e25ced0120bba447b9e57243e58ca840b5575bd1545095887a693f29731a948",
+  "old_line": "if BaiqiUIGuard.PlayerID()~=nil and blocked[key] then return false end",
+  "new_line": "if blocked[key] and BaiqiUIGuard.PlayerID()~=nil then return false end",
+  "VM_runs": [
+    {
+      "VM": "Lua51",
+      "source": "original",
+      "read_calls": 903,
+      "actual_PlayerID_calls_for_reads": 903,
+      "blocked_write_fresh_checks": 7,
+      "ordinary_leader_nonhuman_multiplayer_native_calls": 3,
+      "native_self_nil_returns_error_identity": true
+    },
+    {
+      "VM": "Lua51",
+      "source": "candidate",
+      "read_calls": 903,
+      "actual_PlayerID_calls_for_reads": 0,
+      "blocked_write_fresh_checks": 7,
+      "ordinary_leader_nonhuman_multiplayer_native_calls": 3,
+      "native_self_nil_returns_error_identity": true
+    },
+    {
+      "VM": "Lua53",
+      "source": "original",
+      "read_calls": 903,
+      "actual_PlayerID_calls_for_reads": 903,
+      "blocked_write_fresh_checks": 7,
+      "ordinary_leader_nonhuman_multiplayer_native_calls": 3,
+      "native_self_nil_returns_error_identity": true
+    },
+    {
+      "VM": "Lua53",
+      "source": "candidate",
+      "read_calls": 903,
+      "actual_PlayerID_calls_for_reads": 0,
+      "blocked_write_fresh_checks": 7,
+      "ordinary_leader_nonhuman_multiplayer_native_calls": 3,
+      "native_self_nil_returns_error_identity": true
+    }
+  ],
+  "product_change": false,
+  "installation_change": false,
+  "Native_queries": 0,
+  "Native_orders": 0,
+  "Owner_review": [
+    "Actual source ObjectProxy only: blocked[key] before fresh PlayerID. No identity/player/function/nativeproperty cache added; all blocked writes retain seven separate fresh checks across actual leader/human/multiplayer changes in each software VM.",
+    "903unblocked reads invokePlayerID903times before and0after; original native self/multiple nil returns/error identity remain. This proves removal of unnecessary calls in software, not milliseconds saved in Civ6.",
+    "Actual end160GovernmentScreen903+903calls occupy14ms and do not explain or fix pairedMANY/NO_SITE failures; integrate later with version bump and affected positive guard/UI checks, then current performance validation.",
+    "Only private future proposal saved; no Source160 mod/archive/install byte changed, no frozen160Native repro granted."
+  ],
+  "date": "2026-11-17",
+  "publication_utc": "2026-11-17T11:27:45.494705+00:00",
+  "whole_mod": "OPEN_CONTINUE",
+  "MANY_B_delta": "VALID_FAIL_RETAINED",
+  "NO_SITE_B_delta": "VALID_FAIL_RETAINED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "new_model_POST_for_Owner_software": 0
+}

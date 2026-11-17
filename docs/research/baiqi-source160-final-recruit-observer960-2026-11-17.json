@@ -1,0 +1,108 @@
+{
+  "utc": "2026-11-17T11:21:57.357356+00:00",
+  "machine": "BF-202609141645",
+  "VM_runs": [
+    {
+      "VM": "Lua51",
+      "role": "settler",
+      "gold": 100,
+      "actual_safe_site": true
+    },
+    {
+      "VM": "Lua51",
+      "role": "settler",
+      "gold": 100,
+      "actual_safe_site": false
+    },
+    {
+      "VM": "Lua51",
+      "role": "settler",
+      "gold": 99,
+      "actual_safe_site": true
+    },
+    {
+      "VM": "Lua51",
+      "role": "builder",
+      "gold": 100,
+      "actual_safe_site": true
+    },
+    {
+      "VM": "Lua51",
+      "case": "unknown_nil_bounds4096_detached"
+    },
+    {
+      "VM": "Lua51",
+      "case": "planner_original_error"
+    },
+    {
+      "VM": "Lua51",
+      "case": "site_original_error"
+    },
+    {
+      "VM": "Lua51",
+      "case": "observer_foreign_error"
+    },
+    {
+      "VM": "Lua53",
+      "role": "settler",
+      "gold": 100,
+      "actual_safe_site": true
+    },
+    {
+      "VM": "Lua53",
+      "role": "settler",
+      "gold": 100,
+      "actual_safe_site": false
+    },
+    {
+      "VM": "Lua53",
+      "role": "settler",
+      "gold": 99,
+      "actual_safe_site": true
+    },
+    {
+      "VM": "Lua53",
+      "role": "builder",
+      "gold": 100,
+      "actual_safe_site": true
+    },
+    {
+      "VM": "Lua53",
+      "case": "unknown_nil_bounds4096_detached"
+    },
+    {
+      "VM": "Lua53",
+      "case": "planner_original_error"
+    },
+    {
+      "VM": "Lua53",
+      "case": "site_original_error"
+    },
+    {
+      "VM": "Lua53",
+      "case": "observer_foreign_error"
+    }
+  ],
+  "transform_inverse": true,
+  "original_controller_sha256": "cdb157ccd9cb017ac75d3584efd529b8ec0398f6b73f83fe8a2f36ad8a49a5c0",
+  "helper_sha256": "a18a77062184aab31e829b4e3a9bdbd8a158d23dda966181e24878f9577d02a8",
+  "product_change": false,
+  "package_change": false,
+  "Native_queries": 0,
+  "Native_orders": 0,
+  "scope": "Actual lexical RecruitAllowed body and actual Planner with mock SettlementSites. Final post-site state distinguished from preliminary true placeholder. Original errors preserved; changed Record binding reports unknown. No financial boundary/income shock, runtime service offline or TC038 Native PASS.",
+  "date": "2026-11-17",
+  "publication_utc": "2026-11-17T11:27:45.494360+00:00",
+  "source_version": 160,
+  "whole_mod": "OPEN_CONTINUE",
+  "MANY_B_delta": "VALID_FAIL_RETAINED",
+  "NO_SITE_B_delta": "VALID_FAIL_RETAINED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "new_model_POST_for_Owner_software": 0,
+  "Owner_review": [
+    "Actual final lexical RecruitAllowed return is captured after economy.hasSafeSite stops being a preliminary true placeholder. It records preliminary and final separately, including retainedSettlers,without a second planner/site call.",
+    "Explicit nil/false/UNKNOWN,4096bound and changedRecordbinding are retained; observer errors cannot veto original outcomes/errors. Original planner/site sentinel errors pass; owned memory remains detached.",
+    "V1tenVM passed; Owner added record-binding ownership plus six error/foreign-binding checks, V2sixteenVM passed. Initial harness omitted actualPolicydependency; corrected before a successful run, no Native action.",
+    "Private pure transform inverses exactly to currentController; no package or product is changed. Actual finite economic boundary/income shock/offline runtime remainsNOT_RUN; no TC038pass."
+  ]
+}
