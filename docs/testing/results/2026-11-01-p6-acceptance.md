@@ -1515,3 +1515,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: actual Core human fallback / WAKE / standby; zero-result capture bug979
 
 [Original halt/raw1WAKE+1SKIP/four actual events, zero-return readback and future-only fix](../../research/baiqi-source161-native-zero-result-getter979-2026-11-18.json). Native Coreconfig.IsHumannil/playertrue now directly observed. Prior969getter returns0values: assigned/parenthesizedtype nil, directtype function in Civ6, not a real property. Strict original parser retained; corrected producer10arity/16codec/8bad/4continuation flows. No second action/reload/clear; same live game still awaiting newly labeled read/retire/save/exit. Queueclear follows standby, not WAKE-alone cancellation/recovery; old865FAIL retained.979HTTP1between stopped parents while gamealive/404/noadoption,0activeNativeconsumer overlap. Continue.
+
+
+## 2026-11-18: actual978 one WAKE / one standby closed; recovery remainsFAIL
+
+[Corrected same-instance readback, four native events and complete closure](../../research/baiqi-source161-wake978-native-closed-http980-2026-11-18.json).38272actualexit0, no additional orders/reloads/old-journal writes after original39736 halt. New158save629859bytes/SHA dd0dcee365435b619911a4a76752706b967c361d6f350a40d04f3f26d96c055b; observers retired and officialexit/quiet exact-owner residue closed. Core human fallback proved; clear followed ordinarySKIP and is not WAKE-alone/global pending proof. Old865bank staysARMED/FAIL.980one canonical404 after closure/noadoption; Owner proceeds with durable event correlation and remaining paid/input/economy/performance gaps.
