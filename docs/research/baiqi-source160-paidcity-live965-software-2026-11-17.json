@@ -1,0 +1,120 @@
+{
+  "utc": "2026-11-17T13:42:48.212750+00:00",
+  "machine": "BF-202609141645",
+  "VM_cases": [
+    {
+      "VM": "Lua51",
+      "case": "cancel",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua51",
+      "case": "confirm_cost_minus_one",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua51",
+      "case": "confirm_exact",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua51",
+      "case": "confirm_plus_one",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua51",
+      "case": "continue",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua51",
+      "case": "wrong_actor",
+      "rejected": true,
+      "foreign_binding_or_no_install_preserved": true
+    },
+    {
+      "VM": "Lua51",
+      "case": "foreign_retire",
+      "rejected": true,
+      "foreign_binding_or_no_install_preserved": true
+    },
+    {
+      "VM": "Lua53",
+      "case": "cancel",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua53",
+      "case": "confirm_cost_minus_one",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua53",
+      "case": "confirm_exact",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua53",
+      "case": "confirm_plus_one",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua53",
+      "case": "continue",
+      "install_read_retire_rendered_payloads_executed": 3,
+      "actual_Actions": true,
+      "backend_actions": "NOT_OBSERVED"
+    },
+    {
+      "VM": "Lua53",
+      "case": "wrong_actor",
+      "rejected": true,
+      "foreign_binding_or_no_install_preserved": true
+    },
+    {
+      "VM": "Lua53",
+      "case": "foreign_retire",
+      "rejected": true,
+      "foreign_binding_or_no_install_preserved": true
+    }
+  ],
+  "malformed_frames_rejected": 4,
+  "source_hashes": {
+    "paid160_live965_owner.py": "52629e0d3f8f163ad3995a3f0c0161403e66d71ac12af65bd406ba1d0614203a",
+    "paid160_observer955_owner.lua": "e5d47478419a042cab6c5d36df90266c0b82b3c33fb207ec91d48ec88a8f8982",
+    "paid160_raw954_owner.py": "53ca5622181133937d39d9167d084c47cc011b63d1782c38c527a0aca15a9dab",
+    "paid160_raw954_owner.lua": "fdd48b17fbe557b711848023106bcb5e289070e7ac680fda047df12a70ee33a0"
+  },
+  "Native_queries": 0,
+  "Native_orders": 0,
+  "scope": "One WorldInput post-ready install/read/retire rendering and exact actual Actions mock consumer. Authority is mocked; no physical/game action or backend/whole-case pass.",
+  "date": "2026-11-17",
+  "source_version": 160,
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "Native": "NOT_RUN",
+  "review": [
+    "Post-ready one WorldInput observer install/read/retire uses actual955helper and954codec, actual Actions under mock engine. Authority is mocked, while actual getter/quote/popup callbacks execute in Lua.",
+    "Five branch cases in both engines cover cancel, confirmation after wealthC-1/C/C+1 and original continuation; wrong actor rejects before installation and foreign binding is preserved on retirement failure. Complete scenes retain nil/false/new fields; no Native transfer/debit/Finish counts or physical/UI/game pass.",
+    "Owner initial integration anchored two leading spaces but actual helper used one; software assertion rejected it before Native. Unique semantic anchor corrected;14VM/4badframes now pass."
+  ]
+}

@@ -1456,3 +1456,10 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: actual old P5 marker2 retains deprecated state; fix pending
 
 [Actual natural pair, independent current queues and future fix](../../research/baiqi-source160-oldpause-marker2-failure-fix966-software-2026-11-17.json). Original P5T24 carries marker2 and enabledfalse; both natural before/after states are identical. Original45761 stops before END. Fresh controller availability is true and all five queue metadata are known, so no actual operational pause is inferred. Private966 proposal moves all-alive old-state removal outside guarded plot cleanup; original defect2VM and candidate8VM pass, without journal/gold/order changes. Product remains160. Sole failed-scene closure and later fixed-version retest are pending; no P5/whole-mod pass. Future readonly WAKE V3 accepts only the actual failed-scene closure and never fabricates P5 success.
+
+
+## 2026-11-17: old P5 failure preserved and safely closed
+
+[Actual failure checkpoint,3 correlated BACKGROUND production queues and owned closure](../../research/baiqi-source160-oldpause-failure-native-closure-2026-11-17.json). Stale enabledfalse survives marker2 cleanup, but current controller is available and3 granary requests match queue-observed and fresh actual hashes. This does not prove two-turn/complete-building/input-guard acceptance. Original45761 failed before END; abort99632 actually exited0 after readonly capture, QA bridge retirement, new failed24save and official exit/own quiet residue.0END/manual domestic/original replay. Fix/retest continues; current160 remains unchanged.
+
+[Paid-city live observer integration software](../../research/baiqi-source160-paidcity-live965-software-2026-11-17.json) passes14VM/4badframes using actual Actions with mock engine; no current160 paid-city Native/physical/backend-count pass.
