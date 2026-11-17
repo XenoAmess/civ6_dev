@@ -1585,3 +1585,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: known pre-Popen mode halt / owned old reporter close / independent software
 
 [Steam halt, normal historical reporter Cancel, explicit handoff and5-flow future resume](../../research/baiqi-source161-steam-halt-reporter-close-resume-2026-11-18.json).46458exit1 before any game launch/load/input. Original Nov7 reporter linked to own parent624, normalCancel once/process gone/no kill/no report, desktop returned to HOI4 peer; current mode unknown until peer restore plus own fresh read. No time-based resume. [WPR98825 mock/thread cases](../../research/baiqi-private-wpr988-owned-protocol-software-2026-11-18.json) are software protocol only, trace0; actual runner/watcher/ETW/QPC/Native capture unverified. No new HTTP or fullmod/performance pass; continue independent work and actual tests when desktop released.
+
+
+## 2026-11-18: actual stale funds299 UI/Core refusal branches PASS
+
+[Fresh offline resume/physical stale confirm/explicit separate QA backend request](../../research/baiqi-source161-stale-gold299-ui-core-native-http989990-2026-11-18.json). Setup299 separate from ability. Physical confirm showed changed-quote notice, UIrequests0 and full UI/Core scene unchanged/native0; then explicit QA request1 yielded REJECTED/insufficient_gold, banknil/gold299/army4/enemycity/native0. Save/retire/officialexit complete. Original9473 Owner cleanup-schema HALT retained; new evidence-derived authority/5 negatives then cleanup-only54379exit0, no game action replay.989990 genuine new tasks afterclosure404/noadoption, ledger990. Limited branches only; normalattack/fullmatrix/old865/performanceFAIL remain, continue.
