@@ -1540,3 +1540,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: private save-qualification receipt index985
 
 [Measured wildcardwalk bottleneck and22-case full-check-retaining adapter](../../research/baiqi-private-save-qualifier-index985-software-2026-11-18.json). Original38functions retain same code/SHA/currentfile checks; isolated globals only index receipt directory names per call, detect directory mutations, delegate literal/complexglob to installedPath semantics. Full actual qualifier passes87984entries/33patterns;8.3989sunprofiled vs27.5328sprofiled is not a precise speed ratio or gameperformance grant.985real404/noadoption before Owner work while gameclosed; Source161unchanged. Continue new independent cancelcase.
+
+
+## 2026-11-18: independent cancelcase cold baseline983 preparation
+
+[Newlabels/once-loadVM/finiteflows/current identical119QA verification](../../research/baiqi-source161-independent-cancel-admission983-2026-11-18.json). No installfilemutations; originalfullprotected-savechecks retained with receipt index985. Original successfulpaidcase and completedreloadsave remain separate. Nativecancel notrun; continue freshscene then actualright/cancel, no fullTC023grant.
