@@ -1485,3 +1485,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: paid-city native callsite observer974 software
 
 [Exact three callsites, inverse and16 VM scenarios](../../research/baiqi-source161-paid-native-callsite974-software-2026-11-17.json). Original native globals unchanged; actual invocation/self/return arity/error identity preserved, target-scoped64-row before/after metadata cannot veto action. No Native package/install/paid interaction has occurred. Current P5 first parent halted before normalEND24; its failure remains separate. Paid-city full matrix remains OPEN.
+
+
+## 2026-11-17: Source161 original old-pause cleanup, two normal turns and new reload
+
+[Raw before/after migration, all five queues, gold, retained first halt and safe closure](../../research/baiqi-source161-oldpause-two-turns-reload-native-2026-11-17.json). Original marker2+enabledfalse naturally becomes stateNil; ordinary24→25→26 once each, new26save/reload once and final unchanged queues/gold. Gold+9.80078125 each turn; no reload bonus. Original pre-END halt was real military stacking, resolved by one TEST_PLAYER own scout move and five normal military SKIPs across the two turns; no civilian substitute/UserForced/END26. Original73548exit1 retained; remaining15874exit0. Owner R2 validation ordering defect is recorded, not relabeled clean admission. Exact TC022/039 migration/persistence branch passes; manual UI/complete matrix still open, old865 and pressure performance FAIL remain. Continue work.
