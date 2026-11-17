@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T02:02:51.062415+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "TC039_CURRENT_SAVE_PASSIVE_BOOT_PACKAGE_SOFTWARE_PREPARED_NOT_NATIVE",
+  "whole_mod": "OPEN_CONTINUE",
+  "TC039": "OPEN",
+  "old8650807": "FAIL_UNRESOLVED",
+  "prepared": {
+    "source_version": 160,
+    "mode": "baiqi160-tc039-passive-boot-v1",
+    "files": 119,
+    "Lua51_Lua53_sources": 97,
+    "changed_files": [
+      "UI/BaiqiExecutor.lua"
+    ],
+    "archive_sha256": "5db18f7ad88d8ae7503d7f524011dfeb1dbc26b5308470eaad4da155fedb829c",
+    "observer_helper_sha256": "5b0e78bcecdc445bc8ae75e0f0f7fdaab4c2739327a8037281bed1a587060e0c",
+    "target": {
+      "owner": 0,
+      "unit_id": 3735581,
+      "unit_type": "UNIT_MISSIONARY"
+    },
+    "SDK_row_capacity": 64,
+    "Native_actions": 0,
+    "Native_witness": "NOT_RUN",
+    "scope": "Current160 same-version unresolved religious-intent save/load only, passive SDK startup observation. No old8650807 recovery, no replay/clear/fault/controller pause, no performance or fullTC039 pass. Observation starts after Controller include returns; no claim about earlier include-side behavior."
+  },
+  "software": {
+    "utc": "2026-11-17T02:01:16.794572+00:00",
+    "source_version": 160,
+    "unknown_original_or_helper_negative": 4,
+    "actual_transformed_Executor_VM_executions": [
+      {
+        "VM": "Lua51",
+        "case": "bootstrap_before_original_readiness"
+      },
+      {
+        "VM": "Lua51",
+        "case": "SDK_trailing_nil_and_multireturn"
+      },
+      {
+        "VM": "Lua51",
+        "case": "Update_passthrough"
+      },
+      {
+        "VM": "Lua51",
+        "case": "Native_error_passthrough"
+      },
+      {
+        "VM": "Lua51",
+        "case": "explicit_retire_then_original_shutdown"
+      },
+      {
+        "VM": "Lua51",
+        "case": "retirement_exception_cannot_veto_shutdown"
+      },
+      {
+        "VM": "Lua51",
+        "case": "foreign_binding_preserved"
+      },
+      {
+        "VM": "Lua51",
+        "case": "bounded_rows_and_snapshot_copy"
+      },
+      {
+        "VM": "Lua53",
+        "case": "bootstrap_before_original_readiness"
+      },
+      {
+        "VM": "Lua53",
+        "case": "SDK_trailing_nil_and_multireturn"
+      },
+      {
+        "VM": "Lua53",
+        "case": "Update_passthrough"
+      },
+      {
+        "VM": "Lua53",
+        "case": "Native_error_passthrough"
+      },
+      {
+        "VM": "Lua53",
+        "case": "explicit_retire_then_original_shutdown"
+      },
+      {
+        "VM": "Lua53",
+        "case": "retirement_exception_cannot_veto_shutdown"
+      },
+      {
+        "VM": "Lua53",
+        "case": "foreign_binding_preserved"
+      },
+      {
+        "VM": "Lua53",
+        "case": "bounded_rows_and_snapshot_copy"
+      }
+    ],
+    "exact_inverse_to_original": true,
+    "Native_queries": 0,
+    "real_game_startup_reload": "NOT_RUN",
+    "scope": "Exact transformed current Executor plus actual qualified SDK helper in fake includes/events/Native writers; preserves original event-driven readiness, SDK argument/return/error passage and nonvetoing owned cleanup. No game/source/controller/journal mutation."
+  },
+  "boot_scope": {
+    "before_first_Executor_OnViewReady_RunIfReady": true,
+    "after_original_Controller_include_returns": true,
+    "no_claim_about_earlier_include_side_behavior": true,
+    "original_Controller_Admin_purchase_includes_and_event_order_preserved": true,
+    "original_Executor_recovered_exactly": true,
+    "journal_snapshot_native_getters_or_control_policy_changed": false,
+    "original_controller_paused_or_directly_invoked": false,
+    "SDK_passthrough_arguments_returns_errors_preserved": true,
+    "shutdown": "Private local owned observer retired before original Controller shutdown inside bounded pcall; false/throwing retirement cannot veto original shutdown, foreign SDK binding preserved. Explicit prior Retire remains idempotent.",
+    "capture_limits": "Only this UI context exact0/M3735581/MISSIONARY SDK operation/command and Update bindings,64rows. Not every Native dispatcher or proof of engine acceptance.",
+    "no_new_UI_control_entry": true
+  },
+  "planned_actual_witness": {
+    "fixture": "Baiqi_P6_20261117_V160_RequestUnforwarded78.Civ6Save",
+    "bytes": 487536,
+    "sha256": "05bca7a58d7f744286a4f67f8e30946e00d794c1ff458af1e3c79820ea144abd",
+    "initial_turn": 78,
+    "raw_religious_record": "ARMED religion:0:3/request0:77:25, prior charge1, created77",
+    "actual_cold_load": "NOT_RUN",
+    "ordinary78_79_and_another_save_load": "NOT_RUN",
+    "requirements": [
+      "Fresh current Steam-instance offline proof and exact owned cold/source119/ZIP/endpoint before each new game.",
+      "Passively capture target SDK before original Executor first readiness; actual owner/fullID/type/position/charges/formation/rawUI+Core intent independently read.",
+      "No synthetic event, journal clear/retry, fault mask, manual civilian action, private RunNow, altered cost or UserForced.",
+      "TEST_PLAYER legitimate military/diplomacy/normal END and official save/load only, each action once with ACK/actual activation distinguished.",
+      "Retire owned hooks and verify original bindings, no false OBSERVED or unproven disappearance/completion."
+    ],
+    "limited_scope": "Same-version current160 unresolved religious-intent persistence only. Oldpause/oldremoved-granary independent copies and old8650807settlement recovery remain unclosed."
+  },
+  "scheduling": {
+    "fourth_enabled_formal_release_utc": "2026-11-17T01:43:26.353333+00:00",
+    "model_POST_utc": "2026-11-17T01:44:03.189209+00:00",
+    "model_terminal_utc": "2026-11-17T01:44:03.238528+00:00",
+    "package_prepared_utc": "2026-11-17T01:47:43.789582+00:00",
+    "fifth_enabled_formal_attempt_utc": "2026-11-17T01:49:09.617834+00:00",
+    "fifth_enabled_formal_release_utc": "2026-11-17T02:00:07.989674+00:00",
+    "software_verified_utc": "2026-11-17T02:01:16.794572+00:00",
+    "initial_VM_validation_attempt": "Refused by existing formal guard before VM fixture execution;0Native. Repeated only after fifth-enabled formal release.",
+    "HTTP_build_VM_formal_overlap": false,
+    "sole_Native_parent_preserved": true
+  },
+  "model939": {
+    "task": "New unfinished passive bootstrap transform before Owner writes it",
+    "sources": 9,
+    "source_bytes": 415955,
+    "POST": 1,
+    "http_status": 404,
+    "total_ms": 49.059499986469746,
+    "natural_terminal": 1,
+    "stop_file_created": false,
+    "single_POST_from_actual_EVENTS": true,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "current_request_killed": false
+  },
+  "ledger": {
+    "logical": 939,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 55,
+    "generation_POST": 978,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "OpenCode_daily": "Nov17 canonical successful1.19.5same-machine/user cache reused; native generation0.",
+  "original85_progress": "Four20matchedsegments closed; fifth-enabled five raw segments captured/save/retire/formalrelease. Last counterpart still required. All25/lifecycle/input verdict not yet granted.",
+  "next": [
+    "Continue existing37775last original85coldside; actualall10inputaudit/canonical25/lifecycle review and publish.",
+    "Current160independent pressure qualification and complete two-scene budget matrices.",
+    "Execute this repeated-load witness in its own later controlled game branch, then remaining finite function/recovery work. Do not stop after this preparation push."
+  ]
+}
