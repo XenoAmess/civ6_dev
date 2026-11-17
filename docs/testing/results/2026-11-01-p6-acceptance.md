@@ -1500,3 +1500,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: private helper fence977 corrected before first Wake161 game
 
 [Original82866halt/noPopen,13 real file/future launch-shape cases, Nov18 maintenance and404](../../research/baiqi-source161-private-helper-fence977-2026-11-18.json). Correct private Lua helper path role; original948/common fences and119QA ZIP unchanged. New R2 verifies existing install0file mutations/new commit/receipts, first actual launch/load still pending. OpenCode canonical daily update1.19.6 succeeded;977POST1/404/no adoption. Whole mod/old865/performance FAIL remain; continue R2 Native.
+
+
+## 2026-11-18: natural Wake969 stops before Core intent; original recovery staysFAIL
+
+[Actual zero commands, two qualifications, preserved raw bank and closure](../../research/baiqi-source161-wake969-zero-command-native-2026-11-18.json). Actual79313exit0 closes only diagnosis: natural visible/strict true, reserved0:158:1, UIattemptedonce but Coreattemptedfalse/propertynil, all target SDK commands/operations/events0. Six Core channels registered, no occurrence/barrier. Root guard not directly recorded; missing Core human getter is a source-derived hypothesis for separate978, not proof. New158save/retire/officialexit/residue closed,0END/manual civilian/clear.978canonicalPOST404/no adoption after closure. [Current161 finite40 source/reuse map](../../research/baiqi-source161-finite40-impact976-2026-11-18.json) retains narrow Native scopes and115equal160/114equal159/14of15input equality, grants no new40 or performance pass. Continue actual fix and remaining matrix.
