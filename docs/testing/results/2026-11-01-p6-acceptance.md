@@ -1600,3 +1600,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 independent normal attack prepared
 
 [Actual product popup VM, full119 package and finite guards](../../research/baiqi-source162-normal-attack-preparation-2026-11-18.json). Native NOT_RUN: fresh original copy, physical normal-attack choice, bound continuation and actual combat damage required with zero paid effects.4 product VM/2 load-once VM/13 damaged-witness rejections/5 admission/8 completion flows; first Owner numeric-key parser error corrected before launch. Whole acceptance remains OPEN; proceed Native.
+
+
+## 2026-11-18: Source162 actual ordinary attack; TC023 fixture review PASS
+
+[Physical original middle-button choice, actual combat and versioned branch review](../../research/baiqi-source162-normal-attack-native-tc023-review-http991992-2026-11-18.json). Fresh offline current162 original copy; right1/OS pointer away before normal-choice1; original continuation actor2162700/target41,19 once. Moves4->0, armydamage0->25, citydamage150->175/enemyowner1/pop1; gold unchanged, paid request/Transfer/debit/Finish0 and bank/result/cooldownnil. Saved/retired/exited, exact own188s residue terminate1/kill0. Owner focus/emitter/persisted-JSON HALTs retained; closure-only33482exit0 no replay. TC023 reviewed PASS for this frozen fixture by eight exact161/162 consumer hashes and explicit161 cancel/paid-confirm reuse; TC024/fullmod remainOPEN.991992 actual404/noadoption afterclosure, ledger992. Continue HP boundaries and missing manual-control cases.
