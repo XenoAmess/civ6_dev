@@ -1441,3 +1441,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: finite readonly WAKE/API episode prepared
 
 [Software checks, actual database-key correction and execution boundaries](../../research/baiqi-source160-readonly-wake-finite-episode-software-2026-11-17.json). The future diagnostic uses the new passive158 checkpoint, one readonly qualification probe and complete raw-bank before/after reads, then owned retirement/save/exit.16 probe VM cases,2 actual load-payload mock executions and4 finite flows pass. Primary XML review caught the V1 mock alias; V2 uses actual UNITCOMMAND_WAKE. No Native probe has run and no cancellation/retry/recovery pass is granted.
+
+
+## 2026-11-17: current160 withdrawn granary migration TC032 passes
+
+[Original active lease, natural cleanup, two ordinary turns and new-save reload](../../research/baiqi-source160-oldrights-two-turns-reload-native-2026-11-17.json). Both granaries/owners/city identities remain; source food/housing3/4 ->4/6 and recipient6/10 ->5/8 remove the old transfer. These values and zero legacy gates persist through T2,T3 and actual new-save reload3. P0gold1850->1855->1860 matches income5; source P1gold10->16->22 matches income6; reload adds no refund/debit/replay. Original historical COMMITTED150 journal remains unchanged. Original67165 QA assertion failed before END; recovery88264 resumed from recorded raw boot, completed only remaining steps and actually exited0. Five military TEST_PLAYER SKIPs, two ordinary ENDs, no manual domestic/UserForced/END3/original-load replay. TC032 and this withdrawn-rights branch of TC039 pass; whole mod remains open. Initial independent UI/Core unit count discrepancy3/4 is retained; this is not a whole army/paid-city assets pass.
