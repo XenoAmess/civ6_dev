@@ -1446,3 +1446,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: current160 withdrawn granary migration TC032 passes
 
 [Original active lease, natural cleanup, two ordinary turns and new-save reload](../../research/baiqi-source160-oldrights-two-turns-reload-native-2026-11-17.json). Both granaries/owners/city identities remain; source food/housing3/4 ->4/6 and recipient6/10 ->5/8 remove the old transfer. These values and zero legacy gates persist through T2,T3 and actual new-save reload3. P0gold1850->1855->1860 matches income5; source P1gold10->16->22 matches income6; reload adds no refund/debit/replay. Original historical COMMITTED150 journal remains unchanged. Original67165 QA assertion failed before END; recovery88264 resumed from recorded raw boot, completed only remaining steps and actually exited0. Five military TEST_PLAYER SKIPs, two ordinary ENDs, no manual domestic/UserForced/END3/original-load replay. TC032 and this withdrawn-rights branch of TC039 pass; whole mod remains open. Initial independent UI/Core unit count discrepancy3/4 is retained; this is not a whole army/paid-city assets pass.
+
+
+## 2026-11-17: scoped network-isolation mechanism selftest
+
+[Exact own-helper WFP enforcement and cleanup evidence](../../research/baiqi-source160-tc038-own-helper-wfp-selftest-2026-11-17.json). Actual SDK-compiled helper TCP connection0 -> Winsock10013 under its exact own-app/loopback/port/protocol filter ->0 after dynamic engine close. Separate readback proves own filter/sublayer gone; OS profile bytes unchanged. This targets only the QA helper, not Civ6/Steam, and does not pass TC038. Genuine pending964/965 model tasks each returned404 without adoption; actual POST peak1 despite2 wrappers. Whole mod and known failures remain open.

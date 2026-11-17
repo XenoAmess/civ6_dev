@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T13:26:11.162113+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "OWN_QA_HELPER_SCOPED_WFP_SELFTEST_PASS_NOT_GAME_ISOLATION",
+  "whole_TC038": "OPEN_FINANCE_AND_ACTUAL_GAME_RUNTIME_WINDOW_PENDING",
+  "whole_mod": "OPEN_CONTINUE",
+  "selftest": {
+    "utc": "2026-11-17T13:24:35.213316+00:00",
+    "machine": "BF-202609141645",
+    "compiler_exit": 0,
+    "selftest_exit": 0,
+    "source_sha256": "9e3f012dc69d6277cd3dd68be1544b86588301a0289e50d62347ed6360c22c3b",
+    "exe_sha256": "2918246604f82555fc6cd8f2f52cc2fc384f5c592106cbc60c9866a017726123",
+    "SDK": "10.0.26100.0",
+    "stdout": "{\"before_error\":0,\"blocked_error\":10013,\"restored_error\":0,\"filter_id\":73811,\"dynamic_close_filter_absent\":true,\"dynamic_close_sublayer_absent\":true,\"target\":\"OWN_HELPER_LOOPBACK_ONLY\",\"game_filters\":0,\"Steam_changes\":0,\"profile_changes\":0}\r\n",
+    "stderr": "",
+    "profiles_unchanged_bytes": true,
+    "Civ6_filters": 0,
+    "Steam_changes": 0,
+    "scope": "Only own QA helper executable and its ephemeral loopback TCP listener. No game/runtime model isolation or TC038 finance pass."
+  },
+  "actual_winsock_and_filter_readback": {
+    "before_error": 0,
+    "blocked_error": 10013,
+    "restored_error": 0,
+    "filter_id": 73811,
+    "dynamic_close_filter_absent": true,
+    "dynamic_close_sublayer_absent": true,
+    "target": "OWN_HELPER_LOOPBACK_ONLY",
+    "game_filters": 0,
+    "Steam_changes": 0,
+    "profile_changes": 0
+  },
+  "requests_before_Owner_implementation": {
+    "results": [
+      {
+        "task": 964,
+        "begin": "2026-11-17T13:20:26.737769+00:00",
+        "end": "2026-11-17T13:20:26.757057+00:00",
+        "total_ms": 19.42840008996427,
+        "http_status": 404,
+        "POST": 1,
+        "extra_POST": 0,
+        "terminal": 1,
+        "complete": false,
+        "adopted": false,
+        "stop_file_exists": false,
+        "current_request_killed": false,
+        "sources": 8,
+        "source_bytes": 177604,
+        "Owner_implementation": "NOT_YET_DONE"
+      },
+      {
+        "task": 965,
+        "begin": "2026-11-17T13:20:26.764155+00:00",
+        "end": "2026-11-17T13:20:26.781060+00:00",
+        "total_ms": 17.11110002361238,
+        "http_status": 404,
+        "POST": 1,
+        "extra_POST": 0,
+        "terminal": 1,
+        "complete": false,
+        "adopted": false,
+        "stop_file_exists": false,
+        "current_request_killed": false,
+        "sources": 10,
+        "source_bytes": 124327,
+        "Owner_implementation": "NOT_YET_DONE"
+      }
+    ],
+    "wrapper_tasks": 2,
+    "actual_POST_interval_peak": 1,
+    "inflight": 0
+  },
+  "ledger": {
+    "logical": 965,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 81,
+    "generation_POST": 1004,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "primary_documentation": [
+    "https://learn.microsoft.com/en-us/windows/win32/fwp/object-management",
+    "https://learn.microsoft.com/en-us/windows/win32/api/fwpmu/nf-fwpmu-fwpmengineopen0",
+    "https://learn.microsoft.com/en-us/windows/win32/fwp/filtering-condition-identifiers-"
+  ],
+  "review": [
+    "Installed SDK10.0.26100.0 actual fwpmu/fwpmtypes/fwptypes headers and discovered MSVC compiler compiled the private C++ helper against real types/GUIDs/libraries, avoiding invented ctypes layouts or copied game binaries.",
+    "Only the helper executable and its own ephemeral127.0.0.1 TCP listener were targeted. Exact ALE app ID plus remoteIPv4/port/TCP conditions were added transactionally under one dynamic session; actual readback matched all four conditions, block action and nonpersistent flags.",
+    "Fresh connection succeeded before filter, failed with Winsock10013 while present and succeeded after engine close. A separate engine readback proved both own filter ID and sublayer key absent after closing the dynamic session. All profile-state command bytes were unchanged. This validates a narrow mechanism even though current Windows Firewall profile was off; it does not prove any Civ6 connection failed.",
+    "No Civ6/Steam filter, shared server/config/route/profile change, game network injection or actual TC038 finance/runtime window occurred. The helper accepts only its explicit own-exe-loopback selftest mode. No general app filtering mode exists yet.",
+    "Two genuine unfinished tasks were dispatched through canonical shared adapter before Owner implementation:964 scoped runtime isolation plan,965 current paidcity live metadata-observer integration. Both naturally ended404 without complete SSE/JSON candidate or adoption; no alternate endpoint/model/transport. Fast terminals produced no stop-files. Wrapper tasks2 but actual POST interval peak1.",
+    "The first attempt to publish the already closed P2 evidence overlapped these HTTP wrappers and was correctly rejected by its model-idle guard before any record/Git/Native mutation. After both terminal1 results, publication succeeded sequentially. No game action was replayed.",
+    "Old P5 finite Native parent remains sole game writer. Current work is OS/tool preparation only; old865 recovery, paid-city matrix and valid MANY/NO_SITE performance failures remain open."
+  ],
+  "OpenCode_native_generation": 0,
+  "cached_tokens": null,
+  "Owner_active_cost": null,
+  "net_savings": null
+}
