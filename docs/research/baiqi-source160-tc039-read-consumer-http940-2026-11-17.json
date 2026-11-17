@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T03:11:21.372356+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "BOUNDED_TC039_READONLY_CONSUMER_SOFTWARE_PREPARED_NOT_NATIVE_WITNESS",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_TC039": "OPEN",
+  "old8650807": "FAIL_UNRESOLVED",
+  "scope": {
+    "frozen_current160_save": "Baiqi_P6_20261117_V160_RequestUnforwarded78.Civ6Save",
+    "bytes": 487536,
+    "sha256": "05bca7a58d7f744286a4f67f8e30946e00d794c1ff458af1e3c79820ea144abd",
+    "save_reloaded": false,
+    "planned_actual_turns": [
+      78,
+      79
+    ],
+    "target": {
+      "owner": 0,
+      "full_unit_id": 3735581,
+      "unit_type": "UNIT_MISSIONARY",
+      "x": 16,
+      "y": 14,
+      "spread_charges": 1
+    },
+    "persistent_target": [
+      "ARMED",
+      "religion:0:3",
+      77
+    ],
+    "raw_bank_serial": "Recorded and schema-validated >=targetsequence3; token3alone does not prove bankserial3",
+    "bank_bound": 256,
+    "raw_fields_per_entry": 13,
+    "SDK_row_bound": 64,
+    "API_split": "UI GetUnitType/GetSpreadCharges; Core GetType/GetReligion():GetSpreadCharges",
+    "Native_getters_only": true,
+    "expected_SDK": "Exact passiveboot observer; legitimate SKIP may forward, no SPREAD/command; no own SDK calls by the reader",
+    "cross_context_atomicity": false,
+    "operation_quiescence_proof": false
+  },
+  "software": {
+    "utc": "2026-11-17T03:10:59.350442+00:00",
+    "source_version": 160,
+    "actual_rendered_Lua_VM_executions": 8,
+    "Lua_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "independent_negative_checks": [
+      "missing_done",
+      "duplicate_done",
+      "missing_field",
+      "duplicate_field",
+      "foreign_context",
+      "wrong_turn",
+      "actor_alias",
+      "changed_stage",
+      "changed_token",
+      "noncanonical_integer",
+      "invalid_number",
+      "string_numeric_field",
+      "sdk_drop",
+      "sdk_command",
+      "sdk_foreign_binding",
+      "sdk_spread",
+      "sdk_unknown_turn",
+      "sdk_missing_row",
+      "formation_unknown",
+      "nonfinite_moves",
+      "native_error_frame",
+      "unknown_field",
+      "field_reordered",
+      "independent_Core_UI_difference"
+    ],
+    "Native_queries": 0,
+    "Native_witness": "NOT_RUN",
+    "schema": "bounded whole raw journal / exact actor / passive boot SDK, Core_UI separately read not atomic",
+    "Owner_correction": "Raw bank serial is recorded and validated >=targetsequence3, not falsely fixed to3 solely from token3; future extra bank sequences are not fabricated."
+  },
+  "private_single_use_sources": [
+    {
+      "local_only": ".local-model/tc039160_read_core_owner.py",
+      "bytes": 10591,
+      "sha256": "24a7a74d792f7d02b8412e3d6f397a0650ff61540b86f5abdd1446f9d218feca"
+    },
+    {
+      "local_only": ".local-model/tc039160_validate_read_owner.py",
+      "bytes": 6827,
+      "sha256": "699808de6cff02e3dc34e8194297b40e0e7ba0434672dde222609464d6a17a8c"
+    }
+  ],
+  "model940": {
+    "purpose": "New bounded Core/UI raw whole-journal/exactactor/startupSDK reader before Owner implementation, actual sources/APIs/consumers supplied",
+    "sources": 11,
+    "source_bytes": 422695,
+    "generation_POST": 1,
+    "http_status": 404,
+    "total_ms": 157.86570007912815,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_after_current_flag_written": true,
+    "before_MANY_formal": true
+  },
+  "Owner_review": [
+    "Original first validation invocation was refused at the formal marker guard before any VM execution (0VM/0Native), not bypassed. The later successful receipt is separately timestamped after release.",
+    "Preserve the actual O-NUL console framing and exact expected context, reject malformed/duplicate/oversize/nonfinite fields and reordered or incomplete exports.",
+    "Export bounded raw complete bank metadata and all13schemafields for every operation; do not replace raw journals with a derived snapshot or mutate state.",
+    "Independently parse UI and Core and compare same-turn bank/actor facts without claiming atomic two-context reads. Natural update progress and observer restoration need future actual lifecycle receipts.",
+    "The first post-release validation lacked the repository root in sys.path and failed importing tools.performance_admission before any VM/Native. Corrected root plus private-module search paths; actual subsequent8VM/24negative checks passed. Original tool trace retained; this was an Owner harness error, not a product/model failure."
+  ],
+  "ledger": {
+    "logical": 940,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 56,
+    "generation_POST": 979,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "limits": [
+    "Only software preparation for current160sameversion religious unknown-request persistence; no new Native query/load/END and no TC039pass.",
+    "Independent oldpause/removedgranary fixtures and actualold8650807ARMEDrecoveryFAIL remain open; coldboot/emptyqueue never prove originaloperationquiescence.",
+    "Continue current160MANY/NO_SITEperformance and finitefunctional acceptance after publishing this preparation."
+  ]
+}
