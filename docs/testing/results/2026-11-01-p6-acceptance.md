@@ -1303,3 +1303,10 @@ MANY／NO_SITE各新增当前160五组冷配对消费者共20Python体；首次�
 [119／97双Lua／30工厂VM＋12组合Executor VM及限制](../../research/baiqi-source160-label-zero-profile-http949-2026-11-17.json)：新未完成诊断事前11源337868B，一次POST404／27.728600ms／0完整采用extra；失败很快自然结束，watch未写stop文件，不补造。Owner只专化私有观察包中的profile/context原件，补有界512名称／调用／测零／失败／时钟未知与首末界，保留4096样本／原配额／原模板和mod不变。30工厂／上下文与12组合执行通过，其中2溢出可达检查仅软件MAX=2，不冒称原上限数十亿调用。新观察异常不替换原返回／错误，不增加Native时钟读取；Reset清新统计。
 
 已测零仍非零CPU，跨边界聚合不可擅分配，跨上下文不相加CPU；仅软件准备、未Native／未修复MANY15.018333%FAIL。累计949／816完整／68length／65最终请求失败／988POST／38extra／0在途、OpenCode原生0。NoSite五组及完整功能／迁移验收继续，整个mod未完成。
+
+
+## 2026-11-17：950单次精确END消费者软件准备
+
+[真实API、两VM／20坏帧拒绝／7流程及实机边界](../../research/baiqi-source160-precise-end-consumers-http950-2026-11-17.json)：事前15源82763B，一次POST404／20.761900ms／0完整采用extra，快速自然结束，无stop文件不补造。Owner补独立冷启动／新鲜离线闸、单次普通END6→7、33上下文校准与完整有界标签导出、保存撤钩释放退出流程。入口核8消费者SHA及NoSite十侧完整关闭。使用实际bridge.Begin→UI.RequestAction普通接口；任务文字中的OnEndTurn未被假设成调用入口。
+
+两Lua VM执行真实组合Executor与另32真实Context工厂的模拟函数、共享模拟时钟；软件END1秒／原Activate5秒分开，20坏帧拒绝、4有限流程和3未知END／激活／导出停止检查通过。没有真实33源码集成、Native END、保存或退出效果，未修复性能。累计950／816完整／68length／66最终请求失败／989POST／38extra／0在途，OpenCode原生生成0。NoSite五组、MANY15.018333%有效FAIL、原865恢复及全mod验收继续。
