@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T05:49:55.285811+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "product_change": false,
+  "status": "PASSIVE_UI_LIFECYCLE_COMPONENT_SOFTWARE_VERIFIED_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "model944": {
+    "purpose": "New still-unfinished old865 passive UI lifecycle observer before Owner implementation; not a repeat of completed Core qualification study",
+    "sources": 13,
+    "source_bytes": 366055,
+    "generation_POST": 1,
+    "http_status": 404,
+    "total_ms": 47.26639995351434,
+    "complete_candidate": false,
+    "adopted": false,
+    "extra_POST": 0,
+    "terminal_exit": 1,
+    "current_request_killed": false,
+    "stop_after_current_flag_written": true,
+    "POST_before_group3control_formal": true
+  },
+  "software": {
+    "utc": "2026-11-17T05:41:59.973406+00:00",
+    "source_version": 160,
+    "helper_sha256": "9938fb0202b169a56d9910b6bdec54e5f197bcb5ead2d1aa999a24d72f1c7ec9",
+    "actual_helper_VM_executions": 30,
+    "Lua_versions": [
+      "5.1",
+      "5.3"
+    ],
+    "cases": [
+      "target_arity_nil_expectedtype_not_observed",
+      "exact_fullID_owner_malformed_filter",
+      "read_deepcopy",
+      "bounded64_drops_counted",
+      "retire_idempotent",
+      "foreign_handlers_survive",
+      "missing_event_refuses_before_add",
+      "add_false_not_success",
+      "add_throw_before_cleanup",
+      "add_throw_after_cleanup",
+      "remove_false_stays_incomplete",
+      "remove_throw_stays_incomplete",
+      "foreign_reference_preserved_truthful_repeat",
+      "unsupported_args_and_badclock_unknown",
+      "arity_cap_error_not_silent"
+    ],
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "original865_recovery": "FAIL_UNRESOLVED",
+    "scope": "UI lifecycle notification collection only; no event-name-to-quiescence inference, no permission hook/journalwrite/replay. No package/build/install/cold158Native witness yet."
+  },
+  "private_single_use_sources": [
+    {
+      "local_only": ".local-model/legacy160_ui_events_owner.lua",
+      "sha256": "9938fb0202b169a56d9910b6bdec54e5f197bcb5ead2d1aa999a24d72f1c7ec9"
+    },
+    {
+      "local_only": ".local-model/legacy160_validate_ui_events_owner.py",
+      "sha256": "223d78f061a7217f78b7f1bcb5e760a26366836e89da1a3568d4cd76f86e383d"
+    }
+  ],
+  "installed_primary_UI_files_readonly": [
+    {
+      "game_relative_path": "Base/Assets/UI/Panels/UnitPanel.lua",
+      "bytes": 181189,
+      "sha256": "6d029bfa8f7119c18ee88956ef775f7d05a57aae9d2ffe3be60c256c7a8d5b6e",
+      "game_file_committed": false
+    },
+    {
+      "game_relative_path": "Base/Assets/UI/WorldInput.lua",
+      "bytes": 175056,
+      "sha256": "05be449b00f0fc7bed30d23543e31b43f619650ede2da061131f1967b6d32fa8",
+      "game_file_committed": false
+    },
+    {
+      "game_relative_path": "Base/Assets/UI/UnitFlagManager.lua",
+      "bytes": 81021,
+      "sha256": "26f056a54b9c0f8410af4d05721ab9584740f35906424974fed58e984cced0ea",
+      "game_file_committed": false
+    },
+    {
+      "game_relative_path": "DLC/Expansion2/UI/Replacements/UnitPanel_Expansion2.lua",
+      "bytes": 7791,
+      "sha256": "c4e930f6bffead7b5c1c92658fe89c8daae162c41e489be6a64bb2636212a81d",
+      "game_file_committed": false
+    },
+    {
+      "game_relative_path": "DLC/Expansion2/UI/Replacements/WorldInput_Expansion2.lua",
+      "bytes": 7386,
+      "sha256": "0514d991c58710f8e78a12f2dacdea73e411f5923aedfa14fd572ed8cd1af435",
+      "game_file_committed": false
+    }
+  ],
+  "primary_API_findings": [
+    "UnitPanel subscribes to UI Events.UnitOperationsCleared, UnitOperationAdded, UnitOperationDeactivated, UnitCommandStarted, UnitMoveComplete and UnitMovementPointsChanged. Cleared/deactivated handlers accept(player,unitId,hOperation,iData1) and request UI refresh for selected IDs.",
+    "WorldInput compares UnitCommandStarted hCommand to UnitCommandTypes.CANCEL and calls UnitMovementCancel. This establishes existing UI use, not that a settler can cancel or that every native queue is quiescent.",
+    "UnitPanel and UnitFlagManager read UnitManager.GetActivityType and ACTIVITY_SLEEP/HOLD/AWAKE. No WAKE command support or native operation/cancellation contract is inferred."
+  ],
+  "Owner_review": [
+    "Factory binds only six known UI Events, prevalidates Add/Remove, filters exact numeric owner0/fullID8650807, retains<=64 matching rows with raw arity/typed nil-inclusive<=16 arguments/turn and separate other/malformed/drop/error counters. expected_unit_type is a configured identity, not a claimed native unit-type observation.",
+    "No unit query/order, property write, permission return, controller Update/RunNow, journal reconciliation or operation retry. Read deep copies and Retire uses exact saved callback references; foreign bindings and other handlers survive.",
+    "Review corrected repeated Retire after a foreign event replacement so an earlier incomplete result stays incomplete. Explicit false Add/Remove results count as errors while nil API returns remain permitted.",
+    "15 actual helper cases execute in both Lua5.1 and5.3: arity/nil, full ID and owner filtering, deep copy, capacity/drop, idempotence, foreign handler preservation, missing events, failing/throwing Add/Remove, foreign event objects, unknown scalar/clock and argument truncation.30VM executions are software evidence only.",
+    "Observer is not packaged, installed or exercised against old158 in Native. There is no new event, cancellation or recovery evidence. CoreCanStartOperation is qualification; a lifecycle notification name alone cannot clear/replay the old ARMED receipt or certify all queues."
+  ],
+  "protected_original_fixture": {
+    "save_sha256": "53a08d9f9eff2fb65a5bc93a11b938b78c5f18a09b50c75dddb6b58a73d9c579",
+    "save_bytes": 629900,
+    "old_receipt": "ARMED settle:0:1/request0:156:173",
+    "actor": "0/8650807/UNIT_SETTLER",
+    "target_plot": 846,
+    "new_cold_load": false,
+    "journal_clear_or_replay": false
+  },
+  "ledger": {
+    "logical": 944,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 60,
+    "generation_POST": 983,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "next": [
+    "Finish actual MANY/NO_SITE matrices without discarding unfavorable results",
+    "Run actual current160 TC039 finite same-version episode",
+    "Prepare and verify startup integration and raw activity/lifecycle diagnostics for old865; recovery remains required"
+  ]
+}
