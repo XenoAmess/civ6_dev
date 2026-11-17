@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-17",
+  "utc": "2026-11-17T12:18:19.177197+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 160,
+  "status": "OWNER_LEGACY_CONTINUE_CLI_FIXED_RECOVERY_PENDING",
+  "product_change": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "original_parent": {
+    "session": 98482,
+    "actual_terminal_exit_code": 1,
+    "actual_work": "119privatepassivepackage verified/installed, freshreadonlyofflinecoldlaunch, original158loadedonce, allcurrentloadmarkersready.",
+    "halt": "Before loadingconfirmation input: commonparent sends continue/load/read, CLI consumed load asmode although callee requiresread/send."
+  },
+  "software": {
+    "utc": "2026-11-17T12:13:52.450006+00:00",
+    "machine": "BF-202609141645",
+    "actual_main_valid_calls": [
+      [
+        "read"
+      ],
+      [
+        "send"
+      ],
+      [
+        "load",
+        "read"
+      ],
+      [
+        "load",
+        "send"
+      ]
+    ],
+    "actual_main_invalid_no_consumer_rejections": 7,
+    "parent_phase_mode_contract_checked": true,
+    "actual_continue_programs_AST_parsed": 2,
+    "source_sha256": "75cd83c43e12cbd467b3d4c17d12debafa3317462af942c55c8372f0255e3169",
+    "Native_queries": 0,
+    "Native_inputs": 0,
+    "original_load_replay": 0
+  },
+  "Owner_review": [
+    "Actual isolated __main__ branch with stubconsumer handlesread/send andload+read/send, rejectssevenmalformedphase/mode lists without invokingconsumer. Bothrealnavigationprograms ASTparse; commonparent actualcallcontract checked. No Nativequery/input or sourcegameaction in software.",
+    "OldCLI supportedone modeargument; newpure argumentparser preserves that form and admits onlyexplicitloadphase+mode. No arbitraryreloadphase, swallowederror or weakenedNativeownership/log qualification.",
+    "Original98482actuallyterminal1/HALT remains. Newsole15373parent startsremainingcurrent-load confirmation, thenoriginalpassivewitness/retire/finalraw/save/exit. Original158notreloaded,0END/unitorders/qualification probes planned.",
+    "This fixesanOwnerconsumer-contractbug that mockepisodeflows didnotexercise. It isnotmodfailure/modeladoption or original865recoveryPASS. Current160mod/119package bytes unchanged."
+  ],
+  "new_model_POST": 0,
+  "ledger": {
+    "logical": 961,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 77,
+    "generation_POST": 1000,
+    "extra_POST": 38,
+    "inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "old8650807": "FAIL_UNRESOLVED"
+}
