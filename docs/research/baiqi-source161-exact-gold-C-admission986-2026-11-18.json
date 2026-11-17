@@ -1,0 +1,468 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-17T19:46:40.928280+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 161,
+  "status": "EXACT_FEE_GOLD_C300_QA_FIXTURE_AND_COLD_ADMISSION_SOFTWARE_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "product_change": false,
+  "software": {
+    "utc": "2026-11-17T19:45:13.506231+00:00",
+    "source_version": 161,
+    "official_load_VM": [
+      {
+        "VM": "Lua51",
+        "official_payload_once": true,
+        "duplicate_rejected": true,
+        "actual_fixture_payload_compiled": true
+      },
+      {
+        "VM": "Lua53",
+        "official_payload_once": true,
+        "duplicate_rejected": true,
+        "actual_fixture_payload_compiled": true
+      }
+    ],
+    "finite_mock_flows": [
+      {
+        "failure": null,
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ],
+          [
+            "witness",
+            "baseline-gold"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "lifecycle",
+          "install"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "baseline-original"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "setup",
+          "prepare-once"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "baseline-gold"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ],
+          [
+            "witness",
+            "baseline-gold"
+          ]
+        ]
+      },
+      {
+        "failure": "unavailable",
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "header"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ],
+          [
+            "witness",
+            "baseline-gold"
+          ]
+        ]
+      }
+    ],
+    "fixture_actual_VM_cases": 28,
+    "source_hashes": {
+      "paidgold161c_lifecycle_owner.py": "03decfadb5cab85e828856dd63db413a6f4a80755d1f6f0c80dd61153d53851d",
+      "paidgold161c_episode_owner.py": "8b420801bb06c177b0012fa652d0e3217ada683c8fdcbb86b806d63da941a523",
+      "paidgold161c_setup_owner.py": "3791ae5184208d35ee64e0a547bdef252078006e6b050a0aaa3ea3da558c30dc",
+      "paidgold161c_witness_owner.py": "2ef0bec230e5d6249cc7eff3f102058f98f9fa646348948ec1e0d0e35867a742",
+      "paidgold986_exact_fixture_owner.lua": "39ee04bae0044778ba013e57c22c253c4c6a193fc887e99b3453e28915485e61"
+    },
+    "Native": "NOT_STARTED",
+    "product_change": false,
+    "scope": "New exactC=300 controlled QA fixture/cold baseline only, original119package unchanged. Setup separate from paidability; no physicalconfirmation or fee boundary Native pass yet."
+  },
+  "fixture_software": {
+    "utc": "2026-11-17T19:42:09.094279+00:00",
+    "source_version": 161,
+    "actual_VM_runs": [
+      {
+        "VM": "Lua51",
+        "case": "success",
+        "succeeded": true,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "wrong_fullID",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "wrong_owner",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "escort",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "wrong_type",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "wrong_balance",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "prior_intent",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "config_false",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "config_noncallable",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "intent_write_fails",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "intent_read_unknown",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "balance_before_error",
+        "succeeded": false,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "balance_after_error",
+        "succeeded": false,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "observed_write_error",
+        "succeeded": false,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "success",
+        "succeeded": true,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "wrong_fullID",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "wrong_owner",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "escort",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "wrong_type",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "wrong_balance",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "prior_intent",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "config_false",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "config_noncallable",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "intent_write_fails",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "intent_read_unknown",
+        "succeeded": false,
+        "fixture_native_calls": 0,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "balance_before_error",
+        "succeeded": false,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "balance_after_error",
+        "succeeded": false,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "observed_write_error",
+        "succeeded": false,
+        "fixture_native_calls": 1,
+        "paid_capture_native_calls": 0
+      }
+    ],
+    "helper_sha256": "39ee04bae0044778ba013e57c22c253c4c6a193fc887e99b3453e28915485e61",
+    "source_sha256": "af37cc82508c2212232e14cc914de72da67fa3ee2eb7ba798094eaac3fc7dfb5",
+    "Native": "NOT_RUN",
+    "scope": "ControlledQA gold preparation only: one durable intent before one balance call, no candidate execution/paidCapture/army/world/round. This is not ability income or debit."
+  },
+  "original_save": {
+    "stem": "Baiqi_P6_20261105_V74_GarrisonPrep114",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044",
+    "turn": 114
+  },
+  "model_task": {
+    "number": 986,
+    "HTTP_status": 404,
+    "adopted": false,
+    "previously_accounted": true,
+    "new_POST": 0
+  },
+  "review": [
+    "Next independent exactfee C=300 case starts from protected originalGarrisonPrep114 in a new owned coldprocess; previous paid/cancel saves remain protected. Same119-file Capture974package byte-identical, installmutations0; fresh offline/PIDbirth/exe/LSQ/loadonce and full save SHA checks retained.",
+    "Private QA fixture helper validates actual fullHORSEMAN/owner/formation/moves/city/eligible300quote/empty paidjournal/currenttreasury4524.2734375. It persists and reads back a separate diagnostic ARMED intent before exactly one direct treasury delta to300; exact balance then separate OBSERVED marker/readback. No paid record, unit, city, turn or global native binding is changed by this helper.",
+    "The fixture balance adjustment is explicitly TEST_PLAYER_QA preparation, neither ability income nor its debit. Capture974callsite observer does not count this outside-callsite balance write; raw source/receipt separately record setup1, later paid effects remain unproved. Unknown write/readback/nativeafterapplication stops without retry; original fixture untouched.",
+    "28 actual mockVM scenarios acrossLua51/53 include success/duplicate durableintent, wrong fullID/owner/type/escort/balance/priorintent/configfalse/noncallable, intentwrite/readback unknown, balancebefore/aftererror and OBSERVEDwriteunknown. Two actual officialloadVM cases rejectduplicate; six finite cold/setup/freshgoldread flows stop dependents. No physicalconfirm or Native fee boundary pass yet.",
+    "Real986goldboundary task was already counted/returned404 before Owner implementation; this package adds0HTTP. New Native parent first reads original scene, performs controlledQA setuponce, then independently reads UI/Core300 and zeroCapture counters. It stops before map input for fresh visualqualification. C+1/C-1/stalefunds/Core rejection/ordinaryattack/HP-distance-cooldown/faults/performance/old865/fullmod remainopen; continue."
+  ]
+}

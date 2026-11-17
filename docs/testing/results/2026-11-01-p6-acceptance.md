@@ -1550,3 +1550,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: independent161 actual map cancellation/cursor-away branch PASS
 
 [Newcoldcopy/onephysicalright+cancel/fullindependentbefore-after/closure](../../research/baiqi-source161-independent-cancel-native-http986-2026-11-18.json). ActualOS990710/UIplot877→660 beforecancel, originalpopupquote300 bound. Core+UI rawscenesequal, gold4524.2734375/army4/enemycity/journalsnil unchanged; nativeTransfer/debit/Finish0,UIrequests/paidroute/ordinarycontinuation0. Save/retire/officialexit/quietownresidue complete,69477exit0. OnlyTC023cancel/popup/pointer-away branch; confirmationtargetbinding/normalattack/thresholds/faults/fullmod/performanceFAIL/old865remain.986newgoldboundaryplan onlyafterclosure; continue.
+
+
+## 2026-11-18: independent exactgoldC300 fixture/admission986 software
+
+[Separate QA balance intent and28VM/2once-loadVM/6finiteflows](../../research/baiqi-source161-exact-gold-C-admission986-2026-11-18.json). Original119package unchanged; setup once4524.2734375→300 is fixturepreparation, notabilityincome/debit and outsideCapture974observer. Native must independently read300/counters0 before physicalmapinput; no fee-boundary pass yet.986prior404/noadoption/newHTTP0, continue actualC then independentotherboundaries.
