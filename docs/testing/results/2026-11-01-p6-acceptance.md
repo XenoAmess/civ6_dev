@@ -1296,3 +1296,10 @@ MANY／NO_SITE各新增当前160五组冷配对消费者共20Python体；首次�
 [6实际函数mock／1001真实文件stat／首个实际配对冷启](../../research/baiqi-source160-future-cold-ttl-owner-correction-2026-11-17.json)：完整hash校验保留在新proof之前，proof后快stat／当前实例／15秒门不放宽；6分支通过，实际第一NoSite启用侧冷启准入亦通过，配对预算仍待完成。Owner把未来函数按错缩进写入当前子进程也导入的模块，曾使全脚本run在首查询前导入失败；已修正，并实读T1／StageBnil／33禁用／4096／零计数，原formal与实例保留，r2首次setup后普通1—6到7完整结束，结果见已提交全脚本证据。未重放启动／读档／END，不归咎产品或模型。后续共享模块改动先在独立文件语法检查再原子替换；失败原件保留。
 
 无新生成POST，MANY15.018333%FAIL、旧865FAIL及整个modOPEN继续；当前NoSite五组配对进行中。
+
+
+## 2026-11-17：949按根函数名称的已测零统计私有包
+
+[119／97双Lua／30工厂VM＋12组合Executor VM及限制](../../research/baiqi-source160-label-zero-profile-http949-2026-11-17.json)：新未完成诊断事前11源337868B，一次POST404／27.728600ms／0完整采用extra；失败很快自然结束，watch未写stop文件，不补造。Owner只专化私有观察包中的profile/context原件，补有界512名称／调用／测零／失败／时钟未知与首末界，保留4096样本／原配额／原模板和mod不变。30工厂／上下文与12组合执行通过，其中2溢出可达检查仅软件MAX=2，不冒称原上限数十亿调用。新观察异常不替换原返回／错误，不增加Native时钟读取；Reset清新统计。
+
+已测零仍非零CPU，跨边界聚合不可擅分配，跨上下文不相加CPU；仅软件准备、未Native／未修复MANY15.018333%FAIL。累计949／816完整／68length／65最终请求失败／988POST／38extra／0在途、OpenCode原生0。NoSite五组及完整功能／迁移验收继续，整个mod未完成。
