@@ -1535,3 +1535,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: current161 physical paid-map confirmation/completed reload/known duplicate branch
 
 [Actual first confirmation, native1transfer/1debit/1Finish, full current scene and safe closure](../../research/baiqi-source161-paid-map-complete-reload-native-2026-11-18.json). Gold4524.2734375→4224.2734375, horseman4→0/cooldown114, city1/524295→0/851979/pop1; oneCOMMITTED/DONE. Newcity BACKGROUND granary0:114:1/request+queue observed, nativequeue0/32. Current immediate citycenter/loyalty/visible+Coregarrison mapping retained; no whole specialasset/loyalty grant. Newcompleted114officialsame-processreload/nativecapturecalls0, oneexplicitknownCOMMITTED duplicate positively reachesCore/duplicate1/no new nativeeffect. Baremarker31864halt preserved/canonicalrawreconciled withoutreplay;82226remaining finalsave/officialexit/residue closed. Cancel/normalattack independentcopies, thresholds/faults/coldreload/fullmatrix/performanceFAIL/old865remain.983984realnextplans only after gameclosure; continue.
+
+
+## 2026-11-18: private save-qualification receipt index985
+
+[Measured wildcardwalk bottleneck and22-case full-check-retaining adapter](../../research/baiqi-private-save-qualifier-index985-software-2026-11-18.json). Original38functions retain same code/SHA/currentfile checks; isolated globals only index receipt directory names per call, detect directory mutations, delegate literal/complexglob to installedPath semantics. Full actual qualifier passes87984entries/33patterns;8.3989sunprofiled vs27.5328sprofiled is not a precise speed ratio or gameperformance grant.985real404/noadoption before Owner work while gameclosed; Source161unchanged. Continue new independent cancelcase.
