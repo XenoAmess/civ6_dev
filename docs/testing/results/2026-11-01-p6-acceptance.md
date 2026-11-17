@@ -1565,3 +1565,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: independent C+1 gold boundary software admission
 
 [Fresh301 fixture / fee300 unchanged / actual VM and finite flow checks](../../research/baiqi-source161-gold-plus1-admission986-2026-11-18.json). Exact-C previous process closed and saved. One durable QA preparation separately accounted; expected paid301→1 still requires physical confirmation and independent Native evidence. No new HTTP or Native pass; continue.
+
+
+## 2026-11-18: Source161 fee300 balance301 physical confirmation branch PASS
+
+[Independent controlled fixture and actual UI/Core settlement](../../research/baiqi-source161-gold-plus1-native-2026-11-18.json). QA balance setup4524.2734375→301 recorded separately from ability; actual physical right/confirm after verified OS cursor away and UIplot877→660. Paid gold301→1, army4→0, city transferred, native Transfer/debit/Finish1 each; UI ordinary continuation0. Immediate old-state frame retained; later positive log and independent reads qualify settlement, no click replay. Save/retire/official exit/quiet owned residue complete, completion parent exit0. Only C+1 and current target-binding subbranch; remaining thresholds/faults/fullmod/old865/performance FAIL continue.
