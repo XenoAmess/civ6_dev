@@ -1555,3 +1555,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: independent exactgoldC300 fixture/admission986 software
 
 [Separate QA balance intent and28VM/2once-loadVM/6finiteflows](../../research/baiqi-source161-exact-gold-C-admission986-2026-11-18.json). Original119package unchanged; setup once4524.2734375→300 is fixturepreparation, notabilityincome/debit and outsideCapture974observer. Native must independently read300/counters0 before physicalmapinput; no fee-boundary pass yet.986prior404/noadoption/newHTTP0, continue actualC then independentotherboundaries.
+
+
+## 2026-11-18: Source161 exact balance C300 physical confirmation branch PASS
+
+[Independent controlled fixture and actual UI/Core settlement](../../research/baiqi-source161-exact-gold-C-native-2026-11-18.json). QA balance setup4524.2734375→300 recorded separately from ability; actual physical right/confirm after verified OS cursor away and UIplot877→660. Paid gold300→0, army4→0, city transferred, native Transfer/debit/Finish1 each; UI ordinary continuation0. Save/retire/official exit/quiet owned residue complete,42137 exit0. Only exact-C and current target-binding subbranch; remaining thresholds/faults/fullmod/old865/performance FAIL continue.
