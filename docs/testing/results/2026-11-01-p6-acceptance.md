@@ -1451,3 +1451,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: scoped network-isolation mechanism selftest
 
 [Exact own-helper WFP enforcement and cleanup evidence](../../research/baiqi-source160-tc038-own-helper-wfp-selftest-2026-11-17.json). Actual SDK-compiled helper TCP connection0 -> Winsock10013 under its exact own-app/loopback/port/protocol filter ->0 after dynamic engine close. Separate readback proves own filter/sublayer gone; OS profile bytes unchanged. This targets only the QA helper, not Civ6/Steam, and does not pass TC038. Genuine pending964/965 model tasks each returned404 without adoption; actual POST peak1 despite2 wrappers. Whole mod and known failures remain open.
+
+
+## 2026-11-17: actual old P5 marker2 retains deprecated state; fix pending
+
+[Actual natural pair, independent current queues and future fix](../../research/baiqi-source160-oldpause-marker2-failure-fix966-software-2026-11-17.json). Original P5T24 carries marker2 and enabledfalse; both natural before/after states are identical. Original45761 stops before END. Fresh controller availability is true and all five queue metadata are known, so no actual operational pause is inferred. Private966 proposal moves all-alive old-state removal outside guarded plot cleanup; original defect2VM and candidate8VM pass, without journal/gold/order changes. Product remains160. Sole failed-scene closure and later fixed-version retest are pending; no P5/whole-mod pass. Future readonly WAKE V3 accepts only the actual failed-scene closure and never fabricates P5 success.
