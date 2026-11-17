@@ -1595,3 +1595,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 Core authority fix
 
 [Actual-consumer regression and ordinary package](../../research/baiqi-source162-core-human-authority-software-2026-11-18.json). 12 owner checks reject a present nonfunction config human port; nil config port retains actual player fallback. Before fix60 actual subtest failures; after fix6 methods/229 Core fixture worlds pass. Full2765 total/2764 passed/1 SDK skip,97 dual-Lua compiles,119 archive members. Model990 previously404/no candidate; Owner fix only. Native162 NOT_RUN; full acceptance and old865/performance failures remain open, continue.
+
+
+## 2026-11-18: Source162 independent normal attack prepared
+
+[Actual product popup VM, full119 package and finite guards](../../research/baiqi-source162-normal-attack-preparation-2026-11-18.json). Native NOT_RUN: fresh original copy, physical normal-attack choice, bound continuation and actual combat damage required with zero paid effects.4 product VM/2 load-once VM/13 damaged-witness rejections/5 admission/8 completion flows; first Owner numeric-key parser error corrected before launch. Whole acceptance remains OPEN; proceed Native.

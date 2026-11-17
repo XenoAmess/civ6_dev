@@ -1,0 +1,426 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-17T23:05:47.205817+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "NORMAL_ATTACK_INDEPENDENT_CURRENT_SOURCE_CASE_SOFTWARE_READY_NATIVE_NOT_RUN",
+  "whole_mod": "OPEN_CONTINUE",
+  "fixture": {
+    "stem": "Baiqi_P6_20261105_V74_GarrisonPrep114",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044",
+    "turn": 114
+  },
+  "private_package": {
+    "files": 119,
+    "Lua51_Lua53_sources": 97,
+    "archive_sha256": "180da68bc5901a3c1f7ebfee7985866b5a5811eaa546965c79475a48997088c8",
+    "changed_files": [
+      "Lua/BaiqiCapture.lua"
+    ],
+    "other118_exact_Source162": true,
+    "Capture_transform_lineage": 161,
+    "observer": "Existing974 exact inverse callsite transform, original Capture source byte-identical to161; no native global bindings changed."
+  },
+  "validation": {
+    "official_load_once_VM": 2,
+    "actual_product_popup_VM": [
+      {
+        "VM": "Lua51",
+        "context": "WorldInput",
+        "actual_Actions_normal_branch_and_observer": true
+      },
+      {
+        "VM": "Lua51",
+        "context": "UnitFlagManager",
+        "actual_Actions_normal_branch_and_observer": true
+      },
+      {
+        "VM": "Lua53",
+        "context": "WorldInput",
+        "actual_Actions_normal_branch_and_observer": true
+      },
+      {
+        "VM": "Lua53",
+        "context": "UnitFlagManager",
+        "actual_Actions_normal_branch_and_observer": true
+      }
+    ],
+    "guard_dual_Lua_compiles": 2,
+    "damaged_combat_witness_rejected": [
+      "no_military_effect",
+      "no_damage_only_moves",
+      "wrong_full_actor",
+      "wrong_owner",
+      "escort",
+      "fee_charged",
+      "paid_bank",
+      "paid_result",
+      "paid_cooldown",
+      "native_transfer",
+      "unknown_observer",
+      "changed_target",
+      "dead_actor"
+    ],
+    "admission_flows": [
+      {
+        "failure": null,
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "lifecycle",
+          "install"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "lifecycle",
+          "load",
+          "load"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "baseline-original"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ]
+        ]
+      },
+      {
+        "failure": "unavailable",
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "header"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ]
+        ]
+      }
+    ],
+    "completion_flows": [
+      {
+        "failure": null,
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ],
+          [
+            "ui",
+            "read",
+            "after-attack"
+          ],
+          [
+            "continuation"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "finish",
+            "save"
+          ],
+          [
+            "finish",
+            "exit"
+          ],
+          [
+            "close"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "after-attack"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "ui",
+          "read",
+          "after-attack"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ],
+          [
+            "ui",
+            "read",
+            "after-attack"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "continuation"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ],
+          [
+            "ui",
+            "read",
+            "after-attack"
+          ],
+          [
+            "continuation"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "ui",
+          "retire",
+          "retired"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ],
+          [
+            "ui",
+            "read",
+            "after-attack"
+          ],
+          [
+            "continuation"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "finish",
+          "retire"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ],
+          [
+            "ui",
+            "read",
+            "after-attack"
+          ],
+          [
+            "continuation"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ],
+          [
+            "finish",
+            "retire"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "finish",
+          "save"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ],
+          [
+            "ui",
+            "read",
+            "after-attack"
+          ],
+          [
+            "continuation"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "finish",
+            "save"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "finish",
+          "exit"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-attack"
+          ],
+          [
+            "ui",
+            "read",
+            "after-attack"
+          ],
+          [
+            "continuation"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "finish",
+            "save"
+          ],
+          [
+            "finish",
+            "exit"
+          ]
+        ]
+      }
+    ]
+  },
+  "Owner_preflight_correction": "First software run exposed KeyError0: actual parser returns numeric-key dictionaries1,2. New continuation consumer corrected to the actual shape before install/game launch; first failure retained. No product/observer/parser changes or Native action replay.",
+  "plan": [
+    "Fresh own readonly Steam offline proof before one cold Source162 launch, CPU1..8; original GarrisonPrep114 loaded once.",
+    "Actual UI/Core full HORSEMAN2162700@42,19/moves4/form1/HP100, enemy1 city524295@41,19/pop1/quote300; baseline positive before any map input.",
+    "One physical right opens original paid popup; verify actual OS pointer away before one physical middle normal-attack choice.",
+    "Require bound native continuation1/army2162700/target41,19 and independent actual military damage+spent movement; zero UI paid requests, zero Capture transfer/debit/Finish, no paid bank/result/cooldown.",
+    "Positive witness before retire/save/officialexit; unknown stops all dependent actions with no input replay. Exact owned residue180s/window0/listener0/2squiet/one terminate only if needed."
+  ],
+  "scope": "Software case admission only. Existing161 threshold/cancel evidence remains version-scoped; no162 Native claim or full TC023/fullmod pass.",
+  "local_model": "Prior real normal-attack planning task983 returned404 before Owner implementation; no new connectivity probe or candidate adoption."
+}
