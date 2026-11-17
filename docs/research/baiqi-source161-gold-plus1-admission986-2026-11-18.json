@@ -1,0 +1,407 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-17T20:18:31.757329+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 161,
+  "status": "FEE300_BALANCE301_INDEPENDENT_NATIVE_ADMISSION_SOFTWARE_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "product_change": false,
+  "software": {
+    "utc": "2026-11-17T20:17:02.637749+00:00",
+    "source_version": 161,
+    "official_load_VM": [
+      {
+        "VM": "Lua51",
+        "official_payload_once": true,
+        "duplicate_rejected": true,
+        "actual_fixture_payload_compiled": true
+      },
+      {
+        "VM": "Lua53",
+        "official_payload_once": true,
+        "duplicate_rejected": true,
+        "actual_fixture_payload_compiled": true
+      }
+    ],
+    "finite_mock_flows": [
+      {
+        "failure": null,
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ],
+          [
+            "witness",
+            "baseline-gold"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "lifecycle",
+          "install"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "baseline-original"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "setup",
+          "prepare-once"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "baseline-gold"
+        ],
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ],
+          [
+            "witness",
+            "baseline-gold"
+          ]
+        ]
+      },
+      {
+        "failure": "unavailable",
+        "trace": [
+          [
+            "lifecycle",
+            "install"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "lifecycle",
+            "header"
+          ],
+          [
+            "lifecycle",
+            "launch"
+          ],
+          [
+            "connect"
+          ],
+          [
+            "lifecycle",
+            "load",
+            "load"
+          ],
+          [
+            "ready",
+            "load"
+          ],
+          [
+            "witness",
+            "baseline-original"
+          ],
+          [
+            "setup",
+            "prepare-once"
+          ],
+          [
+            "witness",
+            "baseline-gold"
+          ]
+        ]
+      }
+    ],
+    "fixture_actual_VM_cases": 4,
+    "source_hashes": {
+      "paidgold161plus1_lifecycle_owner.py": "8580a1e49b577a374d6155f8b539f0c15145df256453e5ab015bde5cdebd4306",
+      "paidgold161plus1_episode_owner.py": "7440fb8ee5213ee2054cf307b9c82e9e5536229cdbdb6162d64498d143254526",
+      "paidgold161plus1_setup_owner.py": "70fc7a303a3570b2f3670c4700d9ea8413cfb963c41b2f708f65b1b5ce9be65b",
+      "paidgold161plus1_witness_owner.py": "917f440aa8dda533bfeb1931e481074bf396dbc2bb613ca1abf362509756dff5",
+      "paidgold986_plus1_fixture_owner.lua": "bf817a74009e6c48c8174d7b1858cfc6c3fa6dcb5a4a90e98c3171864b51b31f"
+    },
+    "Native": "NOT_STARTED",
+    "product_change": false,
+    "scope": "New Cplus1=301 controlled QA fixture/cold baseline only, original119package unchanged. Setup separate from paidability; no physicalconfirmation or fee boundary Native pass yet."
+  },
+  "fixture_software": {
+    "actual_VM_runs": [
+      {
+        "VM": "Lua51",
+        "scenario": "success",
+        "fixture_calls": 1,
+        "duplicate_rejected_without_second_balance_call": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "native_after_application_unknown",
+        "fixture_calls": 1,
+        "duplicate_rejected_without_second_balance_call": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "success",
+        "fixture_calls": 1,
+        "duplicate_rejected_without_second_balance_call": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "native_after_application_unknown",
+        "fixture_calls": 1,
+        "duplicate_rejected_without_second_balance_call": true
+      }
+    ],
+    "helper_sha256": "bf817a74009e6c48c8174d7b1858cfc6c3fa6dcb5a4a90e98c3171864b51b31f",
+    "normalized_text_sha256": "fe7c96d33fe755ac617b59b93ac888c39c9698339342251b9bb3855b58024ca4",
+    "unchanged_quote_cost": 300,
+    "target_fixture_gold": 301,
+    "Native": "NOT_RUN",
+    "previous_proof_issue": "v1 recorded normalized-text SHA instead of actual CRLF file bytes; original retained, initial admission rejected before any game launch",
+    "exact_helper_semantic_diff_only": [
+      "separate durable key",
+      "separate marker",
+      "target301"
+    ],
+    "scope": "Four actual repeat VM checks justified by hash-proof correction; no Native grant, no model call. Actual source bytes remain unchanged."
+  },
+  "closure_software": {
+    "finite_flows": [
+      {
+        "failure": null,
+        "trace": [
+          [
+            "witness",
+            "after-confirm"
+          ],
+          [
+            "ui",
+            "read",
+            "after-confirm"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "finish",
+            "save"
+          ],
+          [
+            "finish",
+            "exit"
+          ],
+          [
+            "close"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "witness",
+          "after-confirm"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-confirm"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "ui",
+          "retire",
+          "retired"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-confirm"
+          ],
+          [
+            "ui",
+            "read",
+            "after-confirm"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ]
+        ]
+      },
+      {
+        "failure": [
+          "finish",
+          "save"
+        ],
+        "trace": [
+          [
+            "witness",
+            "after-confirm"
+          ],
+          [
+            "ui",
+            "read",
+            "after-confirm"
+          ],
+          [
+            "ui",
+            "retire",
+            "retired"
+          ],
+          [
+            "finish",
+            "retire"
+          ],
+          [
+            "finish",
+            "save"
+          ]
+        ]
+      }
+    ],
+    "dual_Lua_guard_compiles": 4,
+    "source_hashes": {
+      "paidgold161plus1_complete_episode_owner.py": "6467d1ffa4e5c3004f6a5150bac17d2e0b83099877a9d4528feaf710fa00bc29",
+      "paidgold161plus1_finish_owner.py": "3a97a51c099b65e0d388806da7228ea1e8a7745122587c180be0f8e68a233cc7",
+      "paidgold161plus1_cleanup_owner.py": "842a08c939fe7b99a30cb6d01e53e62e00535a60391353e44be765e0c6524f32"
+    },
+    "Native_actions": 0,
+    "scope": "After known physical confirmation only: read/retire/newsave/officialexit/quietcleanup; no input replay or normalEND."
+  },
+  "original_save": {
+    "stem": "Baiqi_P6_20261105_V74_GarrisonPrep114",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044",
+    "turn": 114
+  },
+  "review": [
+    "Next independent C+1 gold boundary uses another cold original GarrisonPrep114 copy, unchanged119-file Capture974 package. Exact-C prior process closed and proof published; all prior protected receipt prefixes including paidgold161c remain present and each save SHA remains checked.",
+    "QA helper differs from tested exact-C helper only in its own durable property/marker and target301; actual quote cost stays300. Four actual Lua51/53 VM runs verify one setup delta and rejected duplicate after success or after applied-but-unknown native error. Exact-C 28 broader negative VM scenarios remain evidence for unchanged guard code, not 28 new C+1 tests.",
+    "New full labels, fresh original UI/Core read, one QA preparation4524.2734375→301, independent UI/Core301 and zero paid counters required before physical map right/confirm. Setup is not ability income/debit. Expected actual paid301→1 remains unproved.",
+    "Two actual once-load VM cases, six finite admission/failure flows, four finite completion/failure flows and four dualLua completion guard compiles verified. Actual confirm guards treasury301, bound quote300; completion guards COMMITTED balance301→1 and city/actor/calls. ActualOS away is required before confirm; every unknown stops without replay.",
+    "No new model request: real986 already failed404 before boundary implementation. NewHTTP0, adoption0, ledger986 unchanged. No Native threshold/wholemod pass. Continue actual C+1, then separate stale UI/explicit backend insufficient-funds cases."
+  ],
+  "new_HTTP": 0
+}
