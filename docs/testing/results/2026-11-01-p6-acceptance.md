@@ -1530,3 +1530,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: paid baseline Owner type assertion halt; same-instance982 qualification
 
 [Original6404exit1, actualHORSEMAN dualread36020exit0 and future-only contract](../../research/baiqi-source161-paid-actual-horseman-contract982-2026-11-18.json). Historical WARRIOR assumption was wrong; fullactor2162700actualHORSEMAN/moves4/form1 and target/quote300 qualified bothcontexts, native transfer/debit/Finishall0. No reload/map/confirm/END replay.12contractcases/10reject/6compile, original965parser unchanged.982HTTP1between stopped consumers while gamealive/404/noadoption,0activeNativeoverlap. Continue before-assets/UI observer/selected view, then fresh physical map qualification; no fullpaid or modPASS.
+
+
+## 2026-11-18: current161 physical paid-map confirmation/completed reload/known duplicate branch
+
+[Actual first confirmation, native1transfer/1debit/1Finish, full current scene and safe closure](../../research/baiqi-source161-paid-map-complete-reload-native-2026-11-18.json). Gold4524.2734375→4224.2734375, horseman4→0/cooldown114, city1/524295→0/851979/pop1; oneCOMMITTED/DONE. Newcity BACKGROUND granary0:114:1/request+queue observed, nativequeue0/32. Current immediate citycenter/loyalty/visible+Coregarrison mapping retained; no whole specialasset/loyalty grant. Newcompleted114officialsame-processreload/nativecapturecalls0, oneexplicitknownCOMMITTED duplicate positively reachesCore/duplicate1/no new nativeeffect. Baremarker31864halt preserved/canonicalrawreconciled withoutreplay;82226remaining finalsave/officialexit/residue closed. Cancel/normalattack independentcopies, thresholds/faults/coldreload/fullmatrix/performanceFAIL/old865remain.983984realnextplans only after gameclosure; continue.
