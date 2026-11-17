@@ -1,5 +1,7 @@
 # civ6_dev
 
+[Source160原85前两组配对已闭合](docs/research/baiqi-source160-original85-pairs12-census-preparation-2026-11-17.json)：10段原值及保存／撤钩／退出齐全，剩余三组继续；所有尖峰保留，B_delta尚未裁定。当前160独立压力自然观察器已准备，MANY／NO_SITE新资格及实机矩阵仍待执行，整个mod验收未完成。
+
 [Source160原85 B_turn／N_req通过](docs/research/baiqi-source160-original85-fullscript-2026-11-17.json)：33上下文、780保留函数样本／4096容量；五窗最大约311ms，完整回合最多34次提交。普通91、保存／撤钩／释放完成，继续五组25配对段和当前MANY／NO_SITE矩阵；整个mod验收仍未完成。
 
 [Source160原85 B_plan按冻结预算通过](docs/research/baiqi-source160-original85-plan-http934935-2026-11-17.json)：Admin118个纯十城样本p95／max约2／10ms，Controller143个约11／49ms；317原值全留、普通91收尾／保存／撤钩／释放完成。继续B_turn、N_req、25配对段与压力矩阵；尚非TC-036或整个mod通过。
