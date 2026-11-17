@@ -1475,3 +1475,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: actual original settler WAKE qualification is true; recovery stays open
 
 [Independent full raw banks, actual WAKE row/booleans, safe closure and software correction](../../research/baiqi-source160-native-wake-qualification-2026-11-17.json). Actual native WAKE200562917/index3 visible true and strict true,nil for original8650807/HOLD@10,19. No WAKE/CANCEL/FOUND/END/journal clear; full before/after banks and actor/world unchanged. Namespace has30keys; rawget/index remains typedunknown. Original93889preload-size halt and42793rawget halt preserved; corrected sole58459first successful readonly probe/new158save/retire/officialexit/residue actually exits0. Positive qualification does not prove queue cancellation or recovery. Developer HTTP967/968 occurred between stopped parents while game process remained alive,0during active Native consumers; these scopes are separate. Product still160; integrate fixed161 and retest P5 next.
+
+
+## 2026-11-17: Source161 product fixes and real-file software verification
+
+[Fixes, complete regression, model969–976 failures and retained Native gaps](../../research/baiqi-source161-software-fixes-http969-976-2026-11-17.json). 2759 tests with one SDK skip;97 Lua sources compile in both engines;119 ZIP members match source. Three fixes cover old state cleanup after marker2, unknown unit-type rejection and unblocked read overhead. Source161 Native remains NOT_RUN, old865 recovery and MANY/NO_SITE performance remain FAIL. Historical HTTP scope clarified:963 and966 each ran while the owned game was alive between halted parents, not during an active exclusive Native parent; no runtime model generation claim follows.

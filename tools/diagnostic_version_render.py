@@ -2,11 +2,11 @@
 
 
 def render_helper(text: str, kind: str, source_version: int) -> str:
-    if type(source_version) is not int or source_version not in (140, 141, 142, 143, 144, 145, 146,147,148,149,150,151,152,153,154,155,156,157,158,159,160):
+    if type(source_version) is not int or source_version not in (140, 141, 142, 143, 144, 145, 146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161):
         raise ValueError("Unsupported diagnostic source version")
     if not isinstance(text, str) or kind not in ("benchmark_end_bridge", "diagnostic_plan_stage"):
         raise ValueError("Unknown diagnostic helper")
-    if source_version not in (143, 144, 145, 146,147,148,149,150,151,152,153,154,155,156,157,158,159,160):
+    if source_version not in (143, 144, 145, 146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161):
         return text
 
     def once(old: str, new: str) -> None:

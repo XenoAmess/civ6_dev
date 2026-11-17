@@ -236,6 +236,7 @@ class GameplayMigrationTests(unittest.TestCase):
         execute(self.lua, 'tests/lua/mock_requisition.lua')
         self.lua.execute(EVENT + '''
 TestCapture.gameProps.BAIQI_WITHDRAWN_RIGHTS_CLEANED=2
+PlayerManager={GetAliveIDs=function() return {7} end}
 BaiqiCapture={Recover=function() end}
 GameEvents={BaiqiRequisition=TestEvent(),BaiqiRequisitionRecover=TestEvent(),OnGameTurnStarted=TestEvent()}
 TestCapture.attaches=0

@@ -92,5 +92,27 @@ class UIGuardTests(unittest.TestCase):
         self.assertEqual((self.w.unitCalls, self.w.cityCalls, self.w.playerCalls, self.w.cultureCalls), (1, 1, 1, 1))
 
 
+
+    def test_unblocked_culture_reads_do_not_query_write_authority(self):
+        self.lua.execute("""
+          local culture=Players[7]:GetCulture()
+          BaiqiUIGuard.PlayerID=function() error('Readonly native method must not query write authority') end
+          for i=1,903 do local slot,value=culture:GetSlotPolicy(i);assert(slot==i and value==42) end
+        """)
+        self.assertEqual(self.w.cultureCalls,0)
+
+    def test_cached_culture_writes_recheck_current_authority(self):
+        self.lua.execute("""
+          local culture=Players[7]:GetCulture()
+          assert(culture:RequestChangeGovernment(8)==false)
+          TestGuard.leader='LEADER_TRAJAN';culture:RequestChangeGovernment(9)
+          TestGuard.leader='LEADER_BAIQI';assert(culture:RequestChangeGovernment(8)==false)
+          TestGuard.human=false;culture:RequestChangeGovernment(10)
+          TestGuard.human=true;assert(culture:RequestChangeGovernment(8)==false)
+          TestGuard.multi=true;culture:RequestChangeGovernment(11)
+          TestGuard.multi=false;assert(culture:RequestChangeGovernment(8)==false)
+        """)
+        self.assertEqual(self.w.cultureCalls,3)
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-17",
+  "machine": "BF-202609141645",
+  "status": "THREE_PRODUCT_FIXES_SOFTWARE_VERIFIED_NATIVE_RETEST_REQUIRED",
+  "whole_mod": "OPEN_CONTINUE",
+  "software": {
+    "utc": "2026-11-17T15:06:25.779457+00:00",
+    "source_version": 161,
+    "files": 119,
+    "Lua51_Lua53_sources": 97,
+    "archive_sha256": "bd3896638a711e18d303d642a585c9e267fdc7b76490fc058ab89fbfd20b0dd1",
+    "full_suite": {
+      "started": "2026-11-17T14:52:35.965108+00:00",
+      "ended": "2026-11-17T14:56:52.830622+00:00",
+      "exit_code": 0,
+      "wall_seconds": 256.8655107000377,
+      "log": "source161-full-suite-r2.log"
+    },
+    "run": 2759,
+    "SDK_skipped": 1,
+    "changed_files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiGameplay.lua",
+      "Lua/BaiqiRequisition.lua",
+      "Lua/BaiqiUIGuard.lua"
+    ],
+    "unchanged_files": 115,
+    "Native": "NOT_RUN",
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "changes": [
+    "Old BAIQI_STATE_V1 pause/city/unit flags are removed independently of the already-completed withdrawn-rights marker. The guarded plot/rights cleanup remains once-only; no refund or new income.",
+    "Requisition capture-unit classifier rejects nil/non-integer type without indexing a false row. Existing UI type getter does not silently fall back to Core.",
+    "Unblocked ObjectProxy reads avoid querying player authority. Blocked writes retain a fresh authority check on every invocation."
+  ],
+  "QA": "Explicit source-version gates now accept161 and reject unknown162. Existing sample4096/performance budgets/normal END/hash checks remain. Updated current-build expectations and a real PlayerManager fixture; no legacy-version expectations globally rewritten.",
+  "validation_history": {
+    "first_full_suite": {
+      "run": 2759,
+      "failures": 5,
+      "errors": 4,
+      "SDK_skipped": 1,
+      "cause": "Five current-build metadata expectations and four migration mocks lacked always-required PlayerManager API. Failures retained."
+    },
+    "affected_modules_after_correction": 65,
+    "second_full_suite": {
+      "run": 2759,
+      "failures": 0,
+      "errors": 0,
+      "SDK_skipped": 1
+    },
+    "new_regression_methods": 4,
+    "normal_119_zip_all_members_match_source": true,
+    "Lua51_Lua53_sources": 97
+  },
+  "local_model": {
+    "tasks": [
+      969,
+      970,
+      971,
+      972,
+      973,
+      974,
+      975,
+      976
+    ],
+    "all_eight_final_404_no_adoption": true,
+    "actual_POST_interval_peak": 8,
+    "inflight": 0,
+    "ledger": {
+      "logical": 976,
+      "complete": 816,
+      "length": 68,
+      "final_request_failures": 92,
+      "generation_POST": 1015,
+      "extra_POST": 38,
+      "inflight": 0,
+      "OpenCode_native_generation": 0,
+      "cached_tokens": null,
+      "Owner_active_cost": null,
+      "net_savings": null
+    },
+    "OpenCode_native_generation": 0,
+    "cached_tokens": null,
+    "Owner_active_cost": null,
+    "net_savings": null
+  },
+  "Native": "No161Native/test/install before this delivery. Private161P5package has four VM runs and five damaged-witness rejections; actual160 bad pair remains rejected.",
+  "prior_evidence_scope_correction": {
+    "TC032_rights": "Task963 developer POST occurred while the owned game was alive between halted original67165 and recovery88264 parents. Zero POSTs during either active exclusive Native parent is narrower than zero during the entire game lifetime.",
+    "P5_pause": "Task966 developer POST occurred while the owned game was alive between halted original45761 and abort99632 parents. It was not runtime generation or a formal performance interval."
+  },
+  "remaining": [
+    "Original P5 Source161 old-pause cleanup, two ordinary turns, new-save reload and production review.",
+    "Original865 recovery remainsFAIL; legal WAKE qualification alone permits no journal clear/retry.",
+    "MANY and NO_SITE paired performance remain validFAIL. Source161 has no new performance grant.",
+    "Paid-city full matrix, game-scoped network failure/finance tests, control/compatibility gaps and finite40 impact review remain open."
+  ]
+}

@@ -28,7 +28,7 @@ function BaiqiRequisition.IsCaptureUnit(unit)
   local index
   if unit and unit.GetUnitType~=nil then index=unit:GetUnitType()
   elseif unit and unit.GetType~=nil then index=unit:GetType() end
-  local row=index~=nil and GameInfo.Units[index]
+  local row=integer(index) and GameInfo.Units[index] or nil
   return row~=nil and row.Domain=="DOMAIN_LAND" and classes[row.PromotionClass]==true
 end
 

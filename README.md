@@ -1,5 +1,7 @@
 # civ6_dev
 
+当前源码161：[三项修复及完整软件回归](docs/research/baiqi-source161-software-fixes-http969-976-2026-11-17.json)。2759项测试通过、1项SDK环境跳过，97份Lua双版本编译、119文件普通包逐字节核对；旧暂停属性清理等三项修复已入源码。161实机复测待执行；原移民恢复、MANY／NO_SITE有效性能FAIL及其余功能矩阵仍未闭合，整个mod验收未完成。
+
 [Source160原85五组25段B_delta：PASS](docs/research/baiqi-source160-original85-paired-final-2026-11-17.json)，差值中位-49.000263ms、逐段比例中位-1.181583%；全部原值、实际输入和生命周期证据保留。当前160压力矩阵与其余功能／恢复验收继续，整个mod仍未验收完成。
 
 [Source160原85前两组配对已闭合](docs/research/baiqi-source160-original85-pairs12-census-preparation-2026-11-17.json)：10段原值及保存／撤钩／退出齐全，剩余三组继续；所有尖峰保留，B_delta尚未裁定。当前160独立压力自然观察器已准备，MANY／NO_SITE新资格及实机矩阵仍待执行，整个mod验收未完成。

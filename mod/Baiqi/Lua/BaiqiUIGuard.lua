@@ -32,7 +32,7 @@ local function ObjectProxy(native,blocked)
     if type(value)~="function" then return value end
     if cache[key]==nil then
       cache[key]=function(_,...)
-        if BaiqiUIGuard.PlayerID()~=nil and blocked[key] then return false end
+        if blocked[key] and BaiqiUIGuard.PlayerID()~=nil then return false end
         return value(native,...)
       end
     end

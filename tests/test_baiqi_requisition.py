@@ -172,5 +172,38 @@ end
         self.assertEqual((self.w.gold, self.w.moves, self.w.transferCalls, self.w.charges), (1000, 2, 0, 0))
 
 
+
+    def test_unknown_ui_unit_type_rejects_quote_without_side_effects(self):
+        params = self.g.TestParams()
+        for value in ('nil', 'false', "'UNIT_WARRIOR'", 'math.huge'):
+            with self.subTest(value=value):
+                self.lua.execute('TestCapture.objects.unit.GetUnitType=function() return '+value+' end')
+                self.assertEqual(self.g.BaiqiRequisition.Quote(7,9,3,12), (None,'wrong_unit'))
+                self.assertEqual(self.backend.Request(7,params), (False,'wrong_unit'))
+        self.assertEqual((self.w.transferCalls,self.w.charges,self.w.finishCalls,self.w.gold,self.w.moves),(0,0,0,1000,2))
+
+    def test_old_controls_clear_when_rights_migration_is_already_complete(self):
+        self.lua.execute("""
+          TestCapture.gameProps.BAIQI_WITHDRAWN_RIGHTS_CLEANED=2
+          TestCapture.props.BAIQI_STATE_V1={enabled=false,cities={old=true}}
+          EnemyProps={BAIQI_STATE_V1={enabled=false}}
+          Players[3].GetProperty=function(self,key) return EnemyProps[key] end
+          Players[3].SetProperty=function(self,key,value) assert(key=='BAIQI_STATE_V1' and value==nil);EnemyProps[key]=value end
+          PlayerManager={GetAliveIDs=function() return {7,3} end}
+          Map.GetPlotCount=function() error('Completed plot migration must not run again') end
+          TestEvents={}
+          GameEvents=setmetatable({},{__index=function(t,key)
+            local event={Add=function(fn) TestEvents[key]=fn end};rawset(t,key,event);return event
+          end})
+          TestCapture.props.BAIQI_REQUISITION_V1={operations={old={stage='COMMITTED',cost=150}}}
+        """)
+        self.lua.execute((ROOT/'mod/Baiqi/Lua/BaiqiGameplay.lua').read_text(encoding='utf-8'))
+        self.g.TestEvents.OnGameTurnStarted()
+        self.assertIsNone(self.w.props.BAIQI_STATE_V1)
+        self.assertIsNone(self.g.EnemyProps.BAIQI_STATE_V1)
+        self.lua.execute("EnemyProps.BAIQI_STATE_V1={enabled=false};TestEvents.OnGameTurnStarted();assert(EnemyProps.BAIQI_STATE_V1==nil)")
+        self.assertEqual(self.w.props.BAIQI_REQUISITION_V1.operations.old.stage,'COMMITTED')
+        self.assertEqual((self.w.transferCalls,self.w.charges,self.w.finishCalls,self.w.gold,self.w.moves),(0,0,0,1000,2))
+
 if __name__ == '__main__':
     unittest.main()

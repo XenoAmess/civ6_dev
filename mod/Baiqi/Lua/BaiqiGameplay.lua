@@ -29,11 +29,13 @@ local function RetireLegacyControls()
       end
     end
     Game.SetProperty("BAIQI_RIGHTS_V1",nil)
-    for _,pid in ipairs(PlayerManager.GetAliveIDs()) do
-      local player=Players[pid]
-      if player and player:GetProperty("BAIQI_STATE_V1")~=nil then player:SetProperty("BAIQI_STATE_V1",nil) end
-    end
     Game.SetProperty("BAIQI_WITHDRAWN_RIGHTS_CLEANED",2)
+  end
+  -- Old pause/city/unit flags may survive in a save whose rights gates were
+  -- already retired. Clear those inert controls independently of the plot pass.
+  for _,pid in ipairs(PlayerManager.GetAliveIDs()) do
+    local player=Players[pid]
+    if player and player:GetProperty("BAIQI_STATE_V1")~=nil then player:SetProperty("BAIQI_STATE_V1",nil) end
   end
 end
 
