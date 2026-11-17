@@ -1570,3 +1570,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source161 fee300 balance301 physical confirmation branch PASS
 
 [Independent controlled fixture and actual UI/Core settlement](../../research/baiqi-source161-gold-plus1-native-2026-11-18.json). QA balance setup4524.2734375→301 recorded separately from ability; actual physical right/confirm after verified OS cursor away and UIplot877→660. Paid gold301→1, army4→0, city transferred, native Transfer/debit/Finish1 each; UI ordinary continuation0. Immediate old-state frame retained; later positive log and independent reads qualify settlement, no click replay. Save/retire/official exit/quiet owned residue complete, completion parent exit0. Only C+1 and current target-binding subbranch; remaining thresholds/faults/fullmod/old865/performance FAIL continue.
+
+
+## 2026-11-18: stale funds299 UI/Core refusal software admission
+
+[32 helperVM +14 actual-sourceVM +2 loadVM +5/7 finite flows](../../research/baiqi-source161-stale-gold299-admission986-2026-11-18.json). Fresh original eligible map popup first, separately durable QA gold299 preparation afterward. Physical stale confirm must prove UIrequest0/no ordinary attack/full unchanged world before separately labeled QA backend request must prove REJECTED/insufficient_gold/native0. Same cold copy/two sequential verified steps, no Native grant yet. NewHTTP0, wholemod and valid failures remain open; continue.
