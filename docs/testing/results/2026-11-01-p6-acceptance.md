@@ -1495,3 +1495,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-17: private Source161 natural BACKGROUND WAKE prototype969 software
 
 [100 factory/getter/integration VM runs,8 damaged-frame rejections,2 load VMs and4 finite flows](../../research/baiqi-source161-background-wake969-prototype-software-2026-11-17.json). Diagnostic119/97dualLua restores exact current source. One old865 WAKE only under original natural Controller idle/authority and reserved request budget, two visible/two strict qualifications, one diagnostic intent persisted before call. No manual civilian input/END/FOUND/pending clear/recovery. Original ARMED remains; missing Core channels typedunknown. Not installed or Native-tested yet. First60-upvalue build failure retained; V2 compiles. Continue exact owned Native probe; old865 recovery and pressure FAIL stay open.
+
+
+## 2026-11-18: private helper fence977 corrected before first Wake161 game
+
+[Original82866halt/noPopen,13 real file/future launch-shape cases, Nov18 maintenance and404](../../research/baiqi-source161-private-helper-fence977-2026-11-18.json). Correct private Lua helper path role; original948/common fences and119QA ZIP unchanged. New R2 verifies existing install0file mutations/new commit/receipts, first actual launch/load still pending. OpenCode canonical daily update1.19.6 succeeded;977POST1/404/no adoption. Whole mod/old865/performance FAIL remain; continue R2 Native.
