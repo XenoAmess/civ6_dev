@@ -1715,3 +1715,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Continue genuine performance diagnosis after E delivery
 
 [Real996 task and delivery recovery](../../research/baiqi-http996-owned-wpr-runtime-candidate-2026-11-18.json). Localproxy failed Epush; exactexistingcommit normally fetched/rebased/pushed via temporaryGit-child directroute, actualremoteverified, no globalconfig/Steam/gameaction changes. Eshared delivery resumed separately. Genuine996 requests actualWPR OS runner/admission/independentwatchdog before Ownercode, onePOST404/114.766ms/noSSE/candidate/adoption;996logical/816complete/68length/112fail/1035POST/0inflight. FreshreadonlyOSinventory/actualtraceimplementation next; no actualtrace/performancegrant yet. Old865andpressureFAILs remain, entiremod continues.
+
+
+## 2026-11-18: Actual WPR watchdog failure, owned recovery and ETL attribution
+
+[Actual failure and recovery](../../research/baiqi-wpr996-watchdog-stop-timeout-and-recovery-2026-11-18.json).23newsoftwarechecks/25oldmocks didnotprove lifecycle. Actualwatchdogready/parentexit0, normalstoputility30stimeout killedutility/watcherexited, recordingcontinued; actualETLspan386.0870678s versusTTL60, FAIL retained. Owner verifiedownactive/nooldCLI, preservedtwoETLs viahardlinks thenone disclosedownnamedcancel; namedINACTIVE/0owncollectors. NoStopreplay/globalcancel/othercontrols/gameinputs. Offline merge+analysis exit0/errors0/lost0, ownedCiv23448singlelifetime/80modulebuckets plus externalexactPIDbirthbeforeafter; no directETLbirthfield/Nativeclockalignment/causalorformalgrant. Genuine997one404/79.7484ms/no candidate beforev2code;997logical/816complete/68length/113fail/1036POST/0inflight. Continue v2faultpath and actualpressureFAIL diagnosis; entiremod remainsOPEN.

@@ -1,0 +1,135 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T08:52:20.790044+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "ACTUAL_WATCHDOG_SMOKE_FAIL_STOP_TIMEOUT_RECOVERED_OWN_INACTIVE_RAW_ETL_OWN_PID_VERIFIED",
+  "whole_mod": "OPEN_CONTINUE",
+  "watchdog_smoke_pass": false,
+  "formal_performance_budget_grant": false,
+  "pressure_failure_cause_established": false,
+  "owner": {
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe",
+    "pid": 23448
+  },
+  "private_runtime_software_cases": 23,
+  "prior988mock_thread_cases": 25,
+  "actual_failure": {
+    "recording_profile": "CPU.Verbose.File",
+    "WPR_binary_version": [
+      10,
+      0,
+      19041,
+      7802
+    ],
+    "independent_watchdog_ready": true,
+    "parent_intentional_exit_after_start_seconds": 2,
+    "one_original_normal_stop": "TIMED_OUT_AFTER30s_UTILITY_KILLED_BY_subprocess_run_WATCHDOG_RAISED_AND_EXITED",
+    "partial_original_stop_stdout": "NOT_RETAINED_OWNER_DIAGNOSTIC_OMISSION",
+    "configured_recording_ttl_seconds": 60,
+    "actual_ETL_span_seconds": "386.0870678",
+    "TTL_overrun": true,
+    "normal_stop_or_watchdog_cleanup_pass": false
+  },
+  "actual_recovery": {
+    "before": "Fresh namedCPUactive/2exactowncollector names/no live oldparent/watchdog/WPRCLI",
+    "preservation": "Two rawcollector ETLs protected by verified NTFS hardlinks before cancellation",
+    "own_named_cancel_count": 1,
+    "global_cancel_count": 0,
+    "other_session_controls": 0,
+    "additional_stop_calls": 0,
+    "final_named_status": "INACTIVE",
+    "remaining_visible_own_collectors": 0,
+    "raw_collectors": [
+      {
+        "bytes": 182452224,
+        "sha256": "157d793275996979278fe313b2fd772e884de499e32c12b7625cf15658f8efc7"
+      },
+      {
+        "bytes": 304087040,
+        "sha256": "635ed7010aa6089f3d031e3402fe007a585375efd23943513db1cdd2a78a173a"
+      }
+    ]
+  },
+  "offline_analysis": {
+    "merged_bytes": 111057042,
+    "merged_sha256": "6271b8b734e52200677013aa0e06371db12024ed093a7908db25027922a6ca9a",
+    "original_raw_inputs_unchanged": true,
+    "merge_only_no_imageID_injection": true,
+    "xperf_exit_code": 0,
+    "error_bytes": 0,
+    "process": "CivilizationVI_DX12.exe (23448)",
+    "ETL_lifetime": "Single matching process row MIN->MAX throughout trace",
+    "external_before_after_PID_birth_exe_match": true,
+    "direct_ETL_creation_birth_field": "NOT_EMITTED_BY_THIS_XPERF_REPORT",
+    "owned_profile_module_buckets": 80,
+    "ETL_headers": {
+      "Number of Processors": "36",
+      "Clock type": "PerfCounter",
+      "Boot time": "2026/10/30:19:26:13.5000000",
+      "Start time (UTC)": "2026/11/18:08:22:49.7123205",
+      "End time (UTC)": "2026/11/18:08:29:15.7993883  (+         0:00:06:26.0870678)",
+      "Total # Lost Buffers": "0",
+      "Total # Lost Events": "0"
+    },
+    "current_game_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "no_lost_or_inversion_override_flags": true,
+    "Native_Automation_GetTime_QPC_alignment": "NOT_ESTABLISHED",
+    "no_formal_or_causal_performance_credit": true
+  },
+  "review": [
+    "Private996 adapter23software checks plus old98825mocks did not predict nativeSDK stop latency. Actual unique ownnamedCPUcapture started and independenthiddenwatchdog survived intentionaltraceparentexit. Its one normalStop utility exceeded30s; subprocess.run terminated that utility, watcher raisedUncertain and exited. Fresh readonlystatus and QueryAll then proved2owncollectors stillrecording. Coordinator180s waitfailed. This is an actual watchdog/lifecycle failure, not a successfulparentlosscleanup or a productperformance measurement.",
+    "Owner recovery did not replayunknownstop. It independently revalidated exactmanifest/nonce/boot/helper/binary/oldprocessdeath/currentpositiveownedrecording; added verifiedNTFShardlinks outsideSDKtempcleanup, then transparentlyreserved/executed ONE recoverycancel with -instancename exactownUUID. No globalcancel, no othercollectorcontrol orgame/Steam action. NamedstatusINACTIVE and0ownedcollectors freshly verified, retainedrawfiles stableSHA. This additionalowncancel is disclosed, not silently counted as the originalnormalStop or watchdogPASS.",
+    "Original stopstdout partialbytes were not persisted by the firstRunner timeout handler; this diagnostic omission is retained, no inventedSDK blockingstage. Source/watchdog logs/commandintents/exception retained. First runtime remains unchanged for reproducibility. Futurev2 must streamstdout toprivatefile before spawn and keepwatchdogresponsive whenstopunknown, with exactCLIidentity, atomic separate stop/cancelreservation and data-preserving owncleanup. No newtrace started after recovery at thiscut.",
+    "Offline xperf mergeonly/compression preservedboth originalcollectorhashes, then process/profile/tracestats parsing returned0/errors0 without -tle/-tti. ETL contains exactlyone ownedCiv23448processlifetime MIN->MAX and80profilemodulebuckets; livebefore/after externalPIDbirth/exepathmatched. Creationbirth is not emitted by thisxperfreport and is not fabricated as anETLfield. HeaderPerfCounter/UTCspan386.0870678s/lostbuffers0/lostevents0 provesoverrun. No NativeAutomation.GetTime/QPC correlation, frozenNO_SITE/MANYreproduction orcausalrepair yet. IdleSource162privateCapture974retiredscope doesnotgrant ordinaryformalperformance.",
+    "Fresh installedprimaryhelp also foundToolkitWPR/xperf10.0.26100.8249 alongsideSystem32WPR19041.7802; CPU.Light.File kernelkeywords butdifferentproviders/stacks recorded. These observations do not identify whyoldStopblocked; binary/profilechanges requireseparatefuturetrace scope.",
+    "Genuine997 asked for robustv2 correction BEFORE Ownerimplementation usingactualfailedruntime/consumer/tests/recovery/SDKhelp. Canonicaldailymaintained directonePOST404/79.7484ms, noSSE/finish/candidate/adoption. Currentrequestcompletednaturally/stopfile preventedfurtherretry, no endpointfallback. Owner v2 notyetimplemented atthiscut. Wholemod continues; old865recoveryFAIL and frozenSource160pressureFAILs retained."
+  ],
+  "model997": {
+    "actual_POSTs": 1,
+    "http_status": 404,
+    "total_ms": 79.74840002134442,
+    "complete_SSE": false,
+    "finish_reason": null,
+    "candidate": null,
+    "adopted": false,
+    "routing": {
+      "proxy_mode": "direct",
+      "target_host": "192.168.1.11",
+      "proxy_handler": "disabled",
+      "redirects": "refused",
+      "actual_peer": "UNKNOWN"
+    },
+    "usage": null,
+    "cached_tokens": null,
+    "cost": null
+  },
+  "ledger_after997": {
+    "logical_tasks": 997,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 113,
+    "generation_POSTs": 1036,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0,
+    "usage_cache_cost_unknown": true
+  },
+  "private_helper_hashes": {
+    "wpr996_runtime_owner.py": "7636ca50b8f22203b43f39c34f7c20209417994095db388ead9898883e382a52",
+    "wpr996_runtime_verify_owner.py": "723a9d2ffe5f78a9931470eda131e46b36a9ad6c97e8105cee3fd90aee793db0",
+    "wpr996_smoke_coordinator_owner.py": "96f1cb9fb9302147298ed774ab5092923cc015ead837411611eba900e00b950d",
+    "wpr996_recover_own_active_trace_owner.py": "53b165d097ed22f949764d33a590d810b48d4f2a4de9f3d704a178f735b2c8be"
+  },
+  "next": "Implement/test newresponsivev2 streamingrunner/watchdog and actualownershipcleanup, preserve thisfailedsource and rawartifacts; then frozenpressurecausalreproduction/repair and remaining fullfunctionalacceptance."
+}
