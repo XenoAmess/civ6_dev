@@ -1890,3 +1890,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：MANY最终对账与原85前置兼容软件准备
 
 [1022／1023及Owner实测检查](../../research/baiqi-source163-many-final-account-original85-gate1022-1023-2026-11-19.json)：各单POST404，无采用；最终对账35项及原85兼容门30项软件检查通过。显式保留11启动尝试/10合格侧/1零样本失败启动，原HALTED与使用过的消费者不改。0原85安装／Native；94212继续MANY剩余侧，完整模组继续。
+
+
+## 2026-11-19：普通163护送清点调用程序软件准备
+
+[22项回环及拒绝检查](../../research/baiqi-source163-escort-inventory-consumer-software-2026-11-19.json)通过：两Lua实际生成正文/解析、期望玩家回合、坏帧与当前Native父拒绝。0新模型请求、0Native，TC020尚待实机；94212继续MANY，完整验收继续。
