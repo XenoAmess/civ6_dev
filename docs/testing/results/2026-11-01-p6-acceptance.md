@@ -1740,3 +1740,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Current162 actual UNIT queue cancellation guard
 
 [NewFcase](../../research/baiqi-current162-unit-production-cancel-guard-native-2026-11-18.json): actual3STANDARDunitheads(Musketman55/120,settler101/160,crouchtiger62/70) containMilitaryFormationType andModifiers, no adapterfixneeded. Naturalbanner/QueueTab thenonephysicalheldRIGHTcurrentMusketman: existingguardBUILD/removeAt0 once/false/drop0, all416selectedassetfields equal incl45units/goldfaith/progress55. Probeoriginalrestored/namespacecleared/officialsaveverified. Backendcountnotobserved, multiitem/reorderstillOPEN(all12queues size1), fullTC004notgranted. Genuine1000single404/no candidate; ledger1000/816complete/68length/116failed/1039POST/0inflight. Continue fullmodremaining cases and realpressure/recoveryFAILs.
+
+
+## 2026-11-18: Ordinary162 UNIT multiitem/swap/cancel positives
+
+[NewG3actualcontrol](../../research/baiqi-current162-gorgo-unit-multiitem-swap-cancel-native-2026-11-18.json): firstOwnercoordinateerror actualWarrior0to1 honestlyreconciled/notcalledScoutPASS. CorrectphysicalScoutappend makes[Warrior,Scout]2items; slot2selection+currentLEFTactualswap1to0 yields[Scout,Warrior], currentRIGHTactual2to1leavesWarrior0/40. EachnativeRequestOperationone/void0 andrealqueueeffects separatelyverified/all30otherfields same, gold1510/faith0/twoexistingunits; allownprobesremoved/twoqueue+finalofficialsavesverified. Corequeuegetterportsunavailable, noinventedCoreproof; persistenceReloadnext. Genuine1001one404/noadopt; ledger1001/816complete/68length/117failed/1040POST/0inflight. Baiqimultiitem/religious/army/paidremaining andpressure/865FAILs stillOPEN; continue.
