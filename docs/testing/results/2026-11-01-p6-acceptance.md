@@ -1900,3 +1900,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：TC038按映像／端点隔离工具软件与自有辅助程序验证
 
 [8项辅助程序及14项调用器检查](../../research/baiqi-source163-tc038-scoped-guard-software-2026-11-19.json)通过，真实连接0→10013→0、显式STOP／管道EOF后独立进程核filter/sublayer均消失。仅辅助程序临时规则，0Civ6/Steam规则、0Native；尚未游戏隔离或经济窗口，TC038及整模组继续。
+
+
+## 2026-11-19：163最终招募状态QA包与隔离准入准备
+
+[16项语义、119文件／97双Lua及12项消费者兼容](../../research/baiqi-source163-finance-observer-guard-compatibility-2026-11-19.json)通过，118文件不变、Controller插桩可逐字节逆回。只新增精确财务QA包准入，任意其他QA拒绝；尚未安装、Native或游戏过滤，TC007/TC038及完整验收继续。
