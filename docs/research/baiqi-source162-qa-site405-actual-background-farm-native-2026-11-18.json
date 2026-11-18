@@ -1,0 +1,207 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T04:45:16.788339+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "QA_SITE405_ACTUAL_BACKGROUND_FARM_COMPLETE_MANUAL_BUILD_ELIGIBILITY_PREEMPTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "full_manual_BUILD_TC004_or_TC008_pass": false,
+  "owner": {
+    "pid": 23448,
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "save": {
+    "utc": "2026-11-18T04:38:09.222703+00:00",
+    "name": "Baiqi_P6_20261118_V162_QABuild405Actual110.Civ6Save",
+    "bytes": 551893,
+    "sha256": "97b43638e42c9245a97c8fb3321a43980843e9f05ba6817dcb73d2fb608019e6",
+    "stable_repeated_read": true
+  },
+  "actual": {
+    "requestID": "0:110:6",
+    "source": "BACKGROUND",
+    "unitID": 5832733,
+    "plotID": 405,
+    "xy": [
+      9,
+      9
+    ],
+    "operation": "BUILD_IMPROVEMENT",
+    "improvement": "IMPROVEMENT_FARM",
+    "improvement_before": -1,
+    "improvement_after": 1,
+    "charges_before": 2,
+    "charges_after": 1,
+    "moves_before_background_build": 2,
+    "moves_after": 0,
+    "manual_BUILD_inputs": 0,
+    "normal_ENDs": 0
+  },
+  "actual_log_signals": [
+    "BaiqiExecutor: BAIQI|request|turn=110|id=0:110:6|source=BACKGROUND|unit=5832733|operation=BUILD_IMPROVEMENT|plot=405|from=405",
+    "BaiqiExecutor: BAIQI|observed|turn=110|id=0:110:6|unit=5832733|kind=BUILD_IMPROVEMENT"
+  ],
+  "independent_UI_known_deltas": {
+    "unit.5832733.BuildCharges": {
+      "before": 2,
+      "after": 1
+    },
+    "plot.405": {
+      "before": {
+        "district": -1,
+        "improvement": -1,
+        "owner": 0,
+        "x": 9,
+        "y": 9
+      },
+      "after": {
+        "district": -1,
+        "improvement": 1,
+        "owner": 0,
+        "x": 9,
+        "y": 9
+      }
+    }
+  },
+  "QA_setup": {
+    "original_eligible_builder_checkpoint_preserved": {
+      "utc": "2026-11-18T04:16:48.877078+00:00",
+      "name": "Baiqi_P6_20261118_V162_BuilderEligibleBlocked110.Civ6Save",
+      "bytes": 551458,
+      "sha256": "6110335b79bbe2a813a9400397c022357d726f445c978bd1dfeaacfbdaaf1fa8",
+      "stable_repeated_read": true
+    },
+    "placement": {
+      "utc": "2026-11-18T04:28:00.812113+00:00",
+      "owner": {
+        "pid": 23448,
+        "created_at": 1794965404.6102366,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "role": "TEST_PLAYER_QA_EXACT_ONE_PLACEUNIT_BUILD_SITE_ONLY",
+      "unitID": 5832733,
+      "from": [
+        11,
+        7
+      ],
+      "to": [
+        9,
+        9
+      ],
+      "targetPlotID": 405,
+      "helper_sha256": "f2a46b2257664c252220698f862c51d7402ec668935b971850b7a5d5d08e5ef9",
+      "primary_API_evidence": "Installed AustraliaScenario.lua854/886:UnitManager.PlaceUnit(pUnit,pCity:GetX(),pCity:GetY())",
+      "normal_MOVE_or_BUILD_requests": 0,
+      "AI_movement_or_effect_claim": false,
+      "unknown_outcome_retries": 0
+    },
+    "placement_reconcile": {
+      "utc": "2026-11-18T04:29:43.515359+00:00",
+      "known_assets": true,
+      "deltas": {
+        "unit.5832733.X": {
+          "before": 11,
+          "after": 9
+        },
+        "unit.5832733.Y": {
+          "before": 7,
+          "after": 9
+        },
+        "unit.5832733.MovesRemaining": {
+          "before": 2,
+          "after": 0
+        }
+      },
+      "placement_retries": 0,
+      "construction_inputs": 0,
+      "original_failed_helper_and_journal_retained": true
+    },
+    "placement_helper_software_VM_runs": 68,
+    "new_build_credit": {
+      "utc": "2026-11-18T04:33:06.368479+00:00",
+      "owner": {
+        "pid": 23448,
+        "created_at": 1794965404.6102366,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "role": "TEST_PLAYER_QA_NEW_EXACT_BUILD405_ELIGIBILITY_CREDIT",
+      "unitID": 5832733,
+      "xy": [
+        9,
+        9
+      ],
+      "movesBefore": 0,
+      "movesTarget": 2,
+      "delta": 2,
+      "helper_sha256": "7ff99acea2157b7602ce610f3319627b239cbcfaa701c26ea990efaa2db7a069",
+      "old_placement_or_old_credit_replays": 0,
+      "old_placement_ARMED_not_cleared": true,
+      "unit_orders": 0,
+      "ability_effect_claim": false
+    },
+    "new_build_credit_software_VM_runs": 84,
+    "placement_or_prior_credit_replays": 0,
+    "original_placement_ARMED_retained": true
+  },
+  "review": [
+    "Original current-position builder catalog had9returned improvements but all individual validfalse/best-1, so it did not qualify manualBUILD. Installed BUILD_IMPROVEMENT operation and returned improvement rows had nilHotkeyId; no assigned construction-shortcut pass was asserted.",
+    "A fresh readonly scan found ownedemptymaize plot405@9,9, improvement-1/district-1/terrainPLAINS/feature32/resource52, with0own Core unit occupants. Installed primary AustraliaScenario.lua854/886 concretely uses UnitManager.PlaceUnit(unit,x,y). A separately labeled exact one-use QA placement with68LuaVM boundary checks called it once after durable ARMED/readback.",
+    "Actual PlaceUnit placed5832733at9,9 and consumed moves2->0. Original helper expectedmoves2 to remain and failed its postcondition. Independent Core/UI readback reconciled exactlyX/Y/moves deltas; original failed helper/ARMED key retained, no PlaceUnit replay or intent clearing. Software success was not upgraded to Native success for that failed preserve-moves contract.",
+    "A new distinct build-eligibility fixture required exact reconciled old ARMED record and current actor9,9/moves0/charges2, passed84LuaVM boundary cases, then used its own new durable intent and exactlyone ChangeMovesRemaining(2). Core observed credit2. It did not retry the old original-position credit or placement, and made no BUILD request.",
+    "Before the subsequent UI snapshot, current mandatory AI actually executed: unique actual log request0:110:6/sourceBACKGROUND/unit5832733/BUILD_IMPROVEMENT/plot405/from405 and matching observed. UI417field snapshot compared against pre-credit showed only charges2->1 and plotimprovement-1->FARM1; moves had returned0. Independent Core confirmed same actor9,9/moves0/charges1 and FARM405/resource52/owner0, new credit journalOBSERVED2. No manualBUILDinput or direct diagnostic construction request occurred.",
+    "This is actual Source162 automatic construction effect on a clearly labeled QA prepared site, with one actual builder charge spent. It is not autonomous pathfinding/expansion, a natural-turn wholebuilding sequence, or a passed eligible-manualBUILD refusal. AI preemption explains the dependent fixture equality failure; no game-action replay was used to force an input window.",
+    "The post-build checkpoint was officially saved and verified. Old placement ARMED metadata is preserved as the original contract failure, all owned temporary move/city/queue observers and M key listener remain retired, no new UI hooks were installed here. Same game stays owned/running for remaining acceptance.",
+    "New real unfinished task993 requested a candidate BEFORE Owner implementation of a bounded eligible-BUILD UI backstop harness under actual background preemption, using actual current source/consumers/Native observations. Canonical daily-maintained adapter madeone real POST and got404 in13.95ms, no completeSSE/JSON candidate, no adoption or execution. Current request finished naturally; stopfile prevented any further retry. No endpoint/model fallback or Native action replay."
+  ],
+  "host_exec_terminals": {
+    "placement_fixture92607": 1,
+    "placement_reconcile19488": 0,
+    "new_build_credit90182": 1,
+    "credit_effect_reconcile83890": 0,
+    "save64882": 0,
+    "real_model993": 1
+  },
+  "private_log": {
+    "bytes": 6552696,
+    "sha256": "8b5396072b8f599ce9668e196604fcefe37c405a493dc9c09a776485f66fc46e",
+    "prefix_verified": true
+  },
+  "model993": {
+    "task": "Eligible BUILD UI harness before Owner implementation",
+    "http_status": 404,
+    "real_POSTs": 1,
+    "complete_candidate": false,
+    "adopted": false,
+    "SSE_done": false,
+    "finish_reason": null,
+    "wall_ms": 13.952900189906359,
+    "configured_model": "qwen38-coder",
+    "routing": {
+      "proxy_mode": "direct",
+      "target_host": "192.168.1.11",
+      "proxy_handler": "disabled",
+      "redirects": "refused",
+      "actual_peer": "UNKNOWN"
+    },
+    "actual_inflight_after_terminal": 0,
+    "usage": null,
+    "cached_tokens": null,
+    "cost": null
+  },
+  "ledger_after993": {
+    "logical_tasks": 993,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 109,
+    "generation_POSTs": 1032,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cache_tokens_and_cost_unknown": true
+  },
+  "remaining": [
+    "Eligible manualBUILD backstop harness993 has no candidate and is not yet implemented; ordinary citizen-map/builder positives, multiitem reorder, missionary MOVE/SPREAD, oldflags.",
+    "TC024distance/moves/cooldown, complete military/escort/finance/compatibility/special assets; old865 recoveryFAIL and MANY/NO_SITE performanceFAIL remain."
+  ]
+}

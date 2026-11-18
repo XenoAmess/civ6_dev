@@ -1670,3 +1670,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 eligible builder move and M shortcut negatives
 
 [Actual eligible builder input effects](../../research/baiqi-source162-eligible-builder-move-and-M-key-native-2026-11-18.json). Separate exact one-use QA restores5832733moves0to2 only,78LuaVM protocolcases; independent other415selectedfields equal. NativeMOVE_TOtrue+path319to364, calibrated cursor364@12,8; heldrightclick reaches existing Move guard1/false,416fields equal. PhysicalM yields real MoveTo InputAction35once, staysSELECTION/noqueued/noassetdelta. Observers restored/listenerremoved, officially saved, game continues. Readonly false-vs-nil/unpack/coordinate assumptions and player-selection activity-enum change recorded; no whole-native-state/BUILD/ordinary/fullTC004/022 grant. Canonical metadata still lacks configured textmodel03:53UTC,0newgeneration.
+
+
+## 2026-11-18: Source162 actual BACKGROUND farm after explicit QA site preparation
+
+[Actual Farm405 and retained fixture failures](../../research/baiqi-source162-qa-site405-actual-background-farm-native-2026-11-18.json). PlaceUnitonce reached405but consumedmoves2to0; original preserve-moves postcondition/ARMED retained. New distinct84VM one-use buildcredit2 preceded actual BACKGROUND request0:110:6 and observed;417known UI readbacks showcharge2to1/plot-1toFARM1, independentCoreagrees/moves0.0manualBUILDinputs; officially saved. Actual narrow AI construction onQA site, manualBUILD control eligibility preempted and stillopen. New unfinished993candidate request real404/1POST/noadoption; Owner harness notyetwritten. Ledger993/816complete/68length/109failure,1032POSTs,0inflight. Wholemod and existingFAILs remain OPEN.
