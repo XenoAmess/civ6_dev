@@ -1650,3 +1650,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 ordinary gold building and tile purchase positives
 
 [Actual Gorgo purchases](../../research/baiqi-source162-gorgo-gold-building-tile-positive-native-2026-11-18.json). Separate TEST_PLAYER_QA gold10+1990=2000, no income claim. Held native Monument purchase: UI/Core unowned->owned,240spent2000->1760 and queue cleanup. Held plot663@3,15 purchase: owner-1->0, exact purchased set+663,50spent1760->1710. No direct diagnostic purchase requests/END; officially saved, same game continues. Exact delayed Core settler fixture and failed guard retained; new budget helper38VM cases. FullTC004 and wholemod remain open.
+
+
+## 2026-11-18: Source162 held-input Baiqi city controls
+
+[Eleven new held mouse inputs](../../research/baiqi-source162-eleven-held-city-controls-native-2026-11-18.json). Protected original110 independently reloaded once after ordinary control saves. Each visible disabled widget received separateDOWN/atleast0.15s/UP;23known snapshots/11before-after416field pairs equal, no forced UI enable. Ordinary same-protocol queue/purchase effects separately preserved. Official save/observer retirement verified, game continues citizen/hotkey/eligible unit controls; native domestic request sink unobserved. Earlier combined inputs retain original limited scope, fullTC004/022 and wholemod remain open.
