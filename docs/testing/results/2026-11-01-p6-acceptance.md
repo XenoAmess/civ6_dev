@@ -1730,3 +1730,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Current NO_SITE geometry and passive causal observer preparation
 
 [Current162 continuation](../../research/baiqi-clock998-passive999-software-and-current-nosite-2026-11-18.json): frozen T1 reloaded once, new1144plot snapshot confirms1133water/11citytiles/0bareland and10local cities. Narrow native QPC adapter27software cases/10actual clock samples; no synchronization or ETW grant. Passive AI call observer40LuaVM scenarios passed, actual installation/normalEND observation next. Genuine998/999 each404/no candidate; ledger999/816complete/68length/115failed/1038POST/0inflight. Existing pressure/recoveryFAILs and fullmod remainOPEN.
+
+
+## 2026-11-18: Current162 NO_SITE ordinary turn2/passive calls
+
+[Actual continuation](../../research/baiqi-current162-nosite-normal-turn-passive999-native-2026-11-18.json): one TEST_PLAYER warriorSKIP then ordinaryEND1to2, actualExecutor/Core2/tenCities, >=10.25sactive observation.1725prepared+turn2rows/4096/drop0/invalidfalse/retired. Turn2Controllermax12ms/Admin15ms does not settle B_delta transitionFAIL. SDKmarkers3/ownedETL/lost0; span60.1209883s>60TTL FAIL retained, normalSDKstopungranted; independentwatcherrawpreserve/owncancelclosedINACTIVE. Parentexit1 Coregettererror retained, readonlyreconciliation/noactionreplay. Clockalignment~1.206s too broad for553msframecause. SavedcurrentNoSiteNormal2; next unitqueue/multiitem and remainingfunctional/recovery/performance work; wholemodOPEN.

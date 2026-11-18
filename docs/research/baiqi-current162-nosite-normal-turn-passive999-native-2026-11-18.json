@@ -1,0 +1,847 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T10:16:35.882815+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "ACTUAL_NORMAL_TURN2_PASSIVE_OBSERVATION_RECONCILED_CAUSAL_AND_BUDGET_REPAIR_OPEN",
+  "owner": {
+    "pid": 23448,
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "actual_turn": 2,
+  "ordinary_END_requests": 1,
+  "UserForced": false,
+  "TEST_PLAYER_domestic": 0,
+  "observer": {
+    "retained_rows": 1725,
+    "capacity": 4096,
+    "dropped": 0,
+    "invalid": false,
+    "retired": true,
+    "statistics": {
+      "Controller_turn1": {
+        "calls": 817,
+        "sum_seconds": 3.0079994201660156,
+        "max_seconds": 0.009999990463256836,
+        "nonzero_count": 784,
+        "min_native_start": 1794995899.492,
+        "max_native_end": 1794996195.549
+      },
+      "Controller_turn2": {
+        "calls": 51,
+        "sum_seconds": 0.2649998664855957,
+        "max_seconds": 0.012000083923339844,
+        "nonzero_count": 50,
+        "min_native_start": 1794996200.104,
+        "max_native_end": 1794996218.085
+      },
+      "Admin_turn1": {
+        "calls": 815,
+        "sum_seconds": 2.146003246307373,
+        "max_seconds": 0.013000011444091797,
+        "nonzero_count": 712,
+        "min_native_start": 1794995899.489,
+        "max_native_end": 1794996195.187
+      },
+      "Admin_turn2": {
+        "calls": 42,
+        "sum_seconds": 0.1660003662109375,
+        "max_seconds": 0.014999866485595703,
+        "nonzero_count": 40,
+        "min_native_start": 1794996202.722,
+        "max_native_end": 1794996218.08
+      }
+    }
+  },
+  "trace": {
+    "span_seconds": "60.1209883",
+    "ttl_seconds": 60,
+    "TTL_overrun": true,
+    "parent_exit_code": 1,
+    "normal_SDK_stop_pass": false,
+    "own_named_cancels": 1,
+    "final_named_status": "INACTIVE",
+    "visible_own_collectors": 0,
+    "headers": {
+      "Number of Processors": "36",
+      "Clock type": "PerfCounter",
+      "Boot time": "2026/10/30:19:26:13.5000000",
+      "Start time (UTC)": "2026/11/18:10:03:02.7952818",
+      "End time (UTC)": "2026/11/18:10:04:02.9162701  (+         0:00:01:00.1209883)",
+      "Total # Lost Buffers": "0",
+      "Total # Lost Events": "0"
+    },
+    "owned_ETL_lifetime": "One PID process row MIN->MAX plus external PID/birth/exe match, direct ETL birth not emitted",
+    "top_owned_modules": [
+      {
+        "weight_as_reported": 136468137,
+        "system_percent_as_reported": "6.31",
+        "module": "CivilizationVI_DX12.exe"
+      },
+      {
+        "weight_as_reported": 80470091,
+        "system_percent_as_reported": "3.72",
+        "module": "ntoskrnl.exe"
+      },
+      {
+        "weight_as_reported": 44748285,
+        "system_percent_as_reported": "2.07",
+        "module": "nvwgf2umx.dll"
+      },
+      {
+        "weight_as_reported": 14291232,
+        "system_percent_as_reported": "0.66",
+        "module": "ntdll.dll"
+      },
+      {
+        "weight_as_reported": 7909926,
+        "system_percent_as_reported": "0.37",
+        "module": "D3D12Core.dll"
+      },
+      {
+        "weight_as_reported": 2516122,
+        "system_percent_as_reported": "0.12",
+        "module": "GameCore_XP2_FinalRelease.dll"
+      },
+      {
+        "weight_as_reported": 2065619,
+        "system_percent_as_reported": "0.10",
+        "module": "HavokScript_FinalRelease.dll"
+      },
+      {
+        "weight_as_reported": 1754608,
+        "system_percent_as_reported": "0.08",
+        "module": "vcruntime140.dll"
+      },
+      {
+        "weight_as_reported": 1234250,
+        "system_percent_as_reported": "0.06",
+        "module": "KernelBase.dll"
+      },
+      {
+        "weight_as_reported": 1127926,
+        "system_percent_as_reported": "0.05",
+        "module": "dxgkrnl.sys"
+      },
+      {
+        "weight_as_reported": 1070504,
+        "system_percent_as_reported": "0.05",
+        "module": "nvlddmkm.sys"
+      },
+      {
+        "weight_as_reported": 906076,
+        "system_percent_as_reported": "0.04",
+        "module": "ucrtbase.dll"
+      }
+    ],
+    "marker_rows": [
+      {
+        "name": "BEGIN_NORMAL_END",
+        "ETL_nanoseconds": 10641040800,
+        "ETL_seconds": 10.6410408,
+        "QPC_before": 16077350672217,
+        "QPC_after": 16077366588265,
+        "host_bracket_seconds": 1.5916048
+      },
+      {
+        "name": "TURN2_ACTIVE",
+        "ETL_nanoseconds": 21969942000,
+        "ETL_seconds": 21.969942,
+        "QPC_before": 16077467711547,
+        "QPC_after": 16077479770154,
+        "host_bracket_seconds": 1.2058607
+      },
+      {
+        "name": "END_ACTIVE_WINDOW",
+        "ETL_nanoseconds": 34985829900,
+        "ETL_seconds": 34.9858299,
+        "QPC_before": 16077590726883,
+        "QPC_after": 16077613374379,
+        "host_bracket_seconds": 2.2647496
+      }
+    ],
+    "ETL_minus_host_conditional_bounds": {
+      "samples": 3,
+      "lower_seconds": -1607726.0070734,
+      "upper_seconds": -1607724.8012127,
+      "consistent": true
+    },
+    "Native_minus_host_conditional_bounds": {
+      "samples": 6,
+      "lower_seconds": 1793388456.7976506,
+      "upper_seconds": 1793388456.8552504,
+      "consistent": true
+    },
+    "phase_profiles": {
+      "rows": [
+        {
+          "label": "end_request_envelope",
+          "range_microseconds": [
+            10641040,
+            21969942
+          ],
+          "exit_code": 0,
+          "errors": 0,
+          "sha256": "0f93c369a8ad326d007aa03f3ef3bf4220bb7271cf654fd05ab9126071c85fae",
+          "owned_module_buckets": [
+            {
+              "weight_as_reported": 19207122,
+              "system_percent_as_reported": "4.71",
+              "module": "CivilizationVI_DX12.exe"
+            },
+            {
+              "weight_as_reported": 12381912,
+              "system_percent_as_reported": "3.04",
+              "module": "ntoskrnl.exe"
+            },
+            {
+              "weight_as_reported": 6157190,
+              "system_percent_as_reported": "1.51",
+              "module": "nvwgf2umx.dll"
+            },
+            {
+              "weight_as_reported": 2228636,
+              "system_percent_as_reported": "0.55",
+              "module": "ntdll.dll"
+            },
+            {
+              "weight_as_reported": 2186185,
+              "system_percent_as_reported": "0.54",
+              "module": "GameCore_XP2_FinalRelease.dll"
+            },
+            {
+              "weight_as_reported": 1095373,
+              "system_percent_as_reported": "0.27",
+              "module": "D3D12Core.dll"
+            },
+            {
+              "weight_as_reported": 471735,
+              "system_percent_as_reported": "0.12",
+              "module": "HavokScript_FinalRelease.dll"
+            },
+            {
+              "weight_as_reported": 278788,
+              "system_percent_as_reported": "0.07",
+              "module": "vcruntime140.dll"
+            },
+            {
+              "weight_as_reported": 204324,
+              "system_percent_as_reported": "0.05",
+              "module": "ucrtbase.dll"
+            },
+            {
+              "weight_as_reported": 182075,
+              "system_percent_as_reported": "0.04",
+              "module": "KernelBase.dll"
+            },
+            {
+              "weight_as_reported": 150105,
+              "system_percent_as_reported": "0.04",
+              "module": "dxgkrnl.sys"
+            },
+            {
+              "weight_as_reported": 140590,
+              "system_percent_as_reported": "0.03",
+              "module": "nvlddmkm.sys"
+            },
+            {
+              "weight_as_reported": 122708,
+              "system_percent_as_reported": "0.03",
+              "module": "Localization_FinalRelease.dll"
+            },
+            {
+              "weight_as_reported": 117603,
+              "system_percent_as_reported": "0.03",
+              "module": "kernel32.dll"
+            },
+            {
+              "weight_as_reported": 90428,
+              "system_percent_as_reported": "0.02",
+              "module": "dxgmms2.sys"
+            },
+            {
+              "weight_as_reported": 82438,
+              "system_percent_as_reported": "0.02",
+              "module": "XAudio2_9.dll"
+            },
+            {
+              "weight_as_reported": 60370,
+              "system_percent_as_reported": "0.01",
+              "module": "EOSSDK-Win64-Shipping.dll"
+            },
+            {
+              "weight_as_reported": 53376,
+              "system_percent_as_reported": "0.01",
+              "module": "msvcp_win.dll"
+            },
+            {
+              "weight_as_reported": 50106,
+              "system_percent_as_reported": "0.01",
+              "module": "Ntfs.sys"
+            },
+            {
+              "weight_as_reported": 37806,
+              "system_percent_as_reported": "0.01",
+              "module": "FLTMGR.SYS"
+            },
+            {
+              "weight_as_reported": 37422,
+              "system_percent_as_reported": "0.01",
+              "module": "D3D12.dll"
+            },
+            {
+              "weight_as_reported": 34489,
+              "system_percent_as_reported": "0.01",
+              "module": "dxgi.dll"
+            },
+            {
+              "weight_as_reported": 26197,
+              "system_percent_as_reported": "0.01",
+              "module": "AudioSes.dll"
+            },
+            {
+              "weight_as_reported": 25235,
+              "system_percent_as_reported": "0.01",
+              "module": "DatabaseDLL_FinalRelease.dll"
+            },
+            {
+              "weight_as_reported": 19034,
+              "system_percent_as_reported": "0.00",
+              "module": "tcpip.sys"
+            },
+            {
+              "weight_as_reported": 18557,
+              "system_percent_as_reported": "0.00",
+              "module": "win32kbase.sys"
+            },
+            {
+              "weight_as_reported": 18095,
+              "system_percent_as_reported": "0.00",
+              "module": "\"Unknown\""
+            },
+            {
+              "weight_as_reported": 17386,
+              "system_percent_as_reported": "0.00",
+              "module": "GameOverlayRenderer64.dll"
+            },
+            {
+              "weight_as_reported": 17147,
+              "system_percent_as_reported": "0.00",
+              "module": "afd.sys"
+            },
+            {
+              "weight_as_reported": 15735,
+              "system_percent_as_reported": "0.00",
+              "module": "steamclient64.dll"
+            },
+            {
+              "weight_as_reported": 10861,
+              "system_percent_as_reported": "0.00",
+              "module": "msvcp140.dll"
+            },
+            {
+              "weight_as_reported": 9922,
+              "system_percent_as_reported": "0.00",
+              "module": "win32u.dll"
+            },
+            {
+              "weight_as_reported": 9749,
+              "system_percent_as_reported": "0.00",
+              "module": "intelppm.sys"
+            },
+            {
+              "weight_as_reported": 8767,
+              "system_percent_as_reported": "0.00",
+              "module": "storport.sys"
+            },
+            {
+              "weight_as_reported": 8702,
+              "system_percent_as_reported": "0.00",
+              "module": "msvcrt.dll"
+            },
+            {
+              "weight_as_reported": 8012,
+              "system_percent_as_reported": "0.00",
+              "module": "ndis.sys"
+            },
+            {
+              "weight_as_reported": 7463,
+              "system_percent_as_reported": "0.00",
+              "module": "user32.dll"
+            },
+            {
+              "weight_as_reported": 6761,
+              "system_percent_as_reported": "0.00",
+              "module": "win32kfull.sys"
+            },
+            {
+              "weight_as_reported": 6438,
+              "system_percent_as_reported": "0.00",
+              "module": "watchdog.sys"
+            },
+            {
+              "weight_as_reported": 5650,
+              "system_percent_as_reported": "0.00",
+              "module": "win32k.sys"
+            },
+            {
+              "weight_as_reported": 4051,
+              "system_percent_as_reported": "0.00",
+              "module": "CLASSPNP.SYS"
+            },
+            {
+              "weight_as_reported": 3991,
+              "system_percent_as_reported": "0.00",
+              "module": "bindflt.sys"
+            },
+            {
+              "weight_as_reported": 3858,
+              "system_percent_as_reported": "0.00",
+              "module": "NETIO.SYS"
+            },
+            {
+              "weight_as_reported": 3055,
+              "system_percent_as_reported": "0.00",
+              "module": "ClawFlt.sys"
+            },
+            {
+              "weight_as_reported": 3000,
+              "system_percent_as_reported": "0.00",
+              "module": "dnsapi.dll"
+            },
+            {
+              "weight_as_reported": 2845,
+              "system_percent_as_reported": "0.00",
+              "module": "fileinfo.sys"
+            },
+            {
+              "weight_as_reported": 2084,
+              "system_percent_as_reported": "0.00",
+              "module": "rt640x64.sys"
+            },
+            {
+              "weight_as_reported": 2055,
+              "system_percent_as_reported": "0.00",
+              "module": "ws2_32.dll"
+            },
+            {
+              "weight_as_reported": 2052,
+              "system_percent_as_reported": "0.00",
+              "module": "Ndu.sys"
+            },
+            {
+              "weight_as_reported": 2006,
+              "system_percent_as_reported": "0.00",
+              "module": "mswsock.dll"
+            },
+            {
+              "weight_as_reported": 2000,
+              "system_percent_as_reported": "0.00",
+              "module": "cng.sys"
+            },
+            {
+              "weight_as_reported": 1929,
+              "system_percent_as_reported": "0.00",
+              "module": "steam_api64.dll"
+            },
+            {
+              "weight_as_reported": 1869,
+              "system_percent_as_reported": "0.00",
+              "module": "volume.sys"
+            },
+            {
+              "weight_as_reported": 1807,
+              "system_percent_as_reported": "0.00",
+              "module": "storahci.sys"
+            },
+            {
+              "weight_as_reported": 1053,
+              "system_percent_as_reported": "0.00",
+              "module": "MessageBus.dll"
+            },
+            {
+              "weight_as_reported": 1038,
+              "system_percent_as_reported": "0.00",
+              "module": "WppRecorder.sys"
+            },
+            {
+              "weight_as_reported": 1036,
+              "system_percent_as_reported": "0.00",
+              "module": "usbehci.sys"
+            },
+            {
+              "weight_as_reported": 1010,
+              "system_percent_as_reported": "0.00",
+              "module": "fwpkclnt.sys"
+            },
+            {
+              "weight_as_reported": 1002,
+              "system_percent_as_reported": "0.00",
+              "module": "ahflt.sys"
+            },
+            {
+              "weight_as_reported": 1000,
+              "system_percent_as_reported": "0.00",
+              "module": "partmgr.sys"
+            },
+            {
+              "weight_as_reported": 1000,
+              "system_percent_as_reported": "0.00",
+              "module": "ACPI.sys"
+            },
+            {
+              "weight_as_reported": 931,
+              "system_percent_as_reported": "0.00",
+              "module": "iorate.sys"
+            },
+            {
+              "weight_as_reported": 891,
+              "system_percent_as_reported": "0.00",
+              "module": "luafv.sys"
+            },
+            {
+              "weight_as_reported": 872,
+              "system_percent_as_reported": "0.00",
+              "module": "bcryptprimitives.dll"
+            },
+            {
+              "weight_as_reported": 768,
+              "system_percent_as_reported": "0.00",
+              "module": "uxtheme.dll"
+            },
+            {
+              "weight_as_reported": 756,
+              "system_percent_as_reported": "0.00",
+              "module": "fvevol.sys"
+            }
+          ],
+          "causal_script_or_formal_delta_grant": false
+        },
+        {
+          "label": "later_active_window",
+          "range_microseconds": [
+            21969942,
+            34985830
+          ],
+          "exit_code": 0,
+          "errors": 0,
+          "sha256": "dbf10a0887ef4f69bb39c9bfc3f0d83cddf0a82f74bf5020638beaed27087ea3",
+          "owned_module_buckets": [
+            {
+              "weight_as_reported": 30757853,
+              "system_percent_as_reported": "6.56",
+              "module": "CivilizationVI_DX12.exe"
+            },
+            {
+              "weight_as_reported": 19393009,
+              "system_percent_as_reported": "4.14",
+              "module": "ntoskrnl.exe"
+            },
+            {
+              "weight_as_reported": 10356498,
+              "system_percent_as_reported": "2.21",
+              "module": "nvwgf2umx.dll"
+            },
+            {
+              "weight_as_reported": 3179027,
+              "system_percent_as_reported": "0.68",
+              "module": "ntdll.dll"
+            },
+            {
+              "weight_as_reported": 1757452,
+              "system_percent_as_reported": "0.38",
+              "module": "D3D12Core.dll"
+            },
+            {
+              "weight_as_reported": 405262,
+              "system_percent_as_reported": "0.09",
+              "module": "HavokScript_FinalRelease.dll"
+            },
+            {
+              "weight_as_reported": 403877,
+              "system_percent_as_reported": "0.09",
+              "module": "vcruntime140.dll"
+            },
+            {
+              "weight_as_reported": 267584,
+              "system_percent_as_reported": "0.06",
+              "module": "dxgkrnl.sys"
+            },
+            {
+              "weight_as_reported": 259684,
+              "system_percent_as_reported": "0.06",
+              "module": "nvlddmkm.sys"
+            },
+            {
+              "weight_as_reported": 250429,
+              "system_percent_as_reported": "0.05",
+              "module": "KernelBase.dll"
+            },
+            {
+              "weight_as_reported": 207234,
+              "system_percent_as_reported": "0.04",
+              "module": "kernel32.dll"
+            },
+            {
+              "weight_as_reported": 165873,
+              "system_percent_as_reported": "0.04",
+              "module": "ucrtbase.dll"
+            },
+            {
+              "weight_as_reported": 126441,
+              "system_percent_as_reported": "0.03",
+              "module": "dxgmms2.sys"
+            },
+            {
+              "weight_as_reported": 100552,
+              "system_percent_as_reported": "0.02",
+              "module": "EOSSDK-Win64-Shipping.dll"
+            },
+            {
+              "weight_as_reported": 97935,
+              "system_percent_as_reported": "0.02",
+              "module": "XAudio2_9.dll"
+            },
+            {
+              "weight_as_reported": 97436,
+              "system_percent_as_reported": "0.02",
+              "module": "GameCore_XP2_FinalRelease.dll"
+            },
+            {
+              "weight_as_reported": 86738,
+              "system_percent_as_reported": "0.02",
+              "module": "msvcp_win.dll"
+            },
+            {
+              "weight_as_reported": 58272,
+              "system_percent_as_reported": "0.01",
+              "module": "D3D12.dll"
+            },
+            {
+              "weight_as_reported": 48336,
+              "system_percent_as_reported": "0.01",
+              "module": "dxgi.dll"
+            },
+            {
+              "weight_as_reported": 36299,
+              "system_percent_as_reported": "0.01",
+              "module": "GameOverlayRenderer64.dll"
+            },
+            {
+              "weight_as_reported": 34740,
+              "system_percent_as_reported": "0.01",
+              "module": "AudioSes.dll"
+            },
+            {
+              "weight_as_reported": 30363,
+              "system_percent_as_reported": "0.01",
+              "module": "win32kbase.sys"
+            },
+            {
+              "weight_as_reported": 27793,
+              "system_percent_as_reported": "0.01",
+              "module": "\"Unknown\""
+            },
+            {
+              "weight_as_reported": 17113,
+              "system_percent_as_reported": "0.00",
+              "module": "win32u.dll"
+            },
+            {
+              "weight_as_reported": 17019,
+              "system_percent_as_reported": "0.00",
+              "module": "user32.dll"
+            },
+            {
+              "weight_as_reported": 13728,
+              "system_percent_as_reported": "0.00",
+              "module": "watchdog.sys"
+            },
+            {
+              "weight_as_reported": 13209,
+              "system_percent_as_reported": "0.00",
+              "module": "win32kfull.sys"
+            },
+            {
+              "weight_as_reported": 12422,
+              "system_percent_as_reported": "0.00",
+              "module": "steamclient64.dll"
+            },
+            {
+              "weight_as_reported": 12023,
+              "system_percent_as_reported": "0.00",
+              "module": "tcpip.sys"
+            },
+            {
+              "weight_as_reported": 10986,
+              "system_percent_as_reported": "0.00",
+              "module": "FLTMGR.SYS"
+            },
+            {
+              "weight_as_reported": 9769,
+              "system_percent_as_reported": "0.00",
+              "module": "msvcrt.dll"
+            },
+            {
+              "weight_as_reported": 7906,
+              "system_percent_as_reported": "0.00",
+              "module": "win32k.sys"
+            },
+            {
+              "weight_as_reported": 7784,
+              "system_percent_as_reported": "0.00",
+              "module": "intelppm.sys"
+            },
+            {
+              "weight_as_reported": 5530,
+              "system_percent_as_reported": "0.00",
+              "module": "Localization_FinalRelease.dll"
+            },
+            {
+              "weight_as_reported": 4519,
+              "system_percent_as_reported": "0.00",
+              "module": "cng.sys"
+            },
+            {
+              "weight_as_reported": 4113,
+              "system_percent_as_reported": "0.00",
+              "module": "mswsock.dll"
+            },
+            {
+              "weight_as_reported": 3870,
+              "system_percent_as_reported": "0.00",
+              "module": "Ntfs.sys"
+            },
+            {
+              "weight_as_reported": 3675,
+              "system_percent_as_reported": "0.00",
+              "module": "msvcp140.dll"
+            },
+            {
+              "weight_as_reported": 2075,
+              "system_percent_as_reported": "0.00",
+              "module": "ndis.sys"
+            },
+            {
+              "weight_as_reported": 2042,
+              "system_percent_as_reported": "0.00",
+              "module": "steam_api64.dll"
+            },
+            {
+              "weight_as_reported": 2038,
+              "system_percent_as_reported": "0.00",
+              "module": "uxtheme.dll"
+            },
+            {
+              "weight_as_reported": 2031,
+              "system_percent_as_reported": "0.00",
+              "module": "rt640x64.sys"
+            },
+            {
+              "weight_as_reported": 2005,
+              "system_percent_as_reported": "0.00",
+              "module": "afd.sys"
+            },
+            {
+              "weight_as_reported": 1906,
+              "system_percent_as_reported": "0.00",
+              "module": "wfplwfs.sys"
+            },
+            {
+              "weight_as_reported": 1009,
+              "system_percent_as_reported": "0.00",
+              "module": "npsvctrig.sys"
+            },
+            {
+              "weight_as_reported": 1007,
+              "system_percent_as_reported": "0.00",
+              "module": "tier0_s64.dll"
+            },
+            {
+              "weight_as_reported": 1003,
+              "system_percent_as_reported": "0.00",
+              "module": "ClawFlt.sys"
+            },
+            {
+              "weight_as_reported": 1000,
+              "system_percent_as_reported": "0.00",
+              "module": "luafv.sys"
+            },
+            {
+              "weight_as_reported": 1000,
+              "system_percent_as_reported": "0.00",
+              "module": "gdi32.dll"
+            },
+            {
+              "weight_as_reported": 1000,
+              "system_percent_as_reported": "0.00",
+              "module": "ws2_32.dll"
+            },
+            {
+              "weight_as_reported": 1000,
+              "system_percent_as_reported": "0.00",
+              "module": "dwmapi.dll"
+            },
+            {
+              "weight_as_reported": 995,
+              "system_percent_as_reported": "0.00",
+              "module": "Ndu.sys"
+            },
+            {
+              "weight_as_reported": 976,
+              "system_percent_as_reported": "0.00",
+              "module": "NETIO.SYS"
+            },
+            {
+              "weight_as_reported": 965,
+              "system_percent_as_reported": "0.00",
+              "module": "CLASSPNP.SYS"
+            },
+            {
+              "weight_as_reported": 950,
+              "system_percent_as_reported": "0.00",
+              "module": "Wdf01000.sys"
+            },
+            {
+              "weight_as_reported": 835,
+              "system_percent_as_reported": "0.00",
+              "module": "WppRecorder.sys"
+            }
+          ],
+          "causal_script_or_formal_delta_grant": false
+        }
+      ],
+      "markers_are_phase_envelopes_not_exact_turn_bounds": true
+    }
+  },
+  "save": {
+    "utc": "2026-11-18T10:14:08.502107+00:00",
+    "name": "Baiqi_P6_20261118_V162_NoSiteNormal2.Civ6Save",
+    "bytes": 296115,
+    "sha256": "f8c87e4fcd8fc5307db6746f30079d05f02f4f0408966d454f9c06c8b2711d23",
+    "stable_repeated_read": true
+  },
+  "formal_performance_budget_grant": false,
+  "pressure_cause": "NOT_ESTABLISHED",
+  "review": [
+    "Actual current162 protected frozen NO_SITE T1->2: ten cities, geometry newly read1144plots/1133water/11citytiles/0bareland. Sole ready warrior131073 TEST_PLAYER ordinary SKIP once, fresh UI read no ready/select and no end blocker. Exactly one ordinary RequestAction END, no UserForced or civilian/domestic test action. Independent Executor and Core current2/active/count10 readbacks; controller turn acknowledged log remains separate from request ACK. No performance pass implied.",
+    "Passive public RunNow/Admin observer40LuaVM scenarios then actual install after unused Capture974zero/retire.1725 total rows retained across preparation turn1 and turn2 (not1725inside10s), capacity4096/dropped0/invalidfalse/alloriginalsuccess. Turn2Controller51calls sum264.999866ms/max12.000084ms, Admin42sum166.000366ms/max14.999866ms across~18s observed turns. Originalfunctions/AI keep running, wrappers restored and namespace removed afterwindow; no per-function SDK markers. Zero or quantized durations not proof zeroCPU.",
+    "One separately owned SDK26100 CPU trace, three unique low-count SDK markers exit0/no-flush; independentwatchdog closed after parent exit, preservedraw and one disclosed ownnamedcancel, namedINACTIVE/0owncollectors. NormalSDKstop stillungranted. Offline rawmerge originalhashesunchanged/xperf0/errors0/lostevents0/buffers0/oneowned23448MIN->MAX+externalbirth/exe. Actualspan60.1209883sec exceeds60TTL by0.1209883sec, retained as recording-bound FAIL; no protocol/budget relaxation.",
+    "Original parent exit1 retained: final extraCore unit member lookup used unqualified UI getter(s); a first narrowed readonly retry also failed. Followup TYPES and independent Core turn2/tenCity read succeeded. No exact historical subpredicate timing attribution, no END/observerretire replay. Original parent completedflagfalse not relabeled exit0; successful causalwindow evidence independentlyreconciled from already archived export+SDK markers/current2.",
+    "Conditional clockrelation only: CLI QPC brackets1.21-2.26sec, intersection ETL-minus-host interval width~1.206sec; native-minus-host width~57.6ms. Matchinglabels/clockheaderPerfCounter and constantoffset assumptions retained, not exact clock synchronization/frame localization. Raw wide marker phase CPU profiles retained; cannot attribute553ms failure to a script or particular frame.",
+    "B_delta is end-request-to-player-activation transition increment, distinct from B_turn10sec active-windowbudget. Earlier commentary calling it wholewindow ambiguity corrected. ExistingSource160 MANY15.0183% and NO_SITE552.999973ms/19.4643% failures unchanged. This current162singlecausalrun has no control/matched25segments/formal5windows or fullscriptcoverage; no pass transfer or causalfix claim.",
+    "CurrentNoSiteNormal2 officialsave verified. Readonlyqueues in all10cities currently BUILDING0/Modifiers0; no UNITqueue present, so this cannot prove unitformation adapter key. Continue current162 functional unitqueue/multiitem/reorder, playerarmy/religious types, paidradius/moves/cooldown, old865recovery, offline/income shock and formalpressure fixes. Entiremod OPEN; a publication is not completion."
+  ],
+  "model_ledger_unchanged": {
+    "logical_tasks": 999,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 115,
+    "generation_POSTs": 1038,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  }
+}
