@@ -1825,3 +1825,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：Source163 MANY自然资格诊断准备
 
 [1012与独立census包](../../research/baiqi-source163-many-natural-census-preparation1012-2026-11-19.json)：模型404后由Owner在第一配对侧正式释放后的退场等待期构建。119文件／97双Lua，仅Controller插桩、容量256；5消费者、12实际payload双编译及8生成Python核对，0 Native。尚未安装或观察新MANY候选；须等当前NO_SITE 5组／10边全部关闭后才执行，不与性能包混用。
+
+
+## 2026-11-19：TC020只读资格与163配对输入审计软件
+
+[1013与实际软件执行](../../research/baiqi-source163-escort020-readonly-input-audit1013-2026-11-19.json)：按本机原版ENTER_FORMATION入口设计只读预检，42个双Lua场景／实际产品Policy的护送及未知拒绝通过，0命令；计数2和同格明确不单独证明同一编队，TC020实机仍未跑。163配对输入审计26负例／3正例通过，实际十侧输入审计等待父流程完成。模型候选404后Owner实现，正式采样内无HTTP或测试；当前Native配对继续。
