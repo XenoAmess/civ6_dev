@@ -1660,3 +1660,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 natural citizen-map input and actual guard refusal
 
 [Natural population view and citizen538 click](../../research/baiqi-source162-natural-map-citizen-guard-native-2026-11-18.json). Real population9 click opens15enabled citizen widgets without forced presentation. One held click on unworked/unlocked538@10,12 reaches existing PlotInfo guard once and returnsfalse;416native assets unchanged. Passive observer restored; backend sink unobserved. Public byte-identical helper verifies transparent forwarding/returns/metadata failure/overflow/retirement in twoVMs;3relatedtestmethods PASS. Ordinary lock positive and fullTC004/022 remain open; continue other controls.
+
+
+## 2026-11-18: Source162 natural queue cancel refusal
+
+[Natural banner/queue/current-item right-click](../../research/baiqi-source162-natural-queue-cancel-guard-native-2026-11-18.json). Production banner opens native panel; QueueTab enables actual current item. Heldrightclick reaches existing BUILD/REMOVE_AT/index0 guard1/false, all416fields equal, castlequeue1/progress0 retained. Ordinary same-protocol cancel1to0still0 positive separately saved. Passive method-only variant2VMs checked/restored; backend sink unobserved. Wrong readonly panel control names retained, resolved through fresh visible panel/actual widget read without banner replay. No fullTC004/022; continue reorder/hotkeys/eligible units/other failures.
