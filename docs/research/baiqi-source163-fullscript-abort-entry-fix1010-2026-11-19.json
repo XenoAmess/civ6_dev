@@ -1,0 +1,307 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-18T16:46:50.076506+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 163,
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "ABORT_RECONCILED_R2_SOFTWARE_PASS_NATIVE_PENDING",
+  "aborted_capture": {
+    "utc": "2026-11-18T16:35:40.649290+00:00",
+    "nonce": "3f3efd82b92342589ecd0d773473fc06",
+    "token": "97647bbc9f964468b664b30762e3d787",
+    "phase": "ABORTED_INITIALIZATION_TOOL_VERSION_GUARD",
+    "partial_raw_exported": true,
+    "own_observers_retired": 33,
+    "formal_released": true,
+    "actual_turn": 1,
+    "first_end_native_not_reached": true,
+    "first_military_input_not_reached": true,
+    "s_ends1_was_reservation_only": true,
+    "ordinary_ENDs": 0,
+    "timing_transitions": 0,
+    "B_turn_N_req_PASS": false,
+    "whole_mod_complete": false
+  },
+  "aborted_save": {
+    "bytes": 296115,
+    "sha256": "7a5a0ceb3c58f8a8a0611dab040a78afbc777d6010ccdb9fd59f175e6aefe542"
+  },
+  "actual_entry_before": {
+    "utc": "2026-11-18T16:39:51.861933+00:00",
+    "mode": "before",
+    "actual_rendered_source_sha256": {
+      "timing": "2c8c4705527f74475c110cf2e7d1bd4aa35c0fb44415560c888e52e0d279a1fb",
+      "player": "8ffcaff654ac204844e3e4db5b29b773f64d105408a2880a581285f8b75a5e78"
+    },
+    "actual_VM_cases": [
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "correct_source163_accepted": false,
+        "mock_timing_transitions": 0,
+        "expected_before_fix_refusal": true
+      },
+      {
+        "VM": "Lua51",
+        "entry": "player",
+        "correct_source163_accepted": false,
+        "mock_timing_transitions": 0,
+        "expected_before_fix_refusal": true
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "correct_source163_accepted": false,
+        "mock_timing_transitions": 0,
+        "expected_before_fix_refusal": true
+      },
+      {
+        "VM": "Lua53",
+        "entry": "player",
+        "correct_source163_accepted": false,
+        "mock_timing_transitions": 0,
+        "expected_before_fix_refusal": true
+      }
+    ],
+    "canonical_timing_helper": true,
+    "actual_code_construction_only": true,
+    "Python_module_execution": false,
+    "Native_queries": 0,
+    "game_actions": 0
+  },
+  "actual_entry_after": {
+    "utc": "2026-11-18T16:45:40.459226+00:00",
+    "mode": "after",
+    "actual_rendered_source_sha256": {
+      "timing": "3e8a67689149d651a8e864045f0a745b5d3c6eb8c721a6d3b5ca2234843915b7",
+      "player": "d693f67c5f9661797c623aee0a6533c5ee9647f28a378eda707cdf39da8d9034"
+    },
+    "actual_VM_cases": [
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "correct_source163_accepted": true,
+        "mock_timing_transitions": 33,
+        "expected_before_fix_refusal": false
+      },
+      {
+        "VM": "Lua51",
+        "entry": "player",
+        "correct_source163_accepted": true,
+        "mock_timing_transitions": 0,
+        "expected_before_fix_refusal": false
+      },
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.source_version=162",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.initial_turn=6",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.source='baiqi160-pressure-observed-v1'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.phase='ABORTED'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "rejected": "ExposedMembers.P6BaiqiOwnRegistry.entries.K33=nil",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.token=string.rep('b',32)",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "timing",
+        "rejected": "P6Q20PressureBuild.initial_turn=6",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "player",
+        "rejected": "P6Q20StageB.source_version=162",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "player",
+        "rejected": "P6Q20StageB.initial_turn=6",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "player",
+        "rejected": "P6Q20StageB.source='baiqi160-pressure-observed-v1'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "player",
+        "rejected": "P6Q20StageB.phase='ABORTED'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua51",
+        "entry": "player",
+        "rejected": "ExposedMembers.P6BaiqiOwnRegistry.entries.K33=nil",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "correct_source163_accepted": true,
+        "mock_timing_transitions": 33,
+        "expected_before_fix_refusal": false
+      },
+      {
+        "VM": "Lua53",
+        "entry": "player",
+        "correct_source163_accepted": true,
+        "mock_timing_transitions": 0,
+        "expected_before_fix_refusal": false
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.source_version=162",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.initial_turn=6",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.source='baiqi160-pressure-observed-v1'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.phase='ABORTED'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "rejected": "ExposedMembers.P6BaiqiOwnRegistry.entries.K33=nil",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "rejected": "P6Q20StageB.token=string.rep('b',32)",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "timing",
+        "rejected": "P6Q20PressureBuild.initial_turn=6",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "player",
+        "rejected": "P6Q20StageB.source_version=162",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "player",
+        "rejected": "P6Q20StageB.initial_turn=6",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "player",
+        "rejected": "P6Q20StageB.source='baiqi160-pressure-observed-v1'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "player",
+        "rejected": "P6Q20StageB.phase='ABORTED'",
+        "mock_timing_transitions": 0
+      },
+      {
+        "VM": "Lua53",
+        "entry": "player",
+        "rejected": "ExposedMembers.P6BaiqiOwnRegistry.entries.K33=nil",
+        "mock_timing_transitions": 0
+      }
+    ],
+    "canonical_timing_helper": true,
+    "actual_code_construction_only": true,
+    "Python_module_execution": false,
+    "Native_queries": 0,
+    "game_actions": 0
+  },
+  "new_consumer_hashes": {
+    "pressure163_nosite_observed_r2_lifecycle_owner.py": "94f6994b02131624997834177a52834a031be5af4256f783db2a8451ac3f4b42",
+    "pressure163_nosite_observed_r2_fixture_owner.py": "caa1b2e13c183d8514bb1017e51bffd9834093d1b441346dc6b0e3f372a077f3",
+    "pressure163_nosite_observed_r2_player_owner.py": "951f04675366a8fa27598e85e2793aa13993b70f5ab62d2997a81b3c0f1ac66a",
+    "pressure163_nosite_observed_r2_run_owner.py": "a4be2f248222e2e30e23857b53420a150e5bdfd365e8d06545cb746127c06a20",
+    "pressure163_nosite_observed_r2_collect_owner.py": "31d8768eb18c2d6d2b8577130e969e27d202d595b7129afec566a256c7d37e89",
+    "pressure163_nosite_observed_r2_analyze_owner.py": "839e8f79a21700f560f5197b3b62332a99304f033e915f4befba8398e3b2bcde",
+    "pressure163_nosite_observed_r2_finish_owner.py": "4c8c5e2637580dbe5ca68adf073ffc7519a2cec4202c27bcf2a8240ca0e3b8c2",
+    "pressure163_nosite_observed_r2_finish_formal_owner.py": "3685c88fde014a9956881a3560274d4671f5bb29178901e01b59dfb5dd6f5182",
+    "pressure163_nosite_observed_r2_cleanup_owner.py": "340036cfb3dabda8c1e84c83d4e90248e477264591b31a730d51c42ddf994228",
+    "pressure163_nosite_observed_r2_environment_owner.py": "a32e073807915cbb1c4551c0b0d719be42b7676aaff77e099086dbbbc1785e57",
+    "pressure163_nosite_observed_r2_episode_owner.py": "32d508ef2ab6c49880f30f490cd00fdbd203f703378e2954059102f3aa9a84eb",
+    "pressure163_nosite_observed_r2_geometry_owner.py": "ffdbe75578985afb5e60b1436ceb079066167491ff0aeaa5b0f7add65c544fc4",
+    "pressure163_nosite_observed_r2_initial_owner.py": "baa0110ddc1d21bc215e401427347f7443c277b1b233c53f7e6375406f0e32d3",
+    "pressure163_observed_r2_initial_actor_owner.py": "609c8e732fb2cae9ec6a4c2e62c448e3a5e6aa44ff75ade83ca418a5a165e807",
+    "pressure163_r2_formal_copy_owner.py": "eb76a4bf4359b244405db821fa595ff17398ddfff6d530bce7cb0f9b17665096"
+  },
+  "package_sha256": "f3a7ecc04b2956f5a8e377ab2c08aa71a1d4271bb5ebdc59124f41e585e8bdba",
+  "new_install_or_launch": false,
+  "review": [
+    "Source163的第一次全脚本实例已真实冷启动、取得独立后台Steam离线证据，PID17744。首次入口的NameError发生在LSQ前；显式导航导出修正后在同实例继续，无重复加载或启动。前期复制只检查AST与Lua语法，没有执行守卫语义，未发现Lua字符串残留source_version==160。",
+    "同实例初始几何与财务读取、77.243秒预热、先正式预留再精确重载均完成。第一次计时暂停在版本守卫处被拒绝，录制自动ABORTED。ends[1]=true只是READY预留，尚未触达军事输入或END，不是实际结束回合。正式记录期间没有模型HTTP、构建或重测试。",
+    "Owner保留原失败驱动、父流程、意图与原始收据，导出33上下文的中止数据，逐一撤除自身33观察器，正式存档296115字节，随后释放正式占用；没有清空或重放旧令牌。ABORTED数据不能授予B_turn或N_req通过。",
+    "真实未完成的入口语义验证先委托规范本地模型1010；同用户当天OpenCode成功维护缓存复用，单POST404/41.71960009261966ms，无候选采用。未改端点或默认参数。Owner随后执行实际渲染的计时及玩家入口：修正前Lua5.1/5.3共4例均误拒正确163且零计时转换；新R2副本修正三处旧版本守卫后28例通过，包括正确入场、旧版本、错误日历、阶段、令牌及上下文缺失拒绝。均为软件测试，无Native动作。",
+    "新标签pressure163-nosite-observed-r2复用同一真实冷进程和原119文件/97插桩/33上下文/4096产物；不伪造冷启动收据、不重新安装。初始官方加载从已撤除观察器的中止T1发出，仍需新快照、60秒预热、新正式占用后精确重载及新令牌。原始中止存档额外保护。",
+    "Source163 NO_SITE B_plan已有单独通过；全脚本B_turn、完整回合N_req、新B_delta和整个mod验收仍开放。此前Source160压力配对失败和旧865恢复失败继续保留，不能由本次准备覆盖。提交后立即继续新R2实机流程。"
+  ],
+  "model1010": {
+    "started_at_utc": "2026-11-18T16:38:22.991436+00:00",
+    "http_status": 404,
+    "total_ms": 41.71960009261966,
+    "finish_reason": null,
+    "sse_done": false,
+    "candidate_complete": false,
+    "usage": null,
+    "cached_prompt_tokens_if_reported": null
+  },
+  "ledger": {
+    "logical_tasks": 1010,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 126,
+    "generation_POSTs": 1049,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null
+}
