@@ -1,0 +1,171 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T07:16:38.817267+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "NATIVE_MOVEMENT_EVENT_OBSERVED_WRONG_GUARDED_QUALIFIER_HALTED_BEFORE_BUILD_HANDLER",
+  "whole_mod": "OPEN_CONTINUE",
+  "manual_BUILD_backstop_pass": false,
+  "full_TC004_pass": false,
+  "owner": {
+    "pid": 23448,
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture": {
+    "stem": "Baiqi_P6_20261118_V162_BuilderEligibleBlocked110",
+    "bytes": 551458,
+    "sha256": "6110335b79bbe2a813a9400397c022357d726f445c978bd1dfeaacfbdaaf1fa8",
+    "turn": 110,
+    "leader": "LEADER_BAIQI",
+    "scope": "New independent D movement-event latch case from original protected eligible-builder checkpoint, no old C actions replayed"
+  },
+  "save": {
+    "utc": "2026-11-18T07:15:16.946776+00:00",
+    "name": "Baiqi_P6_20261118_V162_DMovementEventObserved110.Civ6Save",
+    "bytes": 551941,
+    "sha256": "647a789b3d9898c04199f663d779223bb4e33666c8bb5aff5b98461e81ddbfe4",
+    "stable_repeated_read": true
+  },
+  "normal_ENDs": 0,
+  "actual_event": {
+    "argc": 3,
+    "args": {
+      "1": {
+        "kind": "number",
+        "value": 0
+      },
+      "2": {
+        "kind": "number",
+        "value": 5832733
+      },
+      "3": {
+        "kind": "number",
+        "value": 2
+      }
+    },
+    "before": {
+      "buildEntries": 0,
+      "busy": false,
+      "charges": 2,
+      "coreCharges": 2,
+      "coreFormation": 1,
+      "coreImprovement": -1,
+      "coreMoves": 2,
+      "coreOwner": 0,
+      "corePending": false,
+      "coreUid": 5832733,
+      "coreX": 9,
+      "coreY": 9,
+      "formation": 1,
+      "guardPlayer": 0,
+      "improvement": -1,
+      "known": true,
+      "moves": 2,
+      "nativeCan": false,
+      "okay": true,
+      "owner": 0,
+      "pending": false,
+      "processing": false,
+      "queuedNil": true,
+      "uid": 5832733,
+      "visible": true,
+      "x": 9,
+      "y": 9
+    },
+    "error": "ELIGIBILITY_OR_GUARD_UNKNOWN\nstack traceback:\n\t[C]: in function 'assert'\n\t[string \"assert(Game.GetCurrentGameTurn()==110 and Game.GetLocalPlayer()==0 and PlayerConfigurations[0]:GetLeaderTypeName()=='LEADER_BAIQI'and ExposedMembers.P6Domestic162DEventUIV2==nil and P6Domestic162DEventOwnerV2==nil)...\"]:322: in function '(anonymous)'\n\t[C]: in function 'pcall'\n\t[string \"assert(Game.GetCurrentGameTurn()==110 and Game.GetLocalPlayer()==0 and PlayerConfigurations[0]:GetLeaderTypeName()=='LEADER_BAIQI'and ExposedM",
+    "event": "UnitMovementPointsChanged",
+    "sequence": 1
+  },
+  "stored_status_before_retirement": {
+    "armAttempted": true,
+    "armed": false,
+    "attempted": false,
+    "currentProbe": {
+      "count": 0,
+      "dropped": 0,
+      "retired": false,
+      "rows": {}
+    },
+    "dropped": 0,
+    "handlerCalls": 0,
+    "invalid": true,
+    "retired": false,
+    "seen": 1,
+    "status": "INVALID_EVENT_OBSERVATION"
+  },
+  "independent_Core_at_retirement": {
+    "charges": 1,
+    "formation": 1,
+    "improvement": 1,
+    "moves": 0,
+    "owner": 0,
+    "pending": false,
+    "uid": 5832733,
+    "x": 9,
+    "y": 9
+  },
+  "background_signals": [
+    "BaiqiExecutor: BAIQI|request|turn=110|id=0:110:5|source=BACKGROUND|unit=5832733|operation=BUILD_IMPROVEMENT|plot=405|from=405",
+    "BaiqiExecutor: BAIQI|observed|turn=110|id=0:110:5|unit=5832733|kind=BUILD_IMPROVEMENT"
+  ],
+  "review": [
+    "Independent D protected checkpoint loaded once, ordinary continuation Escape once. Owner omitted immediate load-log capture; readonly continuation failed before any input. A real earlier immutable C reconciliation log was independently SHA-qualified and verified as current prefix with exactly one ordered Dload/controller/view suffix, then explicitly adopted as earlier-not-contemporaneous baseline. Original failure retained; no Load/Escape replay.",
+    "New D one-use QA placement preserved0moves/2charges at9,9/empty405, selected UnitPanel visible. Pure finite event latch listens only own movement-changed/cleared/restored and playback-complete callbacks, max64matching rows, explicit TEST_PLAYER_QA handler bound1; no planner pause/disable/event removal or product changes.",
+    "First Native latch construction failed BEFORE RequestOperation probe installation, registry publication or event Add. Owner copy bound16 missed actual typed417field queue representation depth18. Current actual native snapshot reproduced old constructor failure before any probe/hook in both Lua51/53; new bounded48 copy passed that full snapshot and genuine zeroargument playback tests. Original failed source/terminal24180 retained. Readonly Core port normally retired and actor0moves/2charges/siteempty independently verified. Revision92VM includes88previous boundaries plus2oldactual rejections and2newactual snapshot/Playback positives; no product or frozenperformance budget changed.",
+    "Revised latch armed, one exact new D Corecredit0to2 observed. First actual UnitMovementPointsChanged carried(player0,fullUnitID5832733,newMoves2), three arguments. At that callback, both Core/UI read2moves/2charges/formation1, same417protected fields except expectedmoves, noqueue/pending, emptyowned405, busyfalse/processingfalse, visible/okaytrue, BUILDprovider0/guardPlayer0. It stopped at qualification without originalhandler or guardedRequestOperation call.",
+    "Owner source review then proved the supposed native eligibility getter was actually UnitPanel guard proxy. BaiqiUIGuard.lua57-74 replaces CanStartOperation and intentionally returnsfalse for this civilian. The recorded false is this proxy refusal, not a raw native capability result or proof of engine unavailability. This is an Owner diagnostic adapter error, not a product failure. OriginalNative result stays unqualified; do not relabel false as rawnative. Correct next adapter must pin existing manager metatable/__index raw native readonly CanStartOperation while retaining guarded RequestOperation/handler and provider checks. No raw write calls or guard disabling.",
+    "Stored observercount0/handler0. Later actual BACKGROUND0:110:5 builtFARM405 and charge2to1/moves0, independently Core/UI read. Own four listener removals/probe restore/Core port retirement completed; returned snapshot.retired=false was captured BEFORE cleanup and is not current postcleanup state. UnusedCapture974 verified zero calls/errors/dropped then retired; official D checkpoint verified. No prior credit or handler replay. Entiremod and existing recovery/performance FAILs remain OPEN."
+  ],
+  "software": {
+    "VM_runs": 92,
+    "hashes": {
+      "domestic994_event_latch_v2_owner.lua": "2cef691d8d61746df2ddf6e03ee16ae4d537fb9d57e598e9bdc657897f67bf6f",
+      "domestic162b_operation_probe_owner.lua": "b26768225aecc76e7568a323c3a7e6fdd65d453a183070bba4cccab0e9732d7c"
+    },
+    "actual_snapshot_depth_diagnosis": {
+      "actual_source": "domestic162d-selected-after-parsed.json",
+      "sha256": "b1c5400e06b3909552d7c9215ee098d33d31138de930bcb0e815264b43ddc5b6",
+      "field_count": 417,
+      "typed_representation_depth": 18,
+      "prior_copy_depth_bound": 16,
+      "Native_actions": 0
+    }
+  },
+  "model994": {
+    "real_unfinished_task": "Finite native movement-event BUILD readiness latch before Owner implementation",
+    "actual_POSTs": 1,
+    "http_status": 404,
+    "total_ms": 23.39399978518486,
+    "complete_SSE": false,
+    "finish_reason": null,
+    "candidate": null,
+    "adopted": false,
+    "routing": {
+      "proxy_mode": "direct",
+      "target_host": "192.168.1.11",
+      "proxy_handler": "disabled",
+      "redirects": "refused",
+      "actual_peer": "UNKNOWN"
+    },
+    "usage": null,
+    "cached_tokens": null,
+    "cost": null,
+    "native_OpenCode_generation": 0
+  },
+  "ledger_after994": {
+    "logical_tasks": 994,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 110,
+    "generation_POSTs": 1033,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cache_tokens_and_cost_unknown": true
+  },
+  "remaining": [
+    "Correct native readonly qualifier adapter, new independent fixture for eligible BUILD backstop; missionary controls and queue/reorder.",
+    "Old865 recoveryFAIL, MANY/NO_SITE performanceFAIL; TC024distance/moves/cooldown, fullmilitary/escort/religiouscombat/finance/compatibility."
+  ]
+}

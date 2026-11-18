@@ -1690,3 +1690,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 C eligible-BUILD readiness halt
 
 [Actual C case](../../research/baiqi-source162-build-readiness-halt-native-2026-11-18.json). Independent protected load, strict QAplacement0move and one new credit0to2. Compound UI actor guard then failed before native eligibility/handler; exact failedsubpredicate UNKNOWN, no assumed replica-lag cause. Requestobserver0/manualhandler0; later UI/Core and actual BACKGROUND0:110:5 proved FARM405/charges2to1. No manualBUILD pass. Ownbridges/probe and unusedCapture974 retired; official checkpoint verified, no replay/END. Finite native event latch next; wholemod OPEN, existing recovery/performance FAILs retained.
+
+
+## 2026-11-18: Source162 actual movement event and diagnostic adapter correction
+
+[Actual D event](../../research/baiqi-source162-movement-event-guarded-qualifier-halt-2026-11-18.json). Independent case/new exactQAcredit produced movementchanged(0,5832733,2), Core/UI2moves/2charges and protectedassets known. Latch stopped before handler because Owner mistakenly queried guarded CanStartOperation, whose false is intentional; rawnative eligibility remains unmeasured. No manualBUILD pass. First constructor depth16 failure reproduced on actualdepth18 snapshot then corrected with92VM; no initial hook/credit replay. Four own listeners/probe/Core interface and unusedCapture retired, officialsaved. Model994 real404/no candidate, ledger994/816complete/68length/110failures/1033POST/0inflight. Next fix readonlynative qualifier and continue, fullmod OPEN.
