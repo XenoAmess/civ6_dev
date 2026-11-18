@@ -1710,3 +1710,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Readonly ETW inventory actual verification
 
 [Source996 inventorytool](../../research/baiqi-wpr996-readonly-etw-inventory-2026-11-18.json).4softwaremethods passed, then elevated actualQueryAllTracesW returned26visible sessions/noWPRnames, noStart/Stop/Cancel/gamequery. NativeABI48/120 and boundedUTF16buffers/capacity/unknownrejection tested. Private or inaccessible sessions remain outsideAPIvisibility, so no universal absence claim. InstalledWPR/xperf/WPAexporter ready; actualrunner/watchdog/trace/ownedPID_QPC still pending. Product119files unchanged, existing recovery/pressureFAILs retained; continue fullmod.
+
+
+## 2026-11-18: Continue genuine performance diagnosis after E delivery
+
+[Real996 task and delivery recovery](../../research/baiqi-http996-owned-wpr-runtime-candidate-2026-11-18.json). Localproxy failed Epush; exactexistingcommit normally fetched/rebased/pushed via temporaryGit-child directroute, actualremoteverified, no globalconfig/Steam/gameaction changes. Eshared delivery resumed separately. Genuine996 requests actualWPR OS runner/admission/independentwatchdog before Ownercode, onePOST404/114.766ms/noSSE/candidate/adoption;996logical/816complete/68length/112fail/1035POST/0inflight. FreshreadonlyOSinventory/actualtraceimplementation next; no actualtrace/performancegrant yet. Old865andpressureFAILs remain, entiremod continues.
