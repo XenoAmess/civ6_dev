@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-18T22:08:11.149263+00:00",
+  "machine": "BF-202609141645",
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "CONFIGURED_MODEL_NOT_LISTED_CURRENT_SERVICE",
+  "diagnostic": {
+    "utc": "2026-11-18T22:02:54.660415+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-19",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-18T22:02:54.621650+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 321,
+        "over_64KiB": false,
+        "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+        "total_ms": 22.402900038287044,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-18T22:02:54.645325+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 482,
+        "over_64KiB": false,
+        "sha256": "35ccc7354349b3c555e62a12095e4d1a37346aa6d0f6d0771381c983d9f15009",
+        "total_ms": 14.27980000153184
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "reported_health_fields": {
+    "status": "ok",
+    "model": "open-h3-2k",
+    "active_model": "open-h3-2k",
+    "worker_state": "refiner_batch"
+  },
+  "review": [
+    "针对连续404，只在正式互斥外完成当前配置主机两个有界DIRECT只读GET；先复用共享每日维护成功缓存1.19.6。/v1/models返回200且只列open-h3-2k，/health返回200、当前model/active_model均open-h3-2k、worker_state为refiner_batch。配置仍指定qwen38-coder，未修改。",
+    "这提供当前配置模型未在服务清单中的明确不匹配，不把两个异时GET声称全部历史404唯一根因或永久能力结论，也不把健康200当源码候选成功。完整响应私留，公开只保留必要字段与SHA。",
+    "0新逻辑候选/0生成POST/0Native/0服务修改/0Steam操作，不更换模型、端口、配置或重启他人工作负载。暂停向这个已知不匹配实例重复生成POST；有新服务/配置证据后重新资格检查，继续遵循共享入口和每日维护。",
+    "模组Owner接管开发和必要验证，唯一Native父94212继续MANY。此次诊断不停止整个mod验收，不补算调用、不把软件结果授实机通过。"
+  ],
+  "unknown_costs": null
+}

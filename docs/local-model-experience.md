@@ -1267,3 +1267,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-18: [Current canonical metadata mismatch after991/992404](research/baiqi-http991992-current-model-metadata-mismatch-2026-11-18.json). One canonical preflight+DIRECT metadata GET returned200 and only open-h3-2k, while authoritative configuration still selects qwen38-coder. No generation added, endpoint/model fallback or service modification. Route/root cause remains unknown; Owner continues actual unfinished implementation and acceptance, ledger992 unchanged.
+
+
+2026-11-19：[连续404的当前只读诊断](research/baiqi-configured-model404-readonly-diagnosis-2026-11-19.json)：配置qwen38-coder，而服务models只列open-h3-2k，health同时为该模型/refiner_batch；两个GET均200，不证明代码候选可用。0新生成POST，不改配置、不切模型或重启服务；Owner继续模组制作验收，待新证据再恢复规范模型生成。
