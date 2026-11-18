@@ -1610,3 +1610,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 HP71 refusal prepared
 
 [One-use health-only fixture, actual product refusal VM and driver guards](../../research/baiqi-source162-city-hp71-preparation-2026-11-18.json). Native NOT_RUN. Config35%/actual max200 gives inclusiveHP70; target71 should city_healthy.162 dual-Lua fixture runs,14 actual Actions/Quote/Capture/OnRequisition VM flows,2 load-once VM,12 prepare/completion and5 admission flows,6 real driver emitter/call tests. Preserve full original310 SHA checks using a same-code alias entering existing987 projection, no codec/global changes. Original cold copy/physical input/independent refusal/save/exit still to execute; HP69/70 and fullmod remainOPEN.
+
+
+## 2026-11-18: actual city HP71 UI/Core rejection branch PASS
+
+[Fresh original copy, separate health preparation and two sequential refusal steps](../../research/baiqi-source162-city-hp71-ui-core-native-2026-11-18.json). One QA district damage150->129 givesHP71of200 at35percent rule; UI/Core city_healthy. Physical stale confirm1 showed changed-quote notice, UI requests0 and full scene unchanged/native0. Only then explicit semantic QA stale request1 yielded Core REJECTED/city_healthy, no paid effects or army commands. All parents exit0; save/retire/officialexit and183s owned quiet residue cleanup complete. HP70/69 and the rest of TC024/fullmod still open; continue independent HP70 success.

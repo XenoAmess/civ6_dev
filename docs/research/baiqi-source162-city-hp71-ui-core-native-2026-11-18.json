@@ -1,0 +1,714 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T00:17:03.470451+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "CITY_HP71_STALE_PHYSICAL_UI_REFUSAL_AND_EXPLICIT_QA_CORE_REJECTION_BRANCH_PASS",
+  "whole_mod": "OPEN_CONTINUE",
+  "fixture": {
+    "stem": "Baiqi_P6_20261105_V74_GarrisonPrep114",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044",
+    "turn": 114
+  },
+  "launch": {
+    "pid": 9816,
+    "created_at": 1794959716.2648141,
+    "source_commit": "ca87aafe3c6a07e9b61d51e8a4c22e4b24a59d15",
+    "mode": "baiqi162-paidattack-native974-v1",
+    "proof_age_seconds": 0.241259,
+    "cpu_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "rule": {
+    "cityHealthPercent": 35,
+    "actual_maxHP": 200,
+    "inclusive_max_remainingHP": 70,
+    "tested_remainingHP": 71,
+    "actual_damage_before": 150,
+    "actual_damage_after": 129,
+    "expected_reason": "city_healthy"
+  },
+  "setup": {
+    "utc": "2026-11-18T00:03:44.457338+00:00",
+    "receipt": [
+      "150",
+      "129",
+      "71",
+      "200",
+      "1",
+      "OBSERVED"
+    ],
+    "QA_city_damage_calls": 1,
+    "paid_ability_calls": 0,
+    "scope": "Controlled preparation only. Independent UI/Core HP71 and city_healthy quote required before physical stale confirmation."
+  },
+  "physical_confirm": {
+    "utc": "2026-11-18T00:05:24.625590+00:00",
+    "owner": {
+      "pid": 9816,
+      "created_at": 1794959716.2648141,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "hwnd": 71173554,
+    "role": "TEST_PLAYER_PHYSICAL_STALE_HP71_POPUP_CONFIRM_EXPECT_UI_REFUSAL_ONCE",
+    "point": [
+      280,
+      434
+    ],
+    "quote_request": "city:0:114:2162700:1:524295:41:19",
+    "cost": 300,
+    "gold_before": "4524.2734375",
+    "cursor_plot_after_move_away": "660",
+    "popup_ROI_proofs": [
+      {
+        "roi": [
+          310,
+          325,
+          715,
+          382
+        ],
+        "expected": "375dd537735a878b3998caaafede85ab69fa4c24e2ce515493ca1080fb4a9c24",
+        "actual": "375dd537735a878b3998caaafede85ab69fa4c24e2ce515493ca1080fb4a9c24"
+      },
+      {
+        "roi": [
+          205,
+          425,
+          365,
+          443
+        ],
+        "expected": "1fb548f2f32b577921075a0a6aa0fa1f593b8d5d49a9db019e0d8507edae9e6e",
+        "actual": "1fb548f2f32b577921075a0a6aa0fa1f593b8d5d49a9db019e0d8507edae9e6e"
+      }
+    ],
+    "semantic_capture_or_script_calls": 0,
+    "input_replays": 0
+  },
+  "after_fixture": {
+    "utc": "2026-11-18T00:03:53.019340+00:00",
+    "owner": {
+      "pid": 9816,
+      "created_at": 1794959716.2648141,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "scene": {
+      "BaiqiGameplay": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistricts.GetDistrict",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 129,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "city_healthy",
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      },
+      "WorldInput": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistrictID/owner.GetDistricts.FindID",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 129,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "city_healthy",
+        "UI.busy": false,
+        "UI.processing": false,
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      }
+    },
+    "strict_shared_fields_equal": true,
+    "cross_context_atomic": false,
+    "health_setup_is_not_ability_effect": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "after_physical_UI_refusal": {
+    "utc": "2026-11-18T00:07:29.031774+00:00",
+    "owner": {
+      "pid": 9816,
+      "created_at": 1794959716.2648141,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "scene": {
+      "BaiqiGameplay": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistricts.GetDistrict",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 129,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "city_healthy",
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      },
+      "WorldInput": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistrictID/owner.GetDistricts.FindID",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 129,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "city_healthy",
+        "UI.busy": false,
+        "UI.processing": false,
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      }
+    },
+    "strict_shared_fields_equal": true,
+    "cross_context_atomic": false,
+    "health_setup_is_not_ability_effect": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "UI_after_physical_refusal": {
+    "binding_read_known": true,
+    "capacity": 64,
+    "cleanup_complete": false,
+    "context": "WorldInput",
+    "continuation": 0,
+    "dropped": 0,
+    "errors": 0,
+    "installed": true,
+    "interact": 1,
+    "interact_binding": true,
+    "marker": "baiqi160-paid-ui-metadata-v1",
+    "paid_route": 0,
+    "request_binding": true,
+    "requests": 0,
+    "retired": false,
+    "rows": {
+      "1": {
+        "actor": {
+          "id": {
+            "kind": "number",
+            "value": 2162700
+          },
+          "owner": {
+            "kind": "number",
+            "value": 0
+          },
+          "present": true
+        },
+        "arity": 4,
+        "callback_type": "function",
+        "kind": "Interact",
+        "sequence": 1,
+        "x": {
+          "kind": "number",
+          "value": 41
+        },
+        "y": {
+          "kind": "number",
+          "value": 19
+        }
+      }
+    },
+    "saturated": false
+  },
+  "separate_QA_backend": {
+    "utc": "2026-11-18T00:09:03.307125+00:00",
+    "owner": {
+      "pid": 9816,
+      "created_at": 1794959716.2648141,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "role": "TEST_PLAYER_QA_EXPLICIT_STALE_EXECUTE_SCRIPT_ONCE_NOT_PHYSICAL_UI_OR_BACKGROUND",
+    "original_request": "city:0:114:2162700:1:524295:41:19",
+    "fee": 300,
+    "gold": 4524.2734375,
+    "code_sha256": "8233cd8f42aa84dc09bb77ac09fefcc8f0ce965645df39ec3bba8f5fa3f08e88",
+    "replay": 0
+  },
+  "after_separate_QA_Core_refusal": {
+    "utc": "2026-11-18T00:09:39.338082+00:00",
+    "owner": {
+      "pid": 9816,
+      "created_at": 1794959716.2648141,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "scene": {
+      "BaiqiGameplay": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "reason": "city_healthy",
+          "stage": "REJECTED"
+        },
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistricts.GetDistrict",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 129,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "city_healthy",
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      },
+      "WorldInput": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "reason": "city_healthy",
+          "stage": "REJECTED"
+        },
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistrictID/owner.GetDistricts.FindID",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 129,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "city_healthy",
+        "UI.busy": false,
+        "UI.processing": false,
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      }
+    },
+    "strict_shared_fields_equal": true,
+    "cross_context_atomic": false,
+    "health_setup_is_not_ability_effect": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "UI_retired": {
+    "binding_read_known": true,
+    "capacity": 64,
+    "cleanup_complete": true,
+    "context": "WorldInput",
+    "continuation": 0,
+    "dropped": 0,
+    "errors": 0,
+    "installed": true,
+    "interact": 1,
+    "interact_binding": false,
+    "marker": "baiqi160-paid-ui-metadata-v1",
+    "paid_route": 1,
+    "request_binding": false,
+    "requests": 1,
+    "retired": true,
+    "rows": {
+      "1": {
+        "actor": {
+          "id": {
+            "kind": "number",
+            "value": 2162700
+          },
+          "owner": {
+            "kind": "number",
+            "value": 0
+          },
+          "present": true
+        },
+        "arity": 4,
+        "callback_type": "function",
+        "kind": "Interact",
+        "sequence": 1,
+        "x": {
+          "kind": "number",
+          "value": 41
+        },
+        "y": {
+          "kind": "number",
+          "value": 19
+        }
+      },
+      "2": {
+        "arity": 3,
+        "fields": {
+          "OnStart": {
+            "kind": "string",
+            "value": "BaiqiRequisition"
+          },
+          "cityID": {
+            "kind": "number",
+            "value": 524295
+          },
+          "confirmed": {
+            "kind": "boolean",
+            "value": true
+          },
+          "cost": {
+            "kind": "number",
+            "value": 300
+          },
+          "kind": {
+            "kind": "string",
+            "value": "city"
+          },
+          "playerID": {
+            "kind": "number",
+            "value": 0
+          },
+          "population": {
+            "kind": "number",
+            "value": 1
+          },
+          "requestID": {
+            "kind": "string",
+            "value": "city:0:114:2162700:1:524295:41:19"
+          },
+          "targetOwner": {
+            "kind": "number",
+            "value": 1
+          },
+          "turn": {
+            "kind": "number",
+            "value": 114
+          },
+          "unitID": {
+            "kind": "number",
+            "value": 2162700
+          },
+          "x": {
+            "kind": "number",
+            "value": 41
+          },
+          "y": {
+            "kind": "number",
+            "value": 19
+          }
+        },
+        "kind": "RequestPlayerOperation",
+        "matching_paid_route": true,
+        "operation": {
+          "kind": "number",
+          "value": -966415096
+        },
+        "params_type": "table",
+        "player": {
+          "kind": "number",
+          "value": 0
+        },
+        "sequence": 2
+      }
+    },
+    "saturated": false
+  },
+  "save": {
+    "utc": "2026-11-18T00:11:09.388613+00:00",
+    "name": "Baiqi_P6_20261118_V162_CityHP71Refused114.Civ6Save",
+    "bytes": 569039,
+    "sha256": "0354c708093cbb503c8be84fdf93c55b253aa38617a154e2a01d8d472850b773",
+    "stable_repeated_read": true
+  },
+  "exit": {
+    "utc": "2026-11-18T00:14:59.747289+00:00",
+    "exit_code": 15,
+    "terminate_count": 1,
+    "kill_escalations": 0,
+    "natural_exit_claimed": false
+  },
+  "persistence_scope": "Retained full UI/Core raw scenes and exact pre-save guard, not reload proof.",
+  "parents": {
+    "cold_baseline87292": 0,
+    "preinput43363": 0,
+    "open_quote20896": 0,
+    "fixture_prepare44707": 0,
+    "physical_confirm37430": 0,
+    "complete19613": 0
+  },
+  "actual_notice_image_private_sha256": "d04ae96f9395f5f2a95bb599f44cebcfc9fc67411b122b929e92734c1f34f7cc",
+  "private_log": {
+    "bytes": 100492,
+    "sha256": "380e0d9f2b33e7d535fdf2b0822db94e20b495e001d580b1b9012164d070c043",
+    "not_committed": true
+  },
+  "review": [
+    "Fresh current162 cold process loaded original GarrisonPrep114 once. Initial mode query unavailable before any launch attempt; formal menu exposure then new readonly offline proof before the sole Popen.119 installed files unchanged. Own game focus before selection closed only the already-foreground official Steam menu with one Esc; no mode item invoked, no mode switch.",
+    "Baseline qualified full live HORSEMAN2162700@42,19/moves4/form1/damage0/gold4524.2734375, enemy1 city524295@41,19/pop1/garrisonHP50of200/outer0/eligiblefee300/native0. Physical right1 opened original bound quote; actual pointer moved877->660 before any confirmation.",
+    "Separate durable diagnostic key/readback before one freshly qualified district:SetDamage(GARRISON,129). Independent actual UI/Core HP71of200/city_healthy and all other sampled fields stable. This is QA fixture healing21, not an ability effect, military order, debit or income.",
+    "One physical old-popup confirm displayed actual changed-state/quote notice; UI requests0/paidroute0/continuation0. Entire UI/Core scenes equal post-fixture baseline, paid bank/result/cooldownnil and all Capture transfer/debit/Finish0.",
+    "Only after that positive refusal, separately labeled TEST_PLAYER_QA stale EXECUTE_SCRIPT1 reached actual Core and returned REJECTED/city_healthy. Banknil/goldstable/army4/damage0/enemycity and health unchanged/native0. The UI route count1 at retirement belongs to this explicit QA backend request, not the physical confirmation or paid settlement.",
+    "Observers retired, formal save and officialexit once. Complete19613 actualexit0. Exact owned residue after183.5s/window0/listener0/2sCPUquiet terminated once/exit15/no kill; no natural-exit claim. No attack or unknown action replay, no END/manual domestic/model HTTP during the active case.",
+    "This passes only HP71 rejection in this fixture. HP70 exact inclusive success and HP69 eligible success still require independent cold copies, as do remaining distance/moves/cooldown boundaries and the rest of the mod."
+  ],
+  "remaining": [
+    "Execute independent HP70 exact boundary actual paid outcome next; source-only consumers prepared, not Native or software-admitted yet.",
+    "HP69/distance/movement/cooldown and other paid-state/asset/recovery cases remain open.",
+    "TC004/022 controls, old865 recoveryFAIL, MANY/NO_SITE valid performanceFAIL, finance/network and other full functionality/compatibility gaps continue."
+  ],
+  "local_model": "991 real request404 before Owner health helper; no candidate/adoption/new generation. Ledger992 unchanged."
+}
