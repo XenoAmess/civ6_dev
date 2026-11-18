@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T02:51:06.427891+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "ORDINARY_LEADER_REAL_FOOD_FOCUS_AND_QUEUE_CANCEL_ADD_POSITIVES_SAVED",
+  "full_TC004_or_TC002_pass": false,
+  "whole_mod": "OPEN_CONTINUE",
+  "owner": {
+    "pid": 23448,
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture": {
+    "stem": "Baiqi_P6_20261102_V46_StaticDiplomacy1",
+    "bytes": 623967,
+    "sha256": "0271425b3720a502e3fe15c4311ec38850060927df5c90ddc15e0764e16ffce2",
+    "turn": 1,
+    "leader": "LEADER_GORGO"
+  },
+  "same_process_original_load": true,
+  "new_cold_Popens": 0,
+  "BaiqiController_available": false,
+  "original_gold": 10,
+  "original_faith": 0,
+  "QA_grants": 0,
+  "food_focus": {
+    "utc": "2026-11-18T02:24:59.184570+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "role": "TEST_PLAYER_ORDINARY_CONTROL_NOT_AI",
+    "actual_food_favored_false_to_true": true,
+    "all_other_five_focus_flags_unchanged": true,
+    "gold": 10,
+    "faith": 0,
+    "other_assets_unchanged_except_legal_focus_assignment_and_turns_estimate": true,
+    "physical_clicks": 1,
+    "QA_grants": 0,
+    "normal_ENDs": 0,
+    "full_TC004_pass": false,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "queue_cancel": {
+    "utc": "2026-11-18T02:43:25.764234+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "role": "TEST_PLAYER_ORDINARY_CONTROL_NOT_AI",
+    "actual_queue_size_before": 1,
+    "actual_queue_size_after": 0,
+    "removed": "BUILDING_MONUMENT",
+    "gold_unchanged": 10,
+    "faith_unchanged": 0,
+    "all_other_assets_equal": true,
+    "extra_read_still_empty": true,
+    "full_TC004_pass": false,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "queue_add": {
+    "utc": "2026-11-18T02:46:00.378714+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "role": "TEST_PLAYER_ORDINARY_CONTROL_NOT_AI",
+    "actual_queue_size_before": 0,
+    "actual_queue_size_after": 1,
+    "head": {
+      "cost": 60,
+      "hash": -2025065568,
+      "index": 0,
+      "kind": "BUILDING",
+      "progress": 0,
+      "size": 1,
+      "status": "KNOWN",
+      "turns": 15,
+      "type": "BUILDING_MONUMENT"
+    },
+    "no_native_building_completion_claim": true,
+    "gold_unchanged": 10,
+    "faith_unchanged": 0,
+    "all_other_assets_equal": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "save": {
+    "utc": "2026-11-18T02:47:58.110827+00:00",
+    "name": "Baiqi_P6_20261118_V162_GorgoControlPositive1.Civ6Save",
+    "bytes": 624049,
+    "sha256": "bad25692a6362c3aa98352cc6a8c3421bff2fefa4e34eb210ce79cdff26f70a3",
+    "stable_repeated_read": true
+  },
+  "observer_retired": true,
+  "game_still_running_owned_for_next_cases": true,
+  "host_exec_terminals": {
+    "ordinary_load15280": 1,
+    "readiness_only9777": 0,
+    "first_production_view20855": 1,
+    "held_production83690": 0,
+    "queue_cancel41652": 0,
+    "ordinary_positive_save10013": 0
+  },
+  "review": [
+    "Independent original Gorgo1 file loaded once in the same Source162119-file instance after Baiqi mouse save/observer retirement. Correct current leader, onecity65536/oneunit, treasury10/faith0; BaiqiController.IsAvailable false, UIGuard.PlayerID nil in city/production contexts. No native results relabeled from old versions.",
+    "Native assets reader returned complete known ordinary-city queue/focus/citizens/purchased plots and current own unit. Actual original expansion welcome was closed via visible GUI; current city was selected using verified native UI.SelectCity(cityObject) view API. Enabled widgets alone were not taken as effect proof.",
+    "One physical food checkbox click changed the actual city citizen getter favoredFOOD false->true; other five focus flags and unrelated assets unchanged. Native turns estimate may change with citizen allocation; no city production completion or AI automation claim.",
+    "One held right-click on original current-production item removed BUILDING_MONUMENT: real queue1->0, second independent read stayedempty. One held click on visible legal Monument catalog row added it back: real queue0->1/cost60/progress0. Gold10/faith0 and other assets unchanged, no completion/free building claim.",
+    "All three ordinary manual effects were separately recorded as TEST_PLAYER controls with0QAgrants/0END. Official positive save verified, unused Capture974 observer retired. Same owned game intentionally remains running for purchase eligibility/other cases."
+  ],
+  "owner_adaptation": [
+    "First ordinary load parent15280 successfully issued original LoadGame once, then readonly continuation helper rejected current reload because an inherited phase whitelist allowed only load/reload79a/reload79b. No Escape was sent in failed branch. New helper changed only the phase domain to current reload, retained exact log prefix/SHA/owner/unique ordered current markers and one-use Escape guards, passed8software marker/phase cases; readiness-only9777 executed first current Continue and verified real Gorgo baseline. Original HALT retained.",
+    "First production combined-flag physical click did not open panel; independent read observed closed/unchecked, no queue effect. Installed pydirectinput.click uses a single combined DOWN|UP SendInput, without a held interval. A separate new known-closed-view trial used DOWN, minimum0.15s hold, UP plus passive UI events. Actual CityPanel_ProductionOpen1/ProductionPanel_Open1/close0/dropped0, checkboxtrue and real panelvisible; listener retired. This supports the new input protocol for this case, not a universal timing/root-cause claim. Food combined click had actual success."
+  ],
+  "input_delivery_limit_and_next": [
+    "Earlier Baiqi eleven combined-flag mouse no-effect records establish input issuance, disabled widgets and unchanged assets, with native domestic request sink count explicitly unobserved. New ordinary view no-effect gives a concrete delivery concern; schedule separate held-input Baiqi revalidation from a protected copy. Do not relabel old inputs as independently confirmed processing, discard original evidence, or replay unknown gameplay actions."
+  ],
+  "private_log": {
+    "bytes": 2201209,
+    "sha256": "99901139e5f84ca56e1f7b418c05c96dff8ee9aedb27e2ada1f89299d36b7078",
+    "not_committed": true
+  },
+  "local_model": "No new generation; task992404 Owner continuation, canonical metadata mismatch separately recorded; ledger992 unchanged.",
+  "remaining": [
+    "Ordinary purchase positive needs funds; current original10gold/0faith insufficient. Any QA budget is separate fixture preparation, not ability income. Faith purchase also requires real eligibility/catalog.",
+    "Reorder/multiple queue items, direct map citizen locks, hotkeys, eligible builder/missionary controls, held-input Baiqi revalidation.",
+    "TC024 distance/moves/cooldown, complete military/escort/finance/compatibility/special assets; old865 recoveryFAIL and MANY/NO_SITE performanceFAIL."
+  ]
+}

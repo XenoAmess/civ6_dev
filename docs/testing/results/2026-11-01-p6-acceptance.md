@@ -1640,3 +1640,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 actual city mouse controls
 
 [Eleven visible disabled widgets, eleven physical clicks and independent assets](../../research/baiqi-source162-eleven-city-mouse-controls-native-2026-11-18.json). Original110/city196610; each click has exact before/after416known asset fields, gold4354.41796875/faith322.11328125 and all45units unchanged. No forced UI presentation. Official save verified, unused Capture974 observer retired; same owned game continues to ordinaryleader original. Owner scope/SelectCity adapter errors retained and resolved without load/input replay. Only mouse widget branches; no fullTC004/022 pass, eligible unit/hotkey/ordinaryleader/other failures remain OPEN.
+
+
+## 2026-11-18: Source162 ordinaryleader focus and queue positive controls
+
+[Actual Gorgo focus/cancel/add effects](../../research/baiqi-source162-gorgo-focus-queue-positive-native-2026-11-18.json). Independent original1, Controller unavailable/UIGuardnil. Food native getterfalse->true, Monument queue1->0(still0 on extra read)->1/cost60/progress0, gold10/faith0 unchanged;0QAgrants/END, officially saved. SeparateDOWN/hold/UP opened production with passive event proof after prior combined click no-effect; original errors retained. Same game continues purchases; earlier Baiqi combined mouse delivery gets held-input revalidation. No fullTC004/002 or completion/AI grant.
