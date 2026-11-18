@@ -1680,3 +1680,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 ordinary native citizen-lock positive
 
 [Actual Gorgo lock663](../../research/baiqi-source162-gorgo-citizen-lock-positive-native-2026-11-18.json). Protected QA purchase-save continuation, no regrant. Normal view/oneheldCitizenButton yields lock0to1/citizen1, oneMANAGEentry, native requestvoid0returns; effect established independently, otherassets equal/gold1710faith0. Saved/proberestored/Captureretired, game continues. Owner missed welcome overlay on first view click; no-effect retained, normalCloseonce/newknownclosedview succeeded, no transactionreplay. Provides current ordinary counterpart to Baiqi guard1false; no fullTC004/compatibility grant.
+
+
+## 2026-11-18: Source162 ordinary builder buy/move/build positives
+
+[Actual ordinary Builder196610](../../research/baiqi-source162-gorgo-builder-buy-move-build-positive-native-2026-11-18.json). Visiblepurchase200 spent1710to1510/newunit UI/Core. Separate78VM one-use QA movementcredit0to2 only. Validpath706to707, onephysicalrightclick actual2,16to3,16/moves2to1; remaining1allowed actualrecommendedFarmclick, plot-1toFARM1/charges3to2/moves1to0. Native handlers void0returns, effects independentlyread UI/Core; allotherselectedassets/army equal, no direct MOVE/BUILDrequests/END/extraQAcredit. Saved/probesrestored, continues fullacceptance. Original3-node663path expectation and dependent readonlyguardedcursor sequencing failure retained without game-action replay. FullTC004 and existingFAILs remain OPEN.
