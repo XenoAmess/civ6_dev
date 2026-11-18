@@ -1655,3 +1655,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 held-input Baiqi city controls
 
 [Eleven new held mouse inputs](../../research/baiqi-source162-eleven-held-city-controls-native-2026-11-18.json). Protected original110 independently reloaded once after ordinary control saves. Each visible disabled widget received separateDOWN/atleast0.15s/UP;23known snapshots/11before-after416field pairs equal, no forced UI enable. Ordinary same-protocol queue/purchase effects separately preserved. Official save/observer retirement verified, game continues citizen/hotkey/eligible unit controls; native domestic request sink unobserved. Earlier combined inputs retain original limited scope, fullTC004/022 and wholemod remain open.
+
+
+## 2026-11-18: Source162 natural citizen-map input and actual guard refusal
+
+[Natural population view and citizen538 click](../../research/baiqi-source162-natural-map-citizen-guard-native-2026-11-18.json). Real population9 click opens15enabled citizen widgets without forced presentation. One held click on unworked/unlocked538@10,12 reaches existing PlotInfo guard once and returnsfalse;416native assets unchanged. Passive observer restored; backend sink unobserved. Public byte-identical helper verifies transparent forwarding/returns/metadata failure/overflow/retirement in twoVMs;3relatedtestmethods PASS. Ordinary lock positive and fullTC004/022 remain open; continue other controls.

@@ -1,0 +1,198 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T03:43:33.449296+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "NATURAL_POPULATION_VIEW_MAP_CITIZEN_CLICK_GUARD_REQUEST1_FALSE_ASSETS_EQUAL",
+  "whole_mod": "OPEN_CONTINUE",
+  "full_TC004_or_TC022_pass": false,
+  "owner": {
+    "pid": 23448,
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture": {
+    "stem": "Baiqi_P6_20261104_V67_InputResume110",
+    "bytes": 551269,
+    "sha256": "6a4457693848b1e330644ace54df328cb92421b5e2c7c060393d484c7a83e18b",
+    "turn": 110,
+    "leader": "LEADER_BAIQI"
+  },
+  "result": {
+    "utc": "2026-11-18T03:41:24.678948+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "natural_population_banner_view_opened": true,
+    "map_CitizenButton_visible_enabled": true,
+    "physical_held_clicks": 1,
+    "plotID": 538,
+    "xy": [
+      10,
+      12
+    ],
+    "existing_guard_request_calls": 1,
+    "guard_returned_false": true,
+    "native_backend_sink_count": "NOT_OBSERVED",
+    "all416_selected_asset_fields_equal": true,
+    "direct_diagnostic_requests": 0,
+    "passive_probe_retired_original_restored": true,
+    "normal_ENDs": 0,
+    "ordinary_map_lock_positive": "PENDING",
+    "full_TC004_or_TC022_pass": false,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "input_population": {
+    "utc": "2026-11-18T03:37:26.949184+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "role": "TEST_PLAYER_NATURAL_VISIBLE_CITY_BANNER_POPULATION_VIEW",
+    "coords": [
+      539,
+      325
+    ],
+    "native_rect": [
+      517.0,
+      280.01303100586,
+      28.0,
+      28.0
+    ],
+    "minimum_hold_seconds": 0.15,
+    "gameplay_orders": 0,
+    "forced_UI_enable_or_lens": false
+  },
+  "input_citizen": {
+    "utc": "2026-11-18T03:41:21.612020+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "role": "TEST_PLAYER_PHYSICAL_NATURAL_MAP_CITIZEN_BUTTON",
+    "plotID": 538,
+    "xy": [
+      10,
+      12
+    ],
+    "citizens_before": 0,
+    "locked_before": 0,
+    "coords": [
+      460,
+      391
+    ],
+    "minimum_hold_seconds": 0.15,
+    "direct_diagnostic_requests": 0,
+    "forced_UI_enable_or_lens": false
+  },
+  "probe_software": {
+    "utc": "2026-11-18T03:38:55.270055+00:00",
+    "helper_sha256": "068fc30c91eb4666c18a73da1e8b0801b19364fe5e1597ee77e6de25cf1c889a",
+    "actual_VM_runs": 2,
+    "verified": [
+      "zero install requests",
+      "forward exactly once with argument identity and nil arity",
+      "exact false/nil/tail/nil return tuple",
+      "detached Read",
+      "metadata exception and malformed args still forwarded",
+      "16row bounded overflow keeps forwarding",
+      "restore original identity and repeated retire refusal",
+      "native exception propagated pending row",
+      "zero return arity",
+      "foreign replacement not overwritten"
+    ],
+    "Native_actions": 0
+  },
+  "public_probe_identical_to_actual_private_helper": true,
+  "public_tests": "python -X utf8 -m unittest tests.test_diagnostic_city_request_probe tests.test_diagnostic_domestic_assets:3testmethods PASS; probe2LuaVMs plus existing96boundaryVMs/2tailtransitionVMs",
+  "protected_checkpoint": {
+    "utc": "2026-11-18T03:34:16.771012+00:00",
+    "name": "Baiqi_P6_20261118_V162_CityHeldBlocked110.Civ6Save",
+    "bytes": 551168,
+    "sha256": "15bb3df8c1dc0fe79fbff3f35a9381e577526fbe810626979c078bb595f0d026",
+    "stable_repeated_read": true
+  },
+  "new_SaveGame_claim": false,
+  "all_selected_assets_unchanged_since_checkpoint": true,
+  "review": [
+    "Installed Expansion2 CityBannerManager population button invokes its native city banner selection and CityPanel_ToggleManageCitizens event. A real held click on actual city196610 population9 opened CITY_MANAGEMENT and Citizen_Management lens even though the CityPanel ManageCitizensCheck remained disabled. No UI enabling or forced lens/API presentation was used. View-only full416field asset reads were equal.",
+    "Actual native citizen target map exposed15visible enabled CitizenButtons. Plot538@10,12 was owned, unworked0 and unlocked0, selected from actual target rows. A single held physical click at its current native rectangle center invoked the existing PlotInfo CityManager.RequestCommand guard once for exact city196610/owner0/MANAGE/coords10,12/current manageparameter1041406338. Existing handler returned one booleanfalse.",
+    "The passive request observer only wrapped the existing per-context guarded function, forwarded every invocation once with exact argument identity/arity and exact return arity, and issued no requests itself. Two actual Lua51/53 software VMs verified zero install requests, nil-containing tuples, metadata failures still forwarding, detached reads, bounded overflow, native exceptions, zero return values, retirement and foreign replacement. Public helper bytes exactly match actual Native helper SHA.",
+    "After the physical citizen click, an independent unguarded Executor asset read showed all416selected fields equal, including citizen lock/count map, queue/focus/purchased land/balances and45units. Native backend request sink was not observed: observed count1 is the existing guard entry, not a backend count. Probe restored the original function and marked retired. No city lock write/fee/unit order/END/QA grant.",
+    "This closes the tested natural citizen-map negative branch and demonstrates information remains viewable. Ordinary map-lock positive, other hotkeys/cancel/reorder/eligible civilian and oldflag cases remain open; no full TC004/022 grant. Existing official held-controls checkpoint is protected and selected assets remain identical; no new SaveGame was performed for these no-effect inputs."
+  ],
+  "images": {
+    "population-before": {
+      "utc": "2026-11-18T03:37:26.918608+00:00",
+      "owner": {
+        "pid": 23448,
+        "created_at": 1794965404.6102366,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "hwnd": 3868908,
+      "bytes": 1141585,
+      "sha256": "f3c061c36fb4f3c1df539f20a77582a8299cb8c94da50637c4c21f193538b7f0",
+      "foreground_owned_verified": true,
+      "Steam_screenshots": 0
+    },
+    "population-after": {
+      "utc": "2026-11-18T03:37:28.224859+00:00",
+      "owner": {
+        "pid": 23448,
+        "created_at": 1794965404.6102366,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "hwnd": 3868908,
+      "bytes": 1119687,
+      "sha256": "f06c27218d1d186ba59b05c26b5a484d0948b5c92b12726e57b619496395b432",
+      "foreground_owned_verified": true,
+      "Steam_screenshots": 0
+    },
+    "citizen538-before": {
+      "utc": "2026-11-18T03:41:21.605282+00:00",
+      "owner": {
+        "pid": 23448,
+        "created_at": 1794965404.6102366,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "hwnd": 3868908,
+      "bytes": 1120240,
+      "sha256": "cca006e730f97f627b64adf14b5faf2e50cfd16c133f708ecfd3aeb914ab0a7f",
+      "foreground_owned_verified": true,
+      "Steam_screenshots": 0
+    },
+    "citizen538-after": {
+      "utc": "2026-11-18T03:41:24.410240+00:00",
+      "owner": {
+        "pid": 23448,
+        "created_at": 1794965404.6102366,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "hwnd": 3868908,
+      "bytes": 1124938,
+      "sha256": "35934920a8d19c845320e7bafa8bf2d47f79a18fb204f4c83d4853b4905d3af5",
+      "foreground_owned_verified": true,
+      "Steam_screenshots": 0
+    }
+  },
+  "host_exec_terminals": {
+    "population_view24213": 0,
+    "citizen_ports55265": 0,
+    "physical_citizen85488": 0
+  },
+  "private_log": {
+    "bytes": 4743614,
+    "sha256": "56c96966c666e04f1d4f6ec51897611b6686e927e6c6aa1d5068716d28a405a9",
+    "not_committed": true
+  },
+  "local_model": "No generation; canonical model metadata mismatch previously diagnosed, task992404 Owner continuation. Tool tests and Native evidence separately recorded.",
+  "remaining": [
+    "Ordinary citizen lock positive; natural production banner/cancel/reorder; hotkeys; eligible builder and missionary controls.",
+    "TC024distance/moves/cooldown, full military/escort/finance/compatibility/specialassets; old865 recoveryFAIL and MANY/NO_SITE performanceFAIL remain."
+  ]
+}
