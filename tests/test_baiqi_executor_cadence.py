@@ -12,7 +12,7 @@ function Event()
  local h={};return {Add=function(f)h[f]=true end,Remove=function(f)h[f]=nil end,
  Fire=function(...)for f in pairs(h)do f(...)end end}
 end
-W={turn=4,saved=true,allowed=true,hidden=false,available=true,
+W={turn=4,saved=true,allowed=true,hidden=false,available=true,sent=false,
  hudReads=0,turnReads=0,availabilityReads=0,productionReads=0,
  requests={},refreshes=0,runs=0,updates={},admins=0}
 BaiqiConfig={interval=.35}
@@ -32,7 +32,8 @@ Players={[7]={GetCities=function()return {Members=function()
  return ipairs({{GetBuildQueue=function()return {CanProduce=function(_,hash)
  assert(hash==302);W.productionReads=W.productionReads+1;return W.available end}end}})
  end}end}}
-UI={RequestPlayerOperation=function(pid,op,p)assert(pid==7 and op==1);W.requests[#W.requests+1]=p end}
+UI={HasSentTurnComplete=function(...)assert(select('#',...)==0);return W.sent end,
+ RequestPlayerOperation=function(pid,op,p)assert(pid==7 and op==1);W.requests[#W.requests+1]=p end}
 PlayerOperations={EXECUTE_SCRIPT=1}
 ContextPtr={LookUpControl=function()W.hudReads=W.hudReads+1;return {IsHidden=function()return W.hidden end}end,
  SetHide=function()end,SetUpdate=function(_,f)W.update=f end,
@@ -132,6 +133,89 @@ class ExecutorCadenceTests(unittest.TestCase):
         self.assertEqual((w.hudReads, len(w.updates)), (0, 0))
         w.update(.35)
         self.assertEqual((len(w.updates), w.admins), (1, 1))
+
+    def test_sent_complete_blocks_orders_but_keeps_passive_update(self):
+        for runtime in (Lua51, Lua53):
+            with self.subTest(lua=runtime.__module__):
+                lua, w = self.world(runtime)
+                w.sent = True
+                # This matches the real post-END state: the same acknowledged
+                # turn is still active/strategic, with both busy readers false.
+                lua.execute('Events.PlayerTurnActivated.Fire(7,true)')
+                lua.execute('Events.GameCoreEventPlaybackComplete.Fire()')
+                w.update(.35)
+                self.assertEqual((len(w.requests), w.runs, w.admins), (0, 0, 0))
+                self.assertEqual(len(w.updates), 1)
+                self.assertIs(w.updates[1].allow, False)
+
+    def test_unsent_next_activation_resumes_without_resetting_controller(self):
+        for runtime in (Lua51, Lua53):
+            with self.subTest(lua=runtime.__module__):
+                lua, w = self.world(runtime)
+                w.sent = True
+                w.update(.35)
+                self.assertEqual((w.runs, w.admins), (0, 0))
+                w.turn, w.sent = 5, False
+                lua.execute('Events.GameCoreEventPlaybackComplete.Fire()')
+                self.assertEqual(w.runs, 0)
+                lua.execute('Events.PlayerTurnActivated.Fire(7,true)')
+                self.assertEqual((len(w.requests), w.runs), (1, 1))
+                w.update(.35)
+                self.assertEqual(w.admins, 1)
+                self.assertIs(w.updates[2].allow, True)
+
+    def test_unknown_complete_getter_never_grants_orders(self):
+        getters = ('nil', 'false', 'function()error("unknown")end',
+                   'function()end', 'function()return nil end',
+                   'function()return false,nil end',
+                   'function()return false,false end',
+                   'function()return 0 end', 'function()return "false" end',
+                   'function()return {} end')
+        for runtime in (Lua51, Lua53):
+            for getter in getters:
+                with self.subTest(lua=runtime.__module__, getter=getter):
+                    lua, w = self.world(runtime)
+                    lua.execute('UI.HasSentTurnComplete='+getter)
+                    lua.execute('Events.PlayerTurnActivated.Fire(7,true);Events.GameCoreEventPlaybackComplete.Fire()')
+                    w.update(.35)
+                    self.assertEqual((len(w.requests), w.runs, w.admins), (0, 0, 0))
+                    self.assertIs(w.updates[1].allow, False)
+
+    def test_turn_changed_inside_complete_read_does_not_use_old_ack(self):
+        for runtime in (Lua51, Lua53):
+            with self.subTest(lua=runtime.__module__):
+                lua, w = self.world(runtime)
+                lua.execute('UI.HasSentTurnComplete=function()W.turn=W.turn+1;return false end')
+                self.assertIs(w.guard(), False)
+                self.assertEqual((len(w.requests), w.runs, w.admins), (0, 0, 0))
+
+    def test_changed_complete_binding_during_read_never_grants_orders(self):
+        for runtime in (Lua51, Lua53):
+            for replacement in ('UI.HasSentTurnComplete=function()return false end',
+                                'UI={HasSentTurnComplete=function()return false end}'):
+                with self.subTest(lua=runtime.__module__, replacement=replacement):
+                    lua, w = self.world(runtime)
+                    lua.execute('UI.HasSentTurnComplete=function()'+replacement+';return false end')
+                    self.assertIs(w.guard(), False)
+
+    def test_complete_query_uses_static_ui_api(self):
+        for runtime in (Lua51, Lua53):
+            with self.subTest(lua=runtime.__module__):
+                lua, w = self.world(runtime)
+                lua.execute('Players[7].HasSentTurnComplete=function()error("wrong Player API")end')
+                self.assertIs(w.guard(), True)
+                w.update(.35)
+                self.assertEqual(w.admins, 1)
+
+    def test_ack_changed_inside_complete_read_requires_fresh_permission(self):
+        for runtime in (Lua51, Lua53):
+            with self.subTest(lua=runtime.__module__):
+                lua, w = self.world(runtime)
+                lua.execute('''UI.HasSentTurnComplete=function()
+                  if not W.changed then W.changed=true;W.turn=5;Events.PlayerTurnActivated.Fire(7,true)end
+                  return false end''')
+                self.assertIs(w.guard(), False)
+                self.assertIs(w.guard(), True)
 
 
 if __name__ == '__main__':

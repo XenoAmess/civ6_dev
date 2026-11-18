@@ -1,6 +1,8 @@
 # civ6_dev
 
-当前源码162：[Core 人类玩家识别修复与完整软件回归](docs/research/baiqi-source162-core-human-authority-software-2026-11-18.json)。12处权限判断只在配置字段缺失时使用玩家 getter；6项新回归、229个真实 Core 夹具环境通过。完整2765项中2764通过、1项SDK跳过；97Lua双版本编译、119文件普通包核对一致。[162普通进攻与TC023分支评审](docs/research/baiqi-source162-normal-attack-native-tc023-review-http991992-2026-11-18.json)及[城市71生命值拒绝分支](docs/research/baiqi-source162-city-hp71-ui-core-native-2026-11-18.json)已有实机证据；旧移民恢复和MANY／NO_SITE性能FAIL及其余功能矩阵仍未闭合，整个mod验收继续。
+当前源码163：[结束请求后的规划门控修复](docs/research/baiqi-source163-turn-complete-gate-software-2026-11-18.json)。实机162确认结束已发送而active／strategic仍真、busy尚假的过渡，旧门控在该状态可放行；新增新鲜静态UI getter判断，阻止新规划并保留被动回执，下一原生回合自动恢复。97Lua双编译、119文件包及四个压力配对包核对通过；全2786首次运行有8处旧夹具缺新getter，补齐后相关44项通过，未冒称全套重跑。163冷启动实机与冻结性能仍待执行，旧865和MANY／NO_SITE FAIL保留，整个mod验收继续。
+
+Source162既有证据：[Core 人类玩家识别修复与完整软件回归](docs/research/baiqi-source162-core-human-authority-software-2026-11-18.json)。12处权限判断只在配置字段缺失时使用玩家 getter；6项新回归、229个真实 Core 夹具环境通过。完整2765项中2764通过、1项SDK跳过；97Lua双版本编译、119文件普通包核对一致。[162普通进攻与TC023分支评审](docs/research/baiqi-source162-normal-attack-native-tc023-review-http991992-2026-11-18.json)及[城市71生命值拒绝分支](docs/research/baiqi-source162-city-hp71-ui-core-native-2026-11-18.json)已有实机证据；旧移民恢复和MANY／NO_SITE性能FAIL及其余功能矩阵仍未闭合，整个mod验收继续。
 
 Source161既有证据：[三项修复及完整软件回归](docs/research/baiqi-source161-software-fixes-http969-976-2026-11-17.json)。完整运行2759项，其中1项SDK环境跳过，97份Lua双版本编译、119文件普通包逐字节核对；旧暂停属性清理等三项修复已入源码。[原始旧暂停档已完成自然清理、两个普通回合和新档重载](docs/research/baiqi-source161-oldpause-two-turns-reload-native-2026-11-17.json)，只授该迁移／持续生产分支。[原移民私有诊断已实测一次WAKE、随后一次普通后台SKIP，并保存退出](docs/research/baiqi-source161-wake978-native-closed-http980-2026-11-18.json)；队列清除事件出现在SKIP之后，旧ARMED完整保留，尚未证明可安全恢复建城。[当前40项源码影响与证据缺口](docs/research/baiqi-source161-finite40-impact976-2026-11-18.json)不等于40项新测试通过。原移民恢复、MANY／NO_SITE有效性能FAIL及其余功能矩阵仍未闭合，整个mod验收未完成，继续执行。
 

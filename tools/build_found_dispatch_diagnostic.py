@@ -76,7 +76,7 @@ def build(output):
     from lupa.lua53 import LuaRuntime as L53
     source = ROOT / 'mod/Baiqi'
     version = ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('152', '153','154','155','156','157','158','159','160','161','162'):
+    if version not in ('152', '153','154','155','156','157','158','159','160','161','162','163'):
         raise ValueError('Only source152/153 is qualified')
     out = Path(output).resolve()
     if not out.is_relative_to(ROOT / '.local-model') or out.exists():

@@ -14,8 +14,19 @@ local function CurrentTurn()
   local ok,value=pcall(Game.GetCurrentGameTurn)
   if ok and type(value)=="number" and value>=0 and value<=2147483647 and value==math.floor(value) then return value end
 end
+local function UnsentRead(ok,...)
+  return ok==true and select("#",...)==1 and (...)==false
+end
 local function TurnReady()
-  return acknowledgedTurn~=nil and CurrentTurn()==acknowledgedTurn
+  local acknowledged=acknowledgedTurn
+  if acknowledged==nil or CurrentTurn()~=acknowledged then return false end
+  -- The native end request can be sent before active/strategic/busy changes.
+  -- Keep passive receipts available, but require a fresh unsent state for orders.
+  local ui=UI
+  local read=ui and ui.HasSentTurnComplete
+  if type(read)~="function" then return false end
+  return UnsentRead(pcall(read)) and UI==ui and ui.HasSentTurnComplete==read
+    and acknowledgedTurn==acknowledged and CurrentTurn()==acknowledged
 end
 BaiqiController.SetTurnGuard(TurnReady)
 local function Visible()

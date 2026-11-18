@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T15:07:57.093505+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 163,
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "PRODUCT_TURN_COMPLETE_GATE_FIXED_SOFTWARE_QUALIFIED_NATIVE_PENDING",
+  "model1007": {
+    "started_at_utc": "2026-11-18T14:51:49.660562+00:00",
+    "http_status": 404,
+    "total_ms": 35.50789994187653,
+    "finish_reason": null,
+    "sse_done": false,
+    "candidate_complete": false,
+    "usage": null,
+    "cached_prompt_tokens_if_reported": null
+  },
+  "tests": {
+    "full_first_run_total": 2786,
+    "full_first_run_seconds": 513.42,
+    "full_first_run_failures": 6,
+    "full_first_run_errors": 2,
+    "SDK_skipped": 1,
+    "fixture_corrections": 3,
+    "related_retest_methods": 44,
+    "related_retest_seconds": 6.859,
+    "related_retest_exit_code": 0,
+    "full_rerun_after_fixture_changes": false,
+    "before_fix_new_test_failed_in_both_Lua_versions": true
+  },
+  "ordinary_package": {
+    "files": 119,
+    "lua_sources_both_51_53": 97,
+    "changed_from162": [
+      "Baiqi.modinfo",
+      "UI/BaiqiExecutor.lua"
+    ],
+    "ordinary_archive_sha256": "f65cce9e9b7498775ec0045bd7329e579ba9f3d9d1ce33a18a598d4e152d8f57",
+    "paired_packages": [
+      {
+        "scene": "many",
+        "variant": "enabled",
+        "archive_sha256": "c314764034bee625b8b1aedf9e410d315774c37f8a5f8ea4e7159fef340879c6",
+        "clock_prefix_sha256": "b87a194aa0c16a84db9d488734b465327b9e822b416cf32521703999234b01a1"
+      },
+      {
+        "scene": "many",
+        "variant": "control",
+        "archive_sha256": "07de0858cd7cad5701f7687075da65d6ef98d623fcb33780984bcf07315bb1f8",
+        "clock_prefix_sha256": "b87a194aa0c16a84db9d488734b465327b9e822b416cf32521703999234b01a1"
+      },
+      {
+        "scene": "nosite",
+        "variant": "enabled",
+        "archive_sha256": "396a39169dd7690c1022aa1019cf272bfb2ee1800614a4d5172abfab1274fefe",
+        "clock_prefix_sha256": "707536cda4b877a297a7380cfdc207268dae12bb820efc0d1929c01be344d9e0"
+      },
+      {
+        "scene": "nosite",
+        "variant": "control",
+        "archive_sha256": "2d095f1989e7bcb45e70cf0042e2e049a716e3ae3f8a411311251b4284058e97",
+        "clock_prefix_sha256": "707536cda4b877a297a7380cfdc207268dae12bb820efc0d1929c01be344d9e0"
+      }
+    ]
+  },
+  "review": [
+    "Real162 one-END trace established reachable UI.HasSentTurnComplete=true while same turn/active/strategic remained true and both busy readers false immediately after request. Next Controller scope had busy=true; no expensive planning or perf cause proven. Source review showed prior TurnReady/IsAvailable predicates could all pass in the earlier reachable state. This is a product admission boundary fix, not a B_delta repair claim.",
+    "Before modifying product, actual Executor regression in Lua5.1 and5.3 with sent=true and same acknowledged turn reproduced recovery1/RunNow2/Admin1. After fix stable exact-one booleanfalse static UI getter is required, protected by pcall; unavailable/throw/zero/nil/multiple/trailingnil/nonboolean fail closed. UI table/getter identity and turn acknowledgement/current turn are freshly rechecked after read. A changed acknowledgement during getter cannot reuse old read. No user switch or new UI entry.",
+    "Controller.Update(delta,false) still receives accumulated frame time for passive receipt reconciliation. No journal/attempt/request-budget clearing or gameplay retries added. New normal orders recover on next real local activation with sent=false. No SOURCE162 installed files edited live; old scene was officially saved, trace fully retired, official exit once and exact owned residue separately qualified before terminate once.",
+    "Real new model1007 boundary-correction task preceded Owner product implementation: one actualPOST404/35.50789994187653ms, no candidate/adoption. Owner took over; no change of canonical endpoint, model, authentication or maintenance. Unknown usage/cache/cost stay null.",
+    "Full unittest ran2786 in513.420s: failures6/errors2/skipped1. All8 failures were three old actual-Executor harnesses omitting newly-required UI.HasSentTurnComplete. Owner added stable staticfalse getter in those fixtures, without weakening unknown-getter production denial or assertions. Relevant44 methods then passed in6.859s (tool chunk2bb1a9, exit0). Full first-failure log preserved; full2786 was not rerun and is not relabeled all-pass.",
+    "15 Executor cadence/admission methods include seven new regressions: sent/no-busy denial with passiveUpdate, next-turnresume,10 invalid getter forms, changedturn,changedUI/getter binding, staticUI versus missingPlayerAPI, changedack within read. Unknown states are denied. Original frame batching/subinterval/no-catchup/recovery behavior remains tested.",
+    "Actual119-file ordinary archive verified;97Lua each compile5.1/5.3. Exactly2 product files differ162: modinfo andExecutor; other117 byte-identical.17 QA tool consumers append163 accepted version only, legacy immutableLua templates unchanged, next164 refused. Four MANY/NO_SITE enabled/control packages built and independently canonical/ZIP checked with identical per-scene clockprefix. Package readiness is not Native or formal performance evidence.",
+    "Next cold ordinary163 load of protected NoSiteTrace3, one normal3->4 plus live sent-gate/readiness observation, then source163 current performance qualification using unchanged frozen budgets. PriorMANY/NO_SITE FAIL and old865 recovery remain unresolved, whole40 OPEN; no stage/publication stop."
+  ],
+  "ledger": {
+    "logical_tasks": 1007,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 123,
+    "generation_POSTs": 1046,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null
+}

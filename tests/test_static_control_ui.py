@@ -52,6 +52,7 @@ GameConfiguration.IsSavedGame=function() return true end
 PlayerOperations={EXECUTE_SCRIPT=99};GameInfo.Projects={PROJECT_BAIQI_STANDBY={Hash=90}}
 TestWorld.objects.city:GetBuildQueue().CanProduce=function() return false end
 UI.RequestPlayerOperation=function() T.recovery=T.recovery+1 end
+UI.HasSentTurnComplete=function()return false end
 ''')
             load(lua,'UI/BaiqiExecutor.lua',control)
             g.Events.LoadGameViewStateDone.Fire();g.T.update(1);g.Events.GameCoreEventPlaybackComplete.Fire()

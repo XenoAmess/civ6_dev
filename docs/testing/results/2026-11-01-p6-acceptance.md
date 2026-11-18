@@ -1780,3 +1780,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18：当前162 NO_SITE普通结束实录
 
 [一次T2至T3采样](../../research/baiqi-current162-nosite-normal-end1005-native-2026-11-18.json)：原七入口诊断安装遇引擎只读表，保存现场并正常重载后清除；修订安装器42次软件故障检查通过，四入口实装成功。只发一次普通END，Core/UI均实际进入T3，174行零丢失，全部自有包装撤除并保存。观测到Sent=true时一次Controller入口但busy=true，不能证明额外规划或性能根因；MANY／NO_SITE性能FAIL和旧865恢复FAIL继续保留，整体验收继续。
+
+
+## 2026-11-18：163结束发送状态门控的软件修复
+
+[实现、失败原件与验证界限](../../research/baiqi-source163-turn-complete-gate-software-2026-11-18.json)：旧实机可达Sent=true／active+strategic=true／busy=false状态，原执行器软件反例复现恢复1／规划2／Admin1。现要求同一已确认回合及UI getter恰一booleanfalse，未知拒绝，保留被动Update并在真实下一激活恢复。完整2786首次跑出8处旧夹具缺getter，补齐3夹具后相关44项通过；97Lua双编译、119普通文件与四个配对包核对通过。尚未授163实机或性能通过，下一步离线冷启复测，旧性能FAIL／旧865／整个mod OPEN继续。

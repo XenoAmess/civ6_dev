@@ -106,7 +106,8 @@ GameInfo={Projects={PROJECT_BAIQI_STANDBY={Hash=302}}}
 Players={[7]={GetCities=function() return {Members=function()
  return ipairs({{GetBuildQueue=function() return {CanProduce=function() return W.available end} end}})
 end} end}}
-UI={RequestPlayerOperation=function(_,_,params) table.insert(W.requests,params) end}
+UI={HasSentTurnComplete=function()return false end,
+ RequestPlayerOperation=function(_,_,params) table.insert(W.requests,params) end}
 PlayerOperations={EXECUTE_SCRIPT=1}
 ContextPtr={LookUpControl=function() return {IsHidden=function() return W.hidden end} end,
  SetHide=function() end,SetUpdate=function(_,fn) W.update=fn end,

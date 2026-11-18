@@ -76,7 +76,7 @@ assert(#Activations==1 and BaiqiAdmin.Run==Original and BaiqiController.RunNow==
         files=manifest_files(ROOT/'mod/Baiqi')
         with patch.object(builder,'manifest_files',return_value=files):
             with patch.object(builder.ET,'fromstring') as parse:
-                parse.return_value.get.return_value='163'
+                parse.return_value.get.return_value='164'
                 with self.assertRaisesRegex(ValueError,'actual source140'):builder.build(out)
         self.assertFalse(out.exists())
         with self.assertRaisesRegex(ValueError,'separate'):builder.build(ROOT/'mod/Baiqi/private-diagnostic')
@@ -97,7 +97,7 @@ BaiqiConfig={interval=.25}
 GameConfiguration={IsSavedGame=function()return true end}
 Automation={GetTime=function()return Clock end}
 Players={[0]={IsTurnActive=function()return true end,GetCities=function()return {GetCount=function()return 10 end}end}}
-GameInfo={Projects={}};PlayerOperations={EXECUTE_SCRIPT=1};UI={RequestPlayerOperation=function()end}
+GameInfo={Projects={}};PlayerOperations={EXECUTE_SCRIPT=1};UI={RequestPlayerOperation=function()end,HasSentTurnComplete=function()return false end}
 local function Event()return {Add=function()end,Remove=function()end}end
 Events={LoadGameViewStateDone=Event(),GameCoreEventPlaybackComplete=Event(),
  PlayerTurnActivated={Add=function(f)Activations[#Activations+1]=f end,
