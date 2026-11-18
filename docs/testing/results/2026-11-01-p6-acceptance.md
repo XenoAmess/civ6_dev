@@ -1725,3 +1725,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Responsive owned watchdog recovery actual pass
 
 [Separate997v2trace](../../research/baiqi-wpr997-responsive-watchdog-owned-recovery-native-2026-11-18.json).21newsoftwarecases, SDK26100namedreadonlyINACTIVE thennewUUID/independentwatcher/parentexit0. Stopworkerremaineduncompleted at12sgrace; exactownstoputilityterminated, rawpreserved+one disclosedownnamedcancel closedINACTIVE/0collectors. Resourcecleanup narrowPASS, normalSDKstopungranted. ETL18.0778278s<=60/lost0/ownedCiv23448lifetime+externalbirthtie/61buckets; original996386sFAIL retained, binary+logicchanged/noA_Bcauseclaim. Five160->162commonAIcomponents exactbyteequal; no runtimegrant. Continue frozenpressurecause/frameclockqualification and remainingfunctional/recoveryFAILs, wholemodOPEN.
+
+
+## 2026-11-18: Current NO_SITE geometry and passive causal observer preparation
+
+[Current162 continuation](../../research/baiqi-clock998-passive999-software-and-current-nosite-2026-11-18.json): frozen T1 reloaded once, new1144plot snapshot confirms1133water/11citytiles/0bareland and10local cities. Narrow native QPC adapter27software cases/10actual clock samples; no synchronization or ETW grant. Passive AI call observer40LuaVM scenarios passed, actual installation/normalEND observation next. Genuine998/999 each404/no candidate; ledger999/816complete/68length/115failed/1038POST/0inflight. Existing pressure/recoveryFAILs and fullmod remainOPEN.
