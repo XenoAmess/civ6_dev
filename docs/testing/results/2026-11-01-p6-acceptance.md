@@ -1895,3 +1895,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：普通163护送清点调用程序软件准备
 
 [22项回环及拒绝检查](../../research/baiqi-source163-escort-inventory-consumer-software-2026-11-19.json)通过：两Lua实际生成正文/解析、期望玩家回合、坏帧与当前Native父拒绝。0新模型请求、0Native，TC020尚待实机；94212继续MANY，完整验收继续。
+
+
+## 2026-11-19：TC038按映像／端点隔离工具软件与自有辅助程序验证
+
+[8项辅助程序及14项调用器检查](../../research/baiqi-source163-tc038-scoped-guard-software-2026-11-19.json)通过，真实连接0→10013→0、显式STOP／管道EOF后独立进程核filter/sublayer均消失。仅辅助程序临时规则，0Civ6/Steam规则、0Native；尚未游戏隔离或经济窗口，TC038及整模组继续。
