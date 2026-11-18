@@ -1,0 +1,433 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-18T20:48:17.915902+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 163,
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "ORIGINAL85_PAIRED_SOFTWARE_PREPARED_NOT_NATIVE",
+  "initial_turn": 85,
+  "requested_turns": [
+    85,
+    86,
+    87,
+    88,
+    89
+  ],
+  "closing_turn": 90,
+  "groups": 5,
+  "sides": 10,
+  "segments": 25,
+  "consumers_sha256": {
+    "pair163_lifecycle_owner.py": "e0b95289fd34d6b0c7181e62e412bada249a9caca3c6e9bea058c5e330f05aad",
+    "pair163_owner.py": "aabec0b723e978ffa62df2127fe8c7ece049c9f2f5709383d7d3611dc3c02be7",
+    "pair163_player_owner.py": "add2b273cd83cbefc9cbb432e218729fa184b1b006816ece02171496ee31b433",
+    "pair163_continue_owner.py": "793aa2982dce31ce83426b20b328e31ffc2a56e8a80fd9b0c8dccda5ed75223d",
+    "pair163_endpoint_owner.py": "268bd2d5200793feff7b0c2c430e82de8cad629d358a291eb7b0362d9c8d2342",
+    "pair163_header_owner.py": "ae1de9d376c4d171a2255f727540612cea89df608c8f279b961aa50203523770",
+    "pair163_cleanup_owner.py": "7ec7da01410476f4448ef8a415f4b56412963ef4b4d3eb7c0876b40a0d308f05",
+    "pair163_environment_owner.py": "29e75667d588db9be7ba779141104b244aa5956d3fe249082d2597e934bf76eb",
+    "pair163_validate_runtime_owner.py": "196a1feff414cc7005ae1bd9dcec1c159d5ce0853eff563cc6e15d343a1e20a3",
+    "pair163_input_audit_core_owner.py": "d68e59c52d1f75c6121715dbbd31b9c7b3e939a23633efa766d91f731510331c",
+    "pair163_input_audit_owner.py": "724c0f1e56a42ccd98eba0109c1fe2884b1772ec1a40dcb33c142d3bf149a22c",
+    "pair163_validate_input_audit_owner.py": "8deec378afb5921c1fbbd7b41c14e6e1fc6d2c79ee1ae918e51aa031f9f2da02",
+    "pair163_all_groups_owner.py": "82e31ad262f5343f7ec248695413842d16fd49c2944a4dc0576bf128cc874306",
+    "pair163_initial_owner.py": "527dce388e9db9ac5957d842ebcd22f91b8798552508c8737c9833c5a7a57f87"
+  },
+  "actual_semantics": {
+    "utc": "2026-11-18T20:39:01.033091+00:00",
+    "status": "PASS",
+    "source_version": 163,
+    "initial_turn": 85,
+    "closing_turn": 90,
+    "actual_guard_semantics": [
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "valid",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "stale_version",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "pressure_bridge",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "stale_global",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "pending_clock",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "old_records",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "retired_clock",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "unsubscribed_clock",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "initial_owner",
+        "case": "wrong_calendar",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "military_guard",
+        "case": "valid",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "military_guard",
+        "case": "stale_version",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "military_guard",
+        "case": "pressure_bridge",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "valid",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "stale_version",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "foreign_token",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "wrong_phase",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "not_normal",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "not_reserved",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "stale_clock_count",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "consumer": "player_preflight",
+        "case": "clock_refused",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "valid",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "stale_version",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "pressure_bridge",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "stale_global",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "pending_clock",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "old_records",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "retired_clock",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "unsubscribed_clock",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "initial_owner",
+        "case": "wrong_calendar",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "military_guard",
+        "case": "valid",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "military_guard",
+        "case": "stale_version",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "military_guard",
+        "case": "pressure_bridge",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "valid",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "stale_version",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "foreign_token",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "wrong_phase",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "not_normal",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "not_reserved",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "stale_clock_count",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "consumer": "player_preflight",
+        "case": "clock_refused",
+        "accepted": false
+      }
+    ],
+    "actual_readonly_actor_body_semantics": [
+      {
+        "VM": "lupa.lua51",
+        "case": "valid_optional_nil",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua51",
+        "case": "duplicate_city",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "case": "duplicate_unit",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua51",
+        "case": "foreign_unit",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "case": "valid_optional_nil",
+        "accepted": true
+      },
+      {
+        "VM": "lupa.lua53",
+        "case": "duplicate_city",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "case": "duplicate_unit",
+        "accepted": false
+      },
+      {
+        "VM": "lupa.lua53",
+        "case": "foreign_unit",
+        "accepted": false
+      }
+    ],
+    "actual_paired_119_artifact_verification": {
+      "enabled": "c289836efa61cbe11ce76274e855da376a2008708bc0fb1c91a0c0db0efe5f90",
+      "control": "6b2174060da697ebf6adb25018b5e3e9e0efd14f34b3ffd1c056e42863f61b5e"
+    },
+    "Native_queries": 0,
+    "actual_native_actor_reader": "NOT_RUN",
+    "consumers_sha256": {
+      "pair163_lifecycle_owner.py": "e0b95289fd34d6b0c7181e62e412bada249a9caca3c6e9bea058c5e330f05aad",
+      "pair163_owner.py": "aabec0b723e978ffa62df2127fe8c7ece049c9f2f5709383d7d3611dc3c02be7",
+      "pair163_player_owner.py": "add2b273cd83cbefc9cbb432e218729fa184b1b006816ece02171496ee31b433",
+      "pair163_continue_owner.py": "793aa2982dce31ce83426b20b328e31ffc2a56e8a80fd9b0c8dccda5ed75223d",
+      "pair163_endpoint_owner.py": "268bd2d5200793feff7b0c2c430e82de8cad629d358a291eb7b0362d9c8d2342",
+      "pair163_header_owner.py": "ae1de9d376c4d171a2255f727540612cea89df608c8f279b961aa50203523770",
+      "pair163_cleanup_owner.py": "7ec7da01410476f4448ef8a415f4b56412963ef4b4d3eb7c0876b40a0d308f05",
+      "pair163_environment_owner.py": "29e75667d588db9be7ba779141104b244aa5956d3fe249082d2597e934bf76eb",
+      "pair163_validate_runtime_owner.py": "196a1feff414cc7005ae1bd9dcec1c159d5ce0853eff563cc6e15d343a1e20a3",
+      "pair163_input_audit_core_owner.py": "d68e59c52d1f75c6121715dbbd31b9c7b3e939a23633efa766d91f731510331c",
+      "pair163_input_audit_owner.py": "724c0f1e56a42ccd98eba0109c1fe2884b1772ec1a40dcb33c142d3bf149a22c",
+      "pair163_validate_input_audit_owner.py": "8deec378afb5921c1fbbd7b41c14e6e1fc6d2c79ee1ae918e51aa031f9f2da02",
+      "pair163_all_groups_owner.py": "82e31ad262f5343f7ec248695413842d16fd49c2944a4dc0576bf128cc874306",
+      "pair163_initial_owner.py": "527dce388e9db9ac5957d842ebcd22f91b8798552508c8737c9833c5a7a57f87"
+    }
+  },
+  "actual_input_audit_software": {
+    "utc": "2026-11-18T20:37:27.286735+00:00",
+    "source_version": 163,
+    "strict_negative_checks": [
+      "future_source",
+      "stale_source160",
+      "bool_source",
+      "wrong_fixture",
+      "forced_capture",
+      "duplicate_run",
+      "duplicate_token",
+      "boolean_clock_errors",
+      "bool_activation_turn",
+      "missing_marker",
+      "duplicate_marker",
+      "malformed_prefix",
+      "wrong_attempt_sequence",
+      "bool_frame_tag",
+      "different_selected_id",
+      "wrong_issuance_token",
+      "false_request_ACK",
+      "forced_request_ACK",
+      "bool_request_turn",
+      "missing_exhaustion",
+      "final_select_sequence_gap",
+      "unknown_empty_trace",
+      "same_unit_twice_in_one_turn"
+    ],
+    "positive_checks": [
+      "explicit_synthetic_ten_side_immutable",
+      "explicit_exhaustion_zero_step_trace",
+      "real_sequence_difference_reported_without_mutation_or_replay"
+    ],
+    "fixture": "Synthetic ten-side copies derived from one actual completed first-side trace; NOT ten Native runs or final input evidence.",
+    "Native_queries": 0,
+    "all10_actual_audit": "NOT_RUN"
+  },
+  "owner_correction": {
+    "utc": "2026-11-18T20:37:26.920181+00:00",
+    "status": "OWNER_PRIVATE_SOFTWARE_FIX",
+    "cause": "Broad1048576->67108864 log limit replacement also changed two synthetic unit-ID mutation needles. Negative audit detected ineffective ID mutation before any new Native run.",
+    "correction": "Restore actual historical unitID1048576 only in two mutation needles; future generator replacements restricted to known log-length comparisons. Actual logs, product, prepared119packages, Native consumers unchanged.",
+    "changes": {
+      "pair163_validate_input_audit_owner.py": {
+        "before": "43e725d26e01dcc6c4359f5c7631ac063d839f83dc23daa60e03003fdb3827ca",
+        "after": "8deec378afb5921c1fbbd7b41c14e6e1fc6d2c79ee1ae918e51aa031f9f2da02"
+      },
+      "original85_163_prepare_plan_consumers_owner.py": {
+        "before": "eaa91acbbe77aef092bff6da578460ece3cbb11ad3ba887048f5a8b795a6e63d",
+        "after": "702675cbed11a476f79eadf398f1e28596f0620633a3351c393fbaad51d0b2dc"
+      },
+      "original85_163_prepare_full_consumers_owner.py": {
+        "before": "10a1f11bbc468d105acf375b82256e2deb60ae655eaa77b7c06a55b55a7fcbd9",
+        "after": "e17bfafcfa29a6bae8e0b086b923cda6fcd2b09fe3785f866710a172e5060911"
+      },
+      "original85_163_prepare_paired_consumers_owner.py": {
+        "before": "d9172672bf495acf723e9b0bd3c50f846e31226e66cddddfad8688031aad21ef",
+        "after": "f7f637b2c5ec9a68f5e09a61a97e27d57053c9c25737817a058b6c3fb52cd6fa"
+      }
+    },
+    "Native_queries": 0
+  },
+  "new_Native_actions": 0,
+  "new_model_calls": 0,
+  "B_delta": "NOT_RUN",
+  "review": [
+    "1019真实候选失败已在上次双仓库证据记账；此次无新增模型请求。Owner实际完成14个原85当前163配对及审计消费者，mode为非pressure默认协议，85至89五次普通END、90收尾；不复用MANY的T6几何或自然候选资格。",
+    "两119文件配对包由规范verify_pair实际核对，Source163源码、ZIP、静态变更／公共时钟及END桥身份一致；未重新构建已有四包。40双Lua实际前态表达式检查、8个只读资产体检查和两真实玩家表达式双编译通过，0新原85安装／Native。",
+    "原85只读起始资产模板使用实际已有Treasury、City、Unit getter，只读己方城市／单位，不固定压力地图、其他玩家城数或人口；可选nil原样保留为nil字符串。Native getter可用性仍需实际原85侧资格确认，不以模拟体通过代替。",
+    "审计反例曾发现Owner全局数字替换把两个真实历史单位ID1048576的变异针误改成67108864，导致反例未实际改变输入；这是私有验收脚本错误，在无新Native时修正。未来适配只改明确log长度比较，源产品、119包、原日志及已执行MANY消费者不改。修正后23反例、3正例通过；历史160克隆仅作软件夹具，不冒充新163十侧。",
+    "五组交替顺序／十独立冷进程、固定25段双预算500ms与10%、实际输入序列另核、全部尖峰保留；正式nonce先归档再重载，环境pin及15秒新鲜后台离线围栏、60秒预热、保存／桥撤除／释放／退出分开。入口要求quota163实际全脚本完成且B_turn／N_req通过及退场闭合。",
+    "当前唯一Native父13939继续MANY矩阵，本次在无正式占用的初始加载或退出等待早段只交付独立软件准备；MANY B_delta、当前163原85、旧865和完整40仍开放，继续执行。"
+  ],
+  "ledger": {
+    "logical_tasks": 1019,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 135,
+    "generation_POSTs": 1058,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null
+}
