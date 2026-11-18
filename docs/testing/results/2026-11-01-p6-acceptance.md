@@ -1625,3 +1625,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: actual HP70 inclusive paid boundary PASS
 
 [Independent original copy, exact currentHP70 and real settlement](../../research/baiqi-source162-city-hp70-paid-native-2026-11-18.json). QA city damage150->130 separate from ability; UI/Core exact70of200/eligible at35percent. Onephysical right/cursoraway/confirm; gold4524.2734375->4224.2734375, army4->0/damage0/cooldown114, city1/524295->0/851979/pop1; one COMMITTED/DONE fee300 and Capture transfer/debit/Finish1 each, ordinarycontinuation0. All parents actualexit0; save/retire/officialexit/owned cleanup complete, no semantic QA backend/attack replay. No reload claim; HP69 and remaining TC024/fullmod still OPEN, continue.
+
+
+## 2026-11-18: exact HP69 successful settlement prepared
+
+[Fresh-copy protocol, actual product VM and exact confirmation guard](../../research/baiqi-source162-city-hp69-preparation-2026-11-18.json). Native NOT_RUN.10 actual Actions/Quote/OnRequisition/Capture974 VM cases use separate QA damage130 and require one300 fee/transfer/Finish; current guard rejects actualHP68 and70 before a request. Prior162 fixture VM cases reused,2 load-once VM/15 finiteflows/6 actual driver metadata tests,318 original SHA checks retained. Current119 package unchanged. Proceed independent offline cold copy; Other boundaries and fullmod remainOPEN.
