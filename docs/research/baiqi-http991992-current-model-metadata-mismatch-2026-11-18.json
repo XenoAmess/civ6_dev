@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T01:14:53.763771+00:00",
+  "machine": "BF-202609141645",
+  "status": "CURRENT_CANONICAL_MODELS_METADATA_MISMATCH_OWNER_CONTINUES",
+  "diagnostic": {
+    "utc": "2026-11-18T01:13:53.879362+00:00",
+    "machine": "BF-202609141645",
+    "purpose": "One current canonical metadata GET to diagnose genuine991992 provider404, not a generation probe",
+    "network_routing": {
+      "proxy_mode": "direct",
+      "target_host": "192.168.1.11",
+      "proxy_handler": "disabled",
+      "redirects": "refused",
+      "actual_peer": "UNKNOWN"
+    },
+    "added_generation_POSTs": 0,
+    "game_actions": 0,
+    "configured_model": "qwen38-coder",
+    "OpenCode": "canonical daily preflight before metadata; separate from code generation",
+    "http_status": 200,
+    "advertised_model_count": 1,
+    "configured_model_advertised": false,
+    "wall_seconds": 0.015116299968212843,
+    "body_bytes": 321,
+    "body_sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+    "body_truncated": false
+  },
+  "advertised_model_ids": [
+    "open-h3-2k"
+  ],
+  "observations": [
+    "Genuine generation tasks991/992 already returned provider API404; their original requests and failures stay unchanged.",
+    "One current metadata GET used canonical caller daily preflight and canonical DIRECT transport with no redirect; HTTP200 advertises only open-h3-2k video model, not configured qwen38-coder. No new generation POST."
+  ],
+  "limits": [
+    "Metadata mismatch plus prior404 does not establish a server restart, queue capacity, backend health or the precise routing root cause. Actual network peer remains UNKNOWN.",
+    "Do not choose a video model or another historical endpoint to satisfy a source task; no shared configuration, server service, Steam mode or game state was changed."
+  ],
+  "action": "Continue Owner implementation and acceptance of already assigned unfinished work. Keep model configuration authoritative pending an actual configured service correction.",
+  "ledger": {
+    "logical_calls": 992,
+    "complete": 816,
+    "length": 68,
+    "final_request_failures": 108,
+    "generation_POSTs": 1031,
+    "extra_attempts": 38,
+    "inflight": 0,
+    "cached_tokens": null,
+    "cost": null,
+    "net_savings": null
+  },
+  "whole_mod": "OPEN_CONTINUE"
+}

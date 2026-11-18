@@ -1264,3 +1264,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-17：[159旧创作等待软件修正](testing/baiqi-source159-legacy-creative-standby.md)。0次数不等于作品耗尽，SLEEP不清未知token；首全2734有3诊断主块局部变量编译错误，嵌入既有函数作用域后98相关通过、119/97双编译，未重跑全套／未Native。首定向71错误cwd119夹具错误独立保留，正确cwd71过。软件包0新POST／0模型采用，累计924账本不变，原生OpenCode0。
 
 2026-11-17：[159真实音乐家恢复91](testing/baiqi-source159-legacy-creative-native91.md)：后台一次SLEEP，旧LEGACY_UNKNOWNtoken保持，普通END90一次且独立实际91/11城另存；只授本阻塞档，当前性能/20回合/旧移民FAIL不转授。资格只读本地工具终态未消费先启动回合父驱动的Owner次序失误及实际资格JSON在输入前的UTC保留，0并行Native写者/重放。本包0新HTTP，924账本/原生OpenCode0保持。
+
+
+2026-11-18: [Current canonical metadata mismatch after991/992404](research/baiqi-http991992-current-model-metadata-mismatch-2026-11-18.json). One canonical preflight+DIRECT metadata GET returned200 and only open-h3-2k, while authoritative configuration still selects qwen38-coder. No generation added, endpoint/model fallback or service modification. Route/root cause remains unknown; Owner continues actual unfinished implementation and acceptance, ledger992 unchanged.
