@@ -1785,3 +1785,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18：163结束发送状态门控的软件修复
 
 [实现、失败原件与验证界限](../../research/baiqi-source163-turn-complete-gate-software-2026-11-18.json)：旧实机可达Sent=true／active+strategic=true／busy=false状态，原执行器软件反例复现恢复1／规划2／Admin1。现要求同一已确认回合及UI getter恰一booleanfalse，未知拒绝，保留被动Update并在真实下一激活恢复。完整2786首次跑出8处旧夹具缺getter，补齐3夹具后相关44项通过；97Lua双编译、119普通文件与四个配对包核对通过。尚未授163实机或性能通过，下一步离线冷启复测，旧性能FAIL／旧865／整个mod OPEN继续。
+
+
+## 2026-11-18：163普通包结束门控实机通过
+
+[冷启动实际T3至T4](../../research/baiqi-source163-turn-complete-gate-native4-2026-11-18.json)：Sent=true而active／strategic仍真、busy尚假时，实际IsAvailable=false；T4原生激活后自动恢复true，Admin自然继续。只发一次普通END，312行零丢失／错误，全部自有包装撤除，Core/UI均确认T4并正式保存。此限定功能通过不授性能、完整请求覆盖或整体验收；继续冻结矩阵和其余缺口。
