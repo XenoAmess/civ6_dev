@@ -1635,3 +1635,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: actual HP69 paid success; health boundary submatrix complete
 
 [Independent original Source162 HP69 paid confirmation](../../research/baiqi-source162-city-hp69-paid-native-2026-11-18.json). Separate QA damage150->131, exact69of200 before physicalconfirm1. Gold4524.2734375->4224.2734375, army4->0/damage0/cooldown114, city1/524295->0/851979/pop1; oneCOMMITTED/DONE fee300 and transfer/debit/Finish1 each, continuation0. All parents actualexit0; saved, retired and closed. Together with separate162 HP70success andHP71UI/Core refusals, closes only TC024 health boundaries; no reload claim. Distance/moves/cooldown, recoveryFAIL, performanceFAIL and fullmod remain OPEN, continue.
+
+
+## 2026-11-18: Source162 actual city mouse controls
+
+[Eleven visible disabled widgets, eleven physical clicks and independent assets](../../research/baiqi-source162-eleven-city-mouse-controls-native-2026-11-18.json). Original110/city196610; each click has exact before/after416known asset fields, gold4354.41796875/faith322.11328125 and all45units unchanged. No forced UI presentation. Official save verified, unused Capture974 observer retired; same owned game continues to ordinaryleader original. Owner scope/SelectCity adapter errors retained and resolved without load/input replay. Only mouse widget branches; no fullTC004/022 pass, eligible unit/hotkey/ordinaryleader/other failures remain OPEN.
