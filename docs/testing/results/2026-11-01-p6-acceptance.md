@@ -1770,3 +1770,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18：八类军队／宗教战斗单位实机控制样本
 
 [当前162八类结果](../../research/baiqi-current162-eight-military-religious-player-controls-2026-11-18.json)：显式QA创建8单位、2编制设置，0行动补给；82秒／221次真实规划窗口目标0命令0操作。7次原版受保护地图移动、1次飞机转场后，UI/Core确认全部到达并消耗行动，编制和护送数量分别保持，后续无后台覆盖。所有观察器已撤，结果保存。不是正常训练、宗教战斗、物理全输入、护送或整项TC019通过；继续回合／护送与性能FAIL。
+
+
+## 2026-11-18：结束请求状态的只读诊断准备
+
+[1005状态采集](../../research/baiqi-current162-end1005-typed-state-smoke-software-2026-11-18.json)：原版入口是UI.HasSentTurnComplete，Player字段实际缺失。Owner40次状态、24次七入口跟踪软件检查通过，当前158只读实机采集Sent=false／active+strategic=true；没有END、门控改动或性能结论。下一步完成测试玩家普通结束前置并观察真实过渡，MANY／NO_SITE性能FAIL保留。

@@ -1,0 +1,404 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T13:35:58.116739+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "TYPED_NATIVE_CURRENT_STATE_SMOKE_AND_PASSIVE_TRACE_SOFTWARE_ONLY_NO_END_YET",
+  "model1005": {
+    "started_at_utc": "2026-11-18T13:23:24.509707+00:00",
+    "http_status": 404,
+    "total_ms": 114.8490000050515,
+    "finish_reason": null,
+    "sse_done": false,
+    "usage": null,
+    "cached_prompt_tokens_if_reported": null,
+    "candidate_complete": false
+  },
+  "typed_state_software": {
+    "utc": "2026-11-18T13:26:58.511178+00:00",
+    "actual_VM_cases": [
+      {
+        "VM": "Lua51",
+        "scenario": "normal_false",
+        "known": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "sent_true",
+        "known": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "inactive",
+        "known": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "no_local_player",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "no_player_object",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "getter_zero",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "getter_many",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "getter_nil",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "getter_nonbool",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "getter_throw",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "getter_missing",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "getter_noncallable",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "turn_nan",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "turn_fraction",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "player_method_many",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "reentry",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "turn_changes_midread",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "changed_function",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "changed_table",
+        "known": false
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "changed_provider",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "normal_false",
+        "known": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "sent_true",
+        "known": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "inactive",
+        "known": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "no_local_player",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "no_player_object",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "getter_zero",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "getter_many",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "getter_nil",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "getter_nonbool",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "getter_throw",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "getter_missing",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "getter_noncallable",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "turn_nan",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "turn_fraction",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "player_method_many",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "reentry",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "turn_changes_midread",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "changed_function",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "changed_table",
+        "known": false
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "changed_provider",
+        "known": false
+      }
+    ],
+    "helper_sha256": "180f9c1919449360fc950c017116eb1dec6fc71c806fee277faa17f5f2aec0ce",
+    "Native": "NOT_RUN",
+    "property_writes": 0,
+    "scope": "Typed observation only; no admission predicate, atomicity or post-END overlap/performance claim. 0/multiple/nil/false/missing/noncallable/methodself/refchanges/reentry preserved."
+  },
+  "trace_software": {
+    "utc": "2026-11-18T13:31:59.546349+00:00",
+    "actual_VM_cases": [
+      {
+        "VM": "Lua51",
+        "scenario": "unarmed_forward",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "scope_nil_returns",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "sdk_nils_actor_code",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "original_error_identity",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "sdk_original_error_identity",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "unknown_snapshot_not_false",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "foreign_preserved",
+        "mock_original_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "detached_snapshot",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "one_use",
+        "mock_original_calls": 0
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "retire_and_retained_wrapper",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "capture_error_forward",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "cap_first4096",
+        "mock_original_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "unarmed_forward",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "scope_nil_returns",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "sdk_nils_actor_code",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "original_error_identity",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "sdk_original_error_identity",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "unknown_snapshot_not_false",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "foreign_preserved",
+        "mock_original_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "detached_snapshot",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "one_use",
+        "mock_original_calls": 0
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "retire_and_retained_wrapper",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "capture_error_forward",
+        "mock_original_calls": 1
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "cap_first4096",
+        "mock_original_calls": 0
+      }
+    ],
+    "helper_sha256": "19cd20f760d0a502a976fd6057e8a1fda058134e912f8c4d037aa12cffe2360f",
+    "Native": "NOT_RUN",
+    "scope": "Seven existing bindings observed, 4096first rows/dropinvalid, no admission modification; exact writer forwarding/error/nil, scope pcallLua51 coroutine-yield unsupported."
+  },
+  "Native_smoke": {
+    "receipt": [
+      "TYPED_OBSERVATION",
+      "158",
+      "158",
+      "0",
+      "false",
+      "true",
+      "true",
+      "false",
+      "false",
+      "table"
+    ],
+    "seven_ports": [
+      "function",
+      "function",
+      "function",
+      "function",
+      "function",
+      "function",
+      "function"
+    ],
+    "END_requests": 0,
+    "admission_changes": 0,
+    "player_property_writes": 0
+  },
+  "review": [
+    "Installed primary vanillaActionPanel506 calls STATIC UI.HasSentTurnComplete(), not Player method. Actual current p.HasSentTurnComplete is nil; earlier typing retainedUNKNOWN, then correctUIgetter qualifiedfunction/exactbooleanfalse. Source162ExecutorTurnReady onlyturnack/current; ControllerPlayerContext usesactive+strategic andCoreIdlebusymessagechecks. This is a hypothesis boundary, not provenpostENDadmissionbug or performancecause.",
+    "Genuine new model1005 typedcapture task preceded Ownerimplementation. One actualPOST404/114.8490000050515ms, no candidate or adoption. Task-preparation removed old unrelated proof but left standalone semicolon, causing Pythonparsefailure andmissingdispatchfile command before anyPOST; Owner corrected preparation, then actualonePOST naturallyterminated. Those prep failures are not modelsemanticfailures or extra modelPOSTs.",
+    "First synthetic test found false-valued NONCALLABLE API field collapsed toMISSING by Lua and/or field lookup. Owner replaced it with exact protected field access, supportsactualtable/userdata, and sanitizesnonfinite/unexpectedvalues. All40typedstate cases pass5.1/5.3; fixedrefs,0/multiple/nil/false/error/methodself/reentry/changedturn/sources unknown ratherthan falseadmission. known is dataquality, snapshot_atomic alwaysfalse; no authorization predicate generated.",
+    "24softwarecases of passive seven-port trace coverbefore/afterController.RunNow/Admin.Run plus5SDKwriters UnitOperation/UnitCommand/CityOperation/CityCommand/PlayerOperation, void/nil/errorforwarding, detachedreads, foreignrefs, one-useARM, first4096rowcap/dropinvalid. Nativewriters remaintaildelegated; Lua5.1scopepcall-yield unsupported, actualnaturalconsumersdonotyield. MetadataEXECUTE_SCRIPT requests willbe distinguished viaOnStart label, not equated with new gameplayorders.",
+    "Actualcurrent158Baiqi/14cities66units smoke producedtypedknown true withSentfalse/active+strategictrue/busy+processingfalse, ptype table, all7futureportsfunction. Purefactorylocalonly, no traceinstalled or END yet, currentmilitaryresultsaveprotected. Next preparefreshnormalturn blockers, testplayeronlyownnonwhitelistmilitary/support/religiouscombat skips if needed, then one ordinaryEND withoutUserForced whilepassivetraceobserves actualstates. No manualdomestic setup, oldARMEDclear, speculativeproductpatch or performancePASS."
+  ],
+  "unchanged_failures": [
+    "old865 recovery",
+    "MANY percentage budget",
+    "NO_SITE absolute and percentage budget"
+  ],
+  "ledger": {
+    "logical_tasks": 1005,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 121,
+    "generation_POSTs": 1044,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null
+}
