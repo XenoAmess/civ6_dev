@@ -1665,3 +1665,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 natural queue cancel refusal
 
 [Natural banner/queue/current-item right-click](../../research/baiqi-source162-natural-queue-cancel-guard-native-2026-11-18.json). Production banner opens native panel; QueueTab enables actual current item. Heldrightclick reaches existing BUILD/REMOVE_AT/index0 guard1/false, all416fields equal, castlequeue1/progress0 retained. Ordinary same-protocol cancel1to0still0 positive separately saved. Passive method-only variant2VMs checked/restored; backend sink unobserved. Wrong readonly panel control names retained, resolved through fresh visible panel/actual widget read without banner replay. No fullTC004/022; continue reorder/hotkeys/eligible units/other failures.
+
+
+## 2026-11-18: Source162 eligible builder move and M shortcut negatives
+
+[Actual eligible builder input effects](../../research/baiqi-source162-eligible-builder-move-and-M-key-native-2026-11-18.json). Separate exact one-use QA restores5832733moves0to2 only,78LuaVM protocolcases; independent other415selectedfields equal. NativeMOVE_TOtrue+path319to364, calibrated cursor364@12,8; heldrightclick reaches existing Move guard1/false,416fields equal. PhysicalM yields real MoveTo InputAction35once, staysSELECTION/noqueued/noassetdelta. Observers restored/listenerremoved, officially saved, game continues. Readonly false-vs-nil/unpack/coordinate assumptions and player-selection activity-enum change recorded; no whole-native-state/BUILD/ordinary/fullTC004/022 grant. Canonical metadata still lacks configured textmodel03:53UTC,0newgeneration.
