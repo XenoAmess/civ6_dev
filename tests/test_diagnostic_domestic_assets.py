@@ -40,7 +40,11 @@ cases=[('baseline','',True),('ordinaryLeader',"F.S.leader='LEADER_GORGO';F.reque
  ('turnChanged','F.E.Game.GetCurrentGameTurn=function()F.S.reads=F.S.reads+1;return F.S.reads>1 and 115 or 114 end',False),
  ('balanceChangedDuringRead','F.treasury.GetGoldBalance=function()F.S.gold=F.S.gold+1;return F.S.gold end',False),
  ('sparseRequestedIDs','F.request.cityIDs={[2]=77}',False),('duplicateRequestedIDs','F.request.unitIDs={111,111}',False),
- ('foreignPlayer','F.request.playerID=1',False),('requestDetachedAtEntry','F.treasury.GetGoldBalance=function()F.request.cityIDs[1]=999;return F.S.gold end',True)]
+ ('foreignPlayer','F.request.playerID=1',False),('requestDetachedAtEntry','F.treasury.GetGoldBalance=function()F.request.cityIDs[1]=999;return F.S.gold end',True),
+ ('uiReligionPorts','for _,id in ipairs({222,333})do local u=F.unitMap[id];u.GetReligion=nil;u.GetReligionType=function()return 4 end;u.GetSpreadCharges=function()return 2 end end',True),
+ ('nonCallableCoreReligionMustNotFallback','F.unitMap[222].GetReligion=false;F.unitMap[222].GetReligionType=function()return 4 end;F.unitMap[222].GetSpreadCharges=function()return 2 end',False),
+ ('zeroArityUIReligionCharges','F.unitMap[222].GetReligion=nil;F.unitMap[222].GetReligionType=function()return 4 end;F.unitMap[222].GetSpreadCharges=function()end',False),
+ ('missingBothReligiousPorts','F.unitMap[222].GetReligion=nil',False)]
 
 class DomesticAssetsTests(unittest.TestCase):
  def test_reader_boundaries_and_json_roundtrip(self):

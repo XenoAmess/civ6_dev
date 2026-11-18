@@ -127,7 +127,12 @@ function M.Read(E,request)
     for _,k in ipairs({'X','Y','MovesRemaining','Damage','FormationUnitCount','BuildCharges'})do put(prefix..k,function()return number(method(u,'Get'..k))end)end
     put(prefix..'cooldown',function()return (method(u,'GetProperty','BAIQI_REQUISITION_TURN'))end)
     if kind=='UNIT_MISSIONARY' or kind=='UNIT_APOSTLE' or kind=='UNIT_INQUISITOR' or kind=='UNIT_GURU'then
-     put(prefix..'religion',function()local r=method(u,'GetReligion');return{type=integer(method(r,'GetReligionType'),-1,2147483647),charges=integer(method(r,'GetSpreadCharges'),0,2147483647)}end)
+     put(prefix..'religion',function()
+      if u.GetReligion~=nil then
+       local r=method(u,'GetReligion');return{type=integer(method(r,'GetReligionType'),-1,2147483647),charges=integer(method(r,'GetSpreadCharges'),0,2147483647)}
+      end
+      return{type=integer(method(u,'GetReligionType'),-1,2147483647),charges=integer(method(u,'GetSpreadCharges'),0,2147483647)}
+     end)
     end
    end
   end

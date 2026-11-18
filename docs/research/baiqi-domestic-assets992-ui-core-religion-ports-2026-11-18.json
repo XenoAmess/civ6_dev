@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T01:25:38.036554+00:00",
+  "machine": "BF-202609141645",
+  "status": "SOFTWARE_PORT_COMPLETENESS_PASS_NATIVE_NOT_RUN",
+  "whole_mod": "OPEN_CONTINUE",
+  "product_mod_changes": 0,
+  "source_facts": [
+    "BaiqiController.lua1681-1688 uses UI unit:GetReligionType/GetSpreadCharges directly.",
+    "BaiqiMissionaryPurchaseSnapshot.lua53-66 uses Core unit:GetType and unit:GetReligion():GetReligionType/GetSpreadCharges."
+  ],
+  "change": "Use nested Core religion object when the getter is present, direct UI unit ports only when GetReligion is nil. Present noncallable/throwing/unknown getter remains UNKNOWN; no fallback after error.",
+  "validation": {
+    "command": "python -X utf8 -m unittest tests.test_diagnostic_domestic_assets -v",
+    "methods_passed": 2,
+    "boundary_scenarios": 48,
+    "actual_boundary_VM_runs": 96,
+    "additional_tail_transition_VMs": 2,
+    "new_scenarios": [
+      "UI direct religion ports readable",
+      "present noncallable Core port cannot fall back",
+      "zero-return UI charges unknown",
+      "both paths missing unknown"
+    ],
+    "actual_game_queries": 0
+  },
+  "hashes": {
+    "tools/lua/diagnostic_domestic_assets.lua": "476621aa0d82362aa9bb166a35d8d95cef9238c9d7ef834156396399c3e5003f",
+    "tests/test_diagnostic_domestic_assets.py": "45ba70aff9bd9f4dd97de7e0dc8533d0e3f5cc199fbc79b1e069f23535072aec"
+  },
+  "model": "No new generation; task992404 Owner continuation. Canonical metadata mismatch separately documented.",
+  "remaining": "Current-source cold actual reader and real GUI attempts; ordinaryleader positive, all other open acceptance and failures continue."
+}
