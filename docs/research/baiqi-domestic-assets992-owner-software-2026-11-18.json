@@ -1,0 +1,892 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T01:21:22.121398+00:00",
+  "machine": "BF-202609141645",
+  "status": "OWNER_READONLY_ASSETS_TOOL_SOFTWARE_PASS_NATIVE_NOT_RUN",
+  "source_version": 162,
+  "whole_mod": "OPEN_CONTINUE",
+  "new_files": {
+    "tools/lua/diagnostic_domestic_assets.lua": "665947bfa9fb677bda7ee21c6647f9c790a00ea876aa6f7f3ee4189bdff7238a",
+    "tests/lua/mock_domestic_assets.lua": "b31d93ca0d70969f3d30a1886a8e1f70826e1ba8470da3f2650f37a41ab68efa",
+    "tests/test_diagnostic_domestic_assets.py": "c497257ed72d9e8fb89450dc79d83d4b00fa0b3c52e557cfb17484e049061e16"
+  },
+  "product_mod_files_changed": 0,
+  "validation": {
+    "command": "python -X utf8 -m unittest tests.test_diagnostic_domestic_assets -v",
+    "actual_test_methods_passed": 2,
+    "boundary_scenarios": 44,
+    "actual_boundary_VM_runs": 88,
+    "additional_tail_transition_VMs": 2,
+    "tail_transition_reads_per_VM": 2,
+    "generation_candidates_adopted": 0,
+    "actual_game_queries": 0
+  },
+  "VM_boundaries": [
+    {
+      "VM": "Lua51",
+      "scenario": "baseline",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "ordinaryLeader",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "configNilPlayerFallback",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "coreTypeFallback",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "nativeZeroReturnProperty",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "emptyQueue",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "unitCorpsHead",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "knownAbsentSelectedUnit",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "unknownFaith",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "zeroArityFaith",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "nonfiniteGold",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "wrongLeader",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "nonCallableConfigHuman",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "falseConfigHuman",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "configUnknownMustNotFallback",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "missingBothHumanPorts",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "foreignCityID",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "foreignUnitOwner",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "missingListedCity",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "missingListedUnit",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "inconsistentCollectionCount",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "changedCollection",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "partialTailQueue",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "queueHeadMismatch",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "badQueueDatabaseID",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "unknownQueueDirective",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "nonSerializableQueueTail",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "cyclicQueueEntry",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "extraQueueRow",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "queueNonfiniteCost",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "unknownFocus",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.focus"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "missingCitizenLock",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.citizens"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "extraCitizenLock",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.citizens"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "duplicateCitizenPlot",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.citizens"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "duplicatePurchasedPlot",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.purchasedPlots"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "foreignPlotID",
+      "qualified": false,
+      "unknown_fields": [
+        "plot.903"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "zeroArityCharge",
+      "qualified": false,
+      "unknown_fields": [
+        "unit.111.BuildCharges"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "unknownReligiousCharges",
+      "qualified": false,
+      "unknown_fields": [
+        "unit.222.religion"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "turnChanged",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "balanceChangedDuringRead",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "sparseRequestedIDs",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "duplicateRequestedIDs",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "foreignPlayer",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua51",
+      "scenario": "requestDetachedAtEntry",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "baseline",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "ordinaryLeader",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "configNilPlayerFallback",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "coreTypeFallback",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "nativeZeroReturnProperty",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "emptyQueue",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "unitCorpsHead",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "knownAbsentSelectedUnit",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "unknownFaith",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "zeroArityFaith",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "nonfiniteGold",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "wrongLeader",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "nonCallableConfigHuman",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "falseConfigHuman",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "configUnknownMustNotFallback",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "missingBothHumanPorts",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "foreignCityID",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "foreignUnitOwner",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "missingListedCity",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "missingListedUnit",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "inconsistentCollectionCount",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "changedCollection",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "partialTailQueue",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "queueHeadMismatch",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "badQueueDatabaseID",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "unknownQueueDirective",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "nonSerializableQueueTail",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "cyclicQueueEntry",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "extraQueueRow",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "queueNonfiniteCost",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.queue"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "unknownFocus",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.focus"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "missingCitizenLock",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.citizens"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "extraCitizenLock",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.citizens"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "duplicateCitizenPlot",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.citizens"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "duplicatePurchasedPlot",
+      "qualified": false,
+      "unknown_fields": [
+        "city.77.purchasedPlots"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "foreignPlotID",
+      "qualified": false,
+      "unknown_fields": [
+        "plot.903"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "zeroArityCharge",
+      "qualified": false,
+      "unknown_fields": [
+        "unit.111.BuildCharges"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "unknownReligiousCharges",
+      "qualified": false,
+      "unknown_fields": [
+        "unit.222.religion"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "turnChanged",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "balanceChangedDuringRead",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "sparseRequestedIDs",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "duplicateRequestedIDs",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "foreignPlayer",
+      "qualified": false,
+      "unknown_fields": [
+        "snapshot.failure"
+      ],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    },
+    {
+      "VM": "Lua53",
+      "scenario": "requestDetachedAtEntry",
+      "qualified": true,
+      "unknown_fields": [],
+      "native_writes": 0,
+      "actual_reader_and_queue_module": true
+    }
+  ],
+  "API_sources": [
+    "Actual existing tools/lua/diagnostic_production_snapshot.lua provides head kind/index/cost/progress/formation; new reader adds every declared queue slot through actual GetAt, verifies head consistency and nil beyond declared size.",
+    "Installed primary Base/Assets/UI/ProductionHelper.lua lines179-185 and98-140, ProductionPanel.lua2687-2699 expose GetBuildQueue/GetAt and directive/type fields. UnitPanel.lua2252 exposes GetBuildCharges. Game source is not committed.",
+    "Actual BaiqiFoodTileRescueRunner.lua47-67 provides MANAGE sparse plots/citizens/locked values and Map.GetCityPlots:GetPurchasedPlots. Existing religious snapshot consumers provide GetReligion/GetSpreadCharges and treasury/faith getters."
+  ],
+  "contract": [
+    "Pure module defines functions on load; no global hook, property setter, UI selection, operation or command. E and caller-selected full IDs/turn/expectedLeader supplied by caller. Current player0 restriction matches reused queue helper and permits ordinaryleader0 control.",
+    "Maximum64 owned cities/256units and requested256plots, complete selected queues at existing head-helper bound0..7, six standard yield focus flags, sparse citizen/lock/purchased mappings, full selected unit IDs/type/moves/damage/formation/charges and religious data. Owned ID lists and balances rechecked at end; result is not an atomic world snapshot.",
+    "Getter/type/identity/bounds failures become explicit UNKNOWN and qualifiedfalse; zero-return nullable property becomes explicitnil. Required zero-return faith/charges remain UNKNOWN. Missing object listed in own collection is unknown; known absent requested unit not listed in collection is represented presentfalse.",
+    "Encoded tables use typed key/value entries and structural arrays; tests roundtrip actual saved JSON before validating values. A full tail-only change remains observable and old results are detached from aliased native tables.",
+    "This utility supplies evidence, not an automatic claim that a manual operation was blocked. Actual before/after attempts and ordinaryleader positive control are still required. Unsupported custom yields/oversize queues/native table shapes remain uncovered or UNKNOWN."
+  ],
+  "owner_corrections": [
+    "First private validator used default lupa.lua_type for other Lua runtimes; JSON conversion failed before candidate qualification. Corrected test driver to each actual runtime type function and preserved original failure. No model semantic failure.",
+    "Before first successful software validation, Owner strengthened copied request IDs, listed-object lookup consistency, exact queue directive/database/head/formation checks, and nil-only Core unit-type fallback."
+  ],
+  "model992": "Real source-complete task before Owner code returned404/no candidate. Owner implemented; current canonical metadata mismatch separately published, no new generation added.",
+  "remaining": [
+    "Cold actual reader validation and TC004/022 manual gold/faith purchase, tile buy, citizen focus/locks, production edit/cancel/reorder and builder/missionary controls; ordinaryleader positives.",
+    "TC024 distance/moves/cooldown, full military/escort/finance/compatibility matrices and paid special assets.",
+    "Old865 recoveryFAIL and MANY/NO_SITE valid performanceFAIL unchanged."
+  ]
+}
