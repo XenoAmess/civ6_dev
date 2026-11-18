@@ -1885,3 +1885,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：TC020只读清点器软件检查
 
 [1020清点器126项双Lua检查](../../research/baiqi-source163-escort-inventory1020-software-2026-11-19.json)通过，包含Native返回值、演员变化及上限反例；两处Owner夹具纠正保留。0新模型POST、0Native，未授实际护送或TC020通过。唯一父94212继续MANY配对，完整模组继续。
+
+
+## 2026-11-19：MANY最终对账与原85前置兼容软件准备
+
+[1022／1023及Owner实测检查](../../research/baiqi-source163-many-final-account-original85-gate1022-1023-2026-11-19.json)：各单POST404，无采用；最终对账35项及原85兼容门30项软件检查通过。显式保留11启动尝试/10合格侧/1零样本失败启动，原HALTED与使用过的消费者不改。0原85安装／Native；94212继续MANY剩余侧，完整模组继续。
