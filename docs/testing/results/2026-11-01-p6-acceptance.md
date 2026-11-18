@@ -1615,3 +1615,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: actual city HP71 UI/Core rejection branch PASS
 
 [Fresh original copy, separate health preparation and two sequential refusal steps](../../research/baiqi-source162-city-hp71-ui-core-native-2026-11-18.json). One QA district damage150->129 givesHP71of200 at35percent rule; UI/Core city_healthy. Physical stale confirm1 showed changed-quote notice, UI requests0 and full scene unchanged/native0. Only then explicit semantic QA stale request1 yielded Core REJECTED/city_healthy, no paid effects or army commands. All parents exit0; save/retire/officialexit and183s owned quiet residue cleanup complete. HP70/69 and the rest of TC024/fullmod still open; continue independent HP70 success.
+
+
+## 2026-11-18: exact HP70 successful settlement prepared
+
+[Fresh-copy protocol, actual product VM and exact confirmation guard](../../research/baiqi-source162-city-hp70-preparation-2026-11-18.json). Native NOT_RUN.10 actual Actions/Quote/OnRequisition/Capture974 VM cases use separate QA damage130 and require one300 fee/transfer/Finish; current guard rejects actualHP69 and71 before a request. Prior162 fixture VM cases reused,2 load-once VM/15 finiteflows/6 actual driver metadata tests,318 original SHA checks retained. Current119 package unchanged. Proceed independent offline cold copy; HP69 and fullmod remainOPEN.
