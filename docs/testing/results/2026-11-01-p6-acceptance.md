@@ -1815,3 +1815,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：Source163 NO_SITE全脚本普通回合通过
 
 [R2实机与完整分析](../../research/baiqi-source163-pressure-nosite-fullscript-r2-native7-2026-11-19.json)：普通END1—6各一次，实际到7，33上下文／1360保留样本／16976零聚合／792锚点，396计时阶段行覆盖通过。T2—6固定窗口约319／368／798／299／235ms，完整请求2／2／2／3／2：本场景B_turn与N_req均通过。T7保存、33观察器撤除、正式占用释放、官方退出及自有安静残留清理已完成，原中止记录不覆盖。B_delta、MANY及完整40项仍开放，继续执行。
+
+
+## 2026-11-19：Source163 NO_SITE配对准备
+
+[1011配对执行链](../../research/baiqi-source163-nosite-paired-consumers1011-2026-11-19.json)：10消费者、新标签和实际119文件启用／对照包已核验；50实际Lua入口正反例、两个军队调用体双Lua、大日志Continue核对通过，0 Native。下一步5组交替／10冷进程／25段B_delta，固定500ms及10%双门。当前MANY及完整功能继续开放。
