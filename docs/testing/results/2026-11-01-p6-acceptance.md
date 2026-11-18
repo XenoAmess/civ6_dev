@@ -1820,3 +1820,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：Source163 NO_SITE配对准备
 
 [1011配对执行链](../../research/baiqi-source163-nosite-paired-consumers1011-2026-11-19.json)：10消费者、新标签和实际119文件启用／对照包已核验；50实际Lua入口正反例、两个军队调用体双Lua、大日志Continue核对通过，0 Native。下一步5组交替／10冷进程／25段B_delta，固定500ms及10%双门。当前MANY及完整功能继续开放。
+
+
+## 2026-11-19：Source163 MANY自然资格诊断准备
+
+[1012与独立census包](../../research/baiqi-source163-many-natural-census-preparation1012-2026-11-19.json)：模型404后由Owner在第一配对侧正式释放后的退场等待期构建。119文件／97双Lua，仅Controller插桩、容量256；5消费者、12实际payload双编译及8生成Python核对，0 Native。尚未安装或观察新MANY候选；须等当前NO_SITE 5组／10边全部关闭后才执行，不与性能包混用。

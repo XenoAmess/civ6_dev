@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-18T17:23:02.837036+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 163,
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "MANY_NATURAL_CENSUS_PREPARED_NOT_RUN",
+  "package_and_consumers": {
+    "started_utc": "2026-11-18T17:21:27.981311+00:00",
+    "finished_utc": "2026-11-18T17:21:46.435009+00:00",
+    "package_sha256": "628951bc17c33f7102c6e1aae5a12d0e761a3f0b931d53cd16ec0405a126d8af",
+    "source_version": 163,
+    "files": 119,
+    "compiled51and53": 97,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "capacity": 256,
+    "consumers": {
+      "pressure163_census_lifecycle_owner.py": "3fabe03eff69cfc891f6385cb9e39f675dbbc176266256e702eb37bcfa275a2a",
+      "pressure163_census_episode_owner.py": "285f822f006bd863452496fdf84f67c15b4df25dd7f67b65c70c66d30adb9fdf",
+      "census163_advance_owner.py": "67a3d7828687d53d269d394d7d3e3f5e98d117a6e0417c350afb86b1c438c440",
+      "census163_player_owner.py": "d557725202c4c5879d71c7c9d3bda5c5eb908ec864d98f07ecf44b0c69efcdd7",
+      "pressure163_validate_census_consumers_owner.py": "0502efb0a07a2dba86fc544aed65940f94086f0d98dfbe1ed3b81594553e9406"
+    },
+    "Native_actions": 0,
+    "qualification": "NOT_RUN",
+    "no_install_during_paired_campaign": true,
+    "frozen_program_pin": "pair160-program-environment-pin.json"
+  },
+  "software_checks": {
+    "utc": "2026-11-18T17:22:05.812571+00:00",
+    "source_version": 163,
+    "Lua_payloads_dual_compiled": [
+      {
+        "name": "many:load:MainMenu",
+        "bytes": 378,
+        "sha256": "1586f943c797e5c9a3953a840c32224ff6d07aa3daa27721e90dbb7a76ef1103"
+      },
+      {
+        "name": "many:health:BaiqiExecutor",
+        "bytes": 318,
+        "sha256": "b8513990159a1568c45162527c1c1eeef17fa3907b478817a4741c2219238961"
+      },
+      {
+        "name": "many:retire:BaiqiExecutor",
+        "bytes": 393,
+        "sha256": "49c0b37ad9da26b0cacc77370e21b456b4088474f30e267ae5d2cf633039d624"
+      },
+      {
+        "name": "many:exit:InGameTopOptionsMenu",
+        "bytes": 96,
+        "sha256": "cb83403c1ad23120125902a903e1540b25f4d35b7c7675a7b6bcc3409ce32415"
+      },
+      {
+        "name": "many:read:BaiqiExecutor",
+        "bytes": 1329,
+        "sha256": "db87f33344908af2f90bc5bf5f7b36979e53790c72b3fe24c96feba5dac6184d"
+      },
+      {
+        "name": "many:geometry:BaiqiExecutor",
+        "bytes": 6639,
+        "sha256": "b670ae1b812855496d0cd7ae38d24191f59bb72a70554405ae2730b00274f04a"
+      },
+      {
+        "name": "nosite:load:MainMenu",
+        "bytes": 375,
+        "sha256": "0446ed708bb30cf504ca41806dd38407107a696094456cf650bf0515505c5e4d"
+      },
+      {
+        "name": "nosite:health:BaiqiExecutor",
+        "bytes": 318,
+        "sha256": "b8513990159a1568c45162527c1c1eeef17fa3907b478817a4741c2219238961"
+      },
+      {
+        "name": "nosite:retire:BaiqiExecutor",
+        "bytes": 392,
+        "sha256": "d04e1985faf5b58695cf9a1e88bc496f7a346d8321aaf4d863c56d97d2c06107"
+      },
+      {
+        "name": "nosite:exit:InGameTopOptionsMenu",
+        "bytes": 96,
+        "sha256": "cb83403c1ad23120125902a903e1540b25f4d35b7c7675a7b6bcc3409ce32415"
+      },
+      {
+        "name": "nosite:read:BaiqiExecutor",
+        "bytes": 1336,
+        "sha256": "5e231afd015b3d6186481d82c3db37a6dca8bb4dad13bebf4a286d6c92c3745c"
+      },
+      {
+        "name": "nosite:geometry:BaiqiExecutor",
+        "bytes": 6643,
+        "sha256": "5c6427930f3b6f388ecc2858ed49de800035db95ffd327a141a1c2f6453232d3"
+      }
+    ],
+    "generated_Python_consumers_ast_parsed": 8,
+    "Native_dispatches": 0,
+    "Native_writes": 0,
+    "qualification": "NOT_RUN",
+    "scope": "Actual new lifecycle payloads compiled using inert query and temporary receipt root; source-pointer/fixture/subprocess behavior not exercised in Native."
+  },
+  "review": [
+    "配对163第一启用侧载入/预热前的独立准备期，真实未完成的MANY自然候选资格任务1012先委托模型，同日OpenCode成功缓存沿用；单POST404/76.62960002198815ms，无候选采用。实际POST17:14:20Z早于第一侧正式记录，正式期间没有HTTP。",
+    "Owner在第一侧正式记录释放且官方退出后的等待空档完成独立census包：实际163、119文件、97Lua5.1/5.3编译，仅Controller诊断插桩、容量256。产品源码/当前安装/游戏与Steam均未修改。此256独立候选计数不扩大4096性能容量，不授性能结论。",
+    "5个新消费者使用新163标签，旧160文件不改；既有pair160程序设置锁定文件及64位SHA保护。初版生成器缩进被AST在任何新文件写出/构建/Native之前拒绝，Owner修正后执行。新包与所有源码119哈希、精确可逆变换核验。",
+    "通过惰性替代Native边界实际构造并双Lua编译12个载入/健康/撤除/退出/读取/几何payload，捕获8个生成Python消费者做AST与导入/日期核对。软件退出打印来自注入的惰性query，不是实际游戏退出；0 Native调用/0游戏动作。此处没有执行新场景或制造候选。",
+    "未来安装须先见nositepair163全部5组/10边完成、正式释放及自有残留关闭，无游戏再换包。保护原ABORTED1、R2complete7及所有配对/旧档。冷启动先119哈希与完整文件stat围栏，再新鲜后台Steam离线证明<15s，保留既有程序/CPU锁。Continue使用当前加载标记和64MiB上限、精确自有HWND，不重放旧意图。",
+    "未来MANY从原T6 SHA459a46e5d23d0600db7bd682a8d99f44218cc1812ba34bd6cdbe07993340da0a出发，独立完整几何读取后，只观察自然Controller调用和真实>=12准入候选；最多普通推进5回合，测试玩家只军队和END。禁止手动调用推荐器、规划器或补内政。未完成前仍NOT_RUN，不能沿用160资格冒称163。",
+    "当前163 NO_SITE B_plan/B_turn/N_req已有各自窄通过；B_delta父76440仍为唯一Native写者，未完成25段配对判定。整个mod、旧865恢复、当前MANY和其它功能保持开放。准备提交后继续当前配对流程。"
+  ],
+  "model1012": {
+    "started_at_utc": "2026-11-18T17:14:20.041125+00:00",
+    "http_status": 404,
+    "total_ms": 76.62960002198815,
+    "finish_reason": null,
+    "sse_done": false,
+    "candidate_complete": false,
+    "usage": null,
+    "cached_prompt_tokens_if_reported": null
+  },
+  "ledger": {
+    "logical_tasks": 1012,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 128,
+    "generation_POSTs": 1051,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null
+}
