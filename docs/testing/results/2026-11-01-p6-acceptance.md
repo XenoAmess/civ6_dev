@@ -1775,3 +1775,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18：结束请求状态的只读诊断准备
 
 [1005状态采集](../../research/baiqi-current162-end1005-typed-state-smoke-software-2026-11-18.json)：原版入口是UI.HasSentTurnComplete，Player字段实际缺失。Owner40次状态、24次七入口跟踪软件检查通过，当前158只读实机采集Sent=false／active+strategic=true；没有END、门控改动或性能结论。下一步完成测试玩家普通结束前置并观察真实过渡，MANY／NO_SITE性能FAIL保留。
+
+
+## 2026-11-18：当前162 NO_SITE普通结束实录
+
+[一次T2至T3采样](../../research/baiqi-current162-nosite-normal-end1005-native-2026-11-18.json)：原七入口诊断安装遇引擎只读表，保存现场并正常重载后清除；修订安装器42次软件故障检查通过，四入口实装成功。只发一次普通END，Core/UI均实际进入T3，174行零丢失，全部自有包装撤除并保存。观测到Sent=true时一次Controller入口但busy=true，不能证明额外规划或性能根因；MANY／NO_SITE性能FAIL和旧865恢复FAIL继续保留，整体验收继续。
