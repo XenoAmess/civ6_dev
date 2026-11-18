@@ -1800,3 +1800,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18：163 NO_SITE冻结 B_plan PASS
 
 [五窗、全部293原值与生命周期](../../research/baiqi-source163-pressure-nosite-plan-native7-2026-11-18.json)：Admin136纯十城，p95／max约9／12ms；Controller154纯十城约7／9ms，另3窗前false调用完整验证，质量通过。原T1重新取得1144格几何与初始细读、预热72.072秒，正式先于重载，普通1—6各一次实际7并保存撤钩释放。原父进程仅在退出残留检查失败而exit1，未执行终止；独立重新资格核对后自有进程terminate1／exit15，原失败保留。只授NO_SITE B_plan，继续全脚本／请求／25配对及完整mod验收，旧FAIL不撤。
+
+
+## 2026-11-19：163全脚本采样准备与插桩门控验证
+
+[1009软件验证与新执行链](../../research/baiqi-source163-nosite-fullscript-preparation1009-2026-11-19.json)：实际插桩Executor在真实计时／写计数包装开启时完成7方法／34虚拟环境，两个故意丢尾nil的包装对照均被识别，未改产物。119文件／97双Lua／33上下文／4096容量与15消费者已准备，新的自然日OpenCode维护通过，模型仍单POST404、无候选。下一步全脚本新离线冷启动、同副本60秒预热／先预留再重载，尚无B_turn／N_req／B_delta新通过；整个mod继续。
