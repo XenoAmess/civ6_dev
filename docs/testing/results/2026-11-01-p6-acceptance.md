@@ -1695,3 +1695,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 actual movement event and diagnostic adapter correction
 
 [Actual D event](../../research/baiqi-source162-movement-event-guarded-qualifier-halt-2026-11-18.json). Independent case/new exactQAcredit produced movementchanged(0,5832733,2), Core/UI2moves/2charges and protectedassets known. Latch stopped before handler because Owner mistakenly queried guarded CanStartOperation, whose false is intentional; rawnative eligibility remains unmeasured. No manualBUILD pass. First constructor depth16 failure reproduced on actualdepth18 snapshot then corrected with92VM; no initial hook/credit replay. Four own listeners/probe/Core interface and unusedCapture retired, officialsaved. Model994 real404/no candidate, ledger994/816complete/68length/110failures/1033POST/0inflight. Next fix readonlynative qualifier and continue, fullmod OPEN.
+
+
+## 2026-11-18: Readonly native qualifier adapter995 software
+
+[Tool evidence](../../research/baiqi-native-readonly-qualifier-tool995-2026-11-18.json). Guardproxy false distinguished from native eligibility. New diagnostic readonlyfactory pins existing proxy/metatable/nativequalifier, preserves exactargs/zeroandnilreturns, permanentlyinvalidates portchange/reentry/unknown, never exposeswriters or changesguards.38Lua51/53VMcases/3methods pass. Product119files unchanged; actual Native execution and manualBUILDbackstop still pending. Genuine995onePOST404/no candidate;995logical/816complete/68length/111fail/1034POST/0inflight. Continue independent game fixture, wholemod OPEN.

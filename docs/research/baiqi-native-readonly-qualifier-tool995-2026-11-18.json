@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T07:21:12.152279+00:00",
+  "machine": "BF-202609141645",
+  "status": "OWNER_READONLY_NATIVE_QUALIFIER_SOFTWARE_VERIFIED_NATIVE_EXECUTION_PENDING",
+  "product_source_version": 162,
+  "product_files_changed": 0,
+  "whole_mod": "OPEN_CONTINUE",
+  "sources": {
+    "tools/lua/diagnostic_native_unit_reader.lua": "c16872c4c2fa448a3817b7f5ff1870f124f24e054e3acf940cc1d7c50610e6a3",
+    "tests/test_diagnostic_native_unit_reader.py": "ea6cfcf017b9c68b83ea6a4f71bb06e1e961d38570542a56cc918f7bf1c8d74c"
+  },
+  "verification": {
+    "command": "python -X utf8 -m unittest tests.test_diagnostic_native_unit_reader -v",
+    "methods_passed": 3,
+    "actual_Lua51_Lua53_VM_cases": 38,
+    "native_game_queries": 0,
+    "native_writes": 0,
+    "full_product_baseline_not_rerun": "Tool-only addition outside119 productfiles; prior2765/2764pass/1SDKskip unchanged, not a new whole suite claim"
+  },
+  "review": [
+    "Actual UnitPanel UnitManager is the UI guard proxy; its civilian CanStartOperation false must not qualify raw engine eligibility. New diagnostic factory pins supplied GetGuardManager/GetMetatable readers, exact proxy/metatable/__index/rawCanStartOperation function and checks before/after each readonly call. It exposes only CanStartOperation, Check and detached State; never assigns manager/proxy/guards or exposes native RequestOperation.",
+    "Readonly native static args and exact zero/multiple/nil returns preserved. Missing/protected/function-index/self-index shapes reject before native call. Changed getter/manager/metatable/index/function, getter/native exceptions and reentry permanently invalidate that instance, with no rebind/retry. Synthetic actual-proxy-shape fixtures verified in bothLuaVMs,38cases/3methods, no writes. Native userdata shape and actual native eligibility still need independent game execution; no software-to-game grant.",
+    "Genuine995 requested this unfinished adapter before Owner implementation using actual guard source and D event. Canonical maintained adapter onePOST404/493.696ms/no completeSSE/candidate/adoption. No endpoint/model fallback or action replay. Owner implemented after observed failure; nativeOpenCode codegeneration0, daily maintenance cached success is separate."
+  ],
+  "model995": {
+    "logical_task": 995,
+    "actual_POSTs": 1,
+    "http_status": 404,
+    "total_ms": 493.69620019569993,
+    "complete_SSE": false,
+    "finish_reason": null,
+    "candidate": null,
+    "adopted": false,
+    "routing": {
+      "proxy_mode": "direct",
+      "target_host": "192.168.1.11",
+      "proxy_handler": "disabled",
+      "redirects": "refused",
+      "actual_peer": "UNKNOWN"
+    },
+    "usage": null,
+    "cached_tokens": null,
+    "cost": null
+  },
+  "ledger_after995": {
+    "logical_tasks": 995,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 111,
+    "generation_POSTs": 1034,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0,
+    "cache_tokens_and_cost_unknown": true
+  }
+}
