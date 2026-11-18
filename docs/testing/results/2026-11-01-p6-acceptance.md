@@ -1750,3 +1750,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Ordinary two-item queue survives official reload
 
 [G4actualpersistence](../../research/baiqi-current162-gorgo-twoqueue-persisted-reload-native-2026-11-18.json): officialGorgoTwoQueue1 loadedonce, originalContinueonce. Exact[Warrior,Scout]fullqueue/rawentries/progress0 andall31selectedfields equalpresave, gold1510/faith0/twoexistingunits.0businessinputs/END/newcoldlaunch/Steam; unused974zero/retired. Supportsdurableordinaryeffects without inventedCorequeuegetters, notBaiqimultiitem/fullTC005/productioncompletion. Continueold865durableCoreeventdiagnosis andremainingfunctional/performanceFAILs, fullmodOPEN.
+
+
+## 2026-11-18：旧移民持久事件记录器的软件验证
+
+[Core1002](../../research/baiqi-current162-core1002-durable-events-software-2026-11-18.json)：本地模型真实新任务一次404，负责人接管；首次重入测试失败已修复，63场景×Lua5.1/5.3共126次通过。只写独立诊断元数据，原ARMED不改；所有清账／重发许可恒为false。尚未安装、未实测WAKE或保存持久性。接着制作新私有包并实测，旧865恢复和压力性能FAIL保留，整体验收继续。
