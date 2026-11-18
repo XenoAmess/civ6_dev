@@ -1645,3 +1645,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 ordinaryleader focus and queue positive controls
 
 [Actual Gorgo focus/cancel/add effects](../../research/baiqi-source162-gorgo-focus-queue-positive-native-2026-11-18.json). Independent original1, Controller unavailable/UIGuardnil. Food native getterfalse->true, Monument queue1->0(still0 on extra read)->1/cost60/progress0, gold10/faith0 unchanged;0QAgrants/END, officially saved. SeparateDOWN/hold/UP opened production with passive event proof after prior combined click no-effect; original errors retained. Same game continues purchases; earlier Baiqi combined mouse delivery gets held-input revalidation. No fullTC004/002 or completion/AI grant.
+
+
+## 2026-11-18: Source162 ordinary gold building and tile purchase positives
+
+[Actual Gorgo purchases](../../research/baiqi-source162-gorgo-gold-building-tile-positive-native-2026-11-18.json). Separate TEST_PLAYER_QA gold10+1990=2000, no income claim. Held native Monument purchase: UI/Core unowned->owned,240spent2000->1760 and queue cleanup. Held plot663@3,15 purchase: owner-1->0, exact purchased set+663,50spent1760->1710. No direct diagnostic purchase requests/END; officially saved, same game continues. Exact delayed Core settler fixture and failed guard retained; new budget helper38VM cases. FullTC004 and wholemod remain open.

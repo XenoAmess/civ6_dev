@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T03:25:23.944250+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "ORDINARY_GOLD_MONUMENT_AND_PLOT663_PURCHASES_ACTUAL_SAVED",
+  "whole_mod": "OPEN_CONTINUE",
+  "full_TC004_pass": false,
+  "owner": {
+    "pid": 23448,
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture": {
+    "stem": "Baiqi_P6_20261102_V46_StaticDiplomacy1",
+    "bytes": 623967,
+    "sha256": "0271425b3720a502e3fe15c4311ec38850060927df5c90ddc15e0764e16ffce2",
+    "turn": 1,
+    "leader": "LEADER_GORGO"
+  },
+  "BaiqiController_available": false,
+  "role": "TEST_PLAYER_ORDINARY_CONTROL_NOT_BACKGROUND_AI",
+  "QA_budget": {
+    "utc": "2026-11-18T03:03:40.427260+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "QA_only": true,
+    "gold_before": 10,
+    "gold_after": 2000,
+    "delta": 1990,
+    "all_other_selected_assets_equal": true,
+    "Core_observed_marker_readback": true,
+    "UI_independent_gold_readback": true,
+    "ability_income_or_finance_pass": false,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "building": {
+    "utc": "2026-11-18T03:09:10.914030+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "role": "TEST_PLAYER_ORDINARY_CONTROL_NOT_AI",
+    "native_UI_and_Core_building_owned_false_to_true": true,
+    "actual_price": 240,
+    "gold_before": 2000,
+    "gold_after": 1760,
+    "faith_unchanged": 0,
+    "all_other_assets_unchanged_except_native_purchased_building_queue_cleanup": true,
+    "queue_after": {
+      "head": {
+        "hash": 0,
+        "kind": "EMPTY",
+        "size": 0,
+        "status": "EMPTY"
+      },
+      "items": {}
+    },
+    "physical_purchase_inputs": 1,
+    "direct_diagnostic_purchase_requests": 0,
+    "normal_ENDs": 0,
+    "QA_budget_preparation_is_not_purchase_or_ability_income": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "tile": {
+    "utc": "2026-11-18T03:17:02.666355+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "role": "TEST_PLAYER_ORDINARY_CONTROL_NOT_AI",
+    "plotID": 663,
+    "xy": [
+      3,
+      15
+    ],
+    "UI_and_Core_owner_before": -1,
+    "UI_and_Core_owner_after": 0,
+    "city_purchased_plot_set_exact_delta": [
+      663
+    ],
+    "gold_before": 1760,
+    "gold_after": 1710,
+    "cost": 50,
+    "all_other_assets_equal_except_native_citizen_targets_new_tile": true,
+    "direct_diagnostic_purchase_requests": 0,
+    "QA_budget_is_separate_not_ability_income": true,
+    "full_TC004_pass": false,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "save": {
+    "utc": "2026-11-18T03:20:34.245029+00:00",
+    "name": "Baiqi_P6_20261118_V162_GorgoPurchasesQA1.Civ6Save",
+    "bytes": 624405,
+    "sha256": "2bcaca26080eef70e573a54f622abd0b110ac08b4a56eae1d16b2fdedc11d9bf",
+    "stable_repeated_read": true
+  },
+  "game_still_owned_running": true,
+  "normal_ENDs": 0,
+  "host_exec_terminals": {
+    "gold_catalog_reopen12365": 0,
+    "monument_purchase60086": 0,
+    "tile_purchase50946": 0,
+    "save_last_truncated_output_reconciled_from_durable_completed_receipt": true
+  },
+  "review": [
+    "Original Gorgo1 stock10gold/0faith positive save remains protected. A separately labeled one-use TEST_PLAYER_QA budget adds1990gold to2000; not ability income, finance automation or a purchase command. Actual Core observed journal and independent full UI asset readback agree; all other selected assets unchanged.",
+    "A held physical click on the legal, affordable native Monument catalog row purchased the building. UI and Core HasBuilding false->true, quoted240gold exactly spent2000->1760, faith0/pop1 unchanged; queue naturally emptied. Diagnostic issued no purchase request.",
+    "A held physical click on native PurchaseButton for plot663@3,15 bought the tile for its quoted50gold: UI/Core owner-1->0, gold1760->1710, purchased-plot set exactly+663. Other selected assets equal except native citizen target mapping for newly owned land; no diagnostic purchase request.",
+    "Both purchases were saved through official SaveGame once, stable repeated file SHA/size verified. Game remains owned/running for further cases. Neither ordinary player effect is Baiqi AI execution evidence."
+  ],
+  "owner_adaptations": [
+    "Initial budget helper rejected raw Core unit count2 before any property write or credit; UI showed one live warrior. Independent Core read found exact delayed-death settler65536/type0@-9999,-9999 plus active warrior131073/type21@1,16. First scope/attempt retained; no unit removed, moved or commanded. New one-use V2 helper admits only this exact delayed object and exact active unit, requires old durable key absent, fences intent before a single credit, and passed38actual Lua51/53 VM cases. V2 observed marker is historical budget preparation, not a permission to restore funds after spending.",
+    "Gold catalog opened before the QA budget had cached unaffordability. Normal visible close/reopen refreshed it; native eligibility was read independently before actual purchase, without forcing controls or directly invoking Refresh.",
+    "After Monument purchase the native catalog had already closed. First tile-view helper rejected its close precondition before sending input. New observed-state branch opened the tile lens once and performed the first tile purchase; no unknown transaction replay.",
+    "The final save exec output was truncated. Durable official-save completion receipt and protected save qualification were read without rerunning SaveGame."
+  ],
+  "private_log": {
+    "bytes": 2309217,
+    "sha256": "162b7431022e75ea682fe782f6efc5ffd0841fc29313e0539f94955a6b6706ab",
+    "not_committed": true
+  },
+  "local_model": "No new generation. Task992404 Owner continuation; current canonical metadata mismatch previously recorded; ledger992 unchanged.",
+  "remaining": [
+    "Held-input Baiqi city-widget revalidation, direct citizen locks, queue reorder/hotkeys, eligible builder/missionary controls, faith catalog eligibility.",
+    "TC024distance/moves/cooldown, military/escort/finance/compatibility and special assets; old865 recoveryFAIL and MANY/NO_SITE performanceFAIL remain."
+  ]
+}
