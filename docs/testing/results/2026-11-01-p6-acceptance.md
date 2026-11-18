@@ -1795,3 +1795,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18：163 NO_SITE冻结规划验收准备
 
 [独立StageA包与1008软件准备](../../research/baiqi-source163-nosite-stageA-preparation1008-2026-11-18.json)：119文件／97Lua双编译／仅Executor QA差异／4096容量，14个最终消费者AST核对，实际玩家三类Lua双编译及2正8负前置检查通过。新实例下重新做几何／初始财务单位细读及60秒预热，正式预留先于重载；目前没有新正式捕获或性能通过。先前163门控功能通过不转授性能，MANY／NO_SITE旧FAIL继续保留，整个mod继续。
+
+
+## 2026-11-18：163 NO_SITE冻结 B_plan PASS
+
+[五窗、全部293原值与生命周期](../../research/baiqi-source163-pressure-nosite-plan-native7-2026-11-18.json)：Admin136纯十城，p95／max约9／12ms；Controller154纯十城约7／9ms，另3窗前false调用完整验证，质量通过。原T1重新取得1144格几何与初始细读、预热72.072秒，正式先于重载，普通1—6各一次实际7并保存撤钩释放。原父进程仅在退出残留检查失败而exit1，未执行终止；独立重新资格核对后自有进程terminate1／exit15，原失败保留。只授NO_SITE B_plan，继续全脚本／请求／25配对及完整mod验收，旧FAIL不撤。
