@@ -1880,3 +1880,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：MANY启动挂起已收尾，恢复七侧的软件准备
 
 [1020／1021与新执行标识准备](../../research/baiqi-source163-many-startup-recovery-prep1020-1021-2026-11-19.json)：原父13939启动阶段exit1，失败侧0加载／END／性能记录；诊断后自有挂起实例WM_CLOSE一次、terminate一次/Kill0。三侧完整原件冻结保留，27项映射／防变检查和两个实际子程序双Lua编译通过。后续只恢复七侧，当前MANY B_delta及完整模组仍开放。
+
+
+## 2026-11-19：TC020只读清点器软件检查
+
+[1020清点器126项双Lua检查](../../research/baiqi-source163-escort-inventory1020-software-2026-11-19.json)通过，包含Native返回值、演员变化及上限反例；两处Owner夹具纠正保留。0新模型POST、0Native，未授实际护送或TC020通过。唯一父94212继续MANY配对，完整模组继续。
