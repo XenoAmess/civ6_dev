@@ -1630,3 +1630,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: exact HP69 successful settlement prepared
 
 [Fresh-copy protocol, actual product VM and exact confirmation guard](../../research/baiqi-source162-city-hp69-preparation-2026-11-18.json). Native NOT_RUN.10 actual Actions/Quote/OnRequisition/Capture974 VM cases use separate QA damage130 and require one300 fee/transfer/Finish; current guard rejects actualHP68 and70 before a request. Prior162 fixture VM cases reused,2 load-once VM/15 finiteflows/6 actual driver metadata tests,318 original SHA checks retained. Current119 package unchanged. Proceed independent offline cold copy; Other boundaries and fullmod remainOPEN.
+
+
+## 2026-11-18: actual HP69 paid success; health boundary submatrix complete
+
+[Independent original Source162 HP69 paid confirmation](../../research/baiqi-source162-city-hp69-paid-native-2026-11-18.json). Separate QA damage150->131, exact69of200 before physicalconfirm1. Gold4524.2734375->4224.2734375, army4->0/damage0/cooldown114, city1/524295->0/851979/pop1; oneCOMMITTED/DONE fee300 and transfer/debit/Finish1 each, continuation0. All parents actualexit0; saved, retired and closed. Together with separate162 HP70success andHP71UI/Core refusals, closes only TC024 health boundaries; no reload claim. Distance/moves/cooldown, recoveryFAIL, performanceFAIL and fullmod remain OPEN, continue.
