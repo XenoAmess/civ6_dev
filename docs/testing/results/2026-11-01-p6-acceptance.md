@@ -1735,3 +1735,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Current162 NO_SITE ordinary turn2/passive calls
 
 [Actual continuation](../../research/baiqi-current162-nosite-normal-turn-passive999-native-2026-11-18.json): one TEST_PLAYER warriorSKIP then ordinaryEND1to2, actualExecutor/Core2/tenCities, >=10.25sactive observation.1725prepared+turn2rows/4096/drop0/invalidfalse/retired. Turn2Controllermax12ms/Admin15ms does not settle B_delta transitionFAIL. SDKmarkers3/ownedETL/lost0; span60.1209883s>60TTL FAIL retained, normalSDKstopungranted; independentwatcherrawpreserve/owncancelclosedINACTIVE. Parentexit1 Coregettererror retained, readonlyreconciliation/noactionreplay. Clockalignment~1.206s too broad for553msframecause. SavedcurrentNoSiteNormal2; next unitqueue/multiitem and remainingfunctional/recovery/performance work; wholemodOPEN.
+
+
+## 2026-11-18: Current162 actual UNIT queue cancellation guard
+
+[NewFcase](../../research/baiqi-current162-unit-production-cancel-guard-native-2026-11-18.json): actual3STANDARDunitheads(Musketman55/120,settler101/160,crouchtiger62/70) containMilitaryFormationType andModifiers, no adapterfixneeded. Naturalbanner/QueueTab thenonephysicalheldRIGHTcurrentMusketman: existingguardBUILD/removeAt0 once/false/drop0, all416selectedassetfields equal incl45units/goldfaith/progress55. Probeoriginalrestored/namespacecleared/officialsaveverified. Backendcountnotobserved, multiitem/reorderstillOPEN(all12queues size1), fullTC004notgranted. Genuine1000single404/no candidate; ledger1000/816complete/68length/116failed/1039POST/0inflight. Continue fullmodremaining cases and realpressure/recoveryFAILs.
