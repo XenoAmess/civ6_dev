@@ -1,0 +1,1703 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T06:43:13.591686+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "C_POST_CREDIT_UI_READINESS_HALT_BEFORE_HANDLER_SEPARATE_ACTUAL_BACKGROUND_FARM_SAVED",
+  "whole_mod": "OPEN_CONTINUE",
+  "full_TC004_pass": false,
+  "manual_BUILD_backstop_pass": false,
+  "owner": {
+    "pid": 23448,
+    "created_at": 1794965404.6102366,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture": {
+    "stem": "Baiqi_P6_20261118_V162_BuilderEligibleBlocked110",
+    "bytes": 551458,
+    "sha256": "6110335b79bbe2a813a9400397c022357d726f445c978bd1dfeaacfbdaaf1fa8",
+    "turn": 110,
+    "leader": "LEADER_BAIQI",
+    "scope": "Protected Source162 QA eligible-builder saved branch before previous site405 placement; new independent case, no prior action replay"
+  },
+  "save": {
+    "utc": "2026-11-18T06:40:24.433468+00:00",
+    "name": "Baiqi_P6_20261118_V162_CBuildReadinessHalt110.Civ6Save",
+    "bytes": 551858,
+    "sha256": "55d96ba323c062de1a3958caee61af4b04c9011eb3c9e1c46b46edd3ee82e433",
+    "stable_repeated_read": true
+  },
+  "normal_ENDs": 0,
+  "reconciliation": {
+    "utc": "2026-11-18T06:29:35.900967+00:00",
+    "owner": {
+      "pid": 23448,
+      "created_at": 1794965404.6102366,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "known_current_asset_fields": 417,
+    "current_deltas_from_placement0": {
+      "unit.5832733.BuildCharges": {
+        "before": 2,
+        "after": 1
+      },
+      "plot.405": {
+        "before": {
+          "district": -1,
+          "improvement": -1,
+          "owner": 0,
+          "x": 9,
+          "y": 9
+        },
+        "after": {
+          "district": -1,
+          "improvement": 1,
+          "owner": 0,
+          "x": 9,
+          "y": 9
+        }
+      }
+    },
+    "actual_background_signal_rows": [
+      "BaiqiExecutor: BAIQI|request|turn=110|id=0:110:5|source=BACKGROUND|unit=5832733|operation=BUILD_IMPROVEMENT|plot=405|from=405",
+      "BaiqiExecutor: BAIQI|observed|turn=110|id=0:110:5|unit=5832733|kind=BUILD_IMPROVEMENT"
+    ],
+    "UI_probe_calls": 0,
+    "manual_native_UI_handler_calls": 0,
+    "original_readiness_halt_retained": true,
+    "failure_instant_exact_UI_subpredicate": "NOT_CAPTURED_COMPOUND_POST_CREDIT_GUARD",
+    "no_inferred_replica_lag_root_cause": true,
+    "new_credit_not_replayed": true,
+    "owned_UI_probe_restored_and_Core_UI_bridges_removed": true,
+    "private_log_bytes": 7509538,
+    "private_log_sha256": "73cb95b0dd5b16944e33a298ef22141fd879df2f74b9c715d996f0b43f974c7a",
+    "no_manual_BUILD_control_pass": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "review": [
+    "The earlier Gorgo readonly exposed-closure port experiment actually retained Core vs UI environments when invoked from Executor (raw unit counts3 vs2). Both read-only closures were retired. This proves that narrow read transport, not mutation synchronization or atomicity.",
+    "Independent protected eligible-builder checkpoint loaded once for new C case, same owned Source162 process. Initial actual builder5832733@11,7/moves0/charges2. New distinct one-use QA placement from0moves moved to9,9/plot405 and preserved0moves/2charges; strict0-move helper70Lua51/53 cases. Earlier software-only2-move variant was never sent. Selected actor/UnitPanel readiness were observed before install.",
+    "New distinct C credit fixture82Lua51/53 cases required exact observed C placement journal, Core47units/12cities/balances/site/actor. One ChangeMovesRemaining2 occurred and Core journal was OBSERVED2. Original C scope is never cleared or replayed. Core/UI bridge tests86VM and bounded wire software compile2VM plus existing native combined-wirecase/9malformed rejects were separate software evidence.",
+    "One Executor diagnostic query then failed at its compound UI actor guard immediately after the Core credit and before any wire snapshot, UI native eligibility call or panel.Attempt/native BUILD handler. Exact failure-instant UI values/subpredicate were not recorded; replica lag and scheduling/root cause remain UNKNOWN. The query is not atomic with the engine or other contexts. Original terminal51277exit1 retained.",
+    "Readonly reconciliation52968 found passive UnitPanel guarded RequestOperation count0/dropped0/rows0 and native UI handlercalls0. Core/UI actor now9,9/moves0/charges1, owned405 nowFARM1.417known UI fields differ from pre-credit placed fixture only in charge2to1 and improvement-1to1. Actual log has exactly request0:110:5/sourceBACKGROUND/unit5832733/BUILD_IMPROVEMENT/from405/plot405 plus matching observed. This is separate real BACKGROUND construction on an explicit QA-prepared site, not a manual BUILD refusal pass, autonomous site selection/pathfinding or complete TC008.",
+    "Own UI passive observer restored and own Core/UI namespaces retired without recredit/handler replay. Unused Capture974 verified zero TransferCity/ChangeGoldBalance/FinishMoves/errors/dropped then retired. Official CReadinessHalt checkpoint stable repeated SHA read. Game remains owned/running for further acceptance. A finite native movement-event readiness latch is the next genuine task, not yet implemented at this evidence cut."
+  ],
+  "software": {
+    "placement0": {
+      "utc": "2026-11-18T06:07:23.280061+00:00",
+      "helper_sha256": "190530a324dd156e2c626620ba974665836bc43e267513f7f7eccb32f85abdfb",
+      "actual_VM_runs": [
+        {
+          "VM": "Lua51",
+          "case": "baseline",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "wrongTurn",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "foreignPlayer",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "humanFalse",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "humanNonCallable",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "existingIntent",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "id",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "owner",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "x",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "y",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "moves",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "charges",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "form",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "dead",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "delayed",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "pending",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "unitCount",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "plotGetOwner",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "plotGetImprovementType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "plotGetDistrictType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "plotGetResourceType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "plotGetFeatureType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "placementUnexpectedPreserveMoves",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "siteOccupied",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "armDrop",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "armThrow",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "armReenter",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "portReplaced",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "placeNoEffect",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "placeWrongSite",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "placeChangesCharge",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "placeEffectThrows",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "placeReenter",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "observedDrop",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "observedCorrupt",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "baseline",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "wrongTurn",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "foreignPlayer",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "humanFalse",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "humanNonCallable",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "existingIntent",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "id",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "owner",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "x",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "y",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "moves",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "charges",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "form",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "dead",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "delayed",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "pending",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "unitCount",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "plotGetOwner",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "plotGetImprovementType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "plotGetDistrictType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "plotGetResourceType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "plotGetFeatureType",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "placementUnexpectedPreserveMoves",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "siteOccupied",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "armDrop",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "armThrow",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "armReenter",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "portReplaced",
+          "pass": true,
+          "placement_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "placeNoEffect",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "placeWrongSite",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "placeChangesCharge",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "placeEffectThrows",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "placeReenter",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "observedDrop",
+          "pass": true,
+          "placement_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "observedCorrupt",
+          "pass": true,
+          "placement_calls": 1
+        }
+      ],
+      "Native_actions": 0
+    },
+    "credit0": {
+      "utc": "2026-11-18T06:07:26.546865+00:00",
+      "helper_sha256": "accc84eb85752d01923e2dd1c4c4087224f84760538326b9cfb7e1630306e428",
+      "actual_VM_runs": [
+        {
+          "VM": "Lua51",
+          "case": "baseline",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "wrongTurn",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "foreignPlayer",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "leaderChanged",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "humanFalse",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "humanUnknown",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "humanNonCallable",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "multi",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "hotseat",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "cityCount",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "unitCount",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "gold",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "faith",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "id",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "owner",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "typ",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "x",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "y",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "moves",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "max",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "damage",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "charges",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "form",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "dead",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "delayed",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "pending",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "missingActor",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "existingIntent",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "armDrop",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "armThrow",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "armCorrupt",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "armReenter",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "moveNoEffect",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "moveThrowsAfterEffect",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "moveReenter",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "moveChangesOtherAsset",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "observedDrop",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "observedCorrupt",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "case": "actorAliasChanges",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "missingPlacement",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "case": "placementUnknown",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "baseline",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "wrongTurn",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "foreignPlayer",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "leaderChanged",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "humanFalse",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "humanUnknown",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "humanNonCallable",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "multi",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "hotseat",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "cityCount",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "unitCount",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "gold",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "faith",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "id",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "owner",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "typ",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "x",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "y",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "moves",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "max",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "damage",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "charges",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "form",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "dead",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "delayed",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "pending",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "missingActor",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "existingIntent",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "armDrop",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "armThrow",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "armCorrupt",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "armReenter",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "moveNoEffect",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "moveThrowsAfterEffect",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "moveReenter",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "moveChangesOtherAsset",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "observedDrop",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "observedCorrupt",
+          "pass": true,
+          "movement_change_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "case": "actorAliasChanges",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "missingPlacement",
+          "pass": true,
+          "movement_change_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "case": "placementUnknown",
+          "pass": true,
+          "movement_change_calls": 0
+        }
+      ],
+      "case_count_per_VM": 41,
+      "Native_actions": 0,
+      "scope": "Exact one-use QA fixture only. No UI input, unit order, background automation or Native outcome claim."
+    },
+    "bridges_v2": {
+      "utc": "2026-11-18T05:57:00.782209+00:00",
+      "actual_VM_runs": [
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "baseline",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "badWorld",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "readerThrowsBefore",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "readerBeforeReentry",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "readerAfterReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "creditReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "creditEffectThrows",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "badResult",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "creditNoEffect",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "namespaceReplacedDuringCredit",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "ownerChangedAfterCredit",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "baseline",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "beforeReaderReentry",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "afterReaderReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "handlerReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "noRequest",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "doubleRequest",
+          "pass": true,
+          "credit_or_guard_calls": 2
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "guardVoid",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "guardTrue",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "guardThrows",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "worldChangedAfterHandler",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "namespaceReplacedDuringHandler",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "uid",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "owner",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "x",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "y",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "moves",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "charges",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "formation",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "pending",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "guardPlayer",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "visible",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "okay",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "buildEntries",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "formationChangedAfterHandler",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "binding-token",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "binding-namespace",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "binding-handler_or_credit",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "Core",
+          "case": "binding-reader",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "binding-token",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "binding-namespace",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "binding-handler_or_credit",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua51",
+          "scope": "UI",
+          "case": "binding-operation",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "baseline",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "badWorld",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "readerThrowsBefore",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "readerBeforeReentry",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "readerAfterReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "creditReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "creditEffectThrows",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "badResult",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "creditNoEffect",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "namespaceReplacedDuringCredit",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "ownerChangedAfterCredit",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "baseline",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "beforeReaderReentry",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "afterReaderReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "handlerReentry",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "noRequest",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "doubleRequest",
+          "pass": true,
+          "credit_or_guard_calls": 2
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "guardVoid",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "guardTrue",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "guardThrows",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "worldChangedAfterHandler",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "namespaceReplacedDuringHandler",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "uid",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "owner",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "x",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "y",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "moves",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "charges",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "formation",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "pending",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "guardPlayer",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "visible",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "okay",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "buildEntries",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "formationChangedAfterHandler",
+          "pass": true,
+          "credit_or_guard_calls": 1
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "binding-token",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "binding-namespace",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "binding-handler_or_credit",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "Core",
+          "case": "binding-reader",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "binding-token",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "binding-namespace",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "binding-handler_or_credit",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        },
+        {
+          "VM": "Lua53",
+          "scope": "UI",
+          "case": "binding-operation",
+          "pass": true,
+          "credit_or_guard_calls": 0
+        }
+      ],
+      "hashes": {
+        "domestic162c_core_bridge_owner.lua": "7946f8c11e9d977d251405a663dbbc8162f037e31fa8c2d97f661a276971b04f",
+        "domestic162c_ui_bridge_owner.lua": "55ba4611670b293de4caea079a4b07c6b0a14a5e2563ff43ea4c62f8e3a42acc",
+        "domestic162b_operation_probe_owner.lua": "b26768225aecc76e7568a323c3a7e6fdd65d453a183070bba4cccab0e9732d7c"
+      },
+      "Native_actions": 0,
+      "scope": "One-use owned Core/UI factories, no provider candidate adoption, no pause or suppression. Readiness/return/identity/bounds/reentry/unknown/cleanup faults verified; cross-context Native execution still separate."
+    },
+    "bounded_wire": {
+      "utc": "2026-11-18T06:02:27.053241+00:00",
+      "rendered_Lua_VM_compilations": 2,
+      "positive_existing_native_wire_combination": 1,
+      "malformed_capture_rejections": 9,
+      "full_native_C_harness_executions": 0,
+      "rendered_sha256": "53b37045d4ed1bae638d65741597196d709b9880c1ff5e314846d94d7b2f6be5",
+      "codec_sha256": "b26bff7daaa646926f3975f8fa96f76495d46a3dd00894902edcb5f6b8dd1a2a",
+      "source_units": [
+        131073,
+        327683,
+        524292,
+        786438,
+        851970,
+        1048576,
+        1114120,
+        1245193,
+        1441803,
+        1835013,
+        2097168,
+        2162700,
+        2228241,
+        2424851,
+        2621462,
+        2686997,
+        2752532,
+        2818071,
+        2883608,
+        3080218,
+        3145753,
+        3473422,
+        3604507,
+        3735562,
+        3932190,
+        3997727,
+        4063264,
+        4128783,
+        4194337,
+        4456482,
+        4587555,
+        4718628,
+        4849702,
+        5111847,
+        5308456,
+        5505031,
+        5701675,
+        5832733,
+        6094885,
+        6160402,
+        6225964,
+        6291501,
+        6357005,
+        6422556,
+        6488110
+      ],
+      "snapshot_reader_hash": "476621aa0d82362aa9bb166a35d8d95cef9238c9d7ef834156396399c3e5003f",
+      "Native_actions": 0,
+      "cross_context_atomicity_claim": false
+    }
+  },
+  "native_terminal_exits": {
+    "C_reload65666": 0,
+    "initial65029": 0,
+    "placement20635": 0,
+    "selection72288": 0,
+    "bridgeinstall26854": 0,
+    "bounded51277": 1,
+    "reconcile52968": 0,
+    "save15173": 0
+  },
+  "local_model": "993 genuine404/noSSE/no candidate/noadoption. New994 genuine event-latch task dispatched separately; not claimed here until its actual outcome is recorded.",
+  "remaining": [
+    "Eligible manual BUILD backstop, missionary MOVE/SPREAD, queue/reorder and remaining domestic matrix.",
+    "Old865 recoveryFAIL and MANY/NO_SITE performanceFAIL; TC024distance/moves/cooldown, fullarmy/escort/religiouscombat/finance/compatibility remain OPEN."
+  ]
+}
