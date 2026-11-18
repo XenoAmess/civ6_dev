@@ -1790,3 +1790,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18：163普通包结束门控实机通过
 
 [冷启动实际T3至T4](../../research/baiqi-source163-turn-complete-gate-native4-2026-11-18.json)：Sent=true而active／strategic仍真、busy尚假时，实际IsAvailable=false；T4原生激活后自动恢复true，Admin自然继续。只发一次普通END，312行零丢失／错误，全部自有包装撤除，Core/UI均确认T4并正式保存。此限定功能通过不授性能、完整请求覆盖或整体验收；继续冻结矩阵和其余缺口。
+
+
+## 2026-11-18：163 NO_SITE冻结规划验收准备
+
+[独立StageA包与1008软件准备](../../research/baiqi-source163-nosite-stageA-preparation1008-2026-11-18.json)：119文件／97Lua双编译／仅Executor QA差异／4096容量，14个最终消费者AST核对，实际玩家三类Lua双编译及2正8负前置检查通过。新实例下重新做几何／初始财务单位细读及60秒预热，正式预留先于重载；目前没有新正式捕获或性能通过。先前163门控功能通过不转授性能，MANY／NO_SITE旧FAIL继续保留，整个mod继续。
