@@ -1745,3 +1745,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Ordinary162 UNIT multiitem/swap/cancel positives
 
 [NewG3actualcontrol](../../research/baiqi-current162-gorgo-unit-multiitem-swap-cancel-native-2026-11-18.json): firstOwnercoordinateerror actualWarrior0to1 honestlyreconciled/notcalledScoutPASS. CorrectphysicalScoutappend makes[Warrior,Scout]2items; slot2selection+currentLEFTactualswap1to0 yields[Scout,Warrior], currentRIGHTactual2to1leavesWarrior0/40. EachnativeRequestOperationone/void0 andrealqueueeffects separatelyverified/all30otherfields same, gold1510/faith0/twoexistingunits; allownprobesremoved/twoqueue+finalofficialsavesverified. Corequeuegetterportsunavailable, noinventedCoreproof; persistenceReloadnext. Genuine1001one404/noadopt; ledger1001/816complete/68length/117failed/1040POST/0inflight. Baiqimultiitem/religious/army/paidremaining andpressure/865FAILs stillOPEN; continue.
+
+
+## 2026-11-18: Ordinary two-item queue survives official reload
+
+[G4actualpersistence](../../research/baiqi-current162-gorgo-twoqueue-persisted-reload-native-2026-11-18.json): officialGorgoTwoQueue1 loadedonce, originalContinueonce. Exact[Warrior,Scout]fullqueue/rawentries/progress0 andall31selectedfields equalpresave, gold1510/faith0/twoexistingunits.0businessinputs/END/newcoldlaunch/Steam; unused974zero/retired. Supportsdurableordinaryeffects without inventedCorequeuegetters, notBaiqimultiitem/fullTC005/productioncompletion. Continueold865durableCoreeventdiagnosis andremainingfunctional/performanceFAILs, fullmodOPEN.
