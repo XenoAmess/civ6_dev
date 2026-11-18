@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T09:18:44.550830+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "V2_INDEPENDENT_WATCHDOG_RESOURCE_RECOVERY_NATIVE_PASS_NORMAL_STOP_UNGRANTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "resource_cleanup_pass": true,
+  "normal_SDK_stop_pass": false,
+  "formal_performance_budget_grant": false,
+  "actual_ETL_span_seconds": "18.0778278",
+  "configured_recording_ttl_seconds": 60,
+  "actual_capture_within_ttl": true,
+  "new_binary_scope": [
+    10,
+    0,
+    26100,
+    8249
+  ],
+  "profile": "CPU.Verbose.File",
+  "watchdog_result": {
+    "global_cancel_count": 0,
+    "identity": {
+      "birth": 1794992638.289572,
+      "pid": 16168
+    },
+    "normal_stop_pass": false,
+    "own_cancel_count": 1,
+    "parent_alive": false,
+    "status": "CLOSED_RECOVERY_OWN_CANCEL",
+    "stop_result": {
+      "stop_error": "Uncertain('Stop failed or unresolved; do not replay')"
+    }
+  },
+  "owned_PID": "CivilizationVI_DX12.exe (23448)",
+  "external_before_after_birth_exe_match": true,
+  "direct_ETL_birth_field": "NOT_EMITTED",
+  "owned_profile_module_buckets": 61,
+  "ETL_headers": {
+    "Number of Processors": "36",
+    "Clock type": "PerfCounter",
+    "Boot time": "2026/10/30:19:26:13.5000000",
+    "Start time (UTC)": "2026/11/18:09:04:00.7368946",
+    "End time (UTC)": "2026/11/18:09:04:18.8147224  (+         0:00:00:18.0778278)",
+    "Total # Lost Buffers": "0",
+    "Total # Lost Events": "0"
+  },
+  "software": {
+    "new_v2_cases": 21,
+    "runtime_sha256": "a5fa9cc793b4477f1e6a4e77bbe301598f884828b967ea75207198bae5cf50ae",
+    "actual_SDK_controls_in_software_tests": 0
+  },
+  "component_byte_comparison": {
+    "source160_archive_sha256": "d5283623173b71ea65a8183e88114fdc816c0bbd2b14df34013d414fee9bad8b",
+    "rows": [
+      {
+        "component": "Lua/BaiqiController.lua",
+        "source160_sha256": "cdb157ccd9cb017ac75d3584efd529b8ec0398f6b73f83fe8a2f36ad8a49a5c0",
+        "current162_sha256": "cdb157ccd9cb017ac75d3584efd529b8ec0398f6b73f83fe8a2f36ad8a49a5c0",
+        "exact_bytes_equal": true
+      },
+      {
+        "component": "Lua/BaiqiAdmin.lua",
+        "source160_sha256": "cfed13335b6cd214b8ace7805cd6547c7ff792cd73e7ac12365f2bbb0889bdc4",
+        "current162_sha256": "cfed13335b6cd214b8ace7805cd6547c7ff792cd73e7ac12365f2bbb0889bdc4",
+        "exact_bytes_equal": true
+      },
+      {
+        "component": "Lua/BaiqiConfig.lua",
+        "source160_sha256": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+        "current162_sha256": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+        "exact_bytes_equal": true
+      },
+      {
+        "component": "UI/BaiqiExecutor.lua",
+        "source160_sha256": "8d3a74475f8e0000e999e5babca5b3e12863a36f0bf64c270cd222537f45dfc6",
+        "current162_sha256": "8d3a74475f8e0000e999e5babca5b3e12863a36f0bf64c270cd222537f45dfc6",
+        "exact_bytes_equal": true
+      },
+      {
+        "component": "Lua/BaiqiPolicy.lua",
+        "source160_sha256": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+        "current162_sha256": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+        "exact_bytes_equal": true
+      }
+    ],
+    "no_runtime_reuse_or_performance_grant_from_hashes_only": true
+  },
+  "review": [
+    "Original failed996runtime and386secondTTLoverrun kept unchanged. New997v2 requested candidatebefore Ownerimplementation; genuine997404/no candidate alreadypublished. Owner v2 streamsall utilitystdouttofile before spawn, tracks exactCLI PID/birth/exe, separatesstopworker fromwatchdogmonitor, catchesworkerunknown withoutkillingwatcher.21meaningful faultchecks coverunknownstdoutretention/noautomatickill, args/intents/binary, exactownstoputility termination withgame/exe/birth excluded, preservation/owncancel/no reservedcancel replay, andworkerstopunknown recovery. This is bounded testedcoverage, not a universalfaultmatrix.",
+    "ActualnewSDK26100 namedreadonly statusINACTIVE first. SeparatefreshUUIDtrace thenstarted CPU.Verbose.File, independenthiddenwatchdogready; parentexited0after2seconds. Normalstop didnotfinish before12secondpositive-recording grace; watcher terminatedonly itsexactspawnedSDKstoputility afterrecheckingPID/birth/exe/args, then preservedrawETLs andreserved/executedone explicitownnamedcancel. Callback/utilityoutputretained. NamedINACTIVE/0ownedcollectorsverified, game23448stillowned/running. This proves responsiveparentlossresource recovery for thispath; normalSDKstopnotpassed andoldSDKblockingcause remainsUNKNOWN.",
+    "Two preservedcollectors merged/analyzedoffline, originalsunchanged, xperf0/errors0/lostbuffers0/lostevents0. NewETL18.0778278seconds<=60TTL, oneCiv23448lifetime MIN->MAX and61modulebuckets plus externalpre/postsamePIDbirth/exe. No directETLcreationfieldinvented, noNativeAutomation/QPCalignment or gameplayperformancegrant. Newbinary AND watchdoglogic changed, so18vs386 is not a controlledbinarycausal comparison.",
+    "Current162 Controller/Admin/Config/Executor/Policy bytes independentlymatch frozen160 archive. This supports targetedcommonconsumer diagnosis, not automaticSource160runtime/performance pass transfer: Coreauthorityconsumers/privateoverlays/actualscene still separatelyqualify. ExistingMANYdelta15.0183% andNO_SITE19.4643% FAILs, allbudgets/spikes/capacity, andold865recoveryFAIL remain.",
+    "Next move to frozenNO_SITE/MANY world with currentowner/save protection. Need nativeclock/ETWmarkerbrackets and boundedRunNow/Admin recorder beforeframecausalattribution; publicRunNow isalso called byController.Update, but wrappermustpreserveexactargs/returns andkeepmandatoryAI running. Entirefunctionalacceptance still OPEN."
+  ],
+  "model_ledger_unchanged": {
+    "logical_tasks": 997,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 113,
+    "generation_POSTs": 1036,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  }
+}
