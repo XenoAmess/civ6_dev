@@ -1,0 +1,4311 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T00:41:44.188288+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "status": "EXACT_CITY_HP70_INCLUSIVE_BOUNDARY_ACTUAL_PAID_SETTLEMENT_BRANCH_PASS",
+  "whole_mod": "OPEN_CONTINUE",
+  "fixture": {
+    "stem": "Baiqi_P6_20261105_V74_GarrisonPrep114",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044",
+    "turn": 114
+  },
+  "rule": {
+    "cityHealthPercent": 35,
+    "maxHP": 200,
+    "remainingHP_at_confirmation": 70,
+    "garrison_damage": 130,
+    "inclusive": true
+  },
+  "launch": {
+    "pid": 200,
+    "created_at": 1794961429.2924945,
+    "source_commit": "d6bbba7dbc597cb7b571f4fbe03e673159918030",
+    "mode": "baiqi162-paidattack-native974-v1",
+    "proof_age_seconds": 0.24433,
+    "cpu_affinity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "setup": {
+    "utc": "2026-11-18T00:31:32.649001+00:00",
+    "receipt": [
+      "150",
+      "130",
+      "70",
+      "200",
+      "1",
+      "OBSERVED"
+    ],
+    "QA_city_damage_calls": 1,
+    "paid_ability_calls": 0,
+    "scope": "Controlled preparation only. Independent UI/Core HP70 and eligible quote required before physical stale confirmation."
+  },
+  "before": {
+    "utc": "2026-11-18T00:26:34.365119+00:00",
+    "owner": {
+      "pid": 200,
+      "created_at": 1794961429.2924945,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "scene": {
+      "BaiqiGameplay": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistricts.GetDistrict",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 150,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": {
+          "cityID": 524295,
+          "cost": 300,
+          "kind": "city",
+          "playerID": 0,
+          "population": 1,
+          "targetOwner": 1,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        },
+        "quote.reason": "eligible",
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      },
+      "WorldInput": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistrictID/owner.GetDistricts.FindID",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 150,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": {
+          "cityID": 524295,
+          "cost": 300,
+          "kind": "city",
+          "playerID": 0,
+          "population": 1,
+          "targetOwner": 1,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        },
+        "quote.reason": "eligible",
+        "UI.busy": false,
+        "UI.processing": false,
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      }
+    },
+    "strict_shared_fields_equal": true,
+    "cross_context_atomic": false,
+    "health_setup_is_not_ability_effect": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "after_fixture": {
+    "utc": "2026-11-18T00:32:00.249656+00:00",
+    "owner": {
+      "pid": 200,
+      "created_at": 1794961429.2924945,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "scene": {
+      "BaiqiGameplay": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistricts.GetDistrict",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 130,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": {
+          "cityID": 524295,
+          "cost": 300,
+          "kind": "city",
+          "playerID": 0,
+          "population": 1,
+          "targetOwner": 1,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        },
+        "quote.reason": "eligible",
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      },
+      "WorldInput": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4524.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 11,
+        "player.units": 47,
+        "player.requisition": null,
+        "player.result": null,
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 4,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": null,
+        "city.present": true,
+        "city.owner": 1,
+        "city.id": 524295,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistrictID/owner.GetDistricts.FindID",
+        "defense.id": 1835035,
+        "defense.owner": 1,
+        "defense.garrison_damage": 130,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": {
+          "cityID": 524295,
+          "cost": 300,
+          "kind": "city",
+          "playerID": 0,
+          "population": 1,
+          "targetOwner": 1,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        },
+        "quote.reason": "eligible",
+        "UI.busy": false,
+        "UI.processing": false,
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {},
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      }
+    },
+    "strict_shared_fields_equal": true,
+    "cross_context_atomic": false,
+    "health_setup_is_not_ability_effect": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "after_paid_confirm": {
+    "utc": "2026-11-18T00:35:08.141102+00:00",
+    "owner": {
+      "pid": 200,
+      "created_at": 1794961429.2924945,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 162,
+    "scene": {
+      "BaiqiGameplay": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4224.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 12,
+        "player.units": 47,
+        "player.requisition": {
+          "lastID": "city:0:114:2162700:1:524295:41:19",
+          "operations": {
+            "city:0:114:2162700:1:524295:41:19": {
+              "balanceAfter": 4224.2734375,
+              "balanceBefore": 4524.2734375,
+              "chargeObserved": true,
+              "cityID": 524295,
+              "cost": 300,
+              "id": "city:0:114:2162700:1:524295:41:19",
+              "kind": "city",
+              "newCityID": 851979,
+              "phase": "DONE",
+              "playerID": 0,
+              "population": 1,
+              "reason": "committed",
+              "stage": "COMMITTED",
+              "targetOwner": 1,
+              "transferObserved": true,
+              "turn": 114,
+              "unitID": 2162700,
+              "x": 41,
+              "y": 19
+            }
+          },
+          "version": 1
+        },
+        "player.result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "reason": "committed",
+          "stage": "COMMITTED"
+        },
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 0,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": 114,
+        "city.present": true,
+        "city.owner": 0,
+        "city.id": 851979,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistricts.GetDistrict",
+        "defense.id": 2097182,
+        "defense.owner": 0,
+        "defense.garrison_damage": 100,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "invalid_target",
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 1,
+            "FinishMoves": 1,
+            "TransferCity": 1
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {
+            "1": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": 0
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "TRANSFERRING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 1
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 524295
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4524.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "TransferCity",
+              "phase": "BEFORE",
+              "sequence": 1
+            },
+            "2": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": 0
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "TRANSFERRING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4524.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "TransferCity",
+              "native_return_count": 0,
+              "native_returned": true,
+              "native_values": {},
+              "phase": "AFTER",
+              "sequence": 1
+            },
+            "3": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": -300
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "CHARGING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4524.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "ChangeGoldBalance",
+              "phase": "BEFORE",
+              "sequence": 2
+            },
+            "4": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": -300
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "CHARGING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4224.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "ChangeGoldBalance",
+              "native_return_count": 0,
+              "native_returned": true,
+              "native_values": {},
+              "phase": "AFTER",
+              "sequence": 2
+            },
+            "5": {
+              "argument_count": 1,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4224.2734375
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "FINISHING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4224.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "FinishMoves",
+              "phase": "BEFORE",
+              "sequence": 3
+            },
+            "6": {
+              "argument_count": 1,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4224.2734375
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "FINISHING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4224.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "FinishMoves",
+              "native_return_count": 0,
+              "native_returned": true,
+              "native_values": {},
+              "phase": "AFTER",
+              "sequence": 3
+            }
+          },
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      },
+      "WorldInput": {
+        "turn.begin": 114,
+        "local.begin": 0,
+        "player.active": true,
+        "player.strategic": true,
+        "player.gold": 4224.2734375,
+        "player.gold_yield": 95.7109375,
+        "player.maintenance": 54,
+        "player.cities": 12,
+        "player.units": 47,
+        "player.requisition": {
+          "lastID": "city:0:114:2162700:1:524295:41:19",
+          "operations": {
+            "city:0:114:2162700:1:524295:41:19": {
+              "balanceAfter": 4224.2734375,
+              "balanceBefore": 4524.2734375,
+              "chargeObserved": true,
+              "cityID": 524295,
+              "cost": 300,
+              "id": "city:0:114:2162700:1:524295:41:19",
+              "kind": "city",
+              "newCityID": 851979,
+              "phase": "DONE",
+              "playerID": 0,
+              "population": 1,
+              "reason": "committed",
+              "stage": "COMMITTED",
+              "targetOwner": 1,
+              "transferObserved": true,
+              "turn": 114,
+              "unitID": 2162700,
+              "x": 41,
+              "y": 19
+            }
+          },
+          "version": 1
+        },
+        "player.result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "reason": "committed",
+          "stage": "COMMITTED"
+        },
+        "actor.present": true,
+        "actor.owner": 0,
+        "actor.id": 2162700,
+        "actor.x": 42,
+        "actor.y": 19,
+        "actor.moves": 0,
+        "actor.damage": 0,
+        "actor.formation": 1,
+        "actor.dead": false,
+        "actor.delayed": false,
+        "actor.unit_type": "UNIT_HORSEMAN",
+        "actor.cooldown": 114,
+        "city.present": true,
+        "city.owner": 0,
+        "city.id": 851979,
+        "city.x": 41,
+        "city.y": 19,
+        "city.population": 1,
+        "city.granary": false,
+        "defense.path": "city.GetDistrictID/owner.GetDistricts.FindID",
+        "defense.id": 2097182,
+        "defense.owner": 0,
+        "defense.garrison_damage": 100,
+        "defense.garrison_max": 200,
+        "defense.outer_damage": 0,
+        "defense.outer_max": 0,
+        "quote.value": null,
+        "quote.reason": "invalid_target",
+        "UI.busy": false,
+        "UI.processing": false,
+        "observer.core974": {
+          "calls": {
+            "ChangeGoldBalance": 1,
+            "FinishMoves": 1,
+            "TransferCity": 1
+          },
+          "capacity": 64,
+          "dropped": 0,
+          "errors": 0,
+          "marker": "baiqi161-paid-native974-v1",
+          "retired": false,
+          "rows": {
+            "1": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": 0
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "TRANSFERRING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 1
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 524295
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4524.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "TransferCity",
+              "phase": "BEFORE",
+              "sequence": 1
+            },
+            "2": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": 0
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "TRANSFERRING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4524.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "TransferCity",
+              "native_return_count": 0,
+              "native_returned": true,
+              "native_values": {},
+              "phase": "AFTER",
+              "sequence": 1
+            },
+            "3": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": -300
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "CHARGING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4524.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "ChangeGoldBalance",
+              "phase": "BEFORE",
+              "sequence": 2
+            },
+            "4": {
+              "argument_count": 2,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                },
+                "2": {
+                  "kind": "number",
+                  "value": -300
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "CHARGING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4224.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "ChangeGoldBalance",
+              "native_return_count": 0,
+              "native_returned": true,
+              "native_values": {},
+              "phase": "AFTER",
+              "sequence": 2
+            },
+            "5": {
+              "argument_count": 1,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4224.2734375
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "FINISHING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 4
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4224.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "FinishMoves",
+              "phase": "BEFORE",
+              "sequence": 3
+            },
+            "6": {
+              "argument_count": 1,
+              "arguments": {
+                "1": {
+                  "kind": "table",
+                  "unknown": true
+                }
+              },
+              "intent": {
+                "balanceAfter": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4224.2734375
+                  }
+                },
+                "balanceBefore": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 4524.2734375
+                  }
+                },
+                "chargeObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "cityID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 524295
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 524295
+                  }
+                },
+                "cost": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 300
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 300
+                  }
+                },
+                "id": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city:0:114:2162700:1:524295:41:19"
+                  }
+                },
+                "kind": {
+                  "quote": {
+                    "kind": "string",
+                    "value": "city"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "city"
+                  }
+                },
+                "newCityID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 851979
+                  }
+                },
+                "phase": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "FINISHING"
+                  }
+                },
+                "playerID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 0
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 0
+                  }
+                },
+                "population": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "requestID": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "nil"
+                  }
+                },
+                "stage": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "string",
+                    "value": "SUBMITTED"
+                  }
+                },
+                "targetOwner": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 1
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 1
+                  }
+                },
+                "transferObserved": {
+                  "quote": {
+                    "kind": "nil"
+                  },
+                  "record": {
+                    "kind": "boolean",
+                    "value": true
+                  }
+                },
+                "turn": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 114
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 114
+                  }
+                },
+                "unitID": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 2162700
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 2162700
+                  }
+                },
+                "x": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 41
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 41
+                  }
+                },
+                "y": {
+                  "quote": {
+                    "kind": "number",
+                    "value": 19
+                  },
+                  "record": {
+                    "kind": "number",
+                    "value": 19
+                  }
+                }
+              },
+              "metadata": {
+                "actor": {
+                  "arity": 7,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 2162700
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 42
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "6": {
+                      "kind": "boolean",
+                      "value": false
+                    },
+                    "7": {
+                      "kind": "boolean",
+                      "value": false
+                    }
+                  }
+                },
+                "city": {
+                  "arity": 5,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 0
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 851979
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 41
+                    },
+                    "4": {
+                      "kind": "number",
+                      "value": 19
+                    },
+                    "5": {
+                      "kind": "number",
+                      "value": 1
+                    }
+                  }
+                },
+                "gold": {
+                  "arity": 3,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 4224.2734375
+                    },
+                    "2": {
+                      "kind": "number",
+                      "value": 95.7109375
+                    },
+                    "3": {
+                      "kind": "number",
+                      "value": 54
+                    }
+                  }
+                },
+                "turn": {
+                  "arity": 1,
+                  "status": "VALUE",
+                  "values": {
+                    "1": {
+                      "kind": "number",
+                      "value": 114
+                    }
+                  }
+                }
+              },
+              "name": "FinishMoves",
+              "native_return_count": 0,
+              "native_returned": true,
+              "native_values": {},
+              "phase": "AFTER",
+              "sequence": 3
+            }
+          },
+          "version": 1
+        },
+        "turn.end": 114,
+        "local.end": 0
+      }
+    },
+    "strict_shared_fields_equal": true,
+    "cross_context_atomic": false,
+    "health_setup_is_not_ability_effect": true,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "physical_confirm": {
+    "utc": "2026-11-18T00:33:12.366239+00:00",
+    "owner": {
+      "pid": 200,
+      "created_at": 1794961429.2924945,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "hwnd": 17434600,
+    "role": "TEST_PLAYER_PHYSICAL_CITY_HP70_PAID_POPUP_CONFIRM_ONCE",
+    "point": [
+      280,
+      434
+    ],
+    "quote_request": "city:0:114:2162700:1:524295:41:19",
+    "cost": 300,
+    "gold_before": "4524.2734375",
+    "cursor_plot_after_move_away": "660",
+    "popup_ROI_proofs": [
+      {
+        "roi": [
+          310,
+          325,
+          715,
+          382
+        ],
+        "expected": "375dd537735a878b3998caaafede85ab69fa4c24e2ce515493ca1080fb4a9c24",
+        "actual": "375dd537735a878b3998caaafede85ab69fa4c24e2ce515493ca1080fb4a9c24"
+      },
+      {
+        "roi": [
+          205,
+          425,
+          365,
+          443
+        ],
+        "expected": "1fb548f2f32b577921075a0a6aa0fa1f593b8d5d49a9db019e0d8507edae9e6e",
+        "actual": "1fb548f2f32b577921075a0a6aa0fa1f593b8d5d49a9db019e0d8507edae9e6e"
+      }
+    ],
+    "semantic_capture_or_script_calls": 0,
+    "input_replays": 0
+  },
+  "cursor_away": {
+    "utc": "2026-11-18T00:30:53.723027+00:00",
+    "owner": {
+      "pid": 200,
+      "created_at": 1794961429.2924945,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "actual_OS_position": [
+      990,
+      710
+    ],
+    "actual_quote_cost": "300",
+    "bound_requestID": "city:0:114:2162700:1:524295:41:19",
+    "UI_cursor_plot_value": "660",
+    "image_sha256": "680ee0e6efa7a051027b3fc7fd5d5a42dac8af8f0d93d2e119afb12d74222141",
+    "pointer_position_read_before_confirm": true,
+    "clicks": 0,
+    "scope": "Actual OS cursor away from originalmaptarget while original bound popup remains; UIcursorplot maystaycached behindmodal, not claimed as a new worldtarget."
+  },
+  "UI_after": {
+    "binding_read_known": true,
+    "capacity": 64,
+    "cleanup_complete": false,
+    "context": "WorldInput",
+    "continuation": 0,
+    "dropped": 0,
+    "errors": 0,
+    "installed": true,
+    "interact": 1,
+    "interact_binding": true,
+    "marker": "baiqi160-paid-ui-metadata-v1",
+    "paid_route": 1,
+    "request_binding": true,
+    "requests": 1,
+    "retired": false,
+    "rows": {
+      "1": {
+        "actor": {
+          "id": {
+            "kind": "number",
+            "value": 2162700
+          },
+          "owner": {
+            "kind": "number",
+            "value": 0
+          },
+          "present": true
+        },
+        "arity": 4,
+        "callback_type": "function",
+        "kind": "Interact",
+        "sequence": 1,
+        "x": {
+          "kind": "number",
+          "value": 41
+        },
+        "y": {
+          "kind": "number",
+          "value": 19
+        }
+      },
+      "2": {
+        "arity": 3,
+        "fields": {
+          "OnStart": {
+            "kind": "string",
+            "value": "BaiqiRequisition"
+          },
+          "cityID": {
+            "kind": "number",
+            "value": 524295
+          },
+          "confirmed": {
+            "kind": "boolean",
+            "value": true
+          },
+          "cost": {
+            "kind": "number",
+            "value": 300
+          },
+          "kind": {
+            "kind": "string",
+            "value": "city"
+          },
+          "playerID": {
+            "kind": "number",
+            "value": 0
+          },
+          "population": {
+            "kind": "number",
+            "value": 1
+          },
+          "requestID": {
+            "kind": "string",
+            "value": "city:0:114:2162700:1:524295:41:19"
+          },
+          "targetOwner": {
+            "kind": "number",
+            "value": 1
+          },
+          "turn": {
+            "kind": "number",
+            "value": 114
+          },
+          "unitID": {
+            "kind": "number",
+            "value": 2162700
+          },
+          "x": {
+            "kind": "number",
+            "value": 41
+          },
+          "y": {
+            "kind": "number",
+            "value": 19
+          }
+        },
+        "kind": "RequestPlayerOperation",
+        "matching_paid_route": true,
+        "operation": {
+          "kind": "number",
+          "value": -966415096
+        },
+        "params_type": "table",
+        "player": {
+          "kind": "number",
+          "value": 0
+        },
+        "sequence": 2
+      }
+    },
+    "saturated": false
+  },
+  "UI_retired": {
+    "binding_read_known": true,
+    "capacity": 64,
+    "cleanup_complete": true,
+    "context": "WorldInput",
+    "continuation": 0,
+    "dropped": 0,
+    "errors": 0,
+    "installed": true,
+    "interact": 1,
+    "interact_binding": false,
+    "marker": "baiqi160-paid-ui-metadata-v1",
+    "paid_route": 1,
+    "request_binding": false,
+    "requests": 1,
+    "retired": true,
+    "rows": {
+      "1": {
+        "actor": {
+          "id": {
+            "kind": "number",
+            "value": 2162700
+          },
+          "owner": {
+            "kind": "number",
+            "value": 0
+          },
+          "present": true
+        },
+        "arity": 4,
+        "callback_type": "function",
+        "kind": "Interact",
+        "sequence": 1,
+        "x": {
+          "kind": "number",
+          "value": 41
+        },
+        "y": {
+          "kind": "number",
+          "value": 19
+        }
+      },
+      "2": {
+        "arity": 3,
+        "fields": {
+          "OnStart": {
+            "kind": "string",
+            "value": "BaiqiRequisition"
+          },
+          "cityID": {
+            "kind": "number",
+            "value": 524295
+          },
+          "confirmed": {
+            "kind": "boolean",
+            "value": true
+          },
+          "cost": {
+            "kind": "number",
+            "value": 300
+          },
+          "kind": {
+            "kind": "string",
+            "value": "city"
+          },
+          "playerID": {
+            "kind": "number",
+            "value": 0
+          },
+          "population": {
+            "kind": "number",
+            "value": 1
+          },
+          "requestID": {
+            "kind": "string",
+            "value": "city:0:114:2162700:1:524295:41:19"
+          },
+          "targetOwner": {
+            "kind": "number",
+            "value": 1
+          },
+          "turn": {
+            "kind": "number",
+            "value": 114
+          },
+          "unitID": {
+            "kind": "number",
+            "value": 2162700
+          },
+          "x": {
+            "kind": "number",
+            "value": 41
+          },
+          "y": {
+            "kind": "number",
+            "value": 19
+          }
+        },
+        "kind": "RequestPlayerOperation",
+        "matching_paid_route": true,
+        "operation": {
+          "kind": "number",
+          "value": -966415096
+        },
+        "params_type": "table",
+        "player": {
+          "kind": "number",
+          "value": 0
+        },
+        "sequence": 2
+      }
+    },
+    "saturated": false
+  },
+  "save": {
+    "utc": "2026-11-18T00:36:45.199700+00:00",
+    "name": "Baiqi_P6_20261118_V162_CityHP70Paid114.Civ6Save",
+    "bytes": 568864,
+    "sha256": "c6c98d06607abb928ea75c59945c78a7f4e34bb6137d14374d8c9d5d88a08a7d",
+    "stable_repeated_read": true
+  },
+  "exit": {
+    "utc": "2026-11-18T00:40:31.987579+00:00",
+    "exit_code": 15,
+    "terminate_count": 1,
+    "kill_escalations": 0,
+    "natural_exit_claimed": false
+  },
+  "parents": {
+    "cold_baseline51852": 0,
+    "preinput59483": 0,
+    "open_quote14013": 0,
+    "prepare11034": 0,
+    "physical_confirm16589": 0,
+    "complete37061": 0
+  },
+  "private_log": {
+    "bytes": 432032,
+    "sha256": "d0a23c714085dbb2b620a2e2bdb83fb4d58a5e2fa544c9a742663309eed641e9",
+    "not_committed": true
+  },
+  "review": [
+    "New Source162 original cold copy;119 installed Capture974 files unchanged, fresh own readonly Steam offline proof before sole Popen, CPU1..8. Original read-only mode query unavailable before launch attempt; formal menu exposure then independent offline read. Own game focus before selection, no Steam mode switch.",
+    "Original full HORSEMAN2162700/moves4/damage0, enemy1 city524295@41,19/pop1/HP50of200/eligiblefee300/native0. Physical right1; actual OS pointer away with UI plot877->660. Separate durable/readback QA district damage150->130 once gives exactHP70, not ability income/debit/combat. Independent UI/Core exactHP70/eligible proved.",
+    "Current exact-state guard again checked HP70/200, fixture observed marker and original full actor/target/quote/counters immediately before physical confirm1. Software negatives reject generally eligibleHP69 as a mislabeled70 sample; actual native70 sample stands on its own.",
+    "Actual UI/Core gold4524.2734375->4224.2734375, army4->0/damage0/cooldown114, enemycity owner1/524295->0/851979/pop1. One COMMITTED/DONE cost300 record, matching before/after bank balances. Capture callsites transfer/debit/Finish1 each; UIrequest/paidroute1 and ordinarycontinuation0. No semantic QA backend request or attack replay.",
+    "Observed newcity transfer is the original engine CityManager.TransferCity call, not a QA city creation. Official save and observer retirement complete, complete37061 actualexit0. Officialexit once; only exact owned quiet residue cleanup if required, no kill escalation/natural-exit claim.",
+    "Raw persistence flag describes current property/readback and exact pre-save guard; no save reload was performed in this boundary case. HP71 rejection has separate prior Native evidence; HP69 eligible success still needs its own original copy. Other TC024 and fullmod gaps remain."
+  ],
+  "local_model": "No new generation after genuine991404/Owner health helper. HTTP ledger992 unchanged.",
+  "remaining": [
+    "Independent HP69 positive case next; source-only consumers prepared but not tested/admitted yet.",
+    "Distance/movement/cooldown/other paid-state/fault/special-asset cases, manual domestic controls, finance/network, compatibility continue.",
+    "Old865 recoveryFAIL and MANY/NO_SITE valid performanceFAIL remain unchanged."
+  ]
+}
