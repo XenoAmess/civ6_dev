@@ -1,0 +1,406 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T12:18:07.030644+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 162,
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "PRIVATE_CURRENT162_DURABLE_WAKE_PACKAGE_PREPARED_NATIVE_NOT_RUN",
+  "package": {
+    "utc": "2026-11-18T12:17:16.001887+00:00",
+    "source_version": 162,
+    "package_files": 119,
+    "dual_lua_sources": 97,
+    "package_sha256": "8154bbfbd6ea31f137267f6e4de1f2b9fec62def059878fca2bce44453939646",
+    "three_changed_files": [
+      "Lua/BaiqiGameplay.lua",
+      "Lua/BaiqiController.lua",
+      "UI/BaiqiExecutor.lua"
+    ],
+    "inverse_restores_all_current162_inputs": true,
+    "mock_load_and_hook": [
+      {
+        "VM": "Lua51",
+        "load_once_duplicate_denied": true,
+        "standby_hook_cases": 4
+      },
+      {
+        "VM": "Lua53",
+        "load_once_duplicate_denied": true,
+        "standby_hook_cases": 4
+      }
+    ],
+    "private_helper_fence": "Exact four names/private root/symlink rejection/current hash+file identity before freshSteamproof",
+    "new_files": {
+      "wake162d_lifecycle_owner.py": "ba41fdec9c7f95200d44c3199fecb43c33c1d182381956b1b5f7abf88fe070bb",
+      "cold_file_fence_wake162d_owner.py": "cd5908faa832d70e53c12381078bfe8a1fe7eb63df2a241df73032f82ad1fc97",
+      "wake162_package1003_owner.py": "50507b79d77c2d564d02b06882dd1208080e8ea22ca52d5635f8193815bb122c"
+    },
+    "Native": "NOT_RUN",
+    "installed": false,
+    "whole_mod": "OPEN_CONTINUE"
+  },
+  "UI_Core_software": {
+    "utc": "2026-11-18T12:15:35.734254+00:00",
+    "source_version": 162,
+    "actual_integrated_cases": [
+      {
+        "VM": "Lua51",
+        "scenario": "normal",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "non_baiqi",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "escort",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "foreign_actor",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "strict_false",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "STRICT_WAKE_NOT_TRUE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "visible_false",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "VISIBLE_WAKE_NOT_TRUE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "final_strict_false",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "FINAL_STRICT_WAKE_NOT_TRUE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "binding_changed",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "epoch_changed",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "POST_VISIBLE_CONTRACT_UNKNOWN"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "budget_exhausted",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "NO_ORIGINAL_CONTROLLER_REQUEST_BUDGET"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "changed_pending",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "changed_bank",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "historical_record",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "setter_before",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "setter_after",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "setter_mutates",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "setter_event",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "setter_read_reentry",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "native_throws",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_UNKNOWN_NO_RETRY"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "post_intent_actor_changes",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "POST_INTENT_CONTRACT_UNKNOWN"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "natural_events_durable",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 2,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "retire_releases_hold",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "actor_only_hold",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "normal",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "non_baiqi",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "escort",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "foreign_actor",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "strict_false",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "STRICT_WAKE_NOT_TRUE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "visible_false",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "VISIBLE_WAKE_NOT_TRUE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "final_strict_false",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "FINAL_STRICT_WAKE_NOT_TRUE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "binding_changed",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "epoch_changed",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "POST_VISIBLE_CONTRACT_UNKNOWN"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "budget_exhausted",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "NO_ORIGINAL_CONTROLLER_REQUEST_BUDGET"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "changed_pending",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "changed_bank",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "BOUNDED64_TICKS_WITHOUT_NATIVE"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "historical_record",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 0,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "setter_before",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "setter_after",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "setter_mutates",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "setter_event",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "setter_read_reentry",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "DIAGNOSTIC_INTENT_NOT_PROVED"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "native_throws",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_UNKNOWN_NO_RETRY"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "post_intent_actor_changes",
+        "mock_WAKE_commands": 0,
+        "diagnostic_writes": 1,
+        "stage": "POST_INTENT_CONTRACT_UNKNOWN"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "natural_events_durable",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 2,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "retire_releases_hold",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "actor_only_hold",
+        "mock_WAKE_commands": 1,
+        "diagnostic_writes": 1,
+        "stage": "BACKGROUND_WAKE_RETURNED_NOT_RECOVERY"
+      }
+    ],
+    "hashes": {
+      "wake162_core1002_owner.lua": "04f80f6bafbde9a906b969530a2743ffba40e9d8b0135a450a2a3eaf943b061a",
+      "wake162_ui1003_owner.lua": "c88af8c7bf47723fa93249675c39867055ff680e02f83b3d66a5db0718d9b4da"
+    },
+    "Native": "NOT_RUN",
+    "scope": "NaturalTick facade mock only, one WAKE maximum/original budget, one actor standby hold releases after32 subsequent idle ticks or retirement. No original bank write/clear/replay and no native business effects claimed."
+  },
+  "model1003": {
+    "started_at_utc": "2026-11-18T12:10:27.854492+00:00",
+    "http_status": 404,
+    "total_ms": 196.64050010032952,
+    "finish_reason": null,
+    "sse_done": false,
+    "usage": null,
+    "cached_prompt_tokens_if_reported": null,
+    "candidate_complete": false
+  },
+  "review": [
+    "Real new isolation task sent before Owner port: onePOST404/196.64050010032952ms, no candidate. Owner adapted old978 naturalTick contract onto current162 plus tested Core1002 recorder, with exact namespace changes and fresh binding checks. Preparation whitespace assertions failed twice before package generation; no Native action or old business replay.",
+    "At natural idle Controller tick only, original NextRequest budget reserved before durable intent, two visible/two strict fresh WAKE qualifications, attempted marked before possible metadata write, maximum one native WAKE. New helper cannot clear/replay original FOUND. No test-player civilian operation.",
+    "Only old865 standby is held after actual WAKE attempt, for at most32 subsequent natural idle ticks. Hold does not pause Controller/cities/other units and retirement releases it; no user toggle or installed product change. Per-tick advancement continues even after attempted and does not depend on remaining request budget. Ticks do not prove global dispatch quiescence.",
+    "Three changed package files Gameplay/Controller/Executor, inverse transforms restore exact current162 originals; other116 untouched. All119 archive entries exact and97Lua compile5.1/5.3. New private cold fence covers exact four helper paths plus original common files, fresh backend-only Steam offline proof remains required. Package not yet installed or native-tested.",
+    "Current recovery162a snapshot saved once as PreWake1003_158629718 SHA11d91a3cf667a0e2ae9443d1d67aa869901152c99b21d25495b41a486e5ad302; original bank unchanged/9699781002keysnil, official exit calledonce. Own residue check underway, no forcekill/other games/Steam controls. Existing old865 recovery and pressure performance FAILs remain, next install/coldlaunch/finite native witness then durable Save/Load."
+  ],
+  "original_bank_writes": 0,
+  "model_candidate_adopted": false,
+  "Native_WAKE": "NOT_RUN",
+  "ledger": {
+    "logical_tasks": 1003,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 119,
+    "generation_POSTs": 1042,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  }
+}
