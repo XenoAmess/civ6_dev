@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-18",
+  "utc": "2026-11-18T08:08:58.371880+00:00",
+  "machine": "BF-202609141645",
+  "status": "READONLY_ETW_INVENTORY_SOFTWARE_AND_NATIVE_VERIFIED_RUNTIME_TRACE_STILL_PENDING",
+  "whole_mod": "OPEN_CONTINUE",
+  "product_files_changed": 0,
+  "source_version": 162,
+  "hashes": {
+    "tools/wpr_sessions.py": "2e8e3044c961a9bb687342247cc352cc6ce6d238e1436a4c72de107cec542842",
+    "tests/test_wpr_sessions.py": "d204692df55156f1b1980d9579beaf83e95e0d0186d1d5563908785cf76fca28"
+  },
+  "verification": {
+    "unittest_command": "python -X utf8 -m unittest tests.test_wpr_sessions -v",
+    "methods_passed": 4,
+    "actual_native_API": "QueryAllTracesW",
+    "actual_visible_sessions": 26,
+    "visible_WPR_name_conflicts": [],
+    "actual_query_utc": "2026-11-18T08:04:52.296844+00:00",
+    "WPR_starts": 0,
+    "WPR_stops": 0,
+    "WPR_cancels": 0,
+    "Native_game_queries": 0
+  },
+  "review": [
+    "New tools-only reader binds only native QueryAllTracesW, no sessioncontrol API. Win64 WNODE48/EVENT_TRACE_PROPERTIES120 layout qualified, bounded64initial/1024max/5readattempts, MORE_DATA discards partialresult, UTF16offset/terminator/Unicode/bounds/count/duplicates failclosed. Typed properties plus names returned, no private logfilepath collection. WPRname classification only covers visible queried names; QueryAll does not return private loggers and permissions limit visibility, so default wpr-status inactive or empty classification is not universal absence proof.",
+    "Four software methods passed against injected actualbufferlayout and fault cases. Then elevated current-machine real readreturned26visible sessions, no queried WPRnameconflicts, no start/stop/cancel or gamequery. FreshCLI also confirmed installed wpr/xperf/wpaexporter/tracerpt, defaultWPRinactive,260GBworkspacefree. System session list remains private. There is still zero actualtrace, independentwatchdog orETLownedPID/QPC attribution; these remain executable next work.",
+    "Genuine996 requested actual runtime integration before Ownercode, one canonical404/no candidate/adoption, already retained privately. This narrow Ownerinventorytool is subsequent implementation, not modelcode. Functional E eligibleBUILD guard narrowpass already saved/pushedRoot; sharedE/996delivery is resumed after local proxy service was observed listening again and standard gitfetch succeeded. No proxyservice restart/configmutation orSteam operations by this agent.",
+    "Old865 recoveryFAIL and Source160 MANY/NO_SITE frozenBdeltaFAIL remain. No frozenbudgets/capacity/spikes changed and no Source162formalperformance credit. Prior wholeproduct2765/2764pass/1SDKskip retained, not rerun for tool-only addition."
+  ],
+  "primary_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/evntrace/nf-evntrace-queryalltracesw",
+    "https://learn.microsoft.com/en-us/windows/win32/etw/event-trace-properties"
+  ],
+  "next": "Implement boundedactualOSrunner and independently survivinghiddenwatchdog; testownership/unknowns before first ownnamedcausaltrace, then diagnose actual pressureFAIL."
+}

@@ -1705,3 +1705,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-18: Source162 eligible original BUILD handler guard backstop
 
 [Actual independent E case](../../research/baiqi-source162-eligible-build-native-handler-guard-refusal-2026-11-18.json). One new QAplacement/credit only; actualmovementevent Core/UI2moves/2charges, rawreadonlynativeeligibletrue versusguardedfalse/providerBUILD0. One explicitQA originalhandler invocation reachedexistingguardRequestOperation once/exactactorparams/returnedfalse.417typedUIassets equal and Coreunchanged immediatelyafter; backstop narrow PASS, no physicalbutton/shortcut/backend-sink grant or fullTC004. Later separate normalBACKGROUND0:110:5 actuallyFARM405/charge2to1/moves2to0; runepoch+log identify this request acrossloads. Allownhooks/probe/ports andunusedCapture retired; officialnewsave verified.94VM finite latch/38VM readonlyadapter plus actualnativeport checks, no productchange/END/newmodelcall. Fullmod remains OPEN; existing recovery/performanceFAILs retained, continue diagnosticwork.
+
+
+## 2026-11-18: Readonly ETW inventory actual verification
+
+[Source996 inventorytool](../../research/baiqi-wpr996-readonly-etw-inventory-2026-11-18.json).4softwaremethods passed, then elevated actualQueryAllTracesW returned26visible sessions/noWPRnames, noStart/Stop/Cancel/gamequery. NativeABI48/120 and boundedUTF16buffers/capacity/unknownrejection tested. Private or inaccessible sessions remain outsideAPIvisibility, so no universal absence claim. InstalledWPR/xperf/WPAexporter ready; actualrunner/watchdog/trace/ownedPID_QPC still pending. Product119files unchanged, existing recovery/pressureFAILs retained; continue fullmod.
