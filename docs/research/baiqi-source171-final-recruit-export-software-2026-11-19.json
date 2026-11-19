@@ -1,0 +1,223 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T12:18:30.139101+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 171,
+  "status": "DETACHED_FINAL_RECRUIT_EXPORT_SOFTWARE_PASS_NOT_NATIVE",
+  "whole_mod": "OPEN_CONTINUE",
+  "validation": {
+    "utc": "2026-11-19T12:17:39.208324+00:00",
+    "source_version": 171,
+    "status": "PASS",
+    "actual_cases": [
+      {
+        "VM": "Lua51",
+        "case": "normal260",
+        "actual_observer_records": 260,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "unknown4",
+        "actual_observer_records": 4,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "binding_changed",
+        "actual_observer_records": 4,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "unretired",
+        "actual_observer_records": 4,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "empty",
+        "actual_observer_records": 0,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua51",
+        "case": "overflow4097",
+        "actual_observer_records": 4097,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "normal260",
+        "actual_observer_records": 260,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "unknown4",
+        "actual_observer_records": 4,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "binding_changed",
+        "actual_observer_records": 4,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "unretired",
+        "actual_observer_records": 4,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "empty",
+        "actual_observer_records": 0,
+        "Native_queries": 0
+      },
+      {
+        "VM": "Lua53",
+        "case": "overflow4097",
+        "actual_observer_records": 4097,
+        "Native_queries": 0
+      },
+      {
+        "parser_rejected": "missing_done"
+      },
+      {
+        "parser_rejected": "duplicate_done"
+      },
+      {
+        "parser_rejected": "duplicate_row"
+      },
+      {
+        "parser_rejected": "missing_row"
+      },
+      {
+        "parser_rejected": "changed_sequence"
+      },
+      {
+        "parser_rejected": "wrong_context"
+      },
+      {
+        "parser_rejected": "bad_integer"
+      },
+      {
+        "parser_rejected": "bad_boolean"
+      },
+      {
+        "parser_rejected": "infinite_number"
+      },
+      {
+        "parser_rejected": "bad_hex_string"
+      },
+      {
+        "parser_rejected": "row_width"
+      },
+      {
+        "parser_rejected": "unexpected_native_error"
+      },
+      {
+        "parser_rejected": "wrong_marker"
+      },
+      {
+        "aggregate_rejected": "missing_last_page"
+      },
+      {
+        "aggregate_rejected": "page_gap"
+      },
+      {
+        "aggregate_rejected": "duplicate_page"
+      },
+      {
+        "aggregate_rejected": "changed_counter_metadata"
+      },
+      {
+        "aggregate_rejected": "changed_retirement_metadata"
+      },
+      {
+        "aggregate_rejected": "unknown_error_mismatch"
+      },
+      {
+        "renderer_rejected": [
+          true,
+          128
+        ]
+      },
+      {
+        "renderer_rejected": [
+          0,
+          128
+        ]
+      },
+      {
+        "renderer_rejected": [
+          4097,
+          128
+        ]
+      },
+      {
+        "renderer_rejected": [
+          1,
+          0
+        ]
+      },
+      {
+        "renderer_rejected": [
+          1,
+          129
+        ]
+      }
+    ],
+    "consumers_sha256": {
+      "recruit171_codec_owner.py": "aa1990060bb8de640f2ca10d1c864fabf6b003bfab5d269ffe7bf2fd7c3d875e",
+      "recruit171_export_owner.lua": "a1daa7d78f9a012ae94ae9339f1fe26478e021925412e548fffffdfa6c75a98d",
+      "recruit171_exit_owner.lua": "6cf597f47aa115335d4ea89715bb6a903bfe1ed90b7922add9cddbc6e3504ada",
+      "test_recruit171_codec_owner.py": "0c1c6713eb9c7d46aa02736f8fc10903968058f9b8f5fa2a3866dd42e8d3988a"
+    },
+    "Native_queries": 0,
+    "Native_orders": 0,
+    "installed": false,
+    "scope": "Actual Lua observer/exporter on both VMs and Python strict page parser/aggregate. Unknown rows retained, unretired/foreign binding unqualified, detached typed nil/false/newline/UTF8/number preserved. Not a finance/isolation/game lifecycle result."
+  },
+  "first_validation_failure": {
+    "actual_exit": 1,
+    "phase": "Lua fixture parse before observer records",
+    "reason": "Python normal triple-quoted string converted intended Lua escaped tabs/newlines into literal line breaks inside a quoted Lua string.",
+    "owner_correction": "Use raw Python string for the actual Lua fixture; product and observer package unchanged.",
+    "retained": "Actual tool trace; no game/Native action or candidate adoption occurred."
+  },
+  "bounds": {
+    "observer_capacity": 4096,
+    "page_rows_max": 128,
+    "pages_max": 32,
+    "payload_bytes_per_page_max": 1048576
+  },
+  "preserves": [
+    "Actual helper typed nil/false/UTF8/embedded tabs/newlines/numbers.",
+    "Unknown helper rows/reasons, error/drop counters, retirement and Record-binding ownership metadata.",
+    "Raw messages remain input; malformed/incomplete/out-of-order/changing pages are rejected instead of repaired or synthesized."
+  ],
+  "qualification": "All pages, stable metadata, retired observer, original Record binding, zero errors/drops and at least one row required. Complete but unretired/foreign-binding/unknown/empty snapshots remain unqualified.",
+  "Native_queries": 0,
+  "installed": false,
+  "game_finance_or_isolation_result": "NOT_RUN",
+  "remaining": [
+    "Native finance lifecycle/sole parent, official checkpoint and exact installed diagnostic retirement.",
+    "Actual final decision/economy boundary/income shock and game-origin endpoint inaccessibility witness.",
+    "Current171 original85 B_plan then remaining budgets/pairs and all functional gaps."
+  ],
+  "generation_POSTs": 0,
+  "ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null
+}

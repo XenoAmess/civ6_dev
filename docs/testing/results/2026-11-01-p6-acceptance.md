@@ -2089,3 +2089,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 [既有迁移原值与238次文件比较](../../research/baiqi-source171-historical-migration-consumer-review-2026-11-19.json)保留160经营权清理的两次普通结算及重载、161旧暂停清理与生产进度的原限定结论；当前Gameplay迁移体与161完全一致，SQL/XML与两次历史启动一致，但Controller/Executor等消费者已变更，不能授171整项通过。初始UI/Core单位数3/4、手动UI未运行及旧865未决均保留。
 
 [最终招募观察器软件准备](../../research/baiqi-source171-final-recruit-observer-software-2026-11-19.json)：16次实际双VM检查、119文件/97Lua编译与精确逆变换通过。未安装、无游戏操作/过滤器/新生成POST；财政冲击、运行时隔离与TC038实机仍待执行。HOI4桌面交接期间仅独立准备；第171版原85性能仍尚未启动，整模组持续。
+
+
+## 2026-11-19：当前171最终招募数据导出软件
+
+[36项实际软件检查](../../research/baiqi-source171-final-recruit-export-software-2026-11-19.json)覆盖实际Lua观察器/导出器双VM和Python分页解析。保留nil/false/UTF8/未知行及计数；缺页、重复、乱序、变化元数据、非有限数与越界均拒绝。首轮夹具转义失败保留，修正后通过；未改变产品或已准备的观察器包，0Native/0新POST。财政/隔离的实际游戏窗口及其生命周期仍未运行；桌面交接期间继续独立准备。
