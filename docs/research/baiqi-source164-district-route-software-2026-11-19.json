@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T02:31:10.141429+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 164,
+  "status": "SOFTWARE_PASS_NATIVE_PENDING",
+  "software_complete": true,
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "Native164": "NOT_STARTED",
+  "trigger_evidence": "baiqi-source163-controller-child-focus-native-2026-11-19.json",
+  "trigger_scope": "Actual diagnostic B root22 at turn88: root89.999914ms, district-person76.999903ms, inclusive PathStep65.000057ms and Nativepath38.000107ms. Nested values are not additive. This does not identify causes of other captures.",
+  "change": {
+    "product_files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_byte_identical_vs163": 117,
+    "controller_sha256": "d062c6abe6311140314726f8f0842d9144dc6994322d224eed0bb0a6b5d54c5f",
+    "route_phases": [
+      "queue scalar proposal",
+      "fresh native path query and bounded scalar copy",
+      "fresh full-route safety validation and original RequestCivilian in the same callback"
+    ],
+    "guards": [
+      "exact owner, full unit ID/type/class/individual/charges/purpose",
+      "fresh turn, position/moves key, world epoch, formation=1 and movement readiness",
+      "no held GP intent, local pending or native queued destination",
+      "fresh revealed target with owned-city district membership or original border-activation policy",
+      "dense integral path up to48; validate entire path freshly, adjacent first step only",
+      "no safety permission cached between callbacks; turn/load invalidates unsent jobs",
+      "one GP continuation before ordinary scheduling; shared existing two-continuation limit with builders",
+      "missing or failed clock retains original synchronous PathStep behavior"
+    ],
+    "authority": "Original RequestCivilian remains unchanged. No military, escorted civilian, religious combat or diplomacy authority added. No player switch or new manual input."
+  },
+  "software": {
+    "full_suite_first": {
+      "run": 2798,
+      "failures": 19,
+      "errors": 3,
+      "skipped": 1,
+      "seconds": 394.541,
+      "raw_log_sha256": "4e3e25ad078ec51af9b7fbf7bf75a0354475aa6e6a924c9d3454878c393c7c3b",
+      "reviewed_corrections": {
+        "reviewed_files": [
+          "test_admin_diagnostic_turn90.py",
+          "test_build_plan_profile_mod.py",
+          "test_controller_found_writer_timing.py",
+          "test_diagnostic_version141.py",
+          "test_diagnostic_version_render.py",
+          "test_formation_unknown_deferred.py",
+          "test_formation_unknown_diagnostic.py",
+          "test_paired_player_callback.py",
+          "test_settlement_census_source155.py"
+        ],
+        "first_full_tests": 2798,
+        "first_failures": 19,
+        "first_errors": 3,
+        "first_SDK_skips": 1,
+        "reason": "Current164 was incorrectly treated as future unsupported source, current-build163 strings stale. Three QA assembly errors required a source164-only closure; ordinary/source hashes unchanged."
+      }
+    },
+    "full_suite_final": {
+      "run": 2798,
+      "passed": 2797,
+      "failures": 0,
+      "errors": 0,
+      "SDK_environment_skips": 1,
+      "seconds": 372.74,
+      "raw_log_sha256": "b8e90c0a7d3630655ee36a22626e4a1d17daac05fefc7b9f4a92df5e7abcaaf7",
+      "actual_terminal": {
+        "session_id": 58510,
+        "exit_code": 0,
+        "actual_tool_completion": true,
+        "utc": "2026-11-19 02:24:43 UTC",
+        "command": "python -X utf8 -m unittest discover -s tests",
+        "raw_log": "source164-full-suite-second.log",
+        "observed_summary": "Ran 2798 tests in 372.740s; OK (skipped=1)"
+      }
+    },
+    "new_full_controller_phase_test_methods": 12,
+    "owner_candidate_related_tests": 86,
+    "Lua51_and_Lua53_compiled_files": 97,
+    "ordinary_manifest_files": 119,
+    "QA_tool_opt_in_versions": 17,
+    "QA_local_limit_fix": "Source164 only encloses controller diagnostic suffix in a separate closure; legacy diagnostic bytes retained."
+  },
+  "ordinary_package": {
+    "archive_sha256": "77d65d0b685f9112dcc5c445461ad70ac0042e443c759e4db32c550297e66e36",
+    "archive_bytes": 8835613,
+    "delivered_local_path": "dist/Baiqi164.zip"
+  },
+  "model": {
+    "configured_model": "qwen38-coder",
+    "availability": "Read-only R3 at01:41:25Z returned only open-h3-2k; no compatible coding model. Owner reviewed actual source and continued fix after diagnostic lifecycle closed.",
+    "new_generation_POSTs": 0,
+    "adopted_local_model_candidates": 0,
+    "OpenCode_maintenance": "Nov19 same-client/user successful1.19.6 cache; no native generation grant",
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Software checks and package preparation do not grant actual game performance or complete functionality.",
+    "Original85 Source163 B_plan remains a valid FAIL; all its raw samples and both diagnostics are preserved.",
+    "Source163 MANY and NO_SITE passes apply only to their exact sources and fixtures; Source164 needs affected Native verification.",
+    "Continue original85 Source164 B_plan using unchanged p95<=20ms/max<=50ms and all raw samples, then dependent budgets and remaining40 cases."
+  ]
+}

@@ -25,6 +25,7 @@ local builderSearches={}
 local builderRejectedGoals={}
 local settlerSearches={}
 local districtPersonPlans = {}
+local districtRoute = {}
 local missionaryPlans = {}
 local missionaryPurchase={doneTurn=-1,streak=0}
 local naturalistSearches = {}
@@ -120,6 +121,8 @@ local neighborhoodXY,neighborhoodByIndex
 local function ClearNeighborhoods()
   neighborhoodCache,neighborhoodCount={},0
   settlementWorldEpoch=settlementWorldEpoch+1
+  for _,plan in pairs(districtPersonPlans) do plan.route=nil end
+  districtRoute.used=false
   -- A new world may reuse native bindings. Only a fresh live Commit ACK can
   -- create an unsent dispatch closure; never carry one through a load event.
   for _,pending in pairs(pendingUnits) do pending.dispatch=nil end
@@ -2542,6 +2545,7 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
   local plan=districtPersonPlans[unitID]
   if not plan or plan.owner~=ctx.player or plan.unitType~=def.UnitType or plan.class~=class.Index
     or plan.individual~=info.Index or plan.charges~=gp:GetActionCharges() or plan.required~=purpose then
+    if plan then plan.route=nil end
     local count=0;for _ in pairs(districtPersonPlans) do count=count+1 end
     if not plan and count>=256 then return false end
     plan={owner=ctx.player,unitType=def.UnitType,class=class.Index,individual=info.Index,
@@ -2555,13 +2559,25 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
     for index,reason in pairs(plan.blocked) do if reason=="route" then plan.blocked[index]=nil end end
     plan.routeTurn=turn
   end
+  if plan.route then return false,true end
+  -- A remembered owned destination is a proposal, freshly checked in its one city.
+  if districtRoute.Enabled() and plan.target and plan.targetCity and not plan.blocked[plan.target] then
+    local target={index=plan.target,cityID=plan.targetCity}
+    local plot=districtRoute.Target(ctx,player,target,required,def,info,border)
+    if plot and UnitIndex(unit)~=plan.target then
+      target.plot=plot
+      local submitted,continuing,handled=districtRoute.Start(ctx,player,state,unit,plan,target,required,info,class,def,border)
+      if handled then return submitted,continuing end
+      plan.blocked[plan.target]="route";plan.target=nil;plan.targetCity=nil
+    elseif not plot then plan.target=nil;plan.targetCity=nil end
+  end
   local targets,seen={},{}
-  local function AddTarget(plot)
+  local function AddTarget(plot,cityID)
     if not plot or seen[plot:GetIndex()] or not Revealed(plot) then return end
     if border then
       if not BaiqiPolicy.GreatPersonActivationPlot(def.UnitType,info,ctx.player,plot,visibility,Map) then return end
     elseif plot:GetOwner()~=ctx.player then return end
-    local target={plot=plot,index=plot:GetIndex(),
+    local target={plot=plot,index=plot:GetIndex(),cityID=cityID,
       distance=Map.GetPlotDistance(unit:GetX(),unit:GetY(),plot:GetX(),plot:GetY())}
     seen[target.index]=target;targets[#targets+1]=target
   end
@@ -2573,8 +2589,8 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
     local target=seen[plan.target]
     if target and UnitIndex(unit)~=plan.target then
       pathQueried=true
-      local step=PathStep(unit,target.plot,player,state)
-      if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+      local submitted,continuing,handled=districtRoute.Start(ctx,player,state,unit,plan,target,required,info,class,def,border)
+      if handled then return submitted,continuing end
       plan.blocked[plan.target]="route"
     end
     if not target or plan.blocked[plan.target] then plan.target=nil end
@@ -2599,7 +2615,7 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
       for _,district in city:GetDistricts():Members() do
         if district:GetType()==required.Index then
           local plot=Map.GetPlot(district:GetX(),district:GetY())
-          AddTarget(plot)
+          AddTarget(plot,city:GetID())
         end
       end
     end
@@ -2625,8 +2641,8 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
     local target=seen[plan.target]
     if hereIndex==plan.target then return false end
     pathQueried=true
-    local step=PathStep(unit,target.plot,player,state)
-    if step then return RequestCivilian(ctx,state,unit,"MOVE_TO",step) end
+    local submitted,continuing,handled=districtRoute.Start(ctx,player,state,unit,plan,target,required,info,class,def,border)
+    if handled then return submitted,continuing end
     plan.blocked[plan.target]="route";plan.target=nil
   end
   table.sort(targets,function(a,b) if a.distance~=b.distance then return a.distance<b.distance end return a.index<b.index end)
@@ -2637,11 +2653,8 @@ local function ProcessDistrictPerson(ctx,player,state,unit)
       -- issue fallback standby while unexamined destinations remain.
       if pathQueried then return false,true end
       pathQueried=true
-      local step=PathStep(unit,target.plot,player,state)
-      if step then
-        plan.target=target.index
-        return RequestCivilian(ctx,state,unit,"MOVE_TO",step)
-      end
+      local submitted,continuing,handled=districtRoute.Start(ctx,player,state,unit,plan,target,required,info,class,def,border)
+      if handled then return submitted,continuing end
       plan.blocked[target.index]="route"
     end
   end
@@ -3347,6 +3360,149 @@ local function ValidateBuilderPathPacket(ctx, player, state, unit, packet)
   return nextPlot
 end
 
+
+-- Scalar route proposals only. The original writer remains the permission boundary.
+do
+  local function Integer(v)
+    return BaiqiPolicy.Number(v) and v>=0 and v<=2147483647 and v%1==0
+  end
+  local function Empty(ok,...)
+    return ok and select("#",...)<=1 and (...)==nil
+  end
+  local function False(ok,...)
+    return ok and select("#",...)==1 and (...)==false
+  end
+  function districtRoute.Enabled()
+    return PlanningTime()~=nil
+  end
+  function districtRoute.Target(ctx,player,target,required,def,info,border)
+    local ok,plot=pcall(function()
+      if not target or not Integer(target.index) then return nil end
+      local p=Map.GetPlotByIndex(target.index)
+      if not p or p:GetIndex()~=target.index or not Revealed(p) then return nil end
+      if target.x~=nil and (p:GetX()~=target.x or p:GetY()~=target.y) then return nil end
+      if border then
+        if BaiqiPolicy.GreatPersonActivationPlot(def.UnitType,info,ctx.player,p,visibility,Map) then return p end
+        return nil
+      end
+      if not required or p:GetOwner()~=ctx.player or not Integer(target.cityID) then return nil end
+      local city=player:GetCities():FindID(target.cityID)
+      if not BaiqiPolicy.MatchesID(city,target.cityID) or city:GetOwner()~=ctx.player then return nil end
+      local districts=city:GetDistricts()
+      if districts:HasDistrict(required.Index,true)~=true then return nil end
+      local count=0
+      for _,district in districts:Members() do
+        count=count+1;if count>128 then return nil end
+        if district:GetType()==required.Index and district:GetX()==p:GetX() and district:GetY()==p:GetY() then return p end
+      end
+    end)
+    return ok and plot or nil
+  end
+  function districtRoute.Fresh(job,plan)
+    local ok,a,b,c,d,e=pcall(function()
+      if type(job)~="table" or job.epoch~=settlementWorldEpoch or job.turn~=turn
+        or Game.GetCurrentGameTurn()~=job.turn or districtPersonPlans[job.id]~=plan
+        or plan.route~=job or not CoreIdle() then return nil end
+      local ctx,player,state=PlayerContext()
+      if not ctx or ctx.player~=job.owner or not BaiqiPolicy.Context(ctx) then return nil end
+      local unit=player:GetUnits():FindID(job.id)
+      if not BaiqiPolicy.MatchesID(unit,job.id) or unit:GetOwner()~=ctx.player
+        or pendingUnits[job.id]~=nil or UnitKey(unit)~=job.key
+        or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state)) or unit:IsReadyToMove()~=true then return nil end
+      local gp,info,required,class,def=DistrictPersonData(unit)
+      if not gp or def.UnitType~=job.unitType or class.Index~=job.class
+        or info.Index~=job.individual or gp:GetActionCharges()~=job.charges
+        or (required and required.Index or nil)~=job.required
+        or BaiqiPolicy.UnownedBorderGreatPerson(def.UnitType,info)~=job.border
+        or DistrictPersonHeld(unit) then return nil end
+      local queued=UnitManager.GetQueuedDestination
+      if type(queued)~="function" or not Empty(pcall(queued,unit)) then return nil end
+      local pending=unit.HasPendingOperations
+      if pending~=nil and (type(pending)~="function" or not False(pcall(pending,unit))) then return nil end
+      local target=districtRoute.Target(ctx,player,job,required,def,info,job.border)
+      if not target or UnitIndex(unit)==job.index or not CoreIdle()
+        or UnitKey(unit)~=job.key or job.epoch~=settlementWorldEpoch then return nil end
+      return ctx,player,state,unit,target
+    end)
+    if ok then return a,b,c,d,e end
+  end
+  function districtRoute.Start(ctx,player,state,unit,plan,target,required,info,class,def,border)
+    if not districtRoute.Enabled() then
+      local step=PathStep(unit,target.plot,player,state)
+      if step then
+        plan.target=target.index;plan.targetCity=target.cityID
+        return RequestCivilian(ctx,state,unit,"MOVE_TO",step),false,true
+      end
+      return false,false,false
+    end
+    if plan.route then return false,true,true end
+    local job={id=unit:GetID(),owner=ctx.player,unitType=def.UnitType,class=class.Index,
+      individual=info.Index,charges=unit:GetGreatPerson():GetActionCharges(),
+      required=required and required.Index or nil,border=border,epoch=settlementWorldEpoch,
+      turn=turn,key=UnitKey(unit),index=target.index,x=target.plot:GetX(),y=target.plot:GetY(),
+      cityID=target.cityID,phase="query"}
+    if not Integer(job.id) or not Integer(job.owner) or not Integer(job.class)
+      or not Integer(job.individual) or not Integer(job.charges) or job.charges<1
+      or not Integer(job.turn) or not Integer(job.index) or not Integer(job.x) or not Integer(job.y)
+      or (job.required~=nil and not Integer(job.required)) then return false,false,false end
+    plan.route=job
+    if not districtRoute.Fresh(job,plan) then plan.route=nil;return false,false,false end
+    plan.target=job.index;plan.targetCity=job.cityID
+    return false,true,true
+  end
+  function districtRoute.Run(plan)
+    local job=plan.route
+    local ctx,player,state,unit,target=districtRoute.Fresh(job,plan)
+    if not ctx then plan.route=nil;return false,false end
+    local function Reject()
+      if plan.route==job then plan.route=nil end
+      plan.blocked[job.index]="route"
+      if plan.target==job.index then plan.target=nil;plan.targetCity=nil end
+      return true,false
+    end
+    if job.phase=="query" then
+      local query=UnitManager.GetMoveToPathEx
+      if type(query)~="function" then return Reject() end
+      local ok,path=pcall(query,unit,job.index)
+      if not ok or UnitManager.GetMoveToPathEx~=query or type(path)~="table" or type(path.plots)~="table" then return Reject() end
+      local copied,count={},0
+      for key in pairs(path.plots) do
+        count=count+1
+        if count>C.pathLimit or not Integer(key) or key<1 or key>C.pathLimit then return Reject() end
+      end
+      if count<2 or count>C.pathLimit then return Reject() end
+      for i=1,count do
+        local index=path.plots[i]
+        if not Integer(index) then return Reject() end
+        copied[i]=index
+      end
+      if copied[1]~=UnitIndex(unit) or copied[count]~=job.index or not districtRoute.Fresh(job,plan) then return Reject() end
+      job.path=copied;job.phase="validate"
+      return true,false
+    end
+    if job.phase~="validate" or type(job.path)~="table" then return Reject() end
+    local count=#job.path
+    if count<2 or count>C.pathLimit or job.path[1]~=UnitIndex(unit) or job.path[count]~=job.index then return Reject() end
+    local cache,previous={}
+    for i=1,count do
+      local index=job.path[i]
+      if not Integer(index) then return Reject() end
+      local plot=Map.GetPlotByIndex(index)
+      if not plot or plot:GetIndex()~=index or not Revealed(plot) or not Safe(plot,player,cache)
+        or (plot:GetOwner()~=-1 and plot:GetOwner()~=ctx.player)
+        or (previous and Map.GetPlotDistance(previous:GetX(),previous:GetY(),plot:GetX(),plot:GetY())~=1) then return Reject() end
+      previous=plot
+    end
+    ctx,player,state,unit,target=districtRoute.Fresh(job,plan)
+    if not ctx then return Reject() end
+    local step=Map.GetPlotByIndex(job.path[2]);local here=UnitPlot(unit)
+    if not step or step:GetIndex()~=job.path[2] or not here
+      or Map.GetPlotDistance(here:GetX(),here:GetY(),step:GetX(),step:GetY())~=1 then return Reject() end
+    -- No positive route-safety fact survives another callback before this write.
+    plan.route=nil;unitEvaluated[job.key]=true
+    return true,RequestCivilian(ctx,state,unit,"MOVE_TO",step)
+  end
+end
 
 local function BuilderTargets(ctx,player,unit)
   local ok,result=pcall(function()
@@ -4941,7 +5097,8 @@ local function Tick(allowOrders)
   if not BaiqiPolicy.Number(current) or current<0 or current>2147483647 or current%1~=0 then return end
   if current~=turn then
     cityCursor=0
-    builderResumeStreak=0
+    builderResumeStreak=0;districtRoute.used=false
+    for _,plan in pairs(districtPersonPlans) do plan.route=nil end
     purchaseSearch=nil;purchaseDoneTurn=-1;purchaseResumeStreak=0
     turn=current; requestCount=0; attempts={}; reservations={}; lastReasons={}; cityEvaluated={}; unitEvaluated={}; submittedUnits={}; builderSearches={}; builderRejectedGoals={}; settlerSearches={}
     -- SKIP_TURN can leave movement points unchanged. Its intent expires with the
@@ -5012,6 +5169,20 @@ local function Tick(allowOrders)
   if artifactStatus=="ok" and RequestArchaeologyChoice(artifact) then
     status="已提交文物归属选择，等待实际入藏";return
   end
+  -- Share the existing two-continuation allowance with builders. One GP
+  -- continuation per ordinary pass also leaves the other slot to builders.
+  if builderResumeStreak<2 and not districtRoute.used then
+    for _,plan in pairs(districtPersonPlans) do
+      if plan.route then
+        local worked,submitted=districtRoute.Run(plan)
+        if worked then
+          districtRoute.used=true;builderResumeStreak=builderResumeStreak+1
+          status=submitted and "已提交文职伟人移动，等待实际结果" or "文职伟人继续检查安全路线；军队由你指挥"
+          return
+        end
+      end
+    end
+  end
   -- At most two continuation callbacks before normal city/unit scheduling.
   if builderResumeStreak<2 then
     for id,search in pairs(builderSearches) do
@@ -5027,7 +5198,7 @@ local function Tick(allowOrders)
       end
     end
   end
-  builderResumeStreak=0
+  builderResumeStreak=0;districtRoute.used=false
   local city=NextCityForPlanning(player)
   if city and ProcessCity(ctx,player,state,city) then status="已安排生产；军队等待你的命令"; return end
   -- One city's quote per callback, at most two purchase continuations before

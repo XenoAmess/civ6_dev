@@ -1940,3 +1940,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：163 Controller分步实采收尾，继续因果审阅与修复
 
 [全部同根区间与实际生命周期](../../research/baiqi-source163-controller-child-focus-native-2026-11-19.json)：112根／611保留行，原4096容量，普通85～89到90，17绑定撤钩／保存／正式释放／自有退场和父驱动终态分别核验。原85 B_plan FAIL不变。子步骤时间为包含关系的墙钟区间，按同一根处理重叠；未测步骤时间不擅自归因。不授性能或整mod通过，继续审阅、修复、复测。
+
+
+## 2026-11-19：Source164软件交付，继续原85实机
+
+[完整软件证据](../../research/baiqi-source164-district-route-software-2026-11-19.json)：2798运行、2797通过、1SDK跳过；首次22处QA失败／错误原件保留，修正后完整重跑通过。12项新Controller阶段用例，97Lua双编译／119文件；[新实机准备](../../research/baiqi-source164-original85-plan-prepared-2026-11-19.json)14消费者／58语义检查通过。164实机尚未开始，旧163规划FAIL和整modOPEN不变，继续执行。
