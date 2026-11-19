@@ -1282,3 +1282,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-19T12:27Z：[配置模型R17只读核对](research/baiqi-configured-model404-readonly-r17-2026-11-19.json)，两次GET均200，仍仅open-h3-2k；配置qwen38-coder及配置SHA未改。OpenCode1.19.6当日同机缓存通过，0原生生成；0生成POST/新任务/服务更改，1023任务账本保持。171软件及独立财政/护送准备继续，桌面交给HOI4期间尚未启动171实机；不可将此404/模型缺失当作TC038游戏断开服务证据。
+
+
+2026-11-19T13:31Z：[R18只读可用性](research/baiqi-configured-model404-readonly-r18-2026-11-19.json)仍只列open-h3-2k、配置qwen38-coder不变；两个GET200，Nov19同机OpenCode1.19.6缓存通过。0生成POST/新任务/服务更改，累计1023及原extra38保持。Owner继续真实未完成的生命值证据/源码复核；游戏隔离、代码生成能力均未因此通过。

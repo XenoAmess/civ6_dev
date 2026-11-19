@@ -1,0 +1,449 @@
+{
+  "utc": "2026-11-19T13:34:51.683359+00:00",
+  "machine": "BF-202609141645",
+  "current_source_version": 171,
+  "kind": "HISTORICAL162_HEALTH_BOUNDARY_ACTUAL_STATE_AND_SOURCE_REVIEW",
+  "whole_mod": "OPEN_CONTINUE",
+  "inputs_sha256": {
+    "baiqi-source162-city-hp69-paid-native-2026-11-18.json": "9bb25881ad096dfe571bae00eac934eaa96eaaffbacab839873fec106b71fa19",
+    "baiqi-source162-city-hp70-paid-native-2026-11-18.json": "05a4d21247490edf824020c8410673016f87d510624a7b19b2fe11238dc0e7ed",
+    "baiqi-source162-city-hp71-ui-core-native-2026-11-18.json": "ea4407e4172d0dfbe2a9a8851c2c5642a6dee0287cb2e1e9b6019e8c8b8f0cdd"
+  },
+  "reviewed_health_branches": [
+    {
+      "source": "baiqi-source162-city-hp69-paid-native-2026-11-18.json",
+      "historical_version": 162,
+      "HP_boundary_input": 69,
+      "max_HP": 200,
+      "percent": 35,
+      "fixture_setup": "One separate actual diagnostic district damage change after stale quote opening; not a paid ability or army order.",
+      "physical_confirm_once": true,
+      "separate_Core_QA_request": false,
+      "actual_stages": [
+        {
+          "stage": "before",
+          "remaining_HP": 50,
+          "gold": 4524.2734375,
+          "army_moves": 4,
+          "city_owner": 1,
+          "city_id": 524295,
+          "native_calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        },
+        {
+          "stage": "after_fixture",
+          "remaining_HP": 69,
+          "gold": 4524.2734375,
+          "army_moves": 4,
+          "city_owner": 1,
+          "city_id": 524295,
+          "native_calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        },
+        {
+          "stage": "after_paid_confirm",
+          "remaining_HP": 100,
+          "gold": 4224.2734375,
+          "army_moves": 0,
+          "city_owner": 0,
+          "city_id": 851979,
+          "native_calls": {
+            "ChangeGoldBalance": 1,
+            "FinishMoves": 1,
+            "TransferCity": 1
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        }
+      ],
+      "save_reload_performed": false,
+      "scope": "Historical health boundary only, retained at original scope; not a current171 Native run or wholeTC024."
+    },
+    {
+      "source": "baiqi-source162-city-hp70-paid-native-2026-11-18.json",
+      "historical_version": 162,
+      "HP_boundary_input": 70,
+      "max_HP": 200,
+      "percent": 35,
+      "fixture_setup": "One separate actual diagnostic district damage change after stale quote opening; not a paid ability or army order.",
+      "physical_confirm_once": true,
+      "separate_Core_QA_request": false,
+      "actual_stages": [
+        {
+          "stage": "before",
+          "remaining_HP": 50,
+          "gold": 4524.2734375,
+          "army_moves": 4,
+          "city_owner": 1,
+          "city_id": 524295,
+          "native_calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        },
+        {
+          "stage": "after_fixture",
+          "remaining_HP": 70,
+          "gold": 4524.2734375,
+          "army_moves": 4,
+          "city_owner": 1,
+          "city_id": 524295,
+          "native_calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        },
+        {
+          "stage": "after_paid_confirm",
+          "remaining_HP": 100,
+          "gold": 4224.2734375,
+          "army_moves": 0,
+          "city_owner": 0,
+          "city_id": 851979,
+          "native_calls": {
+            "ChangeGoldBalance": 1,
+            "FinishMoves": 1,
+            "TransferCity": 1
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        }
+      ],
+      "save_reload_performed": false,
+      "scope": "Historical health boundary only, retained at original scope; not a current171 Native run or wholeTC024."
+    },
+    {
+      "source": "baiqi-source162-city-hp71-ui-core-native-2026-11-18.json",
+      "historical_version": 162,
+      "HP_boundary_input": 71,
+      "max_HP": 200,
+      "percent": 35,
+      "fixture_setup": "One separate actual diagnostic district damage change after stale quote opening; not a paid ability or army order.",
+      "physical_confirm_once": true,
+      "separate_Core_QA_request": true,
+      "actual_stages": [
+        {
+          "stage": "after_fixture",
+          "remaining_HP": 71,
+          "gold": 4524.2734375,
+          "army_moves": 4,
+          "city_owner": 1,
+          "city_id": 524295,
+          "native_calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        },
+        {
+          "stage": "after_physical_UI_refusal",
+          "remaining_HP": 71,
+          "gold": 4524.2734375,
+          "army_moves": 4,
+          "city_owner": 1,
+          "city_id": 524295,
+          "native_calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        },
+        {
+          "stage": "after_separate_QA_Core_refusal",
+          "remaining_HP": 71,
+          "gold": 4524.2734375,
+          "army_moves": 4,
+          "city_owner": 1,
+          "city_id": 524295,
+          "native_calls": {
+            "ChangeGoldBalance": 0,
+            "FinishMoves": 0,
+            "TransferCity": 0
+          },
+          "actual_context_differences": {
+            "defense.path": {
+              "Core": "city.GetDistricts.GetDistrict",
+              "UI": "city.GetDistrictID/owner.GetDistricts.FindID"
+            }
+          },
+          "cross_context_atomic": false
+        }
+      ],
+      "save_reload_performed": false,
+      "scope": "Historical health boundary only, retained at original scope; not a current171 Native run or wholeTC024."
+    }
+  ],
+  "all36_selected_consumer_comparisons_identical": true,
+  "source_identity": [
+    {
+      "HP": 69,
+      "actual_launch_commit": "619992d0d8022b57d554bb0151dba54856315624",
+      "selected12_consumers": [
+        {
+          "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+          "normalized_LF_sha256": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiPolicy.lua",
+          "normalized_LF_sha256": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiPlanner.lua",
+          "normalized_LF_sha256": "0fce74f390cacd1339c4c26b954d9a916d32f19c95e9c5e7e557cd77e76fd5ef",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiRequisition.lua",
+          "normalized_LF_sha256": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiCapture.lua",
+          "normalized_LF_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+          "normalized_LF_sha256": "e651579f165db402ade1cf1dd9218313f4a6598505bb1a8af73ad627d5d8715a",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiUIGuard.lua",
+          "normalized_LF_sha256": "5e25ced0120bba447b9e57243e58ca840b5575bd1545095887a693f29731a948",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiUILoader.lua",
+          "normalized_LF_sha256": "ac45361dc50d653be99e3369a5aa58c033099088e1a781995317d8f29386ea31",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiGameplay.lua",
+          "normalized_LF_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiWorldInput.lua",
+          "normalized_LF_sha256": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiUnitPanel.lua",
+          "normalized_LF_sha256": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiUnitFlagManager.lua",
+          "normalized_LF_sha256": "793d6a5a8debc4d485dbd7b1848fbf49075508aed779d04b59164d880dbd1a2b",
+          "identical": true
+        }
+      ]
+    },
+    {
+      "HP": 70,
+      "actual_launch_commit": "d6bbba7dbc597cb7b571f4fbe03e673159918030",
+      "selected12_consumers": [
+        {
+          "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+          "normalized_LF_sha256": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiPolicy.lua",
+          "normalized_LF_sha256": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiPlanner.lua",
+          "normalized_LF_sha256": "0fce74f390cacd1339c4c26b954d9a916d32f19c95e9c5e7e557cd77e76fd5ef",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiRequisition.lua",
+          "normalized_LF_sha256": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiCapture.lua",
+          "normalized_LF_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+          "normalized_LF_sha256": "e651579f165db402ade1cf1dd9218313f4a6598505bb1a8af73ad627d5d8715a",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiUIGuard.lua",
+          "normalized_LF_sha256": "5e25ced0120bba447b9e57243e58ca840b5575bd1545095887a693f29731a948",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiUILoader.lua",
+          "normalized_LF_sha256": "ac45361dc50d653be99e3369a5aa58c033099088e1a781995317d8f29386ea31",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiGameplay.lua",
+          "normalized_LF_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiWorldInput.lua",
+          "normalized_LF_sha256": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiUnitPanel.lua",
+          "normalized_LF_sha256": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiUnitFlagManager.lua",
+          "normalized_LF_sha256": "793d6a5a8debc4d485dbd7b1848fbf49075508aed779d04b59164d880dbd1a2b",
+          "identical": true
+        }
+      ]
+    },
+    {
+      "HP": 71,
+      "actual_launch_commit": "ca87aafe3c6a07e9b61d51e8a4c22e4b24a59d15",
+      "selected12_consumers": [
+        {
+          "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+          "normalized_LF_sha256": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiPolicy.lua",
+          "normalized_LF_sha256": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiPlanner.lua",
+          "normalized_LF_sha256": "0fce74f390cacd1339c4c26b954d9a916d32f19c95e9c5e7e557cd77e76fd5ef",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiRequisition.lua",
+          "normalized_LF_sha256": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiCapture.lua",
+          "normalized_LF_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+          "normalized_LF_sha256": "e651579f165db402ade1cf1dd9218313f4a6598505bb1a8af73ad627d5d8715a",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiUIGuard.lua",
+          "normalized_LF_sha256": "5e25ced0120bba447b9e57243e58ca840b5575bd1545095887a693f29731a948",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiUILoader.lua",
+          "normalized_LF_sha256": "ac45361dc50d653be99e3369a5aa58c033099088e1a781995317d8f29386ea31",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/Lua/BaiqiGameplay.lua",
+          "normalized_LF_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiWorldInput.lua",
+          "normalized_LF_sha256": "45c6096f65075904c845ec10f94d1862c8703bcba6c52099b5aa99f0c97c826d",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiUnitPanel.lua",
+          "normalized_LF_sha256": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+          "identical": true
+        },
+        {
+          "path": "mod/Baiqi/UI/BaiqiUnitFlagManager.lua",
+          "normalized_LF_sha256": "793d6a5a8debc4d485dbd7b1848fbf49075508aed779d04b59164d880dbd1a2b",
+          "identical": true
+        }
+      ]
+    }
+  ],
+  "Native_queries": 0,
+  "inputs": 0,
+  "generation_POSTs": 0,
+  "new_whole_TC024_PASS": false,
+  "new_current171_Native_run": false,
+  "limits": [
+    "Actual original69/70 physical successes include one Native transfer/debit/Finish each and exact300 gold cost; Native void return alone is not success. Independent UI/Core ownership/ID/moves/gold/journal effects remain required.",
+    "HP71 physical stale UI refusal has0request/calls; only the separate explicitly labeled QA request reaches Core. Do not reclassify that route count as physical settlement or a second physical input.",
+    "Shared measured fields agree; defense.path differs because UI and Core use different qualified district lookup routes. Cross-context reads are sequential, not atomic. Native table-argument identity is opaque in export; do not invent pointer equality from typed UNKNOWN table values.",
+    "The12 selected consumers are unchanged at each actual launch commit; Controller/scheduling and other includes changed. This is scoped historical effect/source reuse review, not all119/runtime equivalence.",
+    "No reload in these boundary samples; post-transfer damage100 is the recorded engine result, not proof of full asset preservation or all health rules. Distance/moves/cooldown/fault/reload/special assets and wholemod remain open."
+  ]
+}

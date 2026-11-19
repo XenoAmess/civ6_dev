@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T13:35:52.424837+00:00",
+  "source_version": 171,
+  "actual_check": {
+    "utc": "2026-11-19T13:31:24.523179+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-19",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-19T13:31:24.483633+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 321,
+        "over_64KiB": false,
+        "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+        "total_ms": 22.563799982890487,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-19T13:31:24.507014+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 490,
+        "over_64KiB": false,
+        "sha256": "e9497e8db43a6af0b59076b60b78ed6f38f1e3bb50a9b7687db4f28536fbc8bf",
+        "total_ms": 15.437099849805236
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "status": "CONFIGURED_CODER_STILL_NOT_LISTED_NO_POST_RETRY",
+  "ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null,
+  "limits": [
+    "Same canonical model/config; two bounded read-only GETs, no generated candidate task or fallback/service mutation.",
+    "Cached OpenCode daily maintenance success and0native generation remain separate from HTTP generation capability.",
+    "Missing configured coder is not TC038 game-origin endpoint-inaccessibility evidence."
+  ]
+}
