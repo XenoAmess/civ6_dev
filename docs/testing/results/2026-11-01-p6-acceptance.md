@@ -2020,3 +2020,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：167中止与168旧内政伟人等待软件修复
 
 [167实际88中止](../../research/baiqi-source167-aborted88-merchant-native-2026-11-19.json)保留181原值、10前锚及存档，0END88，恢复2包装后释放并退出；缺完整窗口，不算预算通过。[168软件](../../research/baiqi-source168-legacy-district-standby-software-2026-11-19.json)真实Core／Controller七项双Lua测试、旧167六分支失败对照，全2836项中2835通过、1SDK跳过，97Lua／119文件；[原85冷测准备](../../research/baiqi-source168-original85-plan-prepared-2026-11-19.json)58语义、12Python、4安装前置案例已核。Native168尚未开始，整个mod仍OPEN，继续执行。
+
+
+## 2026-11-19：当前168原85 B_plan FAIL
+
+[全部原值、分类及生命周期](../../research/baiqi-source168-original85-plan-native-2026-11-19.json)。Admin纯十城117个、p95/max=4.000186920166016/9.000062942504883ms；Controller143个、p95/max=15.000104904174805/50.99987983703613ms。原100/20ms/50ms预算，全部314原样本保留；普通85..90至91、保存／撤钩／释放／退场分别核对。当前原85其余性能与完整功能继续。
