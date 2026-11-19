@@ -1,0 +1,425 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T14:04:05.873787+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 171,
+  "status": "OWN_HELPER_AND_CALLER_SOFTWARE_PREPARED_NO_GAME_FILTER",
+  "whole_mod": "OPEN_CONTINUE",
+  "own_helper_actual_OS_checks": {
+    "utc": "2026-11-19T13:54:31.294207+00:00",
+    "status": "OWN_HELPER_CONTROL_PIPE_SELFTEST_PASS_NOT_GAME_FILTER",
+    "source_sha256": "23771b28c311ad1d0123d1745a9f9db38bf1b532f44cba3e26ea37b9d555a611",
+    "exe_sha256": "758c467ac61fa0cb6fe3c8a153d7821738508ca981423eb37b6751807dd0d5a3",
+    "SDK": "10.0.26100.0",
+    "compiler_exit": 0,
+    "cases": [
+      {
+        "case": "explicit_STOP",
+        "ready": {
+          "phase": "READY",
+          "sublayer_key": "d41cabc6-3b48-4f63-bf79-e6983c4a38eb",
+          "filter_id": 75183,
+          "pid": 20660,
+          "birth_FILETIME": 134395700701155228,
+          "remote_v4_host_order": 2130706433,
+          "port": 55120,
+          "conditions": 4,
+          "exact_app_id_readback": true,
+          "default_block_action_readback": true,
+          "dynamic": true,
+          "selftest": true,
+          "selftest_block_error": 10013
+        },
+        "readback": {
+          "phase": "READBACK",
+          "filter_id": 75183,
+          "owner_live": true,
+          "all_four_conditions_match": true,
+          "default_block_action_readback": true,
+          "selftest_block_error": 10013
+        },
+        "closed": {
+          "phase": "CLOSED",
+          "filter_id": 75183,
+          "own_filter_absent": true,
+          "own_sublayer_absent": true,
+          "selftest_restored_error": 0,
+          "Steam_changes": 0,
+          "profile_changes": 0
+        },
+        "actual_exit_code": 0,
+        "independent_new_process_absence": {
+          "phase": "INDEPENDENT_ABSENCE",
+          "own_filter_absent": true,
+          "own_sublayer_absent": true
+        }
+      },
+      {
+        "case": "control_pipe_EOF",
+        "ready": {
+          "phase": "READY",
+          "sublayer_key": "d417989d-4630-49f6-a128-30dc2b31bb83",
+          "filter_id": 75184,
+          "pid": 4660,
+          "birth_FILETIME": 134395700705183574,
+          "remote_v4_host_order": 2130706433,
+          "port": 55125,
+          "conditions": 4,
+          "exact_app_id_readback": true,
+          "default_block_action_readback": true,
+          "dynamic": true,
+          "selftest": true,
+          "selftest_block_error": 10013
+        },
+        "readback": {
+          "phase": "READBACK",
+          "filter_id": 75184,
+          "owner_live": true,
+          "all_four_conditions_match": true,
+          "default_block_action_readback": true,
+          "selftest_block_error": 10013
+        },
+        "closed": {
+          "phase": "CLOSED",
+          "filter_id": 75184,
+          "own_filter_absent": true,
+          "own_sublayer_absent": true,
+          "selftest_restored_error": 0,
+          "Steam_changes": 0,
+          "profile_changes": 0
+        },
+        "actual_exit_code": 0,
+        "independent_new_process_absence": {
+          "phase": "INDEPENDENT_ABSENCE",
+          "own_filter_absent": true,
+          "own_sublayer_absent": true
+        }
+      },
+      {
+        "case": "no_mode",
+        "exit_code": 64,
+        "no_ready_filter": true,
+        "stderr": ""
+      },
+      {
+        "case": "PID_zero",
+        "exit_code": 1,
+        "no_ready_filter": true,
+        "stderr": "OWN_GUARD_ERROR PIDBounds"
+      },
+      {
+        "case": "loopback_refused",
+        "exit_code": 1,
+        "no_ready_filter": true,
+        "stderr": "OWN_GUARD_ERROR NonModelIPv4Scope"
+      },
+      {
+        "case": "Tuner_port_refused",
+        "exit_code": 1,
+        "no_ready_filter": true,
+        "stderr": "OWN_GUARD_ERROR PortScope"
+      },
+      {
+        "case": "IPv6_refused",
+        "exit_code": 1,
+        "no_ready_filter": true,
+        "stderr": "OWN_GUARD_ERROR IPv4Only"
+      },
+      {
+        "case": "bad_integer",
+        "exit_code": 1,
+        "no_ready_filter": true,
+        "stderr": "OWN_GUARD_ERROR NonInteger"
+      }
+    ],
+    "firewall_profiles_unchanged_bytes": true,
+    "Civ6_filters": 0,
+    "Steam_changes": 0,
+    "generation_POSTs": 0,
+    "game_runtime_window": "NOT_RUN",
+    "future_game_caller": "Ownership/canonical endpoint/ordinary artifact/admission wrapper not yet implemented; do not invoke live mode directly."
+  },
+  "nondefault_flags_negative_own_helper": {
+    "utc": "2026-11-19T13:57:45.737174+00:00",
+    "status": "NONDEFAULT_ACTION_FLAGS_REFUSED_BEFORE_READY_OWN_HELPER_ONLY",
+    "source_version": 171,
+    "actual_exit": 1,
+    "fault_frames": [
+      {
+        "phase": "FAULT_SCOPE",
+        "filter_id": 75186,
+        "sublayer_key": "781b5216-1c4f-4fad-98cd-b8b805fba83c"
+      }
+    ],
+    "stderr": "OWN_GUARD_ERROR OwnFilterReadbackMismatch\r\n",
+    "independent_absence": {
+      "phase": "INDEPENDENT_ABSENCE",
+      "own_filter_absent": true,
+      "own_sublayer_absent": true
+    },
+    "default_main_source_sha256": "23771b28c311ad1d0123d1745a9f9db38bf1b532f44cba3e26ea37b9d555a611",
+    "controlled_mutant_source_sha256": "eb4184c403385abdd00a8d4fccc6abaced528d12584c01a7f680bd4e47c07e9a",
+    "Civ6_filters": 0,
+    "Steam_changes": 0,
+    "firewall_profiles_unchanged_bytes": true,
+    "scope": "Explicit nondefault action-right flag mutation is test-only. Refusal verifies chosen default block contract and dynamic cleanup; it does not claim this flag always makes an OS block soft or that earlier163 isolation failed. No actual game filtering/connectivity or TC038 result."
+  },
+  "actual_caller_checks": {
+    "utc": "2026-11-19T14:00:19.101990+00:00",
+    "status": "CALLER_SOFTWARE_AND_OWN_HELPER_REJECTION_PASS_NOT_GAME_ISOLATION",
+    "checks": [
+      {
+        "case": "actual_canonical_endpoint_read_only",
+        "accepted": true
+      },
+      {
+        "case": "proxy",
+        "accepted": false
+      },
+      {
+        "case": "other_host",
+        "accepted": false
+      },
+      {
+        "case": "loopback",
+        "accepted": false
+      },
+      {
+        "case": "IPv6",
+        "accepted": false
+      },
+      {
+        "case": "Tuner_port",
+        "accepted": false
+      },
+      {
+        "case": "credentials",
+        "accepted": false
+      },
+      {
+        "case": "non_HTTP",
+        "accepted": false
+      },
+      {
+        "case": "broadcast",
+        "accepted": false
+      },
+      {
+        "case": "multicast",
+        "accepted": false
+      },
+      {
+        "case": "unspecified",
+        "accepted": false
+      },
+      {
+        "case": "actual_own_FILETIME_ABI_and_closed_handle",
+        "accepted": true
+      },
+      {
+        "case": "controlled_other_parent_refused_before_any_lifecycle_or_filter",
+        "accepted": false
+      },
+      {
+        "case": "real_wrong_binding_constructor_rejected_EOF_cleanup_and_independent_absence",
+        "accepted": false
+      }
+    ],
+    "consumers_sha256": {
+      "tc038_guard171_caller_owner.py": "518cffcd1297bdbb875ae7acb4d8594d0158aacf55558d09968f5c7b230e3d1b",
+      "test_tc038_guard171_caller_owner.py": "368d9e2b85622140e6f626530b6ce7e7d02af261775bfb0ea0172729b8304680"
+    },
+    "Civ6_filters": 0,
+    "Native_queries": 0,
+    "generation_POSTs": 0,
+    "profiles_unchanged": true,
+    "game_window": "NOT_RUN",
+    "limits": [
+      "WFP is image scoped, not PID scoped; future wrapper requires exactly one owned Civ6 instance.",
+      "Current helper/compiler/self-only tests do not prove a real Civ6-originated failed connection or a complete economic window."
+    ]
+  },
+  "artifact_compatibility": {
+    "utc": "2026-11-19T14:01:17.874582+00:00",
+    "status": "PASS",
+    "checks": [
+      {
+        "case": "actual_ordinary119",
+        "accepted": true
+      },
+      {
+        "case": "actual_financial119_exact_inverse",
+        "accepted": true
+      },
+      {
+        "case": "wrong_source",
+        "accepted": false
+      },
+      {
+        "case": "wrong_file_count",
+        "accepted": false
+      },
+      {
+        "case": "ordinary_changed",
+        "accepted": false
+      },
+      {
+        "case": "arbitrary_QA",
+        "accepted": false
+      },
+      {
+        "case": "finance_wrong_mode",
+        "accepted": false
+      },
+      {
+        "case": "finance_capacity_changed",
+        "accepted": false
+      },
+      {
+        "case": "finance_archive_changed",
+        "accepted": false
+      },
+      {
+        "case": "finance_extra_changed",
+        "accepted": false
+      },
+      {
+        "case": "wrong_financial_directory",
+        "accepted": false
+      },
+      {
+        "case": "controlled_other_parent_refused_before_scope_verifier",
+        "accepted": false
+      }
+    ],
+    "consumers_sha256": {
+      "tc038_guard171_caller_owner.py": "518cffcd1297bdbb875ae7acb4d8594d0158aacf55558d09968f5c7b230e3d1b",
+      "finance171_artifact_owner.py": "3754f92fb457791a2ecd4cfce1e6a6ef2266efc96fe02005bfc97f5c369460fc",
+      "recruit171_exit_owner.lua": "6cf597f47aa115335d4ea89715bb6a903bfe1ed90b7922add9cddbc6e3504ada",
+      "recruit171_transform_owner.py": "e79ce7b4871e85ff10d56b4fb8607c361c90a4991d82cb5e8151c9ee87a6af76"
+    },
+    "ordinary119_and_exact_financial119_verified": true,
+    "financial_archive_sha256": "29afac127c3592123487d2cee1f727315754f69fbc8833e7fa8e3a7a567bb5c7",
+    "Civ6_filters": 0,
+    "Native_queries": 0,
+    "new_generation_POSTs": 0,
+    "game_window": "NOT_RUN"
+  },
+  "registered_parent_contract": {
+    "utc": "2026-11-19T14:02:19.951068+00:00",
+    "source_version": 171,
+    "status": "PASS",
+    "cases": [
+      {
+        "case": "matching_registered_parent",
+        "outcome": "passed_matching_parent_gate_stopped_before_owned_game_reads",
+        "controlled_runtime_only": true,
+        "Native_queries": 0,
+        "Civ6_filters": 0
+      },
+      {
+        "case": "different_parent",
+        "outcome": "rejected_before_owned_game_or_network_policy",
+        "controlled_runtime_only": true,
+        "Native_queries": 0,
+        "Civ6_filters": 0
+      },
+      {
+        "case": "wrong_parent_role",
+        "outcome": "rejected_before_owned_game_or_network_policy",
+        "controlled_runtime_only": true,
+        "Native_queries": 0,
+        "Civ6_filters": 0
+      },
+      {
+        "case": "unregistered_None",
+        "outcome": "rejected_before_owned_game_or_network_policy",
+        "controlled_runtime_only": true,
+        "Native_queries": 0,
+        "Civ6_filters": 0
+      },
+      {
+        "case": "boolean_session",
+        "outcome": "rejected_before_owned_game_or_network_policy",
+        "controlled_runtime_only": true,
+        "Native_queries": 0,
+        "Civ6_filters": 0
+      },
+      {
+        "case": "zero_session",
+        "outcome": "rejected_before_owned_game_or_network_policy",
+        "controlled_runtime_only": true,
+        "Native_queries": 0,
+        "Civ6_filters": 0
+      }
+    ],
+    "caller_sha256": "518cffcd1297bdbb875ae7acb4d8594d0158aacf55558d09968f5c7b230e3d1b",
+    "Native_queries": 0,
+    "Civ6_filters": 0,
+    "scope": "Six explicitly controlled registered-parent contracts, no real parent777/game/helper window. Matching case reaches only caller lifecycle boundary; remaining source/instance/filter checks are not bypassed or claimed as Native."
+  },
+  "consumers_sha256": {
+    "tc038_guard171_caller_owner.py": "518cffcd1297bdbb875ae7acb4d8594d0158aacf55558d09968f5c7b230e3d1b",
+    "finance171_artifact_owner.py": "3754f92fb457791a2ecd4cfce1e6a6ef2266efc96fe02005bfc97f5c369460fc",
+    "recruit171_exit_owner.lua": "6cf597f47aa115335d4ea89715bb6a903bfe1ed90b7922add9cddbc6e3504ada",
+    "recruit171_transform_owner.py": "e79ce7b4871e85ff10d56b4fb8607c361c90a4991d82cb5e8151c9ee87a6af76",
+    "tc038_game_guard171_owner.cpp": "23771b28c311ad1d0123d1745a9f9db38bf1b532f44cba3e26ea37b9d555a611",
+    "tc038-game-guard171-build/tc038-game-guard171.exe": "758c467ac61fa0cb6fe3c8a153d7821738508ca981423eb37b6751807dd0d5a3"
+  },
+  "first_failures_retained": [
+    {
+      "kind": "ACTUAL_SOFTWARE_TEST_FAILURE_RETAINED",
+      "test_exit": 1,
+      "controlled_helper_exit": 1,
+      "controlled_helper_stdout": "",
+      "controlled_helper_stderr": "OWN_GUARD_ERROR OwnFilterReadbackMismatch\r\n",
+      "reason": "Test-only FAULT_SCOPE print was placed before the later READBACK loop call, after initial readback rejection; no scope ID was emitted.",
+      "scope": "Own helper selftest only, no Civ6 filter or game input. Original mutant source/exe/compiler log and actual tool trace retained. No independent per-ID cleanup claim from this failed first evidence capture."
+    },
+    {
+      "kind": "ACTUAL_SOFTWARE_TEST_FAILURE_RETAINED",
+      "actual_exit": 1,
+      "reason": "The compatibility test still read source163-ordinary-prepared/diagnostic-build.json. Current171 admissible_artifact correctly rejected its source_version before any helper/filter/game action.",
+      "correction": "Read the actual source171-ordinary-prepared/ordinary-build.json and retain the actual strict source171 guard. Correct generator source163 filename replacement as well.",
+      "Civ6_filters": 0,
+      "Native_queries": 0,
+      "retained": "Actual tool failure trace and separate corrected12-case success receipt."
+    }
+  ],
+  "source_review": {
+    "primary_sources": [
+      {
+        "title": "Microsoft Filter Arbitration",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fwp/filter-arbitration"
+      },
+      {
+        "title": "Microsoft ALE Layers",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fwp/ale-layers"
+      }
+    ],
+    "documented_scope": "Microsoft lists ordinary filter BLOCK as a default hard block and ALE_AUTH_CONNECT as the authorization layer for TCP connect. The helper retains its zero-initialized default filter configuration, now checks the selected default action-right flag in kernel readback, and reports that contract explicitly.",
+    "inference_limit": "This source/configuration review does not demonstrate any actual Civ6 connection attempt or successful economic behavior under a game-image filter. The nondefault flag negative tests the chosen supported configuration; it is not a claim that every nondefault flag creates a soft block."
+  },
+  "Native_queries": 0,
+  "Civ6_filters": 0,
+  "Steam_changes": 0,
+  "generation_POSTs": 0,
+  "ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null,
+  "limits": [
+    "Eight actual helper tests affect only their own temporary loopback image/port; STOP/EOF, socket0/10013/0 and independent new-process filter/sublayer absence are not Civ6-runtime isolation.",
+    "The corrected nondefault test prints scope before the initial readback, refuses before READY and independently verifies absence. First missing-scope failure is retained without a per-ID cleanup claim.",
+    "Fourteen caller and twelve artifact checks retain actual ordinary171119-file metadata and exact finance171 inverse transform. The first stale163 metadata fixture was correctly refused, then corrected.",
+    "Six parent-contract cases are explicitly controlled runtime doubles; no actual finance171 parent777 or economic window exists. Future start requires the actual matching registered finance171 sole-parent role/session.",
+    "Actual finance lifecycle, current game ownership, scoped filter window, before/after economic decisions/income shock, game-visible effects and any connectivity evidence remain unexecuted; no TC038/fullmod PASS."
+  ]
+}

@@ -2129,3 +2129,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：当前171旧COMMITTED请求拒绝的软件准备
 
 [36项真实处理体双Lua检查](../../research/baiqi-source171-retired-granary-request-software-2026-11-19.json)：固定granary／原请求号和原账本前态，当前OnRequisition在进入Capture前拒绝；false/void/nil/error原返回保留，阶段先预留、重复阶段不重发。未改产品、未恢复入口或旧收益，0Native。first/repeat/after_reload仅软件标签，不冒充真实加载；TC033实际旧请求、读档及生命周期仍待执行。
+
+
+## 2026-11-19：当前171经济验收隔离辅助准备
+
+[自身辅助程序／调用器／原件](../../research/baiqi-source171-game-image-isolation-software-2026-11-19.json)：SDK编译及8自身进程OS用例、1非默认标志拒绝/独立清理、14调用器、12实际包兼容、6受控父会话契约通过。保留诊断输出位置错误和测试仍读163元数据的两次失败；实际游戏过滤器始终0。Microsoft默认过滤行为仅用于实现审查，不能冒称文明VI已经连接失败或TC038通过；真实财政窗口/影响/生命周期仍待执行。
