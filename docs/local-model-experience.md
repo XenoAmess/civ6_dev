@@ -1270,3 +1270,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-19：[连续404的当前只读诊断](research/baiqi-configured-model404-readonly-diagnosis-2026-11-19.json)：配置qwen38-coder，而服务models只列open-h3-2k，health同时为该模型/refiner_batch；两个GET均200，不证明代码候选可用。0新生成POST，不改配置、不切模型或重启服务；Owner继续模组制作验收，待新证据再恢复规范模型生成。
+
+
+2026-11-19T00:29Z：[模型服务第二次只读核对](research/baiqi-configured-model404-readonly-recheck-2026-11-19.json)，两次GET均200，仍只列出open-h3-2k，配置qwen38-coder未列出；OpenCode1.19.6当日缓存通过。0生成POST／新任务／配置或服务变更，累计1023保持。继续实际Controller分步诊断，不能将HTTP404或模型缺失称为TC038游戏脱离服务通过。

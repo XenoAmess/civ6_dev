@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T00:32:16.296226+00:00",
+  "machine": "BF-202609141645",
+  "status": "CONFIGURED_MODEL_STILL_NOT_LISTED_OWNER_CONTINUES",
+  "actual_check": {
+    "utc": "2026-11-19T00:29:21.712271+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-19",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-19T00:29:21.663293+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 321,
+        "over_64KiB": false,
+        "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+        "total_ms": 32.33289998024702,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-19T00:29:21.696948+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 482,
+        "over_64KiB": false,
+        "sha256": "105e1da205e2cce60a4d8c2ed50497f5f80be997c0debd97af8ca7ed9bfbd5d5",
+        "total_ms": 14.21900000423193
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "observed_health_safe_fields": {
+    "model": "open-h3-2k",
+    "active_model": "open-h3-2k",
+    "worker_state": "refiner_batch"
+  },
+  "generation_ledger_unchanged": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null,
+  "current_work": {
+    "source_version": 163,
+    "original85_B_plan": "FAIL_PRESERVED",
+    "controller_child_diagnosis_actual_cold_launched": true,
+    "current_Native_parent_session": 69286,
+    "current_child_measurement": "PENDING",
+    "no_Steam_online_switch": true
+  },
+  "limits": [
+    "Two read-only GETs, zero model generation; not a candidate task or evidence of coding ability.",
+    "The configured service is reachable. HTTP404 or missing configured model is not the TC038 requirement that the game cannot access a model service.",
+    "No service/model/endpoint/config change or restart, and no automatic fallback. Continue actual mod diagnosis; suspend repetitive incompatible generation until new evidence."
+  ]
+}
