@@ -2040,3 +2040,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：169移民分步软件与夹具修正复测
 
 [软件完整账目](../../research/baiqi-source169-settler-path-and-found-phases-software-2026-11-19.json)：产品13新双Lua与244相关通过，首轮全2849有5失败子案例／1SDK跳过，修正夹具后82相关复测通过且覆盖全部失败方法；未重跑全套、产品未再改。97Lua／119文件，[原85准备](../../research/baiqi-source169-original85-plan-prepared-2026-11-19.json)58语义／12Python／4安装前置已核。Native169未开始，原168FAIL、旧865及整个modOPEN保留，继续实机修复闭环。
+
+
+## 2026-11-19：当前169原85 B_plan FAIL
+
+[全部原值、分类及生命周期](../../research/baiqi-source169-original85-plan-native-2026-11-19.json)。Admin纯十城121个、p95/max=9.000062942504883/13.99993896484375ms；Controller152个、p95/max=40.000200271606445/62.99996376037598ms。原100/20ms/50ms预算，全部315原样本保留；普通85..90至91、保存／撤钩／释放／退场分别核对。当前原85其余性能与完整功能继续。
