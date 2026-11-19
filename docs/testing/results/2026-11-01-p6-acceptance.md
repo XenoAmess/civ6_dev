@@ -1945,3 +1945,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：Source164软件交付，继续原85实机
 
 [完整软件证据](../../research/baiqi-source164-district-route-software-2026-11-19.json)：2798运行、2797通过、1SDK跳过；首次22处QA失败／错误原件保留，修正后完整重跑通过。12项新Controller阶段用例，97Lua双编译／119文件；[新实机准备](../../research/baiqi-source164-original85-plan-prepared-2026-11-19.json)14消费者／58语义检查通过。164实机尚未开始，旧163规划FAIL和整modOPEN不变，继续执行。
+
+
+## 2026-11-19：Source164原85全脚本后续准备
+
+[15消费者与真实插桩门控软件证据](../../research/baiqi-source164-original85-fullscript-prepared-2026-11-19.json)：76注册表语义场景、7项真实Executor门控／34VM／2故障对照，以及3个玩家表达式双编译通过。33上下文、4096总容量及默认85日历不变，尚未安装／运行。必须先取得164规划PASS与父驱动23119完整终态，不能越过有效FAIL。整个mod继续。
