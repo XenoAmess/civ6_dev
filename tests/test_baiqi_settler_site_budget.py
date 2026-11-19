@@ -25,12 +25,21 @@ end
     def count(self,index):return self.w.supportReads[index]or 0
 
     def test_rejected_first_site_yields_without_skip_then_moves_to_fresh_alternative(self):
+        phased = self.lua.eval("type(Automation)=='table' and type(Automation.GetTime)=='function'")
         self.case.step()
         self.assertEqual((self.count(46),self.count(47)),(1,0))
         self.assertEqual(len(self.w.unitRequests),0)
         self.assertEqual(self.w.hintReads,1)
         self.case.step()
         self.assertEqual((self.count(46),self.count(47)),(1,1))
+        if phased:
+            self.assertEqual(self.case.moves(), [])
+            self.assertEqual(len(self.w.unitRequests), 0)
+            self.case.step()  # Native path is a proposal, with no second hint scan.
+            self.assertEqual((self.count(46), self.count(47), self.w.hintReads), (1, 1, 2))
+            self.assertEqual(len(self.w.unitRequests), 0)
+            self.case.step()  # Full support is fresh before the original move writer.
+            self.assertEqual((self.count(46), self.count(47)), (1, 2))
         self.assertEqual(self.case.moves(),[(2,2,4)])
         self.assertEqual(self.w.hintReads,2)
 

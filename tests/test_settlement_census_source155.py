@@ -45,11 +45,11 @@ class CensusVersionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             output = Path(folder) / 'prepared'
             data = build(output)
-            self.assertEqual(data['source_version'], 168)
-            self.assertEqual(data['mode'], 'baiqi168-settlement-census-v1')
+            self.assertEqual(data['source_version'], 169)
+            self.assertEqual(data['mode'], 'baiqi169-settlement-census-v1')
             self.assertEqual(data['changed_files'], ['Lua/BaiqiController.lua'])
             self.assertEqual(data['census_capacity'], 256)
-            self.assertTrue((output / 'Baiqi-settlement168-census.zip').is_file())
+            self.assertTrue((output / 'Baiqi-settlement169-census.zip').is_file())
             self.assertEqual(data['files'], len(data['source_hashes']))
             self.assertEqual(data['Native_pressure_status'], 'UNVERIFIED')
             self.assertTrue(data['release_recovers_exactly'])

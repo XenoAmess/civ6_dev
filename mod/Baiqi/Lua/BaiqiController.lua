@@ -1001,6 +1001,9 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement, p
       return true,"submitted"
     end
     pending.dispatch=dispatch
+    -- Retain this call's live Commit grant only. The next ordinary callback
+    -- repeats the full original final checks before the sole native writer.
+    if BaiqiPolicy.Number(planningStarted) then return false,"armed_dispatch_deferred" end
     return dispatch()
   end
   if origin then pendingUnits[unit:GetID()].origin=origin:GetID();pendingUnits[unit:GetID()].destination=dest:GetID() end
@@ -1408,11 +1411,7 @@ local function SettlerOccupiedDetour(unit, target, player, here, path, blockedAt
   return nil
 end
 
-local function PathStep(unit, target, player, state)
-  if not Revealed(target) or not Safe(target, player) then return nil end
-  local start=UnitIndex(unit)
-  if start==nil then return nil end
-  local path = UnitManager.GetMoveToPathEx(unit, target:GetIndex())
+function settlementCache.PathStep(unit,target,player,state,path,start)
   if type(path) ~= "table" or type(path.plots) ~= "table" or #path.plots < 2 or #path.plots > C.pathLimit then return nil end
   if path.plots[1] ~= start or path.plots[#path.plots] ~= target:GetIndex() or UnitIndex(unit)~=start then return nil end
   local cache={}
@@ -1455,6 +1454,38 @@ local function PathStep(unit, target, player, state)
     end
   end
   return step
+end
+
+local function PathStep(unit, target, player, state, proposalOnly)
+  if not Revealed(target) or not Safe(target, player) then return nil end
+  local start=UnitIndex(unit)
+  if start==nil then return nil end
+  local key,epoch=UnitKey(unit),settlementWorldEpoch
+  local path = UnitManager.GetMoveToPathEx(unit, target:GetIndex())
+  if proposalOnly==true then
+    local ctx=PlayerContext()
+    local row=unit and GameInfo.Units[unit:GetUnitType()]
+    if not ctx or not row or row.UnitType~="UNIT_SETTLER" or not CoreIdle()
+      or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state))
+      or UnitKey(unit)~=key or settlementWorldEpoch~=epoch or turn~=Game.GetCurrentGameTurn()
+      or not SettlerQueueIdle(unit,row.UnitType)
+      or type(path)~="table" or type(path.plots)~="table" then return nil end
+    local n=0;for k in pairs(path.plots)do
+      if not GeometryInteger(k) or k<1 or k>C.pathLimit then return nil end
+      n=n+1
+    end
+    if n<2 or n~= #path.plots or n>C.pathLimit then return nil end
+    local copied={}
+    for i=1,n do
+      local index=path.plots[i]
+      if not GeometryInteger(index) or index>2147483647 then return nil end
+      copied[i]=index
+    end
+    if copied[1]~=start or copied[n]~=target:GetIndex() then return nil end
+    return {player=ctx.player,turn=turn,id=unit:GetID(),key=key,epoch=epoch,
+      start=start,target=target:GetIndex(),plots=copied}
+  end
+  return settlementCache.PathStep(unit,target,player,state,path,start)
 end
 
 -- A newly recruited civilian can share its spawn tile with an idle civilian,
@@ -3123,6 +3154,88 @@ local function ProcessSettler(ctx, player, state, unit)
     search={player=ctx.player,turn=turn,key=key,tested={}}
     settlerSearches[id]=search
   end
+  -- Each continuation holds scalar proposals only. Support and the complete
+  -- original path/writer checks run again before any actual movement.
+  if not BaiqiPolicy.Number(planningStarted) then
+    if search.route then search.tested[search.route.index]=nil end
+    search.route=nil;search.foundWrite=nil
+  end
+  local route=search.route
+  if route then
+    local function Drop()
+      search.route=nil;search.tested[route.index]=true
+      return false,true
+    end
+    if route.player~=ctx.player or route.turn~=turn or route.id~=id or route.key~=key
+      or route.epoch~=settlementWorldEpoch or turn~=Game.GetCurrentGameTurn()
+      or (goal and goal.plot or nil)~=route.priorPlot
+      or (goal and goal.x or nil)~=route.priorX or (goal and goal.y or nil)~=route.priorY
+      or not CoreIdle() or not BaiqiPolicy.CanCivilian(ctx,UnitSnapshot(unit,state))
+      or not SettlerQueueIdle(unit,"UNIT_SETTLER") then return Drop() end
+    local target=Map.GetPlotByIndex(route.index)
+    if not target or target:GetIndex()~=route.index or target:GetX()~=route.x or target:GetY()~=route.y
+      or not Revealed(target) or target:IsWater() or target:IsImpassable() or target:IsCity()
+      or not SettlementFeatureAllowed(target)
+      or (target:GetOwner()~=-1 and target:GetOwner()~=ctx.player) then return Drop() end
+    if route.phase=="query" then
+      local ok,packet=pcall(PathStep,unit,target,player,state,true)
+      if not ok or not packet then return Drop() end
+      route.packet=packet;route.phase="write"
+      return false,true
+    end
+    if route.phase~="write" then return Drop() end
+    local supported,why=KnownExpansionSupport(target,player,ctx.player,true)
+    if why=="support_geometry_pending" then return false,true end
+    if supported~=true then
+      if goal and goal.plot==route.index then
+        if reservations[route.index]==id then reservations[route.index]=nil end
+        settlementTargets[id]=nil;SettlerGoalBridge("Forget",ctx.player,id)
+      end
+      return Drop()
+    end
+    local packet=route.packet
+    if type(packet)~="table" or packet.player~=ctx.player or packet.turn~=turn or packet.id~=id
+      or packet.key~=UnitKey(unit) or packet.epoch~=settlementWorldEpoch
+      or packet.start~=UnitIndex(unit) or packet.target~=route.index
+      or route.epoch~=settlementWorldEpoch or not CoreIdle() then return Drop() end
+    local step=settlementCache.PathStep(unit,target,player,state,{plots=packet.plots},packet.start)
+    if not step then return Drop() end
+    local stage,current
+    if goal and goal.plot==route.index then stage,current=SettlerGoalBridge("Read",ctx.player,id)
+    else stage,current=SettlerGoalBridge("Remember",ctx.player,id,route.index,route.x,route.y) end
+    if stage~="READY" or not SettlerGoalProposal(current,id) or current.plot~=route.index
+      or current.x~=route.x or current.y~=route.y then return Drop() end
+    if route.epoch~=settlementWorldEpoch or UnitKey(unit)~=packet.key or not CoreIdle() then return Drop() end
+    reservations[route.index]=id;settlementTargets[id]=route.index;settlerSearches[id]=nil
+    return RequestCivilian(ctx,state,unit,"MOVE_TO",step)
+  end
+  if search.foundWrite then
+    local proposed=search.foundWrite;search.foundWrite=nil
+    if proposed.index~=here:GetIndex() or proposed.key~=key or proposed.epoch~=settlementWorldEpoch then return false,true end
+    local sent,why=RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
+    if why=="armed_dispatch_deferred" then return false,true end
+    if why=="settlement_support_unavailable" and goal and goal.plot==here:GetIndex() then
+      if reservations[goal.plot]==id then reservations[goal.plot]=nil end
+      settlementTargets[id]=nil;search.tested[goal.plot]=true
+      SettlerGoalBridge("Forget",ctx.player,id)
+      return false,true
+    end
+    return sent,false
+  end
+  local function StageRoute(target)
+    search.route={player=ctx.player,turn=turn,id=id,key=key,epoch=settlementWorldEpoch,
+      index=target:GetIndex(),x=target:GetX(),y=target:GetY(),phase="query",
+      priorPlot=goal and goal.plot or nil,priorX=goal and goal.x or nil,priorY=goal and goal.y or nil}
+    return false,true
+  end
+  local function Found(target)
+    if BaiqiPolicy.Number(planningStarted) then
+      search.foundWrite={index=target:GetIndex(),key=key,epoch=settlementWorldEpoch}
+      return false,true
+    end
+    settlerSearches[id]=nil
+    return RequestCivilian(ctx,state,unit,"FOUND_CITY",target)
+  end
   local oldTarget=settlementTargets[id]
   local oldPlot
   local function ForgetOld()
@@ -3143,7 +3256,7 @@ local function ProcessSettler(ctx, player, state, unit)
         or not SettlementFeatureAllowed(oldPlot)
         or(oldPlot:GetOwner()~=-1 and oldPlot:GetOwner()~=ctx.player) then
         ForgetOld();oldPlot=nil
-      else
+      elseif oldTarget~=here:GetIndex() then
         local supported,why=KnownExpansionSupport(oldPlot,player,ctx.player,true)
         if supported~=true then
           if why=="support_geometry_pending" then return false,true end
@@ -3160,11 +3273,15 @@ local function ProcessSettler(ctx, player, state, unit)
     foundSupport,foundWhy=KnownExpansionSupport(here,player,ctx.player,true)
     if foundWhy=="support_geometry_pending" then return false,true end
   end
+  if mayFound and oldTarget==here:GetIndex() and foundSupport~=true then
+    ForgetOld()
+    return false,true
+  end
   if mayFound and foundSupport==true and Safe(here,player) and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
-    settlerSearches[id]=nil
-    return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
+    return Found(here)
   end
   if oldPlot and oldTarget~=here:GetIndex() then
+    if BaiqiPolicy.Number(planningStarted) then return StageRoute(oldPlot) end
     -- A remembered goal already precedes native rankings. Validate its current
     -- route directly; no positive eligibility survives this callback.
     search.tested[oldTarget]=true
@@ -3195,12 +3312,12 @@ local function ProcessSettler(ctx, player, state, unit)
     if foundWhy=="support_geometry_pending" then return false,true end
     if foundSupport==true and Safe(here,player)
       and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
-      settlerSearches[id]=nil
-      return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
+      return Found(here)
     end
   end
   if target and target.index~=here:GetIndex() then
     search.tested[target.index]=true
+    if BaiqiPolicy.Number(planningStarted) then return StageRoute(target.plot) end
     local step=PathStep(unit,target.plot,player,state)
     if step then
       local s,g=SettlerGoalBridge("Remember",ctx.player,id,target.index,target.plot:GetX(),target.plot:GetY())

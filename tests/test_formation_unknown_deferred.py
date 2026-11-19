@@ -96,7 +96,7 @@ end''')
         with tempfile.TemporaryDirectory()as tmp:
             out=Path(tmp)/'prepared';d=build(out,7,3,'UNIT_BUILDER',defer_start=True)
             self.assertTrue(d['deferred_start']);self.assertEqual(d['changed_files'],['Lua/BaiqiController.lua'])
-            self.assertEqual((d['source_version'],d['files'],d['lua_sources_compiled_51_and_53']),(168,119,97))
+            self.assertEqual((d['source_version'],d['files'],d['lua_sources_compiled_51_and_53']),(169,119,97))
             self.assertIn('deferred',d['mode']);self.assertEqual(json.loads((out/'diagnostic-build.json').read_text(encoding='utf-8')),d)
 
 if __name__=='__main__':unittest.main()

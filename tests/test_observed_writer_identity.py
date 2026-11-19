@@ -89,7 +89,13 @@ Automation={GetTime=function()return 1 end}
                 with patch.object(Path, 'read_text', read), patch.object(receipt, 'LuaRuntime', engine):
                     case = receipt.FoundCityReceiptTests();case.setUp()
                     case.lua.execute("assert(P6OwnDiag:SetEnabled(true))")
-                    case.issue();case.run_now(3)
+                    for expected in (0, 0, 1):
+                        case.run_now()
+                        state = case.lua.globals().P6OwnDiag.Snapshot(case.lua.globals().P6OwnDiag)
+                        self.assertEqual(case.found_count(), expected)
+                        bucket = state.buckets[1]
+                        self.assertEqual(sum(bucket.values()) if bucket is not None else 0, expected)
+                    case.run_now(3)
                     state = case.lua.globals().P6OwnDiag.Snapshot(case.lua.globals().P6OwnDiag)
                     self.assertEqual(sum(state.buckets[1].values()), 1)
                     self.assertEqual(case.found_count(), 1)

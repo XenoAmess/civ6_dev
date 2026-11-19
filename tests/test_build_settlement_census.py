@@ -33,12 +33,15 @@ class SettlementCensusTransformTests(unittest.TestCase):
 
     def test_real_sliced_search_has_unvisited_then_accepted_without_extra_reads(self):
         baseline=self.settler_case(self.raw);observed=self.settler_case(self.text)
-        for step in range(2):
+        for step in range(4):
             baseline.case.step();observed.case.step()
             self.assertEqual(baseline.case.moves(),observed.case.moves())
             self.assertEqual(baseline.w.hintReads,observed.w.hintReads)
             for index in (46,47):self.assertEqual(baseline.count(index),observed.count(index))
             self.assertEqual(len(baseline.w.unitRequests),len(observed.w.unitRequests))
+            if step < 3:
+                self.assertEqual(baseline.case.moves(), [])
+        self.assertEqual(baseline.case.moves(), [(2, 2, 4)])
         rows=observed.lua.globals().P6SettlementCensus.Snapshot().rows
         self.assertEqual(len(rows),2)
         first=classify_settlement_call(dict(rows[1].items()));second=classify_settlement_call(dict(rows[2].items()))

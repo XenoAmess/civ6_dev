@@ -1,0 +1,266 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T09:22:36.421011+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 169,
+  "status": "SOFTWARE_CHECKS_CLOSED_AFTER_FIXTURE_CORRECTIONS_NATIVE_PENDING",
+  "software_complete": true,
+  "Native169": "NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": "baiqi-source168-controller-geometry-native-2026-11-19.json",
+  "product_change": {
+    "files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_identical_vs168": 117,
+    "controller_sha256": "db1ec8d099f02bafe6cc3c231d6a0123fcaf82c58bdc5e708d038dfce4ee6dff",
+    "behavior": "With a valid planning clock, separate settler support planning, native path proposal and freshly validated movement into ordinary callbacks. Scalar route proposals carry current identity/position key, turn, world epoch, target and copied path indices, never native objects or a positive permission. Original path/occupancy/detour validation is shared between synchronous and proposed paths; final RequestCivilian still rechecks current Native qualification, ownership, formation, safety and stability. Found planning, live Commit and final native dispatch also advance separately.",
+    "found_authority": "Only this call's fresh successful Core Commit ACK creates the existing nonpersistent dispatch closure. It remains exact-turn/epoch/binding/actor-bound and repeats full original site/support/intent/native checks before consuming the single writer entry. Saved ARMED, reload, timeout or empty queue never reconstructs a grant.",
+    "goal_cleanup": "Invalid retained goal is forgotten as before; pending geometry keeps it. Clock loss restores the untested staged goal and original synchronous path.",
+    "cached_fields": "Scalars and copied numeric path indices only. No cached visibility, ownership, city/stability eligibility or Native operation grant.",
+    "preserved": [
+      "all live public-cell geometry/city/owner consistency checks",
+      "final full support and native found qualification",
+      "escort/army/religious-combat/diplomacy boundaries",
+      "unknown settlement and legacy great-person journals"
+    ],
+    "manual_controls_added": 0
+  },
+  "software": {
+    "validation_account": {
+      "utc": "2026-11-19T09:19:23.371379+00:00",
+      "source_version": 169,
+      "software_checks_complete_after_fixture_corrections": true,
+      "single_clean_full_rerun_claimed": false,
+      "product_sha256_unchanged_after_full_run": "db1ec8d099f02bafe6cc3c231d6a0123fcaf82c58bdc5e708d038dfce4ee6dff",
+      "first_full_run": {
+        "run": 2849,
+        "failure_entries": 5,
+        "failing_methods": 4,
+        "skipped": 1,
+        "errors": 0,
+        "seconds": 343.022,
+        "status": "FAIL_PRESERVED",
+        "session_id": 88691,
+        "actual_exit_code": 1,
+        "actual_tool_completion": true,
+        "log_sha256": "05f5e9260202ec6317bb3cb45f0ad600aa51770e13f925746d573cd0bd6d519f",
+        "failed_method_ids": [
+          "test_build_settlement_census.SettlementCensusTransformTests.test_existing_slicing_safety_and_return_contracts_on_observer",
+          "test_observed_writer_identity.ObservedWriterIdentityTests.test_actual_transformed_controller_counts_its_found_writer_once_when_enabled",
+          "test_settlement_census_source155.CensusSource155ConsumerTests.test_existing_slicing_safety_and_return_contracts_on_observer",
+          "test_settlement_census_source155.CensusVersionTests.test_legacy_prefix_and_edit_rules_keep_frozen_bytes"
+        ]
+      },
+      "corrected_related_run": {
+        "run": 82,
+        "passed": 82,
+        "skipped": 0,
+        "failures": 0,
+        "errors": 0,
+        "session_id": 11158,
+        "actual_exit_code": 0,
+        "actual_tool_completion": true,
+        "all_failed_methods_reexecuted_and_passed": true,
+        "passed_method_ids": [
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_busy_core_defers_until_idle",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_changed_native_writer_does_not_inherit_old_grant",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_controller_reload_does_not_recreate_live_permission",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_escort_blocks_then_fresh_single_unit_can_dispatch",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_foreign_city_conflict_stays_held",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_full_id_alias_blocks_native_order",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_journal_request_change_is_not_the_original_live_grant",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_missing_commit_ack_never_creates_live_permission",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_native_applies_then_throws_is_never_replayed",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_native_false_is_one_entered_call_not_retry_permission",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_native_throws_before_visible_effect_is_also_never_replayed",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_native_void_is_one_entered_call_not_retry_permission",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_native_writer_callback_cannot_reenter_first_dispatch",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_next_turn_does_not_recreate_same_turn_permission",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_operation_enum_change_does_not_inherit_old_permission",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_passive_reconciliation_does_not_dispatch_or_consume_grant",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_qualification_callback_cannot_reenter_dispatch",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_queue_read_callback_cannot_attach_an_escort_and_dispatch",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_transient_pre_writer_rejection_can_dispatch_once_in_same_turn",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_unknown_queue_waits_without_moving_escort",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_unsent_grant_is_not_spent_by_the_standby_timeout",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_world_load_during_commit_ack_cannot_create_a_new_live_grant",
+          "test_baiqi_found_city_live_dispatch.FoundCityLiveDispatchTests.test_world_load_event_drops_permission_even_if_bindings_are_reused",
+          "test_baiqi_settler_site_budget.OneSettlementValidationTests.test_bad_optin_rejected_before_native_query",
+          "test_baiqi_settler_site_budget.OneSettlementValidationTests.test_default_keeps_full_enumeration_and_optin_records_attempted_id",
+          "test_baiqi_settler_site_budget.OneSettlementValidationTests.test_exhaustion_waits_only_after_each_rejected_site_has_its_own_callback",
+          "test_baiqi_settler_site_budget.OneSettlementValidationTests.test_rejected_first_site_yields_without_skip_then_moves_to_fresh_alternative",
+          "test_build_settlement_census.SettlementCensusTransformTests.test_exact_anchors_and_inverse_fail_closed",
+          "test_build_settlement_census.SettlementCensusTransformTests.test_existing_slicing_safety_and_return_contracts_on_observer",
+          "test_build_settlement_census.SettlementCensusTransformTests.test_real_recruitment_choice_and_fresh_write_keep_all_existing_guards",
+          "test_build_settlement_census.SettlementCensusTransformTests.test_real_sliced_search_has_unvisited_then_accepted_without_extra_reads",
+          "test_controller_found_register_scope.FoundRegisterScopeTests.test_all16_outer_cells_are_wrapped_and_restored_after_a_tail_call",
+          "test_controller_found_register_scope.FoundRegisterScopeTests.test_full_actual_private_main_frame_stays_near_original",
+          "test_controller_found_writer_timing.FoundWriterArtifactTests.test_current_eight_defaults_keep_independent_frozen_bytes",
+          "test_controller_found_writer_timing.FoundWriterArtifactTests.test_invalid_exact_flags_scope_and_versions_refuse_before_output",
+          "test_controller_found_writer_timing.FoundWriterArtifactTests.test_real_combined_package_has_one_profile_and_exact_release_recovery",
+          "test_controller_found_writer_timing.FoundWriterArtifactTests.test_recovery_rejects_missing_duplicate_and_reserved_anchors",
+          "test_controller_found_writer_timing.FoundWriterConsumerTests.test_actual_pcall_site_calls_stored_writer_once_and_keeps_identity",
+          "test_controller_found_writer_timing.FoundWriterConsumerTests.test_capacity_remains_one4096_profile_and_never_replays",
+          "test_controller_found_writer_timing.FoundWriterConsumerTests.test_current_writer_lookup_and_false_void_throw_keep_pcall_semantics",
+          "test_controller_found_writer_timing.FoundWriterConsumerTests.test_foreign_proxy_and_observer_survive_restore",
+          "test_controller_found_writer_timing.FoundWriterConsumerTests.test_passthrough_arity_nil_errors_disable_and_retired_cached_root",
+          "test_controller_found_writer_timing.FoundWriterLua53Tests.test_actual_pcall_site_calls_stored_writer_once_and_keeps_identity",
+          "test_controller_found_writer_timing.FoundWriterLua53Tests.test_capacity_remains_one4096_profile_and_never_replays",
+          "test_controller_found_writer_timing.FoundWriterLua53Tests.test_current_writer_lookup_and_false_void_throw_keep_pcall_semantics",
+          "test_controller_found_writer_timing.FoundWriterLua53Tests.test_foreign_proxy_and_observer_survive_restore",
+          "test_controller_found_writer_timing.FoundWriterLua53Tests.test_passthrough_arity_nil_errors_disable_and_retired_cached_root",
+          "test_observed_writer_identity.ObservedWriterIdentityTests.test_actual_transformed_controller_can_dispatch_all_existing_live_grant_cases",
+          "test_observed_writer_identity.ObservedWriterIdentityTests.test_actual_transformed_controller_counts_its_found_writer_once_when_enabled",
+          "test_observed_writer_identity.ObservedWriterIdentityTests.test_method_label_receiver_and_method_separation_is_unchanged",
+          "test_observed_writer_identity.ObservedWriterIdentityTests.test_same_static_native_at_different_sites_keeps_identity_and_counts_once",
+          "test_settlement_census_source155.CensusSource155ConsumerTests.test_exact_anchors_and_inverse_fail_closed",
+          "test_settlement_census_source155.CensusSource155ConsumerTests.test_existing_slicing_safety_and_return_contracts_on_observer",
+          "test_settlement_census_source155.CensusSource155ConsumerTests.test_real_recruitment_choice_and_fresh_write_keep_all_existing_guards",
+          "test_settlement_census_source155.CensusSource155ConsumerTests.test_real_sliced_search_has_unvisited_then_accepted_without_extra_reads",
+          "test_settlement_census_source155.CensusVersionTests.test_current_build_has_actual_version_and_unchanged_inventory",
+          "test_settlement_census_source155.CensusVersionTests.test_explicit_142_matches_default_and_source155_recovers_exactly",
+          "test_settlement_census_source155.CensusVersionTests.test_legacy_prefix_and_edit_rules_keep_frozen_bytes",
+          "test_settlement_census_source155.CensusVersionTests.test_unknown_versions_and_nonexact_types_are_rejected",
+          "test_settler_path_phases.Settler169Tests.test_actual_load_event_invalidates_saved_path_proposal",
+          "test_settler_path_phases.Settler169Tests.test_clock_loss_restores_original_synchronous_route",
+          "test_settler_path_phases.Settler169Tests.test_deferred_found_rechecks_live_final_permissions",
+          "test_settler_path_phases.Settler169Tests.test_foreign_city_appearing_after_query_is_not_cached_as_support",
+          "test_settler_path_phases.Settler169Tests.test_found_proposal_commit_and_native_write_use_distinct_callbacks",
+          "test_settler_path_phases.Settler169Tests.test_malformed_native_path_proposals_do_not_reach_writer",
+          "test_settler_path_phases.Settler169Tests.test_move_native_qualification_rechecks_formation",
+          "test_settler_path_phases.Settler169Tests.test_native_writer_replacement_blocks_deferred_grant",
+          "test_settler_path_phases.Settler169Tests.test_observation_only_callbacks_never_advance_found_dispatch",
+          "test_settler_path_phases.Settler169Tests.test_owner_formation_hidden_goal_and_changed_path_refuse_proposal",
+          "test_settler_path_phases.Settler169Tests.test_query_and_final_support_are_separate_callbacks_then_one_move",
+          "test_settler_path_phases.Settler169Tests.test_ui_reload_does_not_reconstruct_a_live_grant_from_armed",
+          "test_settler_path_phases.Settler169Tests.test_unknown_native_found_is_entered_once_and_never_replayed",
+          "test_support_geometry_slices.SupportGeometryTests.test_actual_registered_load_discards_partial_scalar_job",
+          "test_support_geometry_slices.SupportGeometryTests.test_clock_loss_during_partial_job_uses_original_sync_fallback",
+          "test_support_geometry_slices.SupportGeometryTests.test_existing_goal_is_retained_during_topology_wait",
+          "test_support_geometry_slices.SupportGeometryTests.test_final_found_qualification_rechecks_new_foreign_city_after_geometry_ready",
+          "test_support_geometry_slices.SupportGeometryTests.test_full_controller_cold_search_waits_then_moves_without_repeating_whole_geometry",
+          "test_support_geometry_slices.SupportGeometryTests.test_geometry_each_slice_is_bounded_and_complete_list_matches_sync",
+          "test_support_geometry_slices.SupportGeometryTests.test_missing_native_anchor_rejects_geometry_and_never_makes_it_ready",
+          "test_support_geometry_slices.SupportGeometryTests.test_native_binding_change_restarts_partial_geometry_without_permission",
+          "test_support_geometry_slices.SupportGeometryTests.test_new_foreign_city_before_geometry_completion_refuses_movement",
+          "test_support_geometry_slices.SupportGeometryTests.test_owner_formation_and_hidden_goal_changes_do_not_authorize_any_move"
+        ],
+        "log_sha256": "091433a1228b82dc3410f3fbe0f7482a4643d7d66f0f5dc3e4e95cdd23a9d453"
+      },
+      "corrections": [
+        "Restore original frozen EDITS SHA; numeric version replacement had incorrectly changed its hexadecimal text. Actual EDITS and legacy prefix bytes never changed.",
+        "Census fixtures keep zero writes through proposal/query, then exactly one move after fresh support; baseline and observed controllers remain equivalent with no extra hint enumeration.",
+        "Write-leaf fixture keeps zero calls and an absent bucket until actual deferred writer entry, then exactly one call; original Native function identity retained."
+      ],
+      "first_closure_failure": {
+        "run": 82,
+        "errors": 2,
+        "cause": "Zero writes correctly have no bucket yet; fixture now treats absent bucket as zero and still requires one actual final entry. Original failure log retained."
+      },
+      "Native_queries": 0,
+      "new_generation_POSTs": 0,
+      "scope": "All four failed method IDs from the full run are included in the82passing related methods; all other full-run outcomes retained. No Native or whole-mod grant."
+    },
+    "new_full_Controller_methods": 13,
+    "new_methods_dual_Lua_before_adoption": true,
+    "related_candidate_methods": 244,
+    "old168_negative_control": {
+      "old_source": 168,
+      "expected_failure_methods": 2,
+      "errors": 0,
+      "new_actual_Controller_tests_reject_old_behavior": true,
+      "Native_queries": 0
+    },
+    "candidate_failures_retained": [
+      {
+        "version": 1,
+        "related_run": 244,
+        "failures": 1,
+        "correction": "Restore invalid retained-goal cleanup at current target."
+      },
+      {
+        "version": 2,
+        "new_run": 12,
+        "failures": 1,
+        "correction": "On clock loss restore a staged untested target before original sync fallback."
+      }
+    ],
+    "Lua51_Lua53_files": 97,
+    "ordinary_files": 119,
+    "QA_opt_in_tools": 17,
+    "note": "All unchanged product tests retain first-full outcomes; all four failed method IDs/five subcase entries are covered by the82passing corrected related tests. No single clean full rerun is claimed."
+  },
+  "ordinary_package": {
+    "archive_sha256": "7d71713bee9a0943d10efd1b0a5fa6a7b3ede75d95572cde5914d1fe6e896459",
+    "archive_bytes": 8838604,
+    "delivered_local_path": "dist/Baiqi169.zip"
+  },
+  "model": {
+    "availability_before_candidate": {
+      "utc": "2026-11-19T08:54:06.837776+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T08:54:06.804999+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 7.660600123926997,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T08:54:06.813114+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "6e149c7d08eb38e4266746c5064f2c089571e88017012870ef8e6d558d236efa",
+          "total_ms": 24.087500059977174
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "new_generation_POSTs": 0,
+    "adopted_model_candidates": 0,
+    "Owner_continuation": true,
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Software phase boundaries and regression closure only; actual path/found scheduling latency and current169 budgets require fresh Native capture.",
+    "Source168 original85 validFAIL15/50.999879837ms and129root/689row diagnosis remain; no causal speedup claim or budget relaxation.",
+    "Native path calls and live support checks themselves are not assumed to have a bounded engine duration.",
+    "Source168 legacy merchant sleep/receipt positive stays narrow; whole40 and old865 recovery remain open."
+  ]
+}
