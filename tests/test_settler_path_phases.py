@@ -135,3 +135,46 @@ class Settler169Tests(unittest.TestCase):
    for _ in range(4):f.c.RunNow(False)
    self.assertEqual(f.found_count(),0)
    self.step(f);self.assertEqual(f.found_count(),1)
+
+ def retained(self,E):
+  f=self.world(E)
+  f.lua.execute("local p=Map.GetPlotByIndex(47);local s,g=ExposedMembers.BaiqiSettlerGoalsBridge.Remember(7,2,47,p:GetX(),p:GetY());assert(s=='READY'and g.plot==47)")
+  return f
+
+ def test_retained_proposal_omits_duplicate_support_without_authorizing_move(self):
+  for E in(L51,L53):
+   f=self.retained(E);self.step(f)
+   self.assertEqual((f.w.supportCalls,f.w.queryCalls,len(self.moves(f))),(0,0,0));self.assertEqual(self.route(f).phase,'query')
+   self.step(f);self.assertEqual((f.w.supportCalls,f.w.queryCalls,len(self.moves(f))),(0,1,0))
+   self.step(f);self.assertEqual((f.w.supportCalls,f.w.queryCalls,len(self.moves(f))),(1,0,1))
+
+ def test_retained_known_foreign_support_is_rejected_at_fresh_write(self):
+  for E in(L51,L53):
+   f=self.retained(E);f.w.foreign=True;self.step(f)
+   self.assertEqual((f.w.supportCalls,len(self.moves(f))),(0,0));self.assertEqual(self.route(f).phase,'query')
+   self.step(f);self.assertEqual(len(self.moves(f)),0)
+   self.step(f);self.assertGreaterEqual(f.w.supportCalls,1);self.assertEqual(self.moves(f),[])
+   self.assertIsNone(f.w.goalProposals['2'])
+
+ def test_retained_no_clock_keeps_original_synchronous_support(self):
+  for E in(L51,L53):
+   f=self.retained(E);f.lua.execute('Automation=nil');self.step(f)
+   self.assertEqual((f.w.supportCalls,f.w.queryCalls,len(self.moves(f))),(1,1,1))
+
+ def test_retained_native_query_loses_support_before_write(self):
+  for E in(L51,L53):
+   f=self.retained(E);self.step(f)
+   f.lua.execute('local q=UnitManager.GetMoveToPathEx;UnitManager.GetMoveToPathEx=function(...)local p=q(...);TestWorld.foreign=true;return p end')
+   self.step(f);self.assertEqual(self.route(f).phase,'write');self.step(f);self.assertEqual(self.moves(f),[])
+
+ def test_retained_observation_only_does_not_plan_or_query(self):
+  for E in(L51,L53):
+   f=self.retained(E);f.w.supportCalls,f.w.queryCalls=0,0
+   for _ in range(5):f.c.RunNow(False)
+   self.assertEqual((f.w.supportCalls,f.w.queryCalls,len(self.moves(f))),(0,0,0));self.assertIsNone(self.route(f))
+
+ def test_retained_goal_changed_before_native_query_cannot_authorize_order(self):
+  for E in(L51,L53):
+   f=self.retained(E);self.step(f)
+   f.lua.execute('local p=Map.GetPlotByIndex(46);ExposedMembers.BaiqiSettlerGoalsBridge.Remember(7,2,46,p:GetX(),p:GetY())')
+   self.step(f);self.assertEqual((f.w.queryCalls,len(self.moves(f))),(0,0))

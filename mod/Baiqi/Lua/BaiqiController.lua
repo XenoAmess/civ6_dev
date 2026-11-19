@@ -3256,7 +3256,9 @@ local function ProcessSettler(ctx, player, state, unit)
         or not SettlementFeatureAllowed(oldPlot)
         or(oldPlot:GetOwner()~=-1 and oldPlot:GetOwner()~=ctx.player) then
         ForgetOld();oldPlot=nil
-      elseif oldTarget~=here:GetIndex() then
+      elseif oldTarget~=here:GetIndex() and not BaiqiPolicy.Number(planningStarted) then
+        -- Staged movement is only a proposal here. Its write phase performs
+        -- the full fresh support check before path validation and dispatch.
         local supported,why=KnownExpansionSupport(oldPlot,player,ctx.player,true)
         if supported~=true then
           if why=="support_geometry_pending" then return false,true end

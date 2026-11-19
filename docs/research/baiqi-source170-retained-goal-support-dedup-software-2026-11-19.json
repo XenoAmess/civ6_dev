@@ -1,0 +1,205 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T11:05:34.278231+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 170,
+  "status": "SOFTWARE_PASS_NATIVE_PENDING",
+  "software_complete": true,
+  "Native170": "NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": "baiqi-source169-controller-native-boundaries-2026-11-19.json",
+  "product_change": {
+    "files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_identical_vs169": 117,
+    "controller_sha256": "0c5e25ec26e1d6c3e4ad9b9e7b369fcee604426ef7227323bd122c8bfff27877",
+    "behavior": "With a valid planning clock, a retained remote settler goal becomes a scalar route proposal without the duplicate full support scan at proposal creation. The existing write phase still performs the complete fresh support scan, original path validation, goal read/save verification and RequestCivilian Native/ownership/formation/safety/stability checks. No-clock execution retains the original synchronous support check.",
+    "authority": "No cached positive eligibility, native object or grant is introduced. Invalid border/support discovered at the fresh write phase rejects the movement and clears the invalid retained goal as before. Found support/Prepare/Commit/final dispatch and unknown-receipt protocols are unchanged.",
+    "preserved": [
+      "all live public-cell geometry/city/owner/loyalty checks at the staged write boundary",
+      "full native/formation/owner/path requalification",
+      "founding live Commit grant and no ARMED replay",
+      "army/religious-combat/escort/diplomacy boundaries"
+    ],
+    "manual_controls_added": 0
+  },
+  "software": {
+    "full_suite": {
+      "run": 2855,
+      "passed": 2854,
+      "SDK_environment_skips": 1,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 303.688,
+      "actual_terminal": {
+        "utc": "2026-11-19T11:05:29.287215+00:00",
+        "session_id": 86826,
+        "exit_code": 0,
+        "actual_tool_completion": true,
+        "tool": "write_stdin observed actual unified exec terminal0",
+        "tests": 2855,
+        "skipped": 1,
+        "log_sha256": "fcfce3bdb7eba01c4c769ed8dd912f0cfcf10a25b7a9c0d3fd7b9423091ab999"
+      },
+      "log_sha256": "fcfce3bdb7eba01c4c769ed8dd912f0cfcf10a25b7a9c0d3fd7b9423091ab999"
+    },
+    "new_methods": 6,
+    "combined_phase_methods_dual_Lua_before_adoption": 19,
+    "related_candidate_methods": 244,
+    "old169_negative_controls": {
+      "utc": "2026-11-19T10:36:00.512751+00:00",
+      "controls": [
+        {
+          "VM": "lupa.lua51",
+          "foreign": false,
+          "old169_support_calls": 1,
+          "candidate_zero_support_contract_rejected": true,
+          "Native_queries": 0
+        },
+        {
+          "VM": "lupa.lua51",
+          "foreign": true,
+          "old169_support_calls": 1,
+          "candidate_zero_support_contract_rejected": true,
+          "Native_queries": 0
+        },
+        {
+          "VM": "lupa.lua53",
+          "foreign": false,
+          "old169_support_calls": 1,
+          "candidate_zero_support_contract_rejected": true,
+          "Native_queries": 0
+        },
+        {
+          "VM": "lupa.lua53",
+          "foreign": true,
+          "old169_support_calls": 1,
+          "candidate_zero_support_contract_rejected": true,
+          "Native_queries": 0
+        }
+      ],
+      "product169_unchanged": true,
+      "new_product_adoption": false
+    },
+    "Lua51_Lua53_files": 97,
+    "ordinary_files": 119,
+    "QA_opt_in_tools": 17,
+    "encoding_account": "Candidate VM reads normalize line endings. The raw candidate byte SHA is retained separately; full related tests and adopted product text SHA are the same LF text. All fixture64hex hashes preserved during version adaptation."
+  },
+  "ordinary_package": {
+    "archive_sha256": "39357f648e5d7163bdc41545e877bb7493207fd6ec8045022b29077c6d4949be",
+    "archive_bytes": 8838672,
+    "delivered_local_path": "dist/Baiqi170.zip"
+  },
+  "model": {
+    "availability_before_private_candidate": {
+      "utc": "2026-11-19T10:23:55.414313+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T10:23:55.296329+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 100.61040008440614,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T10:23:55.400197+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "a9d34ed10642f3b1fa9e2ce9ef94bccc16ee5716451c4e27ecd50e5af55e5bee",
+          "total_ms": 7.573000155389309
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "availability_before_adoption": {
+      "utc": "2026-11-19T10:55:47.709569+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T10:55:47.605857+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 57.6148999389261,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T10:55:47.664592+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "2d4c3f7fd7e7fe810ee63fbdae404e9a56eb725fc5d385bc6568f70c8e1bf5b3",
+          "total_ms": 43.771900003775954
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "new_generation_POSTs": 0,
+    "adopted_model_candidates": 0,
+    "Owner_continuation": true,
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Software work reduction does not establish actual170 latency or any performance budget pass.",
+    "Original169315-row planning FAIL40/63ms remains.169a RequestCivilian216ms cause is unassigned and not reproduced in169b; low169b Native timings cannot explain another capture.",
+    "169b root10068ms includes support30ms and three settlement bridge calls. Root95~45ms outside selected child intervals remains unassigned. No claim this one change resolves every hotspot.",
+    "163 historical scenario passes retain their exact scopes; current full40 and old865 recovery remain open."
+  ]
+}
