@@ -1980,3 +1980,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：当前163原85 B_plan FAIL
 
 [全部原值、分类及生命周期](../../research/baiqi-source165-original85-plan-native-2026-11-19.json)。Admin纯十城117个、p95/max=7.999897003173828/10.999917984008789ms；Controller150个、p95/max=20.999908447265625/139.9998664855957ms。原100/20ms/50ms预算，全部314原样本保留；普通85..90至91、保存／撤钩／释放／退场分别核对。当前原85其余性能与完整功能继续。
+
+
+## 2026-11-19：Source166软件通过，继续实机
+
+[伟人邻近分段寻路](../../research/baiqi-source166-short-leg-route-software-2026-11-19.json)：2816运行中2815通过／1SDK跳过，12新Controller方法与98相关测试通过，旧165两项负对照按预期拒绝。97Lua双编译／119文件；[新原85准备](../../research/baiqi-source166-original85-plan-prepared-2026-11-19.json)14消费者／58语义场景通过。165实机Controller21/140ms有效FAIL保留，166Native尚未开始，局部路线完备和Native耗时均不授通过。整个modOPEN，继续执行。

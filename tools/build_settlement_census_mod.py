@@ -37,7 +37,7 @@ EDITS=(
 
 
 def transform(raw: str, *, source_version: int = 142) -> tuple[str,str]:
-    if type(source_version) is not int or source_version not in (142,155,156,157,158,159,160,161,162,163,164,165):
+    if type(source_version) is not int or source_version not in (142,155,156,157,158,159,160,161,162,163,164,165,166):
         raise ValueError('Census requires exact source142 or155')
     text=raw
     for old,new in EDITS:
@@ -74,7 +74,7 @@ def restore_release(text: str,prefix: str) -> str:
 def build(output_dir: Path) -> dict:
     source=ROOT/'mod/Baiqi'
     version_text=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version_text not in ('142','155','156','157','158','159','160','161','162','163','164','165'):
+    if version_text not in ('142','155','156','157','158','159','160','161','162','163','164','165','166'):
         raise ValueError('Census requires actual source142 or155')
     version=int(version_text)
     output_dir=output_dir.resolve()

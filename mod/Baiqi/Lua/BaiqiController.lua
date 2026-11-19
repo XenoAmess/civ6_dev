@@ -121,7 +121,7 @@ local neighborhoodXY,neighborhoodByIndex
 local function ClearNeighborhoods()
   neighborhoodCache,neighborhoodCount={},0
   settlementWorldEpoch=settlementWorldEpoch+1
-  for _,plan in pairs(districtPersonPlans) do plan.route=nil end
+  for _,plan in pairs(districtPersonPlans) do plan.route=nil;plan.walk=nil end
   districtRoute.used=false
   -- A new world may reuse native bindings. Only a fresh live Commit ACK can
   -- create an unsent dispatch closure; never carry one through a load event.
@@ -3442,7 +3442,7 @@ do
       individual=info.Index,charges=unit:GetGreatPerson():GetActionCharges(),
       required=required and required.Index or nil,border=border,epoch=settlementWorldEpoch,
       turn=turn,key=UnitKey(unit),index=target.index,x=target.plot:GetX(),y=target.plot:GetY(),
-      cityID=target.cityID,phase="query"}
+      cityID=target.cityID,phase=type(UnitManager.GetReachableMovement)=="function" and "reach" or "query"}
     if not Integer(job.id) or not Integer(job.owner) or not Integer(job.class)
       or not Integer(job.individual) or not Integer(job.charges) or job.charges<1
       or not Integer(job.turn) or not Integer(job.index) or not Integer(job.x) or not Integer(job.y)
@@ -3457,15 +3457,76 @@ do
     local ctx,player,state,unit,target=districtRoute.Fresh(job,plan)
     if not ctx then plan.route=nil;return false,false end
     local function Reject()
+      if job.legs and job.legNo<#job.legs then
+        job.legNo=job.legNo+1;job.endpoint=job.legs[job.legNo]
+        job.path=nil;job.phase="query"
+        return true,false
+      end
       if plan.route==job then plan.route=nil end
       plan.blocked[job.index]="route"
       if plan.target==job.index then plan.target=nil;plan.targetCity=nil end
       return true,false
     end
+    if job.phase=="reach" then
+      -- The stock SelectedUnit UI reads this movement-only list separately
+      -- from attack targets. It is a proposal, never a cached move permission.
+      local query=UnitManager.GetReachableMovement
+      if type(query)~="function" then return Reject() end
+      local zoc=unit.HasMovedIntoZOC
+      if zoc~=nil and (type(zoc)~="function" or not False(pcall(zoc,unit))) then return Reject() end
+      local ok,range=pcall(query,unit)
+      if not ok or UnitManager.GetReachableMovement~=query or type(range)~="table"
+        or not districtRoute.Fresh(job,plan) then return Reject() end
+      local valid,legs=pcall(function()
+        local count,reachable=0,{}
+        for key,index in pairs(range) do
+          count=count+1
+          if count>4096 or not Integer(key) or key<1 or key>4096 or not Integer(index) then return nil end
+          reachable[index]=true
+        end
+        for i=1,count do if not Integer(range[i]) then return nil end end
+        if type(Map.GetAdjacentPlot)~="function" then return nil end
+        local here=UnitIndex(unit);local walk=plan.walk
+        if not walk or walk.goal~=job.index or walk.epoch~=job.epoch then
+          walk={goal=job.index,epoch=job.epoch,visits={},count=0};plan.walk=walk
+        end
+        if walk.last~=here then
+          if not walk.visits[here] then
+            if walk.count>=256 then walk.visits={};walk.count=0 end
+            walk.count=walk.count+1
+          end
+          walk.visits[here]=math.min(2147483647,(walk.visits[here]or 0)+1);walk.last=here
+        end
+        local choices,seen={},{}
+        for direction=0,5 do
+          local plot=Map.GetAdjacentPlot(unit:GetX(),unit:GetY(),direction)
+          if plot then
+            local index,x,y=plot:GetIndex(),plot:GetX(),plot:GetY()
+            if not Integer(index) or not Integer(x) or not Integer(y) then return nil end
+            if index~=here and reachable[index] and not seen[index]
+              and Map.GetPlotDistance(unit:GetX(),unit:GetY(),x,y)==1
+              and Revealed(plot) and (plot:GetOwner()==-1 or plot:GetOwner()==ctx.player)
+              and not plot:IsImpassable() then
+              local distance=Map.GetPlotDistance(x,y,job.x,job.y)
+              if not Integer(distance) then return nil end
+              choices[#choices+1]={index=index,score=distance+4*(walk.visits[index]or 0)}
+              seen[index]=true
+            end
+          end
+        end
+        table.sort(choices,function(a,b)if a.score~=b.score then return a.score<b.score end return a.index<b.index end)
+        local result={};for _,choice in ipairs(choices)do result[#result+1]=choice.index end
+        return result
+      end)
+      if not valid or type(legs)~="table" or #legs==0 or #legs>6
+        or not districtRoute.Fresh(job,plan) then return Reject() end
+      job.legs=legs;job.legNo=1;job.endpoint=legs[1];job.phase="query"
+      return true,false
+    end
     if job.phase=="query" then
       local query=UnitManager.GetMoveToPathEx
       if type(query)~="function" then return Reject() end
-      local ok,path=pcall(query,unit,job.index)
+      local ok,path=pcall(query,unit,job.endpoint or job.index)
       if not ok or UnitManager.GetMoveToPathEx~=query or type(path)~="table" or type(path.plots)~="table" then return Reject() end
       local copied,count={},0
       for key in pairs(path.plots) do
@@ -3478,13 +3539,13 @@ do
         if not Integer(index) then return Reject() end
         copied[i]=index
       end
-      if copied[1]~=UnitIndex(unit) or copied[count]~=job.index or not districtRoute.Fresh(job,plan) then return Reject() end
+      if copied[1]~=UnitIndex(unit) or copied[count]~=(job.endpoint or job.index) or not districtRoute.Fresh(job,plan) then return Reject() end
       job.path=copied;job.phase="validate"
       return true,false
     end
     if job.phase~="validate" or type(job.path)~="table" then return Reject() end
     local count=#job.path
-    if count<2 or count>C.pathLimit or job.path[1]~=UnitIndex(unit) or job.path[count]~=job.index then return Reject() end
+    if count<2 or count>C.pathLimit or job.path[1]~=UnitIndex(unit) or job.path[count]~=(job.endpoint or job.index) then return Reject() end
     local cache,previous={}
     for i=1,count do
       local index=job.path[i]
