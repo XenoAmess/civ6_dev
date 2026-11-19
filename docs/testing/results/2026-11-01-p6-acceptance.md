@@ -2139,3 +2139,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：当前171原85全脚本实际结果
 
 [全部原值、规范分析与生命周期](../../research/baiqi-source171-original85-fullscript-native-2026-11-19.json)：B_turn=PASS、N_req=PASS；33上下文，198校准括号、396计时阶段，六次普通END至实际91；完整导出、保存、撤33钩、正式释放及退场分别核验。B_delta和整模组继续，不能把这些分项通过写成验收完成。
+
+
+## 2026-11-19：171压力诊断包文件准备
+
+[当前MANY／NO_SITE的四个StageA／全脚本包](../../research/baiqi-source171-pressure-diagnostic-packages-2026-11-19.json)各119文件／97Lua双编译，源码／QA／ZIP逐字节核对，4096预算未改；未安装、未取得当前自然资格、未实测性能。原85配对完成后继续当前压力和剩余功能验收。
