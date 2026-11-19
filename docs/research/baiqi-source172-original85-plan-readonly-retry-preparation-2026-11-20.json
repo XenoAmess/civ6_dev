@@ -1,0 +1,989 @@
+{
+  "date": "2026-11-20",
+  "utc": "2026-11-19T21:05:07.240956+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 172,
+  "status": "REPAIRED_READONLY_PREFLIGHT_SOFTWARE_PREPARED_NATIVE_NOT_RUN",
+  "whole_mod": "OPEN_CONTINUE",
+  "predecessor_incomplete_capture": {
+    "utc": "2026-11-19T21:00:21.494862+00:00",
+    "source_version": 172,
+    "project_HEAD": "767c140df311d7f366f84e8f175a01741b9d1ba0",
+    "shared_HEAD": "f0f4a1e99f0436c054e41ec3f776e375d6a2c06a",
+    "evidence": "docs/research/baiqi-source172-original85-plan-aborted-readonly-frame-2026-11-20.json",
+    "budget_status": "NOT_QUALIFIED_INCOMPLETE_CAPTURE",
+    "actual_parent_terminal": 1,
+    "actual_recovery_terminal": 0
+  },
+  "product_changed": false,
+  "QA_package_changed": false,
+  "package": {
+    "mode": "baiqi172-stageA-v2",
+    "files": 119,
+    "archive_sha256": "7cddf4128e3a76edd24bad02a27f7e15bf40bfb7c823bdee9020414622504b3d",
+    "initial_turn": 85,
+    "formal_windows": [
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "closing_turn": 91
+  },
+  "actual_software": {
+    "semantic_guards": {
+      "utc": "2026-11-19T21:02:02.349919+00:00",
+      "status": "PASS",
+      "source_version": 172,
+      "actual_default_calendar": {
+        "initial_turn": 85,
+        "h_initialTurn": null,
+        "first": 86,
+        "last": 90,
+        "closing": 91
+      },
+      "actual_semantic_cases": [
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "valid",
+          "accepted": true
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "stale_source",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "pressure_mode",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "pressure_initial",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "wrong_first",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "wrong_last",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "unbound",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "unsubscribed",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "retired",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "foreign_token",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "run",
+          "case": "wrong_phase",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "valid",
+          "accepted": true
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "stale_source",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "pressure_mode",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "pressure_initial",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "wrong_first",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "wrong_last",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "unbound",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "unsubscribed",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "player",
+          "case": "retired",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "valid",
+          "accepted": true
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "stale_source",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "pressure_mode",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "pressure_initial",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "wrong_first",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "wrong_last",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "unbound",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "unsubscribed",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua51",
+          "consumer": "fixture",
+          "case": "retired",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "valid",
+          "accepted": true
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "stale_source",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "pressure_mode",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "pressure_initial",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "wrong_first",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "wrong_last",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "unbound",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "unsubscribed",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "retired",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "foreign_token",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "run",
+          "case": "wrong_phase",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "valid",
+          "accepted": true
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "stale_source",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "pressure_mode",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "pressure_initial",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "wrong_first",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "wrong_last",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "unbound",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "unsubscribed",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "player",
+          "case": "retired",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "valid",
+          "accepted": true
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "stale_source",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "pressure_mode",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "pressure_initial",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "wrong_first",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "wrong_last",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "unbound",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "unsubscribed",
+          "accepted": false
+        },
+        {
+          "VM": "lupa.lua53",
+          "consumer": "fixture",
+          "case": "retired",
+          "accepted": false
+        }
+      ],
+      "actual_3_player_expressions_double_compiled": true,
+      "AST_consumers": 14,
+      "Native_queries": 0,
+      "consumers_sha256": {
+        "plan172b_lifecycle_owner.py": "c153e52b1d935cd5d7354182d9a5747d4ec830804a28d287a2b5dcfd37f7d8ea",
+        "plan172b_fixture_owner.py": "fe4fadeca976ab0333f82506afcee4137273d3359addb81f5b52dbfbc7df0c4a",
+        "plan172b_run_owner.py": "4a37aa960c3209702a5f345b6f9a65503fa22c02ee43714f85334ad50f99d6e8",
+        "plan172b_normal_player_owner.py": "3835ca1c074c36a93c23510497e5e94e9b80b5d8db916ad251382cfa2c0a64ab",
+        "plan172b_collect_owner.py": "d00d6477fc03e0fa5ce246fd8179cd291cd8b52061d66a65eabba7d2e4a8bd1b",
+        "plan172b_finish_owner.py": "234deb9a630ed6d63547d3366f90ce0118bdab9c23d615385e59e36fb1c2ee7f",
+        "plan172b_finish_formal_owner.py": "4fb5bca98506d928275b9f579fa9b5e4d39f84f45306729083e5f3cdc0f19705",
+        "plan172b_cleanup_owner.py": "ac74cc614fc96b4d434a28d5d009995cc8ca0871a234558aa954b82ed2167756",
+        "plan172b_continue_owner.py": "14a02292c59544ebe0fe1d757e11773ca965f77c4f1a9bbf6cb8ef4282116d68",
+        "plan172b_endpoint_owner.py": "a617c6dbbba1534ecc790de93c3d73a9ac84fa980477a4d52d678b85c21e3a1d",
+        "plan172b_header_owner.py": "0f2809dcfaa90b5b5a743e358be8f5a58dc6e2ad38c19bd38ae00de1de872c63",
+        "plan172b_freeze_formal_owner.py": "9a3479cfbb66dc86cd6b0a92bfb7ce3fbfe1229c0628aafed7ee03169748741d",
+        "plan172b_environment_owner.py": "bf8240da8fb9a679eeb30625f20548f8a9a0b1cf11f76910f82148d0b991f332",
+        "original85_172b_episode_owner.py": "b52d4b839ec35b1b3e2461825b401a201b8701413577c06c5e2881d233ef62cf"
+      }
+    },
+    "Python_consumers": {
+      "utc": "2026-11-19T21:01:48.355866+00:00",
+      "status": "PASS",
+      "actual_Python_program_cases": 12,
+      "cases": [
+        {
+          "mode": "select",
+          "turn": 84,
+          "result": "Python_guard_rejected_before_query",
+          "query_interceptions": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "select",
+          "turn": 85,
+          "result": "reached_intercept_before_native",
+          "query_interceptions": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "select",
+          "turn": 90,
+          "result": "reached_intercept_before_native",
+          "query_interceptions": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "select",
+          "turn": 91,
+          "result": "Python_guard_rejected_before_query",
+          "query_interceptions": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "turn": 84,
+          "result": "Python_guard_rejected_before_query",
+          "query_interceptions": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "turn": 85,
+          "result": "reached_intercept_before_native",
+          "query_interceptions": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "turn": 90,
+          "result": "reached_intercept_before_native",
+          "query_interceptions": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "turn": 91,
+          "result": "Python_guard_rejected_before_query",
+          "query_interceptions": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "end",
+          "turn": 84,
+          "result": "Python_guard_rejected_before_query",
+          "query_interceptions": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "end",
+          "turn": 85,
+          "result": "reached_intercept_before_native",
+          "query_interceptions": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "end",
+          "turn": 90,
+          "result": "reached_intercept_before_native",
+          "query_interceptions": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "end",
+          "turn": 91,
+          "result": "Python_guard_rejected_before_query",
+          "query_interceptions": 0,
+          "Native_queries": 0
+        }
+      ],
+      "preserved_bad_wrapper_controls": 2,
+      "negative_controls": [
+        {
+          "old_wrapper": "select",
+          "actual_turn": 85,
+          "rejected_before_native": true
+        },
+        {
+          "old_wrapper": "end",
+          "actual_turn": 85,
+          "rejected_before_native": true
+        }
+      ],
+      "Lua51_Lua53_compilation_at_query_boundary": true,
+      "modifications_for_test": "Only B evidence directory is redirected to temporary software sandbox. Native query intercepted before dispatch; actual Python argument bounds, fstring construction, Lua helper reads and original file-intent execution are retained.",
+      "Native_queries": 0,
+      "game_actions": 0,
+      "tracked_changes": 0
+    },
+    "readonly_retry": {
+      "utc": "2026-11-19T21:01:48.541871+00:00",
+      "source_version": 172,
+      "status": "PASS",
+      "actual_helper_cases": [
+        {
+          "case": "first_success",
+          "actual_readonly_query_interceptions": 1,
+          "accepted": true,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.430306+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "complete": true
+            }
+          ],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "one_transient_then_success",
+          "actual_readonly_query_interceptions": 2,
+          "accepted": true,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.433128+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=0, tag=4",
+              "qualified_transient": true
+            },
+            {
+              "utc": "2026-11-19T21:01:48.433980+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 2,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "complete": true
+            }
+          ],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "two_transients_then_success",
+          "actual_readonly_query_interceptions": 3,
+          "accepted": true,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.438233+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=0, tag=4",
+              "qualified_transient": true
+            },
+            {
+              "utc": "2026-11-19T21:01:48.440015+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 2,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=0, tag=4",
+              "qualified_transient": true
+            },
+            {
+              "utc": "2026-11-19T21:01:48.441805+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 3,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "complete": true
+            }
+          ],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "exhausted_three",
+          "actual_readonly_query_interceptions": 3,
+          "accepted": false,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.447833+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=0, tag=4",
+              "qualified_transient": true
+            },
+            {
+              "utc": "2026-11-19T21:01:48.449623+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 2,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=0, tag=4",
+              "qualified_transient": true
+            },
+            {
+              "utc": "2026-11-19T21:01:48.451385+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 3,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=0, tag=4",
+              "qualified_transient": true
+            }
+          ],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "other_frame",
+          "actual_readonly_query_interceptions": 1,
+          "accepted": false,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.457341+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=16777216, tag=4",
+              "qualified_transient": false
+            }
+          ],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "EOF",
+          "actual_readonly_query_interceptions": 1,
+          "accepted": false,
+          "attempt_receipts": [],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "Lua_assertion",
+          "actual_readonly_query_interceptions": 1,
+          "accepted": false,
+          "attempt_receipts": [],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "missing_marker",
+          "actual_readonly_query_interceptions": 1,
+          "accepted": false,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.468516+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "complete": true
+            }
+          ],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "duplicate_marker",
+          "actual_readonly_query_interceptions": 1,
+          "accepted": false,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.470687+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "complete": true
+            }
+          ],
+          "ActionPanel_commands": 0
+        },
+        {
+          "case": "changed_turn_after_transient",
+          "actual_readonly_query_interceptions": 2,
+          "accepted": false,
+          "attempt_receipts": [
+            {
+              "utc": "2026-11-19T21:01:48.472830+00:00",
+              "turn": 89,
+              "mode": "select",
+              "sequence": 8,
+              "attempt": 1,
+              "scope": "FIXED_READ_ONLY_PROFILE_PREFLIGHT_ONLY",
+              "ActionPanel_commands": 0,
+              "exception": "TunerFrameError",
+              "detail": "Tuner response frame rejected: size=0, tag=4",
+              "qualified_transient": true
+            }
+          ],
+          "ActionPanel_commands": 0
+        }
+      ],
+      "actual_main_cases": [
+        {
+          "wrapper": "repaired172b",
+          "mode": "select",
+          "readonly_interceptions": 2,
+          "action_interceptions": 1,
+          "result": "reached_action_interception_once",
+          "Native_queries": 0
+        },
+        {
+          "wrapper": "repaired172b",
+          "mode": "select",
+          "readonly_interceptions": 1,
+          "action_interceptions": 1,
+          "result": "transport_error_propagated_no_action_replay",
+          "Native_queries": 0
+        },
+        {
+          "wrapper": "repaired172b",
+          "mode": "step",
+          "readonly_interceptions": 2,
+          "action_interceptions": 1,
+          "result": "reached_action_interception_once",
+          "Native_queries": 0
+        },
+        {
+          "wrapper": "repaired172b",
+          "mode": "step",
+          "readonly_interceptions": 1,
+          "action_interceptions": 1,
+          "result": "transport_error_propagated_no_action_replay",
+          "Native_queries": 0
+        },
+        {
+          "wrapper": "repaired172b",
+          "mode": "end",
+          "readonly_interceptions": 2,
+          "action_interceptions": 1,
+          "result": "reached_action_interception_once",
+          "Native_queries": 0
+        },
+        {
+          "wrapper": "repaired172b",
+          "mode": "end",
+          "readonly_interceptions": 1,
+          "action_interceptions": 1,
+          "result": "transport_error_propagated_no_action_replay",
+          "Native_queries": 0
+        },
+        {
+          "wrapper": "repaired172b",
+          "mode": "select",
+          "readonly_interceptions": 3,
+          "action_interceptions": 0,
+          "result": "transport_error_propagated_no_action_replay",
+          "Native_queries": 0
+        },
+        {
+          "wrapper": "actual_old172a",
+          "mode": "select",
+          "readonly_interceptions": 1,
+          "action_interceptions": 0,
+          "result": "transport_error_propagated_no_action_replay",
+          "Native_queries": 0
+        }
+      ],
+      "actual_old172a_control_reproduced": true,
+      "strict_frame_reader_unchanged": true,
+      "maximum_fixed_readonly_attempts": 3,
+      "Native_queries": 0,
+      "game_actions": 0,
+      "test_scope": "Actual readonly_profile_check and main, real rendered select/step/end Python with only evidence directory redirected; all transport intercepted. Formal handle/owner/model-idle supplied as explicit software fixtures. No changed product/QA artifact or Native budget result."
+    },
+    "installer_preflight_and_real_temporary_continuation": {
+      "utc": "2026-11-19T21:03:25.795912+00:00",
+      "source_version": 172,
+      "status": "PASS",
+      "prewrite_cases": [
+        {
+          "case": "qualified",
+          "result": "qualified_actual_installer_reached_intercepted_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "actual_unregistered",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "wrong_script",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "boolean_session",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "desktop_released",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "prior_not_incomplete",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "wrong_failed_terminal",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "wrong_recovery_session",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "missing_retirement",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "missing_save",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "wrong_hash",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "bad_semantics",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "bad_readonly_proof",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "wrong_installed_hash",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        },
+        {
+          "case": "software_incomplete",
+          "result": "rejected_before_first_write",
+          "Native_queries": 0,
+          "writes": 0
+        }
+      ],
+      "actual_postbackup_temporary_install": true,
+      "original_backup_verified": true,
+      "installed_files_verified": 119,
+      "real_managed_installation_changed": false,
+      "runtime_registration_changed": false,
+      "Native_queries": 0,
+      "mocked": [
+        "Future172b preparation publication and synthetic parent777 only; no actual registration.",
+        "Repeated save verification skipped here; current actual semantics separately verifies g.saves."
+      ],
+      "limits": "Actual installer first-write guards and real owned temporary filesystem continuation only; no deployment, Steam action or Native budget result."
+    }
+  },
+  "consumers_sha256": {
+    "plan172b_lifecycle_owner.py": "c153e52b1d935cd5d7354182d9a5747d4ec830804a28d287a2b5dcfd37f7d8ea",
+    "plan172b_fixture_owner.py": "fe4fadeca976ab0333f82506afcee4137273d3359addb81f5b52dbfbc7df0c4a",
+    "plan172b_run_owner.py": "4a37aa960c3209702a5f345b6f9a65503fa22c02ee43714f85334ad50f99d6e8",
+    "plan172b_normal_player_owner.py": "3835ca1c074c36a93c23510497e5e94e9b80b5d8db916ad251382cfa2c0a64ab",
+    "plan172b_collect_owner.py": "d00d6477fc03e0fa5ce246fd8179cd291cd8b52061d66a65eabba7d2e4a8bd1b",
+    "plan172b_finish_owner.py": "234deb9a630ed6d63547d3366f90ce0118bdab9c23d615385e59e36fb1c2ee7f",
+    "plan172b_finish_formal_owner.py": "4fb5bca98506d928275b9f579fa9b5e4d39f84f45306729083e5f3cdc0f19705",
+    "plan172b_cleanup_owner.py": "ac74cc614fc96b4d434a28d5d009995cc8ca0871a234558aa954b82ed2167756",
+    "plan172b_continue_owner.py": "14a02292c59544ebe0fe1d757e11773ca965f77c4f1a9bbf6cb8ef4282116d68",
+    "plan172b_endpoint_owner.py": "a617c6dbbba1534ecc790de93c3d73a9ac84fa980477a4d52d678b85c21e3a1d",
+    "plan172b_header_owner.py": "0f2809dcfaa90b5b5a743e358be8f5a58dc6e2ad38c19bd38ae00de1de872c63",
+    "plan172b_freeze_formal_owner.py": "9a3479cfbb66dc86cd6b0a92bfb7ce3fbfe1229c0628aafed7ee03169748741d",
+    "plan172b_environment_owner.py": "bf8240da8fb9a679eeb30625f20548f8a9a0b1cf11f76910f82148d0b991f332",
+    "original85_172b_episode_owner.py": "b52d4b839ec35b1b3e2461825b401a201b8701413577c06c5e2881d233ef62cf"
+  },
+  "support_sha256": {
+    "original85_172b_plan_semantics_owner.py": "c4023c910ad29e46b7ffb6d2a3df0f90f629d1275ead067da2cb1a8716bc4ec4",
+    "test_plan172b_python_execution_owner.py": "6ae6c3b0d7e35f93bfe732c324f847d8084b458f56ed58404982a06ec482f925",
+    "record_plan172b_parent_owner.py": "692d9160db036e4bca6f449612d82877b15cb5ccb0cde605a1d73f467af1f432",
+    "record_plan172b_terminal_owner.py": "b771b7c9e67d20c31730c1beff94acf27a13b6ae9d7169b307b919f6597f4ee7"
+  },
+  "strict_transport_reader_sha256": "182c3bee7990eeef15feaf0225ced5dba75d2515410639ff99a23047c3ed02dc",
+  "Native_queries": 0,
+  "installed": false,
+  "generation_POSTs": 0,
+  "ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null,
+  "policy": {
+    "fixed_readonly_preflight_attempt_limit": 3,
+    "retryable_error": "TunerFrameError: Tuner response frame rejected: size=0, tag=4",
+    "other_errors": "propagate immediately",
+    "game_action_retries": 0,
+    "individual_attempts_retained": true
+  },
+  "next": "Start the sole original85_172b_episode_owner.py plan run parent and register its actual tool session before install/input. Obtain a fresh background UIA Steam offline proof, cold-load exact85, warm up, start formal before reload, capture all six ordinary ENDs and raw rows, then save/retire/release/officially exit. Adjudicate all retained data before proceeding.",
+  "limits": [
+    "The first172a run was incomplete, not a valid completed budget sample. Its270 rows/failure/checkpoint/exit stay retained; the repaired harness repeats the complete fixed fixture without changing source, windows, quotas, budget limits or rejecting outliers.",
+    "Only the fixed assert/print profile preflight reconnects. Actual main tests intercept original select/step/end command code and show one action boundary after read-only recovery, zero actions after exhausted preflight, and immediate propagation of an action frame error without action replay.",
+    "Installer tests use explicit future-publication and synthetic parent777 fixtures and skip repeated save hashing; actual semantics separately verifies current saves. Owned temporary backup/install is not real deployment or a real parent registration.",
+    "The source172 software record still distinguishes failed full-suite attempts from the corrected71 related tests. No new product change or blanket full-suite PASS is claimed.",
+    "Desktop is retained under the already-published closed/unresumable-peer unused-offer exception; no new peer handoff reply is claimed. Source171 valid paired FAIL, all40 gaps and old865 remain open."
+  ]
+}
