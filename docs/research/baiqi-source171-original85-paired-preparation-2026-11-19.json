@@ -1,0 +1,339 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T13:16:22.056058+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 171,
+  "status": "ORIGINAL85_PAIRED_SOFTWARE_PREPARED_NOT_NATIVE",
+  "whole_mod": "OPEN_CONTINUE",
+  "packages": [
+    {
+      "variant": "enabled",
+      "archive_sha256": "58096301c8daafa559c43c4cd50a23e160f57e9a7e7e17e93e7fd88b65f33a25",
+      "files": 119,
+      "exact_current_source_and_paired_transform_verified": true
+    },
+    {
+      "variant": "control",
+      "archive_sha256": "92b54ce68095242441a3290b823a4a8bd9054016940b0ff00110c807cbb77294",
+      "files": 119,
+      "exact_current_source_and_paired_transform_verified": true
+    }
+  ],
+  "consumers_sha256": {
+    "pair171_all_groups_owner.py": "393959ca2c7c3a90d1557a815ca0178ab370e8e0d18493bad04c92c7e3a28de1",
+    "pair171_cleanup_owner.py": "ce9312146b98e582a10c770fa94b8adf8eb3c6babee7f2c8df1fe0a75ec889fc",
+    "pair171_continue_owner.py": "a34d40ed9db20f44dc92d10fe9d6760bbdfb06dbe22f04acb73c99c74986713e",
+    "pair171_endpoint_owner.py": "99a5aa260a86ccde4c1fdcb516c94b64fee630cbc59eeb8482329f9a6845825b",
+    "pair171_environment_owner.py": "219aae61ccd191c513d1f2fc299ff07a379623567be1dc5d1cf6f77790d0dd91",
+    "pair171_header_owner.py": "fb2d83658ded43a0aee49390160b0bdae7cd4049bcd48cdce6f339b2efac812b",
+    "pair171_initial_owner.py": "6b064e5a11c23619187d0052a8843da44ad56f9c30f8bbef8aa1838e6559d8c1",
+    "pair171_input_audit_core_owner.py": "de6d6416d179642d6bf0f0b1f55e487122158e409d7c5957da4ef6b97f505d75",
+    "pair171_input_audit_owner.py": "15a1fe86f6e8e4f0f1543a3fc2a081c2612f502f50738d349dd7a020194404a6",
+    "pair171_lifecycle_owner.py": "22d0d80526a2a9fc8f938701db689599e35b235a33b6bdaf7d369fb2c709da49",
+    "pair171_owner.py": "d114701d6ef138948e1367a08612a597e7ef06f164af1e847c4ba9b70ae9812f",
+    "pair171_player_owner.py": "027f3e7de88a86c5049cc16abb90b6f9d86846238b155bf36c3f90bc59a5196c",
+    "pair171_render_owner.py": "8dcfab47d0d0a3f70bb4d23d6776370ceeeae39c5bed4b2056318972d35ff5eb",
+    "acceptance-continue-20261116/pair171-skip-only.lua": "b6bead204b6f5585ef3e6a2a451f7e98a0d761c05e648a7510a42ce86918e000"
+  },
+  "actual_software": {
+    "real_player_rendering": {
+      "actual_source_version": 171,
+      "fresh_label": "pair171-{pair}-{variant}",
+      "formal_guard_before_reload_and_run_and_each_child": true,
+      "children_dual_Lua_compiled": 2,
+      "native_calls": 0,
+      "raw_candidate_Native": 0,
+      "ordinary_end_uses_canonical152_preflight": true,
+      "legacy142_output_markers_retained_for_actual_callback_consumer": true
+    },
+    "actual_Python_boundaries": {
+      "utc": "2026-11-19T13:13:42.853256+00:00",
+      "source_version": 171,
+      "status": "PASS",
+      "actual_cases": [
+        {
+          "mode": "select",
+          "turn": 84,
+          "result": "Python_range_rejected",
+          "intercepted_queries": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "select",
+          "turn": 85,
+          "result": "reached_before_native",
+          "intercepted_queries": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "select",
+          "turn": 89,
+          "result": "reached_before_native",
+          "intercepted_queries": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "select",
+          "turn": 90,
+          "result": "Python_range_rejected",
+          "intercepted_queries": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "select",
+          "intentional_stale_range_control": true,
+          "rejected_before_native": true
+        },
+        {
+          "mode": "step",
+          "turn": 84,
+          "result": "Python_range_rejected",
+          "intercepted_queries": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "turn": 85,
+          "result": "reached_before_native",
+          "intercepted_queries": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "turn": 89,
+          "result": "reached_before_native",
+          "intercepted_queries": 1,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "turn": 90,
+          "result": "Python_range_rejected",
+          "intercepted_queries": 0,
+          "Native_queries": 0
+        },
+        {
+          "mode": "step",
+          "intentional_stale_range_control": true,
+          "rejected_before_native": true
+        },
+        {
+          "bad_mode_or_label": [
+            "end",
+            "pair171-1-enabled"
+          ],
+          "rejected_before_render": true
+        },
+        {
+          "bad_mode_or_label": [
+            "select",
+            "pair171-0-enabled"
+          ],
+          "rejected_before_render": true
+        },
+        {
+          "bad_mode_or_label": [
+            "step",
+            "pair171-1-unknown"
+          ],
+          "rejected_before_render": true
+        },
+        {
+          "bad_mode_or_label": [
+            "step",
+            "../other"
+          ],
+          "rejected_before_render": true
+        }
+      ],
+      "consumers_sha256": {
+        "pair171_render_owner.py": "8dcfab47d0d0a3f70bb4d23d6776370ceeeae39c5bed4b2056318972d35ff5eb",
+        "pair171_player_owner.py": "027f3e7de88a86c5049cc16abb90b6f9d86846238b155bf36c3f90bc59a5196c",
+        "test_pair171_python_execution_owner.py": "aba2dbfd83dc3519b826087a92bed4be6d485fb909f2ecf46da40f18eb866f31"
+      },
+      "Native_queries": 0,
+      "scope": "Actual borrowed select/step Python bounds and actual prepared ActionPanel guard; only evidence B redirected to temporary sandbox, transport intercepted before Native. Two intentional bad85bounds controls. No formation, move, END or game input executed."
+    },
+    "actual_install_first_write_guards": {
+      "utc": "2026-11-19T13:14:32.430856+00:00",
+      "source_version": 171,
+      "status": "PASS",
+      "cases": [
+        {
+          "case": "controlled_future_PASS_prewrite",
+          "outcome": "reached_first_write_intercept",
+          "Native_queries": 0,
+          "real_install_writes": 0
+        },
+        {
+          "case": "B_turn_FAIL",
+          "outcome": "rejected_before_first_write",
+          "Native_queries": 0,
+          "real_install_writes": 0
+        },
+        {
+          "case": "N_req_FAIL",
+          "outcome": "rejected_before_first_write",
+          "Native_queries": 0,
+          "real_install_writes": 0
+        },
+        {
+          "case": "missing_retired33",
+          "outcome": "rejected_before_first_write",
+          "Native_queries": 0,
+          "real_install_writes": 0
+        },
+        {
+          "case": "unknown_parent_completion",
+          "outcome": "rejected_before_first_write",
+          "Native_queries": 0,
+          "real_install_writes": 0
+        },
+        {
+          "case": "mismatched_parent_session",
+          "outcome": "rejected_before_first_write",
+          "Native_queries": 0,
+          "real_install_writes": 0
+        },
+        {
+          "case": "unqualified_summary",
+          "outcome": "rejected_before_first_write",
+          "Native_queries": 0,
+          "real_install_writes": 0
+        }
+      ],
+      "consumers_sha256": {
+        "pair171_all_groups_owner.py": "393959ca2c7c3a90d1557a815ca0178ab370e8e0d18493bad04c92c7e3a28de1",
+        "pair171_cleanup_owner.py": "ce9312146b98e582a10c770fa94b8adf8eb3c6babee7f2c8df1fe0a75ec889fc",
+        "pair171_continue_owner.py": "a34d40ed9db20f44dc92d10fe9d6760bbdfb06dbe22f04acb73c99c74986713e",
+        "pair171_endpoint_owner.py": "99a5aa260a86ccde4c1fdcb516c94b64fee630cbc59eeb8482329f9a6845825b",
+        "pair171_environment_owner.py": "219aae61ccd191c513d1f2fc299ff07a379623567be1dc5d1cf6f77790d0dd91",
+        "pair171_header_owner.py": "fb2d83658ded43a0aee49390160b0bdae7cd4049bcd48cdce6f339b2efac812b",
+        "pair171_initial_owner.py": "6b064e5a11c23619187d0052a8843da44ad56f9c30f8bbef8aa1838e6559d8c1",
+        "pair171_input_audit_core_owner.py": "de6d6416d179642d6bf0f0b1f55e487122158e409d7c5957da4ef6b97f505d75",
+        "pair171_input_audit_owner.py": "15a1fe86f6e8e4f0f1543a3fc2a081c2612f502f50738d349dd7a020194404a6",
+        "pair171_lifecycle_owner.py": "22d0d80526a2a9fc8f938701db689599e35b235a33b6bdaf7d369fb2c709da49",
+        "pair171_owner.py": "d114701d6ef138948e1367a08612a597e7ef06f164af1e847c4ba9b70ae9812f",
+        "pair171_player_owner.py": "027f3e7de88a86c5049cc16abb90b6f9d86846238b155bf36c3f90bc59a5196c",
+        "pair171_render_owner.py": "8dcfab47d0d0a3f70bb4d23d6776370ceeeae39c5bed4b2056318972d35ff5eb",
+        "acceptance-continue-20261116/pair171-skip-only.lua": "b6bead204b6f5585ef3e6a2a451f7e98a0d761c05e648a7510a42ce86918e000"
+      },
+      "actual_artifacts": "Current enabled/control pair archives119 and exact current source; temporary target contains actual quota171119 bytes plus explicit test marker, not installed game folder.",
+      "controlled_future_quota_receipts": "All quota171 results/terminal/retirement/publication are explicitly synthetic for software preflight; actual quota171 has not run.",
+      "mocked": [
+        "Future predecessor/publication reads and existence; seven explicit branches.",
+        "g.saves skipped; actual Git HEAD returned, real ancestry read.",
+        "First record intercepted before any real intent/backup/install."
+      ],
+      "Native_queries": 0,
+      "real_install_writes": 0,
+      "scope": "Actual paired do_install prewrite guards; no game, Steam, budget or current paired result granted."
+    },
+    "input_audit_synthetic": {
+      "utc": "2026-11-19T13:12:18.782173+00:00",
+      "source_version": 171,
+      "strict_negative_checks": [
+        "future_source",
+        "stale_source160",
+        "bool_source",
+        "wrong_fixture",
+        "forced_capture",
+        "duplicate_run",
+        "duplicate_token",
+        "boolean_clock_errors",
+        "bool_activation_turn",
+        "missing_marker",
+        "duplicate_marker",
+        "malformed_prefix",
+        "wrong_attempt_sequence",
+        "bool_frame_tag",
+        "different_selected_id",
+        "wrong_issuance_token",
+        "false_request_ACK",
+        "forced_request_ACK",
+        "bool_request_turn",
+        "missing_exhaustion",
+        "final_select_sequence_gap",
+        "unknown_empty_trace",
+        "same_unit_twice_in_one_turn"
+      ],
+      "positive_checks": [
+        "explicit_synthetic_ten_side_immutable",
+        "explicit_exhaustion_zero_step_trace",
+        "real_sequence_difference_reported_without_mutation_or_replay"
+      ],
+      "fixture": "Synthetic ten-side copies derived from one actual completed first-side trace; NOT ten Native runs or final input evidence.",
+      "Native_queries": 0,
+      "all10_actual_audit": "NOT_RUN"
+    }
+  },
+  "first_prepare_failure": {
+    "actual_exit": 1,
+    "stage": "Exact source replacement guard before versioned runtime batch writes",
+    "reason": "Private lifecycle uses one-space function-body indentation; initial needle expected two.",
+    "owner_correction": "Match actual source indentation, AST-parse the complete batch before writing.",
+    "Native_queries": 0
+  },
+  "future_plan": {
+    "pairs": 5,
+    "cold_sides": 10,
+    "alternating_order": [
+      [
+        "enabled",
+        "control"
+      ],
+      [
+        "control",
+        "enabled"
+      ],
+      [
+        "enabled",
+        "control"
+      ],
+      [
+        "control",
+        "enabled"
+      ],
+      [
+        "enabled",
+        "control"
+      ]
+    ],
+    "ordinary_END_turns": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "actual_closing_turn": 90,
+    "matched_segments": 25,
+    "Native": "NOT_RUN"
+  },
+  "prerequisites": [
+    "Current171 actual quota B_turn/N_req bothPASS publication in ancestry, exact actual parent terminal0/identity,33context export and retirement, saved checkpoint and absence.",
+    "Published identical14 consumer hashes, own119 source/archive/installed checks, fresh current-instance independent background Steam offline proof before every cold.",
+    "One actual Native writer, formal window before exact reload through officialsave, no model/heavy work during it, separate END receipt and actual next-turn observation."
+  ],
+  "Native_queries": 0,
+  "installed": false,
+  "B_delta": "NOT_RUN",
+  "generation_POSTs": 0,
+  "ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null,
+  "limits": [
+    "The future quota receipts in seven prewrite tests are explicitly synthetic. No quota171 has run and no pair can install now.",
+    "Two actual Python renderings/14boundary cases and26synthetic audit checks are software evidence, not10cold Native sides or50actual SKIPs.",
+    "Keep legacy142 output markers because the actual paired callback consumes them; version171 is independently checked in source/bridge/package.",
+    "Conditional preparation does not grant B_turn/N_req/B_delta or wholeTC036. Continue actual next stages and all40, preserving prior failures/old865 unknown."
+  ]
+}
