@@ -1,6 +1,6 @@
 # 白绮：为我前驱开发原型
 
-2026-11-19当前源码171：[原85规划实机](../research/baiqi-source171-original85-plan-native-2026-11-19.json)333原样本保留，Admin120个p95/max约8/10ms、Controller148个约15/46ms，满足原100/20/50门槛；普通六次结束至实际91，保存／撤钩／释放／退出已闭合。[全脚本](../research/baiqi-source171-original85-fullscript-preparation-2026-11-19.json)与[五组配对](../research/baiqi-source171-original85-paired-preparation-2026-11-19.json)仅完成软件准备，尚未实测。整个mod仍未验收完成，继续任务见[当前交接](../handoff-2026-11-16.md)；以下各版本记录均为历史范围。
+2026-11-19当前源码171：[原85规划实机](../research/baiqi-source171-original85-plan-native-2026-11-19.json)333原样本保留，Admin120个p95/max约8/10ms、Controller148个约15/46ms，满足原100/20/50门槛。[全脚本实机B_turn／N_req也已通过](../research/baiqi-source171-original85-fullscript-native-2026-11-19.json)：33上下文、833保留样本，五窗耗时并集约147–286ms、完整回合写请求8–32次；六次普通结束实际91／11城、保存／撤33钩／释放／退出与父进程0已闭合。[五组配对](../research/baiqi-source171-original85-paired-preparation-2026-11-19.json)仍仅准备完成，B_delta尚未实测。整个mod仍未验收完成，继续任务见[当前交接](../handoff-2026-11-16.md)；以下各版本记录均为历史范围。
 
 当前源码与交接入口见[README](../../README.md)和[142软件验证](../testing/baiqi-source142-support-budget745746.md)：2220项含1项SDK跳过，[142 N正式五窗规划预算已通过](../testing/baiqi-stageA142-N.md)，仅限B_plan；[142全脚本耗时／写入预算已通过](../testing/baiqi-allscript142-pair751752.md)，匹配对照仍待。[141正式性能FAIL](../testing/baiqi-stageA141-fail-743.md)继续保留；[142主333冷读九域全等](../testing/baiqi-release142-cold333.md)，[四项冻结预算在原85夹具通过](../testing/baiqi-performance142-frozen760.md)，TC036压力及功能矩阵仍开放。以下为各版本历史证据，不能直接作为142当前实测。
 
