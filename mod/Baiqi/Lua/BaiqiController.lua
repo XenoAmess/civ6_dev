@@ -1047,37 +1047,45 @@ local function RequestCivilianStandby(unit)
     if not SettlerQueueIdle(fresh,unitType)then return nil end
     return fresh
   end
-  -- Legacy creator receipts remain unknown, even when the native charge counter
-  -- is zero (that value also occurs before normal creation). Sleep is waiting,
-  -- never proof that an old creation failed or permission to replay it.
-  local function LegacyCreativeSleep(unit,unitType,eligible)
-    if not BaiqiPolicy.CreativeGreatPersonClass(unitType) then return false,false end
+  -- Legacy receipts remain unknown. Sleep is waiting, never proof that an old
+  -- activation failed or permission to replay it. Charged district people may
+  -- wait too; native SKIP can be followed by another ready-unit prompt. Creator
+  -- zero charges also occur before normal creation and do not prove exhaustion.
+  local function LegacyGreatPersonSleep(unit,unitType,eligible)
+    local creative=BaiqiPolicy.CreativeGreatPersonClass(unitType)
+    local district=BaiqiPolicy.DistrictGreatPersonClass(unitType)
+    if not creative and not district then return false,false end
+    local bridgeName=creative and "BaiqiCreativeIntentBridge" or "BaiqiGreatPersonIntentBridge"
+    local marker=creative and "baiqi-creative-intent-v1" or "baiqi-gp-intent-v1"
     local manager=UnitManager
     local can,writer,queue,activity=manager.CanStartOperation,manager.RequestOperation,
       manager.GetQueuedDestination,manager.GetActivityType
-    local bridge=type(ExposedMembers)=="table" and ExposedMembers.BaiqiCreativeIntentBridge
+    local bridge=type(ExposedMembers)=="table" and ExposedMembers[bridgeName]
     local inspect=type(bridge)=="table" and bridge.Inspect
     local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SLEEP
     local operation=row and row.Hash
     if type(can)~="function" or type(writer)~="function" or type(queue)~="function"
       or type(activity)~="function" or not BaiqiPolicy.Number(operation) or operation%1~=0
-      or type(inspect)~="function" or bridge.version~=1 or bridge.marker~="baiqi-creative-intent-v1" then return false,false end
+      or type(inspect)~="function" or bridge.version~=1 or bridge.marker~=marker then return false,false end
     local id,at,playerID=unit:GetID(),turn,contextID
     local function Read(current)
       local ok,value=pcall(function()
         local stage,token=inspect(playerID,id)
         if stage~="LEGACY_UNKNOWN" or type(token)~="string" or token=="" then return nil end
         local gp=type(current.GetGreatPerson)=="function" and current:GetGreatPerson()
-        if not gp or type(gp.GetActionCharges)~="function" or gp:GetActionCharges()~=0 then return nil end
+        if not gp or type(gp.GetActionCharges)~="function" then return nil end
+        local charges=gp:GetActionCharges()
+        if not BaiqiPolicy.Number(charges) or charges%1~=0 or charges<0 or charges>1000000
+          or (creative and charges~=0) or (district and charges<=0) then return nil end
         local individual=GameInfo.GreatPersonIndividuals[gp:GetIndividual()]
         local class=GameInfo.GreatPersonClasses[gp:GetClass()]
-        local expected=BaiqiPolicy.CreativeGreatPersonClass(unitType)
+        local expected=creative or district
         local index=UnitIndex(current)
         if not individual or not class or individual.GreatPersonClassType~=expected
           or class.GreatPersonClassType~=expected or not index
           or not BaiqiPolicy.Number(individual.Index) or individual.Index<0 or individual.Index%1~=0
           or not BaiqiPolicy.Number(class.Index) or class.Index<0 or class.Index%1~=0 then return nil end
-        return {token=token,individual=individual.Index,class=class.Index,plot=index}
+        return {token=token,individual=individual.Index,class=class.Index,charges=charges,plot=index}
       end)
       return ok and value or nil
     end
@@ -1086,8 +1094,8 @@ local function RequestCivilianStandby(unit)
     local function Bound()
       return UnitManager==manager and manager.CanStartOperation==can and manager.RequestOperation==writer
         and manager.GetQueuedDestination==queue and manager.GetActivityType==activity
-        and type(ExposedMembers)=="table" and ExposedMembers.BaiqiCreativeIntentBridge==bridge
-        and bridge.Inspect==inspect and bridge.version==1 and bridge.marker=="baiqi-creative-intent-v1"
+        and type(ExposedMembers)=="table" and ExposedMembers[bridgeName]==bridge
+        and bridge.Inspect==inspect and bridge.version==1 and bridge.marker==marker
         and GameInfo.UnitOperations.UNITOPERATION_SLEEP==row and row.Hash==operation
     end
     local function Empty(ok,...)return ok and select("#",...)<=1 and (...)==nil end
@@ -1101,7 +1109,8 @@ local function RequestCivilianStandby(unit)
       local current=eligible()
       local value=current and Read(current)
       if not value or value.token~=expected.token or value.individual~=expected.individual
-        or value.class~=expected.class or value.plot~=expected.plot or not Idle(current) then return nil end
+        or value.class~=expected.class or value.charges~=expected.charges
+        or value.plot~=expected.plot or not Idle(current) then return nil end
       local latest=eligible()
       if not latest or UnitIndex(latest)~=expected.plot or not Idle(latest) or not Bound() or not CoreIdle() then return nil end
       return latest
@@ -1119,7 +1128,7 @@ local function RequestCivilianStandby(unit)
     if not fresh then return true,false end
     local request=NextRequest("standby:"..id..":"..turn)
     if not request then return true,false end
-    Log("request","id="..request.."|source=BACKGROUND|unit="..id.."|operation=SLEEP|reason=legacy_creative_standby")
+    Log("request","id="..request.."|source=BACKGROUND|unit="..id.."|operation=SLEEP|reason="..(creative and "legacy_creative_standby" or "legacy_great_person_standby"))
     local ok,err=pcall(writer,fresh,operation,{})
     if not ok then Log("standby_unknown","id="..request.."|unit="..id.."|reason="..tostring(err)) end
     return true,true
@@ -1127,8 +1136,8 @@ local function RequestCivilianStandby(unit)
 
   local fresh=Eligible()
   if not fresh then return false end
-  if BaiqiPolicy.CreativeGreatPersonClass(unitType) then
-    local handled,sent=LegacyCreativeSleep(fresh,unitType,Eligible)
+  if BaiqiPolicy.CreativeGreatPersonClass(unitType) or BaiqiPolicy.DistrictGreatPersonClass(unitType) then
+    local handled,sent=LegacyGreatPersonSleep(fresh,unitType,Eligible)
     if handled then return sent end
     fresh=Eligible()
     if not fresh then return false end

@@ -39,7 +39,7 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
         assert_no_model_activity(Path.cwd())
     if type(legacy_forced) is not bool:
         raise TypeError('legacy_forced must be an explicit boolean')
-    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167):
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168):
         raise ValueError('Invalid source version')
     if legacy_forced:
         if request_normal_end is not None:
@@ -50,7 +50,7 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
         raise ValueError('Expected positive retained-sample budget')
     pressure=pressure_initial_turn is not None
     if pressure and(type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                    or legacy_forced or sample_budget!=4096 or expected_source_version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167)):
+                    or legacy_forced or sample_budget!=4096 or expected_source_version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168)):
         raise ValueError('Pressure requires bounded actual calendar, ordinary END and4096 cap')
     first=pressure_initial_turn if pressure else 85;closing=first+6
     pressure_source=f'baiqi{expected_source_version}-pressure-observed-v1'

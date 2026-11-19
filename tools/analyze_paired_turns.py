@@ -7,11 +7,11 @@ def _finite(value):
 
 
 def validate_capture_mode(capture, expected_source_version, require_ordinary, initial_turn=None):
-    if type(expected_source_version) is not int or expected_source_version not in (67, 140, 141, 142, 143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167):
+    if type(expected_source_version) is not int or expected_source_version not in (67, 140, 141, 142, 143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168):
         raise ValueError('expected_source_version must be int 67,140 or141')
     if type(require_ordinary) is not bool:
         raise ValueError('require_ordinary must be bool')
-    if require_ordinary and expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167):
+    if require_ordinary and expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168):
         raise ValueError('require_ordinary requires expected_source_version 140 or141')
     if not isinstance(capture, collections.abc.Mapping):
         raise ValueError('capture must be a mapping')
@@ -21,7 +21,7 @@ def validate_capture_mode(capture, expected_source_version, require_ordinary, in
         if capture.get('source') in ('baiqi142-pressure-paired-v1', 'baiqi143-pressure-paired-v1', 'baiqi144-pressure-paired-v1', 'baiqi145-pressure-paired-v1', 'baiqi146-pressure-paired-v1', 'baiqi147-pressure-paired-v1', 'baiqi148-pressure-paired-v1', 'baiqi149-pressure-paired-v1', 'baiqi150-pressure-paired-v1', 'baiqi151-pressure-paired-v1', 'baiqi152-pressure-paired-v1', 'baiqi153-pressure-paired-v1', 'baiqi154-pressure-paired-v1', 'baiqi155-pressure-paired-v1', 'baiqi156-pressure-paired-v1', 'baiqi157-pressure-paired-v1', 'baiqi158-pressure-paired-v1', 'baiqi159-pressure-paired-v1', 'baiqi160-pressure-paired-v1','baiqi161-pressure-paired-v1','baiqi162-pressure-paired-v1') or 'initial_turn' in capture:
             raise ValueError('Pressure capture requires pressure analyzer')
     else:
-        if (expected_source_version not in (142, 143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167) or require_ordinary is not True
+        if (expected_source_version not in (142, 143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168) or require_ordinary is not True
                 or capture.get('source') != f'baiqi{expected_source_version}-pressure-paired-v1'
                 or type(capture.get('initial_turn')) is not int or capture['initial_turn'] != initial_turn):
             raise ValueError('Pressure capture metadata mismatch')
@@ -194,7 +194,7 @@ def analyze_pressure_pairs(pairs, fixture_sha256, *, initial_turn, expected_sour
     """Analyze actual pressure-calendar labels without rewriting capture data."""
     if type(initial_turn) is not int or not 0 <= initial_turn <= 2147483641:
         raise ValueError('Invalid pressure initial_turn')
-    if type(expected_source_version) is not int or expected_source_version not in (142, 143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167):
+    if type(expected_source_version) is not int or expected_source_version not in (142, 143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168):
         raise ValueError('Invalid pressure source version')
     result = _analyze_core(pairs, fixture_sha256, expected_source_version, True, initial_turn)
 

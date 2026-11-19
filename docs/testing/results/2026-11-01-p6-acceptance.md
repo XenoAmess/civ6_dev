@@ -2015,3 +2015,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：Source167软件通过，继续冷验
 
 [静态几何分步与完整回归](../../research/baiqi-source167-bounded-support-geometry-software-2026-11-19.json)：2829运行中2828通过／1SDK跳过，10新Controller及3新观察器方法、旧166两项失败对照，97Lua双编译／119文件。新QA精确支持待算形状并保留旧规则字节；[新原85准备](../../research/baiqi-source167-original85-plan-prepared-2026-11-19.json)58语义、12实际Python、4安装前置场景通过。Native167尚未开始，16624/106ms有效FAIL与112根485行诊断不变，整个modOPEN，继续执行。
+
+
+## 2026-11-19：167中止与168旧内政伟人等待软件修复
+
+[167实际88中止](../../research/baiqi-source167-aborted88-merchant-native-2026-11-19.json)保留181原值、10前锚及存档，0END88，恢复2包装后释放并退出；缺完整窗口，不算预算通过。[168软件](../../research/baiqi-source168-legacy-district-standby-software-2026-11-19.json)真实Core／Controller七项双Lua测试、旧167六分支失败对照，全2836项中2835通过、1SDK跳过，97Lua／119文件；[原85冷测准备](../../research/baiqi-source168-original85-plan-prepared-2026-11-19.json)58语义、12Python、4安装前置案例已核。Native168尚未开始，整个mod仍OPEN，继续执行。

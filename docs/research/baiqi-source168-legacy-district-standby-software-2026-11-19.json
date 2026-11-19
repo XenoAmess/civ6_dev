@@ -1,0 +1,133 @@
+{
+  "date": "2026-11-19",
+  "machine": "BF-202609141645",
+  "source_version": 168,
+  "status": "SOFTWARE_PASS_NATIVE_PENDING",
+  "software_complete": true,
+  "Native168": "NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": "baiqi-source167-aborted88-merchant-native-2026-11-19.json",
+  "product_change": {
+    "files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_identical_vs167": 117,
+    "controller_sha256": "b56ea7689e017fd0ef7c40ce5ba307c02dc6eeddd0c83efedbc82da2bec21c67",
+    "behavior": "Extend existing guarded legacy creator sleep to charged merchant/scientist/engineer with exact LEGACY_UNKNOWN Core receipt. Idle queue, formation1, current own civilian authority, awake/readiness, native permission, receipt token/individual/class/charges/plot, original binding and turn guards remain. Sleep waits; it neither activates nor moves the person, clears the journal, replays an ability, or grants manual control. Missing/rejected sleep retains original SKIP path. Unknown sleep is not retried in the same turn.",
+    "unchanged": [
+      "OPEN and ARMED activation protocol",
+      "creator zero-charge waiting semantics",
+      "army/religious combat/escort/diplomacy boundaries",
+      "settler geometry and original final writer checks"
+    ],
+    "manual_controls_added": 0
+  },
+  "software": {
+    "full_suite": {
+      "run": 2836,
+      "passed": 2835,
+      "SDK_environment_skips": 1,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 298.924,
+      "actual_terminal": {
+        "utc": "2026-11-19T07:47:19.184210+00:00",
+        "session_id": 42739,
+        "exit_code": 0,
+        "actual_tool_completion": true,
+        "tool": "write_stdin observed actual unified exec terminal0",
+        "run": 2836,
+        "passed": 2835,
+        "skipped": 1
+      },
+      "log_sha256": "ad9851817b85f1153eb23bca846d371ce911528f68d1a6f4b41738b8a9f778b1"
+    },
+    "new_methods": 7,
+    "new_methods_dual_Lua_before_adoption": true,
+    "old167_negative_control": {
+      "method": 1,
+      "dual_Lua_three_classes_expected_failures": 6,
+      "errors": 0,
+      "old_source": 167
+    },
+    "first_fixture_failure": {
+      "methods": 7,
+      "errors": 52,
+      "reason": "Missing Lua token spaces in mutation fixture; fixed; first result retained. No product inference from invalid fixtures."
+    },
+    "Lua51_Lua53_files": 97,
+    "ordinary_files": 119,
+    "QA_opt_in_tools": 17
+  },
+  "ordinary_package": {
+    "archive_sha256": "d3efcbcb3f0790cde214a16fe4eb981dbbffe31f6b1187c8aa2dd697e18942f3",
+    "archive_bytes": 8837183,
+    "delivered_local_path": "dist/Baiqi168.zip"
+  },
+  "model": {
+    "availability_before_candidate": {
+      "utc": "2026-11-19T07:35:12.333901+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T07:35:12.299276+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 13.653300004079938,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T07:35:12.313935+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "d1b3fd55fe9ab31966872864d07afa948909f14b5c6a0e8d7ce4f7d5218a6989",
+          "total_ms": 18.33479991182685
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "new_generation_POSTs": 0,
+    "adopted_model_candidates": 0,
+    "Owner_continuation": true,
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Software pass does not prove actual native sleep, removal of ordinary END blocker, or current performance budgets.",
+    "Source167 incomplete181 rows and prior166 valid24/106ms FAIL retained.",
+    "Current full-mod40, old865 recovery and other pending Native branches remain open."
+  ]
+}
