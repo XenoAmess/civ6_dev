@@ -1,0 +1,414 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T05:57:47.246173+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 166,
+  "status": "PRIVATE20_DIAGNOSIS_PREPARED_SOFTWARE_PASS_NATIVE_NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "current_original85_B_plan": "FAIL",
+  "original85_FAIL_evidence": "baiqi-source166-original85-plan-native-2026-11-19.json",
+  "old8650807": "FAIL_UNRESOLVED",
+  "scope_reason": "Source166 actual B_plan validFAIL: Controller148pureten p95~24ms/max106ms. Measure the new native movement-range call separately inside actual districtRoute.Run, with short-leg path and original lexical/native children correlated to the same root. No cause inferred from prior captures.",
+  "artifact": {
+    "mode": "baiqi166-controller-children-v8",
+    "archive_sha256": "f5235e991633a6509f68b9541cab60b7f59395eddb2229c38ec4181aa2a0e74c",
+    "files": 119,
+    "Lua51_Lua53_files": 97,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "binding_count": 20,
+    "lexical_children": [
+      "ProcessSettler",
+      "ProcessNaturalist",
+      "ProcessArchaeologist",
+      "ProcessDistrictPerson",
+      "ProcessCreative",
+      "ProcessProphet",
+      "KnownExpansionSupport",
+      "SettlementBridge",
+      "SettlerGoalBridge",
+      "RequestCivilian",
+      "PathStep",
+      "Safe"
+    ],
+    "existing_native_children": [
+      "Native.GetMoveToPathEx",
+      "Native.DetourChoicePath",
+      "Native.DetourFirstEdgePath",
+      "Native.FoundRequestOperation"
+    ],
+    "additional_children": [
+      "DistrictRoute.Run",
+      "Native.DistrictRoutePath",
+      "Native.DistrictRouteRange"
+    ],
+    "profile_count": 1,
+    "capacity": 4096,
+    "focus_turns": [
+      88,
+      89,
+      90
+    ],
+    "window_seconds": 10,
+    "pre_observer_active_entries_retained": true,
+    "private_transform_sha256": "8528edc0c692ed42cbabe21906927b9d4f212a58f66a2ee8482f679c5a7f6e29",
+    "exact_original_source_recovery": true,
+    "native_global_binding_modified": false,
+    "installed": false
+  },
+  "contract": "Three field aliases enclose actual districtRoute.Run and its unique cached short-path and movement-range query pcalls. All originals, arguments, nil-containing return arity and errors pass through once. Existing query identity check and RequestCivilian remain original. Extra aliases restore independently and preserve foreign replacements; all20 binding flags are read back. No product source changes.",
+  "actual_binding_software": {
+    "utc": "2026-11-19T05:52:22.836222+00:00",
+    "source_version": 166,
+    "status": "PASS",
+    "actual_bindings": 20,
+    "passed": 24,
+    "cases": [
+      {
+        "case": "normal88",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "normal88",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "normal90",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "normal90",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "pre_observer",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "pre_observer",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "out_of_scope87",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "out_of_scope87",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "root_error_once",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "root_error_once",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "native_error_once",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "native_error_once",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "offroot_arity",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "offroot_arity",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "zero_root_returns",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "zero_root_returns",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "foreign_root",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "foreign_root",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "foreign_fields",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "foreign_fields",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "range_error_once",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "range_error_once",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "foreign_range",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "foreign_range",
+        "VM": "Lua53",
+        "PASS": true
+      }
+    ],
+    "reversible_prefix_negative_controls": 4,
+    "actual_suffix_sha256": "a61c32ecfe257fa4e4f01d92299d2ca4716f17343fd63aeac54b508c2d12ebbb",
+    "artifact_sha256": "f5235e991633a6509f68b9541cab60b7f59395eddb2229c38ec4181aa2a0e74c",
+    "capacity": 4096,
+    "Native_queries": 0,
+    "game_actions": 0,
+    "limits": "Exact actual private suffix contracts in software; no Native timing, cause or game-effect grant."
+  },
+  "actual_runtime_software": {
+    "archive_sha256": "f5235e991633a6509f68b9541cab60b7f59395eddb2229c38ec4181aa2a0e74c",
+    "player_actual15_payloads_dualLua": [
+      {
+        "turn": 85,
+        "mode": "select",
+        "sha256": "f38908a576d696d2c3d94dfb10d2ad0c854c16455668bab5949735328c85aca9"
+      },
+      {
+        "turn": 85,
+        "mode": "step",
+        "sha256": "a051a2c998b3483b6786204640939733d73eb41b9d140026b25f6c749820788f"
+      },
+      {
+        "turn": 85,
+        "mode": "end",
+        "sha256": "bb41a3e7b648dd66ea69173ab94f8703c6cf49b52f2e557a35a43051f1901002"
+      },
+      {
+        "turn": 86,
+        "mode": "select",
+        "sha256": "d2ef8b29233a7d80fe24c9fb345d8c5d2e240beba8a622974a16dc181a556a15"
+      },
+      {
+        "turn": 86,
+        "mode": "step",
+        "sha256": "1ca000522645d343a4d7ce4aad7202b518854c539687e9079f5e6f9ee27af8ff"
+      },
+      {
+        "turn": 86,
+        "mode": "end",
+        "sha256": "f6682947e462f14d71c223842fc0c4708582492c19da81f9dfe4e705022c2f65"
+      },
+      {
+        "turn": 87,
+        "mode": "select",
+        "sha256": "b3916dd304a0a417e17f95480d7285edb9445efd1627b6bf26ad6eb5bba7fc5a"
+      },
+      {
+        "turn": 87,
+        "mode": "step",
+        "sha256": "b55f396ef87181f302eefa1d5d00e5869e89bea001641c7a2567d3339b452878"
+      },
+      {
+        "turn": 87,
+        "mode": "end",
+        "sha256": "75e5cf5fb0ce1b8bde6b2cceeea6fb545ff7461cd30e6b1d6e33622d1fe863bd"
+      },
+      {
+        "turn": 88,
+        "mode": "select",
+        "sha256": "97522a99371a84aeff97a9fa737f80a582047e9de9908b517cb9fd1aa5d7402b"
+      },
+      {
+        "turn": 88,
+        "mode": "step",
+        "sha256": "f5e38c74ff535da2c408786ecf9cbdb7f34c0905c51a6a95e1a2ac8b99c257a4"
+      },
+      {
+        "turn": 88,
+        "mode": "end",
+        "sha256": "5e4aceae53e33d8055b001fbdbd73c108919b76baadfd0aa0b487d33dbff9bc0"
+      },
+      {
+        "turn": 89,
+        "mode": "select",
+        "sha256": "06dde05ff271c2c09685170b7338fc3558317e0bc7905ecdd7a612c85f3bf960"
+      },
+      {
+        "turn": 89,
+        "mode": "step",
+        "sha256": "2deb5ee7c136506686f20616326d3ef4f1ed57e80660ee4f1e4fd4a46c37484f"
+      },
+      {
+        "turn": 89,
+        "mode": "end",
+        "sha256": "bee9821c9bff96df26405fd65184ccc1184a65b8e053ad5f0ecb953064d7d963"
+      }
+    ],
+    "profile_preflight85_89_dualLua": true,
+    "finish_actual3_payloads_dualLua": [
+      {
+        "API": "save_checkpoint",
+        "sha256": "ada783d3f1ee0f769f3746fa63c12d21585bb2510eee0492ddc4c77b368c1e86"
+      },
+      {
+        "API": "query",
+        "sha256": "27d10ec67b7962091fd73d54830a494ec77a25c8254ee3cc96db1255e3a48287"
+      },
+      {
+        "API": "query",
+        "sha256": "d813372e86b4297ab54052c95d9c06b00e8ce41a0d46da57f1c45478fb30b276"
+      }
+    ],
+    "AST_scripts": 18,
+    "Native_calls": 0,
+    "game_actions": 0,
+    "limits": "Actual renderer/payload/guard syntax only. No Native result. Readiness-patch first edit was rejected before targetwrite due indentation, then corrected. Diagnostic wall watchdog360 only; fixed10s/4096 and budget thresholds unchanged."
+  },
+  "actual_install_preflight": {
+    "utc": "2026-11-19T05:57:09.379039+00:00",
+    "status": "PASS",
+    "actual_installer": true,
+    "cases": [
+      {
+        "case": "actual_current_records",
+        "result": "reached_intercepted_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      },
+      {
+        "case": "prior_budget_true",
+        "result": "rejected_before_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      },
+      {
+        "case": "wrong_binding_count",
+        "result": "rejected_before_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      },
+      {
+        "case": "prior_QA_not_retired",
+        "result": "rejected_before_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      }
+    ],
+    "writes": 0,
+    "Native_queries": 0,
+    "future_receipt": "Only future preparation publication is a software fixture; prior current166 capture/terminal/publication/save/QA and all source/archive/installed119 are actual read-only records."
+  },
+  "consumer_sha256": {
+    "controller166a_lifecycle_owner.py": "b35d23cc2cfff8422f189acbc3555e12d20011672e41ea2c50da2b0337254518",
+    "controller166a_fixture_owner.py": "24c19d71517b804bf0b529e2f83db874a307ef45ec79edcd55ed85f47abfcca0",
+    "controller166a_header_owner.py": "575e2de94cd26615cb7b949ce444ff8a564da5fdfec270e73f2d83e8ae92d476",
+    "controller166a_continue_owner.py": "762b552eb9b43705a79162e305732434849ba22e09b42ee9f28cf41fd41953df",
+    "controller166a_endpoint_owner.py": "368939cd7f21cf0fcdb010ba9fdd84792f1d1d59b2e39d743a43540ff71ac5d1",
+    "controller166a_cleanup_owner.py": "7f8795f020833288b4312c00dfda110e84c9f455f7e4647be5f1bacc649b7525",
+    "controller166a_run_owner.py": "814a57893bdf113827fce479bf34a5f5f1dd2c45a2483e5472c38c38bc007320",
+    "controller166a_collect_owner.py": "78c443351d648ad5400b6ae6ccf5be5085a8abf7a02f1d8c1f810b023b17f1b0",
+    "controller166a_progress_owner.py": "32e856b0f7fc6d9e1f59182b1ceadc182fa0c1d69990f52631e68f62ace78827",
+    "controller166a_normal_player_owner.py": "4f42183dd14149cf7602997d39fbd998d43988a675cf7d901d24c43a1ce1a639",
+    "controller166a_brief_owner.py": "91fc84f7724800a941a724a21082ca27551d4154f1b2e96289aca1d493d89fa0",
+    "controller166a_finish_owner.py": "8008f1124c141b385f0b1683c08dcb2fa919958dba25bcac27a01e52f4f23679",
+    "controller166a_finish_formal_owner.py": "d31bf5b607f266faead76d7a1f922c1c9a96e39f407a4a5fa9f642549092eb2d",
+    "controller166a_episode_owner.py": "09d0d63b7b8495eaf412702fea03c278c20d9b0f49e7264829e49747c4bd1f00",
+    "controller166a_validate_runtime_owner.py": "9578307c70f8d296e45bf65b1f90ae0abb22042e447cedc7453f90c0b06f83f1",
+    "controller166a_environment_owner.py": "f8b62596f60a557e400ac1891f0aa26c827f4b4dc049010fdcd7d7d672d38e77",
+    "controller166a_freeze_formal_owner.py": "9c8c80ef7071bd101539346cefa2bd220d075b57c8d02869539fa2b50495b607"
+  },
+  "lifecycle": "Closed166StageA parent31870 actual0, allraw saved/retired/formal-off/official-exit/quiet-residue accounted, validFAIL published; require current17 hashes and published preparation ancestor before exact119 backup/install. Fresh independent offline proof, program/CPU pin, warmup>=60s and formal reservation before exact reload. Five ordinary85..89 ends reach90; export all roots/children, save, restore20, release, official exit and actual parent terminal.",
+  "configured_model_readonly_R8": {
+    "utc": "2026-11-19T05:49:55.662302+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-19",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-19T05:49:55.544636+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 321,
+        "over_64KiB": false,
+        "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+        "total_ms": 79.61499993689358,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-19T05:49:55.627328+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 482,
+        "over_64KiB": false,
+        "sha256": "0d5f25f4d5877d69bd432e5468fdf8bac6aa90ed05e7bcc3e8897712170bf53f",
+        "total_ms": 29.913999838754535
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "model_ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "new_generation_POSTs": 0,
+  "adopted_model_candidates": 0,
+  "unknown_costs": null,
+  "Native_queries": 0,
+  "game_actions": 0,
+  "limits": [
+    "Software-only preparation. No cause or improved performance inferred from another capture or the new aliases.",
+    "Do not add nested inclusive intervals; analyze union and coverage within each actual root.",
+    "Source166 original85 p95~24ms/max~106ms remains a valid FAIL, with all327 raw rows. Dependent quota166 and pair remain blocked.",
+    "Continue diagnostic causal review, product fix and retest, then remaining full-mod cases; do not end at this report."
+  ]
+}
