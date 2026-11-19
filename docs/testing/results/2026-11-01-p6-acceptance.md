@@ -1985,3 +1985,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：Source166软件通过，继续实机
 
 [伟人邻近分段寻路](../../research/baiqi-source166-short-leg-route-software-2026-11-19.json)：2816运行中2815通过／1SDK跳过，12新Controller方法与98相关测试通过，旧165两项负对照按预期拒绝。97Lua双编译／119文件；[新原85准备](../../research/baiqi-source166-original85-plan-prepared-2026-11-19.json)14消费者／58语义场景通过。165实机Controller21/140ms有效FAIL保留，166Native尚未开始，局部路线完备和Native耗时均不授通过。整个modOPEN，继续执行。
+
+
+## 2026-11-19：166安装前检查修正后继续
+
+[实际检查与首次失败记录](../../research/baiqi-source166-preinstall-guard-correction-2026-11-19.json)：首次在安装前终止，父4549实际1，0安装／游戏／Native输入。正式释放说明与实际预算裁定分开核；新4个实际安装函数只读前置场景、58语义场景通过。产品及完整软件回归包未变；继续独立166b冷验，整个modOPEN。
