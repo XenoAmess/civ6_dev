@@ -1,0 +1,371 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T00:28:06.953070+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 163,
+  "status": "CONTROLLER_CHILD_DIAGNOSIS_PREPARED_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": {
+    "evidence": "https://github.com/XenoAmess/civ6_dev/blob/8f7dc3dc56c66cc61e513f2f261131e02515a951/docs/research/baiqi-source163-original85-plan-native-2026-11-19.json",
+    "B_plan": "FAIL",
+    "summary": {
+      "utc": "2026-11-19T00:16:36.596951+00:00",
+      "facts_sha256": "0ff55586b715b8f2c6c0203d5945de7a0b9f14512985da62fed030d1d94c75ea",
+      "cities": 11,
+      "source": "baiqi163-stageA-v2",
+      "sample_quality_ok": true,
+      "samples": 309,
+      "classification_counts": {
+        "Admin.Run": {
+          "pure_ten": 115,
+          "10_to_11": 0,
+          "eleven_city": 9,
+          "turn_crossing": 0,
+          "other_city_state": 0,
+          "outside_window": 0,
+          "before_native_anchor": 0
+        },
+        "Controller.RunNow": {
+          "pure_ten": 143,
+          "10_to_11": 0,
+          "eleven_city": 10,
+          "turn_crossing": 0,
+          "other_city_state": 0,
+          "outside_window": 0,
+          "before_native_anchor": 32
+        }
+      },
+      "eligible_calls_by_turn": {
+        "Admin.Run": {
+          "86": 25,
+          "87": 27,
+          "88": 27,
+          "89": 23,
+          "90": 22
+        },
+        "Controller.RunNow": {
+          "86": 33,
+          "87": 30,
+          "88": 33,
+          "89": 29,
+          "90": 28
+        }
+      },
+      "targets": {
+        "Admin.Run": {
+          "pure_ten_count": 115,
+          "p50_ms": 0.9999275207519531,
+          "p95_ms": 7.999897003173828,
+          "max_ms": 11.00015640258789,
+          "above_20ms_count": 0,
+          "above_50ms_count": 0,
+          "budget_ok": true
+        },
+        "Controller.RunNow": {
+          "pure_ten_count": 143,
+          "p50_ms": 6.000041961669922,
+          "p95_ms": 41.0001277923584,
+          "max_ms": 177.99997329711914,
+          "above_20ms_count": 17,
+          "above_50ms_count": 6,
+          "budget_ok": false
+        }
+      },
+      "overall_budget_ok": false,
+      "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+      "pre_anchor": {
+        "pending": 0,
+        "recorded": 32,
+        "validated": 32,
+        "errors": 0
+      }
+    },
+    "failed_facts_sha256": "0ff55586b715b8f2c6c0203d5945de7a0b9f14512985da62fed030d1d94c75ea",
+    "original_fail_unchanged": true
+  },
+  "build": {
+    "mode": "baiqi163-controller-children-v6",
+    "source_version": 163,
+    "archive_sha256": "7256d5c422bbbe38a4bf51a079e1bff0296dd9069bef6ba46aef2eb166f03d5e",
+    "files": 119,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "actual_Lua51_Lua53_compiled_files": 97,
+    "full_source_archive_and_reversible_private_transform_verified": true,
+    "children": [
+      "ReadBack",
+      "ProcessCity",
+      "ProcessBuilder",
+      "ProcessSettler",
+      "RefreshSettlement",
+      "ArchaeologyPendingRead",
+      "ProcessTrader",
+      "ProcessMissionary",
+      "ProcessNaturalistPurchase",
+      "RequestCivilianStandby",
+      "RetryCivilianOverlap",
+      "ClearCivilianOverlap"
+    ],
+    "native_children": [
+      "Native.GetMoveToPathEx",
+      "Native.DetourChoicePath",
+      "Native.DetourFirstEdgePath",
+      "Native.FoundRequestOperation"
+    ],
+    "binding_count": 17,
+    "focus_turns": [
+      88,
+      89,
+      90
+    ],
+    "include_pre_observer": true,
+    "capacity": 4096,
+    "release_modified": false,
+    "installed_at_publication": false
+  },
+  "software": {
+    "actual_player_payloads_dualLua": [
+      {
+        "turn": 85,
+        "mode": "select",
+        "sha256": "52f2b8fc300e563742fae0b569399ce599479032a00eb1d3c371885eef3c22ab"
+      },
+      {
+        "turn": 85,
+        "mode": "step",
+        "sha256": "6e062274a62b3fc44fea9ef1f1d0ae71f353e3f090858a63518c76981ce8cf04"
+      },
+      {
+        "turn": 85,
+        "mode": "end",
+        "sha256": "8a35345cda438c86aee30f94daa0687d346619e4b928a60b64e46407678258a4"
+      },
+      {
+        "turn": 86,
+        "mode": "select",
+        "sha256": "eadb6799d15f6c2bff866eb4dc57923bcfb0aeef2bf1c4f1ac5a080379d18253"
+      },
+      {
+        "turn": 86,
+        "mode": "step",
+        "sha256": "9a377ac705635ee5371cfe88c6441f7ac925f354bcf30e5a86c1897ef1598863"
+      },
+      {
+        "turn": 86,
+        "mode": "end",
+        "sha256": "01bc9b725a2344c73ba301e2670be4c9a5ba315682f5897bdbd141a5a566f705"
+      },
+      {
+        "turn": 87,
+        "mode": "select",
+        "sha256": "a2407158ffaaca74236c36fc67fd69577b2ff89a7ed37a725fba47e3b1acd939"
+      },
+      {
+        "turn": 87,
+        "mode": "step",
+        "sha256": "de8cf6c9d87dc715997f81eaffdd6d2e4ed1b0a008ea608993e963ca6499d688"
+      },
+      {
+        "turn": 87,
+        "mode": "end",
+        "sha256": "b8cea7ad58a9f3acfe1c8c1eb754eabfb943449b26ad3bd0f8b42fc07dfdcecb"
+      },
+      {
+        "turn": 88,
+        "mode": "select",
+        "sha256": "e91f41f9f8a630014eea9b00bc6c8bafe30f2a4df144515a5c2e647245e6f18b"
+      },
+      {
+        "turn": 88,
+        "mode": "step",
+        "sha256": "f2e34428f3c4ab1a96dde879132174c543fe3a857711a46d81f2ede94fecc716"
+      },
+      {
+        "turn": 88,
+        "mode": "end",
+        "sha256": "f0ac2babecdcdd4b4cb1d9b75be86b4304a5053d2eab3a58f9f9a31710c7923a"
+      },
+      {
+        "turn": 89,
+        "mode": "select",
+        "sha256": "973fed80c7127d3f934c078b800291905d00068b1aae3b9f485c57b6e69cb49b"
+      },
+      {
+        "turn": 89,
+        "mode": "step",
+        "sha256": "4a337eea509e8eee9bf91ed94668bbdfbdc30aad9adfa6cc63a10f69556682ac"
+      },
+      {
+        "turn": 89,
+        "mode": "end",
+        "sha256": "065252ceeab61a88feed39568a74b176210ca233e0af38868180e34e9cfef645"
+      }
+    ],
+    "actual_finish_payloads_dualLua": [
+      {
+        "API": "save_checkpoint",
+        "sha256": "b1444808b9173bf653b71f93a2bb81e3f76d4d7369f003ce1f749aa39f4a2be9"
+      },
+      {
+        "API": "query",
+        "sha256": "86c1f3bd3f8b2893529a53416d8657cb361d4fb25b5fc53e6651ea593ac8f907"
+      },
+      {
+        "API": "query",
+        "sha256": "138a61e37b6cb717a540d66ef7565cb4cfb61a187ee603ef74da92d54ec75cd2"
+      }
+    ],
+    "profile_preflight85_89_dualLua": true,
+    "AST_consumers": 17,
+    "consumer_sha256": {
+      "controller163a_lifecycle_owner.py": "5a1ae01433d67a7810c3d21b2581639e05f488525baf08eb22f2deb41aabf382",
+      "controller163a_fixture_owner.py": "d043e2f2bff9b5e7774f0b6b20de827eb44390555b4de289c4bb4d9b3b7dc638",
+      "controller163a_header_owner.py": "e89f1362ab6dbd985ae6bbed18494c877892f85884a04a5790f8b4a2a3538028",
+      "controller163a_continue_owner.py": "e78ffadf086b07f2b0d2a22d871a8a7df9c107dcfdf130d6574447871f3ff2c3",
+      "controller163a_endpoint_owner.py": "d451fcd0473a30bd6dd29f6acf7748b59100cd92b80a2870b1b4ff3535fb5622",
+      "controller163a_cleanup_owner.py": "596e71da5c3eec4b6e905c86f8f37a13fd550481cc1892cf9edf6e7afee40a8f",
+      "controller163a_run_owner.py": "a5b30b85a6997d5e3c21a256af66e40a0b763bbd3d5f9dea22454ffb6ecb8538",
+      "controller163a_collect_owner.py": "b13cdf7aeaeba4c450f82d9ff0c924c72e2146a4a2ae2b089ad0df2244b040f3",
+      "controller163a_progress_owner.py": "b1dbd40a6147b8b9c84ce6f70b0e85c2be44c492b2a1a48774173aac5af89d1d",
+      "controller163a_normal_player_owner.py": "e68375bc22e205647d975dfb7f3f6dca264daa583cc1a50bb8b837143271af37",
+      "controller163a_brief_owner.py": "dad2b8c0651be08dc1a69c5fd80eb8e15acb17fe6ab8c847548ec06516109d2f",
+      "controller163a_finish_owner.py": "936384c10b539c7eef829d8cdeced088330a80351f0ea2f6bc3b8a26c2f7fcc6",
+      "controller163a_finish_formal_owner.py": "655807cd338fdc418726949032613b6d564b149655be1e8de9c2028a11b53e09",
+      "controller163a_episode_owner.py": "8196df16943b7844e73ea4efc52040cb4f2cab8c5670445b9471c3457d2ab3f1",
+      "controller163a_validate_runtime_owner.py": "42370e7ac58452cc1d922b1cb00ffcadfd9939c2283a1930ad1b8f7e84d3e6c8",
+      "controller163a_environment_owner.py": "155e524d18acbc66ff2baa004bcc121850bea77af99336b5e056513a86030107",
+      "controller163a_freeze_formal_owner.py": "273b08cc090fe0e5b2711141fa1ff9c80037c5243ccf91f6abf6b4a86a2d9c3c"
+    },
+    "existing_helper_tests": {
+      "tests": 31,
+      "elapsed_seconds": 39.161,
+      "actual_unified_exec_terminal": 0
+    },
+    "exact_selected_binding_VM_semantics": {
+      "utc": "2026-11-19T00:26:56.556771+00:00",
+      "cases": [
+        {
+          "case": "normal88",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "normal88",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "normal90",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "normal90",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "before_observer",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "before_observer",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "out_of_scope87",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "out_of_scope87",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "original_error_once",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "original_error_once",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "offroot_preserves_values",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "offroot_preserves_values",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "foreign_root_restore",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "foreign_root_restore",
+          "VM": "Lua53",
+          "PASS": true
+        }
+      ],
+      "passed": 14,
+      "actual_suffix_sha256": "8809c01ebb2cd25332be0d6e08f9911577cd5e30d21e2d6c5f68568eb042a179",
+      "artifact_sha256": "7256d5c422bbbe38a4bf51a079e1bff0296dd9069bef6ba46aef2eb166f03d5e",
+      "actual_bindings": 17,
+      "capacity": 4096,
+      "Native_queries": 0,
+      "gameplay_inputs": 0,
+      "limits": "Actual selected wrappers preserve call/arity/error/restore contracts in software. No engine timing, game effect, formal budget or whole-mod grant."
+    },
+    "Owner_fixture_correction": "First new Lua53 sandbox lacked the global unpack that Civ6 provides. Added only the test sandbox alias unpack or table.unpack; final14cases pass. Product/helper/capture unchanged."
+  },
+  "planned_Native_workflow": {
+    "new_cold_original85": true,
+    "fresh_background_readonly_Steam_offline_proof_before_launch": true,
+    "program_CPU_settings_pinned": true,
+    "warmup_min_seconds": 60,
+    "formal_reserved_and_frozen_before_reload": true,
+    "normal_TEST_PLAYER_ENDs": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "actual_closing_turn": 90,
+    "military_SKIPs_TEST_PLAYER_only": true,
+    "manual_domestic_inputs": 0,
+    "profile_retire_binding_count": 17,
+    "save_then_official_exit_owned_cleanup": true,
+    "only_after_actual_parent_terminal_review": true
+  },
+  "Native_queries_for_preparation": 0,
+  "gameplay_inputs_for_preparation": 0,
+  "new_generation_POSTs": 0,
+  "model_ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "model_reason": "Actual configured qwen38-coder missing from current endpoint model list; diagnosis fecd7398 retained. Owner continues real work without changing endpoint/model/server or repeating known incompatible POSTs. Same-day OpenCode maintenance success retained; native generation zero.",
+  "unknown_costs": null,
+  "limits": [
+    "Preparation and software contracts only. No child runtime measurement, causal attribution, new performance pass or game effect yet.",
+    "Original85 current163 B_plan FAIL is immutable. Fullscript/paired currentoriginal85 gates remain blocked by this failure. Existing163 MANY andNO_SITE all-four passes retain their exact separate scope.",
+    "Nested child rows are inclusive wall-clock intervals. Never add overlapping rows as exclusive CPU, infer a causal speedup, remove spikes or change the original planning thresholds."
+  ]
+}
