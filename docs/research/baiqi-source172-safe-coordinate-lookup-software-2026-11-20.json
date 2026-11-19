@@ -1,0 +1,236 @@
+{
+  "date": "2026-11-20",
+  "publication_utc": "2026-11-19T20:02:33.796657+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 172,
+  "status": "SOFTWARE_PASS_NATIVE_PENDING",
+  "software_complete": true,
+  "Native172": "NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": "baiqi-source171-original85-paired-final-2026-11-19.json",
+  "trigger_verdict": {
+    "B_delta": "FAIL",
+    "median_delta_ms": 437.999963760376,
+    "median_ratio_percent": 10.453459612860582
+  },
+  "product_change": {
+    "files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_identical_vs171": 117,
+    "controller_sha256": "7a4b9983eaf78c14e2dcc8ca422c1ec9598d441b231a195dd5605bdf3968d4b1",
+    "behavior": "For currently visible safety cells, native coordinate lookup and a matching live index replace two redundant plot-coordinate getters. When the coordinate API is unavailable, the existing index API still validates both live coordinates. Unknown or throwing visibility rejects the safety decision. A changed coordinate or index resolver cannot leave a positive result.",
+    "preserved": [
+      "current revelation and visibility",
+      "ground and religious unit-layer reads",
+      "fresh enemy ownership and war checks",
+      "existing path-local threat cache scope",
+      "final native legality, owner and formation guards",
+      "all persistent unresolved receipts",
+      "executor cadence, event scheduling and request budgets"
+    ],
+    "manual_controls_added": 0
+  },
+  "software": {
+    "full_suite": {
+      "run": 2868,
+      "passed": 2861,
+      "SDK_environment_skips": 1,
+      "failures": 5,
+      "errors": 1,
+      "seconds": 295.809,
+      "actual_terminal": {
+        "utc": "2026-11-19T19:58:43.016239+00:00",
+        "session_id": 59560,
+        "exit_code": 1,
+        "actual_tool_completion": true,
+        "actual_write_stdin_chunk": "5943b1",
+        "status": "FAILED_ORIGINAL_LOG_RETAINED"
+      },
+      "log_sha256": "4a6f215d95d6409e126a68160241b0c9323755f4b379e9f39e29cafe581a871b",
+      "status": "FAILED_ORIGINAL_RETAINED_THEN_ALL_AFFECTED_MODULES_RETESTED",
+      "subsequent_product_changes": 0,
+      "limits": "No claim that the full2868 suite was rerun green after fixture and expected-version repairs."
+    },
+    "new_methods_dual_Lua": 9,
+    "corrected_related": {
+      "modules": [
+        "tests.test_safe_coordinate_lookup",
+        "tests.test_baiqi_neighborhood_geometry",
+        "tests.test_admin_diagnostic_turn90",
+        "tests.test_controller_found_writer_timing",
+        "tests.test_formation_unknown_deferred",
+        "tests.test_formation_unknown_diagnostic",
+        "tests.test_settlement_census_source155"
+      ],
+      "run": 71,
+      "passed": 71,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 15.359,
+      "actual_terminal": {
+        "session_id": 50928,
+        "exit_code": 0,
+        "actual_tool_completion": true,
+        "actual_write_stdin_chunk": "59d452",
+        "tests": 71,
+        "modules": 7,
+        "status": "CORRECTED_RELATED_PASS_NOT_FULL_SUITE_RERUN"
+      },
+      "log_sha256": "fb9d29f4c1e52c1b20a8e60edf0f6094e54fd33b43a18f3dba8a2829c420d385"
+    },
+    "first_related_runner_failure": {
+      "run": 37,
+      "errors": 4,
+      "cause": "Owner targeted runner omitted the tests import root used by discovery. No product or test change for this repair; child PYTHONPATH now matches discovery.",
+      "log_sha256": "0cae450c065841b40236f27730883628512d589f0a984ec2fac0113cd9392214"
+    },
+    "new_public_neighbor_coordinate_reads": 4,
+    "actual_old171_controls": {
+      "utc": "2026-11-19T19:47:07.381764+00:00",
+      "actual_old_source_sha256": "cc1de8907521aed0503e1343b42a5aec49dfb4c4ff5633525c923943c43785fe",
+      "rows": [
+        {
+          "VM": "lupa.lua51",
+          "actual_source_version": 171,
+          "known_public_neighbor_XY_reads": 6,
+          "unknown_visibility_result": true,
+          "unknown_visibility_positive_is_counterexample": true,
+          "game_actions": 0
+        },
+        {
+          "VM": "lupa.lua53",
+          "actual_source_version": 171,
+          "known_public_neighbor_XY_reads": 6,
+          "unknown_visibility_result": true,
+          "unknown_visibility_positive_is_counterexample": true,
+          "game_actions": 0
+        }
+      ],
+      "product_files_mutated": 0,
+      "limits": "Actual preserved old171 controller in isolated Lua fixtures; no Native execution or measured game performance improvement."
+    },
+    "first_targeted_failure": {
+      "methods": 9,
+      "errors": 1,
+      "cause": "Owner negative fixture replaced the visibility object but omitted IsRevealed, failing before the intended throwing IsVisible branch. Original test source retained; corrected fixture supplies known revelation. Product unchanged for this repair."
+    },
+    "first_full_suite": {
+      "run": 2828,
+      "failures": 1,
+      "errors": 36,
+      "SDK_environment_skips": 1,
+      "actual_session": 39905,
+      "actual_exit_code": 1,
+      "log_sha256": "b031440f8758fc5b57df82de6d1e57401632f3e21132b5adc0b119851cb598fd",
+      "cause": "New source172 was not yet in QA exact version allowlists. One existing safety negative case injected the unused index resolver while the coordinate resolver remained correct."
+    },
+    "fixture_correction": "The retained wrong-plot negative case now injects the actual coordinate resolver and uses an independent scalar visibility oracle. Five current-build version expectations were updated to172. Independent new dual-VM cases retain strict legacy index-coordinate validation and reject missing, throwing or wrong-index coordinate results without falling back.",
+    "QA_version_adapters": {
+      "files": 17,
+      "additive_allowlist_sites": 52,
+      "budgets_templates_and_old_version_behavior_unchanged": true
+    },
+    "Lua51_Lua53_files": 97,
+    "ordinary_files": 119
+  },
+  "ordinary_package": {
+    "archive_sha256": "cbc5f565df8695bf71f3ed73d911a541a2e79c69c87eb914d2a808cec406fe4f",
+    "archive_bytes": 8838916,
+    "delivered_local_path": "dist/Baiqi172.zip"
+  },
+  "prepared_original85_packages": {
+    "plan": {
+      "mode": "baiqi172-stageA-v2",
+      "source_version": 172,
+      "files": 119,
+      "archive_sha256": "7cddf4128e3a76edd24bad02a27f7e15bf40bfb7c823bdee9020414622504b3d"
+    },
+    "observed": {
+      "mode": "baiqi172-q21-bounded",
+      "source_version": 172,
+      "files": 119,
+      "archive_sha256": "0cf8056200474e2fe19f321436941581b1addf5f86fe15c35ccf869c94ec6eb7"
+    },
+    "enabled": {
+      "mode": "baiqi172-paired-enabled-c3-normal-end",
+      "source_version": 172,
+      "files": 119,
+      "archive_sha256": "e710e0fff19dd5f1646339b7aafa7c1669922382ed90e21c6cd925632b733c43"
+    },
+    "control": {
+      "mode": "baiqi172-paired-control-c3-normal-end",
+      "source_version": 172,
+      "files": 119,
+      "archive_sha256": "18157907801fadca32d9bbb955c75164cca870e1ed00b85d66362ad37b7ebed5"
+    }
+  },
+  "preparation_limit": "Four artifacts only; source172 Native consumers, semantic and prewrite checks still need separate completion before any new installation or cold launch.",
+  "model": {
+    "availability_before_work": {
+      "utc": "2026-11-19T19:36:17.125968+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-20",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": false
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T19:36:17.066980+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 29.896199936047196,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T19:36:17.097773+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "3cb36669e394730b8564b06116418f84c35eb2a3e7203ed539897fc4b48211ae",
+          "total_ms": 27.301000198349357
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "model_candidates_adopted": 0,
+    "owner_fallback": true,
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Native172 is untested. Software lookup reduction is not a measured game speedup or a performance budget pass.",
+    "Source171 valid all25 B_delta FAIL is retained without outlier removal, changed thresholds or unchanged-source resampling.",
+    "The new safety path is not established as the cause of the earlier paired wall-clock differences.",
+    "Finance, control rights, current pressure qualification, compatibility and old865 recovery remain open."
+  ]
+}

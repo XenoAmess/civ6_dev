@@ -168,12 +168,23 @@ class NeighborhoodGeometryTests(unittest.TestCase):
 
     def test_wrong_resolved_plot_fails_closed_and_can_recover(self):
         self.assertTrue(self.safe())
+        self.lua.globals().SafeTestFootprint172 = self.geometry()
         self.lua.execute('''
-            local original=Map.GetPlotByIndex
+            -- Visibility must not inherit the corruption under test.
+            local indices={}
+            for _,cell in ipairs(SafeTestFootprint172)do indices[cell.x..':'..cell.y]=cell.index end
+            PlayersVisibility[7].IsRevealed=function(_,x,y)
+                local i=indices[x..':'..y];return i~=nil and not TestWorld.hidden[i]
+            end
+            PlayersVisibility[7].IsVisible=function(_,x,y)
+                local i=indices[x..':'..y]
+                return i~=nil and not TestWorld.hidden[i] and not TestWorld.fogged[i]
+            end
+            local original=Map.GetPlot
             TestWorld.badGeometryLookup=true
-            Map.GetPlotByIndex=function(index)
-                if index==43 and TestWorld.badGeometryLookup then return original(44) end
-                return original(index)
+            Map.GetPlot=function(x,y)
+                if x==3 and y==3 and TestWorld.badGeometryLookup then return original(4,3) end
+                return original(x,y)
             end
         ''')
         self.assertFalse(self.safe())

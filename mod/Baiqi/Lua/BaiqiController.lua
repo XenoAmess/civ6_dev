@@ -228,15 +228,27 @@ local function Safe(plot, player, cache)
   if not Revealed(plot) then return false end
   local geometry,key=NeighborhoodGeometry(plot,C.threatRadius)
   if not geometry then return false end
+  local coordinate=Map and Map.GetPlot
+  local byIndex=Map and Map.GetPlotByIndex
+  local useCoordinate=type(coordinate)=="function"
   for _,cell in ipairs(geometry) do
-    if visibility:IsVisible(cell.x,cell.y) then
+    local visibleOK,visible=pcall(visibility.IsVisible,visibility,cell.x,cell.y)
+    if not visibleOK or type(visible)~="boolean" then return false end
+    if visible then
       local safe
       if type(cache)=="table" then safe=cache[cell.index] end
       if type(safe)~="boolean" then
-        local ok,near=pcall(Map.GetPlotByIndex,cell.index)
+        -- Resolve current public cells by coordinates and verify their index.
+        -- The legacy index-only API still needs both live coordinate checks.
+        local ok,near
+        if useCoordinate then ok,near=pcall(coordinate,cell.x,cell.y)
+        else ok,near=pcall(byIndex,cell.index) end
         local matches=false
         if ok and near then
-          ok,matches=pcall(function() return near:GetIndex()==cell.index and near:GetX()==cell.x and near:GetY()==cell.y end)
+          ok,matches=pcall(function()
+            return near:GetIndex()==cell.index and (useCoordinate
+              or (near:GetX()==cell.x and near:GetY()==cell.y))
+          end)
         end
         if not ok or not matches then ForgetNeighborhood(key);return false end
         local units=GetVisibleUnits(near)
@@ -250,6 +262,7 @@ local function Safe(plot, player, cache)
       if not safe then return false end
     end
   end
+  if Map.GetPlot~=coordinate or Map.GetPlotByIndex~=byIndex then ForgetNeighborhood(key);return false end
   return true
 end
 

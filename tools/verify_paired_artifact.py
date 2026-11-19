@@ -26,7 +26,7 @@ def verify_pair(prepared: Path, source: Path, variant: str, *,
         raise ValueError('Invalid expected pressure initial turn')
     meta = json.loads((prepared / 'static-control-build.json').read_text(encoding='utf-8'))
     version = ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('152', '153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171'):
+    if version not in ('152', '153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171','172'):
         raise ValueError('Expected actual source152/153')
     version = int(version)
     if not isinstance(meta, dict) or type(meta.get('source_version')) is not int or meta['source_version'] != version:
