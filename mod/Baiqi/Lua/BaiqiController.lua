@@ -701,8 +701,6 @@ local function KnownExpansionSupport(plot,player,playerID)
     if not cells or #cells>maxCells then return nil,"unknown_geometry" end
     local seen={}
     for _,cell in ipairs(cells) do
-      local near=Map.GetPlotByIndex(cell.index)
-      if not near or near:GetIndex()~=cell.index or near:GetX()~=cell.x or near:GetY()~=cell.y then return nil,"unknown_geometry" end
       local revealed=visibility:IsRevealed(cell.x,cell.y)
       if type(revealed)~="boolean" then return nil,"unknown_visibility" end
       local visible=false
@@ -711,6 +709,10 @@ local function KnownExpansionSupport(plot,player,playerID)
         if type(visible)~="boolean" then return nil,"unknown_visibility" end
       end
       if revealed and visible then
+        -- Topology is scalar cached geometry. Resolve live plots only for the
+        -- currently public cells whose city information this check consumes.
+        local near=Map.GetPlotByIndex(cell.index)
+        if not near or near:GetIndex()~=cell.index or near:GetX()~=cell.x or near:GetY()~=cell.y then return nil,"unknown_geometry" end
         local flag=near:IsCity()
         if type(flag)~="boolean" then return nil,"unknown_city" end
         if flag then

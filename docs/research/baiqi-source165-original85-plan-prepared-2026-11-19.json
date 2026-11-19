@@ -1,0 +1,412 @@
+{
+  "date": "2026-11-19",
+  "source_version": 165,
+  "status": "SOFTWARE_PREPARED_NATIVE_NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "packages": {
+    "plan": {
+      "mode": "baiqi165-stageA-v2",
+      "source_version": 165,
+      "files": 119,
+      "archive_sha256": "7ce0b64388c6dba9df91d23e1507a47208060818839d6250f0b2d979017a8a71"
+    },
+    "observed": {
+      "mode": "baiqi165-q21-bounded",
+      "source_version": 165,
+      "files": 119,
+      "archive_sha256": "e92e21ba9d4e541bcd56580bba58dbbf32ea72fdeb06ac42b16d8efb0f96daca"
+    },
+    "enabled": {
+      "mode": "baiqi165-paired-enabled-c3-normal-end",
+      "source_version": 165,
+      "files": 119,
+      "archive_sha256": "ea6ddf7be3d19f14fbc941c3eec97f9f2a66bad8f53db094608fd3332bedfb53"
+    },
+    "control": {
+      "mode": "baiqi165-paired-control-c3-normal-end",
+      "source_version": 165,
+      "files": 119,
+      "archive_sha256": "31e6e11a721d328dd0195cd215596870707b0e58b268c7e0171c25064652d186"
+    }
+  },
+  "actual_default_calendar": {
+    "initial_turn": 85,
+    "h_initialTurn": null,
+    "first": 86,
+    "last": 90,
+    "closing": 91
+  },
+  "capacity": 4096,
+  "consumer_sha256": {
+    "plan165a_lifecycle_owner.py": "3b4bcc8d44337f2848c34329e72fa0dc186cd2e93262fa5a5961ee007cb8a53f",
+    "plan165a_fixture_owner.py": "0d97c60e0d137eebdb53c15a083c573f194c185bf1e22cdf318f166557a43061",
+    "plan165a_run_owner.py": "0dec0a4018608c36f2ed34fc48283b48405fd5f80b4120a199d16815acb73623",
+    "plan165a_normal_player_owner.py": "7ddf7fc184fa62a86b390d7562bd725113e068f42b3e99c26024e926b3167f9c",
+    "plan165a_collect_owner.py": "66351b31e170912bb6511ad963361a99d984742c4b3874b314c1f1bfc9d49a17",
+    "plan165a_finish_owner.py": "0107b39ed07abcd0f6dcfce98feb48e94e4741058cbedd318cfcea2b3d5ff146",
+    "plan165a_finish_formal_owner.py": "a4522139f0555e72b2af9ecf814867f1ee03e8b08356ecc97cc0604360ff40d7",
+    "plan165a_cleanup_owner.py": "dd4c7cd2c84d708b9d9601a5e43376359fc2915f046471eb94895a481b8668e5",
+    "plan165a_continue_owner.py": "331d75df1943ab8133fe9a5f0606713bf3ab96094f4d9ec0745e04e854bd80ab",
+    "plan165a_endpoint_owner.py": "63d4a665a4ff800e6c417bedb3e48133aa1175b3742a282eac86e44da77cbbb0",
+    "plan165a_header_owner.py": "b54fb62de9a1798b0a433a3f9fd428c94f20182a0574808a66af70b77074e087",
+    "plan165a_freeze_formal_owner.py": "d2080ad4f7d3966cb866d81c5a3531c95f93d293807bc436fd55a448a460eb1a",
+    "plan165a_environment_owner.py": "a311b5065d7072cde94fd3f9e2959609e71224531cb2d9a582c053aa7ee6bc8b",
+    "original85_165_episode_owner.py": "d31c26353f43bcd89bbcef48c9d319758ea145d4e4e5c905ec6239bf31b3a4c0"
+  },
+  "semantic_cases": [
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "valid",
+      "accepted": true
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "stale_source",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "pressure_mode",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "pressure_initial",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "wrong_first",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "wrong_last",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "unbound",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "unsubscribed",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "retired",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "foreign_token",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "run",
+      "case": "wrong_phase",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "valid",
+      "accepted": true
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "stale_source",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "pressure_mode",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "pressure_initial",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "wrong_first",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "wrong_last",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "unbound",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "unsubscribed",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "player",
+      "case": "retired",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "valid",
+      "accepted": true
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "stale_source",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "pressure_mode",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "pressure_initial",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "wrong_first",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "wrong_last",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "unbound",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "unsubscribed",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua51",
+      "consumer": "fixture",
+      "case": "retired",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "valid",
+      "accepted": true
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "stale_source",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "pressure_mode",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "pressure_initial",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "wrong_first",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "wrong_last",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "unbound",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "unsubscribed",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "retired",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "foreign_token",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "run",
+      "case": "wrong_phase",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "valid",
+      "accepted": true
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "stale_source",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "pressure_mode",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "pressure_initial",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "wrong_first",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "wrong_last",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "unbound",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "unsubscribed",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "player",
+      "case": "retired",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "valid",
+      "accepted": true
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "stale_source",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "pressure_mode",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "pressure_initial",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "wrong_first",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "wrong_last",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "unbound",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "unsubscribed",
+      "accepted": false
+    },
+    {
+      "VM": "lupa.lua53",
+      "consumer": "fixture",
+      "case": "retired",
+      "accepted": false
+    }
+  ],
+  "player_expressions_double_compiled": true,
+  "AST_consumers": 14,
+  "Native_queries": 0,
+  "installed": false,
+  "install_guard": "Require published165software/preparation ancestors and exact14 hashes, old164diagnosis parent32346actual0/save19retired/formaloff/exit accounted, frozen119 old QA backup, fresh independent offline and exact program/CPU pin. No old164 raw-source comparison against165.",
+  "limits": "Same100 pure-ten minimum, p95<=20ms/max<=50ms and all raw retention; actual result controls dependent stages, no budget grant here."
+}

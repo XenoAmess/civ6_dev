@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T04:01:23.091183+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 165,
+  "status": "SOFTWARE_PASS_NATIVE_PENDING",
+  "software_complete": true,
+  "whole_mod": "OPEN_CONTINUE",
+  "Native165": "NOT_STARTED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": {
+    "evidence": "baiqi-source164-controller-district-native-2026-11-19.json",
+    "actual_same_root": "Source164 root56/turn89/10cities was53.999901ms; ProcessSettler43.999910ms contains KnownExpansionSupport27.999878ms. Nested intervals are not added. This does not identify the cause of another capture or its163ms unprofiled root."
+  },
+  "product_change": {
+    "files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_identical_vs164": 117,
+    "controller_sha256": "d7e0dcfe4d326b33ae54139c3d8746f8420a8c3691470870d90d365c182eaf1e",
+    "behavior": "Read fresh revelation/visibility before resolving live plot objects for known-border screening. Previously it fetched/verified every cached cell even when that cell was unrevealed or currently invisible. Only public cells supply city facts.",
+    "preserved_checks": [
+      "fresh typed revelation/visibility for every relevant cell",
+      "public plot index/coordinates and native city flag/object/owner checks",
+      "current own city inventory/spacing and loyalty",
+      "native settlement warning and final founding dispatch checks",
+      "geometry scalar cache capacity, binding and load invalidation",
+      "all original civilian writer and military/religious/escort authority boundaries"
+    ],
+    "permission_cache_added": false,
+    "new_manual_controls": 0
+  },
+  "software": {
+    "candidate_related_tests": 88,
+    "first_candidate_run": {
+      "tests": 88,
+      "failures": 2,
+      "reason": "New unknown-city fixture reached a different visible cell before the measured target; corrected fixture to exercise exact target. Product rejection was already correct; failed raw log preserved."
+    },
+    "final_full_suite": {
+      "run": 2804,
+      "passed": 2803,
+      "SDK_environment_skips": 1,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 439.739,
+      "actual_terminal": {
+        "session_id": 14161,
+        "exit_code": 0,
+        "actual_tool_completion": true,
+        "utc": "2026-11-19 04:00:39 UTC"
+      },
+      "raw_log_sha256": "8e59e5db4ed14fd83bfcb6b913803f0e98e4ab713fdd63e58ba75be06ddf50dd"
+    },
+    "new_full_Controller_methods": 6,
+    "preserved_old_source_negative_control": {
+      "utc": "2026-11-19T03:58:43.816049+00:00",
+      "baseline_source_version": 164,
+      "baseline_sha256": "d062c6abe6311140314726f8f0842d9144dc6994322d224eed0bb0a6b5d54c5f",
+      "methods_run": 6,
+      "expected_failure_methods": 4,
+      "errors": 0,
+      "new_counter_tests_reject_old_hidden_reads": true,
+      "Native_queries": 0,
+      "limits": "Negative control only: expected software failures in preserved prior source. No shipping regression or Native effect claim."
+    },
+    "Lua51_Lua53_compiled_files": 97,
+    "ordinary_manifest_files": 119,
+    "QA_opt_in_tools": 17,
+    "current_build_fixture_files": [
+      "test_settlement_census_source155.py",
+      "test_formation_unknown_diagnostic.py",
+      "test_formation_unknown_deferred.py",
+      "test_controller_found_writer_timing.py",
+      "test_admin_diagnostic_turn90.py"
+    ],
+    "legacy_controller_probe_scope": "Source165 uses the same separate diagnostic frame as164; older versions unchanged."
+  },
+  "ordinary_package": {
+    "archive_sha256": "839861a1ebd995a54515ec46d8778593ba0666cbe8510b4e0d84ecefbaa4f0aa",
+    "archive_bytes": 8835657,
+    "delivered_local_path": "dist/Baiqi165.zip"
+  },
+  "model": {
+    "availability_before_candidate": {
+      "utc": "2026-11-19T03:40:19.303047+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T03:40:19.262158+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 13.759899884462357,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T03:40:19.277004+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "5a1181b7a150e14d841efc7bbfc3faf76ebc1f775b3a312db77822503fa36e56",
+          "total_ms": 25.124700041487813
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "new_generation_POSTs": 0,
+    "adopted_model_candidates": 0,
+    "Owner_continuation": true,
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Software call-count reduction is not a measured game speedup. New-source Native verification remains required.",
+    "Source164 B_plan validFAIL,307 original rows and121root/493row diagnosis remain intact.",
+    "The separate99ms/98ms GP native query at turn90/11cities is unresolved; this change does not modify GP routing or claim to solve it.",
+    "Source163 exact MANY/NO_SITE passes do not automatically transfer to165. All remaining full-mod cases continue."
+  ]
+}
