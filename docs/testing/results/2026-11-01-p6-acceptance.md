@@ -2070,3 +2070,10 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：170保留目标规划去重的软件与原85准备
 
 [软件](../../research/baiqi-source170-retained-goal-support-dedup-software-2026-11-19.json)：6新／19组合双Lua、244相关、4旧169VM控制已核，完整2855／2854通过／1SDK跳过，97Lua／119文件；[冷测准备](../../research/baiqi-source170-original85-plan-prepared-2026-11-19.json)58语义／12Python／4安装前置已核。仅规划去重，最终支持与Native边界保持；170实机未开始，169FAIL和整个modOPEN保留，继续。
+
+
+## 2026-11-19：当前170原85 B_plan FAIL
+
+[全部原值、分类及生命周期](../../research/baiqi-source170-original85-plan-native-2026-11-19.json)。Admin纯十城125个、p95/max=6.999969482421875/11.00015640258789ms；Controller152个、p95/max=18.000125885009766/57.99984931945801ms。原100/20ms/50ms预算，全部326原样本保留；普通85..90至91、保存／撤钩／释放／退场分别核对。当前原85其余性能与完整功能继续。
+
+[40项证据导航](../../research/baiqi-source170-finite40-evidence-navigation-2026-11-19.json)与[既有金币边界复核](../../research/baiqi-source170-historical-gold-boundary-review-2026-11-19.json)同批记录：保留原限定实机结果、36次源码身份比较和未完成分支，不冒称本次新实机或整项通过。
