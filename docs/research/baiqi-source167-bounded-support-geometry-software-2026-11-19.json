@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T06:57:04.464341+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 167,
+  "status": "SOFTWARE_PASS_NATIVE_PENDING",
+  "software_complete": true,
+  "Native167": "NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": {
+    "evidence": "baiqi-source166-controller-district-native-2026-11-19.json",
+    "scope": "In actual166diagnosis root55/turn89/10cities, root51.000118ms contained ProcessSettler39.999962ms and KnownExpansionSupport22.000074ms. The latter includes owned inventory, warnings/stability, static topology and live public-cell checks; no finer native cause is inferred. Separate166unprofiled max105.999947ms remains unexplained by this capture."
+  },
+  "product_change": {
+    "files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_identical_vs166": 117,
+    "controller_sha256": "71fe43d887d01b118937de41d22d8a48af989143b7147224d4bd91c154219bf8",
+    "behavior": "With a valid planning clock, settler site/remembered-goal support builds immutable neighborhood topology in at most24 offset probes per continuation. Pending topology retains an existing goal and leaves an untested proposal available. When geometry is ready, original current city/visibility/foreign city/stability checks still run; final founding writer keeps its synchronous fresh check.",
+    "bounds": {
+      "offset_probes_per_planning_slice": 24,
+      "pending_scalar_jobs": 64,
+      "completed_geometry_cache_entries": 256,
+      "max_support_radius": 9
+    },
+    "cached_fields": "Index, coordinates, offsets, seen scalar cells, anchor flag and world epoch only. No native plot/unit/city objects or positive permission facts.",
+    "invalidation": "Load clears jobs/cache; changed native geometry bindings restart partial jobs; changed epoch during a slice rejects it.",
+    "fallback": "Unavailable planning clock uses original synchronous geometry and all original qualification; recruitment and final native writer keep original synchronous qualification.",
+    "preserved": [
+      "minimum own/visible foreign city distances and owned support policy",
+      "fresh typed revelation/visibility, plot index/coordinates, city flag/object/owner checks",
+      "owned inventory, native warning, stability, final founding and all original civilian writer checks",
+      "no army/religious-combat/escort/diplomacy authority expansion",
+      "old held settlement records are not cleared or replayed"
+    ],
+    "new_manual_controls": 0
+  },
+  "software": {
+    "full_suite": {
+      "run": 2829,
+      "passed": 2828,
+      "SDK_environment_skips": 1,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 548.044,
+      "actual_terminal": {
+        "utc": "2026-11-19T06:56:50.868299+00:00",
+        "session_id": 30384,
+        "exit_code": 0,
+        "actual_tool_completion": true,
+        "tool": "write_stdin observed actual unified exec terminal0",
+        "run": 2829,
+        "passed": 2828,
+        "skipped": 1
+      },
+      "log_sha256": "a7b2c2c27f382ec39a6fab02d20fa89f83b84dab9bea808322b4a8c1f3b7a27e"
+    },
+    "new_full_Controller_methods": 10,
+    "new_census_observer_methods": 3,
+    "related_census_and_controller_methods": 25,
+    "first_shadow_related": {
+      "tests": 275,
+      "behavior_failures": 0,
+      "errors": 10,
+      "scope": "Old census exact support-call anchor needs a new shape adapter; original log preserved. No full regression claim."
+    },
+    "old166_negative_controls": {
+      "utc": "2026-11-19T06:51:26.180445+00:00",
+      "source_version": 166,
+      "methods": [
+        "test_full_controller_cold_search_waits_then_moves_without_repeating_whole_geometry",
+        "test_existing_goal_is_retained_during_topology_wait"
+      ],
+      "expected_failure_methods": 2,
+      "errors": 0,
+      "new_counter_tests_reject_old_sync_cold_geometry": true,
+      "Native_queries": 0,
+      "generation_POSTs": 0
+    },
+    "Lua51_Lua53_files": 97,
+    "ordinary_files": 119,
+    "QA_opt_in_tools": 17,
+    "QA_adapter": "Keep legacy EDITS tuple and prefix bytes. Select exactly one old or pending-support anchor shape and its inverse; missing/duplicate/mixed shapes reject. Census counts pending as unknown, never a proved global lack of sites. Traversal-only fixture warms topology; dedicated actual Controller cases cover cold slices, progress and changed qualification.",
+    "warm_fixture_change": "test_build_settlement_census.py only; no gameplay grants or implementation changes are supplied by tests.",
+    "candidate_new_methods_before_adoption": 10
+  },
+  "ordinary_package": {
+    "archive_sha256": "61df7a59dadc107ca4c3f1c0a90e66e43d292b2d44f2370e1b2cd4836f5757d4",
+    "archive_bytes": 8836952,
+    "delivered_local_path": "dist/Baiqi167.zip"
+  },
+  "model": {
+    "availability_before_candidate": {
+      "utc": "2026-11-19T06:25:15.831034+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T06:25:15.782917+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 32.96560002490878,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T06:25:15.816675+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "0d5f25f4d5877d69bd432e5468fdf8bac6aa90ed05e7bcc3e8897712170bf53f",
+          "total_ms": 13.6977001093328
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "new_generation_POSTs": 0,
+    "adopted_model_candidates": 0,
+    "Owner_continuation": true,
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Software bounds only. Native cold topology cost, remaining live support cost, actual settler progress and current167 budgets remain unverified.",
+    "This change does not identify another capture105.999947ms cause or claim a measured speedup.",
+    "Source166 validFAIL and all327rows, all112root/485row diagnosis and actual20restorations remain.",
+    "Current166-dependent full-script/pairs were not run through FAIL. All remaining full-mod scopes and old865 recovery continue."
+  ]
+}

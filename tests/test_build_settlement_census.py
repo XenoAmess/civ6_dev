@@ -23,7 +23,11 @@ class SettlementCensusTransformTests(unittest.TestCase):
         with self.assertRaises(ValueError):restore_release(self.text+'\n'+EDITS[-1][1],self.prefix)
 
     def settler_case(self,source):
+        # This suite isolates traversal/observer equivalence on warm topology.
+        # Actual cold support slices are exercised in test_support_geometry_slices.
+        source+='\nTestCensusTopology=NeighborhoodGeometry\n'
         case=slicing.OneSettlementValidationTests();case.candidate_source=source;case.setUp()
+        case.lua.execute('for _,index in ipairs({46,47})do for radius=1,9 do assert(TestCensusTopology(Map.GetPlotByIndex(index),radius))end end')
         case.lua.execute('qaClock=0;Automation={GetTime=function()qaClock=qaClock+.001;return qaClock end}')
         return case
 

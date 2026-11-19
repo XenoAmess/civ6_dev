@@ -35,12 +35,28 @@ EDITS=(
  ('RecruitAllowed(role,actual,freshPlayer,freshState)\n', 'RecruitAllowed(role,actual,freshPlayer,freshState,"recruit_write")\n'),
 )
 
+_SUPPORT_167 = '      local supported,why=KnownExpansionSupport(plot,player,contextID,oneValidation)\n      if why=="support_geometry_pending" then'
+_OBSERVED_SUPPORT_167 = ('      local supported,why=KnownExpansionSupport(plot,player,contextID,oneValidation)\n'
+ '      if qa then\n        qa.cheap_pass=qa.cheap_pass+1\n'
+ '        local key=supported==true and "support_true" or(supported==false and "support_false" or "support_unknown")\n'
+ '        qa[key]=qa[key]+1\n      end\n      if why=="support_geometry_pending" then')
+EDITS_167 = EDITS[:5] + ((_SUPPORT_167, _OBSERVED_SUPPORT_167),) + EDITS[6:]
+
+def _edit_rules(text: str, *, instrumented: bool = False):
+    column = 1 if instrumented else 0
+    legacy, sliced = text.count(EDITS[5][column]), text.count(EDITS_167[5][column])
+    if legacy == 1 and sliced == 0:
+        return EDITS
+    if sliced == 1 and legacy == 0:
+        return EDITS_167
+    raise ValueError('Unknown or duplicate settlement support shape')
+
 
 def transform(raw: str, *, source_version: int = 142) -> tuple[str,str]:
-    if type(source_version) is not int or source_version not in (142,155,156,157,158,159,160,161,162,163,164,165,166):
+    if type(source_version) is not int or source_version not in (142,155,156,157,158,159,160,161,162,163,164,165,166,167):
         raise ValueError('Census requires exact source142 or155')
     text=raw
-    for old,new in EDITS:
+    for old,new in _edit_rules(raw):
         if text.count(old)!=1:
             raise ValueError('Unknown or duplicate settlement census anchor: '+old[:90])
         text=text.replace(old,new,1)
@@ -64,7 +80,7 @@ def restore_release(text: str,prefix: str) -> str:
     if not text.startswith(prefix):
         raise ValueError('Unknown census prefix')
     text=text[len(prefix):]
-    for old,new in reversed(EDITS):
+    for old,new in reversed(_edit_rules(text, instrumented=True)):
         if text.count(new)!=1:
             raise ValueError('Unknown census inverse anchor')
         text=text.replace(new,old,1)
@@ -74,7 +90,7 @@ def restore_release(text: str,prefix: str) -> str:
 def build(output_dir: Path) -> dict:
     source=ROOT/'mod/Baiqi'
     version_text=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version_text not in ('142','155','156','157','158','159','160','161','162','163','164','165','166'):
+    if version_text not in ('142','155','156','157','158','159','160','161','162','163','164','165','166','167'):
         raise ValueError('Census requires actual source142 or155')
     version=int(version_text)
     output_dir=output_dir.resolve()

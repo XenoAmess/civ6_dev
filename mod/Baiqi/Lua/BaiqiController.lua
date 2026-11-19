@@ -116,10 +116,10 @@ end
 
 -- Immutable native topology only; no visibility, threats or native objects.
 -- A changed binding invalidates every center, not just the first one revisited.
-local neighborhoodCache,neighborhoodCount,settlementWorldEpoch={},0,0
+local neighborhoodCache,neighborhoodCount,settlementWorldEpoch,neighborhoodJobs,neighborhoodJobCount={},0,0,{},0
 local neighborhoodXY,neighborhoodByIndex
 local function ClearNeighborhoods()
-  neighborhoodCache,neighborhoodCount={},0
+  neighborhoodCache,neighborhoodCount={},0;neighborhoodJobs,neighborhoodJobCount={},0
   settlementWorldEpoch=settlementWorldEpoch+1
   for _,plan in pairs(districtPersonPlans) do plan.route=nil;plan.walk=nil end
   districtRoute.used=false
@@ -135,11 +135,11 @@ end
 local function GeometryInteger(value)
   return BaiqiPolicy.Number(value) and value>=0 and value%1==0
 end
-local function NeighborhoodGeometry(plot,radius)
+local function NeighborhoodGeometry(plot,radius,slice)
   local xy=Map and Map.GetPlotXYWithRangeCheck
   local byIndex=Map and Map.GetPlotByIndex
   if xy~=neighborhoodXY or byIndex~=neighborhoodByIndex then
-    neighborhoodCache,neighborhoodCount={},0
+    neighborhoodCache,neighborhoodCount={},0;neighborhoodJobs,neighborhoodJobCount={},0
     neighborhoodXY,neighborhoodByIndex=xy,byIndex
   end
   if type(xy)~="function" or type(byIndex)~="function" or not plot or not GeometryInteger(radius) then return nil end
@@ -147,6 +147,51 @@ local function NeighborhoodGeometry(plot,radius)
   if not ok or not GeometryInteger(index) or not GeometryInteger(x) or not GeometryInteger(y) then return nil end
   local key=index..":"..x..":"..y..":"..radius
   if neighborhoodCache[key] then return neighborhoodCache[key],key end
+  if slice~=nil then
+    if not GeometryInteger(slice)or slice<1 or slice>64 then return nil end
+    local job=neighborhoodJobs[key]
+    if not job then
+      if neighborhoodJobCount>=64 then neighborhoodJobs,neighborhoodJobCount={},0 end
+      job={dx=-radius,dy=-radius,cells={},seen={},anchor=false,epoch=settlementWorldEpoch}
+      neighborhoodJobs[key]=job;neighborhoodJobCount=neighborhoodJobCount+1
+    end
+    local valid,finished,cells=pcall(function()
+      for n=1,slice do
+        local dx,dy=job.dx,job.dy
+        local near=xy(x,y,dx,dy,radius)
+        if near then
+          local i,nx,ny=near:GetIndex(),near:GetX(),near:GetY()
+          if not GeometryInteger(i)or not GeometryInteger(nx)or not GeometryInteger(ny)then error('unknown_geometry',0)end
+          if dx==0 and dy==0 then
+            if i~=index or nx~=x or ny~=y then error('unknown_geometry',0)end
+            job.anchor=true
+          end
+          if job.seen[i]then
+            if job.seen[i].x~=nx or job.seen[i].y~=ny then error('unknown_geometry',0)end
+          else
+            local cell={index=i,x=nx,y=ny};job.cells[#job.cells+1]=cell;job.seen[i]=cell
+          end
+        elseif dx==0 and dy==0 then error('unknown_geometry',0)end
+        job.dy=dy+1
+        if job.dy>radius then job.dy=-radius;job.dx=dx+1 end
+        if job.dx>radius then
+          if not job.anchor then error('unknown_geometry',0)end
+          return true,job.cells
+        end
+      end
+      return false
+    end)
+    if not valid or job.epoch~=settlementWorldEpoch or neighborhoodJobs[key]~=job
+      or Map.GetPlotXYWithRangeCheck~=xy or Map.GetPlotByIndex~=byIndex then
+      if neighborhoodJobs[key]==job then neighborhoodJobs[key]=nil;neighborhoodJobCount=neighborhoodJobCount-1 end
+      return nil
+    end
+    if not finished then return nil,key,true end
+    neighborhoodJobs[key]=nil;neighborhoodJobCount=neighborhoodJobCount-1
+    if neighborhoodCount>=256 then neighborhoodCache,neighborhoodCount={},0 end
+    neighborhoodCache[key]=cells;neighborhoodCount=neighborhoodCount+1
+    return cells,key
+  end
   local valid,cells=pcall(function()
     local result,seen,anchor={},{},false
     for dx=-radius,radius do
@@ -659,7 +704,7 @@ local function ExpansionStable(player,playerID)
   if stage=="HOLD" then return false,reason end
   return nil,reason
 end
-local function KnownExpansionSupport(plot,player,playerID)
+local function KnownExpansionSupport(plot,player,playerID,planning)
   local ok,result,reason=pcall(function()
     local function Integer(n)return GeometryInteger(n) and n<=2147483647 end
     if not Integer(playerID) or playerID~=contextID or not plot or not Revealed(plot) then return nil,"unknown_site" end
@@ -697,7 +742,8 @@ local function KnownExpansionSupport(plot,player,playerID)
     local radius=nearest<=9 and nearest or 9
     if radius<1 or radius>9 or radius%1~=0 then return nil,"unknown_geometry" end
     local maxCells=1+3*radius*(radius+1)
-    local cells=NeighborhoodGeometry(plot,radius)
+    local cells,_,waiting=NeighborhoodGeometry(plot,radius,planning and BaiqiPolicy.Number(planningStarted)and 24 or nil)
+    if waiting then return nil,"support_geometry_pending" end
     if not cells or #cells>maxCells then return nil,"unknown_geometry" end
     local seen={}
     for _,cell in ipairs(cells) do
@@ -3012,7 +3058,12 @@ local function SettlementSites(player, state, firstOnly, excluded, unitID, prefe
       and not plot:IsImpassable() and not plot:IsCity() and SettlementFeatureAllowed(plot)
       and (plot:GetOwner()==-1 or plot:GetOwner()==contextID) and Safe(plot,player) then
       supportChecked=true
-      if KnownExpansionSupport(plot,player,contextID)==true then
+      local supported,why=KnownExpansionSupport(plot,player,contextID,oneValidation)
+      if why=="support_geometry_pending" then
+        if oneValidation then excluded[candidate.index]=nil end
+        return result,true
+      end
+      if supported==true then
         result[#result+1] = {index=candidate.index, score=candidate.score, legal=true, revealed=true, safe=true,
           protected=false, plot=plot}
         if firstOnly then return result,i<#candidates end
@@ -3083,15 +3134,24 @@ local function ProcessSettler(ctx, player, state, unit)
         or not SettlementFeatureAllowed(oldPlot)
         or(oldPlot:GetOwner()~=-1 and oldPlot:GetOwner()~=ctx.player) then
         ForgetOld();oldPlot=nil
-      elseif KnownExpansionSupport(oldPlot,player,ctx.player)~=true then
-        ForgetOld()
-        -- Do not add another potentially expensive site scan to this callback.
-        return false,true
+      else
+        local supported,why=KnownExpansionSupport(oldPlot,player,ctx.player,true)
+        if supported~=true then
+          if why=="support_geometry_pending" then return false,true end
+          ForgetOld()
+          -- A rejected goal does not start another site scan in this callback.
+          return false,true
+        end
       end
     end
   end
   local mayFound=player:GetCities():GetCount()==0 or settlementTargets[id]==here:GetIndex()
-  if mayFound and KnownExpansionSupport(here,player,ctx.player)==true and Safe(here,player) and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
+  local foundSupport,foundWhy
+  if mayFound then
+    foundSupport,foundWhy=KnownExpansionSupport(here,player,ctx.player,true)
+    if foundWhy=="support_geometry_pending" then return false,true end
+  end
+  if mayFound and foundSupport==true and Safe(here,player) and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
     settlerSearches[id]=nil
     return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
   end
@@ -3121,10 +3181,14 @@ local function ProcessSettler(ctx, player, state, unit)
   end
   local sites,more=SettlementSites(player,state,true,search.tested,id,settlementTargets[id],true)
   local target=BaiqiPlanner.Site(sites,reservations,unit:GetID())
-  if not mayFound and target and target.index==here:GetIndex() and KnownExpansionSupport(here,player,ctx.player)==true and Safe(here, player)
-    and UnitManager.CanStartOperation(unit, UnitOperationTypes.FOUND_CITY) == true then
-    settlerSearches[id]=nil
-    return RequestCivilian(ctx, state, unit, "FOUND_CITY", here)
+  if not mayFound and target and target.index==here:GetIndex() then
+    foundSupport,foundWhy=KnownExpansionSupport(here,player,ctx.player,true)
+    if foundWhy=="support_geometry_pending" then return false,true end
+    if foundSupport==true and Safe(here,player)
+      and UnitManager.CanStartOperation(unit,UnitOperationTypes.FOUND_CITY)==true then
+      settlerSearches[id]=nil
+      return RequestCivilian(ctx,state,unit,"FOUND_CITY",here)
+    end
   end
   if target and target.index~=here:GetIndex() then
     search.tested[target.index]=true

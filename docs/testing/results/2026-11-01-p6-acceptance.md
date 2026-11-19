@@ -2010,3 +2010,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：166 Controller分步实采收尾，继续因果审阅与修复
 
 [全部同根区间与实际生命周期](../../research/baiqi-source166-controller-district-native-2026-11-19.json)：112根／485保留行，原4096容量，普通85～89到90，20绑定撤钩／保存／正式释放／自有退场和父驱动终态分别核验。原85 B_plan FAIL不变。子步骤时间为包含关系的墙钟区间，按同一根处理重叠；未测步骤时间不擅自归因。不授性能或整mod通过，继续审阅、修复、复测。
+
+
+## 2026-11-19：Source167软件通过，继续冷验
+
+[静态几何分步与完整回归](../../research/baiqi-source167-bounded-support-geometry-software-2026-11-19.json)：2829运行中2828通过／1SDK跳过，10新Controller及3新观察器方法、旧166两项失败对照，97Lua双编译／119文件。新QA精确支持待算形状并保留旧规则字节；[新原85准备](../../research/baiqi-source167-original85-plan-prepared-2026-11-19.json)58语义、12实际Python、4安装前置场景通过。Native167尚未开始，16624/106ms有效FAIL与112根485行诊断不变，整个modOPEN，继续执行。
