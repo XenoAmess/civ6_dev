@@ -1970,3 +1970,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：Source165软件通过，继续实机
 
 [扩张支持读取优化与完整回归](../../research/baiqi-source165-public-support-software-2026-11-19.json)：2804运行中2803通过／1SDK跳过；6新完整Controller方法与88相关测试通过，旧行为负对照4项按预期拒绝。97Lua双编译／119文件；[新原85准备](../../research/baiqi-source165-original85-plan-prepared-2026-11-19.json)14消费者／58语义场景通过。Native尚未开始，164规划FAIL、独立98ms寻路与整个modOPEN均保留，继续执行。
+
+
+## 2026-11-19：Source165原85全脚本后续准备
+
+[15消费者与真实插桩门控软件证据](../../research/baiqi-source165-original85-fullscript-prepared-2026-11-19.json)：76注册表语义场景、7项真实Executor门控／34VM／2故障对照，以及3个玩家表达式双编译通过。33上下文、4096总容量及默认85日历不变，尚未安装／运行。必须先取得164规划PASS与父驱动31359完整终态，不能越过有效FAIL。整个mod继续。
