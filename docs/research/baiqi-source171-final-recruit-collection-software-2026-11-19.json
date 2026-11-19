@@ -1,0 +1,114 @@
+{
+  "utc": "2026-11-19T12:21:52.289719+00:00",
+  "source_version": 171,
+  "status": "PASS",
+  "cases": [
+    {
+      "VM": "Lua51",
+      "case": "full",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 3,
+      "records_preserved": 7,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua51",
+      "case": "truncated_second_page",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 2,
+      "records_preserved": 4,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua51",
+      "case": "changed_second_metadata",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 2,
+      "records_preserved": 4,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua51",
+      "case": "unknown_result",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 3,
+      "records_preserved": 7,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua51",
+      "case": "preexisting_attempt",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 0,
+      "records_preserved": 1,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua53",
+      "case": "full",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 3,
+      "records_preserved": 7,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua53",
+      "case": "truncated_second_page",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 2,
+      "records_preserved": 4,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua53",
+      "case": "changed_second_metadata",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 2,
+      "records_preserved": 4,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua53",
+      "case": "unknown_result",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 3,
+      "records_preserved": 7,
+      "Native_queries": 0
+    },
+    {
+      "VM": "Lua53",
+      "case": "preexisting_attempt",
+      "query_backend": "actual Lua VM only",
+      "actual_VM_queries": 0,
+      "records_preserved": 1,
+      "Native_queries": 0
+    }
+  ],
+  "consumers_sha256": {
+    "recruit171_collect_owner.py": "c307b77c43ebedaafeed842dc699749fcd0a4c923bb4c2d5e742eb993d273325",
+    "recruit171_codec_owner.py": "aa1990060bb8de640f2ca10d1c864fabf6b003bfab5d269ffe7bf2fd7c3d875e",
+    "recruit171_export_owner.lua": "a1daa7d78f9a012ae94ae9339f1fe26478e021925412e548fffffdfa6c75a98d",
+    "recruit171_exit_owner.lua": "6cf597f47aa115335d4ea89715bb6a903bfe1ed90b7922add9cddbc6e3504ada",
+    "test_recruit171_collect_owner.py": "ce52d830880dec720ffd946b8252aad50b1c045f3c19972a27b2206087236d4b"
+  },
+  "Native_queries": 0,
+  "game_orders": 0,
+  "scope": "Actual bounded render/export/parse/aggregate/record pipeline on Lua51 and53. Partial and changed second responses preserved, no third query; exclusive original attempt prevents any re-query. Unknown binding remains unqualified. Caller-owned game lifecycle/retirement and actual finance/isolation remain unexecuted.",
+  "date": "2026-11-19",
+  "machine": "BF-202609141645",
+  "whole_mod": "OPEN_CONTINUE",
+  "Native_finance": "NOT_RUN",
+  "Native_isolation": "NOT_RUN",
+  "generation_POSTs": 0,
+  "ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null
+}
