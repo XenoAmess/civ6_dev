@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T15:04:15.199660+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 171,
+  "status": "NON_PERFORMANCE_FINANCE_PLAYER_CONSUMER_SOFTWARE_ONLY",
+  "actual_execution": {
+    "utc": "2026-11-19T15:03:27.507528+00:00",
+    "status": "NON_PERFORMANCE_FINANCE_PLAYER_PYTHON_SOFTWARE_PASS_NOT_NATIVE",
+    "actual_Python_program_cases": 12,
+    "cases": [
+      {
+        "mode": "select",
+        "turn": 84,
+        "result": "Python_guard_rejected_before_query",
+        "query_interceptions": 0,
+        "Native_queries": 0
+      },
+      {
+        "mode": "select",
+        "turn": 85,
+        "result": "reached_intercept_before_native",
+        "query_interceptions": 1,
+        "Native_queries": 0
+      },
+      {
+        "mode": "select",
+        "turn": 90,
+        "result": "reached_intercept_before_native",
+        "query_interceptions": 1,
+        "Native_queries": 0
+      },
+      {
+        "mode": "select",
+        "turn": 91,
+        "result": "Python_guard_rejected_before_query",
+        "query_interceptions": 0,
+        "Native_queries": 0
+      },
+      {
+        "mode": "step",
+        "turn": 84,
+        "result": "Python_guard_rejected_before_query",
+        "query_interceptions": 0,
+        "Native_queries": 0
+      },
+      {
+        "mode": "step",
+        "turn": 85,
+        "result": "reached_intercept_before_native",
+        "query_interceptions": 1,
+        "Native_queries": 0
+      },
+      {
+        "mode": "step",
+        "turn": 90,
+        "result": "reached_intercept_before_native",
+        "query_interceptions": 1,
+        "Native_queries": 0
+      },
+      {
+        "mode": "step",
+        "turn": 91,
+        "result": "Python_guard_rejected_before_query",
+        "query_interceptions": 0,
+        "Native_queries": 0
+      },
+      {
+        "mode": "end",
+        "turn": 84,
+        "result": "Python_guard_rejected_before_query",
+        "query_interceptions": 0,
+        "Native_queries": 0
+      },
+      {
+        "mode": "end",
+        "turn": 85,
+        "result": "reached_intercept_before_native",
+        "query_interceptions": 1,
+        "Native_queries": 0
+      },
+      {
+        "mode": "end",
+        "turn": 90,
+        "result": "reached_intercept_before_native",
+        "query_interceptions": 1,
+        "Native_queries": 0
+      },
+      {
+        "mode": "end",
+        "turn": 91,
+        "result": "Python_guard_rejected_before_query",
+        "query_interceptions": 0,
+        "Native_queries": 0
+      }
+    ],
+    "preserved_bad_wrapper_controls": 2,
+    "negative_controls": [
+      {
+        "old_wrapper": "select",
+        "actual_turn": 85,
+        "rejected_before_native": true
+      },
+      {
+        "old_wrapper": "end",
+        "actual_turn": 85,
+        "rejected_before_native": true
+      }
+    ],
+    "Lua51_Lua53_compilation_at_query_boundary": true,
+    "modifications_for_test": "Only B evidence directory is redirected to temporary software sandbox. Native query intercepted before dispatch; actual Python argument bounds, fstring construction, Lua helper reads and original file-intent execution are retained.",
+    "Native_queries": 0,
+    "game_actions": 0,
+    "tracked_changes": 0
+  },
+  "consumers_sha256": {
+    "finance171_player_owner.py": "56c32b98957544a43754fc84aa5dd67fccb697ee16f61588bcb865901410e459",
+    "test_finance171_player_python_owner.py": "92fdf6e752d6d5cbb491814f9163bf8270e97a1c7e1786536fa80d050cc6e77c",
+    "quota171_normal_player_owner.py": "a79b9e1ddf6c1a8f34a61651df8394556c162644836c1edd60182b67e26a689f",
+    "p6_wonder74_normal_step_owner.py": "4e54175a1b25b01c52e20b0e66c26da1c7cc7488680378d65dfe4e25319cb7a1",
+    "p6_military442_select_next_owner.py": "f5147d313f6523b13d7d1c107f28a19f5adbf406225d8295ee6b34608a7c5564",
+    "p6_military442_end_after_skips_owner.py": "466f9a0bbbc1303d9bd447aabe54a3ecfbf665ce57420997ee33296f0b6501c6"
+  },
+  "runtime_contract": "Only turns85..90, military select/skip sequence1..60, ordinary END with fresh no-blocker/HasSentTurnComplete/unready/military/city-attack guards. No UserForced or fallback END when a military SKIP loses qualification. All queries use the published owned finance context with exclusive intent and unknown/no-retry recording.",
+  "model_ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "generation_POSTs": 0,
+  "unknown_costs": null,
+  "limits": [
+    "12 actual rendered Python cases stop at intercepted Native boundary; two preserved wrong-range wrappers reject the true85 turn. Stock Lua51/53 compilation occurs at that boundary. This does not establish actual game behavior.",
+    "Existing ordinary handler source is reused with distinct finance evidence/duplicate keys; no performance registry or timing record is required or fabricated.",
+    "The full finance171_episode_owner.py orchestrator, cold launch, actual income shock/isolation and case acceptance remain unfinished. No game, Steam or desktop input."
+  ]
+}
