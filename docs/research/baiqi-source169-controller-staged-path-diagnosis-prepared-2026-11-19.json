@@ -1,0 +1,491 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T09:59:50.158641+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 169,
+  "status": "PRIVATE20_STAGED_PATH_DIAGNOSIS_PREPARED_SOFTWARE_PASS_NATIVE_NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "current_original85_B_plan": "FAIL",
+  "current_summary": {
+    "utc": "2026-11-19T09:46:55.706240+00:00",
+    "facts_sha256": "f138183191484ee6dade243db8c6d346295acae848897c9db2a94128440bc489",
+    "cities": 11,
+    "source": "baiqi169-stageA-v2",
+    "sample_quality_ok": true,
+    "samples": 315,
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 121,
+        "10_to_11": 0,
+        "eleven_city": 6,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 152,
+        "10_to_11": 0,
+        "eleven_city": 7,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 29
+      }
+    },
+    "eligible_calls_by_turn": {
+      "Admin.Run": {
+        "86": 25,
+        "87": 26,
+        "88": 27,
+        "89": 27,
+        "90": 22
+      },
+      "Controller.RunNow": {
+        "86": 32,
+        "87": 31,
+        "88": 34,
+        "89": 32,
+        "90": 30
+      }
+    },
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 121,
+        "p50_ms": 1.0001659393310547,
+        "p95_ms": 9.000062942504883,
+        "max_ms": 13.99993896484375,
+        "above_20ms_count": 0,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 152,
+        "p50_ms": 7.999897003173828,
+        "p95_ms": 40.000200271606445,
+        "max_ms": 62.99996376037598,
+        "above_20ms_count": 22,
+        "above_50ms_count": 5,
+        "budget_ok": false
+      }
+    },
+    "overall_budget_ok": false,
+    "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 29,
+      "validated": 29,
+      "errors": 0
+    }
+  },
+  "trigger": {
+    "evidence": "baiqi-source169-original85-plan-native-2026-11-19.json",
+    "slowest_actual_row": 137,
+    "turn": 88,
+    "ms": 62.99996376037598,
+    "cause": null
+  },
+  "artifact": {
+    "mode": "baiqi169-controller-children-v10",
+    "archive_sha256": "a3d7b15a58ac2f6d520a638fef13a99f1cb1f5a9c50640ab00833898ddbee9fe",
+    "files": 119,
+    "Lua51_Lua53_files": 97,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "binding_count": 20,
+    "children": [
+      "ProcessSettler",
+      "ProcessNaturalist",
+      "ProcessArchaeologist",
+      "ProcessDistrictPerson",
+      "ProcessCreative",
+      "SettlerPathValidation",
+      "KnownExpansionSupport",
+      "SettlementBridge",
+      "SettlerGoalBridge",
+      "RequestCivilian",
+      "PathStep",
+      "Safe"
+    ],
+    "native_children": [
+      "Native.GetMoveToPathEx",
+      "Native.DetourChoicePath",
+      "Native.DetourFirstEdgePath",
+      "Native.FoundRequestOperation"
+    ],
+    "additional_children": [
+      "DistrictRoute.Run",
+      "Native.DistrictRoutePath",
+      "Native.DistrictRouteRange"
+    ],
+    "sample_capacity": 4096,
+    "focus_turns": [
+      88,
+      89,
+      90
+    ],
+    "observed_window_seconds": 10,
+    "private_transform_sha256": "3061c13850acf02f2a37f9eb24892a8eb4e59e345a879390aa1b01ddfc24988e",
+    "native_global_binding_modified": false,
+    "release_text_recovers_exactly": true
+  },
+  "contract": "Retain12 lexical timer slots and20 total bindings. Replace the previous NeighborhoodGeometry slot with SettlerPathValidation, a private variadic passthrough only at the new staged final-validation callsite. Existing synchronous PathStep is still timed. Forward exact values/arity and errors; preserve native identities, game logic, state and action authority. Reverse the complete prefix exactly. Inclusive intervals overlap and cannot be summed.",
+  "actual_binding_software": {
+    "utc": "2026-11-19T09:55:36.593295+00:00",
+    "source_version": 169,
+    "status": "PASS",
+    "actual_bindings": 20,
+    "passed": 24,
+    "cases": [
+      {
+        "case": "normal88",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "normal88",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "normal90",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "normal90",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "pre_observer",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "pre_observer",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "out_of_scope87",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "out_of_scope87",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "root_error_once",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "root_error_once",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "native_error_once",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "native_error_once",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "offroot_arity",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "offroot_arity",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "zero_root_returns",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "zero_root_returns",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "foreign_root",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "foreign_root",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "foreign_fields",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "foreign_fields",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "range_error_once",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "range_error_once",
+        "VM": "Lua53",
+        "PASS": true
+      },
+      {
+        "case": "foreign_range",
+        "VM": "Lua51",
+        "PASS": true
+      },
+      {
+        "case": "foreign_range",
+        "VM": "Lua53",
+        "PASS": true
+      }
+    ],
+    "reversible_prefix_negative_controls": 6,
+    "actual_suffix_sha256": "83e6dfe26afe9e9d2d89186d1cad23adabcea7d34d9b41c473db8a9487af1a1f",
+    "artifact_sha256": "a3d7b15a58ac2f6d520a638fef13a99f1cb1f5a9c50640ab00833898ddbee9fe",
+    "capacity": 4096,
+    "Native_queries": 0,
+    "game_actions": 0,
+    "limits": "Exact actual private suffix contracts in software; no Native timing, cause or game-effect grant."
+  },
+  "passthrough_software": "Both actual Lua VMs separately executed the exact private helper for3 values including nil/false, zero return values and a single forwarded error; not a Native effect.",
+  "actual_runtime_software": {
+    "archive_sha256": "a3d7b15a58ac2f6d520a638fef13a99f1cb1f5a9c50640ab00833898ddbee9fe",
+    "player_actual15_payloads_dualLua": [
+      {
+        "turn": 85,
+        "mode": "select",
+        "sha256": "9c8aea8e62397a8acb51d42cfb14f2284af21f84f9cd25b2c1f5607aecc0ed7c"
+      },
+      {
+        "turn": 85,
+        "mode": "step",
+        "sha256": "4e0d8b751be40259e8fdbaf09bd474b20565ad26e864287e0b6b6e41a0380dd9"
+      },
+      {
+        "turn": 85,
+        "mode": "end",
+        "sha256": "a527fa87a60137213b825af9e13eaec4e115bc085d2602e3f17746ec4fb97c66"
+      },
+      {
+        "turn": 86,
+        "mode": "select",
+        "sha256": "91116d1ebdd98347a0dbacead139885cb91703f28b2b97a58a4438d332062238"
+      },
+      {
+        "turn": 86,
+        "mode": "step",
+        "sha256": "f4f920279ec350db64f648b9b1566354c9af52cb1f8da4905800f10c414586a1"
+      },
+      {
+        "turn": 86,
+        "mode": "end",
+        "sha256": "5d7af180289ce6c48c1ae5d972094b30b0fbb629013e0eb3e83d2c21c5bd4e10"
+      },
+      {
+        "turn": 87,
+        "mode": "select",
+        "sha256": "52da417dc33652d202e6bf2c6884bc72853819045621285f6ef9edadd91b3071"
+      },
+      {
+        "turn": 87,
+        "mode": "step",
+        "sha256": "9a6adeebc634629dcc754b05605832cdd5a21f7694f2821935b6374d6a4619d2"
+      },
+      {
+        "turn": 87,
+        "mode": "end",
+        "sha256": "35051a80aaf7a4e360c45bc0c8a1de57434138fe5a8cd5f1d7c0203c301eaf22"
+      },
+      {
+        "turn": 88,
+        "mode": "select",
+        "sha256": "1d1defd58bcf6cf4c7aefcefb0517547d2ace0cc94e902dd628300fefd4fb364"
+      },
+      {
+        "turn": 88,
+        "mode": "step",
+        "sha256": "776a1d0a76a6527bd3e9c9c8d6ceea252a6d3d3e2ab6df0d1b0b4ce15318827a"
+      },
+      {
+        "turn": 88,
+        "mode": "end",
+        "sha256": "d7cc3d8c52bbcbda42f3a5834e831d793995cf2f17122c182daaea3b7d5b70ca"
+      },
+      {
+        "turn": 89,
+        "mode": "select",
+        "sha256": "3d6073a20170c5389e9793359ad5f2528b7304566612c99ac1b99369f772c68c"
+      },
+      {
+        "turn": 89,
+        "mode": "step",
+        "sha256": "f9cdd19342a2296a8fef38e522af20d4a076f60da6fcf66ddc92af26eac3938d"
+      },
+      {
+        "turn": 89,
+        "mode": "end",
+        "sha256": "28009cab376b5dea1bb43898db6106e4312455d5db005aecf125fea9e0803205"
+      }
+    ],
+    "profile_preflight85_89_dualLua": true,
+    "finish_actual4_payloads_dualLua": [
+      {
+        "API": "save_checkpoint",
+        "sha256": "fcfbf9c00cba9c87f9c9fea2c1aea34011309580d7315d024fd8627f9e1c78ef"
+      },
+      {
+        "API": "query",
+        "sha256": "d2fa97eeb6647d13d49e53d4bb0e8422886797f1afed2ca57d2bbabd487b5d41"
+      },
+      {
+        "API": "query",
+        "sha256": "0f24dfbd5c31d7c47711d7e0f88a99fede1e6b55774f22244fb1a857c2152a72"
+      },
+      {
+        "API": "query",
+        "sha256": "862ee196d28fba6942c591d086f1861d4890056add5d57b220b5652b3d2e218a"
+      }
+    ],
+    "AST_scripts": 19,
+    "Native_calls": 0,
+    "game_actions": 0,
+    "limits": "Actual renderer/payload/guard syntax only. No Native result. Readiness-patch first edit was rejected before targetwrite due indentation, then corrected. Diagnostic wall watchdog360 only; fixed10s/4096 and budget thresholds unchanged."
+  },
+  "actual_install_preflight": {
+    "utc": "2026-11-19T09:59:25.351451+00:00",
+    "status": "PASS",
+    "actual_installer": true,
+    "cases": [
+      {
+        "case": "actual_current_records",
+        "result": "reached_intercepted_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      },
+      {
+        "case": "prior_budget_true",
+        "result": "rejected_before_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      },
+      {
+        "case": "wrong_binding_count",
+        "result": "rejected_before_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      },
+      {
+        "case": "prior_QA_not_retired",
+        "result": "rejected_before_first_write_intent",
+        "writes": 0,
+        "Native_queries": 0
+      }
+    ],
+    "writes": 0,
+    "Native_queries": 0,
+    "future_receipt": "Only future preparation publication is a software fixture; prior current169 capture/terminal/publication/save/QA and all source/archive/installed119 are actual read-only records."
+  },
+  "consumer_sha256": {
+    "controller169a_lifecycle_owner.py": "b23e2d6338ab127235ecefc708d8f470255f6e3930222c49113958d561f9f7ec",
+    "controller169a_fixture_owner.py": "dc5952f2694195ef7498cfa939171a31bb6004dbd7e27bc95e3c87f29d53c097",
+    "controller169a_header_owner.py": "0a73b2ab7621f943d28c67a0eb841374af04852341ae41d612306300603dcbdc",
+    "controller169a_continue_owner.py": "e84343b85e03a07ca26880fc22a9f1477f55db910dd3b8cef3ec8f18fbcccc79",
+    "controller169a_endpoint_owner.py": "6fb3e671e887b45f1df5153dabb5170164e538d7b3a1858d424ebeaf60d1a4cd",
+    "controller169a_cleanup_owner.py": "9c6a57b490ac76b59d428fdb0c1c67762a51095b4182003560f8333f2fddbaab",
+    "controller169a_run_owner.py": "7a26aae08fe0174b66e8d001dd2451365b76ba6d5ba26c9e96580fea9d0b4dce",
+    "controller169a_collect_owner.py": "2be856f2a2e77efdf111ccbe04aad2e3241b842d036aa0a8c545e31204597da7",
+    "controller169a_progress_owner.py": "0f8928dfd06869b3fd783c133ca06d52b79c8a4536e7dd7080508d772e2cdb7f",
+    "controller169a_normal_player_owner.py": "657d11ae3802ac5e8fac3f17ca99ec40b642b2cd732aa24fb6f9dbcebef98b52",
+    "controller169a_brief_owner.py": "b8e7055b1b724e7e48bb9bf8ecd58f8530f1213cb8dad87233717cb1c58fabc2",
+    "controller169a_finish_owner.py": "eaf64f3d452a93ff4ae18dcc3adde986d216c4e82b428ef409fe4c3e3bc7c217",
+    "controller169a_finish_formal_owner.py": "fae1097a2bd852f6061a87a950cd202ede16cdb6c1af2f08a6b02ec55cb912d9",
+    "controller169a_episode_owner.py": "4ca551a8eddda08639993f4b4afaac98d1e8f1610991d5c30393f8b13dea4562",
+    "controller169a_validate_runtime_owner.py": "cdc2926b67026846ab77bcc91837fa68b12a6894ac6ab4e575315eecd0d12ef9",
+    "controller169a_environment_owner.py": "75a15136e8fa901573f6d6868457db8191aada28e88795ba2c0dc45d028f5519",
+    "controller169a_freeze_formal_owner.py": "24faa6c8c5b876720b32fc3ca06700257c0676f0fab05105884ed7acb278ea8b"
+  },
+  "lifecycle": "Prior169 plan50687 actual0 closed,315 raw exported, checkpoint saved,2 wrappers/event restored,formal released,official exit once and original process absent. Exact119 prior QA backup/install only after this preparation is published. Fresh background Steam offline,pinned exe/CPU,>=60s warmup and formal-before-exact85reload. Five ordinaryEND85..89 to90,export/save/restore20/release; same parent readonly merchant record then official exit.",
+  "configured_model_readonly_R13": {
+    "utc": "2026-11-19T09:51:57.898889+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-19",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-19T09:51:57.857542+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 321,
+        "over_64KiB": false,
+        "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+        "total_ms": 23.682399885728955,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-19T09:51:57.882664+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 482,
+        "over_64KiB": false,
+        "sha256": "a9d34ed10642f3b1fa9e2ce9ef94bccc16ee5716451c4e27ecd50e5af55e5bee",
+        "total_ms": 15.244100010022521
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "model_ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "generation_POSTs": 0,
+  "Native_queries": 0,
+  "installed": false,
+  "limits": [
+    "No Native timing, causal or budget grant from preparation.",
+    "Actual169 planning FAIL and actual expansion observation remain separate.",
+    "No transfer of source168 same-root costs or source163 scenario passes to169.",
+    "Continue repair, retest and whole40; no final at this commit."
+  ]
+}
