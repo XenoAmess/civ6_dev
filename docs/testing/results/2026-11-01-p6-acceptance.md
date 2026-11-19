@@ -2124,3 +2124,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：当前171既有生命值边界证据复核
 
 [162 HP69／70／71九个实际阶段与36源码比较](../../research/baiqi-source171-historical-health-boundary-review-2026-11-19.json)保留两个物理支付成功和71物理UI拒绝／单独QA后端拒绝。最大HP200的35%=70，QA夹具修复与能力结算分开；69／70实际各一次转城/扣300/耗行动，71全0。UI/Core共享状态吻合但defense.path不同，未称原子读回；Native表参数身份未序列化，不能虚构相等。当前所选12消费者相同，只支持原限定分支复用，不是新171实机、重载、完整TC024或整模组通过。
+
+
+## 2026-11-19：当前171旧COMMITTED请求拒绝的软件准备
+
+[36项真实处理体双Lua检查](../../research/baiqi-source171-retired-granary-request-software-2026-11-19.json)：固定granary／原请求号和原账本前态，当前OnRequisition在进入Capture前拒绝；false/void/nil/error原返回保留，阶段先预留、重复阶段不重发。未改产品、未恢复入口或旧收益，0Native。first/repeat/after_reload仅软件标签，不冒充真实加载；TC033实际旧请求、读档及生命周期仍待执行。
