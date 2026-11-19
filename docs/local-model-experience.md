@@ -1285,3 +1285,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-19T13:31Z：[R18只读可用性](research/baiqi-configured-model404-readonly-r18-2026-11-19.json)仍只列open-h3-2k、配置qwen38-coder不变；两个GET200，Nov19同机OpenCode1.19.6缓存通过。0生成POST/新任务/服务更改，累计1023及原extra38保持。Owner继续真实未完成的生命值证据/源码复核；游戏隔离、代码生成能力均未因此通过。
+
+
+2026-11-19：[171全脚本发布复核与R19](research/baiqi-source171-fullscript-publication-validation-r19-2026-11-19.json)记录一次实际发布拒绝：JSON保存的整数回合键成为字符串，与内存重算字典直接比较不等。仅按同一JSON格式归一化后逐字段精确比较，全部数值一致；保留首次失败，未重放任何游戏动作。配置模型仍不在服务清单，负责人继续真实未完成流程，不向已知缺失模型重复POST。
