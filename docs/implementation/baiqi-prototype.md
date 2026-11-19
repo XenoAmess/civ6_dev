@@ -1,5 +1,7 @@
 # 白绮：为我前驱开发原型
 
+2026-11-19当前源码171：[原85规划实机](../research/baiqi-source171-original85-plan-native-2026-11-19.json)333原样本保留，Admin120个p95/max约8/10ms、Controller148个约15/46ms，满足原100/20/50门槛；普通六次结束至实际91，保存／撤钩／释放／退出已闭合。[全脚本](../research/baiqi-source171-original85-fullscript-preparation-2026-11-19.json)与[五组配对](../research/baiqi-source171-original85-paired-preparation-2026-11-19.json)仅完成软件准备，尚未实测。整个mod仍未验收完成，继续任务见[当前交接](../handoff-2026-11-16.md)；以下各版本记录均为历史范围。
+
 当前源码与交接入口见[README](../../README.md)和[142软件验证](../testing/baiqi-source142-support-budget745746.md)：2220项含1项SDK跳过，[142 N正式五窗规划预算已通过](../testing/baiqi-stageA142-N.md)，仅限B_plan；[142全脚本耗时／写入预算已通过](../testing/baiqi-allscript142-pair751752.md)，匹配对照仍待。[141正式性能FAIL](../testing/baiqi-stageA141-fail-743.md)继续保留；[142主333冷读九域全等](../testing/baiqi-release142-cold333.md)，[四项冻结预算在原85夹具通过](../testing/baiqi-performance142-frozen760.md)，TC036压力及功能矩阵仍开放。以下为各版本历史证据，不能直接作为142当前实测。
 
 [109实机186—206／九张原图](../testing/baiqi-continuous-window-109-186-206.md)：20实际回合、196城帧，9→10城上海，23建筑／7普通区域／3配对改良；受损娱乐中心及竞技场已修，动物园仍修复。33普通END／79玩家待命／0人工内政。12条未观察到请求告警、旧恢复FAIL、水坝施工／性能／全矩阵仍开；观察器已撤，206已存未载。Steam离线，工坊82未更。
