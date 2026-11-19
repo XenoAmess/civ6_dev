@@ -2082,3 +2082,10 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 ## 2026-11-19：171公开城址查询软件与原85准备
 
 [软件](../../research/baiqi-source171-support-coordinate-lookup-software-2026-11-19.json)：4新公开单元方法、19分步方法双Lua／248相关／2旧170工作量对照通过；首轮夹具失败及修正保留，完整2859／2858通过／1SDK跳过。97Lua／119文件，[准备](../../research/baiqi-source171-original85-plan-prepared-2026-11-19.json)58语义／12Python／4安装前置已核。实际171预算未授通过，原17018/58ms FAIL保留，继续整个mod验收。
+
+
+## 2026-11-19：当前171独立证据复核与财政观察器准备
+
+[既有迁移原值与238次文件比较](../../research/baiqi-source171-historical-migration-consumer-review-2026-11-19.json)保留160经营权清理的两次普通结算及重载、161旧暂停清理与生产进度的原限定结论；当前Gameplay迁移体与161完全一致，SQL/XML与两次历史启动一致，但Controller/Executor等消费者已变更，不能授171整项通过。初始UI/Core单位数3/4、手动UI未运行及旧865未决均保留。
+
+[最终招募观察器软件准备](../../research/baiqi-source171-final-recruit-observer-software-2026-11-19.json)：16次实际双VM检查、119文件/97Lua编译与精确逆变换通过。未安装、无游戏操作/过滤器/新生成POST；财政冲击、运行时隔离与TC038实机仍待执行。HOI4桌面交接期间仅独立准备；第171版原85性能仍尚未启动，整模组持续。
