@@ -2077,3 +2077,8 @@ Owner仅在私有Gameplay拷贝的自然清理消费者前后记录有界只读�
 [全部原值、分类及生命周期](../../research/baiqi-source170-original85-plan-native-2026-11-19.json)。Admin纯十城125个、p95/max=6.999969482421875/11.00015640258789ms；Controller152个、p95/max=18.000125885009766/57.99984931945801ms。原100/20ms/50ms预算，全部326原样本保留；普通85..90至91、保存／撤钩／释放／退场分别核对。当前原85其余性能与完整功能继续。
 
 [40项证据导航](../../research/baiqi-source170-finite40-evidence-navigation-2026-11-19.json)与[既有金币边界复核](../../research/baiqi-source170-historical-gold-boundary-review-2026-11-19.json)同批记录：保留原限定实机结果、36次源码身份比较和未完成分支，不冒称本次新实机或整项通过。
+
+
+## 2026-11-19：171公开城址查询软件与原85准备
+
+[软件](../../research/baiqi-source171-support-coordinate-lookup-software-2026-11-19.json)：4新公开单元方法、19分步方法双Lua／248相关／2旧170工作量对照通过；首轮夹具失败及修正保留，完整2859／2858通过／1SDK跳过。97Lua／119文件，[准备](../../research/baiqi-source171-original85-plan-prepared-2026-11-19.json)58语义／12Python／4安装前置已核。实际171预算未授通过，原17018/58ms FAIL保留，继续整个mod验收。

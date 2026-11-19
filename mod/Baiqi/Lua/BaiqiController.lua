@@ -745,6 +745,8 @@ local function KnownExpansionSupport(plot,player,playerID,planning)
     local cells,_,waiting=NeighborhoodGeometry(plot,radius,planning and BaiqiPolicy.Number(planningStarted)and 24 or nil)
     if waiting then return nil,"support_geometry_pending" end
     if not cells or #cells>maxCells then return nil,"unknown_geometry" end
+    local resolve=Map and Map.GetPlot
+    if type(resolve)~="function" then return nil,"unknown_geometry" end
     local seen={}
     for _,cell in ipairs(cells) do
       local revealed=visibility:IsRevealed(cell.x,cell.y)
@@ -757,8 +759,10 @@ local function KnownExpansionSupport(plot,player,playerID,planning)
       if revealed and visible then
         -- Topology is scalar cached geometry. Resolve live plots only for the
         -- currently public cells whose city information this check consumes.
-        local near=Map.GetPlotByIndex(cell.index)
-        if not near or near:GetIndex()~=cell.index or near:GetX()~=cell.x or near:GetY()~=cell.y then return nil,"unknown_geometry" end
+        -- Coordinate lookup supplies the live cell position; its returned
+        -- index must still match the immutable topology proposal.
+        local near=resolve(cell.x,cell.y)
+        if not near or near:GetIndex()~=cell.index then return nil,"unknown_geometry" end
         local flag=near:IsCity()
         if type(flag)~="boolean" then return nil,"unknown_city" end
         if flag then
@@ -782,6 +786,7 @@ local function KnownExpansionSupport(plot,player,playerID,planning)
         end
       end
     end
+    if Map.GetPlot~=resolve then return nil,"unknown_geometry" end
     return true,"known_border_checked"
   end)
   if not ok then return nil,"native_information_unavailable" end

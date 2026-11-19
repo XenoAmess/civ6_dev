@@ -1,0 +1,208 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T11:57:02.123948+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 171,
+  "status": "SOFTWARE_PASS_NATIVE_PENDING",
+  "software_complete": true,
+  "Native171": "NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": "baiqi-source170-original85-plan-native-2026-11-19.json",
+  "product_change": {
+    "files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "other_product_files_identical_vs170": 117,
+    "controller_sha256": "cc1de8907521aed0503e1343b42a5aec49dfb4c4ff5633525c923943c43785fe",
+    "behavior": "Resolve each currently revealed and visible support cell by native Map.GetPlot(x,y), then require its fresh index to match the scalar topology proposal. Coordinate lookup supplies position and avoids two repeated plot coordinate getters. Capture the coordinate resolver for this scan; changed binding closes a positive result.",
+    "authority": "No cached visibility, city, owner, loyalty, native object or operation grant. Fresh own-city/stability/warning checks, strict visibility booleans, actual native city flag, city identity/owner/coordinates/minimum distances, final path/native/formation/authority and unknown receipts remain.",
+    "manual_controls_added": 0
+  },
+  "software": {
+    "full_suite": {
+      "run": 2859,
+      "passed": 2858,
+      "SDK_environment_skips": 1,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 290.031,
+      "actual_terminal": {
+        "utc": "2026-11-19T11:56:58.681247+00:00",
+        "session_id": 80772,
+        "exit_code": 0,
+        "actual_tool_completion": true,
+        "tool": "write_stdin observed actual unified exec terminal0",
+        "tests": 2859,
+        "skipped": 1,
+        "log_sha256": "8c8e95f63fd2ec12cae4ab18b78aee68201726cd40fd6f04ad76003179af36c4"
+      },
+      "log_sha256": "8c8e95f63fd2ec12cae4ab18b78aee68201726cd40fd6f04ad76003179af36c4"
+    },
+    "new_methods": 4,
+    "phase_methods_dual_Lua_before_adoption": 19,
+    "related_candidate_methods": 248,
+    "old170_read_work_controls": {
+      "utc": "2026-11-19T11:44:44.263541+00:00",
+      "controls": [
+        {
+          "VM": "lupa.lua51",
+          "old170_empty_cell_coordinate_queries": 0,
+          "old170_redundant_xy_getter_reads": 2,
+          "candidate_expected_coordinate_queries": 1,
+          "candidate_expected_redundant_xy_getters": 0,
+          "candidate_contract_rejected": true
+        },
+        {
+          "VM": "lupa.lua53",
+          "old170_empty_cell_coordinate_queries": 0,
+          "old170_redundant_xy_getter_reads": 2,
+          "candidate_expected_coordinate_queries": 1,
+          "candidate_expected_redundant_xy_getters": 0,
+          "candidate_contract_rejected": true
+        }
+      ],
+      "Native_queries": 0,
+      "performance_claim": false,
+      "scope": "Actual old170 consumer uses2 coordinate metadata getters for the empty public cell; new contract eliminates these using native coordinate lookup plus fresh index. Not a claim old170 violates game authority."
+    },
+    "retained_first_failures": [
+      {
+        "log": "support171-related-113608195099.log",
+        "run": 244,
+        "failures": 13,
+        "correction": "First existing fixture counted only the old by-index resolver; live wrong-object injection also targeted only that unused resolver."
+      },
+      {
+        "log": "support171-related-corrected-fixture-113859298080.log",
+        "run": 248,
+        "failures": 7,
+        "correction": "Warm-cache fixture initially warmed only one radius and visibility was coupled to the coordinate API."
+      },
+      {
+        "log": "support171-related-corrected-fixture-114035433568.log",
+        "run": 248,
+        "failures": 7,
+        "correction": "Warming all radii was insufficient; corrected to independent Native visibility oracle before the final successful248 run."
+      }
+    ],
+    "fixture_text_LF_sha256": "c64bc446f949a9c50ad662aed470539b9a6e7f8e6c4e15c59b6e88dd1cb6536b",
+    "fixture_corrections": "Old fixture observed only unused by-index calls and injected wrong-object failure there. Warm tests now observe/inject at the actual coordinate resolver, warm all radii, and supply an independent Native visibility oracle. Cold geometry separately proves no hidden/fogged city information read. Existing unknown/city/owner assertions retained.",
+    "Lua51_Lua53_files": 97,
+    "ordinary_files": 119,
+    "QA_opt_in_tools": 17
+  },
+  "ordinary_package": {
+    "archive_sha256": "53ddb4440552e2aea07351bc6d0f7662ff2923a084adbcbd49db073d018d7a20",
+    "archive_bytes": 8838746,
+    "delivered_local_path": "dist/Baiqi171.zip"
+  },
+  "model": {
+    "availability_before_private_candidate": {
+      "utc": "2026-11-19T11:34:30.334572+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T11:34:30.277578+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 30.417599948123097,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T11:34:30.309069+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "2d4c3f7fd7e7fe810ee63fbdae404e9a56eb725fc5d385bc6568f70c8e1bf5b3",
+          "total_ms": 24.482799926772714
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "availability_before_adoption": {
+      "utc": "2026-11-19T11:34:30.334572+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-19",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-19T11:34:30.277578+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 321,
+          "over_64KiB": false,
+          "sha256": "8e40fc6ab58ad464560a3ac62197225d60f8cb626cb941b3f401696fb58a7c41",
+          "total_ms": 30.417599948123097,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-19T11:34:30.309069+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 482,
+          "over_64KiB": false,
+          "sha256": "2d4c3f7fd7e7fe810ee63fbdae404e9a56eb725fc5d385bc6568f70c8e1bf5b3",
+          "total_ms": 24.482799926772714
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "new_generation_POSTs": 0,
+    "adopted_model_candidates": 0,
+    "Owner_continuation": true,
+    "ledger": {
+      "logical_tasks": 1023,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 139,
+      "generation_POSTs": 1062,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    },
+    "unknown_costs": null
+  },
+  "limits": [
+    "Software Native-call work reduction only; actual171 wall-clock budgets and progress require a new qualified Native episode.",
+    "Source170 valid326-row FAIL retained: Admin125 p95/max~7/11ms passes;Controller152 p95~18ms passes but max57.999849319ms fails, two rows>50ms. Row146 turn88~55ms and299 turn90~58ms remain; no cross-capture attribution from169 diagnostics.",
+    "All old unknown receipts, case-specific evidence and original40 requirements remain; software/full regression does not complete the mod."
+  ]
+}

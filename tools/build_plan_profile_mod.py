@@ -39,9 +39,9 @@ def restore_release(text: str,prefix: str,binding: str) -> str:
 
 
 def transform(raw: str,source_version: int = 140,*,pressure_initial_turn: int | None = None) -> tuple[str,str,str]:
-    if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
+    if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     if pressure_initial_turn is not None:
-        if source_version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170): raise ValueError('Pressure initial turn requires source142/143/144/145/146/147/148/149/150/151/152')
+        if source_version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171): raise ValueError('Pressure initial turn requires source142/143/144/145/146/147/148/149/150/151/152')
         if type(pressure_initial_turn) is not int or isinstance(pressure_initial_turn, bool) or not (0 <= pressure_initial_turn <= 2147483641):
             raise ValueError('Invalid pressure initial turn')
     if raw.count(INCLUDES)!=1 or raw.count('local ready=false\n')!=1:
@@ -75,10 +75,10 @@ def build(output_dir: Path,*,pressure_initial_turn: int | None = None) -> dict:
     source=ROOT/'mod/Baiqi'
     files=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170'):raise ValueError('Independent Stage A assembler requires actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
+    if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171'):raise ValueError('Independent Stage A assembler requires actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
     if pressure_initial_turn is not None:
-        if version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170): raise ValueError('Pressure initial turn requires source142/143/144/145/146/147/148/149/150/151/152')
+        if version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171): raise ValueError('Pressure initial turn requires source142/143/144/145/146/147/148/149/150/151/152')
         if type(pressure_initial_turn) is not int or isinstance(pressure_initial_turn, bool) or not (0 <= pressure_initial_turn <= 2147483641):
             raise ValueError('Invalid pressure initial turn')
     output_dir=output_dir.resolve()
@@ -137,7 +137,7 @@ def build(output_dir: Path,*,pressure_initial_turn: int | None = None) -> dict:
             'installed':False,'limits':'Stage A only; five-window ten-city Native sample quality and performance remain unverified.'}
     if pressure_initial_turn is not None:
         result['initial_turn']=pressure_initial_turn
-    if version in (143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170):
+    if version in (143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171):
         helper=(ROOT/'tools/lua/diagnostic_plan_stage.lua').read_text(encoding='utf-8')
         result['rendered_helper_hashes']={'diagnostic_plan_stage':hashlib.sha256(render_helper(helper,'diagnostic_plan_stage',version).encode('utf-8')).hexdigest()}
     (output_dir/'diagnostic-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
