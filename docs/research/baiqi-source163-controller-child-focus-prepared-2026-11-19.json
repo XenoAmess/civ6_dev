@@ -1,0 +1,319 @@
+{
+  "date": "2026-11-19",
+  "utc": "2026-11-19T01:11:05.891012+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 163,
+  "status": "CHANGED_SCOPE_CHILD_DIAGNOSIS_B_PREPARED_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "original85_B_plan": "FAIL_UNCHANGED",
+  "old8650807": "FAIL_UNRESOLVED",
+  "trigger": {
+    "evidence": "https://github.com/XenoAmess/civ6_dev/blob/befc5949743defe27c30a0facde75d46f5ecc8aa/docs/research/baiqi-source163-controller-child-native-2026-11-19.json",
+    "prior_A_facts_sha256": "5decf5ac705014c66b97ec3eb1f2fc076fcce88512bd4b33a91b75f6dfdcf754",
+    "actual_roots": 118,
+    "actual_samples": 765,
+    "longest_root": {
+      "root": {
+        "name": "Controller.RunNow",
+        "seconds": 0.12899994850158691,
+        "started": 1795049456.2120001,
+        "ended": 1795049456.341,
+        "failed": false,
+        "rootId": 70,
+        "rootTurn": 89,
+        "rootCities": 10,
+        "observer_phase": "observed_window"
+      },
+      "selected_child_interval_union_ms": 11.99960708618164,
+      "outside_selected_intervals_ms": 117.00034141540527
+    },
+    "scope_reason": "A root70 had129ms total and117ms outside selected child intervals; its PathStep Native timer can be reached from several unmeasured civilian outer functions. A root103 had125ms total,114ms ProcessSettler and1ms actual Native found writer. New measurements cover these omitted outer functions plus settlement support, goal/journal and final request chain; do not assume builder or writer causality.",
+    "all_A_rows_preserved": true
+  },
+  "build": {
+    "mode": "baiqi163-controller-children-v6",
+    "archive_sha256": "d91e079c6afd4fb61b4c85e67e568a4852466f64f3676a2b98548236552d24de",
+    "files": 119,
+    "actual_Lua51_Lua53_compiled_files": 97,
+    "changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "children": [
+      "ProcessSettler",
+      "ProcessNaturalist",
+      "ProcessArchaeologist",
+      "ProcessDistrictPerson",
+      "ProcessCreative",
+      "ProcessProphet",
+      "KnownExpansionSupport",
+      "SettlementBridge",
+      "SettlerGoalBridge",
+      "RequestCivilian",
+      "PathStep",
+      "Safe"
+    ],
+    "native_children": [
+      "Native.GetMoveToPathEx",
+      "Native.DetourChoicePath",
+      "Native.DetourFirstEdgePath",
+      "Native.FoundRequestOperation"
+    ],
+    "binding_count": 17,
+    "capacity": 4096,
+    "focus_turns": [
+      88,
+      89,
+      90
+    ],
+    "include_pre_observer": true,
+    "release_modified": false,
+    "installed": false
+  },
+  "software": {
+    "actual_player15_dualLua": [
+      {
+        "turn": 85,
+        "mode": "select",
+        "sha256": "1da76a31a44e261086d50f989084e1cc07142abe8734927f2458d25e86274118"
+      },
+      {
+        "turn": 85,
+        "mode": "step",
+        "sha256": "5ffea7b7d4a257976740e9c2701f6d46ac2fdacad0432b549ffd1dad1f918961"
+      },
+      {
+        "turn": 85,
+        "mode": "end",
+        "sha256": "84cb709d8e47712000c3976eb8e3b3f20e588e071c719399539f1909ae9e24b3"
+      },
+      {
+        "turn": 86,
+        "mode": "select",
+        "sha256": "62212cbbcf8d351143cbf487d9953f14328b4af6296745e76bbe5d0b9edee206"
+      },
+      {
+        "turn": 86,
+        "mode": "step",
+        "sha256": "8a69f8ab2f86b400f66f2382fcb41bf23f292256f3662967e0dbc072786c2f17"
+      },
+      {
+        "turn": 86,
+        "mode": "end",
+        "sha256": "0add349209f7a95501986839582aedcfb0ba100e4a2f60b9970af29ab22b4c1a"
+      },
+      {
+        "turn": 87,
+        "mode": "select",
+        "sha256": "f7b9ac396a79e91e7c68f13f7d83bfc8eb923b70f1f427bc5ab3aa76c40f7d5d"
+      },
+      {
+        "turn": 87,
+        "mode": "step",
+        "sha256": "33ced56dc9fa8e26f4967639f3c79acface7dbd93d2097f90b7286b92bc540a8"
+      },
+      {
+        "turn": 87,
+        "mode": "end",
+        "sha256": "f2bef32558a397b45c67a2c0dfb86b0846ae779fa32592f9ea45cf36ca798d73"
+      },
+      {
+        "turn": 88,
+        "mode": "select",
+        "sha256": "1345102169a8c67921111f9e7776675bb57bae4c08d5dbeb0ce95534c09c334e"
+      },
+      {
+        "turn": 88,
+        "mode": "step",
+        "sha256": "2959f167c7873618134e491ebd65e1c51136734e66887319497d47156c3d8269"
+      },
+      {
+        "turn": 88,
+        "mode": "end",
+        "sha256": "1e2c8780059d3a3adfe50183d65ac46ceb3229d39b1506970624bc209f563dde"
+      },
+      {
+        "turn": 89,
+        "mode": "select",
+        "sha256": "a9aca969925ee562eb4311fe183da8f0c93e2d60e4beee3db776d86c51d9d124"
+      },
+      {
+        "turn": 89,
+        "mode": "step",
+        "sha256": "0f210868d2033a8fadeccbaaeecf416023d7e8b2b2b5eb129c1645d777a704e4"
+      },
+      {
+        "turn": 89,
+        "mode": "end",
+        "sha256": "8cbf78571c4a4fb6b6c2d13c625a466087c279cb9e6bcb618b98ba0d0015d8d6"
+      }
+    ],
+    "actual_finish3_dualLua": [
+      {
+        "API": "save_checkpoint",
+        "sha256": "b8446c7426d4846ca0a14115f2efef94c946a343b2ccaeff46bacfe26fb2bc5c"
+      },
+      {
+        "API": "query",
+        "sha256": "0ead2a8c2632b87a0a0c97a5bc095eafc0cef5be56f54d479a86e41f0c6e7b27"
+      },
+      {
+        "API": "query",
+        "sha256": "e5d54ad365d8786569e4240bf211eb41e74a9439416784cd131d3a267099fac4"
+      }
+    ],
+    "binding_semantics_actual14_VM": {
+      "utc": "2026-11-19T01:08:51.407882+00:00",
+      "cases": [
+        {
+          "case": "normal88",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "normal88",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "normal90",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "normal90",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "before_observer",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "before_observer",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "out_of_scope87",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "out_of_scope87",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "original_error_once",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "original_error_once",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "offroot_preserves_values",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "offroot_preserves_values",
+          "VM": "Lua53",
+          "PASS": true
+        },
+        {
+          "case": "foreign_root_restore",
+          "VM": "Lua51",
+          "PASS": true
+        },
+        {
+          "case": "foreign_root_restore",
+          "VM": "Lua53",
+          "PASS": true
+        }
+      ],
+      "passed": 14,
+      "actual_suffix_sha256": "b9cd4e33461374f69838a2669bcff14de74407999d2659aa4a2f063a566997f4",
+      "artifact_sha256": "d91e079c6afd4fb61b4c85e67e568a4852466f64f3676a2b98548236552d24de",
+      "actual_bindings": 17,
+      "capacity": 4096,
+      "Native_queries": 0,
+      "gameplay_inputs": 0,
+      "limits": "Actual selected wrappers preserve call/arity/error/restore contracts in software. No engine timing, game effect, formal budget or whole-mod grant."
+    },
+    "AST_current_consumers": 17,
+    "consumer_sha256": {
+      "controller163b_lifecycle_owner.py": "bd3cddef25daafb64a99bd29bea316211dd47160796a1afb9e9ecaf9a0134d41",
+      "controller163b_fixture_owner.py": "353cdc08c731d6be2e9c2627c5669fb14df9b046b7fdc877b87f8ea35f6cdca9",
+      "controller163b_header_owner.py": "653256ce77cdfa46b93c9aacf543a106dbf77d1c33b75c806f4b039b80e43b35",
+      "controller163b_continue_owner.py": "31264960f801b489393f1b6d9f3f2dd4087c2d18491103a070f3df6457aa257a",
+      "controller163b_endpoint_owner.py": "47e2f683c9c0845feba58c9d425bf35628194ac00cd9cf89f2c88cdf763cbf0f",
+      "controller163b_cleanup_owner.py": "998ced7c5f46ef29b72b8580f21be41764316fea762a7c0a4f3b4f95c86a04e5",
+      "controller163b_run_owner.py": "758f3dd197519fd9caca21a1240ded48f7701e28980f1e0b18ce0f9786875e27",
+      "controller163b_collect_owner.py": "735b1706eedfe77ff6a68502d9a6ca131a835790d4ca1d9d2e8b61347458e281",
+      "controller163b_progress_owner.py": "36a9c968acfc28e56e1f2eb457d856562f5009af6e885c5175dc0ca20518f001",
+      "controller163b_normal_player_owner.py": "b8705486e7fb3801f44829ab3424a499f507df5fd4e7e2ec648b2d5a8a21111d",
+      "controller163b_brief_owner.py": "7a4e1e981f06134e2da8d1552b27092cb3b337e333754c06effaaeb2f79add72",
+      "controller163b_finish_owner.py": "4d44d44f22775b495121503380b2b3d1f18b561893852ab2ea2035eeac564c93",
+      "controller163b_finish_formal_owner.py": "26c96cf40aaec6c36f643bfc12696d39f75bfac9c2a7a710e46604b6ee134e6a",
+      "controller163b_episode_owner.py": "0f0f82d551f00f04b7d72ca019c1d5577a060c890034c7e708e295411cdd32c3",
+      "controller163b_validate_runtime_owner.py": "982c788b49edf694c6241949094dd0971df9b57e3edb1ccbac9c773bf4fb60b6",
+      "controller163b_environment_owner.py": "4ad27c9a0bd8947d8388f178f0fa2d7631cd3d9b07928c99550c5175d5be8b9e",
+      "controller163b_freeze_formal_owner.py": "6482b806ffb10ae2b73ec2f99a4d49ad3c8f694fc367330f228254dbd7340089"
+    },
+    "prior_31_tools_tests_reviewed_reuse": {
+      "reexecuted_for_B": false,
+      "same_actual_helper_sha256": {
+        "diagnostic_profile": "a45e0d6488982c35e758b32b342fd0c147762030f626c379e6cb2b079560ea3c",
+        "diagnostic_child_profile": "3884dd1e2b17c173353cafb41f419b1ab7045eb89a1efd3dae9239e386333572",
+        "diagnostic_nested_profile": "b82922c1d236ec0936acbbb5359785ece6a82e5b5b065ed0ae81273d8250be66",
+        "diagnostic_preobserver_qualifier": "4d932673fb16af9b90be5c3648d77de82202c841abb2f4000d97a741c9524f88"
+      },
+      "prior_actual_tool_terminal": 0,
+      "tests": 31
+    }
+  },
+  "admission": {
+    "requires_original_planning_FAIL_preserved": true,
+    "requires_actual_A_parent_terminal_zero": true,
+    "requires_A_saved_retired_formal_released_owned_game_absent_and_both_pushes": true,
+    "requires_exact_A_install_as_previous": true,
+    "requires_B_preparation_commit_ancestry_and17_frozen_consumer_hashes": true,
+    "new_fresh_background_offline_cold_launch": true,
+    "same_pinned_program_CPU_settings": true,
+    "warmup_min_seconds": 60,
+    "formal_frozen_before_reload": true,
+    "ordinary_ENDs": [
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "actual_closing_turn": 90,
+    "all17bindings_retired_then_official_exit": true
+  },
+  "Native_queries": 0,
+  "gameplay_inputs": 0,
+  "new_generation_POSTs": 0,
+  "ledger": {
+    "logical_tasks": 1023,
+    "complete_candidates": 816,
+    "length_incomplete": 68,
+    "final_failures": 139,
+    "generation_POSTs": 1062,
+    "extra_retry_POSTs_prior_observed_unchanged": 38,
+    "actual_inflight": 0,
+    "OpenCode_native_generation": 0
+  },
+  "unknown_costs": null,
+  "model_reason": "Configured qwen38-coder still absent from current endpoint as actual00:29Zrecheck shows. Owner continues this unfinished measurement task; no incompatible generation replay or configuration/service change.",
+  "limits": [
+    "Changed diagnostic scopes follow the actual A uncovered intervals; this is not unchanged performance resampling or a product fix.",
+    "Nested inclusive wall times are not exclusive CPU. All original failed planning and A rows remain; no causal claim from different roots or versions.",
+    "No Native B measurement, new budget result, or whole-mod completion at preparation. Capacity4096 and original planning thresholds remain unchanged."
+  ]
+}
