@@ -1,0 +1,223 @@
+{
+  "schema": "civ6.engine74-tc033-r3-live-mode-preparation/v1",
+  "utc": "2026-11-20T16:37:21.932810+00:00",
+  "status": "PREPARED_NATIVE_NOT_STARTED",
+  "source_version": 172,
+  "engine_target": "1.0.12.74/SteamBuild26595377",
+  "revision": "R3",
+  "original_R2_frozen_unchanged": true,
+  "original_preparation": "baiqi-source172-engine74-tc033-preparation-2026-11-20.json",
+  "change": "A separate R3 driver imports the tracked live-surface background mode proof. Admission additionally pins that tracked file. All QA state/parent registration/install backup/output/save names use a separate R3 namespace. Original R2 files and pressure consumers are unchanged.",
+  "consumers_sha256": {
+    "retired172_native_owner.py": "937279efb6d315e8034185431b50889931278ca7d43021b2d48a356ed46aa859",
+    "retired172_payloads_owner.py": "9e3db734f6b1b9fdfa64cfd4ce6146c0e56702c5c791f3ca8e99202f02d4ab65",
+    "retired172_request_owner.lua": "ded015b1508075097ef4ada3068a2cdcc3f058531a3c67794d0c91239d144e45",
+    "retired172_event_witness_owner.lua": "cd0dc256169be02a46abed75ba4b27156e4e7658306f9bcbf659d1dc4c54e789",
+    "oldrights160_codec_owner.py": "fef5bb5be760e8403e6f8f7c52a188f86f5928f8207e749434005abb090e019b",
+    "oldrights160_snapshot_owner.lua": "53d88f7a96ed711cd8708d2975cea6074799c6b8af5f9c40a715f827521910be",
+    "oldrights160_export_owner.lua": "9d12351b8f9daf7ef51d9a845834c300fe5a619ba57a107cbcd40c48e8963965",
+    "nositepair172c_endpoint_owner.py": "87dec4e14316e9503709927959c5b8a5faa1ea2f3d138376a3b967c25de2a6d2",
+    "nositepair172c_continue_owner.py": "d45de360f0e5ae0be4a9574386219ef9e34ecf8a1362bae8c2f33f32856dc4be",
+    "p6_recovery407_steam_physical_menu_owner.py": "848a486730d3b75cafaaf27bfbd2be62a603c4291c20d5e8169531c5b8ff9d0c",
+    "p6_save_checkpoint_owner.py": "1d01d0043bd4bd788e635379c9361aad0caf5f1d07e2e7c27033a11f0c1213fb",
+    "cold_file_fence948_owner.py": "c5934da9010655030189d7c86a168289fac9985e31398e897a3629bab7431380",
+    "pressurepair172c_common_owner.py": "cb9cbdf4a6f384bf3e49cb8ee2fa06c8d92cbfab0f69c7db5bee2cc829a0fbb2",
+    "nositepair172c_lifecycle_owner.py": "7d2df59853cb8eb051e423fb1257903ffa1ca8214dec313992dda61645c13302",
+    "ordinary142_main334_launch_owner.py": "a934392279e575d1283163094836cc0cfb2b2849b0c577cbbbd5498d6915ec9d",
+    "p6_native.py": "182c3bee7990eeef15feaf0225ced5dba75d2515410639ff99a23047c3ed02dc",
+    "retired172r3_native_owner.py": "1c8250d6a4e7833f9461e30ea4f6bee1140553daea9acd545a558e59d6984bfc"
+  },
+  "repo_consumers_sha256": {
+    "tools/steam_live_mode_probe.py": "4db3e004b3b9f5a20948b792528e0816e7150e9fb9c451e0793fe31c36084f35"
+  },
+  "engine_target_pin_sha256": "ec56674dff59c929704c84b686eab63a60d347cf19db1bd9232f7c8c3c9e9f02",
+  "ordinary_release": {
+    "files": 119,
+    "archive_sha256": "cbc5f565df8695bf71f3ed73d911a541a2e79c69c87eb914d2a808cec406fe4f",
+    "product_changes": 0,
+    "install_performed": false
+  },
+  "actual_changed_driver_boundary_checks": {
+    "utc": "2026-11-20T16:36:06.675950+00:00",
+    "status": "PASS",
+    "cases_count": 19,
+    "cases": [
+      {
+        "function": "require_parent",
+        "case": "qualified",
+        "result": "qualified_synthetic_registration"
+      },
+      {
+        "function": "require_parent",
+        "case": "unregistered",
+        "result": "rejected"
+      },
+      {
+        "function": "require_parent",
+        "case": "boolean_session",
+        "result": "rejected"
+      },
+      {
+        "function": "require_parent",
+        "case": "wrong_script",
+        "result": "rejected"
+      },
+      {
+        "function": "require_parent",
+        "case": "desktop_released",
+        "result": "rejected"
+      },
+      {
+        "function": "require_parent",
+        "case": "registration_mismatch",
+        "result": "rejected"
+      },
+      {
+        "function": "admission",
+        "case": "qualified",
+        "result": "qualified_synthetic_future_publication"
+      },
+      {
+        "function": "admission",
+        "case": "consumer_changed",
+        "result": "rejected_before_install_or_launch"
+      },
+      {
+        "function": "admission",
+        "case": "tracked_probe_changed",
+        "result": "rejected_before_install_or_launch"
+      },
+      {
+        "function": "admission",
+        "case": "target_changed",
+        "result": "rejected_before_install_or_launch"
+      },
+      {
+        "function": "launch",
+        "case": "mode_unavailable",
+        "result": "rejected_before_Popen",
+        "Popen_interceptions": 0,
+        "actual_processes_launched": 0,
+        "synthetic_proof_not_actual_offline": true
+      },
+      {
+        "function": "launch",
+        "case": "mode_online",
+        "result": "rejected_before_Popen",
+        "Popen_interceptions": 0,
+        "actual_processes_launched": 0,
+        "synthetic_proof_not_actual_offline": true
+      },
+      {
+        "function": "launch",
+        "case": "stale_proof",
+        "result": "rejected_before_Popen",
+        "Popen_interceptions": 0,
+        "actual_processes_launched": 0,
+        "synthetic_proof_not_actual_offline": true
+      },
+      {
+        "function": "launch",
+        "case": "future_proof",
+        "result": "rejected_before_Popen",
+        "Popen_interceptions": 0,
+        "actual_processes_launched": 0,
+        "synthetic_proof_not_actual_offline": true
+      },
+      {
+        "function": "launch",
+        "case": "Steam_birth_changed",
+        "result": "rejected_before_Popen",
+        "Popen_interceptions": 0,
+        "actual_processes_launched": 0,
+        "synthetic_proof_not_actual_offline": true
+      },
+      {
+        "function": "launch",
+        "case": "existing_launch_intent",
+        "result": "rejected_before_Popen",
+        "Popen_interceptions": 0,
+        "actual_processes_launched": 0,
+        "synthetic_proof_not_actual_offline": true
+      },
+      {
+        "function": "launch",
+        "case": "qualified_first_Popen",
+        "result": "one_intercept_before_actual_process",
+        "Popen_interceptions": 1,
+        "actual_processes_launched": 0,
+        "synthetic_proof_not_actual_offline": true
+      },
+      {
+        "function": "main",
+        "case": "registration_pending",
+        "result": "rejected_before_install"
+      },
+      {
+        "function": "main",
+        "case": "qualified_first_install",
+        "result": "intercepted_before_actual_install"
+      }
+    ],
+    "actual_driver_sha256": "1c8250d6a4e7833f9461e30ea4f6bee1140553daea9acd545a558e59d6984bfc",
+    "tracked_probe_sha256": {
+      "tools/steam_live_mode_probe.py": "4db3e004b3b9f5a20948b792528e0816e7150e9fb9c451e0793fe31c36084f35"
+    },
+    "original_frozen_consumers_unchanged": true,
+    "actual_Native_queries": 0,
+    "actual_processes_launched": 0,
+    "actual_installs": 0,
+    "live_owner_registry_and_mod_marker_unchanged": true,
+    "scope": "Actual complete new driver entry functions; explicit synthetic parent/publication/mode fixtures. Actual engine target file SHA/bytes/mtime/CPU/application options read before intercepted Popen. All simulated intent files under verified temporary directories. Not current offline or game compatibility proof."
+  },
+  "unchanged_actual_driver_function_AST": [
+    "phase",
+    "snapshots",
+    "observer_state",
+    "qualify",
+    "stable_keys",
+    "checked",
+    "exit_and_cleanup",
+    "artifact",
+    "installed",
+    "verify_save"
+  ],
+  "unchanged_payload_evidence": [
+    "baiqi-source172-engine74-tc033-preparation-2026-11-20.json"
+  ],
+  "mode_tool_evidence": "baiqi-steam-live-surface-readonly-2026-11-21.json",
+  "mode_tool_boundary_tests": 22,
+  "first_Popen_contract": "Same execution: current-instance explicit offline proof, source/installed/exe/owner file fence unchanged, current birth and proof age 0<=age<15 seconds immediately before one Popen. Unknown/online/stale/future proof or existing intent stops; no game-action replay.",
+  "actual_protocol": {
+    "cold_processes_required": 2,
+    "phases": [
+      "first",
+      "repeat",
+      "after_reload"
+    ],
+    "ordinary_ENDs_required": 0,
+    "request_ID": "granary:0:1:262147:1:65536:16:5",
+    "old_fixture": {
+      "stem": "Baiqi_P2_20261031_GranaryCommitted",
+      "bytes": 635917,
+      "sha256": "332b81dd88b29c9ab355d14781721b8d12a93e4a5712d7a41b600ba14b01f79f",
+      "turn": 1
+    },
+    "core_event": "One exact Core callback for each request, not just UI ACK",
+    "expected": "REJECTED invalid_target with old COMMITTED journal and key assets preserved, no refund/charge/benefit restoration",
+    "save_and_exit": "Explicit observer retirement receipt, official save readback, official exit once; own quiet residue cleanup policy unchanged."
+  },
+  "new_engine_actual_launches": 0,
+  "actual_TC033_requests": 0,
+  "live_offline_mode": "unavailable_client_normally_closed",
+  "actual_parent_registered": false,
+  "model_task_before_owner_sha256": "2db7436f3861557b3caa9b4fbfb63e7f5715d894bcf1e0fd178d2f57f6a3399b",
+  "model_availability": "Same R33 pending task includes preparation revision; configured coder absent. No additional GET probe or generation POST for this revision.",
+  "OpenCode_maintenance": "2026-11-21 canonical noncached1.19.6 pass already recorded in mode tool package",
+  "new_generation_POSTs": 0,
+  "model_candidates": 0,
+  "OpenCode_native_generation": 0,
+  "unknown_costs": null,
+  "whole_mod": "OPEN_CONTINUE",
+  "next": "Obtain reliable current-instance offline proof through formal client recovery before registering one R3 Native parent. While client unavailable continue named historical military source-impact review and unresolved functional software work. Do not repeat upload or substitute old mode receipts."
+}
