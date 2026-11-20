@@ -1,6 +1,6 @@
 {
   "schema": "civ6.alpha3-workshop-publication/v1",
-  "utc": "2026-11-20T15:04:10.203315+00:00",
+  "utc": "2026-11-20T15:24:42.469540+00:00",
   "machine_id": "BF-202609141645",
   "release": "v0.1.0-alpha.3",
   "internal_build": 172,
@@ -126,7 +126,7 @@
   "release_pin": "../../releases/v0.1.0-alpha.3/verification.json",
   "known_issues": "../../releases/v0.1.0-alpha.3/KNOWN_ISSUES.zh-CN.md",
   "Steam_offline_restore": {
-    "status": "PENDING_CURRENT_CLIENT_LOADING_MODE_UNAVAILABLE",
+    "status": "PENDING_GUI_RECOVERY_LAST_CIVVI_OBSERVATION_CLIENT_CLOSED",
     "last_background_live_readonly_proof": {
       "schema": "civ6.steam-background-live-point-mode/v1",
       "utc": "2026-11-20T14:57:29.389980+00:00",
@@ -150,7 +150,22 @@
     "Steam_kill_calls": 0,
     "account_config_writes": 0,
     "history": "Old client GoOffline Invoke/physical acknowledgements did not prove offline; fresh menu readbacks remained online. Official Exit Invoke/physical selection followed by official executable -shutdown request; old instance independently disappeared. Exact successful exit trigger unknown. One ordinary restart; new client remains in loading UI with no readable mode item. No further restart, forced login, client termination or game launch. Private navigation images are excluded from mode proof.",
-    "next": "Continue normal client recovery until a new independent current-instance background proof actually reads offline. No Native game launch while unavailable."
+    "next": "Continue normal client recovery until a new independent current-instance background proof actually reads offline. No Native game launch while unavailable.",
+    "last_CivVI_observation": {
+      "utc": "2026-11-20T15:22:08.462624+00:00",
+      "current_steam_client_processes": 0,
+      "current_steamwebhelper_processes": 0,
+      "current_CivVI_HOI4_publisher_processes": 0,
+      "normal_official_shutdown_requested": true,
+      "Steam_terminate_calls": 0,
+      "kill_calls": 0,
+      "current_mode": "unavailable_client_closed",
+      "offline_mode_proved": false,
+      "scope": "OS process absence only; closed client is not a Steam offline-mode proof. No game launch; independent work continues."
+    },
+    "second_normal_start": "Visible Windows Run ordinary start24928/birth1795187662.7668235; loading again, no readable mode; normal official shutdown requested and all client/webhelper processes independently disappeared.",
+    "current_desktop_owner": "HOI4 peer; current client/mode unknown until future own fresh proof",
+    "additional_client_restarts": 1
   },
   "model": {
     "configured_candidate": "qwen38-coder",
@@ -180,5 +195,13 @@
     "old_8650807_recovery": "FAIL_UNRESOLVED",
     "TC033_actual_request_phases_completed": 0
   },
-  "continuation": "Publication is not a stopping point. Continue TC033 first/repeat/actual cold-reload legacy-granary request rejection, then military/escort and remaining finite40 functional acceptance."
+  "continuation": "Publication is not a stopping point. Continue TC033 first/repeat/actual cold-reload legacy-granary request rejection, then military/escort and remaining finite40 functional acceptance.",
+  "post_publication_engine_observation": {
+    "utc": "2026-11-20T15:24:42.469540+00:00",
+    "previous_game_version": "1.0.12.72",
+    "current_observed_game_version": "1.0.12.74",
+    "Steam_build_id": 26595377,
+    "new_engine_compatibility": "UNVERIFIED",
+    "details": "../../research/baiqi-source172-engine74-tc033-preparation-2026-11-20.json"
+  }
 }
