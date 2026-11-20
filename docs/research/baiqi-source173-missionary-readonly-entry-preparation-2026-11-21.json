@@ -1,0 +1,261 @@
+{
+  "utc": "2026-11-20T21:24:23.719962+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "MISSIONARY_READONLY_COLD_ENTRY_PREPARED_NOT_INSTALLED_OR_NATIVE",
+  "fixture": {
+    "name": "Baiqi_P6_20261102_V43_MissionarySetup75.Civ6Save",
+    "stem": "Baiqi_P6_20261102_V43_MissionarySetup75",
+    "bytes": 483801,
+    "sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88",
+    "turn": 75,
+    "prior_scope": "Historical explicit QA missionary setup. Not naturally purchased/trained proof; actual state and original Native formation eligibility still required."
+  },
+  "private_archive_sha256": "07a1535212103a7b6e5ab6c800bc8f600a961b308fd50a2849cadac8a288b4c7",
+  "private_archive_bytes": 8839773,
+  "files": 119,
+  "Lua51_Lua53_compiled": 97,
+  "only_private_changed_file": "Lua/BaiqiController.lua",
+  "inverse_exact_ordinary_release": true,
+  "target": {
+    "owner": 0,
+    "unit_id": 3735581,
+    "unit_type": "UNIT_MISSIONARY"
+  },
+  "deferred": true,
+  "limit": 64,
+  "entry_checks": {
+    "utc": "2026-11-20T21:23:23.704289+00:00",
+    "status": "PASS",
+    "cases_count": 13,
+    "cases": [
+      {
+        "function": "admission",
+        "case": "qualified",
+        "result": "qualified_synthetic_publication"
+      },
+      {
+        "function": "admission",
+        "case": "consumer_changed",
+        "result": "rejected_before_install_or_Popen"
+      },
+      {
+        "function": "admission",
+        "case": "tracked_probe_changed",
+        "result": "rejected_before_install_or_Popen"
+      },
+      {
+        "function": "admission",
+        "case": "target_changed",
+        "result": "rejected_before_install_or_Popen"
+      },
+      {
+        "function": "launch",
+        "case": "mode_unavailable",
+        "result": "rejected_before_Popen",
+        "actual_processes": 0
+      },
+      {
+        "function": "launch",
+        "case": "mode_online",
+        "result": "rejected_before_Popen",
+        "actual_processes": 0
+      },
+      {
+        "function": "launch",
+        "case": "stale_proof",
+        "result": "rejected_before_Popen",
+        "actual_processes": 0
+      },
+      {
+        "function": "launch",
+        "case": "future_proof",
+        "result": "rejected_before_Popen",
+        "actual_processes": 0
+      },
+      {
+        "function": "launch",
+        "case": "Steam_birth_changed",
+        "result": "rejected_before_Popen",
+        "actual_processes": 0
+      },
+      {
+        "function": "launch",
+        "case": "existing_launch_intent",
+        "result": "rejected_before_Popen",
+        "actual_processes": 0
+      },
+      {
+        "function": "launch",
+        "case": "qualified_first_Popen",
+        "result": "one_interception_no_actual_Popen",
+        "actual_processes": 0
+      },
+      {
+        "function": "main",
+        "case": "registration_pending",
+        "result": "rejected_before_install"
+      },
+      {
+        "function": "main",
+        "case": "qualified_first_install",
+        "result": "intercepted_before_actual_install"
+      }
+    ],
+    "actual_driver_sha256": "b1826b246eb1454241995735421e801b17b6f06f8598c47179c3501338f2b3b1",
+    "real_source173_artifact_and_fixture_verified": true,
+    "actual_Native_queries": 0,
+    "actual_processes_launched": 0,
+    "actual_installs": 0,
+    "live_owner_registry_and_mod_marker_unchanged": true,
+    "scope": "Actual new driver admission/launch/main functions under explicit synthetic future publication/mode fixtures; actual exe/bytes/mtime/CPU/appOptions read. No current mode or Native escort permission from mocks."
+  },
+  "installer_checks": {
+    "utc": "2026-11-20T21:23:33.778608+00:00",
+    "status": "PASS",
+    "cases": [
+      {
+        "case": "qualified_owned_ordinary173",
+        "result": "actual_private_install_only_in_verified_temporary_owned_folder",
+        "real_game_install_writes": 0,
+        "Native_queries": 0,
+        "synthetic_parent_registration_never_persisted": true
+      },
+      {
+        "case": "foreign_mod_marker",
+        "result": "rejected_before_real_install",
+        "real_game_install_writes": 0,
+        "Native_queries": 0,
+        "synthetic_parent_registration_never_persisted": true
+      },
+      {
+        "case": "modified_owned_Controller",
+        "result": "rejected_before_real_install",
+        "real_game_install_writes": 0,
+        "Native_queries": 0,
+        "synthetic_parent_registration_never_persisted": true
+      },
+      {
+        "case": "existing_backup",
+        "result": "rejected_before_real_install",
+        "real_game_install_writes": 0,
+        "Native_queries": 0,
+        "synthetic_parent_registration_never_persisted": true
+      }
+    ],
+    "cases_count": 4,
+    "actual_driver_sha256": "b1826b246eb1454241995735421e801b17b6f06f8598c47179c3501338f2b3b1",
+    "actual_real_install_changed": false,
+    "actual_Native_queries": 0,
+    "actual_Popen": 0,
+    "scope": "Actual private do_install, managed installer, backup bytes and installed verifier exercised only inside resolved owned workspace tempdirs; wrongownership/modifiedbytes/existingbackup rejected before install. No current desktop or game proof."
+  },
+  "new_entry_behavior": "Print actual context/missionary/fault fields without claiming complete ready-world predicates. Subsequent fresh typed guard required before any Arm or player input. No game orders in initial inventory.",
+  "historical_eligibility": "Source159/engine72 same setup after natural76 had positive SPREAD, but original UnitPanel EnterFormation false for missionary while scout/musician positive. This does not prove current173/74 eligibility or allow forcing formation.",
+  "existing_fixture_census": {
+    "actual_matching_files": 43,
+    "saved_checkpoint_receipts": 19,
+    "sha256": "c113e562f9b1a2ba19c6d34e20c54506c97992c02c74671a300c553942774fe1"
+  },
+  "configured_model_R37": {
+    "utc": "2026-11-20T21:21:02.496019+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-21",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-20T21:21:02.443726+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 547,
+        "over_64KiB": false,
+        "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+        "total_ms": 31.211900059133768,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-20T21:21:02.481053+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 1246,
+        "over_64KiB": false,
+        "sha256": "2af338b4266ec4585b71415ad56a5a518cc3c69d03203bff21b81ea9caddf52d",
+        "total_ms": 14.262599870562553
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "pending_task_sources": {
+    "files": 10,
+    "bytes": 388089,
+    "sha256": "25013ed93f447555ce7c1f375a968ec2027b76a47f9ab8fd66aacab7785f7023"
+  },
+  "new_generation_POSTs": 0,
+  "candidates": 0,
+  "adopted": 0,
+  "OpenCode_native_generation": 0,
+  "unknown_model_cost": null,
+  "owner_cost": null,
+  "consumers_sha256": {
+    "retired172_native_owner.py": "937279efb6d315e8034185431b50889931278ca7d43021b2d48a356ed46aa859",
+    "retired172_payloads_owner.py": "9e3db734f6b1b9fdfa64cfd4ce6146c0e56702c5c791f3ca8e99202f02d4ab65",
+    "retired172_request_owner.lua": "ded015b1508075097ef4ada3068a2cdcc3f058531a3c67794d0c91239d144e45",
+    "retired172_event_witness_owner.lua": "cd0dc256169be02a46abed75ba4b27156e4e7658306f9bcbf659d1dc4c54e789",
+    "oldrights160_codec_owner.py": "fef5bb5be760e8403e6f8f7c52a188f86f5928f8207e749434005abb090e019b",
+    "oldrights160_snapshot_owner.lua": "53d88f7a96ed711cd8708d2975cea6074799c6b8af5f9c40a715f827521910be",
+    "oldrights160_export_owner.lua": "9d12351b8f9daf7ef51d9a845834c300fe5a619ba57a107cbcd40c48e8963965",
+    "nositepair172c_endpoint_owner.py": "87dec4e14316e9503709927959c5b8a5faa1ea2f3d138376a3b967c25de2a6d2",
+    "nositepair172c_continue_owner.py": "d45de360f0e5ae0be4a9574386219ef9e34ecf8a1362bae8c2f33f32856dc4be",
+    "p6_recovery407_steam_physical_menu_owner.py": "848a486730d3b75cafaaf27bfbd2be62a603c4291c20d5e8169531c5b8ff9d0c",
+    "p6_save_checkpoint_owner.py": "1d01d0043bd4bd788e635379c9361aad0caf5f1d07e2e7c27033a11f0c1213fb",
+    "cold_file_fence948_owner.py": "c5934da9010655030189d7c86a168289fac9985e31398e897a3629bab7431380",
+    "pressurepair172c_common_owner.py": "cb9cbdf4a6f384bf3e49cb8ee2fa06c8d92cbfab0f69c7db5bee2cc829a0fbb2",
+    "nositepair172c_lifecycle_owner.py": "7d2df59853cb8eb051e423fb1257903ffa1ca8214dec313992dda61645c13302",
+    "ordinary142_main334_launch_owner.py": "a934392279e575d1283163094836cc0cfb2b2849b0c577cbbbd5498d6915ec9d",
+    "p6_native.py": "182c3bee7990eeef15feaf0225ced5dba75d2515410639ff99a23047c3ed02dc",
+    "retired172r3_native_owner.py": "1c8250d6a4e7833f9461e30ea4f6bee1140553daea9acd545a558e59d6984bfc",
+    "escort173_native_owner.py": "3b8ec73ec6d82996a9d3619cfd2c9bdb85142a4a8c50ea3ae471fac50f68e6ec",
+    "escort173_inventory_owner.lua": "c8149cefd6916be13228b4a202f6ad9b4125393d183d8e58309f7f0f6be91252",
+    "escort173_inventory_consumer_owner.py": "53b5ca3dfddf3a9a9d15d1db58f0adebc111157405f7f6be5a1ae73a780cac3b",
+    "tc033_named_parent_owner.py": "42939dedc5c04f154e1150551e9ca8abe9538f7f06435598af95df95f46178c5",
+    "formation173b_native_owner.py": "97d87e6415a40fe89acc2ed3509d88af1a3d22f1cdabbd473f66e65626db47ab",
+    "formation173b_payloads_owner.py": "29a0f77ec14d4f266fff563960a03680cc2c6f41270900b8e75c0f71df44ae88",
+    "formation173b_window_owner.py": "a002ad7abfa4dec37829237b31c7b2809d9cc33b09de4e22f15325c3f76c034e",
+    "formation173b_military_owner.py": "363b42bad2f8495f9ab4168bec5190d4e5c297b43cf1e719e1b2b6abc01c5cdb",
+    "formation173b_player_payloads_owner.py": "62cfac15528381dc123b42de2a733dc7a98d25304d77266dea6791cb77f349e2",
+    "escort173_bg_observer_owner.lua": "88daf92e7ec72ea9899fd1b7456280a6b8c192da2ae358377c25cc3be4cfdf4e",
+    "p6_military442_select_next_owner.py": "f5147d313f6523b13d7d1c107f28a19f5adbf406225d8295ee6b34608a7c5564",
+    "acceptance-p6-20261101/normalturn73-owner-step.lua": "6c81e765718f6fe5f3238def245e3bc549b48653d84d90659db5be536db3e961",
+    "formation173c_native_owner.py": "b1826b246eb1454241995735421e801b17b6f06f8598c47179c3501338f2b3b1"
+  },
+  "repo_consumers_sha256": {
+    "tools/steam_live_mode_probe.py": "4db3e004b3b9f5a20948b792528e0816e7150e9fb9c451e0793fe31c36084f35",
+    "tools/build_mod.py": "89aaf24796cca846b5041d1b6e3af55da23e3e1af85c68badb442aaaceb3b902",
+    "tools/performance_admission.py": "695d37604aed805bfb16c0e86923375951763951241902e9a497fe0bfcba6f2a",
+    "tools/build_formation_unknown_mod.py": "ee8ece0b04ea32a02b57a61b0214d7baec351f434e743f3da10fefb699d367e0",
+    "tools/run_observed_acceptance.py": "0d5698abf12185a1c80f410b5c9825808d4d080727c797a5c36e9f9e3453e271"
+  },
+  "engine_target_pin_sha256": "ec56674dff59c929704c84b686eab63a60d347cf19db1bd9232f7c8c3c9e9f02",
+  "next": "Actual registered parent installs owned private173 only after backup and no game, exact fresh offline/exe/CPU/options/fence before singlePopen, one original75load and readonly actual facts. Review actual state before preparing/arming76 unknown/eligibility/restored-spread side; never force unsupported formation, clear unknown queues or manually operate missionary.",
+  "whole_TC020": "OPEN",
+  "whole_case_closeout": "1/40 =2.5%; not code completion percent",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1
+}
