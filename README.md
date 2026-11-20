@@ -1,8 +1,8 @@
 # civ6_dev
 
-当前主线源码172；[Steam创意工坊Alpha3已发布](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)，119文件真实下载及正文12图／封面／更新说明核验通过。另有[173军令权限候选](docs/research/baiqi-source173-army-escort-candidate-frontier-2026-11-20.json)1个未发布修复，双Lua软件通过，尚未安装或实机。整个mod验收仍OPEN，持续执行。
+当前主线源码173；[Steam创意工坊Alpha3](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)仍为已发布并真实下载核验的172。唯一[军队护送权限修复已线性集成主线并完成实机准备](docs/research/baiqi-source173-integration-and-escort-preparation-2026-11-21.json)：15主线守卫测试、97Lua双编译、119文件与原30双VM候选完全相同；新入口13门禁、只读编队清点126软件检查通过。173尚未安装／实机／发工坊；整个mod验收仍OPEN，继续实际TC020。
 
-游戏本体1.0.12.74上的[TC-033已通过](docs/research/baiqi-source172-tc033-engine74-native-2026-11-21.json)：首次／重复／冷启动重载后三次旧粮仓请求均由真实Core事件确认拒绝，0新扣费／军队行动消耗／收益恢复，119源码入口审计与实际加载数据库34个零收益兼容项通过。两次冷启动各取新鲜后台offline证明，两份新存档及退出收尾验证完成；原启动超时和QA核心人类接口错误均保留。当前新引擎[整项闭合1/40（2.5%）](docs/research/baiqi-source172-finite40-engine74-progress-2026-11-21.json)，不是代码完成率。Steam认证已解决，桌面已正式交给HOI4短抽查；本线程继续文件工作和173线性集成，明确交回后做实际TC020。
+游戏本体1.0.12.74上的[TC-033已通过](docs/research/baiqi-source172-tc033-engine74-native-2026-11-21.json)：首次／重复／冷启动重载后三次旧粮仓请求均由真实Core事件确认拒绝，0新扣费／军队行动消耗／收益恢复，119源码入口审计与实际加载数据库34个零收益兼容项通过。两次冷启动各取新鲜后台offline证明，两份新存档及退出收尾验证完成；原启动超时和QA核心人类接口错误均保留。当前新引擎[整项闭合1/40（2.5%）](docs/research/baiqi-source172-finite40-engine74-progress-2026-11-21.json)，不是代码完成率。Steam认证已解决，HOI4已提前明确交回桌面，本线程准备173实际TC020；启动前另取当前实例新鲜离线证明。
 
 旧1.0.12.72精确环境的[12项性能预算通过](docs/research/baiqi-source172-pressure-paired-final-2026-11-20.json)保留；[40项台账](docs/research/baiqi-source172-finite40-progress-2026-11-20.json)旧引擎范围保守关闭1/40（2.5%），不等于代码完成率或新引擎已通过。旧8650807恢复仍FAIL_UNRESOLVED。新增[军事历史源码影响审阅](docs/research/baiqi-source172-military-legacy46-67-70-impact-review-2026-11-21.json)和[TC038运行时依赖审查](docs/research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)均限定范围，未拿软件／架构证据补齐缺失实机。
 
