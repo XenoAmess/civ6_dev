@@ -1320,3 +1320,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-20T05:10Z：[R26与闭环调用者身份修复](research/baiqi-source172-nosite-fullscript-continuation-prepared-2026-11-20.json)：配置coder仍缺失，成功复用同客户端本日OpenCode1.19.6维护，0新POST。Owner修复真实错引，使用真实已完成MANY闭环和实际模块身份检查，原错误程序作负对照；只续未执行侧，原始有效采样和失败终态分别保留。
+
+
+2026-11-20：[真实清理回执的分支格式](research/baiqi-source172-nosite-fullscript-native-parent-schema-failure-2026-11-20.json)。父进程继模块错引后，又因只测完整kill字段格式而漏掉已消失分支。先依据实际终态1和真实游戏整侧0记录安全边界；明确识别已消失+terminate0+无清理尝试的生产者分支，不能对未知缺字段一律默认为0。21项严格格式/异常检查和真实两侧闭环通过，原始结果保留；继续未完成验收。
