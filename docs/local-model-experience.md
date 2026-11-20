@@ -1330,3 +1330,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 [172后台军令边界及旧证据限定复用审查](research/baiqi-source172-military-writer-impact-review-2026-11-20.json)已补齐10个单位发令调用点、独立入口与162私有诊断增量逆向核对；162八类单位和93自然训练长矛兵证据保留原环境，不改称新172／引擎74实测。TC019整项、新引擎、真实护送和多回合军令继续验收。
 
 [军队护送UI合同候选修复](research/baiqi-source173-army-escort-candidate-frontier-2026-11-20.json)已在独立短分支提交推送：172真模块先复现3个失败；去掉按文职目标拦军令，并保持可变参数／原生拒绝结果。30双Lua回归、97双编译及119包验证通过。默认main172与冻结TC033保持字节，173未安装／未发工坊／未实机。R32有完整当前源码与实际原版消费者，但配置coder缺失、0POST／0候选，负责人处理。
+
+[Nov21后台模式门禁](research/baiqi-steam-live-surface-readonly-2026-11-21.json)：R33先准备当前完整探针／实际游戏调用器／真实DWM反例，再按共享配置完成新自然日OpenCode1.19.6非缓存维护。GET models仍只有open-h3-2k、缺配置coder，0POST／0候选，不替换模型。Owner完成可复用后台工具22检查，保留首轮5个JSON往返断言失败及焦点元数据修正；真实模式仍unavailable、0新引擎游戏启动，不把软件通过计作实机。

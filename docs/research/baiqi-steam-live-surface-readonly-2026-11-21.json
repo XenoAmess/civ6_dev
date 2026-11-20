@@ -1,0 +1,137 @@
+{
+  "schema": "civ6.steam-live-surface-mode-proof-software/v1",
+  "utc": "2026-11-20T16:33:41.926140+00:00",
+  "machine": "BF-202609141645",
+  "status": "SOFTWARE_VERIFIED_STEAM_CLOSED_MODE_UNAVAILABLE_NATIVE_PENDING",
+  "counterexample": {
+    "utc": "2026-11-20T16:04:13.148088+00:00",
+    "object": "Closed Windows Shell Steam jump list, not a Steam mode label",
+    "IsWindowVisible_and_UIA_is_visible": true,
+    "DWM_cloaked_hresult": 0,
+    "DWM_cloaked": 2,
+    "foreground_still_named_old_window": true,
+    "point_hit_another_actual_surface": true,
+    "not_proof_old_Steam_mode_queries_were_false": true
+  },
+  "implementation": {
+    "file": "tools/steam_live_mode_probe.py",
+    "rule": "Current unique Steam PID/birth, actual owned popup and point-hit surface; DWM query succeeds and both surfaces uncloaked before/after exact visible MenuItem read; repeated point/rect/instance/focus checks. Conflicting labels and unknown/cloaked/changed surfaces return unavailable. Popup and CEF hit roots need not match.",
+    "backend_absent": "Structured unavailable, with no input or activation. Windows dependencies loaded only by the real adapter; fixture tests work without Windows.",
+    "layout_limit": "Known desktop mode menu geometry only; a changed layout is unavailable, not guessed. Formal menu navigation remains a separate action.",
+    "launch_binding": "require_offline rejects online/unavailable and rebinds process name/birth. The actual game caller must separately enforce proof freshness immediately before Popen.",
+    "source_sha256": {
+      "tools/steam_live_mode_probe.py": "4db3e004b3b9f5a20948b792528e0816e7150e9fb9c451e0793fe31c36084f35",
+      "tests/test_steam_live_mode_probe.py": "b9b62d73d522ba48acdc9f0530d2b697ac8a157bae635cd6c720f6c3efb79ea0"
+    }
+  },
+  "verification": {
+    "command": "python -X utf8 -m unittest discover -s tests -p test_steam_live_mode_probe.py -v",
+    "actual_exit_code": 0,
+    "tool_chunk": "176d20",
+    "tests": 22,
+    "query_boundary_tests": 18,
+    "offline_admission_tests": 4,
+    "fixtures": "Actual complete query and require_offline functions with explicit synthetic read-only OS/UIA/process APIs. Temporary JSON receipts are removed; no fake offline receipt enters live Steam evidence directory.",
+    "first_attempt": {
+      "tool_chunk": "19c6c5",
+      "exit_code": 1,
+      "tests": 22,
+      "failures": 5,
+      "cause": "JSON receipt round-trip assertion compared tuple points with decoded lists. Mode classifications were not the failing assertion. Owner changed returned point to a JSON list.",
+      "additional_owner_correction": "Read final foreground in finally, so a missing client does not falsely report focus_changed from an unassigned after value."
+    },
+    "diff_check": true
+  },
+  "actual_background_query": {
+    "utc": "2026-11-20T16:31:23.597219+00:00",
+    "mode": "unavailable",
+    "current_client": null,
+    "focus_changed": false,
+    "input": false,
+    "activation": false,
+    "window_move": false,
+    "screenshot": false,
+    "private_receipt_sha256": "5f9b41a230068c11e0b43505b35ede3df5cb4452fdebf63a5c050479011b8e18"
+  },
+  "client_recovery": {
+    "settings_jump_action": 1,
+    "big_picture_jump_action": 1,
+    "settings_or_big_picture_window_observed": false,
+    "formal_jump_Exit_Steam_action": 1,
+    "last_independent_process_check": {
+      "utc": "2026-11-20T16:33:41.926140+00:00",
+      "machine": "BF-202609141645",
+      "processes": [],
+      "normal_exit_intent_sha256": "f8c6d7ca4fe3232bbdf63cab1d5cbe0c0e0623cc3364fadc0c793a3291c20f2e",
+      "terminate": 0,
+      "kill": 0,
+      "account_configuration_edits": 0,
+      "mode": "unavailable",
+      "closed_client_is_not_offline_proof": true
+    },
+    "library_loading_errors": "GetAppsToSendToLibrary / RefreshApplicationsInLibrary / RefreshSubscriptionMetadata failures are correlated log observations, not a proven root cause. No account/cache edit, forced kill, extra upload or game launch.",
+    "recovery_result": "Client normally closed; offline recovery not established."
+  },
+  "local_model_R33": {
+    "utc": "2026-11-20T16:08:05.155022+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-21",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": false
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-20T16:08:05.125155+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 547,
+        "over_64KiB": false,
+        "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+        "total_ms": 25.02740011550486,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-20T16:08:05.151003+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 1232,
+        "over_64KiB": false,
+        "sha256": "d0ae9731d6d283a9f64ff8b59751957c1038ecc4ba4480a02485fa5f245050ba",
+        "total_ms": 3.0943998135626316
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "real_task_prepared_before_owner_sha256": "b65010fa87112d7a82d463c6a0e1388df55794d2ef71487f8a29bf82b87b8184",
+  "model_generation_POSTs": 0,
+  "model_candidates": 0,
+  "OpenCode_native_generation": 0,
+  "unknown_costs": null,
+  "product_changes": 0,
+  "Workshop_changes": 0,
+  "current_main_source": 172,
+  "isolated_unpublished_fix_source": 173,
+  "new_engine_Native_launches": 0,
+  "TC033_requests": 0,
+  "TC033_status": "R2 frozen preparation unchanged; new mode-proof consumer revision required before actual Native start.",
+  "previous_proofs": "No blanket invalidation of the old point-hit proof or prior .72 performance. This shell counterexample does not prove those surfaces were cloaked.",
+  "references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/dwmapi/ne-dwmapi-dwmwindowattribute",
+    "https://help.steampowered.com/en/faqs/view/3725-76D3-3F31-FB63"
+  ],
+  "whole_mod": "OPEN_CONTINUE",
+  "next": "Freeze and validate an explicit new TC033 preparation using this probe; continue source-impact/finite40 work while Steam mode remains unknown. No game launch from client absence, historical proof or menu ACK."
+}
