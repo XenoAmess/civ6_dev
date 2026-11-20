@@ -18,7 +18,8 @@ GameInfo={Units={[0]={UnitType='UNIT_WARRIOR'},[1]={UnitType='UNIT_BUILDER'},[2]
  [4]={UnitType='UNIT_GREAT_SCIENTIST'},[5]={UnitType='UNIT_GREAT_GENERAL'},[6]={UnitType='UNIT_GREAT_ADMIRAL'},
  [7]={UnitType='UNIT_GREAT_ENGINEER'},[8]={UnitType='UNIT_GREAT_MERCHANT'},[9]={UnitType='UNIT_GREAT_WRITER'},
  [10]={UnitType='UNIT_GREAT_ARTIST'},[11]={UnitType='UNIT_GREAT_MUSICIAN'},[12]={UnitType='UNIT_GREAT_PROPHET'},
- [13]={UnitType='UNIT_MISSIONARY'},[14]={UnitType='UNIT_APOSTLE'},[15]={UnitType='UNIT_INQUISITOR'},[16]={UnitType='UNIT_GURU'}}}
+  [13]={UnitType='UNIT_MISSIONARY'},[14]={UnitType='UNIT_APOSTLE'},[15]={UnitType='UNIT_INQUISITOR'},[16]={UnitType='UNIT_GURU'},
+  [17]={UnitType='UNIT_NATURALIST'},[18]={UnitType='UNIT_ARCHAEOLOGIST'}}}
 function TestUnit(kind,owner,id)
  local unit={GetUnitType=function() return kind end,GetOwner=function() return owner or 7 end,GetID=function() return id or kind end}
  units[id or kind]=unit;return unit
@@ -29,8 +30,9 @@ CityCommandTypes={RANGE_ATTACK=20,WMD_STRIKE=21,PURCHASE=22}
 PlayerOperations={EXECUTE_SCRIPT=30,RESEARCH=31,PROGRESS_CIVIC=32,DIPLOMACY_MAKE_PEACE=33,LEVY_MILITARY=34}
 UnitManager={}
 for _,key in ipairs({'RequestOperation','RequestCommand','CanStartOperation','CanStartCommand'}) do
- UnitManager[key]=function(unit,action,params) w.unitCalls=w.unitCalls+1;w.lastUnit=unit;w.lastAction=action;return true,'native' end
+  UnitManager[key]=function(unit,action,params) w.unitCalls=w.unitCalls+1;w.lastUnit=unit;w.lastAction=action;w.lastParams=params;return true,'native' end
 end
+w.nativeUnit=UnitManager
 CityManager={RequestOperation=function(city,op,params) w.cityCalls=w.cityCalls+1;return true end,
  RequestCommand=function(city,cmd,params) w.cityCalls=w.cityCalls+1;return true end}
 UI={RequestPlayerOperation=function(pid,op,params)
