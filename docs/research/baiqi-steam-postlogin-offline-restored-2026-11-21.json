@@ -1,0 +1,86 @@
+{
+  "schema": "civ6.postlogin-independent-offline-restored/v1",
+  "utc": "2026-11-20T18:29:06.975692+00:00",
+  "status": "OFFLINE_CONFIRMED_CURRENT_INSTANCE_NATIVE_NOT_STARTED",
+  "machine": "BF-202609141645",
+  "source_version": 172,
+  "Steam_version": "11.23.65.88",
+  "user_login_report": {
+    "utc": "2026-11-20T18:27:34.384683+00:00",
+    "exact_user_reply": "已在客户端完成登录",
+    "steam_pid": 8788,
+    "birth": 1795195446.682362,
+    "desktop_owned_by_CivVI": true,
+    "other_device_clearance": "Existing current-task user statement none running; no new conflict notice. No expiry/re-ask.",
+    "Native_queries": 0,
+    "credentials_read_or_submitted": false
+  },
+  "actual_actions": {
+    "formal_header_navigation": 2,
+    "official_offline_menu_Invoke": 1,
+    "client_restarts_by_owner": 0,
+    "upload_or_download_replayed": 0,
+    "game_launches": 0,
+    "credentials_read_or_submitted": false,
+    "account_configuration_edits": 0
+  },
+  "independent_UIA_mode_proof": {
+    "schema": "civ6.steam-background-uncloaked-live-menu/v2",
+    "utc": "2026-11-20T18:27:58.481458+00:00",
+    "finished_utc": "2026-11-20T18:27:58.554253+00:00",
+    "machine": "BF-202609141645",
+    "steam_pid": 8788,
+    "steam_birth": 1795195446.682362,
+    "mode": "offline",
+    "instance_stable": true,
+    "input_sent": false,
+    "activation_api_called": false,
+    "focus_changed": false,
+    "window_move_api_called": false,
+    "screenshot_used": false,
+    "items": [
+      {
+        "popup": 3212510,
+        "point": [
+          89,
+          116
+        ],
+        "hit_hwnd": 395464,
+        "hit_root": 3212510,
+        "control_type": "MenuItem",
+        "label": "上线...",
+        "visible": true,
+        "DWM_cloaked": 0,
+        "hit_root_DWM_cloaked": 0,
+        "mode": "offline"
+      }
+    ],
+    "failure_type": null,
+    "surface_rule": "Visible current owned popup and hit root both DWM0 before/after UIA read. Unknown/cloaked surfaces rejected. CEF popup and hit roots need not be identical."
+  },
+  "independent_native_mode_proof": {
+    "utc": "2026-11-20T18:27:59.368155+00:00",
+    "steam_pid": 8788,
+    "steam_birth": 1795195446.682362,
+    "mode": "offline",
+    "reference_commit": "8c23632b35626ef1554cbbdc9096d81f2cefe215",
+    "source_UI_sha256": "2dfb0a5d50dd90667549cc7d413c7bfb0794c9af4ebaf08bf1cf7d938a11ea93",
+    "raw_samples": [
+      1,
+      1
+    ],
+    "tray_state_samples": [
+      4,
+      4
+    ],
+    "instance_source_before_after_equal": true,
+    "all_input_activation_focus_move_screenshot_flags": false,
+    "private_receipt_sha256": "a74bca25b06cbca83b4b3dc52bf8c1feb0b74c950fef5d1bdbdf91a0472ea496"
+  },
+  "private_UIA_receipt_sha256": "48f3a2b5b87d458f549ebb38303f9a0532a233b18121e4cd62882f74037cc8ca",
+  "transition_observations": "Initial user-authenticated current menu explicitly online; Invoke ACK followed by unavailable menu/tray observations retained. Only a new visible uncloaked GoOnline menu plus independent native1/tray4 counted as restored. No repeated mode request or forced login.",
+  "launch_contract": "These completed observations are a recovery record, not a reusable stale prelaunch ticket. Frozen R3 actual launch will execute its pinned UIA require_offline again and enforce <15s plus executable/source/owner fences immediately before Popen. Native proof is corroboration only; no silent R3 mode consumer replacement.",
+  "actual_TC033_requests": 0,
+  "whole_mod": "OPEN_CONTINUE",
+  "next": "Register one actual R3 parent and run two cold sessions/three retired-request phases; continue all remaining mod acceptance after this case."
+}

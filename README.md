@@ -2,7 +2,7 @@
 
 当前主线源码172；[Steam创意工坊Alpha3已发布](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)，119文件真实下载及正文12图／封面／更新说明核验通过。另有[173军令权限候选](docs/research/baiqi-source173-army-escort-candidate-frontier-2026-11-20.json)1个未发布修复，双Lua软件通过，尚未安装或实机。整个mod验收仍OPEN，持续执行。
 
-游戏本体已更新到1.0.12.74；新引擎实际游戏启动0，[TC033 R3](docs/research/baiqi-source172-engine74-tc033-r3-preparation-2026-11-21.json)准备完成、实际请求0/3。Steam加载故障经[官方同目录安装](docs/research/baiqi-steam-official-reinstall-checkpoint-2026-11-21.json)正常exit0，游戏exe及本项目源码119／安装119／QA消费者指纹未变；客户端已自动更新到11.23.65.88，当前已显示真实可用的“登录 Steam”认证表单；[需用户在官方本机客户端完成登录](docs/research/baiqi-steam-current-authentication-dependency-2026-11-21.json)，不在聊天提供密码或验证码。等待回复期间暂停桌面输入。新鲜离线证明仍未知，未据安装完成启动游戏。桌面已由协调线程明确交还本线程。
+游戏本体已更新到1.0.12.74；新引擎实际游戏启动0，[TC033 R3](docs/research/baiqi-source172-engine74-tc033-r3-preparation-2026-11-21.json)准备完成、实际请求0/3。Steam加载故障经[官方同目录安装](docs/research/baiqi-steam-official-reinstall-checkpoint-2026-11-21.json)正常exit0，游戏exe及本项目源码119／安装119／QA消费者指纹未变；用户已在本机客户端完成登录；[正式恢复离线后两项后台只读证明一致](docs/research/baiqi-steam-postlogin-offline-restored-2026-11-21.json)，当前Steam8788／11.23.65.88。TC033将在实际启动前重新取得冻结门禁要求的新鲜证明，恢复回执不作旧票复用。桌面已由协调线程明确交还本线程。
 
 旧1.0.12.72精确环境的[12项性能预算通过](docs/research/baiqi-source172-pressure-paired-final-2026-11-20.json)保留；[40项台账](docs/research/baiqi-source172-finite40-progress-2026-11-20.json)旧引擎范围保守关闭1/40（2.5%），不等于代码完成率或新引擎已通过。旧8650807恢复仍FAIL_UNRESOLVED。新增[军事历史源码影响审阅](docs/research/baiqi-source172-military-legacy46-67-70-impact-review-2026-11-21.json)和[TC038运行时依赖审查](docs/research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)均限定范围，未拿软件／架构证据补齐缺失实机。
 
