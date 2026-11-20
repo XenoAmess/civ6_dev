@@ -1336,3 +1336,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 [TC033 R3门禁准备](research/baiqi-source172-engine74-tc033-r3-preparation-2026-11-21.json)：采用已交付后台工具，QA命名空间／准备／登记／存档独立；原R2和所有旧消费者字节保持。19项实际驱动边界通过，10个请求／观测／收尾函数AST保持，原负例与请求工厂证据保留，不重复安装或重放游戏。沿用同一R33真实任务的配置coder缺失诊断，0额外探针／POST；Native仍0，不把准备当完成。
 
 [TC038实际包运行时依赖审查](research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)：119文件与已冻结普通172全hash相同，46声明动作／33Lua根／97文件闭包已核。150自有＋3原版直接include，4动态include仅本地UI父脚本选择，29调用名均固定；开发Python／连接配置／辅助程序未打包。11个requests是内存批量表，保留首轮误断言。只补架构证据，财政冲击／服务不可访问实机仍未通过；当前合同未要求全机网络或WFP改动。配置coder仍缺，同批R33沿用0额外探针／POST，Owner审阅不算模型生成。
+
+[旧46／67／70军事样本源码影响审阅](research/baiqi-source172-military-legacy46-67-70-impact-review-2026-11-21.json)已核实际Git原件：WorldInput／UnitPanel六组全字节相同；守卫唯一ObjectProxy求值次序差异逆变换精确，15完整函数体相同。178双Lua范围检查通过（104非白名单／26正对照／48实际父脚本选择），保留Python代理比较夹具首次失败。旧将军／统帅／勇士／宗教行动仅保原作用域，斥候、特殊能力、护送及新引擎仍待实机。真实任务先备完整源码，沿用R33配置coder缺失0新POST／候选，不把源码比较当Native或全部TC019通过。
