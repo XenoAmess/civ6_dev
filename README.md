@@ -1,6 +1,10 @@
 # civ6_dev
 
-当前源码172；[Steam创意工坊Alpha3已发布](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)，119文件消费端逐字节核验、公开正文／12张历史图／新封面／更新说明均通过，详见[发布回执](docs/workshop/v0.1.0-alpha.3/publication-evidence.json)。Steam两次普通启动仍加载，本线程已正常关闭客户端并释放短时桌面给协调线程；离线恢复仍待本项目新鲜独立确认，不启动文明VI。游戏本体已从1.0.12.72更新为1.0.12.74；[TC033新引擎准备](docs/research/baiqi-source172-engine74-tc033-preparation-2026-11-20.json)的软件门禁通过、实际请求仍0/3，新环境兼容性未通过。旧1.0.12.72／Windows Steam DX12／GS单人与固定三场景的[12项性能预算全部通过](docs/research/baiqi-source172-pressure-paired-final-2026-11-20.json)；[完整40项验收台账](docs/research/baiqi-source172-finite40-progress-2026-11-20.json)在旧引擎范围内保守关闭1/40（2.5%），旧8650807恢复仍FAIL_UNRESOLVED。发布不是停工点，继续TC033及其余功能实机验收。172的[软件验证](docs/research/baiqi-source172-safe-coordinate-lookup-software-2026-11-20.json)与完整运行旧断言失败记录保留，不扩大为全套功能通过。
+当前主线源码172；[Steam创意工坊Alpha3已发布](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)，119文件真实下载及正文12图／封面／更新说明核验通过。另有[173军令权限候选](docs/research/baiqi-source173-army-escort-candidate-frontier-2026-11-20.json)1个未发布修复，双Lua软件通过，尚未安装或实机。整个mod验收仍OPEN，持续执行。
+
+游戏本体已更新到1.0.12.74；新引擎实际游戏启动0，[TC033 R3](docs/research/baiqi-source172-engine74-tc033-r3-preparation-2026-11-21.json)准备完成、实际请求0/3。Steam加载故障经[官方同目录安装](docs/research/baiqi-steam-official-reinstall-checkpoint-2026-11-21.json)正常exit0，游戏exe及本项目源码119／安装119／QA消费者指纹未变；客户端正在自动更新，当前离线仍待新鲜后台确认，未据安装完成启动游戏。桌面已由协调线程明确交还本线程。
+
+旧1.0.12.72精确环境的[12项性能预算通过](docs/research/baiqi-source172-pressure-paired-final-2026-11-20.json)保留；[40项台账](docs/research/baiqi-source172-finite40-progress-2026-11-20.json)旧引擎范围保守关闭1/40（2.5%），不等于代码完成率或新引擎已通过。旧8650807恢复仍FAIL_UNRESOLVED。新增[军事历史源码影响审阅](docs/research/baiqi-source172-military-legacy46-67-70-impact-review-2026-11-21.json)和[TC038运行时依赖审查](docs/research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)均限定范围，未拿软件／架构证据补齐缺失实机。
 
 171阶段历史记录：[171全脚本实机B_turn／N_req已通过](docs/research/baiqi-source171-original85-fullscript-native-2026-11-19.json)：33上下文、833保留样本、198校准括号／396计时阶段；五个十秒窗调用耗时并集约147–286ms，完整回合写请求8–32次。六次普通结束实际到91／11城，保存、撤33钩、释放、正式退出及自有静默残留收尾完成，父80687实际0。[五组十冷侧／25对样本现已实测FAIL](docs/research/baiqi-source171-original85-paired-final-2026-11-19.json)：全局差值中位约438ms满足500ms，但逐段比例中位10.45346%超过10%；50次普通END输入及配对序列一致，全部样本保留，保存／退场和父68377实际0已核。继续诊断修复，不删尖峰、改门槛或重采未改源码来替换失败。整个mod验收仍OPEN，继续执行；现场和下一步见[最新交接](docs/handoff-2026-11-16.md)。
 
