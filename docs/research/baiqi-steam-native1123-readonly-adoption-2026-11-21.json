@@ -1,0 +1,233 @@
+{
+  "schema": "civ6.steam-native1123-readonly-adoption/v1",
+  "utc": "2026-11-20T17:00:00.930319+00:00",
+  "machine": "BF-202609141645",
+  "status": "EXACT_SOURCE_QUALIFIED_SOFTWARE_VERIFIED_CURRENT_MODE_UNAVAILABLE",
+  "reference_commit": "8c23632b35626ef1554cbbdc9096d81f2cefe215",
+  "reference_repository": "https://github.com/XenoAmess/ck3_eternal_recurrence",
+  "adopted_scope": "Only immutable generic read-only source/identity/byte/tray provider and narrow OS reader. No CK3 game gate, permission, run ID, task bus or machine ID is inherited.",
+  "static_qualification": {
+    "utc": "2026-11-20T16:55:00.804940+00:00",
+    "reference_commit": "8c23632b35626ef1554cbbdc9096d81f2cefe215",
+    "exact_reference_files_sha256": {
+      "steam_offline_state_contract.py": "aaf493fc75e5a97fa7bccc7b380567edc789a68e8c0c8dd412dd38cf2516d02d",
+      "steam_offline_native_profiles.py": "e55a8b379a3a128da79f3603f30fdf269b5229c6dc4f9d66a42be53b196dbcb5",
+      "steam_offline_native_provider_v1.py": "e0766561e704164eb1ce4b34349e6546ad0791de1be89581d09c736f3af7963c",
+      "steam_offline_state_probe.py": "1fc34c340309318e6f7c6b7c89016c4ec326a58f482c3832088043023b2ed1a7",
+      "test_steam_offline_native_profiles.py": "985017aebe7e431786581bd2b4140269f195ecd7c758abfd92326fc973ccf6be",
+      "test_steam_offline_native_provider_v1.py": "30d73a10eda059df8e0b322c33dbc02cfaaa8f05442cda8baf98452784c3cfea",
+      "test_steam_offline_state_probe.py": "2edd3955d33dfeb2ef0ee3ecaad7facbeb357fc677eae800ea64d7491b6ded4c"
+    },
+    "reference_worktree_mutated": false,
+    "actual_installed_Steam_file_version": "11.23.65.88",
+    "actual_UI_file_version": "11.23.65.88",
+    "actual_UI_bytes": 19675800,
+    "actual_UI_sha256": "2dfb0a5d50dd90667549cc7d413c7bfb0794c9af4ebaf08bf1cf7d938a11ea93",
+    "actual_UI_instruction_anchors_all_exact": true,
+    "profile_id": "steamui-11.23.65.88-2dfb0a5d",
+    "machine": "BF-202609141645",
+    "actual_Steam_process_observed": false,
+    "actual_mode": "unavailable_client_absent",
+    "Steam_or_desktop_inputs": 0,
+    "game_launches": 0,
+    "no_CK3_machine_ID_or_game_permissions_inherited": true,
+    "reviewed_candidate_source": "Existing exact reference read-only provider only; none of its historical mode receipts count as a present CivVI proof."
+  },
+  "original_static_rejection": {
+    "utc": "2026-11-20T16:54:40.530746+00:00",
+    "status": "HOLD_STATIC_IMAGE_NOT_QUALIFIED",
+    "files": [
+      {
+        "file": "steam.exe",
+        "file_version": "11.23.65.88",
+        "bytes": 5830808,
+        "sha256": "c97eb13c5a2a0c74aaac61e461a588da3bf8a703be93735a3efa83e71cf8aabf",
+        "mtime_utc": "2026-11-13T02:05:50+00:00"
+      },
+      {
+        "file": "steamui.dll",
+        "file_version": "11.23.65.88",
+        "bytes": 19675800,
+        "sha256": "2dfb0a5d50dd90667549cc7d413c7bfb0794c9af4ebaf08bf1cf7d938a11ea93",
+        "mtime_utc": "2026-11-13T02:05:50+00:00"
+      }
+    ],
+    "reference_local_HEAD": "6fd2e6681157775884837c3cb3a3393e3eed54b3",
+    "reference_existing_remote_HEAD": "8c23632b35626ef1554cbbdc9096d81f2cefe215",
+    "existing_remote_profiles_source_present": true,
+    "existing_remote_profile_version_strings": [
+      "10.96.30.42",
+      "11.12.30.7",
+      "11.15.70.27",
+      "11.23.65.88"
+    ],
+    "failed_tool_chunk": "12527c",
+    "actual_exit": 1,
+    "failure": "Existing frozen local reference provider rejected this machine SteamUI byte count before any state read. No new mode or version silently admitted.",
+    "model_R34_maintenance_or_GET_ran": false,
+    "actual_mode": "unavailable_client_absent",
+    "Steam_inputs": 0,
+    "game_launches": 0
+  },
+  "software_adoption": {
+    "utc": "2026-11-20T16:57:17.623197+00:00",
+    "status": "PASS_SOFTWARE_ONLY",
+    "pure_reference_profile_methods": 6,
+    "reference_method_names": [
+      "test_1123_producer_getter_and_tray_anchors_agree_on_backing_byte",
+      "test_anchors_tray_and_zero_are_not_weakened",
+      "test_registry_records_and_anchor_sequences_are_immutable",
+      "test_source_digest_size_and_unknown_version_are_exact",
+      "test_steamui_file_version_and_loaded_imagesize_remain_bound",
+      "test_version_image_cross_product_is_not_a_profile"
+    ],
+    "adaptor_complete_query_cases": [
+      {
+        "case": "qualified_offline",
+        "result": "offline",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "no_client",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "ambiguous_client",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "raw_zero",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "wrong_tray",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "wrong_anchor",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "wrong_profile_image",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "changed_Steam_birth",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "changed_psutil_birth_after_read",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      },
+      {
+        "case": "changed_foreground",
+        "result": "unavailable",
+        "fixture": "Synthetic exact1123 provider source/process/read backend, not a live mode proof"
+      }
+    ],
+    "adaptor_case_count": 10,
+    "original_reference_suite": {
+      "tool_chunk": "25dd8f",
+      "actual_exit": 1,
+      "tests_discovered": 30,
+      "passed": 29,
+      "errors": 1,
+      "cause": "Profiles test imports an unadopted CK3-specific game gate. No game gate/permissions copied; six pure actual provider/profile methods exercised separately. Other29 provider/contract methods already passed."
+    },
+    "Native_game_queries": 0,
+    "Steam_mode_observations": 0,
+    "Steam_inputs": 0,
+    "synthetic_live_evidence_files": 0,
+    "sources_sha256": {
+      "steam_offline_state_contract.py": "aaf493fc75e5a97fa7bccc7b380567edc789a68e8c0c8dd412dd38cf2516d02d",
+      "steam_offline_native_profiles.py": "e55a8b379a3a128da79f3603f30fdf269b5229c6dc4f9d66a42be53b196dbcb5",
+      "steam_offline_native_provider_v1.py": "e0766561e704164eb1ce4b34349e6546ad0791de1be89581d09c736f3af7963c",
+      "steam_offline_state_probe.py": "1fc34c340309318e6f7c6b7c89016c4ec326a58f482c3832088043023b2ed1a7"
+    },
+    "adaptor_sha256": "0c59c3d87f9d50a994417760091b859896b28545176f3d86cd145618055114c2"
+  },
+  "actual_adaptor_sha256": "0c59c3d87f9d50a994417760091b859896b28545176f3d86cd145618055114c2",
+  "read_contract": "Exact Steam11.23.65.88 + actual UI file hash/size/version; actual loaded module and six instruction anchors match before/after. Two same live current-user bytes1 and same live tray-state4, same manager/source/PID/birth, exact current host machine/nonce; process mapping and source are rechecked. Zero/bootstrap/mismatch remains unavailable. No interface call, debugger, injection, write, screenshot or activation.",
+  "source_semantics": "Approved profile links current-user bIsOfflineMode JSON producer, private getter writer to object+0x187, global refresh caller, the same byte selecting offline tray4, and the tray compare/store at offset0x160. Actual local PE anchor bytes were read and matched; older0x154 offset not inherited. Static matching alone does not establish current state.",
+  "actual_client_action": "After normal closure was independently confirmed, one visible Windows Run ordinary exact Steam executable launch with no flags was performed solely for this newly qualified observation capability. No forced login, account/cache edits, mode call or game launch.",
+  "actual_background_current": {
+    "utc": "2026-11-20T16:58:20.908901+00:00",
+    "steam_pid": 19712,
+    "steam_birth": 1795193882.0174797,
+    "mode": "unavailable",
+    "reason": "tray_state_unavailable",
+    "private_receipt_sha256": "ebada0be01b6ba786d6e44a6c53c1600f106747fc281554b79180b7032ea59e9",
+    "flags": {
+      "input_sent": false,
+      "activation_api_called": false,
+      "focus_changed": false,
+      "window_move_api_called": false,
+      "screenshot_used": false,
+      "CEF_debugger_or_Steam_interface_called": false,
+      "account_configuration_read_or_written": false,
+      "borrowed_reference_machine_or_game_authority": false
+    }
+  },
+  "result_limits": "An initial native zero and later unavailable tray state were not converted to online/offline. Current client UI still exposes no mode item. No game preflight or compatibility PASS. Frozen R3 has not silently been edited to adopt this reader; a named new consumer preparation is still required before using it for actual game launch.",
+  "model_R34": {
+    "utc": "2026-11-20T16:55:00.890393+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-21",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-20T16:55:00.859491+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 547,
+        "over_64KiB": false,
+        "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+        "total_ms": 8.21110000833869,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-20T16:55:00.868178+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 1232,
+        "over_64KiB": false,
+        "sha256": "95567d331e3a9321fed8365a7e3d14ae18732811ea3c916f5a2de09d80677462",
+        "total_ms": 21.577099803835154
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "task_prepared_before_owner_sha256": "3108991167fc71d67d8be139ed3dea384ea086dff3c1e3c7a202f285fdd4662b",
+  "model_generation_POSTs": 0,
+  "model_candidates": 0,
+  "OpenCode_native_generation": 0,
+  "unknown_costs": null,
+  "product_changes": 0,
+  "Workshop_changes": 0,
+  "actual_game_launches": 0,
+  "whole_mod": "OPEN_CONTINUE",
+  "next": "Bounded startup observation using the new reader; if still unknown, normal close and assess independent official same-path installer recovery. Mode confirmation remains separate from navigation/repair. No historical mode result or matching DLL permits a game launch."
+}

@@ -1338,3 +1338,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 [TC038实际包运行时依赖审查](research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)：119文件与已冻结普通172全hash相同，46声明动作／33Lua根／97文件闭包已核。150自有＋3原版直接include，4动态include仅本地UI父脚本选择，29调用名均固定；开发Python／连接配置／辅助程序未打包。11个requests是内存批量表，保留首轮误断言。只补架构证据，财政冲击／服务不可访问实机仍未通过；当前合同未要求全机网络或WFP改动。配置coder仍缺，同批R33沿用0额外探针／POST，Owner审阅不算模型生成。
 
 [旧46／67／70军事样本源码影响审阅](research/baiqi-source172-military-legacy46-67-70-impact-review-2026-11-21.json)已核实际Git原件：WorldInput／UnitPanel六组全字节相同；守卫唯一ObjectProxy求值次序差异逆变换精确，15完整函数体相同。178双Lua范围检查通过（104非白名单／26正对照／48实际父脚本选择），保留Python代理比较夹具首次失败。旧将军／统帅／勇士／宗教行动仅保原作用域，斥候、特殊能力、护送及新引擎仍待实机。真实任务先备完整源码，沿用R33配置coder缺失0新POST／候选，不把源码比较当Native或全部TC019通过。
+
+[11.23原生Steam只读参考接入](research/baiqi-steam-native1123-readonly-adoption-2026-11-21.json)：先备完整实际参考代码／本机静态资格／游戏调用器给R34，canonical当日维护缓存通过但配置coder仍缺，0POST／候选／别名。Owner接通严格来源绑定通用读取，35参考范围检查＋10完整适配边界通过，真实模式仍unknown；旧profile静态拒绝和整套CK3门禁缺失错误均保留，未授游戏启动或生成能力。
