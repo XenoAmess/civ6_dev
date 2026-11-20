@@ -1346,3 +1346,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 [旧迁移源码／实物绑定与斥候样本审阅](research/baiqi-source172-legacy-migration-source-impact-2026-11-21.json)：实际160b129、1616e08两ZIP逐119成员及Gameplay双层逆变换绑定各自119普通Git字节；不是只看旧版本号。160→172仅状态清理循环外提，161核心／相关SQL等全字节相同。旧完整TC032及暂停窄成功保留，新增.74仍0；已有Scout327683在ActionPanel真实移动，助手标注BG0不等于独立后台计数，未冒充物理／Core双端证明。当前客户端登录状态需用户确认，桌面输入暂停，继续独立工作；R34缺配置coder沿用0新POST／候选。
 
 2026-11-21 [TC033 engine74实际闭合](research/baiqi-source172-tc033-engine74-native-2026-11-21.json)：Core config.IsHuman实际nil而UI为function；旧QA mock提供了两者而漏报。Owner改Core为玩家IsHuman严格判断、UI保持；32工厂＋4渲染Core双Lua通过，3实际Core请求见证另授Native，旧两次错误和启动超时保留。复用R34配置coder缺失事实，0新POST／0候选／不换模型；1023逻辑／816完整／68length／139最终失败／1062POST累计不变，OpenCode原生生成0，未知成本null。
+
+2026-11-21 [173 builder护送有限实机](research/baiqi-source173-builder-escort-native111-2026-11-21.json)：Core GetType与UI GetUnitType、Core3/UI3.5分别实读，不强行假定跨上下文API／数值等同。ENTER／EXIT原回调分别保留3／2参数，真实count2、玩家移动及解散后BG移动另有Core证据；1099自然Update中0目标请求不是全局计数，3MOVE无目标参数不作防重证明。三辅助进程过早派发的编排错误留存、独占lease无RPC重叠、后续严格待终态；原UI只读表观察点错误在DoEndTurn前，未伪称END。R35配置coder仍缺，0POST／0候选；累计1023／816／68length／139final／1062POST不变，原生生成0，未知成本null。继续真实缺失unknown/private工具任务。
