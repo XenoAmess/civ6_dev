@@ -1308,3 +1308,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-20T02:18Z：[配置模型R23与当前压力准备](research/baiqi-source172-pressure-diagnostic-packages-2026-11-20.json)：当日OpenCode1.19.6缓存成功复用，两次只读GET200仍仅open-h3-2k，配置qwen38-coder及配置SHA未改。0新候选／生成POST／服务变更，Owner完成真实未完的172压力包与来源核验；Native资格、经济和全功能继续。维护成功、模型可用性及游戏断开服务证据分别记账。
+
+
+2026-11-20T03:23Z：[R24与真实压力入口准备](research/baiqi-source172-pressure-stageA-prepared-2026-11-20.json)，同客户端本日OpenCode1.19.6维护缓存成功；GET仅见open-h3-2k，配置coder仍缺失，0新生成POST。Owner接管真实未完成入口和必要验证，HTTP可用性、维护、软件行为和游戏效果分别记录。
