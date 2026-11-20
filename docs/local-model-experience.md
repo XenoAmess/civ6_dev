@@ -1323,3 +1323,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-20：[真实清理回执的分支格式](research/baiqi-source172-nosite-fullscript-native-parent-schema-failure-2026-11-20.json)。父进程继模块错引后，又因只测完整kill字段格式而漏掉已消失分支。先依据实际终态1和真实游戏整侧0记录安全边界；明确识别已消失+terminate0+无清理尝试的生产者分支，不能对未知缺字段一律默认为0。21项严格格式/异常检查和真实两侧闭环通过，原始结果保留；继续未完成验收。
+
+
+2026-11-20T05:54Z：[R27与真实压力配对包](research/baiqi-source172-pressure-paired-packages-2026-11-20.json)，成功复用同客户端当日OpenCode1.19.6缓存，配置coder仍缺失，0新POST。Owner完成真实未完成的四包构建与校验；软件、Native输入匹配和预算分别待证。
