@@ -1311,3 +1311,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-20T03:23Z：[R24与真实压力入口准备](research/baiqi-source172-pressure-stageA-prepared-2026-11-20.json)，同客户端本日OpenCode1.19.6维护缓存成功；GET仅见open-h3-2k，配置coder仍缺失，0新生成POST。Owner接管真实未完成入口和必要验证，HTTP可用性、维护、软件行为和游戏效果分别记录。
+
+
+2026-11-20T04:29Z：[R25与真实全脚本入口准备](research/baiqi-source172-pressure-fullscript-prepared-2026-11-20.json)，同客户端Nov20 OpenCode1.19.6维护缓存成功，配置coder仍缺失，0新POST。Owner接管真实未完成入口；实际Lua合同发现并修复元数据校验缺口，失败与采用范围分开留证。软件、Native性能及整体验收分别记录。
