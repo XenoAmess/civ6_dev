@@ -1344,3 +1344,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 [官方同目录Steam安装01:20检查点](research/baiqi-steam-official-reinstall-checkpoint-2026-11-21.json)：一手流程＋官方HTTPS安装器＋WinVerifyTrust0，正常GUI同路径安装一次、Finish后原实例wait0。实际游戏exe／源码119／安装119／TC033消费者未变；客户端自动更新，modeunknown／0游戏。安装器实际清理缓存，不能声称缓存原样；首次可选版本CompanyName空值错误和前台截图门禁拒绝留原件。模式、安装成功、游戏兼容分别记录，未把客户端修复或Owner动作算模型生成。
 
 [旧迁移源码／实物绑定与斥候样本审阅](research/baiqi-source172-legacy-migration-source-impact-2026-11-21.json)：实际160b129、1616e08两ZIP逐119成员及Gameplay双层逆变换绑定各自119普通Git字节；不是只看旧版本号。160→172仅状态清理循环外提，161核心／相关SQL等全字节相同。旧完整TC032及暂停窄成功保留，新增.74仍0；已有Scout327683在ActionPanel真实移动，助手标注BG0不等于独立后台计数，未冒充物理／Core双端证明。当前客户端登录状态需用户确认，桌面输入暂停，继续独立工作；R34缺配置coder沿用0新POST／候选。
+
+2026-11-21 [TC033 engine74实际闭合](research/baiqi-source172-tc033-engine74-native-2026-11-21.json)：Core config.IsHuman实际nil而UI为function；旧QA mock提供了两者而漏报。Owner改Core为玩家IsHuman严格判断、UI保持；32工厂＋4渲染Core双Lua通过，3实际Core请求见证另授Native，旧两次错误和启动超时保留。复用R34配置coder缺失事实，0新POST／0候选／不换模型；1023逻辑／816完整／68length／139最终失败／1062POST累计不变，OpenCode原生生成0，未知成本null。

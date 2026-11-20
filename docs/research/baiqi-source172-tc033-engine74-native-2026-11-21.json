@@ -1,0 +1,445 @@
+{
+  "schema": "civ6.tc033-retired-request-native-review/v1",
+  "utc": "2026-11-20T19:04:17.667398+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 172,
+  "engine_version": "1.0.12.74",
+  "Steam_build_id": 26595377,
+  "status": "THREE_RETIRED_REQUEST_PHASES_AND_REMOVED_ENTRY_AUDIT_PASS",
+  "actual_Native_parent_session": 6534,
+  "actual_terminal_exit": 0,
+  "actual_terminal_chunk": "f4d66b",
+  "actual_OS_parent_absent": true,
+  "owned_game_processes_absent": true,
+  "ordinary_archive_sha256": "cbc5f565df8695bf71f3ed73d911a541a2e79c69c87eb914d2a808cec406fe4f",
+  "fixture": {
+    "stem": "Baiqi_P2_20261031_GranaryCommitted",
+    "bytes": 635917,
+    "sha256": "332b81dd88b29c9ab355d14781721b8d12a93e4a5712d7a41b600ba14b01f79f",
+    "turn": 1
+  },
+  "phases": [
+    {
+      "cold": 1,
+      "phase": "first",
+      "actual_Core_event_count": 1,
+      "result": "REJECTED",
+      "reason": "invalid_target",
+      "gold_before_after": [
+        1850,
+        1850
+      ],
+      "actor_moves_before_after": [
+        0,
+        0
+      ],
+      "all_other_typed_snapshot_fields_unchanged_in_each_context": true,
+      "UI_Core_key_assets_equal": true,
+      "old_COMMITTED_journal_preserved": true,
+      "event_record_sha256": "694ebb52e6504c2a0d2e4107581d1328a64730a4327d2f62f5688153f047e56a"
+    },
+    {
+      "cold": 1,
+      "phase": "repeat",
+      "actual_Core_event_count": 2,
+      "result": "REJECTED",
+      "reason": "invalid_target",
+      "gold_before_after": [
+        1850,
+        1850
+      ],
+      "actor_moves_before_after": [
+        0,
+        0
+      ],
+      "all_other_typed_snapshot_fields_unchanged_in_each_context": true,
+      "UI_Core_key_assets_equal": true,
+      "old_COMMITTED_journal_preserved": true,
+      "event_record_sha256": "93926659bd1b5d82fa5747e51d63a4dff13c855f16f9547f6a687523d29ce4b3"
+    },
+    {
+      "cold": 2,
+      "phase": "after_reload",
+      "actual_Core_event_count": 1,
+      "result": "REJECTED",
+      "reason": "invalid_target",
+      "gold_before_after": [
+        1850,
+        1850
+      ],
+      "actor_moves_before_after": [
+        0,
+        0
+      ],
+      "all_other_typed_snapshot_fields_unchanged_in_each_context": true,
+      "UI_Core_key_assets_equal": true,
+      "old_COMMITTED_journal_preserved": true,
+      "event_record_sha256": "a9a688825527211f283678bacbf4f757569d2792326f2a7ec4cd401d6cc14bb0"
+    }
+  ],
+  "actual_cold_key_asset_persistence": true,
+  "all_actual_Core_fields_equal_after_reload": true,
+  "saves": [
+    {
+      "bytes": 637582,
+      "sha256": "f0fb948f630b7da69d9bd540e62d9b88e7fc6fe45b93b5e5fa4da472a9629d55",
+      "verified": true
+    },
+    {
+      "bytes": 637578,
+      "sha256": "88206229cda28e4d7e906fe898ea361faa2628323c49cd1ddb80b711ee6640e4",
+      "verified": true
+    }
+  ],
+  "launches": [
+    {
+      "cold": 1,
+      "utc": "2026-11-20T18:33:11.956154+00:00",
+      "engine": "1.0.12.74",
+      "fresh_offline_proof_utc": "2026-11-20T18:33:10.811208+00:00",
+      "proof_age_seconds": 1.144976,
+      "proof_input_activation_move_screenshot": false
+    },
+    {
+      "cold": 2,
+      "utc": "2026-11-20T18:57:10.354879+00:00",
+      "engine": "1.0.12.74",
+      "fresh_offline_proof_utc": "2026-11-20T18:57:08.885892+00:00",
+      "proof_age_seconds": 1.469024,
+      "proof_input_activation_move_screenshot": false
+    }
+  ],
+  "cleanup": [
+    {
+      "terminate_count": 1,
+      "kill_escalations": 0,
+      "exit_code": 15,
+      "natural_exit_claimed": false
+    },
+    {
+      "terminate_count": 1,
+      "kill_escalations": 0,
+      "exit_code": 15,
+      "natural_exit_claimed": false
+    }
+  ],
+  "source_and_DB_audit": {
+    "ordinary_files": 119,
+    "text_files_read": 106,
+    "all_granary_references": {
+      "Lua/BaiqiController.lua": [
+        {
+          "line": 4238,
+          "text": "local buildingPriority = {BUILDING_GRANARY=110,BUILDING_MONUMENT=100,BUILDING_WATER_MILL=95,"
+        }
+      ],
+      "Lua/BaiqiGameplay.lua": [
+        {
+          "line": 27,
+          "text": "plot:SetProperty(\"BAIQI_GRANARY_OUT\",0)"
+        },
+        {
+          "line": 28,
+          "text": "plot:SetProperty(\"BAIQI_GRANARY_IN\",0)"
+        }
+      ],
+      "Lua/BaiqiRequisition.lua": [
+        {
+          "line": 84,
+          "text": "local retired=record.kind==\"granary\" or (type(record.id)==\"string\" and record.id:sub(1,8)==\"granary:\")"
+        }
+      ],
+      "Lua/BaiqiCapture.lua": [
+        {
+          "line": 120,
+          "text": "local retired=other.kind==\"granary\" or (type(other.id)==\"string\" and other.id:sub(1,8)==\"granary:\")"
+        }
+      ],
+      "Data/BaiqiRetiredEffects.sql": [
+        {
+          "line": 4,
+          "text": "VALUES ('BAIQI_GRANARY_OUT_REQS', 'REQUIREMENTSET_TEST_ALL');"
+        },
+        {
+          "line": 6,
+          "text": "VALUES ('BAIQI_GRANARY_OUT_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES');"
+        },
+        {
+          "line": 8,
+          "text": "VALUES ('BAIQI_GRANARY_OUT_REQS', 'BAIQI_GRANARY_OUT_REQ');"
+        },
+        {
+          "line": 10,
+          "text": "('BAIQI_GRANARY_OUT_REQ','PropertyName','BAIQI_GRANARY_OUT'),"
+        },
+        {
+          "line": 11,
+          "text": "('BAIQI_GRANARY_OUT_REQ','PropertyMinimum','1');"
+        },
+        {
+          "line": 13,
+          "text": "('BAIQI_GRANARY_OUT_FOOD','MODIFIER_SINGLE_CITY_ADJUST_YIELD_CHANGE','BAIQI_GRANARY_OUT_REQS'),"
+        },
+        {
+          "line": 14,
+          "text": "('BAIQI_GRANARY_OUT_HOUSING','MODIFIER_SINGLE_CITY_ADJUST_CITY_HOUSING_FROM_GREAT_PEOPLE','BAIQI_GRANARY_OUT_REQS');"
+        },
+        {
+          "line": 16,
+          "text": "('BAIQI_GRANARY_OUT_FOOD','YieldType','YIELD_FOOD'),('BAIQI_GRANARY_OUT_FOOD','Amount','0'),"
+        },
+        {
+          "line": 17,
+          "text": "('BAIQI_GRANARY_OUT_HOUSING','Amount','0');"
+        },
+        {
+          "line": 22,
+          "text": "SELECT 'BAIQI_GRANARY_IN_'||i||'_REQS','REQUIREMENTSET_TEST_ALL' FROM slots;"
+        },
+        {
+          "line": 25,
+          "text": "SELECT 'BAIQI_GRANARY_IN_'||i||'_REQ','REQUIREMENT_PLOT_PROPERTY_MATCHES' FROM slots;"
+        },
+        {
+          "line": 28,
+          "text": "SELECT 'BAIQI_GRANARY_IN_'||i||'_REQS','BAIQI_GRANARY_IN_'||i||'_REQ' FROM slots;"
+        },
+        {
+          "line": 31,
+          "text": "SELECT 'BAIQI_GRANARY_IN_'||i||'_REQ','PropertyName','BAIQI_GRANARY_IN' FROM slots"
+        },
+        {
+          "line": 32,
+          "text": "UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_REQ','PropertyMinimum',CAST(i AS TEXT) FROM slots;"
+        },
+        {
+          "line": 35,
+          "text": "SELECT 'BAIQI_GRANARY_IN_'||i||'_FOOD','MODIFIER_SINGLE_CITY_ADJUST_YIELD_CHANGE','BAIQI_GRANARY_IN_'||i||'_REQS' FROM slots"
+        },
+        {
+          "line": 36,
+          "text": "UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_HOUSING','MODIFIER_SINGLE_CITY_ADJUST_CITY_HOUSING_FROM_GREAT_PEOPLE','BAIQI_GRANARY_IN_'||i||'_REQS' FROM slots;"
+        },
+        {
+          "line": 39,
+          "text": "SELECT 'BAIQI_GRANARY_IN_'||i||'_FOOD','YieldType','YIELD_FOOD' FROM slots"
+        },
+        {
+          "line": 40,
+          "text": "UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_FOOD','Amount','0' FROM slots"
+        },
+        {
+          "line": 41,
+          "text": "UNION ALL SELECT 'BAIQI_GRANARY_IN_'||i||'_HOUSING','Amount','0' FROM slots;"
+        }
+      ]
+    },
+    "UI_text_manifest_old_entry_references": 0,
+    "meaning": "Only zero-value compatibility definitions, legacy cleanup/rejection and ordinary BUILDING_GRANARY production priority remain. No granary-rights UI or request producer.",
+    "actual_last_load_DB_legacy_amount_rows": [
+      [
+        "BAIQI_GRANARY_IN_10_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_10_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_11_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_11_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_12_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_12_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_13_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_13_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_14_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_14_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_15_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_15_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_16_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_16_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_1_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_1_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_2_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_2_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_3_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_3_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_4_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_4_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_5_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_5_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_6_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_6_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_7_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_7_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_8_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_8_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_9_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_IN_9_HOUSING",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_OUT_FOOD",
+        "Amount",
+        "0"
+      ],
+      [
+        "BAIQI_GRANARY_OUT_HOUSING",
+        "Amount",
+        "0"
+      ]
+    ],
+    "actual_last_load_DB_attachment_counts": {
+      "BuildingModifiers": 0,
+      "DistrictModifiers": 0
+    }
+  },
+  "ordinary_ENDs": 0,
+  "new_charges": 0,
+  "moves_consumed": 0,
+  "new_benefits": 0,
+  "product_changes": 0,
+  "whole_mod": "OPEN_CONTINUE",
+  "historical_failures_retained": [
+    "Original79316 exit1 endpoint timeout before first load",
+    "Resume90929 exit1 Core config.IsHuman nil before any request",
+    "Capability51861 exit1 retains actual API-type output"
+  ],
+  "helper_correction": "Core uses strict Players[0]:IsHuman()==true, matching actual product Core consumer; UI uses original config.IsHuman. Original helper/driver files frozen. 32 event-factory and4 rendered-Core context cases run in dual Lua, no Native credit from software.",
+  "local_model": {
+    "basis": "configured-model404-r34-readonly-result.json",
+    "configured_model": "qwen38-coder",
+    "candidate_generated": false,
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "fallback_to_other_model": false,
+    "unknown_cost": null
+  },
+  "TC033_whole_case_result": "PASS",
+  "acceptance_basis": [
+    "Exact ordinary119 source/installed/ZIP; whole UI/text/manifest removal audit",
+    "Actual last loaded engine74 DebugGameplay SQLite34 zero legacy modifiers and0 building/district attachments",
+    "Three fixed old request phases with actual independent Core events and paired UI/Core assets",
+    "Two cold processes with fresh offline launch proofs, actual save/reload persistence and lifecycle closure"
+  ],
+  "public_scope": "TC-033 only in named172/engine74 fixture. No wholemod, current74 performance, economic-shock or escort completion claim."
+}
