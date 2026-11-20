@@ -1348,3 +1348,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-21 [TC033 engine74实际闭合](research/baiqi-source172-tc033-engine74-native-2026-11-21.json)：Core config.IsHuman实际nil而UI为function；旧QA mock提供了两者而漏报。Owner改Core为玩家IsHuman严格判断、UI保持；32工厂＋4渲染Core双Lua通过，3实际Core请求见证另授Native，旧两次错误和启动超时保留。复用R34配置coder缺失事实，0新POST／0候选／不换模型；1023逻辑／816完整／68length／139最终失败／1062POST累计不变，OpenCode原生生成0，未知成本null。
 
 2026-11-21 [173 builder护送有限实机](research/baiqi-source173-builder-escort-native111-2026-11-21.json)：Core GetType与UI GetUnitType、Core3/UI3.5分别实读，不强行假定跨上下文API／数值等同。ENTER／EXIT原回调分别保留3／2参数，真实count2、玩家移动及解散后BG移动另有Core证据；1099自然Update中0目标请求不是全局计数，3MOVE无目标参数不作防重证明。三辅助进程过早派发的编排错误留存、独占lease无RPC重叠、后续严格待终态；原UI只读表观察点错误在DoEndTurn前，未伪称END。R35配置coder仍缺，0POST／0候选；累计1023／816／68length／139final／1062POST不变，原生生成0，未知成本null。继续真实缺失unknown/private工具任务。
+
+2026-11-21 [173私有编队诊断适配](research/baiqi-source173-private-formation-diagnostic-tool-2026-11-21.json)：原工具白名单止172且2实际构建预期为172，Owner仅接173／改期望；16实测方法、97双编译、119包仅Controller差异及精确逆变换通过。未安装／Native，不伪称未知编队或新整个case通过。R36真实未完成任务前canonical维护缓存1.19.6、models/health200但配置coder缺，0POST／候选、不换别名；累计1023／816／68length／139final／1062POST不变，未知成本null。共享Git由HOI4暂持，本条有限经验等待明确释放后补推。
