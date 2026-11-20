@@ -1,0 +1,94 @@
+# Alpha 3：构建82至172的产品变更
+
+当前产品切点：`b232b93fd8f4d3cd13bae3a8ab376b559cf0c055`。实际按`mod/Baiqi`路径统计90个提交，包含功能、修复与性能工作，不是独立缺陷数量。完整功能验收尚未结束。
+
+- [06e3d90](https://github.com/XenoAmess/civ6_dev/commit/06e3d90520fb4b2bd6ed5072597198ffa8cfec40) Keep verified settler goals when native recommendations change
+- [2d5c1ed](https://github.com/XenoAmess/civ6_dev/commit/2d5c1edc720d39efcc8b4022a70a3d5f034fb8fb) Persist independent settler goals and requalify them after reload
+- [cfd24ce](https://github.com/XenoAmess/civ6_dev/commit/cfd24ce7ca9193c8dba7f0d31af438dbbc16245a) Preserve queued settler orders and verify independent goal saves
+- [98c6e82](https://github.com/XenoAmess/civ6_dev/commit/98c6e826944df3a317f38d0ecb72dac6ab3f4516) Correct prophet ownership checks and event-correlated confirmation
+- [16bd87a](https://github.com/XenoAmess/civ6_dev/commit/16bd87aeda861c2fbd51900db620df3a0a5560f9) Allow legal district placement over ordinary economic improvements
+- [5af6f7b](https://github.com/XenoAmess/civ6_dev/commit/5af6f7ba33f0b50bf3fad20b22b30e7c35b0a8ad) Add missionary purchase quote and journal components
+- [3413748](https://github.com/XenoAmess/civ6_dev/commit/34137485fe05f581efe4ec11059d0535e54f91d6) Add persistent missionary purchase permissions
+- [8c7daf4](https://github.com/XenoAmess/civ6_dev/commit/8c7daf4cae4ee1a8668523254057be652ddc7e8f) Wire domestic missionary procurement and receipt handoff
+- [0606997](https://github.com/XenoAmess/civ6_dev/commit/0606997a3d1ddd4c8df5b472d9176d972e548e37) Prioritize endangered cities for governor assignment
+- [30e7d6f](https://github.com/XenoAmess/civ6_dev/commit/30e7d6febead785bd1ab7cf18b7eb4f87a9dc467) Wait for city stability before further expansion
+- [6e64d65](https://github.com/XenoAmess/civ6_dev/commit/6e64d653c55c5b658af10da0c357753eca3d8c7a) Reject settlement sites with nearer visible foreign cities
+- [e785464](https://github.com/XenoAmess/civ6_dev/commit/e78546412cef62c82472d67d4ebf2485275983f4) Allow settlement on features permitted by native metadata
+- [af6c43e](https://github.com/XenoAmess/civ6_dev/commit/af6c43e06ee6a42bfa1767f0abd908c329134096) Veto settlement sites with native negative loyalty warnings
+- [4679b61](https://github.com/XenoAmess/civ6_dev/commit/4679b611562c8295ff46a9f4497930a1dd498376) Rescue declining cities before loyalty falls when reassignment is safe
+- [4da78cc](https://github.com/XenoAmess/civ6_dev/commit/4da78ccc3f3a4f0ed21bc657458dca765da748b4) Prioritize food for starving cities through guarded native focus commands
+- [9f474f8](https://github.com/XenoAmess/civ6_dev/commit/9f474f8bd1c118f9c4430f92d55b99ec9fd66413) Retain fresh unsent founding grants within the current turn
+- [8c32677](https://github.com/XenoAmess/civ6_dev/commit/8c32677e82801c59e54eb9c62e6c6f3726250b29) Prioritize the first Holy Site when a prophet opportunity is known
+- [a3f10a3](https://github.com/XenoAmess/civ6_dev/commit/a3f10a3a7050719aa97f86d1fe7733802222ea32) Prioritize normal Holy Site prayer production before Prophet recruitment
+- [f4c8e64](https://github.com/XenoAmess/civ6_dev/commit/f4c8e6464be65a3d11d843a5c99e8d3aba34ead3) Load the original Great People view before its expansion fragments
+- [9bf0334](https://github.com/XenoAmess/civ6_dev/commit/9bf0334c8db470b2223065aea0c74e83581653ab) Restore empty public Great People standings for Baiqi
+- [bb49d61](https://github.com/XenoAmess/civ6_dev/commit/bb49d6111d0277954a634ee8b50c3b6edae157b3) Prioritize legal Shrine production for domestic religious administration
+- [0d04e22](https://github.com/XenoAmess/civ6_dev/commit/0d04e226ed75a8111a146fc327d55b7055f138f7) Validate missionary purchase receipts at the owning city Holy Site
+- [8fd38e7](https://github.com/XenoAmess/civ6_dev/commit/8fd38e7a33a46b6c540bb62b3dc30e4b03a15025) Confirm final missionary spread with matched native operation and charge events
+- [1193dd8](https://github.com/XenoAmess/civ6_dev/commit/1193dd80ecae373682bb1dfa9626450b2c82ee53) Prioritize legal amenity production during known city shortages
+- [292f181](https://github.com/XenoAmess/civ6_dev/commit/292f18108205b7447122de230ea72655cd90e04e) Fit Baiqi great people panels to measured small viewports
+- [ac6d3a3](https://github.com/XenoAmess/civ6_dev/commit/ac6d3a3301f3e4befa5e4e7948068c6621ed3725) Handle native control aliases when adapting great people viewports
+- [8246d50](https://github.com/XenoAmess/civ6_dev/commit/8246d509a7591b7f3ca5a7fea4014efaeac0abba) Allow mandatory floodplain terrain for legal dam planning
+- [6c0e117](https://github.com/XenoAmess/civ6_dev/commit/6c0e117c784d51291df3f4e2a23d94b4026bae39) Add guarded automatic food tile rescue
+- [133ea56](https://github.com/XenoAmess/civ6_dev/commit/133ea560cacc64bd27ebb70fa9913bc0865b5e81) Fit native World Crisis popup to small viewports
+- [072406c](https://github.com/XenoAmess/civ6_dev/commit/072406ca1ae6fbba418cdcfde3a390e544a1d010) Persist food tile permission before native submission
+- [208add3](https://github.com/XenoAmess/civ6_dev/commit/208add38cf24c75c0c3bbed890ecfc6c9251e541) Use actual Core player human port for food rescue
+- [9f5c2e8](https://github.com/XenoAmess/civ6_dev/commit/9f5c2e81b43b9936440f7107b8e679fc48ee0ca2) Protect worked food before placing a district
+- [907292b](https://github.com/XenoAmess/civ6_dev/commit/907292b6856efe3e28368424cde915244fc458f8) Prefer food on new routes from low reserve cities
+- [ece2736](https://github.com/XenoAmess/civ6_dev/commit/ece2736405996937605056e793c66a5e32d27735) Prioritize legal food buildings for low reserve cities
+- [b63a66b](https://github.com/XenoAmess/civ6_dev/commit/b63a66b306e036d669535e9ab2b63b1f886accfb) Plan new neighborhoods only when housing is needed
+- [7d7f398](https://github.com/XenoAmess/civ6_dev/commit/7d7f39858d04141bd134823264a8cd1960f9a62e) Prepend legal work before a flood-blocked building
+- [cfb2d2d](https://github.com/XenoAmess/civ6_dev/commit/cfb2d2d67233c8ca2faea2d19987b79de0ed0cde) Accept native queue pruning only with preserved production
+- [59569df](https://github.com/XenoAmess/civ6_dev/commit/59569dfc3355cf792b0e3358b4cc981c51262115) Prioritize native power projects when known fuel stocks are empty
+- [c8bfd66](https://github.com/XenoAmess/civ6_dev/commit/c8bfd662b361f7370398f850dc2e77341043a1b1) Prioritize legal research and barriers for known coastal flooding
+- [4ab8227](https://github.com/XenoAmess/civ6_dev/commit/4ab8227695430d8bab70ca0e93634540b8139e3c) Buy eligible flood barriers through budgeted native gold commands
+- [eb6e2fa](https://github.com/XenoAmess/civ6_dev/commit/eb6e2faf7b8e4a57f756ef8a0d470ae14b862ac7) Budget actual flood barrier maintenance and same-turn commitments
+- [badaf23](https://github.com/XenoAmess/civ6_dev/commit/badaf230b807d5d7a8ad6f8aa92f77b93cfb2e4c) Resume invested buildings ahead of repeating power projects
+- [88fb93f](https://github.com/XenoAmess/civ6_dev/commit/88fb93f8aac93b0eacc07896ad96cea6182cee49) Prioritize legal renewable unlocks without interrupting research
+- [482ca2e](https://github.com/XenoAmess/civ6_dev/commit/482ca2e8decc3ba7d5302d5d05114dbe55da1427) Support native adjacent builder construction and staging routes
+- [c77e745](https://github.com/XenoAmess/civ6_dev/commit/c77e745fce05b7aeaa5977dbbe805e8874d5b014) Preserve native builder queues across new UI proposals
+- [2142dde](https://github.com/XenoAmess/civ6_dev/commit/2142ddedd304232fd8006aba77a28ea8ddf03597) Plan renewable research through qualified sites and actual paths
+- [815dc77](https://github.com/XenoAmess/civ6_dev/commit/815dc779897879f18d62dbe32d5de31c5bbea2e9) Keep unresolved city power demand eligible with positive fuels
+- [6bf225a](https://github.com/XenoAmess/civ6_dev/commit/6bf225a2916c7cd5f9233c2d8bd7cea2589b0fd3) Repair blocked project prerequisite districts without losing investment
+- [55a4907](https://github.com/XenoAmess/civ6_dev/commit/55a4907a765b751ea5388ddcf27244871c67faa8) Repair blocked invested building repairs through their prerequisite district
+- [1cc51d6](https://github.com/XenoAmess/civ6_dev/commit/1cc51d6b8a744f2dc6441abec757cd12a55984cb) Rescue starving cities from surplus donor tiles
+- [be1ebbb](https://github.com/XenoAmess/civ6_dev/commit/be1ebbb4dfbcb785729129660a46580c01bfb77d) Continue food rescue after confirmed partial transfers
+- [c81be62](https://github.com/XenoAmess/civ6_dev/commit/c81be629c8918c0ea71da793e347f0454592bd50) Resume retained project investment before optional new production
+- [b11dcaf](https://github.com/XenoAmess/civ6_dev/commit/b11dcaf2beb062b58ef0cc9546d0b329daa67aba) Plan urgent housing on eligible ordinary forest sites
+- [ec7acbe](https://github.com/XenoAmess/civ6_dev/commit/ec7acbe8c77545015414c5d40eb29b31e12a4721) Allow native legal floodplain neighborhoods for housing deficits
+- [958bc20](https://github.com/XenoAmess/civ6_dev/commit/958bc20cb1caa267091acf278472af368a66c044) Batch food receipt bridge calls while retaining fresh per-city observation
+- [3ddf626](https://github.com/XenoAmess/civ6_dev/commit/3ddf6267f7257fedbc93ed9b1a3d21bd3c665c33) Verify a batch-local working journal against fresh final state
+- [8e0bee4](https://github.com/XenoAmess/civ6_dev/commit/8e0bee4e617fb90b65350775dbe64f1fd3aa3def) Avoid no-demand food planning reads while retaining fresh command guards
+- [1b8253a](https://github.com/XenoAmess/civ6_dev/commit/1b8253a679d5690636a9fc34e6f8294a6ae6ab97) Skip unused governor loyalty breakdowns with fresh bounded demand checks
+- [1affcfe](https://github.com/XenoAmess/civ6_dev/commit/1affcfe51b15ea72d99cad33736cb7bf5e45d79a) Avoid repeated settler goal scans and version diagnostics
+- [e835310](https://github.com/XenoAmess/civ6_dev/commit/e8353103eacb980484806eef137d0351d2c85716) Bound settler support reads while preserving fallback continuation
+- [d2a3819](https://github.com/XenoAmess/civ6_dev/commit/d2a3819a5631877e6dbb68d40dc6e1a84e10cdf6) Allow bounded expansion around retained settlement intents
+- [20ada92](https://github.com/XenoAmess/civ6_dev/commit/20ada92294ae3c572372a2a4eb47c8d12e856e66) Find bounded alternatives around retained settlement targets
+- [a8b0f2b](https://github.com/XenoAmess/civ6_dev/commit/a8b0f2bc79bfbfe750d3373b300a1c2659265570) Validate native settlement hints before bounded fallback
+- [4138d4a](https://github.com/XenoAmess/civ6_dev/commit/4138d4a46007aadab7f99e8a010c038b901dfd38) Allow idle naturalists to sleep when skip is unavailable
+- [684f6b3](https://github.com/XenoAmess/civ6_dev/commit/684f6b3c9ccace4e90e3b25a98c508f9c2d6bdc9) Route settlers around blocked civilian choke points
+- [18bb307](https://github.com/XenoAmess/civ6_dev/commit/18bb307c7481335ca55b5f3e1d3377201dc1400e) Avoid detour cycles and clear civilian overlap beside armies
+- [7d0c358](https://github.com/XenoAmess/civ6_dev/commit/7d0c358723b6b632db44d17ea92eefe38dcad6b9) Let idle builders yield to existing settler routes
+- [bf7e6f2](https://github.com/XenoAmess/civ6_dev/commit/bf7e6f27e328d26218752a4562c831cfe20aa392) Prepend flood barriers before stranded invested production
+- [4ee2f2c](https://github.com/XenoAmess/civ6_dev/commit/4ee2f2c982d6ddffd6dcec2eb9acc042c44315a2) Prioritize emergency flood research while retaining existing investment
+- [6d0f65c](https://github.com/XenoAmess/civ6_dev/commit/6d0f65ce5c8664bfe8b2dacad7980eeb1220e3b3) Recheck evaluated civilians for late safe overlap
+- [3a682eb](https://github.com/XenoAmess/civ6_dev/commit/3a682ebb2785b03848d8db2c2feddf3e0f09ab8c) Bound city planning work and recheck retained settler proposals
+- [e8cd8c3](https://github.com/XenoAmess/civ6_dev/commit/e8cd8c368dd846f06b860ff00a41be0ed87c88d1) Skip unavailable district placement scans before planning
+- [dececb4](https://github.com/XenoAmess/civ6_dev/commit/dececb481552d6745d7e517dff0da53d5301315c) Prune dominated city candidates and spread administration work
+- [b7faffd](https://github.com/XenoAmess/civ6_dev/commit/b7faffd205ac89005d4908a6532be1c3a3f707b4) Batch executor native reads at the existing planner cadence
+- [3d9d3b3](https://github.com/XenoAmess/civ6_dev/commit/3d9d3b3277dd71034da36a81b917b9ea6d0ccad5) Query great person routes in destination priority order
+- [3c986a4](https://github.com/XenoAmess/civ6_dev/commit/3c986a4c0a6042112086122a59d6e13238c95437) Bound district great person route probes across callbacks
+- [65d6d21](https://github.com/XenoAmess/civ6_dev/commit/65d6d21622d1ab7cb94fd956db7771c19c3e51d1) Use guarded sleep for legacy creative standby
+- [4794004](https://github.com/XenoAmess/civ6_dev/commit/47940041273f4c88e37864a57bff25ad5f557efe) Explain unknown civilian ownership and formation refusals
+- [a5e7983](https://github.com/XenoAmess/civ6_dev/commit/a5e7983cd2f9ed0e8c1cfa9fe0f2afc183db0bc4) Fix legacy pause cleanup and validate Source161 consumers
+- [73c0772](https://github.com/XenoAmess/civ6_dev/commit/73c0772c40eafa5b39f5fbe50df94f6093cd4d3a) Reject malformed Core human authority ports in Source162
+- [1b30480](https://github.com/XenoAmess/civ6_dev/commit/1b30480d678dc06ab09823598d733ea58b20cc82) Block new planning after the native end request
+- [ce5bed1](https://github.com/XenoAmess/civ6_dev/commit/ce5bed12f5d35d1de17ae2f9f1b4eeff9bf68da1) Bound district-person route work across guarded callbacks
+- [600fbc1](https://github.com/XenoAmess/civ6_dev/commit/600fbc193aed18ed6de2f4b3ab7c3e5ebb9307da) Skip hidden plot lookups in settlement support checks
+- [e018948](https://github.com/XenoAmess/civ6_dev/commit/e018948d62138f40e3ef3cbf8521133870174b52) Use short native route legs for delegated great people
+- [c57ba27](https://github.com/XenoAmess/civ6_dev/commit/c57ba270780556deacb08f21990310c61860780e) Bound immutable settlement geometry across planning callbacks
+- [4f4bab2](https://github.com/XenoAmess/civ6_dev/commit/4f4bab2493360ea5b4f4728d47234f7bc1e85618) Safely sleep legacy domestic great people and preserve aborted capture
+- [bfa6a93](https://github.com/XenoAmess/civ6_dev/commit/bfa6a937e4f33780e640d4bf298cb0651a6c2355) Stage settler route proposals and live founding dispatch across callbacks
+- [b5f728f](https://github.com/XenoAmess/civ6_dev/commit/b5f728fe380a1fe9baf961a51a84d6468d83dc5c) Avoid duplicate retained settler support during route planning
+- [94c8885](https://github.com/XenoAmess/civ6_dev/commit/94c888509e47660055060947af2231a4c3bfdf20) Use native coordinate lookup for current public settlement support cells
+- [b232b93](https://github.com/XenoAmess/civ6_dev/commit/b232b93fd8f4d3cd13bae3a8ab376b559cf0c055) Reduce safety lookup reads and reject unknown visibility
