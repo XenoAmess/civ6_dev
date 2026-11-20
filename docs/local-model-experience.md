@@ -1328,3 +1328,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-20T05:54Z：[R27与真实压力配对包](research/baiqi-source172-pressure-paired-packages-2026-11-20.json)，成功复用同客户端当日OpenCode1.19.6缓存，配置coder仍缺失，0新POST。Owner完成真实未完成的四包构建与校验；软件、Native输入匹配和预算分别待证。
 
 [172后台军令边界及旧证据限定复用审查](research/baiqi-source172-military-writer-impact-review-2026-11-20.json)已补齐10个单位发令调用点、独立入口与162私有诊断增量逆向核对；162八类单位和93自然训练长矛兵证据保留原环境，不改称新172／引擎74实测。TC019整项、新引擎、真实护送和多回合军令继续验收。
+
+[军队护送UI合同候选修复](research/baiqi-source173-army-escort-candidate-frontier-2026-11-20.json)已在独立短分支提交推送：172真模块先复现3个失败；去掉按文职目标拦军令，并保持可变参数／原生拒绝结果。30双Lua回归、97双编译及119包验证通过。默认main172与冻结TC033保持字节，173未安装／未发工坊／未实机。R32有完整当前源码与实际原版消费者，但配置coder缺失、0POST／0候选，负责人处理。
