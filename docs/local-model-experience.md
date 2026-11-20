@@ -1317,3 +1317,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-20：[实际调用者身份错误与MANY有效数据保留](research/baiqi-source172-many-fullscript-native-parent-failure-2026-11-20.json)。父进程测试使用忽略参数身份的闭环stub，未捕获plan/observed错引；真实游戏侧已完成0，总父进程随后1。先独立确认无游戏/已保存退订与真实终态，保留所有有效样本，再修复并只续未执行侧。复算比较须采用实际JSON存储语义，整数回合键转字符串不构成数值差异。
+
+
+2026-11-20T05:10Z：[R26与闭环调用者身份修复](research/baiqi-source172-nosite-fullscript-continuation-prepared-2026-11-20.json)：配置coder仍缺失，成功复用同客户端本日OpenCode1.19.6维护，0新POST。Owner修复真实错引，使用真实已完成MANY闭环和实际模块身份检查，原错误程序作负对照；只续未执行侧，原始有效采样和失败终态分别保留。
