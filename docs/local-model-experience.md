@@ -1334,3 +1334,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 [Nov21后台模式门禁](research/baiqi-steam-live-surface-readonly-2026-11-21.json)：R33先准备当前完整探针／实际游戏调用器／真实DWM反例，再按共享配置完成新自然日OpenCode1.19.6非缓存维护。GET models仍只有open-h3-2k、缺配置coder，0POST／0候选，不替换模型。Owner完成可复用后台工具22检查，保留首轮5个JSON往返断言失败及焦点元数据修正；真实模式仍unavailable、0新引擎游戏启动，不把软件通过计作实机。
 
 [TC033 R3门禁准备](research/baiqi-source172-engine74-tc033-r3-preparation-2026-11-21.json)：采用已交付后台工具，QA命名空间／准备／登记／存档独立；原R2和所有旧消费者字节保持。19项实际驱动边界通过，10个请求／观测／收尾函数AST保持，原负例与请求工厂证据保留，不重复安装或重放游戏。沿用同一R33真实任务的配置coder缺失诊断，0额外探针／POST；Native仍0，不把准备当完成。
+
+[TC038实际包运行时依赖审查](research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)：119文件与已冻结普通172全hash相同，46声明动作／33Lua根／97文件闭包已核。150自有＋3原版直接include，4动态include仅本地UI父脚本选择，29调用名均固定；开发Python／连接配置／辅助程序未打包。11个requests是内存批量表，保留首轮误断言。只补架构证据，财政冲击／服务不可访问实机仍未通过；当前合同未要求全机网络或WFP改动。配置coder仍缺，同批R33沿用0额外探针／POST，Owner审阅不算模型生成。
