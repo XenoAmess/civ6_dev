@@ -1326,3 +1326,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-20T05:54Z：[R27与真实压力配对包](research/baiqi-source172-pressure-paired-packages-2026-11-20.json)，成功复用同客户端当日OpenCode1.19.6缓存，配置coder仍缺失，0新POST。Owner完成真实未完成的四包构建与校验；软件、Native输入匹配和预算分别待证。
+
+[172后台军令边界及旧证据限定复用审查](research/baiqi-source172-military-writer-impact-review-2026-11-20.json)已补齐10个单位发令调用点、独立入口与162私有诊断增量逆向核对；162八类单位和93自然训练长矛兵证据保留原环境，不改称新172／引擎74实测。TC019整项、新引擎、真实护送和多回合军令继续验收。
