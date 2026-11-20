@@ -1,0 +1,748 @@
+{
+  "schema": "civ6.private173c-missionary-unknown-native/v1",
+  "utc": "2026-11-20T21:42:26.159375+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "PASS_LIMITED_MISSIONARY_UNKNOWN_AND_RESTORED_SPREAD_NATIVE_FORMATION_NOT_ELIGIBLE",
+  "TC020_whole": "OPEN_SETTLER_SIDES_AND_SUPPORTED_REAL_MISSIONARY_FORMATION_NOT_PROVED",
+  "whole_cases_closed": 1,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 2.5,
+  "not_code_completion_percent": true,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "fixture": {
+    "name": "Baiqi_P6_20261102_V43_MissionarySetup75.Civ6Save",
+    "stem": "Baiqi_P6_20261102_V43_MissionarySetup75",
+    "bytes": 483801,
+    "sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88",
+    "turn": 75,
+    "prior_scope": "Historical explicit QA missionary setup. Not naturally purchased/trained proof; actual state and original Native formation eligibility still required."
+  },
+  "fixture_scope": "Historical explicit QA missionary setup, not natural training or faith purchase proof. No missionary creation/position/moves/charges/religion edit in this episode.",
+  "private_archive_sha256": "07a1535212103a7b6e5ab6c800bc8f600a961b308fd50a2849cadac8a288b4c7",
+  "private_overlay_scope": "Only localController UnitSnapshot formationCount copy; actual engineformation1. No engine getter-absence claim or debug/upvalue replacement. Removed from installed119 after closure.",
+  "launch": {
+    "utc": "2026-11-20T21:25:08.733201+00:00",
+    "owner": {
+      "pid": 12052,
+      "created_at": 1795209908.7300973,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "proof": {
+      "schema": "civ6.steam-background-uncloaked-live-menu/v2",
+      "utc": "2026-11-20T21:25:07.767786+00:00",
+      "finished_utc": "2026-11-20T21:25:08.593935+00:00",
+      "machine": "BF-202609141645",
+      "steam_pid": 8788,
+      "steam_birth": 1795195446.682362,
+      "mode": "offline",
+      "instance_stable": true,
+      "input_sent": false,
+      "activation_api_called": false,
+      "focus_changed": false,
+      "window_move_api_called": false,
+      "screenshot_used": false,
+      "items": [
+        {
+          "popup": 3212510,
+          "point": [
+            89,
+            116
+          ],
+          "hit_hwnd": 395464,
+          "hit_root": 3212510,
+          "control_type": "MenuItem",
+          "label": "上线...",
+          "visible": true,
+          "DWM_cloaked": 0,
+          "hit_root_DWM_cloaked": 0,
+          "mode": "offline"
+        }
+      ],
+      "failure_type": null,
+      "surface_rule": "Visible current owned popup and hit root both DWM0 before/after UIA read. Unknown/cloaked surfaces rejected. CEF popup and hit roots need not be identical."
+    },
+    "proof_age_seconds": 0.96545,
+    "cold_launches": 1,
+    "original75loads": 1
+  },
+  "actual_pre_stage": "UI initial75 moves2/charges3, laterUI/Core0/2, bridgeOBSERVED religion:0:1. No manualunitorders. Natural positive before targetobserver not exactglobalrequestcount.",
+  "TEST_PLAYER": {
+    "unique_military_SKIP_requests": 14,
+    "military_MOVE_requests": 0,
+    "manual_civilian_orders": 0,
+    "formation_requests": 0,
+    "normal_END_requests": 1,
+    "actual_turn_transition": [
+      75,
+      76
+    ],
+    "UserForced": false
+  },
+  "qualified_unknown_window": {
+    "utc": "2026-11-20T21:38:20.309430+00:00",
+    "baseline": {
+      "actor": [
+        "3735581",
+        "0",
+        "16",
+        "14",
+        "4",
+        "1",
+        "2",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ],
+      "fault": [
+        "31365",
+        "1851",
+        "2",
+        "true",
+        "true",
+        "false",
+        "false",
+        "64"
+      ],
+      "background": [
+        "12",
+        "0",
+        "0",
+        "0",
+        "0",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    "closing": {
+      "actor": [
+        "3735581",
+        "0",
+        "16",
+        "14",
+        "4",
+        "1",
+        "2",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ],
+      "fault": [
+        "31567",
+        "1854",
+        "5",
+        "true",
+        "true",
+        "false",
+        "false",
+        "64"
+      ],
+      "background": [
+        "27",
+        "0",
+        "0",
+        "0",
+        "0",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    "actual_native_SPREAD_true_own_city": 65536,
+    "new_target_operations": 0,
+    "new_target_commands": 0,
+    "actual_engine_formation": 1,
+    "controlled_snapshot_field_missing": true,
+    "not_actual_engine_getter_missing": true
+  },
+  "native_positive_moves_eligibility_samples": [
+    {
+      "file_sha256": "e199780d2efc3a0798919044b58a960096d259d1f671ac317cd1df88ecc4462e",
+      "Native_SPREAD_fields": [
+        "65536",
+        "1",
+        "2",
+        "-1",
+        "1592408602",
+        "true"
+      ],
+      "original_ENTER_fields": [
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "4",
+          "false",
+          "nil"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "524292",
+          "UNIT_SCOUT",
+          "3",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "2621462"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "3801116"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "2621462",
+          "UNIT_GREAT_MUSICIAN",
+          "4",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "2621462",
+          "0",
+          "524292"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3801116",
+          "UNIT_BUILDER",
+          "2",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "3801116",
+          "0",
+          "524292"
+        ]
+      ]
+    },
+    {
+      "file_sha256": "c7b2e3999f8ca7690f67ff2df31f96b487eaab9817444fc5a725686d5448615f",
+      "Native_SPREAD_fields": [
+        "65536",
+        "1",
+        "2",
+        "-1",
+        "1592408602",
+        "true"
+      ],
+      "original_ENTER_fields": [
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "4",
+          "false",
+          "nil"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "524292",
+          "UNIT_SCOUT",
+          "3",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "2621462"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "3801116"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "2621462",
+          "UNIT_GREAT_MUSICIAN",
+          "4",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "2621462",
+          "0",
+          "524292"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3801116",
+          "UNIT_BUILDER",
+          "2",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "3801116",
+          "0",
+          "524292"
+        ]
+      ]
+    },
+    {
+      "file_sha256": "d06a7119262f962a4e9518e08485df660a956c14bb1082f7d8f0eac8ae80a653",
+      "Native_SPREAD_fields": [
+        "65536",
+        "1",
+        "2",
+        "-1",
+        "1592408602",
+        "true"
+      ],
+      "original_ENTER_fields": [
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "4",
+          "false",
+          "nil"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "524292",
+          "UNIT_SCOUT",
+          "3",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "2621462"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "3801116"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "2621462",
+          "UNIT_GREAT_MUSICIAN",
+          "4",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "2621462",
+          "0",
+          "524292"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3801116",
+          "UNIT_BUILDER",
+          "2",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "3801116",
+          "0",
+          "524292"
+        ]
+      ]
+    },
+    {
+      "file_sha256": "9d5a350c47c4749614490d74f0533b5e451f5272711a552a7e7a67f149fae74d",
+      "Native_SPREAD_fields": [
+        "65536",
+        "1",
+        "2",
+        "-1",
+        "1592408602",
+        "true"
+      ],
+      "original_ENTER_fields": [
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "4",
+          "false",
+          "nil"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "524292",
+          "UNIT_SCOUT",
+          "3",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "2621462"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "3801116"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "2621462",
+          "UNIT_GREAT_MUSICIAN",
+          "4",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "2621462",
+          "0",
+          "524292"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3801116",
+          "UNIT_BUILDER",
+          "2",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "3801116",
+          "0",
+          "524292"
+        ]
+      ]
+    },
+    {
+      "file_sha256": "aa34f5c818890ad9ec93f7eca0285b0d0068673be8e075db857e42179ad8ea60",
+      "Native_SPREAD_fields": [
+        "65536",
+        "1",
+        "2",
+        "-1",
+        "1592408602",
+        "true"
+      ],
+      "original_ENTER_fields": [
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "4",
+          "false",
+          "nil"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "524292",
+          "UNIT_SCOUT",
+          "3",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "2621462"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "3801116"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "2621462",
+          "UNIT_GREAT_MUSICIAN",
+          "4",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "2621462",
+          "0",
+          "524292"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3801116",
+          "UNIT_BUILDER",
+          "2",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "3801116",
+          "0",
+          "524292"
+        ]
+      ]
+    },
+    {
+      "file_sha256": "c3a60f4477d25a00f4bff738b3af002f9b922e87426deb412baa06ddcd70a77e",
+      "Native_SPREAD_fields": [
+        "65536",
+        "1",
+        "2",
+        "-1",
+        "1592408602",
+        "true"
+      ],
+      "original_ENTER_fields": [
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "4",
+          "false",
+          "nil"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "524292",
+          "UNIT_SCOUT",
+          "3",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "2621462"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "2621462",
+          "UNIT_GREAT_MUSICIAN",
+          "4",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "2621462",
+          "0",
+          "524292"
+        ]
+      ]
+    },
+    {
+      "file_sha256": "1dde72fe3be37ffb9ceaa0b84b1e9fe31bb94953adb9ff617d6b6e5c69eb9f1b",
+      "Native_SPREAD_fields": [
+        "65536",
+        "1",
+        "2",
+        "-1",
+        "1592408602",
+        "true"
+      ],
+      "original_ENTER_fields": [
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "4",
+          "false",
+          "nil"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "524292",
+          "UNIT_SCOUT",
+          "3",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "524292",
+          "0",
+          "2621462"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER",
+          "2621462",
+          "UNIT_GREAT_MUSICIAN",
+          "4",
+          "true",
+          "table"
+        ],
+        [
+          "FORMATION173C_POSITIVE_MOVES_ENTER_TARGET",
+          "2621462",
+          "0",
+          "524292"
+        ]
+      ]
+    }
+  ],
+  "Native_formation_result_scope": "Refreshed missionary at16,14/moves4/form1/ready has originalCanStartCommand(ENTER_FORMATION,nil,true)=false. Sameplot scout/musician/newbuilder positive with explicitother-unit targets, none include missionary. This exactGS scene cannot legitimately produce missionaryformation2. Not universalruleset proof, no N_A waiver and no forcedcommand.",
+  "unmasked_positive": {
+    "utc": "2026-11-20T21:38:22.096005+00:00",
+    "Core": {
+      "id": 3735581,
+      "owner": 0,
+      "unit_type_index": 3,
+      "x": 16,
+      "y": 14,
+      "moves": 0.0,
+      "formation": 1,
+      "charges": 1
+    },
+    "raw_Core_fields": [
+      "true",
+      "3735581",
+      "0",
+      "3",
+      "16",
+      "14",
+      "0",
+      "1",
+      "1"
+    ],
+    "UI": [
+      "3735581",
+      "0",
+      "16",
+      "14",
+      "0",
+      "1",
+      "1",
+      "false",
+      "nil"
+    ],
+    "background": [
+      "30",
+      "1",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  "journal_scope": "After restore raw currentbridge OBSERVED tokenreligion:0:2 appears in actualafter-read; savepreflight recheckedOBSERVED. No cityconversion or all religious receipt cases claimed.",
+  "observer_final": {
+    "natural_updates": 34,
+    "target_operations": 1,
+    "target_commands": 0,
+    "identity_errors": 0,
+    "dropped": 0,
+    "exact_target_operation_code": 1592408602,
+    "code_verified_against_actualNative_SPREAD_row": true,
+    "all_three_bindings_restored": true,
+    "scope": "ThisBaiqiExecutor context two SDKwriters andController.Update only, not allengine sources."
+  },
+  "retirement": "Own localSnapshot and observerbindings restored, namespaces cleared before officialsave. No forcedUpdate/RunNow, rearm/reset, queueclear or old865mutation.",
+  "save": {
+    "utc": "2026-11-20T21:39:50.245069+00:00",
+    "name": "Baiqi_P6_20261121_V173_FormationUnknownMissionary76.Civ6Save",
+    "bytes": 484878,
+    "sha256": "aea7965b85548f9cd3ae1941e556133ebd216fce76e0355ac9c74646b1fd7ca4",
+    "stable_repeated_read": true
+  },
+  "official_exit": {
+    "terminate_count": 0,
+    "kill_escalations": 0,
+    "original_absent": true,
+    "natural_exit_claimed": false
+  },
+  "ordinary_restore": {
+    "utc": "2026-11-20T21:40:29.277067+00:00",
+    "ordinary_source_version": 173,
+    "files": 119,
+    "managed_installed_hashes_exact": true,
+    "private_overlay_installed": false,
+    "save_unchanged": {
+      "utc": "2026-11-20T21:39:50.245069+00:00",
+      "name": "Baiqi_P6_20261121_V173_FormationUnknownMissionary76.Civ6Save",
+      "bytes": 484878,
+      "sha256": "aea7965b85548f9cd3ae1941e556133ebd216fce76e0355ac9c74646b1fd7ca4",
+      "stable_repeated_read": true
+    },
+    "no_game": true,
+    "Steam_mode_actions": 0
+  },
+  "actual_parent_terminals": {
+    "formation173c": {
+      "utc": "2026-11-20T21:27:36.016747+00:00",
+      "tool_session": 43415,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "00a67a",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "formation173c-eligibility": {
+      "utc": "2026-11-20T21:30:11.301455+00:00",
+      "tool_session": 9226,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "c09731",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "formation173c-military": {
+      "utc": "2026-11-20T21:37:51.252038+00:00",
+      "tool_session": 16388,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "148fa2",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "formation173c-window": {
+      "utc": "2026-11-20T21:38:55.558558+00:00",
+      "tool_session": 69205,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "d7fd28",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "formation173c-save-exit": {
+      "utc": "2026-11-20T21:40:26.521302+00:00",
+      "tool_session": 91539,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "50dd71",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "software_correction_evidence": "https://github.com/XenoAmess/civ6_dev/blob/d224e9e7efd8e47e36fdb14c15263b6f4f226938/docs/research/baiqi-source173-missionary75-window-preparation-2026-11-21.json",
+  "new_generation_POSTs": 0,
+  "model_candidates": 0,
+  "OpenCode_native_generation": 0,
+  "unknown_model_cost": null,
+  "owner_active_cost": null,
+  "next": "Continue existing natural settler prebirth/produced fixtures and fullTC020; retain unresolvedold865 and unsupportedmissionaryformed branch, then remainingwholemod."
+}
