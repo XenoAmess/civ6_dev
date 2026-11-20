@@ -40,28 +40,16 @@ local function ObjectProxy(native,blocked)
   end})
 end
 
-local function BlockUnit(unit,command,params)
-  if BaiqiUIGuard.Civilian(unit) then return true end
-  if BaiqiUIGuard.PlayerID()~=nil and UnitCommandTypes.ENTER_FORMATION~=nil
-    and command==UnitCommandTypes.ENTER_FORMATION then
-    if type(params)~="table" then return true end
-    local pid,id=params[UnitCommandTypes.PARAM_UNIT_PLAYER],params[UnitCommandTypes.PARAM_UNIT_ID]
-    local p=pid~=nil and NativePlayers[pid]
-    local target=p and id~=nil and p:GetUnits():FindID(id)
-    if not BaiqiPolicy.MatchesID(target,id) or target:GetOwner()~=pid then return true end
-    if BaiqiUIGuard.Civilian(target) then return true end
-  end
-  return false
-end
-
+-- Army commands, including escort formation, retain native qualification and
+-- target validation. The acting delegated civilian remains manually locked.
 UnitManager=setmetatable({
   RequestOperation=function(unit,operation,params,...)
     if BaiqiUIGuard.Civilian(unit) then return false end
     return NativeUnit.RequestOperation(unit,operation,params,...)
   end,
-  RequestCommand=function(unit,command,params,...)
-    if BlockUnit(unit,command,params) then return false end
-    return NativeUnit.RequestCommand(unit,command,params,...)
+  RequestCommand=function(unit,command,...)
+    if BaiqiUIGuard.Civilian(unit) then return false end
+    return NativeUnit.RequestCommand(unit,command,...)
   end,
   CanStartOperation=function(unit,...)
     if BaiqiUIGuard.Civilian(unit) then return false end

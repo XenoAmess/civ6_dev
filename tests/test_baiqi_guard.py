@@ -16,7 +16,7 @@ class UIGuardTests(unittest.TestCase):
         self.g, self.w = self.lua.globals(), self.lua.globals().TestGuard
 
     def test_builder_settler_trader_all_manual_command_sinks_and_hotkey_capability_blocked(self):
-        for kind in (1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13):
+        for kind in (1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 17, 18):
             unit = self.g.TestUnit(kind, 7, kind)
             for name in ('RequestOperation', 'RequestCommand', 'CanStartOperation', 'CanStartCommand'):
                 self.assertFalse(self.g.UnitManager[name](unit, 99, self.lua.table()))
@@ -41,22 +41,68 @@ class UIGuardTests(unittest.TestCase):
                 self.assertEqual(self.g.UnitManager[name](unit, 55, self.lua.table()), (True, 'native'))
         self.assertEqual(self.w.unitCalls, 12)
 
-    def test_civilian_escort_join_cannot_bypass_guard_via_army(self):
+    def test_army_can_join_escort_of_delegated_civilian(self):
         army = self.g.TestUnit(0, 7, 9)
-        self.g.TestUnit(1, 7, 8)
-        self.assertFalse(self.g.UnitManager.RequestCommand(army, 10, self.lua.table_from({'owner': 7, 'id': 8})))
-        self.assertEqual(self.w.unitCalls, 0)
+        for kind, target_id in ((1, 101), (2, 102), (13, 103)):
+            self.g.TestUnit(kind, 7, target_id)
+            params = self.lua.table_from({'owner': 7, 'id': target_id})
+            self.assertEqual(self.g.UnitManager.CanStartCommand(army, 10, params), (True, 'native'))
+            self.assertEqual(self.g.UnitManager.RequestCommand(army, 10, params), (True, 'native'))
+            self.assertTrue(self.lua.eval('function(a,b) return a==b end')(self.w.lastUnit, army))
+            self.assertTrue(self.lua.eval('function(a,b) return a==b end')(self.w.lastParams, params))
+        self.assertEqual(self.w.unitCalls, 6)
 
-    def test_unknown_or_recycled_formation_target_is_blocked_but_exact_army_target_is_native(self):
+    def test_military_formation_target_validation_stays_native(self):
         army = self.g.TestUnit(0, 7, 9)
         other = self.g.TestUnit(0, 7, 8)
         other.GetID = lambda *args: 65544
         params = self.lua.table_from({'owner': 7, 'id': 8})
-        self.assertFalse(self.g.UnitManager.RequestCommand(army, 10, params))
-        self.assertFalse(self.g.UnitManager.RequestCommand(army, 10, None))
+        self.lua.execute("""
+          TestGuard.nativeUnit.CanStartCommand=function(unit,command,params)
+            TestGuard.unitCalls=TestGuard.unitCalls+1
+            return false,'native_target_invalid'
+          end
+          TestGuard.nativeUnit.RequestCommand=TestGuard.nativeUnit.CanStartCommand
+        """)
+        self.assertEqual(self.g.UnitManager.CanStartCommand(army, 10, params), (False, 'native_target_invalid'))
+        self.assertEqual(self.g.UnitManager.RequestCommand(army, 10, params), (False, 'native_target_invalid'))
+        self.assertEqual(self.w.unitCalls, 2)
+
+    def test_civilian_actor_formation_commands_remain_locked(self):
+        self.g.TestUnit(0, 7, 9)
+        for kind in (1, 2, 13, 17, 18):
+            civilian = self.g.TestUnit(kind, 7, 100 + kind)
+            self.assertFalse(self.g.UnitManager.RequestCommand(civilian, 10, self.lua.table_from({'owner': 7, 'id': 9})))
+            self.assertFalse(self.g.UnitManager.CanStartCommand(civilian, 10, self.lua.table_from({'owner': 7, 'id': 9})))
         self.assertEqual(self.w.unitCalls, 0)
-        other.GetID = lambda *args: 8
-        self.assertEqual(self.g.UnitManager.RequestCommand(army, 10, params), (True, 'native'))
+
+    def test_military_formation_preserves_nil_false_arguments_and_return_arity(self):
+        army = self.g.TestUnit(0, 7, 9)
+        self.w.expectedArmy = army
+        self.lua.execute("""
+          TestGuard.nativeUnit.RequestCommand=function(unit,command,...)
+            assert(unit==TestGuard.expectedArmy and command==10 and select('#',...)==3)
+            local params,extra,last=...
+            assert(params==nil and extra==false and last==nil)
+            TestGuard.unitCalls=TestGuard.unitCalls+1
+            return nil,false,'native_target_rejected',nil
+          end
+        """)
+        self.assertEqual(self.g.UnitManager.RequestCommand(army, 10, None, False, None), (None, False, 'native_target_rejected', None))
+        self.assertEqual(self.w.unitCalls, 1)
+
+    def test_military_command_without_optional_params_keeps_native_arity(self):
+        army = self.g.TestUnit(0, 7, 9)
+        self.w.expectedArmy = army
+        self.lua.execute("""
+          TestGuard.nativeUnit.RequestCommand=function(unit,command,...)
+            assert(unit==TestGuard.expectedArmy and command==55 and select('#',...)==0)
+            TestGuard.unitCalls=TestGuard.unitCalls+1
+            return true,'native_no_optional_arguments'
+          end
+        """)
+        self.assertEqual(self.g.UnitManager.RequestCommand(army, 55), (True, 'native_no_optional_arguments'))
+        self.assertEqual(self.w.unitCalls, 1)
 
     def test_city_production_purchase_and_citizens_blocked_but_city_combat_allowed(self):
         city = self.g.TestCity(7)
