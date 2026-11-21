@@ -1,0 +1,186 @@
+{
+  "schema": "civ6.normal173-configured-native-start-r2-preparation/v1",
+  "utc": "2026-11-21T03:30:35.419680+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "NORMAL_CONTROL_CONFIGURED_R1_UIA_UNAVAILABLE_BEFORE_START_EXPLICIT_NATIVE_R2_PREPARED",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "owner": {
+    "pid": 20592,
+    "created_at": 1795226670.42074,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "current_state": "AdvancedSetup / ordinary Qin selected / no active world / no HostGame yet",
+  "actual_original_setup": {
+    "leader": [
+      "LEADER_QIN",
+      "秦始皇（天命者）",
+      "Players:Expansion2_Players"
+    ],
+    "legal_leader_values": 80,
+    "candidate_invalid": null,
+    "original_SetParameterValue_choices": [
+      [
+        "MapSize",
+        "MAPSIZE_DUEL"
+      ],
+      [
+        "GameStartEra",
+        "ERA_INDUSTRIAL"
+      ],
+      [
+        "GameSpeeds",
+        "GAMESPEED_QUICK"
+      ],
+      [
+        "PlayerLeader",
+        "LEADER_QIN"
+      ]
+    ],
+    "original_alternate_color_reset": 0,
+    "independent_readback": {
+      "RULESET": "RULESET_EXPANSION_2",
+      "players": 2,
+      "leader0": "LEADER_QIN",
+      "MapSize": "MAPSIZE_DUEL",
+      "StartEra": "ERA_INDUSTRIAL",
+      "GameSpeeds": "GAMESPEED_QUICK",
+      "game_error": null,
+      "player0_error": null,
+      "StartButton_disabled": false,
+      "city_state_warning": false,
+      "leader_pool_warning": false
+    },
+    "actual_GUI_Qin_China_viewed": true,
+    "runtime_human_or_behavior_claim": false
+  },
+  "R1_actual_gate_failure": {
+    "parent": 67433,
+    "terminal": 1,
+    "proof_utc": "2026-11-21T03:24:23.749869+00:00",
+    "mode": "unavailable",
+    "input_activation_focus_move_screenshot_flags_false": true,
+    "original_start_intent_file": false,
+    "original_Native_start_query_attempt_file": false,
+    "start_inputs": 0,
+    "meaning": "No readable current menu was exposed. This result is neither online nor offline and was not bypassed by R1."
+  },
+  "existing_native_reader_actual_observation": {
+    "utc": "2026-11-21T03:26:05.866133+00:00",
+    "steam_pid": 8788,
+    "steam_birth": 1795195446.682362,
+    "mode": "offline",
+    "raw_samples": [
+      1,
+      1
+    ],
+    "tray_state_samples": [
+      4,
+      4
+    ],
+    "reference_commit": "8c23632b35626ef1554cbbdc9096d81f2cefe215",
+    "private_receipt_SHA256": "35ecf9683fd546f9a442f868c531aab43c5dcac3dd90cd10df777772a827d484",
+    "all_five_side_effect_flags_false": true,
+    "CEF_or_Steam_interface_called": false,
+    "account_configuration_read_or_written": false,
+    "scope": "Historical current-instance observation only. Actual R2 must obtain another new packet in the same execution before start."
+  },
+  "explicit_new_R2_consumer": {
+    "name": "normal173-start-R2-explicit-qualified-native-readonly",
+    "scope": "New ordinary-control OnStartButton entry only. Old frozen persistence, TC033 and R1 callers are not changed.",
+    "actual_software_gate_checks": 22,
+    "input_contract": "Exact qualified native source, same machine/nonce/current Steam identity+birth, byte1/1 and tray4/4, same source before/after, readonly flagsfalse, fresh0<=age<15s, actual current process identity recheck.",
+    "fences": [
+      "Existing reader source hashes and exact public adopted qualification",
+      "New entry/gate/old callback/protocol/registration/private installed consumers SHA",
+      "Installed ordinary119 and preserved original/current checkpoints",
+      "Engine exe digest/size and all current installed original setup consumers",
+      "Prior R1 actual terminal1 with0start and absent original start intent/RPC attempt",
+      "Single original OnStartButton and no unknown-outcome replay"
+    ],
+    "new_game_starts": 0,
+    "prepared_consumer_SHA256": {
+      ".local-model/ui173_start_normal_control_r2_owner.py": "1bc6d56bd1678f8ddf8e40c8cd949e6ce32681d065c04cc00f095825eb7fcffa",
+      ".local-model/ui173_start_normal_control_owner.py": "cfd8125c9fcc415b5c0bbbc955b6bcc67b668621c8063aa143efce8eb3f532b2",
+      ".local-model/normal173_native_start_gate_owner.py": "16dc61125736e7ba6cd4f4148f978a8b477ce8407220506e9661a4f4e5dffef7",
+      ".local-model/qualified_native_steam_mode_owner.py": "0c59c3d87f9d50a994417760091b859896b28545176f3d86cd145618055114c2",
+      ".local-model/persist173_native_owner.py": "05913fa35d80f9baab084b22fe642a87cafa655b17fce6451c37a3d0925e1c88",
+      ".local-model/p6_native.py": "182c3bee7990eeef15feaf0225ced5dba75d2515410639ff99a23047c3ed02dc",
+      ".local-model/tc033_named_parent_atomic_owner.py": "7994472c8ffc1ae2cbb6f6aaeedb763bc050ae3c6805ec1512426d11f612c142",
+      ".local-model/acceptance-continue-20261116/ui173-normal-parameter-consumers-task.json": "e8e54e843ef86fb18f1335fb4769101f85f1359e0aaf84805e0bf87a561e8634",
+      ".local-model/steam-native-reference-1123/steam_offline_state_contract.py": "aaf493fc75e5a97fa7bccc7b380567edc789a68e8c0c8dd412dd38cf2516d02d",
+      ".local-model/steam-native-reference-1123/steam_offline_native_profiles.py": "e55a8b379a3a128da79f3603f30fdf269b5229c6dc4f9d66a42be53b196dbcb5",
+      ".local-model/steam-native-reference-1123/steam_offline_native_provider_v1.py": "e0766561e704164eb1ce4b34349e6546ad0791de1be89581d09c736f3af7963c",
+      ".local-model/steam-native-reference-1123/steam_offline_state_probe.py": "1fc34c340309318e6f7c6b7c89016c4ec326a58f482c3832088043023b2ed1a7"
+    },
+    "CODE_sha256": "6f90438dd4a26a13c1e76e738a6fad6a93181331bd8a11ca867cfc571db451da",
+    "qualification_source": "baiqi-steam-native1123-readonly-adoption-2026-11-21.json"
+  },
+  "local_model": {
+    "real_task_full_sources": 18,
+    "UTF8_bytes": 828526,
+    "R45_configured_coder_missing_retained": true,
+    "generation_POSTs": 0,
+    "new_probe": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "actual_parent_terminals": {
+    "ui173-normal-setup-inventory": {
+      "utc": "2026-11-21T03:21:16.018350+00:00",
+      "tool_session": 31873,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "7e50aa",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-configure-normal-control": {
+      "utc": "2026-11-21T03:22:44.030539+00:00",
+      "tool_session": 10163,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "efbeca",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-start-normal-control": {
+      "utc": "2026-11-21T03:24:51.446358+00:00",
+      "tool_session": 67433,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "2fa8fa",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "preserved135_checkpoint": {
+    "utc": "2026-11-21T03:09:45.401525+00:00",
+    "name": "Baiqi_P6_20261121_V173_ReadonlyControls135.Civ6Save",
+    "bytes": 597803,
+    "sha256": "e37b6f1fea212f6bcb75109c9435e76fbd08da6ad788da8a0d63b685e4f35672",
+    "stable_repeated_read": true
+  },
+  "limits": [
+    "No normal control world, runtime leader or manual positive result yet.",
+    "Saved native packet was used for detached gate tests, not as an actual startup ticket.",
+    "Other37cases and old865 FAIL_UNRESOLVED remain open."
+  ],
+  "next": "Register one actual R2 parent and execute the explicitly prepared native proof entry; take a fresh readonly packet within that execution before original OnStartButton once, then independently observe loading and runtime identity without replay.",
+  "private_raw_SHA256": {
+    "normal173-native-start-r2-pending-task.json": "7a791bc15d75efc6200baa1059dabae891d855edb7d0fb590e5b0f729bd0d9ba",
+    "normal173-native-start-r2-gate-software.json": "2a8dd9b4f94c8414ff45900ab8228d6e5819c83bc406a5ffe2d7f7c5dd67a5c2",
+    "persist173-session1-normal-control-actual-leader-and-game-values-returned.json": "8a3ddea675d2f1f8364f4933e917252bb9883c1dc7f7a6259432d556c35c045e",
+    "persist173-session1-normal-control-original-parameter-consumers-once-returned.json": "97d459c782d2a62e7bacc1afbb3adce547d8eadd9ac41f33f6051e4873a5a5c8",
+    "persist173-session1-normal-control-independent-configured-ready-returned.json": "6f315369d36a7ce547564095487c4e463536a33ba68aa270cc434cd2f4cafa44",
+    "ui173-screen-normal-qin-configured-before-start.png": "9c7ec42d3b85e1e3ab00438d53dfe762c3ec6eb1b3e7fa4a4c8d6f028c3cdda0"
+  }
+}
