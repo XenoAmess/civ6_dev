@@ -1352,3 +1352,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-21 [173私有编队诊断适配](research/baiqi-source173-private-formation-diagnostic-tool-2026-11-21.json)：原工具白名单止172且2实际构建预期为172，Owner仅接173／改期望；16实测方法、97双编译、119包仅Controller差异及精确逆变换通过。未安装／Native，不伪称未知编队或新整个case通过。R36真实未完成任务前canonical维护缓存1.19.6、models/health200但配置coder缺，0POST／候选、不换别名；累计1023／816／68length／139final／1062POST不变，未知成本null。共享Git由HOI4暂持，本条有限经验等待明确释放后补推。
 
 2026-11-21 [173d编队与遗留移民边界](research/baiqi-source173-settler-formation-legacy126-2026-11-21.json)：R39先备8完整源23702字节的真实未闭消费者任务，canonical缓存维护1.19.6过，配置coder缺／0POST／0候选，不换别名。Owner38双Lua输入门禁过；一次退休payload串接分隔符编译错误在Native前修正。实机0请求须配业务持久状态，正行动／Native可移动仍可能有LEGACY_UNKNOWN；实际解散后只有SKIP，不得冒领恢复扩张。游戏/队列ACK与真实模态、回合推进分别读回，0新END/Arm续行与真实父terminal独立核对；全部诊断恢复后正式保存退出。累计1023逻辑／816完整／68length／139final／1062POST不变，OpenCode原生生成0，成本未知null。
+
+2026-11-21 [173普通135原版取消／焦点拒绝](research/baiqi-source173-cancel-focus-denials135-2026-11-21.json)：补全实际ProductionHelper依赖后原回调各一次，精确原生资格真／代理1／原生0／false，队列、余额和市民焦点未变，临时绑定全恢复。13城全单队列，重排仍缺合法夹具，不补装队列；Core仅授城市身份而非队列等值。延续R44配置coder缺失，20完整源580384字节先备，0新探针／POST／候选，不换模型，整项仍3/40。

@@ -1,0 +1,124 @@
+{
+  "schema": "civ6.source173-cancel-focus-denials/v1",
+  "utc": "2026-11-21T02:44:03.289447+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_ORIGINAL_CANCEL_AND_PRODUCTION_FOCUS_DENIALS",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "whole_TC004": "OPEN",
+  "whole_TC035": "OPEN",
+  "game": {
+    "pid": 20592,
+    "birth": 1795226670.42074,
+    "ordinary_files": 119,
+    "private_overlay": false,
+    "turn": 135,
+    "retained": true
+  },
+  "preceding_evidence": "baiqi-source173-city-readonly-manual-denials135-2026-11-21.json",
+  "actual_city": {
+    "id": 917516,
+    "owner": 0,
+    "xy": [
+      26,
+      19
+    ],
+    "population": 1
+  },
+  "original_cancel": {
+    "callback": "ProductionHelper.RemoveQueueItem(0)",
+    "calls": 1,
+    "native_exact_eligibility": true,
+    "operation": 739199558,
+    "insert_mode": 721464898,
+    "index": 0,
+    "proxy_calls": 1,
+    "native_calls": 0,
+    "proxy_result": false,
+    "bindings_exactly_restored": true
+  },
+  "original_citizen_focus": {
+    "callback": "CityPanel.SetYieldFocus(YIELD_PRODUCTION.Index)",
+    "calls": 1,
+    "yield_index": 1,
+    "native_exact_eligibility": true,
+    "command": -1927260886,
+    "flags": 0,
+    "data0": 1,
+    "proxy_calls": 1,
+    "native_calls": 0,
+    "proxy_result": false,
+    "bindings_exactly_restored": true,
+    "before_after_favored": false,
+    "before_after_disfavored": false
+  },
+  "before_after_each": {
+    "gold": 6122.71484375,
+    "faith": 806.03515625,
+    "queue_size": 1,
+    "head_hash": -764771404,
+    "Granary_progress": 3,
+    "Granary_cost": 32,
+    "Monument_present": false,
+    "population": 1
+  },
+  "independent_post": "Unproxied BaiqiExecutor independently matched queue, progress, wallet and neutral citizen production focus. Core checked only city ownership/spatial identity/population; no Core queue or wallet claim.",
+  "legitimate_queue_inventory": {
+    "cities": 13,
+    "every_queue_size": 1,
+    "two_item_reorder_fixture_found": false,
+    "manual_queue_setup": 0,
+    "reorder_branch": "OPEN_NO_QUALIFIED_CURRENT_FIXTURE"
+  },
+  "input_scope": {
+    "original_manual_callbacks": 2,
+    "physical_clicks": 0,
+    "END": 0,
+    "manual_native_mutations": 0,
+    "forced_Update": 0,
+    "save": 0,
+    "reload": 0
+  },
+  "actual_parent_terminal": {
+    "utc": "2026-11-21T02:42:54.375398+00:00",
+    "tool_session": 87377,
+    "actual_terminal_exit": 0,
+    "terminal_chunk": "03e3f4",
+    "actual_OS_parent_absent": true,
+    "source_records_preserved": true,
+    "no_replay": true
+  },
+  "local_model": {
+    "dependency_task_full_sources": 20,
+    "UTF8_bytes": 580384,
+    "added_dependency": "Actual installed Base/Assets/UI/ProductionHelper.lua",
+    "R44_configured_coder_missing_retained": true,
+    "new_probe": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "limits": [
+    "Two backend callback paths only; no new physical mouse or keyboard claim.",
+    "Existing queue cancellation is qualified. Empty queue and two-item reordering still require legitimate independent fixtures.",
+    "Ordinary-leader controls, military/city ranged attack and remaining manual/UI/diplomatic paths remain open.",
+    "Old865 remains FAIL_UNRESOLVED; no persistent record clearing."
+  ],
+  "next": "Continue the same135 session with actual buying-tiles and citizen-management input paths and readonly research/government inspection. Prepare missing legitimate fixtures and ordinary-leader control.",
+  "private_raw_SHA256": {
+    "ui173-queue-focus-pending-task.json": "9b7cc9a74ad7369639994e25a4a407ff1a2340a7e5c301098b885190a051846a",
+    "persist173-session1-UI135-existing-queue-and-focus-native-premises-returned.json": "5bdbbd3c7f466e772131e203c53e921bf57e548bfea7e43b80bf7ecf181139cb",
+    "persist173-session1-UI135-original-manual-cancel-callback-once-returned.json": "48ba154e95c1323af5ed7ea608b9c77be6bdce55ae30319d9038ee5bcef9c548",
+    "persist173-session1-UI135-original-manual-focus-callback-once-returned.json": "6cebe50de98afaaace577370e3b14175e21185b60de1e13dfe32f830cc305859",
+    "persist173-session1-UI135-independent-post-cancel-focus-returned.json": "acbb7fe3049712669906adc05158216c425785c2ad9858fc29c4cd4f29ad0f3f",
+    "persist173-session1-UI135-independent-post-cancel-focus-Core-returned.json": "c47e0b83233e54bbce291d5a599958c5cce3f1553692bc1c6110404834ce3908"
+  }
+}
