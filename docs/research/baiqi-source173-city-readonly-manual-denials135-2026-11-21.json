@@ -1,0 +1,221 @@
+{
+  "schema": "civ6.source173-city-readonly-manual-denials/v1",
+  "utc": "2026-11-21T02:39:44.195040+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_VISIBLE_CITY_LOCK_AND_TWO_ORIGINAL_CALLBACK_DENIALS",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "whole_TC004": "OPEN",
+  "whole_TC035": "OPEN",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "ordinary_archive_sha256": "e00a926660cd837e7139e3737f3398cfdad4955d79b470ef3cb3a04dc1660faa",
+  "ordinary_files": 119,
+  "private_overlay_installed": false,
+  "current_game": {
+    "pid": 20592,
+    "created_at": 1795226670.42074,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "turn": 135,
+  "fixture": "Ordinary source173 cold-loaded completed135 save; save identity and independent entry in the linked preceding report. No new load or END in this UI work.",
+  "preceding_evidence": "baiqi-source173-ordinary135-cold-persistence-native-2026-11-21.json",
+  "UI_context_inventory": {
+    "count": 7,
+    "targets": [
+      "CityPanel",
+      "CityPanelOverview",
+      "ProductionPanel",
+      "TechTree",
+      "GovernmentScreen",
+      "ResearchChooser",
+      "LaunchBar"
+    ],
+    "findings": "Six protected contexts identified Baiqi player0; proxy and distinct native manager tables were inspected without private upvalues. Hidden default enabled controls are not failures. LaunchBar original callbacks remain available."
+  },
+  "visible_city": {
+    "id": 917516,
+    "owner": 0,
+    "xy": [
+      26,
+      19
+    ],
+    "name": "廊坊",
+    "population": 1,
+    "original_UI_SelectCity_inputs": 1,
+    "disabled_write_controls": [
+      "ChangeProductionCheck",
+      "PurchaseTileCheck",
+      "ManageCitizensCheck",
+      "ProduceWithGoldCheck",
+      "ProduceWithFaithCheck",
+      "FoodCheck",
+      "ProductionCheck",
+      "GoldCheck",
+      "ScienceCheck",
+      "CultureCheck",
+      "FaithCheck"
+    ],
+    "real_mouse_attempt": {
+      "control": "ChangeProductionCheck",
+      "inputs": 1,
+      "client_origin": [
+        8,
+        31
+      ],
+      "screen_center": [
+        716,
+        511
+      ],
+      "outcome": "Original ProductionPanel remained hidden, city production remained Granary3/32, and the rendered tooltip said 白绮内政由AI执行，只可查看。",
+      "currency_delta": "No exact before balance was captured for the mouse attempt; no exact currency-delta claim is made for that input."
+    }
+  },
+  "original_callback_tests": {
+    "building": "BUILDING_MONUMENT",
+    "building_Index": 0,
+    "building_Hash": -2025065568,
+    "BuildBuilding": {
+      "calls": 1,
+      "native_CanStartOperation_with_exact_replace0_params": true,
+      "proxy_requests": 1,
+      "native_requests": 0,
+      "proxy_result": false,
+      "opcode": 739199558,
+      "original_callback_returns": 0
+    },
+    "PurchaseBuilding": {
+      "calls": 1,
+      "Yield": "YIELD_GOLD",
+      "native_CanStartCommand_with_exact_params": true,
+      "proxy_requests": 1,
+      "native_requests": 0,
+      "proxy_result": false,
+      "opcode": 1490793096,
+      "original_callback_returns": 0
+    },
+    "before_after_each": {
+      "gold": 6122.71484375,
+      "faith": 806.03515625,
+      "queue_size": 1,
+      "head_hash": -764771404,
+      "Granary_progress": 3,
+      "Granary_cost": 32,
+      "Monument_present": false,
+      "population": 1
+    },
+    "observation": "Proxy and the distinct native manager table were separately and transparently observed only during each original callback; both exact bindings restored before return. Original callback returning normally is not treated as a successful write.",
+    "observer_software": {
+      "checks": 16,
+      "VMs": [
+        "Lua51",
+        "Lua53"
+      ],
+      "scope": "Detached observer behavior only, including nil arity, original error identity, no replay, exact cleanup and foreign binding preservation."
+    }
+  },
+  "independent_post": {
+    "unproxied_BaiqiExecutor": "Same wallet, queue, progress and absent Monument as both callback states.",
+    "Core": [
+      917516,
+      0,
+      26,
+      19,
+      1
+    ],
+    "Core_limit": "This read checked city ownership, spatial identity and population; it does not claim Core queue APIs or Core wallet equality."
+  },
+  "actual_parent_terminal": {
+    "utc": "2026-11-21T02:37:57.047988+00:00",
+    "tool_session": 32205,
+    "actual_terminal_exit": 0,
+    "terminal_chunk": "be534b",
+    "actual_OS_parent_absent": true,
+    "source_records_preserved": true,
+    "no_replay": true
+  },
+  "limits": [
+    "No ordinary-leader positive write control yet.",
+    "Current city has an existing queue; empty-queue locks, cancellation/reordering, buying tiles, citizen focus and other original UI/keyboard paths remain open.",
+    "Current135 roster has no Missionary. No new missionary manual-input coverage is claimed.",
+    "Military move and city ranged-attack controls remain independently required.",
+    "Old865 recovery remains FAIL_UNRESOLVED; no legacy records were cleared."
+  ],
+  "local_model": {
+    "real_unfinished_task_sources": 19,
+    "full_source_UTF8_bytes": 569538,
+    "task_before_owner_implementation": true,
+    "R44": {
+      "utc": "2026-11-21T02:13:39.592301+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-21",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-21T02:13:39.562042+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 10.480599943548441,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-21T02:13:39.573303+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1235,
+          "over_64KiB": false,
+          "sha256": "306c5b77d506a64d22d9677ee6eea521341103abe00a3e3d1ee48a6576b6a9c5",
+          "total_ms": 18.07570015080273
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "candidates": 0,
+    "adopted_candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null,
+    "owner_corrections": [
+      "First source preparation wrongly looked for expansion UI under Base/Assets; actual expansions are under GameRoot/DLC. Corrected before task serialization, HTTP generation or Native activity.",
+      "Read helper requires requested end line to exist; an oversized file read and an absent function declaration search failed without game input."
+    ]
+  },
+  "next": "Continue this same ordinary135 game with original cancellation/reordering and other manual domestic paths. Prepare legitimate empty-queue and ordinary-leader controls; do not inflate narrow findings to complete cases.",
+  "private_raw_SHA256": {
+    "persist173-session1-UI135-original-manual-build-callback-once-returned.json": "142c1edb1955a0ba09478046ee04aa83b7d05d25f5f74c09bd495efa88400f4c",
+    "persist173-session1-UI135-original-manual-gold-callback-once-returned.json": "cf74863ea9bd5a235f737e62f2ce2e6c4da0a32652317ee78d4018381660cbb1",
+    "persist173-session1-UI135-independent-post-manual-city-returned.json": "e6b07e2d16a01f80e6ab86922f83b6d246ae85e78b2a0e81ef76797ccd28211d",
+    "persist173-session1-UI135-independent-post-manual-Core-returned.json": "127a24e96974e7d65acb779e9ccb993b9cbb16b94d22cfb3dfedd09c89b24d81",
+    "ui173-callback-observer-software.json": "ce73fcfd179c2fe50d625e039a0af73752ca48b5767584d72ac8767758eabc7c",
+    "ui173-gui-city-production-disabled-once.json": "9265af2b6297690441e7c45058dd9bbb040f26b5e2cd7c8894892a567b138ba4",
+    "ui173-city-button-pixel-reference.json": "2c237b2289153f68ea0e1582b2dc8de7fc00553168e048c607921ec18a277676",
+    "configured-model404-r44-readonly-result.json": "1c89ed0c72e3a318831bb20aeac0f58b5b8094da4bba1a63572412b37304b072",
+    "ui173-native-consumers-pending-task.json": "1b786762162e0b41c8bd851a335f0de39dcf847563b0fac26cb6ccf3ef4b524d"
+  },
+  "private_helper_SHA256": {
+    "ui173_callback_observer_owner.lua": "d5a5918b8927a2ec1daf0bbc689c0ddc60a06382498149f2bd245908cb8e63ea",
+    "ui173_manual_city_callbacks_owner.py": "c9a8189baa22af972ef62f11239764e876edb18508061ff78502458618e42e89"
+  }
+}
