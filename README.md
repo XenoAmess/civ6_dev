@@ -1,5 +1,7 @@
 # civ6_dev
 
+TC009的独立古代场景发现[33回合同格文职安全撤离阻断](docs/research/baiqi-source175-tc009-threatened-overlap33-engine74-2026-11-22.json)，已撤全部QA、正式保存退出，正在准备窄修复与冷实机回归。完整验收继续；下述TC037通过只覆盖其已测NoBarb五城场景。
+
 当前175/.74的[F08五城二十回合验收已完成](docs/research/baiqi-source175-tc037-complete119-engine74-2026-11-22.json)：99→119实际20次正常换回合、21份完整快照及147行战略资源，实际6建筑／4区域／19处新改良；全部经独立Core核对，已撤QA、正式保存119并返回主菜单。整项验收进度为[12/40（30%）](docs/research/baiqi-source175-finite40-engine74-after-tc037-2026-11-22.json)，剩余28项继续执行。原174等待阻塞FAIL及旧恢复FAIL仍保留历史证据。
 
 当前主线源码175；[Steam创意工坊Alpha3](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)仍是已发布并真实下载核验的172。尚未发布的修复有3个：173军队护送权限，以及[174城市命令拒绝返回类型](docs/research/baiqi-source174-city-command-nullable-return-software-2026-11-21.json)。后者已完成[实际失败存档的冷启动回归](docs/research/baiqi-source174-city-command-return-native-retest118-2026-11-21.json)。以及[175建造者通行等待后的空闲待命恢复](docs/research/baiqi-source175-native-wait-standby-software-2026-11-22.json)。175相关112项与双Lua编译／119文件包通过，[当前175独立窗口已实测等待恢复并完成20回合](docs/research/baiqi-source175-tc037-complete119-engine74-2026-11-22.json)。本轮没有重复上传。
