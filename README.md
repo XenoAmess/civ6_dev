@@ -2,9 +2,9 @@
 
 当前主线源码173；[Steam创意工坊Alpha3](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)仍是已发布并真实下载核验的172。173有1个尚未发布的军队护送权限修复；本轮没有重复上传。
 
-当前1.0.12.74整项验收已闭合[2/40（5%）](docs/research/baiqi-source173-finite40-engine74-progress-2026-11-21.json)，不是代码完成率。[TC020护送隔离已通过](docs/research/baiqi-source173-tc020-complete-engine74-2026-11-21.json)：建造者与有效计划的新移民完成原版编队、玩家整队移动、稳定编队期间后台零请求、未知状态停发和未编队恢复托管；传教士按用户明确边界验证原版拒绝、不强行编队，并保留未知停发／恢复国内传播实测。TC033保留172/.74三阶段实测及173无影响范围，不冒称新重跑。
+当前1.0.12.74整项验收已闭合[3/40（7.5%）](docs/research/baiqi-source173-finite40-engine74-after-tc015-2026-11-21.json)，不是代码完成率。[TC020护送隔离已通过](docs/research/baiqi-source173-tc020-complete-engine74-2026-11-21.json)：建造者与有效计划的新移民完成原版编队、玩家整队移动、稳定编队期间后台零请求、未知状态停发和未编队恢复托管；传教士按用户明确边界验证原版拒绝、不强行编队，并保留未知停发／恢复国内传播实测。TC033保留172/.74三阶段实测及173无影响范围，不冒称新重跑。
 
-[新移民125自然出生与126未知恢复](docs/research/baiqi-source173-natural-settler-birth125-recovery126-2026-11-21.json)已核：实际生产0→153/175，人口10→9→10，消耗1人口被同回合增长掩盖。当前127已继续后台行军到14,16，正式存档582425字节；游戏和启动被动观察保留，继续完整路线、建城、消耗及新城内政。TC015、旧8650807恢复和整个mod仍开放；[最新交接](docs/handoff-2026-11-16.md)记录当前现场，阶段提交不是停工点。
+[TC015自然生产到新城接管已通过](docs/research/baiqi-source173-tc015-natural-expansion135-engine74-2026-11-21.json)：同一173/.74夹具从120入队、125真实扣人口出生，到134后台建廊坊、135新城正常生产3/32；UI/Core13城和旧移民消耗均核验，建城未再次扣训练人口。135正式档598104字节、全部诊断退役、正式退出后自有进程消失及普通119文件恢复已完成。接着冷读新档并继续其余37项；旧8650807恢复仍开放。现场与下一步见[最新交接](docs/handoff-2026-11-16.md)，阶段提交不是停工点。
 
 旧1.0.12.72精确环境的[12项性能预算通过](docs/research/baiqi-source172-pressure-paired-final-2026-11-20.json)保留；[40项台账](docs/research/baiqi-source172-finite40-progress-2026-11-20.json)旧引擎范围保守关闭1/40（2.5%），不等于代码完成率或新引擎已通过。旧8650807恢复仍FAIL_UNRESOLVED。新增[军事历史源码影响审阅](docs/research/baiqi-source172-military-legacy46-67-70-impact-review-2026-11-21.json)和[TC038运行时依赖审查](docs/research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)均限定范围，未拿软件／架构证据补齐缺失实机。
 
