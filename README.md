@@ -1,5 +1,7 @@
 # civ6_dev
 
+[176的TC009前置恢复与圣地49检查点](docs/research/baiqi-source176-tc009-prerequisite-unlock-holy49-engine74-2026-11-22.json)：34→49正常15回合，国家劳动力44／占星术48原版回调证明资格恢复；49后台排入圣地，UI/Core同ID196610，0/64尚未完工。39次测试玩家军队待命、1次原版军队拆堆叠，0人工内政／强制结束；已撤QA保存49并返回主菜单，继续市政区域建设、无合法地块恢复与其余28项。整项仍12/40＝30%。
+
 TC009的独立古代场景发现[33回合同格文职安全撤离阻断](docs/research/baiqi-source175-tc009-threatened-overlap33-engine74-2026-11-22.json)，已撤全部QA、正式保存退出；[176有界安全撤离的软件修复](docs/research/baiqi-source176-threatened-overlap-evacuation-software-2026-11-22.json)已通过267项相关检查、双Lua编译与119文件包，[真实失败存档冷回归已恢复普通34并保存退场](docs/research/baiqi-source176-threatened-overlap-cold34-engine74-2026-11-22.json)，继续TC009前置恢复。完整验收继续；下述TC037通过只覆盖其已测NoBarb五城场景。
 
 当前175/.74的[F08五城二十回合验收已完成](docs/research/baiqi-source175-tc037-complete119-engine74-2026-11-22.json)：99→119实际20次正常换回合、21份完整快照及147行战略资源，实际6建筑／4区域／19处新改良；全部经独立Core核对，已撤QA、正式保存119并返回主菜单。整项验收进度为[12/40（30%）](docs/research/baiqi-source175-finite40-engine74-after-tc037-2026-11-22.json)，剩余28项继续执行。原174等待阻塞FAIL及旧恢复FAIL仍保留历史证据。
