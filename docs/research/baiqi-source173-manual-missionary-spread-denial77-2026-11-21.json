@@ -1,0 +1,268 @@
+{
+  "schema": "civ6.source173-manual-missionary-spread-denial/v1",
+  "utc": "2026-11-21T05:32:58.257115+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_NATIVE_LEGAL_ORIGINAL_MANUAL_SPREAD_DENIAL_MOVE_STILL_OPEN",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "owner": {
+    "pid": 20592,
+    "created_at": 1795226670.42074,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture_origin": "Historical explicit QA missionary setup; no new free units/religion/movement/charges in this episode. Not natural purchase proof.",
+  "before_turn_save": {
+    "utc": "2026-11-21T05:22:25.259053+00:00",
+    "name": "Baiqi_P6_20261121_V173_ManualReligionReady76.Civ6Save",
+    "bytes": 484543,
+    "sha256": "a62dc01e6ff4b94a89c3939ea4f2ff67abac2ca3bc2201053c838579a325afbc",
+    "stable_repeated_read": true
+  },
+  "TEST_PLAYER_turn": {
+    "military_unique_skips": [
+      [
+        "1048576",
+        "UNIT_SCOUT"
+      ],
+      [
+        "131073",
+        "UNIT_WARRIOR"
+      ],
+      [
+        "327683",
+        "UNIT_SCOUT"
+      ],
+      [
+        "524292",
+        "UNIT_SCOUT"
+      ],
+      [
+        "1835013",
+        "UNIT_HORSEMAN"
+      ],
+      [
+        "786438",
+        "UNIT_SCOUT"
+      ],
+      [
+        "1245193",
+        "UNIT_SCOUT"
+      ],
+      [
+        "1441803",
+        "UNIT_SCOUT"
+      ],
+      [
+        "2162700",
+        "UNIT_HORSEMAN"
+      ],
+      [
+        "2097168",
+        "UNIT_ARCHER"
+      ],
+      [
+        "2424851",
+        "UNIT_HORSEMAN"
+      ],
+      [
+        "2686997",
+        "UNIT_ARCHER"
+      ],
+      [
+        "2818071",
+        "UNIT_HORSEMAN"
+      ],
+      [
+        "3604507",
+        "UNIT_GREAT_ADMIRAL"
+      ]
+    ],
+    "ordinary_original_DoEndTurn_calls": 1,
+    "UserForced": false,
+    "ACK_and_turn_separate": true,
+    "actual_turn": [
+      76,
+      77
+    ],
+    "no_forced_Controller_update": true
+  },
+  "manual_trial": {
+    "role": "TEST_PLAYER explicitly scheduled trial using original UI callback; separate from product BACKGROUND actions",
+    "ordinary_source119": true,
+    "private_Controller_overlay": false,
+    "native_and_UI_fresh_qualification": [
+      "14",
+      "77",
+      "true",
+      "false",
+      "false",
+      "false",
+      "true",
+      "4",
+      "1",
+      "true"
+    ],
+    "actual_original_consumer": "UnitPanel.OnUnitActionClicked(UnitOperationTypes.TYPE,SPREAD_RELIGION,UI.GetInterfaceMode())",
+    "calls": 1,
+    "request_arity": 2,
+    "params_present": false,
+    "proxy_requests": 1,
+    "proxy_return": false,
+    "native_forward_count": null,
+    "bindings_restored": true,
+    "same_chunk_before_after": [
+      [
+        "before",
+        "3735581",
+        "16",
+        "14",
+        "4",
+        "1",
+        "1",
+        "1"
+      ],
+      [
+        "after",
+        "3735581",
+        "16",
+        "14",
+        "4",
+        "1",
+        "1",
+        "1"
+      ]
+    ],
+    "action_costs_unchanged": true,
+    "move_trial_calls": 0,
+    "move_trial_reason": "No legal empty owned adjacent plot under the first trial predicate.",
+    "event_checks": 29,
+    "qualified_records": 14,
+    "first12_and_final14_exported": true,
+    "record13_not_exported_or_reconstructed": true,
+    "exceptions": 0,
+    "three_owned_event_bindings_removed": true,
+    "trial_namespace_cleared": true
+  },
+  "subsequent_actual_product_effect": {
+    "source": "BACKGROUND",
+    "current_log_suffix_lines": [
+      {
+        "suffix_line": 0,
+        "text": "ActionPanel: REL_CONTROL173_ORIGINAL_END76_BEGIN\t76"
+      },
+      {
+        "suffix_line": 1,
+        "text": "ActionPanel: REL_CONTROL173_ORIGINAL_END76_RETURN\t76\ttrue"
+      },
+      {
+        "suffix_line": 12,
+        "text": "UnitPanel: REL_CONTROL173_MANUAL_TRIAL_PASSED\t3735581\t4\t1\tnil\t1"
+      },
+      {
+        "suffix_line": 51,
+        "text": "BaiqiExecutor: BAIQI|request|turn=77|id=0:77:9|source=BACKGROUND|unit=3735581|operation=SPREAD_RELIGION|city=65536|charges=1"
+      },
+      {
+        "suffix_line": 52,
+        "text": "BaiqiExecutor: BAIQI|observed|turn=77|id=0:77:9|unit=3735581|kind=SPREAD_RELIGION|proof=core_final_charge_receipt"
+      }
+    ],
+    "manual_move_followup": "No UI actor by followup;0 move input. Original unexecuted move branch stays open.",
+    "UI_actor_present": false,
+    "Core_lookup_present": true,
+    "Core_lookup_fields": [
+      "3735581",
+      "0",
+      "3",
+      "-9999",
+      "-9999",
+      "4",
+      "1"
+    ],
+    "Core_GetSpreadCharges_available": false,
+    "Core_absence_or_current_charge_claim": false,
+    "scope": "Product logged its own final-charge request and core_final_charge_receipt after the manual denial. UI absence independently observed; Core lookup object at invalid coordinates is retained, not called absent."
+  },
+  "software": {
+    "actual_dual_Lua_cases": 34,
+    "scope": "Actual private trial producer with existing actual proxy observer, isolated sandbox; zero Native/game/HTTP. Gate refusals, callback error/restoration, removal, no replay, delayed selection and optional move branch.",
+    "Native_proof_from_software": false
+  },
+  "save_after_QA_retire": {
+    "utc": "2026-11-21T05:30:24.417216+00:00",
+    "name": "Baiqi_P6_20261121_V173_ManualReligiousDenied77.Civ6Save",
+    "bytes": 484704,
+    "sha256": "342c523252e908b27a30985f8a85f26af8404e0fefc293f05f93a275d2145bee",
+    "stable_repeated_read": true
+  },
+  "cold_reloaded_after": false,
+  "actual_parent_terminals": {
+    "white173-religious76-military": {
+      "utc": "2026-11-21T05:18:45.590850+00:00",
+      "tool_session": 41256,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "9f56ae",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "religious173-trial-install": {
+      "utc": "2026-11-21T05:24:07.200032+00:00",
+      "tool_session": 79293,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "b30b49",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "religious173-normal-end76": {
+      "utc": "2026-11-21T05:26:18.773752+00:00",
+      "tool_session": 81344,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "882a60",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "religious173-manual-move77": {
+      "utc": "2026-11-21T05:30:01.035290+00:00",
+      "tool_session": 6245,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "2367cf",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "religious173-close-save77": {
+      "utc": "2026-11-21T05:32:54.001808+00:00",
+      "tool_session": 98142,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "537d3b",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "model": {
+    "R47_missing_coder_retained": true,
+    "new_probe": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "limits": [
+    "No whole TC004/035 promotion. Missionary manual movement and faith purchase positive native fixtures remain open.",
+    "The real native legal4-move/1charge input was rejected and same-chunk state unchanged; no measured lower native count0 claim.",
+    "The subsequently consumed unit cannot be reused for movement; followup did not send an action or fake one.",
+    "Old8650807 remains FAIL_UNRESOLVED."
+  ],
+  "next": "Use a separately named movement-only trial from the preserved Ready76 checkpoint, accepting native-legal own-unit stacks while excluding foreign/religious occupants. Retain all previous spread evidence and no-actor result; no manual charge/move edit, no unknown replay, no replacement of the recorded failure to obtain a move premise."
+}
