@@ -18,7 +18,7 @@ return function(M,which)
  if which=='remove-false'then w.removeFalse=true;assert(not h.Restore()and not h.active and not h.restored and h.removeErrors==1);Emit(0,65536,15);assert(#h.samples==0);w.removeFalse=false;assert(h.Restore()and h.Restore()and w.removed==2 and #w.callbacks==0);return true end
  if which=='scope-error'then w.owner=1 elseif which=='read-error'then w.throw=true end
  local before=w.reads;Emit(1,65536,15);Emit(0,99,15);Emit(0,65536,16);assert(w.reads==before and #h.samples==0)
- Emit(0,65536,15);assert(h.matches==1 and #h.samples==1);local r=h.samples[1];assert(r.playerID==0 and r.cityID==65536 and r.projectID==15 and r.arity==3)
+ if which=='extra-arguments'then Emit(0,65536,15,nil,false,43,13)else Emit(0,65536,15)end;assert(h.matches==1 and #h.samples==1);local r=h.samples[1];assert(r.playerID==0 and r.cityID==65536 and r.projectID==15 and r.arity==(which=='extra-arguments'and 7 or 3))
  if which=='scope-error'or which=='read-error'then assert(r.status=='UNKNOWN'and r.turn==nil and h.errors==1)else assert(r.status=='KNOWN_EVENT_ONLY'and r.turn==10 and h.errors==0)end
  if which=='cap'then local reads=w.reads;Emit(0,65536,15);Emit(0,65536,15);assert(h.matches==3 and h.drops==2 and #h.samples==1 and w.reads==reads)end
  assert(h.Restore()and h.Restore()and h.restored and not h.active and w.removed==1 and #w.callbacks==0);Emit(0,65536,15);assert(h.matches==(which=='cap'and 3 or 1));return true
@@ -29,7 +29,7 @@ class ProjectCompletionTests(unittest.TestCase):
     def test_actual_module_boundaries_both_lua_versions(self):
         for version,Runtime in [('Lua51',L51),('Lua53',L53)]:
             lua=Runtime();module=lua.execute(SOURCE.read_text(encoding='utf-8'));run=lua.execute(HARNESS)
-            for case in ['ordinary','scope-error','read-error','cap','add-throw','remove-false','foreign','bounds']:
+            for case in ['ordinary','extra-arguments','scope-error','read-error','cap','add-throw','remove-false','foreign','bounds']:
                 with self.subTest(version=version,case=case):self.assertTrue(run(module,case))
 
 if __name__=='__main__':unittest.main()
