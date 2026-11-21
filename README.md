@@ -1,8 +1,10 @@
 # civ6_dev
 
-当前主线源码173；[Steam创意工坊Alpha3](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)仍为已发布并真实下载核验的172。唯一军队护送权限修复已线性集成、安装并取得[建造者分支实际证据](docs/research/baiqi-source173-builder-escort-native111-2026-11-21.json)：原版回调编队、111下1099次自然规划期间目标0请求、玩家实际移动整编队、主动解散后后台实际移动建造者而军队留原地。22测试玩家军队略过、一次普通110→111、保存552079字节及正式退出／静默自有残留收尾均验证。173尚未发工坊；未知编队、移民及传教士侧仍待验，不授整项TC020或整个mod通过。
+当前主线源码173；[Steam创意工坊Alpha3](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)仍是已发布并真实下载核验的172。173有1个尚未发布的军队护送权限修复；本轮没有重复上传。
 
-游戏本体1.0.12.74上的[TC-033已通过](docs/research/baiqi-source172-tc033-engine74-native-2026-11-21.json)：首次／重复／冷启动重载后三次旧粮仓请求均由真实Core事件确认拒绝，0新扣费／军队行动消耗／收益恢复，119源码入口审计与实际加载数据库34个零收益兼容项通过。两次冷启动各取新鲜后台offline证明，两份新存档及退出收尾验证完成；原启动超时和QA核心人类接口错误均保留。当前新引擎[整项闭合1/40（2.5%）](docs/research/baiqi-source172-finite40-engine74-progress-2026-11-21.json)，不是代码完成率。Steam认证已解决，HOI4已提前明确交回桌面，本轮已完成限定173实机并保存退出；[173建造者受控未知编队侧](docs/research/baiqi-source173-builder-unknown-native111-2026-11-21.json)也已实测、保存退出并恢复普通119文件；[传教士受控未知与恢复传播侧](docs/research/baiqi-source173-missionary-unknown-native76-2026-11-21.json)也已实际保存退出：正行动／原生传播可用时目标0请求，恢复后UI/Core传播次数2→1。原版正行动仍拒绝该传教士编队，未强行执行；继续移民及其余验收，下一启动另取新鲜离线证明。
+当前1.0.12.74整项验收已闭合[2/40（5%）](docs/research/baiqi-source173-finite40-engine74-progress-2026-11-21.json)，不是代码完成率。[TC020护送隔离已通过](docs/research/baiqi-source173-tc020-complete-engine74-2026-11-21.json)：建造者与有效计划的新移民完成原版编队、玩家整队移动、稳定编队期间后台零请求、未知状态停发和未编队恢复托管；传教士按用户明确边界验证原版拒绝、不强行编队，并保留未知停发／恢复国内传播实测。TC033保留172/.74三阶段实测及173无影响范围，不冒称新重跑。
+
+[新移民125自然出生与126未知恢复](docs/research/baiqi-source173-natural-settler-birth125-recovery126-2026-11-21.json)已核：实际生产0→153/175，人口10→9→10，消耗1人口被同回合增长掩盖。当前127已继续后台行军到14,16，正式存档582425字节；游戏和启动被动观察保留，继续完整路线、建城、消耗及新城内政。TC015、旧8650807恢复和整个mod仍开放；[最新交接](docs/handoff-2026-11-16.md)记录当前现场，阶段提交不是停工点。
 
 旧1.0.12.72精确环境的[12项性能预算通过](docs/research/baiqi-source172-pressure-paired-final-2026-11-20.json)保留；[40项台账](docs/research/baiqi-source172-finite40-progress-2026-11-20.json)旧引擎范围保守关闭1/40（2.5%），不等于代码完成率或新引擎已通过。旧8650807恢复仍FAIL_UNRESOLVED。新增[军事历史源码影响审阅](docs/research/baiqi-source172-military-legacy46-67-70-impact-review-2026-11-21.json)和[TC038运行时依赖审查](docs/research/baiqi-source172-tc038-runtime-model-dependency-review-2026-11-21.json)均限定范围，未拿软件／架构证据补齐缺失实机。
 

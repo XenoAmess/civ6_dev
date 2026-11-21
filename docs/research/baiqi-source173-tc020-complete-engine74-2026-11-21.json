@@ -1,0 +1,368 @@
+{
+  "schema": "civ6.source173-tc020-complete-user-native-missionary-boundary/v1",
+  "utc": "2026-11-21T01:19:27.686056+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "Steam_build_id": 26595377,
+  "status": "PASS_TC020_CURRENT173_ENGINE74_EXACT_GS_FIXTURES_AND_USER_MISSIONARY_BOUNDARY",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 2,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 5,
+  "not_code_completion_percent": true,
+  "contract_normalized_UTF8_sha256": "8a1586ea8beb8eb8db516a9083d319c500f9934aa3d7b97dadac07bb04e4749b",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes_this_package": 0,
+  "source173_ordinary_files": 119,
+  "private_current_archive_sha256": "29ab4461bb1c286472b9a4595685c6461c0320b805b387480f33846663c0b33d",
+  "evidence_basis_sha256": {
+    "docs/research/baiqi-source173-builder-escort-native111-2026-11-21.json": "4f2c948a00631bf3e03408d7c4d7f3d93eb3d2390d8b31b8c40b95e9e4659180",
+    "docs/research/baiqi-source173-builder-unknown-native111-2026-11-21.json": "9900ee8c3b4a369f4b046902460c0c09ebe2722acc59cbf266bf49d825659116",
+    "docs/research/baiqi-source173-missionary-unknown-native76-2026-11-21.json": "fb7f5358917690b2eecd33acc78ebe8d8e1e378050c63f94a0b4dec5bf44d022",
+    "docs/research/baiqi-tc020-missionary-user-boundary-2026-11-21.json": "acc35db90edfd4a280337097c3bfb0e45467ae45fa1a9b36dfe8e485f5b05380",
+    "docs/research/baiqi-source173-natural-settler-birth125-recovery126-2026-11-21.json": "7fb08ded9633f7de8d5e4e32cdfccb950ad9c5c3662a29ff1f3f5b90fcef37da"
+  },
+  "coverage": {
+    "builder": {
+      "original_eligible_ENTER_and_Core_both2": true,
+      "player_group_MOVE_and_Core_arrival": true,
+      "positive_native_task_while_formed": true,
+      "held_natural_updates": 1099,
+      "held_target_operations": 0,
+      "held_target_commands": 0,
+      "stable_pair_positions_moves_and_formation": true,
+      "original_EXIT_Core_both1": true,
+      "unformed_background_MOVE_requests": 3,
+      "Core_builder_arrival": [
+        11,
+        10
+      ],
+      "Core_army_retained": [
+        12,
+        8
+      ],
+      "controlled_unknown": "Positive moves2, nativeMOVE exactpath valid; mask2->4/9naturalupdates/0targetrequests, exactrestore then actualCore builder11,9."
+    },
+    "settler": {
+      "fresh_fixture": "Same live naturallyproduced119->125case, originalsaveonlyonce, no reload. Actor7274546 hasno unsettledrecord/currentproposal862; not old173d legacyprotected actor state.",
+      "original_ENTER": {
+        "army": 1048576,
+        "civilian": 7274546,
+        "sameplot": [
+          13,
+          16
+        ],
+        "original_UnitPanel_requests": 1,
+        "guard_arity": 3,
+        "Core_both_formations": [
+          2,
+          2
+        ]
+      },
+      "separate_TEST_PLAYER_military_free_road_MOVE": {
+        "army": 1245193,
+        "from": [
+          12,
+          16
+        ],
+        "to": [
+          11,
+          16
+        ],
+        "Core_arrival": true
+      },
+      "original_player_group_MOVE": {
+        "army": 1048576,
+        "from": [
+          13,
+          16
+        ],
+        "to": [
+          12,
+          16
+        ],
+        "plots": [
+          717,
+          716
+        ],
+        "road_type": 3,
+        "original_WorldInput_requests": 1,
+        "Core_both_arrival": true,
+        "manual_civilian_requests": 0
+      },
+      "qualified_formed_window": {
+        "natural_updates": 270,
+        "target_RequestOperation_count_before_after": [
+          6,
+          6
+        ],
+        "new_target_requests": 0,
+        "army": {
+          "id": 1048576,
+          "xy": [
+            12,
+            16
+          ],
+          "UI_moves": 2.5,
+          "Core_moves": 2,
+          "formation": 2
+        },
+        "settler": {
+          "id": 7274546,
+          "xy": [
+            12,
+            16
+          ],
+          "UI_moves": 1,
+          "Core_moves": 1,
+          "formation": 2
+        },
+        "pending_or_queued_order": false,
+        "actual_original_MOVE_legal": {
+          "target": [
+            12,
+            17
+          ],
+          "plot": 760,
+          "path_nodes": 2
+        },
+        "current_goal": 862,
+        "unsettled_actor_journal": false,
+        "no_forced_Update_or_counter_reset": true
+      },
+      "original_EXIT": {
+        "original_UnitPanel_requests": 1,
+        "guard_arity": 2,
+        "actual_formations_after": [
+          1,
+          1
+        ]
+      },
+      "unformed_recovery": {
+        "126": "One actualSKIP_TURN745019656, still12,16/moves1. Not credited as MOVE and no wake, queueclear, attemptreset or repeatEXIT.",
+        "ordinary_TEST_PLAYER_126_127": {
+          "unique_army_SKIPs": 27,
+          "normal_END_inputs": 1,
+          "UserForced": false,
+          "actual_turn": 127
+        },
+        "127_background_MOVE_targets": [
+          [
+            13,
+            16
+          ],
+          [
+            14,
+            16
+          ],
+          [
+            15,
+            16
+          ]
+        ],
+        "actual_Core_civilian": [
+          14,
+          16
+        ],
+        "actual_Core_army": [
+          12,
+          16
+        ],
+        "current_next_target15_16_pending_not_arrived": true,
+        "normal_turn_movement_refresh": "Army moves2->3 across normalturn is legitimate refresh, not a background army order.",
+        "same_turn_wait_reason_limit": "Source NextRequest keeps attemptedkeys and normalturn clears them; compatible with thiswait, not uniqueNativecauseproof."
+      },
+      "controlled_unknown": "Actual126 positive moves2/form1/nativelegalMOVE, inputcopyformationCountnil twice, 0newtargetrequests, exactoriginalbindingrestore then Core13,16; getter itselfnotmissing. Separate actualstartuprequestrows retained."
+    },
+    "missionary": {
+      "user_decision": "OriginalGSrefusal accepted: positive4moves/CanSPREADtrue, originalENTERfalse, sameplototherpairspositive, no forcedformation or newrule.",
+      "unknown_qualified": "4moves/2charges/owncity65536SPREADtrue, mask2->5/15naturalupdates,0operations/commands.",
+      "restored_unformed_positive": "OnebackgroundSPREAD1592408602, independentUI/Corecharges2->1/moves0, observedreligiousreceipt.",
+      "scope": "No claim missionaryformed/groupmovement in ruleset that refuses it. User2026-11-21boundary explicitly applies; no waiver for Builder/Settler."
+    }
+  },
+  "counter_and_policy_cleanup": {
+    "last_natural_updates": 1308,
+    "exact_owned_Update_binding_restored": true,
+    "positive_policy_original_binding_restored_at_mask2": true,
+    "four_own_namespaces_cleared_before_save": true,
+    "startup_City_and_ownSettler_SDK_and_production_event_hooks": "Stillowned/intentionallyretained for TC015 birth/route/founding. Not finalsessionretirement."
+  },
+  "save": {
+    "utc": "2026-11-21T01:16:35.260394+00:00",
+    "name": "Baiqi_P6_20261121_V173_ValidEscortRecovered127.Civ6Save",
+    "bytes": 582425,
+    "sha256": "c8a2ccb6241626926a685d5c052f6857e06594ec6212e94fadc31cc1c0183b10",
+    "stable_repeated_read": true
+  },
+  "game_retained": {
+    "pid": 18096,
+    "created_at": 1795218225.613384,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "ordinary119_restored_while_live": false,
+  "orchestration_failures_retained": {
+    "phase1": "Actualexit1 because15swalllimit hadonly42naturalUpdates/0requests. Samecounterresumedat270, no repeatedstage/ENTER/groupMOVE.",
+    "phase2": "Actualexit1 because126postEXITwasSKIP, notMOVE. Actual127movement separatelyobserved after1normalEND, no replay.",
+    "turn126_postready_read": "Actualexit1 incompoundreadonly127premise. Exactfailedatomnotlogged; lateratomwiseUI/Coregood cannot retroactivelynameit. Normalturn already127 andnotrepeated.",
+    "not_product_repairs": true
+  },
+  "software": {
+    "utc": "2026-11-21T01:07:32.676377+00:00",
+    "cases": [
+      {
+        "VM": "Lua51",
+        "case": "full_protocol"
+      },
+      {
+        "VM": "Lua51",
+        "case": "legacy_not_qualified"
+      },
+      {
+        "VM": "Lua51",
+        "case": "goal_changed"
+      },
+      {
+        "VM": "Lua51",
+        "case": "new_request_not_hold"
+      },
+      {
+        "VM": "Lua51",
+        "case": "actor_moved"
+      },
+      {
+        "VM": "Lua51",
+        "case": "formation_lost"
+      },
+      {
+        "VM": "Lua51",
+        "case": "foreign_update_preserved"
+      },
+      {
+        "VM": "Lua53",
+        "case": "full_protocol"
+      },
+      {
+        "VM": "Lua53",
+        "case": "legacy_not_qualified"
+      },
+      {
+        "VM": "Lua53",
+        "case": "goal_changed"
+      },
+      {
+        "VM": "Lua53",
+        "case": "new_request_not_hold"
+      },
+      {
+        "VM": "Lua53",
+        "case": "actor_moved"
+      },
+      {
+        "VM": "Lua53",
+        "case": "formation_lost"
+      },
+      {
+        "VM": "Lua53",
+        "case": "foreign_update_preserved"
+      }
+    ],
+    "case_count": 14,
+    "Native_queries": 0,
+    "scope": "Actual new payload/counter protocol in detached explicit fixtures; originalgameUnitPanel and movement engineeffects simulated only. No forcedUpdate in Native. Counter nilarity/error passthrough is directreturn, foreignbinding preserved.",
+    "payload_sha256": "1487362f500172e3d55dc8a8b686debab1deabb726c3ed9f65ffcee12cc1999b"
+  },
+  "actual_parent_terminals": {
+    "training173-escort-inventory126": {
+      "utc": "2026-11-21T01:04:43.414990+00:00",
+      "tool_session": 87584,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "bdc0af",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-escort-candidates126": {
+      "utc": "2026-11-21T01:06:28.385179+00:00",
+      "tool_session": 27304,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "fc2dff",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-valid-escort126-phase1": {
+      "utc": "2026-11-21T01:09:08.369740+00:00",
+      "tool_session": 30171,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "13e320",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-valid-escort126-phase2": {
+      "utc": "2026-11-21T01:10:56.576781+00:00",
+      "tool_session": 97002,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "d3bb40",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-valid-unformed-diag": {
+      "utc": "2026-11-21T01:12:30.642846+00:00",
+      "tool_session": 91903,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "9f29e5",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-turn126-route": {
+      "utc": "2026-11-21T01:15:10.370926+00:00",
+      "tool_session": 62677,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "a78ab6",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-read127-recovery": {
+      "utc": "2026-11-21T01:16:16.877674+00:00",
+      "tool_session": 3753,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "22ce52",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-valid-finish127": {
+      "utc": "2026-11-21T01:16:47.779367+00:00",
+      "tool_session": 75901,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "1b1201",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "model_generation_POSTs": 0,
+  "OpenCode_native_generation": 0,
+  "unknown_model_cost": null,
+  "limits": [
+    "PASS onlyTC020 exactcurrent173/.74GSfixtures and explicitmissionaryoriginalrestriction. DoesnotcloseTC019/021 or allmilitarypermissions.",
+    "No newSteamupload; publishedAlpha3/source172 remainsverified. One source173productfix stillunpublished.",
+    "TC015 route/founding/consumption/newcityadministration incomplete; old865FAIL_UNRESOLVED remains, no clearing or replay.",
+    "Current.74performanceunmeasured; old.72exact12budgetresultnotnewenginepass."
+  ],
+  "next": "Continue live127 normalTEST_PLAYERturns, retainstartuptrace toactualgoalarrival/founding/consumption/newcity. Safelyrecordfailureandrepairifactualproductdefect; neverstopatthiscasecloseout.",
+  "raw_sha256": {
+    "training173-session1-valid-escort126-qualified-held-resumed.json": "5a34c96bbfec31f916a65c93653cdd252e6272c406ed3a4d3bd22b3ed1d1e10e",
+    "training173-session1-valid-escort127-final-positive-evidence.json": "7a68998e071320735d25029a909371d622c188087b3d37cba88e40ae3d3459e8",
+    "training173-session1-valid-escort127-save-verified.json": "9b953f2a089c9eec4d0e857a5a56f8039636ce842903e5a99613755569ab9051",
+    "training173-session1-valid-escort126-unformed-actual-reason-diagnosis-returned.json": "f4bf88146a52a1e813f2be33d2d51fb8228958ed1668d137464385fd87455b2d",
+    "training173-valid-escort126-software.json": "1db8cf276117690854bb04f9b4c23666b16caac6383259ec52cbe8cc0ab11560"
+  }
+}
