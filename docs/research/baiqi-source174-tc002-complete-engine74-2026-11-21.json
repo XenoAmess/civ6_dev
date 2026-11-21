@@ -1,0 +1,723 @@
+{
+  "schema": "civ6.source174-tc002-complete/v1",
+  "utc": "2026-11-21T13:50:44.049181+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 174,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "whole_TC002": "PASS_CURRENT174_ENGINE74_F01_F04_BOUNDED_OWNER_ISOLATION",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed_or_retained": 9,
+  "whole_cases_total": 40,
+  "whole_case_percent": 22.5,
+  "remaining_whole_cases": 31,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 2,
+  "product_mod_files_changed": 0,
+  "contract": {
+    "source": "docs/testing/baiqi-test-cases.md#tc-002",
+    "normalized_UTF8_sha256": "8a1586ea8beb8eb8db516a9083d319c500f9934aa3d7b97dadac07bb04e4749b",
+    "requirement": "BR-003",
+    "actual_case": "Observe real planning in a White world with foreign objects; normal leader local control has real blank queue. Attribute actual writes to target owners and module sources, independently inspect queues.",
+    "complete_case_not_every_branch": "This closes the finite isolation case. It does not assert every possible native writer branch or other gameplay function executed."
+  },
+  "evidence_chain": [
+    "docs/research/baiqi-source174-ownertrace-r3-white139-native-limited-2026-11-21.json",
+    "docs/research/baiqi-source174-qin-blank-queue-native-and-core-writer-preparation-2026-11-21.json",
+    "docs/research/baiqi-source174-ui5-core28-native-limited-2026-11-21.json",
+    "docs/research/baiqi-source174-core-native-site-observer-software-2026-11-21.json",
+    "docs/research/baiqi-source174-culture3-observer-software-2026-11-21.json"
+  ],
+  "coverage_review": {
+    "current_payload": 119,
+    "current_source_bound_UI_request_methods": 5,
+    "current_source_bound_Core_sites": 28,
+    "Core_include_closure": 40,
+    "current_direct_UI_Culture_sites": 3,
+    "Culture_methods": [
+      "RequestChangeGovernment",
+      "SetGovernmentChangeConsidered",
+      "RequestPolicyChanges"
+    ],
+    "all97_current_Lua_sources_reviewed_for_native_write_method_families": true,
+    "other_source_calls": "Internal mod planning/immutable journals, GameInfo reads, read-only native getters, UI control presentation/lifecycle and event subscriptions are separate from world writers. Actual native write families found in current revision are the5 request managers,28 Core sites and3 UI Culture sites; manual requisition routes are test player confirmation and Core source-bound consumers, not automatic planning.",
+    "no_future_API_discovery_claim": true,
+    "SDK_table_or_Player_proxy_mutation_for_Core_or_Culture": 0,
+    "permission_checks_preserved": true,
+    "UI_managers": "Context-local passive proxies only before captured consumers; actual original shutdown then owned restoration verified.",
+    "unknown_metadata_or_dropped_rows": 0
+  },
+  "R5_new_cold": {
+    "Popen": 1,
+    "fresh_background_offline_age_after_Popen_seconds": 0.015328,
+    "exe_and_build_pinned": true,
+    "Steam_mode_actions": 0,
+    "diagnostic_archive_sha256": "92a5e2ae800cbe27a79ddff8b293c790ba280e4eeeabcca13f1e4eafe4aeabdc",
+    "protected_White140_source_sha256": "b4398dceb44ab32edaad9a90243d8281e45f09b6990c384f9e7ea0d1376a78cc",
+    "protected_Qin_blank171_source_sha256": "81f6fdaa79aaf0dd2b126605e65e67bffb79ce555a0191d79d36f3f406cec6b4"
+  },
+  "R5_White_actual": {
+    "turn": 140,
+    "own_cities": 13,
+    "foreign_cities_in_same_protected_world": 9,
+    "actual_wall_seconds": 20.322158799972385,
+    "samples": [
+      {
+        "utc": "2026-11-21T13:41:19.553554+00:00",
+        "UI": [
+          "140",
+          "0",
+          "8",
+          "256",
+          "84",
+          "88",
+          "84",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "13",
+          "6462.3515625",
+          "553.5546875"
+        ],
+        "Core": [
+          "140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:41:22.635383+00:00",
+        "UI": [
+          "140",
+          "0",
+          "8",
+          "280",
+          "92",
+          "96",
+          "92",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "13",
+          "6462.3515625",
+          "553.5546875"
+        ],
+        "Core": [
+          "140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:41:25.956608+00:00",
+        "UI": [
+          "140",
+          "0",
+          "8",
+          "304",
+          "100",
+          "104",
+          "100",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "13",
+          "6462.3515625",
+          "553.5546875"
+        ],
+        "Core": [
+          "140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:41:29.190071+00:00",
+        "UI": [
+          "140",
+          "0",
+          "8",
+          "331",
+          "109",
+          "113",
+          "109",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "13",
+          "6462.3515625",
+          "553.5546875"
+        ],
+        "Core": [
+          "140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:41:32.244836+00:00",
+        "UI": [
+          "140",
+          "0",
+          "8",
+          "358",
+          "118",
+          "122",
+          "118",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "13",
+          "6462.3515625",
+          "553.5546875"
+        ],
+        "Core": [
+          "140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:41:35.364568+00:00",
+        "UI": [
+          "140",
+          "0",
+          "8",
+          "382",
+          "126",
+          "130",
+          "126",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "13",
+          "6462.3515625",
+          "553.5546875"
+        ],
+        "Core": [
+          "140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:41:38.364358+00:00",
+        "UI": [
+          "140",
+          "0",
+          "8",
+          "406",
+          "134",
+          "138",
+          "134",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "13",
+          "6462.3515625",
+          "553.5546875"
+        ],
+        "Core": [
+          "140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    ],
+    "actual_Update_entry_delta": 50,
+    "actual_Admin_entry_delta": 50,
+    "UI_native_rows": [
+      [
+        "1",
+        "UI",
+        "RequestPlayerOperation",
+        "140",
+        "0",
+        "0",
+        "0",
+        "UNSCOPED",
+        "true",
+        "1",
+        "true"
+      ],
+      [
+        "2",
+        "UnitManager",
+        "RequestOperation",
+        "140",
+        "0",
+        "0",
+        "6815791",
+        "BaiqiController.RunNow",
+        "true",
+        "0",
+        "true"
+      ],
+      [
+        "3",
+        "UnitManager",
+        "RequestOperation",
+        "140",
+        "0",
+        "0",
+        "6815791",
+        "BaiqiController.RunNow",
+        "true",
+        "0",
+        "true"
+      ],
+      [
+        "4",
+        "UnitManager",
+        "RequestOperation",
+        "140",
+        "0",
+        "0",
+        "6815791",
+        "BaiqiController.RunNow",
+        "true",
+        "0",
+        "true"
+      ],
+      [
+        "5",
+        "UnitManager",
+        "RequestOperation",
+        "140",
+        "0",
+        "0",
+        "7667762",
+        "BaiqiController.RunNow",
+        "true",
+        "0",
+        "true"
+      ],
+      [
+        "6",
+        "UnitManager",
+        "RequestOperation",
+        "140",
+        "0",
+        "0",
+        "7667762",
+        "BaiqiController.RunNow",
+        "true",
+        "0",
+        "true"
+      ],
+      [
+        "7",
+        "UnitManager",
+        "RequestOperation",
+        "140",
+        "0",
+        "0",
+        "7667762",
+        "BaiqiController.RunNow",
+        "true",
+        "0",
+        "true"
+      ],
+      [
+        "8",
+        "UnitManager",
+        "RequestOperation",
+        "140",
+        "0",
+        "0",
+        "7667762",
+        "BaiqiController.RunNow",
+        "true",
+        "0",
+        "true"
+      ]
+    ],
+    "UI_requests": 8,
+    "all_actual_target_owners": 0,
+    "direct_UI_Culture_calls": 0,
+    "Core_native_calls": 0,
+    "native_Culture_identity": "Actual UI native Culture table and alive player getters produced exactly1 match for owner0 on every sample; not a synthetic method invocation.",
+    "frozen_UI_periodic_calls": 415,
+    "frozen_Admin_entries": 137,
+    "metadata_errors": 0,
+    "after_errors": 0,
+    "dropped": 0,
+    "manual_domestic_or_END_inputs": 0,
+    "save": {
+      "utc": "2026-11-21T13:41:40.602059+00:00",
+      "name": "Baiqi_P6_20261121_V174_CultureSitesR5White140.Civ6Save",
+      "bytes": 600929,
+      "sha256": "d81eaf1c64d911d16caba95ce4b5ff1d5a02ba10c7fc42e4ee11e4c0877633e7",
+      "stable_repeated_read": true
+    }
+  },
+  "R4_positive_actual_writes_retained": {
+    "real_normal_transition": "139 to140, one normal END without UserForced",
+    "UI_native_writes": 27,
+    "all_UI_targets_owner0": true,
+    "Core_native_property_write": {
+      "site": "Lua/BaiqiSettlerGoalsCore.lua:66:1",
+      "owner": 0,
+      "key": "BAIQI_SETTLER_GOALS_V1"
+    },
+    "foreign_cities_owner1": 9,
+    "foreign_native_AI_queue_change_separate": true,
+    "no_claim_all28_branches_executed": true
+  },
+  "R5_Qin_actual": {
+    "turn": 171,
+    "city": {
+      "owner": 0,
+      "id": 65536,
+      "x": 15,
+      "y": 5,
+      "population": 7
+    },
+    "actual_wall_seconds": 19.571399600012228,
+    "samples": [
+      {
+        "utc": "2026-11-21T13:45:59.883903+00:00",
+        "UI": [
+          "171",
+          "0",
+          "0",
+          "104",
+          "104",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "231",
+          "268"
+        ],
+        "Core": [
+          "171",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:46:02.751924+00:00",
+        "UI": [
+          "171",
+          "0",
+          "0",
+          "112",
+          "112",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "231",
+          "268"
+        ],
+        "Core": [
+          "171",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:46:05.923073+00:00",
+        "UI": [
+          "171",
+          "0",
+          "0",
+          "121",
+          "121",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "231",
+          "268"
+        ],
+        "Core": [
+          "171",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:46:08.809661+00:00",
+        "UI": [
+          "171",
+          "0",
+          "0",
+          "129",
+          "129",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "231",
+          "268"
+        ],
+        "Core": [
+          "171",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:46:11.876640+00:00",
+        "UI": [
+          "171",
+          "0",
+          "0",
+          "137",
+          "137",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "231",
+          "268"
+        ],
+        "Core": [
+          "171",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:46:14.993584+00:00",
+        "UI": [
+          "171",
+          "0",
+          "0",
+          "146",
+          "146",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "231",
+          "268"
+        ],
+        "Core": [
+          "171",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "utc": "2026-11-21T13:46:18.079767+00:00",
+        "UI": [
+          "171",
+          "0",
+          "0",
+          "155",
+          "155",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "231",
+          "268"
+        ],
+        "Core": [
+          "171",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    ],
+    "actual_Update_entry_delta": 51,
+    "all_queue_sizes": 0,
+    "all_production_hashes": 0,
+    "gold": 231,
+    "faith": 268,
+    "UI_requests": 0,
+    "Core_writes": 0,
+    "direct_UI_Culture_writes": 0,
+    "all_metadata_and_after_errors_and_dropped": 0,
+    "native_Culture_unique_owner_matches": 1,
+    "synthetic_planning_calls": 0,
+    "Found_or_queue_or_END_inputs": 0,
+    "frozen_periodic_entries": 158,
+    "save": {
+      "utc": "2026-11-21T13:46:19.904698+00:00",
+      "name": "Qin_P6_20261121_V174_CultureSitesR5Blank171.Civ6Save",
+      "bytes": 389414,
+      "sha256": "b2b2a20bab29512c37e54c7cfa787100bc792b5f5604ef1470d80e4a8d4b16a4",
+      "stable_repeated_read": true
+    }
+  },
+  "lifecycle": {
+    "both_worlds_all_three_observers_frozen": true,
+    "both_exact_Save_flags_retired": true,
+    "White_original_Shutdown_restore": "BaiqiExecutor: OWNERTRACE174_AFTER_ORIGINAL_SHUTDOWN_RESTORE\ttrue\tboolean\t8\t415\t0\t0\t0",
+    "Qin_original_Shutdown_restore": [
+      "BaiqiExecutor: OWNERTRACE174_AFTER_ORIGINAL_SHUTDOWN_RESTORE\ttrue\tboolean\t0\t158\t0\t0\t0"
+    ],
+    "official_ReturnDesktop_confirmation": true,
+    "same_owned_process_independently_absent": true,
+    "terminate": 1,
+    "kill": 0,
+    "exit_watch_parent": {
+      "utc": "2026-11-21T13:50:34.221380+00:00",
+      "tool_session": 64876,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "a7930e",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ordinary174_all119_and_marker_restored": true,
+    "both_new_saves_verified_after_restore": true,
+    "game_running_now": false
+  },
+  "owner_implementation_error": {
+    "first_launch_helper_import_exit": 1,
+    "chunk": "2431ce",
+    "reason": "Private authority string transformation expected r5 in a hyphenated R4 publication filename; rejected at import before registration, install, proof or Popen. Corrected actual filename mapping, then one cold launch.",
+    "Native_or_game_replay": false
+  },
+  "limits": [
+    "Direct culture methods measured0 in these actual planning windows; no claim a government or policy change took effect in game. Actual original Admin branch transparency was separately software-tested.",
+    "Case does not grant other functions, longrun economy, compatibility matrices or performance pass.",
+    "Old8650807 remains FAIL_UNRESOLVED and legacy6684713 remains LEGACY_UNKNOWN; no clear/rearm/replay."
+  ],
+  "next": "Continue TC008 ordinary district candidate legality, automatic coordinate placement and real completion. Start from protected ordinary fixtures with fresh offline/exe/owner proof; no manual city production, placement or civilian compensation."
+}
