@@ -1,0 +1,198 @@
+{
+  "schema": "civ6.source174-city-command-nullable-denial/v1",
+  "utc": "2026-11-21T09:43:10.453757+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 174,
+  "engine_version_for_original_failure": "1.0.12.74",
+  "status": "SOFTWARE_FIXED_BUILT_NATIVE174_COLD_RETEST_PENDING",
+  "whole_mod": "OPEN_CONTINUE",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 2,
+  "product_fix": "Rejected owned-city RequestCommand returns one nil result, preserving falsey denial and the stock nullable-table consumer contract.",
+  "latest_finite_case_baseline": {
+    "source": 173,
+    "engine": "1.0.12.74",
+    "closed": 8,
+    "total": 40,
+    "percent": 20.0,
+    "evidence": "docs/research/baiqi-source173-finite40-engine74-after-tc005-2026-11-21.json",
+    "no_new174_whole_case_credit": true
+  },
+  "actual_native173_failure": {
+    "utc": "2026-11-21T09:25:10.954527+00:00",
+    "source_version": 173,
+    "owner": {
+      "pid": 22536,
+      "created_at": 1795248980.3093853,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "status": "FAIL_ACTUAL_ORIGINAL_CITIZEN_CALLBACK_TYPED_RETURN_CONTRACT",
+    "original_citizen_callback_inputs": 1,
+    "proxy_requests": 1,
+    "native_requests": 0,
+    "proxy_return_type": "boolean",
+    "proxy_return": false,
+    "original_typed_assignment": "local tResults:table = CityManager.RequestCommand(...)",
+    "error": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Assets\\UI\\WorldView\\PlotInfo.lua:65: Type check failed: (expected 'table', but got 'boolean')\nstack traceback:\n",
+    "all_bindings_restored": true,
+    "independent_all_canonical_assets_unchanged": true,
+    "all_two_own_flags_retired": true,
+    "focus_inputs": 0,
+    "normal_ENDs": 0,
+    "protected_ordinary118_save": {
+      "utc": "2026-11-21T09:01:37.311277+00:00",
+      "name": "Baiqi_P6_20261121_V173_UpgradedTwoQueueComplete118.Civ6Save",
+      "bytes": 578675,
+      "sha256": "73d535bc84ef1c3f87c0acefc2e0c1e0ba482021e6a5beac6034c3a5a47df109",
+      "stable_repeated_read": true
+    },
+    "next": "Real model candidate task then owner minimal contract fix/software regression and cold installed retest; preserve failure, do not claim TC004 pass."
+  },
+  "stock_primary_consumer": {
+    "path": "Base/Assets/UI/WorldView/PlotInfo.lua",
+    "sha256": "aa32a64cef64eefdbfd1262bbacb9699468ab902765fb46aac58e0b6ed5c87cb",
+    "line": 65,
+    "contract": "local tResults:table = CityManager.RequestCommand(...)"
+  },
+  "actual_engine_nullable_table_probe": {
+    "context": "PlotInfo",
+    "source_version": 173,
+    "code": "local tResults:table = nil",
+    "observed": "true / nil",
+    "game_actions": 0,
+    "global_writes": 0,
+    "method_rebindings": 0,
+    "language_boundary": "Firaxis typed code was dispatched unchanged; only the one type annotation was removed for vanilla Lua51/53 syntax checks. Raw typed code was not claimed valid vanilla Lua."
+  },
+  "other_observed173_controls": {
+    "city": 196610,
+    "turn": 118,
+    "actual_city_write_widgets_disabled": 11,
+    "purchase_original_callback_inputs": 1,
+    "purchase_actual_target": 585,
+    "purchase_price": 88,
+    "purchase_native_request_calls": 0,
+    "purchase_handler_return": "true means handled, not purchase success",
+    "citizen_original_callback_inputs": 1,
+    "citizen_plot": 583,
+    "citizen_proxy_requests": 1,
+    "citizen_native_requests": 0,
+    "citizen_callback_error": true,
+    "focus_original_inputs": 0,
+    "all_typed_canonical_territory_workers_locks_focus_queue_wallet_yields_unchanged": true,
+    "all_proxy_and_native_bindings_restored": true,
+    "all_two_own_QA_input_flags_retired": true,
+    "normal_END_inputs": 0,
+    "CanStartCommand_invalid_plot_control": "Native first return was true even for invalid coordinates. It is not accepted as full target legality; actual target membership/price and future ordinary positive effects are required."
+  },
+  "software_verification": {
+    "new_regression_before_fix": {
+      "source": 173,
+      "methods": 3,
+      "Lua51_Lua53_subcase_errors": 6,
+      "allowed_native_forwarding_method_passed": true,
+      "actual_exit": 1,
+      "tool_chunk": "12f210"
+    },
+    "after_fix": {
+      "command": "python -X utf8 -m unittest tests.test_baiqi_guard tests.test_baiqi_city_command_return_contract tests.test_baiqi_ui_contexts tests.test_baiqi_city_purchase_controls",
+      "tests": 43,
+      "actual_exit": 0,
+      "tool_chunk": "a3ebe1"
+    },
+    "new_regression_scope": [
+      "Nullable-table and falsey denied result with exactly one nil return; zero native city calls.",
+      "Unit request and city RequestOperation boolean contracts preserved.",
+      "Allowed city range/WMD, foreign objects, ordinary leader, nonhuman, multiplayer and hotseat preserve native identity, optional nil/false arguments and complete returns.",
+      "Cached request function rechecks current authority."
+    ],
+    "all97_mod_Lua_sources_compiled_in": [
+      "Lua51",
+      "Lua53"
+    ],
+    "diff_check": true
+  },
+  "ordinary174_artifact": {
+    "files": 119,
+    "archive_sha256": "0212f4a27b0b59e313f04eadbc8d37cd146c6eab4ac28b79823280f50bf255bc",
+    "source_copy_and_actual_ZIP_all_names_and_bytes_verified": true,
+    "changed_from173": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiUIGuard.lua"
+    ],
+    "installed": false,
+    "Native174": "NOT_RUN",
+    "owner_build_metadata_failures": [
+      {
+        "actual_tool_exit": 1,
+        "chunk": "678c21",
+        "cause": "tools.build_mod.package returns the full file inventory list; owner incorrectly compared it with integer119 after successful archive creation.",
+        "recovery": "File-only full119 source/copy/ZIP/validation verification. No second package/copy/install/Popen."
+      },
+      {
+        "exit_code": 1,
+        "chunk": "241439",
+        "cause": "Owner imported nonexistent validate helper; actual manifest_files performs validation. No file mutation or repackage."
+      }
+    ]
+  },
+  "saved_and_exited173": {
+    "save": {
+      "utc": "2026-11-21T09:32:14.871462+00:00",
+      "name": "Baiqi_P6_20261121_V173_CitizenTypeFail118.Civ6Save",
+      "bytes": 578657,
+      "sha256": "c2e5a6d9a397b88fcff4bcf235dea7b5ce4d1b4ecb8529dbc7912831e01d09cb",
+      "stable_repeated_read": true
+    },
+    "official_Quit": true,
+    "independent_old_tuple_absent": true,
+    "terminate": 1,
+    "kill": 0,
+    "natural_exit_claimed": false,
+    "Steam_actions": 0,
+    "old_installed119_still173_verified": true
+  },
+  "local_model": {
+    "task_id": "civ6-1024-city-command-return-contract",
+    "full_source_count": 14,
+    "full_source_UTF8_bytes": 274774,
+    "all_complete_sources_in_actual_second_message_after_canonical_read_text_LF_normalization": true,
+    "actual_source_text_UTF8_bytes_after_LF_normalization": 269300,
+    "raw_byte_identity_claimed": false,
+    "owner_R1_wire_check": "Raw CRLF text membership failed; canonical adapter Path.read_text normalizes line endings. No request replay; source raw hashes and all normalized text verified.",
+    "fixed_three_message_roles": true,
+    "actual_POSTs": 1,
+    "HTTP": 404,
+    "total_ms": 24.871600093320012,
+    "candidate_complete": false,
+    "adopted": false,
+    "usage": null,
+    "cached_prompt_tokens_if_reported": null,
+    "shared_caller_and_maintenance_provenance": {
+      "schema": "civ6.local-model-adapter-provenance/v1",
+      "shared_repository": "https://github.com/XenoAmess/local-model-operations",
+      "shared_commit": "211ebb6271fdf69bad43f7fc77986651f14c5f46",
+      "canonical_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "canonical_caller_sha256": "0fdf09ec4d68494bb429d4065e22d3bc1eb566622cda1504b84a8af48aea66bf",
+      "project_manifest_sha256": "6569a4532eeab2df51135f3b317068af7c2ef3a01dbe65c71735c9715ac00cea",
+      "overrides": {
+        "prompting.system_template": "You are an engineering collaborator for civ6_dev. Use only the supplied current source and contracts. Return a precise candidate or analysis for the final task. Do not invent APIs, missing facts, successful tests, or game outcomes. Distinguish observations from assumptions. Follow the requested output format."
+      },
+      "timeout_override": null,
+      "maintenance": "Delegated to canonical call.py CLI client_preflight, before HTTP"
+    },
+    "project_totals_after_actual_call": {
+      "logical_tasks": 1024,
+      "complete_candidates": 816,
+      "length_incomplete": 68,
+      "final_failures": 140,
+      "generation_POSTs": 1063,
+      "extra_retry_POSTs_prior_observed_unchanged": 38,
+      "actual_inflight": 0,
+      "OpenCode_native_generation": 0
+    }
+  },
+  "model_candidate_adopted": false,
+  "owner_preflight_correction": "Initial denial helper was not granted Native registration after source review found a nonexistent callbackAttempted observer field; it timed out with zero Native queries. R2 used the actual exported contract and preserved the real citizen failure.",
+  "next": "Commit/push this complete software package, prepare new source174 authority and managed no-game install, obtain fresh background Steam offline proof, cold launch once and load actual173 failure118 save, retest original citizen callback with zero native forwarding and no typed error, then finish TC004 remaining controls. No stop at software delivery."
+}

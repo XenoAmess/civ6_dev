@@ -107,7 +107,7 @@ class UIGuardTests(unittest.TestCase):
     def test_city_production_purchase_and_citizens_blocked_but_city_combat_allowed(self):
         city = self.g.TestCity(7)
         self.assertFalse(self.g.CityManager.RequestOperation(city, 99))
-        self.assertFalse(self.g.CityManager.RequestCommand(city, 22))
+        self.assertIsNone(self.g.CityManager.RequestCommand(city, 22))
         self.assertFalse(self.g.CityManager.CanStartOperation(city, 99))
         self.assertFalse(self.g.CityManager.CanStartCommand(city, 22))
         self.assertTrue(self.g.CityManager.RequestCommand(city, 20))

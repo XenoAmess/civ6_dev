@@ -83,7 +83,8 @@ CityManager=setmetatable({
     return NativeCity.RequestOperation(city,operation,...)
   end,
   RequestCommand=function(city,command,...)
-    if OwnCity(city) and not CityCombat(command) then return false end
+    -- Original city callbacks can store this result in a nullable table.
+    if OwnCity(city) and not CityCombat(command) then return nil end
     return NativeCity.RequestCommand(city,command,...)
   end,
 },{__index=NativeCity})
