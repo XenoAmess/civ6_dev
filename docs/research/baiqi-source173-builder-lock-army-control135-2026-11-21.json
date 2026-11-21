@@ -1,0 +1,251 @@
+{
+  "schema": "civ6.source173-builder-lock-army-control/v1",
+  "utc": "2026-11-21T03:08:11.721971+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_MANUAL_BUILDER_MOVE_DENIAL_AND_PLAYER_ARMY_MOVEMENT_CONTROL",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "whole_TC004": "OPEN",
+  "whole_TC035": "OPEN",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "game": {
+    "pid": 20592,
+    "birth": 1795226670.42074,
+    "turn": 135,
+    "ordinary_files": 119,
+    "private_overlay": false,
+    "retained": true,
+    "selected": "Army Scout1048576"
+  },
+  "preceding_evidence": "baiqi-source173-full-tech-tree-denial135-2026-11-21.json",
+  "native_inventory": {
+    "total_units": 49,
+    "Builders": 5,
+    "positive_idle_unformed_Builders": [
+      [
+        7143468,
+        17,
+        14,
+        2,
+        2
+      ],
+      [
+        6815791,
+        16,
+        13,
+        2,
+        2
+      ]
+    ],
+    "native_improvement_candidates_checked_each": 59,
+    "legal_current_tile_BUILD_each": 0,
+    "no_build_positive_claim": true,
+    "military_move_candidates_qualified": 4
+  },
+  "manual_Builder": {
+    "id": 7143468,
+    "owner": 0,
+    "kind": "UNIT_BUILDER",
+    "before_after": {
+      "xy": [
+        17,
+        14
+      ],
+      "moves": 2,
+      "charges": 2,
+      "formation_count": 1,
+      "pending": false,
+      "queued_destination": null,
+      "plot_improvement_Index": 3
+    },
+    "native_legal_destination": [
+      17,
+      15,
+      677
+    ],
+    "native_path": [
+      633,
+      677
+    ],
+    "native_CanStart_MOVE": true,
+    "guarded_CanStart_MOVE": false,
+    "original_WorldInput_MoveUnitToPlot_calls": 1,
+    "actual_wrapper_return": false,
+    "UnitManager_proxy_calls": 0,
+    "native_forwarding_count": null,
+    "guard_layer": "Actual supplied BaiqiActions.WrapMove returns false for delegated civilian before retained original movement.",
+    "proxy_bindings_restored": true,
+    "visible_UnitPanel_action_categories": [
+      "OFFENSIVESPY",
+      "GAMEMODIFY",
+      "MOVE",
+      "SPECIFIC",
+      "ATTACK",
+      "BUILD",
+      "INPLACE",
+      "SECONDARY"
+    ],
+    "every_category_entries": 0,
+    "visible_GUI_actually_viewed": true,
+    "independent_UI_matches": true,
+    "independent_Core": {
+      "id": 7143468,
+      "owner": 0,
+      "type_Index": 1,
+      "xy": [
+        17,
+        14
+      ],
+      "moves": 2,
+      "formation_count": 1
+    },
+    "Core_charges_claim": false
+  },
+  "player_army_positive": {
+    "id": 1048576,
+    "owner": 0,
+    "kind": "UNIT_SCOUT",
+    "before": {
+      "xy": [
+        12,
+        16
+      ],
+      "moves": 3,
+      "formation_count": 1,
+      "pending": false,
+      "queue": null
+    },
+    "destination": {
+      "xy": [
+        12,
+        17
+      ],
+      "plot": 760,
+      "owner": 0,
+      "city": false,
+      "visible": true,
+      "primary_and_religious_layers_empty": true,
+      "war_start_targets": 0
+    },
+    "native_path": [
+      716,
+      760
+    ],
+    "native_and_guarded_CanStart_MOVE": true,
+    "original_WorldInput_MoveUnitToPlot_calls": 1,
+    "proxy_requests": 1,
+    "native_forwarding_count": null,
+    "request": {
+      "opcode": 1477390184,
+      "arity": 3,
+      "X": 12,
+      "Y": 17,
+      "modifiers": 16400,
+      "native_SDK_return_count_at_proxy": 0
+    },
+    "callback_normal_return_count": 0,
+    "proxy_bindings_restored": true,
+    "independent_UI_after": {
+      "xy": [
+        12,
+        17
+      ],
+      "moves": 1,
+      "formation_count": 1,
+      "pending": false,
+      "queue": null
+    },
+    "independent_Core_after": {
+      "type_Index": 20,
+      "xy": [
+        12,
+        17
+      ],
+      "moves": 1,
+      "formation_count": 1
+    },
+    "Builder_still_unchanged_UI_Core": true,
+    "actual_effect_poll_pairs": 1,
+    "movement_replays": 0,
+    "visible_army_panel_actually_viewed": true
+  },
+  "software": {
+    "unit_proxy_observer_checks": 18,
+    "VMs": [
+      "Lua51",
+      "Lua53"
+    ],
+    "scope": "Detached transparent observation and cleanup only; no native SDK success inferred."
+  },
+  "local_model": {
+    "full_current_task_sources": 36,
+    "UTF8_bytes": 1024448,
+    "additional_actual_dependencies": [
+      "Base/Assets/UI/Civ6Common.lua",
+      "mod/Baiqi/Lua/BaiqiActions.lua",
+      "mod/Baiqi/Lua/BaiqiRequisition.lua"
+    ],
+    "R45_missing_configured_coder_retained": true,
+    "new_probe": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "actual_parent_terminals": {
+    "ui173-unit-inventory": {
+      "utc": "2026-11-21T03:02:02.509598+00:00",
+      "tool_session": 21844,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "6a866c",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-builder-manual-move": {
+      "utc": "2026-11-21T03:04:33.711061+00:00",
+      "tool_session": 27505,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "c28502",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-army-positive-move": {
+      "utc": "2026-11-21T03:06:21.794794+00:00",
+      "tool_session": 45398,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "231801",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "new_END_or_save_or_reload": 0,
+  "limits": [
+    "High-level original movement callbacks and actual visible action lists covered. Physical move/build keyboard paths remain open pending current binding qualification.",
+    "Two positive idle Builders have no native current-tile BUILD candidate; do not manually move one as setup or count invalid build rejection as a lock pass.",
+    "Empty/two-item city queues, Missionary manual input, ordinary-leader control and city ranged attack remain required.",
+    "Old865 remains FAIL_UNRESOLVED; no persistent unknown record clearing."
+  ],
+  "next": "Preserve this135 progress through an official checkpoint, prepare legitimate ordinary-leader/empty and two-item queue controls and missing civilian keyboard/build fixtures. Continue whole-mod acceptance without reuploading Alpha3 or replaying known inputs.",
+  "private_raw_SHA256": {
+    "ui173-unit-manual-consumers-task.json": "bdc9a3b81b08642e51dc17af39dfeacb818e82438464dfff2ff22e204c414e70",
+    "ui173-unit-proxy-observer-software.json": "2d5aa119aa4398356e5a655e2a7924f1ed50dfca2696be5f1fd94d94dd35f87b",
+    "persist173-session1-UI135-native-unit-manual-eligibility-returned.json": "964869f71a9de72a7e0fe38281d0faf9cfbc575fa33df0cf97f59588268b2248",
+    "persist173-session1-UI135-original-builder-manual-move-wrapper-once-returned.json": "96cfcab338c65d35ebc79e9c7c76ffb0b8ce1df05c12b2d62f3994c18003e56e",
+    "persist173-session1-UI135-visible-builder-locked-actions-returned.json": "20b2e313515d99762c71284a021cac9ff5b82b278bf61fceec10a574d3258eec",
+    "persist173-session1-UI135-independent-builder-move-Core-returned.json": "7cbb6a14a82c36844edd066a422886d773beb8485ba5f08d36983bee966883a5",
+    "persist173-session1-UI135-original-army-positive-move-once-returned.json": "d3ab4ade4c411f5a2409f3159514eb8acb0fc2335d14fcbcbdd71f1e411afc32",
+    "persist173-session1-UI135-army-positive-UI-post-0-returned.json": "7a4fd5e97a1f47329c351ec61ef395ef82709484820e897056885aa4db29ca84",
+    "persist173-session1-UI135-army-positive-Core-post-0-returned.json": "2ab69ece4a1a0589459cc6ee65d0ec7f3f7e4332a38aec8f35a0040e899755ca",
+    "ui173-screen-visible-builder-locked.png": "f778870ebbca7c83d8a9c7756322611adc573d7f5ee73a390874c0269b9727fe",
+    "ui173-screen-army-positive-move-complete.png": "cf142fc9a09adc4c934857ba831058e9e661754e9e1629792a387c4e60b96e67"
+  }
+}
