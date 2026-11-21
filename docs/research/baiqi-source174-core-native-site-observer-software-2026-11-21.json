@@ -1,0 +1,435 @@
+{
+  "schema": "civ6.source174-Core-native-site-software/v1",
+  "utc": "2026-11-21T12:46:23.177364+00:00",
+  "source_version": 174,
+  "product_mod_files_changed": 0,
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_TC002": "OPEN_NATIVE_CORE_SCOPE_NOT_RUN",
+  "whole_cases_closed_or_retained": 8,
+  "whole_cases_total": 40,
+  "Workshop_source": 172,
+  "unpublished_product_fixes": 2,
+  "genuine_task": {
+    "prepared_before_owner_Core_implementation": true,
+    "complete_current_sources": 45,
+    "Core_literal_include_closure": 40,
+    "raw_UTF8_bytes": 349291,
+    "pcall_include_edge_corrected_before_POST": true,
+    "R55_maintenance_and_availability": {
+      "utc": "2026-11-21T12:30:04.094028+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-21",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-21T12:30:04.060691+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 8.293200051411986,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-21T12:30:04.069897+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1153,
+          "over_64KiB": false,
+          "sha256": "f4d5e78a7481c0d6e48dcc7b7dcc1d91fa791374b241d997a9595430504e7069",
+          "total_ms": 23.331200005486608
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "owner_source_review": {
+    "actual_gameplay_entry": "Lua/BaiqiGameplay.lua",
+    "literal_and_pcall_include_closure_files": 40,
+    "reviewed_native_sites": 28,
+    "counts": {
+      "SetProperty": 22,
+      "Game.SetProperty": 2,
+      "AttachModifierByID": 1,
+      "ChangeGoldBalance": 1,
+      "UnitManager.FinishMoves": 1,
+      "CityManager.TransferCity": 1
+    },
+    "sites": [
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:27:1",
+        "kind": "PLOT",
+        "method": "SetProperty",
+        "before": "plot:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:27:1','PLOT',plot,'SetProperty') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:28:2",
+        "kind": "PLOT",
+        "method": "SetProperty",
+        "before": "plot:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:28:2','PLOT',plot,'SetProperty') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:31:3",
+        "kind": "GLOBAL",
+        "method": "Game.SetProperty",
+        "before": "Game.SetProperty(",
+        "after": "P6CoreSites174.Static('Lua/BaiqiGameplay.lua:31:3','GLOBAL',Game.SetProperty)(",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:32:4",
+        "kind": "GLOBAL",
+        "method": "Game.SetProperty",
+        "before": "Game.SetProperty(",
+        "after": "P6CoreSites174.Static('Lua/BaiqiGameplay.lua:32:4','GLOBAL',Game.SetProperty)(",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:38:5",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:38:5','PLAYER',player,'SetProperty') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:47:6",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:47:6','PLAYER',player,'SetProperty') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:63:7",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:63:7','PLAYER',player,'SetProperty') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:82:8",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:82:8','PLAYER',player,'SetProperty') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:83:9",
+        "kind": "PLAYER",
+        "method": "AttachModifierByID",
+        "before": "player:AttachModifierByID(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:83:9','PLAYER',player,'AttachModifierByID') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiGameplay.lua",
+        "site": "Lua/BaiqiGameplay.lua:85:10",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGameplay.lua:85:10','PLAYER',player,'SetProperty') (",
+        "input_sha256": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      {
+        "path": "Lua/BaiqiCapture.lua",
+        "site": "Lua/BaiqiCapture.lua:20:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiCapture.lua:20:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185"
+      },
+      {
+        "path": "Lua/BaiqiCapture.lua",
+        "site": "Lua/BaiqiCapture.lua:68:2",
+        "kind": "TREASURY",
+        "method": "ChangeGoldBalance",
+        "before": "treasury:ChangeGoldBalance(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiCapture.lua:68:2','TREASURY',treasury,'ChangeGoldBalance') (",
+        "input_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185"
+      },
+      {
+        "path": "Lua/BaiqiCapture.lua",
+        "site": "Lua/BaiqiCapture.lua:89:3",
+        "kind": "UNIT",
+        "method": "SetProperty",
+        "before": "unit:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiCapture.lua:89:3','UNIT',unit,'SetProperty') (",
+        "input_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185"
+      },
+      {
+        "path": "Lua/BaiqiCapture.lua",
+        "site": "Lua/BaiqiCapture.lua:92:4",
+        "kind": "UNIT",
+        "method": "UnitManager.FinishMoves",
+        "before": "UnitManager.FinishMoves(",
+        "after": "P6CoreSites174.Static('Lua/BaiqiCapture.lua:92:4','UNIT',UnitManager.FinishMoves)(",
+        "input_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185"
+      },
+      {
+        "path": "Lua/BaiqiCapture.lua",
+        "site": "Lua/BaiqiCapture.lua:152:5",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiCapture.lua:152:5','PLAYER',player,'SetProperty') (",
+        "input_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185"
+      },
+      {
+        "path": "Lua/BaiqiCapture.lua",
+        "site": "Lua/BaiqiCapture.lua:171:6",
+        "kind": "CITY",
+        "method": "CityManager.TransferCity",
+        "before": "CityManager.TransferCity",
+        "after": "P6CoreSites174.Static('Lua/BaiqiCapture.lua:171:6','CITY',CityManager.TransferCity)",
+        "input_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185"
+      },
+      {
+        "path": "Lua/BaiqiGPIntentGameplay.lua",
+        "site": "Lua/BaiqiGPIntentGameplay.lua:47:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiGPIntentGameplay.lua:47:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "1f825d43769a40612c963b6b3097b716d56ee7aa33a66375e43cf86f4e2f5350"
+      },
+      {
+        "path": "Lua/BaiqiCreativeIntentGameplay.lua",
+        "site": "Lua/BaiqiCreativeIntentGameplay.lua:38:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiCreativeIntentGameplay.lua:38:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "be8bf3386c434b0f4e93360424efd282cee5140022834b86d02adc9a7a6825ae"
+      },
+      {
+        "path": "Lua/BaiqiReligiousIntentGameplay.lua",
+        "site": "Lua/BaiqiReligiousIntentGameplay.lua:59:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiReligiousIntentGameplay.lua:59:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "01f1d0ffc9e094227d633d1bd4fdb02cc7fe4ae3124f7cea304255a877d25e77"
+      },
+      {
+        "path": "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua",
+        "site": "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua:65:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiMissionaryPurchaseIntentGameplay.lua:65:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "be812441dcaf7c01b2ed044dfd1d09e89bde6c34b58637f601c24256e76085b0"
+      },
+      {
+        "path": "Lua/BaiqiProphetIntentGameplay.lua",
+        "site": "Lua/BaiqiProphetIntentGameplay.lua:70:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiProphetIntentGameplay.lua:70:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "2644316d08dc1ac1a17e4876e7df63f4bc1f3acccb5e442d9b47d9996c5e9818"
+      },
+      {
+        "path": "Lua/BaiqiNaturalistIntentGameplay.lua",
+        "site": "Lua/BaiqiNaturalistIntentGameplay.lua:27:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiNaturalistIntentGameplay.lua:27:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "55fcc347033d9eef53d9c4813d67e7274e02fffdd8db9629ba0db381c609eb2c"
+      },
+      {
+        "path": "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+        "site": "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua:66:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiNaturalistPurchaseIntentGameplay.lua:66:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "676a876f34ff01d6e1112c06021b3f44ef541678cb8f61b71984a6d8f83f6221"
+      },
+      {
+        "path": "Lua/BaiqiFoodTileIntentGameplay.lua",
+        "site": "Lua/BaiqiFoodTileIntentGameplay.lua:48:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "p:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiFoodTileIntentGameplay.lua:48:1','PLAYER',p,'SetProperty') (",
+        "input_sha256": "dd599762eeaff6d5c1e92fc6dfec6e00eafd9352c89367d9b9f9edeeddcaddb0"
+      },
+      {
+        "path": "Lua/BaiqiSettlementStateCore.lua",
+        "site": "Lua/BaiqiSettlementStateCore.lua:45:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiSettlementStateCore.lua:45:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "b27bd48353abea4d8baa1a6df9e030a1809cff63bb194e6dc0b06f14af4de390"
+      },
+      {
+        "path": "Lua/BaiqiSettlementIntentCore.lua",
+        "site": "Lua/BaiqiSettlementIntentCore.lua:37:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiSettlementIntentCore.lua:37:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "1fd649b4f43b80e97b7d7c88e9e0615e8f8aed333c1f90c16af5fe99ccb74fe2"
+      },
+      {
+        "path": "Lua/BaiqiSettlerGoalsCore.lua",
+        "site": "Lua/BaiqiSettlerGoalsCore.lua:66:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "p:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiSettlerGoalsCore.lua:66:1','PLAYER',p,'SetProperty') (",
+        "input_sha256": "ba8fe923d1df2d3181d8caf8cfddbb6840c1d6ad79243eac2764a2d56d05e33c"
+      },
+      {
+        "path": "Lua/BaiqiArchaeologyIntentGameplay.lua",
+        "site": "Lua/BaiqiArchaeologyIntentGameplay.lua:58:1",
+        "kind": "PLAYER",
+        "method": "SetProperty",
+        "before": "player:SetProperty(",
+        "after": "P6CoreSites174.Method('Lua/BaiqiArchaeologyIntentGameplay.lua:58:1','PLAYER',player,'SetProperty') (",
+        "input_sha256": "724277e35db8b39e5b76bd2337e3ab621b966a4dabc054a515197ecbeb6ec5ba"
+      }
+    ],
+    "roles": "Core journals, deleted legacy markers, modifier, and confirmed requisition effects are separate consumers. A confirmed city transfer may legitimately target a foreign city; source site/role must be reviewed, not classified solely by target owner. No confirmed requisition is planned for the next isolation fixture.",
+    "qualification": "The caller pins and verifies the entire119-file ordinary payload. This preparer only accepts the reviewed40-file closure and28-site counts; it does not discover arbitrary future native APIs or promise automatic completeness after source changes."
+  },
+  "diagnostic_behavior": {
+    "placement": "Private prefix before all Core gameplay includes; original native call sites replaced by uniquely identified passive wrappers. Exact inverse restores every original byte.",
+    "SDK_tables": "0 field or global manager replacements. Original SDK methods/functions stay bound.",
+    "call_order": "A colon receiver/method is evaluated once before its argument expressions. The exact native receiver and all original arguments/holes are forwarded once.",
+    "return_and_error": "Original nil-hole/arity/table identities and native error objects preserved. Nonreturning rows remain returned=false, not inferred successful.",
+    "metadata": "Frame and owner identity getters are protected, bounded, and cannot suppress the original call. Player/treasury ownership uses actual current native identity lookups; units/cities/plots use actual getters. Unknown metadata remains errors/unknown.",
+    "values": "Mutable property journals are neither traversed nor copied into evidence. Only bounded scalar key/delta facts and argument types are retained.",
+    "capacity": 4096,
+    "overflow": "Explicit dropped counter; no Native credit if records are incomplete.",
+    "lifecycle": "Freeze/retire disable observation while forwarding original calls. No live SDK restoration is required because SDK bindings were never changed. Keep the namespace until the Core context/process ends."
+  },
+  "actual_software": {
+    "command": "python -X utf8 -m unittest tests.test_diagnostic_native_sites",
+    "actual_exit": 0,
+    "chunk": "27f4ca",
+    "unittest_methods": 4,
+    "generic_scenarios": 46,
+    "generic_scenarios_each_VM": 23,
+    "actual_provider_owner_targets": 14,
+    "provider_VM_count": 2,
+    "real_Capture_scenario_pairs": 14,
+    "real_Capture_before_after_runs": 28,
+    "real_Capture_cases": [
+      "normal confirmed transfer/fee/movement",
+      "definite transfer failure",
+      "transfer effect followed by original exception",
+      "debit failure",
+      "non-Baiqi leader",
+      "different local player",
+      "native transfer method missing"
+    ],
+    "pair_checks": "Original and instrumented actual BaiqiCapture functions agree on request results, journal stage/phase, ownership, balances, move exhaustion and all native call counters; SDK writes0. Unknown native outcomes remain unknown.",
+    "actual40file_transform": "All28 insertions uniquely inverse to original bytes; missing archaeology include and alreadyinstrumented input rejected.",
+    "Lua_compilation": {
+      "sources": 97,
+      "VMs": [
+        "Lua51",
+        "Lua53"
+      ]
+    },
+    "Native_or_game_inputs": 0
+  },
+  "owner_first_test_error": {
+    "actual_exit": 1,
+    "chunk": "29abd8",
+    "cause": "Unterminated Python string while assembling a Lua fixture; failed at Python import before any scenario.",
+    "correction": "Explicit newline escape, then actual tests ran. No model or Native action."
+  },
+  "private_R4_package": {
+    "mode": "ownertrace174-r4-UI-request-and-Core-native-sites",
+    "files": 119,
+    "archive_sha256": "129e012d14b700b4c13405d37fc1fef0bcac6932f8adfeda41e89b2931f869cf",
+    "Lua_sources_compiled_each_VM": 97,
+    "actual_ZIP_names_and_bytes_verified": true,
+    "changed_files": [
+      "Lua/BaiqiController.lua",
+      "Lua/BaiqiGameplay.lua",
+      "Lua/BaiqiCapture.lua",
+      "Lua/BaiqiGPIntentGameplay.lua",
+      "Lua/BaiqiSettlementStateCore.lua",
+      "Lua/BaiqiSettlementIntentCore.lua",
+      "Lua/BaiqiSettlerGoalsCore.lua",
+      "Lua/BaiqiCreativeIntentGameplay.lua",
+      "Lua/BaiqiProphetIntentGameplay.lua",
+      "Lua/BaiqiReligiousIntentGameplay.lua",
+      "Lua/BaiqiNaturalistIntentGameplay.lua",
+      "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua",
+      "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+      "Lua/BaiqiArchaeologyIntentGameplay.lua",
+      "Lua/BaiqiAdmin.lua",
+      "Lua/BaiqiFoodTileIntentGameplay.lua"
+    ],
+    "other103_files_exact_original": true,
+    "UI_R3_Controller_and_Admin_exact_bytes_retained": true,
+    "Core_original_bytes_inverse_verified": true,
+    "Core_closure_files": 40,
+    "Core_native_site_count": 28,
+    "Core_module_sha256": "f7c213a4dbc443eb8082590783854d8dba18012cde87354e8928be371dad6a80",
+    "Core_transformer_sha256": "ea6d1e9e8c12086f9bbdb2c95137de6421b654e5ca60c2635fae6d7e467843b7",
+    "UI_R3_archive_sha256": "4a32280867f19a0714249748545df770e6955325fb04eb6cad2bdf58fa561300"
+  },
+  "current_runtime": {
+    "ordinary174_119_installed": true,
+    "game_running": false,
+    "private_R4_installed": false,
+    "new_Popen": 0,
+    "Native_Core_trace": "NOT_RUN"
+  },
+  "source_sha256": {
+    "tools/lua/diagnostic_native_sites.lua": "f7c213a4dbc443eb8082590783854d8dba18012cde87354e8928be371dad6a80",
+    "tools/diagnostic_native_sites.py": "ea6d1e9e8c12086f9bbdb2c95137de6421b654e5ca60c2635fae6d7e467843b7",
+    "tests/test_diagnostic_native_sites.py": "63274e8d63bc96ed3c6ad3b42a5afa73b8142bd213f6e2bd2cea729cd4e4e068"
+  },
+  "limits": [
+    "The software compares a meaningful transaction consumer but does not execute all28 native site branches. Real Core metadata/readback remains to be qualified.",
+    "No whole-case, ownership, performance or compatibility pass from this software package.",
+    "Any unmatched native writer or unknown owner in actual runs keepsTC002 open; do not hide unknown rows or count old UI observations as Core coverage."
+  ],
+  "next": "Back up ordinary174, install the verified privateR4 only with no game running; fresh background offline/exe proof and exactly one cold Popen/new owner. Official load protected White139, actual Continue before endpoint, qualify Core marker, namespace and metadata plus5 executor methods. Observe a real normal planning transition with retained player military/END intent accounting. Then protected Qin blank171 with passive periods. Freeze/export/save and official exit; restore ordinary119 before proceeding."
+}
