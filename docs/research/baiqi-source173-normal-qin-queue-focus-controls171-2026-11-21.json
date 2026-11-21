@@ -1,0 +1,185 @@
+{
+  "schema": "civ6.source173-normal-qin-queue-focus-controls/v1",
+  "utc": "2026-11-21T04:20:54.917333+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_ORDINARY_LEADER_APPEND_REORDER_CANCEL_AND_PRODUCTION_FOCUS",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "whole_TC004": "OPEN",
+  "whole_TC035": "OPEN",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "preceding_evidence": "baiqi-source173-normal-qin-manual-city-production-purchase171-2026-11-21.json",
+  "owner": {
+    "pid": 20592,
+    "created_at": 1795226670.42074,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "world": {
+    "leader": "LEADER_QIN",
+    "human": 0,
+    "turn": 171,
+    "city": [
+      65536,
+      0,
+      15,
+      5,
+      7
+    ],
+    "ordinary_files": 119,
+    "private_overlay": false,
+    "Controller_IsAvailable": false
+  },
+  "actual_original_consumers": [
+    "ProductionPanel.Open and OpenQueue for original queue mode",
+    "ProductionPanel.BuildUnit append UNIT_SKIRMISHER",
+    "ProductionHelper.SwapQueueItem(0,1)",
+    "ProductionHelper.RemoveQueueItem(0)",
+    "CityPanel.SetYieldFocus(YIELD_PRODUCTION.Index)"
+  ],
+  "actual_stages": {
+    "append": {
+      "original_callback_calls": 1,
+      "native_exact_eligibility": true,
+      "proxy_requests": 1,
+      "native_requests": 1,
+      "SDK_return_count": 0,
+      "bindings_exactly_restored": true,
+      "independent_queue_size": 2,
+      "head_hash": 299201842,
+      "order_UnitType_Indices": [
+        1,
+        117
+      ],
+      "Builder_progress": 0,
+      "Skirmisher_progress": 0,
+      "Builder_cost": 36,
+      "Skirmisher_cost": 100,
+      "gold": 21,
+      "faith": 268,
+      "watermill_present": true,
+      "production_favored": false,
+      "production_disfavored": false
+    },
+    "swap": {
+      "original_callback_calls": 1,
+      "native_exact_eligibility": true,
+      "proxy_requests": 1,
+      "native_requests": 1,
+      "SDK_return_count": 0,
+      "bindings_exactly_restored": true,
+      "independent_queue_size": 2,
+      "head_hash": 875594477,
+      "order_UnitType_Indices": [
+        117,
+        1
+      ],
+      "Builder_progress": 0,
+      "Skirmisher_progress": 0,
+      "Builder_cost": 36,
+      "Skirmisher_cost": 100,
+      "gold": 21,
+      "faith": 268,
+      "watermill_present": true,
+      "production_favored": false,
+      "production_disfavored": false
+    },
+    "remove": {
+      "original_callback_calls": 1,
+      "native_exact_eligibility": true,
+      "proxy_requests": 1,
+      "native_requests": 1,
+      "SDK_return_count": 0,
+      "bindings_exactly_restored": true,
+      "independent_queue_size": 1,
+      "head_hash": 299201842,
+      "order_UnitType_Indices": [
+        1
+      ],
+      "Builder_progress": 0,
+      "Skirmisher_progress": 0,
+      "Builder_cost": 36,
+      "Skirmisher_cost": 100,
+      "gold": 21,
+      "faith": 268,
+      "watermill_present": true,
+      "production_favored": false,
+      "production_disfavored": false
+    },
+    "focus": {
+      "original_callback_calls": 1,
+      "native_exact_eligibility": true,
+      "proxy_requests": 1,
+      "native_requests": 1,
+      "SDK_return_count": 0,
+      "bindings_exactly_restored": true,
+      "independent_queue_size": 1,
+      "head_hash": 299201842,
+      "order_UnitType_Indices": [
+        1
+      ],
+      "Builder_progress": 0,
+      "Skirmisher_progress": 0,
+      "Builder_cost": 36,
+      "Skirmisher_cost": 100,
+      "gold": 21,
+      "faith": 268,
+      "watermill_present": true,
+      "production_favored": true,
+      "production_disfavored": false
+    }
+  },
+  "mechanism": {
+    "append_mode": 369690394,
+    "swap_mode": -1176693892,
+    "remove_mode": 721464898,
+    "callback_vs_effect": "Each request was followed by an independent unproxied BaiqiExecutor queue/citizen/wallet/building read. No success inferred from zero native SDK return values alone.",
+    "legitimate_fixture": "Two-item queue was assembled by ordinary Qin player actions. No Baiqi city queue was manually populated.",
+    "separate_after_each": true,
+    "no_new_progress_or_refund": true
+  },
+  "actual_parent_terminal": {
+    "utc": "2026-11-21T04:19:01.875805+00:00",
+    "tool_session": 75692,
+    "actual_terminal_exit": 0,
+    "terminal_chunk": "c7df8a",
+    "actual_OS_parent_absent": true,
+    "source_records_preserved": true,
+    "no_replay": true
+  },
+  "new_END": 0,
+  "new_gold_or_faith_purchase": 0,
+  "new_save": 0,
+  "retained_result": "Builder remains first and sole queue item0/36; production focus is now favored. Existing paid Watermill and gold21/faith268 preserved.",
+  "prior_formal_save": "ManualCityPurchase171 /392552/a366a2f50a5be5733b065928d6b89284e5edf78b965d2da51237e1e3fab13d46, before these queue/focus actions. Current focus change has not yet been saved.",
+  "local_model": {
+    "R45_configured_coder_missing_retained": true,
+    "generation_POSTs": 0,
+    "new_probe": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "limits": [
+    "Ordinary callback paths only; no new physical queue/citizen-button input claim.",
+    "Baiqi two-item/empty queue and remaining keyboard/religion combinations are still open.",
+    "No whole TC004/035 promotion; old865 remains FAIL_UNRESOLVED."
+  ],
+  "next": "Continue current ordinary Qin control with native legal Builder manual movement/build and other remaining manual controls; then officially save the resulting state. Preserve White135 and normal baseline checkpoints and keep remaining Baiqi-side fixtures distinct.",
+  "private_raw_SHA256": {
+    "persist173-session1-normal-control-original-queue-append-once-returned.json": "d4b3258a640a3bc6abfd81b8b7c018e966acb674e20343d5d1e4d8636db8b034",
+    "persist173-session1-normal-control-original-queue-swap-once-returned.json": "1a4cdbf10f975a8d928b839eb51b786ece90117c44fe06f9d83c7732a4f7f86b",
+    "persist173-session1-normal-control-original-queue-remove-once-returned.json": "6bab941b471574514ef926411cc68b8e9b196f89930b347354dc90738f08a1ef",
+    "persist173-session1-normal-control-original-queue-focus-once-returned.json": "72b77fd3a1563519fb55d7b1b0a89f12f68805009e36f90b25a9d8f36f5c5d93",
+    "persist173-session1-normal-control-independent-post-append-returned.json": "6a34be87f7e13edbe15569dcedd137f2bc2ecf2f1fa519db039a6f780061e890",
+    "persist173-session1-normal-control-independent-post-swap-returned.json": "56dcff0865e9c08d6d529d6be0833d8eca510ed07604d7309113318e26161c6f",
+    "persist173-session1-normal-control-independent-post-remove-returned.json": "43e11c154c02187bb884bb9f6693a0a495123e0ade3f09724653fff8c6ebc9a1",
+    "persist173-session1-normal-control-independent-post-focus-returned.json": "0e8f90ee5d20c75508dcdf5c1d9d0a5387d5bdcfaf54ec6f0aea33e732423ab7",
+    "ui173-screen-normal-qin-queue-focus-complete.png": "8de264027f50c0a53a88b2048ca21753ac034c88b8f4d850a70bd5d9ef943d44"
+  }
+}
