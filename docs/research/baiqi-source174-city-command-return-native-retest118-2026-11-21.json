@@ -1,0 +1,274 @@
+{
+  "schema": "civ6.source174-city-return-native-retest/v1",
+  "utc": "2026-11-21T10:02:43.870794+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 174,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_COLD174_ORIGINAL_CITY_CALLBACK_RETURN_CONTRACT_AND_DENIAL",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_TC004": false,
+  "whole_cases_closed_or_impact_retained": 8,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 20.0,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 2,
+  "product_changes_this_package": 0,
+  "software_and_actual173_failure": "docs/research/baiqi-source174-city-command-nullable-return-software-2026-11-21.json",
+  "actual173_failure_fixture": {
+    "utc": "2026-11-21T09:32:14.871462+00:00",
+    "name": "Baiqi_P6_20261121_V173_CitizenTypeFail118.Civ6Save",
+    "bytes": 578657,
+    "sha256": "c2e5a6d9a397b88fcff4bcf235dea7b5ce4d1b4ecb8529dbc7912831e01d09cb",
+    "stable_repeated_read": true
+  },
+  "cold174": {
+    "all119_ordinary_installed_bytes_verified": true,
+    "original173_backup_files": 120,
+    "new_owned_PID": 23764,
+    "new_birth": 1795254476.173439,
+    "Popen": 1,
+    "fresh_background_offline_age_after_Popen_seconds": 0.022856,
+    "fresh_before_load_offline": {
+      "mode": "offline",
+      "utc": "2026-11-21T09:50:48.241665+00:00",
+      "age_seconds": 0.03857,
+      "steam_pid": 8788,
+      "steam_birth": 1795195446.682362,
+      "five_UI_side_effect_flags_false": true,
+      "native_byte_samples": [
+        1,
+        1
+      ],
+      "tray_state_samples": [
+        4,
+        4
+      ]
+    },
+    "official_same_failure_save_loads": 1,
+    "load_current_log_markers": {
+      "suffix_bytes": 3113,
+      "marker_positions": [
+        0,
+        24,
+        43
+      ],
+      "markers": [
+        "MainMenu: PAIR142_LOAD_RETURN\ttrue",
+        "BaiqiExecutor: BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "LoadScreen: OnLoadGameViewStateDone"
+      ]
+    },
+    "physical_Continue": 1,
+    "old_owner_authority_inherited": false,
+    "Steam_mode_actions": 0,
+    "Steam_restarts": 0
+  },
+  "actual_context": {
+    "turn": 118,
+    "city": 196610,
+    "owner": 0,
+    "xy": [
+      10,
+      13
+    ],
+    "population": 10,
+    "purchase_plot": 585,
+    "purchase_xy": [
+      13,
+      13
+    ],
+    "purchase_owner": -1,
+    "actual_native_purchase_target_list_membership": true,
+    "actual_price": 88,
+    "citizen_plot": 583,
+    "working_max_locked": [
+      1,
+      1,
+      0
+    ],
+    "focus_yield": 1,
+    "prior_favored_disfavored": [
+      false,
+      false
+    ]
+  },
+  "actual_readonly_widgets": [
+    "ChangeProductionCheck\ttrue",
+    "PurchaseTileCheck\ttrue",
+    "ManageCitizensCheck\ttrue",
+    "ProduceWithGoldCheck\ttrue",
+    "ProduceWithFaithCheck\ttrue",
+    "FoodCheck\ttrue",
+    "ProductionCheck\ttrue",
+    "GoldCheck\ttrue",
+    "ScienceCheck\ttrue",
+    "CultureCheck\ttrue",
+    "FaithCheck\ttrue"
+  ],
+  "original_callback_results": {
+    "purchase": {
+      "original_callback_inputs": 1,
+      "callback_OK": true,
+      "callback_return_count": 1,
+      "proxy_requests": 0,
+      "native_requests": 0,
+      "proxy_errors": 0,
+      "native_errors": 0,
+      "proxy_and_native_bindings_restored": true,
+      "full_canonical_before_after_independent_equal": true,
+      "canonical_sha256": "feff3e6ec8eb995937fc01e6fcc36b648bd03e1106846dd0cdd0108a4a3001b6",
+      "actual_request_rows": [],
+      "actual_params": []
+    },
+    "citizen": {
+      "original_callback_inputs": 1,
+      "callback_OK": true,
+      "callback_return_count": 1,
+      "proxy_requests": 1,
+      "native_requests": 0,
+      "proxy_errors": 0,
+      "native_errors": 0,
+      "proxy_and_native_bindings_restored": true,
+      "full_canonical_before_after_independent_equal": true,
+      "canonical_sha256": "feff3e6ec8eb995937fc01e6fcc36b648bd03e1106846dd0cdd0108a4a3001b6",
+      "actual_request_rows": [
+        "proxy\t1\t196610\t0\t729125427\t3\ttrue\t1\tnil\tnil"
+      ],
+      "actual_params": [
+        "proxy\t1248610884\t13",
+        "proxy\t1400339205\t11",
+        "proxy\t1041406338\t1041406338"
+      ]
+    },
+    "focus": {
+      "original_callback_inputs": 1,
+      "callback_OK": true,
+      "callback_return_count": 0,
+      "proxy_requests": 1,
+      "native_requests": 0,
+      "proxy_errors": 0,
+      "native_errors": 0,
+      "proxy_and_native_bindings_restored": true,
+      "full_canonical_before_after_independent_equal": true,
+      "canonical_sha256": "feff3e6ec8eb995937fc01e6fcc36b648bd03e1106846dd0cdd0108a4a3001b6",
+      "actual_request_rows": [
+        "proxy\t1\t196610\t0\t-1927260886\t3\ttrue\t1\tnil\tnil"
+      ],
+      "actual_params": [
+        "proxy\t-688065564\t1",
+        "proxy\t730511874\t1",
+        "proxy\t-967143770\t0"
+      ]
+    }
+  },
+  "canonical_full_typed_snapshot": "{string:buy={number:1=number:585;number:2=number:-1;number:3=number:88};string:citizens={number:494={number:1=number:1;number:2=number:1;number:3=number:0};number:495={number:1=number:1;number:2=number:1;number:3=number:0};number:538={number:1=number:1;number:2=number:1;number:3=number:0};number:539={number:1=number:1;number:2=number:1;number:3=number:0};number:540={number:1=number:1;number:2=number:1;number:3=number:0};number:580={number:1=number:1;number:2=number:1;number:3=number:0};number:581={number:1=number:1;number:2=number:1;number:3=number:0};number:582={number:1=number:1;number:2=number:0;number:3=number:0};number:583={number:1=number:1;number:2=number:1;number:3=number:0};number:584={number:1=number:0;number:2=number:2;number:3=number:0};number:624={number:1=number:0;number:2=number:1;number:3=number:0};number:625={number:1=number:0;number:2=number:1;number:3=number:0};number:626={number:1=number:1;number:2=number:1;number:3=number:0};number:669={number:1=number:1;number:2=number:1;number:3=number:0};number:670={number:1=number:0;number:2=number:1;number:3=number:0}};string:city={number:1=number:196610;number:2=number:0;number:3=number:10;number:4=number:13;number:5=number:10};string:focus={number:0={number:1=boolean:false;number:2=boolean:false};number:1={number:1=boolean:false;number:2=boolean:false};number:2={number:1=boolean:false;number:2=boolean:false};number:3={number:1=boolean:false;number:2=boolean:false};number:4={number:1=boolean:false;number:2=boolean:false};number:5={number:1=boolean:false;number:2=boolean:false}};string:queue={string:head=number:1910099296;string:items={number:0={string:Directive=number:2;string:DistrictType=number:2;string:Location={string:x=number:10;string:y=number:16};string:Modifiers=number:0}};string:size=number:1};string:territory={number:494=number:0;number:495=number:0;number:538=number:0;number:539=number:0;number:540=number:0;number:580=number:0;number:581=number:0;number:582=number:0;number:583=number:0;number:584=number:0;number:624=number:0;number:625=number:0;number:626=number:0;number:627=number:0;number:669=number:0;number:670=number:0;number:714=number:0};string:wallet={number:1=number:4708.12890625;number:2=number:475.16015625};string:yields={number:0=number:34;number:1=number:27.90234375;number:2=number:9;number:3=number:4.5;number:4=number:16.203125;number:5=number:0}}",
+  "canonical_comparison_scope": [
+    "all city-owned plot IDs/owners",
+    "all native citizen targets, workers, capacity and locks",
+    "all6 favored/disfavored yield flags and current yields",
+    "full nested queue with Campus2 at10,16",
+    "gold/faith/population/city identity and targeted purchase price/owner"
+  ],
+  "contract_fix_observed": {
+    "old173": "Original citizen callback threw expected table got boolean after one denied proxy request.",
+    "current174": "Original citizen callback completed with one nil result from guard, zero native forwarding and no typed error.",
+    "original_focus": "Completed with one nil guard result and zero native forwarding.",
+    "original_purchase": "Guarded CanStart rejected before any RequestCommand; original true handler return is not purchase success.",
+    "all_error_counters_zero": true
+  },
+  "cleanup_and_official_save": {
+    "utc": "2026-11-21T09:59:02.962093+00:00",
+    "source_version": 174,
+    "owner": {
+      "pid": 23764,
+      "created_at": 1795254476.173439,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "save": {
+      "utc": "2026-11-21T09:59:02.802839+00:00",
+      "name": "Baiqi_P6_20261121_V174_CityControlsDenied118.Civ6Save",
+      "bytes": 578584,
+      "sha256": "b73a1c1986df96843a173473ecda53b86cba4e53e382e6aa5792961df9648d09",
+      "stable_repeated_read": true
+    },
+    "all_own_world_QA_retired": true,
+    "ordinary119": true,
+    "source173_original_failure_retained": true,
+    "whole_TC004_closed": false,
+    "next": "Publish narrow actual cold retest, then ordinary leader genuine tile purchase/citizen lock/focus positives and missing empty/civilian-build/city-combat clauses."
+  },
+  "impact_reuse": {
+    "changed_payload_files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiUIGuard.lua"
+    ],
+    "other117_payload_files_exact_same": true,
+    "modinfo_only_version_changed": true,
+    "guard_only_exact_owned_noncombat_RequestCommand_result_and_comment_changed": true,
+    "full_guard_restoration_to173_text_exact": true,
+    "retained173_cases": [
+      "TC-001",
+      "TC-003",
+      "TC-005",
+      "TC-006",
+      "TC-014",
+      "TC-015",
+      "TC-020",
+      "TC-033"
+    ],
+    "retention_reason": "Actual173/.74 engine evidence retained in exact unaffected gameplay, unit/formation, queue-operation and removed-feature scopes. City command write authority unchanged and current174 readonly/denial/typed-return behavior retested. No claim all retained cases rerun in174."
+  },
+  "actual_parent_terminals": {
+    "native174-launch": {
+      "utc": "2026-11-21T09:50:13.180515+00:00",
+      "tool_session": 74849,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "7884f6",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "native174-load-failure118": {
+      "utc": "2026-11-21T09:53:48.311526+00:00",
+      "tool_session": 39356,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "9b34d3",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "native174-white-city-denials": {
+      "utc": "2026-11-21T09:57:26.964764+00:00",
+      "tool_session": 49380,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "7bc88d",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "native174-save-denials118": {
+      "utc": "2026-11-21T10:02:40.698611+00:00",
+      "tool_session": 60988,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "03825e",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "model": {
+    "new_generation_POSTs": 0,
+    "candidate_adopted": false,
+    "previous_actual_task1024_POST404_retained": true,
+    "unknown_cost": null,
+    "OpenCode_native_generation": 0
+  },
+  "limits": [
+    "Only these three original callbacks in this current174 cold-loaded118 world; ordinary positive controls still pending.",
+    "Native CanStart returning true for an invalid coordinate is not treated as complete target legality. Exact original target list, visible unowned target and quote were used here.",
+    "Explicit backend callback trials are separate from naturally disabled widgets; no claim deep QA callbacks are natural writable entries.",
+    "No manual empty-queue, civilian-build shortcut or city range-attack matrix credit from this episode. TC004 remains open.",
+    "Old8650807 remains FAIL_UNRESOLVED with unknown receipts preserved."
+  ],
+  "next": "Keep saved174118 checkpoint, use original Return to Main Menu and fresh before-load offline proof to load protected ordinary Qin baseline171 with adequate gold. Verify actual paid tile purchase, citizen lock and focus effects via original callbacks and independent state; continue missing TC004 clauses and remaining32 frozen cases. Do not stop at this delivery."
+}
