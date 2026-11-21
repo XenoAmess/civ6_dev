@@ -1,0 +1,336 @@
+{
+  "schema": "civ6.source173-real-m-key-pair/v1",
+  "utc": "2026-11-21T05:03:07.865952+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_PHYSICAL_MOVE_SHORTCUT_ORDINARY_POSITIVE_WHITE_DENIAL",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "owner": {
+    "pid": 20592,
+    "created_at": 1795226670.42074,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "actual_binding_consumer": {
+    "file": "Base/Assets/UI/Options.lua",
+    "sha256": "27e142223b9b128637a95bab0edef0a7e067fcdfaf6acd5962017ff68fc5eda5",
+    "calls": [
+      "Input.GetActionId(MoveTo)",
+      "Input.GetGestureDisplayString(action,0/1)"
+    ],
+    "actual_action_id": 35,
+    "actual_primary": "M",
+    "actual_alternate": null,
+    "default_configuration_not_used_as_runtime_proof": true
+  },
+  "normal": {
+    "leader": "LEADER_QIN",
+    "turn": 171,
+    "unit": 131073,
+    "native_move_legal": true,
+    "visible_move_action_enabled": true,
+    "physical_M_presses": 1,
+    "actual_action_trigger_count": 1,
+    "mode_before": "SELECTION",
+    "mode_after": "MOVE_TO",
+    "position_UI_Core_unchanged": [
+      14,
+      5
+    ],
+    "moves_UI_Core_unchanged": 2,
+    "formation": 1,
+    "movement_request_count": null
+  },
+  "white": {
+    "leader": "LEADER_BAIQI",
+    "turn": 135,
+    "unit": 7143468,
+    "native_move_legal": true,
+    "guarded_move_legal": false,
+    "visible_move_action_count": 0,
+    "physical_M_presses": 1,
+    "actual_action_trigger_count": 1,
+    "mode_before": "SELECTION",
+    "mode_after": "SELECTION",
+    "position_UI_Core_unchanged": [
+      17,
+      14
+    ],
+    "moves_UI_Core_unchanged": 2,
+    "charges_UI_Core_unchanged": 2,
+    "formation": 1,
+    "movement_request_count": null
+  },
+  "verified_frames": {
+    "NORMAL173_ACTUAL_MOVE_KEY_BINDING": [
+      "35",
+      "LOC_OPTIONS_HOTKEY_UNIT_MOVETO",
+      "M",
+      "nil"
+    ],
+    "NORMAL173_MOVE_KEY_NATIVE_PREMISE": [
+      "true",
+      "-1615000917",
+      "-1008159109"
+    ],
+    "NORMAL173_REAL_MOVE_KEY_OBSERVED": [
+      "35",
+      "1",
+      "0",
+      "-1615000917",
+      "-1008159109",
+      "-1008159109",
+      "-1008159109"
+    ],
+    "NORMAL173_REAL_MOVE_KEY_UI_POST": [
+      "131073",
+      "0",
+      "14",
+      "5",
+      "2",
+      "1",
+      "-1008159109"
+    ],
+    "NORMAL173_REAL_MOVE_KEY_CORE_POST": [
+      "131073",
+      "0",
+      "0",
+      "14",
+      "5",
+      "2",
+      "1"
+    ],
+    "WHITE173_ACTUAL_MOVE_KEY_BINDING": [
+      "35",
+      "M",
+      "nil"
+    ],
+    "WHITE173_MOVE_KEY_NATIVE_PREMISE": [
+      "true",
+      "false",
+      "-1615000917",
+      "-1008159109"
+    ],
+    "WHITE173_MOVE_KEY_VISIBLE_ACTION_COUNT": [
+      "0"
+    ],
+    "WHITE173_REAL_MOVE_KEY_OBSERVED": [
+      "35",
+      "1",
+      "0",
+      "-1615000917",
+      "-1615000917",
+      "-1615000917",
+      "-1008159109"
+    ],
+    "WHITE173_REAL_MOVE_KEY_UI_POST": [
+      "7143468",
+      "0",
+      "17",
+      "14",
+      "2",
+      "2",
+      "1",
+      "-1615000917"
+    ],
+    "WHITE173_REAL_MOVE_KEY_CORE_POST": [
+      "7143468",
+      "0",
+      "1",
+      "17",
+      "14",
+      "2",
+      "2",
+      "1"
+    ]
+  },
+  "real_input_evidence": {
+    "normal-physical-m-once": {
+      "utc": "2026-11-21T04:52:47.954009+00:00",
+      "key": "m",
+      "press_count": 1,
+      "reference_sha256": "f6f3a7cdaed329a31582653c74e39e48b7b0c2e47fbc26a74e688535fa403aea",
+      "input_call_returned": true
+    },
+    "white135-physical-m-once": {
+      "utc": "2026-11-21T05:00:30.300487+00:00",
+      "key": "m",
+      "press_count": 1,
+      "reference_sha256": "3504415285ed11bc9031fa086988d5909014c11b760f1090c90417de6591c22f",
+      "input_call_returned": true
+    }
+  },
+  "read_only_event_witnesses": {
+    "actual_Add_each": 1,
+    "actual_Remove_each": 1,
+    "exact_handler_removed": true,
+    "namespaces_cleared": true,
+    "no_synthetic_InputActionTriggered": true,
+    "no_private_upvalue_or_metatable_bypass": true
+  },
+  "IME_observation": "Chinese composition UI appeared for both presses. Actual in-game event35 counted1 each; normal mode changed and White stayed locked, so key delivery is independently established rather than assumed from SendInput ACK.",
+  "world_transition": {
+    "normal_official_save_preserved": {
+      "utc": "2026-11-21T04:48:02.387348+00:00",
+      "name": "Qin_P6_20261121_V173_ResearchPolicies171.Civ6Save",
+      "bytes": 392682,
+      "sha256": "cddc81a3f6e1deea2e9f8d4ecb4d78b8d52e90c58e9534eca2edd8edd7491145",
+      "stable_repeated_read": true
+    },
+    "normal_to_menu": "Real visible hamburger, Return Main Menu and Yes once each; later fresh screenshot actual MainMenu. Initial post-ACK screenshot was still pause and was not counted as completion.",
+    "fresh_background_offline": {
+      "mode": "offline",
+      "utc": "2026-11-21T04:56:49.142247+00:00",
+      "age_seconds": 0.003713,
+      "steam_pid": 8788,
+      "steam_birth": 1795195446.682362,
+      "five_UI_side_effect_flags_false": true,
+      "native_byte_samples": [
+        1,
+        1
+      ],
+      "tray_state_samples": [
+        4,
+        4
+      ]
+    },
+    "Steam_mode_actions": 0,
+    "new_Popen": 0,
+    "official_load_white_save": {
+      "utc": "2026-11-21T03:09:45.401525+00:00",
+      "name": "Baiqi_P6_20261121_V173_ReadonlyControls135.Civ6Save",
+      "bytes": 597803,
+      "sha256": "e37b6f1fea212f6bcb75109c9435e76fbd08da6ad788da8a0d63b685e4f35672",
+      "stable_repeated_read": true
+    },
+    "load_requests": 1,
+    "load_log_order": {
+      "suffix_bytes": 3434,
+      "marker_positions": [
+        0,
+        24,
+        43
+      ],
+      "markers": [
+        "MainMenu: PAIR142_LOAD_RETURN\ttrue",
+        "BaiqiExecutor: BAIQI|ui_controller_loaded|version=2|mandatory_admin=true",
+        "LoadScreen: OnLoadGameViewStateDone"
+      ]
+    },
+    "physical_continue": 1,
+    "actual_restored_White_entry": [
+      [
+        "13",
+        "917516",
+        "26",
+        "19",
+        "1",
+        "-764771404",
+        "3",
+        "12",
+        "17",
+        "1",
+        "17",
+        "14",
+        "2",
+        "2",
+        "40",
+        "4"
+      ]
+    ],
+    "legacy_boundaries": [
+      [
+        "OBSERVED",
+        "LEGACY_UNKNOWN"
+      ]
+    ]
+  },
+  "actual_parent_terminals": {
+    "normal173-move-key-prepare": {
+      "utc": "2026-11-21T04:52:37.323796+00:00",
+      "tool_session": 82022,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "5465f5",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "normal173-move-key-post": {
+      "utc": "2026-11-21T04:54:27.985225+00:00",
+      "tool_session": 79651,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "865ac8",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "white173-keys135-load": {
+      "utc": "2026-11-21T04:58:03.227225+00:00",
+      "tool_session": 22594,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "101b15",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "white173-move-key-prepare": {
+      "utc": "2026-11-21T04:59:56.454170+00:00",
+      "tool_session": 86830,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "0269bc",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "white173-move-key-post": {
+      "utc": "2026-11-21T05:03:04.199900+00:00",
+      "tool_session": 20943,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "b53e78",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "normal_post_actual_tool_terminal": {
+    "exit": 0,
+    "chunk": "437fdf",
+    "earlier_record_chunk_865ac8_was_stream_output_not_terminal": true
+  },
+  "new_END": 0,
+  "new_save_after_keys": 0,
+  "model": {
+    "actual_full_input_sources": 46,
+    "input_UTF8_bytes": 1281799,
+    "R46_configured_coder_missing_retained": true,
+    "new_probe": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "limits": [
+    "This is the physical movement shortcut branch, not all TC004 or TC035. No unit movement inferred from mode alone.",
+    "Remaining White native-buildable manual build, queue fixtures, missionary input and other original controls stay open.",
+    "Old8650807 remains FAIL_UNRESOLVED; retained legacy unknown was not cleared or replayed."
+  ],
+  "next": "Continue current ordinary White135 native legal missionary/manual-control and native-buildable/queue fixtures; preserve normal171 checkpoint, then begin fresh White leader/start-capital cases and remaining finite40 matrix.",
+  "private_raw_SHA256": {
+    "persist173-session1-normal-actual-move-key-binding-and-original-settler-select-returned.json": "fbcb76ae2fcd1b2b7c4655eba34fc114802cc53d72c1c3fc6a9ab9ff845ab463",
+    "persist173-session1-normal-legal-move-key-visible-action-and-witness-returned.json": "bc1cb3a6035300310807f66dd737422b899781784b3d2b939fdd9188fbaac929",
+    "persist173-session1-normal-real-m-key-independent-core-returned.json": "bb9c13ff380d21cf503c71142cd1368612216c9f144d7069a4585727469740f4",
+    "persist173-session1-normal-real-m-key-independent-ui-returned.json": "d805284330be2c3c1d6a7bdb8bc75471dfc12b20865f41c9435de03debbe6fd2",
+    "persist173-session1-normal-real-m-key-observed-and-witness-retired-returned.json": "b79d1f6d84647c36dcc6fb3380ca123f177b33ff335fb0cf98301d20a7c1713f",
+    "persist173-session1-white-actual-m-key-binding-and-original-builder-select-returned.json": "662a38f7f7e8bafbb753cc9c4faa89405ad99c3e1fdef51b83e6fac292b7afe2",
+    "persist173-session1-white-native-legal-guarded-move-key-action-lock-and-witness-returned.json": "325ceb7c059d9efca0e544beb0a9b8c2f16ef7839d27abfdff1a8dcc29ebaa51",
+    "persist173-session1-white-real-m-key-independent-core-returned.json": "c1324b4ca8ee59370148b6936d2bb56c97d30a24a1ee14b57202ed89b008d0be",
+    "persist173-session1-white-real-m-key-independent-ui-returned.json": "5649f663dc6b53765a9f57cb969c05252f8a0685a4919e9b9391b48bb7441b99",
+    "persist173-session1-white-real-m-key-observed-locked-and-witness-retired-returned.json": "962334d8c529138b9ed80e220d5cfa7267cdda5c09aed60f8b791fb47a53bf0a"
+  }
+}
