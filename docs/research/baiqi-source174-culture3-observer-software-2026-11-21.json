@@ -1,0 +1,174 @@
+{
+  "schema": "civ6.source174-culture3-observer-software/v1",
+  "utc": "2026-11-21T13:35:39.756194+00:00",
+  "source_version": 174,
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_TC002": "OPEN_NATIVE_CULTURE3_PENDING",
+  "whole_cases_closed_or_retained": 8,
+  "whole_cases_total": 40,
+  "unpublished_product_fixes": 2,
+  "product_mod_files_changed": 0,
+  "prepared_genuine_task_before_owner_implementation": {
+    "source_count": 10,
+    "raw_UTF8_bytes": 465567,
+    "R56": {
+      "utc": "2026-11-21T13:30:11.946801+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-21",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-21T13:30:11.918129+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 21.651099901646376,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-21T13:30:11.940819+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1153,
+          "over_64KiB": false,
+          "sha256": "2a26a1dc4808c477e27356d83a05b4b35ae8dc948f6913b705c79b60027aae18",
+          "total_ms": 4.842099966481328
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidate_adopted": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "implementation": {
+    "pure_preparer": "tools/diagnostic_culture_sites.py",
+    "passive_forwarder_reused_unchanged": "tools/lua/diagnostic_native_sites.lua",
+    "namespace": "P6CultureSites174",
+    "sites": [
+      {
+        "site": "Lua/BaiqiAdmin.lua:768:1",
+        "method": "RequestChangeGovernment",
+        "line": 768,
+        "before": "culture:RequestChangeGovernment(",
+        "after": "P6CultureSites174.Method('Lua/BaiqiAdmin.lua:768:1','PLAYER',culture,'RequestChangeGovernment')("
+      },
+      {
+        "site": "Lua/BaiqiAdmin.lua:775:2",
+        "method": "SetGovernmentChangeConsidered",
+        "line": 775,
+        "before": "culture:SetGovernmentChangeConsidered(",
+        "after": "P6CultureSites174.Method('Lua/BaiqiAdmin.lua:775:2','PLAYER',culture,'SetGovernmentChangeConsidered')("
+      },
+      {
+        "site": "Lua/BaiqiAdmin.lua:864:3",
+        "method": "RequestPolicyChanges",
+        "line": 864,
+        "before": "culture:RequestPolicyChanges(",
+        "after": "P6CultureSites174.Method('Lua/BaiqiAdmin.lua:864:3','PLAYER',culture,'RequestPolicyChanges')("
+      }
+    ],
+    "target_identity": "The actual native Culture object is compared to Players[pid]:GetCulture for each finite current alive ID; exactly1 match required. Owner metadata uses PLAYER kind and owner/id identify the owning player. Ambiguous or unavailable getters increase metadata errors, never suppress original calls.",
+    "SDK_fields_or_manager_global_replacements": 0,
+    "mutable_parameter_tables_traversed": false,
+    "call_semantics": "Bind original method and actual Culture receiver before arguments; forward once preserving args, nil-hole arity, return identities and original error. Freeze leaves transparent source forwarders until context ends.",
+    "input_qualification": "Caller verifies all119 current original/R4 bytes. Only exact3 reviewed culture sites are accepted; each unique insertion inverses to original bytes. No claim arbitrary future API discovery."
+  },
+  "actual_software": {
+    "command": "python -X utf8 -m unittest tests.test_diagnostic_culture_sites",
+    "exit": 0,
+    "chunk": "e58dbc",
+    "unittest_methods": 3,
+    "real_Admin_cases": [
+      "government",
+      "retained",
+      "policies",
+      "non-baiqi",
+      "non-human",
+      "inactive",
+      "multiplayer",
+      "hotseat",
+      "strategic-denied",
+      "missing-player"
+    ],
+    "VMs": [
+      "Lua51",
+      "Lua53"
+    ],
+    "actual_Admin_before_after_pairs": 20,
+    "actual_Admin_runs": 40,
+    "checks": "Original and transformed real BaiqiAdmin agree on research requests, all3 culture write effects, policy slots, government requests/retention/current state. Instrumented rows have actual7 owner targets; every rejected permission case has0 direct writes.",
+    "provider_scope": "Both VMs test native read-only targets, foreign owner1/local0, ambiguous identity error forwarding, original native exception identity/nonreturn row, nil-hole returns and frozen forwarding. No SDK writes.",
+    "whole_payload_Lua_double_compile": 97,
+    "inverse_and_missing_or_occupied_input_rejected": true,
+    "Native_or_game_inputs": 0
+  },
+  "private_R5": {
+    "mode": "ownertrace174-r5-UI5-Core28-Culture3",
+    "files": 119,
+    "archive_sha256": "92a5e2ae800cbe27a79ddff8b293c790ba280e4eeeabcca13f1e4eafe4aeabdc",
+    "Lua_sources_compiled_each_VM": 97,
+    "actual_ZIP_names_and_bytes_verified": true,
+    "changed_files": [
+      "Lua/BaiqiController.lua",
+      "Lua/BaiqiGameplay.lua",
+      "Lua/BaiqiCapture.lua",
+      "Lua/BaiqiGPIntentGameplay.lua",
+      "Lua/BaiqiSettlementStateCore.lua",
+      "Lua/BaiqiSettlementIntentCore.lua",
+      "Lua/BaiqiSettlerGoalsCore.lua",
+      "Lua/BaiqiCreativeIntentGameplay.lua",
+      "Lua/BaiqiProphetIntentGameplay.lua",
+      "Lua/BaiqiReligiousIntentGameplay.lua",
+      "Lua/BaiqiNaturalistIntentGameplay.lua",
+      "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua",
+      "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua",
+      "Lua/BaiqiArchaeologyIntentGameplay.lua",
+      "Lua/BaiqiAdmin.lua",
+      "Lua/BaiqiFoodTileIntentGameplay.lua"
+    ],
+    "other103_files_exact_original": true,
+    "only_R4_Admin_changed": true,
+    "other118_R4_files_exact": true,
+    "Culture_original_bytes_inverse_verified": true,
+    "Culture_source_site_count": 3,
+    "Culture_module_sha256": "f7c213a4dbc443eb8082590783854d8dba18012cde87354e8928be371dad6a80",
+    "Culture_transformer_sha256": "21f70c78508083ba62361c0af7395c8c070513716d220824bef9fc346db2a1bb",
+    "R4_archive_sha256": "129e012d14b700b4c13405d37fc1fef0bcac6932f8adfeda41e89b2931f869cf"
+  },
+  "source_sha256": {
+    "tools/diagnostic_culture_sites.py": "21f70c78508083ba62361c0af7395c8c070513716d220824bef9fc346db2a1bb",
+    "tests/test_diagnostic_culture_sites.py": "24f45e9d50ff913d9b2c703c78faafea634061535525bdf94d8dbc225c6a7bfb"
+  },
+  "current_runtime": {
+    "ordinary174_all119_installed": true,
+    "game_running": false,
+    "private_R5_installed": false,
+    "new_Popen": 0,
+    "Native": "NOT_RUN"
+  },
+  "limits": [
+    "Software success is not Native Culture object identity qualification or wholeTC002 pass.",
+    "Retain UI5/Core28 actual R4 evidence separately; do not reuse old process ownership as the next live tuple.",
+    "No performance/longrun/other-case credit; unresolved865 remains untouched."
+  ],
+  "next": "Install verified R5 only with no game running and new119 backup. Fresh background offline/exe proof and one cold Popen/new exact owner. Official load protected White140, Continue and actual endpoint; qualify all3 namespaces and native Culture identity, observe actual periodic planning and bounded normal nextturn as needed. Then protected Qin blank171 passive window with zero test player domestic input. Export/freeze/save/normal exit, restore ordinary119 and assess wholeTC002."
+}
