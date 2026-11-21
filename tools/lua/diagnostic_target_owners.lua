@@ -7,8 +7,9 @@ function M.Install(o)
  assert(type(o)=='table'and type(o.context)=='string'and type(o.getPublished)=='function'and type(o.publish)=='function'and type(o.getManager)=='function'and type(o.unpack)=='function'and type(o.game)=='table'and type(o.game.GetCurrentGameTurn)=='function'and type(o.game.GetLocalPlayer)=='function')
  assert(o.getPublished()==nil,'Occupied diagnostic namespace')
  local cap=o.capacity or 256;assert(Integer(cap)and cap>=1 and cap<=1024)
- local s={writeCalls=0,tickCalls=0,metadataErrors=0,afterErrors=0,dropped=0,rows={},active=true,retired=false}
+ local s={writeCalls=0,tickCalls=0,metadataErrors=0,afterErrors=0,dropped=0,rows={},ticks={},active=true,retired=false}
  local bindings={}
+ local planningScope,scopeDepth=nil,0
  local function Copy(value,depth,seen,budget)
   if value==nil or Scalar(value)then return value end
   assert(type(value)=='table'and depth<4 and not seen[value],'Unsupported diagnostic parameter')
@@ -17,9 +18,20 @@ function M.Install(o)
   seen[value]=nil;return result
  end
  local function Before(b,args)
-  if b.kind=='TICK'then s.tickCalls=s.tickCalls+1 else s.writeCalls=s.writeCalls+1 end
+  if b.kind=='TICK'then
+   s.tickCalls=s.tickCalls+1;local r=b.summary;r.calls=r.calls+1;r.argumentCount=args.n
+   local ok,err=pcall(function()
+    local turn,owner=o.game.GetCurrentGameTurn(),o.game.GetLocalPlayer();assert(Integer(turn)and Integer(owner),'Unknown planning authority')
+    r.firstTurn=r.firstTurn or turn;r.lastTurn=turn;r.localPlayer=owner
+    if r.owners[owner]==nil then r.ownerCount=r.ownerCount+1;assert(r.ownerCount<=128,'Planning owner bound');r.owners[owner]=0 end
+    r.owners[owner]=r.owners[owner]+1;r.metadataKnown=true
+   end)
+   if not ok then s.metadataErrors=s.metadataErrors+1;r.metadataErrors=r.metadataErrors+1;r.metadataKnown=false;r.metadataErrorType=type(err)end
+   return r
+  end
+  s.writeCalls=s.writeCalls+1
   if #s.rows>=cap then s.dropped=s.dropped+1;return nil end
-  local row={sequence=#s.rows+1,context=o.context,domain=b.domain,method=b.key,kind=b.kind,argumentCount=args.n,metadataKnown=false,returned=false};s.rows[#s.rows+1]=row
+  local row={sequence=#s.rows+1,context=o.context,domain=b.domain,method=b.key,kind=b.kind,argumentCount=args.n,metadataKnown=false,returned=false,planningScope=planningScope or'UNSCOPED',scopeDepth=scopeDepth};s.rows[#s.rows+1]=row
   local ok,err=pcall(function()
    row.turn=o.game.GetCurrentGameTurn();row.localPlayer=o.game.GetLocalPlayer();assert(Integer(row.turn)and Integer(row.localPlayer),'Unknown current authority')
    if b.kind=='ACTOR'then
@@ -43,9 +55,16 @@ function M.Install(o)
    if not s.active or s.paused then return b.original(...)end
    local args=Pack(...);local known,row=pcall(Before,b,args)
    if not known then s.metadataErrors=s.metadataErrors+1;row=nil end
-   local ret=Pack(b.original(...))
-   if row then local ok=pcall(function()row.returned=true;row.returnCount=ret.n end);if not ok then s.afterErrors=s.afterErrors+1 end end
-   return o.unpack(ret,1,ret.n)
+   local ret
+   if b.kind=='TICK'then
+    local priorScope,priorDepth=planningScope,scopeDepth;planningScope=b.domain..'.'..b.key;scopeDepth=scopeDepth+1
+    ret=Pack(pcall(b.original,...));planningScope,scopeDepth=priorScope,priorDepth
+    if not ret[1]then error(ret[2],0)end
+   else ret=Pack(b.original(...))end
+   if row then local ok=pcall(function()
+    if b.kind=='TICK'then row.returned=row.returned+1;row.lastReturnCount=ret.n-1 else row.returned=true;row.returnCount=ret.n end
+   end);if not ok then s.afterErrors=s.afterErrors+1 end end
+   return o.unpack(ret,b.kind=='TICK'and 2 or 1,ret.n)
   end
   return b
  end
@@ -63,7 +82,10 @@ function M.Install(o)
  if not ok then s.active=false;Rollback();error(err,0)end
  function s.AddTick(domain,target,key)
   assert(s.active and not s.retired and not s.paused and s.BindingKnown())
-  local b=Build(domain,key,'TICK',target);b.tick=true;target[key]=b.wrapper;assert(target[key]==b.wrapper);bindings[#bindings+1]=b
+  assert(#s.ticks<16,'Planning method bound')
+  local b=Build(domain,key,'TICK',target);b.tick=true
+  b.summary={context=o.context,domain=domain,method=key,kind='TICK',calls=0,returned=0,metadataErrors=0,owners={},ownerCount=0}
+  target[key]=b.wrapper;assert(target[key]==b.wrapper);bindings[#bindings+1]=b;s.ticks[#s.ticks+1]=b.summary
  end
  function s.BindingKnown()
   if o.getPublished()~=s then return false end
