@@ -1525,12 +1525,137 @@ end
 -- A newly recruited civilian can share its spawn tile with an idle civilian,
 -- making native SKIP illegal. Move only that unescorted civilian out of the
 -- overlap, after its normal task and wait have both failed. Never roam alone.
+function settlementCache.EvacuateOverlap(ctx,player,state,unit,prewrite)
+  local id,kind,start,key=unit:GetID(),unit:GetUnitType(),UnitIndex(unit),UnitKey(unit)
+  local def=GameInfo.Units[kind]
+  if not start or not def or (def.UnitType~="UNIT_BUILDER" and def.UnitType~="UNIT_SETTLER") then return false end
+  local name,stamp,epoch=def.UnitType,turn,settlementWorldEpoch
+  local manager,vis=UnitManager,visibility
+  local bindings={can=manager.CanStartOperation,writer=manager.RequestOperation,
+    queue=manager.GetQueuedDestination,path=manager.GetMoveToPathEx,activity=manager.GetActivityType,
+    byIndex=Map.GetPlotByIndex,coordinate=Map.GetPlot,adjacent=Map.GetAdjacentPlot,distance=Map.GetPlotDistance,
+    primary=Units.GetUnitsInPlot,religious=Units.GetUnitsInPlotLayerID,
+    visible=vis.IsVisible,revealed=vis.IsRevealed,operation=UnitOperationTypes.MOVE_TO}
+  local skipRow=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN
+  local skip=skipRow and skipRow.Hash
+  if type(bindings.can)~="function" or type(bindings.writer)~="function"
+    or type(bindings.queue)~="function" or type(bindings.path)~="function"
+    or type(bindings.activity)~="function" or not BaiqiPolicy.Number(skip)
+    or not ActivityTypes or ActivityTypes.ACTIVITY_AWAKE==nil then return false end
+  local function False(ok,...)return ok==true and select("#",...)==1 and (...)==false end
+  local function True(ok,...)return ok==true and select("#",...)==1 and (...)==true end
+  local function Bound()
+    return UnitManager==manager and manager.CanStartOperation==bindings.can
+      and manager.RequestOperation==bindings.writer and manager.GetQueuedDestination==bindings.queue
+      and manager.GetMoveToPathEx==bindings.path and manager.GetActivityType==bindings.activity
+      and Map.GetPlotByIndex==bindings.byIndex and Map.GetPlot==bindings.coordinate
+      and Map.GetAdjacentPlot==bindings.adjacent and Map.GetPlotDistance==bindings.distance
+      and Units.GetUnitsInPlot==bindings.primary and Units.GetUnitsInPlotLayerID==bindings.religious
+      and visibility==vis and PlayersVisibility[ctx.player]==vis
+      and vis.IsVisible==bindings.visible and vis.IsRevealed==bindings.revealed
+      and UnitOperationTypes.MOVE_TO==bindings.operation
+      and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN==skipRow and skipRow.Hash==skip
+  end
+  local function Idle(current)
+    return type(current.HasPendingOperations)=="function" and False(pcall(current.HasPendingOperations,current))
+      and type(current.IsDead)=="function" and False(pcall(current.IsDead,current))
+      and type(current.IsDelayedDeath)=="function" and False(pcall(current.IsDelayedDeath,current))
+      and SettlerQueueIdle(current,GameInfo.Units[current:GetUnitType()].UnitType)
+  end
+  local function KnownThreat(here,p)
+    local cache={}
+    if Safe(here,p,cache) then return false end
+    -- A failed geometry/layer read is not evidence of a hostile origin.
+    for index,safe in pairs(cache) do
+      if safe==false then
+        local cell=bindings.byIndex(index)
+        if cell and cell:GetIndex()==index and Revealed(cell) and vis:IsVisible(cell:GetX(),cell:GetY())==true then
+          local units=GetVisibleUnits(cell)
+          for _,other in ipairs(units or {}) do
+            local owner=other:GetOwner()
+            if GeometryInteger(owner) and owner~=ctx.player and other:GetX()==cell:GetX() and other:GetY()==cell:GetY() then
+              local diplomacy=p:GetDiplomacy()
+              if True(pcall(diplomacy.IsAtWarWith,diplomacy,owner)) then return true end
+            end
+          end
+        end
+      end
+    end
+    return false
+  end
+  local function Fresh(target,index,x,y)
+    local ok,current=pcall(function()
+      local c,p,s=PlayerContext();local u=p and p:GetUnits():FindID(id)
+      if not c or c.player~=ctx.player or not CoreIdle() or not Bound() or turn~=stamp
+        or Game.GetCurrentGameTurn()~=stamp or settlementWorldEpoch~=epoch or pendingUnits[id]~=nil
+        or unitEvaluated[key]~=true or not BaiqiPolicy.MatchesID(u,id) or u:GetOwner()~=ctx.player
+        or u:GetUnitType()~=kind or UnitKey(u)~=key or UnitIndex(u)~=start
+        or not BaiqiPolicy.CanCivilian(c,UnitSnapshot(u,s)) or u:GetFormationUnitCount()~=1
+        or type(u.IsReadyToMove)~="function" or u:IsReadyToMove()~=true
+        or type(u.IsReadyToSelect)~="function" or u:IsReadyToSelect()~=true
+        or bindings.activity(u)~=ActivityTypes.ACTIVITY_AWAKE or not Idle(u)
+        or (name=="UNIT_SETTLER" and SettlementHeld(u)~=false) then return nil end
+      if name=="UNIT_BUILDER" then
+        local charges=type(u.GetBuildCharges)=="function" and u:GetBuildCharges()
+        if not GeometryInteger(charges) or charges<=0 then return nil end
+      end
+      local here=UnitPlot(u)
+      if not here or here:GetOwner()~=ctx.player or not Revealed(here)
+        or vis:IsVisible(here:GetX(),here:GetY())~=true or not KnownThreat(here,p) then return nil end
+      local _,primary,religious=GetVisibleUnits(here)
+      if type(primary)~="table" or type(religious)~="table" or next(religious)~=nil then return nil end
+      local overlap=false;local count=0
+      for _,other in pairs(primary) do
+        count=count+1;local row=GameInfo.Units[other:GetUnitType()]
+        if count>64 or not row or other:GetOwner()~=ctx.player
+          or other:GetX()~=here:GetX() or other:GetY()~=here:GetY() then return nil end
+        if other:GetID()~=id and (row.UnitType=="UNIT_BUILDER" or row.UnitType=="UNIT_SETTLER") then
+          if other:GetFormationUnitCount()~=1 or pendingUnits[other:GetID()]~=nil or not Idle(other)
+            or (row.UnitType=="UNIT_SETTLER" and SettlementHeld(other)~=false) then return nil end
+          overlap=true
+        end
+      end
+      if not overlap or not False(pcall(bindings.can,u,skip,nil,{})) then return nil end
+      local cell=bindings.byIndex(index)
+      if not cell or cell:GetIndex()~=index or cell:GetX()~=x or cell:GetY()~=y
+        or cell:GetOwner()~=ctx.player or cell:IsWater()~=false or cell:IsImpassable()~=false
+        or not Revealed(cell) or vis:IsVisible(x,y)~=true
+        or bindings.distance(here:GetX(),here:GetY(),x,y)~=1 or not Safe(cell,p) then return nil end
+      local _,a,b=GetVisibleUnits(cell)
+      if type(a)~="table" or type(b)~="table" or next(a)~=nil or next(b)~=nil then return nil end
+      local path=bindings.path(u,index);local plots=type(path)=="table" and path.plots
+      if type(plots)~="table" or #plots~=2 or plots[1]~=start or plots[2]~=index then return nil end
+      local n=0;for k in pairs(plots) do n=n+1;if k~=1 and k~=2 then return nil end end
+      if n~=2 or not Bound() or not CoreIdle() or settlementWorldEpoch~=epoch then return nil end
+      return u
+    end)
+    return ok and current or nil
+  end
+  local here=UnitPlot(unit);if not here then return false end
+  local candidates={}
+  for d=0,5 do local plot=Map.GetAdjacentPlot(here:GetX(),here:GetY(),d);if plot then candidates[#candidates+1]=plot end end
+  table.sort(candidates,function(a,b)return a:GetIndex()<b:GetIndex()end)
+  for _,plot in ipairs(candidates) do
+    local index,x,y=plot:GetIndex(),plot:GetX(),plot:GetY()
+    local function Guard()
+      if not Fresh(plot,index,x,y) then return false end
+      if prewrite and prewrite(plot,index,x,y,true)~=true then return false end
+      return Fresh(plot,index,x,y)~=nil
+    end
+    local current=Fresh(plot,index,x,y)
+    if current and RequestCivilian(ctx,state,current,"MOVE_TO",plot,nil,Guard) then
+      Log("civilian_evacuation","unit="..id.."|from="..start.."|plot="..index.."|reason=threatened_overlap")
+      return true
+    end
+  end
+  return false
+end
+
 local function ClearCivilianOverlap(ctx,player,state,unit,prewrite)
   local here=UnitPlot(unit)
   local def=GameInfo.Units[unit:GetUnitType()]
   if not def or not BaiqiPolicy.ActionAllowed(def.UnitType,"MOVE_TO") or not here
-    or here:GetOwner()~=ctx.player or not visibility:IsVisible(here:GetX(),here:GetY())
-    or not Safe(here,player) then return false end
+    or here:GetOwner()~=ctx.player or not visibility:IsVisible(here:GetX(),here:GetY()) then return false end
   local overlap=false
   local units = GetVisibleUnits(here)
   if units == nil then return false end
@@ -1540,6 +1665,7 @@ local function ClearCivilianOverlap(ctx,player,state,unit,prewrite)
       and (BaiqiPolicy.CivilianType(row.UnitType) or row.FormationClass=="FORMATION_CLASS_CIVILIAN") then overlap=true;break end
   end
   if not overlap then return false end
+  if not Safe(here,player) then return settlementCache.EvacuateOverlap(ctx,player,state,unit,prewrite) end
   local function FreeSlot(plot)
     local _,primary,religious=GetVisibleUnits(plot)
     if type(primary)~="table"or type(religious)~="table"or next(religious)~=nil then return false end
@@ -5342,7 +5468,7 @@ local function RetryCivilianOverlap(ctx,player,state,unit)
   end
   local fresh=Fresh()
   if not fresh or not False(pcall(can,fresh,skip,nil,{}))or not Fresh()then return false end
-  return ClearCivilianOverlap(ctx,player,state,fresh,function(plot,target,x,y)
+  return ClearCivilianOverlap(ctx,player,state,fresh,function(plot,target,x,y,evacuating)
     local current=Fresh();local cell=byIndex(target)
     if not current or not cell or cell:GetIndex()~=target or cell:GetX()~=x or cell:GetY()~=y
       or cell:GetOwner()~=ctx.player or cell:IsWater()~=false or cell:IsImpassable()~=false
@@ -5351,7 +5477,7 @@ local function RetryCivilianOverlap(ctx,player,state,unit)
     return here~=nil and here:GetOwner()==ctx.player and Revealed(here)
       and visibility:IsVisible(here:GetX(),here:GetY())==true
       and Map.GetPlotDistance(here:GetX(),here:GetY(),x,y)==1
-      and Safe(here,player)and Safe(cell,player)and CivilianMoveTarget(here,cell,current,ctx.player)==true
+      and (evacuating==true or Safe(here,player))and Safe(cell,player)and CivilianMoveTarget(here,cell,current,ctx.player)==true
   end)
 end
 
