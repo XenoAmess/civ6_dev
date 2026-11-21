@@ -1,0 +1,536 @@
+{
+  "schema": "civ6.source173-freshgame-capital-mandatory/v1",
+  "utc": "2026-11-21T06:46:20.230527+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": {
+    "TC-001": "PASS_TC001_CURRENT173_ENGINE74_FRESH_GS_AND_ORDINARY_RELOAD",
+    "TC-003": "PASS_TC003_CURRENT173_ENGINE74_FRESH_GS_AND_ORDINARY_RELOAD",
+    "TC-014": "PASS_TC014_CURRENT173_ENGINE74_FRESH_GS_AND_ORDINARY_RELOAD"
+  },
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 6,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 15,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "owner_pid_birth": {
+    "pid": 20592,
+    "birth": 1795226670.42074
+  },
+  "configuration": {
+    "utc": "2026-11-21T06:25:31.952584+00:00",
+    "leader": "LEADER_BAIQI",
+    "era": "ERA_ANCIENT",
+    "speed": "GAMESPEED_QUICK",
+    "map_size": "MAPSIZE_DUEL",
+    "ruleset": "RULESET_EXPANSION_2",
+    "new_game_started": false,
+    "source_version": 173,
+    "private_passive_observer_installed": true
+  },
+  "start": {
+    "original_callback_inputs": 1,
+    "qualified_background_offline": {
+      "mode": "offline",
+      "utc": "2026-11-21T06:26:33.121146+00:00",
+      "age_seconds": 0.003791,
+      "steam_pid": 8788,
+      "steam_birth": 1795195446.682362,
+      "five_UI_side_effect_flags_false": true,
+      "native_byte_samples": [
+        1,
+        1
+      ],
+      "tray_state_samples": [
+        4,
+        4
+      ]
+    },
+    "Host_log_current_order": [
+      0,
+      1,
+      131,
+      150
+    ],
+    "physical_Begin": 1,
+    "manual_civilian_orders": 0,
+    "army_scouting_orders": 0,
+    "setup_grants": 0,
+    "new_Popen": 0,
+    "Steam_mode_actions": 0
+  },
+  "TC001": {
+    "actual_selection_and_load_screen": "White Baiqi portrait, 白绮 and 为我前驱 with complete localized ability text; actual native configured value白绮 and no bare localization key in the viewed UI.",
+    "actual_UI_identity": [
+      "0",
+      "LEADER_BAIQI",
+      "true"
+    ],
+    "loaded_trait": [
+      [
+        "LEADER_BAIQI",
+        "TRAIT_LEADER_BAIQI_FORERUNNER"
+      ]
+    ],
+    "native_trait_text": [
+      [
+        "true",
+        "LOC_TRAIT_LEADER_BAIQI_FORERUNNER_NAME",
+        "为我前驱",
+        "LOC_TRAIT_LEADER_BAIQI_FORERUNNER_DESCRIPTION",
+        "选择白绮后，内政、生产、建造与和平扩张永久由AI执行，支付正常成本；玩家查看内政，自行指挥军队并处理全部外交。[NEWLINE]选中相邻陆军，直接右键与敌城交互：击破外防且城市生命不高于35%时，可确认支付金币征取城市，并结束该军队本回合行动。"
+      ]
+    ],
+    "behavior_evidence": "Actual autonomous first capital and native production below, not text/SQL alone.",
+    "current_Baiqi_component_windows": {
+      "BaiqiData": [
+        "[4241037.837] Applying Component - BaiqiData (UpdateDatabase)",
+        "[4241037.838] UpdateDatabase - Loading Data/Baiqi.sql",
+        "[4241037.840] UpdateDatabase - Loading Data/BaiqiStandby.sql"
+      ],
+      "BaiqiGameText": [
+        "[4241037.841] Applying Component - BaiqiGameText (UpdateText)",
+        "[4241037.842] Creating database save point.",
+        "[4241037.842] LocalizedText - Loading Text/BaiqiText.xml",
+        "[4241037.843] Successfully released save point."
+      ],
+      "BaiqiRetiredEffects": [
+        "[4241037.891] Applying Component - BaiqiRetiredEffects (UpdateDatabase)",
+        "[4241037.892] UpdateDatabase - Loading Data/BaiqiRetiredEffects.sql"
+      ]
+    },
+    "current_Lua_suffix_error_substring_lines": 0,
+    "database_Gameplay_ERROR_lines": 0,
+    "database_Gameplay_validation_passed": true,
+    "global_logs_are_error_free": false,
+    "current_official_DLC_XML_warnings_preserved": [
+      {
+        "previous": "[4241037.951] LocalizedText - Loading Text/Macedonia_Persia_Translations_ConfigText_China.xml",
+        "warning": "[4241037.951] Warning: Unable to load ../../../DLC/Macedonia_Persia/Text/Macedonia_Persia_Translations_ConfigText_China.xml"
+      },
+      {
+        "previous": "[4241037.951] Warning: Unable to load ../../../DLC/Macedonia_Persia/Text/Macedonia_Persia_Translations_ConfigText_China.xml",
+        "warning": "[4241037.951] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241038.023] LocalizedText - Loading Text/Macedonia_Persia_Translations_Text_China.xml",
+        "warning": "[4241038.023] Warning: Unable to load ../../../DLC/Macedonia_Persia/Text/Macedonia_Persia_Translations_Text_China.xml"
+      },
+      {
+        "previous": "[4241038.023] Warning: Unable to load ../../../DLC/Macedonia_Persia/Text/Macedonia_Persia_Translations_Text_China.xml",
+        "warning": "[4241038.023] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241038.070] LocalizedText - Loading Text/Australia_Translations_ConfigText_China.xml",
+        "warning": "[4241038.070] Warning: Unable to load ../../../DLC/Australia/Text/Australia_Translations_ConfigText_China.xml"
+      },
+      {
+        "previous": "[4241038.070] Warning: Unable to load ../../../DLC/Australia/Text/Australia_Translations_ConfigText_China.xml",
+        "warning": "[4241038.070] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241038.103] LocalizedText - Loading Text/Australia_Translations_Text_China.xml",
+        "warning": "[4241038.103] Warning: Unable to load ../../../DLC/Australia/Text/Australia_Translations_Text_China.xml"
+      },
+      {
+        "previous": "[4241038.103] Warning: Unable to load ../../../DLC/Australia/Text/Australia_Translations_Text_China.xml",
+        "warning": "[4241038.103] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241038.265] LocalizedText - Loading Text/Expansion1_Translations_ConfigText_China.xml",
+        "warning": "[4241038.266] Warning: Unable to load ../../../DLC/Expansion1/Text/Expansion1_Translations_ConfigText_China.xml"
+      },
+      {
+        "previous": "[4241038.266] Warning: Unable to load ../../../DLC/Expansion1/Text/Expansion1_Translations_ConfigText_China.xml",
+        "warning": "[4241038.266] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241038.564] LocalizedText - Loading Text/Expansion1_Translations_Major_Text_China.xml",
+        "warning": "[4241038.564] Warning: Unable to load ../../../DLC/Expansion1/Text/Expansion1_Translations_Major_Text_China.xml"
+      },
+      {
+        "previous": "[4241038.564] Warning: Unable to load ../../../DLC/Expansion1/Text/Expansion1_Translations_Major_Text_China.xml",
+        "warning": "[4241038.564] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241042.331] LocalizedText - Loading Text/Expansion2_Translations_Text_China.xml",
+        "warning": "[4241042.331] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_Text_China.xml"
+      },
+      {
+        "previous": "[4241042.331] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_Text_China.xml",
+        "warning": "[4241042.331] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241043.005] LocalizedText - Loading Text/Expansion2_Translations_ConfigText_China.xml",
+        "warning": "[4241043.006] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_ConfigText_China.xml"
+      },
+      {
+        "previous": "[4241043.006] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_ConfigText_China.xml",
+        "warning": "[4241043.006] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241043.006] LocalizedText - Loading Text/Expansion2_Translations_Major_Text.xml",
+        "warning": "[4241043.006] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_Major_Text.xml"
+      },
+      {
+        "previous": "[4241043.006] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_Major_Text.xml",
+        "warning": "[4241043.006] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241043.006] LocalizedText - Loading Text/Expansion2_Translations_Major_Text_China.xml",
+        "warning": "[4241043.006] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_Major_Text_China.xml"
+      },
+      {
+        "previous": "[4241043.006] Warning: Unable to load ../../../DLC/Expansion2/Text/Expansion2_Translations_Major_Text_China.xml",
+        "warning": "[4241043.006] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241043.481] UpdateDatabase - Loading Data/RulersOfTheSahara_RemoveData.xml",
+        "warning": "[4241043.481] Warning: UpdateDatabase - Error Loading XML."
+      },
+      {
+        "previous": "[4241043.496] UpdateDatabase - Loading Data/RulersOfTheSahara_RemoveData.xml",
+        "warning": "[4241043.496] Warning: UpdateDatabase - Error Loading XML."
+      },
+      {
+        "previous": "[4241044.159] LocalizedText - Loading Text/KublaiKhan_Vietnam_RemoveText.xml",
+        "warning": "[4241044.160] Warning: Unable to load ../../../DLC/KublaiKhan_Vietnam/Text/KublaiKhan_Vietnam_RemoveText.xml"
+      },
+      {
+        "previous": "[4241044.160] Warning: Unable to load ../../../DLC/KublaiKhan_Vietnam/Text/KublaiKhan_Vietnam_RemoveText.xml",
+        "warning": "[4241044.160] Warning: LocalizedText - Failed loading XML."
+      },
+      {
+        "previous": "[4241044.289] UpdateDatabase - Loading Data/CatherineDeMedici_Modifiers.xml",
+        "warning": "[4241044.289] Warning: UpdateDatabase - Error Loading XML."
+      }
+    ],
+    "cumulative_localization_ERROR_lines": 190,
+    "observed_localization_error_origin": "Actual nearby XMLSerializer lines identify LOC_CLICKOUT_26_CAROUSEL_TOOLTIP in CurrentClickouts files; not presented as a Baiqi fix or global clean log."
+  },
+  "TC003": {
+    "opened_mod_panels": 0,
+    "automatic_administration_requires_UI_toggle": false,
+    "automatic_founding_and_production": true,
+    "only_added_UI_context": "BaiqiExecutor empty Context XML",
+    "actual_native_pause_menu_and_main_view": "Original menu rendered full entries with no mod takeover/pause/return/tile reservation or right administration panel.",
+    "current173_keyboard_and_army_support": [
+      "docs/research/baiqi-source173-real-m-shortcut-normal-white-pair-2026-11-21.json",
+      "docs/research/baiqi-source173-builder-lock-army-control135-2026-11-21.json"
+    ],
+    "new_player_warrior_SKIP_inputs": 1,
+    "original_normal_END_inputs": 1,
+    "UserForced": false,
+    "END_ACK_was_turn1_senttrue": true,
+    "independent_actual_turn2": true,
+    "military_after_original_turn": [
+      [
+        "131073",
+        "0",
+        "UNIT_WARRIOR",
+        "42",
+        "13",
+        "2",
+        "1"
+      ]
+    ],
+    "no_whole_TC004_or_TC035_promotion": true
+  },
+  "TC014": {
+    "passive_observer": "tools/lua/diagnostic_initial_world.lua; before/after original public calls, no added original call or game setter/request. Private119 package differs only in appended Controller; other118 unchanged.",
+    "private_package_sha256": "1ee3011bf82594c8fe76f61c6e375dee69388ea6a32b296333ca15a32c88c5e7",
+    "initial_context": [
+      "initial",
+      "before_Update",
+      "1",
+      "0",
+      "LEADER_BAIQI",
+      "true",
+      "0",
+      "2",
+      "true",
+      "nil"
+    ],
+    "initial_units": [
+      [
+        "initial",
+        "65536",
+        "0",
+        "UNIT_SETTLER",
+        "43",
+        "13",
+        "2",
+        "1",
+        "615",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "initial",
+        "131073",
+        "0",
+        "UNIT_WARRIOR",
+        "42",
+        "13",
+        "2",
+        "1",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ],
+      [
+        "firstCity",
+        "131073",
+        "0",
+        "UNIT_WARRIOR",
+        "42",
+        "13",
+        "2",
+        "1",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ],
+      [
+        "production",
+        "131073",
+        "0",
+        "UNIT_WARRIOR",
+        "42",
+        "13",
+        "2",
+        "1",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    ],
+    "initial_visible_plot_count": 22,
+    "founder": 65536,
+    "native_can_found_initial": true,
+    "initial_formation": 1,
+    "initial_site": [
+      615,
+      43,
+      13
+    ],
+    "initial_site_owner": -1,
+    "initial_improvement_resource": [
+      -1,
+      -1
+    ],
+    "first_city_and_production": [
+      [
+        "firstCity",
+        "65536",
+        "0",
+        "43",
+        "13",
+        "1",
+        "0",
+        "0",
+        "nil",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ],
+      [
+        "production",
+        "65536",
+        "0",
+        "43",
+        "13",
+        "1",
+        "1",
+        "-2025065568",
+        "BUILDING",
+        "BUILDING_MONUMENT",
+        "0",
+        "0",
+        "40"
+      ]
+    ],
+    "current_founding_receipt": [
+      [
+        "65536",
+        "65536",
+        "OBSERVED",
+        "settle:0:1",
+        "65536",
+        "615",
+        "43",
+        "13",
+        "true",
+        "false"
+      ]
+    ],
+    "site_after": [
+      [
+        "615",
+        "0",
+        "true",
+        "false",
+        "0",
+        "TERRAIN_GRASS",
+        "31",
+        "FEATURE_FLOODPLAINS_GRASSLAND",
+        "-1",
+        "-1"
+      ]
+    ],
+    "currently_visible18_assets_stable": true,
+    "four_prior_visible_now_unseen_assets_untested": [
+      [
+        "482",
+        "false",
+        "true"
+      ],
+      [
+        "661",
+        "false",
+        "true"
+      ],
+      [
+        "704",
+        "false",
+        "true"
+      ],
+      [
+        "705",
+        "false",
+        "true"
+      ]
+    ],
+    "normal_production": [
+      {
+        "turn": 1,
+        "progress": 0,
+        "native_cost": 40
+      },
+      {
+        "turn": 2,
+        "progress": 4,
+        "native_cost": 40
+      }
+    ],
+    "Core_actor_initial_consumption_caveat": [
+      [
+        "65536",
+        "0",
+        "0",
+        "-9999",
+        "-9999",
+        "2",
+        "1"
+      ],
+      [
+        "131073",
+        "0",
+        "21",
+        "42",
+        "13",
+        "2",
+        "1"
+      ]
+    ],
+    "no_false_immediate_Core_absence_claim": true,
+    "after_ordinary_reload_UI_Core_both_only_warrior": true,
+    "no_whole_TC010_or_TC016_promotion": true
+  },
+  "save_and_restore": {
+    "fresh_capital1": {
+      "utc": "2026-11-21T06:33:36.632125+00:00",
+      "name": "Baiqi_P6_20261121_V173_FreshCapital1.Civ6Save",
+      "bytes": 377732,
+      "sha256": "49e15d58b26c56b102a142992df04fdc94d5723cdbebc7fb1371a032a810dabf",
+      "stable_repeated_read": true
+    },
+    "fresh_capital2": {
+      "utc": "2026-11-21T06:36:14.010706+00:00",
+      "name": "Baiqi_P6_20261121_V173_FreshCapital2.Civ6Save",
+      "bytes": 446274,
+      "sha256": "bf5ba7ec08bf9430c6448a77a78be4a9525754bffa6d6794bfbf19bd530feaeb",
+      "stable_repeated_read": true
+    },
+    "QA_retired_before_save": true,
+    "private_package_restoration": {
+      "utc": "2026-11-21T06:39:12.876480+00:00",
+      "source_version": 173,
+      "files": 119,
+      "all120_including_marker_same_as_original_backup": true,
+      "all119_default_source_and_ordinary_prepared": true,
+      "private_overlay_installed": false,
+      "no_live_world_at_restore": true,
+      "game_process_retained": true
+    },
+    "fresh_reload_offline": {
+      "mode": "offline",
+      "utc": "2026-11-21T06:39:48.668927+00:00",
+      "age_seconds": 0.028263,
+      "steam_pid": 8788,
+      "steam_birth": 1795195446.682362,
+      "five_UI_side_effect_flags_false": true,
+      "native_byte_samples": [
+        1,
+        1
+      ],
+      "tray_state_samples": [
+        4,
+        4
+      ]
+    },
+    "official_load_requests": 1,
+    "physical_Continue": 1,
+    "same_process_not_cold": true,
+    "current_capital_queue": [
+      [
+        "65536",
+        "0",
+        "43",
+        "13",
+        "1",
+        "65536",
+        "西安",
+        "1",
+        "-2025065568",
+        "4",
+        "40",
+        "true",
+        "false"
+      ]
+    ],
+    "current_UI_Core_city_count": 1,
+    "current_UI_Core_unit_count": 1,
+    "current_observer_absent": true
+  },
+  "owner_diagnostic_failures_preserved": [
+    "First readonly UI query used a nonexistent UI strategic getter; corrected to actual Game.IsAllowStrategicCommands.0 gameplay inputs.",
+    "Next UI snapshot read succeeded; independent Core config-name/human getter was unavailable. Narrow Core read corrected without redoing any game input.",
+    "Initial asset comparison wrongly required all prior visible plots still visible after founding. Stopped before retirement; revised query read only currently visible/revealed18, left4 explicitly unknown.",
+    "Save2 and QA cleanup succeeded; cumulative database-error substring count exceeded the post-save audit budget. File-only recovery retained all original logs, no save replay.",
+    "Ordinary reload and readiness record succeeded; final Python print lacked json import. Actual parent exit1 retained, independent readiness/GUI inspected and one Continue followed. No load replay."
+  ],
+  "model": {
+    "R48_coder_unavailable_retained": true,
+    "new_model_probe": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "limits": [
+    "Exact current GS/Ancient/Quick/Duel F01/F03 sample. Initial passive instrumentation is explicit; final ordinary119 reloaded state is independently verified.",
+    "Building is only4/40, not completed; TC006 and project completion remain open.",
+    "No inference about4 no-longer-visible plots or full protected-asset/danger matrix.",
+    "Old8650807 remains FAIL_UNRESOLVED;34 whole cases remain open."
+  ],
+  "next": "Continue the ordinary fresh2 world through natural Monument completion and subsequent AI production with per-turn native progress/cost/treasury/population records and player-only military readiness handling. Prepare separate remaining project/repair/border and other finite40 fixtures; never stop at this publication."
+}
