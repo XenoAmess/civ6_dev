@@ -1,0 +1,473 @@
+{
+  "schema": "civ6.source173-natural-training-birth-and-positive-unknown-recovery/v1",
+  "utc": "2026-11-21T01:02:27.048069+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "whole_mod": "OPEN_CONTINUE",
+  "TC015": "PARTIAL_NATURAL_QUEUE_PROGRESS_COST_BIRTH_POPULATION_DEBIT_AND_ROUTE_OBSERVED_FOUNDING_NEWCITY_PENDING",
+  "TC020": "OPEN_VALID_PLAN_FORMED_SETTLER_CONTROL_TO_REMOVE_LEGACY_CONFUSION",
+  "whole_cases_closed": 1,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 2.5,
+  "not_code_completion_percent": true,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes_this_package": 0,
+  "game_retained": {
+    "pid": 18096,
+    "created_at": 1795218225.613384,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "original119_fixture": {
+    "name": "Baiqi_P6_20261105_V74_SiteRecoveredFounded119.Civ6Save",
+    "stem": "Baiqi_P6_20261105_V74_SiteRecoveredFounded119",
+    "bytes": 578475,
+    "sha256": "546e22137ef99d10e3e7875dcd53029f072240dc44e89d5f997e6b234a530c5a",
+    "turn": 119,
+    "prior_scope": "Historical source76 actual12cities/0liveSettlers/0settlerqueues only. Current173/74 and actualpersistentjournals, healthyUI/Coreunits, originalqueues and firstnaturalrequest must be freshly observed; no oldtrainingcredit."
+  },
+  "new_game_launches_or_loads_this_package": 0,
+  "private_archive_sha256": "29ab4461bb1c286472b9a4595685c6461c0320b805b387480f33846663c0b33d",
+  "ordinary119_restored_while_game_live": false,
+  "production": {
+    "city_id": 196610,
+    "xy": [
+      10,
+      13
+    ],
+    "unit_hash": -798712536,
+    "base_population_cost": 1,
+    "progress_by_actual_turn": {
+      "120": 0,
+      "121": 40,
+      "122": 78,
+      "123": 115,
+      "124": 153
+    },
+    "cost_before_completion": 175,
+    "pre124": {
+      "population": 10,
+      "food": 53.55859375,
+      "surplus": 18,
+      "threshold": 57,
+      "governor_index": 4,
+      "established": true,
+      "Provision": false
+    },
+    "ordered_birth125": {
+      "event82": "Own SETTLER7274546 added at10,13, index0, healthy falseDead/falseDelayed. Not a load-existingUnitAdded event: original119baseline had no healthy settlers and0queue, actual120request/progress retained.",
+      "event83_population": 9,
+      "event84_population": 9,
+      "repeated_population_event_not_second_cost": true,
+      "event85": "City196610 productioncompleted unitindex0 whilepopulation9.",
+      "event86_population": 10,
+      "food_before_cost": 53.55859375,
+      "food_at_population9": 53.55859375,
+      "food_after_growth10": 17.18359375,
+      "population_threshold_at9": 50,
+      "population_threshold_at10": 57,
+      "interpretation": "Actual10->9debit then9->10growth. Final10->10 snapshot alone would hide the paid population. Raw eventargs and latergetters retained separately.",
+      "subsequent_settler_cost": 190,
+      "automatic_followup_head_hash": 1910099296
+    },
+    "independent_Core125": {
+      "city_population": 10,
+      "actor": 7274546,
+      "xy": [
+        12,
+        16
+      ],
+      "moves": 0,
+      "formation": 1
+    },
+    "Core_scope": "GetUnitType not available on this Coreunit; firstreadonly worker failed. Corrected GetType==0 and actualowner/fullID confirmed. UI/Core fractional/int moves retained separately, no unsupported equality."
+  },
+  "natural_route125": {
+    "birth_xy": [
+      10,
+      13
+    ],
+    "SDK_MOVE_hash": 1477390184,
+    "four_actual_request_targets": [
+      [
+        10,
+        14
+      ],
+      [
+        10,
+        15
+      ],
+      [
+        11,
+        16
+      ],
+      [
+        12,
+        16
+      ]
+    ],
+    "pre_request_UI_moves": [
+      2,
+      1.5,
+      1,
+      0.5
+    ],
+    "end_xy": [
+      12,
+      16
+    ],
+    "end_moves": 0,
+    "goal": {
+      "plot": 862,
+      "x": 26,
+      "y": 19
+    },
+    "bank": "READY with no actor7274546 unsettled record; old668legacy preserved",
+    "manual_civilian_requests": 0
+  },
+  "controlled_unknown126": {
+    "factory": "tools/lua/diagnostic_formation_policy_unknown.lua",
+    "field": "formationCount",
+    "engine_getter_missing": false,
+    "input_copy_only_original_snapshot_unchanged": true,
+    "once_stage125_at_zero_moves": true,
+    "capacity": 64,
+    "masks": 2,
+    "positive_policy_rows": {
+      "owner": 0,
+      "actor": 7274546,
+      "formation": 1,
+      "moves": 2,
+      "plot": 716,
+      "allowed": false,
+      "reason": "formation_or_unknown"
+    },
+    "native_MOVE_legal": {
+      "target": [
+        12,
+        17
+      ],
+      "plot": 760,
+      "path_nodes": 2
+    },
+    "startup_own_Settler_request_count_before_after": [
+      4,
+      4
+    ],
+    "new_target_requests": 0,
+    "controlled_coordinate_held": [
+      12,
+      16
+    ],
+    "exact_owned_policy_binding_restored_before_expiry": true,
+    "no_rearm_reset_forcedUpdate_RunNow": true,
+    "actual_recovery": {
+      "new_request_sequence": 5,
+      "hash": 1477390184,
+      "target": [
+        13,
+        16
+      ],
+      "UI_xy": [
+        13,
+        16
+      ],
+      "UI_moves": 1.5,
+      "Core_xy": [
+        13,
+        16
+      ],
+      "Core_moves": 1,
+      "formation": 1
+    },
+    "later_route126": "SecondordinaryMOVEtarget13,17 issued; currentreadstill13,16pendingdestination761. Pending is not destination-arrival credit.",
+    "scope": "All target RequestOperation calls from this BaiqiExecutor observed by retained startup wrapper. Controller product civilian actions use this operation leaf; not a global engine counter or RequestCommand observer."
+  },
+  "TEST_PLAYER": {
+    "turn_progress": "120->121->122->123->124->125->126 actual. 27unique militarySKIPs each sampledturn, normal ENDs separate from actual advancement.",
+    "normal_followups": "122 and125 firstEND returnedtoactive/notsent/noadvance. FreshoriginalActionPanelpreflight+distinctnormalfollowupnonce issued once each,0newSKIP/civilianinput; actual123/126 followed. No UserForced.",
+    "diplomacy": "Alexander militarycriticism soleGoodbye closed via ownedgameHWNDEscape at120. At121 actualembassyquestion declined once via originalCHOICE_NEGATIVE then originalOnClose acknowledgement.",
+    "Congress121": "OriginalIntroOnClose; actualphysicalGUI chose freeA1/Campus andfreeB1/Alexander, reviewtotal0/favor151, submittedonce. Actualresult was CityA2/TheaterSquare andMigrationA6vsB1/Alexander, not ourchosenCampus/Bsuccess. Returnedactual122; nobackgrounddiplomacy or automaticCongressclaim."
+  },
+  "software": {
+    "utc": "2026-11-21T00:55:04.877118+00:00",
+    "cases": [
+      {
+        "VM": "Lua51",
+        "case": "qualified_restore_recovery"
+      },
+      {
+        "VM": "Lua51",
+        "case": "stage_legacy"
+      },
+      {
+        "VM": "Lua51",
+        "case": "stage_wrong_goal"
+      },
+      {
+        "VM": "Lua51",
+        "case": "stage_positive_moves"
+      },
+      {
+        "VM": "Lua51",
+        "case": "stage_trace_mismatch"
+      },
+      {
+        "VM": "Lua51",
+        "case": "window_target_request"
+      },
+      {
+        "VM": "Lua51",
+        "case": "window_expired"
+      },
+      {
+        "VM": "Lua51",
+        "case": "window_position_changed"
+      },
+      {
+        "VM": "Lua51",
+        "case": "window_native_false"
+      },
+      {
+        "VM": "Lua51",
+        "case": "window_foreign_binding"
+      },
+      {
+        "VM": "Lua53",
+        "case": "qualified_restore_recovery"
+      },
+      {
+        "VM": "Lua53",
+        "case": "stage_legacy"
+      },
+      {
+        "VM": "Lua53",
+        "case": "stage_wrong_goal"
+      },
+      {
+        "VM": "Lua53",
+        "case": "stage_positive_moves"
+      },
+      {
+        "VM": "Lua53",
+        "case": "stage_trace_mismatch"
+      },
+      {
+        "VM": "Lua53",
+        "case": "window_target_request"
+      },
+      {
+        "VM": "Lua53",
+        "case": "window_expired"
+      },
+      {
+        "VM": "Lua53",
+        "case": "window_position_changed"
+      },
+      {
+        "VM": "Lua53",
+        "case": "window_native_false"
+      },
+      {
+        "VM": "Lua53",
+        "case": "window_foreign_binding"
+      }
+    ],
+    "case_count": 20,
+    "scope": "Actual additive stage/window/retire/recovery payloads and current real BaiqiPolicy in detached explicit twoVM fixtures. Natural game updates, Native legality and actual movement remain unproven until observed.",
+    "Native_queries": 0,
+    "model_candidates": 0,
+    "consumers_sha256": {
+      "training173_unknown126_payloads_owner.py": "57b6f71180540334f1bd6c2ffe9b236a77e208042b9be9d5142dca9befa7d294",
+      "training173_stage_unknown125_owner.py": "ae71edc239a48cb5e549874979818dda4af6df8b5367d7a0420c5b3a8a9141f0",
+      "training173_turn125_unknown_owner.py": "f1a2c1937e1d1d079eab7a471bd6df40a7811f22a6c7cda3e159c02dc88e0d91"
+    }
+  },
+  "orchestration_limits": {
+    "turn123_terminal_output_lost": {
+      "utc": "2026-11-21T00:49:08.806639+00:00",
+      "tool_session": 18536,
+      "actual_terminal_exit": null,
+      "terminal_chunk": null,
+      "tool_resume_result": "Unknown process id 18536",
+      "actual_OS_parent_absent": true,
+      "script_final_state": {
+        "utc": "2026-11-21T00:44:22.388743+00:00",
+        "phase": "TARGET_TURN_PRESENT_MODAL_OR_SETTLING_REVIEW_REQUIRED",
+        "turn": 124,
+        "skips": 27,
+        "normal_END_inputs": 1,
+        "frame": [
+          "124",
+          "true",
+          "true",
+          "false",
+          "false",
+          "false",
+          "true",
+          "true",
+          "true"
+        ]
+      },
+      "classification": "TERMINAL_TOOL_OUTPUT_UNAVAILABLE_NOT_CLAIMED_SUCCESS",
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "birth125_Core_read_failure": {
+      "session": 74335,
+      "actual_exit": 1,
+      "cause": "Core GetUnitType nil; readonly input only; UI/event evidence intact; corrected additive Core read later."
+    },
+    "followup125_preexecution_owner_correction": "Generated125adapter retained old123comparison/label, noticed on source review and correctedto126before any Native execution. Originalprepare and finalsource retained."
+  },
+  "checkpoint_saves": {
+    "pre124": {
+      "utc": "2026-11-21T00:49:31.653930+00:00",
+      "name": "Baiqi_P6_20261121_V173_NaturalSettlerPre124.Civ6Save",
+      "bytes": 580012,
+      "sha256": "f05e51bc830aa6128342bed6ad221a7964d024809d81caff537deae7f5ffb00d",
+      "stable_repeated_read": true
+    },
+    "born125": {
+      "utc": "2026-11-21T00:55:40.011583+00:00",
+      "name": "Baiqi_P6_20261121_V173_NaturalSettlerBorn125.Civ6Save",
+      "bytes": 580958,
+      "sha256": "3b3b17322502695620e53e32964559c058a3f7c7804f845a2a89ad3e832fb21a",
+      "stable_repeated_read": true
+    },
+    "route126": {
+      "utc": "2026-11-21T00:59:11.523710+00:00",
+      "name": "Baiqi_P6_20261121_V173_NaturalSettlerRecovered126.Civ6Save",
+      "bytes": 579814,
+      "sha256": "c3f2c8abc147b34d8c130c58f45ed50c82b2a214f31e4c4b157395eaa0cccc4c",
+      "stable_repeated_read": true
+    }
+  },
+  "actual_parent_terminals": {
+    "training173-pre124-save": {
+      "utc": "2026-11-21T00:49:36.681791+00:00",
+      "tool_session": 16482,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "4720b7",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-turn124": {
+      "utc": "2026-11-21T00:51:36.146662+00:00",
+      "tool_session": 85733,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "0dada2",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-birth125-read": {
+      "utc": "2026-11-21T00:52:11.348071+00:00",
+      "tool_session": 74335,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "2d65c3",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-stage-unknown125": {
+      "utc": "2026-11-21T00:55:46.903243+00:00",
+      "tool_session": 39877,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "f7c081",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-turn125-unknown": {
+      "utc": "2026-11-21T00:57:20.566564+00:00",
+      "tool_session": 38237,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "d49863",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-followup125-unknown": {
+      "utc": "2026-11-21T00:58:53.236650+00:00",
+      "tool_session": 72180,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "750c5b",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "training173-route-save126": {
+      "utc": "2026-11-21T00:59:35.810578+00:00",
+      "tool_session": 97659,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "fd5b60",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "local_model_R42": {
+    "utc": "2026-11-21T00:52:59.534390+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-21",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-21T00:52:59.504026+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 547,
+        "over_64KiB": false,
+        "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+        "total_ms": 9.239100152626634,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-21T00:52:59.514246+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 1245,
+        "over_64KiB": false,
+        "sha256": "51c56ccbba886d730a92b4d500959a26e3517bd1b0ef3afbfc3be2ba085a48a4",
+        "total_ms": 4.0149998385459185
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "real_unfinished_model_task": {
+    "source_count": 7,
+    "configured_model_absent": true,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoption": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "next": "Continue current126 without reload. Priorformedsettler held with LEGACY_UNKNOWN might also be inhibited by legacyprotection; obtain validcurrentgoal/nonlegacyformed escort hold/playergroup/unlink positive control, then continue ordinary route/founding/newcity. Preserve old865FAIL_UNRESOLVED and allprivateobservers until exactretirement; no wholemod stop.",
+  "raw_sha256": {
+    "training173-session1-birth125-event-cost-and-actor-details-returned.json": "9a7d8532bd2fc4ecba19d4be47e69a7d5336fbc9fe330a7a2eb101a23fb93eef",
+    "training173-session1-unknown126-recovery-outcome.json": "d369b9862b23a0ab9a527ff8c98074534ae96fc44d15b69dff345c50096e8084",
+    "training173-session1-route126-current-route-and-requests-returned.json": "8418f886a1b0de41564f3447172c9d5c9c2c23cbc3a918290eb256efa85da5a9",
+    "training173-session1-pre124-intermediate-save-returned.json": "e067d1d64e222ac69c410bc19018b23b6219a438c4e71c48f848d37c31d5e80a",
+    "training173-unknown126-consumer-software.json": "ef7226fd293714fe9b58d4d0baef00366b4a7a880df1ad477d7a26ffcd1509e5",
+    "configured-model404-r42-readonly-result.json": "ffc1dcb2a5f04a1ecd10a34442333a7dc17e58afb90719537b3ea34ad4cb2a2d"
+  }
+}
