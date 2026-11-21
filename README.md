@@ -1,5 +1,7 @@
 # civ6_dev
 
+[176的圣地已自然完工并保存58退场](docs/research/baiqi-source176-tc009-holy-complete58-engine74-2026-11-22.json)：49→58正常9回合，区域ID196610的UI完成／未受损与Core地图ID一致，已自动接续圣地祈祷；上海粮仓亦Core核验完工。新扩地484为受保护森林，合法候选仍0，TC009的独立无地块恢复和市政规划范围继续待验。整体12/40=30%，余28项继续按具体缺口执行。
+
 [176的TC009前置恢复与圣地49检查点](docs/research/baiqi-source176-tc009-prerequisite-unlock-holy49-engine74-2026-11-22.json)：34→49正常15回合，国家劳动力44／占星术48原版回调证明资格恢复；49后台排入圣地，UI/Core同ID196610，0/64尚未完工。39次测试玩家军队待命、1次原版军队拆堆叠，0人工内政／强制结束；已撤QA保存49并返回主菜单，继续市政区域建设、无合法地块恢复与其余28项。整项仍12/40＝30%。
 
 TC009的独立古代场景发现[33回合同格文职安全撤离阻断](docs/research/baiqi-source175-tc009-threatened-overlap33-engine74-2026-11-22.json)，已撤全部QA、正式保存退出；[176有界安全撤离的软件修复](docs/research/baiqi-source176-threatened-overlap-evacuation-software-2026-11-22.json)已通过267项相关检查、双Lua编译与119文件包，[真实失败存档冷回归已恢复普通34并保存退场](docs/research/baiqi-source176-threatened-overlap-cold34-engine74-2026-11-22.json)，继续TC009前置恢复。完整验收继续；下述TC037通过只覆盖其已测NoBarb五城场景。
