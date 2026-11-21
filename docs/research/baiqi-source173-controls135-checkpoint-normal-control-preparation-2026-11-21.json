@@ -1,0 +1,117 @@
+{
+  "schema": "civ6.source173-controls-checkpoint-normal-control-preparation/v1",
+  "utc": "2026-11-21T03:12:19.943248+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "OFFICIAL_CURRENT135_CHECKPOINT_VERIFIED_NORMAL_LEADER_CONTROL_PREPARED_ONLY",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "game_retained": {
+    "pid": 20592,
+    "created_at": 1795226670.42074,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "turn": 135,
+  "ordinary_files": 119,
+  "private_overlay": false,
+  "official_save": {
+    "utc": "2026-11-21T03:09:45.401525+00:00",
+    "name": "Baiqi_P6_20261121_V173_ReadonlyControls135.Civ6Save",
+    "bytes": 597803,
+    "sha256": "e37b6f1fea212f6bcb75109c9435e76fbd08da6ad788da8a0d63b685e4f35672",
+    "stable_repeated_read": true
+  },
+  "save_requests": 1,
+  "save_replays": 0,
+  "cold_reload_of_this_new_save": false,
+  "actual_pre_save_gates": {
+    "human_Baiqi0_active_idle": true,
+    "cities": 13,
+    "new_city": [
+      917516,
+      0,
+      26,
+      19,
+      1
+    ],
+    "Granary_queue": [
+      1,
+      -764771404,
+      3,
+      32
+    ],
+    "player_Scout": [
+      1048576,
+      12,
+      17,
+      1,
+      1
+    ],
+    "locked_Builder": [
+      7143468,
+      17,
+      14,
+      2,
+      2,
+      1
+    ],
+    "current_research": [
+      40,
+      287.171875
+    ],
+    "Rifling_progress": 0,
+    "government_Index": 4,
+    "new727_receipt": "OBSERVED settle:0:2 /city917516",
+    "old668_receipt": "LEGACY_UNKNOWN settle:0:1 preserved",
+    "four_startup_diagnostic_namespaces_absent": true
+  },
+  "actual_parent_terminal": {
+    "utc": "2026-11-21T03:10:05.236959+00:00",
+    "tool_session": 16387,
+    "actual_terminal_exit": 0,
+    "terminal_chunk": "334c12",
+    "actual_OS_parent_absent": true,
+    "source_records_preserved": true,
+    "no_replay": true
+  },
+  "normal_leader_preparation": {
+    "full_installed_and_current_sources": 8,
+    "UTF8_bytes": 645228,
+    "original_game_callbacks_inspected": [
+      "InGameTopOptionsMenu.OnMainMenu",
+      "InGameTopOptionsMenu.OnYes",
+      "MainMenu.OnAdvancedSetup",
+      "AdvancedSetup.OnStartButton",
+      "AdvancedSetup.HostGame"
+    ],
+    "boundary": "OnMainMenu opens its own confirmation. OnYes subsequently fires the formal ExitToMainMenu event. Neither transition has been executed in this preparation. Original setup resets to defaults and displays AdvancedSetup; actual available leaders and settings must be inspected there before a start.",
+    "preferred_control": "Same-civilization ordinary leader if actually available, mod remains enabled. No live leader identity rewrite, free resources/units or save rewrite.",
+    "new_main_menu_transitions": 0,
+    "normal_control_games_started": 0
+  },
+  "local_model": {
+    "R45_configured_coder_missing_retained": true,
+    "generation_POSTs": 0,
+    "new_probe": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "private_raw_SHA256": {
+    "ui173-controls135-checkpoint.json": "2a46bcc02ec2756b78c1d3b8d16d657555ec9f38e6d67bb2204ae52b7a072da0",
+    "ui173-normal-leader-pending-task.json": "80dc520bcdded974f6f453dac53365e18be915e36cbff197e3257fdd2b302982",
+    "persist173-session1-UI135-official-readonly-controls-checkpoint-once-returned.json": "be26530fd5e9361f03683eda11b853589ba31adad1bbaa642cccfdaca88746ce"
+  },
+  "limits": [
+    "The actual saved file is stable and hashed, not yet cold-reloaded.",
+    "No new normal-leader game or its manual-operation result is claimed.",
+    "TC004/035 and whole mod continue; old865 remains FAIL_UNRESOLVED."
+  ],
+  "next": "Use the actual formal main-menu confirmation flow once after rechecking the saved checkpoint; independently confirm menu, then inspect real setup/leader choices and start the legitimate ordinary-leader control. Preserve every source/save and do not replay unknown inputs."
+}
