@@ -1,0 +1,255 @@
+{
+  "schema": "civ6.source173-mouse-research-government/v1",
+  "utc": "2026-11-21T02:54:24.965649+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "PASS_NARROW_MOUSE_ENTRY_LOCKS_RESEARCH_WRAPPER_STATE_AND_READONLY_VIEWS_QA_FAILURES_PRESERVED",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "whole_TC004": "OPEN",
+  "whole_TC035": "OPEN",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "game": {
+    "owner": {
+      "pid": 20592,
+      "created_at": 1795226670.42074,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "ordinary_files": 119,
+    "private_overlay": false,
+    "turn": 135,
+    "retained": true
+  },
+  "preceding_evidence": [
+    "baiqi-source173-city-readonly-manual-denials135-2026-11-21.json",
+    "baiqi-source173-cancel-focus-denials135-2026-11-21.json"
+  ],
+  "real_mouse_inputs": [
+    {
+      "label": "city-buytile-disabled-once",
+      "utc": "2026-11-21T02:44:34.558578+00:00",
+      "xy": [
+        528,
+        511
+      ],
+      "inputs": 1,
+      "GUI_observed": "City remained visible with the Baiqi readonly tooltip; no purchase or citizen-management interface appeared."
+    },
+    {
+      "label": "city-citizens-disabled-once",
+      "utc": "2026-11-21T02:44:43.686619+00:00",
+      "xy": [
+        575,
+        511
+      ],
+      "inputs": 1,
+      "GUI_observed": "City remained visible with the Baiqi readonly tooltip; no purchase or citizen-management interface appeared."
+    },
+    {
+      "label": "city-gold-disabled-once",
+      "utc": "2026-11-21T02:44:56.255279+00:00",
+      "xy": [
+        622,
+        511
+      ],
+      "inputs": 1,
+      "GUI_observed": "City remained visible with the Baiqi readonly tooltip; no purchase or citizen-management interface appeared."
+    },
+    {
+      "label": "city-faith-disabled-once",
+      "utc": "2026-11-21T02:45:04.551269+00:00",
+      "xy": [
+        669,
+        511
+      ],
+      "inputs": 1,
+      "GUI_observed": "City remained visible with the Baiqi readonly tooltip; no purchase or citizen-management interface appeared."
+    }
+  ],
+  "mouse_independent_post": {
+    "mode": "SELECTION (-1615000917)",
+    "four_controls_disabled": true,
+    "four_controls_checked": false,
+    "gold": 6122.71484375,
+    "faith": 806.03515625,
+    "queue_size": 1,
+    "head": -764771404,
+    "Granary_progress": 3,
+    "Granary_cost": 32,
+    "Monument_present": false,
+    "scope": "Combined state read after the four distinct inputs. No per-input native request counter or plot-ownership delta is claimed."
+  },
+  "readonly_research_tree": {
+    "original_LaunchBar_OnOpenResearch_calls": 1,
+    "actual_context_visible": true,
+    "original_GUI_actually_viewed": true,
+    "current_tech_Index": 40,
+    "current_tech_Type": "TECH_SANITATION",
+    "current_tech_progress": 287.171875,
+    "native_CanResearch_alternatives": [
+      [
+        41,
+        -2104580068,
+        "TECH_ECONOMICS",
+        266
+      ],
+      [
+        42,
+        -471009223,
+        "TECH_RIFLING",
+        0
+      ],
+      [
+        43,
+        1864094654,
+        "TECH_FLIGHT",
+        0
+      ],
+      [
+        46,
+        -1949163753,
+        "TECH_ELECTRICITY",
+        341
+      ]
+    ]
+  },
+  "quick_chooser_attempt": {
+    "actual_OnChooseResearch_wrapper_invocations": 1,
+    "target": [
+      42,
+      -471009223,
+      "TECH_RIFLING"
+    ],
+    "fresh_native_CanResearch": true,
+    "actual_proxy_observer_installed": true,
+    "actual_UI_proxy_calls": 0,
+    "callback_pcall_OK": true,
+    "callback_result_captured": false,
+    "source_boundary": "BaiqiResearchChooser.lua has a direct PlayerID guard before its retained native chooser callback. Zero UI-layer calls are expected in this path.",
+    "actual_native_forwarding_count": null,
+    "source_inference": "The supplied current wrapper returns false before calling the retained native chooser for Baiqi. This is source-level support, not a measured native request count.",
+    "bindings_exactly_restored": true,
+    "independent_post": {
+      "current_tech_Index": 40,
+      "current_tech_progress": 287.171875,
+      "Rifling_progress": 0,
+      "Rifling_acquired": false
+    },
+    "replays": 0
+  },
+  "readonly_government_view": {
+    "original_LaunchBar_OnOpenGovernment_calls": 1,
+    "context_visible": true,
+    "original_GUI_actually_viewed": true,
+    "IsReadOnly": true,
+    "UnlockPolicies_disabled": true,
+    "ConfirmPolicies_hidden": true,
+    "ConfirmPolicies_disabled_local_flag": false,
+    "UnlockGovernments_local_disabled_flag": false,
+    "control_scope": "Other-pane/default control flags are preserved literally; only the active rendered my-government page and actual readonly policy entry are qualified.",
+    "government_Index_before_after": 4,
+    "GovernmentChangeConsidered_before_after": false,
+    "manual_policy_or_government_callback_attempts": 0
+  },
+  "QA_failures_preserved": [
+    {
+      "parent": 46876,
+      "terminal": 1,
+      "error": "Attempt to modify read-only table",
+      "phase": "Trying to observe native UI.RequestPlayerOperation before pcall(callback).",
+      "original_research_wrapper_calls": 0,
+      "scope": "NativeUI is read-only in this actual context. No rawset, private upvalue, unprotection or second native-table mutation was used."
+    },
+    {
+      "parent": 76935,
+      "terminal": 1,
+      "error": "Owner expected proxy call1, but the actual Baiqi quick-chooser wrapper rejects before reaching that layer.",
+      "phase": "After one real wrapper invocation, proxy0, callback pcall true, exact restore.",
+      "original_research_wrapper_calls": 1,
+      "subsequent_action": "Read selected actual log lines and exact authored error line, then performed only independent readonly continuation and the previously unexecuted government-view action. No research replay.",
+      "owner_error": "Actual replacement source was already supplied, but the owner overlooked its earlier guard and wrote the wrong assertion."
+    }
+  ],
+  "software": {
+    "player_adapted_two_layer_observer_checks": 16,
+    "scope_of_these16": "Detached Lua51/Lua53 behavior; did not establish actual native-table writability.",
+    "proxy_only_checks": 18,
+    "scope_of_these18": "Detached nil/error/foreign/readonly-install/no-replay behavior; nativeCallsKnown stays false."
+  },
+  "local_model": {
+    "real_research_task_full_sources": 21,
+    "UTF8_bytes": 582662,
+    "R44_configured_coder_missing_retained": true,
+    "new_probe": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "actual_parent_terminals": {
+    "ui173-mouse-post-research-view": {
+      "utc": "2026-11-21T02:46:54.269139+00:00",
+      "tool_session": 59217,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "aaa8fa",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-research-government": {
+      "utc": "2026-11-21T02:49:15.813230+00:00",
+      "tool_session": 46876,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "150c6a",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-research-proxy-government": {
+      "utc": "2026-11-21T02:51:29.953430+00:00",
+      "tool_session": 76935,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "bc7d24",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-research-post-government": {
+      "utc": "2026-11-21T02:52:50.873822+00:00",
+      "tool_session": 96533,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "d473b8",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "limits": [
+    "No full TechTree.SetCurrentNode manual-path denial yet; only actual tree viewing and the guarded quick-chooser wrapper attempt here.",
+    "Government/policy viewing is not policy-change callback coverage.",
+    "No ordinary-leader positive control, city ranged attack, full diplomacy or interface-combination claim.",
+    "No whole-case progress increase; previous3/40 remains.",
+    "Old865 recovery remains FAIL_UNRESOLVED."
+  ],
+  "next": "Continue the same ordinary135 session with the actual full-tree research callback, civilian manual movement/building and military positive controls, then fill legitimate missing fixtures. Retain failures and never replay unknown inputs.",
+  "private_raw_SHA256": {
+    "ui173-research-observer-pending-task.json": "1135c4c62d14f643c258fea4a6754368a5fdbf2609813d5fdb4c20d500c3c311",
+    "ui173-player-callback-observer-software.json": "54616aed13ffa5f0149855a867c43a89f31a459f87c70a36dd909c60570aee99",
+    "ui173-proxy-player-observer-software.json": "6b513cc85fca2e28dd3335213edbc863524c5e4e0eae0181a4c6ec0803fe5c8b",
+    "ui173-research-proxy-failure-log-lines.json": "072309a8565d5874a7c8a5f509c25bbff1661b605a9cea035049fb8a53164b65",
+    "persist173-session1-UI135-four-mouse-controls-post-returned.json": "2ff1c64ef6f44e1c7f61d3b5ff841f7f59f0081690676fb1e36238f50c93ceb7",
+    "persist173-session1-UI135-visible-tech-tree-native-alternatives-returned.json": "2e21fb985acbb431b1b2fb73b1a6b8b18cddd6c7d83d54579dd7ab51e8494099",
+    "persist173-session1-UI135-original-manual-research-callback-once-returned.json": "2d6a2ac58901fa1c347ebba03f69e5986c2db1f1824587e8a96c8bfbfa65b866",
+    "persist173-session1-UI135-original-manual-research-proxy-once-returned.json": "4125591887c924b7e354a17153d9180ae395ea24c896968a95194332555b0f72",
+    "persist173-session1-UI135-independent-research-after-wrapper-invocation-returned.json": "e6b1fced25c243827d9f4adb948083cf3e3e1aaa70d9947da2427933f269458d",
+    "persist173-session1-UI135-visible-government-actual-first-returned.json": "10362ea09dcaaeeb8cd25b6e47ef8f2639d7e4576ff4d761d2cc5d814b0f4c3d",
+    "persist173-session1-UI135-independent-research-gov-after-actual-view-returned.json": "5be97ad6d51298d27a535b75f8d8cd06777e39b22e322b480f03bfc0eaedab6d",
+    "ui173-screen-visible-research-tree.png": "e9197743714f38084bf57b38a6fb8a5879f4c824d70123568d3261c613262b2a",
+    "ui173-screen-visible-government-readonly.png": "9c91d31345c72d3cda2432829405e520bd2c86f736310ab6e0465fce13f65291"
+  }
+}
