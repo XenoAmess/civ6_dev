@@ -1,0 +1,116 @@
+{
+  "schema": "civ6.source173-normal-control-menu-setup/v1",
+  "utc": "2026-11-21T03:18:32.263817+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 173,
+  "engine_version": "1.0.12.74",
+  "status": "ACTUAL_MAIN_MENU_TRANSITION_AND_ADVANCED_SETUP_OPEN_NORMAL_GAME_NOT_STARTED",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 3,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 7.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 1,
+  "product_changes": 0,
+  "owner": {
+    "pid": 20592,
+    "created_at": 1795226670.42074,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "current_state": "FrontEnd AdvancedSetup, no active game world",
+  "preserved135_save": {
+    "utc": "2026-11-21T03:09:45.401525+00:00",
+    "name": "Baiqi_P6_20261121_V173_ReadonlyControls135.Civ6Save",
+    "bytes": 597803,
+    "sha256": "e37b6f1fea212f6bcb75109c9435e76fbd08da6ad788da8a0d63b685e4f35672",
+    "stable_repeated_read": true
+  },
+  "formal_main_menu_flow": {
+    "original_OnMainMenu_prompt_calls": 1,
+    "prompt_parent_initially_hidden": true,
+    "actual_GUI_view_after_initial_ACK": "Game view still present; ACK was not treated as visible confirmation.",
+    "real_existing_menu_parent_open_clicks": 1,
+    "actual_confirmation_then_viewed": true,
+    "real_Yes_clicks": 1,
+    "replayed_prompt_or_confirmation": 0,
+    "fresh_actual_MainMenu_image_viewed": true,
+    "independent_Native_MainMenu_visible": true,
+    "owner_process_retained": true,
+    "game_process_termination": 0,
+    "source_boundary": "Original OnMainMenu sets ExitToMain true, and the shown confirmation calls original OnYes which emits ExitToMainMenu. No desktop exit or retire path was used."
+  },
+  "formal_new_setup": {
+    "original_OnAdvancedSetup_calls": 1,
+    "default_reset": "Original callback used GameConfiguration.SetToDefaults and actual normal setup popup.",
+    "context_visible_Native": true,
+    "actual_GUI_viewed": true,
+    "RULESET": "RULESET_EXPANSION_2",
+    "map_UI": "Continents / small",
+    "speed_UI": "Standard",
+    "difficulty_UI": "Prince",
+    "participating_slots": 6,
+    "slot0_leader": null,
+    "slot0_IsHuman_before_HostGame": false,
+    "all_slot_status_raw": 1,
+    "game_and_slot0_parameter_errors": null,
+    "StartButton_disabled": false,
+    "leader_selection_calls": 0,
+    "HostGame_calls": 0,
+    "interpretation": "Pre-host IsHuman false and random nil leader are literal setup observations. No runtime player identity or normal-leader control pass is inferred."
+  },
+  "next_consumer_preparation": {
+    "full_sources": 11,
+    "UTF8_bytes": 736994,
+    "extra_dependencies": [
+      "PlayerSetupLogic.lua",
+      "GameSetupLogic.lua",
+      "LeaderPicker.lua"
+    ],
+    "actual_original_leader_dropdown_consumer": "GetPlayerParameters(playerID).Parameters.PlayerLeader; its actual candidate v is written through parameters:SetParameterValue, then alternate color reset0. No leader selected yet.",
+    "selected_control_intent": "Prefer actually offered LEADER_QIN; current mod SQL copies LEADER_QIN association for Baiqi. Native candidate validity and post-host actual leader must still be checked."
+  },
+  "local_model": {
+    "R45_configured_coder_missing_retained": true,
+    "generation_POSTs": 0,
+    "new_probe": 0,
+    "candidates": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "actual_parent_terminals": {
+    "ui173-main-menu-prompt": {
+      "utc": "2026-11-21T03:13:23.866011+00:00",
+      "tool_session": 40544,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "8f1bd1",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "ui173-open-normal-setup": {
+      "utc": "2026-11-21T03:15:50.772303+00:00",
+      "tool_session": 97487,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "81e6db",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    }
+  },
+  "Steam_mode_actions_or_restarts": 0,
+  "limits": [
+    "No new normal-leader game, behavior or positive control is claimed.",
+    "This saved135 checkpoint has not been cold-reloaded.",
+    "TC004/035 and all other unclosed cases continue; old865 remains FAIL_UNRESOLVED."
+  ],
+  "next": "Read actual legal leader/setup candidate values and choose through original parameter consumers. Before actual start obtain a new background-only offline proof; then one original start and independent actual runtime leader/mod/isolation checks. Never replay an unknown start.",
+  "private_raw_SHA256": {
+    "ui173-gui-open-options-existing-main-prompt.json": "2de9943efdf09caa5a03c8e026cf681c17cabe142bba6331a467b09f0de33f6a",
+    "ui173-gui-confirm-main-menu-exit-once.json": "be47a4c28057aa9c00fb76a4225faee0910308c551b9ed0a6898cdb013e5ba8a",
+    "ui173-screen-main-menu-transition-current.png": "75777000a16744f1a7591cb60d7eb78c0b6c91458254bbeddf11c7fe2b8102fe",
+    "ui173-screen-actual-normal-control-setup.png": "02d09d1e32199bc1b20ab5d6858da0d2dc7db4dfaeed0ae9d6af70afe110a59d",
+    "persist173-session1-normal-control-main-menu-visible-open-setup-once-returned.json": "e2a131424bda6ea5cee261c01ceb3953e68370da63897ec08bf0220748bb3a2d",
+    "persist173-session1-normal-control-actual-setup-metadata-returned.json": "ad5ffd005e6b537d4d0fa3b03daab3f0dbe07244ac8bd309f461666c1718afc7",
+    "ui173-normal-parameter-consumers-task.json": "e8e54e843ef86fb18f1335fb4769101f85f1359e0aaf84805e0bf87a561e8634"
+  }
+}
