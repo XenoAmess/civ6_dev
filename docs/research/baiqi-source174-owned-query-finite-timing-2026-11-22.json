@@ -1,0 +1,326 @@
+{
+  "schema": "civ6.owned-native-readonly-transport-finite/v1",
+  "utc": "2026-11-21T16:29:03.776702+00:00",
+  "machine": "BF-202609141645",
+  "local_model_day": "2026-11-22",
+  "source_version": 174,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 10,
+  "whole_cases_total": 40,
+  "whole_case_percent": 25.0,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 2,
+  "product_source_changed": 0,
+  "genuine_unfinished_task_prepared_before_owner_probe": {
+    "source_count": 8,
+    "raw_UTF8_bytes": 27827,
+    "probe_was_unimplemented_at_preparation": true
+  },
+  "R59": {
+    "utc": "2026-11-21T16:07:57.879369+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-22",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": false
+    },
+    "results": [
+      {
+        "name": "models",
+        "utc": "2026-11-21T16:07:57.842896+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 547,
+        "over_64KiB": false,
+        "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+        "total_ms": 21.14900015294552,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-21T16:07:57.864779+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 1154,
+        "over_64KiB": false,
+        "sha256": "edf80b439ab7353e19babdcc8d76e88e9b324c9dde4d5117143c20e7df5a2402",
+        "total_ms": 13.859800063073635
+      }
+    ],
+    "generation_POSTs": 0,
+    "new_logical_candidate_tasks": 0,
+    "Native_queries": 0,
+    "configuration_changes": 0,
+    "service_mutations": 0,
+    "automatic_fallback": false,
+    "formal_overlap": false
+  },
+  "model_generation_POSTs": 0,
+  "candidate_adopted": 0,
+  "OpenCode_native_generation": 0,
+  "unknown_model_cost": null,
+  "actual_native": {
+    "sequential_readonly_queries": 2,
+    "context": "GameCore_Tuner",
+    "actual_turn": 115,
+    "actual_native_own_city_ID": 196610,
+    "owner": 0,
+    "actual_population": 9,
+    "actual_xy": [
+      10,
+      13
+    ],
+    "existing_client_source_unmodified": true,
+    "actual_accepted_socket_OS_owner_check_each_query": true,
+    "one_registered_native_parent": true,
+    "gameplay_inputs": 0,
+    "Steam_interactions": 0,
+    "actual_parent_exit": 0,
+    "samples": [
+      {
+        "read": 1,
+        "actual_wall_seconds": 0.2767467999365181,
+        "profiled_functions": [
+          {
+            "module": "TC008-current-ordinary174-new-owner-authority",
+            "line": 36,
+            "function": "checked",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0008224,
+            "cumulative_seconds": 0.2740636
+          },
+          {
+            "module": "p6_native.py",
+            "line": 10,
+            "function": "query",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0045299,
+            "cumulative_seconds": 0.2637212
+          },
+          {
+            "module": "p6_native.py",
+            "line": 30,
+            "function": "recv",
+            "primitive_calls": 3,
+            "total_calls": 3,
+            "self_seconds": 7.950000000000001e-05,
+            "cumulative_seconds": 0.21232610000000002
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<method 'recv' of '_socket.socket' objects>",
+            "primitive_calls": 6,
+            "total_calls": 6,
+            "self_seconds": 0.21214660000000002,
+            "cumulative_seconds": 0.21214660000000002
+          },
+          {
+            "module": "socket.py",
+            "line": 826,
+            "function": "create_connection",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 3.79e-05,
+            "cumulative_seconds": 0.040699400000000004
+          },
+          {
+            "module": "tc033_named_parent_atomic_owner.py",
+            "line": 12,
+            "function": "require",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 3.5600000000000005e-05,
+            "cumulative_seconds": 0.005272300000000001
+          },
+          {
+            "module": "__init__.py",
+            "line": 2198,
+            "function": "net_connections",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 1.91e-05,
+            "cumulative_seconds": 0.0024359
+          },
+          {
+            "module": "_pswindows.py",
+            "line": 339,
+            "function": "net_connections",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0001381,
+            "cumulative_seconds": 0.0024100000000000002
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<built-in method psutil_windows.net_connections>",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0010012,
+            "cumulative_seconds": 0.0010012
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<method 'connect' of '_socket.socket' objects>",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0004022,
+            "cumulative_seconds": 0.0004022
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<method 'sendall' of '_socket.socket' objects>",
+            "primitive_calls": 2,
+            "total_calls": 2,
+            "self_seconds": 0.000174,
+            "cumulative_seconds": 0.000174
+          }
+        ]
+      },
+      {
+        "read": 2,
+        "actual_wall_seconds": 0.41077039996162057,
+        "profiled_functions": [
+          {
+            "module": "TC008-current-ordinary174-new-owner-authority",
+            "line": 36,
+            "function": "checked",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0006245000000000001,
+            "cumulative_seconds": 0.4106709
+          },
+          {
+            "module": "p6_native.py",
+            "line": 10,
+            "function": "query",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0002791,
+            "cumulative_seconds": 0.4004611
+          },
+          {
+            "module": "p6_native.py",
+            "line": 30,
+            "function": "recv",
+            "primitive_calls": 3,
+            "total_calls": 3,
+            "self_seconds": 7.09e-05,
+            "cumulative_seconds": 0.3931637
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<method 'recv' of '_socket.socket' objects>",
+            "primitive_calls": 6,
+            "total_calls": 6,
+            "self_seconds": 0.3929772,
+            "cumulative_seconds": 0.3929772
+          },
+          {
+            "module": "tc033_named_parent_atomic_owner.py",
+            "line": 12,
+            "function": "require",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 2.33e-05,
+            "cumulative_seconds": 0.0042855
+          },
+          {
+            "module": "__init__.py",
+            "line": 2198,
+            "function": "net_connections",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 1.65e-05,
+            "cumulative_seconds": 0.002317
+          },
+          {
+            "module": "_pswindows.py",
+            "line": 339,
+            "function": "net_connections",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.00011250000000000001,
+            "cumulative_seconds": 0.0022948
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<built-in method psutil_windows.net_connections>",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0008394,
+            "cumulative_seconds": 0.0008394
+          },
+          {
+            "module": "socket.py",
+            "line": 826,
+            "function": "create_connection",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 2.32e-05,
+            "cumulative_seconds": 0.0004555
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<method 'connect' of '_socket.socket' objects>",
+            "primitive_calls": 1,
+            "total_calls": 1,
+            "self_seconds": 0.0002874,
+            "cumulative_seconds": 0.0002874
+          },
+          {
+            "module": "~",
+            "line": 0,
+            "function": "<method 'sendall' of '_socket.socket' objects>",
+            "primitive_calls": 2,
+            "total_calls": 2,
+            "self_seconds": 0.0001354,
+            "cumulative_seconds": 0.0001354
+          }
+        ]
+      }
+    ]
+  },
+  "decision": {
+    "utc": "2026-11-21T16:10:24.304530+00:00",
+    "actual_two_read_wall_seconds": [
+      0.2767467999365181,
+      0.41077039996162057
+    ],
+    "actual_OS_socket_owner_check_seconds": [
+      0.0024359,
+      0.002317
+    ],
+    "decision": "Retain existing unmodified per-query connection and ownership checks. These two measurements show about0.28/0.41s total and2.3/2.4ms OS owner check; no observed need to cache owner proofs or introduce persistent action transport. Further persistent-server support remains untested, not claimed unsupported or proven. Continue real acceptance now.",
+    "persistent_connection_probe_executed": false,
+    "transport_implementation_changed": false,
+    "product_files_changed": 0,
+    "model_generation_POSTs": 0,
+    "candidate_adopted": 0,
+    "game_inputs": 0,
+    "unknown_model_cost": null,
+    "scope": "Finite client timing only; no game/mod performance-budget pass."
+  },
+  "limits": [
+    "These are two finite profiled client-call observations, not a statistical benchmark or TC036 engine/mod budget pass.",
+    "Receive wait includes server/game response time and is not labeled a network root cause. No DNS/init cause is inferred from the first create_connection cumulative time.",
+    "Persistent accepted-socket support remains untested. No persistent client, cached owner proof or alternate native action transport was implemented or adopted.",
+    "The game remains active in the independent TC009 fixture; this diagnostic issued no Save/END/unit/city action and does not claim game closeout.",
+    "Old8650807 FAIL_UNRESOLVED and legacy6684713 LEGACY_UNKNOWN remain unchanged."
+  ],
+  "next": "Continue the current TC009 ordinary-turn condition/restoration observations and TC011 builder evidence; no phase report ends the full-mod acceptance."
+}
