@@ -4,11 +4,11 @@ local function Pack(...)return{n=select('#',...),...}end
 local function Integer(v)return type(v)=='number'and v==v and v>=0 and v<=2147483647 and v%1==0 end
 local function Scalar(v)local t=type(v);return t=='string'or t=='boolean'or(t=='number'and v==v and v~=math.huge and v~=-math.huge)end
 function M.Install(o)
- assert(type(o)=='table'and type(o.context)=='string'and type(o.getPublished)=='function'and type(o.publish)=='function'and type(o.getManager)=='function'and type(o.unpack)=='function'and type(o.game)=='table'and type(o.game.GetCurrentGameTurn)=='function'and type(o.game.GetLocalPlayer)=='function')
+ assert(type(o)=='table'and type(o.context)=='string'and type(o.getPublished)=='function'and type(o.publish)=='function'and type(o.getManager)=='function'and type(o.setManager)=='function'and type(o.unpack)=='function'and type(o.game)=='table'and type(o.game.GetCurrentGameTurn)=='function'and type(o.game.GetLocalPlayer)=='function')
  assert(o.getPublished()==nil,'Occupied diagnostic namespace')
  local cap=o.capacity or 256;assert(Integer(cap)and cap>=1 and cap<=1024)
  local s={writeCalls=0,tickCalls=0,metadataErrors=0,afterErrors=0,dropped=0,rows={},ticks={},active=true,retired=false}
- local bindings={}
+ local bindings,managers={},{}
  local planningScope,scopeDepth=nil,0
  local function Copy(value,depth,seen,budget)
   if value==nil or Scalar(value)then return value end
@@ -69,13 +69,32 @@ function M.Install(o)
   return b
  end
  local specs={{'UnitManager','RequestOperation','ACTOR'},{'UnitManager','RequestCommand','ACTOR'},{'CityManager','RequestOperation','ACTOR'},{'CityManager','RequestCommand','ACTOR'},{'UI','RequestPlayerOperation','PLAYER'}}
- for _,v in ipairs(specs)do bindings[#bindings+1]=Build(v[1],v[2],v[3],o.getManager(v[1]))end
+ -- SDK manager tables are read-only. Publish context-local Lua proxies before
+ -- consumers capture writers; never assign a field on the native tables.
+ for _,v in ipairs(specs)do
+  local name=v[1];local manager=managers[name]
+  if not manager then
+   local native=o.getManager(name);assert(type(native)=='table','Unknown native manager')
+   manager={name=name,native=native,proxy=setmetatable({},{__index=native})};managers[name]=manager
+  end
+  bindings[#bindings+1]=Build(name,v[2],v[3],manager.proxy)
+ end
+ local managerOrder={'UnitManager','CityManager','UI'}
+ local function OwnedProxy(m)
+  if o.getManager(m.name)~=m.proxy then return false end
+  for _,b in ipairs(bindings)do if not b.tick and b.domain==m.name and b.target[b.key]~=b.wrapper then return false end end
+  return true
+ end
  local function Rollback()
-  for _,b in ipairs(bindings)do if b.target[b.key]==b.wrapper then b.target[b.key]=b.original end end
+  for _,name in ipairs(managerOrder)do
+   local m=managers[name];local ok,owned=pcall(OwnedProxy,m)
+   if ok and owned then pcall(o.setManager,name,m.native)end
+  end
   local ok,value=pcall(o.getPublished);if ok and value==s then pcall(o.publish,nil)end
  end
  local ok,err=pcall(function()
   for _,b in ipairs(bindings)do b.target[b.key]=b.wrapper;assert(b.target[b.key]==b.wrapper)end
+  for _,name in ipairs(managerOrder)do local m=managers[name];assert(o.getManager(name)==m.native,'Foreign manager before publication');o.setManager(name,m.proxy);assert(OwnedProxy(m),'Manager proxy publication failed')end
   o.publish(s);assert(o.getPublished()==s)
   for _,b in ipairs(bindings)do assert(o.getManager(b.domain)==b.target and b.target[b.key]==b.wrapper,'Publication changed native binding')end
  end)
@@ -101,7 +120,8 @@ function M.Install(o)
  function s.Restore()
   if s.retired then return true end
   assert(s.BindingKnown(),'Foreign diagnostic binding preserved')
-  for _,b in ipairs(bindings)do b.target[b.key]=b.original;assert(b.target[b.key]==b.original)end
+  for _,b in ipairs(bindings)do if b.tick then b.target[b.key]=b.original;assert(b.target[b.key]==b.original)end end
+  for _,name in ipairs(managerOrder)do local m=managers[name];o.setManager(name,m.native);assert(o.getManager(name)==m.native,'Manager proxy restoration failed')end
   s.active=false;s.retired=true;o.publish(nil);assert(o.getPublished()==nil);return true
  end
  return s

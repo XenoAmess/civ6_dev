@@ -1,0 +1,163 @@
+{
+  "schema": "civ6.ownertrace174-readonly-native-proxy-repair/v1",
+  "utc": "2026-11-21T11:57:47.862648+00:00",
+  "source_version": 174,
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed_or_retained": 8,
+  "whole_cases_total": 40,
+  "new_whole_case_credit": 0,
+  "whole_TC002": "OPEN",
+  "Workshop_source": 172,
+  "unpublished_product_fixes": 2,
+  "product_mod_files_changed": 0,
+  "actual_failed_R2_cold_load": {
+    "engine": "1.0.12.74",
+    "build": 26595377,
+    "one_cold_Popen": true,
+    "fresh_background_offline_age_seconds_after_Popen": 0.016756,
+    "official_LoadGame_once": true,
+    "vanilla_LoadScreen_done": true,
+    "mandatory_Controller_loaded": false,
+    "actual_parent_exit": 1,
+    "terminal_chunk": "80d079",
+    "raw_log_bytes": 4820,
+    "raw_log_sha256": "36ce6955daf1aab111f21674d61e1026a8002365a76eeeb1679b7a6ae97a42b4",
+    "error": "Attempt to modify read-only table",
+    "cause": "The private observer assigned a request method on the native read-only SDK UnitManager table before original Controller initialization. The writable-table software fixtures missed this SDK constraint.",
+    "subsequent_errors": "Admin namespace assertion and Executor nil Controller are secondary load failures.",
+    "classification": "Owner diagnostic defect; no owner-isolation/gameplay pass granted.",
+    "test_player_inputs": "One Continue solely to reach normal exit, then menu/ReturnDesktop/confirm. No domestic, military, END, save or diagnostic planning input.",
+    "invalid_world_saved": false
+  },
+  "failed_world_exit": {
+    "official_menu_Quit_confirmed": true,
+    "independent_same_owned_process_absent": true,
+    "terminate": 1,
+    "kill": 0,
+    "own_cleanup_exit_code": 15,
+    "cleanup": "Owned residual only after official Quit,183.224414s,0 visible windows,0 listeners and a further2s stable CPU. Not a natural process exit. No Steam or other process changed.",
+    "protected_saves_verified_unchanged": true,
+    "parent_actual_exit": 0,
+    "terminal_chunk": "d64620"
+  },
+  "owner_repair": {
+    "SDK_writes": "None.5 request methods are installed on3 new context-local Lua proxy tables with native __index forwarding.",
+    "context_binding": "Explicit getManager/setManager publishes own proxies before any original Controller include/captured writer.",
+    "transparency": "Unobserved native scalar/object/function reads retain identity; observed calls forward complete args once, preserve nil-hole return arity and original error identity.",
+    "failure_cleanup": "Only still-owned global proxies and namespace are rolled back. Foreign proxy fields/global tables/publication remain untouched.",
+    "lifecycle": "Freeze keeps cached request identity; original Shutdown runs first, then owned globals and planning methods restored.",
+    "unchanged_bounds": "Finite write rows, tick aggregation, actual nested planning scope and UNSCOPED remain."
+  },
+  "software": {
+    "readonly_fixture_red": {
+      "actual_exit": 1,
+      "chunk": "f70fe7",
+      "errors": 66,
+      "scenario_attempts": 72,
+      "original_tool_output_was_truncated": true
+    },
+    "final_generic": {
+      "actual_exit": 0,
+      "chunk": "116a01",
+      "new_readonly_scenarios": 72,
+      "existing_city_observer_scenarios": 21,
+      "total": 93,
+      "unittest_methods": 2
+    },
+    "actual_prefix_suffix_integration": {
+      "scenarios": 8,
+      "actual_exit": 0,
+      "SDK_tables_readonly": true,
+      "native_table_writes": 0,
+      "original_Shutdown_first": true,
+      "freeze_cached_identity": true
+    },
+    "combined_scenarios": 101,
+    "Native_game_queries_or_inputs": 0
+  },
+  "R3_package": {
+    "mode": "ownertrace174-cold-r3-readonly-proxies",
+    "files": 119,
+    "archive_sha256": "4a32280867f19a0714249748545df770e6955325fb04eb6cad2bdf58fa561300",
+    "Lua_sources_compiled_each_VM": 97,
+    "actual_ZIP_names_and_bytes_verified": true,
+    "changed_files": [
+      "Lua/BaiqiController.lua",
+      "Lua/BaiqiAdmin.lua"
+    ],
+    "other117_files_exact_original": true,
+    "Controller_original_bytes_inverse_verified": true,
+    "Admin_original_bytes_inverse_verified": true,
+    "prefix_before_all_original_Controller_includes": true,
+    "module_sha256": "cb7311dae18879b8334d90be97c06eca000d560b1f544e14eb0d6e869d85d5fa",
+    "prefix_sha256": "51d85e76adbdd46b7f7763e245401c48063f81dd5937eacc5484dd0a52e4c3f5",
+    "controller_suffix_sha256": "d49b1f1675a7a682214c263bf92c0d0abdeb6a23d7940f041a7bed54b914998b",
+    "admin_suffix_sha256": "7fef123b7bd80b1d18ddac63da5cb393bbec509e1510e1fb0ab0f90b729f743a"
+  },
+  "R3_native_status": "NOT_INSTALLED_NOT_LAUNCHED_AT_THIS_PUBLICATION",
+  "model": {
+    "real_unfinished_task_prepared_before_owner_patch": true,
+    "source_count": 7,
+    "raw_UTF8_bytes": 37388,
+    "preparation_error": "Initial input named Lua/BaiqiExecutor.lua, which does not exist. No output/POST; rg located actual UI/BaiqiExecutor.lua and preparation then completed before owner patch.",
+    "R54": {
+      "utc": "2026-11-21T11:54:28.123332+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-21",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-21T11:54:28.063268+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 28.749699937179685,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-21T11:54:28.092982+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "2dbbbb3fda5ba81cd636d4c2628750c93d357535cc789d9c3327bdf45bda0352",
+          "total_ms": 28.684200020506978
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "candidate_generation_POSTs": 0,
+    "logical_candidate_tasks": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "source_sha256": {
+    "tools/lua/diagnostic_target_owners.lua": "cb7311dae18879b8334d90be97c06eca000d560b1f544e14eb0d6e869d85d5fa",
+    "tests/test_diagnostic_target_owners.py": "e27255c08bc32f5b78f6f9d0f33fdf21269b1a7c7ff5e2c7f7972e8b920f7294"
+  },
+  "limits": [
+    "This repairs a private diagnostic, not the product mod. No new whole case or Native trace success.",
+    "5 request methods and3 planning entries do not cover Core property/direct-method writes. Ordinary actual blank-queue planning remains required for wholeTC002.",
+    "The original failed R2 payload/log/receipts and protected138 save remain. Do not replay or save the invalid R2 world."
+  ],
+  "next": "After this reviewable software package is committed/pushed, back up exact failedR2 bytes, install R3 with no game running, take fresh background offline/engine proof, one new cold Popen/tuple and official protected138 load. Verify mandatory Controller and bounded observer before new test inputs. Continue the full mod acceptance."
+}

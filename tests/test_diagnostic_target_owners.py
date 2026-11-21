@@ -11,14 +11,25 @@ return function(M,which)
   h.calls=h.calls+1;h.args={n=select('#',...),...};if h.action then h.action()end
   if h.raise then error(marker)end;if h.void then return end;if h.falseReturn then return false end;return nil,false,resultTable,nil
  end
- local managers={UnitManager={RequestOperation=Native,RequestCommand=Native},CityManager={RequestOperation=Native,RequestCommand=Native},UI={RequestPlayerOperation=Native}}
- local originals={};for name,t in pairs(managers)do originals[name]={};for k,f in pairs(t)do originals[name][k]=f end end
- local o={context='fixture',getPublished=function()return h.published end,publish=function(v)h.published=v;if h.publishError then error(marker)end end,getManager=function(n)return managers[n]end,unpack=table.unpack or unpack,game={GetCurrentGameTurn=function()return h.turn end,GetLocalPlayer=function()return h.localPlayer end}}
+ local backing={UnitManager={RequestOperation=Native,RequestCommand=Native},CityManager={RequestOperation=Native,RequestCommand=Native},UI={RequestPlayerOperation=Native}}
+ local managers,originals={},{};h.SDKwrites=0
+ for name,t in pairs(backing)do
+  t.ReadScalar=17;t.ReadObject=resultTable;t.ReadFunction=Native
+  local sdk=setmetatable({},{__index=t,__newindex=function()h.SDKwrites=h.SDKwrites+1;error('Attempt to modify read-only table')end})
+  managers[name]=sdk;originals[name]=sdk
+ end
+ local o={context='fixture',getPublished=function()return h.published end,publish=function(v)h.published=v;if h.publishError then error(marker)end end,getManager=function(n)return managers[n]end,setManager=function(n,v)managers[n]=v end,unpack=table.unpack or unpack,game={GetCurrentGameTurn=function()return h.turn end,GetLocalPlayer=function()return h.localPlayer end}}
+ if which=='invalid-setter'then o.setManager=nil;assert(not pcall(M.Install,o)and managers.UnitManager==originals.UnitManager and h.SDKwrites==0);return true end
+ if which=='setter-noop'then o.setManager=function()end;assert(not pcall(M.Install,o)and managers.UnitManager==originals.UnitManager and h.published==nil and h.SDKwrites==0);return true end
+ if which=='setter-error'then o.setManager=function(n,v)managers[n]=v;if n=='CityManager'and v~=originals[n]then error(marker)end end;local ok,e=pcall(M.Install,o);assert(not ok and e==marker and managers.UnitManager==originals.UnitManager and managers.CityManager==originals.CityManager and h.published==nil and h.SDKwrites==0);return true end
+ if which=='setter-foreign'then local foreign={};o.setManager=function(n,v)managers[n]=v;if n=='UI'and v~=originals[n]then managers[n]=foreign;error(marker)end end;local ok,e=pcall(M.Install,o);assert(not ok and e==marker and managers.UI==foreign and managers.UnitManager==originals.UnitManager and managers.CityManager==originals.CityManager and h.published==nil and h.SDKwrites==0);return true end
  if which=='namespace'then local foreign={};h.published=foreign;assert(not pcall(M.Install,o)and h.published==foreign and managers.UnitManager.RequestOperation==Native and h.calls==0);return true end
  if which=='invalid-manager'then managers.UI=nil;assert(not pcall(M.Install,o)and managers.UnitManager.RequestOperation==Native and h.published==nil and h.calls==0);return true end
  if which=='publish-error'then h.publishError=true;assert(not pcall(M.Install,o)and h.published==nil and managers.UnitManager.RequestOperation==Native and managers.CityManager.RequestCommand==Native and h.calls==0);return true end
  if which=='publish-foreign'then local f=function()end;o.publish=function(v)h.published=v;if v then managers.UnitManager.RequestOperation=f end end;local ok=pcall(M.Install,o);assert(not ok and managers.UnitManager.RequestOperation==f and h.published==nil and managers.CityManager.RequestCommand==Native);return true end
+ if which=='publish-foreign-global'then local foreign={};o.publish=function(v)h.published=v;if v then managers.UnitManager=foreign end end;assert(not pcall(M.Install,o)and managers.UnitManager==foreign and managers.CityManager==originals.CityManager and h.published==nil and h.SDKwrites==0);return true end
  local s=M.Install(o);assert(h.calls==0 and s.BindingKnown())
+ for name,t in pairs(managers)do assert(t~=originals[name]and t.ReadScalar==17 and t.ReadObject==resultTable and t.ReadFunction==Native)end
  local fn=managers.UnitManager.RequestOperation
  if which=='before-store-error'then setmetatable(s.rows,{__newindex=function()error(marker)end})end
  if which=='foreign-binding'then local f=function()end;managers.UnitManager.RequestOperation=f;assert(not s.BindingKnown()and not pcall(s.Restore)and managers.UnitManager.RequestOperation==f and h.published==s);return true
@@ -54,8 +65,8 @@ return function(M,which)
  if which=='scope'then local inner={Run=function()return fn(actor,10,{})end};local outer={RunNow=function()return inner.Run()end};s.AddTick('Admin',inner,'Run');s.AddTick('Controller',outer,'RunNow');outer.RunNow();assert(s.rows[2].planningScope=='Admin.Run'and s.rows[2].scopeDepth==2);fn(actor,11,{});assert(s.rows[3].planningScope=='UNSCOPED'and s.rows[3].scopeDepth==0)end
  if which=='scope-error'then local t={RunNow=function()fn(actor,10,{});error(marker)end};s.AddTick('Controller',t,'RunNow');local ok,e=pcall(t.RunNow);assert(not ok and e==marker and s.rows[2].planningScope=='Controller.RunNow'and s.rows[2].scopeDepth==1);fn(actor,11,{});assert(s.rows[3].planningScope=='UNSCOPED'and s.rows[3].scopeDepth==0)end
  if which=='tick'then local t={Update=Native,RunNow=Native};s.AddTick('Controller',t,'Update');s.AddTick('Controller',t,'RunNow');local captured=t.Update;local a,b,c,d=captured(0.5,true);assert(a==nil and b==false and c==resultTable and d==nil and s.tickCalls==1 and t.Update==captured and #s.rows==1 and s.ticks[1].kind=='TICK'and s.ticks[1].owners[0]==1 and s.ticks[1].firstTurn==138 and s.ticks[1].lastTurn==138);local ok=pcall(s.AddTick,'Controller',t,'Update');assert(not ok and t.Update==captured);assert(s.Restore()and t.Update==Native and t.RunNow==Native)else assert(s.Restore())end
- for name,t in pairs(managers)do for k,f in pairs(originals[name])do assert(t[k]==f)end end
- assert(s.retired and not s.active and h.published==nil and s.Restore());return true
+ for name,t in pairs(managers)do assert(t==originals[name]);for k,f in pairs(backing[name])do assert(t[k]==f)end end
+ assert(h.SDKwrites==0 and s.retired and not s.active and h.published==nil and s.Restore());return true
 end
 '''
 
@@ -63,7 +74,7 @@ end
 class TargetOwnerObserverTests(unittest.TestCase):
     def test_actual_producer_transparency_metadata_bounds_and_owned_lifecycle(self):
         source=(ROOT/'tools/lua/diagnostic_target_owners.lua').read_text(encoding='utf-8')
-        cases=['namespace','invalid-manager','publish-error','publish-foreign','foreign-binding','foreign-namespace','foreign-table','actor-error','fractional-turn','local-unknown','owner-unknown','foreign-owner','native-error','void','false-return','cycle','param-function','param-bound','before-store-error','after-error','copy','player','all-five','cap','tick','tick-flood','tick-error','scope','scope-error','freeze','normal']
+        cases=['invalid-setter','setter-noop','setter-error','setter-foreign','publish-foreign-global','namespace','invalid-manager','publish-error','publish-foreign','foreign-binding','foreign-namespace','foreign-table','actor-error','fractional-turn','local-unknown','owner-unknown','foreign-owner','native-error','void','false-return','cycle','param-function','param-bound','before-store-error','after-error','copy','player','all-five','cap','tick','tick-flood','tick-error','scope','scope-error','freeze','normal']
         for vm in (L51,L53):
             lua=vm();run=lua.execute(HARNESS);producer=lua.execute(source)
             for case in cases:

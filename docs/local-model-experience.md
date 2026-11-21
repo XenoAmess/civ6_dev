@@ -1356,3 +1356,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-21 [173普通135原版取消／焦点拒绝](research/baiqi-source173-cancel-focus-denials135-2026-11-21.json)：补全实际ProductionHelper依赖后原回调各一次，精确原生资格真／代理1／原生0／false，队列、余额和市民焦点未变，临时绑定全恢复。13城全单队列，重排仍缺合法夹具，不补装队列；Core仅授城市身份而非队列等值。延续R44配置coder缺失，20完整源580384字节先备，0新探针／POST／候选，不换模型，整项仍3/40。
 
 2026-11-21：[普通领袖建造者对照](research/baiqi-source173-normal-qin-builder-move-build171-2026-11-21.json)：实际到达后才重查建造资格；原UI各一次，独立UI/Core采石场及次数变化双证。SDK零返回不作成功依据。只读父工具终态丢失时OS核后释放登记，exit保持null、不重放。R46先备38完整源1039429字节，维护缓存1.19.6通过、models/health200但配置coder缺，0POST/候选/替换；OpenCode生成0、未知成本null，Owner继续真实工作。
+
+2026-11-21：[追踪器只读SDK实机失败与R3修复](research/baiqi-source174-ownertrace-readonly-sdk-failure-and-proxy-repair-2026-11-21.json)：纯Lua可写表夹具漏掉实际SDK只读约束，冷载失败不能授游戏通过。先保失败日志及正式退场/精确自有残留清理，再以全局代理转发；原生表0写入、缓存身份及原Shutdown先行，101软件情景与实际119包核对通过，R3尚待冷启。7完整源37388字节真实任务先备，首路径错误0POST后纠正；R54维护缓存1.19.6过、配置coder仍缺，0生成POST/候选/采用、不换模型，成本未知null。
