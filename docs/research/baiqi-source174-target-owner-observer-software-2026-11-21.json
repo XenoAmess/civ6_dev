@@ -1,0 +1,98 @@
+{
+  "schema": "civ6.target-owner-observer-software/v1",
+  "utc": "2026-11-21T11:15:47.730243+00:00",
+  "source_version": 174,
+  "product_mod_changes": 0,
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_TC002": false,
+  "new_native_owner_trace_calls": 0,
+  "observer_module": "tools/lua/diagnostic_target_owners.lua",
+  "observer_sha256": "c2454aa7a6d4a08bffb71cb9079a6d06fff99302d28f5b1953ec3601a957e068",
+  "test_source": "tests/test_diagnostic_target_owners.py",
+  "test_sha256": "8f5f476ed85b110256b3f42c301099c476e9c76da9674f6c9af4ab73a9478f96",
+  "software": {
+    "actual_command": "python -X utf8 -m unittest tests.test_diagnostic_target_owners tests.test_diagnostic_city_commands",
+    "observed_completion_chunk": "0e8311",
+    "actual_exit": 0,
+    "unittest_methods": 2,
+    "new_actual_sandbox_scenarios": 54,
+    "new_scenarios_each_VM": 27,
+    "VMs": [
+      "Lua51",
+      "Lua53"
+    ],
+    "existing_city_observer_cases": 21,
+    "existing_city_observer_VM": "Lua51",
+    "passed_scenario_total": 75,
+    "Native_or_game_actions": 0
+  },
+  "owner_initial_red": {
+    "observed_completion_chunk": "3fe396",
+    "actual_exit": 1,
+    "subcase_errors": 2,
+    "new_initial_scenarios": 50,
+    "reason": "Publication callback changed one native binding; initial module validated namespace but missed revalidating the published function bindings. Test required install refusal with foreign binding preserved.",
+    "correction": "Revalidate every manager/function after publication; failure rolls back only owned wrappers and owned namespace. Added protected before-store bookkeeping and freeze behavior scenarios.",
+    "raw_first_draft_file_not_archived": true,
+    "initial_source_bytes_not_claimed": true
+  },
+  "behavior_scope": {
+    "observed_native_methods": [
+      "UnitManager.RequestOperation",
+      "UnitManager.RequestCommand",
+      "CityManager.RequestOperation",
+      "CityManager.RequestCommand",
+      "UI.RequestPlayerOperation"
+    ],
+    "targets": [
+      "actual actor owner and fullID",
+      "actual playerID",
+      "actual localPlayer and turn",
+      "operation and bounded deep scalar params",
+      "argument count and exact native return count"
+    ],
+    "other_source_scope": "Optional Controller.Update/RunNow and Admin.Run tick wrappers observe an actual planning invocation without changing arguments or returns.",
+    "capacity": 256,
+    "deep_parameter_max_depth": 4,
+    "parameter_entry_budget": 128,
+    "foreign_owner_requests": "Recorded and forwarded once, never blocked by a diagnostic.",
+    "native_error": "Same original thrown object propagates; no retry.",
+    "metadata_error": "Counted separately; original still forwarded once.",
+    "native_identity": "Original argument object and return table identities plus nil holes/arity preserved.",
+    "freeze": "Stops recording while keeping every wrapper bound and original forwarding active; cached writer identity remains stable.",
+    "restore": "Only when namespace, manager and all function bindings remain owned; never overwrites foreign bindings."
+  },
+  "required_native_lifecycle": {
+    "cold_before_first_planning": true,
+    "why": "Current actual Controller code captures native writer references and compares function identity. Hot installation or restore during active cached plans can change eligibility.",
+    "planned_private_prefix": "Install5 manager wrappers before the original Controller source includes and before first planning.",
+    "planned_suffixes": [
+      "After Controller definitions, wrap actual Update/RunNow and arrange cleanup after original Shutdown.",
+      "After Admin definitions, wrap actual Run."
+    ],
+    "freeze_before_export_save": true,
+    "restore_only_after_original_Controller_Shutdown": true,
+    "cold_private_package_built": false,
+    "installed": false,
+    "new_game_launches": 0,
+    "actual_native_owner_case_pass": false
+  },
+  "limits": [
+    "Observer software only; no current Native tracing has been installed or run.",
+    "These5 entry points do not by themselves prove all gameplay property and direct native method writes. Source/context coverage must be audited before any wholeTC002 conclusion.",
+    "A no-write ordinary leader result needs observed planning invocations and a real empty queue, not just zero counters.",
+    "Cold package and prefix/suffix inverse-byte proofs remain required; production117/119 claims not inferred before building."
+  ],
+  "model": {
+    "real_task_prepared_before_owner_implementation": "tc002-owner-trace174-real-task-prepared.json",
+    "complete_sources": 13,
+    "raw_UTF8_bytes": 457530,
+    "configured_coder_absent_at_R53": "2026-11-21T10:58:47.257423+00:00",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "unknown_cost": null
+  },
+  "next": "Build an explicit private cold-initialized observer package, verify full inversions/119 source and ZIP inventory, ensure cached native references are captured after wrappers, then official saved138/exit/fresh offline/new tuple and endpoints. Bound current owner observations; complete ordinary empty-queue planning and additional writer/context scope before wholeTC002 credit."
+}
