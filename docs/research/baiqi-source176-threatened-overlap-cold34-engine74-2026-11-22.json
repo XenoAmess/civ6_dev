@@ -1,0 +1,357 @@
+{
+  "schema": "civ6.source176-threatened-overlap-cold34/v1",
+  "utc": "2026-11-21T21:28:47.454766+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 176,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_EXACT_COLD_FAILED33_AUTOMATIC_EVACUATION_AND_NORMAL34_SAVED_WORLD_EXITED",
+  "whole_TC009": "OPEN_INDEPENDENT_PREREQUISITE_RESTORATION_NOT_REACHED",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 12,
+  "whole_cases_total": 40,
+  "percent": 30,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 4,
+  "software": "docs/research/baiqi-source176-threatened-overlap-evacuation-software-2026-11-22.json",
+  "prior_failure": "docs/research/baiqi-source175-tc009-threatened-overlap33-engine74-2026-11-22.json",
+  "cold_setup": {
+    "old175_119_files_and_marker_backed_up": 120,
+    "new176_source_payload_installed_all119_bytes_and_marker_verified": true,
+    "same_frozen_engine_exe_and_CPU_affinity_verified": true,
+    "new_Popen": 1,
+    "new_own_tuple": {
+      "pid": 21068,
+      "created_at": 1795296139.9184127,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "fresh_background_offline_before_Popen_and_Load": true,
+    "actual_protected175_failed33_official_Load": 1,
+    "physical_Continue": 1,
+    "save_sha256_before_load": "0fdc5cd74e86627cc1a60b163eb699f0f4f7ff643848c03e1e9e30c00036d1a0",
+    "fixture_mutations": 0,
+    "Steam_mode_changes": 0
+  },
+  "automatic_native_effect": {
+    "actual_actor_logs": [
+      "BaiqiExecutor: BAIQI|wait|turn=33|key=settler:327682|reason=移民等待已探明的安全城址或路线",
+      "BaiqiExecutor: BAIQI|request|turn=33|id=0:33:1|source=BACKGROUND|unit=327682|operation=MOVE_TO|plot=571|from=615",
+      "BaiqiExecutor: BAIQI|civilian_evacuation|turn=33|unit=327682|from=615|plot=571|reason=threatened_overlap",
+      "BaiqiExecutor: BAIQI|observed|turn=33|id=0:33:1|unit=327682|kind=MOVE_TO",
+      "BaiqiExecutor: BAIQI|request|turn=33|id=0:33:2|source=BACKGROUND|unit=327682|operation=MOVE_TO|plot=526|from=571",
+      "BaiqiExecutor: BAIQI|observed|turn=33|id=0:33:2|unit=327682|kind=MOVE_TO",
+      "BaiqiExecutor: BAIQI|request|turn=33|id=0:33:3|source=BACKGROUND|unit=393219|operation=SKIP_TURN|plot=615|from=615"
+    ],
+    "new_branch_request": "BACKGROUND settler327682 MOVE_TO615→571 plus explicit civilian_evacuation reason=threatened_overlap",
+    "new_branch_observed_receipt": true,
+    "subsequent_existing_behavior": "After actual first arrival the ordinary settler planner submitted MOVE_TO571→526, independently observed. This second move is existing planning, not an unbounded evacuation path. The builder393219 then used ordinary entrusted SKIP at615.",
+    "UI_actors": [
+      [
+        "327682",
+        "UNIT_SETTLER",
+        "42",
+        "11",
+        "0",
+        "1",
+        "false",
+        "false",
+        "false",
+        "nil",
+        "1797587246",
+        "false",
+        "false",
+        "0"
+      ],
+      [
+        "393219",
+        "UNIT_BUILDER",
+        "43",
+        "13",
+        "2",
+        "1",
+        "false",
+        "false",
+        "false",
+        "nil",
+        "75236491",
+        "false",
+        "false",
+        "3"
+      ],
+      [
+        "262144",
+        "UNIT_ARCHER",
+        "43",
+        "13",
+        "0",
+        "1",
+        "false",
+        "false",
+        "false",
+        "nil",
+        "1797587246",
+        "false",
+        "false",
+        "0"
+      ],
+      [
+        "131073",
+        "UNIT_WARRIOR",
+        "42",
+        "13",
+        "2",
+        "1",
+        "false",
+        "false",
+        "false",
+        "nil",
+        "75236491",
+        "false",
+        "false",
+        "0"
+      ]
+    ],
+    "independent_Core_actors": [
+      [
+        "327682",
+        "UNIT_SETTLER",
+        "42",
+        "11",
+        "0",
+        "1",
+        "false",
+        "false",
+        "0"
+      ],
+      [
+        "393219",
+        "UNIT_BUILDER",
+        "43",
+        "13",
+        "2",
+        "1",
+        "false",
+        "false",
+        "3"
+      ],
+      [
+        "262144",
+        "UNIT_ARCHER",
+        "43",
+        "13",
+        "0",
+        "1",
+        "false",
+        "false",
+        "0"
+      ],
+      [
+        "131073",
+        "UNIT_WARRIOR",
+        "42",
+        "13",
+        "2",
+        "1",
+        "false",
+        "false",
+        "0"
+      ]
+    ],
+    "UI_Core_exact_types_XY_moves_formations_agree": true,
+    "settler_after_two_real_moves": {
+      "id": 327682,
+      "XY": [
+        42,
+        11
+      ],
+      "moves": 0,
+      "formation": 1
+    },
+    "builder": {
+      "id": 393219,
+      "XY": [
+        43,
+        13
+      ],
+      "moves": 2,
+      "charges": 3,
+      "activity": "HOLD75236491"
+    },
+    "unchanged_armies": [
+      {
+        "id": 262144,
+        "type": "UNIT_ARCHER",
+        "XY": [
+          43,
+          13
+        ],
+        "moves": 0
+      },
+      {
+        "id": 131073,
+        "type": "UNIT_WARRIOR",
+        "XY": [
+          42,
+          13
+        ],
+        "moves": 2,
+        "activity": "HOLD75236491"
+      }
+    ],
+    "normal_original_blocker_after_background": [
+      "33",
+      "true",
+      "false",
+      "false",
+      "false",
+      "true",
+      "true",
+      "false",
+      "0",
+      "false",
+      "false"
+    ],
+    "manual_civilian_or_military_inputs": 0,
+    "new_battle_inputs": 0,
+    "new_war_or_diplomacy": 0
+  },
+  "ordinary_turn": {
+    "two_fresh_original_qualifications": true,
+    "normal_native_END33_calls": 1,
+    "UserForced": false,
+    "actual_frames": [
+      [
+        "33",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "false",
+        "1",
+        "4",
+        "222",
+        "5"
+      ],
+      [
+        "33",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "false",
+        "1",
+        "4",
+        "222",
+        "5"
+      ],
+      [
+        "33",
+        "false",
+        "true",
+        "false",
+        "true",
+        "true",
+        "false",
+        "1",
+        "4",
+        "222",
+        "5"
+      ],
+      [
+        "33",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "false",
+        "1",
+        "4",
+        "222",
+        "5"
+      ],
+      [
+        "33",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "false",
+        "1",
+        "4",
+        "222",
+        "5"
+      ],
+      [
+        "34",
+        "true",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "1",
+        "4",
+        "228",
+        "5"
+      ],
+      [
+        "34",
+        "true",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "1",
+        "4",
+        "228",
+        "5"
+      ]
+    ],
+    "actual_turns": [
+      33,
+      34
+    ],
+    "actual_advance_count": 1,
+    "military_skip_or_move": 0,
+    "manual_domestic_inputs": 0
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-21T21:25:57.579053+00:00",
+      "name": "Baiqi_P6_20261122_V176_CapitalOverlapRecovered34.Civ6Save",
+      "bytes": 497437,
+      "sha256": "4db5555f2a0cb42e8aec110038edc16c0c6a71cdc97811f0638101743858ab49",
+      "stable_repeated_read": true
+    },
+    "all_world_QA_flags_retired": true,
+    "passive_handlers_installed": 0,
+    "official_ReturnMainMenu_and_confirmation": true,
+    "independent_actual_MainMenu_and_absent_world_UI_Core_contexts": true,
+    "ordinary119_source_payload_installed_marker_verified": true,
+    "game_process_still_running_at_MainMenu": true,
+    "unsaved_world_progress": false,
+    "terminate": 0,
+    "kill": 0,
+    "Steam_changes": 0,
+    "private_save_bytes_not_published": true
+  },
+  "model": {
+    "no_new_generation_POSTs": true,
+    "candidate_adopted": 0,
+    "OpenCode_native_generation": 0,
+    "owner_real_native_verification": true,
+    "unknown_cost": null
+  },
+  "limits": [
+    "Only this exact cold protected33 scene and one normal advance are closed for the evacuation repair; not a whole TC009 or whole-mod PASS.",
+    "No source175 matched cold comparator was run. Actual saved175 blocked33 and unchanged same-source software comparator remain separate evidence.",
+    "The generic path, destination safety and army/escort authority remain unchanged; no claim all prior12 cases reran in176.",
+    "Original175 and earlier failure records and private saves remain; old8650807 FAIL_UNRESOLVED and legacy6684713 LEGACY_UNKNOWN untouched."
+  ],
+  "next": "Continue from protected recovered34 with ordinary player military/turn inputs and passive production/unlock evidence, observe original technology prerequisite and policy-legal district recovery for TC009; continue remaining28 whole cases. No repeated Workshop upload."
+}
