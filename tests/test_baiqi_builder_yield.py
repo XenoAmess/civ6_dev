@@ -170,6 +170,76 @@ TestWorld.plots[274].GetImprovementType=function()return-1 end''')
                 lua.globals().BaiqiController.RunNow()
                 self.assertEqual([r for r in lua.globals().TestWorld.unitRequests.values()if r.unit==3],[])
 
+    def latch_transient_yield_wait(self,runtime):
+        lua=self.world(runtime,'TestWorld.onYieldCheck=function()TestWorld.builderPending=true end')
+        lua.execute('''assert(type(UnitOperationTypes.SKIP_TURN)=='number')
+GameInfo.UnitOperations={UNITOPERATION_SKIP_TURN={Hash=UnitOperationTypes.SKIP_TURN}}''')
+        self.assertEqual(self.run_one(lua),[])
+        self.assertGreater(lua.globals().TestWorld.yieldChecks,0)
+        lua.execute('TestWorld.onYieldCheck=nil;TestWorld.builderPending=false')
+        return lua
+
+    def test_transient_yield_wait_can_standby_once_after_native_idle_returns(self):
+        for runtime in(Lua51,Lua53):
+            with self.subTest(runtime=runtime.__module__):
+                lua=self.latch_transient_yield_wait(runtime)
+                for _ in range(4):self.assertEqual(self.run_one(lua),[])
+                requests=[r for r in lua.globals().TestWorld.unitRequests.values()if r.unit==3]
+                skip=lua.globals().GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN.Hash
+                self.assertEqual([r.op for r in requests],[skip])
+
+    def test_native_wait_standby_preserves_unknown_or_changed_actor_state(self):
+        cases={
+            'pending':'TestWorld.builderPending=true',
+            'pending_unknown':'TestWorld.pendingUnknown=true',
+            'pending_many':'TestWorld.objects.builder.HasPendingOperations=function()return false,false end',
+            'pending_missing':'TestWorld.objects.builder.HasPendingOperations=false',
+            'pending_throw':'TestWorld.objects.builder.HasPendingOperations=function()error("unavailable")end',
+            'queued':'TestWorld.builderQueue=0',
+            'queue_unknown':'TestWorld.queueMany=true',
+            'escort':'TestWorld.builderFormation=2',
+            'not_ready':'TestWorld.builderReady=false',
+            'dead':'TestWorld.builderDead=true',
+            'delayed':'TestWorld.builderDelayed=true',
+            'not_awake':'TestWorld.builderActivity=12345',
+            'other_owner':'TestWorld.objects.builder.GetOwner=function()return 8 end',
+        }
+        for runtime in(Lua51,Lua53):
+            for name,change in cases.items():
+                with self.subTest(runtime=runtime.__module__,case=name):
+                    lua=self.latch_transient_yield_wait(runtime);lua.execute(change)
+                    for _ in range(2):self.run_one(lua)
+                    self.assertEqual([r for r in lua.globals().TestWorld.unitRequests.values()if r.unit==3],[])
+
+    def test_native_wait_standby_rechecks_after_original_skip_qualification(self):
+        cases={
+            'new_pending':'TestWorld.builderPending=true',
+            'pending_unknown':'TestWorld.pendingUnknown=true',
+            'new_queue':'TestWorld.builderQueue=0',
+            'new_escort':'TestWorld.builderFormation=2',
+            'new_owner':'TestWorld.objects.builder.GetOwner=function()return 8 end',
+            'new_delayed':'TestWorld.builderDelayed=true',
+            'moved':'TestWorld.builderPlot=273',
+        }
+        for runtime in(Lua51,Lua53):
+            for name,change in cases.items():
+                with self.subTest(runtime=runtime.__module__,case=name):
+                    lua=self.latch_transient_yield_wait(runtime)
+                    lua.execute('''local previous=UnitManager.CanStartOperation
+local skip=GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN.Hash
+TestWorld.skipChecks=0
+UnitManager.CanStartOperation=function(u,op,...)
+ if u:GetID()==3 and op==skip then
+  TestWorld.skipChecks=TestWorld.skipChecks+1
+  '''+change+'''
+  return true
+ end
+ return previous(u,op,...)
+end''')
+                    self.run_one(lua)
+                    self.assertGreater(lua.globals().TestWorld.skipChecks,0)
+                    self.assertEqual([r for r in lua.globals().TestWorld.unitRequests.values()if r.unit==3],[])
+
     def test_second_settler_proposal_leaves_budget_for_final_recheck(self):
         for runtime in(Lua51,Lua53):
             with self.subTest(runtime=runtime.__module__):

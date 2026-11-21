@@ -1048,6 +1048,8 @@ local function RequestCivilianStandby(unit)
   local def=GameInfo.Units[unit:GetUnitType()]
   local unitType=def and def.UnitType
   if not BaiqiPolicy.CivilianType(unitType) then return false end
+  local nativeWaitKey=unitType=="UNIT_BUILDER" and UnitKey(unit) or nil
+  if nativeWaitKey and unitEvaluated[nativeWaitKey]~="native_wait" then nativeWaitKey=nil end
   local row=GameInfo.UnitOperations and GameInfo.UnitOperations.UNITOPERATION_SKIP_TURN
   local operation=row and row.Hash
   if not BaiqiPolicy.Number(operation) or operation%1~=0 then return false end
@@ -1065,6 +1067,20 @@ local function RequestCivilianStandby(unit)
       or type(UnitManager.GetActivityType)~="function" or not ActivityTypes
       or ActivityTypes.ACTIVITY_AWAKE==nil
       or UnitManager.GetActivityType(fresh)~=ActivityTypes.ACTIVITY_AWAKE then return nil end
+    if nativeWaitKey then
+      -- A transient path hold is not permanent turn-blocking authority. Only
+      -- a fresh, exact idle builder may wait; never overwrite an unknown or
+      -- newly queued operation, or retry its rejected movement/ability.
+      local function KnownFalse(ok,...)
+        return ok==true and select("#",...)==1 and (...)==false
+      end
+      if pendingUnits[unitID]~=nil or UnitKey(fresh)~=nativeWaitKey
+        or unitEvaluated[nativeWaitKey]~="native_wait"
+        or type(fresh.HasPendingOperations)~="function"
+        or not KnownFalse(pcall(fresh.HasPendingOperations,fresh))
+        or type(fresh.IsDead)~="function" or not KnownFalse(pcall(fresh.IsDead,fresh))
+        or type(fresh.IsDelayedDeath)~="function" or not KnownFalse(pcall(fresh.IsDelayedDeath,fresh)) then return nil end
+    end
     if not SettlerQueueIdle(fresh,unitType)then return nil end
     return fresh
   end
@@ -5565,7 +5581,8 @@ local function Tick(allowOrders)
         end
       end
       local waiting=pendingUnits[unit:GetID()]
-      if (not waiting and unitEvaluated[UnitKey(unit)]==true)
+      local evaluated=unitEvaluated[UnitKey(unit)]
+      if (not waiting and (evaluated==true or (def.UnitType=="UNIT_BUILDER" and evaluated=="native_wait")))
         or (waiting and waiting.persistent and (waiting.elapsed or 0)>=C.productionObservationSeconds) then
         if RequestCivilianStandby(unit) then
           status="文职单位本回合自动待命；原能力回执继续保留";return

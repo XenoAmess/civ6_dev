@@ -2,7 +2,7 @@
 
 当前F08五城复测发现[100回合建造者等待阻塞普通回合](docs/research/baiqi-source174-tc037-builder-wait-fail100-engine74-2026-11-22.json)，已保存失败现场并返回主菜单，继续修复。TC037未通过，整项进度保持11/40（27.5%）。
 
-当前主线源码174；[Steam创意工坊Alpha3](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)仍是已发布并真实下载核验的172。尚未发布的修复有2个：173军队护送权限，以及[174城市命令拒绝返回类型](docs/research/baiqi-source174-city-command-nullable-return-software-2026-11-21.json)。后者已完成[实际失败存档的冷启动回归](docs/research/baiqi-source174-city-command-return-native-retest118-2026-11-21.json)。本轮没有重复上传。
+当前主线源码175；[Steam创意工坊Alpha3](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)仍是已发布并真实下载核验的172。尚未发布的修复有3个：173军队护送权限，以及[174城市命令拒绝返回类型](docs/research/baiqi-source174-city-command-nullable-return-software-2026-11-21.json)。后者已完成[实际失败存档的冷启动回归](docs/research/baiqi-source174-city-command-return-native-retest118-2026-11-21.json)。以及[175建造者通行等待后的空闲待命恢复](docs/research/baiqi-source175-native-wait-standby-software-2026-11-22.json)。175相关112项与双Lua编译／119文件包通过，实机恢复待验。本轮没有重复上传。
 
 当前1.0.12.74整项验收闭合或按源码影响保留[11/40（27.5%）](docs/research/baiqi-source174-finite40-engine74-after-tc037-fail-2026-11-22.json)，尚有29整项待完成。这是整项验收比例；173已有实机只在174未受影响的范围保留，具体复测与限制见台账。[TC005真实旧172非零双队列升级、自然完成和自动接续已通过](docs/research/baiqi-source173-tc005-real172-upgrade-completion118-engine74-2026-11-21.json)。[TC020护送隔离已通过](docs/research/baiqi-source173-tc020-complete-engine74-2026-11-21.json)：建造者与移民按实际编队验证；传教士按用户确定的原版限制验证拒绝、不强行编队，保留未知停发及恢复国内传播实测。TC033保留172/.74实测及明确无影响范围。
 
