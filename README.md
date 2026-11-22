@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178／引擎.74 UNKNOWN转城未执行分支通过](docs/research/baiqi-source178-tc029-before-native-unknown-engine74-2026-11-22.json)：调用点尝试1次但故障在原生执行前阻断，实际转城／收费／结束行动均0；撤故障后2次恢复检查、8次自然规划入口及实际存读档均保持冻结。TC029/030其余因果和阶段仍待，整体22/40＝55%，余18，待发6；继续。
+
 [178／引擎.74 TC028明确未执行／重复失败／存读档通过](docs/research/baiqi-source178-tc028-complete-engine74-2026-11-22.json)：两次真实后台quote_changed拒绝，转城／扣款／结束行动均0，资金和军队4行动／空冷却保持；实际存读档无退款或重放，已返菜单撤QA。当前实现无预扣路径。[整项22/40＝55%](docs/research/baiqi-source178-finite40-engine74-after-tc028-2026-11-22.json)，余18，待发6，继续。
 
 [178／引擎.74 TC027完整矩阵通过](docs/research/baiqi-source178-tc027-complete-engine74-2026-11-22.json)：双击不穿透、两次实际重复请求不重复结算、另一个真实城市的新请求独立拒绝为no_moves；保留相同Core源码的隔离冷却边界。已保存、撤QA、返主菜单。[整项验收21/40＝52.5%](docs/research/baiqi-source178-finite40-engine74-after-tc027-2026-11-22.json)，余19，待发修复6项；继续全模组验收。

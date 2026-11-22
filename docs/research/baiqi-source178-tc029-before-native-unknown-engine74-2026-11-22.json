@@ -1,0 +1,300 @@
+{
+  "schema": "civ6.source178-tc029-before-native-unknown/v1",
+  "utc": "2026-11-22T11:43:24.567985+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_NARROW_ACTUAL_UNKNOWN_BEFORE_NATIVE_FROZEN_RECOVERY_NATURAL_PLANNING_SAVED_RELOAD",
+  "whole_TC029": "OPEN_OTHER_CAUSAL_AND_ACTUAL_CONFLICT_ATTEMPT_CLAUSES",
+  "whole_TC030": "OPEN_OTHER_REAL_PHASE_AND_RECOVERY_CLAUSES",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    22,
+    40,
+    55.0,
+    18
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "owner": {
+    "pid": 8668,
+    "created_at": 1795340439.8508365,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "actual_request": {
+    "OnStart": "BaiqiRequisition",
+    "confirmed": true,
+    "requestID": "city:0:114:2162700:1:524295:41:19",
+    "kind": "city",
+    "playerID": 0,
+    "unitID": 2162700,
+    "targetOwner": 1,
+    "cityID": 524295,
+    "x": 41,
+    "y": 19,
+    "cost": 300,
+    "population": 1,
+    "turn": 114
+  },
+  "provenance": "Independent new qualified background-offline original114 Load, current UI/Core full baseline, original Capture callsite counters zero. Explicit TEST_PLAYER F07 actual UI.RequestPlayerOperation sends one real valid confirmed300 request. A scoped Core diagnostic interrupts before original native TransferCity without writing journal/gold/units. It is not a normal physical popup input or automatic background request.",
+  "fault_and_count_scope": {
+    "source_Capture_TransferCity_callsite_attempts": 1,
+    "source_callsite_debit_FinishMoves_attempts": [
+      0,
+      0
+    ],
+    "actual_scoped_fault_blocks_before_original_native": 1,
+    "actual_native_TransferCity_forwarded": 0,
+    "actual_native_debit_FinishMoves": [
+      0,
+      0
+    ],
+    "original_callsite_after_returned": false,
+    "source_callsite_attempt_is_not_actual_native_execution": true,
+    "actual_original_journal_created_by_product": {
+      "version": 1,
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "playerID": 0,
+          "turn": 114,
+          "unitID": 2162700,
+          "targetOwner": 1,
+          "cityID": 524295,
+          "x": 41,
+          "y": 19,
+          "cost": 300,
+          "population": 1,
+          "stage": "UNKNOWN",
+          "phase": "TRANSFERRING",
+          "reason": "transfer_unresolved"
+        }
+      }
+    },
+    "actual_result_UI_Core": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "stage": "UNKNOWN",
+      "reason": "transfer_unresolved"
+    },
+    "positive_transfer_or_charge_receipt": null,
+    "game_properties_written_by_fault": 0,
+    "all_unmatched_calls_forward_exact_args_returns_errors": true
+  },
+  "recovery_after_fault_removed": {
+    "actual_native_binding_restored_before_checks": true,
+    "explicit_direct_TEST_PLAYER_QA_Recovers": 2,
+    "automatic_paid_request_retries": 0,
+    "actual_native_transfer_debit_finish_total": [
+      0,
+      0,
+      0
+    ],
+    "source_callsite_attempts_total": [
+      1,
+      0,
+      0
+    ],
+    "all_original_callsite_rows_and_unknown_journal_unchanged": true,
+    "these_are_not_natural_planning_calls": true
+  },
+  "natural_planning_observation": {
+    "real_Controller_RunNow_entry_invocations": 8,
+    "real_original_RunNow_returned": 8,
+    "rows": [
+      [
+        "1",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "2",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "3",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "4",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "5",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "6",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "7",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "8",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ]
+    ],
+    "actual_status": "建造者按当前状态重新规划；军队由你指挥",
+    "manual_RunNow_Update_or_turn_event_calls": 0,
+    "internal_Tick_branch_counter_claimed": false,
+    "full_unknown_journal_and_original_attempt_rows_unchanged": true,
+    "own_transparent_planning_wrapper_restored": true
+  },
+  "independent_state_and_freeze": {
+    "gold": 4524.2734375,
+    "gold_delta_or_refund": 0,
+    "actor_owner_ID_position_moves_damage_cooldown": [
+      0,
+      2162700,
+      [
+        42,
+        19
+      ],
+      4,
+      0,
+      null
+    ],
+    "actor_pending_queued": [
+      false,
+      null
+    ],
+    "target_owner_ID_position_population": [
+      1,
+      524295,
+      [
+        41,
+        19
+      ],
+      1
+    ],
+    "same_army_and_target_actual_Conflict_predicates": true,
+    "actual_new_conflicting_UI_attempt_proven": false,
+    "cross_context_atomic": false
+  },
+  "actual_save_reload": {
+    "save": {
+      "utc": "2026-11-22T11:35:31.150653+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC029BeforeNativeUnknown114.Civ6Save",
+      "bytes": 569061,
+      "sha256": "b5c3139971c80396fa79dd32221f89188dc0cfda380dd361d8912fd6ba772eef",
+      "stable_repeated_read": true
+    },
+    "formal_MainMenu_before_Load": true,
+    "new_current_background_only_offline_Load_proof": true,
+    "same_owned_process_not_cold_process": true,
+    "loaded_full_unknown_journal_and_result_unchanged": true,
+    "fresh_world_original_callsite_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ],
+    "wallet_no_refund": 4524.2734375,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "target_owner_ID_population": [
+      1,
+      524295,
+      1
+    ],
+    "all_other_original_baseline_fields_unchanged": true,
+    "old_fault_planning_and_onceflag_namespaces_absent": true,
+    "no_new_paid_request_after_Load": true
+  },
+  "software_validation": {
+    "actual_Lua51_Lua53_cases": 64,
+    "driver_sha256": "bdea4f851196f009f775ef9e85b61aa796afd4f6af5b907b315b6d5e047cc014",
+    "fault_sha256": "b6e8dd0310f28046bd9a545811fedbe2f57c2855dfa1c33973ec7bdea6d8ede4",
+    "planning_observer_sha256": "a3f9e93256a2d89a471721d0abcfa358ed71f3959ecac686dbce7acc19cc10d2",
+    "actual_current_Capture_and_OnRequisition_consumer_used": true,
+    "scope": "Valid one-use UI request, actual UNKNOWN causal consumer, fault before native/no state writes, two explicit recovery checks, role/binding/identity/unknown/reentrant negatives and exact unrelated nil/error forwarding; passive planning wrapper forwards exact original. Separate from Native."
+  },
+  "model": {
+    "R96_UTC": "2026-11-22T11:21:50.059126+00:00",
+    "genuine_full_sources": 20,
+    "genuine_UTF8_bytes": 508141,
+    "configured_coder_absent_only_H3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6/local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "unknown_cost": null
+  },
+  "owner_corrections": [
+    "An owner-only software test literal omitted whitespace after return; Lua syntax rejected that test snippet. Corrected before all64 actual VM cases and before any Native fault installation. No game action replayed.",
+    "Unexecuted cloned Load helper still named a prior-case flag/role. Corrected to its own TC029 namespace before its single actual Load."
+  ],
+  "closeout": {
+    "fault_native_binding_and_natural_planning_binding_restored_by_identity": true,
+    "own_paid_once_and_two_recovery_flags_retired": true,
+    "Core_Input_logging_APIs_retired_before_Save_and_in_reloaded_world": true,
+    "all_own_Save_Load_flags_retired": true,
+    "real_product_unknown_journal_preserved": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "diagnostic119_still_installed_no_live_byte_restoration": true,
+    "process_still_running_MainMenu": true,
+    "new_Popen": 0,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "limits": [
+    "Only actual before-native UNKNOWN branch, fault-free explicit recovery, natural planning entries and real saved reload verified here. WholeTC029/030 remain open.",
+    "Conflict predicate readback is not an actual new UI retry test; that clause remains pending.",
+    "Actual own transfer with lost receipt, third-party ownership changes, positive later settlement phases, cold-process stage coverage and normal-turn scopes are separate.",
+    "No global military API command interception, full-world equality, fees for another branch or historical old865 failure repair claimed."
+  ],
+  "next": "Continue actual UNKNOWN conflict UI attempt, then independent original114 real own transfer with lost positive receipt and independent third-party62 change while UNKNOWN. Keep native success, no execution and third-party causes separate. Then actual positive TRANSFERRED/CHARGED/FINISHING/current/cold recovery matrix; preserve old865FAIL and allremaining18, do not stop after push.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T12:28:24.568020+00:00",
+    "next_checkpoint": "Actual next unknown conflict/causal branch and safe save, or precise retained blocker while continuing independent work.",
+    "whole_mod_finish": "Unknown;18 whole cases remain."
+  }
+}
