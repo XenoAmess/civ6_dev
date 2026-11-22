@@ -1,0 +1,200 @@
+{
+  "schema": "civ6.source178-tc027-complete/v1",
+  "utc": "2026-11-22T11:01:22.079039+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_TC027_CONTRACT_MATRIX_CURRENT178_WITH_EXACT_RETAINED_ENGINE74_LIMITS",
+  "whole_TC027_closed": true,
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    21,
+    40,
+    52.5,
+    19
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes_in_this_package": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "owner": {
+    "pid": 8668,
+    "created_at": 1795340439.8508365,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "matrix": {
+    "actual_fast_double_input": {
+      "evidence": "docs/research/baiqi-source178-tc027-double-input-fixed-engine74-2026-11-22.json",
+      "scope": "Actual second Double15 delivered and current product handler consumed; UI paid1, original Capture Native1/1/1, net300, oneDONE, army pendingfalse/queuednil without cancellation. Original177 pending831 failure preserved as historical regression, fixed178 in this scope."
+    },
+    "actual_duplicate_requests_and_results": {
+      "evidence": "docs/research/baiqi-source178-tc027-duplicate-packets-engine74-2026-11-22.json",
+      "scope": "Independent original114 knownDONE then two explicit F07 same canonical packet redeliveries via actual UI.RequestPlayerOperation. Each has fresh actual product duplicate log plus UI/Core receipt; full journal and six original Native rows unchanged, total1/1/1/net300/no queue."
+    },
+    "actually_distinct_new_request": {
+      "provenance": "Another independently qualified background-offline original114 Load in same owned current178. One physical paid300 first; no movement/army reset/clock clear. Only fresh visible actual enemy targets enumerated for TEST_PLAYER fixture selection, not a background planner discovery.",
+      "first_known_COMMITTED_DONE": {
+        "accepted_packet": {
+          "OnStart": "BaiqiRequisition",
+          "cityID": 524295,
+          "confirmed": true,
+          "cost": 300,
+          "kind": "city",
+          "playerID": 0,
+          "population": 1,
+          "requestID": "city:0:114:2162700:1:524295:41:19",
+          "targetOwner": 1,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        },
+        "original_Capture_Native_counts": [
+          1,
+          1,
+          1
+        ],
+        "fee": 300,
+        "actor_moves_cooldown_pending_queued": [
+          0,
+          114,
+          false,
+          null
+        ]
+      },
+      "actual_new_packet": {
+        "OnStart": "BaiqiRequisition",
+        "confirmed": true,
+        "requestID": "city:0:114:2162700:1:131073:39:15",
+        "kind": "city",
+        "playerID": 0,
+        "unitID": 2162700,
+        "targetOwner": 1,
+        "cityID": 131073,
+        "x": 39,
+        "y": 15,
+        "cost": 1300,
+        "population": 11,
+        "turn": 114
+      },
+      "actual_request_calls": 1,
+      "actual_new_result_UI_Core": {
+        "id": "city:0:114:2162700:1:131073:39:15",
+        "stage": "REJECTED",
+        "reason": "no_moves"
+      },
+      "fresh_actual_product_REJECTED_log_lines": 1,
+      "private_log_delta_bytes": 215,
+      "private_log_delta_sha256": "882fcb010e07d20876a08f7733e9131d900d041dee0f0f03b0455962c3c02300",
+      "QA_code_does_not_print_product_marker": true,
+      "new_enemy_owner_ID_position_population": [
+        1,
+        131073,
+        [
+          39,
+          15
+        ],
+        11
+      ],
+      "selected_target_UI_Core_identity_and_visibility_rechecked": true,
+      "target_ownership_and_population_unchanged": true,
+      "full_old_journal_unchanged_new_key_absent": true,
+      "all_six_old_target_Capture_rows_unchanged": true,
+      "old_target_original_Native_total": [
+        1,
+        1,
+        1
+      ],
+      "new_target_direct_Native_invocation_counts": null,
+      "source_actual_REJECTED_quote_trace_returns_before_Execute": true,
+      "gold": 4224.2734375,
+      "additional_gold_change": 0,
+      "actor_moves_cooldown_pending_queued": [
+        0,
+        114,
+        false,
+        null
+      ],
+      "UI_interact_requests_paidroute_popupcontinuation": [
+        1,
+        2,
+        2,
+        0
+      ],
+      "actual_Double_messages": 0,
+      "all_other_target_eligibility_conditions_passed_claimed": false,
+      "qualification_order": "Actual no_moves gate precedes cooldown, distance, health and funds. This request proves fresh qualification and rejection, not independent passage of later gates.",
+      "cross_context_atomic": false
+    },
+    "isolated_moves_and_clock_limits": {
+      "evidence": "docs/research/baiqi-source177-tc024-moves-cooldown-engine74-2026-11-22.json",
+      "retained_from_source": 177,
+      "same_engine": true,
+      "current_Capture_Requisition_Config_Gameplay_exactly_unchanged": {
+        "Lua/BaiqiCapture.lua": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+        "Lua/BaiqiRequisition.lua": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+        "Lua/BaiqiConfig.lua": "5e2af705e9f6e41cf696a0028e7312658e42a9265657252a44df13ce6c5838eb",
+        "Lua/BaiqiGameplay.lua": "f39c8de823af550f608e5e7a471e49488bd72404f0ac20a99407e405ca500441"
+      },
+      "scope": "Three independent current-engine114 QA copies: moves0 refuses; moves4/currentclock114 refuses; moves4/priorclock113 allows and actual300fee/oneDONE/moves0/clock114. Controlled preparations are explicit QA, not natural previous-turn actions. Current178 actual completed transactions independently show army0/clock114 and the actual new request above rejects.",
+      "all_isolated_limits_rerun178": false
+    }
+  },
+  "software_validation": {
+    "actual_Lua51_Lua53_driver_cases": 74,
+    "helper_sha256": "724b8535e378cf4bb49d53592c9074afa2a977d6e1d04c52a8ae98108d52bbbe",
+    "actual_current_Capture_and_OnRequisition_consumer_used": true,
+    "scope": "New canonical target, exact old positive journal, no_moves, unknown/reentrant/identity/binding/once-flag negatives; software results separate from Native."
+  },
+  "model": {
+    "R94_UTC": "2026-11-22T10:31:56.286772+00:00",
+    "genuine_full_sources": 17,
+    "genuine_UTF8_bytes": 494277,
+    "configured_coder_absent_only_H3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6/local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "unknown_cost": null
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-22T10:57:48.540575+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC027DistinctRequestRejected114.Civ6Save",
+      "bytes": 568873,
+      "sha256": "b956a5c92b98d1fef4b480312865548bf9d2ee6a94cdaba3a806a58e3af356e8",
+      "stable_repeated_read": true
+    },
+    "five_own_UI_flags_and_two_UI_bindings_retired": true,
+    "Core_and_Input_logging_APIs_retired": true,
+    "all_own_Save_Load_flags_retired": true,
+    "product_old_DONE_journal_and_new_REJECTED_result_preserved": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "diagnostic119_still_installed_no_live_byte_restoration": true,
+    "process_still_running_MainMenu": true,
+    "new_Popen": 0,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "owner_correction": "After context output truncation the completed initial-read parent session was no longer queryable. Its actual OS tuple was absent, complete qualification and final runtime write present. Terminal exit/chunk remain null; no game action was replayed. A separate inline diagnostic command had a quoting SyntaxError before execution; file-based inspection/reconciliation used instead.",
+  "limits": [
+    "Whole TC027 closes only its defined duplicate input/result/fresh request and count/cooldown contract, not other case clauses.",
+    "Original177 failure save remains intact. TC026 same-actor owner-change Native gap, old8650807 FAIL and other legacy unknowns remain open.",
+    "No END, production completion, long-term loyalty, whole-army state equality or global Native command interception proof added.",
+    "Previous20 whole cases retain their exact source/impact-reviewed scopes; not all Native clauses rerun178."
+  ],
+  "next": "Prepare genuine current-source TC028 explicit-negative transfer/repeated failure/save-reload case using independent original114. Preserve actual Native nonexecution evidence, no timeout-as-rejection, no invented precharge path. Review TC029/030 real stage matrix; continue remaining19 and old unresolved failures after this push.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T11:46:22.079080+00:00",
+    "next_checkpoint": "Next TC028 explicit-negative actual result and safe checkpoint, or precise retained blocker with independent work continuing.",
+    "whole_mod_finish": "Unknown;19 whole cases remain."
+  }
+}

@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178／引擎.74 TC027完整矩阵通过](docs/research/baiqi-source178-tc027-complete-engine74-2026-11-22.json)：双击不穿透、两次实际重复请求不重复结算、另一个真实城市的新请求独立拒绝为no_moves；保留相同Core源码的隔离冷却边界。已保存、撤QA、返主菜单。[整项验收21/40＝52.5%](docs/research/baiqi-source178-finite40-engine74-after-tc027-2026-11-22.json)，余19，待发修复6项；继续全模组验收。
+
 [178/.74 相同已结算请求重投两次通过](docs/research/baiqi-source178-tc027-duplicate-packets-engine74-2026-11-22.json)：每次均有新产品duplicate日志和UI/Core回执，三次UI请求只结算一次，完整账本／原生六记录／费用／军队队列保持。已存退菜单撤QA；TC027仍待不同新请求资格矩阵，整体20/40＝50%，待发6，继续。
 
 [178/.74 确认双击穿透已实机修复](docs/research/baiqi-source178-tc027-double-input-fixed-engine74-2026-11-22.json)：真实第二击消息15送达／处理器返回消费，只有1付费请求、原生转城／扣款／结束行动各1，净300且pendingfalse／queuednil；未取消军队任务。已存退菜单撤QA，原177失败保留。[整体仍20/40＝50%](docs/research/baiqi-source178-finite40-engine74-after-double-fix-2026-11-22.json)，待发6；继续TC027其余分支。
