@@ -4,6 +4,7 @@ import hashlib,itertools,json,tempfile,unittest
 from lupa.lua51 import LuaRuntime as L51
 from lupa.lua53 import LuaRuntime as L53
 from tools import build_controller_diagnostic as diagnostic
+from tools.static_control_source import resolve_source_version
 from test_controller_native_path_timing import FINE
 
 RAW=b'''local function RequestCivilian(foundingNative,fresh,action,params)
@@ -130,10 +131,12 @@ class FoundWriterArtifactTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=diagnostic.ROOT/'.local-model')as temp:
             options=dict(children=FINE,include_pre_observer=True,native_path_timing=True,detour_native_timing=True,include_turn90=True,found_native_timing=True)
             out=Path(temp)/'all';d=diagnostic.build(out,**options)
-            self.assertEqual((d['source_version'],d['mode'],d['binding_count']),(172,'baiqi172-controller-children-v6',17))
+            version=resolve_source_version()
+            self.assertEqual((d['source_version'],d['mode'],d['binding_count']),
+                             (version,f'baiqi{version}-controller-children-v6',17))
             self.assertEqual((d['sample_capacity'],d['profile_count']),(4096,1));self.assertEqual(d['changed_files'],['Lua/BaiqiController.lua'])
             self.assertTrue(d['release_text_recovers_exactly']and d['lua51_compiled']and d['lua53_compiled']);self.assertFalse(d['native_global_binding_modified'])
-            suffix=diagnostic.suffix(source_version=172,**options).encode();private=(out/'Baiqi/Lua/BaiqiController.lua').read_bytes();self.assertTrue(private.endswith(suffix))
+            suffix=diagnostic.suffix(source_version=version,**options).encode();private=(out/'Baiqi/Lua/BaiqiController.lua').read_bytes();self.assertTrue(private.endswith(suffix))
             recovered=diagnostic.recover_found_writer_source(private[:-len(suffix)])
             recovered=diagnostic.recover_native_path_source(diagnostic.recover_detour_paths(recovered))
             self.assertEqual(recovered,raw);self.assertEqual((source/'Lua/BaiqiController.lua').read_bytes(),raw)

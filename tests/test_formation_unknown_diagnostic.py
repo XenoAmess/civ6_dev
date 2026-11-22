@@ -6,6 +6,7 @@ import unittest
 from lupa.lua51 import LuaRuntime as Lua51
 from lupa.lua53 import LuaRuntime as Lua53
 from tools.build_formation_unknown_mod import transform,restore_release,build,SNAPSHOT_SOURCE,ANCHOR
+from tools.static_control_source import resolve_source_version
 from religious_intent_harness import install_religious_bridge
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -130,7 +131,8 @@ class FormationUnknownBuildTests(unittest.TestCase):
     def test_actual_119_file_build_only_controller_diff_and_new_output_required(self):
         with tempfile.TemporaryDirectory()as tmp:
             out=Path(tmp)/'prepared';d=build(out,7,3,'UNIT_BUILDER')
-            self.assertEqual((d['source_version'],d['files'],d['lua_sources_compiled_51_and_53']),(173,119,97))
+            self.assertEqual((d['source_version'],d['files'],d['lua_sources_compiled_51_and_53']),
+                             (resolve_source_version(),119,97))
             self.assertEqual(d['changed_files'],['Lua/BaiqiController.lua'])
             self.assertEqual(json.loads((out/'diagnostic-build.json').read_text(encoding='utf-8')),d)
             self.assertEqual(sum(d['source_hashes'][n]!=sha for n,sha in d['instrumented_hashes'].items()),1)

@@ -4,6 +4,7 @@ import tempfile
 import unittest
 
 from tools.build_settlement_census_mod import transform, restore_release, build, EDITS
+from tools.static_control_source import resolve_source_version
 from tests import test_build_settlement_census as existing
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,11 +46,12 @@ class CensusVersionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             output = Path(folder) / 'prepared'
             data = build(output)
-            self.assertEqual(data['source_version'], 172)
-            self.assertEqual(data['mode'], 'baiqi172-settlement-census-v1')
+            version=resolve_source_version()
+            self.assertEqual(data['source_version'], version)
+            self.assertEqual(data['mode'], f'baiqi{version}-settlement-census-v1')
             self.assertEqual(data['changed_files'], ['Lua/BaiqiController.lua'])
             self.assertEqual(data['census_capacity'], 256)
-            self.assertTrue((output / 'Baiqi-settlement172-census.zip').is_file())
+            self.assertTrue((output / f'Baiqi-settlement{version}-census.zip').is_file())
             self.assertEqual(data['files'], len(data['source_hashes']))
             self.assertEqual(data['Native_pressure_status'], 'UNVERIFIED')
             self.assertTrue(data['release_recovers_exactly'])

@@ -4868,7 +4868,11 @@ local function ProcessCity(ctx, player, state, city)
   local cityID=city:GetID()
   if type(BaiqiFloodPurchase)=="table" and type(BaiqiFloodPurchase.Holds)=="function"
     and BaiqiFloodPurchase.Holds(ctx.player,cityID)==true then return false end
-  if cityEvaluated[cityID]==turn then return false end
+  if cityEvaluated[cityID]==turn then
+    local retryAt=cityEvaluated.retryAt and cityEvaluated.retryAt[cityID]
+    if retryAt==nil or (cityEvaluated.clock or 0)<retryAt then return false end
+  end
+  if cityEvaluated.retryAt then cityEvaluated.retryAt[cityID]=nil end
   local q=city:GetBuildQueue()
   local completedHead
   if q:GetSize()==1 and CoreIdle() and CityOperationTypes.VALUE_REPLACE_AT~=nil
@@ -5034,7 +5038,16 @@ local function ProcessCity(ctx, player, state, city)
     end
   end
   local choice=BaiqiPlanner.Choose({paused=false,queueEmpty=true},candidates)
-  if choice == nil then Reason("city:"..city:GetID(),"城市等待合法生产或预算"); return false end
+  if choice == nil then
+    -- A temporary refusal must not strand an empty city for the entire turn.
+    -- Only a no-candidate result gets a delayed reconsideration. Keep native
+    -- queue checks, pending receipts, attempts, budget and reason dedup intact.
+    -- String metadata keys cannot collide with numeric native city IDs. Reuse
+    -- this private cache without adding top-level Lua 5.1 local bindings.
+    cityEvaluated.retryAt=cityEvaluated.retryAt or {}
+    cityEvaluated.retryAt[cityID]=(cityEvaluated.clock or 0)+C.productionRecheckSeconds
+    Reason("city:"..city:GetID(),"城市等待合法生产或预算"); return false
+  end
   -- All state and legality are checked again at the write boundary.
   local freshCtx, freshPlayer, freshState=PlayerContext()
   if not BaiqiPolicy.Context(freshCtx) or not BaiqiPolicy.MatchesID(city,cityID) or city:GetOwner()~=freshCtx.player
@@ -5799,6 +5812,9 @@ end
 function BaiqiController.Update(delta,allowOrders)
   local ctx=PlayerContext()
   if not ctx or ctx.activeTurn~=true then return end
+  if allowOrders~=false and BaiqiPolicy.Number(delta) and delta>0 then
+    cityEvaluated.clock=(cityEvaluated.clock or 0)+delta
+  end
   for _,pending in pairs(pendingUnits) do pending.elapsed=(pending.elapsed or 0)+delta end
   for _,pending in pairs(pendingCities) do pending.elapsed=(pending.elapsed or 0)+delta end
   if pendingPurchase then pendingPurchase.elapsed=(pendingPurchase.elapsed or 0)+delta end

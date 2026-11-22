@@ -5,6 +5,7 @@ from unittest.mock import patch
 from lupa.lua51 import LuaRuntime as Lua51
 from lupa.lua53 import LuaRuntime as Lua53
 from tools.build_formation_unknown_mod import transform,restore_release,build,SNAPSHOT_SOURCE,ANCHOR
+from tools.static_control_source import resolve_source_version
 import test_formation_unknown_diagnostic as base
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -96,7 +97,8 @@ end''')
         with tempfile.TemporaryDirectory()as tmp:
             out=Path(tmp)/'prepared';d=build(out,7,3,'UNIT_BUILDER',defer_start=True)
             self.assertTrue(d['deferred_start']);self.assertEqual(d['changed_files'],['Lua/BaiqiController.lua'])
-            self.assertEqual((d['source_version'],d['files'],d['lua_sources_compiled_51_and_53']),(173,119,97))
+            self.assertEqual((d['source_version'],d['files'],d['lua_sources_compiled_51_and_53']),
+                             (resolve_source_version(),119,97))
             self.assertIn('deferred',d['mode']);self.assertEqual(json.loads((out/'diagnostic-build.json').read_text(encoding='utf-8')),d)
 
 if __name__=='__main__':unittest.main()

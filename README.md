@@ -1,5 +1,7 @@
 # civ6_dev
 
+[179版无候选恢复修复的软件检查已过](docs/research/baiqi-source179-no-candidate-recheck-software-2026-11-23.json)：10秒有界重评估，保留队列与防重；119包就绪、原178失败保留，实机复测继续。整体24/40＝60%、余16、待发7。
+
 [178/.74 TC013恢复失败已保存，继续修复](docs/research/baiqi-source178-tc013-no-candidate-restoration-fail-engine74-2026-11-23.json)：受控拒绝时等待有界；资格恢复后仍未自动排队，整项不通过。整体24/40＝60%、余16、待发6，新待修1。
 
 [178/.74占用前置修复已真实复现到完成](docs/research/baiqi-source178-occupied-prerequisite-native68-engine74-2026-11-23.json)：原63正常到68，神社被占后一次原生前插长枪兵，实际完成、新兵待玩家命令，已存撤QA返菜单。整体24/40＝60%、余16、待发6；TC013完全无候选等待与恢复继续。

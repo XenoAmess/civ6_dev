@@ -130,7 +130,7 @@ class NaturalistUITests(unittest.TestCase):
         self.c.RunNow()
         self.assertEqual((len(self.w.parkRequests), len(self.w.cityRequests)), (0, 1), self.logs)
 
-    def test_human_guard_blocks_naturalist_and_formation_but_preserves_manual_units(self):
+    def test_human_guard_locks_acting_naturalist_and_forwards_army_formation(self):
         lua = LuaRuntime(unpack_returned_tuples=True)
         for path in ('tests/lua/mock_guard.lua', 'mod/Baiqi/Lua/BaiqiConfig.lua', 'mod/Baiqi/Lua/BaiqiPolicy.lua'):
             lua.execute((ROOT / path).read_text(encoding='utf-8'))
@@ -142,10 +142,13 @@ class NaturalistUITests(unittest.TestCase):
             assert(UnitManager[key](naturalist,1031611255)==false)
           end
           local army=TestUnit(0,7,101)
-          assert(UnitManager.RequestCommand(army,10,{owner=7,id=100})==false)
           assert(TestGuard.unitCalls==0)
+          local target={owner=7,id=100}
+          local ok,receipt=UnitManager.RequestCommand(army,10,target)
+          assert(ok==true and receipt=='native' and TestGuard.unitCalls==1)
+          assert(TestGuard.lastUnit==army and TestGuard.lastAction==10 and TestGuard.lastParams==target)
           for _,kind in ipairs({0,14,15,16}) do assert(UnitManager.RequestOperation(TestUnit(kind),99)==true) end
-          assert(TestGuard.unitCalls==4)
+          assert(TestGuard.unitCalls==5)
         ''')
 
 

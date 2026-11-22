@@ -9,6 +9,9 @@ from unittest.mock import patch
 from lupa.lua51 import LuaRuntime as L51
 from lupa.lua53 import LuaRuntime as L53
 from tools import build_admin_diagnostic as builder
+from tools.static_control_source import resolve_source_version
+
+CURRENT_VERSION = resolve_source_version()
 
 
 class AdminTurn90Tests(unittest.TestCase):
@@ -96,13 +99,14 @@ local ok2,same2=h.Restore();assert(ok2 and same2==same)
     def test_actual_package_changes_only_admin_and_metadata_is_explicit(self):
         with tempfile.TemporaryDirectory(dir=builder.ROOT/'.local-model')as temp:
             out=Path(temp)/'prepared';d=builder.build(out,include_turn90=True)
-            self.assertEqual((d['source_version'],d['mode'],d['files']),(172,'baiqi172-admin-children-v2',119))
+            self.assertEqual((d['source_version'],d['mode'],d['files']),
+                             (CURRENT_VERSION,f'baiqi{CURRENT_VERSION}-admin-children-v2',119))
             self.assertEqual(d['focus_turns'],[87,88,89,90]);self.assertIs(d['include_turn90'],True)
             self.assertEqual((d['profile_count'],d['sample_capacity']),(1,4096))
             self.assertEqual(d['changed_files'],['Lua/BaiqiAdmin.lua'])
             self.assertTrue(d['lua51_compiled']and d['lua53_compiled']and d['original_admin_exact_prefix'])
             raw=(builder.ROOT/'mod/Baiqi/Lua/BaiqiAdmin.lua').read_bytes()
-            self.assertEqual((out/'Baiqi/Lua/BaiqiAdmin.lua').read_bytes(),raw+builder.suffix(source_version=172,include_turn90=True).encode())
+            self.assertEqual((out/'Baiqi/Lua/BaiqiAdmin.lua').read_bytes(),raw+builder.suffix(source_version=CURRENT_VERSION,include_turn90=True).encode())
 
     def test_cli_exposes_explicit_turn90_option(self):
         p=subprocess.run([sys.executable,str(builder.ROOT/'tools/build_admin_diagnostic.py'),'--help'],capture_output=True,text=True)
