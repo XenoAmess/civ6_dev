@@ -1,5 +1,7 @@
 # civ6_dev
 
+[TC034未确认／单次确认分支已通过](docs/research/baiqi-source179-tc034-no-confirmation-and-one-paid-engine74-2026-11-23.json)：47单位与外交已比较，单笔300结算后无追加。和平扩张分支继续；整体 **25/40＝62.5%**，余15、待发7。
+
 [TC013完整验收已通过](docs/research/baiqi-source179-tc013-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc013-2026-11-23.json)：后备生产、有界等待及只开放一个候选后的自动排队已验证。整体 **25/40＝62.5%**，余15项、待发7个产品修复包；继续验收。
 
 [179版自动恢复已实机通过](docs/research/baiqi-source179-tc013-native-original-qualification-restored-engine74-2026-11-23.json)：同一66回合恢复原资格后，后台真实排入神社一次；已保存、撤QA返菜单。TC013单候选副本继续，整体24/40＝60%、余16、待发7。

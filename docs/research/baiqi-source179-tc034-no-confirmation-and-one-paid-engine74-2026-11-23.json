@@ -1,0 +1,727 @@
+{
+  "schema": "civ6.current179-tc034-f07-passive-authority/v1",
+  "utc": "2026-11-22T19:22:30.052850+00:00",
+  "machine_local_date": "2026-11-23",
+  "machine": "BF-202609141645",
+  "source_version": 179,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_QUALIFIED_F07_SCOPE_WHOLE_TC034_STILL_PARTIAL",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed_total_percent_remaining": [
+    25,
+    40,
+    62.5,
+    15
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 7,
+  "ordinary_package_files": 119,
+  "new_product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "no_confirmation": {
+    "utc": "2026-11-22T19:13:36.113833+00:00",
+    "source_version": 179,
+    "own_units": 47,
+    "player_controlled_units": 27,
+    "all_own_unit_fields_unchanged": true,
+    "all_alive_player_relations_and_major_pairs_unchanged": true,
+    "active_natural_planning_counts": [
+      323,
+      432
+    ],
+    "Core_Capture_requests": 0,
+    "Executor_unit_and_player_operation_requests": 0,
+    "WorldInput_interactions_and_requests": 0,
+    "quote_still_eligible_300": true,
+    "money_and_empty_bank_unchanged": true,
+    "global_engine_counts": "NOT_OBSERVED",
+    "next": "Actual TEST_PLAYER exact Horseman selection and physical map right then one confirmation"
+  },
+  "one_confirmation": {
+    "utc": "2026-11-22T19:18:31.070603+00:00",
+    "source_version": 179,
+    "own_units": 47,
+    "other46_units_all_observed_fields_unchanged": true,
+    "player_controlled_units": 27,
+    "other26_player_controlled_units_unchanged": true,
+    "selected_actor_only": {
+      "id": 2162700,
+      "moves": [
+        4,
+        0
+      ],
+      "cooldown": 114,
+      "position_unchanged": [
+        42,
+        19
+      ],
+      "pending": false,
+      "queue": null
+    },
+    "all_alive_relations_and_major_pairs_unchanged": true,
+    "Core_Capture_requests": 1,
+    "WorldInput_interact_requests_paid_continuation": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "Executor_unit_and_player_operation_requests": 0,
+    "actual_city_before_after": [
+      [
+        1,
+        524295
+      ],
+      [
+        0,
+        851979
+      ]
+    ],
+    "wallet": [
+      4524.2734375,
+      4224.2734375
+    ],
+    "natural_allowed_after_counts": [
+      972,
+      1123
+    ],
+    "exact_single_done_journal": {
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "balanceAfter": 4224.2734375,
+          "balanceBefore": 4524.2734375,
+          "chargeObserved": true,
+          "cityID": 524295,
+          "cost": 300,
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "newCityID": 851979,
+          "phase": "DONE",
+          "playerID": 0,
+          "population": 1,
+          "reason": "committed",
+          "stage": "COMMITTED",
+          "targetOwner": 1,
+          "transferObserved": true,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        }
+      },
+      "version": 1
+    },
+    "Native_TransferCity_debit_Finish_per_call_counts": "NOT_INSTRUMENTED_ORDINARY179",
+    "unit_member_activity_and_operation_getters": "nil in UI; no activity state inferred",
+    "whole_TC034": "PARTIAL_PEACEFUL_PROFITABLE_EXPANSION_FIXTURE_REMAINS",
+    "whole_mod": "OPEN_CONTINUE_25_OF40"
+  },
+  "actual_observation_windows": [
+    {
+      "label": "before-a-v2",
+      "utc": "2026-11-22T19:12:39.408029+00:00",
+      "Executor": {
+        "allowedPasses": 323,
+        "bindings": true,
+        "calls": {
+          "Controller.RunNow": 323,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "dropped": 0,
+        "errors": {
+          "Controller.RunNow": 0,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 323,
+        "retired": false,
+        "rows": {}
+      },
+      "Core": {
+        "allowedPasses": 0,
+        "bindings": true,
+        "calls": {
+          "BaiqiCapture.Request": 0
+        },
+        "dropped": 0,
+        "errors": {
+          "BaiqiCapture.Request": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 0,
+        "retired": false,
+        "rows": {}
+      },
+      "WorldInput": {
+        "binding_read_known": true,
+        "capacity": 64,
+        "cleanup_complete": false,
+        "context": "WorldInput",
+        "continuation": 0,
+        "dropped": 0,
+        "errors": 0,
+        "installed": true,
+        "interact": 0,
+        "interact_binding": true,
+        "marker": "baiqi160-paid-ui-metadata-v1",
+        "paid_route": 0,
+        "request_binding": true,
+        "requests": 0,
+        "retired": false,
+        "rows": {},
+        "saturated": false
+      }
+    },
+    {
+      "label": "before-b-v2",
+      "utc": "2026-11-22T19:13:16.106894+00:00",
+      "Executor": {
+        "allowedPasses": 432,
+        "bindings": true,
+        "calls": {
+          "Controller.RunNow": 432,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "dropped": 0,
+        "errors": {
+          "Controller.RunNow": 0,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 432,
+        "retired": false,
+        "rows": {}
+      },
+      "Core": {
+        "allowedPasses": 0,
+        "bindings": true,
+        "calls": {
+          "BaiqiCapture.Request": 0
+        },
+        "dropped": 0,
+        "errors": {
+          "BaiqiCapture.Request": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 0,
+        "retired": false,
+        "rows": {}
+      },
+      "WorldInput": {
+        "binding_read_known": true,
+        "capacity": 64,
+        "cleanup_complete": false,
+        "context": "WorldInput",
+        "continuation": 0,
+        "dropped": 0,
+        "errors": 0,
+        "installed": true,
+        "interact": 0,
+        "interact_binding": true,
+        "marker": "baiqi160-paid-ui-metadata-v1",
+        "paid_route": 0,
+        "request_binding": true,
+        "requests": 0,
+        "retired": false,
+        "rows": {},
+        "saturated": false
+      }
+    },
+    {
+      "label": "after-a",
+      "utc": "2026-11-22T19:16:29.728235+00:00",
+      "Executor": {
+        "allowedPasses": 972,
+        "bindings": true,
+        "calls": {
+          "Controller.RunNow": 972,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "dropped": 0,
+        "errors": {
+          "Controller.RunNow": 0,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 972,
+        "retired": false,
+        "rows": {}
+      },
+      "Core": {
+        "allowedPasses": 0,
+        "bindings": true,
+        "calls": {
+          "BaiqiCapture.Request": 1
+        },
+        "dropped": 0,
+        "errors": {
+          "BaiqiCapture.Request": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 0,
+        "retired": false,
+        "rows": {
+          "1": {
+            "args": {
+              "extraCount": 0,
+              "params": {
+                "OnStart": "BaiqiRequisition",
+                "cityID": 524295,
+                "confirmed": true,
+                "cost": 300,
+                "kind": "city",
+                "playerID": 0,
+                "population": 1,
+                "requestID": "city:0:114:2162700:1:524295:41:19",
+                "targetOwner": 1,
+                "turn": 114,
+                "unitID": 2162700,
+                "x": 41,
+                "y": 19
+              },
+              "player": 0
+            },
+            "label": "BaiqiCapture.Request",
+            "returnArity": 2,
+            "returned": true,
+            "sequence": 1
+          }
+        }
+      },
+      "WorldInput": {
+        "binding_read_known": true,
+        "capacity": 64,
+        "cleanup_complete": false,
+        "context": "WorldInput",
+        "continuation": 0,
+        "dropped": 0,
+        "errors": 0,
+        "installed": true,
+        "interact": 1,
+        "interact_binding": true,
+        "marker": "baiqi160-paid-ui-metadata-v1",
+        "paid_route": 1,
+        "request_binding": true,
+        "requests": 1,
+        "retired": false,
+        "rows": {
+          "1": {
+            "actor": {
+              "id": {
+                "kind": "number",
+                "value": 2162700
+              },
+              "owner": {
+                "kind": "number",
+                "value": 0
+              },
+              "present": true
+            },
+            "arity": 4,
+            "callback_type": "function",
+            "kind": "Interact",
+            "sequence": 1,
+            "x": {
+              "kind": "number",
+              "value": 41
+            },
+            "y": {
+              "kind": "number",
+              "value": 19
+            }
+          },
+          "2": {
+            "arity": 3,
+            "fields": {
+              "OnStart": {
+                "kind": "string",
+                "value": "BaiqiRequisition"
+              },
+              "cityID": {
+                "kind": "number",
+                "value": 524295
+              },
+              "confirmed": {
+                "kind": "boolean",
+                "value": true
+              },
+              "cost": {
+                "kind": "number",
+                "value": 300
+              },
+              "kind": {
+                "kind": "string",
+                "value": "city"
+              },
+              "playerID": {
+                "kind": "number",
+                "value": 0
+              },
+              "population": {
+                "kind": "number",
+                "value": 1
+              },
+              "requestID": {
+                "kind": "string",
+                "value": "city:0:114:2162700:1:524295:41:19"
+              },
+              "targetOwner": {
+                "kind": "number",
+                "value": 1
+              },
+              "turn": {
+                "kind": "number",
+                "value": 114
+              },
+              "unitID": {
+                "kind": "number",
+                "value": 2162700
+              },
+              "x": {
+                "kind": "number",
+                "value": 41
+              },
+              "y": {
+                "kind": "number",
+                "value": 19
+              }
+            },
+            "kind": "RequestPlayerOperation",
+            "matching_paid_route": true,
+            "operation": {
+              "kind": "number",
+              "value": -966415096
+            },
+            "params_type": "table",
+            "player": {
+              "kind": "number",
+              "value": 0
+            },
+            "sequence": 2
+          }
+        },
+        "saturated": false
+      }
+    },
+    {
+      "label": "after-b",
+      "utc": "2026-11-22T19:17:27.739666+00:00",
+      "Executor": {
+        "allowedPasses": 1123,
+        "bindings": true,
+        "calls": {
+          "Controller.RunNow": 1123,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "dropped": 0,
+        "errors": {
+          "Controller.RunNow": 0,
+          "UI.RequestPlayerOperation": 0,
+          "UnitManager.RequestCommand": 0,
+          "UnitManager.RequestOperation": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 1123,
+        "retired": false,
+        "rows": {}
+      },
+      "Core": {
+        "allowedPasses": 0,
+        "bindings": true,
+        "calls": {
+          "BaiqiCapture.Request": 1
+        },
+        "dropped": 0,
+        "errors": {
+          "BaiqiCapture.Request": 0
+        },
+        "installed": true,
+        "metadataErrors": 0,
+        "passes": 0,
+        "retired": false,
+        "rows": {
+          "1": {
+            "args": {
+              "extraCount": 0,
+              "params": {
+                "OnStart": "BaiqiRequisition",
+                "cityID": 524295,
+                "confirmed": true,
+                "cost": 300,
+                "kind": "city",
+                "playerID": 0,
+                "population": 1,
+                "requestID": "city:0:114:2162700:1:524295:41:19",
+                "targetOwner": 1,
+                "turn": 114,
+                "unitID": 2162700,
+                "x": 41,
+                "y": 19
+              },
+              "player": 0
+            },
+            "label": "BaiqiCapture.Request",
+            "returnArity": 2,
+            "returned": true,
+            "sequence": 1
+          }
+        }
+      },
+      "WorldInput": {
+        "binding_read_known": true,
+        "capacity": 64,
+        "cleanup_complete": false,
+        "context": "WorldInput",
+        "continuation": 0,
+        "dropped": 0,
+        "errors": 0,
+        "installed": true,
+        "interact": 1,
+        "interact_binding": true,
+        "marker": "baiqi160-paid-ui-metadata-v1",
+        "paid_route": 1,
+        "request_binding": true,
+        "requests": 1,
+        "retired": false,
+        "rows": {
+          "1": {
+            "actor": {
+              "id": {
+                "kind": "number",
+                "value": 2162700
+              },
+              "owner": {
+                "kind": "number",
+                "value": 0
+              },
+              "present": true
+            },
+            "arity": 4,
+            "callback_type": "function",
+            "kind": "Interact",
+            "sequence": 1,
+            "x": {
+              "kind": "number",
+              "value": 41
+            },
+            "y": {
+              "kind": "number",
+              "value": 19
+            }
+          },
+          "2": {
+            "arity": 3,
+            "fields": {
+              "OnStart": {
+                "kind": "string",
+                "value": "BaiqiRequisition"
+              },
+              "cityID": {
+                "kind": "number",
+                "value": 524295
+              },
+              "confirmed": {
+                "kind": "boolean",
+                "value": true
+              },
+              "cost": {
+                "kind": "number",
+                "value": 300
+              },
+              "kind": {
+                "kind": "string",
+                "value": "city"
+              },
+              "playerID": {
+                "kind": "number",
+                "value": 0
+              },
+              "population": {
+                "kind": "number",
+                "value": 1
+              },
+              "requestID": {
+                "kind": "string",
+                "value": "city:0:114:2162700:1:524295:41:19"
+              },
+              "targetOwner": {
+                "kind": "number",
+                "value": 1
+              },
+              "turn": {
+                "kind": "number",
+                "value": 114
+              },
+              "unitID": {
+                "kind": "number",
+                "value": 2162700
+              },
+              "x": {
+                "kind": "number",
+                "value": 41
+              },
+              "y": {
+                "kind": "number",
+                "value": 19
+              }
+            },
+            "kind": "RequestPlayerOperation",
+            "matching_paid_route": true,
+            "operation": {
+              "kind": "number",
+              "value": -966415096
+            },
+            "params_type": "table",
+            "player": {
+              "kind": "number",
+              "value": 0
+            },
+            "sequence": 2
+          }
+        },
+        "saturated": false
+      }
+    }
+  ],
+  "actual_player_inputs": {
+    "official_original114_loads_in_qualified_second_world": 1,
+    "physical_map_right": 1,
+    "physical_paid_confirmation": 1,
+    "semantic_Interact_callback_seeding_or_background_military_diplomacy_inputs": 0,
+    "normal_END_or_army_SKIP": 0
+  },
+  "scope_limits": [
+    "These are context-specific calls observed at actual Executor and Gameplay public table lookups, with independent full own-unit/diplomacy getter comparisons; not zero global engine writer claims.",
+    "Ordinary179 has no per-call TransferCity/debit/FinishMoves source logger. Actual transfer, net300, actor0/cool114 and persisted positive receipts prove effects, not direct Native call counters.",
+    "UI unit member activity/operation getters are nil; no activity state inferred. Identity/owner/positions/moves/damage/formation/death/pending/queued/ready and cooldown fields are recorded as available.",
+    "The 114 fixture is already at war with target major1. It cannot close the separate peaceful profitable expansion clause.",
+    "Current whole40 ledger remains25closed/15remaining. Old8650807FAIL and other unknowns unchanged."
+  ],
+  "diagnostic_failures_retained": {
+    "initial_direct_native_table_member_install": "Actual UnitManager table readonly. Core Capture wrapper installed; Executor RunNow assigned before first readonly writer assignment failed. No paid input and no native writer wrapper installed.",
+    "failure_preservation": {
+      "save": {
+        "utc": "2026-11-22T19:05:50.905536+00:00",
+        "name": "Baiqi_P6_20261123_V179_TC034DiagnosticFailed114.Civ6Save",
+        "bytes": 568873,
+        "sha256": "5204d6e4974276445d0d0b30375495728d3df045f08de61fc9564f4d7295d9c7",
+        "stable_repeated_read": true
+      },
+      "Core_exact_retire": true,
+      "partial_Executor_RunNow_counts": [
+        379,
+        379
+      ],
+      "all_world_contexts_destroyed_by_formal_MainMenu": true,
+      "no_game_orders_replayed": true
+    },
+    "owner_Core_retirement_guard_error": "First retirement preflight used UI in Core where UI is nil; stopped before retirement. Additive corrected script omitted UI-only guard, then retired exact Core binding.",
+    "owner_MainMenu_flag_error": "First verification asserted load flag true; returned MainMenu context had nil. Additive verifier accepted nil/true only and independently proved world contexts absent.",
+    "owner_reader_error": "Executor has no BaiqiRequisition module; first full reader returned UNKNOWN only for quote.value and quote.reason. Core frame and Executor original frame retained. New reader explicitly does not query quote in Executor; real quote still read in WorldInput/Core.",
+    "owner_Lua51_software_fixture_error": "Vararg function implicit arg shadowed same-named external test fixture; renamed fixture, both VMs then passed. No product failure or model adoption claim.",
+    "owner_preparation_path_error": "Initial task source path BaiqiUnits did not exist; corrected to actual BaiqiPlanner before task materialization. First formal-load adapter pointed at nonexistent closeout receipt, failed before offline proof or LoadGame. Additive corrected adapter first actual load only.",
+    "proxy_recovery": "New independent protected114 after original world destruction; mutable namespace proxy tables inherit native originals, instrument own keys, restore all bindings and both namespace identities exactly. No source/install edits."
+  },
+  "software": {
+    "utc": "2026-11-22T19:08:06.870778+00:00",
+    "source_version": 179,
+    "base_helper_qualified": {
+      "utc": "2026-11-22T18:59:45.686738+00:00",
+      "helper_sha256": "36e58860923fb2f7d349e4624e7a391da50ccb4495e1fd97bb84072a44fcf261",
+      "results": [
+        {
+          "VM": "Lua51",
+          "forwarding_nils_arity_identity_errors_deepcopy_cap_foreign_retire_no_rawget": true
+        },
+        {
+          "VM": "Lua53",
+          "forwarding_nils_arity_identity_errors_deepcopy_cap_foreign_retire_no_rawget": true
+        }
+      ],
+      "Native_actions": 0,
+      "product_changes": 0
+    },
+    "proxy_checks": [
+      {
+        "VM": "Lua51",
+        "readonly_original_proxy_forward_retire": true,
+        "actual_install_renderers_compile": 2
+      },
+      {
+        "VM": "Lua53",
+        "readonly_original_proxy_forward_retire": true,
+        "actual_install_renderers_compile": 2
+      }
+    ],
+    "helper_sha256": "36e58860923fb2f7d349e4624e7a391da50ccb4495e1fd97bb84072a44fcf261",
+    "product_changes": 0,
+    "Native_actions": 0
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-22T19:19:03.839721+00:00",
+      "name": "Baiqi_P6_20261123_V179_TC034Confirmed114.Civ6Save",
+      "bytes": 568736,
+      "sha256": "c3d63b56a3cbf52f2521d951d8fb3f7b9b545449d03cd1125a1b9514ee581a8c",
+      "stable_repeated_read": true
+    },
+    "all_own_world_QA_bindings_namespaces_input_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "game_running_MainMenu": true,
+    "all119_ordinary179_bytes_exact": true,
+    "new_Popen_Steam_mode_or_GUI_upload_terminate_kill": 0
+  },
+  "local_model": {
+    "genuine_task_R109_full_source_count_UTF8_bytes": [
+      16,
+      495353
+    ],
+    "readiness_utc": "2026-11-22T18:57:16.435334+00:00",
+    "maintenance": {
+      "date": "2026-11-23",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "configured_coder_absent_only_open_h3_2k": true,
+    "generation_POSTs_candidates_adopted_OpenCode_native_fallback": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "request_wire_or_SSE_exists": false,
+    "owner_cost_seconds": null
+  },
+  "current_finite_ledger": "docs/research/baiqi-source179-finite40-engine74-after-tc013-2026-11-23.json",
+  "next": "Continue TC034 independent peaceful potentially profitable expansion scene: discover actual diplomacy/civilian expansion qualification and full military state, observe natural planning without declaring war or troop moves; no extra paid input. Then remaining15 cases and old865FAIL. Keep25/40 until whole contract closes.",
+  "next_safety_checkpoint_target_UTC": "2026-11-22T19:52:30.062529+00:00"
+}
