@@ -1,0 +1,250 @@
+{
+  "schema": "civ6.source177-tc024-moves-cooldown/v1",
+  "utc": "2026-11-22T06:51:54.263480+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 177,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_NARROW_ACTUAL_MOVES0_CURRENT_COOLDOWN_REFUSAL_PRIOR_COOLDOWN_ALLOWED",
+  "whole_TC024": "OPEN_DISTANCE_BOUNDARY",
+  "whole_cases_closed": 19,
+  "total": 40,
+  "percent": 47.5,
+  "remaining": 21,
+  "whole_mod": "OPEN_CONTINUE",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 5,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "source_archive_sha256": "0e791592766ab9d93303f08f7e2b0f794eda57811e20210093609d6f0de184a1",
+  "provenance": "Three independent fresh-offline formal Loads of immutable historical explicit-QA original114 in the existing owned current177/.74 process. Current UI/Core baseline requalified each; actual mapright quote and cursor moved away before one controlled eligibility preparation. No old private974 observer or old Native outcome inherited.",
+  "matrix": [
+    {
+      "mode": "moves_zero",
+      "turn": 114,
+      "controlled_preparation": {
+        "writer": "UnitManager.FinishMoves",
+        "writer_calls": 1,
+        "before_moves_cooldown": [
+          4,
+          null
+        ],
+        "prepared_moves_cooldown": [
+          0,
+          null
+        ],
+        "natural_exhaustion_or_previous_turn_execution_claimed": false
+      },
+      "before_confirm_quote_reason": "no_moves",
+      "physical_original_mapright_and_moved_cursor": true,
+      "physical_old_quote_confirmation": 1,
+      "actual_change_notice_and_physical_dismissal": true,
+      "after_gold": 4524.2734375,
+      "ability_gold_delta": 0.0,
+      "after_actor_moves_damage_cooldown": [
+        0,
+        0,
+        null
+      ],
+      "city_owner_ID": [
+        1,
+        524295
+      ],
+      "journal": null,
+      "result": null,
+      "UI_interact_requests_paidroute_continuation": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "native_backend_invocation_counts": null,
+      "cross_context_atomic": false,
+      "save": {
+        "utc": "2026-11-22T06:35:47.000773+00:00",
+        "name": "Baiqi_P6_20261122_V177_TC024Moves0Rejected114.Civ6Save",
+        "bytes": 568763,
+        "sha256": "750195a245b78346226bd257039217f4b0f9f3bc59862a4188013057d1d0aa95",
+        "stable_repeated_read": true
+      },
+      "all_QA_retired_MainMenu_world_contexts_absent": true
+    },
+    {
+      "mode": "cooldown_current",
+      "turn": 114,
+      "controlled_preparation": {
+        "writer": "Unit.SetProperty(BAIQI_REQUISITION_TURN)",
+        "writer_calls": 1,
+        "before_moves_cooldown": [
+          4,
+          null
+        ],
+        "prepared_moves_cooldown": [
+          4,
+          114
+        ],
+        "natural_exhaustion_or_previous_turn_execution_claimed": false
+      },
+      "before_confirm_quote_reason": "cooldown",
+      "physical_original_mapright_and_moved_cursor": true,
+      "physical_old_quote_confirmation": 1,
+      "actual_change_notice_and_physical_dismissal": true,
+      "after_gold": 4524.2734375,
+      "ability_gold_delta": 0.0,
+      "after_actor_moves_damage_cooldown": [
+        4,
+        0,
+        114
+      ],
+      "city_owner_ID": [
+        1,
+        524295
+      ],
+      "journal": null,
+      "result": null,
+      "UI_interact_requests_paidroute_continuation": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "native_backend_invocation_counts": null,
+      "cross_context_atomic": false,
+      "save": {
+        "utc": "2026-11-22T06:42:31.902759+00:00",
+        "name": "Baiqi_P6_20261122_V177_TC024Cooldown114Rejected114.Civ6Save",
+        "bytes": 568987,
+        "sha256": "18cdac0ac61e6d1d5a34c5cedb81d2f1804702662b511d60f1778e2693f57bfc",
+        "stable_repeated_read": true
+      },
+      "all_QA_retired_MainMenu_world_contexts_absent": true
+    },
+    {
+      "mode": "cooldown_previous",
+      "turn": 114,
+      "controlled_preparation": {
+        "writer": "Unit.SetProperty(BAIQI_REQUISITION_TURN)",
+        "writer_calls": 1,
+        "before_moves_cooldown": [
+          4,
+          null
+        ],
+        "prepared_moves_cooldown": [
+          4,
+          113
+        ],
+        "natural_exhaustion_or_previous_turn_execution_claimed": false
+      },
+      "before_confirm_quote_reason": "eligible",
+      "physical_original_mapright_and_moved_cursor": true,
+      "physical_old_quote_confirmation": 1,
+      "actual_change_notice_and_physical_dismissal": false,
+      "after_gold": 4224.2734375,
+      "ability_gold_delta": -300.0,
+      "after_actor_moves_damage_cooldown": [
+        0,
+        0,
+        114
+      ],
+      "city_owner_ID": [
+        0,
+        851979
+      ],
+      "journal": {
+        "lastID": "city:0:114:2162700:1:524295:41:19",
+        "operations": {
+          "city:0:114:2162700:1:524295:41:19": {
+            "balanceAfter": 4224.2734375,
+            "balanceBefore": 4524.2734375,
+            "chargeObserved": true,
+            "cityID": 524295,
+            "cost": 300,
+            "id": "city:0:114:2162700:1:524295:41:19",
+            "kind": "city",
+            "newCityID": 851979,
+            "phase": "DONE",
+            "playerID": 0,
+            "population": 1,
+            "reason": "committed",
+            "stage": "COMMITTED",
+            "targetOwner": 1,
+            "transferObserved": true,
+            "turn": 114,
+            "unitID": 2162700,
+            "x": 41,
+            "y": 19
+          }
+        },
+        "version": 1
+      },
+      "result": {
+        "id": "city:0:114:2162700:1:524295:41:19",
+        "reason": "committed",
+        "stage": "COMMITTED"
+      },
+      "UI_interact_requests_paidroute_continuation": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "native_backend_invocation_counts": null,
+      "cross_context_atomic": false,
+      "save": {
+        "utc": "2026-11-22T06:49:46.834247+00:00",
+        "name": "Baiqi_P6_20261122_V177_TC024Cooldown113Paid114.Civ6Save",
+        "bytes": 568841,
+        "sha256": "ed883ce3fff5558a4cf65c19a8903b94230759d85010cd287f456cd31bab02c0",
+        "stable_repeated_read": true
+      },
+      "all_QA_retired_MainMenu_world_contexts_absent": true
+    }
+  ],
+  "conclusion": "Moves0 and exact current-turn cooldown114 refuse old confirmation with no fee/transfer/normalattack. Previous-turn cooldown113 is eligible at114 and actual confirmation transfers once, net fee300, actor moves0/cooldown114 and one correlated COMMITTED/DONE record.",
+  "software_validation": {
+    "actual_dual_VM_fault_runs": 162,
+    "helper_sha256": "bdc4b062a96f58ef398bd119d0b0c362b63be0683091e8afa82bfb4be0c3f876",
+    "old_private974_observer_absent": true,
+    "scope": "Controlled fixture one-use/durable-intent/reentrancy/unknown-outcome guards; software results do not grant Native ability pass."
+  },
+  "model": {
+    "R85_UTC": "2026-11-22T06:16:35.148482+00:00",
+    "genuine_full_sources": 37,
+    "genuine_UTF8_bytes": 585714,
+    "configured_coder_absent_models_health200_onlyH3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6 / local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "owner_authored": true,
+    "unknown_cost": null
+  },
+  "limits": [
+    "TC024 remains open until actual distance1/2 boundary coverage.",
+    "QA FinishMoves or cooldown-property preparation is not natural military exhaustion, a previous-turn paid action, or a mod ability cost. No prepared product movement/cooldown restoration on cleanup.",
+    "UI metadata counts only WorldInput calls. Net fee, ownership and a single journal record do not prove backend invocation counts.",
+    "No normalEND, long-term loyalty or production-progress pass. Prior failures/unknowns and current177 occupied-prerequisite Native branch remain pending."
+  ],
+  "closeout": {
+    "three_saves_verified": true,
+    "observed_diagnostic_intents_and_all_QA_UI_bindings_flags_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "ordinary119_and_marker_verified": true,
+    "new_Popen": 0,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "next": "Fresh-offline independent original114 distance copy: read legal visible empty military path first; only TEST_PLAYER original military movement, no teleport or civilian rescue. Verify distance2 positive movement and old-confirmation refusal, save/retire; continue all remaining mod cases.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T07:31:54.946146+00:00",
+    "next_checkpoint": "Actual distance boundary or precise retained blocker at a safe save.",
+    "whole_mod_finish": "Unknown;21 whole cases remain."
+  }
+}
