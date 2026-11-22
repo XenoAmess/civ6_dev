@@ -287,6 +287,8 @@
 <a id="tc-030"></a>
 ### TC-030 夺取真实阶段的保存与恢复
 
+- 2026-11-22当前178／引擎.74窄通过：[FINISHING_AFTER真实保存恢复](../research/baiqi-source178-tc030-finish-after-recovery-engine74-2026-11-22.json)，结束行动实际已作用后保存，重载不再Finish；已收费回执保持，加载0转城／0再收费。2恢复和真正同号已知DONE请求追加000，已另存完成态退QA返菜单；冷进程等剩余窗口仍待。
+
 - 2026-11-22当前178／引擎.74窄通过：[FINISHING_BEFORE真实保存恢复](../research/baiqi-source178-tc030-finish-before-recovery-engine74-2026-11-22.json)，结束行动实际未作用前保存，重载只Finish1次；已收费回执保持，加载0转城／0再收费。2恢复和真正同号已知DONE请求追加000，已另存完成态退QA返菜单；冷进程等剩余窗口仍待。
 
 - 2026-11-22当前178／引擎.74窄通过：[真实CHARGED保存点恢复](../research/baiqi-source178-tc030-charged-recovery-engine74-2026-11-22.json)。存档已含肯定收费回执／余额4224.2734375、军队4/空冷却；真实重载仅Finish1，0转城／0重复扣费。2恢复＋真正同号已知DONE包追加000，已另存完成态、撤QA返菜单；FINISHING／冷进程等仍待。

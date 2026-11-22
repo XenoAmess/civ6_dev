@@ -1,0 +1,241 @@
+{
+  "schema": "civ6.source178-tc030-real-finish-after-save-recovery/v1",
+  "utc": "2026-11-22T14:18:14.158471+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_NARROW_REAL_FINISHING_AFTER_PENDING_SAVE_RECOVERY",
+  "whole_TC030": "OPEN_COLD_AND_OTHER_REQUIRED_WINDOWS",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    23,
+    40,
+    57.5,
+    17
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "owner": {
+    "pid": 8668,
+    "created_at": 1795340439.8508365,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "request": {
+    "OnStart": "BaiqiRequisition",
+    "confirmed": true,
+    "requestID": "city:0:114:2162700:1:524295:41:19",
+    "kind": "city",
+    "playerID": 0,
+    "unitID": 2162700,
+    "targetOwner": 1,
+    "cityID": 524295,
+    "x": 41,
+    "y": 19,
+    "cost": 300,
+    "population": 1,
+    "turn": 114
+  },
+  "provenance": "Independent original114 current178 Load/new background-only Steam offline proof and actual UI/Core baseline/source000. One explicit TEST_PLAYER F07 valid confirmed300 UI packet. Scoped UnitManager.FinishMoves interruption at actual positive FINISHING phase; forwards original native Finish once, throws, and holds immediate recovery with one precisely scoped Policy.MatchesID read interruption. No QA product journal, cash or unit property writes.",
+  "actual_pending_phase": {
+    "journal": {
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "balanceAfter": 4224.2734375,
+          "balanceBefore": 4524.2734375,
+          "chargeObserved": true,
+          "cityID": 524295,
+          "cost": 300,
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "newCityID": 851979,
+          "phase": "FINISHING",
+          "playerID": 0,
+          "population": 1,
+          "reason": "movement_unresolved",
+          "stage": "UNKNOWN",
+          "targetOwner": 1,
+          "transferObserved": true,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        }
+      },
+      "version": 1
+    },
+    "result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "reason": "movement_unresolved",
+      "stage": "UNKNOWN"
+    },
+    "source_callsite_attempts": [
+      1,
+      1,
+      1
+    ],
+    "original_native_transfer_debit_finish": [
+      1,
+      1,
+      1
+    ],
+    "source_wrapper_error_is_not_original_native_result": true,
+    "original_native_finish_returned_without_Lua_error": true,
+    "fault_blocks": 1,
+    "fault_matcher_errors": 0,
+    "gold": 4224.2734375,
+    "army_moves_damage_cooldown_pending_queued": [
+      0,
+      0,
+      114,
+      false,
+      null
+    ],
+    "target_owner_ID_population": [
+      0,
+      851979,
+      1
+    ],
+    "save": {
+      "utc": "2026-11-22T14:07:36.769793+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC030FinishAfterPending114.Civ6Save",
+      "bytes": 568802,
+      "sha256": "68672848f1327e6c9ffe43acbf0202ee4be29070b8da83a0c3324239db5d45a7",
+      "stable_repeated_read": true
+    },
+    "positive_transfer_and_chargeObserved": true,
+    "balanceBefore_After": [
+      4524.2734375,
+      4224.2734375
+    ],
+    "fault_held_real_phase_during_Save_not_serialized": true,
+    "all_fault_bindings_restored_by_exact_identity_after_Save": true,
+    "no_explicit_live_Recover_before_world_exit": true,
+    "old_live_world_after_fault_retirement_not_qualified": true
+  },
+  "actual_saved_reload": {
+    "new_background_only_offline_proof": true,
+    "formal_MainMenu_between_worlds": true,
+    "same_owned_process_not_cold_process": true,
+    "utc": "2026-11-22T14:14:32.127575+00:00",
+    "source_version": 178,
+    "owner": {
+      "pid": 8668,
+      "created_at": 1795340439.8508365,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "loaded_actual_pending_save": {
+      "utc": "2026-11-22T14:07:36.769793+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC030FinishAfterPending114.Civ6Save",
+      "bytes": 568802,
+      "sha256": "68672848f1327e6c9ffe43acbf0202ee4be29070b8da83a0c3324239db5d45a7",
+      "stable_repeated_read": true
+    },
+    "actual_initial_recovery_source_counts": [
+      0,
+      0,
+      0
+    ],
+    "source_observer_initialized_before_Capture_definitions_and_startup_Recovery": true,
+    "actual_done_journal": {
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "balanceAfter": 4224.2734375,
+          "balanceBefore": 4524.2734375,
+          "chargeObserved": true,
+          "cityID": 524295,
+          "cost": 300,
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "newCityID": 851979,
+          "phase": "DONE",
+          "playerID": 0,
+          "population": 1,
+          "reason": "recovered",
+          "stage": "COMMITTED",
+          "targetOwner": 1,
+          "transferObserved": true,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        }
+      },
+      "version": 1
+    },
+    "actual_initial_result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "reason": "recovered",
+      "stage": "COMMITTED"
+    },
+    "two_explicit_done_Recovers": 2,
+    "actual_same_known_DONE_UI_duplicate_requests": 1,
+    "fresh_product_duplicate_log": true,
+    "actual_after_duplicate_result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "reason": "duplicate",
+      "stage": "COMMITTED"
+    },
+    "full_done_journal_and_all_source_rows_unchanged": true,
+    "additional_native_counts_after_Recovers_and_duplicate": [
+      0,
+      0,
+      0
+    ],
+    "gold": 4224.2734375,
+    "army_moves_damage_cooldown_pending_queued": [
+      0,
+      0,
+      114,
+      false,
+      null
+    ],
+    "same_process_reload_not_cold_process": true
+  },
+  "actual_recovered_DONE_save": {
+    "utc": "2026-11-22T14:14:38.154231+00:00",
+    "name": "Baiqi_P6_20261122_V178_TC030FinishAfterRecovered114.Civ6Save",
+    "bytes": 568499,
+    "sha256": "03bc5f76a6ec6f890ff40d1b4aa4016de3f7fe3284dcbaf904eda2e69a7f0dd0",
+    "stable_repeated_read": true
+  },
+  "recovery_attribution": "Observer initializes before Capture functions/startup recovery. Already applied Finish needs no second Finish.",
+  "software_validation": {
+    "shared_current_phase_dual_VM_cases": 88,
+    "shared_recovered_duplicate_dual_VM_cases": 40,
+    "details": "docs/research/baiqi-source178-tc030-transferred-recovery-engine74-2026-11-22.json",
+    "new_model_calls": 0,
+    "Native_scope_not_inferred_from_VM": true
+  },
+  "model": "Same genuine unfinished R100 multi-phase task/readiness,18fullsources176096bytes, onlyH3/qwenabsent, cachedOpenCode1.19.6localNov22. No new generation/candidates/adoption/fallback; unknowncostnull.",
+  "closeout": {
+    "own_Recover_duplicate_flags_and_logging_APIs_retired_before_completed_Save": true,
+    "own_Save_flag_retired_after_Save": true,
+    "own_MainMenu_Load_flag_retired_after_formal_world_exit": true,
+    "real_pending_and_DONE_journals_preserved_in_separate_real_saves": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "diagnostic119_still_installed_no_live_byte_restore": true,
+    "game_process_still_running_MainMenu": true,
+    "Steam_GUI_mode_upload_actions": 0,
+    "new_Popen": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "limits": [
+    "Exact single-player GS fixture and same-process save recovery. Cold/other required windows remain open.",
+    "No normal END, whole asset/military equality, global native command interception, income equality or old865failure repair."
+  ],
+  "next": "Continue current cold process recovery, remaining required TC030 before-confirmation/unknown-charge/completed windows and allremaining17/oldfails. No new Workshop upload.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T15:03:14.158506+00:00",
+    "whole_mod_finish": "Unknown;17wholecasesremain."
+  }
+}
