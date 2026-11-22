@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178/.74 确认双击穿透已实机修复](docs/research/baiqi-source178-tc027-double-input-fixed-engine74-2026-11-22.json)：真实第二击消息15送达／处理器返回消费，只有1付费请求、原生转城／扣款／结束行动各1，净300且pendingfalse／queuednil；未取消军队任务。已存退菜单撤QA，原177失败保留。[整体仍20/40＝50%](docs/research/baiqi-source178-finite40-engine74-after-double-fix-2026-11-22.json)，待发6；继续TC027其余分支。
+
 [178 确认后双击穿透的软件修复](docs/research/baiqi-source178-confirmation-input-software-2026-11-22.json)：按原版双击消息在地图输入前拦截，保留新一次正常军令；64方法／30新双VM子例与旧177两处同夹具负例、119包通过。实机回归待执行，原177 FAIL保留；待发修复6，整体验收仍20/40＝50%，继续。
 
 [177/.74 TC027发现确认双击穿透缺陷](docs/research/baiqi-source177-tc027-double-clickthrough-fail114-engine74-2026-11-22.json)：费用及三个征取原生调用均只一次，但第二击落入地图，给已耗尽行动骑手排入移动831；FAIL现场已保存、撤QA并退出，继续修复复测。[整体仍20/40＝50%](docs/research/baiqi-source177-finite40-engine74-after-tc027-fail-2026-11-22.json)，待发5、新未修问题1。
