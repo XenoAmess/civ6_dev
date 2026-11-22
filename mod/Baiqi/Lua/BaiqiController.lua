@@ -4233,6 +4233,55 @@ local function CompletedIdleHead(city,q)
 end
 
 
+-- A visible hostile occupant can block an intact prerequisite too. This is
+-- observation of the player's visible battlefield, never a military order.
+local function OccupiedPrerequisite(city,district)
+  if contextID~=Game.GetLocalPlayer() or city:GetOwner()~=contextID
+    or Game.GetCurrentGameTurn()~=turn or not CoreIdle() then return nil end
+  local player=Players[contextID]
+  if not player or not BaiqiPolicy.MatchesID(city,city:GetID()) then return nil end
+  local found
+  for _,component in city:GetDistricts():Members() do
+    if component:GetType()==district.Index then
+      if found then return nil end
+      found=component
+    end
+  end
+  if not found or found:IsComplete()~=true or found:IsPillaged()~=false then return nil end
+  local id,x,y=found:GetID(),found:GetX(),found:GetY()
+  if not GeometryInteger(id) or not GeometryInteger(x) or not GeometryInteger(y) then return nil end
+  local plot=Map.GetPlot(x,y)
+  if not plot or plot:GetX()~=x or plot:GetY()~=y or plot:GetOwner()~=contextID
+    or plot:GetDistrictType()~=district.Index or not Revealed(plot)
+    or visibility:IsVisible(x,y)~=true then return nil end
+  local units=GetVisibleUnits(plot)
+  if type(units)~="table" then return nil end
+  local occupants={}
+  for _,unit in ipairs(units) do
+    local owner=unit:GetOwner()
+    if not GeometryInteger(owner) then return nil end
+    if owner~=contextID then
+      local war=player:GetDiplomacy():IsAtWarWith(owner)
+      if type(war)~="boolean" then return nil end
+      if war then
+        local kind=unit:GetUnitType()
+        local row=GeometryInteger(kind) and GameInfo.Units[kind]
+        if not row or row.Index~=kind or not BaiqiPolicy.Number(row.Combat)
+          or not BaiqiPolicy.Number(row.RangedCombat) or row.Combat<0 or row.RangedCombat<0 then return nil end
+        if (row.Domain=="DOMAIN_LAND" or row.Domain=="DOMAIN_SEA") and (row.Combat>0 or row.RangedCombat>0) then
+          local unitID=unit:GetID()
+          if not GeometryInteger(unitID) or unit:GetX()~=x or unit:GetY()~=y
+            or unit:IsDead()~=false or unit:IsDelayedDeath()~=false then return nil end
+          occupants[#occupants+1]=tostring(owner)..":"..tostring(unitID)..":"..tostring(kind)
+        end
+      end
+    end
+  end
+  if #occupants==0 or Game.GetCurrentGameTurn()~=turn or not CoreIdle() then return nil end
+  table.sort(occupants)
+  return {prereqID=id,x=x,y=y,occupants=table.concat(occupants,",")}
+end
+
 -- A flooded prerequisite can strand an unfinished building behind a zero
 -- current hash. Preserve that sole entry while prepending ordinary legal work.
 -- Unknown or normally active queues never authorize this exception.
@@ -4302,11 +4351,22 @@ local function BlockedIdleHead(city,q)
     end
     if owned~=false then return nil end
     local districts=city:GetDistricts()
-    if districts:HasDistrict(district.Index,true)~=true or districts:IsPillaged(district.Index)~=true
+    if districts:HasDistrict(district.Index,true)~=true
       or q:CanProduce(row.Hash,true)~=true or q:CanProduce(row.Hash,false,true)~=false then return nil end
+    local pillaged=districts:IsPillaged(district.Index)
+    local occupied
+    if pillaged==false then occupied=OccupiedPrerequisite(city,district)
+    elseif pillaged~=true then return nil end
+    if pillaged~=true and not occupied then return nil end
     local progress,cost=q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
     if not BaiqiPolicy.Number(progress) or progress<0 or not BaiqiPolicy.Number(cost)
       or cost<=progress then return nil end
+    if occupied then
+      return sig,{kind="occupied_building",buildingIndex=row.Index,hash=row.Hash,buildingType=row.BuildingType,
+        progress=progress,cost=cost,prereqIndex=district.Index,prereqHash=district.Hash,
+        prereqType=district.DistrictType,prereqID=occupied.prereqID,x=occupied.x,y=occupied.y,
+        occupants=occupied.occupants}
+    end
     return sig,{buildingIndex=row.Index,hash=row.Hash,progress=progress}
   end)
   if ok then return signature,work end
@@ -4509,6 +4569,12 @@ local function QueueReady(city,q,completedHead,blockedHead,blockedWork)
     elseif (work and work.kind=="building_repair") or (blockedWork and blockedWork.kind=="building_repair") then
       if not work or not blockedWork or work.kind~="building_repair" or blockedWork.kind~="building_repair" then return false end
       for _,key in ipairs({"buildingIndex","hash","buildingType","progress","cost","prereqIndex","prereqHash","prereqType"}) do
+        if work[key]~=blockedWork[key] then return false end
+      end
+    elseif (work and work.kind=="occupied_building") or (blockedWork and blockedWork.kind=="occupied_building") then
+      if not work or not blockedWork or work.kind~="occupied_building" or blockedWork.kind~="occupied_building" then return false end
+      for _,key in ipairs({"buildingIndex","hash","buildingType","progress","cost","prereqIndex","prereqHash","prereqType",
+        "prereqID","x","y","occupants"}) do
         if work[key]~=blockedWork[key] then return false end
       end
     end
@@ -5101,6 +5167,7 @@ local function ProcessCity(ctx, player, state, city)
   end
   Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type
     ..(choice.resumeProject and "|resume_project=true" or "")
+    ..(blockedWork and blockedWork.kind=="occupied_building" and "|blocked=occupied_prerequisite" or "")
     ..(blockedHead and "|insert=prepend_blocked" or (completedHead and "|insert=replace_completed" or "")))
   CityManager.RequestOperation(city,CityOperationTypes.BUILD,params)
   return true
