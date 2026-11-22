@@ -1364,3 +1364,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-21：[追踪器只读SDK实机失败与R3修复](research/baiqi-source174-ownertrace-readonly-sdk-failure-and-proxy-repair-2026-11-21.json)：纯Lua可写表夹具漏掉实际SDK只读约束，冷载失败不能授游戏通过。先保失败日志及正式退场/精确自有残留清理，再以全局代理转发；原生表0写入、缓存身份及原Shutdown先行，101软件情景与实际119包核对通过，R3尚待冷启。7完整源37388字节真实任务先备，首路径错误0POST后纠正；R54维护缓存1.19.6过、配置coder仍缺，0生成POST/候选/采用、不换模型，成本未知null。
 
 2026-11-23 R111 [真实军队待命测试薄工具与白绮自动修复](research/baiqi-source179-tc012-automatic-improvement-repair-engine74-2026-11-23.json)：12完整源56124字节先准备，维护同日缓存；两GET200仅H3，指定qwen缺席，0生成／候选／采用／OpenCode原生，不冒称HTTP404。Owner20双VM分支及真实26军事SKIP后正常END实际116；自动修复字段和工具ACK分列。保Owner只读／路径／编号／清理计数／marker失败与未知成本。
+
+2026-11-23 [原版建筑／区域修复对照](research/baiqi-source179-tc012-normal-building-district-repair-engine74-2026-11-23.json)：复用R110/R111，无新模型GET／生成；owner固定Qin控制薄工具保Baiqi零写入，同回合正负校验纠正此前负例错回合。Native成本余8／9、真实完工／收益与项目资格分列；命名收益索引、缓存进度与人口变化均按实际保留纠正，未知成本null。

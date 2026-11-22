@@ -1,0 +1,524 @@
+{
+  "schema": "civ6.current179-tc012-native-normal-city-repair-baselines/v1",
+  "utc": "2026-11-22T22:12:47.694674+00:00",
+  "machine_local_date": "2026-11-23",
+  "machine": "BF-202609141645",
+  "source_version": 179,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_ORDINARY_QIN_BUILDING_AND_DISTRICT_REPAIR_BASELINES_ONLY",
+  "whole_TC012": "OPEN_BAIQI_BUILDING_DISTRICT_AUTOMATIC_EFFECTS_PENDING",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    26,
+    40,
+    65,
+    14
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 7,
+  "new_product_changes": 0,
+  "ordinary179_all119_exact": true,
+  "normal_leader": "LEADER_QIN",
+  "Controller_IsAvailable": false,
+  "protected_control_source": {
+    "utc": "2026-11-22T20:49:31.203134+00:00",
+    "name": "Qin_P6_20261123_V179_TC012RepairControl172.Civ6Save",
+    "bytes": 468874,
+    "sha256": "e391f8050f0a4b4ce1ac3e664292cce9e39a13d06ad132929d17955ede72b433",
+    "stable_repeated_read": true
+  },
+  "protected_Baiqi_auto116": {
+    "utc": "2026-11-22T21:31:48.914637+00:00",
+    "name": "Baiqi_P6_20261123_V179_TC012AutoRepair116.Civ6Save",
+    "bytes": 571223,
+    "sha256": "545274276e0227689fd96bf8b75cda8a8bd96383b0cf284d43f270d186182c6c",
+    "stable_repeated_read": true
+  },
+  "intact_actual_control_inventory": {
+    "cities": 1,
+    "city": {
+      "id": 65536,
+      "x": 15,
+      "y": 5,
+      "population172": 7
+    },
+    "owned_existing_buildings": [
+      "MONUMENT",
+      "PALACE",
+      "GRANARY",
+      "WALLS"
+    ],
+    "ordinary_specialty_districts172": 0,
+    "city_center_only": true,
+    "starting_unit_builder_production": [
+      12,
+      36
+    ]
+  },
+  "legitimate_district_preparation": {
+    "native_production_requests": 1,
+    "type": "DISTRICT_CAMPUS",
+    "plot": 323,
+    "x_y": [
+      15,
+      7
+    ],
+    "real_created_incomplete_district_ID": 131073,
+    "initial_progress_and_cost": [
+      0,
+      36
+    ],
+    "actual_complete_UI_Core_turn": 176,
+    "productive_turns_to_complete": 3,
+    "one_intervening_Monument_repair_turn": true,
+    "normal_actual_turns": [
+      172,
+      173,
+      174,
+      175,
+      176
+    ],
+    "unmodified_builder_investment_preserved": true,
+    "completion_setters_or_production_grants": 0
+  },
+  "building_native_baseline": {
+    "kind": "BUILDING_MONUMENT",
+    "city": 65536,
+    "index": 0,
+    "hash": -2025065568,
+    "explicit_external_QA_existing_building_damage": 1,
+    "damage_setter_signature": "existingOwnedCity:GetBuildings():SetPillaged(building.Index,true)",
+    "native_PILLAGE_BUILDING_REPAIR_PERCENT": 25,
+    "raw_cost": 31,
+    "damaged_progress_after_normal_refresh": 23,
+    "actual_remaining_production": 8,
+    "repair_request_turn": 173,
+    "native_city_production_requests": 1,
+    "insert_mode": "PREPEND preserving actual Campus12/36 and Builder12/36",
+    "after_request_still_damaged": true,
+    "after_request_progress_cost": [
+      23,
+      31
+    ],
+    "actual_done_turn": 174,
+    "Core_UI_pillaged_true_to_false": true,
+    "correct_named_yield_index": 4,
+    "correct_named_yield_type": "YIELD_CULTURE",
+    "actual_intact_damaged_restored_city_culture": [
+      5.09765625,
+      3.09765625,
+      5.09765625
+    ],
+    "external_restore_setter_or_free_production": 0,
+    "not_instant_completion": true,
+    "exact_evidence": {
+      "utc": "2026-11-22T21:52:16.663083+00:00",
+      "source_version": 179,
+      "normal_leader": "LEADER_QIN",
+      "before": {
+        "utc": "2026-11-22T21:50:02.258609+00:00",
+        "source_version": 179,
+        "normal_leader": "LEADER_QIN",
+        "before_repair": [
+          "23",
+          "31",
+          "1",
+          "3.09765625",
+          "5.5",
+          "13"
+        ],
+        "actual_yield_types": [
+          "4",
+          "YIELD_CULTURE",
+          "3",
+          "YIELD_SCIENCE"
+        ],
+        "original_intact_culture_from_full_census": [
+          "CITY_YIELD",
+          "65536",
+          "4",
+          "true",
+          "5.09765625"
+        ],
+        "actual_repair_remaining_production": 8,
+        "Native_queue_after": [
+          "3",
+          "-2025065568",
+          "23",
+          "31",
+          "1",
+          "true",
+          "12",
+          "12"
+        ],
+        "Native_entries": [
+          [
+            "0",
+            "1",
+            "0",
+            "nil",
+            "nil",
+            "0"
+          ],
+          [
+            "1",
+            "2",
+            "nil",
+            "2",
+            "nil",
+            "0"
+          ],
+          [
+            "2",
+            "0",
+            "nil",
+            "nil",
+            "1",
+            "0"
+          ]
+        ],
+        "native_repair_production_requests": 1,
+        "free_production_or_restore_setters": 0,
+        "owner_erratum": "Prior hardcoded yield3 called culture was actually SCIENCE. Original values retained and excluded from culture comparison; named GameInfo.Yields.YIELD_CULTURE.Index now used. Building progress23/31 becomes visible after normal next-turn refresh; initial0 is prior cached view, not zero repair credit.",
+        "whole_TC012": "OPEN_BUILDING_CONTROL_COMPLETION_AND_DISTRICT_PENDING"
+      },
+      "after_Core_UI": {
+        "BaiqiGameplay": {
+          "building": [
+            "65536",
+            "true",
+            "false"
+          ],
+          "yields_queue": [],
+          "campus": []
+        },
+        "BaiqiExecutor": {
+          "building": [
+            "65536",
+            "true",
+            "false"
+          ],
+          "yields_queue": [
+            [
+              "4",
+              "5.09765625",
+              "0",
+              "31",
+              "2",
+              "1910099296",
+              "12",
+              "36",
+              "2",
+              "12"
+            ]
+          ],
+          "campus": [
+            [
+              "131073",
+              "false",
+              "false",
+              "15",
+              "7"
+            ]
+          ]
+        }
+      },
+      "actual_normal_turns": [
+        173,
+        174
+      ],
+      "normal_city_repair_production_requests": 1,
+      "repair_remaining_native_production": 8,
+      "native_price_rule_percent": 25,
+      "intact_damaged_restored_city_culture": [
+        5.09765625,
+        3.09765625,
+        5.09765625
+      ],
+      "damage_true_to_false": true,
+      "native_repair_not_free_instant": true,
+      "external_restore_setter_or_production_grants": 0,
+      "Baiqi_auto_repair_pass": false,
+      "whole_TC012": "OPEN_BUILDING_BAIQI_EFFECT_AND_DISTRICT_CONTROL_EFFECT_PENDING"
+    }
+  },
+  "district_native_baseline": {
+    "kind": "DISTRICT_CAMPUS",
+    "district_ID": 131073,
+    "city": 65536,
+    "plot": 323,
+    "explicit_external_QA_damage_existing_completed_district": 1,
+    "damage_setter_signature": "existingOwnedCompletedDistrict:SetPillaged(true)",
+    "raw_cost": 36,
+    "damaged_progress_after_normal_refresh": 27,
+    "actual_remaining_production": 9,
+    "native_repair_production_requests": 1,
+    "request_turn": 177,
+    "after_request_still_damaged": true,
+    "after_request_progress_cost": [
+      27,
+      36
+    ],
+    "preserved_original_builder_investment": 34,
+    "actual_done_turn": 178,
+    "Core_UI_pillaged_true_to_false": true,
+    "actual_project": "PROJECT_ENHANCE_DISTRICT_CAMPUS",
+    "project_actual_CanProduce_before_after": [
+      false,
+      true
+    ],
+    "project_potential_CanProduce_before_after": [
+      true,
+      true
+    ],
+    "same_before_after_population": 6,
+    "measured_city_science_before_after": [
+      7,
+      7
+    ],
+    "measured_scientist_GPP_rate_before_after": [
+      1,
+      1
+    ],
+    "measured_scientist_GPP_total_before_after": [
+      1,
+      2
+    ],
+    "no_invented_science_or_GPP_loss": true,
+    "external_restore_setters_or_production_grants": 0,
+    "not_instant_completion": true,
+    "exact_evidence": {
+      "utc": "2026-11-22T22:07:01.466274+00:00",
+      "source_version": 179,
+      "normal_leader": "LEADER_QIN",
+      "before": {
+        "utc": "2026-11-22T22:03:49.610641+00:00",
+        "source_version": 179,
+        "normal_leader": "LEADER_QIN",
+        "before_repair": [
+          "6",
+          "7",
+          "1",
+          "27",
+          "36",
+          "1",
+          "true"
+        ],
+        "before_repair_project_qualification": [
+          "PROJECT_ENHANCE_DISTRICT_CAMPUS",
+          "911210110",
+          "true",
+          "false"
+        ],
+        "native_yield_member_types": [
+          [
+            "GetAdjacencyYield",
+            "function"
+          ],
+          [
+            "GetYield",
+            "function"
+          ],
+          [
+            "GetYieldFromBuildings",
+            "nil"
+          ]
+        ],
+        "native_adjacency_yield": [
+          [
+            "true",
+            "0"
+          ]
+        ],
+        "native_queue_after": [
+          "2",
+          "1910099296",
+          "27",
+          "36",
+          "1",
+          "true",
+          "true",
+          "34"
+        ],
+        "entries": [
+          [
+            "0",
+            "2",
+            "2",
+            "nil",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "nil",
+            "1",
+            "0"
+          ]
+        ],
+        "actual_remaining_native_production": 9,
+        "TEST_PLAYER_native_district_repair_requests": 1,
+        "external_restore_setters_or_production_grants": 0,
+        "scope_note": "Damaged native district retains measured science/GPP values; population and rates recorded before repair. Do not invent a lost science or zero GPP baseline; use actual native before/after and prerequisite qualification, scoped to this ordinary control.",
+        "whole_TC012": "OPEN_DISTRICT_CONTROL_COMPLETION_AND_BAIQI_BUILDING_DISTRICT_EFFECTS_PENDING"
+      },
+      "after_Core_UI": {
+        "BaiqiExecutor": {
+          "district": [
+            "131073",
+            "15",
+            "7",
+            "true",
+            "false"
+          ],
+          "queue": [
+            [
+              "1",
+              "299201842",
+              "0",
+              "36",
+              "3",
+              "34"
+            ]
+          ],
+          "yields": [
+            [
+              "3",
+              "7",
+              "5",
+              "1",
+              "2"
+            ]
+          ],
+          "district_yield": [
+            [
+              "true",
+              "0"
+            ]
+          ],
+          "monument": [
+            [
+              "false",
+              "4.796875"
+            ]
+          ]
+        },
+        "BaiqiGameplay": {
+          "district": [
+            "131073",
+            "15",
+            "7",
+            "true",
+            "false"
+          ],
+          "queue": [],
+          "yields": [],
+          "district_yield": [],
+          "monument": []
+        }
+      },
+      "actual_population_and_restored_project": [
+        "6",
+        "911210110",
+        "true",
+        "true",
+        "false"
+      ],
+      "native_damage_before_after": [
+        true,
+        false
+      ],
+      "actual_remaining_native_production": 9,
+      "normal_repair_production_requests": 1,
+      "actual_normal_turn_advance": [
+        177,
+        178
+      ],
+      "native_project_actual_CanProduce_before_after": [
+        false,
+        true
+      ],
+      "native_repair_not_free_instant": true,
+      "external_restore_setters_or_production_grants": 0,
+      "Baiqi_auto_repair_pass": false,
+      "yield_rule_limits": "Before damaged177 population6/science7/scientistGPP1; intact176 population not sampled, science7.5/GPP0. Do not assign the cross-turn changes solely to pillage or repair. Both native before/after raw values retained; proof includes restored native project eligibility and no fabricated extra compensation. Direct district GetYield/GetAdjacencyYield reads were0; no interpretation beyond actual returned values.",
+      "whole_TC012": "OPEN_BAIQI_BUILDING_AND_DISTRICT_REAL_EFFECTS_PENDING"
+    }
+  },
+  "yield_population_and_cache_limits": [
+    "Before damage, raw city:GetYield(3)=5.5 was initially mislabeled culture; actual GameInfo maps3 to SCIENCE and4 to CULTURE. Original private values retained, excluded from culture comparison; named-index genuine culture was5.09765625 intact,3.09765625 damaged,5.09765625 repaired.",
+    "Immediate post-damage progress getter was0 until next normal turn, then native repair progress23/31 for Monument and27/36 for Campus. Do not report zero invested progress or full construction cost as remaining repair cost.",
+    "Control population was7 at172 and6 at177/178; exact cause/time was not independently isolated. Campus intact176 science7.5 and GPP rate0 are retained as same-turn completion observations, not directly comparable damage effects.",
+    "Actual damaged177 science7/GPP rate1 and repaired178 science7/GPP rate1 are unchanged; native project eligibility was blocked then restored. No imaginary zero science/GPP or yield compensation is credited. Direct native district GetYield/GetAdjacencyYield reads returned0 and are not reinterpreted.",
+    "Normal Qin traits, starting game speed and production differ from other fixtures. These establish native repair method, finite production and actual rule context, not universal absolute Baiqi prices."
+  ],
+  "normal_TEST_PLAYER_inputs": {
+    "actual_turns": [
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178
+    ],
+    "ordinary_no_reason_ENDs": 6,
+    "normal_native_wait_inputs": 47,
+    "native_city_production_requests": 3,
+    "explicit_QA_damage_inputs": 2,
+    "new_military_moves": 0,
+    "Baiqi_civilian_inputs": 0,
+    "BACKGROUND_AI_effects_claimed": false,
+    "UserForced": false
+  },
+  "test_only_normal_Qin_wait_adapter": {
+    "derived_from_R111_owner_helper": true,
+    "fixed_LEADER_QIN_guard": true,
+    "civilian_wait_allowed_only_in_ordinary_control": true,
+    "Baiqi_rejected": true,
+    "same_turn_Baiqi_negative_Qin_positive_both_VM": [
+      {
+        "vm": "lupa.lua51",
+        "same_turn_Baiqi_rejected_before_all_writes": true,
+        "same_turn_ordinary_Qin_including_builder_accepted": true
+      },
+      {
+        "vm": "lupa.lua53",
+        "same_turn_Baiqi_rejected_before_all_writes": true,
+        "same_turn_ordinary_Qin_including_builder_accepted": true
+      }
+    ],
+    "earlier_fixture_limit": "First adapter negative used turn172 while fixture115, so did not isolate leader. Original retained and same-turn correction passed before Native use. Other18 independent VM branch cases retained.",
+    "new_model_generation_candidates_adoptions_OpenCode_native": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "no_new_model_readiness_or_REQUEST_SSE": true,
+    "owner_cost_seconds": null
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-22T22:08:25.593624+00:00",
+      "name": "Qin_P6_20261123_V179_TC012BuildingDistrictControls178.Civ6Save",
+      "bytes": 502865,
+      "sha256": "1ce2869a3c485613d9468562e1f1a5b2bcf1ca0bb63b00ad8f3f1d9ba90410b3",
+      "stable_repeated_read": true
+    },
+    "all_own_world_QA_and_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "exact_own_QA_cleanup": [
+      "2 Core damage flags",
+      "3 Executor native production-input flags",
+      "2 ActionPanel globals containing6 wait maps /6 END flags /47 native wait attempts",
+      "1 Save flag",
+      "1 MainMenu Load flag"
+    ],
+    "Native_namespace_wrappers_or_substitutions": 0,
+    "ordinary179_all119_exact": true,
+    "new_Steam_GUI_mode_upload_Popen_terminate_kill": 0
+  },
+  "next": "Load protected Baiqi automatic-repair116 save under new bc prefix with fresh background-only Steam offline proof; census actual current queues/assets, explicitly damage existing owned building and district only after exact identity/finished-state baseline. Passive natural RunNow/log observation and normal test-player army/turn inputs only; complete real automatic city repairs, no domestic rescue or free production. Then close wholeTC012 only after exact contract review and saved clean world;14 cases remain."
+}
