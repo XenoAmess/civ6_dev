@@ -3,6 +3,48 @@ include("BaiqiRequisition")
 include("PopupDialog")
 BaiqiActions={}
 local confirming,pending=false,nil
+local confirmationInput=nil
+
+-- The popup consumes the first click. Its second click can otherwise reach
+-- WorldInput's native double-click move after the result already cleared pending.
+function BaiqiActions.OnCityConfirmationSubmitted(playerID,turn)
+  if playerID==Game.GetLocalPlayer() and turn==Game.GetCurrentGameTurn()
+    and BaiqiRequisition.Player(playerID)~=nil then
+    confirmationInput={playerID=playerID,turn=turn}
+  end
+end
+
+function BaiqiActions.WrapInputHandler(nativeInput)
+  return function(input,...)
+    if confirmationInput~=nil then
+      local ok,current=pcall(function()
+        return confirmationInput.playerID==Game.GetLocalPlayer()
+          and confirmationInput.turn==Game.GetCurrentGameTurn()
+          and BaiqiRequisition.Player(confirmationInput.playerID)~=nil
+      end)
+      if not ok or not current then confirmationInput=nil
+      else
+        local readable,message=pcall(function() return input:GetMessageType() end)
+        if readable and MouseEvents and MouseEvents.LButtonDoubleClick~=nil
+          and message==MouseEvents.LButtonDoubleClick then
+          confirmationInput=nil
+          return true
+        end
+        -- A fresh button/key press starts a new deliberate command. Mouse move
+        -- and the popup's button-up must not disarm the double-click protection.
+        if not readable or (MouseEvents and (
+          (MouseEvents.LButtonDown~=nil and message==MouseEvents.LButtonDown)
+          or (MouseEvents.RButtonDown~=nil and message==MouseEvents.RButtonDown)
+          or (MouseEvents.MButtonDown~=nil and message==MouseEvents.MButtonDown)
+          or (MouseEvents.PointerLeave~=nil and message==MouseEvents.PointerLeave)))
+          or (KeyEvents and KeyEvents.KeyDown~=nil and message==KeyEvents.KeyDown) then
+          confirmationInput=nil
+        end
+      end
+    end
+    return nativeInput(input,...)
+  end
+end
 
 local function Notice(text)
   local popup=PopupDialogInGame:new("BaiqiCityNotice")
@@ -45,6 +87,10 @@ function BaiqiActions.Interact(unit,x,y,nativeMove)
   confirming=true
   popup:AddConfirmButton("征取城市（"..quote.cost.."金币）",function()
     confirming=false
+    BaiqiActions.OnCityConfirmationSubmitted(pid,quote.turn)
+    if LuaEvents and LuaEvents.BaiqiCityConfirmationSubmitted then
+      LuaEvents.BaiqiCityConfirmationSubmitted(pid,quote.turn)
+    end
     local fresh=BaiqiRequisition.Quote(pid,quote.unitID,quote.targetOwner,quote.cityID,"city")
     if fresh==nil or fresh.cost~=quote.cost or fresh.population~=quote.population
       or BaiqiRequisition.RequestID(fresh)~=BaiqiRequisition.RequestID(quote) then
