@@ -287,6 +287,8 @@
 <a id="tc-030"></a>
 ### TC-030 夺取真实阶段的保存与恢复
 
+- 2026-11-22当前178／引擎.74整项通过：[完整必要阶段实际存读档矩阵](../research/baiqi-source178-tc030-complete-engine74-2026-11-22.json)。确认前无动作、待核实未知冻结、肯定TRANSFERRED／CHARGED／FINISHING前后仅结算一次；[独立完成态重载](../research/baiqi-source178-tc030-completed-save-no-replay-engine74-2026-11-22.json)启动／2恢复／真实已知DONE重投全源000。全部自有QA已撤、正式保存返菜单。当前转移先于扣款，无预扣分支；额外冷首次加载只授TRANSFERRED，不声称其余组合。当前全模组24/40＝60%，其余16及旧865FAIL继续。
+
 - 2026-11-22当前178／引擎.74窄通过：[新进程第一次世界加载TRANSFERRED待结算档](../research/baiqi-source178-tc030-cold-transferred-recovery-engine74-2026-11-22.json)。不同真实producer／newtuple，新后台离线Popen与Load；实际加载0/1/1、2恢复＋真实同号已知DONE重投追加000，已存退QA返菜单。其他阶段冷启动不由本例授验；旧正常退出残留保持、不记干净退出。R101未知扣款32软件用例通过，Native仍待。
 
 - 2026-11-22当前178／引擎.74窄通过：[FINISHING_AFTER真实保存恢复](../research/baiqi-source178-tc030-finish-after-recovery-engine74-2026-11-22.json)，结束行动实际已作用后保存，重载不再Finish；已收费回执保持，加载0转城／0再收费。2恢复和真正同号已知DONE请求追加000，已另存完成态退QA返菜单；冷进程等剩余窗口仍待。

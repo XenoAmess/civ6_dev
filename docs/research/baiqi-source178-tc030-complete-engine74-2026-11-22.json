@@ -1,0 +1,272 @@
+{
+  "schema": "civ6.source178-tc030-complete/v1",
+  "utc": "2026-11-22T15:48:35.828997+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_ALL_REQUIRED_TC030_ACTUAL_STAGE_SAVE_RELOAD_CLAUSES",
+  "whole_TC030_closed": true,
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    24,
+    40,
+    60,
+    16
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "review": {
+    "utc": "2026-11-22T15:46:34.379841+00:00",
+    "source_version": 178,
+    "engine": "1.0.12.74",
+    "machine": "BF-202609141645",
+    "exact_frozen_TC030_contract": [
+      "- 需求：BR-020、BR-022、BR-024。夹具：F07，实现真实的执行／结算顺序已经记录。",
+      "- 步骤：分别在确认前、提交后待核实、转移已发生而结算未最终落定、完成后恢复；若实际顺序为先预扣再转移，也覆盖预扣后窗口。恢复时重复投递已见结果。",
+      "- 预期：确认前无操作，待核实按未知规则恢复；成功只结算一次，明确失败只补偿一次；已完成不重放。无法直接保存的窗口用已验证测试钩子覆盖并说明局限，不能假定 UI 请求与扣费是原子事务。",
+      "- 证据：各阶段真实状态、钩子／存档和恢复路径、所有者／费用／行动前后、唯一结算关联。未覆盖的必要窗口记阻塞。"
+    ],
+    "contract_normalized_UTF8_sha256": "054f478171626f86c6aed2897d331da8a9b494db619a3550b420053b45dcf8f1",
+    "required_stage_matrix": [
+      {
+        "required_stage": "Before confirmation",
+        "actual_phase": "Real product dialog open/unconfirmed",
+        "actual_official_save_and_reload": true,
+        "actual_native_transfer_debit_finish": [
+          0,
+          0,
+          0
+        ],
+        "evidence": "docs/research/baiqi-source178-tc030-preconfirmation-save-engine74-2026-11-22.json",
+        "status": "PASS_CURRENT178_ENGINE74"
+      },
+      {
+        "required_stage": "Submitted with outcome unknown",
+        "actual_phases": [
+          "UNKNOWN/TRANSFERRING before native",
+          "UNKNOWN/TRANSFERRING after real native/lost positive receipt",
+          "UNKNOWN with only external third-party change",
+          "UNKNOWN/CHARGING after real debit/lost positive receipt"
+        ],
+        "actual_save_reload": "All remain frozen; full journal/identity/wallet/army maintained, no retry/refund/Finish",
+        "evidence": [
+          "docs/research/baiqi-source178-tc029-complete-engine74-2026-11-22.json",
+          "docs/research/baiqi-source178-tc030-unknown-charge-freeze-engine74-2026-11-22.json"
+        ],
+        "status": "PASS_CURRENT178_ENGINE74"
+      },
+      {
+        "required_stage": "Transfer occurred, settlement unfinished",
+        "actual_phase": "TRANSFERRED",
+        "actual_pending_native_transfer_debit_finish": [
+          1,
+          0,
+          0
+        ],
+        "actual_startup_recovery_transfer_debit_finish": [
+          0,
+          1,
+          1
+        ],
+        "additional_after_two_DONE_Recovers_and_real_known_duplicate": [
+          0,
+          0,
+          0
+        ],
+        "actual_pending_save": {
+          "utc": "2026-11-22T13:20:06.598602+00:00",
+          "name": "Baiqi_P6_20261122_V178_TC030TransferredPending114.Civ6Save",
+          "bytes": 568758,
+          "sha256": "3fab2299d3aad66eafe7e8db88428f85e55e1e754e04c3e619bd438bd9cc3131",
+          "stable_repeated_read": true
+        },
+        "evidence": "docs/research/baiqi-source178-tc030-transferred-recovery-engine74-2026-11-22.json",
+        "status": "PASS_CURRENT178_ENGINE74_ACTUAL_SAVE_RELOAD"
+      },
+      {
+        "required_stage": "Transfer occurred, settlement unfinished",
+        "actual_phase": "CHARGED",
+        "actual_pending_native_transfer_debit_finish": [
+          1,
+          1,
+          0
+        ],
+        "actual_startup_recovery_transfer_debit_finish": [
+          0,
+          0,
+          1
+        ],
+        "additional_after_two_DONE_Recovers_and_real_known_duplicate": [
+          0,
+          0,
+          0
+        ],
+        "actual_pending_save": {
+          "utc": "2026-11-22T13:36:51.928695+00:00",
+          "name": "Baiqi_P6_20261122_V178_TC030ChargedPending114.Civ6Save",
+          "bytes": 568717,
+          "sha256": "943ffcd022a7eb76b92ae147dbebbc42bf5f3b5e381e5c6cb342e78b2e68c215",
+          "stable_repeated_read": true
+        },
+        "evidence": "docs/research/baiqi-source178-tc030-charged-recovery-engine74-2026-11-22.json",
+        "status": "PASS_CURRENT178_ENGINE74_ACTUAL_SAVE_RELOAD"
+      },
+      {
+        "required_stage": "Transfer occurred, settlement unfinished",
+        "actual_phase": "FINISHING_BEFORE",
+        "actual_pending_native_transfer_debit_finish": [
+          1,
+          1,
+          0
+        ],
+        "actual_startup_recovery_transfer_debit_finish": [
+          0,
+          0,
+          1
+        ],
+        "additional_after_two_DONE_Recovers_and_real_known_duplicate": [
+          0,
+          0,
+          0
+        ],
+        "actual_pending_save": {
+          "utc": "2026-11-22T13:52:55.102633+00:00",
+          "name": "Baiqi_P6_20261122_V178_TC030FinishBeforePending114.Civ6Save",
+          "bytes": 568724,
+          "sha256": "4e3f2e67d76e07aab7c19d1aeac3db29b55c98fba25c6db2644f918ad5e879c2",
+          "stable_repeated_read": true
+        },
+        "evidence": "docs/research/baiqi-source178-tc030-finish-before-recovery-engine74-2026-11-22.json",
+        "status": "PASS_CURRENT178_ENGINE74_ACTUAL_SAVE_RELOAD"
+      },
+      {
+        "required_stage": "Transfer occurred, settlement unfinished",
+        "actual_phase": "FINISHING_AFTER",
+        "actual_pending_native_transfer_debit_finish": [
+          1,
+          1,
+          1
+        ],
+        "actual_startup_recovery_transfer_debit_finish": [
+          0,
+          0,
+          0
+        ],
+        "additional_after_two_DONE_Recovers_and_real_known_duplicate": [
+          0,
+          0,
+          0
+        ],
+        "actual_pending_save": {
+          "utc": "2026-11-22T14:07:36.769793+00:00",
+          "name": "Baiqi_P6_20261122_V178_TC030FinishAfterPending114.Civ6Save",
+          "bytes": 568802,
+          "sha256": "68672848f1327e6c9ffe43acbf0202ee4be29070b8da83a0c3324239db5d45a7",
+          "stable_repeated_read": true
+        },
+        "evidence": "docs/research/baiqi-source178-tc030-finish-after-recovery-engine74-2026-11-22.json",
+        "status": "PASS_CURRENT178_ENGINE74_ACTUAL_SAVE_RELOAD"
+      },
+      {
+        "required_stage": "Already completed",
+        "actual_phase": "Persisted COMMITTED/DONE with positive transfer and charge receipts",
+        "actual_loaded_save": {
+          "utc": "2026-11-22T14:35:12.047774+00:00",
+          "name": "Baiqi_P6_20261122_V178_TC030ColdTransferredRecovered114.Civ6Save",
+          "bytes": 568396,
+          "sha256": "1439c2fb5c42bffe60b1b94a3e74f563744ae587233a06b88d99aebf6d83bc43",
+          "stable_repeated_read": true
+        },
+        "actual_startup_recovery_and_later_additional_native_counts": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "two_explicit_DONE_Recovers": 2,
+        "actual_known_DONE_UI_duplicate_requests": 1,
+        "full_journal_result_source_rows_unchanged": true,
+        "fresh_actual_product_duplicate_log": true,
+        "evidence": "docs/research/baiqi-source178-tc030-completed-save-no-replay-engine74-2026-11-22.json",
+        "status": "PASS_CURRENT178_ENGINE74"
+      },
+      {
+        "required_stage": "Precharge before transfer if implementation has that order",
+        "status": "NOT_APPLICABLE_ACTUAL_TRANSFER_FIRST_IMPLEMENTATION",
+        "reason": "Actual Capture.Request transfers first; Settle requires positive persisted transfer receipt before ChangeGoldBalance. No precharge/refund path exists. Known quote_changed failures were independently Native-tested in TC028 with no charge or action cost.",
+        "evidence": "docs/research/baiqi-source178-tc028-complete-engine74-2026-11-22.json"
+      }
+    ],
+    "whole_TC030_closed": true,
+    "all_required_current178_stage_save_reload_clauses_passed": true,
+    "extra_cold_scope": {
+      "measured_current178": "Distinct new process first world Load of real TRANSFERRED pending save:0/1/1; subsequent twoRecovers/actual knownDONE duplicate add000.",
+      "other_phases_first_cold_Load_measured_current178": false,
+      "universal_all_phase_by_all_process_crossproduct_in_TC030_contract": false,
+      "no_claim_of_untested_cold_combinations": true,
+      "completed_save_reference_correction": "Actual official new completed file verified independently; older summary points to old warm save and is superseded by explicit provenance correction."
+    },
+    "closeout": {
+      "current_completed_save": {
+        "utc": "2026-11-22T15:41:02.175359+00:00",
+        "name": "Baiqi_P6_20261122_V178_TC030CompletedReloadVerified114.Civ6Save",
+        "bytes": 568551,
+        "sha256": "0f258538abeb6b88d75ee41f7778e83b1a96e4d27ef6d95aaa71f16d6af3d6f2",
+        "stable_repeated_read": true
+      },
+      "all_own_QA_and_Load_flags_retired": true,
+      "formal_MainMenu_world_contexts_absent": true,
+      "Steam_mode_upload_changes": 0
+    },
+    "whole_mod": "OPEN_CONTINUE_REMAINING16_OLD865FAIL_AND_OTHER_UNKNOWN",
+    "after_closure_total_percent_remaining": [
+      24,
+      40,
+      60,
+      16
+    ],
+    "unpublished_product_fixes": 6,
+    "old8650807": "FAIL_UNRESOLVED",
+    "unknown_cost": null
+  },
+  "current_completed_case": "docs/research/baiqi-source178-tc030-completed-save-no-replay-engine74-2026-11-22.json",
+  "corrected_cold_transferred_reference": "docs/research/baiqi-source178-tc030-cold-transferred-recovery-engine74-2026-11-22.json",
+  "cold_scope_boundary": "Current distinct-process first-world Load is measured for TRANSFERRED only. Other per-phase cold-first-load combinations are not claimed as tested. The exact frozen TC030/BR020/022/024 contract requires the real execution stages and exactly-once/no-unknown-replay behavior; it does not prescribe a universal phase-by-process Cartesian product. All stated stage clauses are now actual current178/.74 Save/Load, plus one actual cold representative.",
+  "no_core_requirement_or_support_boundary_removed": true,
+  "unresolved": [
+    "old8650807 FAIL_UNRESOLVED",
+    "old6684713 and458752 LEGACY_UNKNOWN",
+    "current177 occupied-prerequisite Native trigger not yet demonstrated",
+    "Remaining16wholecases"
+  ],
+  "model": {
+    "same_genuine_R102_sources_UTF8_bytes": [
+      20,
+      189056
+    ],
+    "configured_qwen38_coder_absent_only_H3": true,
+    "OpenCode_same_user_localNov22_cached_version": "1.19.6",
+    "new_generation_POSTs_candidates_adoption": [
+      0,
+      0,
+      0
+    ],
+    "OpenCode_native_generation": 0,
+    "automatic_fallback": 0,
+    "unknown_cost": null
+  },
+  "next": "Continue unresolved old8650807 settler recovery and current occupied-prerequisite Native gap/TC013; source/API/real-fixture review first, no replay or property clearing of old unknown intent. Continue allremaining16; no additional Workshop upload.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T16:33:35.829018+00:00",
+    "next_checkpoint": "Next finite unresolved-case qualification, repair or precise blocker, with independent work continuing.",
+    "whole_mod_finish": "Unknown;16wholecases and old865FAIL remain."
+  }
+}

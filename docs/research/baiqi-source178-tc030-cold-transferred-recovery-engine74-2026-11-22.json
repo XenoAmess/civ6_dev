@@ -176,10 +176,10 @@
     "producer_owner_different_process": true
   },
   "actual_completed_save": {
-    "utc": "2026-11-22T13:24:49.714282+00:00",
-    "name": "Baiqi_P6_20261122_V178_TC030TransferredRecovered114.Civ6Save",
-    "bytes": 568615,
-    "sha256": "b7f363b939dfc5bba7a7fa10beb5878711f2510e87b803213475bae85edde793",
+    "utc": "2026-11-22T14:35:12.047774+00:00",
+    "name": "Baiqi_P6_20261122_V178_TC030ColdTransferredRecovered114.Civ6Save",
+    "bytes": 568396,
+    "sha256": "1439c2fb5c42bffe60b1b94a3e74f563744ae587233a06b88d99aebf6d83bc43",
     "stable_repeated_read": true
   },
   "source_callsite_observer_scope": "Initializes before Capture functions and startup recovery; counts actual bound request callsites, not global native command interception. Cold initial counts transfer0/debit1/Finish1 are separate from later twoRecover/duplicate additional000.",
@@ -227,5 +227,27 @@
   "time_plan": {
     "next_checkpoint_target_UTC": "2026-11-22T15:23:23.546226+00:00",
     "whole_mod_finish": "Unknown;17wholecasesremain."
+  },
+  "actual_completed_save_reference_correction": {
+    "utc": "2026-11-22T15:48:35.828997+00:00",
+    "prior_public_blob": "https://github.com/XenoAmess/civ6_dev/blob/173ae2b4c0e0f8a6a2b96221c6eb84510bb4f604/docs/research/baiqi-source178-tc030-cold-transferred-recovery-engine74-2026-11-22.json",
+    "mistaken_old_summary_save": {
+      "utc": "2026-11-22T13:24:49.714282+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC030TransferredRecovered114.Civ6Save",
+      "bytes": 568615,
+      "sha256": "b7f363b939dfc5bba7a7fa10beb5878711f2510e87b803213475bae85edde793",
+      "stable_repeated_read": true
+    },
+    "actual_official_new_Save_verified_and_now_independently_loaded": {
+      "utc": "2026-11-22T14:35:12.047774+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC030ColdTransferredRecovered114.Civ6Save",
+      "bytes": 568396,
+      "sha256": "1439c2fb5c42bffe60b1b94a3e74f563744ae587233a06b88d99aebf6d83bc43",
+      "stable_repeated_read": true
+    },
+    "new_completed_replay_evidence": "docs/research/baiqi-source178-tc030-completed-save-no-replay-engine74-2026-11-22.json",
+    "cause": "Owner diagnostic driver saved the correctly named new ColdTransferredRecovered file, then read an older same-process response path into its summary field. The actual new save was not missing.",
+    "original_cold_pending_Load_and_native_counts_unchanged": true,
+    "original_private_evidence_preserved": true
   }
 }

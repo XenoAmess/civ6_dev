@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178／引擎.74 TC030完整保存恢复验收通过](docs/research/baiqi-source178-tc030-complete-engine74-2026-11-22.json)：确认前、未知、四个未结阶段和完成态均已实际存读档，完成态重载／2恢复／同号已知DONE重投均源000。[当前24/40＝60%](docs/research/baiqi-source178-finite40-engine74-after-tc030-2026-11-22.json)，余16、待发6。已存撤QA返菜单；继续旧865失败与其余功能。
+
 [178／引擎.74新进程首次冷恢复TRANSFERRED](docs/research/baiqi-source178-tc030-cold-transferred-recovery-engine74-2026-11-22.json)：实际加载0转城／扣费1／结束行动1，2恢复＋真正同号重投追加000；已保存退QA返菜单。整体23/40＝57.5%、余17、待发6；未知扣款新32VM已过，实机继续，TC030整体仍待。
 
 [178／引擎.74 FINISHING_AFTER真实恢复](docs/research/baiqi-source178-tc030-finish-after-recovery-engine74-2026-11-22.json)：结束行动实际已作用后保存，重载不再Finish，0转城／0再收费；2恢复和真正同号重投追加000，已保存退QA返菜单。整体23/40＝57.5%，余17、待发6；TC030剩余窗口继续。
