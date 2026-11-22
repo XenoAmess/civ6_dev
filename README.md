@@ -1,5 +1,7 @@
 # civ6_dev
 
+[177/.74 TC026费用上涨分支通过](docs/research/baiqi-source177-tc026-price-change-engine74-2026-11-22.json)：旧300确认拒绝无费用，新交互明确400并再次确认后真实净扣400／转城／单笔完成；已存退菜单撤QA。TC026目标／单位变化仍待，整体20/40＝50%，继续执行。
+
 [177/.74 TC024全部采用边界已验收](docs/research/baiqi-source177-tc024-complete-engine74-2026-11-22.json)／[当前40项台账](docs/research/baiqi-source177-finite40-engine74-after-tc024-2026-11-22.json)：10份独立副本金钱、生命、行动／冷却及距离1／2边界通过，均已存退菜单、撤QA。整体20/40＝50%，余20项；工坊172／待发5保持，继续全模组与原有失败项。
 
 [177/.74 TC024行动0与冷却边界实测](docs/research/baiqi-source177-tc024-moves-cooldown-engine74-2026-11-22.json)：行动0／本回合冷却拒绝无费用，前回合冷却允许真实征取且结算一次。三份已存退菜单并撤QA；TC024仍待距离边界，整体19/40＝47.5%，继续执行。

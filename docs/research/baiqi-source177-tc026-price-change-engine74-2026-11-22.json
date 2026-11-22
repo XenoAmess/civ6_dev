@@ -1,0 +1,204 @@
+{
+  "schema": "civ6.source177-tc026-price-change/v1",
+  "utc": "2026-11-22T07:57:11.521842+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 177,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_NARROW_OLD300_REJECT_NEW400_DISPLAY_RECONFIRM_ACTUAL400_SETTLEMENT",
+  "whole_TC026": "OPEN_TARGET_THIRDPARTY_ACTOR_EXISTENCE_OWNERSHIP_BRANCHES",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 20,
+  "total": 40,
+  "percent": 50.0,
+  "remaining": 20,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 5,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "provenance": "One independent fresh-background-offline formal Load of immutable explicitQA original114 in current ordinary177/.74. ActualUI/Core baseline and liveCoreAPI types first, realoriginal300popup/cursoraway, controlledone ChangePopulation(1), independentpop2/cost400, oldconfirm refusal, newphysicalmapinteraction/newvisible400popup/newconfirmation.",
+  "controlled_preparation": {
+    "population_before_after": [
+      1,
+      2
+    ],
+    "before_after_cost": [
+      300,
+      400
+    ],
+    "native_ChangePopulation_calls": 1,
+    "natural_growth_claimed": false,
+    "QA_gold_or_transfer_writers": 0,
+    "durable_observed_diagnostic_intent_retired_without_population_restore": true
+  },
+  "old_confirmation": {
+    "visible_old_cost": 300,
+    "fresh_UI_Core_cost": 400,
+    "actual_change_notice": "城市状态或报价已变化，请重新与城市交互。",
+    "notice_physically_dismissed": true,
+    "UI_interact_requests_paidroute_popupcontinuation": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "gold": 4524.2734375,
+    "actor_moves_damage_cooldown": [
+      4,
+      0,
+      null
+    ],
+    "city_owner_ID_population": [
+      1,
+      524295,
+      2
+    ],
+    "journal_result": null,
+    "ability_gold_delta": 0
+  },
+  "fresh_reconfirmation": {
+    "actual_new_popup_message_and_button_cost": 400,
+    "UI_Core_before_new_confirmation_requests": 0,
+    "physical_new_confirmation": 1,
+    "actual_gold_before_after": [
+      4524.2734375,
+      4124.2734375
+    ],
+    "net_fee": 400,
+    "actor_moves_damage_cooldown": [
+      0,
+      0,
+      114
+    ],
+    "city_old_new_ID": [
+      524295,
+      851979
+    ],
+    "city_owner_population_after": [
+      0,
+      2
+    ],
+    "pre_transfer_fee_basis_population": 2,
+    "journal": {
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "balanceAfter": 4124.2734375,
+          "balanceBefore": 4524.2734375,
+          "chargeObserved": true,
+          "cityID": 524295,
+          "cost": 400,
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "newCityID": 851979,
+          "phase": "DONE",
+          "playerID": 0,
+          "population": 2,
+          "reason": "committed",
+          "stage": "COMMITTED",
+          "targetOwner": 1,
+          "transferObserved": true,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        }
+      },
+      "version": 1
+    },
+    "result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "reason": "committed",
+      "stage": "COMMITTED"
+    },
+    "actual_correlated_COMMITTED_DONE_records": 1,
+    "UI_interact_requests_paidroute_popupcontinuation": [
+      2,
+      1,
+      1,
+      0
+    ],
+    "native_backend_invocation_counts": null,
+    "cross_context_atomic": false
+  },
+  "image_review": {
+    "original_raw_integrity_verified": true,
+    "prior_new400_frame_UTC": "2026-11-22T07:45:04.802537+00:00",
+    "fresh_preclick_frame_UTC": "2026-11-22T07:46:42.362506+00:00",
+    "click_UTC": "2026-11-22T07:46:56.388383+00:00",
+    "prior_actually_reviewed400_frame_age_at_click_seconds": 111.585846,
+    "new400_message_and_button_pixel_regions_identical": true,
+    "magnified_existing_raw_message_and_button_both_read400": true,
+    "raw_originals_modified": false,
+    "owner_protocol_correction": "Fresh-view forwarding and click were placed in one tool call. Future observations and inputs separated. Earlier400frame had been reviewed within120seconds and freshraw400regions independentlyverified; actual request/journal/netfee400 separatelyread. No click replay.",
+    "extra_confirmation_clicks_or_new_native_calls_for_image_review": 0
+  },
+  "live_Core_API_types": {
+    "City.ChangePopulation": "function",
+    "CityManager.TransferCity": "function",
+    "UnitManager.Kill": "function",
+    "UnitManager.ChangeOwner": "nil",
+    "UnitManager.ChangeUnitOwner": "nil",
+    "UnitManager.TransferUnit": "nil",
+    "Unit.SetOwner": "nil",
+    "Unit.ChangeOwner": "nil"
+  },
+  "API_limits": "Observed ChangeOwner/ChangeUnitOwner/TransferUnit/Unit.SetOwner/Unit.ChangeOwner nil only for these exact Core ports. This does not prove no ownership-transfer route exists; do not invent an API or reclassify the whole branch unsupported. Stockscenario ChangePopulation/Kill usage supplies real consumers but type alone does not grant permissions.",
+  "software_validation": {
+    "actual_Lua51_Lua53_fixture_fault_runs": 66,
+    "helper_sha256": "7c3129fcd6e6945a825b31d05d7c9ab732fea87dc619456e5e0eb346b015025a",
+    "old_private974_observer_absent": true,
+    "scope": "Fixture identity,activity,pending,one-use,durableintent,reentrancy,unknownnativeoutcome andbinding guards; actualNative effects separate."
+  },
+  "model": {
+    "R87_UTC": "2026-11-22T07:28:21.242901+00:00",
+    "genuine_full_sources": 30,
+    "genuine_UTF8_bytes": 324367,
+    "configured_coder_absent_models_health200_onlyH3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6 / local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "owner_authored": true,
+    "unknown_cost": null
+  },
+  "original_failure_review": {
+    "actor8650807": "FAIL_UNRESOLVED retained. Prior legacy816 cancellation reads used actual unguardedBaiqiExecutor; manualUIguard is not an explanation. Empty localqueue/oldWAKE/standby deactivation still do not prove globaldispatch barrier or safe reissue.",
+    "new_legacy865_game_load_or_replay_in_this_work_package": 0
+  },
+  "limits": [
+    "This closes only TC026 priceincrease/newdisplay/reconfirmation branch, not wholeTC026 or other cases.",
+    "No normalEND, military/civilian fixture movement, naturalgrowth, long-termloyalty or productioncompletion pass.",
+    "UI andCore reads independent,notatomic; UI counters do not supply backend invocation counts.",
+    "Old865FAIL,668/oldsettlerLEGACY_UNKNOWN,current177 occupied-prerequisite Native branch and remaining20 cases preserved."
+  ],
+  "closeout": {
+    "save": {
+      "utc": "2026-11-22T07:52:45.166397+00:00",
+      "name": "Baiqi_P6_20261122_V177_TC026Price400Paid114.Civ6Save",
+      "bytes": 568785,
+      "sha256": "24e181b2d5910d71574de2cbe24cbde370c7a4bf8dc87bfa0e00fd5bfece961b",
+      "stable_repeated_read": true
+    },
+    "all_own_QA_UI_bindings_five_flags_known_observed_intent_and_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "ordinary119_and_marker_verified": true,
+    "own_process_still_MainMenu": true,
+    "new_Popen": 0,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "next": "Immediately continue independent TC026 target-thirdparty and actorabsence branches using actuallive ports and explicitQA. First read valid thirdparty identities/ownership API scope, then prepare guarded one-use fixture; do not clear old journals or manufacture missing ownership support. Continue remaining20 full-mod cases.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T08:42:11.522158+00:00",
+    "next_checkpoint": "Next actualtarget/actor branch or precise qualified blocker at safecheckpoint.",
+    "whole_mod_finish": "Unknown;20 whole cases remain."
+  }
+}
