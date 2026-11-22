@@ -1,0 +1,230 @@
+{
+  "schema": "civ6.source177-tc023-complete/v1",
+  "utc": "2026-11-22T04:34:38.711216+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 177,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_TC023_ALL_THREE_CURRENT_ENGINE_SEPARATE_COPIES",
+  "whole_cases_closed": 18,
+  "whole_cases_total": 40,
+  "percent": 45,
+  "remaining": 22,
+  "whole_mod": "OPEN_CONTINUE",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 5,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "fixture_provenance": "Historical explicit QA GarrisonPrep114, not natural damage/treasury setup. Three independent fresh-background-offline formal Loads in same actually cold-launched ordinary177 instance; current UI/Core scene requalified each time.",
+  "cancel_evidence": "docs/research/baiqi-source177-tc023-map-quote-cancel114-engine74-2026-11-22.json",
+  "normal_attack_evidence": "docs/research/baiqi-source177-tc023-normal-attack114-engine74-2026-11-22.json",
+  "actual_paid_confirm": {
+    "physical_map_right": 1,
+    "physical_paid_confirmation": 1,
+    "semantic_Interact_or_Execute": 0,
+    "cursor_moved_before_confirmation": {
+      "native_plot": 1013,
+      "xy": [
+        1,
+        23
+      ]
+    },
+    "bound_request_fields": {
+      "OnStart": "BaiqiRequisition",
+      "cityID": 524295,
+      "confirmed": true,
+      "cost": 300,
+      "kind": "city",
+      "playerID": 0,
+      "population": 1,
+      "requestID": "city:0:114:2162700:1:524295:41:19",
+      "targetOwner": 1,
+      "turn": 114,
+      "unitID": 2162700,
+      "x": 41,
+      "y": 19
+    },
+    "UI_interact": 1,
+    "UI_requests": 1,
+    "UI_matching_paid_route": 1,
+    "UI_normal_continuation": 0,
+    "UI_errors_drops": 0,
+    "independent_UI_Core_shared_facts_equal": true,
+    "cross_context_atomic": false,
+    "city_old_new_ID": [
+      524295,
+      851979
+    ],
+    "city_xy": [
+      41,
+      19
+    ],
+    "city_owner_before_after": [
+      1,
+      0
+    ],
+    "city_population": 1,
+    "own_city_count_before_after": [
+      11,
+      12
+    ],
+    "old_owner_exact_target_FindID_after": false,
+    "gold_before_after": [
+      4524.2734375,
+      4224.2734375
+    ],
+    "fee": 300,
+    "actor": {
+      "ID": 2162700,
+      "type": "UNIT_HORSEMAN",
+      "xy": [
+        42,
+        19
+      ],
+      "moves_before_after": [
+        4,
+        0
+      ],
+      "damage_before_after": [
+        0,
+        0
+      ],
+      "cooldown": 114
+    },
+    "journal": {
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "balanceAfter": 4224.2734375,
+          "balanceBefore": 4524.2734375,
+          "chargeObserved": true,
+          "cityID": 524295,
+          "cost": 300,
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "newCityID": 851979,
+          "phase": "DONE",
+          "playerID": 0,
+          "population": 1,
+          "reason": "committed",
+          "stage": "COMMITTED",
+          "targetOwner": 1,
+          "transferObserved": true,
+          "turn": 114,
+          "unitID": 2162700,
+          "x": 41,
+          "y": 19
+        }
+      },
+      "version": 1
+    },
+    "result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "reason": "committed",
+      "stage": "COMMITTED"
+    },
+    "native_backend_TransferCity_debit_FinishMoves_counts": null
+  },
+  "asset_census": {
+    "district_building_slot_wonder_counts_before_after": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "city_center_ID_before_after": [
+      1835035,
+      2097182
+    ],
+    "city_center_type_xy_and_unpillaged_preserved": true,
+    "zero_buildings_slots_wonders_scope_only": true,
+    "loyalty_before_after": [
+      100,
+      100
+    ],
+    "loyalty_per_turn_before_after": [
+      17,
+      -27.6875
+    ],
+    "occupation_before_after": [
+      false,
+      false
+    ],
+    "visible_old_garrison": {
+      "owner": 1,
+      "ID": 1179657,
+      "type": "UNIT_MACEDONIAN_HETAIROI",
+      "xy_before_after": [
+        [
+          41,
+          19
+        ],
+        [
+          40,
+          19
+        ]
+      ],
+      "moves": 0,
+      "damage": 37,
+      "formation": 1,
+      "effect": "Native transfer displaced defender one adjacent plot; helper issued no foreign command."
+    },
+    "all_other_46_own_units_unchanged": true,
+    "own_unit_count_before_after": [
+      47,
+      47
+    ],
+    "all_seven_target_adjacent_plots_visible_in_both_censuses": true
+  },
+  "safe_checkpoint": {
+    "save": {
+      "utc": "2026-11-22T04:32:44.357311+00:00",
+      "name": "Baiqi_P6_20261122_V177_TC023PaidCity114.Civ6Save",
+      "bytes": 568653,
+      "sha256": "c01671aee09ae0ff3b20962fd265ca98dbf663a2f4e7587e08e1f79b7519eebc",
+      "stable_repeated_read": true
+    },
+    "all_own_world_QA_flags_retired": true,
+    "both_transparent_bindings_restored": true,
+    "live_own_listeners": 0,
+    "game_still_saved114_for_TC025_continuation": true,
+    "MainMenu_exit_this_copy": false,
+    "ordinary119_payload_and_marker_verified": true,
+    "Steam_mode_actions_focus_screenshots_or_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "model": {
+    "full_genuine_context_before_new_helpers": true,
+    "sources": 31,
+    "UTF8_bytes": 550294,
+    "readiness_R80_UTC": "2026-11-22T04:22:55.957240+00:00",
+    "configured_coder_absent_models_and_health200": true,
+    "only_catalogued_model": "open-h3-2k",
+    "daily_OpenCode_same_user_cached_success": "1.19.6 / local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "owner_authored": true,
+    "unknown_cost": null
+  },
+  "owner_correction": "Initial extra-stage CLI helper failed actual-parent registration and timed out before any Native query or game action. Preserved failed result; corrected to uniquely named run-only wrapper, then performed one read-only census. No game input replay.",
+  "limits": [
+    "TC025 remains open until the acquired city reaches its first legal autonomous production point.",
+    "No wonder/greatwork preservation or long-term loyalty pass from an empty population1 city.",
+    "HP70/71, exact-funds, distance and cooldown thresholds remain separate TC024; old-engine evidence not silently inherited.",
+    "Backend callcounts unknown; exact one net fee, one committed record and one UI paid request observed, not a claim of instrumented backend invocation counts.",
+    "Original176 occupied-prerequisite failure/new177 branch native-pending and legacy865 failure/668 and settler unknowns remain unchanged."
+  ],
+  "next": "Continue saved paid114 world with ordinary TEST_PLAYER military handling and normalEND only, read acquired-city legal queue and first autonomous production progress. No manual domestic rescue. Then continue remaining22 cases.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T05:04:38.711270+00:00",
+    "next_checkpoint": "First legal autonomous production point and actual ownership/loyalty/journal readback, or precise current blocker without replay.",
+    "whole_mod_finish": "Unknown;22 whole cases remain."
+  }
+}
