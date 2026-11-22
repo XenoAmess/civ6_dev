@@ -1,0 +1,285 @@
+{
+  "schema": "civ6.source178-tc029-native-applied-lost-receipt/v1",
+  "utc": "2026-11-22T12:37:14.615763+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_NARROW_ACTUAL_NATIVE_TRANSFER_WITH_LOST_POSITIVE_RECEIPT_REMAINS_UNKNOWN",
+  "whole_TC029": "OPEN_THIRD_PARTY_CAUSAL_AND_FINAL_REVIEW",
+  "whole_TC030": "OPEN_OTHER_POSITIVE_PHASE_AND_COLD_RECOVERY_CLAUSES",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    22,
+    40,
+    55.0,
+    18
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "owner": {
+    "pid": 8668,
+    "created_at": 1795340439.8508365,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "provenance": "Independent new background-only offline original114 Load, fresh real UI/Core baseline and original callsites0. One explicit TEST_PLAYER F07 valid confirmed300 packet through actual UI.RequestPlayerOperation. Scoped diagnostic calls original native TransferCity once and then interrupts the return before product positive transfer receipt; no fake journal/gold/unit writes.",
+  "actual_native_and_receipt_attribution": {
+    "packet": {
+      "OnStart": "BaiqiRequisition",
+      "confirmed": true,
+      "requestID": "city:0:114:2162700:1:524295:41:19",
+      "kind": "city",
+      "playerID": 0,
+      "unitID": 2162700,
+      "targetOwner": 1,
+      "cityID": 524295,
+      "x": 41,
+      "y": 19,
+      "cost": 300,
+      "population": 1,
+      "turn": 114
+    },
+    "actual_UI_requests": 1,
+    "source_Capture_transfer_callsite_attempts": 1,
+    "original_native_called": 1,
+    "original_native_returned_without_Lua_error": true,
+    "original_native_return_arity": 0,
+    "original_native_boolean_success_return_claimed": false,
+    "fault_wrapper_returned_without_error": false,
+    "independent_fresh_city_owner_old_new_ID_population": [
+      0,
+      524295,
+      851979,
+      1
+    ],
+    "enemy_old_city_lookup_nil_and_count7": true,
+    "own_city_count": 12,
+    "old_city_methods_after_original_native": 0,
+    "fault_drops_strong_old_argument_reference": true,
+    "repeat_stale_identity_check_uses_only_non_owning_weak_keys_no_methods": true,
+    "actual_native_debit_FinishMoves": [
+      0,
+      0
+    ],
+    "actual_product_journal": {
+      "version": 1,
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "playerID": 0,
+          "turn": 114,
+          "unitID": 2162700,
+          "targetOwner": 1,
+          "cityID": 524295,
+          "x": 41,
+          "y": 19,
+          "cost": 300,
+          "population": 1,
+          "stage": "UNKNOWN",
+          "phase": "TRANSFERRING",
+          "reason": "transfer_unresolved"
+        }
+      }
+    },
+    "actual_result_UI_Core": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "stage": "UNKNOWN",
+      "reason": "transfer_unresolved"
+    },
+    "positive_transfer_or_charge_receipts": null,
+    "no_ownership_only_inference_to_COMMITTED": true
+  },
+  "fault_removed_recovery_and_natural_planning": {
+    "original_native_binding_restored_before_checks": true,
+    "explicit_direct_TEST_PLAYER_Recovers": 2,
+    "natural_Controller_RunNow_entries": 6,
+    "natural_RunNow_original_returned": 6,
+    "natural_rows": [
+      [
+        "1",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "2",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "3",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "4",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "5",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "6",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ]
+    ],
+    "manual_RunNow_Update_or_turn_event_calls": 0,
+    "internal_Tick_branch_counter_claimed": false,
+    "full_unknown_journal_and_original_callsite_rows_unchanged": true,
+    "initial_native_transfer_debit_finish": [
+      1,
+      0,
+      0
+    ],
+    "additional_native_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ]
+  },
+  "independent_state": {
+    "gold": 4524.2734375,
+    "gold_delta_or_refund": 0,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "target_owner_ID_position_population": [
+      0,
+      851979,
+      [
+        41,
+        19
+      ],
+      1
+    ],
+    "same_army_and_target_Conflict_predicates": true,
+    "raw_codec_current_owned_target_quote_reason": "invalid_target",
+    "explicit_old_enemy_target_quote_reason": "owner_changed",
+    "cross_context_atomic": false
+  },
+  "actual_save_reload": {
+    "save": {
+      "utc": "2026-11-22T12:27:24.544141+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC029AppliedReceiptLost114.Civ6Save",
+      "bytes": 568646,
+      "sha256": "64f35149f60630ee0cd5faea431af8b2e075e6474e82cb6b40948005a0afa69a",
+      "stable_repeated_read": true
+    },
+    "formal_MainMenu_before_Load": true,
+    "new_current_background_only_offline_Load_proof": true,
+    "same_owned_process_not_cold_process": true,
+    "full_unknown_journal_and_result_unchanged": true,
+    "city_still_owner0_ID851979_population1": true,
+    "gold": 4524.2734375,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "fresh_world_original_native_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ],
+    "old_fault_planning_and_onceflag_namespaces_absent": true,
+    "no_new_paid_request_after_Load": true
+  },
+  "observed_income_read_difference": {
+    "initial_Core_UI_fields": {
+      "player.gold_yield": [
+        95.7109375,
+        96.1640625
+      ]
+    },
+    "after_reload_Core_UI_fields": {},
+    "current_actual_cash_balances_equal": true,
+    "per_turn_income_equality_claimed": false,
+    "difference_root_cause": null,
+    "does_not_substitute_for_actual_fee_count_or_cash": "No normal END in this case; fee judged using exact cash and original debit0. Economic matrix remains open."
+  },
+  "software_validation": {
+    "actual_Lua51_Lua53_cases": 68,
+    "driver_sha256": "bdea4f851196f009f775ef9e85b61aa796afd4f6af5b907b315b6d5e047cc014",
+    "fault_sha256": "ea54f27a593cf7e30cca1b2ee40b47e7f722acea93b008d787a5ef217e972e6f",
+    "actual_instrumented_Capture_sha256": "c490c51d4be9a8df11d89bab7bc4d7ff8d5191b03fd52d9b9a9ee6748a9425a1",
+    "actual_current_Capture_and_OnRequisition_consumer_used": true,
+    "stale_city_method_reads": 0,
+    "scope": "Fresh replacement city plus poisoned old object, one-use driver, reentrant stale identity block, native throws before/after, exact unrelated nil/error forwarding and foreign retirement; software is not Native proof."
+  },
+  "model": {
+    "R98_UTC": "2026-11-22T12:03:11.243032+00:00",
+    "genuine_full_sources": 21,
+    "genuine_UTF8_bytes": 511224,
+    "configured_coder_absent_only_H3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6/local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "unknown_cost": null
+  },
+  "owner_read_corrections": [
+    "First read qualifier expected owner_changed from a codec that actually quotes the current CityAt owner0, which correctly returns invalid_target. Both actual quote targets were then separately read; no request replay.",
+    "Second qualifier incorrectly required all shared fields equal and stopped on Core/UI gold_yield95.7109375/96.1640625. Preserve the raw difference and unknown cause; exact cash/identity/journal/result/army requirements remain strict. Both failed read snapshots and terminal exit1 records retained."
+  ],
+  "closeout": {
+    "own_fault_and_natural_planning_bindings_restored_by_identity": true,
+    "own_paid_once_two_recovery_and_Save_Load_flags_retired": true,
+    "Core_Input_logging_APIs_retired_before_Save_and_in_reloaded_world": true,
+    "real_unknown_journal_preserved": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "diagnostic119_still_installed_no_live_byte_restore": true,
+    "process_still_running_MainMenu": true,
+    "new_Popen": 0,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "limits": [
+    "This covers real own transfer with a lost positive receipt, not third-party causality or a positively receipted successful settlement. WholeTC029/030 remain open.",
+    "Source callsite wrapper error differs from the original native function returning without Lua error; city ownership independently confirms its actual effect.",
+    "No normal END, cold process restoration, income equality, full-world/whole-army equality, global military command interception or old865 failure repair claimed."
+  ],
+  "next": "Independent fresh-offline actual before-native UNKNOWN save copy, qualify existing live FreeCities62 and enemy city, perform one explicit TEST_PLAYER F07 external native transfer to62 then drop old city reference. Verify original unknown does not adopt third-party ownership as own success, fee/Finish0, exact ledger/conflict after recovery/natural entries/savedreload. Then positive TRANSFERRED/CHARGED/FINISHING/current-cold matrix, allremaining18 and oldfails.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T13:22:14.615805+00:00",
+    "next_checkpoint": "Next third-party causal branch with safe save or precise retained blocker while continuing independent work.",
+    "whole_mod_finish": "Unknown;18 whole cases remain."
+  }
+}
