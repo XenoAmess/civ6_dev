@@ -268,6 +268,8 @@
 <a id="tc-029"></a>
 ### TC-029 结果未知时冻结与因果对账
 
+- 2026-11-22当前178／引擎.74窄通过：[UNKNOWN下真实物理右键拒绝](../research/baiqi-source178-tc029-unknown-physical-conflict-engine74-2026-11-22.json)。当前真实中断档的新独立副本，pureQuote合格300但真实右键显示未核实提示；Interact1/request0/paid0/进攻续调0，Core三原生调用0，完整UNKNOWN账本／钱／军队4行动和队列保持，提示确定后再核仍同。已另存撤QA返菜单；补齐实际新UI尝试，其他因果／阶段仍待，整项未闭。
+
 - 2026-11-22当前178／引擎.74窄通过：[真实原生执行前故障的UNKNOWN／TRANSFERRING](../research/baiqi-source178-tc029-before-native-unknown-engine74-2026-11-22.json)。源Transfer调用点尝试1，故障阻断后真正Native0／扣款0／Finish0；撤故障后2显式Recover和8自然规划入口，完整账本／调用记录保持。实际存读档仍冻结、无退款或行动消耗，已撤QA返菜单；实际新UI尝试、其他因果及阶段仍待，整项未闭。
 
 - 需求：BR-022、BR-026。夹具：F07，能中断结果通知或使读取暂不可用；另备第三方在此窗口夺城的副本。

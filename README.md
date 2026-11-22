@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178／引擎.74 UNKNOWN下真实右键已被拒绝](docs/research/baiqi-source178-tc029-unknown-physical-conflict-engine74-2026-11-22.json)：实际显示未核实征取提示，1交互／0请求／0进攻续调／3征取原生调用均0，账本、资金和军队4行动／无队列保持，已新存撤QA返主菜单。TC029/030其他因果与阶段仍待，整体22/40＝55%，余18，待发6；继续。
+
 [178／引擎.74 UNKNOWN转城未执行分支通过](docs/research/baiqi-source178-tc029-before-native-unknown-engine74-2026-11-22.json)：调用点尝试1次但故障在原生执行前阻断，实际转城／收费／结束行动均0；撤故障后2次恢复检查、8次自然规划入口及实际存读档均保持冻结。TC029/030其余因果和阶段仍待，整体22/40＝55%，余18，待发6；继续。
 
 [178／引擎.74 TC028明确未执行／重复失败／存读档通过](docs/research/baiqi-source178-tc028-complete-engine74-2026-11-22.json)：两次真实后台quote_changed拒绝，转城／扣款／结束行动均0，资金和军队4行动／空冷却保持；实际存读档无退款或重放，已返菜单撤QA。当前实现无预扣路径。[整项22/40＝55%](docs/research/baiqi-source178-finite40-engine74-after-tc028-2026-11-22.json)，余18，待发6，继续。
