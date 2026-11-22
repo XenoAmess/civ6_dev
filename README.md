@@ -1,5 +1,7 @@
 # civ6_dev
 
+[177/.74 TC026单位消失分支通过](docs/research/baiqi-source177-tc026-actor-absent-engine74-2026-11-22.json)：单次QA移除原军队后，旧确认拒绝无费用／转城／其他单位命令，UI/Core原ID缺失、其余46ID保持；已存退菜单撤QA。第三方目标／单位所有者变化仍待，整体20/40＝50%，继续。
+
 [177/.74 TC026费用上涨分支通过](docs/research/baiqi-source177-tc026-price-change-engine74-2026-11-22.json)：旧300确认拒绝无费用，新交互明确400并再次确认后真实净扣400／转城／单笔完成；已存退菜单撤QA。TC026目标／单位变化仍待，整体20/40＝50%，继续执行。
 
 [177/.74 TC024全部采用边界已验收](docs/research/baiqi-source177-tc024-complete-engine74-2026-11-22.json)／[当前40项台账](docs/research/baiqi-source177-finite40-engine74-after-tc024-2026-11-22.json)：10份独立副本金钱、生命、行动／冷却及距离1／2边界通过，均已存退菜单、撤QA。整体20/40＝50%，余20项；工坊172／待发5保持，继续全模组与原有失败项。
