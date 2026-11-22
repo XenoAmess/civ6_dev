@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178／引擎.74 FINISHING_BEFORE真实恢复](docs/research/baiqi-source178-tc030-finish-before-recovery-engine74-2026-11-22.json)：结束行动实际未作用前保存，重载只Finish1次，0转城／0再收费；2恢复和真正同号重投追加000，已保存退QA返菜单。整体23/40＝57.5%，余17、待发6；TC030剩余窗口继续。
+
 [178／引擎.74真实CHARGED存档恢复](docs/research/baiqi-source178-tc030-charged-recovery-engine74-2026-11-22.json)：收费肯定回执已在存档，重载仅结束行动1次，0转城／0再收费；2恢复及真正同号重投追加000，已保存退QA返菜单。整体23/40＝57.5%，余17、待发6；TC030其余阶段／冷恢复继续。
 
 [178／引擎.74 TC029完整因果矩阵通过](docs/research/baiqi-source178-tc029-complete-engine74-2026-11-22.json)：实际未执行、执行后回执丢失、第三方变化均冻结，物理冲突操作拒绝；有肯定转城回执的真实存档只补扣费／结束行动各一次，2恢复及真正同号重投不追加结算。[整项23/40＝57.5%](docs/research/baiqi-source178-finite40-engine74-after-tc029-2026-11-22.json)，余17，待发6；TC030其余阶段及冷恢复继续。
