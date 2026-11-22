@@ -1,5 +1,7 @@
 # civ6_dev
 
+[TC010系统资产保护及删除保留入口已完成](docs/research/baiqi-source177-tc010-assets73-and-cold67-limits-engine74-2026-11-22.json)：177/.74实际67→73六次正常换回合，10重点资产身份逐回合保持、空437等7条完整原版合法候选、末次独立Core核验；73已正式保存、全部QA退役并返回主菜单。[整项进度16/40＝40%，余24项](docs/research/baiqi-source177-finite40-engine74-after-tc010-2026-11-22.json)。冷读原failed67时旧神社条目在首次读回已不见，后台合法续枪兵，但新增占据分支日志未触发、消失阶段未知，故177该分支仍实机待验，旧FAIL不冒称修复。工坊172／待发5保持，继续TC004及其余缺口。
+
 当前177的[占据前置区域时接续生产修复](docs/research/baiqi-source177-occupied-prerequisite-production-software-2026-11-22.json)已通过90项相关方法、97Lua双编译与119文件真实包核验；同夹具旧176有4处断言失败。仅对严格可见敌军占据的完整前置区域，保留投入并沿既有受检PREPEND路径安排合法生产，不调军队或清队列。精确失败67档冷实机尚待执行，旧条目实际保留情况仍须读回。主线177／工坊172／待发修复5，整项仍15/40＝37.5%，余25项，继续执行。
 
 当前176新增[系统资产保护窄验证及67回合真实生产阻塞](docs/research/baiqi-source176-system-protection-and-occupied-production-fail67-engine74-2026-11-22.json)。森林／资源等8处原版可放区域而原策略拒绝，旧保留／解除请求均被拦；4次正常换回合及1次测试玩家原版城市射击已核。蛮族随后占据圣地，原生拒绝继续神社，完整旧条目仍在但hash0／turns−1；失败档已保存并退出，正修复接续生产，不手选内政或自动驱敌。[整项仍15/40＝37.5%，余25项](docs/research/baiqi-source176-finite40-engine74-after-fail67-2026-11-22.json)，TC010未提前通过，待发修复4／新发现未修问题1。
