@@ -1,5 +1,7 @@
 # civ6_dev
 
+[TC012白绮改良自动修复分支已通过](docs/research/baiqi-source179-tc012-automatic-improvement-repair-engine74-2026-11-23.json)：真实损坏／收益5→4→5、次数1→1，已保存撤QA返菜单。区域和建筑成本对照、自动完工继续；整体 **26/40＝65%**，余14、待发7。
+
 [TC034整项验收已通过](docs/research/baiqi-source179-tc034-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc034-2026-11-23.json)：未确认、一次确认和独立和平扩张场景均已实测保存。整体 **26/40＝65%**，余14项、待发7；继续TC012修复验收。
 
 [TC034未确认／单次确认分支已通过](docs/research/baiqi-source179-tc034-no-confirmation-and-one-paid-engine74-2026-11-23.json)：47单位与外交已比较，单笔300结算后无追加。和平扩张分支继续；整体 **25/40＝62.5%**，余15、待发7。
