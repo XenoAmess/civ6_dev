@@ -1,0 +1,134 @@
+{
+  "schema": "civ6.source176-tc039-upgrade-engine74/v1",
+  "utc": "2026-11-22T01:06:39.448925+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 176,
+  "engine": "1.0.12.74",
+  "whole_TC039": "PASS",
+  "whole_mod": "OPEN_CONTINUE",
+  "status": "PASS_SUPPORTED_INDEPENDENT_SAME_VERSION_OLD_PAUSE_AND_OLD_RIGHTS_PATHS",
+  "contract_requirements": [
+    "BR-024"
+  ],
+  "contract": "Repeated save/load and upgrade: same-version, old pause and old active operating-rights independent fixtures; old state/yields do not revive or duplicate settlement. Unsupported/failed paths remain explicit.",
+  "qualification": {
+    "utc": "2026-11-22T01:04:51.866582+00:00",
+    "whole_TC039": "PASS_SUPPORTED_PATHS_CURRENT176_ENGINE74",
+    "qualified": true,
+    "contract_unchanged": true,
+    "supported_independent_paths": [
+      {
+        "path": "Same176 repeat-save/load",
+        "evidence": "docs/research/baiqi-source176-tc022-complete-engine74-2026-11-22.json",
+        "actual_saved_reloaded_saved_turns": [
+          26,
+          63
+        ],
+        "same_paused_Builder_preserved_and_oldflags_nil": true,
+        "legitimate_new_religion_after_load_separately_qualified": true,
+        "no_blanket_world_equality_claim": true
+      },
+      {
+        "path": "Original historical disabled/city/unit pause upgrade",
+        "evidence": "docs/research/baiqi-source176-tc022-original-oldpause26-engine74-2026-11-22.json",
+        "actual_original24_to26_and_newsave_reload26": true,
+        "local_controller_status_change_not_persistent_gameplay": true
+      },
+      {
+        "path": "Original historical active granary operating-rights upgrade",
+        "evidence": "docs/research/baiqi-source176-tc032-oldrights-engine74-2026-11-22.json",
+        "actual_original1_to3_and_newsave_reload3": true,
+        "paid150_historicalDONE_operation_unchanged": true,
+        "restored_food_housing_no_refund_recharge_newincome": true
+      }
+    ],
+    "controlled_copies_separately_labeled": [
+      "TC02220protected58",
+      "TC022actualBuilder655363unitpause61"
+    ],
+    "unresolved_other_legacy_paths": {
+      "8650807": "FAIL_UNRESOLVED",
+      "6684713": "LEGACY_UNKNOWN",
+      "historical_settler458752": "LEGACY_UNKNOWN_NOT_REARMED_REPLAYED_OR_CLEARED"
+    },
+    "limits": [
+      "This passes contract supported upgrade/same-version paths with independent fixtures; it is not a universal save recovery guarantee.",
+      "Earlier failed whole-world-equality predicate after valid autonomous new religion stays recorded; UI absence and Core delayed-death handle are distinct.",
+      "No old damaged or unknown journal is relabeled resolved. All remaining unrelated cases continue."
+    ]
+  },
+  "source_reports": [
+    "docs/research/baiqi-source176-tc032-oldrights-engine74-2026-11-22.json",
+    "docs/research/baiqi-source176-tc022-original-oldpause26-engine74-2026-11-22.json",
+    "docs/research/baiqi-source176-tc022-complete-engine74-2026-11-22.json"
+  ],
+  "current_oldrights_repeated_save_fingerprints": {
+    "accounting3": {
+      "utc": "2026-11-22T00:56:56.064402+00:00",
+      "name": "Baiqi_P6_20261122_V176_TC032OldRightsAccounting3.Civ6Save",
+      "bytes": 842428,
+      "sha256": "e9ca09d0549cd3b045a04ab5e1f8e57739f6825acbaf88d0805cb2d1b63e8559",
+      "stable_repeated_read": true
+    },
+    "after_reload3": {
+      "utc": "2026-11-22T01:02:22.549030+00:00",
+      "name": "Baiqi_P6_20261122_V176_TC032OldRightsReloaded3.Civ6Save",
+      "bytes": 842056,
+      "sha256": "b19b3dae95b9fc6ef551cbe561b6b396da0c7843c51d5eb8b22421f2d71c41f3",
+      "stable_repeated_read": true
+    }
+  },
+  "prior_evidence_reuse_labeled": true,
+  "new_extra_game_actions_for_report_reconciliation": 0,
+  "model_and_owner_verification": {
+    "genuine_contexts": [
+      {
+        "task": "TC032 native migration helpers",
+        "sources": 22,
+        "UTF8_bytes": 569129
+      },
+      {
+        "task": "TC039 supported path reconciliation",
+        "sources": 14,
+        "UTF8_bytes": 646711
+      }
+    ],
+    "configured_model": "qwen38-coder",
+    "catalog_models": [
+      "open-h3-2k"
+    ],
+    "R71_utc": "2026-11-22T00:45:11.489989+00:00",
+    "R72_utc": "2026-11-22T01:01:31.675041+00:00",
+    "catalog_health_HTTP200_each": true,
+    "OpenCode_maintenance_only": {
+      "date": "2026-11-22",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "generation_POSTs": 0,
+    "candidate_adopted": 0,
+    "OpenCode_native_generation": 0,
+    "automatic_fallback": false,
+    "configuration_changes": 0,
+    "service_changes": 0,
+    "unknown_cost": null,
+    "owner_helper_verification": {
+      "syntax_files": 11,
+      "dual_VM_payload_compilations": 24,
+      "real_preserved_dirty160_data_requalified": true,
+      "negative_rejections": [
+        "player.0.gold",
+        "city.source.food",
+        "city.recipient.housing"
+      ]
+    }
+  },
+  "product_changes": 0,
+  "whole_cases_closed": 15,
+  "whole_cases_total": 40,
+  "whole_case_closeout_percent": 37.5,
+  "remaining_whole_cases": 25,
+  "not_code_completion_percent": true,
+  "next": "Continue TC010 system asset protection and removed reserve/free-plot input matrix, using real current176 fixtures and existing TC022 protected migration evidence. Keep TC009 no-site/civic restoration and all other missing native clauses open; do not stop after push."
+}
