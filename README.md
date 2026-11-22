@@ -1,5 +1,7 @@
 # civ6_dev
 
+当前176新增[系统资产保护窄验证及67回合真实生产阻塞](docs/research/baiqi-source176-system-protection-and-occupied-production-fail67-engine74-2026-11-22.json)。森林／资源等8处原版可放区域而原策略拒绝，旧保留／解除请求均被拦；4次正常换回合及1次测试玩家原版城市射击已核。蛮族随后占据圣地，原生拒绝继续神社，完整旧条目仍在但hash0／turns−1；失败档已保存并退出，正修复接续生产，不手选内政或自动驱敌。[整项仍15/40＝37.5%，余25项](docs/research/baiqi-source176-finite40-engine74-after-fail67-2026-11-22.json)，TC010未提前通过，待发修复4／新发现未修问题1。
+
 当前176／1.0.12.74新增[TC032旧经营权迁移](docs/research/baiqi-source176-tc032-oldrights-engine74-2026-11-22.json)和[TC039支持路径重复存读与升级](docs/research/baiqi-source176-tc039-upgrade-engine74-2026-11-22.json)整项通过；[进度15/40＝37.5%，剩余25项](docs/research/baiqi-source176-finite40-engine74-after-tc032039-2026-11-22.json)。真正旧经营原档自然清理后两次普通结算，双方粮食／住房恢复、粮仓原位、历史150金币收费不退款不重放；保存重载双方152项及自有队列／单位均一致。最终已再存并返主菜单；旧865失败和其他未知旧档不冒称修复。工坊172／待发4保持，继续TC010系统资产保护矩阵。以下阶段条目按各自日期与版本保留。
 
 [TC022旧控制迁移整项已通过](docs/research/baiqi-source176-tc022-complete-engine74-2026-11-22.json)，[整项进度13/40＝32.5%，剩余27项](docs/research/baiqi-source176-finite40-engine74-after-tc022-2026-11-22.json)。原始关闭／五城五单位暂停、独立非空保护表和实际存活建造者暂停副本均自然清理，真实自动生产／农场／种植园与人工锁通过；建造者同ID3→2，63保存重载再存并返主菜单。重载期间合法自动建教另列，保留原静态等值断言失败；不授全模组或TC039通过。继续TC032／TC039旧经营存档和其余缺口。
