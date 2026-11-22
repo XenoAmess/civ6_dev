@@ -691,3 +691,5 @@
 - 2026-11-22：[175/.74独立TC-037完整窗口](../research/baiqi-source175-tc037-complete119-engine74-2026-11-22.json)通过所测GS五初始城99→119：20实际普通换回合、21全快照／147战略行，6建筑4区域19新改良独立Core核，120玩家军SKIP／4军移／21普通END／0人工文职或UserForced；新native_wait待命100实效已捕获，全部QA已撤、119正式保存并实际返回MainMenu。旧174失败与旧恢复FAIL保留；40项进度12/40＝30%，继续28项，工坊172不变。
 
 - TC-030，2026-11-22当前178：[真实UNKNOWN/CHARGING保存恢复](../research/baiqi-source178-tc030-unknown-charge-freeze-engine74-2026-11-22.json)。原生收费已作用但无肯定回执，2恢复／6自然规划／实际存读档均冻结、无退款或再结算；已撤QA返菜单，其他窗口仍待。
+
+- TC-030，2026-11-22当前178：[未确认的真实报价框正式存读档](../research/baiqi-source178-tc030-preconfirmation-save-engine74-2026-11-22.json)通过；保存前后0请求／源000，重载无旧弹窗／持久账本／效果，已撤QA返菜单。完成态独立重载和整体范围审阅继续。
