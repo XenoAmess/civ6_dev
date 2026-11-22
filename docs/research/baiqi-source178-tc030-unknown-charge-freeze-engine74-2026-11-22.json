@@ -1,0 +1,377 @@
+{
+  "schema": "civ6.source178-tc030-real-unknown-charge-freeze/v1",
+  "utc": "2026-11-22T14:59:12.767053+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_ACTUAL_DEBIT_WITH_MISSING_POSITIVE_CHARGE_RECEIPT_FREEZES_ACROSS_RECOVERY_PLANNING_AND_SAVE_RELOAD",
+  "whole_TC030": "OPEN_PRECONFIRMATION_COMPLETED_AND_REMAINING_COLD_SCOPE_REVIEW",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    23,
+    40,
+    57.5,
+    17
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "owner": {
+    "pid": 22688,
+    "created_at": 1795357690.8065815,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "provenance": "Independent fresh background-only offline original114 Load/new22688 authority, actual UI/Core eligible300 quote/balance4524/army4/targetenemy1/Jnil/source000. One explicit TEST_PLAYER F07 valid confirmed300 UI packet. Scoped Policy.Number interruption after actual native debit returns, before positive charge receipt; no product journal, cash or unit property writes by QA.",
+  "actual_request": {
+    "utc": "2026-11-22T14:47:31.393990+00:00",
+    "source_version": 178,
+    "owner": {
+      "pid": 22688,
+      "created_at": 1795357690.8065815,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "packet": {
+      "OnStart": "BaiqiRequisition",
+      "confirmed": true,
+      "requestID": "city:0:114:2162700:1:524295:41:19",
+      "kind": "city",
+      "playerID": 0,
+      "unitID": 2162700,
+      "targetOwner": 1,
+      "cityID": 524295,
+      "x": 41,
+      "y": 19,
+      "cost": 300,
+      "population": 1,
+      "turn": 114
+    },
+    "actual_UI_request_calls": 1,
+    "actual_source_transfer_debit_finish": [
+      1,
+      1,
+      0
+    ],
+    "fault_blocked": 1,
+    "fault_forwarded": 38,
+    "fault_matcher_errors": 0,
+    "gold": 4224.2734375,
+    "actual_gold_delta": -300,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "journal": {
+      "version": 1,
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "playerID": 0,
+          "turn": 114,
+          "unitID": 2162700,
+          "targetOwner": 1,
+          "cityID": 524295,
+          "x": 41,
+          "y": 19,
+          "cost": 300,
+          "population": 1,
+          "stage": "UNKNOWN",
+          "phase": "CHARGING",
+          "reason": "execution_interrupted",
+          "transferObserved": true,
+          "newCityID": 851979,
+          "balanceBefore": 4524.2734375
+        }
+      }
+    },
+    "result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "stage": "UNKNOWN",
+      "reason": "execution_interrupted"
+    },
+    "positive_transfer_receipt": true,
+    "positive_charge_receipt": false,
+    "no_replay": true
+  },
+  "causal_state": {
+    "full_real_product_journal": {
+      "version": 1,
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "playerID": 0,
+          "turn": 114,
+          "unitID": 2162700,
+          "targetOwner": 1,
+          "cityID": 524295,
+          "x": 41,
+          "y": 19,
+          "cost": 300,
+          "population": 1,
+          "stage": "UNKNOWN",
+          "phase": "CHARGING",
+          "reason": "execution_interrupted",
+          "transferObserved": true,
+          "newCityID": 851979,
+          "balanceBefore": 4524.2734375
+        }
+      }
+    },
+    "actual_result_UI_Core": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "stage": "UNKNOWN",
+      "reason": "execution_interrupted"
+    },
+    "stage_phase_reason": [
+      "UNKNOWN",
+      "CHARGING",
+      "execution_interrupted"
+    ],
+    "transferObserved": true,
+    "newCityID": 851979,
+    "balanceBefore": 4524.2734375,
+    "chargeObserved": null,
+    "balanceAfter": null,
+    "actual_gold": 4224.2734375,
+    "actual_gold_delta_from_original": -300,
+    "actual_original_transfer_debit_finish": [
+      1,
+      1,
+      0
+    ],
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "source_fault_is_pure_Number_read_not_native_transfer_or_debit_wrapper": true,
+    "no_balance_only_inference_to_success": true
+  },
+  "fault_removed_recovery": {
+    "utc": "2026-11-22T14:48:27.728847+00:00",
+    "source_version": 178,
+    "owner": {
+      "pid": 22688,
+      "created_at": 1795357690.8065815,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "exact_owned_fault_restored": true,
+    "two_explicit_product_Recovers": 2,
+    "initial_actual_source_transfer_debit_finish": [
+      1,
+      1,
+      0
+    ],
+    "additional_actual_source_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ],
+    "full_unknown_journal_result_and_source_rows_unchanged": true,
+    "wallet": 4224.2734375,
+    "refund_or_further_fee": 0,
+    "army_moves_cooldown": [
+      4,
+      null
+    ]
+  },
+  "natural_planning": {
+    "actual_Controller_RunNow_entries": 6,
+    "actual_original_returns": 6,
+    "rows": [
+      [
+        "1",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "CHARGING"
+      ],
+      [
+        "2",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "CHARGING"
+      ],
+      [
+        "3",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "CHARGING"
+      ],
+      [
+        "4",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "CHARGING"
+      ],
+      [
+        "5",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "CHARGING"
+      ],
+      [
+        "6",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "CHARGING"
+      ]
+    ],
+    "manual_RunNow_Update_or_turn_event_calls": 0,
+    "internal_Tick_branch_counter_claimed": false,
+    "full_unknown_journal_and_source_rows_unchanged": true,
+    "additional_native_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ]
+  },
+  "actual_saved_reload": {
+    "utc": "2026-11-22T14:56:39.892096+00:00",
+    "source_version": 178,
+    "owner": {
+      "pid": 22688,
+      "created_at": 1795357690.8065815,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "loaded_actual_save": {
+      "utc": "2026-11-22T14:52:08.225740+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC030UnknownCharge114.Civ6Save",
+      "bytes": 568705,
+      "sha256": "0d1c53ef6fea2ae392383411db46d304d4af3a5cede9a51d7925f6721302fd7d",
+      "stable_repeated_read": true
+    },
+    "full_unknown_journal_and_result_unchanged": true,
+    "journal": {
+      "version": 1,
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "playerID": 0,
+          "turn": 114,
+          "unitID": 2162700,
+          "targetOwner": 1,
+          "cityID": 524295,
+          "x": 41,
+          "y": 19,
+          "cost": 300,
+          "population": 1,
+          "stage": "UNKNOWN",
+          "phase": "CHARGING",
+          "reason": "execution_interrupted",
+          "transferObserved": true,
+          "newCityID": 851979,
+          "balanceBefore": 4524.2734375
+        }
+      }
+    },
+    "result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "stage": "UNKNOWN",
+      "reason": "execution_interrupted"
+    },
+    "fresh_world_actual_native_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ],
+    "gold": 4224.2734375,
+    "gold_delta_or_refund": 0,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "target_owner_ID_population": [
+      0,
+      851979,
+      1
+    ],
+    "same_army_and_target_Conflict_true": true,
+    "old_fault_planning_and_onceflag_namespaces_absent": true,
+    "fresh_Core_Input_logging_APIs_retired": true,
+    "required_causal_state_and_receipts_verified": true,
+    "new_game_actions_or_game_properties_written": 0,
+    "new_save_required": false,
+    "same_process_reload_not_cold_process": true,
+    "whole_TC029_TC030": "OPEN_OTHER_CAUSAL_AND_STAGE_CLAUSES"
+  },
+  "save": {
+    "utc": "2026-11-22T14:52:08.225740+00:00",
+    "name": "Baiqi_P6_20261122_V178_TC030UnknownCharge114.Civ6Save",
+    "bytes": 568705,
+    "sha256": "0d1c53ef6fea2ae392383411db46d304d4af3a5cede9a51d7925f6721302fd7d",
+    "stable_repeated_read": true
+  },
+  "software": {
+    "actual_Capture_OnRequisition_dual_VM_cases": 32,
+    "passive_CHARGING_observer_dual_VM_cases": 16,
+    "same_R101_genuine_full_sources_UTF8_bytes": [
+      20,
+      209229
+    ],
+    "generation_POSTs_candidates_adoption": [
+      0,
+      0,
+      0
+    ],
+    "OpenCode_same_user_day_maintenance": "1.19.6/localNov22cachedsuccess",
+    "OpenCode_native_generation": 0,
+    "configured_coder_absent_only_H3": true,
+    "fallback": 0,
+    "unknown_cost": null,
+    "scope": "Current real software consumer and callsite observer, debit-before/after-error controls, twoRecover no inference/refund/retry, old-city poison, exact foreign args/nils/returns/error and identity guards. Actual passive planner wrapper changed only target phase, with16 independent lifecycle/filter/forwarding checks. Not Native proof by itself."
+  },
+  "closeout": {
+    "own_Number_fault_restored_by_identity_before_two_Recovers_and_natural_planning": true,
+    "own_planning_wrapper_restored_before_Save": true,
+    "own_submitted_Recover_Save_Load_flags_retired": true,
+    "Core_Input_logging_APIs_retired_in_original_and_reloaded_worlds": true,
+    "real_product_unknown_ledger_preserved": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "game_still_running_MainMenu": true,
+    "Steam_GUI_mode_upload": 0,
+    "new_Popen": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "limits": [
+    "Same-process actual UNKNOWN/CHARGING save reload; this is not cold-process evidence.",
+    "Cash decrease is an actual observed debit effect, while absence of the positive product charge receipt keeps recovery frozen; no automatic refund or inferred reward.",
+    "No normal END, global military equality, whole assets, income forecast equality or old865failure repair claimed."
+  ],
+  "next": "Continue actual preconfirmation and completed-DONE save windows, audit remaining necessary cold scopes for TC030; allremaining17 and old865FAIL/otherunknowns. No new Workshop upload.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T15:44:12.767088+00:00",
+    "whole_mod_finish": "Unknown;17wholecasesremain."
+  }
+}
