@@ -1,0 +1,269 @@
+{
+  "schema": "civ6.source178-tc028-complete/v1",
+  "utc": "2026-11-22T11:19:41.690087+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_TC028_KNOWN_UNEXECUTED_REQUEST_REPEAT_NOTIFICATION_AND_REAL_SAVE_RELOAD",
+  "whole_TC028_closed": true,
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    22,
+    40,
+    55.0,
+    18
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "owner": {
+    "pid": 8668,
+    "created_at": 1795340439.8508365,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "failure_class": {
+    "provenance": "Independent current178 original114 Load with new qualified background-only Steam offline proof. Fresh actual UI/Core real target/army/quote baseline. Explicit TEST_PLAYER F07 confirmed canonical request changes only cost300 to301; it is not an ordinary UI action, automatic background request, native engine-false contract or timeout classified as rejection.",
+    "actual_good_quote_cost": 300,
+    "deliberate_request_cost": 301,
+    "same_real_canonical_requestID": "city:0:114:2162700:1:524295:41:19",
+    "actual_UI_RequestPlayerOperation_calls": 2,
+    "actual_Core_Request_returns_false_quote_changed": 2,
+    "known_unexecuted_basis": "Actual unchanged Capture.Request quote_changed branch returns before Execute, with scoped original TransferCity/debit/FinishMoves counters allzero and independent full baseline state preserved.",
+    "per_notification": [
+      {
+        "notification": 1,
+        "actual_Core_Request_entry_return": {
+          "summary": [
+            "baiqi178-tc028-request-observation-v1",
+            "1",
+            "2",
+            "0",
+            "0",
+            "false"
+          ],
+          "before": [
+            [
+              "1",
+              "0",
+              "city:0:114:2162700:1:524295:41:19",
+              "301",
+              "2"
+            ]
+          ],
+          "after": [
+            [
+              "1",
+              "true",
+              "2",
+              "boolean",
+              "false",
+              "string",
+              "quote_changed"
+            ]
+          ]
+        },
+        "actual_result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "stage": "REJECTED",
+          "reason": "quote_changed"
+        },
+        "native_transfer_debit_finish_total": [
+          0,
+          0,
+          0
+        ],
+        "gold": 4524.2734375,
+        "gold_delta": 0,
+        "actor_moves_damage_cooldown_pending_queued": [
+          4,
+          0,
+          null,
+          false,
+          null
+        ],
+        "target_owner_ID_population": [
+          1,
+          524295,
+          1
+        ],
+        "journal": null
+      },
+      {
+        "notification": 2,
+        "actual_Core_Request_entry_return": {
+          "summary": [
+            "baiqi178-tc028-request-observation-v1",
+            "2",
+            "4",
+            "0",
+            "0",
+            "false"
+          ],
+          "before": [
+            [
+              "1",
+              "0",
+              "city:0:114:2162700:1:524295:41:19",
+              "301",
+              "2"
+            ],
+            [
+              "2",
+              "0",
+              "city:0:114:2162700:1:524295:41:19",
+              "301",
+              "2"
+            ]
+          ],
+          "after": [
+            [
+              "1",
+              "true",
+              "2",
+              "boolean",
+              "false",
+              "string",
+              "quote_changed"
+            ],
+            [
+              "2",
+              "true",
+              "2",
+              "boolean",
+              "false",
+              "string",
+              "quote_changed"
+            ]
+          ]
+        },
+        "actual_result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "stage": "REJECTED",
+          "reason": "quote_changed"
+        },
+        "native_transfer_debit_finish_total": [
+          0,
+          0,
+          0
+        ],
+        "gold": 4524.2734375,
+        "gold_delta": 0,
+        "actor_moves_damage_cooldown_pending_queued": [
+          4,
+          0,
+          null,
+          false,
+          null
+        ],
+        "target_owner_ID_population": [
+          1,
+          524295,
+          1
+        ],
+        "journal": null
+      }
+    ]
+  },
+  "precharge_path": {
+    "exists": false,
+    "applicability": "NOT_APPLICABLE_CURRENT_IMPLEMENTATION",
+    "source_Capture_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+    "actual_order": "Persist TRANSFERRING, actual native TransferCity, positive TRANSFERRED receipt, then Settle performs debit. No precharge-before-transfer/refund branch exists.",
+    "ambiguous_transfer_error_class": "UNKNOWN/TRANSFERRING; not treated as known rejection and not granted by this case."
+  },
+  "actual_save_reload": {
+    "save": {
+      "utc": "2026-11-22T11:13:02.355708+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC028KnownFailedRepeated114.Civ6Save",
+      "bytes": 568971,
+      "sha256": "d317fb26f94b89cfda717de9d683bb5118eb7198da220eea1bc5d18e7037abd4",
+      "stable_repeated_read": true
+    },
+    "same_owned_process": true,
+    "formal_MainMenu_between_save_and_Load": true,
+    "new_background_offline_Load_proof": true,
+    "actual_loaded_result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "stage": "REJECTED",
+      "reason": "quote_changed"
+    },
+    "all_original_baseline_fields_except_result_exactly_unchanged": true,
+    "gold": 4524.2734375,
+    "gold_delta_or_refund": 0,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "target_owner_ID_population": [
+      1,
+      524295,
+      1
+    ],
+    "journal": null,
+    "fresh_world_original_native_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ],
+    "request_wrapper_and_UI_onceflags_not_serialized": true,
+    "no_new_request_after_reload": true,
+    "cold_process_recovery_claimed": false,
+    "cross_context_atomic": false
+  },
+  "software_validation": {
+    "actual_Lua51_Lua53_cases": 64,
+    "driver_sha256": "3dad36b178c6ae3e7e9f5cf2308980176aeb38b5ac62426538cc0f2ac3de6281",
+    "observer_sha256": "a456e6ddb2ef659fd81acd077981efe9b838435c890b3a3f15af5f97db760035",
+    "actual_current_Capture_and_OnRequisition_consumer_used": true,
+    "scope": "One-use failure request, two real software consumer notifications, role/identity/fresh quote/wallet/action/binding/unknown/reentrant negatives; observer preserves nil multi-values and same error object, foreign retirement references preserved. Not Native evidence by itself."
+  },
+  "model": {
+    "R95_UTC": "2026-11-22T11:03:17.703349+00:00",
+    "genuine_full_sources": 16,
+    "genuine_UTF8_bytes": 171164,
+    "configured_coder_absent_only_H3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6/local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "unknown_cost": null
+  },
+  "closeout": {
+    "original_Core_Request_function_restored_by_exact_identity": true,
+    "two_own_UI_onceflags_retired": true,
+    "Core_Input_logging_APIs_retired_before_save": true,
+    "fresh_reloaded_Core_Input_logging_APIs_also_retired": true,
+    "all_own_Save_Load_flags_retired": true,
+    "product_REJECTED_result_preserved_no_journal_clearing": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "diagnostic119_still_installed_no_live_payload_restore": true,
+    "process_still_running_MainMenu": true,
+    "new_Popen": 0,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "limits": [
+    "This is the BR021 known-unexecuted request path. It does not claim a definite native TransferCity rejection; ambiguous native effects remain TC029/030.",
+    "No precharge implementation exists, so an invented precharged refund test would not exercise this product.",
+    "No normal END, whole-army state equality, global native command interception, cold-process reload or long-term city outcome added.",
+    "TC026 owner-change gap, original177 regression save, old8650807 FAIL and other legacy unknowns retained."
+  ],
+  "next": "Prepare genuine actual-current-source TC029/030 unknown causal/stage matrix. Start with independent original114 actual confirmed request and bounded F07 before/after transfer read/receipt interruption, keep actual unknown outcomes frozen across real planning points and repeat/cold recovery scopes. Do not infer success from wallet/ownership alone, do not fabricate journal or replay an unknown action. Continue allremaining18 and old865FAIL/otherunknowns.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T12:04:41.690162+00:00",
+    "next_checkpoint": "Actual next unknown-result/stage diagnostic and safe save, or precise retained blocker with independent case work continuing.",
+    "whole_mod_finish": "Unknown;18 whole cases remain."
+  }
+}
