@@ -1,5 +1,7 @@
 # civ6_dev
 
+[TC034整项验收已通过](docs/research/baiqi-source179-tc034-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc034-2026-11-23.json)：未确认、一次确认和独立和平扩张场景均已实测保存。整体 **26/40＝65%**，余14项、待发7；继续TC012修复验收。
+
 [TC034未确认／单次确认分支已通过](docs/research/baiqi-source179-tc034-no-confirmation-and-one-paid-engine74-2026-11-23.json)：47单位与外交已比较，单笔300结算后无追加。和平扩张分支继续；整体 **25/40＝62.5%**，余15、待发7。
 
 [TC013完整验收已通过](docs/research/baiqi-source179-tc013-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc013-2026-11-23.json)：后备生产、有界等待及只开放一个候选后的自动排队已验证。整体 **25/40＝62.5%**，余15项、待发7个产品修复包；继续验收。
