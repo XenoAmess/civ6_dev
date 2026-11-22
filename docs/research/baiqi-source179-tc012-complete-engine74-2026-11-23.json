@@ -1,0 +1,807 @@
+{
+  "schema": "civ6.current179-tc012-complete-engine74/v1",
+  "utc": "2026-11-22T22:49:12.703527+00:00",
+  "machine_local_date": "2026-11-23",
+  "machine": "BF-202609141645",
+  "source_version": 179,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_WHOLE_TC012_ADOPTED_CONTRACT",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed_total_percent_remaining": [
+    27,
+    40,
+    67.5,
+    13
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 7,
+  "new_product_changes": 0,
+  "ordinary179_all119_exact": true,
+  "exact_contract_review": {
+    "utc": "2026-11-22T22:47:13.848808+00:00",
+    "source_version": 179,
+    "engine": "1.0.12.74",
+    "mandatory_UTF8_LF_sha256": "de9d5d9fc83d5bb7d46da55c6ec458de5df00b3f55bb3ecffcd1a68cc76e2974",
+    "mandatory_lines": [
+      "- 需求：BR-008、BR-009。夹具：F02，三类真实受损资产；先用原版操作确认各自合法修复方式和成本。",
+      "- 步骤：分别让托管安排建造者修复改良、城市队列修复区域／建筑；等实际修复完成。",
+      "- 预期：使用正确对象和正常规则；修复是否消耗建造者次数以实际基线为准，不统一假设扣一次；产能项目不免费瞬完。修复后损坏状态和相应收益恢复，无重复补偿。",
+      "- 证据：对照基线、损坏状态、修复请求、进度／次数／收益变化。"
+    ],
+    "clause_review": [
+      {
+        "clause": "Original legal repair methods and cost controls for each of three actual asset classes before autonomous test",
+        "pass": true,
+        "basis": [
+          "Qin improvement172 native3->3 charges,damage/yield restore",
+          "Qin Monument174 normal8 production, correct named culture restored",
+          "Qin Campus178 normal9 production, damage/project prerequisite restored"
+        ]
+      },
+      {
+        "clause": "Entrusted builder repair and correct native charge rules",
+        "pass": true,
+        "basis": "Baiqi native farm539 repair116,food4->5,charge1->1,one matching BACKGROUND log,no manual civilian repair"
+      },
+      {
+        "clause": "Automatic normal city production repairs actually completed, not free/instant",
+        "pass": true,
+        "basis": "Baiqi393221Monument11722/30->118repaired;524295Industrial11781/109->118102/109->119repaired. BACKGROUND one matching request each, no player queue repair or production grant."
+      },
+      {
+        "clause": "Damage and corresponding yields/prerequisite effects restored without duplicated compensation",
+        "pass": true,
+        "basis": "Native named culture6.390625->4.58984375->6.390625;cityproduction22.5->21.6015625->22.5;projectactualqualificationfalse->true,old95investmentretained,dynamiccost100->103 recorded; matching request logs remain1each throughsave,no restored setter."
+      }
+    ],
+    "explicit_external_F02_QA_setup_scope": "Damage preexisting owned improvements/building/finished district only, no manufactured AI effect. Normal Qin Campus was legally produced with36 production before its independent damage/repair baseline.",
+    "test_player_vs_background": "White world only player military normal waits/one new General move+wait and ordinary no-reason END; no player civilian/repair/production inputs. Normal Qin domestic choices are independent native controls, not AI credit.",
+    "scope_limits": [
+      "No global engine writer counts claimed; original product bindings plus passive natural RunNow and actual logs/native independent state.",
+      "Immediate damage progress refresh, named yield indices, population variation and pure-loader/runtime failures retained in source evidence; no fabricated baselines.",
+      "Whole mod remains open, old865/668/458settler recovery statuses unchanged."
+    ],
+    "closeout_save": {
+      "utc": "2026-11-22T22:44:38.284101+00:00",
+      "name": "Baiqi_P6_20261123_V179_TC012AllRepairs119.Civ6Save",
+      "bytes": 573228,
+      "sha256": "fd49e972cea33ffcfa3cd83f53b801d2e4405ba6d52f78ee1a0a73c8a34f78e0",
+      "stable_repeated_read": true
+    },
+    "all_own_QA_retired_world_contexts_absent": true,
+    "TC012_whole_case_pass": true,
+    "closed_current_cases_after_review": 27,
+    "whole_case_percent": 67.5,
+    "remaining_current_cases": 13,
+    "unpublished_product_fix_packages": 7,
+    "whole_mod": "OPEN_CONTINUE_NEXT_UNFINISHED_CASE"
+  },
+  "preceding_actual_native_controls_and_farm_effect": [
+    "docs/research/baiqi-source179-tc012-normal-native-improvement-repair-engine74-2026-11-23.json",
+    "docs/research/baiqi-source179-tc012-automatic-improvement-repair-engine74-2026-11-23.json",
+    "docs/research/baiqi-source179-tc012-normal-building-district-repair-engine74-2026-11-23.json"
+  ],
+  "protected_city_start": {
+    "utc": "2026-11-22T21:31:48.914637+00:00",
+    "name": "Baiqi_P6_20261123_V179_TC012AutoRepair116.Civ6Save",
+    "bytes": 571223,
+    "sha256": "545274276e0227689fd96bf8b75cda8a8bd96383b0cf284d43f270d186182c6c",
+    "stable_repeated_read": true
+  },
+  "explicit_F02_QA_damage_setup": {
+    "utc": "2026-11-22T22:18:26.714620+00:00",
+    "source_version": 179,
+    "owner": {
+      "pid": 19132,
+      "created_at": 1795369951.7707603,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "before": {
+      "monument": [
+        "393221",
+        "7",
+        "true",
+        "false",
+        "0",
+        "30",
+        "6.390625",
+        "1",
+        "299201842",
+        "93",
+        "95"
+      ],
+      "district": [
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "false",
+        "0",
+        "109",
+        "1",
+        "-1205325871",
+        "95",
+        "100",
+        "22.5"
+      ],
+      "project": [
+        "-1205325871",
+        "true",
+        "true"
+      ],
+      "workshop": [
+        "true",
+        "false"
+      ],
+      "pass": [
+        "271",
+        "271",
+        "true",
+        "0",
+        "0"
+      ]
+    },
+    "after": {
+      "monument": [
+        "393221",
+        "7",
+        "true",
+        "true",
+        "0",
+        "30",
+        "4.58984375",
+        "1",
+        "299201842",
+        "93",
+        "95"
+      ],
+      "district": [
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "true",
+        "0",
+        "109",
+        "1",
+        "-1205325871",
+        "95",
+        "100",
+        "22.5"
+      ],
+      "project": [
+        "-1205325871",
+        "true",
+        "false"
+      ],
+      "workshop": [
+        "true",
+        "false"
+      ],
+      "pass": [
+        "283",
+        "283",
+        "true",
+        "0",
+        "0"
+      ]
+    },
+    "explicit_existing_asset_damage_calls": 2,
+    "TEST_PLAYER_city_repair_or_production_or_civilian_inputs": 0,
+    "external_restore_setters_or_production_grants": 0,
+    "native_log_before_bytes": 1983579,
+    "native_log_before_sha256": "443f750f99d02643367751b7cf3318215acada967dee74c453164741131ec2c7",
+    "whole_TC012": "OPEN_AUTOMATIC_BUILDING_AND_DISTRICT_COMPLETION_PENDING"
+  },
+  "actual_automatic_city_repairs": {
+    "utc": "2026-11-22T22:44:02.802424+00:00",
+    "source_version": 179,
+    "engine": "1.0.12.74",
+    "automatic_building_repair_pass": true,
+    "automatic_district_repair_pass": true,
+    "monument": {
+      "city": 393221,
+      "type": "BUILDING_MONUMENT",
+      "normal_remaining_production": 8,
+      "request_log": "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:8|source=BACKGROUND|city=393221|type=BUILDING_MONUMENT",
+      "before_damaged116": [
+        "393221",
+        "7",
+        "true",
+        "true",
+        "0",
+        "30",
+        "4.58984375",
+        "1",
+        "299201842",
+        "93",
+        "95"
+      ],
+      "actual_queued117": [
+        "393221",
+        "7",
+        "true",
+        "true",
+        "22",
+        "30",
+        "4.58984375",
+        "1",
+        "-2025065568",
+        "0",
+        "97"
+      ],
+      "actual_repaired118": [
+        "393221",
+        "7",
+        "true",
+        "false",
+        "0",
+        "30",
+        "6.390625",
+        "1",
+        "-689809087",
+        "0",
+        "97"
+      ],
+      "actual_still_repaired119": [
+        "393221",
+        "7",
+        "true",
+        "false",
+        "0",
+        "30",
+        "6.390625",
+        "1",
+        "-689809087",
+        "0",
+        "97"
+      ],
+      "named_culture_intact_damaged_restored": [
+        6.390625,
+        4.58984375,
+        6.390625
+      ]
+    },
+    "industrial": {
+      "city": 524295,
+      "district": 1376276,
+      "type": "DISTRICT_INDUSTRIAL_ZONE",
+      "normal_remaining_production": 28,
+      "request_log": "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:10|source=BACKGROUND|city=524295|type=DISTRICT_INDUSTRIAL_ZONE|insert=prepend_blocked",
+      "before_damaged116": [
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "true",
+        "0",
+        "109",
+        "1",
+        "-1205325871",
+        "95",
+        "100",
+        "22.5"
+      ],
+      "actual_queued117": [
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "true",
+        "81",
+        "109",
+        "1",
+        "-1698135861",
+        "95",
+        "100",
+        "21.6015625"
+      ],
+      "actual_advanced118": [
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "true",
+        "102",
+        "109",
+        "1",
+        "-1698135861",
+        "95",
+        "103",
+        "21.6015625"
+      ],
+      "actual_repaired119": [
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "false",
+        "0",
+        "109",
+        "1",
+        "1982083301",
+        "95",
+        "103",
+        "22.5"
+      ],
+      "old_industrial_project_progress": 95,
+      "actual_preserved_progress119": "95",
+      "native_project_qualification_restored": [
+        "-1205325871",
+        "true",
+        "true"
+      ],
+      "project_cost_changed_naturally": true,
+      "actual_city_production_intact_damaged_restored": [
+        22.5,
+        21.6015625,
+        22.5
+      ]
+    },
+    "independent_Core_final": [
+      "393221",
+      "7",
+      "true",
+      "false",
+      "524295",
+      "8",
+      "1376276",
+      "true",
+      "false"
+    ],
+    "matching_repair_request_logs": {
+      "monument": 1,
+      "industrial": 1
+    },
+    "direct_global_Native_call_counts": null,
+    "TEST_PLAYER_city_production_repair_or_civilian_inputs": 0,
+    "explicit_external_QA_existing_asset_damage_calls": 2,
+    "restore_setters_or_free_production_grants": 0,
+    "whole_TC012": "PENDING_SAVED_CLEAN_WORLD_AND_FINAL_CONTRACT_REVIEW"
+  },
+  "actual_city_observations": [
+    {
+      "utc": "2026-11-22T22:27:33.312193+00:00",
+      "source_version": 179,
+      "actual_turn": 117,
+      "UI": {
+        "monument": [
+          "393221",
+          "7",
+          "true",
+          "true",
+          "22",
+          "30",
+          "4.58984375",
+          "1",
+          "-2025065568",
+          "0",
+          "97"
+        ],
+        "district": [
+          "524295",
+          "8",
+          "1376276",
+          "true",
+          "true",
+          "81",
+          "109",
+          "1",
+          "-1698135861",
+          "95",
+          "100",
+          "21.6015625"
+        ],
+        "project": [
+          "-1205325871",
+          "true",
+          "false"
+        ],
+        "workshop": [
+          "true",
+          "false"
+        ],
+        "pass": [
+          "1750",
+          "1745",
+          "true",
+          "0",
+          "0"
+        ],
+        "entries": [
+          [
+            "393221",
+            "0",
+            "1",
+            "0",
+            "nil",
+            "nil",
+            "nil",
+            "0"
+          ],
+          [
+            "524295",
+            "0",
+            "2",
+            "nil",
+            "9",
+            "nil",
+            "nil",
+            "0"
+          ]
+        ]
+      },
+      "independent_Core": [
+        "393221",
+        "7",
+        "true",
+        "true",
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "true"
+      ],
+      "target_city_BACKGROUND_request_logs": [
+        "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:8|source=BACKGROUND|city=393221|type=BUILDING_MONUMENT",
+        "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:10|source=BACKGROUND|city=524295|type=DISTRICT_INDUSTRIAL_ZONE|insert=prepend_blocked"
+      ],
+      "error_or_city_warning_logs": [],
+      "native_log_delta_bytes": 18700,
+      "native_log_delta_sha256": "0fd14137a175ce43771d0628a7421babfeef4483a59898812eb4e8d9c0e1206d",
+      "TEST_PLAYER_production_repair_or_civilian_inputs": 0,
+      "direct_global_native_writer_counts": null,
+      "whole_TC012": "OPEN_UNTIL_ALL_CLASSES_SAVED_CLEAN_AND_CONTRACT_REVIEW"
+    },
+    {
+      "utc": "2026-11-22T22:39:18.093035+00:00",
+      "source_version": 179,
+      "actual_turn": 118,
+      "UI": {
+        "monument": [
+          "393221",
+          "7",
+          "true",
+          "false",
+          "0",
+          "30",
+          "6.390625",
+          "1",
+          "-689809087",
+          "0",
+          "97"
+        ],
+        "district": [
+          "524295",
+          "8",
+          "1376276",
+          "true",
+          "true",
+          "102",
+          "109",
+          "1",
+          "-1698135861",
+          "95",
+          "103",
+          "21.6015625"
+        ],
+        "project": [
+          "-1205325871",
+          "true",
+          "false"
+        ],
+        "workshop": [
+          "true",
+          "false"
+        ],
+        "pass": [
+          "3689",
+          "3673",
+          "true",
+          "0",
+          "0"
+        ],
+        "entries": [
+          [
+            "393221",
+            "0",
+            "1",
+            "16",
+            "nil",
+            "nil",
+            "nil",
+            "0"
+          ],
+          [
+            "524295",
+            "0",
+            "2",
+            "nil",
+            "9",
+            "nil",
+            "nil",
+            "0"
+          ]
+        ]
+      },
+      "independent_Core": [
+        "393221",
+        "7",
+        "true",
+        "false",
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "true"
+      ],
+      "target_city_BACKGROUND_request_logs": [
+        "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:8|source=BACKGROUND|city=393221|type=BUILDING_MONUMENT",
+        "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:10|source=BACKGROUND|city=524295|type=DISTRICT_INDUSTRIAL_ZONE|insert=prepend_blocked",
+        "BaiqiExecutor: BAIQI|request|turn=118|id=0:118:27|source=BACKGROUND|city=393221|type=BUILDING_UNIVERSITY|insert=replace_completed"
+      ],
+      "error_or_city_warning_logs": [],
+      "native_log_delta_bytes": 32292,
+      "native_log_delta_sha256": "1c7794419b99f8ebb4de8e6f04c9fd6037b46c2c6a3405c29f2db5d5634cd994",
+      "TEST_PLAYER_production_repair_or_civilian_inputs": 0,
+      "direct_global_native_writer_counts": null,
+      "whole_TC012": "OPEN_UNTIL_ALL_CLASSES_SAVED_CLEAN_AND_CONTRACT_REVIEW"
+    },
+    {
+      "utc": "2026-11-22T22:42:47.026171+00:00",
+      "source_version": 179,
+      "actual_turn": 119,
+      "UI": {
+        "monument": [
+          "393221",
+          "7",
+          "true",
+          "false",
+          "0",
+          "30",
+          "6.390625",
+          "1",
+          "-689809087",
+          "0",
+          "97"
+        ],
+        "district": [
+          "524295",
+          "8",
+          "1376276",
+          "true",
+          "false",
+          "0",
+          "109",
+          "1",
+          "1982083301",
+          "95",
+          "103",
+          "22.5"
+        ],
+        "project": [
+          "-1205325871",
+          "true",
+          "true"
+        ],
+        "workshop": [
+          "true",
+          "false"
+        ],
+        "pass": [
+          "4211",
+          "4192",
+          "true",
+          "0",
+          "0"
+        ],
+        "entries": [
+          [
+            "393221",
+            "0",
+            "1",
+            "16",
+            "nil",
+            "nil",
+            "nil",
+            "0"
+          ],
+          [
+            "524295",
+            "0",
+            "2",
+            "nil",
+            "7",
+            "nil",
+            "nil",
+            "0"
+          ]
+        ]
+      },
+      "independent_Core": [
+        "393221",
+        "7",
+        "true",
+        "false",
+        "524295",
+        "8",
+        "1376276",
+        "true",
+        "false"
+      ],
+      "target_city_BACKGROUND_request_logs": [
+        "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:8|source=BACKGROUND|city=393221|type=BUILDING_MONUMENT",
+        "BaiqiExecutor: BAIQI|request|turn=117|id=0:117:10|source=BACKGROUND|city=524295|type=DISTRICT_INDUSTRIAL_ZONE|insert=prepend_blocked",
+        "BaiqiExecutor: BAIQI|request|turn=118|id=0:118:27|source=BACKGROUND|city=393221|type=BUILDING_UNIVERSITY|insert=replace_completed",
+        "BaiqiExecutor: BAIQI|request|turn=119|id=0:119:51|source=BACKGROUND|city=524295|type=DISTRICT_ENTERTAINMENT_COMPLEX"
+      ],
+      "error_or_city_warning_logs": [],
+      "native_log_delta_bytes": 44291,
+      "native_log_delta_sha256": "ef5b8e6358e2810164ff8d5e3f1c6374206a6f0a93342b7bbafbb585b355f3fe",
+      "TEST_PLAYER_production_repair_or_civilian_inputs": 0,
+      "direct_global_native_writer_counts": null,
+      "whole_TC012": "OPEN_UNTIL_ALL_CLASSES_SAVED_CLEAN_AND_CONTRACT_REVIEW"
+    }
+  ],
+  "key_native_results": {
+    "improvement": "Original Qin native quarry repair172:charges3->3,production1->3; Baiqi controlled farm539116:charges1->1,food4->5. No uniform charge-consumption assumption.",
+    "building": {
+      "city": 393221,
+      "kind": "BUILDING_MONUMENT",
+      "native_progress_cost_at117": [
+        22,
+        30
+      ],
+      "normal_remaining_production": 8,
+      "actual_completed_turn": 118,
+      "actual_named_culture_intact_damaged_restored": [
+        6.390625,
+        4.58984375,
+        6.390625
+      ],
+      "next_actual_automatic_production": "BUILDING_UNIVERSITY"
+    },
+    "district": {
+      "city": 524295,
+      "id": 1376276,
+      "kind": "DISTRICT_INDUSTRIAL_ZONE",
+      "native_progress_cost_at117": [
+        81,
+        109
+      ],
+      "normal_remaining_production": 28,
+      "actual_progress118": [
+        102,
+        109
+      ],
+      "actual_completed_turn": 119,
+      "actual_city_production_intact_damaged_restored": [
+        22.5,
+        21.6015625,
+        22.5
+      ],
+      "industrial_project_actual_qualification_before_after": [
+        false,
+        true
+      ],
+      "old_project_investment_retained": 95,
+      "project_cost_before_after": [
+        100,
+        103
+      ],
+      "next_actual_automatic_production": "DISTRICT_ENTERTAINMENT_COMPLEX",
+      "original_project_requeued_or_completed_not_claimed": true
+    },
+    "matching_BACKGROUND_repair_request_logs": {
+      "Monument": "0:117:8",
+      "Industrial": "0:117:10"
+    },
+    "one_matching_request_each_through_save": true,
+    "direct_global_native_call_counts": null,
+    "TEST_PLAYER_city_production_repair_or_civilian_inputs": 0,
+    "external_restore_setters_or_free_production_grants": 0
+  },
+  "normal_turns_and_player_authority": {
+    "actual_world_turns": [
+      116,
+      117,
+      118,
+      119
+    ],
+    "ordinary_no_reason_END_actions": 5,
+    "native_Baiqi_military_wait_attempts": 79,
+    "new_GreatGeneral_test_player_movement_and_wait": {
+      "utc": "2026-11-22T22:35:20.712894+00:00",
+      "source_version": 179,
+      "full_id": 7012402,
+      "unit_type": "UNIT_GREAT_GENERAL",
+      "actual_Core_UI_after_move": {
+        "WorldInput": [
+          "7012402",
+          "15",
+          "14",
+          "2"
+        ],
+        "BaiqiGameplay": [
+          "7012402",
+          "15",
+          "14",
+          "2"
+        ]
+      },
+      "actual_native_path": [
+        632,
+        631
+      ],
+      "TEST_PLAYER_military_move_requests": 1,
+      "TEST_PLAYER_military_skip_requests": 1,
+      "BACKGROUND_General_move_or_skip_inputs": 0,
+      "Baiqi_civilian_inputs": 0,
+      "END117_sent": false
+    },
+    "total_military_wait_inputs": 80,
+    "new_General_original_stacked_skip_refusal": true,
+    "new_General_actual_native_path": [
+      632,
+      631
+    ],
+    "new_General_Core_UI_actual_position": [
+      15,
+      14
+    ],
+    "Baiqi_civilian_inputs": 0,
+    "UserForced": false,
+    "scope": "Actual TEST_PLAYER military input only; no movement/skip performed by BACKGROUND for the General. Existing queues executed by original normal END and independently read, not canceled or reissued."
+  },
+  "observation_and_closeout": {
+    "only_passive_wrapper": "BaiqiController.RunNow",
+    "native_namespace_or_writer_bindings_changed": 0,
+    "synthetic_RunNow_or_Refresh_or_cache_clear_calls": 0,
+    "phase_eligible_counter_before_final_snapshot": [
+      4211,
+      4192
+    ],
+    "final_natural_counter": [
+      "4501",
+      "4482"
+    ],
+    "counter_scope": "Scoped natural entries and eligible UI phase, not proof all entries issued orders or zero global engine writers.",
+    "all_own_world_QA_and_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "save": {
+      "utc": "2026-11-22T22:44:38.284101+00:00",
+      "name": "Baiqi_P6_20261123_V179_TC012AllRepairs119.Civ6Save",
+      "bytes": 573228,
+      "sha256": "fd49e972cea33ffcfa3cd83f53b801d2e4405ba6d52f78ee1a0a73c8a34f78e0",
+      "stable_repeated_read": true
+    },
+    "new_Steam_GUI_mode_upload_Popen_terminate_kill": 0
+  },
+  "owner_runtime_limits_and_corrections": [
+    "First116 normal END legitimately executed existing unit queues but returned same turn available. Original driver lacked an early available-phase exit and ended after60 pure read frames; no END/unit request was replayed. Subsequent actual queue/position read and a distinct guarded second normal action advanced117. New future helper exits after two stable same-turn available frames.",
+    "At117, newly appeared player-controlled General7012402 was the actual normal-unit blocker; original native SKIP refused on its spawn plot. Read real owned visible empty adjacent native paths, then TEST_PLAYER one movement632->631 and one independently qualified wait. No civilian rescue or automated General command.",
+    "Actual matching BACKGROUND requests were both first observed117 after natural turn change; no immediate same116 repair response is claimed for this explicit setter-only QA scenario.",
+    "Prior original-control raw index3 science/culture label, cached repair progress and population limits remain in linked evidence. Do not project original absolute cost8/9 to all Baiqi assets; observed Baiqi8/28 are separately read.",
+    "Farm539 test was completed/saved116 and city tests119. No claim every damaged tile in the entire map is healed or that later enemy pillage cannot occur.",
+    "Native project95 investment and legality restored, current planned entertainment district recorded; do not claim the old project was executed or completed again."
+  ],
+  "model_accounting": {
+    "genuine_tasks_reused": [
+      "R110 actual repair/cost census and Native baseline/automatic evidence",
+      "R111 bounded military wait-only driver before owner implementation"
+    ],
+    "new_model_tasks_or_readiness_in_city_effect_phase": 0,
+    "new_generation_POSTs_candidates_adoptions_OpenCode_native_fallback": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "maintenance_scope": "Prior same local date OpenCode1.19.6 successful cache; no native tool generation from owner Native testing.",
+    "owner_cost_seconds": null
+  },
+  "next": "Continue TC007 bounded military supplementation: read current producers/consumers and exact four independent shortfall/cap/resources/reserve contracts, prepare genuine unfinished local-model narrow task before owner diagnostics, then qualify actual Native independent fixtures, training costs/maintenance and new-unit player control. Preserve old865 FAIL and remaining13; do not rerun closed cases or repeat already-published Workshop172 upload. Whole mod acceptance continues.",
+  "next_safety_checkpoint_target_UTC": "2026-11-22T23:34:12.704430+00:00"
+}

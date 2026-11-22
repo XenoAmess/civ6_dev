@@ -1,5 +1,7 @@
 # civ6_dev
 
+[TC012三类修复整项实机通过](docs/research/baiqi-source179-tc012-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc012-2026-11-23.json)：原版成本与白绮自动修复、产能和收益、保存清理均已核对。整体 **27/40＝67.5%**，余13、待发7；继续军队补充边界验收。
+
 [TC012建筑／区域原版修复对照已通过](docs/research/baiqi-source179-tc012-normal-building-district-repair-engine74-2026-11-23.json)：纪念碑剩8产能、学院剩9产能，均实际完工并恢复对应原生效果。白绮两类自动修复继续；整体 **26/40＝65%**，余14、待发7。
 
 [TC012白绮改良自动修复分支已通过](docs/research/baiqi-source179-tc012-automatic-improvement-repair-engine74-2026-11-23.json)：真实损坏／收益5→4→5、次数1→1，已保存撤QA返菜单。区域和建筑成本对照、自动完工继续；整体 **26/40＝65%**，余14、待发7。

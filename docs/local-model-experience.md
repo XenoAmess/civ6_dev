@@ -1366,3 +1366,5 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-23 R111 [真实军队待命测试薄工具与白绮自动修复](research/baiqi-source179-tc012-automatic-improvement-repair-engine74-2026-11-23.json)：12完整源56124字节先准备，维护同日缓存；两GET200仅H3，指定qwen缺席，0生成／候选／采用／OpenCode原生，不冒称HTTP404。Owner20双VM分支及真实26军事SKIP后正常END实际116；自动修复字段和工具ACK分列。保Owner只读／路径／编号／清理计数／marker失败与未知成本。
 
 2026-11-23 [原版建筑／区域修复对照](research/baiqi-source179-tc012-normal-building-district-repair-engine74-2026-11-23.json)：复用R110/R111，无新模型GET／生成；owner固定Qin控制薄工具保Baiqi零写入，同回合正负校验纠正此前负例错回合。Native成本余8／9、真实完工／收益与项目资格分列；命名收益索引、缓存进度与人口变化均按实际保留纠正，未知成本null。
+
+2026-11-23 [TC012三类真实修复闭合](research/baiqi-source179-tc012-complete-engine74-2026-11-23.json)：复用R110/R111，0新模型GET／生成／采用；owner纯读退出与原版排队END多阶段、玩家新将军移位／待命分列，无文职救场。真实产能／收益／旧项目投资与有限计数分别确认，源代码未改、成本null。
