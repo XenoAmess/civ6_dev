@@ -1,5 +1,7 @@
 # civ6_dev
 
+[179版自动恢复已实机通过](docs/research/baiqi-source179-tc013-native-original-qualification-restored-engine74-2026-11-23.json)：同一66回合恢复原资格后，后台真实排入神社一次；已保存、撤QA返菜单。TC013单候选副本继续，整体24/40＝60%、余16、待发7。
+
 [179版无候选恢复修复的软件检查已过](docs/research/baiqi-source179-no-candidate-recheck-software-2026-11-23.json)：10秒有界重评估，保留队列与防重；119包就绪、原178失败保留，实机复测继续。整体24/40＝60%、余16、待发7。
 
 [178/.74 TC013恢复失败已保存，继续修复](docs/research/baiqi-source178-tc013-no-candidate-restoration-fail-engine74-2026-11-23.json)：受控拒绝时等待有界；资格恢复后仍未自动排队，整项不通过。整体24/40＝60%、余16、待发6，新待修1。

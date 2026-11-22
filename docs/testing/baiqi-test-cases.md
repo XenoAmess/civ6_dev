@@ -107,6 +107,8 @@
 <a id="tc-013"></a>
 ### TC-013 无合法任务的有限等待
 
+- [当前179/.74无候选后真实恢复](../research/baiqi-source179-tc013-native-original-qualification-restored-engine74-2026-11-23.json)通过：保持拒绝期间0生产／等待提示1；恢复原生资格后同回合神社真实0/46/3回合、只一次请求，已存撤QA返菜单。本轮开放全部原生资格，严格单候选开放副本继续，整项暂不授通过。
+
 - [179版有界重评估软件修复](../research/baiqi-source179-no-candidate-recheck-software-2026-11-23.json)：7新方法14双VM分支、原178相同夹具负例与当前119包通过；受影响诊断工具已适配实际179。旧178实机恢复FAIL保留，179实机复测仍待，不授整项通过。
 
 - 当前178／引擎.74：[受控全候选拒绝后的本回合恢复FAIL](../research/baiqi-source178-tc013-no-candidate-restoration-fail-engine74-2026-11-23.json)。等待请求0／提示1有界；精确撤去资格拒绝后原生BUILD真合格，后续自然规划仍空队列，未用QA刷新救场。已存退QA返菜单，继续修复及复测，不授整项通过。
