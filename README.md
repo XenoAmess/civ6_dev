@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178／引擎.74 TC029完整因果矩阵通过](docs/research/baiqi-source178-tc029-complete-engine74-2026-11-22.json)：实际未执行、执行后回执丢失、第三方变化均冻结，物理冲突操作拒绝；有肯定转城回执的真实存档只补扣费／结束行动各一次，2恢复及真正同号重投不追加结算。[整项23/40＝57.5%](docs/research/baiqi-source178-finite40-engine74-after-tc029-2026-11-22.json)，余17，待发6；TC030其余阶段及冷恢复继续。
+
 [178／引擎.74：真实UNKNOWN期间第三方夺城](docs/research/baiqi-source178-tc029-third-party-unknown-engine74-2026-11-22.json)：明确外部QA原生转移给现有自由城市62一次，模组未认作己方成功，完整UNKNOWN／资金／军队保持；2恢复、7自然规划及真实存读档通过，已撤QA返菜单。整体验收22/40＝55%，余18，待发6，继续。
 
 [178／引擎.74 实际转城但肯定回执丢失仍冻结](docs/research/baiqi-source178-tc029-applied-lost-receipt-engine74-2026-11-22.json)：原生转城1次／零返回值、城市实际转己方，产品保留UNKNOWN，0扣款／结束行动；撤故障后2恢复、6自然规划和实际存读档均未凭归属结算。收入读数差异单列，TC029/030仍待，整体22/40＝55%，余18，待发6；继续。
