@@ -1,0 +1,775 @@
+{
+  "schema": "civ6.source176-tc022-complete-engine74/v1",
+  "utc": "2026-11-22T00:38:46.886220+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 176,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "owner": {
+    "pid": 15284,
+    "created_at": 1795302081.134816,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "status": "PASS_TC022_CURRENT176_ENGINE74_NATIVE_LEGACY_CONTROL_MIGRATION",
+  "whole_TC022": "PASS",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 13,
+  "whole_cases_total": 40,
+  "percent": 32.5,
+  "remaining_whole_cases": 27,
+  "not_code_completion_percent": true,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 4,
+  "product_changes": 0,
+  "contract": {
+    "tc": "TC-022",
+    "requirements": [
+      "BR-004",
+      "BR-024"
+    ],
+    "scope": "旧全局关闭、逐城/单位暂停及protected升级后失效；新合法自动任务、人工内政仍锁定，不补发军令。",
+    "case_contract_unchanged": true,
+    "fixture_setup_distinct_from_AI_effect": true
+  },
+  "native_clause_evidence": {
+    "historical_original_disabled_and_city_unit_pauses": {
+      "evidence": "docs/research/baiqi-source176-tc022-original-oldpause26-engine74-2026-11-22.json",
+      "actual_original_enabled": false,
+      "actual_raw_city_pauses": 5,
+      "actual_raw_unit_pauses": 5,
+      "original_protected_empty_not_used_for_nonempty_pass": true,
+      "old_marker2_still_naturally_clears_state": true,
+      "ordinary24to26": 2,
+      "actual_city131073_Monument_completed": true,
+      "native_positive_original_manual_production_callback_proxy1_native0": true,
+      "original26_save_reload": true
+    },
+    "independent_nonempty_protected": {
+      "evidence": "docs/research/baiqi-source176-tc022-protected-farm61-engine74-2026-11-22.json",
+      "explicit_controlled_old_property_only": true,
+      "protected_count": 20,
+      "native_before_exact_seed_then_natural_nil": true,
+      "ordinary58to61": 3,
+      "real_new_Builder655363_and_FARM_on_formerly_marked395": true,
+      "native_positive_manual_WaterMill_original_callback_proxy1_native0": true,
+      "initial_charge_delta_unknown_not_claimed": true
+    },
+    "independent_live_civilian_unit_pause": {
+      "base": {
+        "utc": "2026-11-21T23:53:51.104701+00:00",
+        "name": "Baiqi_P6_20261122_V176_TC022ProtectedFarm61.Civ6Save",
+        "bytes": 524602,
+        "sha256": "18cc0c3cb4e753d7d19b6f828a90cedaa8789951756f90d8f8f2079fcd01ca5d",
+        "stable_repeated_read": true
+      },
+      "explicit_controlled_copy": {
+        "utc": "2026-11-22T00:05:39.175055+00:00",
+        "name": "Baiqi_P6_20261122_V176_TC022ControlledUnitPause61.Civ6Save",
+        "bytes": 524432,
+        "sha256": "f5d36e73430b22a1f86ba7564b5fc0bb2e91220bb81dba5d0f833709a8976a7a",
+        "stable_repeated_read": true
+      },
+      "old_state": {
+        "cities": {},
+        "enabled": true,
+        "protected": {},
+        "units": {
+          "655363": true
+        },
+        "version": 1
+      },
+      "actual_paused_live_unit": 655363,
+      "actual_UI_baseline_charges": 3,
+      "natural_before_after": {
+        "utc": "2026-11-22T00:10:57.317871+00:00",
+        "qualified_exact_live_Builder_unitpause_before_and_natural_cleanup": true,
+        "turn": 61,
+        "expected_seeded_state": {
+          "cities": {},
+          "enabled": true,
+          "protected": {},
+          "units": {
+            "655363": true
+          },
+          "version": 1
+        },
+        "pairs": 1,
+        "original_p0_before": {
+          "cities": {},
+          "enabled": true,
+          "protected": {},
+          "units": {
+            "655363": true
+          },
+          "version": 1
+        },
+        "original_p0_after": null,
+        "gold_before": 344.91015625,
+        "gold_after": 344.91015625,
+        "controlled_property_setup_not_historical_or_AI_effect": true,
+        "whole_TC022": "OPEN_SAME_BUILDER_NEW_TASK_AND_FINAL_PERSISTENCE"
+      },
+      "ordinary61to63": 2,
+      "same_unit_actual_new_task": {
+        "utc": "2026-11-22T00:18:33.493526+00:00",
+        "source_version": 176,
+        "turn": 63,
+        "same_actual_unit": 655363,
+        "old_unit_pause_exact_id": "655363",
+        "old_unit_pause_naturally_cleaned": true,
+        "actual_baseline61_charges": 3,
+        "actual_remaining63_charges": 2,
+        "actual_UI_current": [
+          "655363",
+          "0",
+          "UNIT_BUILDER",
+          "43",
+          "9",
+          "0",
+          "2",
+          "1",
+          "false",
+          "nil"
+        ],
+        "actual_native_improvement_name": "IMPROVEMENT_PLANTATION",
+        "native_improvement_row": [
+          "439",
+          "0",
+          "43",
+          "9",
+          "6",
+          "IMPROVEMENT_PLANTATION"
+        ],
+        "independent_Core_before": [
+          "61",
+          "439",
+          "0",
+          "43",
+          "9",
+          "-1"
+        ],
+        "independent_Core_after": [
+          "63",
+          "439",
+          "0",
+          "43",
+          "9",
+          "6"
+        ],
+        "independent_Core_same_unit": [
+          "63",
+          "655363",
+          "0",
+          "1",
+          "43",
+          "9",
+          "0",
+          "1"
+        ],
+        "BACKGROUND_requests": {
+          "MOVE_TO": "0:62:1",
+          "BUILD_IMPROVEMENT": "0:63:3"
+        },
+        "manual_civilian_inputs": 0,
+        "accepted_manual_domestic_inputs": 0,
+        "whole_TC022": "PENDING_FINAL_SAVE_RELOAD_AND_CLOSEOUT"
+      },
+      "manual_domestic_or_civilian_inputs": 0
+    }
+  },
+  "live_unit_window": {
+    "turns": [
+      61,
+      63
+    ],
+    "actual_normal_END_inputs": 2,
+    "actual_advances": 2,
+    "TEST_PLAYER_military_SKIPs": 6,
+    "TEST_PLAYER_diplomacy_actions": 0,
+    "unused_hold_envoy_helper_not_executed": true,
+    "actual_after_load_tokens1_consideredtrue_no_extra_envoy_input": true,
+    "BACKGROUND_military_orders": 0,
+    "BACKGROUND_diplomacy": 0,
+    "manual_civilian_or_domestic_inputs": 0,
+    "UserForced": false,
+    "new_improvement_actual_GameInfo_type": "IMPROVEMENT_PLANTATION",
+    "new_improvement_plot": 439,
+    "native_Core_before": [
+      "61",
+      "439",
+      "0",
+      "43",
+      "9",
+      "-1"
+    ],
+    "native_Core_after": [
+      "63",
+      "439",
+      "0",
+      "43",
+      "9",
+      "6"
+    ],
+    "actual_same_builder_before_after_charges": [
+      3,
+      2
+    ],
+    "full_original_production_event_arities_args": {
+      "stats": [
+        "2",
+        "0",
+        "0",
+        "3"
+      ],
+      "events": [
+        [
+          "1",
+          "63",
+          "CityProductionCompleted",
+          "6",
+          "65536",
+          "6",
+          "0",
+          "nil",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "2",
+          "63",
+          "UnitAddedToMap",
+          "4",
+          "65536",
+          "nil",
+          "nil",
+          "UNIT_GREAT_PROPHET",
+          "720897",
+          "43",
+          "13"
+        ]
+      ],
+      "args": [
+        [
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "2",
+          "65536"
+        ],
+        [
+          "1",
+          "3",
+          "3"
+        ],
+        [
+          "1",
+          "4",
+          "12"
+        ],
+        [
+          "1",
+          "5",
+          "false"
+        ],
+        [
+          "1",
+          "6",
+          "-1"
+        ],
+        [
+          "2",
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "2",
+          "720897"
+        ],
+        [
+          "2",
+          "3",
+          "43"
+        ],
+        [
+          "2",
+          "4",
+          "13"
+        ]
+      ]
+    },
+    "new_Prophet720897_birth63_scope": "Observed original arity4; no automatic claim of all religious tests passed."
+  },
+  "final_reload_and_legitimate_new_work": {
+    "original_recovered63_save": {
+      "utc": "2026-11-22T00:20:51.478370+00:00",
+      "name": "Baiqi_P6_20261122_V176_TC022UnitPauseRecovered63.Civ6Save",
+      "bytes": 529093,
+      "sha256": "557d890caaea5a589cf9137ae81d8ca6126549f43788bcc616322bf8712cb450",
+      "stable_repeated_read": true
+    },
+    "official_reload63": 1,
+    "old_controls_and_same_builder_restore_intact": true,
+    "same_other_owned_units_cities_queues_gold_balance_maintenance_equal": true,
+    "all_gameplay_fields_equal": false,
+    "initial_static_world_comparison_parent_exit": 1,
+    "failure_preserved": true,
+    "exact_reconciliation": {
+      "utc": "2026-11-22T00:33:42.880748+00:00",
+      "source_version": 176,
+      "turn": 63,
+      "old_controls_same_builder_and_queues_restore_intact_new_religion_observed": true,
+      "all_owned_cities_queues_gold_balance_maintenance_and_existing_other_units_equal": true,
+      "all_owned_gameplay_fields_equal": false,
+      "new_autonomous_prophet_religion_continuation": {
+        "utc": "2026-11-22T00:31:57.863606+00:00",
+        "turn": 63,
+        "actual_UI_Core": {
+          "UI": {
+            "religion": [
+              "1",
+              "349.51171875",
+              "11.80078125",
+              "5"
+            ],
+            "raw_journal": [
+              "1",
+              "0",
+              "1",
+              "prophet:0:1",
+              "OBSERVED",
+              "true",
+              "0",
+              "720897",
+              "4",
+              "116",
+              "0",
+              "12",
+              "63",
+              "1"
+            ],
+            "prophet_handle": [
+              "ABSENT"
+            ],
+            "world_getter": [
+              "true"
+            ],
+            "own_religions": [
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "beliefs": [
+              [
+                "27",
+                "BELIEF_WORK_ETHIC",
+                "BELIEF_CLASS_FOLLOWER"
+              ],
+              [
+                "44",
+                "BELIEF_TITHE",
+                "BELIEF_CLASS_FOUNDER"
+              ]
+            ]
+          },
+          "Core": {
+            "religion": [
+              "1",
+              "349.51171875",
+              "11.80078125",
+              "6"
+            ],
+            "raw_journal": [
+              "1",
+              "0",
+              "1",
+              "prophet:0:1",
+              "OBSERVED",
+              "true",
+              "0",
+              "720897",
+              "4",
+              "116",
+              "0",
+              "12",
+              "63",
+              "1"
+            ],
+            "prophet_handle": [
+              "PRESENT",
+              "720897",
+              "0",
+              "13",
+              "-9999",
+              "-9999",
+              "3",
+              "false",
+              "true"
+            ],
+            "world_getter": [
+              "true"
+            ],
+            "own_religions": [
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "beliefs": [
+              [
+                "27",
+                "BELIEF_WORK_ETHIC",
+                "BELIEF_CLASS_FOLLOWER"
+              ],
+              [
+                "44",
+                "BELIEF_TITHE",
+                "BELIEF_CLASS_FOUNDER"
+              ]
+            ]
+          }
+        },
+        "new_autonomous_religion_continuation_proved": true,
+        "raw_prophet_journal_OBSERVED_correlated_event": true,
+        "no_manual_civilian_or_domestic_input": true,
+        "new_diagnostic_game_actions": 0,
+        "initial_static_world_comparison_exit1_preserved": true,
+        "gold_yield_delta": 3,
+        "gold_yield_specific_belief_attribution": "Not inferred solely from aggregate yield. Actual belief identities recorded."
+      },
+      "actual_original_differences": [
+        {
+          "category": "units",
+          "key": "720897",
+          "before": {
+            "owner": 0,
+            "type": "UNIT_GREAT_PROPHET",
+            "x": 43,
+            "y": 13,
+            "moves": 4,
+            "formation": 1,
+            "dead": false,
+            "delayed": false,
+            "builder_charges": null
+          },
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "controller.status",
+          "before": "文职单位本回合等待安全任务；军队由你指挥",
+          "after": "先知自动前往圣地并取得建教资格，等待实际结果"
+        },
+        {
+          "category": "fields",
+          "key": "player.gold_yield",
+          "before": 8.80078125,
+          "after": 11.80078125
+        },
+        {
+          "category": "fields",
+          "key": "player.units",
+          "before": 6,
+          "after": 5
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.dead",
+          "before": false,
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.delayed",
+          "before": false,
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.formation",
+          "before": 1,
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.moves",
+          "before": 4,
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.owner",
+          "before": 0,
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.type",
+          "before": "UNIT_GREAT_PROPHET",
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.x",
+          "before": 43,
+          "after": null
+        },
+        {
+          "category": "fields",
+          "key": "unit.720897.y",
+          "before": 13,
+          "after": null
+        }
+      ],
+      "equal_unaffected_fields": 82,
+      "same_builder655363_charges2_and_position_preserved": true,
+      "old_pause_and_protected_properties_remain_nil": true,
+      "all_read_bridge_retired": true,
+      "initial_static_world_assertion_exit1_preserved": true,
+      "comparison_scope_correction": "Active mandatory AI may complete new legal tasks after original Load. Same old controls and Builder are intact; new religion1/beliefs27,44 and exact correlated OBSERVED prophet account for unit UI removal while Core delayed-death handle remains. Aggregate goldyield+3 recorded with actual Tithe identity; no universal world-unchanged claim.",
+      "new_read_queries_or_game_actions_in_this_reconciliation": 0,
+      "whole_TC022": "PENDING_FINAL_SAVE_AND_MAINMENU_CLOSEOUT",
+      "whole_TC039": "OPEN_NO_GENERAL_PERSISTENCE_PASS_FROM_THIS_NARROW_SCOPE"
+    },
+    "actual_new_autonomous_religion": {
+      "utc": "2026-11-22T00:31:57.863606+00:00",
+      "turn": 63,
+      "actual_UI_Core": {
+        "UI": {
+          "religion": [
+            "1",
+            "349.51171875",
+            "11.80078125",
+            "5"
+          ],
+          "raw_journal": [
+            "1",
+            "0",
+            "1",
+            "prophet:0:1",
+            "OBSERVED",
+            "true",
+            "0",
+            "720897",
+            "4",
+            "116",
+            "0",
+            "12",
+            "63",
+            "1"
+          ],
+          "prophet_handle": [
+            "ABSENT"
+          ],
+          "world_getter": [
+            "true"
+          ],
+          "own_religions": [
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "beliefs": [
+            [
+              "27",
+              "BELIEF_WORK_ETHIC",
+              "BELIEF_CLASS_FOLLOWER"
+            ],
+            [
+              "44",
+              "BELIEF_TITHE",
+              "BELIEF_CLASS_FOUNDER"
+            ]
+          ]
+        },
+        "Core": {
+          "religion": [
+            "1",
+            "349.51171875",
+            "11.80078125",
+            "6"
+          ],
+          "raw_journal": [
+            "1",
+            "0",
+            "1",
+            "prophet:0:1",
+            "OBSERVED",
+            "true",
+            "0",
+            "720897",
+            "4",
+            "116",
+            "0",
+            "12",
+            "63",
+            "1"
+          ],
+          "prophet_handle": [
+            "PRESENT",
+            "720897",
+            "0",
+            "13",
+            "-9999",
+            "-9999",
+            "3",
+            "false",
+            "true"
+          ],
+          "world_getter": [
+            "true"
+          ],
+          "own_religions": [
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "beliefs": [
+            [
+              "27",
+              "BELIEF_WORK_ETHIC",
+              "BELIEF_CLASS_FOLLOWER"
+            ],
+            [
+              "44",
+              "BELIEF_TITHE",
+              "BELIEF_CLASS_FOUNDER"
+            ]
+          ]
+        }
+      },
+      "new_autonomous_religion_continuation_proved": true,
+      "raw_prophet_journal_OBSERVED_correlated_event": true,
+      "no_manual_civilian_or_domestic_input": true,
+      "new_diagnostic_game_actions": 0,
+      "initial_static_world_comparison_exit1_preserved": true,
+      "gold_yield_delta": 3,
+      "gold_yield_specific_belief_attribution": "Not inferred solely from aggregate yield. Actual belief identities recorded."
+    },
+    "important_Core_handle_boundary": "UI FindID absent, Core retains exact Prophet720897 type13 at(-9999,-9999), moves3, IsDeadfalse, IsDelayedDeathtrue. Do not rewrite as Core handle absent or IsDeadtrue.",
+    "actual_religion": {
+      "Founder": 0,
+      "Religion": 1,
+      "beliefs": [
+        {
+          "Index": 27,
+          "Type": "BELIEF_WORK_ETHIC"
+        },
+        {
+          "Index": 44,
+          "Type": "BELIEF_TITHE"
+        }
+      ],
+      "journal_token": "prophet:0:1",
+      "journal_stage": "OBSERVED",
+      "journal_eventSeen": true,
+      "individual": 116
+    },
+    "new_after_reload_background_requests": [
+      "MOVE_TO0:63:1 from615to528",
+      "FOUND_RELIGION0:63:2/individual116",
+      "religionfound1",
+      "belief27",
+      "belief44"
+    ],
+    "gross_gold_yield_before_after": [
+      8.80078125,
+      11.80078125
+    ],
+    "gross_yield_specific_cause": "Actual aggregate+3 and Tithe identity recorded; no general unchanged-income assertion or old granary revenue claim.",
+    "comparison_policy": "Mandatory AI remains active during Load. Retain real legitimate later work and exact affected fields, not a test-only global freeze or removal of failed evidence.",
+    "final_new_saved_checkpoint": {
+      "utc": "2026-11-22T00:34:02.518214+00:00",
+      "name": "Baiqi_P6_20261122_V176_TC022UnitPauseReloaded63.Civ6Save",
+      "bytes": 529652,
+      "sha256": "3dec25f7f18910030a74d191d52b866f4f914237012bf4b476e72a1ff8fd81a7",
+      "stable_repeated_read": true
+    },
+    "whole_TC039": "OPEN_GENERAL_PERSISTENCE_NOT_PROMOTED"
+  },
+  "final_closeout": {
+    "save": {
+      "utc": "2026-11-22T00:34:02.518214+00:00",
+      "name": "Baiqi_P6_20261122_V176_TC022UnitPauseReloaded63.Civ6Save",
+      "bytes": 529652,
+      "sha256": "3dec25f7f18910030a74d191d52b866f4f914237012bf4b476e72a1ff8fd81a7",
+      "stable_repeated_read": true
+    },
+    "all6_attempts3_last_actor2_END_flags_retired": true,
+    "END63_sent": 0,
+    "all3_passive_hooks_removed": true,
+    "baseline_and_controlled_and_final_read_bridges_retired": true,
+    "all_save_and_MainMenu_load_flags_retired": true,
+    "normal_ReturnMainMenu_and_confirmation": true,
+    "actual_MainMenu_visible_and_world_UI_Core_contexts_absent": true,
+    "game_process_still_running": true,
+    "gameplay_progress_unsaved": false,
+    "installed_mode": "baiqi176-tc022-passive-v1",
+    "all119_diagnostic_bytes_and_marker_verified": true,
+    "terminate": 0,
+    "kill": 0,
+    "Steam_mode_changes": 0,
+    "uploads": 0
+  },
+  "fresh_background_offline_proofs": {
+    "LoadFarm61": "2026-11-22T00:02:23.950363+00:00",
+    "LoadControlledUnitPause61": "2026-11-22T00:09:21.814855+00:00",
+    "ReloadRecovered63": "2026-11-22T00:24:18.657523+00:00"
+  },
+  "model_and_software": {
+    "genuine_before_owner_contexts": [
+      {
+        "sources": 32,
+        "UTF8_bytes": 705789
+      },
+      {
+        "sources": 9,
+        "UTF8_bytes": 456765
+      }
+    ],
+    "actual_configured_model": "qwen38-coder",
+    "catalog_models": [
+      "open-h3-2k"
+    ],
+    "catalog_health_HTTP200_each": true,
+    "R69_utc": "2026-11-22T00:00:02.089322+00:00",
+    "R70_utc": "2026-11-22T00:30:13.882180+00:00",
+    "OpenCode_maintenance_only": {
+      "date": "2026-11-22",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "generation_POSTs": 0,
+    "candidate_adopted": 0,
+    "OpenCode_native_generation": 0,
+    "automatic_fallback": false,
+    "unknown_cost": null,
+    "actual_private_seed_dual_VM_cases": 18,
+    "qualifier_positive": 1,
+    "qualifier_negative_rejections": [
+      "wrong_unit",
+      "not_cleared",
+      "wrong_turn",
+      "gold_changed",
+      "unknown_raw"
+    ],
+    "dual_Lua_payloads": 10,
+    "owner_wrote_helpers_reviewed_against_actual_current_consumers": true
+  },
+  "limits": [
+    "PASS is TC022 old controls and current176/engine74 tested scopes only. Other27 cases remain OPEN; prior12 are retained in their exact unaffected scopes, not all rerun in176.",
+    "Controlled protected and live-unit pause copies are explicit legacy PROPERTY test fixtures; the historical disabled+city/unit pause save is independently fingerprinted. No setup is counted as AI outcome.",
+    "Comparison failure from newly completed Prophet/religion is retained and independently explained; no whole-world unchanged claim. Current goldyield delta does not establish a TC032 old-revenue pass.",
+    "Old8650807 FAIL_UNRESOLVED and6684713 LEGACY_UNKNOWN remain untouched; military queued matched-control TC021 and general persistence TC039 remain open.",
+    "Earlier Farm/Mine/index/arity and default-charge owner QA errors remain in linked protected evidence; actual runtime type6 nowIMPROVEMENT_PLANTATION and actual sameBuilder3to2 are freshly measured."
+  ],
+  "next": "Continue full-mod remaining27 cases immediately. Inspect real old granary-rights save candidates for TC032/TC039, compare exact native legacy benefits cleanup without refund/replay and repeat load/settlement observations. Preserve final63 new religion/Prophet journal for later religion acceptance. No duplicate Workshop upload."
+}
