@@ -1,0 +1,167 @@
+{
+  "schema": "civ6.source177-tc027-native-observer-software/v1",
+  "utc": "2026-11-22T09:00:25.978737+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 177,
+  "engine_target": "1.0.12.74",
+  "Build_target": 26595377,
+  "status": "PASS_SOFTWARE_PACKAGE_NATIVE_NOT_RUN",
+  "whole_TC027": "OPEN",
+  "whole_TC026": "OPEN_UNIT_OWNERSHIP",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    20,
+    40,
+    50.0,
+    20
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 5,
+  "product_changes": 0,
+  "diagnostic_change": {
+    "single_payload_file": "Lua/BaiqiCapture.lua",
+    "global_API": "P6Paid177Native1025",
+    "marker": "baiqi177-paid-native1025-v1",
+    "three_original_callsites": [
+      "CityManager.TransferCity",
+      "Treasury.ChangeGoldBalance",
+      "UnitManager.FinishMoves"
+    ],
+    "global_native_bindings_replaced": false,
+    "original_arguments_self_nil_returns_error_object_pass_once": true,
+    "no_native_action_on_load": true,
+    "capacity_rows": 64,
+    "retirement": "OwnAPI reference only; futureoriginalcallscontinuewithloggingdisabled.",
+    "exact_inverse_to_current177": true,
+    "inherited161_game_authority": false
+  },
+  "software_validation": {
+    "actual_current_Capture_Lua51_Lua53_VM_runs": 16,
+    "cases": [
+      {
+        "VM": "Lua51",
+        "scenario": "success",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "transfer_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "transfer_after",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "debit_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "finish_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "finish_applied_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "metadata_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua51",
+        "scenario": "direct_passthrough",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "success",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "transfer_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "transfer_after",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "debit_before",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "finish_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "finish_applied_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "metadata_error",
+        "actual_transformed_Capture_mock_executed": true
+      },
+      {
+        "VM": "Lua53",
+        "scenario": "direct_passthrough",
+        "actual_transformed_Capture_mock_executed": true
+      }
+    ],
+    "source_hashes": {
+      "tc027177_native_observer_owner.lua": "998f7a7d7226e29cc3d1c3878dd69e1e6c56bc6534d75091740e34b3b9077d51",
+      "tc027177_native_transform_owner.py": "4e9601c01bd0a66a79cac89effd2eb36069453b2fc1080132e23245cc2f2f855",
+      "tc027177_native_validate_owner.py": "8e14a29a0271c1f95b2966b38ad1d08a0c4e81057a1340e2554568f352e22d9b"
+    },
+    "Lua_sources_compiled_both_VMs": 97,
+    "payload_files": 119,
+    "only_Capture_changed": true,
+    "actual_ZIP_names_and_all_bytes_verified": true,
+    "archive_sha256": "e6021c42361c76dafc5d7bf6af5a0b1ba7f6b79546cb0defce7ee62ef82f73f3",
+    "source_Capture_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+    "instrumented_Capture_sha256": "5abf58a09c04bfa488f13b22b48cfce162fb39e0cce637cf07a6e1d71dc5bc42",
+    "observer_sha256": "998f7a7d7226e29cc3d1c3878dd69e1e6c56bc6534d75091740e34b3b9077d51"
+  },
+  "model": {
+    "R90_UTC": "2026-11-22T08:57:26.996432+00:00",
+    "genuine_full_sources": 20,
+    "genuine_UTF8_bytes": 193724,
+    "configured_coder_absent_only_open_h3_2k": true,
+    "models_health_HTTP_status": [
+      200,
+      200
+    ],
+    "daily_OpenCode_same_user_cached_success": "1.19.6/local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "owner_authored": true,
+    "unknown_cost": null
+  },
+  "owner_correction": "Preparation basename replacement consumed longerfilename token; assertion failedbeforevalidatorwrite/test/Native. Preserved; changedtokenordering inresume, kepttwoexistingexactoutputs. Legacy validator consolelabel161 remains a historicallabel; receipt andexecutedsource arecurrent177, not new161Nativeauthority.",
+  "ownership_search": {
+    "actual_installed_stock_finite_regex_matches": 294,
+    "raw_private_UTF8_bytes": 65029,
+    "same_actor_transfer_route_proven": false,
+    "delete_spawn_equivalence_claimed": false,
+    "API_impossibility_claimed": false
+  },
+  "Native_queries": 0,
+  "installations": 0,
+  "new_Popen": 0,
+  "Steam_changes": 0,
+  "next": "Preserve allcompletedoriginal114copies, formalQuit actualowned15448 fromMainMenu, confirmOSabsence. Onlythenbackupordinary119+marker andinstalldiagnostic119, obtainnewqualifiedbackgroundofflineproof andcoldPopenonce. Freshload original114 forindependentTC027physicaldoubleconfirmation andsubsequentduplicatepacket/result/cooldowncases. KeepTC026ownershipgapandall20remainingopen."
+}
