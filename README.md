@@ -1,5 +1,7 @@
 # civ6_dev
 
+[178/.74 相同已结算请求重投两次通过](docs/research/baiqi-source178-tc027-duplicate-packets-engine74-2026-11-22.json)：每次均有新产品duplicate日志和UI/Core回执，三次UI请求只结算一次，完整账本／原生六记录／费用／军队队列保持。已存退菜单撤QA；TC027仍待不同新请求资格矩阵，整体20/40＝50%，待发6，继续。
+
 [178/.74 确认双击穿透已实机修复](docs/research/baiqi-source178-tc027-double-input-fixed-engine74-2026-11-22.json)：真实第二击消息15送达／处理器返回消费，只有1付费请求、原生转城／扣款／结束行动各1，净300且pendingfalse／queuednil；未取消军队任务。已存退菜单撤QA，原177失败保留。[整体仍20/40＝50%](docs/research/baiqi-source178-finite40-engine74-after-double-fix-2026-11-22.json)，待发6；继续TC027其余分支。
 
 [178 确认后双击穿透的软件修复](docs/research/baiqi-source178-confirmation-input-software-2026-11-22.json)：按原版双击消息在地图输入前拦截，保留新一次正常军令；64方法／30新双VM子例与旧177两处同夹具负例、119包通过。实机回归待执行，原177 FAIL保留；待发修复6，整体验收仍20/40＝50%，继续。

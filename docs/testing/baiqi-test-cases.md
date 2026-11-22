@@ -240,6 +240,8 @@
 <a id="tc-027"></a>
 ### TC-027 双击、重复回执与次数限制
 
+- 2026-11-22当前178／引擎.74部分通过：[相同已结算packet实际重投两次](../research/baiqi-source178-tc027-duplicate-packets-engine74-2026-11-22.json)。每次有1条新的产品duplicate日志和两侧回执，3次UI请求对应Capture Native总1/1/1／净300／完整账本和原生记录不变，军队0行动无新队列；已存退菜单撤QA。不同新请求资格／限制复核仍待，整项未闭。
+
 - 2026-11-22当前178／引擎.74部分通过：[真实第二击送达但不再穿透地图](../research/baiqi-source178-tc027-double-input-fixed-engine74-2026-11-22.json)。消息15实际1次且handler消费，1付费／三Capture Native各1、净300／单笔DONE；军队pendingfalse／queuednil，无队列补救，已存退菜单撤QA。原177 FAIL保留；独立重复packet/result与新请求矩阵仍待，整项未闭。
 
 - 2026-11-22当前178[双击输入软件修复](../research/baiqi-source178-confirmation-input-software-2026-11-22.json)通过64方法与旧177双VM同夹具两处负例；新的实机回归尚未执行。原177 pending831 FAIL继续保留，整项未闭。

@@ -1,0 +1,204 @@
+{
+  "schema": "civ6.source178-tc027-duplicate-packets/v1",
+  "utc": "2026-11-22T10:26:47.530566+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_NARROW_ACTUAL_DUPLICATE_PACKETS_RESULTS_NO_REPEAT_SETTLEMENT",
+  "whole_TC027": "OPEN_DISTINCT_NEW_REQUEST_LIMITS_FINAL_REVIEW",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    20,
+    40,
+    50.0,
+    20
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "owner": {
+    "pid": 8668,
+    "created_at": 1795340439.8508365,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "provenance": "Sameactuallyowned8668/new178diagnostic119. Independentnewqualifiedbackgroundofflineoriginal114Load, freshUI/Corebaseline/zeroCorecounters, realmapright300quote/cursoraway andphysicalsingleconfirm. Firsteffect independentlyknownCOMMITTED/DONE beforeeach explicitF07duplicate. Notunknownactionreplay, automaticBGredelivery or a directCoremethod substitute.",
+  "initial_settlement": {
+    "native_TransferCity_debit_FinishMoves": [
+      1,
+      1,
+      1
+    ],
+    "net_gold_decrease": 300,
+    "gold": 4224.2734375,
+    "city_owner_old_new_ID": [
+      0,
+      524295,
+      851979
+    ],
+    "actor_moves_cooldown_pending_queued": [
+      0,
+      114,
+      false,
+      null
+    ],
+    "exactly_one_COMMITTED_DONE": true
+  },
+  "actual_redelivery": {
+    "canonical_accepted_packet": {
+      "OnStart": "BaiqiRequisition",
+      "cityID": 524295,
+      "confirmed": true,
+      "cost": 300,
+      "kind": "city",
+      "playerID": 0,
+      "population": 1,
+      "requestID": "city:0:114:2162700:1:524295:41:19",
+      "targetOwner": 1,
+      "turn": 114,
+      "unitID": 2162700,
+      "x": 41,
+      "y": 19
+    },
+    "canonical_UTF8_JSON_sha256": "52b75654167953565fc4c8af036a76e5783c0cb317e30815cfd1aae0675c4957",
+    "actual_UI_RequestPlayerOperation_redeliveries": 2,
+    "UI_requests_including_initial": 3,
+    "actual_EXECUTE_SCRIPT_enum": -966415096,
+    "actual_product_duplicate_log_lines": 2,
+    "per_stage": [
+      {
+        "duplicate": 1,
+        "actual_result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "stage": "COMMITTED",
+          "reason": "duplicate"
+        },
+        "actual_new_product_duplicate_log_lines": 1,
+        "private_log_delta_bytes": 220,
+        "private_log_delta_sha256": "c62c57193268e78b11c151feb79e2a0c90432dbb23e6a6ed8a320525c3b7437d",
+        "before_prefix_exact": true,
+        "additional_gold_change": 0,
+        "original_native_counts_total": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "duplicate": 2,
+        "actual_result": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "stage": "COMMITTED",
+          "reason": "duplicate"
+        },
+        "actual_new_product_duplicate_log_lines": 1,
+        "private_log_delta_bytes": 220,
+        "private_log_delta_sha256": "c62c57193268e78b11c151feb79e2a0c90432dbb23e6a6ed8a320525c3b7437d",
+        "before_prefix_exact": true,
+        "additional_gold_change": 0,
+        "original_native_counts_total": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "result_delivery": "BothcurrentUI/Core propertyreadback idoriginal/stageCOMMITTED/reasonduplicate. Secondstage freshproductlogrequired even though lastresultalreadyduplicate.",
+    "handler_log_source": "ActualunchangedCapture.Request previousCOMMITTEDrecord branch, beforefreshQuote/nativeactions. QAcode neverprintsthis productmarker.",
+    "UI_interact_requests_paidroute_popupattackcontinuation": [
+      1,
+      3,
+      3,
+      0
+    ],
+    "actual_physical_Double_messages": 0
+  },
+  "independent_final": {
+    "gold": 4224.2734375,
+    "additional_gold_change_after_duplicates": 0,
+    "one_full_journal_exactly_unchanged": true,
+    "all_six_original_Capture_callsite_rows_exactly_unchanged": true,
+    "original_native_TransferCity_debit_FinishMoves_total": [
+      1,
+      1,
+      1
+    ],
+    "Core_observer_still_live_while_measuring": true,
+    "actor_owner_ID_position_moves_cooldown": [
+      0,
+      2162700,
+      [
+        42,
+        19
+      ],
+      0,
+      114
+    ],
+    "actor_HasPendingOperations": false,
+    "actor_queued_destination": null,
+    "target_owner_ID_population": [
+      0,
+      851979,
+      1
+    ],
+    "cross_context_atomic": false,
+    "unmeasured_global_other_military_API_counts": null
+  },
+  "software_validation": {
+    "actual_Lua51_Lua53_driver_fault_cases": 64,
+    "helper_sha256": "c9fe0642f920e4bc6b389f295c2272f7d97661b9a23aab04123eaddb2b317c94",
+    "actual_current_Capture_and_Gameplay_OnRequisition_consumer_used": true,
+    "actual_Capture_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+    "actual_OnRequisition_exported_test_segment_sha256": "494f0672ef1ecebd02f97a9ea166184e2c5a47d8c52656a079846564097e825c",
+    "scope": "One-use/canonicalpacket/fullpositivejournal/identity/role/unknown/reentrant/aliaschecks andactualsoftwareduplicateconsumer. No gameactionsfromcandidate; not Nativeproofbyitself."
+  },
+  "model": {
+    "R93_UTC": "2026-11-22T09:58:14.364452+00:00",
+    "genuine_full_sources": 18,
+    "genuine_UTF8_bytes": 186539,
+    "configured_coder_absent_only_H3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6/local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "unknown_cost": null
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-22T10:19:58.702333+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC027DuplicatePackets114.Civ6Save",
+      "bytes": 568795,
+      "sha256": "053278a44312ead712e683149c81925c39f5a4cc92195bb08aeb5ed27612c577",
+      "stable_repeated_read": true
+    },
+    "two_UI_transparent_bindings_six_UI_QA_flags_retired": true,
+    "two_packet_onceflags_retired_only_after_positive_actualdeliveries": true,
+    "product_journal_and_duplicate_result_preserved": true,
+    "Core_input_logging_retired_own_exposed_APIs_removed": true,
+    "all_own_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "diagnostic119_still_installed": true,
+    "process_still_MainMenu": true,
+    "new_Popen": 0,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "limits": [
+    "Onlycorrelatedduplicatepacket/resultsubset closes. WholeTC027stillneeds truly distinctcanonicalrequest/qualification andlimitsreview.",
+    "No newEND, productioncompletion, longtermloyalty, allotherunit snapshots or globalNativeAPIcounts.",
+    "TC026ownershipgap andold865FAIL/668andoldsettlerunknown retained; original177clickthroughfailure preserved/fixed178boundedregressionseparate."
+  ],
+  "next": "Preparegenuineactualdistinctcanonicalnewrequestdiagnostic andindependentoriginal114copy. AfteroneknownDONE, choosea differentactualexistingvisibleenemycity, formits correctnewRequestID andrequestfields fromfreshidentity, verifyfreshqualificationrejection ratherthanreturningoldduplicateCOMMITTED receipt. Do not inventa malformedID orresetarmyactions; retainedcurrentengineTC024clock/moves boundaries informlimitsreview. Continueallremaining20 afterTC027.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T11:11:47.530638+00:00",
+    "whole_mod_finish": "Unknown;20wholecasesremain."
+  }
+}
