@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-23 [TC012真实修复前清点](research/baiqi-source179-tc012-existing-damage-and-api-census-engine74-2026-11-23.json)：R110真14源467899字节，1.19.6同日缓存、coder缺仅H3、0生成／候选／采用／OpenCode原生；Core/UI集合与setter可见性差异、owner只读失败和保护保存分列，尚无修复通过，成本null。
+
 2026-11-23 [TC034实际未确认与单次确认](research/baiqi-source179-tc034-no-confirmation-and-one-paid-engine74-2026-11-23.json)：R109真16源495353字节，1.19.6同日缓存、coder缺仅H3、0生成／候选／采用／OpenCode原生；owner原生表readonly诊断失败、命名空间代理与真实47单位／外交比较分别记录，成本null。
 
 2026-11-15 [148接管／845](testing/baiqi-source148-cycle-overlap.md)：845length未读；Owner修原生首边复用、空主层文职槽和实际宗教／形成类消费者，2501含1SDK跳过／119包，181冷验继续。首轮夹具与宗教占位遗漏保留，不授Native。累计845／779完整／63length／3最终传输／876HTTP／30额外，0在途，OpenCode原生生成0。
