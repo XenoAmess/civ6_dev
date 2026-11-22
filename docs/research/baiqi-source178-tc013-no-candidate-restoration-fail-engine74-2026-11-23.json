@@ -1,0 +1,436 @@
+{
+  "schema": "civ6.current178-tc013-controlled-refusal-real-native/v1",
+  "utc": "2026-11-22T17:29:44.338819+00:00",
+  "machine_local_date": "2026-11-23",
+  "machine": "BF-202609141645",
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "source_version": 178,
+  "status": "FAIL_SAME_TURN_RESTORATION_AFTER_BOUNDED_WAIT",
+  "whole_TC013": "OPEN_REPAIR_REQUIRED",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    24,
+    40,
+    60,
+    16
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "new_unrepaired_product_issues": 1,
+  "protected_fixture": {
+    "name": "Baiqi_P6_20261122_V176_TC010AssetsBeforePolicy63.Civ6Save",
+    "bytes": 529631,
+    "sha256": "d1ff1b15f40ce9588b8c5e9e7b139721ff95e277dd9dc16699ac745a4056add5"
+  },
+  "actual_scope": "Controlled qualification failure, not naturally exhaustive engine illegality. Independently loaded protected63 current178/.74, actual3 ordinary ENDs and9 TEST_PLAYER army SKIPs to66. No manual domestic/civilian/enemy orders, forced END, queue clear, resource/unit/building/progress seed. Existing Walls naturally complete; target65536 genuine empty queue. Othercity131073 Campus progresses23/78 at64,28/78 at65,33/78 at66.",
+  "fault_semantics": {
+    "context": "BaiqiExecutor CityManager.CanStartOperation",
+    "only_scope": "player0 city65536 BUILD",
+    "original_native_invocation": "Once, untouched argument identities/nils, native errors and exact arity preserved. Nine original true results explicitly QA-refused to first=false, remaining native return values preserved. Actual native return arity2.",
+    "other_cities_and_operations": "Original results unchanged",
+    "order_suppression_or_fake_native_success": false,
+    "actual_new_observed_production_requests": 0
+  },
+  "windows": [
+    {
+      "name": "refused66-a-resume",
+      "utc": "2026-11-22T17:22:02.448815+00:00",
+      "summary": [
+        "9",
+        "9",
+        "9",
+        "9",
+        "806",
+        "0",
+        "0",
+        "true",
+        "false",
+        "0",
+        "0",
+        "false"
+      ],
+      "summary_fields": [
+        "original_native_calls_while_wrapper_installed",
+        "target_BUILD_qualifications",
+        "original_true",
+        "controlled_denied",
+        "actual_natural_RunNow_entries_since_install",
+        "metadata_unknown",
+        "dropped",
+        "refusal_active",
+        "trace_retired",
+        "city_RequestOperation_count",
+        "request_dropped",
+        "request_trace_retired"
+      ],
+      "queue": [
+        "0",
+        "0",
+        "-1",
+        "true",
+        "0",
+        "46",
+        "true",
+        "true",
+        "nil"
+      ],
+      "queue_fields": [
+        "size",
+        "current_hash",
+        "turns_left",
+        "Walls_built",
+        "Shrine_progress",
+        "Shrine_cost",
+        "CanProduce_Shrine_true",
+        "CanProduce_Shrine_false_true",
+        "additional_return"
+      ],
+      "wait_log_lines": [
+        "BaiqiExecutor: BAIQI|wait|turn=66|key=city:65536|reason=城市等待合法生产或预算"
+      ],
+      "actual_target_product_requests": [],
+      "product_errors": [],
+      "Core_actual": [
+        "0",
+        "65536",
+        "true",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    },
+    {
+      "name": "refused66-b",
+      "utc": "2026-11-22T17:22:39.482265+00:00",
+      "summary": [
+        "9",
+        "9",
+        "9",
+        "9",
+        "912",
+        "0",
+        "0",
+        "true",
+        "false",
+        "0",
+        "0",
+        "false"
+      ],
+      "summary_fields": [
+        "original_native_calls_while_wrapper_installed",
+        "target_BUILD_qualifications",
+        "original_true",
+        "controlled_denied",
+        "actual_natural_RunNow_entries_since_install",
+        "metadata_unknown",
+        "dropped",
+        "refusal_active",
+        "trace_retired",
+        "city_RequestOperation_count",
+        "request_dropped",
+        "request_trace_retired"
+      ],
+      "queue": [
+        "0",
+        "0",
+        "-1",
+        "true",
+        "0",
+        "46",
+        "true",
+        "true",
+        "nil"
+      ],
+      "queue_fields": [
+        "size",
+        "current_hash",
+        "turns_left",
+        "Walls_built",
+        "Shrine_progress",
+        "Shrine_cost",
+        "CanProduce_Shrine_true",
+        "CanProduce_Shrine_false_true",
+        "additional_return"
+      ],
+      "wait_log_lines": [
+        "BaiqiExecutor: BAIQI|wait|turn=66|key=city:65536|reason=城市等待合法生产或预算"
+      ],
+      "actual_target_product_requests": [],
+      "product_errors": [],
+      "Core_actual": [
+        "0",
+        "65536",
+        "true",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    },
+    {
+      "name": "restored66-a",
+      "utc": "2026-11-22T17:23:46.024141+00:00",
+      "summary": [
+        "9",
+        "9",
+        "9",
+        "9",
+        "1097",
+        "0",
+        "0",
+        "false",
+        "false",
+        "0",
+        "0",
+        "false"
+      ],
+      "summary_fields": [
+        "original_native_calls_while_wrapper_installed",
+        "target_BUILD_qualifications",
+        "original_true",
+        "controlled_denied",
+        "actual_natural_RunNow_entries_since_install",
+        "metadata_unknown",
+        "dropped",
+        "refusal_active",
+        "trace_retired",
+        "city_RequestOperation_count",
+        "request_dropped",
+        "request_trace_retired"
+      ],
+      "queue": [
+        "0",
+        "0",
+        "-1",
+        "true",
+        "0",
+        "46",
+        "true",
+        "true",
+        "nil"
+      ],
+      "queue_fields": [
+        "size",
+        "current_hash",
+        "turns_left",
+        "Walls_built",
+        "Shrine_progress",
+        "Shrine_cost",
+        "CanProduce_Shrine_true",
+        "CanProduce_Shrine_false_true",
+        "additional_return"
+      ],
+      "wait_log_lines": [
+        "BaiqiExecutor: BAIQI|wait|turn=66|key=city:65536|reason=城市等待合法生产或预算"
+      ],
+      "actual_target_product_requests": [],
+      "product_errors": [],
+      "Core_actual": [
+        "0",
+        "65536",
+        "true",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    },
+    {
+      "name": "restored66-b",
+      "utc": "2026-11-22T17:24:44.776095+00:00",
+      "summary": [
+        "9",
+        "9",
+        "9",
+        "9",
+        "1261",
+        "0",
+        "0",
+        "false",
+        "false",
+        "0",
+        "0",
+        "false"
+      ],
+      "summary_fields": [
+        "original_native_calls_while_wrapper_installed",
+        "target_BUILD_qualifications",
+        "original_true",
+        "controlled_denied",
+        "actual_natural_RunNow_entries_since_install",
+        "metadata_unknown",
+        "dropped",
+        "refusal_active",
+        "trace_retired",
+        "city_RequestOperation_count",
+        "request_dropped",
+        "request_trace_retired"
+      ],
+      "queue": [
+        "0",
+        "0",
+        "-1",
+        "true",
+        "0",
+        "46",
+        "true",
+        "true",
+        "nil"
+      ],
+      "queue_fields": [
+        "size",
+        "current_hash",
+        "turns_left",
+        "Walls_built",
+        "Shrine_progress",
+        "Shrine_cost",
+        "CanProduce_Shrine_true",
+        "CanProduce_Shrine_false_true",
+        "additional_return"
+      ],
+      "wait_log_lines": [
+        "BaiqiExecutor: BAIQI|wait|turn=66|key=city:65536|reason=城市等待合法生产或预算"
+      ],
+      "actual_target_product_requests": [],
+      "product_errors": [],
+      "Core_actual": [
+        "0",
+        "65536",
+        "true",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    }
+  ],
+  "bounded_wait": {
+    "observed_natural_RunNow_entries": [
+      806,
+      912
+    ],
+    "qualification_count_unchanged": 9,
+    "production_requests": 0,
+    "wait_reason_log_count": 1,
+    "per_city_candidate_cap": 512,
+    "per_turn_request_cap": 64,
+    "queue_clear_or_replace_requests": 0,
+    "unbounded_behavior_observed": false,
+    "whole_future_unboundedness_proven": false
+  },
+  "restoration": {
+    "actual_original_qualification_restored_at_RunNow_entries": 991,
+    "explicit_QA_RefreshProduction_RunNow_event_or_production_orders": 0,
+    "later_natural_entries": [
+      1097,
+      1261
+    ],
+    "actual_fresh_original_native_qualification": [
+      "true",
+      "nil",
+      "true",
+      "true",
+      "0",
+      "0",
+      "1426"
+    ],
+    "native_BUILD_Shrine_legal": true,
+    "native_CanProduce_both_modes": true,
+    "queue_still_empty": true,
+    "failure": "Product caches cityEvaluated[cityID]==turn after no-choice; periodic passes return before candidates. Current no-choice branch has no bounded reconsideration without a later invalidation event/newturn. Restoring original qualification alone did not recover in the same turn. No QA cache refresh used to conceal failure."
+  },
+  "independent_Core_limit": "Core confirms city0/65536 and Walls built; its queue object GetSize/GetCurrentProductionTypeHash/GetBuildingProgress/GetBuildingCost are all nil. Queue counts/progress and CanProduce here are actual UI-native reads, not falsely claimed independent Core queue corroboration.",
+  "observer_software": {
+    "utc": "2026-11-22T17:15:05.370597+00:00",
+    "raw_sha256": "b68da0de9cd51755cfef566b72f27546018ab6a3676cbedd58b040d8e02b29fd",
+    "VMs": [
+      "Lua51",
+      "Lua53"
+    ],
+    "actual_checks": [
+      "scope only player0city65536BUILD",
+      "unchanged original args including nil tail and paramidentity",
+      "native original called once",
+      "native false zero-return and error preserved",
+      "true first result explicitly QA refused with same other returns",
+      "RunNow exact returns",
+      "metadata deep-copy and 512row bound",
+      "qualification-only original restoration",
+      "exact full retirement",
+      "foreign replacement refusal"
+    ],
+    "Native_calls": 0,
+    "model_adoption": 0,
+    "scope": "Controlled failure injection software, not a naturally illegal engine fixture or Native effect pass."
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-22T17:26:24.153603+00:00",
+      "name": "Baiqi_P6_20261123_V178_TC013QualificationRestored66.Civ6Save",
+      "bytes": 533475,
+      "sha256": "8bb69be83fbadc7fb6e55172b8cb2831a1032fcfefe311b22e9967e5c8839d55",
+      "stable_repeated_read": true
+    },
+    "all_own_world_QA_and_Load_flags_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "game_still_MainMenu": true,
+    "Steam_GUI_mode_upload_Popen_terminate_kill": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "owner_tooling_failures": [
+    "First readonly Core reader called unsupported queue methods and failed after successful UI reads; original failed source retained, unique readonly resume explicitly typed four missing members, no game input replay.",
+    "One GUI capture attempted while Native parent active was refused before capture/input; later fresh actual game-only image after parent retirement used for formal return.",
+    "Python -c shell quoting/import-path preparation errors were corrected in ignored scripts; no product or game mutation from those failures."
+  ],
+  "local_model": {
+    "R105_sources_UTF8_bytes": [
+      16,
+      491645
+    ],
+    "R106_repair_sources_UTF8_bytes": [
+      19,
+      521705
+    ],
+    "readiness": [
+      {
+        "utc": "2026-11-22T17:12:52.114266+00:00",
+        "maintenance": {
+          "date": "2026-11-23",
+          "installed_version": "1.19.6",
+          "target_version": "1.19.6",
+          "cached": true
+        },
+        "generation_POSTs": 0,
+        "configured_model_absent_only_H3": true
+      },
+      {
+        "utc": "2026-11-22T17:28:17.349192+00:00",
+        "maintenance": {
+          "date": "2026-11-23",
+          "installed_version": "1.19.6",
+          "target_version": "1.19.6",
+          "cached": true
+        },
+        "generation_POSTs": 0,
+        "configured_model_absent_only_H3": true
+      }
+    ],
+    "candidates_adopted_OpenCode_native_fallback": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "owner_phase_cost_seconds": null
+  },
+  "next": "Repair bounded same-turn no-candidate reconsideration preserving pending/attempts/budgets/nonempty queues; first formal own Quit/no-game gate, software real-source negative old178 witness and current fix,119 build/new offline Native retest. Continue remaining16 and old865FAIL.",
+  "next_checkpoint_target_UTC": "2026-11-22T18:14:44.339669+00:00"
+}

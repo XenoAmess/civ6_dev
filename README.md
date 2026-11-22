@@ -1,6 +1,8 @@
 # civ6_dev
 
-[178/.74占用前置修复已真实复现到完成]( docs/research/baiqi-source178-occupied-prerequisite-native68-engine74-2026-11-23.json )：原63正常到68，神社被占后一次原生前插长枪兵，实际完成、新兵待玩家命令，已存撤QA返菜单。整体24/40＝60%、余16、待发6；TC013完全无候选等待与恢复继续。
+[178/.74 TC013恢复失败已保存，继续修复](docs/research/baiqi-source178-tc013-no-candidate-restoration-fail-engine74-2026-11-23.json)：受控拒绝时等待有界；资格恢复后仍未自动排队，整项不通过。整体24/40＝60%、余16、待发6，新待修1。
+
+[178/.74占用前置修复已真实复现到完成](docs/research/baiqi-source178-occupied-prerequisite-native68-engine74-2026-11-23.json)：原63正常到68，神社被占后一次原生前插长枪兵，实际完成、新兵待玩家命令，已存撤QA返菜单。整体24/40＝60%、余16、待发6；TC013完全无候选等待与恢复继续。
 
 [178／引擎.74 TC030完整保存恢复验收通过](docs/research/baiqi-source178-tc030-complete-engine74-2026-11-22.json)：确认前、未知、四个未结阶段和完成态均已实际存读档，完成态重载／2恢复／同号已知DONE重投均源000。[当前24/40＝60%](docs/research/baiqi-source178-finite40-engine74-after-tc030-2026-11-22.json)，余16、待发6。已存撤QA返菜单；继续旧865失败与其余功能。
 
