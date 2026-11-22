@@ -1,0 +1,168 @@
+{
+  "schema": "civ6.current177-tc024-complete/v1",
+  "utc": "2026-11-22T07:17:05.428497+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 177,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_ACTUAL_REQUIRED_ADOPTED_BOUNDARIES_CURRENT177_ENGINE74",
+  "whole_TC024": "CLOSED_CURRENT177_ENGINE74",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed": 20,
+  "total": 40,
+  "percent": 50.0,
+  "remaining": 20,
+  "not_code_completion_percent": true,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 5,
+  "product_changes": 0,
+  "fixture": {
+    "name": "Baiqi_P6_20261105_V74_GarrisonPrep114.Civ6Save",
+    "bytes": 568863,
+    "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+  },
+  "actual_independent_fresh_offline_original114_loads": 10,
+  "new_game_Popen": 0,
+  "boundary_matrix": {
+    "gold_C299_C300_C301": {
+      "evidence": "docs/research/baiqi-source177-tc024-gold299-301-engine74-2026-11-22.json",
+      "result": "299 refuses/no fee;300/301 realtransfer/net300/balance0or1/actor0/cooldown114/oneDONE."
+    },
+    "health_HP69_HP70_HP71_max200": {
+      "evidence": "docs/research/baiqi-source177-tc024-health69-71-engine74-2026-11-22.json",
+      "result": "69/70 realtransfer;71 refuses/no fee. Exact35percent included."
+    },
+    "moves0_current114_previous113_cooldown": {
+      "evidence": "docs/research/baiqi-source177-tc024-moves-cooldown-engine74-2026-11-22.json",
+      "result": "Moves0/current114 refuse/no fee; previous113 at114 permits realtransfer/net300/oneDONE."
+    },
+    "exact_adjacency1_distance2": {
+      "result": "Actualdistance1 eligible before quote and in successful matrix copies. Original TEST_PLAYER military move to empty unowned42,17 along878,834,790 changesdistance1->2, moves4->1. FreshUI/Corequote not_adjacent and realoldconfirmation gives change notice/no fee/no transfer/no additional action cost.",
+      "before_after_scene_scope": {
+        "actor": 2162700,
+        "from_to": [
+          [
+            42,
+            19
+          ],
+          [
+            42,
+            17
+          ]
+        ],
+        "distance": [
+          1,
+          2
+        ],
+        "TEST_PLAYER_movement_calls": 1,
+        "movement_cost": 3,
+        "after_moves_damage_cooldown": [
+          1,
+          0,
+          null
+        ],
+        "after_gold": 4524.2734375,
+        "ability_gold_delta": 0,
+        "city_owner_ID": [
+          1,
+          524295
+        ],
+        "journal_result": null
+      },
+      "UI_interact_rows": [
+        [
+          41,
+          19
+        ],
+        [
+          42,
+          17
+        ]
+      ],
+      "UI_paid_requests_popup_attack_continuations": 0,
+      "scoped_UnitManager_RequestOperation_proxy_calls_for_TEST_PLAYER_move": 1,
+      "native_backend_invocation_counts": null,
+      "cross_context_atomic": false,
+      "save": {
+        "utc": "2026-11-22T07:12:11.321913+00:00",
+        "name": "Baiqi_P6_20261122_V177_TC024Distance2Rejected114.Civ6Save",
+        "bytes": 568910,
+        "sha256": "a6b1be19aaece563c0db6dfabd3a8ff275ab21f9ef3e7da8b982e5e065d4d66a",
+        "stable_repeated_read": true
+      }
+    }
+  },
+  "distance_preflight": {
+    "first_adjacent_visible_candidates": 3,
+    "first_qualified_empty_land_paths": 0,
+    "bounded_two_edge_qualified_paths": [
+      [
+        878,
+        834,
+        789
+      ],
+      [
+        878,
+        922,
+        965
+      ],
+      [
+        878,
+        834,
+        790
+      ]
+    ],
+    "selected_destination_owner": -1,
+    "fresh_actual_native_and_public_MOVE_TO": true,
+    "other_operation_choices_coastalraid_swap_range_attack": false,
+    "visible_empty_land_noncity_route": true,
+    "no_new_war_from_original_move_preflight": true,
+    "teleports_or_product_movement_restores": 0
+  },
+  "retained_owner_tool_failures": {
+    "first_Lua_template_compile_refused_before_input_intent_or_Native_query": true,
+    "temporary_preparation_Python_syntax_error_before_game_input": true,
+    "actual_original_military_input_replays": 0,
+    "postmove_observer_expectation_failed": "ExpectedInteract1, actual2: originalcity41,19 then military movement destination42,17 via WrapMove. Actualmetadata retained; stricttwo-row readonlyrequalification then originalconfirmation, no input replay.",
+    "military_move_callback_and_proxy_cleanup_passed_before_read_predicate_failure": true
+  },
+  "model": {
+    "R86_UTC": "2026-11-22T06:52:34.747496+00:00",
+    "genuine_full_sources": 43,
+    "genuine_UTF8_bytes": 648741,
+    "Civ6Common_actual_MoveUnitToPlot_and_RequestMoveOperation_definition_supplied": true,
+    "configured_coder_absent_models_health200_onlyH3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6 / local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "automatic_fallback": 0,
+    "owner_authored": true,
+    "unknown_cost": null
+  },
+  "limits": [
+    "Controlled gold/health/moves/cooldown preparations are explicit QA, not natural combat/treasury/previous-turn execution or ability costs.",
+    "Distance preparation is one real original TEST_PLAYER military movement, not BACKGROUND army control. UI Interact2 includes an empty-destination check; popup continuation0 does not mean no original military move.",
+    "UI and Core reads are independent, not atomic. Native backend invocation counts remain unknown. Exact net fee, ownership and correlated journal are observed separately.",
+    "Distance0 or illegal co-occupation with an enemy city was not manufactured. Actual adopted exactadjacency boundary is legaldistance1 versusdistance2.",
+    "This closes only TC024. TC026 target/unit/price changes, TC027 duplicate paths, TC028-031 failure/recovery/assets, normalEND coverage, long-term loyalty and other remaining cases are not granted.",
+    "Prior8650807 FAIL_UNRESOLVED,6684713/oldsettler LEGACY_UNKNOWN and current177 occupied-prerequisite Native branch remain pending."
+  ],
+  "closeout": {
+    "all10_result_saves_verified": true,
+    "all_own_QA_UI_bindings_flags_and_known_observed_diagnostic_intents_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "ordinary119_and_marker_verified": true,
+    "own_process_still_MainMenu": true,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "next": "Continue remaining20 whole cases and original unresolved failures. Read exact current requirements/consumers and preserved failed8650807 evidence first, prepare a genuine narrow remaining implementation/Native task, fresh-offline before next formalLoad; fix and retest any actualFAIL rather than ending after this delivery.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T08:02:05.428553+00:00",
+    "next_checkpoint": "Next actual unresolved domestic/civilian or remainingcase result, or precise retained blocker with a safe save.",
+    "whole_mod_finish": "Unknown;20 whole cases remain."
+  }
+}
