@@ -1,0 +1,324 @@
+{
+  "schema": "civ6.source178-tc029-third-party-unknown/v1",
+  "utc": "2026-11-22T13:08:04.938299+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 178,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_BOUNDED_THIRD_PARTY_CHANGE_WHILE_REAL_UNKNOWN_NOT_ADOPTED_AS_OWN_SUCCESS",
+  "whole_TC029": "OPEN_FINAL_CAUSAL_MATRIX_REVIEW",
+  "whole_TC030": "OPEN_POSITIVE_PHASE_AND_COLD_RECOVERY",
+  "whole_mod": "OPEN_CONTINUE",
+  "closed_total_percent_remaining": [
+    22,
+    40,
+    55.0,
+    18
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 6,
+  "product_changes": 0,
+  "owner": {
+    "pid": 8668,
+    "created_at": 1795340439.8508365,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "provenance": "Independent fresh background-only offline Load of the genuine current178 before-native UNKNOWN save, then one explicit TEST_PLAYER F07 external CityManager.TransferCity to existing alive FreeCities62. No paid request, product journal edit, debit or unit action by QA.",
+  "actual_external_change": {
+    "utc": "2026-11-22T12:53:36.475417+00:00",
+    "source_version": 178,
+    "owner": {
+      "pid": 8668,
+      "created_at": 1795340439.8508365,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "native_external_TEST_PLAYER_transfer_calls": 1,
+    "original_native_returned_without_Lua_error": true,
+    "newOwner": 62,
+    "newCityID": 131073,
+    "position": [
+      41,
+      19
+    ],
+    "population": 1,
+    "enemy_cities_before_after": [
+      8,
+      7
+    ],
+    "existing_FreeCities_cities_before_after": [
+      1,
+      2
+    ],
+    "p0cities": 11,
+    "actual_paid_requests": 0,
+    "product_journal_writes": 0,
+    "no_old_city_methods_after_native": true,
+    "source_Capture_observer_does_not_count_this_external_call": true,
+    "no_unknown_native_retry": true
+  },
+  "original_unknown_journal": {
+    "version": 1,
+    "lastID": "city:0:114:2162700:1:524295:41:19",
+    "operations": {
+      "city:0:114:2162700:1:524295:41:19": {
+        "id": "city:0:114:2162700:1:524295:41:19",
+        "kind": "city",
+        "playerID": 0,
+        "turn": 114,
+        "unitID": 2162700,
+        "targetOwner": 1,
+        "cityID": 524295,
+        "x": 41,
+        "y": 19,
+        "cost": 300,
+        "population": 1,
+        "stage": "UNKNOWN",
+        "phase": "TRANSFERRING",
+        "reason": "transfer_unresolved"
+      }
+    }
+  },
+  "original_result": {
+    "id": "city:0:114:2162700:1:524295:41:19",
+    "stage": "UNKNOWN",
+    "reason": "transfer_unresolved"
+  },
+  "independent_state": {
+    "target_owner_old_new_ID_position_population": [
+      62,
+      524295,
+      131073,
+      [
+        41,
+        19
+      ],
+      1
+    ],
+    "existing_recipient_classification": "LEADER_FREE_CITIES; alive=true; IsMajor=false; not a city state",
+    "enemy_cities_before_after": [
+      8,
+      7
+    ],
+    "recipient_cities_before_after": [
+      1,
+      2
+    ],
+    "p0cities_before_after": [
+      11,
+      11
+    ],
+    "gold": 4524.2734375,
+    "gold_delta_or_refund": 0,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "same_army_and_target_Conflict_predicates": true,
+    "source_Capture_native_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ],
+    "external_TEST_PLAYER_native_transfer_calls": 1,
+    "source_observer_scope": "Original Capture callsites only; does not count the separate external QA native transfer.",
+    "cross_context_atomic": false,
+    "UI_Core_observed_field_differences": {}
+  },
+  "recovery_and_planning": {
+    "explicit_product_Recovers": 2,
+    "natural_Controller_RunNow_entries": 7,
+    "actual_rows": [
+      [
+        "1",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "2",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "3",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "4",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "5",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "6",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ],
+      [
+        "7",
+        "114",
+        "true",
+        "1",
+        "UNKNOWN",
+        "TRANSFERRING"
+      ]
+    ],
+    "manual_RunNow_Update_or_turn_event_calls": 0,
+    "internal_Tick_branch_counter_claimed": false,
+    "full_original_journal_result_and_source_rows_unchanged": true,
+    "original_native_binding_replaced": false,
+    "third_party_ownership_adopted_as_own_success": false,
+    "additional_external_or_paid_transfer_requests": 0
+  },
+  "actual_save_reload": {
+    "utc": "2026-11-22T13:06:26.674137+00:00",
+    "source_version": 178,
+    "owner": {
+      "pid": 8668,
+      "created_at": 1795340439.8508365,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "loaded_actual_save": {
+      "utc": "2026-11-22T13:01:51.452449+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC029ThirdPartyUnknown114.Civ6Save",
+      "bytes": 568133,
+      "sha256": "9bf34570f559fce2e11a558b01b5b4ebd67cb96248348d6af0fc7f9525a78e3b",
+      "stable_repeated_read": true
+    },
+    "full_unknown_journal_and_result_unchanged": true,
+    "journal": {
+      "version": 1,
+      "lastID": "city:0:114:2162700:1:524295:41:19",
+      "operations": {
+        "city:0:114:2162700:1:524295:41:19": {
+          "id": "city:0:114:2162700:1:524295:41:19",
+          "kind": "city",
+          "playerID": 0,
+          "turn": 114,
+          "unitID": 2162700,
+          "targetOwner": 1,
+          "cityID": 524295,
+          "x": 41,
+          "y": 19,
+          "cost": 300,
+          "population": 1,
+          "stage": "UNKNOWN",
+          "phase": "TRANSFERRING",
+          "reason": "transfer_unresolved"
+        }
+      }
+    },
+    "result": {
+      "id": "city:0:114:2162700:1:524295:41:19",
+      "stage": "UNKNOWN",
+      "reason": "transfer_unresolved"
+    },
+    "fresh_world_source_Capture_native_transfer_debit_finish": [
+      0,
+      0,
+      0
+    ],
+    "historical_external_TEST_PLAYER_transfer_calls": 1,
+    "fresh_world_external_transfer_calls": 0,
+    "gold": 4524.2734375,
+    "gold_delta_or_refund": 0,
+    "army_moves_damage_cooldown_pending_queued": [
+      4,
+      0,
+      null,
+      false,
+      null
+    ],
+    "target_owner_ID_population": [
+      62,
+      131073,
+      1
+    ],
+    "p0cities": 11,
+    "old_own_planning_and_onceflag_namespaces_absent": true,
+    "fresh_Core_Input_logging_APIs_retired": true,
+    "new_game_actions_or_game_properties_written": 0,
+    "new_save_required": false,
+    "same_process_reload_not_cold_process": true,
+    "whole_TC029_TC030": "OPEN_OTHER_CAUSAL_AND_STAGE_CLAUSES"
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-22T13:01:51.452449+00:00",
+      "name": "Baiqi_P6_20261122_V178_TC029ThirdPartyUnknown114.Civ6Save",
+      "bytes": 568133,
+      "sha256": "9bf34570f559fce2e11a558b01b5b4ebd67cb96248348d6af0fc7f9525a78e3b",
+      "stable_repeated_read": true
+    },
+    "own_three_Core_flags_Save_Load_flags_and_natural_planning_wrapper_retired": true,
+    "fresh_Core_Input_logging_APIs_retired_in_both_worlds": true,
+    "real_product_unknown_journal_preserved": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "diagnostic119_still_installed_no_live_restore": true,
+    "game_process_still_running_MainMenu": true,
+    "Steam_focus_screenshots_mode_upload": 0,
+    "new_Popen": 0,
+    "terminate": 0,
+    "kill": 0
+  },
+  "software_validation": {
+    "actual_Lua51_Lua53_cases": 62,
+    "driver_sha256": "3bc9735b0fc570baa661c309ed0c88a09748d1bd55c2cef08a3451c94b24d589",
+    "actual_instrumented_Capture_consumer_used": true,
+    "scope": "Real current UNKNOWN ledger in software fixture, old city method poison after external transfer, once/reentrant/identity/role/binding/exception and two-Recover checks. Software not Native evidence."
+  },
+  "terminal_observability_limit": {
+    "initial_transfer_tool_terminal_exit": null,
+    "initial_transfer_tool_terminal_chunk": null,
+    "reason": "Context-truncated terminal output; subsequent write_stdin reports unknown session. Exact registered OS parent absent, complete immutable external-change/readback records and final runtime write present. No action replay or fabricated exit0."
+  },
+  "model": {
+    "R99_UTC": "2026-11-22T12:40:51.217186+00:00",
+    "genuine_full_sources": 20,
+    "genuine_UTF8_bytes": 524218,
+    "configured_coder_absent_only_H3": true,
+    "daily_OpenCode_same_user_cached_success": "1.19.6/local2026-11-22",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopted": 0,
+    "OpenCode_native_generation": 0,
+    "fallback": 0,
+    "unknown_cost": null
+  },
+  "limits": [
+    "Only the existing actual FreeCities62 third party was tested. No assertion that it is a city state or that every third-party faction was tested.",
+    "This uses an explicit external QA transfer to isolate ownership causality, not natural combat or a background military action.",
+    "Same-process real save reload, not a cold process; positive recovery phases belong to TC030 and remain open.",
+    "Whole TC029 remains open until its exact causal matrix is reviewed; whole mod remains22/40,18remaining."
+  ],
+  "next": "Review complete TC029 causal matrix against requirements and existing current178 positive paid results; then execute actual positive TRANSFERRED/CHARGED/FINISHING saved and cold recovery windows for TC030. Continue remaining18 and old unresolved failures; no additional Workshop upload.",
+  "time_plan": {
+    "next_checkpoint_target_UTC": "2026-11-22T13:53:04.938332+00:00",
+    "whole_mod_finish": "Unknown;18wholecasesremain."
+  }
+}

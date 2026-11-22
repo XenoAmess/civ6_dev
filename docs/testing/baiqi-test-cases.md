@@ -268,6 +268,8 @@
 <a id="tc-029"></a>
 ### TC-029 结果未知时冻结与因果对账
 
+- 2026-11-22当前178／引擎.74窄通过：[真实UNKNOWN期间第三方归属变化](../research/baiqi-source178-tc029-third-party-unknown-engine74-2026-11-22.json)。现有自由城市62（非城邦）接收一次外部QA转城，产品账本保持原UNKNOWN；2显式恢复、7自然规划、实际存读档均不认己方成功，现金／军队4行动和空冷却保持。Capture三调用点0与外部原生转移1分列，已撤QA返菜单；TC029待完整因果矩阵审阅，TC030肯定阶段／冷恢复仍待。
+
 - 2026-11-22当前178／引擎.74窄通过：[实际转城但肯定回执丢失仍UNKNOWN](../research/baiqi-source178-tc029-applied-lost-receipt-engine74-2026-11-22.json)。真正原生执行并无异常返回一次，fresh城市转己方；产品未获得肯定凭证，撤故障后2显式Recover／6自然规划／正式存读档均不凭所有权补结算。现金和军队4行动保持、0扣款／Finish，已撤QA返菜单。Core/UI收入读数差异单列未知原因，未声称收入一致；第三方因果及其他阶段仍待。
 
 - 2026-11-22当前178／引擎.74窄通过：[UNKNOWN下真实物理右键拒绝](../research/baiqi-source178-tc029-unknown-physical-conflict-engine74-2026-11-22.json)。当前真实中断档的新独立副本，pureQuote合格300但真实右键显示未核实提示；Interact1/request0/paid0/进攻续调0，Core三原生调用0，完整UNKNOWN账本／钱／军队4行动和队列保持，提示确定后再核仍同。已另存撤QA返菜单；补齐实际新UI尝试，其他因果／阶段仍待，整项未闭。
