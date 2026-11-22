@@ -695,3 +695,5 @@
 - TC-030，2026-11-22当前178：[真实UNKNOWN/CHARGING保存恢复](../research/baiqi-source178-tc030-unknown-charge-freeze-engine74-2026-11-22.json)。原生收费已作用但无肯定回执，2恢复／6自然规划／实际存读档均冻结、无退款或再结算；已撤QA返菜单，其他窗口仍待。
 
 - TC-030，2026-11-22当前178：[未确认的真实报价框正式存读档](../research/baiqi-source178-tc030-preconfirmation-save-engine74-2026-11-22.json)通过；保存前后0请求／源000，重载无旧弹窗／持久账本／效果，已撤QA返菜单。完成态独立重载和整体范围审阅继续。
+
+- 2026-11-22 UTC当前178：[旧865原始158与实际接口只读复核](../research/baiqi-source178-old865-readonly-current-api-engine74-2026-11-22.json)。原ARMED保持、未授取消／重放／完整恢复；接口及单位成员、原版消费者范围有限，原FAIL保留。已新存撤QA返菜单，整个模组仍24/40，继续其余16。
