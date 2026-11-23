@@ -531,9 +531,11 @@ local function LoyaltyCity(city,pid,governors)
   end
   local rate=identity:GetLoyaltyPerTurn()
   assert(count==keys and math.abs(total-rate)<=1/256)
-  assert((not assigned and pressure==0) or (assigned and found and pressure>0))
+  -- Native governor effects can reach cities without a stationed governor.
+  -- Those positive passive effects are not removable by recalling this city's governor.
+  assert((not assigned and pressure>=0) or (assigned and found and pressure>0))
   return {id=city:GetID(),population=city:GetPopulation(),loyalty=identity:GetLoyalty(),
-    rate=rate,assigned=assigned and assigned:GetType(),removalPressure=pressure}
+    rate=rate,assigned=assigned and assigned:GetType(),removalPressure=assigned and pressure or 0}
 end
 -- Read demand afresh inside the snapshot's protected call. These facts only
 -- decide whether to build a full snapshot; none authorize an assignment.

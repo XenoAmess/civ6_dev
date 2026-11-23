@@ -53,7 +53,7 @@ def recover_found_writer_source(private:bytes) -> bytes:
 
 def validate_found_option(value,include_pre_observer,source_version):
     if type(value)is not bool:raise ValueError('Expected founding writer timing boolean')
-    if value and(type(source_version)is not int or source_version not in (157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182) or include_pre_observer is not True):
+    if value and(type(source_version)is not int or source_version not in (157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182,183) or include_pre_observer is not True):
         raise ValueError('Founding writer timing requires source157/158/159/160 and pre-observer scope')
 
 
@@ -82,7 +82,7 @@ def recover_detour_paths(private:bytes) -> bytes:
 
 def validate_native_path_option(value,include_pre_observer,source_version):
     if type(value)is not bool:raise ValueError('Expected native path timing boolean')
-    if value and (source_version not in (152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182) or include_pre_observer is not True):
+    if value and (source_version not in (152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182,183) or include_pre_observer is not True):
         raise ValueError('Native path timing requires source152/153 and pre-observer scope')
 
 
@@ -113,13 +113,13 @@ def selected_children(children):
 
 def validate_turn90(value,source_version,include_pre_observer):
     if type(value)is not bool:raise ValueError('Expected explicit turn90 boolean')
-    if value and (source_version not in (153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182) or include_pre_observer is not True):
+    if value and (source_version not in (153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182,183) or include_pre_observer is not True):
         raise ValueError('Turn90 diagnosis requires source153/154 and pre-observer coverage')
 
 
 def suffix(children=CHILDREN,*,include_pre_observer=False,source_version=140,native_path_timing=False,detour_native_timing=False,include_turn90=False,found_native_timing=False):
     children=selected_children(children)
-    if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
+    if type(source_version)is not int or source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182,183):raise ValueError('Expected source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     validate_native_path_option(native_path_timing,include_pre_observer,source_version)
     validate_native_path_option(detour_native_timing,include_pre_observer,source_version)
@@ -284,7 +284,7 @@ end
         if not prefix.startswith('\n-- PRIVATE coarse diagnosis;')or prefix.count('\n')!=1 or not body.endswith('P6ControllerNested=d\nend\n'):
             raise ValueError('Unknown founding writer scope anchors')
         text=prefix+'\n;(function()\n'+body[:-len('end\n')]+'end)()\n'
-    elif source_version in (164,165,166,167,168,169,170,171,172,179,180,181,182):
+    elif source_version in (164,165,166,167,168,169,170,171,172,179,180,181,182,183):
         # Keep legacy suffix bytes unchanged. The164 Controller's extra local
         # table leaves insufficient room for the default diagnostic owner.
         prefix,body=text.split('\ndo\n',1)
@@ -301,7 +301,7 @@ def build(output_dir:Path,*,children=CHILDREN,include_pre_observer=False,native_
     if type(include_pre_observer)is not bool:raise ValueError('Expected explicit scope boolean')
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171','172','179','180','181','182'):raise ValueError('Expected actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
+    if version not in ('140','141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171','172','179','180','181','182','183'):raise ValueError('Expected actual source140,141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
     validate_native_path_option(native_path_timing,include_pre_observer,version)
     validate_native_path_option(detour_native_timing,include_pre_observer,version)
