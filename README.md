@@ -1,5 +1,7 @@
 # civ6_dev
 
+[当前钢铁后城墙失效队列FAIL](docs/research/baiqi-source179-steel-obsolete-wall-fail153-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-tc013-reopened153-2026-11-23.json)：TC013因新实机死锁重开，**27/40＝67.5%**，余13、待发7。已保存并正常退出，继续修复source180与同档冷验，再接TC009；此前70%为重开前快照。
+
 [TC007四独立副本完整实机通过](docs/research/baiqi-source179-tc007-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc007-2026-11-23.json)：正常训练、成本与玩家指挥、上限后续生产、真实低储备拒绝、缺硝石替代及完工均已核对。整体 **28/40＝70%**，余12、待发7；继续TC009科技／市政／原生无地块恢复。
 
 
