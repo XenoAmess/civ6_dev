@@ -16,6 +16,23 @@ function M.Create(C,E)
   if type(C)~='table'or type(C.leader)~='string'or C.leader==''
     or type(C.razeChoiceKey)~='string'or C.razeChoiceKey==''or type(E)~='table'then return nil end
   local KEY=C.razeChoiceKey
+  -- A Map getter invoked through an ExposedMembers function during a UI
+  -- callback returns a UI plot, even when the function was defined in Core.
+  -- Bind Core handles now, before publishing the API. No plot properties or
+  -- hidden map facts are read here; every later access still checks visibility.
+  local nativeMap=E.Map
+  if type(nativeMap)~='table'or type(nativeMap.GetGridSize)~='function'
+    or type(nativeMap.GetPlotByIndex)~='function'then return nil end
+  local ok,width,height=pcall(nativeMap.GetGridSize)
+  if not ok or not Integer(width)or not Integer(height)or width<1 or height<1
+    or width*height>MAX then return nil end
+  local plots={}
+  for index=0,width*height-1 do
+    local got,t=pcall(nativeMap.GetPlotByIndex,index)
+    if not got or not t or type(t.GetProperty)~='function'
+      or type(t.SetProperty)~='function'then return nil end
+    plots[index]=t
+  end
   local busy,faulted=false,false
   local function Owner(pid,active)
     if not Integer(pid)or E.Game.GetLocalPlayer()~=pid or E.GameConfiguration.IsAnyMultiplayer()~=false then return nil end
@@ -33,10 +50,11 @@ function M.Create(C,E)
     if not Integer(index)or not Integer(x)or not Integer(y)then return nil end
     local w,h=E.Map.GetGridSize()
     if not Integer(w)or not Integer(h)or w<1 or h<1 or w*h>MAX
+      or w~=width or h~=height
       or x>=w or y>=h or index~=y*w+x then return nil end
     local vis=E.PlayersVisibility[pid]
     if not vis or vis:IsRevealed(x,y)~=true or vis:IsVisible(x,y)~=true then return nil end
-    local t=E.Map.GetPlotByIndex(index)
+    local t=plots[index]
     if not t or t:GetIndex()~=index or t:GetX()~=x or t:GetY()~=y then return nil end
     return t
   end
