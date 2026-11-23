@@ -1374,3 +1374,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-23 R121：[严格容量恢复真实港口完成](research/baiqi-source180-tc009-strict-capacity-harbor165-engine74-2026-11-23.json)。14完整输入584416字节的真实夹具任务先备；缓存OpenCode1.19.6，两GET200仍qwen缺失仅H3，0生成／候选／采用／原生工具，成本null。owner一次受控人口15→16与原子其他实体／钱包／资源／地块核对，28语义故障例各双VM后才Native调用；原始UI和Core接口不能互相推断，Core Members/FindID实际nil，完成字段由UI与Core地图身份分开佐证。阶段短暂不符时只读拒绝、稳定新查询，不重放游戏动作。
+
+
+2026-11-23 R122/R123：[城市化恢复与129中间档](research/baiqi-source180-tc009-civic-restoration-mid129-engine74-2026-11-23.json)。真实未完市政夹具15完整输入655024bytes；下一TC035兼容矩阵27完整输入854971bytes先备。各缓存1.19.6／两GET200仍qwen缺失仅H3，0生成／候选／采用／原生工具，成本null。31夹具故障例各VM后Core一次SetCivic，Core真与UI晚一回合同步分列，不因UI旧值重发setter；全案例尚未通过。Native assert对多返回中的第二table拒绝，用括号只传boolean，3严格消息端口例各VM；所有后续动态Lua读片段应在首个动作前一起编译，数字与and的空格漏写曾只拒绝Core读，不重发已观察移动。中间保存仍有1被动观察绑定，不伪称全QA撤去。

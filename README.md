@@ -1,5 +1,7 @@
 # civ6_dev
 
+[180市政恢复与129中间检查点](docs/research/baiqi-source180-tc009-civic-restoration-mid129-engine74-2026-11-23.json)：城市化只受控恢复一次，Core立即真／UI至下一普通回合同步；实际社区规划仍待，**28/40＝70%、余12**。14:00:31正式存档已核，观察器仍在用；待发8／工坊172，继续验收。
+
 [180严格容量恢复与港口完工165](docs/research/baiqi-source180-tc009-strict-capacity-harbor165-engine74-2026-11-23.json)：同160回合仅受控人口15→16，容量5/5→5/6，原版可放地块0→2，队列／钱包／22地块保持；161真实自动港口，165 UI完工与Core地图完整ID一致，已存退QA返菜单。TC009市政分支仍待，整体 **28/40＝70%、余12**；继续工作，待发8、工坊172。
 
 [180钢铁后失效城墙实机修复通过](docs/research/baiqi-source180-steel-wall-factory158-native-engine74-2026-11-23.json)／[当前台账](docs/research/baiqi-source180-finite40-engine74-tc013-reclosed158-2026-11-23.json)：原152自然解锁钢铁，153后台只一次合法前插工厂，158独立Core确认建成并自动续证券交易所。已保存、撤全部QA返主菜单，TC013重新关闭；整项 **28/40＝70%，余12**。待发8组源码修复，工坊仍172；继续TC009严格容量／市政及其余验收。
