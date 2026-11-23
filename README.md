@@ -1,5 +1,7 @@
 # civ6_dev
 
+[180 TC009严格市政正例与127社区建成](docs/research/baiqi-source180-tc009-civic-only-neighborhood127-engine74-2026-11-23.json)及[当前40项账本](docs/research/baiqi-source180-finite40-engine74-tc009-closed127-2026-11-23.json)：**29/40＝72.5%，余11**。同条件120仅补城市化一次，原本无地貌地块Native资格false→true；122自动社区、127 UI/Core完工，8普通END／59玩家军事待命／1军移，已存撤全部QA返菜单。竞争候选由恒定拒绝夹具筛选，非自然优先级证明；旧135额外住房条件样本仍不授通过。待发8／工坊172，继续TC035及其余验收。
+
 [180市政135候选的单条件范围审阅](docs/research/baiqi-source180-tc009-civic135-single-condition-scope-audit-engine74-2026-11-23.json)：11条记录实际只有1个选址，额外住房紧缺条件同时改变，**不授TC009通过，仍28/40＝70%、余12**。135已存、全QA撤去并正式返菜单；继续原本无地貌的合格地块验证，待发8／工坊172。
 
 [180市政恢复与129中间检查点](docs/research/baiqi-source180-tc009-civic-restoration-mid129-engine74-2026-11-23.json)：城市化只受控恢复一次，Core立即真／UI至下一普通回合同步；实际社区规划仍待，**28/40＝70%、余12**。14:00:31正式存档已核，观察器仍在用；待发8／工坊172，继续验收。
