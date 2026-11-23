@@ -1,0 +1,328 @@
+{
+  "schema": "civ6.current179-tc007-complete-engine74/v1",
+  "utc": "2026-11-23T01:57:17.984379+00:00",
+  "machine_local_date": "2026-11-23",
+  "machine": "BF-202609141645",
+  "source_version": 179,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_WHOLE_TC007_ADOPTED_CONTRACT",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_cases_closed_total_percent_remaining": [
+    28,
+    40,
+    70.0,
+    12
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 7,
+  "new_product_changes": 0,
+  "ordinary179_all119_exact": true,
+  "exact_contract_review": {
+    "mandatory_UTF8_LF_sha256": "35597ac0ccb514d7862132a35440d2210de1426106a7c5aad100f4d84287e472",
+    "mandatory_lines": [
+      "- 需求：BR-006、BR-015。夹具：F01／F04，有缺兵、达到需求上限、资源不足和财政低于储备的独立副本。",
+      "- 步骤：各副本触发规划；对允许训练者等到完成，跨一个完整规划周期；对达到上限者持续观察后续生产。",
+      "- 预期：只在需求和预算允许时补兵，正常支付产能／资源并计入维护费；不足时安排其他合法项或等待，达到上限不继续无穷招募。新兵没有后台移动／作战命令，军事待命提示允许存在。",
+      "- 证据：需求／预算计算、入队时状态、完成后资源与维护费、单位命令来源。"
+    ],
+    "clause_review": [
+      {
+        "clause": "Four independent real demand/capped/resource-shortage/low-reserve copies each invoke natural planning",
+        "pass": true,
+        "basis": "Current179/.74 original11-city cap119..121; unmodified-rich138..149 normal training; independentPre140B one explicit gold debit then141 actual7 isolating fiscal rejections; independentPre141C one explicit Niter removal with actual selected-city cost-sensitive qualification change and real alternative."
+      },
+      {
+        "clause": "Every selected military type used for positive or shortage credit truly completes and crosses a full normal planning cycle",
+        "pass": true,
+        "basis": "Positive Cannon147 and Infantry148, actual149 after both; shortage Cuirassier148, actual149. Exact city/type and UnitAdded/fullID joins, independent Core positions, normal production165/180/165; no creation/progress grants. New later allowed replacement queues148/149 only support bounded continuing planning, not a claim that every future queue has completed."
+      },
+      {
+        "clause": "Normal production/resource expense and maintenance, fiscal/resource failure chooses legal alternative or waits",
+        "pass": true,
+        "basis": "Native quotes, actual full progress sequences, Niter25+3−10=18 for normal Infantry and Iron25+2−10=17 for Cuirassier; costs/accumulation and direct Native selected-city quotes separated from unavailable instant expense event. Gold58.9375<100 rejection while actual other inputs eligible led to Factory. Unit maintenance28→49 (old Conscription16 restored plus Cannon5)→54 (+Infantry/Cuirassier5), native policies held."
+      },
+      {
+        "clause": "Finite demand/cap control and later legal production, player retains new military control without BACKGROUND move/combat",
+        "pass": true,
+        "basis": "Independent24>=22 cap world continued real buildings/districts without new military queue through121; its final recruit0 is explicitly non-causal, supplemented by actual current142/149 cap-isolating false inputs. Natural14th city raises cap26→28; army26+queued2=28. New units wait at birth, safe actual TEST_PLAYER moves accepted, complete subsequent turn retains targets; original product excludes these types from civilian control, complete held logs match0 new-army requests, independent Core proof. Global Native writer counts remain unknown."
+      }
+    ],
+    "TC007_whole_case_pass": true
+  },
+  "preceding_current179_engine74_evidence": [
+    "docs/research/baiqi-source179-tc007-cap-observation-engine74-2026-11-23.json",
+    "docs/research/baiqi-source179-tc007-two-armies149-engine74-2026-11-23.json",
+    "docs/research/baiqi-source179-tc007-causal-fiscal141-engine74-2026-11-23.json",
+    "docs/research/baiqi-source179-tc007-resource-shortage-fallback145-engine74-2026-11-23.json"
+  ],
+  "independent_copies": [
+    {
+      "role": "reached cap",
+      "closeout_save": {
+        "utc": "2026-11-22T23:12:56.521955+00:00",
+        "name": "Baiqi_P6_20261123_V179_TC007Capped121.Civ6Save",
+        "bytes": 572654,
+        "sha256": "637222c01db32f7c9fc5354359c8181bccd1c6063dc3dbf3f5a635149e004fe8",
+        "stable_repeated_read": true
+      }
+    },
+    {
+      "role": "normal demand and two trained armies",
+      "closeout_save": {
+        "utc": "2026-11-23T00:57:00.775332+00:00",
+        "name": "Baiqi_P6_20261123_V179_TC007NeedBothArmies149.Civ6Save",
+        "bytes": 622348,
+        "sha256": "c4a0578346ec978965d23667616d00933adda8e7564c052de04b115dc61c1720",
+        "stable_repeated_read": true
+      }
+    },
+    {
+      "role": "causal low fiscal reserve",
+      "closeout_save": {
+        "utc": "2026-11-23T01:06:37.932752+00:00",
+        "name": "Baiqi_P6_20261123_V179_TC007FiscalGate141.Civ6Save",
+        "bytes": 600778,
+        "sha256": "5f32a31daf688d431d8c483d5d410d9fe01cfe3ef048b57f948ee7c69f8b1580",
+        "stable_repeated_read": true
+      }
+    },
+    {
+      "role": "causal Niter shortage with completed alternative",
+      "closeout_save": {
+        "utc": "2026-11-23T01:53:10.302106+00:00",
+        "name": "Baiqi_P6_20261123_V179_TC007ResourceAlternative149.Civ6Save",
+        "bytes": 622389,
+        "sha256": "7053ff1fa21bf2b2343e84dbcebb17346232871c36b025fd7e96f6a9b30d6567",
+        "stable_repeated_read": true
+      }
+    }
+  ],
+  "final_resource_alternative": {
+    "selected_city": 196610,
+    "automatic_request": "0:142:3",
+    "normal_cost": 165,
+    "progress_by_turn": {
+      "142": 0,
+      "143": 33,
+      "144": 62,
+      "145": 91,
+      "146": 120,
+      "147": 152
+    },
+    "completed_turn": 148,
+    "full_id": 8388653,
+    "type": "UNIT_CUIRASSIER",
+    "UnitAdded": [
+      "48",
+      "UnitAddedToMap",
+      "148",
+      "4",
+      "0",
+      "8388653",
+      "10",
+      "13",
+      "nil",
+      "nil"
+    ],
+    "CityProductionCompleted": [
+      "50",
+      "CityProductionCompleted",
+      "148",
+      "6",
+      "0",
+      "196610",
+      "0",
+      "119",
+      "false",
+      "0"
+    ],
+    "native_maintenance": 5,
+    "actual_unit_maintenance_after_birth": 54,
+    "player_native_MOVE_TO": [
+      9,
+      13
+    ],
+    "player_native_wait_after_move": 1,
+    "actual_full_cycle": [
+      148,
+      149
+    ],
+    "Core_UI_player_target_retained": true,
+    "matching_logged_BACKGROUND_new_army_requests": [],
+    "actual149_economy": [
+      [
+        "14",
+        "53",
+        "26",
+        "2",
+        "28",
+        "7264.5703125",
+        "167.40234375",
+        "106",
+        "61.40234375"
+      ]
+    ],
+    "actual149_strategic_resources": [
+      [
+        "RESOURCE_ALUMINUM",
+        "40",
+        "0",
+        "0"
+      ],
+      [
+        "RESOURCE_COAL",
+        "41",
+        "18",
+        "3"
+      ],
+      [
+        "RESOURCE_HORSES",
+        "42",
+        "30",
+        "6"
+      ],
+      [
+        "RESOURCE_IRON",
+        "43",
+        "30",
+        "2"
+      ],
+      [
+        "RESOURCE_NITER",
+        "44",
+        "14",
+        "3"
+      ],
+      [
+        "RESOURCE_OIL",
+        "45",
+        "0",
+        "0"
+      ],
+      [
+        "RESOURCE_URANIUM",
+        "46",
+        "0",
+        "0"
+      ]
+    ],
+    "actual149_treasury": [
+      [
+        "GetGoldBalance",
+        "function",
+        "true",
+        "7264.5703125"
+      ],
+      [
+        "GetGoldYield",
+        "function",
+        "true",
+        "167.40234375"
+      ],
+      [
+        "GetTotalMaintenance",
+        "function",
+        "true",
+        "106"
+      ],
+      [
+        "GetUnitMaintenance",
+        "function",
+        "true",
+        "54"
+      ],
+      [
+        "GetBuildingMaintenance",
+        "function",
+        "true",
+        "39"
+      ],
+      [
+        "GetDistrictMaintenance",
+        "function",
+        "true",
+        "18"
+      ]
+    ],
+    "original_Cannon_full_id": 8257583,
+    "original_Cannon_player_target149": [
+      16,
+      5
+    ]
+  },
+  "explicit_F04_setup_scope": "Gold−6654 and CoreNiter−28 occur in separate independent saved copies. Neither is normal expense nor AI effect. Other money/faith/resource/unit/city fields were atomically audited. No refund, grant, unit creation, progress or queue override; no protected unknown journal clearing/replay.",
+  "test_player_vs_background": "Only legitimate military orders, ordinary no-reason END and original diplomacy/Congress GUI inputs. No Baiqi domestic/civilian/production/repair rescue. Four ballot groups/one submission; player luxury targets differed between copies but actual enacted results matched, no identical-input claim.",
+  "resource_closeout": {
+    "save": {
+      "utc": "2026-11-23T01:53:10.302106+00:00",
+      "name": "Baiqi_P6_20261123_V179_TC007ResourceAlternative149.Civ6Save",
+      "bytes": 622389,
+      "sha256": "7053ff1fa21bf2b2343e84dbcebb17346232871c36b025fd7e96f6a9b30d6567",
+      "stable_repeated_read": true
+    },
+    "three_exact_original_Lua_bindings_restored": true,
+    "three_own_event_handlers_removed": true,
+    "all_own_world_fixture_input_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "actual_normal_actions": [
+      "227",
+      "8",
+      "8",
+      "3"
+    ],
+    "actual_batch_counts": {
+      "141": 28,
+      "142": 28,
+      "143": 28,
+      "144": 28,
+      "145": 27,
+      "146": 29,
+      "147": 29,
+      "148": 30
+    },
+    "actual_extra_END_keys": [
+      "143:2",
+      "145:2",
+      "147:2"
+    ],
+    "explicit_QA_Niter_delta": -28,
+    "refund": 0
+  },
+  "qualification_limits": [
+    "Core/UI strategic stock semantics are distinct. Actual native quote and per-turn balances support expense without claiming held instant selected-city transaction event.",
+    "Cap copy final AllowRecruit0 is not causal gate credit; direct cap-isolating actual calls in the recruiting world supply that part.",
+    "Only finite mandatory scenarios/samples are passed; no global Native writer count, indefinite-runtime theorem, untested mode/platform or complete whole-mod claim.",
+    "Original77/older-engine effects are not current179 effect credit; their protected starting snapshots may be reused as explicit initial conditions.",
+    "Old8650807 FAIL_UNRESOLVED and6684713/458752 LEGACY_UNKNOWN remain protected with0clear/0replay/0cancel."
+  ],
+  "local_model": {
+    "genuine_R112_R113_R114_preparations": true,
+    "R114_complete_inputs": 14,
+    "R114_raw_UTF8_bytes": 463620,
+    "OpenCode_version": "1.19.6",
+    "same_local_day_maintenance_cache_reused": true,
+    "configured_model_missing_only_open_h3_2k_at_last_readiness": true,
+    "generation_POSTs_candidates_adoption_OpenCode_native_tools": 0,
+    "owner_F04_dual_VM_cases": 36,
+    "R113_software_checks": 74,
+    "R113_pending_branch_now_actual_Native_covered": true,
+    "time_saving": null,
+    "cost": null
+  },
+  "owner_corrections": "All failed adapters/assumptions and readonly recoveries retained in prior evidence, including log/marker/path/shape mismatches, wrong CanProduce variant expectation, infantry zero-move guard, GUI wheel-before-view violation and four-vs-five ballot report erratum. No business action replay or model attribution.",
+  "next": "Continue TC009 independent tech/civic/original no-terrain-site restoration and remaining12 cases. No final at this commit; no new Workshop upload.",
+  "public_source_sha256": {
+    "docs/research/baiqi-source179-tc007-cap-observation-engine74-2026-11-23.json": "ccd222e8913892a969179e2bff9cb3ec409583f8bb2e4821adb999ab66e04047",
+    "docs/research/baiqi-source179-tc007-two-armies149-engine74-2026-11-23.json": "331286b18b2de0d04a9de71354beaa6bff11f2d00c105a03750957bee281750e",
+    "docs/research/baiqi-source179-tc007-causal-fiscal141-engine74-2026-11-23.json": "b12d1a6791c6db20a646944e66d5faecfa23daf0795c6147520fc33d572a5d8e",
+    "docs/research/baiqi-source179-tc007-resource-shortage-fallback145-engine74-2026-11-23.json": "56cbdb438ad259a8ab5251facb9840d01c4be206480b28edf94ae558e2506a80"
+  },
+  "private_final_artifact_sha256": {
+    "tc007179resource-resource148-birth-events-alternativeBirth.json": "d30cd0e06b2e89726e88d84392528a0b7077a6421519119d0578cc628972da29",
+    "tc007179resource-resource149-final149-observed.json": "682507ec96fef38aa2b310837acf736f42337ba4cbbf5772a0bdd8a8becc1e2b",
+    "tc007179resource-resource149-alternative-real-completion-full-cycle-qualified.json": "dcab8749548d89eaf089fd9a29240063e4ac774dafa8b0a99ea4d947d11f9414",
+    "tc007179resource-resource149-saved-retired.json": "a46895c1ecf8d620120bd2264df17f9a9bc86d19276ec4f134a897a149714850",
+    "tc007179resource-resource149-saved-world-exited-mainmenu.json": "014c6a2946255291ab1204848bce073a9908da95472b6fc0c9313edd2d2e94ad"
+  }
+}

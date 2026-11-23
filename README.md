@@ -1,5 +1,8 @@
 # civ6_dev
 
+[TC007四独立副本完整实机通过](docs/research/baiqi-source179-tc007-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc007-2026-11-23.json)：正常训练、成本与玩家指挥、上限后续生产、真实低储备拒绝、缺硝石替代及完工均已核对。整体 **28/40＝70%**，余12、待发7；继续TC009科技／市政／原生无地块恢复。
+
+
 [TC012三类修复整项实机通过](docs/research/baiqi-source179-tc012-complete-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-after-tc012-2026-11-23.json)：原版成本与白绮自动修复、产能和收益、保存清理均已核对。整体 **27/40＝67.5%**，余13、待发7；继续军队补充边界验收。
 
 [TC012建筑／区域原版修复对照已通过](docs/research/baiqi-source179-tc012-normal-building-district-repair-engine74-2026-11-23.json)：纪念碑剩8产能、学院剩9产能，均实际完工并恢复对应原生效果。白绮两类自动修复继续；整体 **26/40＝65%**，余14、待发7。
