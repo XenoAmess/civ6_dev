@@ -1,0 +1,430 @@
+{
+  "schema": "civ6.source183-tc018-cityloss-reload-planning133/v1",
+  "utc": "2026-11-23T20:34:42.571155+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "source_version": 183,
+  "artifact": {
+    "mode": "ordinary183-unmodified",
+    "files": 123,
+    "Lua_sources_each_VM": 101,
+    "zip_sha256": "9c84beac0c33dc4b5e7d79eae4f8a1616b374c64736ff6ac33e7638896c4fbd7",
+    "product_changes_in_this_workpackage": 0
+  },
+  "status": "FINITE_NATIVE_SAVED_CITYLOSS_RELOAD_AND_POSITIVE_PLANNING_PASS_ORIGINAL_QUIET_FIXTURE_UNKNOWN_RETAINED",
+  "whole_TC018": "OPEN_UNIT_LOSS_AND_CAPTURE_SAVED_RELOAD_THEN_PLANNING",
+  "whole_closed_total_percent_remaining": [
+    31,
+    40,
+    77.5,
+    9
+  ],
+  "Workshop_source": 172,
+  "unpublished_logical_product_fix_packages": 11,
+  "input_save": {
+    "utc": "2026-11-23T12:28:49.202388+00:00",
+    "name": "Baiqi_P6_20261124_V183_TC018CityLostReload132_ByteCopy.Civ6Save",
+    "bytes": 589466,
+    "sha256": "5c202904d2747c49c91aaceb36082c8c1cc05eea927f2cca3f37928422317e9c",
+    "stable_repeated_read": true,
+    "original": {
+      "utc": "2026-11-23T12:28:49.202388+00:00",
+      "name": "Baiqi_P6_20261123_V180_TC018CityLost132.Civ6Save",
+      "bytes": 589466,
+      "sha256": "5c202904d2747c49c91aaceb36082c8c1cc05eea927f2cca3f37928422317e9c",
+      "stable_repeated_read": true
+    },
+    "scope": "ActualKcity-loss save. No transferagain/5displacementundo/quietfixturepass; lost0_262147->foreign1_655369 at13,16; own0_655369separate."
+  },
+  "actual_reloaded_city_mapping": {
+    "lost_old": [
+      0,
+      262147,
+      13,
+      16
+    ],
+    "visible_foreign_current": [
+      1,
+      655369,
+      13,
+      16
+    ],
+    "legitimate_own_same_numeric_ID": [
+      0,
+      655369,
+      11,
+      1
+    ],
+    "own_city_count": 11,
+    "Core_final": [
+      "11",
+      "50",
+      "1",
+      "655369",
+      "13",
+      "16",
+      "0",
+      "655369",
+      "11",
+      "1",
+      "true",
+      "LEGACY_UNKNOWN",
+      "nil",
+      "862",
+      "nil",
+      "nil"
+    ],
+    "identity_rule": "Full owner plus ID plus XY and saved world. Numeric ID alone is not unique across owners."
+  },
+  "positive_producer_scope": {
+    "methods": [
+      "CityManager.RequestOperation",
+      "CityManager.RequestCommand"
+    ],
+    "context": "BaiqiExecutor only, qualified context-local proxy and Controller.Update/RunNow passive wrappers",
+    "actual_rows": [
+      [
+        "1",
+        "1",
+        "133",
+        "0",
+        "393221",
+        "15",
+        "5",
+        "RequestOperation",
+        "739199558",
+        "BaiqiController.RunNow",
+        "true",
+        "true",
+        "0"
+      ],
+      [
+        "2",
+        "2",
+        "133",
+        "0",
+        "524295",
+        "14",
+        "9",
+        "RequestOperation",
+        "739199558",
+        "BaiqiController.RunNow",
+        "true",
+        "true",
+        "0"
+      ]
+    ],
+    "write_calls": 2,
+    "lost_old_or_foreign_rows": 0,
+    "metadata_errors": 0,
+    "native_errors": 0,
+    "drops": 0,
+    "native_void_return_is_not_effect": true,
+    "scope_limit": "No global SDK or other-context writer count claimed. Negative target conclusion is bounded by this positive producer window."
+  },
+  "independent_actual_production": {
+    "every_own_city_queue_typed": 11,
+    "queue_changes": [
+      {
+        "id": "65536",
+        "before": [
+          "DISTRICT",
+          "DISTRICT_COMMERCIAL_HUB",
+          "6",
+          "74",
+          "160"
+        ],
+        "after": [
+          "DISTRICT",
+          "DISTRICT_COMMERCIAL_HUB",
+          "6",
+          "115",
+          "160"
+        ]
+      },
+      {
+        "id": "131073",
+        "before": [
+          "DISTRICT",
+          "DISTRICT_ENCAMPMENT",
+          "3",
+          "0",
+          "98"
+        ],
+        "after": [
+          "DISTRICT",
+          "DISTRICT_ENCAMPMENT",
+          "3",
+          "50",
+          "98"
+        ]
+      },
+      {
+        "id": "196610",
+        "before": [
+          "BUILDING",
+          "BUILDING_UNIVERSITY",
+          "16",
+          "0",
+          "125"
+        ],
+        "after": [
+          "BUILDING",
+          "BUILDING_UNIVERSITY",
+          "16",
+          "28",
+          "125"
+        ]
+      },
+      {
+        "id": "327684",
+        "before": [
+          "UNIT",
+          "UNIT_BUILDER",
+          "1",
+          "72",
+          "103"
+        ],
+        "after": [
+          "UNIT",
+          "UNIT_BUILDER",
+          "1",
+          "92",
+          "103"
+        ]
+      },
+      {
+        "id": "393221",
+        "before": [
+          "BUILDING",
+          "BUILDING_STAR_FORT",
+          "22",
+          "138",
+          "150"
+        ],
+        "after": [
+          "BUILDING",
+          "BUILDING_FACTORY",
+          "25",
+          "0",
+          "165"
+        ]
+      },
+      {
+        "id": "458758",
+        "before": [
+          "DISTRICT",
+          "DISTRICT_CAMPUS",
+          "2",
+          "0",
+          "165"
+        ],
+        "after": [
+          "DISTRICT",
+          "DISTRICT_CAMPUS",
+          "2",
+          "33",
+          "165"
+        ]
+      },
+      {
+        "id": "524295",
+        "before": [
+          "DISTRICT",
+          "DISTRICT_CAMPUS",
+          "2",
+          "144",
+          "158"
+        ],
+        "after": [
+          "BUILDING",
+          "BUILDING_LIBRARY",
+          "4",
+          "0",
+          "45"
+        ]
+      },
+      {
+        "id": "589832",
+        "before": [
+          "DISTRICT",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "9",
+          "42",
+          "121"
+        ],
+        "after": [
+          "DISTRICT",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "9",
+          "43",
+          "121"
+        ]
+      },
+      {
+        "id": "655369",
+        "before": [
+          "BUILDING",
+          "BUILDING_WORKSHOP",
+          "18",
+          "67",
+          "97"
+        ],
+        "after": [
+          "BUILDING",
+          "BUILDING_WORKSHOP",
+          "18",
+          "76",
+          "97"
+        ]
+      },
+      {
+        "id": "720906",
+        "before": [
+          "DISTRICT",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "9",
+          "12",
+          "158"
+        ],
+        "after": [
+          "DISTRICT",
+          "DISTRICT_INDUSTRIAL_ZONE",
+          "9",
+          "14",
+          "158"
+        ]
+      },
+      {
+        "id": "851979",
+        "before": [
+          "DISTRICT",
+          "DISTRICT_HARBOR",
+          "4",
+          "0",
+          "165"
+        ],
+        "after": [
+          "DISTRICT",
+          "DISTRICT_HARBOR",
+          "4",
+          "12",
+          "165"
+        ]
+      }
+    ],
+    "city393221": "Star Fort138/150 before, Factory0/165 after",
+    "city524295": "Campus144/158 before, Library0/45 after",
+    "building393221_star_fort_before": [],
+    "building393221_star_fort_after": [
+      [
+        "393221",
+        "22",
+        "BUILDING_STAR_FORT"
+      ]
+    ],
+    "district524295_campus_after": [
+      [
+        "524295",
+        "DISTRICT_CAMPUS",
+        "13",
+        "8",
+        "true",
+        "false"
+      ]
+    ]
+  },
+  "player_inputs": {
+    "official_protected_bytecopy_Loads": 1,
+    "physical_Continue": 1,
+    "original_unit_reminder_click_selected_scout_without_END": 1,
+    "new_distinct_FORTIFY": 24,
+    "new_distinct_SLEEP": 4,
+    "same_saved_turn_old_SKIP_replays": 0,
+    "stance_positions_unchanged": 28,
+    "independent_readyMove_and_readySelect_false": 28,
+    "ordinary_END_without_REASON": 1,
+    "actual_turns": [
+      132,
+      133
+    ],
+    "physical_TEST_PLAYER_trade_decline_and_goodbye": 2,
+    "army_MOVEs": 0,
+    "manual_civilian_or_production_research_Governor_inputs": 0,
+    "old_transfer_Kill_capture_undo_replays": 0,
+    "Steam_mode_actions": 0,
+    "new_game_Popen": 0
+  },
+  "stance_effect_scope": "28 actual own unescorted military qualified at each native permission read; consume per-unit intent before original FORTIFY/SLEEP, same attempts map across both. Independent positions and readiness followed. Native void ACK alone was not granted effect. Tool is TEST_PLAYER only and not product/BACKGROUND code. Fortify units may retain original pending operations; no cancel or replay.",
+  "science": {
+    "actual_current": "TECH_SANITATION",
+    "progress": [
+      0,
+      89.046875
+    ],
+    "exact_source182_completed_current_branch": "STILL_NOT_REPRODUCED_NO_PASS",
+    "TC009": "OPEN"
+  },
+  "protected_legacy_unknowns": "6684713 LEGACY_UNKNOWN retained; no clear/cancel/replay of 8650807 FAIL_UNRESOLVED or 458752 LEGACY_UNKNOWN protected saves. Paid/result nil. Original transfer strict atomic FAIL_UNKNOWN and five displacements retained, never retroactively quiet PASS.",
+  "owner_caller_corrections": [
+    "Core preamble incorrectly used UI phase globals; read-only failure before any retirement/save. Corrected owner caller uses actual Core turn/local/active checks; original failure retained; no game action replay.",
+    "First MainMenu read wrongly required retained true Load flag. After actual formal menu transition, fresh read observed its actual value and required nil-or-true, then explicitly verified absence; no Load replay or gameplay change. Original failed read preserved."
+  ],
+  "preservation": {
+    "save": {
+      "utc": "2026-11-23T20:30:21.097093+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC018CityLostReloadPlanned133.Civ6Save",
+      "bytes": 591621,
+      "sha256": "a1828a2c3847b8b616d23e28bd00560aac90c785f6151712345638373c09b7a3",
+      "stable_repeated_read": true
+    },
+    "three_passive_context_bindings_restored": [
+      "2",
+      "4383",
+      "4387",
+      "true",
+      "false",
+      "true"
+    ],
+    "all_known_private_stance_END_Save_Load_flags_absent": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "actual_menu_Load_flag_before_cleanup": [
+      "nil"
+    ],
+    "game_Quit": "NOT_REQUESTED_SAME_OWNED_INSTANCE_AT_MENU"
+  },
+  "model_R153": {
+    "task": "R153 genuine uncompleted K/L/M saved-loss reload and positive planning",
+    "full_sources_prepared_before_owner_adapters": 20,
+    "raw_UTF8_bytes": 489439,
+    "availability_observation_utc": "2026-11-23T19:57:22.401903+00:00",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "actual_GET_statuses": [
+      200,
+      200
+    ],
+    "configured_model": "qwen38-coder",
+    "actual_available_models": [
+      "open-h3-2k"
+    ],
+    "generation_POSTs": 0,
+    "candidate_completions": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "maintenance": {
+      "date": "2026-11-24",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "cost": null,
+    "scope": "Prepared full task context was not sent as a generation request. Configured model absent, no fallback/configuration/service change; owner implemented native callers. R154 stance tooling reused this availability observation without new HTTP."
+  },
+  "previous_original_cityloss_report": "docs/research/baiqi-source180-tc018-city-loss132-engine74-2026-11-23.json",
+  "stance_tool_software_report": "docs/research/baiqi-test-player-original-stance-tool-2026-11-24.json",
+  "next": "Load independent actual unit-loss132 saved fork under unchanged183, fresh background Steam offline proof, Continue first, fresh Native qualification; no repeated Kill or old SKIP. Then captured132 fork with full owner IDs. Continue remaining9; no final or Workshop172 duplicate upload."
+}
