@@ -1,0 +1,1788 @@
+{
+  "schema": "civ6.source183-tc019-scout-support-naval-control136/v1",
+  "utc": "2026-11-23T22:39:40.111612+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "PARTIAL_FOUR_MORE_CLASS_BACKGROUND_EFFECT_ISOLATION_AND_ACTUAL_PLAYER_MOVEMENT_PASS_ORIGINAL_SUPPORT_SETUP_ATOMIC_UNKNOWN_RETAINED",
+  "whole_TC019": "OPEN",
+  "whole_closed_total_percent_remaining": [
+    33,
+    40,
+    82.5,
+    7
+  ],
+  "current_ledger": "docs/research/baiqi-source183-finite40-engine74-tc009-reclosed136-2026-11-24.json",
+  "previous_two_classes": "docs/research/baiqi-source183-tc019-standard-corps-player-control136-engine74-2026-11-24.json",
+  "fresh_current_safe_sites": {
+    "utc": "2026-11-23T22:26:30.686251+00:00",
+    "pairs": [
+      [
+        "scout",
+        "false",
+        "52",
+        "8",
+        "1",
+        "12",
+        "-1",
+        "53",
+        "9",
+        "1",
+        "12",
+        "-1"
+      ],
+      [
+        "support",
+        "false",
+        "56",
+        "12",
+        "1",
+        "13",
+        "-1",
+        "101",
+        "13",
+        "2",
+        "12",
+        "-1"
+      ],
+      [
+        "engineer",
+        "false",
+        "141",
+        "9",
+        "3",
+        "9",
+        "-1",
+        "186",
+        "10",
+        "4",
+        "10",
+        "-1"
+      ],
+      [
+        "naval",
+        "true",
+        "11",
+        "11",
+        "0",
+        "15",
+        "-1",
+        "12",
+        "12",
+        "0",
+        "15",
+        "6"
+      ]
+    ],
+    "definitions": [
+      [
+        "UNIT_SCOUT",
+        "20",
+        "DOMAIN_LAND",
+        "FORMATION_CLASS_LAND_COMBAT",
+        "3",
+        "10",
+        "0",
+        "false"
+      ],
+      [
+        "UNIT_BATTERING_RAM",
+        "31",
+        "DOMAIN_LAND",
+        "FORMATION_CLASS_SUPPORT",
+        "2",
+        "0",
+        "0",
+        "false"
+      ],
+      [
+        "UNIT_MILITARY_ENGINEER",
+        "49",
+        "DOMAIN_LAND",
+        "FORMATION_CLASS_SUPPORT",
+        "2",
+        "0",
+        "0",
+        "false"
+      ],
+      [
+        "UNIT_GALLEY",
+        "26",
+        "DOMAIN_SEA",
+        "FORMATION_CLASS_NAVAL",
+        "3",
+        "30",
+        "0",
+        "false"
+      ]
+    ],
+    "current_nonwhite_Core": [
+      [
+        "0",
+        "1048576",
+        "UNIT_SCOUT",
+        "12",
+        "16",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "131073",
+        "UNIT_WARRIOR",
+        "15",
+        "13",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "327683",
+        "UNIT_SCOUT",
+        "15",
+        "15",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "524292",
+        "UNIT_SCOUT",
+        "16",
+        "14",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1835013",
+        "UNIT_HORSEMAN",
+        "11",
+        "13",
+        "4",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "786438",
+        "UNIT_SCOUT",
+        "10",
+        "13",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "5505031",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "15",
+        "5",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1114120",
+        "UNIT_SCOUT",
+        "14",
+        "16",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1245193",
+        "UNIT_SCOUT",
+        "11",
+        "16",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "3735562",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "11",
+        "5",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1441803",
+        "UNIT_SCOUT",
+        "13",
+        "17",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "2162700",
+        "UNIT_HORSEMAN",
+        "10",
+        "12",
+        "4",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "4128783",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "8",
+        "10",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "2097168",
+        "UNIT_ARCHER",
+        "17",
+        "14",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "6619154",
+        "UNIT_MUSKETMAN",
+        "11",
+        "6",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "2424851",
+        "UNIT_HORSEMAN",
+        "11",
+        "7",
+        "4",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "2686997",
+        "UNIT_ARCHER",
+        "16",
+        "13",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "2818071",
+        "UNIT_HORSEMAN",
+        "10",
+        "5",
+        "4",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "3604507",
+        "UNIT_GREAT_ADMIRAL",
+        "7",
+        "9",
+        "5",
+        "-1",
+        "1"
+      ],
+      [
+        "0",
+        "7471132",
+        "UNIT_MODERN_ARMOR",
+        "26",
+        "19",
+        "5",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "3997727",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "13",
+        "15",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "4063264",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "14",
+        "9",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "4456482",
+        "UNIT_KNIGHT",
+        "10",
+        "6",
+        "4",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "4718628",
+        "UNIT_KNIGHT",
+        "9",
+        "7",
+        "4",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "4849702",
+        "UNIT_GREAT_ADMIRAL",
+        "17",
+        "13",
+        "5",
+        "-1",
+        "1"
+      ],
+      [
+        "0",
+        "6553642",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "19",
+        "6",
+        "2",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "5701675",
+        "UNIT_KNIGHT",
+        "10",
+        "7",
+        "4",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "6488110",
+        "UNIT_GREAT_ADMIRAL",
+        "18",
+        "14",
+        "5",
+        "-1",
+        "1"
+      ],
+      [
+        "0",
+        "7012401",
+        "UNIT_GREAT_GENERAL",
+        "15",
+        "14",
+        "4",
+        "-1",
+        "1"
+      ],
+      [
+        "0",
+        "7667763",
+        "UNIT_GREAT_ADMIRAL",
+        "18",
+        "14",
+        "4",
+        "-1",
+        "1"
+      ],
+      [
+        "0",
+        "7733300",
+        "UNIT_WARRIOR",
+        "8",
+        "2",
+        "1",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "7798837",
+        "UNIT_WARRIOR",
+        "9",
+        "2",
+        "1",
+        "1",
+        "1"
+      ]
+    ],
+    "new_game_inputs": 0,
+    "QA_creation_or_player_move_qualification_still_requires_fresh_preflight": true
+  },
+  "fixture_result": {
+    "utc": "2026-11-23T22:32:45.603202+00:00",
+    "actors": [
+      {
+        "role": "scout",
+        "kind": "UNIT_SCOUT",
+        "owner": 0,
+        "id": 7864374,
+        "index": 52,
+        "x": 8,
+        "y": 1,
+        "targetIndex": 53,
+        "targetX": 9,
+        "targetY": 1,
+        "militaryFormation": 0,
+        "escortFormationUnitCount": 1,
+        "Core_initial_moves": 3.0,
+        "independent": {
+          "UI": {
+            "identity": [
+              "scout",
+              "0",
+              "7864374",
+              "UNIT_SCOUT",
+              "8",
+              "1",
+              "3",
+              "0",
+              "1"
+            ],
+            "readiness": [
+              [
+                "true",
+                "true",
+                "false",
+                "nil"
+              ]
+            ]
+          },
+          "Core": {
+            "identity": [
+              "scout",
+              "0",
+              "7864374",
+              "UNIT_SCOUT",
+              "8",
+              "1",
+              "3",
+              "0",
+              "1"
+            ],
+            "readiness": []
+          }
+        },
+        "old_atomic_setup_pass": true
+      },
+      {
+        "role": "naval",
+        "kind": "UNIT_GALLEY",
+        "owner": 0,
+        "id": 7929911,
+        "index": 11,
+        "x": 11,
+        "y": 0,
+        "targetIndex": 12,
+        "targetX": 12,
+        "targetY": 0,
+        "militaryFormation": 0,
+        "escortFormationUnitCount": 1,
+        "Core_initial_moves": 3.0,
+        "independent": {
+          "UI": {
+            "identity": [
+              "naval",
+              "0",
+              "7929911",
+              "UNIT_GALLEY",
+              "11",
+              "0",
+              "3",
+              "0",
+              "1"
+            ],
+            "readiness": [
+              [
+                "true",
+                "true",
+                "false",
+                "nil"
+              ]
+            ]
+          },
+          "Core": {
+            "identity": [
+              "naval",
+              "0",
+              "7929911",
+              "UNIT_GALLEY",
+              "11",
+              "0",
+              "3",
+              "0",
+              "1"
+            ],
+            "readiness": []
+          }
+        },
+        "old_atomic_setup_pass": true
+      },
+      {
+        "role": "support",
+        "kind": "UNIT_BATTERING_RAM",
+        "owner": 0,
+        "id": 7995448,
+        "index": 56,
+        "x": 12,
+        "y": 1,
+        "targetIndex": 101,
+        "targetX": 13,
+        "targetY": 2,
+        "militaryFormation": -1,
+        "escortFormationUnitCount": 1,
+        "Core_initial_moves": 2,
+        "independent": {
+          "UI": {
+            "identity": [
+              "UI",
+              "0",
+              "7995448",
+              "UNIT_BATTERING_RAM",
+              "FORMATION_CLASS_SUPPORT",
+              "0",
+              "12",
+              "1",
+              "2",
+              "-1",
+              "1",
+              "false",
+              "false"
+            ],
+            "readiness": [
+              [
+                "true",
+                "true",
+                "false",
+                "nil"
+              ]
+            ],
+            "feature6": [
+              "UI",
+              "FEATURE_BARRIER_REEF",
+              "1"
+            ]
+          },
+          "Core": {
+            "identity": [
+              "Core",
+              "0",
+              "7995448",
+              "UNIT_BATTERING_RAM",
+              "FORMATION_CLASS_SUPPORT",
+              "0",
+              "12",
+              "1",
+              "2",
+              "-1",
+              "1",
+              "false",
+              "false"
+            ],
+            "readiness": [],
+            "feature6": [
+              "Core",
+              "FEATURE_BARRIER_REEF",
+              "1"
+            ]
+          }
+        },
+        "old_atomic_setup_pass": false,
+        "original_QA_unknown_not_retrofit": "OriginalInit1 yielded actualreadyunit, oldv1MilitaryFormation0assert failedbeforeold-atomiccheck. IndependentphysicalidentityresolvedbutoriginalhelperandatomicbeforeafterstatusremainUNKNOWN. No recreate or formation setter."
+      },
+      {
+        "role": "engineer",
+        "kind": "UNIT_MILITARY_ENGINEER",
+        "owner": 0,
+        "id": 8060985,
+        "index": 141,
+        "x": 9,
+        "y": 3,
+        "targetIndex": 186,
+        "targetX": 10,
+        "targetY": 4,
+        "militaryFormation": -1,
+        "escortFormationUnitCount": 1,
+        "Core_initial_moves": 2.0,
+        "independent": {
+          "UI": {
+            "identity": [
+              "UI",
+              "0",
+              "8060985",
+              "UNIT_MILITARY_ENGINEER",
+              "9",
+              "3",
+              "2",
+              "-1",
+              "1"
+            ],
+            "readiness": [
+              [
+                "true",
+                "true",
+                "false",
+                "nil"
+              ]
+            ]
+          },
+          "Core": {
+            "identity": [
+              "Core",
+              "0",
+              "8060985",
+              "UNIT_MILITARY_ENGINEER",
+              "9",
+              "3",
+              "2",
+              "-1",
+              "1"
+            ],
+            "readiness": []
+          }
+        },
+        "old_atomic_setup_pass": true
+      }
+    ],
+    "explicit_QA_InitUnit_calls": 4,
+    "new_formation_setters": 0,
+    "player_military_orders": 0,
+    "ENDs": 0,
+    "normal_training_credit": false,
+    "total_own_members": 58,
+    "successful_old_atomic_setups": 3,
+    "original_support_atomic_and_helper_result_stay_unknown": true,
+    "case_open": true
+  },
+  "original_QA_failure": {
+    "v1_helper_sha256": "59cc63d197c153d2f720f165e07d084ec20bbb8943c6662a919de39d077e8712",
+    "support_original_init_calls": 1,
+    "support_created_id": 7995448,
+    "original_helper_stage": "INIT_OUTCOME_UNKNOWN",
+    "original_before_after_atomic_claim": false,
+    "actual_reason": "v1 incorrectly required all new land/sea nonwhite units MilitaryFormation0. Actual BatteringRam support class Combat0 returns -1, escort FormationUnitCount1. Failure occurred after Init and physical identity gate, before v1 old-state atomic signature comparison. Original result stays invalid/UNKNOWN; no retry, delete, rollback or formation setter.",
+    "physical_resolution_only": {
+      "utc": "2026-11-23T22:29:45.018102+00:00",
+      "independent": {
+        "UI": {
+          "identity": [
+            "UI",
+            "0",
+            "7995448",
+            "UNIT_BATTERING_RAM",
+            "FORMATION_CLASS_SUPPORT",
+            "0",
+            "12",
+            "1",
+            "2",
+            "-1",
+            "1",
+            "false",
+            "false"
+          ],
+          "readiness": [
+            [
+              "true",
+              "true",
+              "false",
+              "nil"
+            ]
+          ],
+          "feature6": [
+            "UI",
+            "FEATURE_BARRIER_REEF",
+            "1"
+          ]
+        },
+        "Core": {
+          "identity": [
+            "Core",
+            "0",
+            "7995448",
+            "UNIT_BATTERING_RAM",
+            "FORMATION_CLASS_SUPPORT",
+            "0",
+            "12",
+            "1",
+            "2",
+            "-1",
+            "1",
+            "false",
+            "false"
+          ],
+          "readiness": [],
+          "feature6": [
+            "Core",
+            "FEATURE_BARRIER_REEF",
+            "1"
+          ]
+        }
+      },
+      "original_QA_helper_result_stays_unknown": true,
+      "new_Init_or_formation_setters_or_player_commands": 0,
+      "old_atomic_before_after_signature_claim": false,
+      "engineer_factory_was_not_created": true
+    },
+    "later_player_control_does_not_retrofit_initial_atomic_setup_PASS": true,
+    "first_batch_stopped_before_engineer_creation": true
+  },
+  "qualified_QA_correction": {
+    "v2_sha256": "47483490f730ba5949b436cc608e0ee6ccab42fd08afdde26eab708639a137d4",
+    "meaningful_cases_each_VM": [
+      82,
+      82
+    ],
+    "VMs": [
+      "5.1",
+      "5.3"
+    ],
+    "exit": 0,
+    "tool_chunk": "4a2b5d",
+    "Native_game_calls_during_tests": 0,
+    "scope": "Only explicit UNIT_BATTERING_RAM and UNIT_MILITARY_ENGINEER with actual FormationClassSUPPORT/Combat0/Ranged0 may request default native -1 without any setter. Corps/Army for these types reject before Init. Other allowed types keep standard0; existing military native permission gates unchanged.",
+    "old_v1_kept_immutable": true,
+    "first_v2_mock_renderer_failure": "String replacement first touched old-unit mock loop and referenced nonexistent s, stopped in mock construction; narrowed replacement to new mock creation. Full82 each VM then passed before Native engineer creation.",
+    "actual_new_engineer": {
+      "utc": "2026-11-23T22:32:42.040790+00:00",
+      "result": [
+        "true",
+        "QA_fixture_only_not_normal_training_or_player_order",
+        "0"
+      ],
+      "state": [
+        "true",
+        "false",
+        "false",
+        "true",
+        "1",
+        "0",
+        "OBSERVED_QA_NEW_UNIT_ONLY",
+        "8060985",
+        "8060985",
+        "2",
+        "-1",
+        "1",
+        "57",
+        "58",
+        "0"
+      ],
+      "helper_sha256": "47483490f730ba5949b436cc608e0ee6ccab42fd08afdde26eab708639a137d4",
+      "old_support_unknown_preserved": true,
+      "new_support_Init_calls": 0,
+      "natural_training_credit": false,
+      "no_replay": true
+    },
+    "successful_old_atomic_setups_this_package": 3,
+    "support_atomic_UNKNOWN_stays_unknown": true
+  },
+  "native_enum_observations": {
+    "support_and_engineer_militaryFormation": -1,
+    "support_and_engineer_escortFormationUnitCount": 1,
+    "scout_and_galley_militaryFormation": 0,
+    "scout_and_galley_escortFormationUnitCount": 1,
+    "actual_feature6": "FEATURE_BARRIER_REEF",
+    "actual_FEATURE_ICE_Index": 1,
+    "no_inference_from_bare_numeric_feature_ID": true
+  },
+  "bounded_no_input_background_window": {
+    "utc": "2026-11-23T22:34:30.547734+00:00",
+    "seconds": 11.710999965667725,
+    "Update_delta": 33,
+    "ready_Update_delta": 33,
+    "RunNow_delta": 33,
+    "eligible_RunNow_delta": 33,
+    "all_selected_actor_fields_equal": true,
+    "target_engine_events": 0,
+    "all_local_engine_events": 0,
+    "Core": [
+      [
+        "scout",
+        "0",
+        "7864374",
+        "UNIT_SCOUT",
+        "8",
+        "1",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "naval",
+        "0",
+        "7929911",
+        "UNIT_GALLEY",
+        "11",
+        "0",
+        "3",
+        "0",
+        "1"
+      ],
+      [
+        "support",
+        "0",
+        "7995448",
+        "UNIT_BATTERING_RAM",
+        "12",
+        "1",
+        "2",
+        "-1",
+        "1"
+      ],
+      [
+        "engineer",
+        "0",
+        "8060985",
+        "UNIT_MILITARY_ENGINEER",
+        "9",
+        "3",
+        "2",
+        "-1",
+        "1"
+      ]
+    ],
+    "native_SDK_request_count": null,
+    "positive_event_liveness": "PENDING_REAL_TEST_PLAYER_MOVES_ON_SAME_HOOK",
+    "case_open": true
+  },
+  "actual_player_control": {
+    "utc": "2026-11-23T22:36:14.829579+00:00",
+    "effects": [
+      {
+        "actor": {
+          "role": "scout",
+          "kind": "UNIT_SCOUT",
+          "owner": 0,
+          "id": 7864374,
+          "index": 52,
+          "x": 8,
+          "y": 1,
+          "targetIndex": 53,
+          "targetX": 9,
+          "targetY": 1,
+          "militaryFormation": 0,
+          "escortFormationUnitCount": 1,
+          "Core_initial_moves": 3.0,
+          "independent": {
+            "UI": {
+              "identity": [
+                "scout",
+                "0",
+                "7864374",
+                "UNIT_SCOUT",
+                "8",
+                "1",
+                "3",
+                "0",
+                "1"
+              ],
+              "readiness": [
+                [
+                  "true",
+                  "true",
+                  "false",
+                  "nil"
+                ]
+              ]
+            },
+            "Core": {
+              "identity": [
+                "scout",
+                "0",
+                "7864374",
+                "UNIT_SCOUT",
+                "8",
+                "1",
+                "3",
+                "0",
+                "1"
+              ],
+              "readiness": []
+            }
+          },
+          "old_atomic_setup_pass": true
+        },
+        "input_role": "TEST_PLAYER",
+        "original_MoveUnitToPlot_calls": 1,
+        "return": [
+          "scout",
+          "7864374",
+          "true",
+          "0",
+          "1477390184",
+          "16400"
+        ],
+        "UI": [
+          "after-player-scout",
+          "scout",
+          "0",
+          "7864374",
+          "UNIT_SCOUT",
+          "9",
+          "1",
+          "2",
+          "0",
+          "1",
+          "true",
+          "true",
+          "false",
+          "nil"
+        ],
+        "Core": [
+          "scout",
+          "0",
+          "7864374",
+          "UNIT_SCOUT",
+          "9",
+          "1",
+          "2",
+          "0",
+          "1"
+        ],
+        "real_same_hook_move_events": [
+          [
+            "after-player-scout",
+            "2",
+            "UnitMoved",
+            "0",
+            "7864374",
+            "TEST_PLAYER_WINDOW",
+            "6",
+            "true",
+            "nil",
+            "9",
+            "1",
+            "136",
+            "1795473348.052"
+          ],
+          [
+            "after-player-scout",
+            "3",
+            "UnitMoveComplete",
+            "0",
+            "7864374",
+            "TEST_PLAYER_WINDOW",
+            "4",
+            "true",
+            "nil",
+            "9",
+            "1",
+            "136",
+            "1795473348.065"
+          ]
+        ],
+        "new_Init_or_formation_setter_calls": 0,
+        "SDK_request_count": null,
+        "ENDs": 0
+      },
+      {
+        "actor": {
+          "role": "naval",
+          "kind": "UNIT_GALLEY",
+          "owner": 0,
+          "id": 7929911,
+          "index": 11,
+          "x": 11,
+          "y": 0,
+          "targetIndex": 12,
+          "targetX": 12,
+          "targetY": 0,
+          "militaryFormation": 0,
+          "escortFormationUnitCount": 1,
+          "Core_initial_moves": 3.0,
+          "independent": {
+            "UI": {
+              "identity": [
+                "naval",
+                "0",
+                "7929911",
+                "UNIT_GALLEY",
+                "11",
+                "0",
+                "3",
+                "0",
+                "1"
+              ],
+              "readiness": [
+                [
+                  "true",
+                  "true",
+                  "false",
+                  "nil"
+                ]
+              ]
+            },
+            "Core": {
+              "identity": [
+                "naval",
+                "0",
+                "7929911",
+                "UNIT_GALLEY",
+                "11",
+                "0",
+                "3",
+                "0",
+                "1"
+              ],
+              "readiness": []
+            }
+          },
+          "old_atomic_setup_pass": true
+        },
+        "input_role": "TEST_PLAYER",
+        "original_MoveUnitToPlot_calls": 1,
+        "return": [
+          "naval",
+          "7929911",
+          "true",
+          "0",
+          "1477390184",
+          "16400"
+        ],
+        "UI": [
+          "after-player-naval",
+          "naval",
+          "0",
+          "7929911",
+          "UNIT_GALLEY",
+          "12",
+          "0",
+          "2",
+          "0",
+          "1",
+          "true",
+          "true",
+          "false",
+          "nil"
+        ],
+        "Core": [
+          "naval",
+          "0",
+          "7929911",
+          "UNIT_GALLEY",
+          "12",
+          "0",
+          "2",
+          "0",
+          "1"
+        ],
+        "real_same_hook_move_events": [
+          [
+            "after-player-naval",
+            "5",
+            "UnitMoved",
+            "0",
+            "7929911",
+            "TEST_PLAYER_WINDOW",
+            "6",
+            "true",
+            "nil",
+            "12",
+            "0",
+            "136",
+            "1795473355.372"
+          ],
+          [
+            "after-player-naval",
+            "6",
+            "UnitMoveComplete",
+            "0",
+            "7929911",
+            "TEST_PLAYER_WINDOW",
+            "4",
+            "true",
+            "nil",
+            "12",
+            "0",
+            "136",
+            "1795473355.378"
+          ]
+        ],
+        "new_Init_or_formation_setter_calls": 0,
+        "SDK_request_count": null,
+        "ENDs": 0
+      },
+      {
+        "actor": {
+          "role": "support",
+          "kind": "UNIT_BATTERING_RAM",
+          "owner": 0,
+          "id": 7995448,
+          "index": 56,
+          "x": 12,
+          "y": 1,
+          "targetIndex": 101,
+          "targetX": 13,
+          "targetY": 2,
+          "militaryFormation": -1,
+          "escortFormationUnitCount": 1,
+          "Core_initial_moves": 2,
+          "independent": {
+            "UI": {
+              "identity": [
+                "UI",
+                "0",
+                "7995448",
+                "UNIT_BATTERING_RAM",
+                "FORMATION_CLASS_SUPPORT",
+                "0",
+                "12",
+                "1",
+                "2",
+                "-1",
+                "1",
+                "false",
+                "false"
+              ],
+              "readiness": [
+                [
+                  "true",
+                  "true",
+                  "false",
+                  "nil"
+                ]
+              ],
+              "feature6": [
+                "UI",
+                "FEATURE_BARRIER_REEF",
+                "1"
+              ]
+            },
+            "Core": {
+              "identity": [
+                "Core",
+                "0",
+                "7995448",
+                "UNIT_BATTERING_RAM",
+                "FORMATION_CLASS_SUPPORT",
+                "0",
+                "12",
+                "1",
+                "2",
+                "-1",
+                "1",
+                "false",
+                "false"
+              ],
+              "readiness": [],
+              "feature6": [
+                "Core",
+                "FEATURE_BARRIER_REEF",
+                "1"
+              ]
+            }
+          },
+          "old_atomic_setup_pass": false,
+          "original_QA_unknown_not_retrofit": "OriginalInit1 yielded actualreadyunit, oldv1MilitaryFormation0assert failedbeforeold-atomiccheck. IndependentphysicalidentityresolvedbutoriginalhelperandatomicbeforeafterstatusremainUNKNOWN. No recreate or formation setter."
+        },
+        "input_role": "TEST_PLAYER",
+        "original_MoveUnitToPlot_calls": 1,
+        "return": [
+          "support",
+          "7995448",
+          "true",
+          "0",
+          "1477390184",
+          "16400"
+        ],
+        "UI": [
+          "after-player-support",
+          "support",
+          "0",
+          "7995448",
+          "UNIT_BATTERING_RAM",
+          "13",
+          "2",
+          "1",
+          "-1",
+          "1",
+          "true",
+          "true",
+          "false",
+          "nil"
+        ],
+        "Core": [
+          "support",
+          "0",
+          "7995448",
+          "UNIT_BATTERING_RAM",
+          "13",
+          "2",
+          "1",
+          "-1",
+          "1"
+        ],
+        "real_same_hook_move_events": [
+          [
+            "after-player-support",
+            "8",
+            "UnitMoved",
+            "0",
+            "7995448",
+            "TEST_PLAYER_WINDOW",
+            "6",
+            "true",
+            "nil",
+            "13",
+            "2",
+            "136",
+            "1795473362.672"
+          ],
+          [
+            "after-player-support",
+            "9",
+            "UnitMoveComplete",
+            "0",
+            "7995448",
+            "TEST_PLAYER_WINDOW",
+            "4",
+            "true",
+            "nil",
+            "13",
+            "2",
+            "136",
+            "1795473362.68"
+          ]
+        ],
+        "new_Init_or_formation_setter_calls": 0,
+        "SDK_request_count": null,
+        "ENDs": 0
+      },
+      {
+        "actor": {
+          "role": "engineer",
+          "kind": "UNIT_MILITARY_ENGINEER",
+          "owner": 0,
+          "id": 8060985,
+          "index": 141,
+          "x": 9,
+          "y": 3,
+          "targetIndex": 186,
+          "targetX": 10,
+          "targetY": 4,
+          "militaryFormation": -1,
+          "escortFormationUnitCount": 1,
+          "Core_initial_moves": 2.0,
+          "independent": {
+            "UI": {
+              "identity": [
+                "UI",
+                "0",
+                "8060985",
+                "UNIT_MILITARY_ENGINEER",
+                "9",
+                "3",
+                "2",
+                "-1",
+                "1"
+              ],
+              "readiness": [
+                [
+                  "true",
+                  "true",
+                  "false",
+                  "nil"
+                ]
+              ]
+            },
+            "Core": {
+              "identity": [
+                "Core",
+                "0",
+                "8060985",
+                "UNIT_MILITARY_ENGINEER",
+                "9",
+                "3",
+                "2",
+                "-1",
+                "1"
+              ],
+              "readiness": []
+            }
+          },
+          "old_atomic_setup_pass": true
+        },
+        "input_role": "TEST_PLAYER",
+        "original_MoveUnitToPlot_calls": 1,
+        "return": [
+          "engineer",
+          "8060985",
+          "true",
+          "0",
+          "1477390184",
+          "16400"
+        ],
+        "UI": [
+          "after-player-engineer",
+          "engineer",
+          "0",
+          "8060985",
+          "UNIT_MILITARY_ENGINEER",
+          "10",
+          "4",
+          "1.5",
+          "-1",
+          "1",
+          "true",
+          "true",
+          "false",
+          "nil"
+        ],
+        "Core": [
+          "engineer",
+          "0",
+          "8060985",
+          "UNIT_MILITARY_ENGINEER",
+          "10",
+          "4",
+          "1",
+          "-1",
+          "1"
+        ],
+        "real_same_hook_move_events": [
+          [
+            "after-player-engineer",
+            "11",
+            "UnitMoved",
+            "0",
+            "8060985",
+            "TEST_PLAYER_WINDOW",
+            "6",
+            "true",
+            "nil",
+            "10",
+            "4",
+            "136",
+            "1795473369.895"
+          ],
+          [
+            "after-player-engineer",
+            "12",
+            "UnitMoveComplete",
+            "0",
+            "8060985",
+            "TEST_PLAYER_WINDOW",
+            "4",
+            "true",
+            "nil",
+            "10",
+            "4",
+            "136",
+            "1795473369.901"
+          ]
+        ],
+        "new_Init_or_formation_setter_calls": 0,
+        "SDK_request_count": null,
+        "ENDs": 0
+      }
+    ],
+    "actual_original_player_move_calls": 4,
+    "events_not_native_request_count": true,
+    "ENDs": 0,
+    "same_hook_positive_liveness": true,
+    "case_open_other_branches_and_request_scope_remain": true
+  },
+  "observed_remaining_moves_precision": "Scout UI/Core2/2; Galley2/2; BatteringRam1/1; MilitaryEngineer UI1.5/Core1. Observed getters retained separately, no unmeasured cause asserted.",
+  "native_request_total": null,
+  "passive_event_scope": "No native SDK alias/function replaced. Real same-hook UnitOperationAdded/UnitMoved/UnitMoveComplete positive liveness for each target; 12 total engine events across four explicit TEST_PLAYER original movements. Event counts are not SDK request counts; unused event callbacks not declared positively exercised.",
+  "preservation": {
+    "utc": "2026-11-23T22:37:51.541603+00:00",
+    "owner": {
+      "pid": 14284,
+      "created_at": 1795462208.7511442,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "save": {
+      "utc": "2026-11-23T22:37:49.968369+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC019SixMilitaryClassesControlled136.Civ6Save",
+      "bytes": 594940,
+      "sha256": "85cdd4d5c13248da408694d34e108dee59a15cd71f63c28ff174a47c14991a12",
+      "stable_repeated_read": true
+    },
+    "source_version": 183,
+    "four_other_final_header": [
+      "final-before-retire",
+      "TEST_PLAYER_WINDOW",
+      "true",
+      "false",
+      "false",
+      "12",
+      "12",
+      "0",
+      "0",
+      "575",
+      "575",
+      "0",
+      "579",
+      "579",
+      "0",
+      "0",
+      "1795473464.162",
+      "136"
+    ],
+    "four_other_event_rows": [
+      [
+        "final-before-retire",
+        "1",
+        "UnitOperationAdded",
+        "0",
+        "7864374",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "136",
+        "1795473348.051"
+      ],
+      [
+        "final-before-retire",
+        "2",
+        "UnitMoved",
+        "0",
+        "7864374",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "9",
+        "1",
+        "136",
+        "1795473348.052"
+      ],
+      [
+        "final-before-retire",
+        "3",
+        "UnitMoveComplete",
+        "0",
+        "7864374",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "9",
+        "1",
+        "136",
+        "1795473348.065"
+      ],
+      [
+        "final-before-retire",
+        "4",
+        "UnitOperationAdded",
+        "0",
+        "7929911",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "136",
+        "1795473355.371"
+      ],
+      [
+        "final-before-retire",
+        "5",
+        "UnitMoved",
+        "0",
+        "7929911",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "12",
+        "0",
+        "136",
+        "1795473355.372"
+      ],
+      [
+        "final-before-retire",
+        "6",
+        "UnitMoveComplete",
+        "0",
+        "7929911",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "12",
+        "0",
+        "136",
+        "1795473355.378"
+      ],
+      [
+        "final-before-retire",
+        "7",
+        "UnitOperationAdded",
+        "0",
+        "7995448",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "136",
+        "1795473362.672"
+      ],
+      [
+        "final-before-retire",
+        "8",
+        "UnitMoved",
+        "0",
+        "7995448",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "13",
+        "2",
+        "136",
+        "1795473362.672"
+      ],
+      [
+        "final-before-retire",
+        "9",
+        "UnitMoveComplete",
+        "0",
+        "7995448",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "13",
+        "2",
+        "136",
+        "1795473362.68"
+      ],
+      [
+        "final-before-retire",
+        "10",
+        "UnitOperationAdded",
+        "0",
+        "8060985",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "136",
+        "1795473369.894"
+      ],
+      [
+        "final-before-retire",
+        "11",
+        "UnitMoved",
+        "0",
+        "8060985",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "10",
+        "4",
+        "136",
+        "1795473369.895"
+      ],
+      [
+        "final-before-retire",
+        "12",
+        "UnitMoveComplete",
+        "0",
+        "8060985",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "10",
+        "4",
+        "136",
+        "1795473369.901"
+      ]
+    ],
+    "four_other_UI_actors": [
+      [
+        "final-before-retire",
+        "scout",
+        "0",
+        "7864374",
+        "UNIT_SCOUT",
+        "9",
+        "1",
+        "2",
+        "0",
+        "1",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ],
+      [
+        "final-before-retire",
+        "naval",
+        "0",
+        "7929911",
+        "UNIT_GALLEY",
+        "12",
+        "0",
+        "2",
+        "0",
+        "1",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ],
+      [
+        "final-before-retire",
+        "support",
+        "0",
+        "7995448",
+        "UNIT_BATTERING_RAM",
+        "13",
+        "2",
+        "1",
+        "-1",
+        "1",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ],
+      [
+        "final-before-retire",
+        "engineer",
+        "0",
+        "8060985",
+        "UNIT_MILITARY_ENGINEER",
+        "10",
+        "4",
+        "1.5",
+        "-1",
+        "1",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ]
+    ],
+    "event_retire": [
+      "true",
+      "owned_callbacks_removed_and_public_methods_restored",
+      "12",
+      "12",
+      "579",
+      "7"
+    ],
+    "player_flags_retire": [
+      "4"
+    ],
+    "factory_retire": [
+      "4",
+      "4",
+      "0",
+      "1"
+    ],
+    "protected_unknown": [
+      "LEGACY_UNKNOWN",
+      "nil",
+      "nil"
+    ],
+    "actual_player_military_commands_this_package": 4,
+    "actual_ENDs": 0,
+    "live_owned_QA_bindings": 0,
+    "private_factory_instances": 0,
+    "all_owned_QA_flags_retired": true,
+    "MainMenu_or_Quit_requested": false,
+    "new_QA_Init_this_package": 4,
+    "new_QA_formation_setters_this_package": 0,
+    "original_support_QA_unknown_not_upgraded_to_atomic_PASS": true,
+    "whole_closed": 33,
+    "whole_remaining": 7,
+    "whole_TC019": "OPEN_REMAINING_AIR_ARMY_RELIGIOUS_NATURAL_NEW_RECRUIT_AND_WRITER_SCOPE"
+  },
+  "all_six_representatives_now_observed": [
+    "UNIT_WARRIOR standard",
+    "UNIT_WARRIOR corps",
+    "UNIT_SCOUT",
+    "UNIT_GALLEY",
+    "UNIT_BATTERING_RAM",
+    "UNIT_MILITARY_ENGINEER"
+  ],
+  "remaining": [
+    "Air unit actual player control with real available host capacity.",
+    "Army in actually eligible scene, current permission false without Mobilization.",
+    "Apostle/Inquisitor/Guru in qualified religious scene, not current no-founded-religion world.",
+    "Natural new military training, no credit from QA InitUnit.",
+    "Complete writer/policy coverage review; no every-SDK request zero claim from engine event observations alone."
+  ],
+  "R160": {
+    "complete_inputs_prepared_before_owner_new_class_driver": 12,
+    "raw_input_bytes_including_nested_frozen_contexts": 2151832,
+    "fresh_actual_availability_UTC": "2026-11-23T22:25:31.554469+00:00",
+    "configured_model": "qwen38-coder",
+    "config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "actual_model_ids": [
+      "open-h3-2k"
+    ],
+    "new_readonly_GETs": 2,
+    "GET_statuses": [
+      200,
+      200
+    ],
+    "maintenance": {
+      "date": "2026-11-24",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "owner_phase_cost": null,
+    "full_source_preparation_is_not_actual_generation_wire": true
+  },
+  "new_product_changes": 0,
+  "unpublished_product_fix_packages": 11,
+  "Workshop_source": 172,
+  "next": "Continue remaining TC019 branches and source writer audit, then other remaining whole cases. Preserve original failures, no stage final."
+}
