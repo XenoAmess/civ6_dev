@@ -1,0 +1,218 @@
+{
+  "schema": "civ6.source183-tc018-frozen-matrix-qualified/v1",
+  "utc": "2026-11-23T20:56:41.358778+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "status": "ALL_FROZEN_TC018_CLAUSES_PASS_WITH_EXPLICIT_PRIOR_NATIVE_REUSE_AND_FINITE_SCOPE",
+  "contract": {
+    "exact_four_mandatory_lines": [
+      "- 需求：BR-003、BR-024、BR-025。夹具：F04，有在途任务；分别准备单位被俘／失去、己城转手、玩家攻城选择保留或依法可夷平的存档。",
+      "- 步骤：让状态变化发生，再触发规划；对保留城市观察首个合法内政时点；对失去或夷平对象读档后再规划。",
+      "- 预期：旧所有者任务失效，不控制他人单位／城市，不访问已删除对象；保留城市接管并合法恢复，夷平城市不重建或继续扣费。原版不允许夷平的对象不能强行测试夷平。",
+      "- 证据：前后所有者和对象映射、任务清理、保留城队列与错误日志。"
+    ],
+    "UTF8_LF_sha256": "1235bf7bea5171e2e37959b8cdc01be6b16af3f6433c8ceb6514bfd93b9299c3",
+    "same_as_prior_public_commit": "513b7cf63469c1bec508c5eae408ecbe5a2b0787",
+    "historical_notes_not_contract_changes": true
+  },
+  "evidence_sources": {
+    "original_cityloss": {
+      "path": "docs/research/baiqi-source180-tc018-city-loss132-engine74-2026-11-23.json",
+      "raw_UTF8_sha256": "ac0e907344b024e2b083cc935cbc43f02bd562473db1de95d1653197206381de",
+      "source_version": 180
+    },
+    "original_unitloss": {
+      "path": "docs/research/baiqi-source180-tc018-unit-loss132-engine74-2026-11-23.json",
+      "raw_UTF8_sha256": "1ce30bc38a7a1147e07f5410d8927f61f9c5e633fa153d2166002859e5a29fda",
+      "source_version": 180
+    },
+    "original_capture": {
+      "path": "docs/research/baiqi-source180-tc018-unit-capture132-engine74-2026-11-23.json",
+      "raw_UTF8_sha256": "781b91de4a94cd98ddbb6d1987a76c1cca1c84126378a0dacd5a0a841c1a096e",
+      "source_version": 180
+    },
+    "keep": {
+      "path": "docs/research/baiqi-source180-tc018-conquest-keep132-engine74-2026-11-23.json",
+      "raw_UTF8_sha256": "18d1eebe0571fd1252fccf305b3a6d4b391671a1838673b0dd69a99183f2975f",
+      "source_version": 180
+    },
+    "raze": {
+      "path": "docs/research/baiqi-source181-v5-tc018-raze-no-rebuild135-and-tc009-reopen-engine74-2026-11-24.json",
+      "raw_UTF8_sha256": "4d09010fda59cd99782cfa0dd9474cb330b5dbea527cff7061736ec1e61745c1",
+      "source_version": 181
+    },
+    "elsewhere": {
+      "path": "docs/research/baiqi-source182-native137-research-next-elsewhere-found-governor-fail-engine74-2026-11-24.json",
+      "raw_UTF8_sha256": "4030102cbc271e2ab41a5cb2cbca908445f4664121ab3f6927218ea0c6d1a7f4",
+      "source_version": 182
+    },
+    "governor": {
+      "path": "docs/research/baiqi-source183-passive-governor-rescue-save-reload138-engine74-2026-11-24.json",
+      "raw_UTF8_sha256": "230fefa8292f261e8ae8b3eccf34cd5462683bf5f452c10e4de2cce7dc0dcb2e",
+      "source_version": 183
+    },
+    "K": {
+      "path": "docs/research/baiqi-source183-tc018-cityloss-reload-planning133-engine74-2026-11-24.json",
+      "raw_UTF8_sha256": "91001b7a32530496a2df1be36d57f3701f8ca2be0d348d675ea342f94b77281b",
+      "source_version": 183
+    },
+    "L": {
+      "path": "docs/research/baiqi-source183-tc018-unitloss-reload-planning133-engine74-2026-11-24.json",
+      "raw_UTF8_sha256": "6dafcee3fd555dbeb6487a812b9d4da697b5e3b8455da2a83f79afebaf57f111",
+      "source_version": 183
+    },
+    "M": {
+      "path": "docs/research/baiqi-source183-tc018-capture-reload-planning133-engine74-2026-11-24.json",
+      "raw_UTF8_sha256": "69cf5a8270a2333c3f19aaea29d5176b5088af1de76712e5744488321e1b1a54",
+      "source_version": 183
+    },
+    "research_software": {
+      "path": "docs/research/baiqi-source182-completed-current-research-software-2026-11-24.json",
+      "raw_UTF8_sha256": "7e444aea838ac58ec8ec7c31dd1dbc5cbd63d4947c9dcceb9a67e63a2f006a66",
+      "source_version": 182
+    },
+    "governor_software": {
+      "path": "docs/research/baiqi-source183-passive-governor-category-software-2026-11-24.json",
+      "raw_UTF8_sha256": "2f645703eaed5285b4a92c46337ebb77245cf47da0a1abe9dede138be7ad8719",
+      "source_version": 183
+    }
+  },
+  "matrix": [
+    {
+      "clause": "City ownership transfer invalidates old-owner control; saved reload can plan",
+      "verdict": "PASS_FINITE_WITH_ORIGINAL_FIXTURE_UNKNOWN_RETAINED",
+      "evidence": [
+        "original_cityloss",
+        "K"
+      ],
+      "actual": "Old0/262147at13,16 now1/655369; own0/655369at11,1 separate. Current183 reload132to133: two positive own city calls, eleven queue progress, zero old/foreign scoped writes. Original strict quiet transfer five displacements still UNKNOWN, never repaired by relabeling."
+    },
+    {
+      "clause": "Lost in-transit unit is not controlled or accessed as live; reload can plan",
+      "verdict": "PASS_FINITE",
+      "evidence": [
+        "original_unitloss",
+        "L"
+      ],
+      "actual": "Actual original one QA removal preserved, no replay. UI own membership and Core classification ABSENT after reload/current133, old execution intent nil; old goal remains proposal only, zero scoped old request/errors, replacement settler0to43of190 and two positive own city calls."
+    },
+    {
+      "clause": "Captured unit ownership is isolated; reload can plan",
+      "verdict": "PASS_FINITE",
+      "evidence": [
+        "original_capture",
+        "M"
+      ],
+      "actual": "Original AI UnitCaptured4args actual. Reload visible foreign63/131073settler vs own0/131073warrior, old0/7274546ABSENT. Current133 no old execution intent/request/errors; replacement43of190, two own producer calls. No recreated capture or foreign orders."
+    },
+    {
+      "clause": "Original legitimate conquest Keep is allowed and city enters normal paid production",
+      "verdict": "PASS_RETAINED_NATIVE_WITH_TARGETED_IMPACT",
+      "evidence": [
+        "keep"
+      ],
+      "actual": "Original BY_COMBAT conquest once, two authored attack entry calls retained, Keepclick1/pendingnil. Already-own-and-native-legal granary0/32 before Keep then1/32 after ordinary turn, no new war/paid-city-transfer. Source181 Raze wrapper branches only DESTROY/RAZE and always forwards original once; nonRAZE path remains passthrough."
+    },
+    {
+      "clause": "Legally permitted original Raze deletes city; save/reload preserves no rebuild, no continued old-city fees/tasks, other legal planning continues",
+      "verdict": "PASS_NATIVE_RAZE_AND_RELOAD_WITH_CURRENT183_CONTINUATION",
+      "evidence": [
+        "raze",
+        "elsewhere",
+        "governor"
+      ],
+      "actual": "Original qualifiedRaze1 deletes0/917516at26,19, exact saved choice and saved-bytecopy reload. Four ordinary131to135, eleven other own producer calls, zero old city/XY/foreign calls, no original site rebuild. Elsewhere real FOUND137at28,17 goal released/OBSERVED; unchanged Raze files under183, actual138save/reload still old site empty/choice retained/new city retained. Not worldwide forever or all SDK writer proof."
+    }
+  ],
+  "prepared_build_and_actual_ZIP_reverification": [
+    {
+      "source_version": 181,
+      "files_and_zip_names_and_raw_bytes_verified": 123,
+      "archive_sha256": "32269f370f538cc97800f7ceb31e97e8d7106976eedb43fc3e08014f93f62fb1"
+    },
+    {
+      "source_version": 182,
+      "files_and_zip_names_and_raw_bytes_verified": 123,
+      "archive_sha256": "66b5445f821586e8f7dbe51a416a27d8aa1f240373bf54e753ecae50cc77e9cf"
+    },
+    {
+      "source_version": 183,
+      "files_and_zip_names_and_raw_bytes_verified": 123,
+      "archive_sha256": "9c84beac0c33dc4b5e7d79eae4f8a1616b374c64736ff6ac33e7638896c4fbd7"
+    }
+  ],
+  "current_product_impact": {
+    "181_to_182": {
+      "changed": [
+        "Baiqi.modinfo",
+        "Lua/BaiqiAdmin.lua"
+      ],
+      "other_exact_unchanged": 121
+    },
+    "182_to_183": {
+      "changed": [
+        "Baiqi.modinfo",
+        "Lua/BaiqiAdmin.lua"
+      ],
+      "other_exact_unchanged": 121
+    },
+    "181_to_183": {
+      "changed": [
+        "Baiqi.modinfo",
+        "Lua/BaiqiAdmin.lua"
+      ],
+      "other_exact_unchanged": 121
+    }
+  },
+  "retained_native_scope_limits": [
+    "Not every Keep/Raze clause physically rerun183: exact source181v5-to183 other121 files including Raze/Controller/settlement unchanged, Admin research and loyalty deltas separately software/Native qualified. Existing TC009 staleUI branch remains OPEN.",
+    "Negative requests bounded by positive BaiqiExecutor city proxy and current-world Controller log, not all SDK contexts.",
+    "Original transfer strict quiet UNKNOWN/five displacements, source180 Raze-rebuild FAIL and intervening181 failures retained. No unknown transaction cleanup or new factory/capture/deletion/Raze replay.",
+    "Foreign captured actor mapping observed only while visible at132; no hidden enemy location lookup or player commands to foreign actor.",
+    "Current Core GetUnitType unavailable; UI type and available Core identity/census/classifier facts separated."
+  ],
+  "model_R155": {
+    "source_count": 23,
+    "raw_UTF8_bytes": 946081,
+    "prepared_before_owner_audit": true,
+    "availability_reused": "R153 observed19:57 canonical absent/only H3; same-day maintenance1.19.6",
+    "new_HTTP_calls": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "prepared_full_sources_not_generation_wire": true
+  },
+  "whole_case_decision": {
+    "TC018": "CLOSE_CURRENT183_FINITE_FROZEN_CONTRACT",
+    "before": [
+      31,
+      40,
+      77.5,
+      9
+    ],
+    "after": [
+      32,
+      40,
+      80,
+      8
+    ],
+    "others_unchanged": true
+  },
+  "product_changes": 0,
+  "unpublished_fix_packages": 11,
+  "Workshop_source": 172,
+  "game_at_formal_MainMenu_no_Quit_requested": true,
+  "next": "Publish exact matrix/new forty-case ledger; then real originalRazed131->132 source183 science completion reproduction without oldRaze/attack replay, still-open TC009 and other remaining7; no stage final.",
+  "M_full_owner_unit_request_log_supplement": {
+    "same_saved_current_world_log_sha256": "003d773970576c86bc4106bd9b285a20a0f5a39b77548f42453fd2f78ff8eb01",
+    "old0_7274546_unit_request_rows": 0,
+    "shared_numeric_ID131073_unit_request_rows": 0,
+    "identity_scope": "Visibleforeign63/131073settler and own0/131073warrior separately qualified; zero Controller unit-request rows for this numericID covers both within the observed Controller log, without falsely excluding legitimate city131073 production. Not all SDK writer proof.",
+    "false_found_or_deleted_actor_replay": false
+  },
+  "current_whole_ledger": "docs/research/baiqi-source183-finite40-engine74-tc018-closed133-2026-11-24.json",
+  "utc_published": "2026-11-23T20:58:17.312092+00:00"
+}
