@@ -1,0 +1,920 @@
+{
+  "schema": "civ6.source180-tc016-complete-visible-enemy132/v1",
+  "utc": "2026-11-23T11:18:54.527522+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 180,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "PASS_TC016_CURRENT180_ENGINE74_ADOPTED_CONTRACT_FINITE_NATIVE_MATRIX",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_closed_total_percent_remaining": [
+    31,
+    40,
+    77.5,
+    9
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 8,
+  "product_changes": 0,
+  "ordinary_package": {
+    "files": 119,
+    "Controller_sha256": "fee4342a1e4ef202f67dc4a1e48b282fd445542876984e5dc2b46a5cba117835",
+    "archive_sha256": "666c73e28ea1faa629c68e2d8ed573ff0a2dcca424842311a41c31293d48899a"
+  },
+  "mandatory_lines": [
+    "- 需求：BR-011、BR-026。夹具：F03，分别有未探明诱人地点、可见敌军、封闭边界、不可达路线；另有出发后被占用的原合法地点。",
+    "- 步骤：逐副本规划；对在途移民改变目标合法性或可见威胁，再推进到下一步；查看等待与重规划。",
+    "- 预期：不使用隐藏信息，不越过规则限制；危险或失效时延后／换合法路线，到达后重新检验而非沿旧计划强行建城。后台不宣战、不指挥军队清路；理由提示有界。",
+    "- 证据：当时可见性／边境／威胁、候选与路径依据、到达检查、请求来源。未知敌情导致损失需按可见信息分析，不能简单判“必须零损失”。"
+  ],
+  "mandatory_UTF8_LF_sha256": "e54d328d1cff3e5ca6f73ac9e0118c14b96b85caa02caebda61aeae4f472f214",
+  "finite_clause_matrix": [
+    {
+      "clause": "Unrevealed attractive target",
+      "status": "PASS_ACTUAL_CONSERVATIVE_HOLD",
+      "evidence": "docs/research/baiqi-source180-tc016-hidden-best-site-wait132-engine74-2026-11-23.json",
+      "actual": "Independent original131 two-stage QA visibility1->0 then revealfalse at oldtop862, bothUI/Corefalse/false while actualNativehintstillrank1. One ordinary131->132/27playerarmywaits: actor21,18/moves5/nativeHOLD/no pending/queue,0loggedMOVEFOUND/1SKIP/1boundedreason. Oldgoalretained/0Sitecalls. BR011 permits wait, no targetrelease or alternate-site claim. Source180 early Revealed gate reviewed in linked evidence.",
+      "limit": "Unknown threat avoidance or global all-hidden-reads counter not claimed; initial single SetRevealed fixture failed and remains UNKNOWN, not used as pass."
+    },
+    {
+      "clause": "Visible enemy threat",
+      "status": "PASS_ACTUAL_SAFE_REPLAN_AND_MOVEMENT",
+      "evidence": "docs/research/baiqi-source180-tc016-complete-visible-enemy132-engine74-2026-11-23.json",
+      "actual": "Actualown132PlayerTurnStart oneQAInitUnit63/UNIT_WARRIOR at visibleoldgoal862, id65536; preexistingwartrue. Ownatomicstateunchanged byfactory. Five actualSitecalls eachpre-originalobserved exactvisibleenemy at862. Onlyaccepted candidate846score96 legal/revealed/safetrue; actualUI/Coregoal862->846 and5BACKGROUND_MOVEs812/811/810/809/808, finalactor16,18/moves0, enemy26,19 stillvisible/wartrue. Currentdistance11/newgoal-enemydistance16.",
+      "limit": "Enemy is explicit QA scene creation, not natural recruitment or mod military behavior; actor first132read stillstart/moves5 before planning completed, finalindependentread is authority. 5calls not5unique sites."
+    },
+    {
+      "clause": "Closed border",
+      "status": "PASS_ACTUAL_NATIVE_DETOUR",
+      "evidence": "docs/research/baiqi-source180-tc016-closed-border-detour132-engine74-2026-11-23.json",
+      "actual": "Onlyoriginalwaterroute814ownershipchanged toknownforeign1/city393221; target862unownedandgoalunchanged,peace/bothUIOpenBordersfalsebeforeafterand132. Nativepath813->814 replaced813->857;actual5BACKGROUNDmoves857/858/859/860/861, actor25,19/moves0. No enteringforeign814 or automaticwar.",
+      "limit": "CoreHasOpenBordersFromnil: firsthelperrefusedbefore0writers, finalused freshUIplainproof plus independentUIpre/post, not fictionalCoreatomicgetter."
+    },
+    {
+      "clause": "Unreachable terrain/path",
+      "status": "PASS_ACTUAL_NO_PATH_AND_HOLD",
+      "evidence": "docs/research/baiqi-source180-tc016-unreachable-wait132-engine74-2026-11-23.json",
+      "actual": "Sixactualvisibleemptyunownedadjacentcells768/769/812/814/856/857 eachonceQAmountain2, impassabletrue, actor813/goal862untouched. Nativepath0 immediateandlater132. Oneordinaryturn/27armywaits, actor21,18/moves5/nativeHOLD,0loggedMOVEFOUND/1SKIP/1boundedreason,27controlledposesunchanged.",
+      "limit": "All6genericCanStartMOVEqueries actuallytrue despite0path; originalprelabelnegative corrected openly, not used as destination permission."
+    },
+    {
+      "clause": "Target invalid after departure",
+      "status": "PASS_ACTUAL_GOAL_RELEASE_REPLAN",
+      "evidence": "docs/research/baiqi-source180-tc016017-owner-goal-replan132-engine74-2026-11-23.json",
+      "actual": "Naturallytrainedhealthyownsettler7274546 alreadydeparted on131, oldgoal862 changed onceforeign1. Oneordinaryturn actual5BGmoves andlaterUI/Coreonlygoal862->820, old862remainedforeign. No manualsettler move orgoalwriter.",
+      "limit": "4Sitecalls yieldonlyonecandidate820; not4sites or complete TC017 multicity reservation matrix."
+    },
+    {
+      "clause": "Arrival-time recheck",
+      "status": "PASS_ACTUAL_NO_ILLEGAL_FOUND_AFTER_ARRIVAL",
+      "evidence": "docs/research/baiqi-source180-tc016-arrival-recheck135-engine74-2026-11-23.json",
+      "actual": "Normal13326,18->13427,18->13528,18; actualCoreUnitMoveComplete135 atoldgoal820/moves1 triggeredonceQAforeignownership. Beforewritegoal820/noactorfoundintent, ownstateatomic. LaterCore/UIgoalempty/foreignnoncity/UIFOUNDfalse/actorhealthy/12cities/no newactorintent; actualBACKGROUND_SKIP. Allfour ordinary131->135ENDs and108playermilitarywaits separately recorded.",
+      "limit": "ActualarrivalCoreevent primaryqualified, initialtoo-narrowcount/windowlistener0writesretiredbeforev2. No timeelapsed or requestACK used as founded proof."
+    },
+    {
+      "clause": "No background war/army road clearing and bounded reasons",
+      "status": "PASS_RECORDED_FINITE_NATIVE_SCENES",
+      "evidence": [
+        "docs/research/baiqi-source180-tc016-hidden-best-site-wait132-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc016-closed-border-detour132-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc016-unreachable-wait132-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc016-complete-visible-enemy132-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc016-arrival-recheck135-engine74-2026-11-23.json"
+      ],
+      "actual": "Controlledbranchdiplomacypeaceorpreexistingbarbarianwar retained, noQAnewdeclaration/armycommands; explicit27TEST_PLAYERwaits and27posesindependentlyunchanged inF/G. Boundedonewaitreason inD/F, no repetitive retry claimed. BACKGROUNDsettlerrequests separatefromTEST_PLAYERmilitaryinputs.",
+      "limit": "No global allSDKwriter counter or unknown-enemy zero-loss guarantee; exact controlled currentGS singleplayer scenes only."
+    }
+  ],
+  "all_matrix_Native_tests_current180": true,
+  "supported_scope": "RecordedoriginalGS singleplayer/currentengine1.0.12.74 ordinary180, explicitindependentcontrolledscenevariants. No globalhiddenSDKreader/writercounter oravoidanceofunknownenemyguarantee.",
+  "current_visible_enemy_fixture": {
+    "utc": "2026-11-23T10:58:24.391750+00:00",
+    "name": "Baiqi_P6_20261123_V180_TC016VisibleThreat131_ByteCopy.Civ6Save",
+    "bytes": 586193,
+    "sha256": "b73202e44f45dabaa1a8c0620cb27194485faa97b222b93e7421aab0608a5cb4",
+    "original": {
+      "name": "Baiqi_P6_20261121_V173_NaturalSettlerPrearrival131.Civ6Save",
+      "bytes": 586193,
+      "sha256": "b73202e44f45dabaa1a8c0620cb27194485faa97b222b93e7421aab0608a5cb4"
+    },
+    "method": "Independent unchanged original173prearrival131 bytecopy; excludes priorQA foreign862/820 and135world. New180visibility/threat/border/path state must be qualified; not assume allfourfixturespresent.",
+    "game_inputs": 0
+  },
+  "qualified_current_native_ports": {
+    "UI": {
+      "utc": "2026-11-23T11:07:27.510464+00:00",
+      "frame": [
+        "131",
+        "12",
+        "50",
+        "7274546",
+        "21",
+        "18",
+        "0",
+        "1"
+      ],
+      "target": [
+        "862",
+        "-1",
+        "3",
+        "3",
+        "25",
+        "false",
+        "false",
+        "false",
+        "0",
+        "0"
+      ],
+      "war": [
+        "true"
+      ],
+      "warrior": [
+        "21",
+        "UNIT_WARRIOR",
+        "20",
+        "DOMAIN_LAND",
+        "2"
+      ],
+      "game_writes": 0
+    },
+    "Core": {
+      "utc": "2026-11-23T11:07:29.008353+00:00",
+      "ports": [
+        "table",
+        "function",
+        "function",
+        "function",
+        "table",
+        "function"
+      ],
+      "frame": [
+        "12",
+        "50",
+        "21",
+        "18",
+        "0",
+        "true",
+        "true",
+        "true",
+        "false"
+      ],
+      "barbarian": [
+        "true",
+        "function",
+        "true",
+        "true"
+      ],
+      "goal": [
+        "862"
+      ],
+      "visible": [
+        "true",
+        "true"
+      ],
+      "unit_ports": [
+        "function",
+        "function",
+        "function",
+        "function"
+      ],
+      "game_writes": 0
+    },
+    "Core_empty": {
+      "utc": "2026-11-23T11:08:10.907470+00:00",
+      "ports": [
+        "table",
+        "function",
+        "function",
+        "table",
+        "function",
+        "nil",
+        "nil"
+      ],
+      "target_count": [
+        [
+          "0"
+        ]
+      ],
+      "game_writes": 0
+    }
+  },
+  "actual_Core_event_and_result": {
+    "utc": "2026-11-23T11:13:17.977368+00:00",
+    "event": [
+      "true",
+      "false",
+      "true",
+      "1",
+      "true",
+      "false",
+      "OBSERVED",
+      "nil",
+      "65536",
+      "63",
+      "26",
+      "19",
+      "0",
+      "132",
+      "1",
+      "true",
+      "true",
+      "0",
+      "50",
+      "4",
+      "3",
+      "0"
+    ],
+    "frame": [
+      "7274546",
+      "16",
+      "18",
+      "0",
+      "12",
+      "50",
+      "true"
+    ],
+    "goals": [
+      [
+        "7274546",
+        "7274546",
+        "846",
+        "10",
+        "19"
+      ]
+    ],
+    "intents": [
+      [
+        "6684713",
+        "6684713",
+        "LEGACY_UNKNOWN",
+        "settle:0:1"
+      ]
+    ],
+    "visible_enemy": [
+      [
+        "65536",
+        "63",
+        "UNIT_WARRIOR",
+        "26",
+        "19",
+        "2",
+        "false",
+        "false"
+      ]
+    ],
+    "new_Game_writes": 0
+  },
+  "actual_UI_and_passive_preoriginal_enemy_witness": {
+    "utc": "2026-11-23T11:13:21.560422+00:00",
+    "frame": [
+      "7274546",
+      "16",
+      "18",
+      "0",
+      "1797587246",
+      "75236491",
+      "false",
+      "nil",
+      "已提交移民操作，等待实际结果"
+    ],
+    "visible_enemy": [
+      [
+        "65536",
+        "63",
+        "UNIT_WARRIOR",
+        "26",
+        "19",
+        "2",
+        "false",
+        "false",
+        "true",
+        "11"
+      ]
+    ],
+    "observer_stats": [
+      "148",
+      "5",
+      "9",
+      "0",
+      "0",
+      "0"
+    ],
+    "site_results": [
+      [
+        "5",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "6",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "7",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "8",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "9",
+        "132",
+        "7274546",
+        "846",
+        "1"
+      ]
+    ],
+    "site_visible_enemy": [
+      [
+        "5",
+        "1",
+        "65536",
+        "63",
+        "UNIT_WARRIOR",
+        "26",
+        "19",
+        "0",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "6",
+        "1",
+        "65536",
+        "63",
+        "UNIT_WARRIOR",
+        "26",
+        "19",
+        "0",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "7",
+        "1",
+        "65536",
+        "63",
+        "UNIT_WARRIOR",
+        "26",
+        "19",
+        "0",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "8",
+        "1",
+        "65536",
+        "63",
+        "UNIT_WARRIOR",
+        "26",
+        "19",
+        "0",
+        "true",
+        "true",
+        "true"
+      ],
+      [
+        "9",
+        "1",
+        "65536",
+        "63",
+        "UNIT_WARRIOR",
+        "26",
+        "19",
+        "0",
+        "true",
+        "true",
+        "true"
+      ]
+    ],
+    "new_Game_writes": 0
+  },
+  "actual_goal_candidates_and_budget": {
+    "utc": "2026-11-23T11:13:20.047212+00:00",
+    "turn": 132,
+    "frame": [
+      "132",
+      "12",
+      "50",
+      "true",
+      "1",
+      "5915.09375",
+      "748.12109375"
+    ],
+    "bank": [
+      "READY",
+      "proposal"
+    ],
+    "goals": [
+      [
+        "7274546",
+        "7274546",
+        "UNIT_SETTLER",
+        "846",
+        "10",
+        "19"
+      ]
+    ],
+    "settlers": [
+      [
+        "7274546",
+        "0",
+        "16",
+        "18",
+        "0",
+        "1",
+        "false",
+        "false",
+        "false",
+        "nil"
+      ]
+    ],
+    "old_site": [
+      "862",
+      "26",
+      "19",
+      "-1",
+      "false",
+      "true",
+      "true"
+    ],
+    "queued_settlers": [
+      "0"
+    ],
+    "settler_queues": [],
+    "planner_stats": [
+      [
+        "148",
+        "5",
+        "9",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "recruit": [
+      [
+        "1",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "11",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "5",
+        "true",
+        "true"
+      ],
+      [
+        "2",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "11",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "6",
+        "true",
+        "true"
+      ],
+      [
+        "3",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "13",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "8",
+        "true",
+        "true"
+      ],
+      [
+        "4",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "3",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "9",
+        "true",
+        "true"
+      ]
+    ],
+    "site_calls": [
+      [
+        "5",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "6",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "7",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "8",
+        "132",
+        "7274546",
+        "nil",
+        "1"
+      ],
+      [
+        "9",
+        "132",
+        "7274546",
+        "846",
+        "1"
+      ]
+    ],
+    "reservations": [],
+    "site_candidates": [
+      [
+        "9",
+        "1",
+        "846",
+        "96",
+        "true",
+        "true",
+        "true",
+        "false"
+      ]
+    ]
+  },
+  "actual_final_goal_visibility_land_and_enemy_distance": {
+    "new_goal": [
+      "846",
+      "-1",
+      "0",
+      "-1",
+      "true",
+      "true"
+    ],
+    "enemy_distance": [
+      "11",
+      "16"
+    ]
+  },
+  "controller_log_and_controlled_army_positions": {
+    "utc": "2026-11-23T11:14:53.553729+00:00",
+    "bytes": 75478,
+    "sha256": "88e626be216ce7f7c61604b809f568e593346fa405d0cbff82d59f75a09674e7",
+    "actor_requests": [
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:18|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=812|from=813",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:19|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=811|from=812",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:20|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=810|from=811",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:21|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=809|from=810",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:22|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=808|from=809"
+    ],
+    "logged_MOVE_TO": 5,
+    "logged_FOUND_CITY": 0,
+    "actor_logged_request_plot_indices": [
+      812,
+      811,
+      810,
+      809,
+      808
+    ],
+    "wait_reasons": [],
+    "player_controlled_27_positions_unchanged": [
+      [
+        "1048576",
+        "UNIT_SCOUT",
+        "12",
+        "16"
+      ],
+      [
+        "131073",
+        "UNIT_WARRIOR",
+        "15",
+        "13"
+      ],
+      [
+        "4456482",
+        "UNIT_KNIGHT",
+        "10",
+        "6"
+      ],
+      [
+        "327683",
+        "UNIT_SCOUT",
+        "15",
+        "15"
+      ],
+      [
+        "524292",
+        "UNIT_SCOUT",
+        "16",
+        "14"
+      ],
+      [
+        "1835013",
+        "UNIT_HORSEMAN",
+        "11",
+        "13"
+      ],
+      [
+        "786438",
+        "UNIT_SCOUT",
+        "10",
+        "13"
+      ],
+      [
+        "5505031",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "15",
+        "5"
+      ],
+      [
+        "1245193",
+        "UNIT_SCOUT",
+        "11",
+        "16"
+      ],
+      [
+        "3735562",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "11",
+        "5"
+      ],
+      [
+        "1441803",
+        "UNIT_SCOUT",
+        "13",
+        "17"
+      ],
+      [
+        "2162700",
+        "UNIT_HORSEMAN",
+        "10",
+        "12"
+      ],
+      [
+        "6488110",
+        "UNIT_GREAT_ADMIRAL",
+        "18",
+        "14"
+      ],
+      [
+        "4128783",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "8",
+        "10"
+      ],
+      [
+        "2097168",
+        "UNIT_ARCHER",
+        "17",
+        "14"
+      ],
+      [
+        "7012401",
+        "UNIT_GREAT_GENERAL",
+        "15",
+        "14"
+      ],
+      [
+        "6619154",
+        "UNIT_MUSKETMAN",
+        "11",
+        "6"
+      ],
+      [
+        "2424851",
+        "UNIT_HORSEMAN",
+        "11",
+        "7"
+      ],
+      [
+        "2686997",
+        "UNIT_ARCHER",
+        "16",
+        "13"
+      ],
+      [
+        "2818071",
+        "UNIT_HORSEMAN",
+        "10",
+        "5"
+      ],
+      [
+        "5701675",
+        "UNIT_KNIGHT",
+        "10",
+        "7"
+      ],
+      [
+        "6553642",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "19",
+        "6"
+      ],
+      [
+        "3604507",
+        "UNIT_GREAT_ADMIRAL",
+        "7",
+        "9"
+      ],
+      [
+        "4849702",
+        "UNIT_GREAT_ADMIRAL",
+        "17",
+        "13"
+      ],
+      [
+        "4718628",
+        "UNIT_KNIGHT",
+        "9",
+        "7"
+      ],
+      [
+        "4063264",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "14",
+        "9"
+      ],
+      [
+        "3997727",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "13",
+        "15"
+      ]
+    ],
+    "scope": "Only current independent Load131->132 controllerlog. FinalUI/Coreactualactor and pre-original visibleenemywitness independent. Not global Native allSDKcounter."
+  },
+  "QA_scope": "ExactlyoneCoreGameEvents.PlayerTurnStartedown132 InitUnit(63,UNIT_WARRIOR,26,19), consumedbeforefactory, actualreturned65536/owner63/type21/visibleXY/health verifiedincludingFindIDandactualplotcontents. Own12cityIDsXYpopulation/boundedactual50unitIDsownerTypeXYmovesformation/wallet54resources/goalintents/metwar/targetgeometry signature unchanged aroundfactory. Preexistingbarbwartrue. No enemyorders/destroy/war change, noownarmy/civilian/productionorderorgoalintentwriter.",
+  "event_phase_actual": {
+    "raw_event_arity": 1,
+    "player": 0,
+    "turn": 132,
+    "strategic": true,
+    "player_active": true,
+    "own_settler_moves_during_event": 0,
+    "own_units": 50,
+    "foreign_events_ignored": 3,
+    "no_assumption_actor_moves_already_regenerated": true
+  },
+  "software": {
+    "event_fixture": {
+      "meaningful_cases_each_VM": [
+        53,
+        53
+      ],
+      "raw_sha256": "7361b0d26df16b8404c519482a96e44c1f24709d47f58963d3a7770c95f5f4d2",
+      "scope": "Detached actual one-use GameEvents.PlayerTurnStarted fixture, own132-only, visibleemptygoal/preexistingbarbarianwar, factoryidentity+typedresult, currentownstateatomic, nil/throw/drift unknownneverretry, earlyphaseQAonly, exactRemove/foreignhandlerpreservation/readcopy/reentry. Not Native event or AI pass."
+    },
+    "passive_threat_observer": {
+      "meaningful_cases_each_VM": [
+        28,
+        28
+      ],
+      "raw_sha256": "c62a35184f59af4bcc39ae40cdb3ce3bdbc52a97991b6ab0024844ffa3979f28",
+      "scope": "20 base forwarding/error/tuple/retire/bounds cases plus8 real optional pre-original threat snapshot/copy/error/64bound/emptyregion/originalerror tests. Descriptor readonly Native qualification separate."
+    },
+    "mock_does_not_grant_Native_effect": true
+  },
+  "actual_progress_this_branch": {
+    "ordinary_ENDs": 1,
+    "advances": 1,
+    "TEST_PLAYER_military_waits": 27,
+    "TEST_PLAYER_army_MOVEs": 0,
+    "manual_civilian_or_production_orders": 0,
+    "QA_enemy_factory_calls": 1,
+    "actual_background_settler_MOVEs": 5,
+    "new_Popen": 0,
+    "Steam_mode_actions": 0,
+    "official_Loads": 1,
+    "physical_Continue": 1
+  },
+  "preservation": {
+    "save": {
+      "utc": "2026-11-23T11:14:56.027801+00:00",
+      "name": "Baiqi_P6_20261123_V180_TC016VisibleEnemyReplan132.Civ6Save",
+      "bytes": 590529,
+      "sha256": "24f7d20ddf6a288eb839ff7cfd315b6be3353efe6e3e3612680e121ba5d77260",
+      "stable_repeated_read": true
+    },
+    "all_known_QA_input_Save_Load_flags_retired": true,
+    "all_three_QA_bindings_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "enemy_not_destroyed_for_cleanup": true,
+    "Load_terminal_exit": null,
+    "terminal_limit": "LoadReady finalrecordactualLoad1 andindependentOSparentabsenceverifiedafterlostterminaltoolresult; unknownexit/chunk remainnull, noLoadreplay.",
+    "old_protected_outcomes": "8650807FAIL_UNRESOLVED/6684713and458752LEGACY_UNKNOWNunchanged; no clear/cancel/replay."
+  },
+  "R135": {
+    "real_unfinished_task": "REAL_UNIMPLEMENTED_TC016_VISIBLE_ENEMY_OWN_TURN_EVENT_QA_SPAWN_AND_PASSIVE_WITNESS",
+    "prepared_before_owner_implementation": true,
+    "full_sources": 14,
+    "full_UTF8_bytes": 565436,
+    "diagnosis": {
+      "utc": "2026-11-23T10:57:19.922414+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-23",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-23T10:57:19.894977+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 6.636600010097027,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-23T10:57:19.902730+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "417094a39b22996b247027999a2f0693df47696942ed605ecb359349a188f51c",
+          "total_ms": 19.064499996602535
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "scope": "2GET200canonicalqwen38-coderabsent, onlyopen-h3-2k; 0generationPOST/REQUEST/SSE/new404/candidate. No fallback/config/servicechanges. CachedOpenCode1.19.6maintenance notgenerationcapability.",
+    "owner_primary_source_correction": "VikingScenario function is named OnPlayerTurnActivated but actually subscribes to GameEvents.PlayerTurnStarted. Owner read actual subscription and qualified actual GameEvents.Add/Remove; did not infer event from function name or execute original task wording Events.PlayerTurnActivated."
+  },
+  "whole_TC017": "OPEN_INPRODUCTION_AND_FULL_MULTICITY_RESERVATION_MATRIX",
+  "next": "Continue genuineTC017 queuedsettler/multicityreservation thenremaining9; noFinalatcommit orduplicateWorkshop172upload."
+}
