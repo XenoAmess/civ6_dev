@@ -17,13 +17,13 @@ class CurrentQuotaTests(unittest.TestCase):
     def test_exact_transfer_keeps_default_historical_layout_and_global_cap(self):
         original = dict(OVERRIDES)
         legacy = bounded_quotas(self.keys)
-        current = bounded_quotas(self.keys, allocation='current140')
+        current = bounded_quotas(self.keys, allocation='current181')
         differences = {k: current[k] - legacy[k] for k in self.keys if current[k] != legacy[k]}
         self.assertEqual(differences, {'UI/BaiqiUnitFlagManager.lua': -384, 'Lua/BaiqiGameplay.lua': 384})
-        self.assertEqual((sum(current.values()), current['UI/BaiqiExecutor.lua']), (4096, 2032))
+        self.assertEqual((sum(current.values()), current['UI/BaiqiExecutor.lua']), (4096, 2016))
         self.assertEqual((current['Lua/BaiqiGameplay.lua'], current['UI/BaiqiUnitFlagManager.lua']), (512, 384))
         self.assertEqual(bounded_quotas(self.keys), legacy)
-        old = bounded_quotas([k for k in self.keys if k != 'UI/BaiqiWorldCrisisPopup.lua'])
+        old = bounded_quotas([k for k in self.keys if k not in ('UI/BaiqiWorldCrisisPopup.lua', 'UI/BaiqiRazeCity.lua')])
         self.assertEqual((len(old), sum(old.values()), old['UI/BaiqiExecutor.lua']), (32, 4096, 2048))
         self.assertEqual(OVERRIDES, original)
 
@@ -35,7 +35,7 @@ class CurrentQuotaTests(unittest.TestCase):
                 bounded_quotas(self.keys, allocation=value)
 
     def test_actual_contexts_retain_observed_load_under_unchanged_global_limit(self):
-        quota = bounded_quotas(self.keys, allocation='current140')
+        quota = bounded_quotas(self.keys, allocation='current181')
         lua = LuaRuntime(unpack_returned_tuples=True)
         for stem, name in [('diagnostic_profile', 'NewProfile'), ('diagnostic_owned_roots', 'NewRoots'),
                            ('diagnostic_queries', 'NewCounter'), ('diagnostic_write_leaves', 'NewLeaves'),

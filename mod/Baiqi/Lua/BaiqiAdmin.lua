@@ -248,6 +248,30 @@ local function ResearchRetained(techs,saved)
   end)
   return ok and retained==true
 end
+local function CompletedResearchSelection(pid,techs,index)
+  if index==-1 then return false end
+  local ok,completed=pcall(function()
+    local has=techs:HasTech(index)
+    if has==false then return false end
+    if has~=true then return nil end
+    local row=GameInfo.Technologies[index]
+    if not row or row.Index~=index or type(row.TechnologyType)~="string" or row.TechnologyType==""
+      or type(row.Hash)~="number" or row.Hash~=row.Hash or row.Hash<=-math.huge or row.Hash>=math.huge
+      or row.Hash==0 or row.Hash%1~=0 then return nil end
+    if row.Repeatable==true then return false end
+    if row.Repeatable~=false or techs:CanResearch(index)~=false then return nil end
+    -- The UI can retain a completed selection after Core clears its research.
+    -- Only the original research blocker authorizes choosing its replacement.
+    if not NotificationManager or type(NotificationManager.GetFirstEndTurnBlocking)~="function"
+      or not EndTurnBlockingTypes then return nil end
+    local research=EndTurnBlockingTypes.ENDTURN_BLOCKING_RESEARCH
+    if type(research)~="number" or research~=research or research<=-math.huge or research>=math.huge
+      or research==0 or research%1~=0 then return nil end
+    if NotificationManager.GetFirstEndTurnBlocking(pid)~=research then return nil end
+    return true
+  end)
+  if ok then return completed end
+end
 local function Research(pid,player,techs)
   if pendingResearch then
     if pendingResearch.player~=pid then return end
@@ -278,11 +302,13 @@ local function Research(pid,player,techs)
   end)
   if not progressOK or type(currentProgress)~="number" or currentProgress~=currentProgress
     or currentProgress<0 or currentProgress>=math.huge then return end
+  local completed=CompletedResearchSelection(pid,techs,current)
+  if completed==nil then return end
   local row=FloodTechnology(techs)
   if row and row.Index==current then return end
   local floodCity=row and FloodResearchCity(pid,player)
   local interrupted
-  if currentProgress>0 then
+  if currentProgress>0 and not completed then
     if not floodCity then return end -- Ordinary and power research keep their existing investment protection.
     interrupted=ResearchInvestment(techs,current)
     if not interrupted or interrupted.progress~=currentProgress then return end
@@ -294,7 +320,7 @@ local function Research(pid,player,techs)
       row=GameInfo.Technologies[power.type]
       if row.Index==current then return end
     else
-      if current~=-1 then return end
+      if current~=-1 and not completed then return end
       row=Choose(GameInfo.Technologies,function(r) return techs:HasTech(r.Index)==false and techs:CanResearch(r.Index)==true end,
         function(r) return techs:GetResearchCost(r.Index) end,techPriority,"TechnologyType")
     end
@@ -345,8 +371,10 @@ local function Research(pid,player,techs)
     if techs:GetResearchingTech()~=current or not ResearchPlayer(pid,player) then return end
   end
   if floodCity and (row.Index~=targetIndex or row.Hash~=targetHash or row.TechnologyType~=targetType) then return end
+  if CompletedResearchSelection(pid,techs,current)~=completed then return end
   Once("tech:"..row.Index,function()
     pendingResearch={player=pid,index=row.Index,hash=row.Hash,type=row.TechnologyType,turn=turn,interrupted=interrupted}
+    if completed then print("BAIQI|research_completed_ui_current|turn="..turn.."|index="..current.."|next="..row.Index) end
     if floodCity then print("BAIQI|flood_research_request|turn="..turn.."|city="..floodCity.."|index="..row.Index) end
     if power then print("BAIQI|power_research_request|turn="..turn.."|city="..power.city.."|index="..row.Index
       .."|improvement="..power.improvement.."|goal="..power.goalIndex.."|plot="..power.sitePlot) end

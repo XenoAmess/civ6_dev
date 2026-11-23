@@ -13,7 +13,7 @@ class ControllerDiagnosticBuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
             out=Path(temp)/'prepared';result=build(out);target=out/'Baiqi';source=ROOT/'mod/Baiqi'
             names=manifest_files(source)
-            self.assertEqual(result['files'],119);self.assertEqual(result['profile_count'],1)
+            self.assertEqual(result['files'],123);self.assertEqual(result['profile_count'],1)
             self.assertEqual(result['sample_capacity'],4096)
             self.assertEqual([n for n in names if digest(source/n)!=digest(target/n)],['Lua/BaiqiController.lua'])
             self.assertEqual(result['source_version'],CURRENT_VERSION)

@@ -22,7 +22,7 @@ class BuildPlanProfileModTests(unittest.TestCase):
         before={n:hashlib.sha256((source/n).read_bytes()).hexdigest() for n in manifest_files(source)}
         out=self.fresh();result=builder.build(out)
         self.assertEqual(result['changed_files'],['UI/BaiqiExecutor.lua'])
-        self.assertEqual((result['files'],result['lua_sources_compiled_51_and_53']),(119,97))
+        self.assertEqual((result['files'],result['lua_sources_compiled_51_and_53']),(123,101))
         self.assertEqual(result['sample_capacity'],4096)
         self.assertFalse(result['aggregate_zero']);self.assertFalse(result['installed'])
         self.assertTrue(result['release_text_recovers_exactly'])
@@ -36,7 +36,7 @@ class BuildPlanProfileModTests(unittest.TestCase):
             if n!=builder.EXECUTOR:self.assertEqual((source/n).read_bytes(),(target/n).read_bytes())
         self.assertEqual(before,{n:hashlib.sha256((source/n).read_bytes()).hexdigest() for n in manifest_files(source)})
         with zipfile.ZipFile(out/f'Baiqi-plan{CURRENT_VERSION}-stageA-v2.zip') as z:
-            self.assertEqual(len(z.namelist()),119)
+            self.assertEqual(len(z.namelist()),123)
             for n in before:self.assertEqual(z.read('Baiqi/'+n),(target/n).read_bytes())
 
     def test_actual_executor_registers_anchor_before_includes_and_wraps_after(self):

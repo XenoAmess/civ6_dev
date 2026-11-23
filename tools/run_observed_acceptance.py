@@ -39,7 +39,7 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
         assert_no_model_activity(Path.cwd())
     if type(legacy_forced) is not bool:
         raise TypeError('legacy_forced must be an explicit boolean')
-    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172):
+    if type(expected_source_version)is not int or expected_source_version not in (140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182):
         raise ValueError('Invalid source version')
     if legacy_forced:
         if request_normal_end is not None:
@@ -50,7 +50,7 @@ def run(query,is_diplomacy_visible,now,sleep,emit,ledger_dir: Path,*,sample_budg
         raise ValueError('Expected positive retained-sample budget')
     pressure=pressure_initial_turn is not None
     if pressure and(type(pressure_initial_turn)is not int or not 0<=pressure_initial_turn<=2147483641
-                    or legacy_forced or sample_budget!=4096 or expected_source_version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172)):
+                    or legacy_forced or sample_budget!=4096 or expected_source_version not in (142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181,182)):
         raise ValueError('Pressure requires bounded actual calendar, ordinary END and4096 cap')
     first=pressure_initial_turn if pressure else 85;closing=first+6
     pressure_source=f'baiqi{expected_source_version}-pressure-observed-v1'
@@ -127,7 +127,9 @@ assert(not UI.IsGameCoreBusy() and not UI.IsProcessingMessages() and P6Q20StageB
 local registry=ExposedMembers.P6BaiqiOwnRegistry
 assert(registry.marker=='baiqi67-q19' and registry.enabled==false)
 local keys={{}};for key in pairs(registry.entries) do keys[#keys+1]=key end;table.sort(keys)
-assert(#keys==32 or (#keys==33 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil))
+assert((#keys==32 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']==nil and registry.entries['UI/BaiqiRazeCity.lua']==nil)
+ or (#keys==33 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil and registry.entries['UI/BaiqiRazeCity.lua']==nil)
+ or (#keys==34 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil and registry.entries['UI/BaiqiRazeCity.lua']~=nil))
 local s={{keys=keys,token={quoted},phase='PREPARING',ends={{}},baseline={{}},start=Automation.GetTime()}}
 P6Q20StageB=s
 {budget_start}
@@ -159,7 +161,8 @@ s.phase='RECORDING'
 '''
     if pressure:
         setup=setup.replace('P6Q20StageB=s',f"s.source='{pressure_source}';s.source_version={expected_source_version};s.initial_turn={first};\nP6Q20StageB=s",1)
-        setup=setup.replace('local s={',"assert(#keys==33 and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil)\nlocal s={",1)
+        contexts=34 if expected_source_version in (181,182) else 33
+        setup=setup.replace('local s={',f"assert(#keys=={contexts} and registry.entries['UI/BaiqiWorldCrisisPopup.lua']~=nil)\nlocal s={{",1)
     poll=f'''
 local s=P6Q20StageB;assert(s and s.token=={quoted} and s.phase=='RECORDING')
 {stage_guard}

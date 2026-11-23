@@ -9,7 +9,7 @@ from tools.run_observed_acceptance import run
 
 class PressureObservedDriverTests(unittest.TestCase):
     def case(self,first=6,source_version=142):
-        h=DriverHarness();h.world.turn=first
+        h=DriverHarness(source_version=source_version);h.world.turn=first
         h.lua.execute("P6Q20PressureBuild={source='baiqi142-pressure-observed-v1',source_version=142}")
         h.lua.globals().P6Q20PressureBuild.source=f'baiqi{source_version}-pressure-observed-v1'
         h.lua.globals().P6Q20PressureBuild.source_version=source_version
@@ -28,6 +28,19 @@ class PressureObservedDriverTests(unittest.TestCase):
                        request_normal_end=callback if cb is None else cb,pressure_initial_turn=first,
                        expected_source_version=source_version,**options)
         return h,ledger,calls,callback,execute
+
+    def test_source182_34_context_window_and_wrong_build_refusal(self):
+        h,ledger,calls,cb,execute=self.case(source_version=182)
+        self.assertEqual(len(h.keys),34)
+        result=execute()
+        self.assertEqual(calls,[6,7,8,9,10,11])
+        self.assertEqual(result['source_version'],182)
+        self.assertTrue(h.all_recording(False))
+        h,ledger,calls,cb,execute=self.case(source_version=182)
+        h.lua.globals().P6Q20PressureBuild.source_version=181
+        with self.assertRaises(Exception):execute()
+        self.assertEqual(calls,[])
+        self.assertTrue(h.all_recording(False))
 
     def test_source143_six_ends_and_wrong_build_tag(self):
         h,ledger,calls,cb,execute=self.case(source_version=143);r=execute()

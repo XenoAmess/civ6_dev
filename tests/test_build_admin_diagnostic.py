@@ -11,7 +11,7 @@ class AdminDiagnosticTests(unittest.TestCase):
     def test_real_admin_only_append_inventory_and_archive(self):
         with tempfile.TemporaryDirectory(dir=ROOT/'.local-model')as temp:
             out=Path(temp)/'prepared';d=build(out);source=ROOT/'mod/Baiqi';target=out/'Baiqi';names=manifest_files(source)
-            self.assertEqual(d['files'],119);self.assertEqual(d['profile_count'],1);self.assertEqual(d['sample_capacity'],4096)
+            self.assertEqual(d['files'],123);self.assertEqual(d['profile_count'],1);self.assertEqual(d['sample_capacity'],4096)
             self.assertEqual([n for n in names if digest(source/n)!=digest(target/n)],['Lua/BaiqiAdmin.lua'])
             self.assertEqual((target/'Lua/BaiqiAdmin.lua').read_bytes(),(source/'Lua/BaiqiAdmin.lua').read_bytes()+suffix(source_version=CURRENT_VERSION).encode('utf-8'))
             with zipfile.ZipFile(out/f'Baiqi-admin{CURRENT_VERSION}-children.zip')as z:

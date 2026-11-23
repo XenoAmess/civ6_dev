@@ -20,7 +20,7 @@ class FoundDispatchDiagnosticTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=ROOT / '.local-model') as temp:
             out = Path(temp) / 'prepared'
             result = build(out)
-            self.assertEqual(result['files'], 119)
+            self.assertEqual(result['files'], 123)
             self.assertEqual(recover((out / 'Baiqi/Lua/BaiqiController.lua').read_bytes()), CONTROLLER.read_bytes())
             changed = [n for n, sha in result['source_hashes'].items()
                        if sha != result['instrumented_hashes'][n]]

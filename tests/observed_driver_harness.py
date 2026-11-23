@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 class DriverHarness:
-    def __init__(self):
+    def __init__(self, source_version=None):
         self.lua=LuaRuntime(unpack_returned_tuples=True)
         self.actions=[]
         self.action_times=[]
@@ -59,7 +59,10 @@ end''')
         info=ET.fromstring((ROOT/'mod/Baiqi/Baiqi.modinfo').read_bytes())
         self.keys=[e.findtext('Properties/LuaReplace') for e in info.findall('InGameActions/ReplaceUIScript')]
         self.keys+=['UI/BaiqiExecutor.lua','Lua/BaiqiGameplay.lua']
-        assert len(self.keys)==33 and 'UI/BaiqiWorldCrisisPopup.lua' in self.keys
+        if source_version is not None and source_version < 181:
+            self.keys.remove('UI/BaiqiRazeCity.lua')
+        expected = 34 if source_version is None or source_version >= 181 else 33
+        assert len(self.keys)==expected and 'UI/BaiqiWorldCrisisPopup.lua' in self.keys
         from tools.diagnostic_quotas import bounded_quotas
         quotas=bounded_quotas(self.keys)
         for key in self.keys:

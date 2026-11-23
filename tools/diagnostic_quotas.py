@@ -15,34 +15,38 @@ OVERRIDES = {
 
 
 def bounded_quotas(expected_keys: Sequence[str], *, allocation: str = 'legacy') -> dict[str, int]:
-    if allocation not in ('legacy', 'current140'):
+    if allocation not in ('legacy', 'current140', 'current181'):
         raise ValueError('unknown allocation profile')
     if not isinstance(expected_keys, Sequence) or isinstance(expected_keys, (str, bytes, bytearray, Mapping)):
         raise TypeError('expected_keys must be a sequence of strings')
     keys = list(expected_keys)
     crisis_key = 'UI/BaiqiWorldCrisisPopup.lua'
-    if len(keys) not in (32, 33):
-        raise ValueError('expected legacy32 or source11133 keys')
+    raze_key = 'UI/BaiqiRazeCity.lua'
+    if len(keys) not in (32, 33, 34):
+        raise ValueError('expected legacy32, source11133 or source18134 keys')
     if any(not isinstance(k, str) or not k for k in keys):
         raise ValueError('keys must be non-empty strings')
     if len(set(keys)) != len(keys):
         raise ValueError('keys must be unique')
-    if (len(keys) == 33) != (crisis_key in keys):
+    if (len(keys) >= 33) != (crisis_key in keys):
         raise ValueError('source111 context layout must include its crisis key')
+    if (len(keys) == 34) != (raze_key in keys):
+        raise ValueError('source181 context layout must include its raze key')
     for k in OVERRIDES:
         if k not in keys:
             raise ValueError(f'missing override key: {k}')
     quotas = {}
     for k in keys:
         if k in OVERRIDES:
-            # Fund the new context from executor capacity; the global4096 cap
+            # Fund the added contexts from executor capacity; the global4096 cap
             # and every legacy32 quota remain unchanged.
-            quotas[k] = OVERRIDES[k] - (16 if len(keys) == 33 and k == 'UI/BaiqiExecutor.lua' else 0)
+            quotas[k] = OVERRIDES[k] - (16 * (len(keys) - 32) if k == 'UI/BaiqiExecutor.lua' else 0)
         else:
             quotas[k] = 16
-    if allocation == 'current140':
-        if len(keys) != 33:
-            raise ValueError('current140 requires the complete33 context layout')
+    if allocation in ('current140', 'current181'):
+        expected = 33 if allocation == 'current140' else 34
+        if len(keys) != expected:
+            raise ValueError(f'{allocation} requires the complete{expected} context layout')
         # The next current build borrows unused flag-manager capacity; the
         # frozen global cap and default historical allocations stay unchanged.
         quotas['UI/BaiqiUnitFlagManager.lua'] = 384
