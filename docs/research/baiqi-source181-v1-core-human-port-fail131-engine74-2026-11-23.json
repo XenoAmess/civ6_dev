@@ -1,0 +1,194 @@
+{
+  "schema": "civ6.source181-v1-core-human-port-fail131/v1",
+  "utc": "2026-11-23T15:49:28.382558+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 181,
+  "revision": 1,
+  "engine": "1.0.12.74 / Build26595377",
+  "Native_status": "FAIL_RAZE_CHOICE_CORE_OWNER_CONFIG_ISHUMAN_MISSING",
+  "actual_independent_Core": {
+    "utc": "2026-11-23T15:42:31.117306+00:00",
+    "scene": [
+      "12",
+      "51",
+      "62",
+      "131072",
+      "3",
+      "0",
+      "21",
+      "18",
+      "0",
+      "92",
+      "27",
+      "20",
+      "4"
+    ],
+    "bridge_types": [
+      "table",
+      "1",
+      "baiqi-raze-choice-v1",
+      "function",
+      "table",
+      "table",
+      "true",
+      "nil",
+      "function",
+      "function",
+      "nil"
+    ],
+    "actual_read": [
+      [
+        "UNAVAILABLE",
+        "nil",
+        "handler_error"
+      ]
+    ],
+    "property": [
+      "BAIQI_PLAYER_RAZE_CHOICE_V1",
+      "nil",
+      "862",
+      "26",
+      "19",
+      "function",
+      "function",
+      "true",
+      "true"
+    ],
+    "protected": [
+      "table",
+      "LEGACY_UNKNOWN",
+      "true",
+      "table",
+      "862",
+      "nil",
+      "nil"
+    ],
+    "new_game_commands": 0
+  },
+  "actual_initial_UI": "12cities/51units/naturalSettler7274546at21,18moves0/goal862; QAModernArmor7471132at27,20moves4, enemy62/131072pop3at26,19. Sameprotectedprebattlebytecopy595932/SHA690727e23b19fafee452b6aa93186dce1f1a60641f89d65b11d34f75890ca468.",
+  "root_cause": "CurrentCorePlayerConfiguration.IsHumanisnil whilePlayer.IsHumanisfunction. RazeChoiceCoreOwnerdirectc:IsHumanthrowsinsideprotectedRead, actualUNAVAILABLE/handler_error. ExistingGoalsCoreandSettlementIntentCorealreadyusetypedfallback; newmodulemissedit. Notaconquest/Razeoutcome.",
+  "gate_outcome": "Initialbaselineassertionexit1preserved, separatedreadonlydiagnosticexit0revealedfacts. Dependentarmyattack/Raze chainstoppedbeforeinput, notactedthroughfailedgate.",
+  "actual_progress": {
+    "new_cold_Popen": 1,
+    "official_Load": 1,
+    "physical_Continue": 1,
+    "TEST_PLAYER_army_Raze_END_or_QA_factory_inputs": 0,
+    "no_fabricated_Raze_history": true,
+    "Steam_mode_actions": 0
+  },
+  "preservation": {
+    "failure_save": {
+      "utc": "2026-11-23T15:44:14.683282+00:00",
+      "name": "Baiqi_P6_20261123_V181_TC018CorePortFAIL131.Civ6Save",
+      "bytes": 595626,
+      "sha256": "e0e50298939df9506ee58c88bd3a87055c013992d2c72e4ba3f1684c7ba2dd8a",
+      "stable_repeated_read": true
+    },
+    "all_world_QA_flags_and_Load_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "live_QA_bindings": 0,
+    "actual_Quit_and_visible_confirmation_once_each": true,
+    "latest_OS_observation": {
+      "utc": "2026-11-23T15:48:02.388984+00:00",
+      "owner": {
+        "pid": 11216,
+        "created_at": 1795448261.635831,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "save": {
+        "utc": "2026-11-23T15:44:14.683282+00:00",
+        "name": "Baiqi_P6_20261123_V181_TC018CorePortFAIL131.Civ6Save",
+        "bytes": 595626,
+        "sha256": "e0e50298939df9506ee58c88bd3a87055c013992d2c72e4ba3f1684c7ba2dd8a",
+        "stable_repeated_read": true
+      },
+      "normal_MainMenu_Quit_and_visible_confirmation_requested_once_each": true,
+      "games": [
+        {
+          "create_time": 1795448261.635831,
+          "name": "CivilizationVI_DX12.exe",
+          "pid": 11216
+        }
+      ],
+      "actual_same_owned_process_absent": false,
+      "terminate_calls": 0,
+      "kill_calls": 0,
+      "Steam_mode_actions": 0,
+      "cpu": [
+        1047.09375,
+        200.0,
+        0.0,
+        0.0
+      ],
+      "rss": 449695744,
+      "visible_windows": []
+    },
+    "actual_normal_Quit_completion": "NOT_YET_PROVEN",
+    "new_product_or_install_edits_while_live": 0
+  },
+  "model_R146": {
+    "full_source_count": 6,
+    "raw_UTF8_bytes": 37100,
+    "before_owner_implementation": true,
+    "diagnosis": {
+      "utc": "2026-11-23T15:43:50.876876+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-23",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-23T15:43:50.842686+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 9.02600004337728,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-23T15:43:50.852345+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "0b65bc31a30c226702533b38251c453f94cbcd8b43a41d54df16424e9ca15088",
+          "total_ms": 23.709800094366074
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopts": 0,
+    "native_generation_tools": 0,
+    "cost": null
+  },
+  "software181v1_273_and_101Lua_compiles_not_Native_pass": true,
+  "old180_rebuild_FAIL_still_unresolved": "docs/research/baiqi-source180-tc018-raze-rebuild-fail134-engine74-2026-11-23.json",
+  "last_verified_whole_snapshot": {
+    "source180": 32,
+    "total": 40,
+    "percent": 80,
+    "remaining": 8
+  },
+  "current181_whole_Native_pass_claimed": false,
+  "unpublished_fix_packages": 9,
+  "Workshop_source": 172,
+  "next": "AfteractualgameOSabsenceapplytypedhumanfallbackusingactualCoreportshape, adddualVMtests, ordinary181-v2new123pinnedartifact. Keepv1frozenbuild+failuresavesunchanged, normalcommit/push, thennewfresh-offlinecoldtestsameprebattle beforeactualRaze/Reloadplanning. NoFinal."
+}
