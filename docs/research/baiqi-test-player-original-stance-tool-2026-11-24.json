@@ -1,0 +1,52 @@
+{
+  "schema": "civ6.test-player-original-stance-tool/v1",
+  "utc": "2026-11-23T20:16:30.840339+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "status": "SOFTWARE_PASS_NATIVE_EFFECT_PENDING",
+  "problem": "After officialK132savedreload, actual28own military are ready, originalUnitNeedsOrdersbuttononlyselectsScout1245193 and noend. Earlier sameunitturnSKIPattempts mustnotreplay. TEST_PLAYERmaychoosefreshoriginaldefensive stances; no manualCiv/forcedEND.",
+  "tool": "tools/lua/test_player_stances.lua",
+  "helper_sha256": "7131a2a8d8c3a97c5e991eb9929e5fd6070c7af628dc28064a0749f76f7def87",
+  "API": "Run(turn,limit,state,explicitaction), onlynativeGameInfoFORTIFY/SLEEP hashes. FreshBaiqiHuman0/SP/turn/strategic/idle/localmilitary/live/formation1/moves/ready/noqueue/selectedidentity/nativeCanStart/recheck, consumeperunitbeforeoriginalRequestOperation. Sameattempt map acrossactions, false/void/throwUNKNOWN not replayed. NoSDKenumshadowing/noMove/noSKIP/no BACKGROUND binding.",
+  "validation": {
+    "command": "python -X utf8 -m unittest tests.test_test_player_stances",
+    "exit": 0,
+    "methods": 5,
+    "each_VM": [
+      "5.1",
+      "5.3"
+    ],
+    "tool_chunk": "29ff46",
+    "raw_stdout_logfile_sha256": null,
+    "scope": "NormalFortifyland/SleepApostleGreatAdmiral, BuilderMissionaryexcluded; foreign/dead/delayed/escort/zero/pending/queued/rejection/reentranttypequeue/action changes; wrongleader/nonhuman/MP/hotseat/inactive/unknownaction/SKIP rejection; false/throw consumption before secondaction; bound/duplicate/midloopbusy. TinyIDs/hashes88/99aremockonly, notNativeeffect.",
+    "actualNativeScout_prequalification": [
+      "UNITOPERATION_FORTIFY",
+      -744032280,
+      true
+    ],
+    "actualNativeScout_Sleep_refusal": [
+      "UNITOPERATION_SLEEP",
+      -41338758,
+      false
+    ],
+    "all_other_actual_actor_operation_permissions": "Mustreadfreshbeforeactualwriter; not inferredfrommocks."
+  },
+  "model_R154": {
+    "prepared_before_owner_code": true,
+    "full_sources": 6,
+    "raw_UTF8_bytes": 31862,
+    "availability_reused": "R153actual19:57canonicalmissing/configsha unchanged/maintenance1.19.6same24cache",
+    "new_HTTP_calls": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopts": 0,
+    "native_generation_tools": 0,
+    "cost": null
+  },
+  "mod_source_version": 183,
+  "mod_payload_changes": 0,
+  "product_fix_package_count_unchanged": 11,
+  "whole_closed": 31,
+  "whole_remaining": 9,
+  "next": "UseonlyqualifiedTEST_PLAYERoriginalstanceoncethecurrent28militarywithsameconsumedmap; independentactualpositions/readiness/noCivorders/oldSKIPreplay, thenstrictnormalEND132/actual133+ownproduceropportunity, TC018KLMcontinuesNoFinal."
+}
