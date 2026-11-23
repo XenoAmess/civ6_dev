@@ -21,7 +21,11 @@ function M.Create(C,E)
     if not Integer(pid)or E.Game.GetLocalPlayer()~=pid or E.GameConfiguration.IsAnyMultiplayer()~=false then return nil end
     if E.GameConfiguration.IsHotseat~=nil and E.GameConfiguration.IsHotseat()~=false then return nil end
     local p,c=E.Players[pid],E.PlayerConfigurations[pid]
-    if not p or not c or c:GetLeaderTypeName()~=C.leader or c:IsHuman()~=true then return nil end
+    if not p or not c or c:GetLeaderTypeName()~=C.leader then return nil end
+    local human
+    if type(c.IsHuman)=='function'then human=c:IsHuman()
+    elseif c.IsHuman==nil and type(p.IsHuman)=='function'then human=p:IsHuman()end
+    if human~=true then return nil end
     if active and(p:IsTurnActive()~=true or E.Game.IsAllowStrategicCommands(pid)~=true)then return nil end
     return p
   end

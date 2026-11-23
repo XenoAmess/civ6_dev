@@ -76,6 +76,11 @@ class RazeChoiceContracts(unittest.TestCase):
     def test_same_choice_is_idempotent_and_different_identity_cannot_overwrite(self):
         self.each("Remember();Remember();assert(W.writes==1);W.cityID=983052;local s,v=API.Remember(0,983052,21,1,2);assert(s=='READY'and v.cityID==917516 and W.writes==1)")
 
+    def test_native_core_missing_config_human_uses_typed_player_fallback(self):
+        self.each("E.PlayerConfigurations[0].IsHuman=nil;p.IsHuman=function()return W.human end;local s,b=Read();assert(s=='READY'and b==false);assert(Remember()=='READY'and W.writes==1)")
+        for change in ("E.PlayerConfigurations[0].IsHuman=nil;p.IsHuman=function()return false end", "E.PlayerConfigurations[0].IsHuman=nil", "E.PlayerConfigurations[0].IsHuman='invalid';p.IsHuman=function()return true end", "W.human=false;p.IsHuman=function()return true end"):
+            self.each(change+";assert(Read()=='UNAVAILABLE');assert(Remember()=='UNAVAILABLE'and W.writes==0)")
+
     def test_wrong_owner_alias_hidden_and_inactive_do_not_write(self):
         for change in ("W.owner=1","W.alias=true","W.visible=false","W.revealed=false","W.city=false","W.active=false","W.strategic=false","W.multi=true","W.hotseat=true","W.human=false","W.localID=1","W.leader='QIN'"):
             with self.subTest(change=change):self.each(change+";assert(Remember()=='UNAVAILABLE'and W.writes==0)")
