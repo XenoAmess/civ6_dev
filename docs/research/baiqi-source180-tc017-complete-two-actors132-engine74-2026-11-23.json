@@ -1,0 +1,1613 @@
+{
+  "schema": "civ6.source180-tc017-complete-two-actors132/v1",
+  "utc": "2026-11-23T11:52:13.048804+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 180,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "PASS_TC017_CURRENT180_ENGINE74_FINITE_ADOPTED_CONTRACT_MATRIX",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_closed_total_percent_remaining": [
+    32,
+    40,
+    80,
+    8
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 8,
+  "product_changes": 0,
+  "mandatory_lines": [
+    "- 需求：BR-012、BR-015。夹具：F03，多城同时能出移民，已有一名在途移民，安全城址有限。",
+    "- 步骤：同轮触发所有城市规划；观察在建、在途和预留；取消一项或使其失效后再规划。",
+    "- 预期：同一城址／扩张任务只占一个名额；计入已有与在建移民，不同时无限追加；过期预留释放，剩余合法目标能继续使用。",
+    "- 证据：真实单位／队列与预留表对照、创建／释放原因、扩张预算与人口变化。"
+  ],
+  "mandatory_UTF8_LF_sha256": "15d6da5dd805afb3fd31ee93d28475a00117282dbf8f63a0397d3e229680f054",
+  "finite_clause_matrix": [
+    {
+      "clause": "Existing and in-production settlers counted; no runaway additions",
+      "status": "PASS_CURRENT180_NATIVE",
+      "evidence": [
+        "docs/research/baiqi-source180-tc017-queued-budget121-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc017-complete-two-actors132-engine74-2026-11-23.json"
+      ],
+      "actual": "Hnatural120->121 queue0->40/175,0liveSettlers, actualbudgetqueued1/cap1false; onlydetachedqueued0permits. Iactual2healthyactors/2uniqueeffectivegoals, actualbudgetsettlers2/queued0/reserved0/retained0/cap1false for4rows. Onlydetachedcap3permits3popvalidrows whilepop3stillfalse. Actual0newsettlerproduction/currentqueues0 inI.",
+      "limit": "Twoexistinggoalsalreadyrepresentedbytheir2liveactors; not4independenttasks. PreliminaryhasSafeSite=true is seed not Nativehint proof. Counterfactual changes onlydetachedLua inputs/config, nevergame."
+    },
+    {
+      "clause": "Multiple cities and finite safe sites without duplicate effective tasks",
+      "status": "PASS_CURRENT180_NATIVE_FINITE_MULTICITY_SCOPE",
+      "evidence": "docs/research/baiqi-source180-tc017-complete-two-actors132-engine74-2026-11-23.json",
+      "actual": "All12actualowncityIDs/pop/queue/nativeSettlerproductionqualifiersread. FourdistinctactualnonsettlerproductioncityIDs131073/196610/458758/851979 independentlylogged, first3pop11/11/13eligible andfourthpop3excluded. Originalbudget4rows11/11/13/3,148all-rolecallsnotunique-citycount. Iold7274546goal862retained whileextraQA7471132finallygoal776; bothhealthyNativeUI/Coreat25,19and16,18,moves0/form1/noqueue, bothgoalsunownedvisiblelandnoncitynonimpassable.",
+      "limit": "Notclaim12AllowRecruitcalls or4distinctcitiesfrom4budgetrowsalone. Distinct4citiescomeactualproductionrequests. Extraactor is explicitQA, no naturaltrainingTC015credit. In-memorySiteargreservationsactuallyempty, firstnewactorproposal862didoccur; finalpersistentgoalsunique, notclaimcandidatewasneverproposed."
+    },
+    {
+      "clause": "Expired/invalid goal released and remaining legal target continues",
+      "status": "PASS_CURRENT180_NATIVE",
+      "evidence": [
+        "docs/research/baiqi-source180-tc016017-owner-goal-replan132-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc016-arrival-recheck135-engine74-2026-11-23.json"
+      ],
+      "actual": "Aactualintransitoldgoal862changedforeignonce, nextordinary132 actualUI/Corebankreplacedonlygoal862->820 and5actualBGmoves, foreignold862retained. Bactualarrival135at820triggeredonceforeignownership, beforewritegoal820/noactorintent, afterCore/UIbankempty/FOUNDfalse/12cities/0newfoundintent/actualSKIP. BothscenesallQAretiredandprotected.",
+      "limit": "Theseareseparatecontrolledsingleactorinvalidityscenes, notnewcombinedtwoactorinvalidationrerun. Foundingunknownjournalnotclearedbyproposalcleanup, protected668Legacykept. No cancellation/replay of oldunknowntransactions."
+    },
+    {
+      "clause": "Budget, population, queue and request source evidence",
+      "status": "PASS_RECORDED_FINITE_NATIVE_SCENES",
+      "evidence": [
+        "docs/research/baiqi-source180-tc017-queued-budget121-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc016017-owner-goal-replan132-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc017-complete-two-actors132-engine74-2026-11-23.json"
+      ],
+      "actual": "Hrealnaturalqueuecost175/pop10and40progress, fixedsourcecounterfactualqueuedcountonly. Ipop11/11/13validand3inadmissible, wallet5915.09375/net66.60546875/committed5,6,8,9 withresourceAffordabletrue. Actual9settlerMOVEs(5old/4new)andobservedlogmatching, finalUI/Coreindependent;27TEST_PLAYERarmywaits/positionsunchanged,0manualcivilian/productioncommands.",
+      "limit": "ControllerlognotglobalNativeallSDKcounter; no per-stepCorepositionprobe. ExistingqueuedtrainingalreadyTC015naturallycompletedinoriginalscope; Iextraactorfixturedoesnotreplaceit."
+    }
+  ],
+  "all_matrix_native_source180": true,
+  "ordinary_files": 119,
+  "independent_fixture": {
+    "utc": "2026-11-23T11:35:32.257522+00:00",
+    "name": "Baiqi_P6_20261123_V180_TC017TwoActors131_ByteCopy.Civ6Save",
+    "bytes": 586193,
+    "sha256": "b73202e44f45dabaa1a8c0620cb27194485faa97b222b93e7421aab0608a5cb4",
+    "original": {
+      "name": "Baiqi_P6_20261121_V173_NaturalSettlerPrearrival131.Civ6Save",
+      "bytes": 586193,
+      "sha256": "b73202e44f45dabaa1a8c0620cb27194485faa97b222b93e7421aab0608a5cb4"
+    },
+    "method": "Independent unchanged original173prearrival131 bytecopy; excludes priorQA foreign862/820 and135world. New180visibility/threat/border/path state must be qualified; not assume allfourfixturespresent.",
+    "game_inputs": 0
+  },
+  "actual_fresh_native_ports": {
+    "UI": {
+      "utc": "2026-11-23T11:37:47.943627+00:00",
+      "frame": [
+        "131",
+        "12",
+        "50",
+        "1",
+        "7274546",
+        "21",
+        "18",
+        "0"
+      ],
+      "cities": [
+        [
+          "65536",
+          "16",
+          "14",
+          "15",
+          "0",
+          "0",
+          "false",
+          "false",
+          "2",
+          "0",
+          "13",
+          "1",
+          "-1098114629",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "131073",
+          "11",
+          "6",
+          "11",
+          "0",
+          "3",
+          "false",
+          "false",
+          "2",
+          "0",
+          "22",
+          "1",
+          "-468469791",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "196610",
+          "10",
+          "13",
+          "11",
+          "0",
+          "1",
+          "false",
+          "false",
+          "1",
+          "0",
+          "19",
+          "1",
+          "-468469791",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "262147",
+          "13",
+          "16",
+          "8",
+          "0",
+          "3",
+          "false",
+          "false",
+          "0",
+          "0",
+          "15",
+          "1",
+          "1910099296",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "327684",
+          "8",
+          "10",
+          "13",
+          "0",
+          "3",
+          "false",
+          "false",
+          "1",
+          "0",
+          "23",
+          "1",
+          "299201842",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "393221",
+          "15",
+          "5",
+          "8",
+          "0",
+          "9",
+          "false",
+          "false",
+          "1",
+          "0",
+          "18",
+          "1",
+          "1271148420",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "458758",
+          "19",
+          "6",
+          "13",
+          "0",
+          "0",
+          "false",
+          "false",
+          "1",
+          "0",
+          "14",
+          "1",
+          "683007456",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "524295",
+          "14",
+          "9",
+          "8",
+          "0",
+          "6",
+          "false",
+          "false",
+          "1",
+          "0",
+          "17",
+          "1",
+          "1910099296",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "589832",
+          "8",
+          "3",
+          "2",
+          "0",
+          "9",
+          "false",
+          "false",
+          "0",
+          "0",
+          "26",
+          "1",
+          "-1698135861",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "655369",
+          "11",
+          "1",
+          "6",
+          "0",
+          "13",
+          "false",
+          "false",
+          "0",
+          "0",
+          "24",
+          "1",
+          "1738306535",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "720906",
+          "16",
+          "18",
+          "3",
+          "0",
+          "6",
+          "false",
+          "false",
+          "0",
+          "0",
+          "11",
+          "1",
+          "-1698135861",
+          "true",
+          "true",
+          "nil"
+        ],
+        [
+          "851979",
+          "25",
+          "15",
+          "3",
+          "0",
+          "0",
+          "false",
+          "false",
+          "0",
+          "0",
+          "4",
+          "1",
+          "-2025065568",
+          "true",
+          "true",
+          "nil"
+        ]
+      ],
+      "goals": [
+        [
+          "7274546",
+          "7274546",
+          "862",
+          "26",
+          "19"
+        ]
+      ],
+      "game_writes": 0
+    },
+    "Core": {
+      "utc": "2026-11-23T11:37:49.437482+00:00",
+      "ports": [
+        "function",
+        "function",
+        "function",
+        "function",
+        "function",
+        "0",
+        "UNIT_SETTLER",
+        "DOMAIN_LAND",
+        "0"
+      ],
+      "frame": [
+        "12",
+        "50",
+        "7274546",
+        "21",
+        "18",
+        "0"
+      ],
+      "goal": [
+        "862"
+      ],
+      "game_writes": 0
+    }
+  },
+  "actual_once_Core_factory_and_after": {
+    "utc": "2026-11-23T11:43:03.135228+00:00",
+    "event": [
+      "true",
+      "false",
+      "true",
+      "1",
+      "true",
+      "false",
+      "OBSERVED",
+      "nil",
+      "7471132",
+      "0",
+      "13",
+      "16",
+      "0",
+      "132",
+      "1",
+      "true",
+      "true",
+      "0",
+      "50",
+      "51",
+      "4",
+      "3"
+    ],
+    "frame": [
+      "12",
+      "51",
+      "2"
+    ],
+    "actors": [
+      [
+        "7471132",
+        "0",
+        "16",
+        "18",
+        "0",
+        "1",
+        "false",
+        "false"
+      ],
+      [
+        "7274546",
+        "0",
+        "25",
+        "19",
+        "0",
+        "1",
+        "false",
+        "false"
+      ]
+    ],
+    "goals": [
+      [
+        "7274546",
+        "7274546",
+        "862",
+        "26",
+        "19",
+        "true"
+      ],
+      [
+        "7471132",
+        "7471132",
+        "776",
+        "28",
+        "17",
+        "true"
+      ]
+    ],
+    "intents": [
+      [
+        "6684713",
+        "6684713",
+        "LEGACY_UNKNOWN",
+        "settle:0:1"
+      ]
+    ],
+    "new_Game_writes": 0
+  },
+  "actual_budget_cities_goal_qualifiers": {
+    "utc": "2026-11-23T11:43:06.689554+00:00",
+    "observer_stats": [
+      "148",
+      "8",
+      "12",
+      "0",
+      "0",
+      "0"
+    ],
+    "budgets": [
+      [
+        "1",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "12",
+        "11",
+        "2",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "5",
+        "true",
+        "true"
+      ],
+      [
+        "2",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "12",
+        "11",
+        "2",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "6",
+        "true",
+        "true"
+      ],
+      [
+        "6",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "12",
+        "13",
+        "2",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "8",
+        "true",
+        "true"
+      ],
+      [
+        "9",
+        "132",
+        "settler",
+        "false",
+        "1",
+        "12",
+        "3",
+        "2",
+        "0",
+        "0",
+        "0",
+        "1",
+        "5915.09375",
+        "66.60546875",
+        "0",
+        "9",
+        "true",
+        "true"
+      ]
+    ],
+    "cities": [
+      [
+        "65536",
+        "0",
+        "15",
+        "1",
+        "-1098114629",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "131073",
+        "0",
+        "11",
+        "1",
+        "1725642169",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "196610",
+        "0",
+        "11",
+        "1",
+        "-689809087",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "262147",
+        "0",
+        "8",
+        "1",
+        "1910099296",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "327684",
+        "0",
+        "13",
+        "1",
+        "299201842",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "393221",
+        "0",
+        "8",
+        "1",
+        "1271148420",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "458758",
+        "0",
+        "13",
+        "1",
+        "1910099296",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "524295",
+        "0",
+        "8",
+        "1",
+        "1910099296",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "589832",
+        "0",
+        "2",
+        "1",
+        "-1698135861",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "655369",
+        "0",
+        "6",
+        "1",
+        "1738306535",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "720906",
+        "0",
+        "3",
+        "1",
+        "-1698135861",
+        "true",
+        "true",
+        "nil"
+      ],
+      [
+        "851979",
+        "0",
+        "3",
+        "1",
+        "-873674951",
+        "true",
+        "true",
+        "nil"
+      ]
+    ],
+    "goals": [
+      [
+        "7274546",
+        "862",
+        "26",
+        "19",
+        "-1",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true"
+      ],
+      [
+        "7471132",
+        "776",
+        "28",
+        "17",
+        "-1",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true"
+      ]
+    ],
+    "actual_goal_snapshot": {
+      "turn": 132,
+      "frame": [
+        "132",
+        "12",
+        "51",
+        "true",
+        "1",
+        "5915.09375",
+        "748.12109375"
+      ],
+      "bank": [
+        "READY",
+        "proposal"
+      ],
+      "goals": [
+        [
+          "7274546",
+          "7274546",
+          "UNIT_SETTLER",
+          "862",
+          "26",
+          "19"
+        ],
+        [
+          "7471132",
+          "7471132",
+          "UNIT_SETTLER",
+          "776",
+          "28",
+          "17"
+        ]
+      ],
+      "settlers": [
+        [
+          "7471132",
+          "0",
+          "16",
+          "18",
+          "0",
+          "1",
+          "false",
+          "false",
+          "false",
+          "nil"
+        ],
+        [
+          "7274546",
+          "0",
+          "25",
+          "19",
+          "0",
+          "1",
+          "false",
+          "false",
+          "false",
+          "nil"
+        ]
+      ],
+      "old_site": [
+        "862",
+        "26",
+        "19",
+        "-1",
+        "false",
+        "true",
+        "true"
+      ],
+      "queued_settlers": [
+        "0"
+      ],
+      "settler_queues": [],
+      "planner_stats": [
+        [
+          "148",
+          "8",
+          "12",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "recruit": [
+        [
+          "1",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "11",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "5",
+          "true",
+          "true"
+        ],
+        [
+          "2",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "11",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "6",
+          "true",
+          "true"
+        ],
+        [
+          "6",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "13",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "8",
+          "true",
+          "true"
+        ],
+        [
+          "9",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "3",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "9",
+          "true",
+          "true"
+        ]
+      ],
+      "site_calls": [
+        [
+          "3",
+          "132",
+          "7471132",
+          "nil",
+          "1"
+        ],
+        [
+          "4",
+          "132",
+          "7471132",
+          "nil",
+          "1"
+        ],
+        [
+          "5",
+          "132",
+          "7471132",
+          "nil",
+          "1"
+        ],
+        [
+          "7",
+          "132",
+          "7471132",
+          "862",
+          "1"
+        ],
+        [
+          "8",
+          "132",
+          "7471132",
+          "nil",
+          "1"
+        ],
+        [
+          "10",
+          "132",
+          "7471132",
+          "nil",
+          "1"
+        ],
+        [
+          "11",
+          "132",
+          "7471132",
+          "nil",
+          "1"
+        ],
+        [
+          "12",
+          "132",
+          "7471132",
+          "776",
+          "1"
+        ]
+      ],
+      "reservations": [],
+      "site_candidates": [
+        [
+          "7",
+          "1",
+          "862",
+          "99",
+          "true",
+          "true",
+          "true",
+          "false"
+        ],
+        [
+          "12",
+          "1",
+          "776",
+          "98",
+          "true",
+          "true",
+          "true",
+          "false"
+        ]
+      ]
+    },
+    "new_Game_writes": 0
+  },
+  "actual_final_UI": [
+    [
+      "7274546",
+      "25",
+      "19",
+      "0",
+      "862",
+      "26",
+      "19"
+    ],
+    [
+      "7471132",
+      "16",
+      "18",
+      "0",
+      "776",
+      "28",
+      "17"
+    ]
+  ],
+  "actual_log_and_controlled_positions": {
+    "utc": "2026-11-23T11:46:50.398365+00:00",
+    "bytes": 78974,
+    "sha256": "a02913a4cc06a2d3647eb12dec4ea712970a40de764e342379d334b88c1aac15",
+    "actor_requests_and_observed": {
+      "7274546": {
+        "requests": [
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:22|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=814|from=813",
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:23|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=815|from=814",
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:24|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=816|from=815",
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:25|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=860|from=816",
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:26|source=BACKGROUND|unit=7274546|operation=MOVE_TO|plot=861|from=860"
+        ],
+        "MOVE_TO": 5,
+        "FOUND_CITY": 0,
+        "observed": [
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:22|unit=7274546|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:23|unit=7274546|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:24|unit=7274546|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:25|unit=7274546|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:26|unit=7274546|kind=MOVE_TO"
+        ],
+        "scope": "ActualcontrollerlogplusindependentfinalUI/Coreposition, notglobalNativeSDKcounter or per-stepCorepositionprobe."
+      },
+      "7471132": {
+        "requests": [
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:6|source=BACKGROUND|unit=7471132|operation=MOVE_TO|plot=718|from=717",
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:7|source=BACKGROUND|unit=7471132|operation=MOVE_TO|plot=762|from=718",
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:8|source=BACKGROUND|unit=7471132|operation=MOVE_TO|plot=763|from=762",
+          "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:9|source=BACKGROUND|unit=7471132|operation=MOVE_TO|plot=808|from=763"
+        ],
+        "MOVE_TO": 4,
+        "FOUND_CITY": 0,
+        "observed": [
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:6|unit=7471132|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:7|unit=7471132|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:8|unit=7471132|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|observed|turn=132|id=0:132:9|unit=7471132|kind=MOVE_TO"
+        ],
+        "scope": "ActualcontrollerlogplusindependentfinalUI/Coreposition, notglobalNativeSDKcounter or per-stepCorepositionprobe."
+      }
+    },
+    "actual_production_requests": [
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:2|source=BACKGROUND|city=131073|type=DISTRICT_ENCAMPMENT",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:3|source=BACKGROUND|city=196610|type=BUILDING_UNIVERSITY",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:4|source=BACKGROUND|city=458758|type=DISTRICT_CAMPUS",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:5|source=BACKGROUND|city=851979|type=DISTRICT_HARBOR"
+    ],
+    "additional_settler_production_records": 0,
+    "player_controlled_27_positions_unchanged": [
+      [
+        "1048576",
+        "UNIT_SCOUT",
+        "12",
+        "16"
+      ],
+      [
+        "131073",
+        "UNIT_WARRIOR",
+        "15",
+        "13"
+      ],
+      [
+        "4456482",
+        "UNIT_KNIGHT",
+        "10",
+        "6"
+      ],
+      [
+        "327683",
+        "UNIT_SCOUT",
+        "15",
+        "15"
+      ],
+      [
+        "524292",
+        "UNIT_SCOUT",
+        "16",
+        "14"
+      ],
+      [
+        "1835013",
+        "UNIT_HORSEMAN",
+        "11",
+        "13"
+      ],
+      [
+        "786438",
+        "UNIT_SCOUT",
+        "10",
+        "13"
+      ],
+      [
+        "5505031",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "15",
+        "5"
+      ],
+      [
+        "1245193",
+        "UNIT_SCOUT",
+        "11",
+        "16"
+      ],
+      [
+        "3735562",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "11",
+        "5"
+      ],
+      [
+        "1441803",
+        "UNIT_SCOUT",
+        "13",
+        "17"
+      ],
+      [
+        "2162700",
+        "UNIT_HORSEMAN",
+        "10",
+        "12"
+      ],
+      [
+        "6488110",
+        "UNIT_GREAT_ADMIRAL",
+        "18",
+        "14"
+      ],
+      [
+        "4128783",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "8",
+        "10"
+      ],
+      [
+        "2097168",
+        "UNIT_ARCHER",
+        "17",
+        "14"
+      ],
+      [
+        "7012401",
+        "UNIT_GREAT_GENERAL",
+        "15",
+        "14"
+      ],
+      [
+        "6619154",
+        "UNIT_MUSKETMAN",
+        "11",
+        "6"
+      ],
+      [
+        "2424851",
+        "UNIT_HORSEMAN",
+        "11",
+        "7"
+      ],
+      [
+        "2686997",
+        "UNIT_ARCHER",
+        "16",
+        "13"
+      ],
+      [
+        "2818071",
+        "UNIT_HORSEMAN",
+        "10",
+        "5"
+      ],
+      [
+        "5701675",
+        "UNIT_KNIGHT",
+        "10",
+        "7"
+      ],
+      [
+        "6553642",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "19",
+        "6"
+      ],
+      [
+        "3604507",
+        "UNIT_GREAT_ADMIRAL",
+        "7",
+        "9"
+      ],
+      [
+        "4849702",
+        "UNIT_GREAT_ADMIRAL",
+        "17",
+        "13"
+      ],
+      [
+        "4718628",
+        "UNIT_KNIGHT",
+        "9",
+        "7"
+      ],
+      [
+        "4063264",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "14",
+        "9"
+      ],
+      [
+        "3997727",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "13",
+        "15"
+      ]
+    ],
+    "scope": "CurrentindependentLoad131->132controllerlog only; actualCorefactoryidentity/atomicoldstateandfinaltwoNativeactors/goals independentlyread. NotglobalallSDKcount."
+  },
+  "distinct_actual_production_city_IDs": [
+    131073,
+    196610,
+    458758,
+    851979
+  ],
+  "detached_budget_and_relevant_store_tests": {
+    "utc": "2026-11-23T11:45:03.424824+00:00",
+    "source_sha256_UTF8_normalized": {
+      "BaiqiConfig.lua": "59e38949bb529db2944a887b954916a18f4351aff08ac0f560158674f3f9fe47",
+      "BaiqiPolicy.lua": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+      "BaiqiPlanner.lua": "0fce74f390cacd1339c4c26b954d9a916d32f19c95e9c5e7e557cd77e76fd5ef"
+    },
+    "budget_rows": [
+      {
+        "VM": "lupa.lua51",
+        "actual_row": [
+          "1",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "11",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "5",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 11,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 5.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": true,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      },
+      {
+        "VM": "lupa.lua51",
+        "actual_row": [
+          "2",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "11",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "6",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 11,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 6.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": true,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      },
+      {
+        "VM": "lupa.lua51",
+        "actual_row": [
+          "6",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "13",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "8",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 13,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 8.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": true,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      },
+      {
+        "VM": "lupa.lua51",
+        "actual_row": [
+          "9",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "3",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "9",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 3,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 9.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": false,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      },
+      {
+        "VM": "lupa.lua53",
+        "actual_row": [
+          "1",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "11",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "5",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 11,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 5.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": true,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      },
+      {
+        "VM": "lupa.lua53",
+        "actual_row": [
+          "2",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "11",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "6",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 11,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 6.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": true,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      },
+      {
+        "VM": "lupa.lua53",
+        "actual_row": [
+          "6",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "13",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "8",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 13,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 8.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": true,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      },
+      {
+        "VM": "lupa.lua53",
+        "actual_row": [
+          "9",
+          "132",
+          "settler",
+          "false",
+          "1",
+          "12",
+          "3",
+          "2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5915.09375",
+          "66.60546875",
+          "0",
+          "9",
+          "true",
+          "true"
+        ],
+        "actual_input": {
+          "cities": 12,
+          "cityPopulation": 3,
+          "settlers": 2,
+          "queuedSettlers": 0,
+          "reservedSettlers": 0,
+          "retainedSettlers": 0,
+          "gold": 5915.09375,
+          "netGold": 66.60546875,
+          "maintenance": 0.0,
+          "committedMaintenance": 9.0,
+          "resourceAffordable": true,
+          "hasSafeSite": true
+        },
+        "detached_actual_cap1": false,
+        "detached_only_cap3": false,
+        "scope": "Onlydetached cap1->3, no Native config or queue changes. Existing2actors alreadyrepresent2uniquegoals; do not add those2again as newindependenttasks. PreliminaryhasSafeSite true not Nativehints."
+      }
+    ],
+    "valid_population_budget_rows_each_VM": 3,
+    "low_population_row_excluded": true,
+    "Native_config_or_queue_changes": 0,
+    "goal_store_existing_tests": {
+      "command": [
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_baiqi_settler_goals_core",
+        "tests.test_baiqi_settler_goals_schema"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr": "....................\r\n----------------------------------------------------------------------\r\nRan 20 tests in 0.175s\r\n\r\nOK\r\n",
+      "scope": "Onlyrelevantunchangedgoalstore+schemaexistingtests: realCoreRememberforeignreservationnot-overwritten, malformedduplicatebank, staleabsence/aliasretirement, owner/turn/unknown/independentfoundjournal; no Native bridge reservedreply measurement claimed."
+    },
+    "original_Site_proposal_scope": "Actualnewactor7471132Sitefirstproposed862whilebankheldold7274546goal862. In-memorySiteargreservationswereempty. Lateractualbanktwouniquegoals862/776andnewactualmovementunder776, oldgoalretained. NativeCoreRememberreservedreplynotdirectlyobserved; sourceguardanddetachedtestsseparatefromfinalNativefacts. NotclaimoriginalSiteexcluded862."
+  },
+  "QA_scene_scope": "Oneown132GameEvents.PlayerTurnStarted InitUnit(0,UNIT_SETTLER,13,16)inactualvisibleemptyowncity262147/plot717. ReturnednewfullID7471132/owner0/type0/XY/health/FindID/plotverified, actualown50->51. Oldown12cityIDsXYpop/50oldunitIDsownerTypeXYmovesformation/wallet54resources/goalintents/metwar/oldtargetgeometry unchanged atomically aroundfactoryexcludingonlynewactor. Not modtrainingorarmy/civilianorder. Factoryconsumedbeforecall, no retry/destroy.",
+  "event_actual_phase": {
+    "turn": 132,
+    "player": 0,
+    "arity": 1,
+    "strategic": true,
+    "active": true,
+    "old_settler_moves": 0,
+    "factory_calls": 1
+  },
+  "software": {
+    "fixture_meaningful_cases_each_VM": [
+      60,
+      60
+    ],
+    "fixture_raw_sha256": "75b0d4c2b039438ea884ca6c94770e4aedda1638542717a8545b4df6465f87fa",
+    "passive_observer_reused_cases_each_VM": [
+      21,
+      21
+    ],
+    "relevant_existing_store_schema_unittests": 20,
+    "software_not_Native_effect": true
+  },
+  "proposal_collision_scope": "NativepublicSite firstproposed862 to7471132whilepersistentoldgoal862belonged7274546. Lateractualpersistentbankhasunique862/776, onlyfinal776assignednewactorandbothmoved. NativeCoreRememberreservedreplynotdirectlyinstrumented; exactCore113andSchema30duplicateguardsplus20detachedexistingtestsseparatefromactualfinalNativefacts. Do not claiminitialSitefiltered862 or observedCore reply.",
+  "preservation": {
+    "save": {
+      "utc": "2026-11-23T11:46:52.852987+00:00",
+      "name": "Baiqi_P6_20261123_V180_TC017TwoActorsUnique132.Civ6Save",
+      "bytes": 588293,
+      "sha256": "2d1f308fe090b50df28353be78b86fe51fd8fa70cf9f58632f01ce4857da052a",
+      "stable_repeated_read": true
+    },
+    "all_three_QA_bindings_retired": true,
+    "all_known_input_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true,
+    "extra_actor_preserved_not_destroyed": true,
+    "old_protected_outcomes": "8650807FAIL_UNRESOLVED/6684713and458752LEGACY_UNKNOWNnotcleared/cancelled/replayed."
+  },
+  "actual_progress_this_branch": {
+    "ordinary_ENDs": 1,
+    "advances": 1,
+    "TEST_PLAYER_military_waits": 27,
+    "TEST_PLAYER_army_MOVEs": 0,
+    "manual_civilian_or_production_commands": 0,
+    "QA_extra_settler_factory_calls": 1,
+    "background_old_settler_MOVE": 5,
+    "background_extra_settler_MOVE": 4,
+    "additional_settler_production": 0,
+    "official_Loads": 1,
+    "physical_Continue": 1,
+    "new_Popen": 0,
+    "Steam_mode_actions": 0
+  },
+  "R137": {
+    "real_unfinished_task": "REAL_UNIMPLEMENTED_TC017_TWO_HEALTHY_ACTORS_EXCLUSIVE_RESERVATIONS_NATIVE_FIXTURE_AND_REPLAY_SAFETY",
+    "prepared_before_owner_implementation": true,
+    "full_sources": 15,
+    "full_UTF8_bytes": 518884,
+    "diagnosis": {
+      "utc": "2026-11-23T11:26:53.775422+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-23",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-23T11:26:53.739932+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 8.271400118246675,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-23T11:26:53.748864+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "d6ed2d3ad61fc102ff4c3d2ed6cb84142a6824ca80149de21e62dbb4066b202d",
+          "total_ms": 25.85120010189712
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "scope": "2GET200canonicalqwen38-coderabsent/onlyopen-h3-2k. NotgenerationPOST/REQUEST/SSE/new404candidate. No fallback/config/servicechanges. CachedOpenCode1.19.6maintenance notgenerationcapability."
+  },
+  "next": "ContinueTC018ownership/capture/keep/razequalificationandremaining8; noFinalatcommit, noWorkshop172duplicateupload."
+}
