@@ -1,5 +1,7 @@
 # civ6_dev
 
+2026-11-24 [183 TC019标准／军团夹具136](docs/research/baiqi-source183-tc019-standard-corps-fixture136-engine74-2026-11-24.json)：有界一次造兵／资格变化／旧状态保护等双VM各69检查通过；实际仅2次明确QA InitUnit与1次资格真后新角色军团setter，旧52→53→54原有状态逐次保持。UI/Core独立确认标准(0,7733300)@(8,1)、军团(0,7798837)@(9,1)，均2行动／就绪／无排队；军团MilitaryFormation1与FormationUnitCount1分列，不混同护送。已保护新档594006/SHAfa6972a198755d3ff54d65e01dbb34d11fa62ee2190c265c3b74deb90bf6c6de，2私有工厂及Save标志全退，无观察绑定。0玩家军令／END，非正常训练证据；后台窗口、玩家实际指挥及其余类型均待验，整项仍开33/40＝82.5%、余7，待发11／工坊172，继续。
+
 2026-11-24 [183 TC019只读接口136](docs/research/baiqi-source183-tc019-readonly-ports136-engine74-2026-11-24.json)：独立实际136副本已重载并真实Continue，只做UI/Core端口、枚举、己方清单与可见空地读取，0造兵／编制setter／军令／END。Core InitUnit与CanForm有、原版UI军令接口在Core为nil；军团资格true、集团军false，不推原因或强行授通过。105陆／32海仅空闲己方可见候选，12城中心区各1空航空位，区ID不能当城ID。TC019全矩阵仍开，整体33/40＝82.5%、余7，待发11／工坊172；继续有界夹具及实际指挥验证。
 
 2026-11-24 [183精确科技阻塞恢复136](docs/research/baiqi-source183-exact-completed-research-guard136-engine74-2026-11-24.json)重新关闭TC009，[最新账本](docs/research/baiqi-source183-finite40-engine74-tc009-reclosed136-2026-11-24.json)33/40＝82.5%、余7；待发11组／工坊172。独立已夷平131原档重载后正常推进，135真实新分支research_completed_ui_current明确40→41，实际后台经济学请求／观察各1，原266投入保留；普通135→136后UI/Core均362.984/428，电力135已有341保持。不是旧cold135清缓存后的普通空选科技，也未补科技／伪造SDK状态；恢复前短暂UI40/Core-1未被本轮独立轮询捕获，资格由实际已审路径日志证明，原181故障原件另保留。5普通END／28原版测试玩家驻防休眠／0军事移动或旧SKIP重放，136正式保存、全QA退主菜单。继续TC019军事类型矩阵及另6项，不在阶段报告停工。
