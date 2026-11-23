@@ -42,7 +42,7 @@ function Remember()return API.Remember(0,917516,21,1,2)end
 function Read(index)return API.Read(0,index or 21,(index or 21)%10,math.floor((index or 21)/10))end
 function View()
  local api={version=1,marker='baiqi-raze-choice-v1',Remember=function(...)return API.Remember(...)end}
- V={BaiqiUIGuard={PlayerID=function()if W.otherLeader then return nil end;return 0 end},
+ V={PlayerID=function()if W.otherLeader then return nil end;return 0 end,
  CityCommandTypes={DESTROY=9},CityDestroyDirectives={RAZE=3},UnitOperationTypes={PARAM_FLAGS=7},
  Map=E.Map,ExposedMembers={BaiqiRazeChoiceBridge=api},Print=function()W.logs=W.logs+1 end}
  manager={CanStartCommand=function()return W.commandLegal~=false end}
