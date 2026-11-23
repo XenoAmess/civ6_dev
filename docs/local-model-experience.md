@@ -1368,3 +1368,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 2026-11-23 [原版建筑／区域修复对照](research/baiqi-source179-tc012-normal-building-district-repair-engine74-2026-11-23.json)：复用R110/R111，无新模型GET／生成；owner固定Qin控制薄工具保Baiqi零写入，同回合正负校验纠正此前负例错回合。Native成本余8／9、真实完工／收益与项目资格分列；命名收益索引、缓存进度与人口变化均按实际保留纠正，未知成本null。
 
 2026-11-23 [TC012三类真实修复闭合](research/baiqi-source179-tc012-complete-engine74-2026-11-23.json)：复用R110/R111，0新模型GET／生成／采用；owner纯读退出与原版排队END多阶段、玩家新将军移位／待命分列，无文职救场。真实产能／收益／旧项目投资与有限计数分别确认，源代码未改、成本null。
+
+
+2026-11-23 R120：真实当前180实机合同审阅，20完整输入649241字节；每日维护复用1.19.6成功缓存，两GET200仍无配置qwen、仅H3，0生成／候选／采用／OpenCode原生工具，成本null；负责人独立审阅实际152→158与冻结合同后补齐TC013，不将GET/缓存成功当候选。[实际范围与读取器修正](research/baiqi-source180-steel-wall-factory158-native-engine74-2026-11-23.json)记录按上下文核API、number队列目的地、MainMenu重建标记、单次END可能只执行既有队列等有限经验；后者必须独立位置／队列读回后再发不同正常动作。无模型配置／服务变更。

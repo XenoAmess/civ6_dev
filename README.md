@@ -1,5 +1,7 @@
 # civ6_dev
 
+[180钢铁后失效城墙实机修复通过](docs/research/baiqi-source180-steel-wall-factory158-native-engine74-2026-11-23.json)／[当前台账](docs/research/baiqi-source180-finite40-engine74-tc013-reclosed158-2026-11-23.json)：原152自然解锁钢铁，153后台只一次合法前插工厂，158独立Core确认建成并自动续证券交易所。已保存、撤全部QA返主菜单，TC013重新关闭；整项 **28/40＝70%，余12**。待发8组源码修复，工坊仍172；继续TC009严格容量／市政及其余验收。
+
 [180钢铁后失效城墙的软件修复](docs/research/baiqi-source180-steel-wall-fallback-software-2026-11-23.json)／[当前台账](docs/research/baiqi-source180-finite40-engine74-native-pending-2026-11-23.json)：119项受影响检查、97份Lua双VM编译及119文件真实ZIP通过，同153实机复测待执行。整项仍 **27/40＝67.5%**，余13；待发8组源码修复，180尚无实机通过。继续离线冷验和TC009。
 
 [当前钢铁后城墙失效队列FAIL](docs/research/baiqi-source179-steel-obsolete-wall-fail153-engine74-2026-11-23.json)／[当前40项台账](docs/research/baiqi-source179-finite40-engine74-tc013-reopened153-2026-11-23.json)：TC013因新实机死锁重开，**27/40＝67.5%**，余13、待发7。已保存并正常退出，继续修复source180与同档冷验，再接TC009；此前70%为重开前快照。

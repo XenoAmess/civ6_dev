@@ -1,0 +1,573 @@
+{
+  "schema": "civ6.source180-steel-wall-factory158-native/v1",
+  "utc": "2026-11-23T04:17:24.896815+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 180,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "PASS_WHOLE_TC013_NEW_STEEL_FAILURE_REPAIRED_ACTUAL_FACTORY_COMPLETE_AND_PRIOR_FINITE_WAIT_SCOPES_RETAINED",
+  "whole_mod": "OPEN_CONTINUE",
+  "source180_package": {
+    "files": 119,
+    "Lua_sources_compiled_each_VM": 97,
+    "mode": "ordinary180-unmodified",
+    "archive_sha256": "666c73e28ea1faa629c68e2d8ed573ff0a2dcca424842311a41c31293d48899a",
+    "all119_installed_and_pointer_owner_verified_each_Native": true,
+    "Controller_raw_sha256": "fee4342a1e4ef202f67dc4a1e48b282fd445542876984e5dc2b46a5cba117835"
+  },
+  "previous_failure": "docs/research/baiqi-source179-steel-obsolete-wall-fail153-engine74-2026-11-23.json",
+  "software": "docs/research/baiqi-source180-steel-wall-fallback-software-2026-11-23.json",
+  "mandatory_contract": {
+    "lines": [
+      "- 需求：BR-005、BR-026。夹具：F01／F02，所有候选暂时非法或受保护，另备可用的正常后备项目。",
+      "- 步骤：跨多个规划点观察；分别测试存在合法后备项和完全无合法项；之后开放一个候选。",
+      "- 预期：前者按策略用后备项，后者有界等待；不反复清队列、无限请求或弹窗。触发条件改变后恢复，不能永久死锁。",
+      "- 证据：每轮候选／请求／重试数与冻结上限、原因提示次数、条件改变后的真实队列。"
+    ],
+    "UTF8_LF_final_newline_sha256": "5a77cb56a39f871643f0ddc4b3a69d4d5dbece51cdca3ebed617b41af96889f8",
+    "changed": false
+  },
+  "actual_independent_world": {
+    "source": "Protected original AutoSave_0152 byte-identical ordinary save copy, no header or gameplay edits; independent world, not old179 END152 replay.",
+    "bytes": 622723,
+    "sha256": "f045f1cd7b7a07371a757f43e5c24369fd5a91c59b041da107539e4f20c83c1e",
+    "fresh_background_readonly_Steam_offline_before_official_Load": true,
+    "official_Loads": 1,
+    "actual_turns": [
+      152,
+      158
+    ],
+    "ordinary_END_inputs": 7,
+    "actual_advances": 6,
+    "TEST_PLAYER_military_waits": 196,
+    "TEST_PLAYER_military_moves": 2,
+    "manual_domestic_inputs": 0,
+    "new_ownership_QA_mutations": 0,
+    "production_completion_or_resource_grants": 0,
+    "UserForced": false,
+    "END158": 0,
+    "normal_END_first_queue_processing_then_distinct_next_action": 153
+  },
+  "cold153_other_world": {
+    "protected_failure153_official_loads": 1,
+    "ENDs": 0,
+    "actual_Builder_queue_after_reload": true,
+    "new_branch_log_matches": 0,
+    "classification": "RELOAD_ONLY_NO_SOURCE180_FIX_BRANCH_CREDIT",
+    "old_queue_disappearance_exact_cause": "UNKNOWN"
+  },
+  "real_transition": {
+    "city_id": 524295,
+    "XY": [
+      14,
+      9
+    ],
+    "152": {
+      "Steel": false,
+      "research": "TECH_STEEL",
+      "queue": "BUILDING_STAR_FORT",
+      "progress_cost": [
+        0,
+        150
+      ],
+      "original_CanProduce_both": true
+    },
+    "153": {
+      "Steel": true,
+      "research": "TECH_REFINING",
+      "old_wall_original_CanProduce_both": false,
+      "old_wall_actual_asset": false,
+      "new_queue": "BUILDING_FACTORY",
+      "progress_cost": [
+        0,
+        165
+      ],
+      "exact_branch_requests": [
+        "BaiqiExecutor: BAIQI|request|turn=153|id=0:153:25|source=BACKGROUND|city=524295|type=BUILDING_FACTORY|blocked=urban_defense_wall|insert=prepend_blocked"
+      ],
+      "branch_request_count": 1
+    },
+    "actual_progress": [
+      {
+        "utc": "2026-11-23T03:56:23.404335+00:00",
+        "turn": 153,
+        "queue": [
+          "153",
+          "1",
+          "-1096470108",
+          "5",
+          "BUILDING_FACTORY"
+        ],
+        "buildings": [
+          [
+            "25",
+            "BUILDING_FACTORY",
+            "false",
+            "false",
+            "0",
+            "165"
+          ],
+          [
+            "22",
+            "BUILDING_STAR_FORT",
+            "false",
+            "false",
+            "0",
+            "150"
+          ],
+          [
+            "27",
+            "BUILDING_STOCK_EXCHANGE",
+            "false",
+            "false",
+            "0",
+            "165"
+          ]
+        ]
+      },
+      {
+        "utc": "2026-11-23T04:05:04.758451+00:00",
+        "turn": 154,
+        "queue": [
+          "154",
+          "1",
+          "-1096470108",
+          "4",
+          "BUILDING_FACTORY"
+        ],
+        "buildings": [
+          [
+            "25",
+            "BUILDING_FACTORY",
+            "false",
+            "false",
+            "66",
+            "165"
+          ],
+          [
+            "22",
+            "BUILDING_STAR_FORT",
+            "false",
+            "false",
+            "0",
+            "150"
+          ],
+          [
+            "27",
+            "BUILDING_STOCK_EXCHANGE",
+            "false",
+            "false",
+            "0",
+            "165"
+          ]
+        ]
+      },
+      {
+        "utc": "2026-11-23T04:05:24.326630+00:00",
+        "turn": 155,
+        "queue": [
+          "155",
+          "1",
+          "-1096470108",
+          "3",
+          "BUILDING_FACTORY"
+        ],
+        "buildings": [
+          [
+            "25",
+            "BUILDING_FACTORY",
+            "false",
+            "false",
+            "96",
+            "165"
+          ],
+          [
+            "22",
+            "BUILDING_STAR_FORT",
+            "false",
+            "false",
+            "0",
+            "150"
+          ],
+          [
+            "27",
+            "BUILDING_STOCK_EXCHANGE",
+            "false",
+            "false",
+            "0",
+            "165"
+          ]
+        ]
+      },
+      {
+        "utc": "2026-11-23T04:05:48.997811+00:00",
+        "turn": 156,
+        "queue": [
+          "156",
+          "1",
+          "-1096470108",
+          "2",
+          "BUILDING_FACTORY"
+        ],
+        "buildings": [
+          [
+            "25",
+            "BUILDING_FACTORY",
+            "false",
+            "false",
+            "126",
+            "165"
+          ],
+          [
+            "22",
+            "BUILDING_STAR_FORT",
+            "false",
+            "false",
+            "0",
+            "150"
+          ],
+          [
+            "27",
+            "BUILDING_STOCK_EXCHANGE",
+            "false",
+            "false",
+            "0",
+            "165"
+          ]
+        ]
+      },
+      {
+        "utc": "2026-11-23T04:06:11.246026+00:00",
+        "turn": 157,
+        "queue": [
+          "157",
+          "1",
+          "-1096470108",
+          "1",
+          "BUILDING_FACTORY"
+        ],
+        "buildings": [
+          [
+            "25",
+            "BUILDING_FACTORY",
+            "false",
+            "false",
+            "156",
+            "165"
+          ],
+          [
+            "22",
+            "BUILDING_STAR_FORT",
+            "false",
+            "false",
+            "0",
+            "150"
+          ],
+          [
+            "27",
+            "BUILDING_STOCK_EXCHANGE",
+            "false",
+            "false",
+            "0",
+            "165"
+          ]
+        ]
+      },
+      {
+        "utc": "2026-11-23T04:07:47.511710+00:00",
+        "turn": 158,
+        "queue": [
+          "158",
+          "1",
+          "850496935",
+          "5",
+          "BUILDING_STOCK_EXCHANGE"
+        ],
+        "buildings": [
+          [
+            "25",
+            "BUILDING_FACTORY",
+            "true",
+            "false",
+            "0",
+            "165"
+          ],
+          [
+            "22",
+            "BUILDING_STAR_FORT",
+            "false",
+            "false",
+            "0",
+            "150"
+          ],
+          [
+            "27",
+            "BUILDING_STOCK_EXCHANGE",
+            "false",
+            "false",
+            "0",
+            "165"
+          ]
+        ]
+      }
+    ],
+    "158": {
+      "independent_Core_factory": [
+        "524295",
+        "25",
+        "true",
+        "false",
+        "false"
+      ],
+      "next_automatic_queue": "BUILDING_STOCK_EXCHANGE",
+      "next_progress_cost": [
+        0,
+        165
+      ]
+    },
+    "old_wall_stored_progress_all_samples": 0,
+    "old_wall_cost": 150,
+    "old_row_after_fallback": "ABSENT",
+    "limits": "Old0investmententryabsentafterfallback; exactenginepruningtimestampandinternaloverflowaccountingnotdirectlytraced. No claim of real nonzero-investment conservation. Factory0->66 firstobservedstepretainedasactualnotnormalizedintoanassumedproductionformula."
+  },
+  "whole_TC013_clauses": [
+    {
+      "scope": "New legal fallback after actual Steel invalidation",
+      "result": "PASS new180 original152->158 transition, one bounded fallback request, actual legal Factory progress and independent Core completion."
+    },
+    {
+      "scope": "Previously complete no-candidate waiting and exactly one candidate restoration",
+      "result": "Retained source179 sameengine evidence with original exact limits; controlled qualification refusals, no claim of exhaustive natural illegality.",
+      "evidence": "docs/research/baiqi-source179-tc013-complete-engine74-2026-11-23.json",
+      "source180_impact": "Only known Steel ordinary wall exception/proof resnapshot/log plus manifest; preexisting no-candidate cache/recheck, candidate pool, caps and normal positive path retained. 119 affected regressions pass, not all Native clauses physically rerun180."
+    },
+    {
+      "scope": "No unlimited submission or queue clear",
+      "result": "Current new branch request exactly1 across protected independent log delta through158; no owner queue clear/cancel/refund or production grant. Original old0investment remains0; exact internal pruning/overflow not traced."
+    }
+  ],
+  "military_position_checks": [
+    {
+      "turn": 153,
+      "all_original_military_still_present_same_positions": 32,
+      "new153_player_moved_armies_separate": [
+        [
+          "8716336",
+          "UNIT_LINE_INFANTRY",
+          "9",
+          "6",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ],
+        [
+          "8781879",
+          "UNIT_FIELD_CANNON",
+          "10",
+          "13",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ]
+      ]
+    },
+    {
+      "turn": 154,
+      "all_original_military_still_present_same_positions": 32,
+      "new153_player_moved_armies_separate": [
+        [
+          "8716336",
+          "UNIT_LINE_INFANTRY",
+          "9",
+          "7",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ],
+        [
+          "8781879",
+          "UNIT_FIELD_CANNON",
+          "10",
+          "14",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ]
+      ]
+    },
+    {
+      "turn": 155,
+      "all_original_military_still_present_same_positions": 32,
+      "new153_player_moved_armies_separate": [
+        [
+          "8716336",
+          "UNIT_LINE_INFANTRY",
+          "9",
+          "7",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ],
+        [
+          "8781879",
+          "UNIT_FIELD_CANNON",
+          "10",
+          "14",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ]
+      ]
+    },
+    {
+      "turn": 156,
+      "all_original_military_still_present_same_positions": 32,
+      "new153_player_moved_armies_separate": [
+        [
+          "8716336",
+          "UNIT_LINE_INFANTRY",
+          "9",
+          "7",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ],
+        [
+          "8781879",
+          "UNIT_FIELD_CANNON",
+          "10",
+          "14",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ]
+      ]
+    },
+    {
+      "turn": 157,
+      "all_original_military_still_present_same_positions": 32,
+      "new153_player_moved_armies_separate": [
+        [
+          "8716336",
+          "UNIT_LINE_INFANTRY",
+          "9",
+          "7",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ],
+        [
+          "8781879",
+          "UNIT_FIELD_CANNON",
+          "10",
+          "14",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ]
+      ]
+    },
+    {
+      "turn": 158,
+      "all_original_military_still_present_same_positions": 32,
+      "new153_player_moved_armies_separate": [
+        [
+          "8716336",
+          "UNIT_LINE_INFANTRY",
+          "9",
+          "7",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ],
+        [
+          "8781879",
+          "UNIT_FIELD_CANNON",
+          "10",
+          "14",
+          "2",
+          "0",
+          "1",
+          "NA"
+        ]
+      ]
+    }
+  ],
+  "military_boundary_limit": "Finite before/after positions plus matched TEST_PLAYER inputs and product-source review, not a global Native writer trace. Two new153armies were explicitly moved once by TEST_PLAYER and independently Core-confirmed.",
+  "Native_global_writer_counter": "NOT_INSTALLED",
+  "checkpoint": {
+    "utc": "2026-11-23T04:10:57.180285+00:00",
+    "name": "Baiqi_P6_20261123_V180_SteelWallFactoryComplete158.Civ6Save",
+    "bytes": 630844,
+    "sha256": "c1c3e66e87d8da482473aa5a647ff646c7de1e8a5bb2e6cbbc7fc94a71e801e3",
+    "stable_repeated_read": true
+  },
+  "all_QA_bindings_input_move_Save_Load_flags_retired": true,
+  "world_UI_and_Core_contexts_absent_after_formal_MainMenu": true,
+  "product_changes_this_Native_package": 0,
+  "affected_software_regressions": {
+    "passed": 119,
+    "not_full_repository_suite": true,
+    "not_new_Native_coverage": true
+  },
+  "R120": {
+    "R": 120,
+    "genuine_unfinished_task": "Current180 actual Native TC013 closure and TC009 scope audit before owner report",
+    "full_inputs": 20,
+    "raw_UTF8_bytes": 649241,
+    "OpenCode": {
+      "date": "2026-11-23",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "configured_model": "qwen38-coder",
+    "available_model_ids": [
+      "open-h3-2k"
+    ],
+    "GET_statuses": [
+      200,
+      200
+    ],
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_tool_sessions": 0,
+    "automatic_fallback": false,
+    "configuration_service_changes": 0,
+    "cost": null
+  },
+  "owner_corrections": [
+    "GetQueuedDestination actual value can be a numeric plot index; first readonly receiver incorrectly indexed a table. Failure occurred before game inputs; corrected typed read retained, no command replay.",
+    "Core context has no UI global. First readonly completion query incorrectly used a UI phase guard; fixed Core-only guard before any QA retirement/save. Independent Core then confirmed Factory true/unpillaged and absent old wall.",
+    "MainMenu is recreated on world exit; known Load flag was already nil. Initial true-only guard failed readonly; exact nil-or-true guard plus actual context absence verified, no Load or GUI replay.",
+    "A157 phase check refused before zero commands after allocating an empty input map. Resumed using the same empty map, without reset or replay; no actual dialogue was proved.",
+    "153 initial29 military waits left two original and two newly trained units unqualified while stacked. Zero-submission second pass retained original consumed IDs. Two new armies moved once via ordinary qualified TEST_PLAYER operations, UI/Core effects independently read; four newly eligible waits then raised actual153 total to33, no repeated unit IDs.",
+    "153 first normal END processed existing queued civilian movement and remained153. Actual full snapshot/all unit queue readback preceded distinct second ordinary END. Six actual advances152->158 required seven original no-reason END actions, not Shift+Enter.",
+    "Compaction lost an unregistered menu verifier console session; independent OS absence, no registration and no Native attempt were confirmed before a new admission. No game action replay.",
+    "Contract digest uses LF after every mandatory line including final LF. Owner audit first omitted trailing LF, then matched the original frozen hash without modifying any contract line."
+  ],
+  "whole_progress": {
+    "closed": 28,
+    "total": 40,
+    "percent": 70,
+    "remaining": 12,
+    "unpublished_product_fix_packages": 8,
+    "Workshop_source": 172
+  },
+  "TC009": "docs/research/baiqi-source180-tc009-site-candidate156-engine74-2026-11-23.json",
+  "next": "Continue strict capacity/civic prerequisites and all remaining12; do not stop after this commit or re-upload source172."
+}
