@@ -1,0 +1,719 @@
+{
+  "schema": "civ6.source180-tc018-unit-loss132/v1",
+  "utc": "2026-11-23T13:07:11.177095+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 180,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "FINITE_NATIVE_OWN_UNIT_LOSS_AND_REPLACEMENT_QUEUE_NOT_CAPTURE_OR_WHOLE_CASE",
+  "whole_TC018": "OPEN_UNIT_CAPTURE_NORMAL_CONQUEST_KEEP_LEGAL_RAZE",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_closed_total_percent_remaining": [
+    32,
+    40,
+    80,
+    8
+  ],
+  "current_whole_ledger": "docs/research/baiqi-source180-finite40-engine74-tc017-closed132-2026-11-23.json",
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 8,
+  "product_changes": 0,
+  "independent_fixture": {
+    "utc": "2026-11-23T12:42:34.043448+00:00",
+    "name": "Baiqi_P6_20261123_V180_TC018UnitLoss131_ByteCopy.Civ6Save",
+    "bytes": 586193,
+    "sha256": "b73202e44f45dabaa1a8c0620cb27194485faa97b222b93e7421aab0608a5cb4",
+    "original": {
+      "name": "Baiqi_P6_20261121_V173_NaturalSettlerPrearrival131.Civ6Save",
+      "bytes": 586193,
+      "sha256": "b73202e44f45dabaa1a8c0620cb27194485faa97b222b93e7421aab0608a5cb4"
+    },
+    "method": "Independent unchanged original173prearrival131 bytecopy; excludes priorQA foreign862/820 and135world. New180visibility/threat/border/path state must be qualified; not assume allfourfixturespresent.",
+    "game_inputs": 0
+  },
+  "primary_API_qualification": {
+    "installed_actual_consumers": "AustraliaScenario807/840 and Nubia124/140 UnitManager.Kill(pUnit) one argument, Australia explicit immediate deletion warning. No unsupportedChangeOwner/globalDestroy guess, no attemptedswitchafterunknown.",
+    "actual_Core_ports": [
+      "function",
+      "function",
+      "table",
+      "function",
+      "table",
+      "table",
+      "function"
+    ],
+    "private_unit_loss_not_OS_kill": true
+  },
+  "actual_once_QA_unit_loss": {
+    "Native_UnitManager_Kill_calls": 1,
+    "old_unit": [
+      0,
+      7274546,
+      "UNIT_SETTLER",
+      21,
+      18,
+      0,
+      1
+    ],
+    "old_goal": [
+      862,
+      26,
+      19
+    ],
+    "before_after_own_counts": {
+      "units": [
+        50,
+        49
+      ],
+      "cities": [
+        12,
+        12
+      ]
+    },
+    "actual_qualified_result": [
+      "true",
+      "true",
+      "1",
+      "true",
+      "false",
+      "OBSERVED",
+      "ABSENT",
+      "true",
+      "true",
+      "true"
+    ],
+    "actual_current_Core_after_loss": [
+      "12",
+      "49",
+      "5847.38671875",
+      "728.81640625"
+    ],
+    "actual_independent_UI_after_loss": {
+      "utc": "2026-11-23T12:58:43.019768+00:00",
+      "current": [
+        "12",
+        "49",
+        "0",
+        "5847.38671875",
+        "728.81640625",
+        "false",
+        "false"
+      ],
+      "observer": [
+        "true",
+        "0",
+        "13",
+        "14",
+        "0",
+        "0",
+        "0"
+      ],
+      "Native_removal_replayed": 0
+    },
+    "immediate_unchanged_fields": [
+      "other49fullunitIDs_owner_type_XY_moves_formation",
+      "all12cityIDs_owner_XY_population",
+      "gold",
+      "faith",
+      "all54resources",
+      "protected_settlement_intents",
+      "paid_journal_and_result",
+      "actor_and_goal_cell_owner_city_water",
+      "other_goal_entries"
+    ],
+    "old_goal_actual_result": "RETAINED_IDENTICAL_862_NOT_IMMEDIATELY_CLEARED",
+    "actual_classifier": "ABSENT: nil lookup and full own inventory absence",
+    "old_object_never_read_after_call": true,
+    "no_retry_or_game_undo": true,
+    "capture_or_founding_claimed": false
+  },
+  "actual_post_loss_UI_and_active_city_producer": {
+    "utc": "2026-11-23T13:00:32.056695+00:00",
+    "observer_stats": [
+      "true",
+      "4",
+      "315",
+      "318",
+      "0",
+      "0",
+      "0"
+    ],
+    "producer_rows": [
+      [
+        "1",
+        "132",
+        "0",
+        "131073",
+        "11",
+        "6",
+        "RequestOperation",
+        "739199558",
+        "BaiqiController.RunNow",
+        "true",
+        "true",
+        "0"
+      ],
+      [
+        "2",
+        "132",
+        "0",
+        "196610",
+        "10",
+        "13",
+        "RequestOperation",
+        "739199558",
+        "BaiqiController.RunNow",
+        "true",
+        "true",
+        "0"
+      ],
+      [
+        "3",
+        "132",
+        "0",
+        "458758",
+        "19",
+        "6",
+        "RequestOperation",
+        "739199558",
+        "BaiqiController.RunNow",
+        "true",
+        "true",
+        "0"
+      ],
+      [
+        "4",
+        "132",
+        "0",
+        "851979",
+        "25",
+        "15",
+        "RequestOperation",
+        "739199558",
+        "BaiqiController.RunNow",
+        "true",
+        "true",
+        "0"
+      ]
+    ],
+    "current": [
+      "12",
+      "49",
+      "0",
+      "0",
+      "false",
+      "false"
+    ],
+    "settlers": [],
+    "new_Game_writes": 0
+  },
+  "actual_post_loss_Core": {
+    "utc": "2026-11-23T13:00:34.110233+00:00",
+    "current": [
+      "12",
+      "49",
+      "0",
+      "LEGACY_UNKNOWN",
+      "true",
+      "true",
+      "862",
+      "nil",
+      "nil"
+    ],
+    "classifier": [
+      "ABSENT",
+      "nil_lookup_and_full_inventory_absent"
+    ],
+    "original_QA": [
+      "1",
+      "true",
+      "false",
+      "OBSERVED",
+      "ABSENT"
+    ],
+    "settlers": [],
+    "new_Game_writes": 0
+  },
+  "actual_goals_and_queues": {
+    "utc": "2026-11-23T13:00:30.302094+00:00",
+    "turn": 132,
+    "frame": [
+      "132",
+      "12",
+      "49",
+      "true",
+      "1",
+      "5915.09375",
+      "748.12109375"
+    ],
+    "bank": [
+      "READY",
+      "proposal"
+    ],
+    "goals": [
+      [
+        "7274546",
+        "7274546",
+        "UNIT_SETTLER",
+        "862",
+        "26",
+        "19"
+      ]
+    ],
+    "settlers": [],
+    "old_site": [
+      "862",
+      "26",
+      "19",
+      "-1",
+      "false",
+      "true",
+      "true"
+    ],
+    "queued_settlers": [
+      "1"
+    ],
+    "settler_queues": [
+      [
+        "131073",
+        "0",
+        "0",
+        "0",
+        "190"
+      ]
+    ],
+    "planner_stats": [],
+    "recruit": [],
+    "site_calls": [],
+    "reservations": [],
+    "site_candidates": []
+  },
+  "actual_positive_own_queues": [
+    [
+      "131073",
+      "0",
+      "11",
+      "6",
+      "1",
+      "-798712536",
+      "0"
+    ],
+    [
+      "196610",
+      "0",
+      "10",
+      "13",
+      "1",
+      "-689809087",
+      "0"
+    ],
+    [
+      "458758",
+      "0",
+      "19",
+      "6",
+      "1",
+      "1910099296",
+      "0"
+    ],
+    [
+      "851979",
+      "0",
+      "25",
+      "15",
+      "1",
+      "-873674951",
+      "0"
+    ]
+  ],
+  "actual_replacement_settler": {
+    "city_owner_id_XY": [
+      0,
+      131073,
+      11,
+      6
+    ],
+    "queue_type": "UNIT_SETTLER",
+    "progress": 0,
+    "cost": 190,
+    "queue_size": 1,
+    "normal_training_or_birth_proven": false,
+    "manual_queue_insertion": false
+  },
+  "old_proposal_boundary": {
+    "old727_goal862_still_present": true,
+    "old_unit_Controller_request_log_lines": 0,
+    "new_old_unit_found_intent": false,
+    "new_city_on_old_actor_or_goal_cell": false,
+    "replacement_training_queue_not_blocked": true,
+    "Core_Remember_actual_old_goal_retirement_or_reuse": false,
+    "scope": "A retained proposal is not execution authority. Thisoneordinaryturnproves freshactualabsence/no falsefoundreceipt andactiveotheradmin/replacementqueue; laternewactorplanningmustindependentlymeasure oldproposalretirement/reuse, do notclaimitnow."
+  },
+  "current_world_controller_log": {
+    "utc": "2026-11-23T13:04:06.701134+00:00",
+    "bytes": 233441,
+    "sha256": "cb5101c2ec391561a5c01d9454ec93a1ad46f71c397e74300ae62f9789e553f9",
+    "actual_city_production_requests": [
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:2|source=BACKGROUND|city=131073|type=UNIT_SETTLER",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:3|source=BACKGROUND|city=196610|type=BUILDING_UNIVERSITY",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:7|source=BACKGROUND|city=458758|type=DISTRICT_CAMPUS",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:10|source=BACKGROUND|city=851979|type=DISTRICT_HARBOR"
+    ],
+    "old_lost_unit_Controller_request_lines": [],
+    "product_Controller_error_log_lines": [],
+    "TEST_PLAYER_27_army_positions": [
+      [
+        "1048576",
+        "UNIT_SCOUT",
+        "12",
+        "16",
+        "12",
+        "16"
+      ],
+      [
+        "131073",
+        "UNIT_WARRIOR",
+        "15",
+        "13",
+        "15",
+        "13"
+      ],
+      [
+        "4456482",
+        "UNIT_KNIGHT",
+        "10",
+        "6",
+        "10",
+        "6"
+      ],
+      [
+        "327683",
+        "UNIT_SCOUT",
+        "15",
+        "15",
+        "15",
+        "15"
+      ],
+      [
+        "524292",
+        "UNIT_SCOUT",
+        "16",
+        "14",
+        "16",
+        "14"
+      ],
+      [
+        "1835013",
+        "UNIT_HORSEMAN",
+        "11",
+        "13",
+        "11",
+        "13"
+      ],
+      [
+        "786438",
+        "UNIT_SCOUT",
+        "10",
+        "13",
+        "10",
+        "13"
+      ],
+      [
+        "5505031",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "15",
+        "5",
+        "15",
+        "5"
+      ],
+      [
+        "1245193",
+        "UNIT_SCOUT",
+        "11",
+        "16",
+        "11",
+        "16"
+      ],
+      [
+        "3735562",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "11",
+        "5",
+        "11",
+        "5"
+      ],
+      [
+        "1441803",
+        "UNIT_SCOUT",
+        "13",
+        "17",
+        "13",
+        "17"
+      ],
+      [
+        "2162700",
+        "UNIT_HORSEMAN",
+        "10",
+        "12",
+        "10",
+        "12"
+      ],
+      [
+        "6488110",
+        "UNIT_GREAT_ADMIRAL",
+        "18",
+        "14",
+        "18",
+        "14"
+      ],
+      [
+        "4128783",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "8",
+        "10",
+        "8",
+        "10"
+      ],
+      [
+        "2097168",
+        "UNIT_ARCHER",
+        "17",
+        "14",
+        "17",
+        "14"
+      ],
+      [
+        "7012401",
+        "UNIT_GREAT_GENERAL",
+        "15",
+        "14",
+        "15",
+        "14"
+      ],
+      [
+        "6619154",
+        "UNIT_MUSKETMAN",
+        "11",
+        "6",
+        "11",
+        "6"
+      ],
+      [
+        "2424851",
+        "UNIT_HORSEMAN",
+        "11",
+        "7",
+        "11",
+        "7"
+      ],
+      [
+        "2686997",
+        "UNIT_ARCHER",
+        "16",
+        "13",
+        "16",
+        "13"
+      ],
+      [
+        "2818071",
+        "UNIT_HORSEMAN",
+        "10",
+        "5",
+        "10",
+        "5"
+      ],
+      [
+        "5701675",
+        "UNIT_KNIGHT",
+        "10",
+        "7",
+        "10",
+        "7"
+      ],
+      [
+        "6553642",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "19",
+        "6",
+        "19",
+        "6"
+      ],
+      [
+        "3604507",
+        "UNIT_GREAT_ADMIRAL",
+        "7",
+        "9",
+        "7",
+        "9"
+      ],
+      [
+        "4849702",
+        "UNIT_GREAT_ADMIRAL",
+        "17",
+        "13",
+        "17",
+        "13"
+      ],
+      [
+        "4718628",
+        "UNIT_KNIGHT",
+        "9",
+        "7",
+        "9",
+        "7"
+      ],
+      [
+        "4063264",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "14",
+        "9",
+        "14",
+        "9"
+      ],
+      [
+        "3997727",
+        "UNIT_CHINESE_CROUCHING_TIGER",
+        "13",
+        "15",
+        "13",
+        "15"
+      ]
+    ],
+    "all_27_positions_unchanged": true,
+    "scope": "CurrentLLoad131->132Controllerrequestlogs only. Positivecityproxy4 actualqueueeffects independently prove active scopedproducer, NOTglobalSDKunitwriterinterception. Oldgoalproposal862retained; replacementSettlerqueue0/190 provesrecruitnotblocked, notnewbirthorCoreRememberretirement."
+  },
+  "negative_request_scope": "CurrentindependentLLoad131->132 BaiqiExecutorControllerrequestlogs, not globalSDK unitwriterinterception. Fourpositivecityrequestproxyrows/currentownqueueeffects prove active cityproducer inthatcontext, not everypossibleunitSDKcaller. Nativevoidreturn0 aloneisnot success.",
+  "actual_progress": {
+    "official_Loads": 1,
+    "physical_Continue": 1,
+    "ordinary_ENDs": 1,
+    "actual_advances": 1,
+    "TEST_PLAYER_military_waits": 27,
+    "TEST_PLAYER_army_MOVEs": 0,
+    "manual_civilian_or_production_orders": 0,
+    "QA_unit_Kill_calls": 1,
+    "new_Popen": 0,
+    "Steam_mode_actions": 0,
+    "diplomacy_inputs": 0,
+    "physical_GUI_after132": "Freshownedgameimageactualnormalworld/no diplomacy modal; currentUnitsblockerleft untouched when saving."
+  },
+  "software": {
+    "unit_loss_helper_cases_each_VM": [
+      51,
+      51
+    ],
+    "helper_raw_sha256": "4d9dfc062fb5114dda777a0a2ac21bfe2ab197dbab6c912635d9a0962312b66b",
+    "real_product_sources": [
+      {
+        "path": "BaiqiSettlerGoals.lua",
+        "sha256": "61efb57c395b55e71ed236a3c987a025b97a227b4dbd0d2710c918b058507821"
+      },
+      {
+        "path": "BaiqiSettlementJournal.lua",
+        "sha256": "415c7329abae0b20a85d03b0e65b683682bb95d1cbe11d9b939ad29e5bc2ca28"
+      },
+      {
+        "path": "BaiqiSettlementUnitCore.lua",
+        "sha256": "f5da0bf115a97b49fbded695f61c851d8dfa3c35c1283da7083991fe6beb6aad"
+      }
+    ],
+    "proxy_reused_base_cases_each_VM": [
+      18,
+      18
+    ],
+    "proxy_reused_additional_actual_zero_return_each_VM": [
+      1,
+      1
+    ],
+    "no_old_unit_dereference_after_mocked_immediate_invalidation": true,
+    "Native_effect_not_granted_by_mocks": true
+  },
+  "owner_log_validation_failure_and_correction": {
+    "utc": "2026-11-23T13:04:01.085704+00:00",
+    "original_parent_exit": 1,
+    "original_failure_preserved": true,
+    "actual_city_request_lines": [
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:2|source=BACKGROUND|city=131073|type=UNIT_SETTLER",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:3|source=BACKGROUND|city=196610|type=BUILDING_UNIVERSITY",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:7|source=BACKGROUND|city=458758|type=DISTRICT_CAMPUS",
+      "BaiqiExecutor: BAIQI|request|turn=132|id=0:132:10|source=BACKGROUND|city=851979|type=DISTRICT_HARBOR"
+    ],
+    "actual_requests": 4,
+    "old_unit_request_lines": [],
+    "Controller_errors": [],
+    "cause": "Oldassertionrequiredtrailing|aftertype=UNIT_SETTLER,buttypeisthefinalfieldwithnotrailingdelimiter. Originalrequestselectionalreadyfound4; newstrictprefix+splitkeyvalueparserverifieslastfield. No productfailure or newrequestfromthiscorrection.",
+    "old_all_QA_retirements_read_back_from_original_messages": true,
+    "Kill_END_or_retirement_replayed": 0
+  },
+  "preservation": {
+    "save": {
+      "utc": "2026-11-23T13:04:09.192429+00:00",
+      "name": "Baiqi_P6_20261123_V180_TC018UnitLost132.Civ6Save",
+      "bytes": 587590,
+      "sha256": "a3c263b4944d95e96fc0690c94f1458d3f5ee99bb5c3b179b9889eb01b08903c",
+      "stable_repeated_read": true
+    },
+    "all_three_proxy_bindings_restored": true,
+    "all_known_QA_input_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "protected_unknowns": "8650807FAIL_UNRESOLVED/6684713and458752LEGACY_UNKNOWNnotcleared/cancelled/replayed. Actualcurrent668LEGACY_UNKNOWN remains, paid propertiesnil.",
+    "failed_save_driver": "Originalexit1afterQAretirementbeforeSave retained. Recoveryindependentlyverifiedflagsabsent, reusedactualoldreturnrecords, performedfirstofficialSaveonly. NoKill/END/retirement replay."
+  },
+  "R139": {
+    "real_unfinished_task": "REAL_UNIMPLEMENTED_TC018_OWN_IN_TRANSIT_SETTLER_LOSS_WITHOUT_FALSE_FOUNDING_AND_STALE_PROPOSAL_HANDLING",
+    "prepared_before_owner_implementation": true,
+    "full_sources": 20,
+    "full_UTF8_bytes": 683169,
+    "diagnosis": {
+      "utc": "2026-11-23T12:40:13.951972+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-23",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-23T12:40:13.913951+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 22.675400134176016,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-23T12:40:13.937269+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1153,
+          "over_64KiB": false,
+          "sha256": "75416cc7dc8a0c60aca8d444fafdbcf609d8792fc13513ea52ae44952c520a77",
+          "total_ms": 14.12730012089014
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "scope": "2GET200 canonicalqwen38-coderabsent/onlyopen-h3-2k. No generationPOST/REQUEST/SSE/new404/candidate. No fallback/config/servicechanges. CachedOpenCode1.19.6maintenance notgenerationcapability."
+  },
+  "next": "NormalunitcaptureandnormalconquestKeep/legalRaze; optionalactualnaturalreplacementplanningfromprotected132foroldgoalretirement. Remaining8continue, noFinalatcommit, noWorkshop172duplicateupload."
+}
