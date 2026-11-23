@@ -1,0 +1,345 @@
+{
+  "schema": "civ6.source183-tc019-standard-corps-player-control136/v1",
+  "utc": "2026-11-23T22:23:54.861651+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "PARTIAL_STANDARD_AND_CORPS_PLAYER_MOVEMENT_AND_BOUNDED_BACKGROUND_EFFECT_ISOLATION_PASS_OTHER_TYPES_AND_REQUEST_SCOPE_OPEN",
+  "whole_TC019": "OPEN",
+  "whole_closed_total_percent_remaining": [
+    33,
+    40,
+    82.5,
+    7
+  ],
+  "current_ledger": "docs/research/baiqi-source183-finite40-engine74-tc009-reclosed136-2026-11-24.json",
+  "prior_fixture_report": "docs/research/baiqi-source183-tc019-standard-corps-fixture136-engine74-2026-11-24.json",
+  "software": {
+    "observer_raw_sha256": "f7ffcf5920c96ace5e093ab69831a2efb50d62d3eb30abb80ed7c6562e1f628a",
+    "meaningful_cases_each_VM": [
+      38,
+      38
+    ],
+    "VMs": [
+      "5.1",
+      "5.3"
+    ],
+    "exit": 0,
+    "tool_chunk": "15e49c",
+    "Native_game_calls": 0,
+    "qualified_behaviors": [
+      "ordinary_ready_and_blocked_update_separate",
+      "ordinary_eligible_and_inhibited_plans_separate",
+      "no_native_call_install_read_retire",
+      "update_nil_tail_exact_once",
+      "plan_nil_tuple_exact_once",
+      "plan_error_identity_preserved",
+      "other_owner_same_id_not_target",
+      "other_local_id_recorded",
+      "exact_target_owner_code_arity",
+      "movement_six_fields",
+      "movecomplete_four_fields",
+      "command_signed_hash_allowed",
+      "phase_history_preserved",
+      "snapshot_detached",
+      "targets_detached",
+      "overflow_invalid_not_silent",
+      "bad_owner_invalid",
+      "bad_id_invalid",
+      "bad_xy_invalid",
+      "bad_code_invalid",
+      "short_event_invalid",
+      "clock_throw_callback_no_throw_invalid",
+      "clock_wrong_arity_invalid",
+      "turn_not_integer_invalid",
+      "native_drift_invalid_no_restore",
+      "foreign_controller_binding_preserved",
+      "event_binding_drift_invalid",
+      "only_own_callbacks_removed",
+      "retire_twice_no_double_remove",
+      "retained_wrapper_delegates_after_retire",
+      "retained_callback_ignores_after_retire",
+      "install_once_no_duplicate",
+      "add_throw_after_apply_retirable",
+      "remove_failure_invalid",
+      "bad_capacity_rejected",
+      "missing_event_rejected_before_mutation",
+      "method_missing_rejected_before_mutation",
+      "native_missing_rejected_before_mutation"
+    ],
+    "first_revision36_cases_preserved": "Added eligibility counters before Native installation so inhibited planning cannot count as positive liveness; revised helper38cases/VM passed. No Native replay."
+  },
+  "observation_design": {
+    "five_original_events": [
+      "UnitOperationStarted",
+      "UnitOperationAdded",
+      "UnitCommandStarted",
+      "UnitMoved",
+      "UnitMoveComplete"
+    ],
+    "all_current_Add_Remove_ports_actual_functions": true,
+    "original_signature_sources": [
+      "Base/Assets/UI/TutorialUIRoot.lua",
+      "Base/Assets/UI/Panels/UnitPanel.lua"
+    ],
+    "public_wrappers": [
+      "BaiqiController.Update",
+      "BaiqiController.RunNow"
+    ],
+    "no_native_UnitManager_alias_proxy_or_function_replaced": true,
+    "reason": "Current Controller stores native binding identities in pending plans; replacing those aliases may invalidate or bypass cached work. Passive callbacks and public delegate counters preserve those identities.",
+    "private_phase_labels_do_not_imply_global_event_provenance": true,
+    "positive_event_liveness": "Same installed callback set later received actual UnitOperationAdded/UnitMoved/UnitMoveComplete from each of two explicit TEST_PLAYER movements. No synthetic Native event call. UnitOperationStarted and UnitCommandStarted had no positive event in this run; no claim all five fired.",
+    "SDK_request_count": null,
+    "event_code_not_request_hash": "Actual UnitOperationAdded first numeric code was0 with4arguments; original submitted MOVE_TO enum1477390184. Kept distinct, not equated."
+  },
+  "bounded_no_input_background_window": {
+    "utc": "2026-11-23T22:18:19.494569+00:00",
+    "seconds": 11.753000020980835,
+    "Update_delta": 33,
+    "ready_Update_delta": 33,
+    "RunNow_delta": 33,
+    "eligible_RunNow_delta": 33,
+    "all_selected_actor_fields_equal": true,
+    "target_engine_events": 0,
+    "all_local_engine_events": 0,
+    "native_SDK_request_count": null,
+    "positive_event_liveness": "PENDING_REAL_TEST_PLAYER_MOVE_ON_SAME_HOOK",
+    "case_open": true
+  },
+  "full_background_interval_before_first_player_command": {
+    "eligible_plans_at_phase_transition": 319,
+    "target_engine_events": 0,
+    "positions_moves_MF_escortCount_readiness_pending_queue_equal": true,
+    "formal_minimum_interval": "Explicit no-input baseline to second read: 33 eligible planning delegates over11.753seconds. Later319 count includes further no-input time before phase change.",
+    "scope": "Observed engine events and independent selected actor state. Does not claim zero every-native-SDK request or infer every planning invocation made useful civilian progress."
+  },
+  "actual_player_effects": {
+    "standard": {
+      "utc": "2026-11-23T22:20:10.259926+00:00",
+      "role": "TEST_PLAYER",
+      "actor_role": "standard",
+      "owner_id": 0,
+      "unit_id": 7733300,
+      "original_worldinput_MoveUnitToPlot_calls": 1,
+      "SDK_request_count": null,
+      "return": [
+        "standard",
+        "7733300",
+        "true",
+        "0",
+        "1477390184",
+        "16400"
+      ],
+      "UI": [
+        "after-player-standard",
+        "0",
+        "7733300",
+        "UNIT_WARRIOR",
+        "8",
+        "2",
+        "1",
+        "0",
+        "1",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ],
+      "Core": [
+        "standard",
+        "0",
+        "7733300",
+        "8",
+        "2",
+        "1",
+        "0",
+        "1"
+      ],
+      "real_same_hook_movement_events": [
+        [
+          "after-player-standard",
+          "2",
+          "UnitMoved",
+          "0",
+          "7733300",
+          "TEST_PLAYER_WINDOW",
+          "6",
+          "true",
+          "nil",
+          "8",
+          "2",
+          "136",
+          "1795472403.777"
+        ],
+        [
+          "after-player-standard",
+          "3",
+          "UnitMoveComplete",
+          "0",
+          "7733300",
+          "TEST_PLAYER_WINDOW",
+          "4",
+          "true",
+          "nil",
+          "8",
+          "2",
+          "136",
+          "1795472403.784"
+        ]
+      ],
+      "background_window_event_liveness_now_demonstrated": true,
+      "no_native_or_UnitManager_bindings_replaced": true,
+      "ENDs": 0,
+      "case_open_other_branches_remain": true
+    },
+    "corps": {
+      "utc": "2026-11-23T22:20:47.505840+00:00",
+      "role": "TEST_PLAYER",
+      "actor_role": "corps",
+      "owner_id": 0,
+      "unit_id": 7798837,
+      "original_worldinput_MoveUnitToPlot_calls": 1,
+      "SDK_request_count": null,
+      "return": [
+        "corps",
+        "7798837",
+        "true",
+        "0",
+        "1477390184",
+        "16400"
+      ],
+      "UI": [
+        "after-player-corps",
+        "0",
+        "7798837",
+        "UNIT_WARRIOR",
+        "9",
+        "2",
+        "1.5",
+        "1",
+        "1",
+        "true",
+        "true",
+        "false",
+        "nil"
+      ],
+      "Core": [
+        "corps",
+        "0",
+        "7798837",
+        "9",
+        "2",
+        "1",
+        "1",
+        "1"
+      ],
+      "real_same_hook_movement_events": [
+        [
+          "after-player-corps",
+          "5",
+          "UnitMoved",
+          "0",
+          "7798837",
+          "TEST_PLAYER_WINDOW",
+          "6",
+          "true",
+          "nil",
+          "9",
+          "2",
+          "136",
+          "1795472442.023"
+        ],
+        [
+          "after-player-corps",
+          "6",
+          "UnitMoveComplete",
+          "0",
+          "7798837",
+          "TEST_PLAYER_WINDOW",
+          "4",
+          "true",
+          "nil",
+          "9",
+          "2",
+          "136",
+          "1795472442.03"
+        ]
+      ],
+      "background_window_event_liveness_now_demonstrated": true,
+      "no_native_or_UnitManager_bindings_replaced": true,
+      "ENDs": 0,
+      "case_open_other_branches_remain": true
+    }
+  },
+  "movement_consumer": {
+    "original_complete_function": "Base/Assets/UI/Civ6Common.lua MoveUnitToPlot -> RequestMoveOperation, invoked in current WorldInput context",
+    "full_primary_file_sha256": "6e422dfed29d6e40507b14e234fc84c7647f450200df17dc2383e952a67a371f",
+    "checks": "Fresh exact owner/ID/type/XY/moves/MF/escortcount/alive/readiness/empty queue, owned visible adjacent empty passable land target in both layers, no war transition, original RANGE_ATTACK/COASTAL_RAID/SWAP branches false and MOVE_TO true with original modifiers16400. One consumed attempt before each original function.",
+    "standard_from_to_and_effect": [
+      8,
+      1,
+      8,
+      2
+    ],
+    "corps_from_to_and_effect": [
+      9,
+      1,
+      9,
+      2
+    ],
+    "militaryFormation_after": [
+      0,
+      1
+    ],
+    "escortFormationUnitCount_after": [
+      1,
+      1
+    ],
+    "observed_movement_precision": "Standard UI/Core moves1/1; corps UI1.5 and Core1. Preserved independent actual getters without claiming exact precision equality or an unmeasured cause."
+  },
+  "preservation": {
+    "save": {
+      "utc": "2026-11-23T22:22:16.658742+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC019StdCorpsPlayerMoved136.Civ6Save",
+      "bytes": 594036,
+      "sha256": "85d27d5f24d6747ab61137db9fafef17524f8e1b6e19423fb815709d5f5b34fa",
+      "stable_repeated_read": true
+    },
+    "five_subscriptions_two_public_wrappers_restored": true,
+    "two_player_flags_and_Save_flag_retired": true,
+    "live_owned_QA_bindings": 0,
+    "actual_ENDs": 0,
+    "new_QA_Init_or_formation_setters_this_work_package": 0,
+    "MainMenu_or_Quit_requested": false,
+    "game_continues_saved136": "Same owned source183 instance, old unknown outcomes untouched."
+  },
+  "remaining": [
+    "Complete Controller writer/policy coverage; observed completed-action events alone are not every-SDK request counters.",
+    "Other land/scout/support, sea, air and nonwhiteCombat0 classes.",
+    "Army only with actual native eligibility in a separately qualified world; current Army permission false, no Mobilization grant.",
+    "Apostle/Inquisitor/Guru in qualified actual religious world; current player has no founded religion.",
+    "Actual naturally trained military, not credit for two QA units."
+  ],
+  "R159": {
+    "full_sources_prepared_before_owner_observer_and_player_code": 17,
+    "raw_source_bytes": 1034055,
+    "availability_reused": "R157 actual21:25UTC canonical qwen38-coder missing, only open-h3-2k; unchanged shared configuration, same local-day OpenCode1.19.6 cache",
+    "new_HTTP_calls": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "owner_phase_cost": null,
+    "source_preparation_is_not_generation_wire_or_candidate": true
+  },
+  "new_product_changes": 0,
+  "unpublished_product_fix_packages": 11,
+  "Workshop_source": 172,
+  "next": "Continue TC019 remaining actual class branches and writer-scope audit. TC021/026/031/036/038/040 remain separately open; do not stop at this package."
+}
