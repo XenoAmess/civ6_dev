@@ -4351,6 +4351,68 @@ local function BlockedIdleHead(city,q)
     end
     if owned~=false then return nil end
     local districts=city:GetDistricts()
+    -- Steel can invalidate a wall already queued before urban defenses were
+    -- granted. Keep that sole unfinished entry; ordinary legal work may go in
+    -- front of it. A false native result alone never identifies this exception.
+    if (row.BuildingType=="BUILDING_WALLS" or row.BuildingType=="BUILDING_CASTLE"
+      or row.BuildingType=="BUILDING_STAR_FORT") and q:CanProduce(row.Hash,true)==false then
+      if row.Hash==0 or row.PrereqDistrict~="DISTRICT_CITY_CENTER" or district.DistrictType~="DISTRICT_CITY_CENTER"
+        or not Integer(district.Hash,-2147483648) or district.Hash==0
+        or row.IsWonder~=false or row.MustPurchase~=false or row.RequiresPlacement~=false
+        or not BaiqiPolicy.Number(row.OuterDefenseHitPoints) or row.OuterDefenseHitPoints<=0
+        or not BaiqiPolicy.Number(row.OuterDefenseStrength) or row.OuterDefenseStrength<=0
+        or districts:HasDistrict(district.Index,true)~=true or districts:IsPillaged(district.Index)~=false
+        or q:CanProduce(row.Hash,false,true)~=false then return nil end
+      local player=Players[contextID]
+      local steel=GameInfo.Technologies.TECH_STEEL
+      local prerequisite=row.PrereqTech and GameInfo.Technologies[row.PrereqTech]
+      if not player or city:GetOwner()~=contextID or contextID~=Game.GetLocalPlayer()
+        or not steel or steel.TechnologyType~="TECH_STEEL" or not Integer(steel.Index,0)
+        or not Integer(steel.Hash,-2147483648) or steel.Hash==0
+        or not prerequisite or prerequisite.TechnologyType~=row.PrereqTech
+        or not Integer(prerequisite.Index,0) or not Integer(prerequisite.Hash,-2147483648)
+        or prerequisite.Hash==0 then return nil end
+      local techs=player:GetTechs()
+      if techs:HasTech(steel.Index)~=true or techs:HasTech(prerequisite.Index)~=true then return nil end
+      local modifierID="STEEL_UNLOCK_URBAN_DEFENSES"
+      local links,count=0,0
+      for link in GameInfo.TechnologyModifiers() do
+        count=count+1;if count>2048 then return nil end
+        if link.TechnologyType=="TECH_STEEL" and link.ModifierId==modifierID then links=links+1 end
+      end
+      local modifier=GameInfo.Modifiers[modifierID]
+      local dynamic=modifier and GameInfo.DynamicModifiers[modifier.ModifierType]
+      if links~=1 or not modifier or modifier.ModifierId~=modifierID
+        or modifier.ModifierType~="MODIFIER_PLAYER_GRANT_CITIES_URBAN_DEFENSES"
+        or modifier.SubjectRequirementSetId~=nil or modifier.OwnerRequirementSetId~=nil
+        or not dynamic or dynamic.ModifierType~=modifier.ModifierType
+        or dynamic.CollectionType~="COLLECTION_OWNER"
+        or dynamic.EffectType~="EFFECT_ADJUST_CITIES_HAS_URBAN_DEFENSES" then return nil end
+      local center
+      for _,component in districts:Members() do
+        if component:GetType()==district.Index then
+          if center then return nil end
+          center=component
+        end
+      end
+      local x,y=city:GetX(),city:GetY()
+      if not Integer(x,0) or not Integer(y,0) or not center or not Integer(center:GetID(),0)
+        or center:GetX()~=x or center:GetY()~=y
+        or center:IsComplete()~=true or center:IsPillaged()~=false then return nil end
+      local plot=Map.GetPlot(x,y)
+      if not plot or plot:GetX()~=x or plot:GetY()~=y or plot:IsCity()~=true
+        or plot:GetOwner()~=contextID or plot:GetDistrictType()~=district.Index
+        or plot:GetDistrictID()~=center:GetID() or not Revealed(plot)
+        or visibility:IsVisible(x,y)~=true then return nil end
+      local progress,cost=q:GetBuildingProgress(row.Index),q:GetBuildingCost(row.Index)
+      if not BaiqiPolicy.Number(progress) or progress<0 or not BaiqiPolicy.Number(cost)
+        or cost<=progress or Game.GetCurrentGameTurn()~=turn or not CoreIdle() then return nil end
+      return sig,{kind="obsolete_wall",buildingIndex=row.Index,hash=row.Hash,buildingType=row.BuildingType,
+        progress=progress,cost=cost,prereqIndex=district.Index,prereqHash=district.Hash,
+        prereqType=district.DistrictType,prereqTech=prerequisite.Index,prereqTechHash=prerequisite.Hash,
+        steelIndex=steel.Index,steelHash=steel.Hash,
+        centerID=center:GetID(),x=x,y=y,defenseHP=row.OuterDefenseHitPoints,defenseStrength=row.OuterDefenseStrength}
+    end
     if districts:HasDistrict(district.Index,true)~=true
       or q:CanProduce(row.Hash,true)~=true or q:CanProduce(row.Hash,false,true)~=false then return nil end
     local pillaged=districts:IsPillaged(district.Index)
@@ -4575,6 +4637,12 @@ local function QueueReady(city,q,completedHead,blockedHead,blockedWork)
       if not work or not blockedWork or work.kind~="occupied_building" or blockedWork.kind~="occupied_building" then return false end
       for _,key in ipairs({"buildingIndex","hash","buildingType","progress","cost","prereqIndex","prereqHash","prereqType",
         "prereqID","x","y","occupants"}) do
+        if work[key]~=blockedWork[key] then return false end
+      end
+    elseif (work and work.kind=="obsolete_wall") or (blockedWork and blockedWork.kind=="obsolete_wall") then
+      if not work or not blockedWork or work.kind~="obsolete_wall" or blockedWork.kind~="obsolete_wall" then return false end
+      for _,key in ipairs({"buildingIndex","hash","buildingType","progress","cost","prereqIndex","prereqHash",
+        "prereqType","prereqTech","prereqTechHash","steelIndex","steelHash","centerID","x","y","defenseHP","defenseStrength"}) do
         if work[key]~=blockedWork[key] then return false end
       end
     end
@@ -5181,6 +5249,7 @@ local function ProcessCity(ctx, player, state, city)
   Log("request","id="..id.."|source=BACKGROUND|city="..city:GetID().."|type="..choice.type
     ..(choice.resumeProject and "|resume_project=true" or "")
     ..(blockedWork and blockedWork.kind=="occupied_building" and "|blocked=occupied_prerequisite" or "")
+    ..(blockedWork and blockedWork.kind=="obsolete_wall" and "|blocked=urban_defense_wall" or "")
     ..(blockedHead and "|insert=prepend_blocked" or (completedHead and "|insert=replace_completed" or "")))
   CityManager.RequestOperation(city,CityOperationTypes.BUILD,params)
   return true

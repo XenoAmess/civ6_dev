@@ -1,0 +1,242 @@
+{
+  "schema": "civ6.source180-steel-wall-fallback-software/v1",
+  "utc": "2026-11-23T03:26:47.678397+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 180,
+  "status": "SOFTWARE_AND_ORDINARY_PACKAGE_PASS_NATIVE_SAME153_PENDING",
+  "real_failure_source": "docs/research/baiqi-source179-steel-obsolete-wall-fail153-engine74-2026-11-23.json",
+  "real_failure_save": {
+    "utc": "2026-11-23T03:02:55.199061+00:00",
+    "name": "Baiqi_P6_20261123_V179_SteelObsoleteWallBlocked153.Civ6Save",
+    "bytes": 625342,
+    "sha256": "fa8d7f503aa703f9fc63a90e8645c45b8597ae56fa480343adeda6f87254b096",
+    "stable_repeated_read": true
+  },
+  "game_absent_before_edits": true,
+  "repair": {
+    "product_files": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiController.lua"
+    ],
+    "current_Controller_raw_sha256": "fee4342a1e4ef202f67dc4a1e48b282fd445542876984e5dc2b46a5cba117835",
+    "scope": "Only soleinactiveunfinishedordinaryWalls/Castle/StarFort with absentasset/nativefalseboth, completedhealthyvisibleownedCityCenter and exactSteelurban-defensemodifier/HasTech/prerequisite/geometry proof gains legalPREPEND fallback. Originalentry/investment kept, no clear/cancel/compensation or Nativepermission override.",
+    "guards": [
+      "Strictcurrenttype/index/hash/metadata, owner/fullID/currentturn/idle and exactqueue signature.",
+      "OriginalSteelTechnologyModifiers -> Modifiers -> DynamicModifiers owner/urban-defenses effect; conditional/missing/wrongmapping refused. ActualTechrowhasnoUrbanDefensesfield andwallsObsoleteEraNO_ERA, neitherinvented.",
+      "Both originalwallCanProducevariantsfalse; originalfallbackbothtrue andCanStarttrue rechecked atwriteboundary.",
+      "ExactknownCityCentercomponent/Mapowner/type/ID/position/visibility; finitevalidprogressandnormalcost.",
+      "Allproofandtech/center/cost/investmentmetadataresnapshotinQueueReady; changedstateandpending/unknownwritersnotreplayed.",
+      "Existing10sno-candidateboundedrecheckkept; no military/diplomacyorders, plannerpause, manualdomesticorfixture replay."
+    ],
+    "other_code_effects": "No Config, Planner, Policy, admin/capture, civilianmovement or UIconfirmation changes."
+  },
+  "verification": {
+    "old179_same_fixture_fullsource_negative": {
+      "old_Controller_raw_sha256": "fdeb7a66ad4befe636052d53feada81b9c03dc7d4db8496c1c5459f362681cbb",
+      "results": [
+        {
+          "VM": "ObsoleteWallLua51Tests",
+          "actual_full_old_Controller_writer_calls": 0,
+          "same_new_obsolete_wall_and_legal_fallback_fixture": true,
+          "old_stall_reproduced": true
+        },
+        {
+          "VM": "ObsoleteWallLua53Tests",
+          "actual_full_old_Controller_writer_calls": 0,
+          "same_new_obsolete_wall_and_legal_fallback_fixture": true,
+          "old_stall_reproduced": true
+        }
+      ],
+      "Native_calls": 0,
+      "gameplay_pass_credit": false
+    },
+    "new_actual_Controller_dual_VM_test_methods": 14,
+    "affected_regressions": {
+      "utc": "2026-11-23T03:24:27.545371+00:00",
+      "names": [
+        "test_baiqi_obsolete_wall_queue",
+        "test_baiqi_blocked_building_queue",
+        "test_baiqi_blocked_repair_queue",
+        "test_baiqi_blocked_project_queue",
+        "test_baiqi_blocked_flood_queue",
+        "test_baiqi_completed_queue",
+        "test_baiqi_occupied_building_queue",
+        "test_baiqi_production_ready",
+        "test_baiqi_controller",
+        "test_controller_found_writer_timing.FoundWriterArtifactTests.test_real_combined_package_has_one_profile_and_exact_release_recovery",
+        "test_formation_unknown_deferred.DeferredFormationTests.test_deferred_build_is_explicit_reversible_and_only_controller_changes",
+        "test_formation_unknown_diagnostic.FormationUnknownBuildTests.test_actual_119_file_build_only_controller_diff_and_new_output_required",
+        "test_settlement_census_source155.CensusVersionTests.test_current_build_has_actual_version_and_unchanged_inventory"
+      ],
+      "testsRun": 119,
+      "failures": [],
+      "errors": [],
+      "skipped": 0,
+      "actual_success": true,
+      "scope": "Affected real Controller blocked/completed/occupied/newobsoletewall/productionreadiness plus four actualsource180diagnosticartifact consumers; not fullsuiteorNative proof.",
+      "source_Controller_raw_sha256": "fee4342a1e4ef202f67dc4a1e48b282fd445542876984e5dc2b46a5cba117835"
+    },
+    "diagnostic_consumers": {
+      "utc": "2026-11-23T03:23:55.987476+00:00",
+      "files": [
+        {
+          "path": "tools/build_admin_diagnostic.py",
+          "allowlist_additions": 3,
+          "before_raw_sha256": "3e6f77db0a10f0a2fd64618c6e1e54ad38d93e0cf807101362e61c8d78948d86",
+          "after_raw_sha256": "2dc2e7d9c6f96baa6ffce8429aa2d68399552000264543847fd8046f43dea978"
+        },
+        {
+          "path": "tools/build_formation_unknown_mod.py",
+          "allowlist_additions": 1,
+          "before_raw_sha256": "d7ece90fec702d2686fb8d3f3e173d8007710f4c37baad25e57b1b1efb5ee0a9",
+          "after_raw_sha256": "7790b6fb1118987b13e8540eaf6e64fac5a0b62e79dd45f31270761df9a26487"
+        },
+        {
+          "path": "tools/build_controller_diagnostic.py",
+          "allowlist_additions": 6,
+          "before_raw_sha256": "dced1827cc7d1c0748bc2c0a0ef75b408f0794a5e08eeeb6dc20d5bb23341047",
+          "after_raw_sha256": "4cd8146866999c04c7f1c178330f1e08f85ce31b71a2b8b830b32c6b89f81717"
+        },
+        {
+          "path": "tools/build_observed_mod.py",
+          "allowlist_additions": 8,
+          "before_raw_sha256": "5fca3ea4b15ad7da2495aa57e806ee80e46d284507658cf28a92337326dce3e5",
+          "after_raw_sha256": "a5105226da41c478326cc5c84f0bed94d895f1526b1c8ecd5a3e6a70eacc6dc2"
+        },
+        {
+          "path": "tools/build_found_dispatch_diagnostic.py",
+          "allowlist_additions": 1,
+          "before_raw_sha256": "1c746b16e7165b4894a8a70b8d500701c34977c0e87798a6ead1555f24635a9d",
+          "after_raw_sha256": "d9c85497c5be189e063ef9bab95a2fd2adee54177501978ef7c3318fb41d40dc"
+        },
+        {
+          "path": "tools/build_plan_profile_mod.py",
+          "allowlist_additions": 5,
+          "before_raw_sha256": "0c7495c260a1a1f11c23baa4a3dcd9365e8f197f4adf9d7c55d9367b16b3beeb",
+          "after_raw_sha256": "b3f1b49660e86aaffa167ef1809da6a41e59197a641129cfe0d117512700826c"
+        },
+        {
+          "path": "tools/build_settlement_census_mod.py",
+          "allowlist_additions": 2,
+          "before_raw_sha256": "acb728ec1cb5cc4e5d2344cdeaa7dc8ed2f4c6247f781d751b160ee86a8103b9",
+          "after_raw_sha256": "fdd406c215261a82a344b270844eaba8176b161856aa3453abc1cd3d11e1a7fb"
+        },
+        {
+          "path": "tools/build_static_control.py",
+          "allowlist_additions": 6,
+          "before_raw_sha256": "688ecb256ce25e15ba1c2460571bf8d61b085891e9b906379215801365b0bca4",
+          "after_raw_sha256": "34470dd5ea30997b416d1675e6ee32b2b90a9840fe275b01d35bff8cfde2fca5"
+        },
+        {
+          "path": "tools/diagnostic_version_render.py",
+          "allowlist_additions": 2,
+          "before_raw_sha256": "d1cd20ff2a8592c137dd511f5d14ecd5446eb7bd7f38dca376b08b18a5245f12",
+          "after_raw_sha256": "6e8fa76467047793030b2776764c581d2868ca06108dba287dd750552885d2c8"
+        },
+        {
+          "path": "tools/static_control_source.py",
+          "allowlist_additions": 2,
+          "before_raw_sha256": "4bffc8e9ccf4f1cacee168a6ec32f78f55624bcdbc802bf15fe048b58b7f3df3",
+          "after_raw_sha256": "66fa826b8ee0520ac7b595a82e8906c6b0353d02f537960c9f86d77a4350e6cd"
+        },
+        {
+          "path": "tools/verify_paired_artifact.py",
+          "allowlist_additions": 1,
+          "before_raw_sha256": "43e2c3256662256cf6520330f6403c12f8a7e89aa5845447a8f61868a6bdcf14",
+          "after_raw_sha256": "1197a3389f686f75650b7bb1eebaa530f25fd293e688c57b31afa604055fdb7f"
+        }
+      ],
+      "Native_calls": 0,
+      "only180_added_existingversions_and_optionguards_preserved": true
+    },
+    "package": {
+      "files": 119,
+      "Lua_sources_compiled_each_VM": 97,
+      "archive_sha256": "666c73e28ea1faa629c68e2d8ed573ff0a2dcca424842311a41c31293d48899a",
+      "all119_actual_ZIP_names_and_bytes_verified": true,
+      "mode": "ordinary180-unmodified",
+      "installations": 0,
+      "Native_queries": 0
+    },
+    "not_full_repository_test_suite": true,
+    "software_not_Native_gameplay": true
+  },
+  "source_impact": {
+    "27_prior_current_engine_scopes_retained_with_exact_limits": true,
+    "all_prior_cases_physically_rerun180": false,
+    "reason": "Only newknownSteelordinarywallbranch insideBlockedIdleHead, itsQueueReadymetadata comparison/log andmodinfo180. Existingeligible/nonwall/pillage/occupied/complete paths and budgets remain; affected119regressions includingoriginalold179negativeand14newVMmethodsheld. TC013remainsreopeneduntilactualnew180samefailureNative; TC009strictsitequalificationremains179narroweffect, notnewHarborplacement."
+  },
+  "local_models": [
+    {
+      "R": 118,
+      "prepared_before_owner_code_or_tool_edits": true,
+      "full_sources": 20,
+      "raw_UTF8_bytes": 781935,
+      "OpenCode": {
+        "date": "2026-11-23",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "configured_model": "qwen38-coder",
+      "available_model_ids": [
+        "open-h3-2k"
+      ],
+      "GET_statuses": [
+        200,
+        200
+      ],
+      "generation_POSTs": 0,
+      "candidates": 0,
+      "adoptions": 0,
+      "OpenCode_native_tool_sessions": 0,
+      "configuration_service_changes": 0,
+      "cost": null
+    },
+    {
+      "R": 119,
+      "prepared_before_owner_code_or_tool_edits": true,
+      "full_sources": 17,
+      "raw_UTF8_bytes": 204283,
+      "OpenCode": {
+        "date": "2026-11-23",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "configured_model": "qwen38-coder",
+      "available_model_ids": [
+        "open-h3-2k"
+      ],
+      "GET_statuses": [
+        200,
+        200
+      ],
+      "generation_POSTs": 0,
+      "candidates": 0,
+      "adoptions": 0,
+      "OpenCode_native_tool_sessions": 0,
+      "configuration_service_changes": 0,
+      "cost": null
+    }
+  ],
+  "owner_corrections": [
+    "R118preparationfullywrotecompleteprompt+readinessadapterbeforea finalprimarysnippetprintIndexError; consumedexistingfiles, didnotrerunexclusivepreparation or claimgeneration.",
+    "Firstmulti-filepatchhadincorrectmanifestUUID; apply_patchrejectedatomically, gitdiffconfirmed0productedits. Correctexisting7d682641-0673-4c3a-8d1d-d28aff0b614a retained, onlyversion180changed.",
+    "LuaCprintoutputisnotcapturedbyPythonredirect_stdout; qualificationresult JSON andunitteststreamareprivateauthoritative, toolconsoletruncationnotNativefailure."
+  ],
+  "current_status": {
+    "closed": 27,
+    "total": 40,
+    "percent": 67.5,
+    "remaining": 13,
+    "unpublished_product_fix_packages": 8,
+    "Workshop_source": 172,
+    "Native180": "NOT_RUN",
+    "TC013": "REOPENED_SOURCE179_FAILURE_SOFTWARE_REPAIRED_COLD180_PENDING",
+    "TC009": "ORIGINAL_SITE_RECOVERED151_ACTUAL_HARBOR_AND_CIVIC_STILL_PENDING",
+    "protected865_FAIL_668_458_UNKNOWN": "UNCHANGED_NO_CLEAR_OR_REPLAY",
+    "Steam_mode_actions_uploads": 0
+  },
+  "next": "Commit/pushthenlocalinstallordinary180onlywithno-gameguard. FreshbackgroundreadonlySteamofflineproof/newcold180ownedtuple/all119bytes, officialfailure153loadonce, inspectactualautomaticlegalfallbackandoldStarFortinvestment/entrybehaviorandnormalturn; do notpatchlive179. ThencontinueHarbor/civicTC009/allremaining13."
+}
