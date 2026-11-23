@@ -1,0 +1,556 @@
+{
+  "schema": "civ6.source183-tc019-unit-writer-natural-reuse/v1",
+  "utc": "2026-11-23T23:33:37.513049+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "CURRENT_UNIT_WRITER_ADMISSION_REVIEW_AND_SOFTWARE_MATRIX_PASS_NATURAL_RECRUIT_SCOPE_RETAINED_FROM_CURRENT_ENGINE179",
+  "whole_TC019": "OPEN_ACTUAL_ARMY_APOSTLE_INQUISITOR_GURU_STILL_REQUIRED",
+  "whole_closed_total_percent_remaining": [
+    33,
+    40,
+    82.5,
+    7
+  ],
+  "current_ledger": "docs/research/baiqi-source183-finite40-engine74-tc009-reclosed136-2026-11-24.json",
+  "source_review": {
+    "inventory_reference_rows": 82,
+    "inventory_limit": "Reference inventory only. Nearest lexical function hint not AST callgraph/proof; owner must trace aliases and scope.",
+    "inventory_raw_sha256": "d32064b67556949d5218e9c669a8d5e39cf8c63a374adb27bc9ba058b1c0b808",
+    "admission_and_writer_traces": [
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 5798,
+        "gate_line": 5800,
+        "scope": "Ordinary unit scheduler admits only explicit CivilianType before UnitSnapshot/work/standby; does not infer civilians from combat0, Domain or MF.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 827,
+        "gate_lines": [
+          835,
+          892,
+          900,
+          951,
+          997
+        ],
+        "writer_lines": [
+          1033,
+          1052
+        ],
+        "scope": "RequestCivilian + fresh owning identity/type/policy checks. FOUND cached writer closure final fresh exact UNIT_SETTLER, matching epoch/turn/native binding; consumed before writer. New Raze checks only restrict settler sites.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 1058,
+        "gate_lines": [
+          1066,
+          1080,
+          1108,
+          1162,
+          1247
+        ],
+        "writer_lines": [
+          1185,
+          1269
+        ],
+        "scope": "Standby exact whitelist + fresh current unit; legacy sleeps only explicit district/creative GP classes, naturalist sleep explicitNaturalist. UNKNOWN held receipts do not imply ability replay. Military GP types are not in these whitelist classes.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 1515,
+        "gate_lines": [
+          1519,
+          1609,
+          1673,
+          1767,
+          5595,
+          5620
+        ],
+        "scope": "Settler packet, threatened overlap, builder-yield, retry-overlap all retain fresh explicit actor gates and submit through RequestCivilian. FormationClassCIVILIAN at1681 detects blocker only; never changes writer actor to that blocker. GetFormationUnitCount is escort state, not MF.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 1974,
+        "gate_lines": [
+          1950,
+          1988,
+          1990,
+          1993
+        ],
+        "writer_lines": [
+          2017
+        ],
+        "scope": "Only current UNIT_MISSIONARY, same religion/charges/owned city; Apostles/Inquisitors/Gurus cannot enter MissionaryData or CanCivilian.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 2401,
+        "gate_lines": [
+          2385,
+          2415,
+          2418
+        ],
+        "writer_lines": [
+          2445
+        ],
+        "scope": "Park activation exact NaturalistData; context identity/charges/current target rechecked after native qualification.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 2572,
+        "gate_lines": [
+          2555,
+          2590,
+          2610,
+          2629
+        ],
+        "writer_lines": [
+          2632
+        ],
+        "scope": "Excavation cached request alias guarded by exact current ARCHAELOGIST/fullID/owner/escort/current home. Alias qualification repeated after durable intent; archaeology choice is original player-operation artifact selection, not military movement.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 2729,
+        "gate_lines": [
+          2731,
+          2745,
+          2748
+        ],
+        "writer_lines": [
+          2773
+        ],
+        "scope": "District GP classes only: scientist/engineer/merchant. Fresh owner/type/class/individual/charges match; no General/Admiral class fallback.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 2947,
+        "gate_lines": [
+          2949,
+          2962,
+          2976
+        ],
+        "writer_lines": [
+          2986
+        ],
+        "scope": "Only ProphetData exact founding GP, same individual/charges/own founding qualification. Religious combat units are not admitted.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 3088,
+        "gate_lines": [
+          3089,
+          3114,
+          3118,
+          3136
+        ],
+        "writer_lines": [
+          3142
+        ],
+        "scope": "CreativeData exact writer/artist/musician and fresh policy/identity/class/site; no military GP activation.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiController.lua",
+        "entry_line": 3771,
+        "gate_lines": [
+          3779,
+          3781,
+          3783
+        ],
+        "scope": "Cached district-GP routes repeat current fullID/key/class/charges/CanCivilian and target checks; builder continuations repeat BuilderRouteValid and unit whitelist. Cached native references must not be replaced by diagnostic proxies.",
+        "component_raw_sha256": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da"
+      },
+      {
+        "component": "Lua/BaiqiCapture.lua",
+        "writer_lines": [
+          92
+        ],
+        "gate_lines": [
+          80,
+          103,
+          110,
+          111,
+          181,
+          183
+        ],
+        "scope": "FinishMoves is settlement of explicitly confirmed city requisition or same-turn positively transferred/charged recovery. Recover does not select a new target or infer unknown transfer; no fresh background military order source. This is a distinct continuation of player intent.",
+        "component_raw_sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185"
+      },
+      {
+        "component": "Lua/BaiqiUIGuard.lua",
+        "gate_lines": [
+          19,
+          23
+        ],
+        "writer_lines": [
+          46,
+          50,
+          54,
+          58
+        ],
+        "scope": "UI-context manual guard delegates all nonwhite military commands/capabilities to original native object with original args/results. Executor explicitly does not import this UI module; this does not proxy its cached SDK bindings.",
+        "component_raw_sha256": "74249d63225b021feb9b5d75b778dafbb2d6eff9de451e5243b2cf1df5f9e3f0"
+      },
+      {
+        "component": "Lua/BaiqiActions.lua",
+        "entry_line": 70,
+        "gate_lines": [
+          88,
+          99,
+          103,
+          108,
+          117,
+          127
+        ],
+        "scope": "Player ordinary map interaction only; popup-confirmed city request or explicitly chosen normal attack continuation. Poll reads result; it never starts a new attack. UnitPanel/WorldInput/UnitFlagManager each retain own original consumer bindings.",
+        "component_raw_sha256": "9fe8c03b9b1bb75df625676d48d066341c656c16fb1acd4e3f6de6632d620cba"
+      }
+    ],
+    "scope": "Source review of current declared native unit write roots, cached aliases and manual UI sinks. City production/purchase commands create normal recruited units but do not order their movement/combat. Core captures have player-intent lifecycle. Not a formal proof of every engine action or measured global SDK count.",
+    "global_native_SDK_request_count": null
+  },
+  "targeted_new_software": {
+    "file": "tests/test_military_guard_variants.py",
+    "raw_sha256": "ccb0b95a158ffefbc483dd14a522282faf1308cc6cf1e4107b41000412419c68",
+    "command": "python -X utf8 -m unittest tests.test_military_guard_variants -v",
+    "tool_chunk": "ee1115",
+    "exit": 0,
+    "unittest_methods": 4,
+    "actual_Lua_VMs": [
+      "5.1",
+      "5.3"
+    ],
+    "military_type_profiles": 13,
+    "policy_rank_profiles_per_VM": 52,
+    "manual_rank_escort_profiles_per_VM": 65,
+    "manual_sinks_per_profile": 4,
+    "iteration_counts_are_not_additional_unittest_methods_or_Native_game_calls": true,
+    "scope": "Nonwhite policy rejects before formation/moves getter access; manual nonwhite commands preserve exact native identity/nil/false/trailingnil/opaque rejection+error. Includes MF-1/0/1/2 and escort1/2, zero combat General/Admiral/Engineer and religiouscombat. Live type change rechecks cached manual sink; Builder/Missionary positives stay AI eligible but manually locked.",
+    "Native_game_inputs": 0
+  },
+  "natural_new_military_reuse": {
+    "utc": "2026-11-23T23:30:52.336844+00:00",
+    "scope": "Natural new military clause reused from actual179sameengine74; not new183birth or allcase physicalrerun. Supplement source/ZIP validation before owner impact answer.",
+    "exact_unchanged_files": [
+      {
+        "path": "Lua/BaiqiPolicy.lua",
+        "sha256": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+        "byte_identical": true
+      },
+      {
+        "path": "Lua/BaiqiUIGuard.lua",
+        "sha256": "74249d63225b021feb9b5d75b778dafbb2d6eff9de451e5243b2cf1df5f9e3f0",
+        "byte_identical": true
+      },
+      {
+        "path": "Lua/BaiqiActions.lua",
+        "sha256": "9fe8c03b9b1bb75df625676d48d066341c656c16fb1acd4e3f6de6632d620cba",
+        "byte_identical": true
+      },
+      {
+        "path": "Lua/BaiqiCapture.lua",
+        "sha256": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+        "byte_identical": true
+      },
+      {
+        "path": "Lua/BaiqiRequisition.lua",
+        "sha256": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+        "byte_identical": true
+      },
+      {
+        "path": "Lua/BaiqiPlanner.lua",
+        "sha256": "0fce74f390cacd1339c4c26b954d9a916d32f19c95e9c5e7e557cd77e76fd5ef",
+        "byte_identical": true
+      },
+      {
+        "path": "UI/BaiqiWorldInput.lua",
+        "sha256": "cbe4ed0f20d029b4e2854503618125b89edb7a9fa745d7b7bcf697d39ed5bb9c",
+        "byte_identical": true
+      },
+      {
+        "path": "UI/BaiqiUnitPanel.lua",
+        "sha256": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+        "byte_identical": true
+      },
+      {
+        "path": "UI/BaiqiUnitFlagManager.lua",
+        "sha256": "793d6a5a8debc4d485dbd7b1848fbf49075508aed779d04b59164d880dbd1a2b",
+        "byte_identical": true
+      },
+      {
+        "path": "UI/BaiqiExecutor.lua",
+        "sha256": "75a3debeda6e759272110cddc7d7db623d74df7c9dbb62806a3c9fc48870656e",
+        "byte_identical": true
+      }
+    ],
+    "exact_unchanged_controller_top_blocks": [
+      {
+        "name": "RequestCivilianStandby",
+        "UTF8_LF_sha256": "86378a1c00711d9b64bd827ccbad3e208c2a9d2db02688dc39bfe97e07398046",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "RequestMissionary",
+        "UTF8_LF_sha256": "a926f7a0b6c60e112bfcbbb5bc9ee272e6abfed022454180edf209e3d55861f9",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "RequestNaturalist",
+        "UTF8_LF_sha256": "ad87bfc6c09448b06540bc063b58c6e3f89a8d1ac2fed808bb67465fee6643cb",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "RequestArchaeologyExcavation",
+        "UTF8_LF_sha256": "f096848c2a7e8557d375e2e7d3f8ae93842496209aa9e4275e75c0a3a1712273",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "ArchaeologyGuard",
+        "UTF8_LF_sha256": "3b3740c02255e45533e30cc2776574e3212cb3d88820eacf83cd85d82d2549fb",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "RequestDistrictPerson",
+        "UTF8_LF_sha256": "fb93c45a3a418f6be9d69ccfdf51561636bb4fd4cedf8c6053a693bcd4e6c914",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "RequestProphet",
+        "UTF8_LF_sha256": "b759d086c69f2eedf594c1c127cc891c4657bfc265fec7ec509b64135301c686",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "ProcessCreative",
+        "UTF8_LF_sha256": "23e22607a45711503ad5c6217f2f6e0e184c1b1720305db7be66465bb849f5d5",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "ClearCivilianOverlap",
+        "UTF8_LF_sha256": "11e322de54796c8c2a10ae59be4e6ddb9f4ccc89646a01bff83190c6a0615e56",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "RetryCivilianOverlap",
+        "UTF8_LF_sha256": "15a6cc09a24d6126def8cf7b83b310dcb6bed2751b8864e0ad96a840e996bab4",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "BaiqiController.RunNow",
+        "UTF8_LF_sha256": "4eb3f217422463a8938f1ddce77a6338b629956b9ca67e0f4b0ede5338120354",
+        "top_level_block_byte_identical": true
+      },
+      {
+        "name": "BaiqiController.Update",
+        "UTF8_LF_sha256": "a22e842c16eef7f01915701bad13c0580c1889c66261d6ae565f6c663987074c",
+        "top_level_block_byte_identical": true
+      }
+    ],
+    "changed_controller_top_blocks": [
+      "KnownExpansionSupport",
+      "RequestCivilian",
+      "BlockedIdleHead",
+      "QueueReady",
+      "ProcessCity"
+    ],
+    "all_actual_diff_review_file": "tc019183-source179-to183-natural-impact.diff",
+    "semantic_impact_review": "Controller differences only new saved-playerRazeChoice checks at settlement-site/MOVE_TO UNIT_SETTLER branch and city obsolete-wall queue facts/compare/log. No civilian whitelist/manual military guard/pure military production scorer/native military command gateway or selected unchanged writer block difference. Admin differsresearchcompletedUI/governorpassivepressure, with prior targeted183Native; ConfigRazeKey/UIRazeLoader/CoreRaze journal additions are not militaryorders. This is impact scope, not theorem of unchanged gameplay in all branches.",
+    "prior_current179_native_contract_review": {
+      "clause": "Finite demand/cap control and later legal production, player retains new military control without BACKGROUND move/combat",
+      "pass": true,
+      "basis": "Independent24>=22 cap world continued real buildings/districts without new military queue through121; its final recruit0 is explicitly non-causal, supplemented by actual current142/149 cap-isolating false inputs. Natural14th city raises cap26→28; army26+queued2=28. New units wait at birth, safe actual TEST_PLAYER moves accepted, complete subsequent turn retains targets; original product excludes these types from civilian control, complete held logs match0 new-army requests, independent Core proof. Global Native writer counts remain unknown."
+    },
+    "source179_archive": "ddc2b39301e46f9d23037969aca50d623b051c47ab949e42c26340018dee8cd7",
+    "source183_archive": "9c84beac0c33dc4b5e7d79eae4f8a1616b374c64736ff6ac33e7638896c4fbd7",
+    "same_engine": {
+      "version": "1.0.12.74",
+      "Build": 26595377
+    },
+    "precise_existing_native_reports": [
+      {
+        "path": "docs/research/baiqi-source179-tc007-cap-observation-engine74-2026-11-23.json",
+        "raw_sha256": "ccd222e8913892a969179e2bff9cb3ec409583f8bb2e4821adb999ab66e04047",
+        "status": null,
+        "top_fields": [
+          "schema",
+          "utc",
+          "date_local",
+          "machine_id",
+          "source_version",
+          "engine",
+          "build",
+          "actual_ordinary179_owner",
+          "product_change_count",
+          "whole_TC007",
+          "whole_mod_cases",
+          "mandatory_contract_lines",
+          "source_of_original_cap_save",
+          "native_snapshots",
+          "bounded_cap_observation",
+          "actual_actions",
+          "QA_observer",
+          "model_readiness",
+          "owner_diagnostics",
+          "closeout",
+          "next",
+          "private_artifact_sha256"
+        ]
+      },
+      {
+        "path": "docs/research/baiqi-source179-tc007-two-armies149-engine74-2026-11-23.json",
+        "raw_sha256": "331286b18b2de0d04a9de71354beaa6bff11f2d00c105a03750957bee281750e",
+        "status": null,
+        "top_fields": [
+          "schema",
+          "utc",
+          "machine_id",
+          "source_version",
+          "engine",
+          "build",
+          "whole_TC007",
+          "whole_mod",
+          "positive_normal_training",
+          "normal_resource_and_maintenance",
+          "dynamic_demand_cap",
+          "normal_test_player_control",
+          "closeout",
+          "R114_next_real_negative_fixture_preparation",
+          "private_artifact_sha256",
+          "next"
+        ]
+      },
+      {
+        "path": "docs/research/baiqi-source179-tc007-causal-fiscal141-engine74-2026-11-23.json",
+        "raw_sha256": "b12d1a6791c6db20a646944e66d5faecfa23daf0795c6147520fc33d572a5d8e",
+        "status": null,
+        "top_fields": [
+          "schema",
+          "utc",
+          "machine_id",
+          "source_version",
+          "engine",
+          "build",
+          "TC007_low_reserve_branch",
+          "whole_TC007",
+          "whole_mod",
+          "fixture",
+          "actual_normal_next_turn",
+          "actual_causal_rejection",
+          "closeout",
+          "local_model",
+          "private_artifact_sha256",
+          "next"
+        ]
+      },
+      {
+        "path": "docs/research/baiqi-source179-tc007-resource-shortage-fallback145-engine74-2026-11-23.json",
+        "raw_sha256": "56cbdb438ad259a8ab5251facb9840d01c4be206480b28edf94ae558e2506a80",
+        "status": null,
+        "top_fields": [
+          "schema",
+          "utc",
+          "machine_id",
+          "source_version",
+          "engine",
+          "whole_TC007",
+          "whole_mod",
+          "real_independent_shortage",
+          "actual_fallback",
+          "R113_new_actual_pending_branch_coverage",
+          "TEST_PLAYER_congress",
+          "owner_tool_corrections",
+          "current_safe_checkpoint",
+          "local_model",
+          "new_product_changes",
+          "Steam_mode_actions",
+          "private_artifact_sha256",
+          "next"
+        ]
+      }
+    ],
+    "Native_game_inputs_or_new_births": 0,
+    "not_QA_Init_training_credit": true,
+    "TC019_Army_and_religious_native_still_open": true
+  },
+  "prior_complete_TC007_evidence": "docs/research/baiqi-source179-tc007-complete-engine74-2026-11-23.json",
+  "natural_scope_retained_not_new183_birth": "Sameengine179 realCannon147/Infantry148/Cuirassier148 and ordinary149, real player movement and retained next-turn positions, actual production/resource/maintenance. 109oldpaths unchanged; 10changed+4newfiles fully reviewed actualdiff; 10criticalfiles and12Controller topblocks byteidentical. AdditionalRequestCivilian changes only restrict settlerRaze, cityqueue obsoletewalls andAdminresearch/governor are separate targeted branches with operational evidence. No credit for QA Init or old77engine effect.",
+  "owner_correction": "First mechanical natural-source checker named nonexistent BaiqiProduction.lua and failedread before qualification; actual production scorer BaiqiPlanner.lua resolved via file inventory, allrequired exact-source checks then passed. Original failure not masked or called Native.",
+  "remaining_actual_types": [
+    "Army",
+    "Apostle",
+    "Inquisitor",
+    "Guru"
+  ],
+  "R164": {
+    "full_current_product_Lua_sources": 101,
+    "total_complete_input_files_before_owner_new_audit_tests": 109,
+    "raw_input_bytes": 909631,
+    "natural_reuse_supplement": "Before natural-impact answer, full179v2/current183 text+real119/123prepared/ZIP rawbyte validation; not generationwire.",
+    "actual_new_readonly_GETs": 2,
+    "fresh_availability_UTC": "2026-11-23T23:20:21.619886+00:00",
+    "configured_model": "qwen38-coder",
+    "actual_model_ids": [
+      "open-h3-2k"
+    ],
+    "GET_statuses": [
+      200,
+      200
+    ],
+    "maintenance": {
+      "date": "2026-11-24",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "actual_owner_phases": [
+      {
+        "utc": "2026-11-23T23:19:23.010667+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:20:21.217353+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:20:21.838336+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:33:28.799174+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      }
+    ],
+    "exclusive_owner_cost_and_net_savings": null
+  },
+  "new_product_changes": 0,
+  "unpublished_product_fix_packages": 11,
+  "Workshop_source": 172,
+  "next": "Locate and protect existing eligible Army/religious scenes, fresh actual prerequisites; then controlled active background and original TEST_PLAYER commands. Actualworldcurrentlysaved136FighterRebased595562/allQA0, no Native gameplay inputs during this review. Do not stop at audit publication."
+}
