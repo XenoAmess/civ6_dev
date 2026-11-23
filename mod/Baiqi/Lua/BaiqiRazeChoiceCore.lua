@@ -4,18 +4,28 @@ local M=BaiqiRazeChoiceCore
 local MAX=2147483647
 local function Integer(v)return type(v)=='number'and v==v and v>=0 and v<=MAX and v%1==0 end
 local fields={version=true,kind=true,owner=true,cityID=true,plot=true,x=true,y=true,turn=true}
-local function Copy(v,pid,index,x,y,turn)
+local function Copy(v,pid,index,x,y,turn,kindHash)
   if type(v)~='table'or getmetatable(v)~=nil then return nil end
-  local n=0;for k in pairs(v)do n=n+1;if n>8 or not fields[k]then return nil end end
-  if n~=8 or v.version~=1 or v.kind~='PLAYER_RAZE_CHOICE' or v.owner~=pid
+  local n=0;for k in pairs(v)do n=n+1;if n>8 or(not fields[k]and k~=kindHash)then return nil end end
+  -- Save/load can restore this string field name as its engine hash. Accept
+  -- exactly one spelling, and return a detached canonical value without
+  -- rewriting the genuine saved record.
+  local kind,hashed=v.kind,v[kindHash]
+  if kind~=nil and hashed~=nil then return nil end
+  if kind==nil then kind=hashed end
+  if n~=8 or v.version~=1 or kind~='PLAYER_RAZE_CHOICE' or v.owner~=pid
     or not Integer(v.cityID)or v.plot~=index or v.x~=x or v.y~=y
     or not Integer(v.turn)or v.turn>turn then return nil end
-  return {version=1,kind=v.kind,owner=pid,cityID=v.cityID,plot=index,x=x,y=y,turn=v.turn}
+  return {version=1,kind=kind,owner=pid,cityID=v.cityID,plot=index,x=x,y=y,turn=v.turn}
 end
 function M.Create(C,E)
   if type(C)~='table'or type(C.leader)~='string'or C.leader==''
     or type(C.razeChoiceKey)~='string'or C.razeChoiceKey==''or type(E)~='table'then return nil end
   local KEY=C.razeChoiceKey
+  if type(E.HashString)~='function'then return nil end
+  local hashOK,kindHash=pcall(E.HashString,'kind')
+  if not hashOK or type(kindHash)~='number'or kindHash~=kindHash
+    or kindHash< -2147483648 or kindHash>4294967295 or kindHash%1~=0 then return nil end
   -- A Map getter invoked through an ExposedMembers function during a UI
   -- callback returns a UI plot, even when the function was defined in Core.
   -- Bind Core handles now, before publishing the API. No plot properties or
@@ -69,7 +79,7 @@ function M.Create(C,E)
       return 'UNAVAILABLE',nil,'state_changed'
     end
     if raw==nil then return 'READY',false,'no_recorded_choice' end
-    local value=Copy(raw,pid,index,x,y,turn)
+    local value=Copy(raw,pid,index,x,y,turn,kindHash)
     if not value then return 'UNAVAILABLE',nil,'invalid_choice' end
     return 'READY',true,'player_raze_choice',value
   end
@@ -89,7 +99,7 @@ function M.Create(C,E)
     local t=Facts();if not t then return 'UNAVAILABLE',nil,'current_city' end
     local raw=t:GetProperty(KEY)
     if raw~=nil then
-      local v=Copy(raw,pid,index,x,y,turn)
+      local v=Copy(raw,pid,index,x,y,turn,kindHash)
       if not v then faulted=true;return 'UNAVAILABLE',nil,'invalid_choice' end
       if not Facts()then return 'UNAVAILABLE',nil,'state_changed' end
       return 'READY',v,'already_recorded'
@@ -100,7 +110,7 @@ function M.Create(C,E)
     -- apply-then-throw, freezes expansion in this instance; it never retries.
     faulted=true
     t:SetProperty(KEY,v)
-    local actual=Copy(t:GetProperty(KEY),pid,index,x,y,turn)
+    local actual=Copy(t:GetProperty(KEY),pid,index,x,y,turn,kindHash)
     if not actual or actual.cityID~=cityID or actual.turn~=turn or not Facts()then
       return 'UNAVAILABLE',nil,'persist_unconfirmed'
     end

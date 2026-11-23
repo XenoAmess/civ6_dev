@@ -2,7 +2,7 @@ if BaiqiRazeChoiceGameplay then return end
 include('BaiqiRazeChoiceCore')
 local E={Game=Game,GameConfiguration=GameConfiguration,Players=Players,
   PlayerConfigurations=PlayerConfigurations,PlayersVisibility=PlayersVisibility,
-  Map=Map,CityManager=CityManager}
+  Map=Map,CityManager=CityManager,HashString=DB and DB.MakeHash}
 local api=BaiqiRazeChoiceCore.Create(BaiqiConfig,E)
 BaiqiRazeChoiceGameplay={}
 if api and type(ExposedMembers)=='table'and(ExposedMembers.BaiqiRazeChoiceBridge==nil

@@ -37,6 +37,8 @@ E={Game={GetLocalPlayer=function()return W.localID end,GetCurrentGameTurn=functi
  Map={GetGridSize=function()return 10,10 end,GetPlotByIndex=Plot,GetPlot=function(x,y)return Plot(y*10+x)end},
  PlayersVisibility={[0]={IsRevealed=function()return W.revealed end,IsVisible=function()return W.visible end}},
  CityManager={GetCityAt=function(x,y)return W.city and x==1 and y==2 and city or nil end}}
+DB={MakeHash=function(value)assert(value=='kind');return -1002749146 end}
+E.HashString=DB.MakeHash
 API=assert(BaiqiRazeChoiceCore.Create(C,E))
 function Remember()return API.Remember(0,917516,21,1,2)end
 function Read(index)return API.Read(0,index or 21,(index or 21)%10,math.floor((index or 21)/10))end

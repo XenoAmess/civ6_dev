@@ -1,5 +1,7 @@
 # civ6_dev
 
+2026-11-24 [181第四版真实读档字段FAIL](docs/research/baiqi-source181-v4-raze-hashed-kind-fail131-engine74-2026-11-24.json)／[第五版只读兼容软件通过](docs/research/baiqi-source181-v5-raze-saved-key-normalization-software-2026-11-24.json)：第四版原版夷平及记录实际成功，正式存587219/SHAb864daf211734792d1e6a0f0ce266a3f0a0b8c0e492c085af0477d7d7d04b949；真实重载8字段仍在，但kind键变为DB.MakeHash(kind)精确-1002749146，严格读取拒绝，尚无END。现场另存587021/SHA4905039f48d52861e973db53188ca3faf0da8521dba49fd9194fb7818ed18411、全QA退菜单并正常QuitOS0/本实例terminate0。第五版只读接受精确字段别名、不重写原记录；34项双VM检查／101Lua双编译／123真实ZIP通过，实机RazeSaveReload及134机会仍待做。当前181整项未通过，180最近快照32/40、余8，待发仍9组／工坊172不重复上传。
+
 2026-11-24 [181第四版Core地块句柄绑定软件通过](docs/research/baiqi-source181-v4-bound-Core-plot-software-2026-11-24.json)：Core初始化时私有绑定地块句柄，避免UI回调临时MapGetter拿到无setter句柄；不预读隐藏属性、不改SDK全局，原有可见性／地图尺寸／归属／完整ID门禁保留。相同真实bootstrap消费者两VM红测2Lua断言错误→绿，30项相关检查、101Lua双VM编译、123文件真实ZIP通过，另122产品文件保持第三版；实机夷平／存读档／跨134重建机会仍待验证。仍是未发布181修复的第四次修订，待发9组，工坊172不重复上传；最近180快照32/40、余8继续。
 
 2026-11-24 [181第三版夷平记录上下文FAIL](docs/research/baiqi-source181-v3-raze-record-context-fail131-engine74-2026-11-24.json)：实际原版夷平一次成功删除0/917516，13→12城，但记录未持久化。相同地块／完整8字段对照定位为UI期间临时MapGetter返回无SetProperty的UI句柄；Core预绑定句柄成功，不能误归因表结构或所有跨上下文调用。失败档587114/SHAcf88d709175aa1ef4a01694cc94c3bff53a3daba657e138e11f4b0fdf4587c45已保存，全部QA撤、正式菜单及正常Quit后OS无进程，当前实例terminate0。实际bootstrap消费者两VM复现2断言错误，第四版绑定Core句柄待实现冷验。当前181整项未通过，180最近快照32/40、余8、待发9组、工坊172已发不重复。
