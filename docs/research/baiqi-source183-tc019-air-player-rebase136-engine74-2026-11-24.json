@@ -1,0 +1,427 @@
+{
+  "schema": "civ6.source183-tc019-air-player-rebase136/v1",
+  "utc": "2026-11-23T23:17:08.147128+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "PARTIAL_AIR_BACKGROUND_EFFECT_ISOLATION_AND_ORIGINAL_PLAYER_REBASE_EFFECT_PASS",
+  "whole_TC019": "OPEN",
+  "whole_closed_total_percent_remaining": [
+    33,
+    40,
+    82.5,
+    7
+  ],
+  "current_ledger": "docs/research/baiqi-source183-finite40-engine74-tc009-reclosed136-2026-11-24.json",
+  "bounded_background_window": {
+    "utc": "2026-11-23T23:07:52.180059+00:00",
+    "seconds": 11.79800009727478,
+    "eligible_RunNow_delta": 33,
+    "ready_Update_delta": 33,
+    "actor_selected_fields_and_REBASE_legality_unchanged": true,
+    "target_engine_events": 0,
+    "native_SDK_request_count": null,
+    "same_hook_real_event_liveness": "PENDING_SUBSEQUENT_EXPLICIT_PLAYER_REBASE"
+  },
+  "actual_player_effect": {
+    "utc": "2026-11-23T23:08:01.228977+00:00",
+    "input_role": "TEST_PLAYER",
+    "actual_original_REBASE_requests": 1,
+    "request_params": "OnlyPARAM_X8/PARAM_Y3, exact originalWorldInput contract; no landmove modifiers",
+    "return": [
+      "true",
+      "0",
+      "-1054550409",
+      "8",
+      "3"
+    ],
+    "UI": [
+      "after-player-rebase",
+      "0",
+      "8126522",
+      "UNIT_FIGHTER",
+      "8",
+      "3",
+      "0",
+      "0",
+      "1",
+      "false",
+      "false",
+      "false",
+      "nil"
+    ],
+    "Core": [
+      "0",
+      "8126522",
+      "UNIT_FIGHTER",
+      "8",
+      "3",
+      "0",
+      "0",
+      "1",
+      "59"
+    ],
+    "actual_engine_events_same_hook": [
+      [
+        "after-player-rebase",
+        "1",
+        "UnitOperationAdded",
+        "0",
+        "8126522",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "136",
+        "1795475275.753"
+      ],
+      [
+        "after-player-rebase",
+        "2",
+        "UnitMoved",
+        "0",
+        "8126522",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "8",
+        "3",
+        "136",
+        "1795475275.767"
+      ],
+      [
+        "after-player-rebase",
+        "3",
+        "UnitMoveComplete",
+        "0",
+        "8126522",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "8",
+        "3",
+        "136",
+        "1795475275.776"
+      ]
+    ],
+    "same_hook_positive_liveness": true,
+    "SDK_request_total": null,
+    "actual_ENDs": 0,
+    "new_Init_or_formation_setters": 0,
+    "host_list_postcondition_not_retrofit_PASS": true,
+    "whole_TC019_still_open": true
+  },
+  "all_final_engine_events": [
+    [
+      "final-before-retire",
+      "1",
+      "UnitOperationAdded",
+      "0",
+      "8126522",
+      "TEST_PLAYER_WINDOW",
+      "4",
+      "true",
+      "0",
+      "nil",
+      "nil",
+      "136",
+      "1795475275.753"
+    ],
+    [
+      "final-before-retire",
+      "2",
+      "UnitMoved",
+      "0",
+      "8126522",
+      "TEST_PLAYER_WINDOW",
+      "6",
+      "true",
+      "nil",
+      "8",
+      "3",
+      "136",
+      "1795475275.767"
+    ],
+    [
+      "final-before-retire",
+      "3",
+      "UnitMoveComplete",
+      "0",
+      "8126522",
+      "TEST_PLAYER_WINDOW",
+      "4",
+      "true",
+      "nil",
+      "8",
+      "3",
+      "136",
+      "1795475275.776"
+    ],
+    [
+      "final-before-retire",
+      "4",
+      "UnitOperationStarted",
+      "0",
+      "8126522",
+      "TEST_PLAYER_WINDOW",
+      "4",
+      "true",
+      "-1054550409",
+      "nil",
+      "nil",
+      "136",
+      "1795475280.86"
+    ]
+  ],
+  "observed_after_REBASE": {
+    "actor": [
+      0,
+      8126522,
+      "UNIT_FIGHTER"
+    ],
+    "from": [
+      11,
+      1
+    ],
+    "to": [
+      8,
+      3
+    ],
+    "moves_UI_Core": [
+      0,
+      0
+    ],
+    "militaryFormation_escortCount": [
+      0,
+      1
+    ],
+    "ready_move_select": [
+      false,
+      false
+    ],
+    "pending_queued_destination": [
+      false,
+      null
+    ],
+    "original_CanStart_REBASE_to_now_current_target": false,
+    "own_members": 59,
+    "no_new_Init_formation_setter_or_END": true
+  },
+  "original_consumer": "Base/Assets/UI/WorldInput.lua2480-2488, only PARAM_X8/PARAM_Y3; actual CanStart true and target140 found before one explicit TEST_PLAYER original RequestOperation. No groundmove flags or forcedbase API.",
+  "event_liveness_scope": "Same installed callback set later received actual OperationAdded/Moved/MoveComplete and OperationStarted for the exact target fullID. Positive actual liveness for those four event kinds; no UnitCommandStarted positive claim. Native SDK request total remains unknown.",
+  "late_event_and_cleanup_failure": {
+    "first_effect_read_engine_events": 3,
+    "later_final_count": 4,
+    "late_event": "UnitOperationStarted actor0/8126522 originalREBASEcode-1054550409, fourargs",
+    "late_started_after_first_added_seconds": 5.107,
+    "failure": "Firstcleanup required eventscount==3 and asserted before Retire/Save; originalexit1 andfailedpacket retained. Independenthold confirmed same136/actorat8,3/0moves/unqueued, validinstalled/unretiredobserver4events.",
+    "recovery": "Removed count-equality from preservation gate. Existing valid owned callbacks restored once; first unconsumed Save executed once. No replay of REBASE/Init/queueclear. Entire late event retained; cleanup observation not an extra authored player request.",
+    "event_count_does_not_count_native_requests": true
+  },
+  "host_list_limit": "R162 initial citycenter-district list false and plot list nil/assignment postcondition stays unproven. Actual active original REBASE and position/effect do not retroactively pass it; no SDK alias fabricated.",
+  "preservation": {
+    "utc": "2026-11-23T23:15:17.693453+00:00",
+    "owner": {
+      "pid": 14284,
+      "created_at": 1795462208.7511442,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "save": {
+      "utc": "2026-11-23T23:15:16.050907+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC019FighterRebased136.Civ6Save",
+      "bytes": 595562,
+      "sha256": "8c514b6e82a06265d7bff9b3df049bcc3ed6872295bc24e55b9f369f92296899",
+      "stable_repeated_read": true
+    },
+    "source_version": 183,
+    "final_events_header": [
+      "final-before-retire",
+      "TEST_PLAYER_WINDOW",
+      "true",
+      "false",
+      "false",
+      "4",
+      "4",
+      "0",
+      "0",
+      "1247",
+      "1247",
+      "0",
+      "1248",
+      "1248",
+      "0",
+      "0",
+      "1795475710.198",
+      "136"
+    ],
+    "final_event_rows": [
+      [
+        "final-before-retire",
+        "1",
+        "UnitOperationAdded",
+        "0",
+        "8126522",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "136",
+        "1795475275.753"
+      ],
+      [
+        "final-before-retire",
+        "2",
+        "UnitMoved",
+        "0",
+        "8126522",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "8",
+        "3",
+        "136",
+        "1795475275.767"
+      ],
+      [
+        "final-before-retire",
+        "3",
+        "UnitMoveComplete",
+        "0",
+        "8126522",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "8",
+        "3",
+        "136",
+        "1795475275.776"
+      ],
+      [
+        "final-before-retire",
+        "4",
+        "UnitOperationStarted",
+        "0",
+        "8126522",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "-1054550409",
+        "nil",
+        "nil",
+        "136",
+        "1795475280.86"
+      ]
+    ],
+    "final_actor_UI": [
+      "final-before-retire",
+      "0",
+      "8126522",
+      "UNIT_FIGHTER",
+      "8",
+      "3",
+      "0",
+      "0",
+      "1",
+      "false",
+      "false",
+      "false",
+      "nil"
+    ],
+    "event_retire": [
+      "true",
+      "owned_callbacks_removed_and_public_methods_restored",
+      "4",
+      "4",
+      "1248",
+      "7"
+    ],
+    "player_flag_retire": [
+      "1"
+    ],
+    "actual_player_REBASE_calls": 1,
+    "actual_ENDs": 0,
+    "new_Init_or_formation_setters": 0,
+    "current_own_members": 59,
+    "original_host_list_postcondition_not_upgraded": true,
+    "live_owned_QA_bindings": 0,
+    "private_factory_instances": 0,
+    "all_owned_private_flags_retired": true,
+    "MainMenu_or_Quit_requested": false,
+    "whole_closed": 33,
+    "whole_remaining": 7,
+    "whole_TC019": "OPEN_ARMY_RELIGIOUS_NATURAL_NEW_MILITARY_AND_FULL_WRITER_SCOPE"
+  },
+  "R163": {
+    "complete_inputs_before_owner_air_control_driver": 12,
+    "raw_input_bytes": 1114404,
+    "availability_reused": "R16022:25UTC canonicalmissing/onlyH3/configunchanged/sameday1.19.6cache",
+    "new_HTTP_calls": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "actual_owner_phases": [
+      {
+        "utc": "2026-11-23T23:04:59.471283+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:05:39.200521+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:05:39.393429+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:07:01.601858+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:12:24.938638+00:00",
+        "phase": "CORRECTION_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:14:36.394125+00:00",
+        "phase": "CORRECTION_END",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      }
+    ],
+    "phase_scope": "Independent BEGINs before context/draft/correction, wall intervals include waits; exclusive active cost/net savings unknown.",
+    "complete_preparation_not_generation_wire": true
+  },
+  "remaining": [
+    "Army in eligible actual scene",
+    "Apostle/Inquisitor/Guru in qualified religious scene",
+    "New naturally trained military evidence, no QAInit credit",
+    "Complete writer/policy coverage; events not every-SDK request counter"
+  ],
+  "new_product_changes": 0,
+  "unpublished_product_fix_packages": 11,
+  "Workshop_source": 172,
+  "next": "Continue source writer/whitelist scope review and remaining special classes/natural recruit. Seven representative military variants now have actual controlled-window/player-command effects, entireTC019notclosed. Whole33/40remain7NoFinal."
+}
