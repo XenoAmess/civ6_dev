@@ -40,6 +40,7 @@ E={Game={GetLocalPlayer=function()return W.localID end,GetCurrentGameTurn=functi
  GameConfiguration={IsAnyMultiplayer=function()return W.multiplayer==true end,IsHotseat=function()return W.hotseat==true end},
  Players={[0]=p},PlayerConfigurations={[0]={IsHuman=function()return W.human end,GetLeaderTypeName=function()return W.leader end}},
  GameInfo={Units={[1]={UnitType='UNIT_SETTLER'}}},PlayersVisibility={[0]=visibility},
+ RazeChoice={Read=function()return W.choiceStatus or 'READY',W.blocked==true end},
  Map={GetGridSize=function()return W.width,W.height end,GetPlotByIndex=function(index)
   return {GetIndex=function()return index end,GetX=function()return index%W.width end,
    GetY=function()return math.floor(index/W.width)end}

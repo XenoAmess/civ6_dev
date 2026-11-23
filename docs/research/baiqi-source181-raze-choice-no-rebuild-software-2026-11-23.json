@@ -1,0 +1,635 @@
+{
+  "schema": "civ6.source181-raze-choice-no-rebuild-software/v1",
+  "utc": "2026-11-23T15:34:57.931133+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 181,
+  "actual_software_status": "PASS_NATIVE_COLD_RETEST_PENDING",
+  "source180_failure_retained": "docs/research/baiqi-source180-tc018-raze-rebuild-fail134-engine74-2026-11-23.json",
+  "last_verified_Native_whole_snapshot": {
+    "source_version": 180,
+    "closed": 32,
+    "total": 40,
+    "percent": 80,
+    "remaining": 8
+  },
+  "whole_current181_Native_pass_claimed": false,
+  "unpublished_completed_product_fix_packages": 9,
+  "Workshop_source": 172,
+  "implementation": {
+    "record": "One bounded typed record per actual map cell in BAIQI_PLAYER_RAZE_CHOICE_V1; owner/fullcityID/XY/turn and PLAYER_RAZE_CHOICE. Only explicit qualified original UI RAZE request cancreateit againstcurrentowncity/roster.",
+    "not_a_destruction_receipt": true,
+    "player_request": "RazeCity parent loader preservesGSExpansion2->Base and originalcallbacks. ContextCityManagerplainproxy records beforeoriginalRequestCommand, forwardsarguments/nils/returns/errors exactlyonce. Keep/liberate/Qin donotrecord; noSDKtablefieldsmodified.",
+    "safety": "Malformed/unavailablechoiceholdssite. UnconfirmedpersistfreezesexpansioninthisCoreinstancewithoutpropertywritereplay. Contextloadreplacesonlymatchingbridge, freshCoreusesactuallypersistedplotdata.",
+    "settler_boundaries": [
+      "SettlementSites/preferredgoal/routewrite/support andarrivalFOUND share freshchoicegate.",
+      "FinalnativeMOVEqualificationrechecksactuallongtermgoal; passingthroughtherazedplotisnotforbidden.",
+      "CoreGoalRemembercheckschoiceagain.",
+      "CorefoundPrepare/CommitFreshcheckchoice; achange duringARMEDpersistreturnsnograntandretainsARMEDwithoutreplay."
+    ],
+    "unchanged_scope": "No army/diplomacy order, freeassetfactory, manualplotreserve/releasecontrol, total/pauseAPI, paidsettlement/recovery changes or historicalunknownjournal clear. Newcolonyelsewhere remainspossible andsoftwarepositivelyobserved.",
+    "code_files": [
+      "mod/Baiqi/Baiqi.modinfo",
+      "mod/Baiqi/Lua/BaiqiConfig.lua",
+      "mod/Baiqi/Lua/BaiqiController.lua",
+      "mod/Baiqi/Lua/BaiqiGameplay.lua",
+      "mod/Baiqi/Lua/BaiqiSettlementIntentCore.lua",
+      "mod/Baiqi/Lua/BaiqiSettlementIntentGameplay.lua",
+      "mod/Baiqi/Lua/BaiqiSettlerGoalsCore.lua",
+      "mod/Baiqi/Lua/BaiqiSettlerGoalsGameplay.lua",
+      "mod/Baiqi/Lua/BaiqiUILoader.lua",
+      "mod/Baiqi/Lua/BaiqiRazeChoiceCore.lua",
+      "mod/Baiqi/Lua/BaiqiRazeChoiceGameplay.lua",
+      "mod/Baiqi/Lua/BaiqiRazeChoiceView.lua",
+      "mod/Baiqi/UI/BaiqiRazeCity.lua"
+    ]
+  },
+  "migration_boundary": "Onlychoicesactuallyrecordedunder181haveprovenance. Old180emptylanddoesnotprovepastRazeandcannotbeinferredorfabricated; oldRazed131andFAIL134savesremainunchanged. RequiredNativeproofstartsfromsameprotectedNprebattle131under181, actuallegalRaze,save,reloadandrealplanningtoatleastprevious134eligibleopportunity. No retroactive180failurepass.",
+  "validation": {
+    "affected_software_checks": 273,
+    "commands": [
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_baiqi_raze_choice.py"
+        ],
+        "exit": 0,
+        "testsRun": 20,
+        "raw_sha256": "b883f41ef13fe962006f04c8c8f44194e29d8db9b3f4a5da44527ee7bcd0f1a4"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_baiqi_settl*.py"
+        ],
+        "exit": 0,
+        "testsRun": 181,
+        "raw_sha256": "19940833cb550de30d61e8749d57816b4b4d66e8d47344a6eaf8309f80641d33"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_baiqi_great_people_loader.py"
+        ],
+        "exit": 0,
+        "testsRun": 8,
+        "raw_sha256": "0d1526ae79976df9301ae7cf858a00474e4a35b6feacaebf0836468e96553d08"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_build_mod.py"
+        ],
+        "exit": 0,
+        "testsRun": 12,
+        "raw_sha256": "e837cfbdd08973f9206e4067f4246a77c39a022456e96b324e428e769ec50f60"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_control_manifest.py"
+        ],
+        "exit": 0,
+        "testsRun": 7,
+        "raw_sha256": "26d94dc49966a9038fd2a003705c2b8fd81b0a401b9c059a9f291c8bdd104bc3"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_controller_found_writer_timing.py"
+        ],
+        "exit": 0,
+        "testsRun": 14,
+        "raw_sha256": "8de771c5fdbc06ff071b833fa9d7b83624b180ecd29cd561036cd8f1567960d1"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_formation_unknown_diagnostic.py"
+        ],
+        "exit": 0,
+        "testsRun": 8,
+        "raw_sha256": "acb9e150e96a35fac0fcc76e02c18c0ec57974408cdd6116c028da41ed515885"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_formation_unknown_deferred.py"
+        ],
+        "exit": 0,
+        "testsRun": 8,
+        "raw_sha256": "50e7e1a687ca04112137c044c67bc5f74e1c9e800528f69893b3a6462c59c98a"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_settlement_census_source155.py"
+        ],
+        "exit": 0,
+        "testsRun": 8,
+        "raw_sha256": "1559acc10ac3caaab055136526162258fe1bfb94dca1fd7a7da9b70a24710e55"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_paired_normal_build.py"
+        ],
+        "exit": 0,
+        "testsRun": 3,
+        "raw_sha256": "6125b0e2c0d06824075c2db587ed5374140efec933e064991e39cbdcea9bc01c"
+      },
+      {
+        "args": [
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_pressure_paired_build.py"
+        ],
+        "exit": 0,
+        "testsRun": 4,
+        "raw_sha256": "5911ef72362fa77dfbe8021c8e8f3e9a62951f656580045eef0aeb83ec7b5be4"
+      }
+    ],
+    "all_affected_checks_passed": true,
+    "new_Raze_contract_tests": 20,
+    "all_20_tests_dual_VM": false,
+    "Raze_core_view_bootstrap_and_found_transaction_contracts_dual_VM": true,
+    "existing_settlement_tests": 181,
+    "compiled_Lua_each_51_53": 101,
+    "actual_manifest_files": 123,
+    "all123_payload_bytes_and_real_ZIP_verified": true,
+    "paired_enabled_control_and_pressure_enabled_control_real_bytes_qualified": true,
+    "initial_unittest_Lua51_empty_statement_error": "Two test string constructions had double semicolons; correctedbefore finalchecks, notproductPASS.",
+    "initial_real_artifact_count_failure": "Firstpairedtestfailedactual123vsstaleexpected119. Preservedexit1, noartifactbuildthen. Added2fullactualconsumerinputsbeforecorrectingcounts, finalretestonlyfailed/notyetgroups9/10. Prior9groupsnotrerunorclaimedfailed.",
+    "tools_scope": "11existingallowlistconsumersonlyadd181; exactverifieruses181->123/previous119, historicalguardsandlegacyclockhashes retained.",
+    "first_owner_failure_report": {
+      "utc": "2026-11-23T15:30:59.161039+00:00",
+      "commands": [
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_baiqi_raze_choice.py"
+          ],
+          "exit": 0,
+          "testsRun": 20,
+          "raw_sha256": "b883f41ef13fe962006f04c8c8f44194e29d8db9b3f4a5da44527ee7bcd0f1a4"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_baiqi_settl*.py"
+          ],
+          "exit": 0,
+          "testsRun": 181,
+          "raw_sha256": "19940833cb550de30d61e8749d57816b4b4d66e8d47344a6eaf8309f80641d33"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_baiqi_great_people_loader.py"
+          ],
+          "exit": 0,
+          "testsRun": 8,
+          "raw_sha256": "0d1526ae79976df9301ae7cf858a00474e4a35b6feacaebf0836468e96553d08"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_build_mod.py"
+          ],
+          "exit": 0,
+          "testsRun": 12,
+          "raw_sha256": "e837cfbdd08973f9206e4067f4246a77c39a022456e96b324e428e769ec50f60"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_control_manifest.py"
+          ],
+          "exit": 0,
+          "testsRun": 7,
+          "raw_sha256": "26d94dc49966a9038fd2a003705c2b8fd81b0a401b9c059a9f291c8bdd104bc3"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_controller_found_writer_timing.py"
+          ],
+          "exit": 0,
+          "testsRun": 14,
+          "raw_sha256": "8de771c5fdbc06ff071b833fa9d7b83624b180ecd29cd561036cd8f1567960d1"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_formation_unknown_diagnostic.py"
+          ],
+          "exit": 0,
+          "testsRun": 8,
+          "raw_sha256": "acb9e150e96a35fac0fcc76e02c18c0ec57974408cdd6116c028da41ed515885"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_formation_unknown_deferred.py"
+          ],
+          "exit": 0,
+          "testsRun": 8,
+          "raw_sha256": "50e7e1a687ca04112137c044c67bc5f74e1c9e800528f69893b3a6462c59c98a"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_settlement_census_source155.py"
+          ],
+          "exit": 0,
+          "testsRun": 8,
+          "raw_sha256": "1559acc10ac3caaab055136526162258fe1bfb94dca1fd7a7da9b70a24710e55"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_paired_normal_build.py"
+          ],
+          "exit": 1,
+          "testsRun": 3,
+          "raw_sha256": "d6bb6d3942e830bbd041765ce8a3a6c211a9cba226edb526471d29f29ad2465b"
+        }
+      ],
+      "all_success": false,
+      "not_full_repo_suite": true,
+      "not_Native_PASS": true
+    },
+    "followup": {
+      "utc": "2026-11-23T15:32:35.760642+00:00",
+      "commands": [
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_paired_normal_build.py"
+          ],
+          "exit": 0,
+          "testsRun": 3,
+          "raw_sha256": "6125b0e2c0d06824075c2db587ed5374140efec933e064991e39cbdcea9bc01c"
+        },
+        {
+          "args": [
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_pressure_paired_build.py"
+          ],
+          "exit": 0,
+          "testsRun": 4,
+          "raw_sha256": "5911ef72362fa77dfbe8021c8e8f3e9a62951f656580045eef0aeb83ec7b5be4"
+        }
+      ],
+      "all_success": true,
+      "not_full_repo_suite": true,
+      "not_Native_PASS": true
+    },
+    "not_full_repository_suite": true,
+    "Native_queries": 0,
+    "actual_Native_effects": null
+  },
+  "ordinary_artifact": {
+    "utc": "2026-11-23T15:32:38.206693+00:00",
+    "source_version": 181,
+    "mode": "ordinary181-unmodified",
+    "files": 123,
+    "Lua_sources_compiled_each_VM": 101,
+    "actual_ZIP_names_and_bytes_verified": true,
+    "source_hashes": {
+      "Baiqi.modinfo": "96e69da3966b5fa5cc8f3797cd308dca7cf71bed418e23a5882ca1559464775d",
+      "Lua/BaiqiRazeChoiceCore.lua": "5ef8368572db32532952a2e6088769c6d3988de6a2e935492fc1a628dd6f765f",
+      "Lua/BaiqiRazeChoiceGameplay.lua": "ff738d2972cfdca3302b56537964e88a16f8c534e29ed940ad3eccc164f3f7a2",
+      "Lua/BaiqiRazeChoiceView.lua": "604ee77f7a753bb1b1e56e899fd420279c1dc2d63d3c673d2c720dce01f4bb8b",
+      "UI/BaiqiRazeCity.lua": "b64a49365eb043293cf5cb6823a10c8d30af34d636e0409355e69938eae3cf58",
+      "Baiqi.dep": "a33cdf8c5797db4ba59608d2947e7bcc7c6bb00fe2ba4ff14c96c0423e2706ae",
+      "ArtDefs/Leaders.artdef": "08ba8547d0eb8e9df3a6e52409ceabf868758224aa5510102d50e7eca84898de",
+      "UI/BaiqiDiplomacyActionView.lua": "0019d52dcf8de5f779d75b826fd1557ff09e5929fe238cd248518fb153bccb7d",
+      "UI/BaiqiLeaderScene.lua": "b471425795db905107e69b8514776fcae0b2420b728bba8d542a66ab372600f6",
+      "Art/Baiqi_SelectionForeground.dds": "6eb8ed45aeebfb7c21724c6dc4fb99883264897a4afb30a30d754741e4c03f48",
+      "Art/Baiqi_Leader32.dds": "0771f1085c62f9e80a2b4f11077cab8f9750d964b50d5e443561b651b010aef7",
+      "Art/Baiqi_Leader45.dds": "843d73803c98e4bde8a989fdc24c096347bcdbc8d290e64c49c1da1b203516c4",
+      "Art/Baiqi_Leader50.dds": "1da2b41dad44ea67ec53e3e41bab9d0eed4e0a36a4bcdb538b1f935502c44ab8",
+      "Art/Baiqi_Leader55.dds": "5a61cf5cfac4587111f411d8486a85342eb892be29a5abf178d639dab44fe015",
+      "Art/Baiqi_Leader64.dds": "f852cb618d3d097f98fcef9bac652fb86303a1b712ceb1ad7fd90f32011ee669",
+      "Art/Baiqi_Leader80.dds": "ac71912d96de3cfc0336fad7d9fe59100a4bf47ea9707c58836dac4fa7d198cf",
+      "Art/Baiqi_Leader256.dds": "38d8d855a1223b9cda89688b739098030f67cd319d739a6a598a61c887eccb1d",
+      "Art/Baiqi_LeaderForeground.dds": "50aaf785bebe196b74772bc923036b75b0d7f51b5a838ffccc3c31d6094c4fac",
+      "Art/Baiqi_LoadingBackground.dds": "a4cdbf3e7284d5e34e5023b71c733cf5e0c4cf7a5717fc9577ba09420e96f5eb",
+      "Art/Baiqi_DiplomacyBackground.dds": "1e230dfcd3700ec97f8710130287e00d9da56b7f09375b767652b640a958fc84",
+      "Config/BaiqiConfig.sql": "0d819aeba0cd8c9fed3a2192091aa2a8e047292f8c8312c8b899283ecb9cbc7f",
+      "Data/Baiqi.sql": "cf0ff7715623b1a539cf4ddff4de4bf19d60ac56f69d04e320225bf70ae41c45",
+      "Data/BaiqiStandby.sql": "6f56df4c8f6355dd4d073dd102a591c88b2789dc92218d0ec463818230bda4fa",
+      "Data/BaiqiIcons.sql": "0658fc841559108ed1b86a2a82ab8410d0423d6539d6b5075e77a6d0ba66c333",
+      "Data/BaiqiColors.xml": "f9972697780b70ec1f40fe4a4ed30a933aeaba0094198e8cc169296936a94f74",
+      "Text/BaiqiText.xml": "c3456c808b0f6886f361dd3b14cb464287708f5b22847af4844ec9f058f4534d",
+      "Lua/BaiqiConfig.lua": "5930e064df199c244d5523f93d1870f797838dcdb12d10dea1d2c3952f032325",
+      "Lua/BaiqiPolicy.lua": "d274ee9ad3195533f2fd22f066714be5c977a06df487befee313dd9316c6a22c",
+      "Lua/BaiqiSettlementWarning.lua": "69cb71fc87c87301978f25eb04a42e88b044ea007b38aab0437652c9c5dd574f",
+      "Lua/BaiqiPlanner.lua": "0fce74f390cacd1339c4c26b954d9a916d32f19c95e9c5e7e557cd77e76fd5ef",
+      "Lua/BaiqiController.lua": "3a7659c7ae7f6128a041ec0bf690203a80d620f18c4b1389e9bc35e41e8c68da",
+      "Lua/BaiqiGameplay.lua": "c704813d21eb8110b2e7037bbf17a7d7e4d68f2d3f2c3705d67c3e38b74c0320",
+      "Lua/BaiqiRequisition.lua": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2",
+      "Lua/BaiqiCapture.lua": "b027756a1a728da1905cc5702d60b01377415231a9d555712195ab518b626185",
+      "Lua/BaiqiGPIntentGameplay.lua": "1f825d43769a40612c963b6b3097b716d56ee7aa33a66375e43cf86f4e2f5350",
+      "Lua/BaiqiGPJournal.lua": "596486c712e919db42eb45648ee111dd736e2c9f547d87ddaef1601846fedd49",
+      "Lua/BaiqiSettlementJournal.lua": "415c7329abae0b20a85d03b0e65b683682bb95d1cbe11d9b939ad29e5bc2ca28",
+      "Lua/BaiqiSettlementStateCore.lua": "b27bd48353abea4d8baa1a6df9e030a1809cff63bb194e6dc0b06f14af4de390",
+      "Lua/BaiqiSettlementUnitCore.lua": "f5da0bf115a97b49fbded695f61c851d8dfa3c35c1283da7083991fe6beb6aad",
+      "Lua/BaiqiSettlementTileCore.lua": "0e8bee1ea5a1c946bf9e508aefcf163eac580ecaf8b7b730c2c20648ef9f2a09",
+      "Lua/BaiqiSettlementIntentCore.lua": "c0895821ded392da32a69f944b044347c94092a94edd83f0a4cc83efb02b9a9c",
+      "Lua/BaiqiSettlementIntentGameplay.lua": "c435257519879e4c59e2876c4d53babad56cf0477d1bd9e4f13a0c8ee3c3d101",
+      "Lua/BaiqiSettlerGoals.lua": "61efb57c395b55e71ed236a3c987a025b97a227b4dbd0d2710c918b058507821",
+      "Lua/BaiqiSettlerGoalsCore.lua": "4bb72eb4f66b16f4d34b279fb5e064cfba3593efb419f4ee3225e8a43197d4e5",
+      "Lua/BaiqiSettlerGoalsGameplay.lua": "43f5d5f926cb17d28b7a90af90910016b09d0bbba76b440cc96f75e2369a7d10",
+      "Lua/BaiqiPowerSitesCore.lua": "54ebdef6428aea7c1f7e853cea4eddcc18ef6a7945fa4e8b5f9080f92d4a51eb",
+      "Lua/BaiqiPowerSitesGameplay.lua": "b711bca77c8f918e0c2ecfa965bbc6279d57e3e6e4ffd6e9885e5c066f09142a",
+      "Lua/BaiqiCreativeJournal.lua": "6399ec11de6a7647a259e1088b4de86751e31b9cc06e54a691b32e2bb3cb6731",
+      "Lua/BaiqiCreativeIntentGameplay.lua": "be8bf3386c434b0f4e93360424efd282cee5140022834b86d02adc9a7a6825ae",
+      "Lua/BaiqiReligiousJournal.lua": "456faee0547984145ff5f83f2c6778a96161bfffb99edf252780e4e612e601a3",
+      "Lua/BaiqiProphetJournal.lua": "5bd8a0429cb331ff819f5125889361648cdab402d1ba497e213f86d713256ce5",
+      "Lua/BaiqiProphetIntentGameplay.lua": "2644316d08dc1ac1a17e4876e7df63f4bc1f3acccb5e442d9b47d9996c5e9818",
+      "Lua/BaiqiReligiousIntentGameplay.lua": "01f1d0ffc9e094227d633d1bd4fdb02cc7fe4ae3124f7cea304255a877d25e77",
+      "Lua/BaiqiHeritageCandidates.lua": "0204da5155562803ebbfadc4553369746f80c7f48baf4f9be20e65ce4d85bbcf",
+      "Lua/BaiqiHeritageActions.lua": "f432cbc9afb7d8ef8f75d78c3c497bc8a5b27c816f7903ba63ace5cdc01eca2a",
+      "Lua/BaiqiNaturalistUnit.lua": "f8620415fa70c297aa4fe01a8b7e5debcdfc88f2b972e94afc0126615a79943b",
+      "Lua/BaiqiNaturalistJournal.lua": "2da1476d35b4a53fb5a41e008741e43cf292091ee6c628d97ab0bf52ee779346",
+      "Lua/BaiqiNaturalistIntentGameplay.lua": "55fcc347033d9eef53d9c4813d67e7274e02fffdd8db9629ba0db381c609eb2c",
+      "Lua/BaiqiNaturalistPurchase.lua": "c066f33c53821c47d8151bb31dc1bebd0beb139e9df3c49f551c57d87977573e",
+      "Lua/BaiqiMissionaryPurchase.lua": "8515d1733d8f59d6f153bf93aed6a0a8ba8bd3aec51f53d1399ad39cf1d54237",
+      "Lua/BaiqiMissionaryPurchaseSubmit.lua": "fcf1ced0b68572b964947f94e4c2a4ed0993262657e4f5889203643104c9ccd6",
+      "Lua/BaiqiMissionaryPurchaseDemand.lua": "25b05c99517bc8d65a4fc53441bd8b3e8c74018bc6cee5acd50e3b8e70147883",
+      "Lua/BaiqiMissionaryPurchaseJournal.lua": "01d77584dad638034240cfe32bab1cb05f705ad236a79d2cc9f1f6afaeeb7be2",
+      "Lua/BaiqiMissionaryPurchaseIntentGameplay.lua": "be812441dcaf7c01b2ed044dfd1d09e89bde6c34b58637f601c24256e76085b0",
+      "Lua/BaiqiFaithPurchaseGuard.lua": "87ac052e9b74666dad070c19a8554f05c54eedd4309fe8059eec7332ec4a48bf",
+      "Lua/BaiqiMissionaryPurchaseSnapshot.lua": "9321b7208dd73a29ca0913c5ebf4d196ba562bd1638c3af6ba46628d12a7671f",
+      "Lua/BaiqiNaturalistPurchaseSnapshot.lua": "916f0c2579f11e9b9486dd3f0344cbc175a16c6824567bf3681a66903db6bf3e",
+      "Lua/BaiqiNaturalistPurchaseJournal.lua": "0ae422ec87b7aae019e2beacbf11b0dc68684a7232434ec306bef005c089bc7f",
+      "Lua/BaiqiNaturalistPurchaseIntentGameplay.lua": "676a876f34ff01d6e1112c06021b3f44ef541678cb8f61b71984a6d8f83f6221",
+      "Lua/BaiqiArchaeologistUnit.lua": "4adbe0cd7f3cad6a3bd3a1938f772677c6d9c53b1617fe8e9aa95c067f01c848",
+      "Lua/BaiqiArchaeologyHome.lua": "0eb1d8a022aced7fc81887a6d76383fc0f6a50fdf51dd292a994bb61b5391044",
+      "Lua/BaiqiPendingArtifact.lua": "86e38d3a421a610826cc6a1da3880950461f8cf87bf731137103d0adc0e70d6a",
+      "Lua/BaiqiArchaeologyJournal.lua": "e1f1f2a7521fa6c0871e092a891194401ad60a3cf58ebc0257c14b3f43bfdf8e",
+      "Lua/BaiqiArchaeologyIntentGameplay.lua": "724277e35db8b39e5b76bd2337e3ab621b966a4dabc054a515197ecbeb6ec5ba",
+      "Lua/BaiqiArchaeologyReceiptEvents.lua": "c5a490b95b4ee2786b400f30f076bb121b1542dd65aea114ae3bdde1efd93731",
+      "Lua/BaiqiActions.lua": "9fe8c03b9b1bb75df625676d48d066341c656c16fb1acd4e3f6de6632d620cba",
+      "UI/BaiqiExecutor.xml": "4503fe229775d340a07eac1c2c074d560e5364808cb87d6c4ecfc9cdb7bbf712",
+      "UI/BaiqiExecutor.lua": "75a3debeda6e759272110cddc7d7db623d74df7c9dbb62806a3c9fc48870656e",
+      "Lua/BaiqiUIGuard.lua": "74249d63225b021feb9b5d75b778dafbb2d6eff9de451e5243b2cf1df5f9e3f0",
+      "Lua/BaiqiUILoader.lua": "5c7400279ab8e44bd8f5ef5204328cd95d943bc1d49bb7b8c8c8d37fe68bac0b",
+      "Lua/BaiqiGPViewData.lua": "8666a3b8ba6c2f89a33295e90cafc4865733752a79bebb7f147718e8337c7661",
+      "Lua/BaiqiGPViewport.lua": "00ee09f15c43c63a0e852a9ca956a844753378987de0410d1028c3d9a3531c61",
+      "Lua/BaiqiAdmin.lua": "cfed13335b6cd214b8ace7805cd6547c7ff792cd73e7ac12365f2bbb0889bdc4",
+      "Lua/BaiqiFlood.lua": "164aaf8a13133a94b62330570b82cb4f9a7b1d8eb7a9fe283b143cf06dfc38c1",
+      "Lua/BaiqiFloodPurchase.lua": "17a3f7b3e314f6b620ac1613b004c803616100b633c8ce67d5b87b758aef0c80",
+      "Lua/BaiqiGovernorLoyalty.lua": "e8d60a56d68a6a820be6dee041a454e5fc348484c0fb6a3850b0c68fa90f895b",
+      "Lua/BaiqiFoodFocus.lua": "53aa95aeabae85ac1542572611c5cfc5bc6cb2ae6f890c605e3716bac0da6df8",
+      "Lua/BaiqiFoodFocusRunner.lua": "a887d3c7964689d8b805f94d0981a6717837d01a66c7701404b5e1708ad972dd",
+      "Lua/BaiqiFoodTileRescue.lua": "34b73e2dbc010885317772902a471508faf8f3e32630b13a9510570ee9974bd6",
+      "Lua/BaiqiFoodTileRescueRunner.lua": "3ffb5c2e8c78aa19d1d4d54d1ca015549c2bf66e0e0731c5f22281ea4774a3f8",
+      "Lua/BaiqiFoodTileJournal.lua": "e6da70ca5559acf862c46217e95f22c0ec4bcbb0b7872a85f99c9aec50c2e8a8",
+      "Lua/BaiqiFoodTileIntentGameplay.lua": "dd599762eeaff6d5c1e92fc6dfec6e00eafd9352c89367d9b9f9edeeddcaddb0",
+      "Lua/BaiqiCrisisViewport.lua": "bee526267c3fae9d70b3399213113ebee519d9af304a7fb2ac5ba2c6d827b2f3",
+      "UI/BaiqiWorldCrisisPopup.lua": "fa2fec4841ebfbeb1d8ca761e91b4af22b3695ac3bee7e4a0dc45d0e122a3bce",
+      "UI/BaiqiWorldInput.lua": "cbe4ed0f20d029b4e2854503618125b89edb7a9fa745d7b7bcf697d39ed5bb9c",
+      "UI/BaiqiUnitPanel.lua": "f846862ebd0e7f5e61041dd83715469401a01ef6a33050a3beaa9509931c6b9e",
+      "UI/BaiqiProductionPanel.lua": "7d8b522f88992ac4d090d046344d16165b0705a846926257c7fafd63e2c10a70",
+      "UI/BaiqiCityPanel.lua": "79a1665fd65750e2b2e28e9e5e0a9cd9843186635c7d157775c307b6cd009faa",
+      "UI/BaiqiCityPanelOverview.lua": "c6e0b7cd06ee5286b1e7cb78eae30a522db5eb4538955af4f2bb9b75ce708d40",
+      "UI/BaiqiPlotInfo.lua": "7f182a626cb5aac88201892bd96b2488ba3f275bed2af6e6ba60e385a3656510",
+      "UI/BaiqiTechTree.lua": "e8da4c900af8415906aae5738f24c83e2708ca15346a4d7380c680aadc27a6d1",
+      "UI/BaiqiCivicsTree.lua": "8aec1b387759b0b9d02f7621697bf5c630b16381ddf475188b095a40406ee528",
+      "UI/BaiqiGovernmentScreen.lua": "4114156af941fdd9ba83c220168f477cb7b812e36ae8e2b60b384259abea0485",
+      "UI/BaiqiGovernorPanel.lua": "8f9c4716f4caff8f1c11fe034552bc241f1f760bbfd69a107845aa3c1ae45acf",
+      "UI/BaiqiGovernorDetailsPanel.lua": "c33ef6f055743a18f126f1ca949751b9dce2f16c16718fdace817ce8c810babc",
+      "UI/BaiqiGovernorAssignmentChooser.lua": "bffca192849acc5809d4fc6ae0d92256759ba8f48e1408f8af55aa4ae54255f3",
+      "UI/BaiqiTradeRouteChooser.lua": "7b1f586b22d9a4edad0b0d1c02f858e75bcabe52365c9be19e6a3f8da36f1411",
+      "UI/BaiqiGreatPeoplePopup.lua": "157bb1007e91503b5007a876f9ea3248765548da5ff7041e69242ae2f3d50574",
+      "UI/BaiqiCityStates.lua": "d5f7e1b7ffb5f7b367fbaefb41ff39252f0391745486df08148644dafea9e35f",
+      "Data/BaiqiRetiredEffects.sql": "edda554efc4cd788bf180e92e96ec5fca4b980ae0f698b95a482793efdfaab3c",
+      "UI/BaiqiResearchChooser.lua": "6ad9590926f657f67b409ecbc87e3a2deef2bbe682a5d3bcc0a7a2c2597728e6",
+      "UI/BaiqiCivicsChooser.lua": "ff84d26c3b108a986ca48fae5f242d250866004dc13725d2da4746b065bb00ff",
+      "UI/BaiqiUnitFlagManager.lua": "793d6a5a8debc4d485dbd7b1848fbf49075508aed779d04b59164d880dbd1a2b",
+      "UI/BaiqiReligionScreen.lua": "d3ed6b098b24e32c53883960ed2be16d59a23e01078712e0a0ee36c36d92c588",
+      "UI/BaiqiPantheonChooser.lua": "6f1253713e96729e799b2f8f553de0433d60a08534c8801a8559183aae198733",
+      "UI/BaiqiDedicationPopup.lua": "a08653f2e7f3a68e928fcda373ecf9ac84b3443ec89f2c492ccf655e43199672",
+      "UI/BaiqiNaturalDisasterPopup.lua": "2177294ae0104ec0b7737d185899c640e012091cfbc42658fe041438a9198f67",
+      "UI/BaiqiTechCivicCompletedPopup.lua": "08de0946713b4204cfbcf4ce3e1ff8cd3a380d096b5ae99b5228bf812da924f1",
+      "UI/BaiqiNotificationPanel.lua": "6f7b0c259d97075a8f3bf1485aca4b3db6dacfeacf053bd87b20fa8e159e532b",
+      "UI/BaiqiNaturalWonderPopup.lua": "db572e935b114e171ce29369abecef5dbf8ce0b944ce71b6c54ed9b6afc9b320",
+      "UI/BaiqiHistoricMoments.lua": "e8019bcfafbe524ebb26af9aa81a1f477b0e31050dfe3935eba12f5ff188ccae",
+      "UI/BaiqiChooseArtifact.lua": "6ac97af2e09ac19d65100528de73035d4dcbf2e531b96b5c16befe868e71b792",
+      "UI/BaiqiGreatWorkShowcase.lua": "48f6b7d88d09edbe6026114dcb1a6e276fb1662b847e012117831e4beb216eb8"
+    },
+    "archive_sha256": "26b837e7a1e0e410a1e9e46538f0e8313cdf5f9f52213cc26a78fcb57a3ff92c",
+    "changed_existing_product_files_from180": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiConfig.lua",
+      "Lua/BaiqiController.lua",
+      "Lua/BaiqiGameplay.lua",
+      "Lua/BaiqiSettlementIntentCore.lua",
+      "Lua/BaiqiSettlementIntentGameplay.lua",
+      "Lua/BaiqiSettlerGoalsCore.lua",
+      "Lua/BaiqiSettlerGoalsGameplay.lua",
+      "Lua/BaiqiUILoader.lua"
+    ],
+    "new_product_files": [
+      "Lua/BaiqiRazeChoiceCore.lua",
+      "Lua/BaiqiRazeChoiceGameplay.lua",
+      "Lua/BaiqiRazeChoiceView.lua",
+      "UI/BaiqiRazeCity.lua"
+    ],
+    "Native_queries": 0,
+    "installations": 0,
+    "Native181": "NOT_RUN",
+    "whole_TC018": "FAIL180_RETAINED_COLD181_RETEST_PENDING",
+    "last_verified_whole_closed180": 32,
+    "unpublished_product_fix_packages": 9,
+    "cost": null
+  },
+  "models": [
+    {
+      "task": "R144",
+      "prepared_utc": "2026-11-23T15:12:05.684661+00:00",
+      "full_source_count": 28,
+      "raw_UTF8_bytes": 559592,
+      "diagnosis": {
+        "utc": "2026-11-23T15:12:06.127149+00:00",
+        "configured_model": "qwen38-coder",
+        "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "maintenance": {
+          "date": "2026-11-23",
+          "installed_version": "1.19.6",
+          "target_version": "1.19.6",
+          "cached": true
+        },
+        "results": [
+          {
+            "name": "models",
+            "utc": "2026-11-23T15:12:06.059880+00:00",
+            "status": 200,
+            "Content_Type": "application/json",
+            "bytes_retained": 547,
+            "over_64KiB": false,
+            "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+            "total_ms": 34.95660005137324,
+            "model_ids": [
+              "open-h3-2k"
+            ]
+          },
+          {
+            "name": "health",
+            "utc": "2026-11-23T15:12:06.107893+00:00",
+            "status": 200,
+            "Content_Type": "application/json",
+            "bytes_retained": 1154,
+            "over_64KiB": false,
+            "sha256": "8fbec624a221efbc7faa2925b57bb828cc239120297d2699ab9ec7cc2d9a6cb6",
+            "total_ms": 18.393200123682618
+          }
+        ],
+        "generation_POSTs": 0,
+        "new_logical_candidate_tasks": 0,
+        "Native_queries": 0,
+        "configuration_changes": 0,
+        "service_mutations": 0,
+        "automatic_fallback": false,
+        "formal_overlap": false
+      },
+      "generation_POSTs": 0,
+      "candidate_count": 0,
+      "adopt_count": 0,
+      "native_generation_tools": 0,
+      "cost": null
+    },
+    {
+      "task": "R145",
+      "prepared_utc": "2026-11-23T15:28:55.878160+00:00",
+      "full_source_count": 22,
+      "raw_UTF8_bytes": 178492,
+      "diagnosis": {
+        "utc": "2026-11-23T15:28:56.219048+00:00",
+        "configured_model": "qwen38-coder",
+        "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+        "maintenance": {
+          "date": "2026-11-23",
+          "installed_version": "1.19.6",
+          "target_version": "1.19.6",
+          "cached": true
+        },
+        "results": [
+          {
+            "name": "models",
+            "utc": "2026-11-23T15:28:56.187733+00:00",
+            "status": 200,
+            "Content_Type": "application/json",
+            "bytes_retained": 547,
+            "over_64KiB": false,
+            "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+            "total_ms": 8.176700212061405,
+            "model_ids": [
+              "open-h3-2k"
+            ]
+          },
+          {
+            "name": "health",
+            "utc": "2026-11-23T15:28:56.196477+00:00",
+            "status": 200,
+            "Content_Type": "application/json",
+            "bytes_retained": 1154,
+            "over_64KiB": false,
+            "sha256": "ab94f530fe062980c118c8b61d86fc5e6b602c8a1c5ae4944a363fd49b13154a",
+            "total_ms": 22.02260005287826
+          }
+        ],
+        "generation_POSTs": 0,
+        "new_logical_candidate_tasks": 0,
+        "Native_queries": 0,
+        "configuration_changes": 0,
+        "service_mutations": 0,
+        "automatic_fallback": false,
+        "formal_overlap": false
+      },
+      "generation_POSTs": 0,
+      "candidate_count": 0,
+      "adopt_count": 0,
+      "native_generation_tools": 0,
+      "cost": null
+    }
+  ],
+  "R145_consumer_context_addendum": {
+    "source_count": 2,
+    "raw_UTF8_bytes": 8670,
+    "before_correction": true,
+    "not_new_HTTP_task_or_backdated_request": true
+  },
+  "shutdown_boundary": "docs/research/baiqi-source180-post-quit-owned-hang-cleanup-2026-11-23.json",
+  "next": "Immediatelyinstallfrozenordinary181aftergameOS0; newfreshbackgroundSteamofflineproofandonecoldPopen. SameprebattleactualRaze->save/reload->realplanningretest, thenK/L/Mprotectedlosssavesreloadplanning andremaining8wholecases. NoFinal orrepeatWorkshop172upload."
+}

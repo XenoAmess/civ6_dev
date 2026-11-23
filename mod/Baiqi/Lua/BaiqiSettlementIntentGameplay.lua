@@ -8,7 +8,8 @@ include("BaiqiSettlementIntentCore")
 local C,J=BaiqiConfig,BaiqiSettlementJournal
 local E={Game=Game,GameConfiguration=GameConfiguration,Players=Players,
   PlayerConfigurations=PlayerConfigurations,GameInfo=GameInfo,Map=Map,
-  PlayersVisibility=PlayersVisibility,CityManager=CityManager}
+  PlayersVisibility=PlayersVisibility,CityManager=CityManager,
+  RazeChoice=BaiqiRazeChoiceGameplay and BaiqiRazeChoiceGameplay.api}
 local S=BaiqiSettlementStateCore.Create(C,J,E)
 local api=S and BaiqiSettlementIntentCore.Create(C,J,S,BaiqiSettlementUnitCore,BaiqiSettlementTileCore,E)
 local MARKER="baiqi-settlement-intent-v1"

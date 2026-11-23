@@ -128,11 +128,11 @@ class FormationUnknownBuildTests(unittest.TestCase):
             with self.assertRaises(ValueError):transform(raw,7,3,'UNIT_BUILDER')
         with self.assertRaises(ValueError):restore_release(changed+insertion,insertion)
 
-    def test_actual_119_file_build_only_controller_diff_and_new_output_required(self):
+    def test_actual_123_file_build_only_controller_diff_and_new_output_required(self):
         with tempfile.TemporaryDirectory()as tmp:
             out=Path(tmp)/'prepared';d=build(out,7,3,'UNIT_BUILDER')
             self.assertEqual((d['source_version'],d['files'],d['lua_sources_compiled_51_and_53']),
-                             (resolve_source_version(),119,97))
+                             (resolve_source_version(),123,101))
             self.assertEqual(d['changed_files'],['Lua/BaiqiController.lua'])
             self.assertEqual(json.loads((out/'diagnostic-build.json').read_text(encoding='utf-8')),d)
             self.assertEqual(sum(d['source_hashes'][n]!=sha for n,sha in d['instrumented_hashes'].items()),1)

@@ -723,6 +723,12 @@ local function KnownExpansionSupport(plot,player,playerID,planning)
     if not Integer(playerID) or playerID~=contextID or not plot or not Revealed(plot) then return nil,"unknown_site" end
     local index,x,y=plot:GetIndex(),plot:GetX(),plot:GetY()
     if not Integer(index) or not Integer(x) or not Integer(y) then return nil,"unknown_site" end
+    local choice=ExposedMembers and ExposedMembers.BaiqiRazeChoiceBridge
+    if type(choice)~="table" or choice.version~=1 or choice.marker~="baiqi-raze-choice-v1"
+      or type(choice.Read)~="function" then return nil,"raze_choice_unavailable" end
+    local choiceState,blocked=choice.Read(playerID,index,x,y)
+    if choiceState~="READY" or type(blocked)~="boolean" then return nil,"raze_choice_unavailable" end
+    if blocked then return false,"player_razed_site" end
     local own=player:GetCities();local expected=own:GetCount()
     if not Integer(expected) or expected>128 then return nil,"unknown_cities" end
     local count,nearest,owned=0,nil,{}
@@ -908,6 +914,16 @@ local function RequestCivilian(ctx, state, unit, operation, plot, improvement, p
     if not legal then return false,why end
     if unitType=="UNIT_SETTLER" and ExpansionStable(Players[latest.player],latest.player)~=true then
       return false,"owned_city_stability_unavailable"
+    end
+    if unitType=="UNIT_SETTLER" and settlementTargets[unitID]~=nil then
+      local target=Map.GetPlotByIndex(settlementTargets[unitID])
+      local choice=ExposedMembers and ExposedMembers.BaiqiRazeChoiceBridge
+      if not target or type(choice)~="table" or choice.version~=1
+        or choice.marker~="baiqi-raze-choice-v1" or type(choice.Read)~="function" then
+        return false,"raze_choice_unavailable"
+      end
+      local s,blocked=choice.Read(latest.player,target:GetIndex(),target:GetX(),target:GetY())
+      if s~="READY" or blocked~=false then return false,"settlement_proposal_razed_or_unknown" end
     end
   end
   if unitType=="UNIT_NATURALIST" and operation=="MOVE_TO" and NaturalistPurchaseHeld() then return false,"purchase_receipt_pending" end

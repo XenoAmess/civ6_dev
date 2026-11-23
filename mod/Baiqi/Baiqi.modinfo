@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="180">
+<Mod id="7d682641-0673-4c3a-8d1d-d28aff0b614a" version="181">
   <Properties>
     <Name>白绮：为我前驱</Name>
     <Description>白绮领袖原型：自动内政，军队由玩家指挥。开发版本。</Description>
@@ -68,6 +68,10 @@
       <File>Data/BaiqiColors.xml</File>
     </UpdateColors>
     <ImportFiles id="BaiqiScripts">
+      <File>Lua/BaiqiRazeChoiceCore.lua</File>
+      <File>Lua/BaiqiRazeChoiceGameplay.lua</File>
+      <File>Lua/BaiqiRazeChoiceView.lua</File>
+      <File>UI/BaiqiRazeCity.lua</File>
       <File>UI/BaiqiDiplomacyActionView.lua</File>
       <File>UI/BaiqiLeaderScene.lua</File>
       <File>Lua/BaiqiConfig.lua</File>
@@ -181,6 +185,9 @@
         <LuaContext>WorldInput</LuaContext>
         <LuaReplace>UI/BaiqiWorldInput.lua</LuaReplace>
       </Properties>
+    </ReplaceUIScript>
+    <ReplaceUIScript id="BaiqiRememberRazeChoice">
+      <Properties><LoadOrder>1000</LoadOrder><LuaContext>RazeCity</LuaContext><LuaReplace>UI/BaiqiRazeCity.lua</LuaReplace></Properties>
     </ReplaceUIScript>
     <ReplaceUIScript id="BaiqiStaticDiplomacyView">
       <Properties><LoadOrder>1000</LoadOrder><LuaContext>DiplomacyActionView</LuaContext><LuaReplace>UI/BaiqiDiplomacyActionView.lua</LuaReplace></Properties>
@@ -365,6 +372,10 @@
     </ReplaceUIScript>
   </InGameActions>
   <Files>
+    <File>Lua/BaiqiRazeChoiceCore.lua</File>
+    <File>Lua/BaiqiRazeChoiceGameplay.lua</File>
+    <File>Lua/BaiqiRazeChoiceView.lua</File>
+    <File>UI/BaiqiRazeCity.lua</File>
     <File>Baiqi.dep</File>
     <File>ArtDefs/Leaders.artdef</File>
     <File>UI/BaiqiDiplomacyActionView.lua</File>

@@ -9,6 +9,7 @@ class SettlerGoalsGameplayTests(unittest.TestCase):
         core.SettlerGoalsCoreTests.setUp(self)
         self.source=(core.ROOT/'mod/Baiqi/Lua/BaiqiSettlerGoalsGameplay.lua').read_text(encoding='utf-8')
         self.lua.execute('''BaiqiConfig=C;ExposedMembers={};function include()end
+            BaiqiRazeChoiceGameplay={api=E.RazeChoice}
             for k,v in pairs(E)do _G[k]=v end''')
 
     def test_bootstrap_reads_and_repeated_load_never_write(self):

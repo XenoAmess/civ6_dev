@@ -5,6 +5,7 @@ from uuid import uuid4
 import unittest
 from lupa.lua51 import LuaRuntime
 from tools.build_static_control import ROOT,build,clock_prelude
+from tools.verify_paired_artifact import verify_pair
 
 
 class PairedNormalBuildTests(unittest.TestCase):
@@ -16,10 +17,12 @@ class PairedNormalBuildTests(unittest.TestCase):
         self.assertEqual(enabled['clock_prefix_sha256'],control['clock_prefix_sha256'])
         self.assertEqual(enabled['end_bridge_sha256'],control['end_bridge_sha256'])
         for info in (enabled,control):
-            self.assertEqual(info['files'],119);self.assertTrue(info['lua51_compiled'])
+            self.assertEqual(info['files'],123);self.assertTrue(info['lua51_compiled'])
             self.assertTrue(info['native_activation_inline_stop'])
             self.assertFalse(info['normal_end_driver_ready'])
             self.assertFalse(info['cross_context_begin_native_verified'])
+        for variant in ('enabled','control'):
+            self.assertEqual(verify_pair(out/variant,ROOT/'mod/Baiqi',variant)['files'],123)
         text=(out/'enabled/Baiqi/UI/BaiqiExecutor.lua').read_text(encoding='utf-8')
         self.assertIn('local P6PairActivation=P6PairClock:WrapActivation(Activate)',text)
         self.assertIn('Events.PlayerTurnActivated.Remove(P6PairActivation)',text)

@@ -6,7 +6,8 @@ function M.Create(C,J,S,U,T,E)
     if type(C)~="table" or type(J)~="table" or type(S)~="table" or type(U)~="table"
       or type(T)~="table" or type(E)~="table" or type(C.settlementIntentKey)~="string"
       or type(S.Initialize)~="function" or type(S.Snapshot)~="function"
-      or type(U.Classify)~="function" or type(T.Read)~="function" then return nil end
+      or type(U.Classify)~="function" or type(T.Read)~="function"
+      or type(E.RazeChoice)~="table" or type(E.RazeChoice.Read)~="function" then return nil end
     local MAX,KEY,busy=2147483647,C.settlementIntentKey,false
     local function Owner(pid,active)
       if not J.Integer(pid,MAX) or E.Game.GetLocalPlayer()~=pid
@@ -42,6 +43,8 @@ function M.Create(C,J,S,U,T,E)
       if s~="LIVE" or not u or u.id~=id or u.unitType~="UNIT_SETTLER"
         or u.formation~=1 or u.moves<=0 or u.x~=x or u.y~=y then return false end
       local ts,t=T.Read(J,E,pid,index,x,y)
+      local choice,blocked=E.RazeChoice.Read(pid,index,x,y)
+      if choice~="READY" or blocked~=false then return false end
       return ts=="EMPTY" and t and t.empty==true and (t.owner==-1 or t.owner==pid)
     end
     local function Request(pid,requestID)
@@ -80,6 +83,7 @@ function M.Create(C,J,S,U,T,E)
       if not Fresh(pid,id,op.plot,op.x,op.y) then return false,nil,"world" end
       local after=J.Clone(before,pid);after.operations[J.UnitKey(id)].stage="ARMED"
       if not Request(pid,requestID) or not Persist(player,pid,before,after,true) then return false,nil,"persist_unconfirmed" end
+      if not Fresh(pid,id,op.plot,op.x,op.y) then return false,nil,"world_changed_after_commit" end
       -- This return occurs only on a new PREPARED -> ARMED write + readback.
       -- A later ARMED snapshot, repeated Commit, or reload never grants again.
       return true,token,"fresh_durable_ack"

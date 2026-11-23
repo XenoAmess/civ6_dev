@@ -26,7 +26,7 @@ def verify_pair(prepared: Path, source: Path, variant: str, *,
         raise ValueError('Invalid expected pressure initial turn')
     meta = json.loads((prepared / 'static-control-build.json').read_text(encoding='utf-8'))
     version = ET.fromstring((source / 'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('152', '153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171','172','179','180'):
+    if version not in ('152', '153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171','172','179','180','181'):
         raise ValueError('Expected actual source152/153')
     version = int(version)
     if not isinstance(meta, dict) or type(meta.get('source_version')) is not int or meta['source_version'] != version:
@@ -52,8 +52,9 @@ def verify_pair(prepared: Path, source: Path, variant: str, *,
         raise ValueError('Ordinary END bridge flags mismatch')
     names = manifest_files(source)
     target = prepared / 'Baiqi'
-    if len(names) != 119 or meta.get('files') != 119 or manifest_files(target) != names:
-        raise ValueError('Expected matching119-file manifests')
+    expected_files = {181: 123}.get(version, 119)
+    if len(names) != expected_files or meta.get('files') != expected_files or manifest_files(target) != names:
+        raise ValueError('Expected matching version-specific file manifests')
     source_hashes = {n: digest(contained(source, n)) for n in names}
     target_hashes = {n: digest(contained(target, n)) for n in names}
     if meta.get('source_hashes') != source_hashes or meta.get('control_hashes') != target_hashes:

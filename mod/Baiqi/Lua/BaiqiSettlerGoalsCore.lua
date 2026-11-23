@@ -10,6 +10,7 @@ function M.Create(C,G,J,U,E)
     for _,k in ipairs({'New','Clone'})do if type(G[k])~='function'then return nil,'schema' end end
     for _,k in ipairs({'Integer','UnitKey'})do if type(J[k])~='function'then return nil,'identity' end end
     if type(U.Classify)~='function'then return nil,'identity' end
+    if type(E.RazeChoice)~='table'or type(E.RazeChoice.Read)~='function'then return nil,'raze_choice' end
     for _,k in ipairs({'Game','GameConfiguration','Players','PlayerConfigurations','GameInfo','Map','PlayersVisibility'})do
       if E[k]==nil then return nil,'engine' end
     end
@@ -98,6 +99,8 @@ function M.Create(C,G,J,U,E)
         local plot=E.Map.GetPlotByIndex(index);local vis=E.PlayersVisibility[pid]
         if not plot or plot:GetIndex()~=index or plot:GetX()~=x or plot:GetY()~=y
           or not vis or vis:IsRevealed(x,y)~=true then return nil end
+        local choice,blocked=E.RazeChoice.Read(pid,index,x,y)
+        if choice~='READY'or blocked~=false then return nil end
         return f
       end
       local initial=Facts();if not initial then return 'UNAVAILABLE',nil,'actor_or_site' end

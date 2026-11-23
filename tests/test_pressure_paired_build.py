@@ -4,6 +4,7 @@ CURRENT_VERSION=resolve_source_version()
 from uuid import uuid4
 import hashlib,importlib,json,unittest
 from tools.build_static_control import ROOT,build,clock_prelude
+from tools.verify_paired_artifact import verify_pair
 
 
 class PressurePairedBuildTests(unittest.TestCase):
@@ -44,7 +45,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
         infos=[build(out/v,paired_clock=True,normal_end_bridge=True,variant=v,pressure_initial_turn=1)for v in('enabled','control')]
         self.assertEqual(infos[0]['clock_prefix_sha256'],infos[1]['clock_prefix_sha256'])
         for v,info in zip(('enabled','control'),infos):
-            self.assertEqual((info['files'],info['source_version'],info['source'],info['initial_turn']),(119,CURRENT_VERSION,f'baiqi{CURRENT_VERSION}-pressure-paired-v1',1))
+            self.assertEqual((info['files'],info['source_version'],info['source'],info['initial_turn']),(123,CURRENT_VERSION,f'baiqi{CURRENT_VERSION}-pressure-paired-v1',1))
             self.assertEqual(info['mode'],f'baiqi{CURRENT_VERSION}-pressure-paired-{v}-v1')
             self.assertEqual(info['paired_end_turns'],[1,2,3,4,5]);self.assertEqual(info['paired_activation_turns'],[2,3,4,5,6])
             self.assertFalse(info['installed']);self.assertFalse(info['normal_end_driver_ready']);self.assertFalse(info['cross_context_begin_native_verified'])
@@ -52,6 +53,7 @@ Events={PlayerTurnActivated={Add=function(f)Callbacks[#Callbacks+1]=f end,Remove
             archives=list((out/v).glob('*.zip'));self.assertEqual(len(archives),1);self.assertIn('-pressure-1.zip',archives[0].name)
             self.assertEqual(json.loads((out/v/'static-control-build.json').read_text(encoding='utf-8')),info)
             for name,digest in info['source_hashes'].items():self.assertEqual(hashlib.sha256((ROOT/'mod/Baiqi'/name).read_bytes()).hexdigest(),digest)
+            self.assertEqual(verify_pair(out/v,ROOT/'mod/Baiqi',v,pressure_initial_turn=1)['files'],123)
 
     def test_legacy_prefix_hashes_unchanged(self):
         hashes={None:'9989d5ee5bd9519541a05ef87c54797fb67a51797340572601b54046a616a513',

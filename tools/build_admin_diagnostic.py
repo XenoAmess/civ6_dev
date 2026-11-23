@@ -15,12 +15,12 @@ HELPERS=('diagnostic_profile','diagnostic_child_profile','diagnostic_named_neste
 
 
 def validate_turn90(value,source_version):
-    if type(value)is not bool or(value and(type(source_version)is not int or source_version not in (157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180))):
+    if type(value)is not bool or(value and(type(source_version)is not int or source_version not in (157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181))):
         raise ValueError('Explicit turn90 diagnosis requires source157/158/159/160 and an exact boolean')
 
 
 def suffix(*,source_version=141,include_turn90=False):
-    if type(source_version)is not int or source_version not in (141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180):raise ValueError('Expected source141,142,143,144,145,146,147,148,149,150,151 or152')
+    if type(source_version)is not int or source_version not in (141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,179,180,181):raise ValueError('Expected source141,142,143,144,145,146,147,148,149,150,151 or152')
     validate_turn90(include_turn90,source_version)
     text='\n-- PRIVATE Admin diagnosis; original release is the exact prefix.\ndo\n'
     text+="assert(P6AdminNested==nil,'Existing Admin diagnostic owner')\n"
@@ -115,7 +115,7 @@ def build(output_dir:Path,*,include_turn90=False):
     from lupa.lua53 import LuaRuntime as L53
     source=ROOT/'mod/Baiqi';names=manifest_files(source)
     version=ET.fromstring((source/'Baiqi.modinfo').read_bytes()).get('version')
-    if version not in ('141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171','172','179','180'):raise ValueError('Expected actual source141,142,143,144,145,146,147,148,149,150,151 or152')
+    if version not in ('141','142','143','144','145','146','147','148','149','150','151','152','153','154','155','156','157','158','159','160','161','162','163','164','165','166','167','168','169','170','171','172','179','180','181'):raise ValueError('Expected actual source141,142,143,144,145,146,147,148,149,150,151 or152')
     version=int(version)
     validate_turn90(include_turn90,version)
     out=output_dir.resolve()

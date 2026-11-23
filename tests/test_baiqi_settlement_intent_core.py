@@ -15,6 +15,7 @@ class SettlementIntentCoreContracts(unittest.TestCase):
                 for name in ('BaiqiSettlementJournal','BaiqiSettlementStateCore','BaiqiSettlementIntentCore'):
                     lua.execute((ROOT/f'mod/Baiqi/Lua/{name}.lua').read_text(encoding='utf-8'))
                 lua.execute(data['fixture_lua'])
+                lua.execute("E.RazeChoice={Read=function()return 'READY',false end}")
                 self.assertIs(lua.execute('return(function()'+body+' end)()'),True)
 
 if __name__=='__main__':unittest.main()

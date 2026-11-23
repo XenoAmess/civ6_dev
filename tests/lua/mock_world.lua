@@ -8,11 +8,17 @@ function include(name)
   -- Existing controller fixtures begin with a valid initialized journal. The
   -- initialization/load-kind boundary is exercised separately, not guessed here.
   local E={Game=Game,GameConfiguration=GameConfiguration,Players=Players,PlayerConfigurations=PlayerConfigurations,
-    GameInfo=GameInfo,Map=Map,PlayersVisibility=PlayersVisibility,CityManager=CityManager}
+    GameInfo=GameInfo,Map=Map,PlayersVisibility=PlayersVisibility,CityManager=CityManager,
+    RazeChoice={Read=function()return 'READY',false end}}
   local S=assert(BaiqiSettlementStateCore.Create(BaiqiConfig,BaiqiSettlementJournal,E))
   local api=assert(BaiqiSettlementIntentCore.Create(BaiqiConfig,BaiqiSettlementJournal,S,BaiqiSettlementUnitCore,BaiqiSettlementTileCore,E))
   api.version=1;api.marker="baiqi-settlement-intent-v1"
   ExposedMembers=ExposedMembers or {};ExposedMembers.BaiqiSettlementIntentBridge=api
+  ExposedMembers.BaiqiRazeChoiceBridge={version=1,marker='baiqi-raze-choice-v1',
+    Read=function(pid,index)
+      if W.razeRead then return W.razeRead(pid,index)end
+      return 'READY',W.razedPlots and W.razedPlots[index]==true or false
+    end}
    -- Controller-only fixtures use abstract plot indices. Proposal bridge
    -- responses are supplied independently; real storage/schema and consistent
    -- native geometry are tested in the dedicated goals Core/world contracts.

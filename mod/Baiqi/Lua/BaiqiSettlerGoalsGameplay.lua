@@ -5,7 +5,8 @@ include("BaiqiSettlementJournal")
 include("BaiqiSettlementUnitCore")
 include("BaiqiSettlerGoalsCore")
 local E={Game=Game,GameConfiguration=GameConfiguration,Players=Players,
-  PlayerConfigurations=PlayerConfigurations,GameInfo=GameInfo,Map=Map,PlayersVisibility=PlayersVisibility}
+  PlayerConfigurations=PlayerConfigurations,GameInfo=GameInfo,Map=Map,PlayersVisibility=PlayersVisibility,
+  RazeChoice=BaiqiRazeChoiceGameplay and BaiqiRazeChoiceGameplay.api}
 local api=BaiqiSettlerGoalsCore.Create(BaiqiConfig,BaiqiSettlerGoals,BaiqiSettlementJournal,BaiqiSettlementUnitCore,E)
 local MARKER="baiqi-settler-goals-v1"
 BaiqiSettlerGoalsGameplay={}
