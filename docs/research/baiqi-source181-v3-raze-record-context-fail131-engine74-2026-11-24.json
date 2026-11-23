@@ -1,0 +1,243 @@
+{
+  "schema": "civ6.source181-v3-raze-record-context-fail/v1",
+  "utc": "2026-11-23T17:06:45.459189+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "source_version": 181,
+  "revision": 3,
+  "Native_status": "FAIL_RAZE_ACTUALLY_DELETED_CITY_BUT_CHOICE_RECORD_NOT_PERSISTED",
+  "actual_pending_save_reload": "Engine retained original captured-city choice0/917516 from source181R2 protected592421/db277... save. No R3 attack/factory/END.",
+  "actual_UI_recovery": {
+    "utc": "2026-11-23T16:47:37.791447+00:00",
+    "qualifier": [
+      "0",
+      "917516",
+      "26",
+      "19",
+      "2",
+      "true",
+      "true",
+      "true",
+      "2071124458",
+      "-967143770",
+      "3",
+      "function",
+      "false"
+    ],
+    "actual_light_UI_hook": [
+      "nil",
+      "table",
+      "table",
+      "true",
+      "READY",
+      "false"
+    ],
+    "sequence": [
+      "0",
+      "10",
+      "10"
+    ],
+    "new_history_writes": 0,
+    "new_Raze_or_army_commands": 0,
+    "inherited_actual_conquest": "Source181R2savedpending131, actualBY_COMBATverifiedagainUI.0newattackunderR3."
+  },
+  "actual_original_player_Raze": {
+    "physical_clicks": 1,
+    "own_city_count_before_after": [
+      13,
+      12
+    ],
+    "deleted_owner_fullID": [
+      0,
+      917516
+    ],
+    "plot": 862,
+    "xy": [
+      26,
+      19
+    ],
+    "Map_IsCity": false,
+    "CityAt_nil": true,
+    "old_owned_fullID_absent": true,
+    "pending_choice_cleared": true,
+    "independent_UI_and_Core_confirmed": true,
+    "paid_Transfer_or_Core_Destroy_or_history_rescue": 0,
+    "post_confirmed_absence_old_target_producer_requests": 0
+  },
+  "actual_choice_record": {
+    "Core_read": [
+      "UNAVAILABLE",
+      null,
+      "unconfirmed_choice_write"
+    ],
+    "plot_property": null,
+    "no_rebuild_after_saved_reload": "NOT_RUN_THIS_REVISION_FAILED_RECORD_STORAGE",
+    "old_source180_rebuild134_FAIL_preserved": true
+  },
+  "root_cause": {
+    "actual_same_plot_same_value_private_comparison": "Core-prebound plot handle has SetProperty=function and succeeds when called from RazeCity UI. Fresh Map.GetPlotByIndex invoked inside same UI-to-Core closure returns UI handle with SetProperty=nil; one attempted call throws function expected instead of nil and independent Core key staysnil.",
+    "actual_comparison": {
+      "utc": "2026-11-23T17:00:23.909364+00:00",
+      "cases": [
+        [
+          "1",
+          "function",
+          "true",
+          "nil",
+          "table",
+          "true"
+        ],
+        [
+          "2",
+          "nil",
+          "false",
+          "[string \"assert(Game.GetCurrentGameTurn()==131 and ExposedMembers.P6Raze181v3HandleProbe==nil);local bound=assert(Map.GetPlotByIndex(632));local q={calls=0,rows={}};q.Run=function()assert(q.calls==0);q.calls=1;local handles={bound,assert(Map.GetPlotByIndex(632))};for i,t in ipairs(handles)do local key='P6_QA_R3_HANDLE_'..tostring(i);local old=t:GetProperty(key);assert(old==nil);local value={version=1,kind='PLAYER_RAZE_CHOICE',owner=0,cityID=917516,plot=862,x=26,y=19,turn=131};local ok,err=pcall(func...\"]:1function expected instead of nil\nstack traceback:\n",
+          "[string \"assert(Game.GetCurrentGameTurn()==131 and ExposedMembers.P6Raze181v3HandleProbe==nil);local bound=assert(Map.GetPlotByIndex(632));local q={calls=0,rows={}};q.Run=function()assert(q.calls==0);q.calls=1;local handles={bound,assert(Map.GetPlotByIndex(632))};for i,t in ipairs(handles)do local key='P6_QA_R3_HANDLE_'..tostring(i);local old=t:GetProperty(key);assert(old==nil);local value={version=1,kind='PLAYER_RAZE_CHOICE',owner=0,cityID=917516,plot=862,x=26,y=19,turn=131};local ok,err=pcall(func...\"]1: in function '(anonymous)'\n",
+          "[C]: in function 'pcall'\n",
+          "[string \"assert(Game.GetCurrentGameTurn()==131 and ExposedMembers.P6Raze181v3HandleProbe==nil);local bound=assert(Map.GetPlotByIndex(632));local q={calls=0,rows={}};q.Run=function()assert(q.calls==0);q.calls=1;local handles={bound,assert(Map.GetPlotByIndex(632))};for i,t in ipairs(handles)do local key='P6_QA_R3_HANDLE_'..tostring(i);local old=t:GetProperty(key);assert(old==nil);local value={version=1,kind='PLAYER_RAZE_CHOICE',owner=0,cityID=917516,plot=862,x=26,y=19,turn=131};local ok,err=pcall(func...\"]1: in function 'Run'\n",
+          "[string \"_cmdr = {print('RAZE181R3_ACTUAL_DYNAMIC_HANDLE_UI_CALL',ExposedMembers.P6Raze181v3HandleProbe.Run())}\"]:1: in function '(main chunk)'",
+          "nil",
+          "false"
+        ]
+      ],
+      "Core_readback": [
+        [
+          "1",
+          "table"
+        ],
+        [
+          "2",
+          "nil"
+        ]
+      ],
+      "retired": [
+        "1"
+      ],
+      "new_product_history_or_Raze_retries": 0
+    },
+    "rejected_inferences": [
+      "No evidence that plot table properties are universally unsupported: all five Core shape cases including full8fields/string succeeded.",
+      "No evidence every cross-context write fails: four cases using Core-prebound handles succeeded."
+    ],
+    "private_QA_all_distinct_unused_keys_and_exact_verified_cleanup": true,
+    "no_product_history_or_Raze_retries": true,
+    "next_implementation": "Bind Core plot handles at Core API construction before exposure. Do not mutate SDK globals or read hidden plot properties at init. Preserve current visibility/geometry/owner/fullID checks and fresh-world bridge replacement."
+  },
+  "actual_bootstrap_consumer_counterexample": {
+    "methods": 3,
+    "both_Lua_VMs": true,
+    "old_source_expected_exit": 1,
+    "actual_errors": 2,
+    "scope": "Positive original-Raze callback/actual Gameplay bootstrap/late UI Map handle cannot persist; errors are Lua assertions in two VM subtests. Other hidden/dimension negative methods pass.",
+    "log_sha256": "935fe76cb8ec81491b2951af2a2b7f2517b053ee07ab51e30a897020a3bf446a",
+    "owner_counterexample_reader_correction": "Runner wrongly expected unittest failures=2; actual errors=2 are preserved/read from same original log, no test or Native replay.",
+    "not_Native_pass": true
+  },
+  "owner_save_and_menu_corrections": [
+    "Failure-save driver retired observers and saved once successfully, then read wrong response prefix; recovery verified existing save and retired remaining Save flag only.",
+    "Formal MainMenu reconstructed its context and Load flag was nil; first overly strict true assertion failed before clear. Recovery accepted actual nil and verified absence of all world contexts; no Load or GUI action replay.",
+    "Initial private probe assumed settler21,18 was owned; assertion failed before input flag/property write. New probe independently selected actually owned visible plot11."
+  ],
+  "preservation": {
+    "save": {
+      "utc": "2026-11-23T16:51:11.917652+00:00",
+      "name": "Baiqi_P6_20261124_V181R3_TC018HistoryFAIL131.Civ6Save",
+      "bytes": 587114,
+      "sha256": "cf88d709175aa1ef4a01694cc94c3bff53a3daba657e138e11f4b0fdf4587c45",
+      "stable_repeated_read": true
+    },
+    "all_world_QA_and_Save_Load_flags_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "normal_Quit": {
+      "utc": "2026-11-23T17:04:56.843061+00:00",
+      "owner": {
+        "pid": 19052,
+        "created_at": 1795451876.5985172,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "save": {
+        "utc": "2026-11-23T16:51:11.917652+00:00",
+        "name": "Baiqi_P6_20261124_V181R3_TC018HistoryFAIL131.Civ6Save",
+        "bytes": 587114,
+        "sha256": "cf88d709175aa1ef4a01694cc94c3bff53a3daba657e138e11f4b0fdf4587c45",
+        "stable_repeated_read": true
+      },
+      "actual_same_owned_process_absent": true,
+      "visible_windows": [],
+      "cpu": null,
+      "games": [],
+      "actual_normal_Quit_completed": true,
+      "normal_Quit_and_confirmation_once_each": true,
+      "terminate_calls": 0,
+      "kill_calls": 0,
+      "Steam_process_or_mode_actions": 0
+    },
+    "prior_owned_saved_postQuit_cleanup_instances": 3,
+    "prior_cleanup_counts_not_rewritten": true
+  },
+  "model_R148": {
+    "task_source_count": 19,
+    "task_raw_UTF8_bytes": 272914,
+    "before_owner_product_implementation": true,
+    "actual_diagnostic_addendum_source_count": 3,
+    "actual_addendum_bytes": 3974,
+    "diagnosis": {
+      "utc": "2026-11-23T16:57:29.380338+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-24",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-23T16:57:29.314462+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 38.89660001732409,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-23T16:57:29.354821+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1153,
+          "over_64KiB": false,
+          "sha256": "acc2ad3d602a059ea1f92d9ce8e8d752c49c6c71ff91e1fdb8fe3a88e50f7426",
+          "total_ms": 24.564200080931187
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adopts": 0,
+    "native_generation_tools": 0,
+    "cost": null
+  },
+  "last_verified_whole_snapshot": {
+    "source180_closed": 32,
+    "total": 40,
+    "percent": 80,
+    "remaining": 8
+  },
+  "current181_whole_Native_pass_claimed": false,
+  "unpublished_product_fix_packages": 9,
+  "Workshop_source": 172,
+  "next": "Fourth revision same unpublished181 fix: actual consumer RED->GREEN, narrow tests/101dualLua/123payload, pinned new install and cold actual pending-save Raze then save/reload/realplanning beyond prior134foundingopportunity. K/L/Msavedlossreloadplanning and remaining8continue; no final or duplicate Workshop upload."
+}
