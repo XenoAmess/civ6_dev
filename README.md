@@ -1,5 +1,7 @@
 # civ6_dev
 
+2026-11-24 [181第二版弹窗误接入FAIL](docs/research/baiqi-source181-v2-raze-popup-guard-fail131-engine74-2026-11-24.json)：Core接口已实测恢复READY；一次正常原版攻城后，原生保留／夷平完整资格都true，弹窗误导入内政Guard却都返回false。未点击保留或夷平、未用原生Request绕过。已保存13城待决现场592421/SHAdb27735321bb5dde52af06117ad8c3d392d34f20c78e160b593e47374293b7f2、退全部QA及主菜单；正常Quit后OS仍待确认。新增真实替换脚本消费者双VM测试复现5失败／2错误，不把旧21软件通过当此接口通过。继续身份只读接入的181第三版冷验，优先读待决档不重复攻城；当前181整项未授通过，最近180快照32/40，待发9组／工坊172。
+
 2026-11-23 [181第二版Core兼容修正软件通过](docs/research/baiqi-source181-v2-core-human-fallback-software-2026-11-23.json)：配置对象IsHuman缺失时使用玩家对象的已确认方法，配置false或未知不放行；新增实机接口形状双VM检查。21项针对性检查、101Lua双VM编译、123文件真实ZIP通过，另122产品文件不变，未重复声称全273项重跑。首版Native失败保留；本次正常Quit后自有11216挂起已在保存／撤QA／两分钟CPU无变化核验后terminate1、OS游戏0，不算正常退出成功。继续新第二版包冷验，当前181尚未授实机通过，待发仍9组／工坊172。
 
 2026-11-23 [181首版Core接口冷验FAIL](docs/research/baiqi-source181-v1-core-human-port-fail131-engine74-2026-11-23.json)：真实Core配置对象IsHuman为nil、玩家对象为function，新夷平记录模块缺少已有的类型回退，Read实际UNAVAILABLE／handler_error；依赖链在攻城前停止，0军令／夷平／END／QA创建。131失败已保存、全QA撤除返主菜单，正常Quit及确认各一次后OS暂仍有无窗口原进程；不冒称退出或实机通过。继续同一未发布181修复包第二版，先补Core回退和双VM原形测试，再冷验；原273软件通过不能覆盖Native失败。最近整项仍180的32/40快照，当前181未授通过，待发9组／工坊172，继续工作。
