@@ -1377,3 +1377,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-23 R122/R123：[城市化恢复与129中间档](research/baiqi-source180-tc009-civic-restoration-mid129-engine74-2026-11-23.json)。真实未完市政夹具15完整输入655024bytes；下一TC035兼容矩阵27完整输入854971bytes先备。各缓存1.19.6／两GET200仍qwen缺失仅H3，0生成／候选／采用／原生工具，成本null。31夹具故障例各VM后Core一次SetCivic，Core真与UI晚一回合同步分列，不因UI旧值重发setter；全案例尚未通过。Native assert对多返回中的第二table拒绝，用括号只传boolean，3严格消息端口例各VM；所有后续动态Lua读片段应在首个动作前一起编译，数字与and的空格漏写曾只拒绝Core读，不重发已观察移动。中间保存仍有1被动观察绑定，不伪称全QA撤去。
+
+
+2026-11-23 [Civic135单条件范围审阅](research/baiqi-source180-tc009-civic135-single-condition-scope-audit-engine74-2026-11-23.json)：实际Chooser候选不是请求或建成，11重复记录也不是11不同地点。即使地块几何不变，特定区域的FeatureAllowed还可能依赖housing<population；条件120false、135true的正例不能冒充仅恢复Civic的严格分支。最终依赖审阅在PASS发布前撤回拟关闭判断，保持28/40。几何候选还必须经过原保护消费者，改良18从初步列表排除，剩4原清空合格地块待实际规划。135正式保存、全QA退并返菜单，继续真实未完成任务；没有新增生成或模型采用，R122/R123能力边界不变。
