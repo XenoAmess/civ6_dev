@@ -1,0 +1,587 @@
+{
+  "schema": "civ6.source180-tc035-readonly-compatibility127/v1",
+  "utc": "2026-11-23T08:24:42.091111+00:00",
+  "machine_id": "BF-202609141645",
+  "source_version": 180,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "PASS_TC035_ADOPTED_CONTRACT_RECORDED_ORIGINAL_GS_INTERFACE_SCOPE",
+  "whole_mod": "OPEN_CONTINUE",
+  "whole_closed_total_percent_remaining": [
+    30,
+    40,
+    75,
+    10
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 8,
+  "product_changes": 0,
+  "ordinary_package": {
+    "files": 119,
+    "mode": "ordinary180-unmodified",
+    "archive_sha256": "666c73e28ea1faa629c68e2d8ed573ff0a2dcca424842311a41c31293d48899a"
+  },
+  "mandatory_lines": [
+    "- 需求：BR-014、BR-027。夹具：F01，原版界面与普通领袖对照，另测每个声称兼容的界面组合。",
+    "- 步骤：查看城市／研究／政策，尝试人工内政；指挥军队、攻击；人工处理来访、交易、世界议会和城邦使者；在普通领袖局执行同样人工内政。外交场景具备真实合法前提，记录派使者前后库存和目标实际数量。",
+    "- 预期：白绮内政只读，军队及全部外交保留原版操作和原版合法性检查；未操作时后台不派使者、不投票、不接受／拒绝来访；其他领袖操作不受影响；无 UI 错误、重复初始化或队列抢写。未测组合不声明兼容。",
+    "- 证据：配置／存档指纹、输入与请求来源、独立前后状态和运行日志；软件替身通过不能代替实机。"
+  ],
+  "mandatory_UTF8_LF_sha256": "eb3e4ffe2ec567fc5ad6b2f44f71d059ada0cc24139493686cefaf395fb866d7",
+  "supported_interface_scope": "RecordedGSsingleplayer originalinterface scripts plus currentordinary119Baiquireplacements andinstalledofficialexpansiondependencies. No thirdpartyUIaddon, Base/RaF/MP or allinterfacecrossproduct compatibilityclaim.",
+  "finite_clause_matrix": [
+    {
+      "clause": "Viewcitiesandattemptmanualdomestic",
+      "evidence": "docs/research/baiqi-source177-tc004-complete-engine74-2026-11-22.json",
+      "scope": "Actual Baiqi city readonly production/purchase/citizen/focus/land/queues plus nativepositive builder locks and ordinaryQin manualpositive; exactphysicalvsoriginalcallback limits retained. No fullnew180rerun."
+    },
+    {
+      "clause": "Viewresearchandrefusemanualscience",
+      "evidence": [
+        "docs/research/baiqi-source173-mouse-research-government135-2026-11-21.json",
+        "docs/research/baiqi-source173-full-tech-tree-denial135-2026-11-21.json"
+      ],
+      "scope": "173/.74 actualoriginalTechTreeview and legalRifling fulltree SetCurrentNode false with unchangedunproxiedstate; quickchooser earlierdirectBaiqiguard yields0proxyrequests. Exact6UIbytes unchanged to180, onlyCitycommandreturndifference insharedguard. Nativeforward count remainsnull."
+    },
+    {
+      "clause": "ViewandrefusemanualCivic",
+      "evidence": "docs/research/baiqi-source180-tc035-readonly-compatibility127-engine74-2026-11-23.json",
+      "scope": "Current180 actualphysicalCivicsTreeview and one legalHumanism22path{22} originalcallback,1proxyfalse; currentGuilds24/96.52734375, queue{24}, Humanism0/notacquired,tech26/273.671875,gov4,6cards andwallets unchanged, independentunproxiedpost. Nodecallback not physicalnodeclick."
+    },
+    {
+      "clause": "Viewpolicyandrefusefundedunlock",
+      "evidence": "docs/research/baiqi-source180-tc035-readonly-compatibility127-engine74-2026-11-23.json",
+      "scope": "Current180 actualGovernmentview IsReadOnlytrue, stock40gold cost versus1998.9609375 funds, notPolicyChangeMade, visibleUnlockPoliciesonlydisabledbyreadOnly. OneoriginalOnUnlockPolicies callback produces1proxyfalse/emptyparams andno wallet/6card/Gov/researchchange; originalClose unchanged. SDKCanStartPlayerOperation notcalled; no measurednativeforwardcount claimed."
+    },
+    {
+      "clause": "Playerarmycommandsandattacks",
+      "evidence": [
+        "docs/research/baiqi-source177-tc004-complete-engine74-2026-11-22.json",
+        "docs/research/baiqi-source177-tc023-complete-engine74-2026-11-22.json",
+        "docs/research/baiqi-source180-tc009-civic-only-neighborhood127-engine74-2026-11-23.json"
+      ],
+      "scope": "Retain exact ordinarymilitary and source177originalattack positives; current180Tiger123Playerone move independentlyUI/Core, whileBACKGROUND noarmycontrol. No claimofallarmycommands inallsettings."
+    },
+    {
+      "clause": "Originalarrivalsandtrade",
+      "evidence": [
+        "docs/research/baiqi-source180-tc009-civic-restoration-mid129-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc009-civic135-single-condition-scope-audit-engine74-2026-11-23.json",
+        "docs/research/baiqi-source180-tc009-civic-only-neighborhood127-engine74-2026-11-23.json"
+      ],
+      "scope": "VisiblePedrovisits/trade andembassy refusals/Goodbye areexplicitTEST_PLAYER physicalactions. Pendingframes retainedbeforeexplicitresponse; notBACKGROUND accepting/refusing. Exactoffer/result scopes inreports, no globalNativealldiplomacycounter."
+    },
+    {
+      "clause": "OriginalWorldCongress",
+      "evidence": "docs/research/baiqi-source180-tc009-strict-capacity-harbor165-engine74-2026-11-23.json",
+      "scope": "Current1801614freevotesselected; oneofficialsubmit andactualoutcomesreadseparately. Zero new votes here andzeroBACKGROUND inputs; Nativeglobalwritercounternotinstalled."
+    },
+    {
+      "clause": "Originalcitystateenvoys",
+      "evidence": "docs/research/baiqi-source180-tc009-civic-restoration-mid129-engine74-2026-11-23.json",
+      "scope": "Source180actualphysicalVilnius4->5 inventory8->7, independentactualplayer6target5/player8Antioch3; currentCivicOnly120review+closeretained8/4/3 separately. No hiddentargetidentity or broaderdiplomacyclaim."
+    },
+    {
+      "clause": "Nounpromptedexternaldiplomacyorarmyorders",
+      "evidence": "docs/research/baiqi-source179-tc034-complete-engine74-2026-11-23.json",
+      "scope": "Exact179peacewindow90->275activeplanning,0observedExecutorunit/playerandCorecapturewriters, unchanged3controlledunits/relations/cities; current180onlyobsoletewallproductionexceptiondoesnotalterdiplomacy/UIconsumer. Not globalengineallSDKcounter."
+    },
+    {
+      "clause": "Ordinaryleadercityresearchgovernmentpolicypositive",
+      "evidence": [
+        "docs/research/baiqi-source177-tc004-complete-engine74-2026-11-22.json",
+        "docs/research/baiqi-source173-normal-qin-research-government-policies171-2026-11-21.json"
+      ],
+      "scope": "OriginalQinmanualcitypositive andactual173TechIndustrialization35selection,governmentChiefdom0 andphysicalpolicycards0/34confirmed,unproxiedeffects. CoreGovgetternil, noCoreGovclaim. ExactUIimpactretention, not re-executedhere."
+    },
+    {
+      "clause": "OrdinaryleadermatchingCivictreepositive",
+      "evidence": "docs/research/baiqi-source180-tc035-readonly-compatibility127-engine74-2026-11-23.json",
+      "scope": "Current180ordinaryQin171, BaiqiControllerunavailable/PlayerIDnil. OneoriginallegalCivilEngineering28path{28},1proxytrue, UIandCoreactualcurrent-1->28,progressUI0/acquiredfalse,queue{28};tech35/gov0/21gold268faith/cards0and34unchanged. Equivalentcallbackunderfreshlegalpremises, not sameworld/hashasWhite."
+    },
+    {
+      "clause": "UIerrorsduplicateinitandqueueinterference",
+      "evidence": [
+        "docs/research/baiqi-source180-tc035-readonly-compatibility127-engine74-2026-11-23.json",
+        "docs/research/baiqi-source177-tc004-complete-engine74-2026-11-22.json"
+      ],
+      "scope": "Eachnewload hasoneexecutorinit; two rawdeltas match0listedRuntimeUIerrorpatterns; originalcallbacksOK andtemporaryproxyrestored. PriorTC004 queue/manualinterference scopesretained. OwnerunsupportedCoreprogressreadfailedoutsideoriginalUIcallbackandisexplicitlyretained, not presentedasallchecksfirstpass."
+    }
+  ],
+  "exact_prior_UI_source_impact": {
+    "utc": "2026-11-23T08:02:10.176778+00:00",
+    "prior_actual_report_commit": "b9e5beed3f32674330398980d78ad7d5522e1da7",
+    "same6_UI_consumers": [
+      {
+        "path": "mod/Baiqi/Lua/BaiqiUILoader.lua",
+        "bytes": 1162,
+        "sha256": "ac45361dc50d653be99e3369a5aa58c033099088e1a781995317d8f29386ea31",
+        "identical173_to180": true
+      },
+      {
+        "path": "mod/Baiqi/UI/BaiqiResearchChooser.lua",
+        "bytes": 342,
+        "sha256": "6ad9590926f657f67b409ecbc87e3a2deef2bbe682a5d3bcc0a7a2c2597728e6",
+        "identical173_to180": true
+      },
+      {
+        "path": "mod/Baiqi/UI/BaiqiTechTree.lua",
+        "bytes": 191,
+        "sha256": "e8da4c900af8415906aae5738f24c83e2708ca15346a4d7380c680aadc27a6d1",
+        "identical173_to180": true
+      },
+      {
+        "path": "mod/Baiqi/UI/BaiqiCivicsChooser.lua",
+        "bytes": 258,
+        "sha256": "ff84d26c3b108a986ca48fae5f242d250866004dc13725d2da4746b065bb00ff",
+        "identical173_to180": true
+      },
+      {
+        "path": "mod/Baiqi/UI/BaiqiCivicsTree.lua",
+        "bytes": 195,
+        "sha256": "8aec1b387759b0b9d02f7621697bf5c630b16381ddf475188b095a40406ee528",
+        "identical173_to180": true
+      },
+      {
+        "path": "mod/Baiqi/UI/BaiqiGovernmentScreen.lua",
+        "bytes": 670,
+        "sha256": "4114156af941fdd9ba83c220168f477cb7b812e36ae8e2b60b384259abea0485",
+        "identical173_to180": true
+      }
+    ],
+    "UIGuard_exact_diff": [
+      "--- \n",
+      "+++ \n",
+      "@@ -83,7 +83,8 @@\n",
+      "     return NativeCity.RequestOperation(city,operation,...)",
+      "   end,",
+      "   RequestCommand=function(city,command,...)",
+      "-    if OwnCity(city) and not CityCombat(command) then return false end",
+      "+    -- Original city callbacks can store this result in a nullable table.",
+      "+    if OwnCity(city) and not CityCombat(command) then return nil end",
+      "     return NativeCity.RequestCommand(city,command,...)",
+      "   end,",
+      " },{__index=NativeCity})"
+    ],
+    "source_status": "Review exactdiff before retaining prior173 Research/Gov/Policy. No blanket source180 fullrerun claim."
+  },
+  "current_White127": {
+    "policy_unlock": {
+      "utc": "2026-11-23T07:58:44.129173+00:00",
+      "turn": 127,
+      "premise": [
+        "true",
+        "false",
+        "40",
+        "1998.9609375",
+        "0",
+        "false",
+        "true",
+        "true",
+        "false",
+        "false",
+        "false",
+        "0",
+        "function"
+      ],
+      "actual_original_OnUnlockPolicies_calls": 1,
+      "actual_proxy_UI_requests": [
+        "true",
+        "true",
+        "true",
+        "true",
+        "0",
+        "1",
+        "0",
+        "true",
+        "true",
+        "false",
+        "false",
+        "nil"
+      ],
+      "actual_request": [
+        "1",
+        "0",
+        "-1118702092",
+        "3",
+        "true",
+        "true",
+        "1",
+        "boolean",
+        "false"
+      ],
+      "params_count": [
+        "0"
+      ],
+      "before": [
+        "127|4|24|26|273.671875|1998.9609375|333.1796875|false|40|0|6|0|1|0|1|1|1|2|0|3|3|2|17|4|4|13|5|4|6"
+      ],
+      "after": [
+        "127|4|24|26|273.671875|1998.9609375|333.1796875|false|40|0|6|0|1|0|1|1|1|2|0|3|3|2|17|4|4|13|5|4|6"
+      ],
+      "unproxied_post": [
+        "127|4|24|26|273.671875|1998.9609375|333.1796875|false|40|0|6|0|1|0|1|1|1|2|0|3|3|2|17|4|4|13|5|4|6"
+      ],
+      "bindings_restored": true,
+      "native_forwarding_count": null,
+      "actual_SDK_CanStartPlayerOperation": "NOT_CALLED; stock original UI financial branch satisfied, only IsReadOnly disables visible UnlockPolicies. No new claim of measured native request acceptance.",
+      "physical_clicks_on_unlock": 0,
+      "Game_debit_or_policy_changes": 0,
+      "no_replay": true,
+      "whole_TC035": "OPEN_FINAL_SCOPE_RECONCILIATION_AND_CLOSEOUT"
+    },
+    "CivicTree": {
+      "utc": "2026-11-23T08:03:45.386780+00:00",
+      "turn": 127,
+      "actual_original_SetCurrentNode_calls": 1,
+      "premise": [
+        "22",
+        "1327167531",
+        "true",
+        "false",
+        "1",
+        "22",
+        "false"
+      ],
+      "callback": [
+        "true",
+        "true",
+        "true",
+        "true",
+        "0",
+        "1",
+        "0",
+        "true",
+        "true",
+        "false",
+        "false",
+        "nil"
+      ],
+      "request": [
+        "1",
+        "0",
+        "-1616526040",
+        "3",
+        "true",
+        "1",
+        "false"
+      ],
+      "request_params": [
+        [
+          "-1406149623",
+          "-1744919098"
+        ]
+      ],
+      "request_path": [
+        [
+          "-1508932876",
+          "1",
+          "22"
+        ]
+      ],
+      "before": [
+        "127|24|96.52734375|0|false|26|273.671875|4|1998.9609375|333.1796875|0|1|0|1|1|1|2|0|3|3|2|17|4|4|13|5|4|6|1|24"
+      ],
+      "after": [
+        "127|24|96.52734375|0|false|26|273.671875|4|1998.9609375|333.1796875|0|1|0|1|1|1|2|0|3|3|2|17|4|4|13|5|4|6|1|24"
+      ],
+      "independent_unproxied_post": [
+        "127|24|96.52734375|0|false|26|273.671875|4|1998.9609375|333.1796875|0|1|0|1|1|1|2|0|3|3|2|17|4|4|13|5|4|6|1|24"
+      ],
+      "native_forwarding_count": null,
+      "bindings_exactly_restored": true,
+      "physical_open": 1,
+      "physical_node_selection": 0,
+      "actual_Civic_grants": 0,
+      "whole_TC035": "OPEN_FINAL_SCOPE_RECONCILIATION_AND_CLOSEOUT"
+    },
+    "final_state": {
+      "frame": [
+        "127",
+        "LEADER_BAIQI",
+        "4",
+        "24",
+        "96.52734375",
+        "0",
+        "false",
+        "26",
+        "273.671875",
+        "1998.9609375",
+        "333.1796875"
+      ],
+      "slots": [
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "0",
+          "3"
+        ],
+        [
+          "3",
+          "2",
+          "17"
+        ],
+        [
+          "4",
+          "4",
+          "13"
+        ],
+        [
+          "5",
+          "4",
+          "6"
+        ]
+      ]
+    },
+    "checkpoint": {
+      "utc": "2026-11-23T08:05:29.451551+00:00",
+      "name": "Baiqi_P6_20261123_V180_TC035ReadOnly127.Civ6Save",
+      "bytes": 1426054,
+      "sha256": "baae6b8d36b07cd842e40c16d7b237fb4349a2369668f924ba77cb15435b8c0e",
+      "stable_repeated_read": true
+    },
+    "new_ENDs": 0,
+    "new_Civic_grants": 0,
+    "new_military_civilian_production_orders": 0,
+    "log_audit": {
+      "utc": "2026-11-23T08:05:26.435039+00:00",
+      "bytes": 14237,
+      "sha256": "665f9b65c979adc373b6e060ef76588b2fbc2af8b8e1a6c3a5968ef3c676451b",
+      "matched_runtime_UI_errors": [],
+      "error_patterns": [
+        "Runtime Error",
+        "Lua Error",
+        "stack traceback:",
+        "Error loading"
+      ],
+      "executor_init_lines": [
+        "BaiqiExecutor: BAIQI|ui_controller_loaded|version=2|mandatory_admin=true"
+      ],
+      "scope": "Current127officialload delta only, not all historical logs or every possible error channel. Prior Pythonimportaliasrefusal beforethisload nothidden."
+    },
+    "all_proxy_bindings_and_known_flags_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true
+  },
+  "current_ordinary_Qin171": {
+    "fixture": {
+      "utc": "2026-11-23T08:09:39.300355+00:00",
+      "name": "Qin_P6_20261123_V180_TC035Civic171_ByteCopy.Civ6Save",
+      "bytes": 392682,
+      "sha256": "cddc81a3f6e1deea2e9f8d4ecb4d78b8d52e90c58e9534eca2edd8edd7491145",
+      "original": {
+        "utc": "2026-11-21T04:48:02.387348+00:00",
+        "name": "Qin_P6_20261121_V173_ResearchPolicies171.Civ6Save",
+        "bytes": 392682,
+        "sha256": "cddc81a3f6e1deea2e9f8d4ecb4d78b8d52e90c58e9534eca2edd8edd7491145",
+        "stable_repeated_read": true
+      },
+      "method": "New protected ordinaryQin171 bytecopy; priorresearch/government/policy inputs not replayed. Only new legal Civic tree selection positive.",
+      "game_inputs": 0
+    },
+    "Civic_positive": {
+      "utc": "2026-11-23T08:16:15.404074+00:00",
+      "turn": 171,
+      "leader": "LEADER_QIN",
+      "actual_original_SetCurrentNode_calls": 1,
+      "premise": [
+        "28",
+        "-1386623813",
+        "true",
+        "false",
+        "-1",
+        "1",
+        "28"
+      ],
+      "callback": [
+        "true",
+        "true",
+        "true",
+        "true",
+        "0",
+        "1",
+        "0",
+        "true",
+        "true",
+        "false",
+        "false",
+        "nil"
+      ],
+      "request": [
+        "1",
+        "0",
+        "-1616526040",
+        "3",
+        "true",
+        "1",
+        "true"
+      ],
+      "request_params": [
+        [
+          "-1406149623",
+          "-1744919098"
+        ]
+      ],
+      "request_path": [
+        [
+          "-1508932876",
+          "1",
+          "28"
+        ]
+      ],
+      "actual_unproxied_effect": {
+        "frame": [
+          "28",
+          "0",
+          "false",
+          "35",
+          "0",
+          "21",
+          "268",
+          "false",
+          "false"
+        ],
+        "slots": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "34"
+          ]
+        ],
+        "queue": [
+          [
+            "1",
+            "28"
+          ]
+        ]
+      },
+      "Core": [
+        "28",
+        "false",
+        "35",
+        "21",
+        "268"
+      ],
+      "Core_API_types": [
+        "function",
+        "nil",
+        "function",
+        "function"
+      ],
+      "Core_progress_not_claimed": true,
+      "owner_failure": "InitialunsupportedCoreGetCulturalProgressafteractualselectionandUIeffect; actualCiviccallbacknotreplayed, actualCoreportsreadbeforeusingonlysupportedgetters.",
+      "native_forwarding_count": null,
+      "bindings_exactly_restored": true,
+      "actual_new_Civic_grants_or_ENDs": 0,
+      "whole_TC035": "MATCHING_CIVIC_POSITIVE_OBSERVED_SAVE_AND_FINAL_REVIEW_PENDING"
+    },
+    "checkpoint": {
+      "utc": "2026-11-23T08:17:07.177530+00:00",
+      "name": "Qin_P6_20261123_V180_TC035Civic171.Civ6Save",
+      "bytes": 392553,
+      "sha256": "3eddf0d288401e1fd8fd1633a6457da4862a3e920ac0eebc915ea21fdc175641",
+      "stable_repeated_read": true
+    },
+    "new_ENDs": 0,
+    "new_Civic_grants_or_free_Culture": 0,
+    "old173research_government_policy_actions_replayed": 0,
+    "log_audit": {
+      "utc": "2026-11-23T08:17:04.995776+00:00",
+      "bytes": 3901,
+      "sha256": "a8b5a4bd093f5df15d2df47d4e97810c624e03b56761f051851c2efbfc3ad4a6",
+      "matched_runtime_UI_errors": [],
+      "executor_init_lines": [
+        "BaiqiExecutor: BAIQI|ui_controller_loaded|version=2|mandatory_admin=true"
+      ],
+      "owner_unsupported_Core_progress_query_failure": "PreservedoutsideoriginalUIcallback; successfulselectionnotreplayed, supportedCoregettersverifiedsubsequently.",
+      "scope": "Currentordinary171officialload delta only; inspectanymatchingerrors, no allhistorical/allchannel claim."
+    },
+    "all_proxy_bindings_and_known_flags_retired": true,
+    "formal_MainMenu_world_UI_Core_contexts_absent": true
+  },
+  "source_of_actual_new_selection": "TEST_PLAYER, ordinaryQinonly; Baiqi2manualcallbacksrefused. NotBACKGROUND AI research andnotfreeCiviccompletion.",
+  "native_forwarding_count": null,
+  "actual_original_callbacks_not_physical_selection": "PolicyunlockandCivicnodechoicesareactualoriginalcallbacks. Physicalopens/Continue/Welcomeclose/MainMenu recordedseparately; no claimofphysicalclickonoffscreenpolicyunlock orCivicnode.",
+  "observer_software_reused": {
+    "normalized_source_sha256": "fe8e98fdd37a79147ad592d2722905ebca1fce885a976670054f60862c00337d",
+    "prior_detached_total_cases_bothVMs": 22,
+    "cases_each_VM": 11,
+    "rerun_in_this_package": false,
+    "actual_Native_bindings_restored_each_call": true,
+    "NativeUI_readonly_table_not_modified": true
+  },
+  "owner_failures_preserved": [
+    {
+      "phase": "BeforefirstWhiteLoad",
+      "failure": "fromimportstar overwrote previousmodulealias; configure-only PythonAttributeError before Steamproof orNativeLoad. Uniqueunderscorealiasfixed,newactualparentperformedoneLoad; no gamereplay."
+    },
+    {
+      "phase": "AfterordinaryCiviccallbackandUIeffect",
+      "failure": "OwnercalledCoreGetCulturalProgresswithouttypequalification; actualnilcausedreadonlyqueryfailure. Callbackandselectionnotreplayed. Newreadonlyknownports confirmedCorecurrent28/notacquired whileprogressclaimremainsUI-only. Coretypes function/nil/function/function published."
+    }
+  ],
+  "R125": {
+    "real_unfinished_task": "REAL_UNFINISHED_TC035_NATIVE_RESEARCH_POLICY_CONSUMERS_AND_ORDINARY_POSITIVE",
+    "full_sources": 26,
+    "full_UTF8_bytes": 596109,
+    "prepared_before_owner_implementation": true,
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "maintenance": {
+      "date": "2026-11-23",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "GET_results": [
+      {
+        "name": "models",
+        "utc": "2026-11-23T07:49:13.082880+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 547,
+        "over_64KiB": false,
+        "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+        "total_ms": 28.471099911257625,
+        "model_ids": [
+          "open-h3-2k"
+        ]
+      },
+      {
+        "name": "health",
+        "utc": "2026-11-23T07:49:13.111854+00:00",
+        "status": 200,
+        "Content_Type": "application/json",
+        "bytes_retained": 1154,
+        "over_64KiB": false,
+        "sha256": "7e8606b4349b235191d830fec8c2ebab3477dbcc48660e13cd1d4523aeab4da4",
+        "total_ms": 13.921499950811267
+      }
+    ],
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "configuration_or_service_changes": 0,
+    "automatic_fallback": false,
+    "cost": null,
+    "scope": "Canonical qwen38-coder absent, only open-h3-2k; two genuine GET200 diagnosis, not a generation404/REQUEST/SSE. Existing successcache maintenance doesnotgrant generation capability."
+  },
+  "old_protected_outcomes": "8650807FAIL/6684713and458752legacyUNKNOWN unchanged, no clear/cancel/replay.",
+  "next": "ContinueTC016/017 exactvisiblethreat,border,unreachable/arrivalrecheck andfinitecitysite reservation; thenremaining10cases. Do notfinalatcommit; noWorkshop172reupload."
+}

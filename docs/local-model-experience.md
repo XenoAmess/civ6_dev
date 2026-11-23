@@ -1383,3 +1383,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-23 [TC009恒定拒绝夹具与R124](research/baiqi-source180-tc009-civic-only-neighborhood127-engine74-2026-11-23.json)：真实未完成任务17全输入838242bytes先于负责人实现；当日OpenCode1.19.6成功缓存，canonical qwen38-coder仍缺、两只读GET200仅open-h3-2k，0生成／候选／采用／OpenCode原生工具，不作fallback或服务修改，成本null。独立119场景恒定只拒绝竞争候选、原Nativefalse/nil绝不变true；17过滤＋47范围几何食物＋31单公民语义场景每Lua51/53通过。一次Core补齐后UIHasCivic滞后一回合，但同回合生产资格与实际选址false→true，绝不因缓存滞后重写；原无地貌地块保证无需额外housing<pop分支改变。实际122自动社区／127 UI-Core完工、全QA退保存返菜单，冻结TC009关闭、整体29/40。清理阶段负责人把WorldInput旗当ActionPanel旗，guard拒绝后续；只续跑未完成尾段，已成功绑定退休不重做，Native动作不重放。分开记录软件资格、拒绝夹具、实际候选、请求、生产和完成，不把前135同地点重复行或额外住房改变追认单条件成功。
+
+
+2026-11-23 [TC035/R125](research/baiqi-source180-tc035-readonly-compatibility127-engine74-2026-11-23.json)：26全输入596109bytes实际GS消费者与当前wrapper先于负责人窄任务实现；canonical仍缺，两GET200只open-h3-2k，OpenCode1.19.6当日成功缓存，0生成／候选／采用／原生工具，成本null。负责人先查旧实机证据，6个研究政策消费者173→180完全同字节，guard仅已验城市返回修复，避免重做既有普通科技／政体／政策正例；只补当前白绮有钱的政策解锁／合法市政树拒绝和普通领袖市政树正例。代理观察器旧22总场景＝每VM11，仅观察可写代理、精确恢复；Native只读表不改、Native转发计数null。普通选择实际已成功后Core进度getter为nil导致负责人的只读校验失败：绝不重放选择，先读类型，独立Core当前选择／未取得通过，进度仍只由UI授。两侧保存退旗返菜单，当前40矩阵30/40。区别金融原版UI前提与未调用SDK资格、回调与物理点击、UI数据与Core可用接口、准确源码沿用与完整重跑，不靠补探针制造采用或验收进度。

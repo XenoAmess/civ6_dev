@@ -1,5 +1,7 @@
 # civ6_dev
 
+[180 TC035只读兼容完整证据矩阵](docs/research/baiqi-source180-tc035-readonly-compatibility127-engine74-2026-11-23.json)、[最新40项账本](docs/research/baiqi-source180-finite40-engine74-tc035-closed127-2026-11-23.json)：**30/40＝75%，余10**。白绮127原版40金解锁政策入口被拒、合法人文主义市政树选择被拒；普通秦171一次原版土木工程选择在UI/Core实际生效，0进度／未取得、无免费市政或END。旧科技／政体／政策及外交军事范围按精确源码与原证据保留，不冒称全180重跑或所有UI组合；两侧存退QA返菜单。待发8／工坊172，继续TC016／017及余项。
+
 [180 TC009严格市政正例与127社区建成](docs/research/baiqi-source180-tc009-civic-only-neighborhood127-engine74-2026-11-23.json)及[当前40项账本](docs/research/baiqi-source180-finite40-engine74-tc009-closed127-2026-11-23.json)：**29/40＝72.5%，余11**。同条件120仅补城市化一次，原本无地貌地块Native资格false→true；122自动社区、127 UI/Core完工，8普通END／59玩家军事待命／1军移，已存撤全部QA返菜单。竞争候选由恒定拒绝夹具筛选，非自然优先级证明；旧135额外住房条件样本仍不授通过。待发8／工坊172，继续TC035及其余验收。
 
 [180市政135候选的单条件范围审阅](docs/research/baiqi-source180-tc009-civic135-single-condition-scope-audit-engine74-2026-11-23.json)：11条记录实际只有1个选址，额外住房紧缺条件同时改变，**不授TC009通过，仍28/40＝70%、余12**。135已存、全QA撤去并正式返菜单；继续原本无地貌的合格地块验证，待发8／工坊172。
