@@ -1371,3 +1371,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-23 R120：真实当前180实机合同审阅，20完整输入649241字节；每日维护复用1.19.6成功缓存，两GET200仍无配置qwen、仅H3，0生成／候选／采用／OpenCode原生工具，成本null；负责人独立审阅实际152→158与冻结合同后补齐TC013，不将GET/缓存成功当候选。[实际范围与读取器修正](research/baiqi-source180-steel-wall-factory158-native-engine74-2026-11-23.json)记录按上下文核API、number队列目的地、MainMenu重建标记、单次END可能只执行既有队列等有限经验；后者必须独立位置／队列读回后再发不同正常动作。无模型配置／服务变更。
+
+
+2026-11-23 R121：[严格容量恢复真实港口完成](research/baiqi-source180-tc009-strict-capacity-harbor165-engine74-2026-11-23.json)。14完整输入584416字节的真实夹具任务先备；缓存OpenCode1.19.6，两GET200仍qwen缺失仅H3，0生成／候选／采用／原生工具，成本null。owner一次受控人口15→16与原子其他实体／钱包／资源／地块核对，28语义故障例各双VM后才Native调用；原始UI和Core接口不能互相推断，Core Members/FindID实际nil，完成字段由UI与Core地图身份分开佐证。阶段短暂不符时只读拒绝、稳定新查询，不重放游戏动作。
