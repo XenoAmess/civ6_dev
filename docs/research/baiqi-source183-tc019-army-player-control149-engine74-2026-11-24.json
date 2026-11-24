@@ -1,0 +1,457 @@
+{
+  "schema": "civ6.source183-tc019-army-control/v1",
+  "utc": "2026-11-24T00:05:23.077884+00:00",
+  "local_date": "2026-11-24",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": {
+    "version": "1.0.12.74",
+    "Build": 26595377
+  },
+  "status": "CURRENT_ARMY_READY_BACKGROUND_AND_ORIGINAL_PLAYER_MOVE_EFFECT_PASS_SCOPED",
+  "whole_TC019": "OPEN_APOSTLE_INQUISITOR_GURU_REMAIN",
+  "whole_closed_total_percent_remaining": [
+    33,
+    40,
+    82.5,
+    7
+  ],
+  "current_ledger": "docs/research/baiqi-source183-finite40-engine74-tc009-reclosed136-2026-11-24.json",
+  "actual_native_fixture": {
+    "utc": "2026-11-24T00:00:13.482606+00:00",
+    "spec": {
+      "marker": "TC019-QA-ONE-NEW-UNIT-V1",
+      "turn": 149,
+      "cities": 14,
+      "beforeUnits": 55,
+      "unitType": "UNIT_WARRIOR",
+      "index": 52,
+      "x": 8,
+      "y": 1,
+      "formation": 2
+    },
+    "result": [
+      "true",
+      "QA_fixture_only_not_normal_training_or_player_order",
+      "0"
+    ],
+    "state": [
+      "true",
+      "false",
+      "false",
+      "true",
+      "1",
+      "1",
+      "OBSERVED_QA_NEW_UNIT_ONLY",
+      "8585271",
+      "8585271",
+      "2",
+      "2",
+      "1",
+      "55",
+      "56"
+    ],
+    "helper_sha256": "47483490f730ba5949b436cc608e0ee6ccab42fd08afdde26eab708639a137d4",
+    "prior_software_cases_each_VM": [
+      82,
+      82
+    ],
+    "Init_replay_allowed": false,
+    "normal_training_credit": false
+  },
+  "independent_initial_UI_Core": {
+    "utc": "2026-11-24T00:00:17.078937+00:00",
+    "unit_id": 8585271,
+    "independent": {
+      "UI": [
+        "UI",
+        "0",
+        "8585271",
+        "UNIT_WARRIOR",
+        "8",
+        "1",
+        "2",
+        "2",
+        "1",
+        "54"
+      ],
+      "UI_ready": [
+        "true",
+        "true",
+        "false",
+        "nil",
+        "true"
+      ],
+      "Core": [
+        "Core",
+        "0",
+        "8585271",
+        "UNIT_WARRIOR",
+        "8",
+        "1",
+        "2",
+        "2",
+        "1",
+        "56"
+      ]
+    },
+    "target": [
+      9,
+      2
+    ],
+    "new_Init_calls": 1,
+    "new_actor_only_formation_setters": 1,
+    "old_actor_changes": 0,
+    "real_player_commands": 0,
+    "ENDs": 0,
+    "case_open": true
+  },
+  "controlled_no_input_background": {
+    "utc": "2026-11-24T00:02:00.156380+00:00",
+    "unit_id": 8585271,
+    "seconds": 16.08999991416931,
+    "ready_Update_delta": 43,
+    "RunNow_delta": 43,
+    "eligible_RunNow_delta": 43,
+    "all_actor_fields_equal": true,
+    "target_engine_events": 0,
+    "all_local_engine_events": 0,
+    "native_SDK_request_count": null,
+    "positive_event_liveness": "PENDING_SAME_HOOK_REAL_TEST_PLAYER_MOVE",
+    "case_open": true
+  },
+  "real_TEST_PLAYER_movement": {
+    "utc": "2026-11-24T00:03:02.063455+00:00",
+    "unit_id": 8585271,
+    "role": "TEST_PLAYER",
+    "original_worldinput_MoveUnitToPlot_calls": 1,
+    "native_SDK_request_count": null,
+    "return": [
+      "true",
+      "0",
+      "1477390184",
+      "16400"
+    ],
+    "UI": [
+      "after-player-army",
+      "0",
+      "8585271",
+      "UNIT_WARRIOR",
+      "9",
+      "2",
+      "1",
+      "2",
+      "1",
+      "true",
+      "true",
+      "false",
+      "nil"
+    ],
+    "Core": [
+      "0",
+      "8585271",
+      "9",
+      "2",
+      "1",
+      "2",
+      "1"
+    ],
+    "same_hook_real_movement_events": [
+      [
+        "after-player-army",
+        "2",
+        "UnitMoved",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "9",
+        "2",
+        "149",
+        "1795478576.508"
+      ],
+      [
+        "after-player-army",
+        "3",
+        "UnitMoveComplete",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "9",
+        "2",
+        "149",
+        "1795478576.515"
+      ]
+    ],
+    "all_event_rows": [
+      [
+        "after-player-army",
+        "1",
+        "UnitOperationAdded",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "149",
+        "1795478576.508"
+      ],
+      [
+        "after-player-army",
+        "2",
+        "UnitMoved",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "9",
+        "2",
+        "149",
+        "1795478576.508"
+      ],
+      [
+        "after-player-army",
+        "3",
+        "UnitMoveComplete",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "9",
+        "2",
+        "149",
+        "1795478576.515"
+      ]
+    ],
+    "event_liveness_demonstrated": true,
+    "ENDs": 0,
+    "other_TC019_branches_still_open": true
+  },
+  "official_saved_and_retired": {
+    "utc": "2026-11-24T00:04:07.936011+00:00",
+    "owner": {
+      "pid": 14284,
+      "created_at": 1795462208.7511442,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "save": {
+      "utc": "2026-11-24T00:04:06.100987+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC019ArmyPlayerMoved149.Civ6Save",
+      "bytes": 622346,
+      "sha256": "334b8ade00bfa434e2c9c22ceca05d8525823325f963c32a8220541b5d02d62a",
+      "stable_repeated_read": true
+    },
+    "source_version": 183,
+    "unit_id": 8585271,
+    "UI": [
+      "after-player-army",
+      "0",
+      "8585271",
+      "UNIT_WARRIOR",
+      "9",
+      "2",
+      "1",
+      "2",
+      "1",
+      "true",
+      "true",
+      "false",
+      "nil"
+    ],
+    "Core": [
+      "0",
+      "8585271",
+      "9",
+      "2",
+      "1",
+      "2",
+      "1"
+    ],
+    "final_events_header": [
+      "final-before-retire",
+      "TEST_PLAYER_WINDOW",
+      "true",
+      "false",
+      "false",
+      "3",
+      "3",
+      "0",
+      "0",
+      "375",
+      "375",
+      "0",
+      "376",
+      "376",
+      "0",
+      "0",
+      "1795478639.992",
+      "149"
+    ],
+    "final_event_rows": [
+      [
+        "final-before-retire",
+        "1",
+        "UnitOperationAdded",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "0",
+        "nil",
+        "nil",
+        "149",
+        "1795478576.508"
+      ],
+      [
+        "final-before-retire",
+        "2",
+        "UnitMoved",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "6",
+        "true",
+        "nil",
+        "9",
+        "2",
+        "149",
+        "1795478576.508"
+      ],
+      [
+        "final-before-retire",
+        "3",
+        "UnitMoveComplete",
+        "0",
+        "8585271",
+        "TEST_PLAYER_WINDOW",
+        "4",
+        "true",
+        "nil",
+        "9",
+        "2",
+        "149",
+        "1795478576.515"
+      ]
+    ],
+    "observer_retired": [
+      "true",
+      "owned_callbacks_removed_and_public_methods_restored",
+      "3",
+      "3",
+      "376",
+      "7"
+    ],
+    "player_flags_retired": [
+      "1"
+    ],
+    "factory_retired": [
+      "1"
+    ],
+    "real_player_moves": 1,
+    "QA_Init": 1,
+    "new_actor_only_formation_setter": 1,
+    "ENDs": 0,
+    "Civic_religion_grants": 0,
+    "native_SDK_request_count": null,
+    "live_owned_QA_bindings": 0,
+    "private_factory_instances": 0,
+    "MainMenu_Load_flag_pending": true,
+    "whole_closed": 33,
+    "whole_remaining": 7,
+    "TC019_open_religious_types": [
+      "Apostle",
+      "Inquisitor",
+      "Guru"
+    ]
+  },
+  "qualification_scope": {
+    "native_existing_and_new_sameType_CanFormMilitaryFormation_Army_true": true,
+    "prior_qualified_reused_helper": "47483490f730ba5949b436cc608e0ee6ccab42fd08afdde26eab708639a137d4; 82 cases in each Lua5.1/5.3 previously; unmodified",
+    "new_QA_Init_calls": 1,
+    "new_actor_only_formation_setters": 1,
+    "all55_old_Core_units_and14cities_gold_faith54resources_protected_properties_signature_unchanged": true,
+    "Core_old_two_consumed_builders_retained_UI54_Core56_after_Init": true,
+    "actual_Army_military_formation": 2,
+    "actual_escort_unit_count": 1,
+    "not_mock_army_escort3": true,
+    "prior_qualified_passive_observer": "f7ffcf5920c96ace5e093ab69831a2efb50d62d3eb30abb80ed7c6562e1f628a; 38 cases eachVM, no native binding replacement",
+    "original_WorldInput_MoveUnitToPlot_calls": 1,
+    "operation_param_modifiers": 16400,
+    "actual_move_from_to": [
+      [
+        8,
+        1
+      ],
+      [
+        9,
+        2
+      ]
+    ],
+    "UI_Core_remaining_moves": 1,
+    "final_same_hook_target_events": 3,
+    "events_are_not_native_SDK_request_count": true,
+    "native_SDK_request_count": null,
+    "new_Civic_religion_grants_ENDs_or_old_unit_setters": 0,
+    "normal_training_credit": false,
+    "observer_cleanup_did_not_freeze_final_count": true
+  },
+  "natural_recruit_clause_scope": "Retained actual179 same-engine production and player-control evidence after exact current-impact audit, see prior report; this QA Init gives no natural-training credit.",
+  "source_writer_natural_audit": "docs/research/baiqi-source183-tc019-unit-writer-natural-reuse-engine74-2026-11-24.json",
+  "R166": {
+    "task": "R166 real unfinished current-engine Army fixture and player control",
+    "complete_inputs_before_new_owner_drivers": 12,
+    "raw_input_bytes": 215298,
+    "availability_reused": "R164 actual2GET200 only open-h3-2k, configured qwen38-coder missing; no fallback",
+    "same_local_date_OpenCode_maintenance": "1.19.6 cached success, not generation ability",
+    "new_HTTP_calls": 0,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation_tools": 0,
+    "cost": null,
+    "actual_wall_only_phase_records": [
+      {
+        "utc": "2026-11-23T23:57:56.690502+00:00",
+        "phase": "PREP_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:58:02.604698+00:00",
+        "phase": "PREP_END",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:58:02.803421+00:00",
+        "phase": "REVIEW_BEGIN",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      },
+      {
+        "utc": "2026-11-23T23:59:06.609482+00:00",
+        "phase": "REVIEW_END",
+        "owner": "civ6-root",
+        "limits": "Wall only; earlier diagnosis/source browsing unknown. No exclusive activecost/net savings claim."
+      }
+    ],
+    "untracked_owner_implementation_time_exclusive_active_cost_and_net_savings": null
+  },
+  "new_product_changes": 0,
+  "unpublished_product_fix_packages": 11,
+  "Workshop_source": 172,
+  "next": "Protect this saved149/all-world-QA0, use an independently copied old162 pre-player religious scene solely as current initial conditions, fresh current183/.74 identity/religion/readiness/legality first. Then current background+actual commands for Apostle/Inquisitor/Guru, finishTC019 and other six cases. Continue after publication."
+}
