@@ -1,0 +1,2219 @@
+{
+  "schema": "civ6.source183-tc038-complete-economic-shock-isolation/v1",
+  "utc": "2026-11-24T09:43:41.916357+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_FROZEN_TC038_FINITE_NATIVE_EXTERNAL_SHOCK_AND_GAME_SCOPED_UNREACHABLE_MODEL_WINDOW",
+  "whole_TC038": "CLOSED",
+  "whole_mod": "OPEN_CONTINUE_TC040_AND_TC036",
+  "whole_cases_closed": 38,
+  "whole_cases_total": 40,
+  "percent": 95,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 11,
+  "new_product_changes": 0,
+  "frozen_contract": {
+    "mandatory_lines": [
+      "- 需求：BR-015、BR-028。夹具：F08，财政／资源／人口接近策略边界，另有敌方掠夺或贸易变化副本；游戏可正常运行而本地模型服务不可访问。",
+      "- 步骤：记录正常收支和边界，运行多轮生产与扩张；使外部收入下降后再规划；期间保持模型服务不可用。",
+      "- 预期：自动新增承诺不突破冻结预算，变化后重新评估，避免仍按旧预算连续招募；不得无授权解散军队救财政。解释自然维护费／外部损失，模组无需模型、密钥或网络回复即可正常托管。",
+      "- 证据：决策时预算与实际收支分解、请求／队列变化、单位状态、无运行时模型依赖的实现审查与离线行为；不需修改 Steam 或全机网络配置。"
+    ],
+    "mandatory_UTF8_LF_sha256": "808059e8130f810d326086134434960eb4fa32c29422184ecc4a67c888f99d44",
+    "same_as_fixed177base": true,
+    "clause_review": [
+      {
+        "required": "Fiscal/resource/population boundaries and multiround normal production/expansion",
+        "pass": true,
+        "evidence": "Dated179/.74 independent causal low-reserve and strategic-shortage completed-production cases retained for unchanged Planner/Policy/Actions and exact fiscal thresholds. Current183 actual13city/49to53unit140..143, bank100.53125 immediately above100 after ordinary diplomatic setup, living/queued military24+2=26, population1/3 cities, actual strategic0stocks and25to21Niter/16to13Coal. Three normal settlements, new3Builders/1Settler and seven actual logged Settler MOVE requests; no new founded city claimed in this short window. The previously closed current183TC013 supplies its own complete expansion proof, not relabeled from this window."
+      },
+      {
+        "required": "Actual external income decrease followed by planning under the new budget",
+        "pass": true,
+        "evidence": "Ordinary TPcash6554forforeign40GPT/30deal; actual141incoming40 andexactgold+98.40625. TP original war141 + fourCongressballots/oneSubmit;142 actual0incomingdeal/gold+57.5078125 exactlyprior97.5078125 minus40. Native net14257.41015625, actual planner rows new57.41015625, current143planner56.41796875 distinct from late Native64.015625."
+      },
+      {
+        "required": "New commitments obey frozen budget and cap, no military disposal to rescue finances",
+        "pass": true,
+        "evidence": "All222 actual militaryAllowRecruit input/results independently re-evaluated against unchanged actual current Planner in Lua51/Lua53 plus frozen math;0mismatch. Only two real military queues, army24+queued2=26, all16actual143recruitcallsfalse. All49initialfullID+type units still present143, no disband disappearance.68heldBGrequests complete-fullID/type joined; no matching28actualqualifiedTPmilitary/commander actors, observedunittypes all entrustedcivilian. Full globalNativewriter counts unavailable."
+      },
+      {
+        "required": "Model endpoint inaccessible while actual game keeps running, no runtime model/key/reply dependency",
+        "pass": true,
+        "evidence": "Second realWFP ownimage+configuredIPv4/TCPendpoint window09:07:05.905837..09:30:39.030320UTC covers allthreeactualnormalsettlements; prezeroexistingmodelstream,74per-commandkernelreadbacks inclclosure, dynamicfilter/sublayerindependentabsence/helperterminal0/profilesunchanged/Steam0. Actualordinary183101Lua complete source review plus zeroHTTP/model/credential/processdependency scan;0modelHTTPduringNativeparent. No game-originated testHTTPconnection injected or failed-connect claim."
+      },
+      {
+        "required": "Decision budgets, actual incomes/requests/independent state and proper evidence limits",
+        "pass": true,
+        "evidence": "IndependentUI/Core141/142/143wallet/unit/citycollections match, actual troop budget inputs and queue timelines retained, normal maintenance80to81to82 classified via Native treasury methods, first two settlementdecompositions exact. Thirdactualdelta61.01171875 differspreviousUIforecast57.41015625 by3.6015625; internalsettlementtimingnottraced and no mod-income/compensationgrant attributed. Current143Nativeincome146.015625 differssampledcitysum138.41796875, preserving both rather than inventing a complete engine accounting trace. This bounded uncertainty does not alter actual incoming40loss or observedsafecommitments."
+      }
+    ]
+  },
+  "retained_current_engine_boundary_evidence": [
+    "docs/research/baiqi-source179-tc007-complete-engine74-2026-11-23.json",
+    "docs/research/baiqi-source179-tc007-causal-fiscal141-engine74-2026-11-23.json",
+    "docs/research/baiqi-source179-tc007-resource-shortage-fallback145-engine74-2026-11-23.json"
+  ],
+  "source_impact": {
+    "old119_payload_normalized_changed_paths": [
+      "Baiqi.modinfo",
+      "Lua/BaiqiConfig.lua",
+      "Lua/BaiqiController.lua",
+      "Lua/BaiqiGameplay.lua",
+      "Lua/BaiqiSettlementIntentCore.lua",
+      "Lua/BaiqiSettlementIntentGameplay.lua",
+      "Lua/BaiqiSettlerGoalsCore.lua",
+      "Lua/BaiqiSettlerGoalsGameplay.lua",
+      "Lua/BaiqiUILoader.lua",
+      "Lua/BaiqiAdmin.lua"
+    ],
+    "new_four_raze_choice_paths": [
+      "Lua/BaiqiRazeChoiceCore.lua",
+      "Lua/BaiqiRazeChoiceGameplay.lua",
+      "Lua/BaiqiRazeChoiceView.lua",
+      "UI/BaiqiRazeCity.lua"
+    ],
+    "full_unchanged_budget_Policy_Planner_Actions": true,
+    "Config_only_razeChoiceKey_addition": true,
+    "Controller_changes_reviewed": "Raze-site exclusion and narrow sole obsolete-wall fallback/logging, no military budget formula weakening.",
+    "Admin_changes_reviewed": "Completed research UI recovery and governor loyalty remote-effect observation; Native183window reflects current effects.",
+    "all101_current_Lua_network_model_credential_or_process_dependency_hits": [],
+    "scope": "Retain dated179lowreserve/resource native gates, not relabel full179physicalexecution as183; current modified settlement/production/admin paths have independent closed-case impact and actual new window."
+  },
+  "actual_timeline": [
+    {
+      "turn": 140,
+      "UI_economy": [
+        "13",
+        "49",
+        "24",
+        "0",
+        "6654.53125",
+        "138.40625",
+        "80",
+        "58.40625"
+      ],
+      "Core_economy": null,
+      "strategic_resources_UI": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "16",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "25",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "0",
+          "0"
+        ]
+      ],
+      "Native_treasury_methods": [
+        [
+          "GetGoldBalance",
+          "function",
+          "true",
+          "6654.53125"
+        ],
+        [
+          "GetGoldYield",
+          "function",
+          "true",
+          "138.40625"
+        ],
+        [
+          "GetTotalMaintenance",
+          "function",
+          "true",
+          "80"
+        ],
+        [
+          "GetUnitMaintenance",
+          "function",
+          "true",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "function",
+          "true",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "function",
+          "true",
+          "15"
+        ],
+        [
+          "GetGoldFromCities",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromTradeRoutes",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldPerTurnFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromGreatWorks",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromReligion",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromEnvoys",
+          "nil",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_population_and_gold": [
+        [
+          "65536",
+          "15",
+          "15"
+        ],
+        [
+          "131073",
+          "11",
+          "15.30078125"
+        ],
+        [
+          "196610",
+          "11",
+          "16.203125"
+        ],
+        [
+          "262147",
+          "8",
+          "13"
+        ],
+        [
+          "327684",
+          "13",
+          "13.5"
+        ],
+        [
+          "393221",
+          "9",
+          "18"
+        ],
+        [
+          "458758",
+          "14",
+          "15.30078125"
+        ],
+        [
+          "524295",
+          "8",
+          "4.5"
+        ],
+        [
+          "589832",
+          "3",
+          "4.5"
+        ],
+        [
+          "655369",
+          "6",
+          "6.30078125"
+        ],
+        [
+          "720906",
+          "3",
+          "15"
+        ],
+        [
+          "851979",
+          "5",
+          "1.80078125"
+        ],
+        [
+          "917516",
+          "1",
+          "0"
+        ]
+      ],
+      "visible_queue": [
+        [
+          "65536",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "131073",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "2",
+          "nil"
+        ],
+        [
+          "196610",
+          "0",
+          "1",
+          "nil",
+          "22",
+          "nil",
+          "nil"
+        ],
+        [
+          "262147",
+          "0",
+          "1",
+          "nil",
+          "22",
+          "nil",
+          "nil"
+        ],
+        [
+          "327684",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "393221",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "10",
+          "nil"
+        ],
+        [
+          "458758",
+          "0",
+          "0",
+          "0",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "524295",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "589832",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "655369",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "720906",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "851979",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "4",
+          "nil"
+        ],
+        [
+          "917516",
+          "0",
+          "1",
+          "nil",
+          "3",
+          "nil",
+          "nil"
+        ]
+      ]
+    },
+    {
+      "turn": 141,
+      "UI_economy": [
+        "13",
+        "50",
+        "24",
+        "1",
+        "198.9375",
+        "177.5078125",
+        "80",
+        "97.5078125"
+      ],
+      "Core_economy": [
+        "141",
+        "13",
+        "50",
+        "198.9375",
+        "177.5078125",
+        "80"
+      ],
+      "strategic_resources_UI": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "15",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "25",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "0",
+          "0"
+        ]
+      ],
+      "Native_treasury_methods": [
+        [
+          "GetGoldBalance",
+          "function",
+          "true",
+          "198.9375"
+        ],
+        [
+          "GetGoldYield",
+          "function",
+          "true",
+          "177.5078125"
+        ],
+        [
+          "GetTotalMaintenance",
+          "function",
+          "true",
+          "80"
+        ],
+        [
+          "GetUnitMaintenance",
+          "function",
+          "true",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "function",
+          "true",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "function",
+          "true",
+          "15"
+        ],
+        [
+          "GetGoldFromCities",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromTradeRoutes",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldPerTurnFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromGreatWorks",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromReligion",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromEnvoys",
+          "nil",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_population_and_gold": [
+        [
+          "65536",
+          "15",
+          "15"
+        ],
+        [
+          "131073",
+          "11",
+          "15.30078125"
+        ],
+        [
+          "196610",
+          "12",
+          "16.203125"
+        ],
+        [
+          "262147",
+          "8",
+          "13"
+        ],
+        [
+          "327684",
+          "13",
+          "13.5"
+        ],
+        [
+          "393221",
+          "9",
+          "18"
+        ],
+        [
+          "458758",
+          "14",
+          "15.30078125"
+        ],
+        [
+          "524295",
+          "8",
+          "4.5"
+        ],
+        [
+          "589832",
+          "3",
+          "4.5"
+        ],
+        [
+          "655369",
+          "6",
+          "5.40234375"
+        ],
+        [
+          "720906",
+          "3",
+          "15"
+        ],
+        [
+          "851979",
+          "5",
+          "1.80078125"
+        ],
+        [
+          "917516",
+          "1",
+          "0"
+        ]
+      ],
+      "visible_queue": [
+        [
+          "65536",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "131073",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "2",
+          "nil"
+        ],
+        [
+          "196610",
+          "0",
+          "1",
+          "nil",
+          "22",
+          "nil",
+          "nil"
+        ],
+        [
+          "262147",
+          "0",
+          "1",
+          "nil",
+          "22",
+          "nil",
+          "nil"
+        ],
+        [
+          "327684",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "393221",
+          "0",
+          "0",
+          "58",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "458758",
+          "0",
+          "0",
+          "0",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "524295",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "589832",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "655369",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "720906",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "851979",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "4",
+          "nil"
+        ],
+        [
+          "917516",
+          "0",
+          "1",
+          "nil",
+          "3",
+          "nil",
+          "nil"
+        ]
+      ]
+    },
+    {
+      "turn": 142,
+      "UI_economy": [
+        "13",
+        "52",
+        "24",
+        "2",
+        "256.4453125",
+        "138.41015625",
+        "81",
+        "57.41015625"
+      ],
+      "Core_economy": [
+        "142",
+        "13",
+        "52",
+        "256.4453125",
+        "138.41015625",
+        "81"
+      ],
+      "strategic_resources_UI": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "14",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "18",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "0",
+          "0"
+        ]
+      ],
+      "Native_treasury_methods": [
+        [
+          "GetGoldBalance",
+          "function",
+          "true",
+          "256.4453125"
+        ],
+        [
+          "GetGoldYield",
+          "function",
+          "true",
+          "138.41015625"
+        ],
+        [
+          "GetTotalMaintenance",
+          "function",
+          "true",
+          "81"
+        ],
+        [
+          "GetUnitMaintenance",
+          "function",
+          "true",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "function",
+          "true",
+          "37"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "function",
+          "true",
+          "16"
+        ],
+        [
+          "GetGoldFromCities",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromTradeRoutes",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldPerTurnFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromGreatWorks",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromReligion",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromEnvoys",
+          "nil",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_population_and_gold": [
+        [
+          "65536",
+          "15",
+          "15"
+        ],
+        [
+          "131073",
+          "11",
+          "15.30078125"
+        ],
+        [
+          "196610",
+          "12",
+          "16.203125"
+        ],
+        [
+          "262147",
+          "8",
+          "13"
+        ],
+        [
+          "327684",
+          "13",
+          "13.5"
+        ],
+        [
+          "393221",
+          "9",
+          "18"
+        ],
+        [
+          "458758",
+          "13",
+          "16.203125"
+        ],
+        [
+          "524295",
+          "8",
+          "4.5"
+        ],
+        [
+          "589832",
+          "3",
+          "4.5"
+        ],
+        [
+          "655369",
+          "6",
+          "5.40234375"
+        ],
+        [
+          "720906",
+          "3",
+          "15"
+        ],
+        [
+          "851979",
+          "5",
+          "1.80078125"
+        ],
+        [
+          "917516",
+          "1",
+          "0"
+        ]
+      ],
+      "visible_queue": [
+        [
+          "65536",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "131073",
+          "0",
+          "1",
+          "nil",
+          "4",
+          "nil",
+          "nil"
+        ],
+        [
+          "196610",
+          "0",
+          "0",
+          "94",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "262147",
+          "0",
+          "1",
+          "nil",
+          "22",
+          "nil",
+          "nil"
+        ],
+        [
+          "327684",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "393221",
+          "0",
+          "0",
+          "58",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "458758",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "6",
+          "nil"
+        ],
+        [
+          "524295",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "11",
+          "nil"
+        ],
+        [
+          "589832",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "655369",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "720906",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "851979",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "4",
+          "nil"
+        ],
+        [
+          "917516",
+          "0",
+          "1",
+          "nil",
+          "3",
+          "nil",
+          "nil"
+        ]
+      ]
+    },
+    {
+      "turn": 143,
+      "UI_economy": [
+        "13",
+        "53",
+        "24",
+        "2",
+        "317.45703125",
+        "146.015625",
+        "82",
+        "64.015625"
+      ],
+      "Core_economy": [
+        "143",
+        "13",
+        "53",
+        "317.45703125",
+        "146.015625",
+        "82"
+      ],
+      "strategic_resources_UI": [
+        [
+          "RESOURCE_ALUMINUM",
+          "40",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_COAL",
+          "41",
+          "13",
+          "0"
+        ],
+        [
+          "RESOURCE_HORSES",
+          "42",
+          "25",
+          "6"
+        ],
+        [
+          "RESOURCE_IRON",
+          "43",
+          "25",
+          "2"
+        ],
+        [
+          "RESOURCE_NITER",
+          "44",
+          "21",
+          "3"
+        ],
+        [
+          "RESOURCE_OIL",
+          "45",
+          "0",
+          "0"
+        ],
+        [
+          "RESOURCE_URANIUM",
+          "46",
+          "0",
+          "0"
+        ]
+      ],
+      "Native_treasury_methods": [
+        [
+          "GetGoldBalance",
+          "function",
+          "true",
+          "317.45703125"
+        ],
+        [
+          "GetGoldYield",
+          "function",
+          "true",
+          "146.015625"
+        ],
+        [
+          "GetTotalMaintenance",
+          "function",
+          "true",
+          "82"
+        ],
+        [
+          "GetUnitMaintenance",
+          "function",
+          "true",
+          "28"
+        ],
+        [
+          "GetBuildingMaintenance",
+          "function",
+          "true",
+          "38"
+        ],
+        [
+          "GetDistrictMaintenance",
+          "function",
+          "true",
+          "16"
+        ],
+        [
+          "GetGoldFromCities",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromTradeRoutes",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldPerTurnFromDiplomacy",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromGreatWorks",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromReligion",
+          "nil",
+          "false",
+          "nil"
+        ],
+        [
+          "GetGoldFromEnvoys",
+          "nil",
+          "false",
+          "nil"
+        ]
+      ],
+      "city_population_and_gold": [
+        [
+          "65536",
+          "15",
+          "15"
+        ],
+        [
+          "131073",
+          "11",
+          "11.703125"
+        ],
+        [
+          "196610",
+          "12",
+          "16.203125"
+        ],
+        [
+          "262147",
+          "8",
+          "13"
+        ],
+        [
+          "327684",
+          "13",
+          "13.5"
+        ],
+        [
+          "393221",
+          "9",
+          "17.1015625"
+        ],
+        [
+          "458758",
+          "13",
+          "16.203125"
+        ],
+        [
+          "524295",
+          "8",
+          "8.1015625"
+        ],
+        [
+          "589832",
+          "3",
+          "4.5"
+        ],
+        [
+          "655369",
+          "6",
+          "5.40234375"
+        ],
+        [
+          "720906",
+          "3",
+          "15"
+        ],
+        [
+          "851979",
+          "6",
+          "2.703125"
+        ],
+        [
+          "917516",
+          "1",
+          "0"
+        ]
+      ],
+      "visible_queue": [
+        [
+          "65536",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "131073",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "3",
+          "nil"
+        ],
+        [
+          "196610",
+          "0",
+          "0",
+          "94",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "262147",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "2",
+          "nil"
+        ],
+        [
+          "327684",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "393221",
+          "0",
+          "0",
+          "58",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "458758",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "6",
+          "nil"
+        ],
+        [
+          "524295",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "11",
+          "nil"
+        ],
+        [
+          "589832",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "655369",
+          "0",
+          "0",
+          "1",
+          "nil",
+          "nil",
+          "nil"
+        ],
+        [
+          "720906",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "9",
+          "nil"
+        ],
+        [
+          "851979",
+          "0",
+          "2",
+          "nil",
+          "nil",
+          "4",
+          "nil"
+        ],
+        [
+          "917516",
+          "0",
+          "1",
+          "nil",
+          "3",
+          "nil",
+          "nil"
+        ]
+      ]
+    }
+  ],
+  "ordinary_diplomatic_setup": {
+    "TEST_PLAYER_original_visible_deal_accepts": 1,
+    "paid_one_time": 6554,
+    "incoming_per_turn": 40,
+    "duration": 30,
+    "before_gold": 6654.53125,
+    "after_gold": 100.53125,
+    "ordinary_original_war_confirmations": 1,
+    "Congress_four_ballot_groups": 1,
+    "Congress_actual_Submit": 1,
+    "favors_spent": 0,
+    "setup_is_BACKGROUND": false,
+    "war_button_or_confirmation_not_treated_as_immediate_income_change": true
+  },
+  "actual_window": {
+    "own_game_PID": 20032,
+    "begin_UTC": "2026-11-24T09:07:05.905837+00:00",
+    "end_UTC": "2026-11-24T09:30:39.030320+00:00",
+    "normal_turns": [
+      140,
+      141,
+      142,
+      143
+    ],
+    "ordinary_ENDs": 3,
+    "TEST_PLAYER_military_SKIPs": 84,
+    "UserForced": 0,
+    "manual_domestic_or_foreign_unit_orders": 0,
+    "preexisting_game_model_endpoint_streams": 0,
+    "kernel_readbacks": 74,
+    "helper_terminal": 0,
+    "filter_sublayer_independent_absence": true,
+    "profiles_unchanged": true,
+    "Steam_changes": 0,
+    "injected_game_HTTP_calls": 0,
+    "game_originated_connect_failure_proved": false
+  },
+  "real_recruit_inputs": {
+    "calls": 222,
+    "both_real_Lua_VMs_and_independent_formula_match": true,
+    "by_turn_budget_and_result": [
+      {
+        "turn": 141,
+        "netGold": 97.5078125,
+        "allowed": false,
+        "calls": 36
+      },
+      {
+        "turn": 141,
+        "netGold": 97.5078125,
+        "allowed": true,
+        "calls": 3
+      },
+      {
+        "turn": 142,
+        "netGold": 57.41015625,
+        "allowed": false,
+        "calls": 162
+      },
+      {
+        "turn": 142,
+        "netGold": 57.41015625,
+        "allowed": true,
+        "calls": 5
+      },
+      {
+        "turn": 143,
+        "netGold": 56.41796875,
+        "allowed": false,
+        "calls": 16
+      }
+    ],
+    "positive_actual_vectors": [
+      {
+        "row": 39,
+        "turn": 141,
+        "snapshot": {
+          "gold": 198.9375,
+          "netGold": 97.5078125,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 0.0,
+          "maintenance": 4.0,
+          "committedMaintenance": 4.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      },
+      {
+        "row": 41,
+        "turn": 141,
+        "snapshot": {
+          "gold": 198.9375,
+          "netGold": 97.5078125,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 0.0,
+          "maintenance": 5.0,
+          "committedMaintenance": 4.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      },
+      {
+        "row": 47,
+        "turn": 141,
+        "snapshot": {
+          "gold": 198.9375,
+          "netGold": 97.5078125,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 0.0,
+          "maintenance": 5.0,
+          "committedMaintenance": 4.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      },
+      {
+        "row": 87,
+        "turn": 142,
+        "snapshot": {
+          "gold": 256.4453125,
+          "netGold": 57.41015625,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 1.0,
+          "maintenance": 4.0,
+          "committedMaintenance": 9.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      },
+      {
+        "row": 89,
+        "turn": 142,
+        "snapshot": {
+          "gold": 256.4453125,
+          "netGold": 57.41015625,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 1.0,
+          "maintenance": 5.0,
+          "committedMaintenance": 9.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      },
+      {
+        "row": 91,
+        "turn": 142,
+        "snapshot": {
+          "gold": 256.4453125,
+          "netGold": 57.41015625,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 1.0,
+          "maintenance": 5.0,
+          "committedMaintenance": 9.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      },
+      {
+        "row": 103,
+        "turn": 142,
+        "snapshot": {
+          "gold": 256.4453125,
+          "netGold": 57.41015625,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 1.0,
+          "maintenance": 5.0,
+          "committedMaintenance": 9.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      },
+      {
+        "row": 107,
+        "turn": 142,
+        "snapshot": {
+          "gold": 256.4453125,
+          "netGold": 57.41015625,
+          "cities": 13.0,
+          "army": 24.0,
+          "queuedArmy": 1.0,
+          "maintenance": 5.0,
+          "committedMaintenance": 9.0,
+          "resourceAffordable": true
+        },
+        "config": {
+          "goldReserve": 100.0,
+          "netGoldMin": 2.0,
+          "armyPerCity": 2.0
+        },
+        "actual": true,
+        "calculated": true
+      }
+    ],
+    "all_actual143_calls_false": true,
+    "old_budget_not_used_for142_recruits": true
+  },
+  "actual_BG_request_facts": {
+    "request_count": 68,
+    "parsed_source_object_actions": [
+      {
+        "turn": "141",
+        "id": "0:141:1",
+        "city": "65536",
+        "type": "UNIT_BUILDER"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:2",
+        "unit": "6357005",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:3",
+        "unit": "7471132",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:4",
+        "unit": "5111847",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:5",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:6",
+        "city": "393221",
+        "type": "UNIT_FIELD_CANNON"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:7",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:8",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:9",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:10",
+        "unit": "6815791",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:11",
+        "unit": "6815791",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:12",
+        "unit": "6815791",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:13",
+        "unit": "6815791",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:14",
+        "unit": "7536691",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:15",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:16",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:17",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:18",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "141",
+        "id": "0:141:19",
+        "unit": "7798837",
+        "operation": "BUILD_IMPROVEMENT"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:20",
+        "unit": "6357005",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:21",
+        "city": "131073",
+        "type": "BUILDING_LIBRARY"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:22",
+        "city": "196610",
+        "type": "UNIT_LINE_INFANTRY"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:23",
+        "unit": "7471132",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:24",
+        "unit": "7471132",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:25",
+        "unit": "5111847",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:26",
+        "city": "458758",
+        "type": "DISTRICT_COMMERCIAL_HUB"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:27",
+        "city": "524295",
+        "type": "DISTRICT_AQUEDUCT"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:28",
+        "unit": "7929900",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:29",
+        "unit": "7929900",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:30",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:31",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:32",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:33",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:34",
+        "unit": "6815791",
+        "operation": "REPAIR"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:35",
+        "unit": "7995442",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:36",
+        "unit": "7995442",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:37",
+        "unit": "7995442",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:38",
+        "unit": "7995442",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:39",
+        "unit": "7536691",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:40",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:41",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:42",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:43",
+        "unit": "7864372",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:44",
+        "unit": "7798837",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "142",
+        "id": "0:142:45",
+        "unit": "7798837",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:46",
+        "city": "65536",
+        "type": "DISTRICT_INDUSTRIAL_ZONE"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:47",
+        "city": "131073",
+        "type": "DISTRICT_ENCAMPMENT"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:48",
+        "unit": "6357005",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:49",
+        "city": "262147",
+        "type": "DISTRICT_CAMPUS"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:50",
+        "unit": "7471132",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:51",
+        "unit": "5111847",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:52",
+        "unit": "5308456",
+        "operation": "MAKE_TRADE_ROUTE"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:53",
+        "unit": "7929900",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:54",
+        "unit": "7929900",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:55",
+        "unit": "7929900",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:56",
+        "unit": "7929900",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:57",
+        "unit": "7929900",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:58",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:59",
+        "unit": "6291501",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:60",
+        "unit": "6815791",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:61",
+        "unit": "6815791",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:62",
+        "unit": "8060976",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:63",
+        "unit": "8060976",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:64",
+        "unit": "8060976",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:65",
+        "unit": "8060976",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:66",
+        "unit": "7536691",
+        "operation": "SKIP_TURN"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:67",
+        "unit": "7798837",
+        "operation": "MOVE_TO"
+      },
+      {
+        "turn": "143",
+        "id": "0:143:68",
+        "unit": "7798837",
+        "operation": "MOVE_TO"
+      }
+    ],
+    "actual_unit_type_counts": {
+      "UNIT_GREAT_MERCHANT": 3,
+      "UNIT_GREAT_ENGINEER": 4,
+      "UNIT_GREAT_PROPHET": 3,
+      "UNIT_BUILDER": 38,
+      "UNIT_NATURALIST": 3,
+      "UNIT_SETTLER": 7,
+      "UNIT_TRADER": 1
+    },
+    "matching28_qualified_military_and_commander_actors": [],
+    "product_errors_or_city_request_unobserved": 0,
+    "global_Native_writer_counts": null
+  },
+  "actual_native_additions": {
+    "all49_original_fullIDs_and_types_present143": true,
+    "new_unit_types": [
+      "UNIT_SETTLER",
+      "UNIT_BUILDER",
+      "UNIT_BUILDER",
+      "UNIT_BUILDER"
+    ],
+    "new_fullIDs": [
+      7864372,
+      7929900,
+      7995442,
+      8060976
+    ],
+    "UI_and_Core_unit_count143": 53,
+    "no_QA_creation_or_progress_grants": true,
+    "exact_instrumented_CityProductionCompleted_join_for_each_addition": null,
+    "no_new_city_in_this_short_window": true
+  },
+  "fiscal_limits": {
+    "original": 6654.53125,
+    "ordinary_deal_one_time": 6554,
+    "after_deal": 100.53125,
+    "normal141": 198.9375,
+    "normal142": 256.4453125,
+    "normal143": 317.45703125,
+    "delta140_141": 98.40625,
+    "delta141_142": 57.5078125,
+    "delta142_143": 61.01171875,
+    "third_delta_minus_previous_UI_net": 3.6015625,
+    "third_delta_internal_settlement_timing_traced": false,
+    "no_mod_income_or_compensation_grant_claim": true
+  },
+  "final_native_treasury": [
+    "317.45703125",
+    "146.015625",
+    "82",
+    "28",
+    "38",
+    "16"
+  ],
+  "observability": {
+    "planner_passes": 2014,
+    "allowed_passes": 2001,
+    "military_AllowRecruit": 222,
+    "other_recruit_calls": 33,
+    "retained_rows": 260,
+    "score_calls": 1109,
+    "score_unretained_by_design": 1071,
+    "errors": 0,
+    "metadata_errors": 0,
+    "dropped": 0,
+    "actual_score_attempts_not_evaluated_as_full_retained_score_matrix": true
+  },
+  "closeout": {
+    "save": {
+      "utc": "2026-11-24T09:28:28.349010+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC038EconomicShock143.Civ6Save",
+      "bytes": 604157,
+      "sha256": "3f2e325c3e128f3475ffbd34bf5bf0574f1a16c2aa921c02c6ed50adcbf04455",
+      "stable_repeated_read": true
+    },
+    "all_owned_QA_retired": true,
+    "formal_MainMenu_no_world_contexts": true,
+    "own_process_still_healthy_at_mainmenu": true,
+    "new_Quit_terminate_kill": 0,
+    "old_legacy_unknowns_cleared_cancelled_replayed": 0
+  },
+  "owner_corrections": [
+    "Import-time guard binding deferred until configure creates it;0Nativebeforefix.",
+    "Historical160enginepin caught beforeactualfilter, strictcurrent74pin fixed and26admissioncases passed.",
+    "Goodbye revealed leaderdetail; independenthiddencheckhalted0military/END andclosedownfilter, newexplicitBparent resumed actualdealwithoutreplay.",
+    "Read-onlyCorelabeluppercase rejectedbeforecommandenqueue; same new read with validlabel, no Native action replay.",
+    "Offline missingProphet/Naturalist exclusion caused false army classification; corrected against actualqualified28military/commander inputs/fullIDtypes, originalfailure retained.",
+    "Nativeincome caches/dealstate/modalSubmitACK not equated with settledwallet or turnadvance; actualphase/readbacks separate."
+  ],
+  "local_model": {
+    "R206_actual_inputs": 25,
+    "R206_bytes": 522754,
+    "R207_actual_inputs": 120,
+    "R207_bytes": 1263994,
+    "prepared_not_wire": true,
+    "latest_bounded_metadata": {
+      "utc": "2026-11-24T09:34:18.360591+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-24",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-24T09:34:18.327113+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 5.856599658727646,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-24T09:34:18.333500+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "e52b7544f4e17c1619958ade2ac3a10a9ee2bd52d7ba900e77b4064fda3a717d",
+          "total_ms": 25.8780000731349
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "cost": null,
+    "configuration_service_fallback_changes": 0
+  },
+  "private_evidence_SHA256": {
+    "tc038183-native143-closeout-collected.json": "7310d99c66bc78f1329d8314652e864bd3d479c80feb4ffc3ed04987f8029ae4",
+    "tc038183-source-impact-and222-real-budget-rows-qualified.json": "49aaa4ad63a274a282acfad2433bdf36d3d7927881a24a505d52424af5a73752",
+    "tc038183-full-current-runtime-source-diff-review-input.json": "cf1a3a8a1b6660352740debd59b3c926580c9344f6673ac6abe198e24ae0d397",
+    "tc038183-actual-load140-through-saved143-native-Lua-delta.log": "9c021bee6a51c55aa9abbb65f214680e1e84937f503f88739aaa44ad6e0dcb7e",
+    "tc038-guard183-finance-window-b-closed.json": "b4695c2a1af4362e50b09354f8ac4cb3be8afcba48b7f3a0d37aa6a43a5cca34"
+  },
+  "limits": [
+    "Pass is the frozen finiteGSsingleplayermatrix on thismachine/source/engine; no indefinite-runtime, allmaps/rulesets, allNativeglobalcalls, fullgoldengineinternaltrace or newcitycompletion claim from this window.",
+    "Partial first isolation A was correctly stopped before anyEND and is separate from successful completeBwindow.",
+    "Runtimecontrol is explicit test-only own-image dynamicfilter; no game/network/Steam/globalprofile configuration changes or dependency packaging.",
+    "TC040/current full three-calendarTC036 still pending. Complete modified-source functional work before final performance, continue after this publication."
+  ]
+}
