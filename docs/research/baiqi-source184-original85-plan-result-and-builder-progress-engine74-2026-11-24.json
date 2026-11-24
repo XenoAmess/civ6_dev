@@ -1,0 +1,465 @@
+{
+  "utc": "2026-11-24T13:11:12.240825+00:00",
+  "source_version": 184,
+  "engine": "1.0.12.74",
+  "status": "ORIGINAL85_B_PLAN_FAIL_REPAIR_REQUIRED",
+  "whole_mod_closed_cases": 39,
+  "whole_mod_total": 40,
+  "whole_mod_percent": 97.5,
+  "TC036_complete": false,
+  "unpublished_product_packages": 12,
+  "Workshop_version": 172,
+  "actual_summary": {
+    "utc": "2026-11-24T13:06:42.568215+00:00",
+    "facts_sha256": "62492a77fab59ade36369a7552f3a99355f36fc9c8f29c2296583b3158d8992d",
+    "cities": 11,
+    "source": "baiqi184-stageA-v2",
+    "sample_quality_ok": true,
+    "samples": 323,
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 123,
+        "10_to_11": 0,
+        "eleven_city": 14,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 152,
+        "10_to_11": 0,
+        "eleven_city": 17,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 17
+      }
+    },
+    "eligible_calls_by_turn": {
+      "Admin.Run": {
+        "86": 27,
+        "87": 27,
+        "88": 27,
+        "89": 27,
+        "90": 29
+      },
+      "Controller.RunNow": {
+        "86": 33,
+        "87": 32,
+        "88": 36,
+        "89": 34,
+        "90": 34
+      }
+    },
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 123,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 6.000041961669922,
+        "above_20ms_count": 0,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 152,
+        "p50_ms": 1.0001659393310547,
+        "p95_ms": 4.000186920166016,
+        "max_ms": 437.999963760376,
+        "above_20ms_count": 1,
+        "above_50ms_count": 1,
+        "budget_ok": false
+      }
+    },
+    "overall_budget_ok": false,
+    "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 17,
+      "validated": 17,
+      "errors": 0
+    }
+  },
+  "frozen_50ms_max_not_relaxed": true,
+  "original183_314sample_54ms_FAIL_preserved": "baiqi-source183-tc036-original85-plan-54ms-failure-engine74-2026-11-24.json",
+  "original54ms_root_cause_proved": false,
+  "actual_owner": {
+    "pid": 21928,
+    "created_at": 1795524169.4640791,
+    "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+  },
+  "actual_cold_launches": 1,
+  "launch_fresh_background_offline_proof_age_seconds": 0.164261,
+  "Steam_actions": 0,
+  "actual_calendars": {
+    "initial85": true,
+    "warmup_seconds": 66.26999998092651,
+    "formal_matching_reload": true,
+    "measurement_turns": [
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "normal_ENDs": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "TEST_PLAYER_military_waits_by_turn": {
+      "85": 18,
+      "86": 18,
+      "87": 18,
+      "88": 18,
+      "89": 18,
+      "90": 19
+    },
+    "UserForced": 0,
+    "manual_civilian_inputs": 0,
+    "closing_turn": 91,
+    "cities_at_close": 11
+  },
+  "actual_builder_native_regression": {
+    "before85_UI_and_trueGameplayCore_equal": true,
+    "after91_UI_and_trueGameplayCore_equal": false,
+    "field_order": [
+      "full_ID",
+      "owner",
+      "x",
+      "y",
+      "moves",
+      "charges",
+      "formation"
+    ],
+    "starting_four_builders": [
+      [
+        "3801095",
+        "0",
+        "16",
+        "5",
+        "0",
+        "3",
+        "1"
+      ],
+      [
+        "3538957",
+        "0",
+        "10",
+        "15",
+        "0",
+        "3",
+        "1"
+      ],
+      [
+        "4325394",
+        "0",
+        "9",
+        "11",
+        "0",
+        "4",
+        "1"
+      ],
+      [
+        "3670044",
+        "0",
+        "20",
+        "6",
+        "0",
+        "1",
+        "1"
+      ]
+    ],
+    "changes": [
+      {
+        "full_ID": "3801095",
+        "before": [
+          "3801095",
+          "0",
+          "16",
+          "5",
+          "0",
+          "3",
+          "1"
+        ],
+        "after": [
+          "3801095",
+          "0",
+          "12",
+          "1",
+          "0",
+          "1",
+          "1"
+        ],
+        "position_changed": true,
+        "charges_changed": true,
+        "absence_not_inferred_as_consumption": false
+      },
+      {
+        "full_ID": "3538957",
+        "before": [
+          "3538957",
+          "0",
+          "10",
+          "15",
+          "0",
+          "3",
+          "1"
+        ],
+        "after": [
+          "3538957",
+          "0",
+          "9",
+          "9",
+          "0",
+          "1",
+          "1"
+        ],
+        "position_changed": true,
+        "charges_changed": true,
+        "absence_not_inferred_as_consumption": false
+      },
+      {
+        "full_ID": "4325394",
+        "before": [
+          "4325394",
+          "0",
+          "9",
+          "11",
+          "0",
+          "4",
+          "1"
+        ],
+        "after": null,
+        "position_changed": false,
+        "charges_changed": false,
+        "absence_not_inferred_as_consumption": true
+      },
+      {
+        "full_ID": "3670044",
+        "before": [
+          "3670044",
+          "0",
+          "20",
+          "6",
+          "0",
+          "1",
+          "1"
+        ],
+        "after": null,
+        "position_changed": false,
+        "charges_changed": false,
+        "absence_not_inferred_as_consumption": true
+      }
+    ],
+    "actual_new_or_remaining_builder_rows91": [
+      [
+        "3801095",
+        "0",
+        "12",
+        "1",
+        "0",
+        "1",
+        "1"
+      ],
+      [
+        "3538957",
+        "0",
+        "9",
+        "9",
+        "0",
+        "1",
+        "1"
+      ],
+      [
+        "4587554",
+        "0",
+        "16",
+        "17",
+        "0",
+        "1",
+        "1"
+      ],
+      [
+        "4653091",
+        "0",
+        "9",
+        "8",
+        "2",
+        "2",
+        "1"
+      ]
+    ],
+    "scope": "Actual positions/charges of matching full IDs compared after six normal turns with TEST_PLAYER military-only inputs; absent units are not assumed consumed/repaired. This finite productive continuation does not rerun all183formation/path-safety cases.",
+    "actual_new_or_remaining_builder_rows91_CORE": [
+      [
+        "3801095",
+        "0",
+        "12",
+        "1",
+        "0",
+        "1",
+        "1"
+      ],
+      [
+        "3538957",
+        "0",
+        "9",
+        "9",
+        "0",
+        "1",
+        "1"
+      ],
+      [
+        "4587554",
+        "0",
+        "16",
+        "17",
+        "0",
+        "1",
+        "1"
+      ],
+      [
+        "4653091",
+        "0",
+        "10",
+        "8",
+        "1",
+        "2",
+        "1"
+      ]
+    ],
+    "asynchronous91_differences": [
+      {
+        "full_ID": "4653091",
+        "UI": [
+          "4653091",
+          "0",
+          "9",
+          "8",
+          "2",
+          "2",
+          "1"
+        ],
+        "CORE": [
+          "4653091",
+          "0",
+          "10",
+          "8",
+          "1",
+          "2",
+          "1"
+        ]
+      }
+    ],
+    "snapshot_limits": "Two initial surviving builders match both realms and changed positions/charges from85. Newbuilder4653091hasUI9,8/moves2versuslaterCore10,8/moves1; bothactualreadingspreserved,notclaimedatomicorsimultaneous. Ownerinitialpublisherassertionrequiringall91rowsequalfailedbeforedocumentcreation; noNativequeryreplayed."
+  },
+  "prewindow_QA_faults_preserved": [
+    {
+      "parent": 36403,
+      "terminal": 1,
+      "cause": "Core getter copy used UI GetUnitType; actualCore requiresGetType. UI85snapshotretained; failedCorequerybeforeEND/capture.",
+      "fix": "SeparateCoregetterqualifiedbyearlieractualCoreTC040andbuildchargesTC012sources; correctedactualCore85matchesUI."
+    },
+    {
+      "parent": 6941,
+      "terminal": 1,
+      "cause": "Pythonownerwrappermissednestedmilitarysubprocess,parentgateblockedfirstselectbeforeanyNativeinput.",
+      "fix": "RouteallnestedTPsubprocessesthroughnewregisteredparent; SDK/gamebindingsunchanged."
+    },
+    {
+      "parent": 5800,
+      "terminal": 1,
+      "cause": "Ownerfilenameconversionchangedoriginaltokenreadtonewabsentresumeattemptfile; failedbeforeNative.",
+      "fix": "NewexactoriginaltokenassignmentwasactuallyevaluatedbeforeNative."
+    }
+  ],
+  "actual_resumption": {
+    "parent": 73493,
+    "terminal": {
+      "utc": "2026-11-24T13:10:18.733257+00:00",
+      "tool_session": 73493,
+      "actual_terminal_exit": 0,
+      "terminal_chunk": "eb32d1",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "same_cold_game_and_formal_reservation": true,
+    "original_token_and_start_preserved": true,
+    "required_live85_0calls_0samples_0anchors_assertions_returned_success": true,
+    "only_unused_owned_QA_end85_marker_reset": true,
+    "product_intents_reset": false,
+    "Popen_Load_END_military_action_replay": false,
+    "raw_samples_deleted": 0,
+    "limits": "Pre-window85elapsedtimeincludesownerQAtoolrepairs, not claimed continuousfivewindowwalltime. Actual86..90windowsandoriginalrawerrorsremainfrozen."
+  },
+  "saved91": {
+    "utc": "2026-11-24T13:06:47.508687+00:00",
+    "name": "Baiqi_P6_20261124_V184_PlanStageAComplete91.Civ6Save",
+    "bytes": 520392,
+    "sha256": "3cb6156db2fb43983d4dc35b695c136db5016515ceaa89956bdfa0ef4cfea2ed",
+    "stable_repeated_read": true
+  },
+  "formal_retirement_and_exit": {
+    "formal": {
+      "utc": "2026-11-24T13:06:54.952000+00:00",
+      "nonce": "5f3e44594f1b483597055db4d8f621ba",
+      "capture_complete": true,
+      "raw_and_summary_exported": true,
+      "exact_QA_retired": true,
+      "official_save_verified": true,
+      "HTTP_during_capture": 0,
+      "performance_pass": "See exact summary; admissionrelease alone isnotbudgetPASS"
+    },
+    "OS_exit": {
+      "utc": "2026-11-24T13:10:11.776388+00:00",
+      "exit_code": 15,
+      "terminate_count": 1,
+      "kill_escalations": 0,
+      "natural_exit_claimed": false
+    },
+    "no_natural_exit_claim_from_terminate": true
+  },
+  "full_Lua_log_sha256": "b8f436ac526617ddd29fbebf08b312a5182729df30e78e309226e5a59a41ca10",
+  "model": {
+    "new_real_prepared_tasks": [
+      "R219_execution16files67000bytes",
+      "R220_observed19files349245bytes",
+      "R221_paired46files373748bytes",
+      "R222_Core_readonly_correction",
+      "R223_nested_parent_routing",
+      "R224_later_TEST_PLAYER_batch12files90861bytes"
+    ],
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "HTTP_during_parent_or_formal": 0,
+    "last_canonical_metadata": "R21712:27qwen38absentonlyH3",
+    "fallback": false,
+    "cost": null
+  },
+  "next": "Current184B_planFAIL438msat87RunNow(true),allotherretainedsamplesmax9ms. Preserve323rowsandoriginal18354msfailure. Preparecurrent184boundedtwo-window86/87selectedsubfunctionandNativepath-call diagnostic; no unchanged acceptance rerun or StageB/pairstart before repair. Continue after this publication.",
+  "actual_worst_row": {
+    "original_index": 86,
+    "name": "Controller.RunNow",
+    "seconds": 0.437999963760376,
+    "failed": false,
+    "started": 1795525154.966,
+    "ended": 1795525155.404,
+    "turnStart": 87,
+    "turnEnd": 87,
+    "cityStart": 10,
+    "cityEnd": 10,
+    "anchor": 1795525151.334,
+    "windowEligible": true,
+    "preAnchor": false,
+    "argumentCount": 1,
+    "allowOrders": "true"
+  }
+}
