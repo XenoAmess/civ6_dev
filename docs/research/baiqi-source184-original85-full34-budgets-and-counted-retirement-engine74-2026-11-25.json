@@ -1,0 +1,239 @@
+{
+  "utc": "2026-11-24T16:33:06.886937+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 184,
+  "engine": "1.0.12.74",
+  "status": "ORIGINAL85_FULL34_B_TURN_N_REQ_FINITE_PASS_ORIGINAL_CLOSURE_MATCHER_FAILED_AND_RECONCILED",
+  "finite_cases_closed": 39,
+  "finite_cases_total": 40,
+  "whole_mod_percent": 97.5,
+  "TC036_closed": false,
+  "unpublished_product_packages": 12,
+  "new_product_fix185": false,
+  "original85_stage_A": "baiqi-source184-canonical-five-window-quiet-observer-stageA-engine74-2026-11-24.json",
+  "old54and438FAIL_retained": true,
+  "original438cause_proved": false,
+  "actual": {
+    "owner": {
+      "pid": 18244,
+      "created_at": 1795536465.3673525,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "package_mode": "baiqi184-q21-bounded",
+    "payload_files": 123,
+    "Lua_sources": 101,
+    "contexts": 34,
+    "global_retained_capacity": 4096,
+    "context_quota_profile": "current181",
+    "warmup_seconds": 64.5699999332428,
+    "same_exact_original85_bytecopy_and_reload": true,
+    "ordinary_ENDs": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "closing_actual_turn": 91,
+    "closing_cities": 11,
+    "UserForced": 0,
+    "manual_civilian_inputs": 0,
+    "BACKGROUND_military_or_diplomacy": 0
+  },
+  "numeric": {
+    "contexts": 34,
+    "samples": 590,
+    "aggregate_zero_success_calls": 40521,
+    "configured_retained_sample_budget": 4096,
+    "windows": [
+      {
+        "turn": 86,
+        "start_ui": 1795536764.848,
+        "end_ui": 1795536774.848,
+        "observed_union_ms": 89.99848365783691,
+        "clipped_inclusive_sum_ms_not_cpu": 93.99867057800293,
+        "sample_rows_intersecting": 58
+      },
+      {
+        "turn": 87,
+        "start_ui": 1795536856.076,
+        "end_ui": 1795536866.076,
+        "observed_union_ms": 85.9987735748291,
+        "clipped_inclusive_sum_ms_not_cpu": 89.99848365783691,
+        "sample_rows_intersecting": 57
+      },
+      {
+        "turn": 88,
+        "start_ui": 1795536950.7020001,
+        "end_ui": 1795536960.7020001,
+        "observed_union_ms": 108.00004005432129,
+        "clipped_inclusive_sum_ms_not_cpu": 115.99993705749512,
+        "sample_rows_intersecting": 60
+      },
+      {
+        "turn": 89,
+        "start_ui": 1795537047.228,
+        "end_ui": 1795537057.228,
+        "observed_union_ms": 138.0007266998291,
+        "clipped_inclusive_sum_ms_not_cpu": 145.00045776367188,
+        "sample_rows_intersecting": 62
+      },
+      {
+        "turn": 90,
+        "start_ui": 1795537136.161,
+        "end_ui": 1795537146.161,
+        "observed_union_ms": 129.00114059448242,
+        "clipped_inclusive_sum_ms_not_cpu": 137.00127601623535,
+        "sample_rows_intersecting": 73
+      }
+    ],
+    "complete_turn_writes": [
+      {
+        "turn": 86,
+        "calls": 9,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 9
+        }
+      },
+      {
+        "turn": 87,
+        "calls": 8,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 8
+        }
+      },
+      {
+        "turn": 88,
+        "calls": 17,
+        "by_context": {
+          "Lua/BaiqiGameplay.lua": 3,
+          "UI/BaiqiExecutor.lua": 14
+        }
+      },
+      {
+        "turn": 89,
+        "calls": 10,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 10
+        }
+      },
+      {
+        "turn": 90,
+        "calls": 32,
+        "by_context": {
+          "Lua/BaiqiGameplay.lua": 6,
+          "UI/BaiqiExecutor.lua": 26
+        }
+      }
+    ],
+    "partial_turn_writes": [
+      {
+        "turn": 91,
+        "calls": 6,
+        "by_context": {
+          "UI/BaiqiExecutor.lua": 6
+        }
+      }
+    ],
+    "observed_b_turn_budget_ok": true,
+    "observed_n_req_budget_ok": true,
+    "limits": [
+      "Observed numbers assume constant context offsets; midpoint alignment is not exact synchronization.",
+      "Clock granularity and timing uncertainty remain unknown.",
+      "Inclusive envelopes contain Native/vanilla callees; they are not exclusive mod CPU.",
+      "Source coverage and city-history classification require separate evidence.",
+      "Matched B_delta and full TC-036 acceptance are not established."
+    ]
+  },
+  "quality": {
+    "all590_raw_rows_retained": true,
+    "anchors": 816,
+    "write_rows": 24,
+    "export_errors": 0,
+    "clock_bracket_rows": 204,
+    "timing_phase_rows": 408,
+    "timing_coverage_ok": true,
+    "timing_pause_does_not_pause_wholeturn_writes": true,
+    "turn91_write_count_is_partial": true
+  },
+  "closing_failure": {
+    "original_parent_terminal": {
+      "utc": "2026-11-24T16:21:01.267506+00:00",
+      "tool_session": 10326,
+      "actual_terminal_exit": 1,
+      "terminal_chunk": "996ce0",
+      "actual_OS_parent_absent": true,
+      "source_records_preserved": true,
+      "no_replay": true
+    },
+    "actual_game_retirement_count": 34,
+    "old_python_expected": 33,
+    "original_actual_wire_sha256": "71493e682be692d00e5e66f4aa22f7ce6a59aac4a2d57069b095870dc0e2926d",
+    "actual_authored_Lua_sha256": "48fea1e084a9e4a6be4595cfd15298256e6af77dee7332f5262bdacdea747649",
+    "game_side_retirement_succeeded": true,
+    "retirement_replayed": false,
+    "recovery": "New sole parent read-only verified active/idle91, same driver token, recording disabled and all34 registry entries absent; released matching formal lock, verified save and called formal Quit once.",
+    "initial_software_coverage_gap": "Earlier software checks did not execute the Python counted-retirement matcher; previous software-qualified report is not an end-to-end closing success."
+  },
+  "software_repair": {
+    "helper": "tools/native_count_receipt.py",
+    "strict_exact_single_count": 34,
+    "rejects_old33_prefix340_duplicates_native_errors": true,
+    "unit_test_methods": 5,
+    "actual_consumers_isolated_cases": 10,
+    "actual_original_wire_used_as_data": true,
+    "game_calls_mocked_in_software_tests": true,
+    "new_Native_queries_for_software": 0
+  },
+  "saved_exit_and_restore": {
+    "utc": "2026-11-24T16:28:01.599513+00:00",
+    "owner": {
+      "pid": 18244,
+      "created_at": 1795536465.3673525,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "all_Civ6_absent": true,
+    "save": {
+      "utc": "2026-11-24T16:20:38.752264+00:00",
+      "name": "Baiqi_P6_20261124_V184_FullscriptComplete91.Civ6Save",
+      "bytes": 520360,
+      "sha256": "51f43d0fa27385927826d0fdf43d6d3d6b33170f725cf11b31f2ffc684cb0a46",
+      "stable_repeated_read": true
+    },
+    "actual34_retirement_readonly_reconciled": true,
+    "retirement_replays": 0,
+    "terminate_calls": 1,
+    "kill_calls": 0,
+    "actual_exit_code": 15,
+    "natural_exit_claimed": false,
+    "ordinary184_exact123_restored": true,
+    "private124_backed_up": true,
+    "Steam_actions": 0
+  },
+  "raw_evidence_sha256": {
+    "quota184-normal-facts.json": "c3ce129af579b166ba8d033539913049966390965354d21f71bcde6bfcac5e93",
+    "quota184-normal-summary.json": "87dcb81912e032e8cc6bc2465ebe429d2495af3870407fc4dee73edc285cd66d",
+    "quota184r-actual-matchers-software-qualified.json": "5f6cf885dc1befa16da0678e4ac8d5f05286035009ee07cf17edc40777771f65",
+    "quota184r-91-readonly-retirement-confirmed.json": "271ce84060f5f2e0d163618eb632051e2f1ef3daa242dac2de7d9514f9155681",
+    "quota184r-formal-admission-finished.json": "5e691a6164151a6c122c4ce142ebee0022d50aa4745cec820f67e3d5ff61472a"
+  },
+  "model": {
+    "prior_task": "R232",
+    "real_input_files": 26,
+    "real_input_bytes": 397090,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "HTTP_during_formal": 0,
+    "cost": null
+  },
+  "scope": [
+    "Five fixed10s windows86–90 and complete-turn write buckets86–90 only. City count became11 late90; no claim all windows pure10city.",
+    "Observed inclusive wallclock union is not exclusive CPU; context offsets assume constant midpoint alignment and clock uncertainty remains.",
+    "No B_delta or pressure-calendar pass. Original owner exit1 remains failure; later recovery is separately recorded.",
+    "Ordinary source184 exact123 restored; saved-idle own residue terminate1/kill0/exit15 is not called natural exit."
+  ],
+  "next": "Qualify current184 five matched groups25segments for original85, then complete MANY6/NO_SITE1 planning/full34/wholeturn/pairs under frozen budgets. Continue after delivery."
+}
