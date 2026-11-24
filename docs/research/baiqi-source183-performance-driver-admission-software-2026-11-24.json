@@ -1,0 +1,122 @@
+{
+  "schema": "civ6.source183-performance-driver-admission-software/v1",
+  "utc": "2026-11-24T03:54:12.575873+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "status": "SOFTWARE_PASS_NATIVE_PERFORMANCE_NOT_RUN",
+  "TC036_complete": false,
+  "whole_mod_closed_cases": 35,
+  "whole_mod_total_cases": 40,
+  "percent": 87.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 11,
+  "problem": "Current static clock and diagnostic builders admit183, but their paired driver, TEST_PLAYER callback, ordinary END endpoint and analyzers rejected it; the 151+ preflight would also be omitted for183.",
+  "change": "Admit only actual183 in thirteen existing lists across five consumers. Include its pressure tag in the ordinary analyzer rejection gate, including when initial_turn is missing.",
+  "files": {
+    "tools/run_paired_acceptance.py": {
+      "before": "e5850ad323d0fa3dbd15dd4e0953af14b397cd29b9454a154059d3b3382984f2",
+      "after": "0529fca8195523ce910df4afce71db9ae6475dee55a76adcc0f337c77098c35f",
+      "source_allowlist_insertions": 2
+    },
+    "tools/paired_normal_end.py": {
+      "before": "883b3cafa1f7bb9dec324d787b28b61b9fa0607569732d9b55bbe0cc25a8c8e2",
+      "after": "c8c78c813cb4fd20ac1f0026773ec5484d8789f5dfa9c49a26b5480069021e7e",
+      "source_allowlist_insertions": 3
+    },
+    "tools/paired_player_callback.py": {
+      "before": "48975b6be2dcf6477791a521de66aaaf4655ddf8e5cba469bf5b6f61494a8285",
+      "after": "5a5cf7dcfbee7c1f8e4b0435cff225bbfae529516a8cdef7d28c2e5dd58ce434",
+      "source_allowlist_insertions": 1
+    },
+    "tools/analyze_paired_turns.py": {
+      "before": "bd3ac4c6cc0f49a44e9a6649be3ab89146b9bd62c2958115a6f5413fc0c7bfd4",
+      "after": "92a8c16379c6144fa5c56e3027400c428f9c0bd2488bb267607014b44f5e096b",
+      "source_allowlist_insertions": 4
+    },
+    "tools/analyze_plan_capture.py": {
+      "before": "ca0cc5a3d71975c5345dd7fd704f7cd20b08ddcbf196e14c1526d5b0e9dc71bd",
+      "after": "2caf31affde9b93523c9c526979848dd60bd56794bf93cc529feebb4d70f7499",
+      "source_allowlist_insertions": 3
+    }
+  },
+  "preflight_preserved": [
+    "UI.HasSentTurnComplete must be boolean false",
+    "Players[0].CanUnreadyTurn must be boolean false",
+    "CheckUnitsHaveMovesState must be boolean false",
+    "CheckCityRangeAttackState must be boolean false",
+    "Current own active turn, strategic input, CanEndTurn, core/UI not busy",
+    "Exact source/version/pressure calendar/bridge identity, token and one-shot clock before END"
+  ],
+  "verification": {
+    "new_test_file": "tests/test_paired_source183.py",
+    "new_test_methods": 9,
+    "paired_related_suite": {
+      "methods": 112,
+      "seconds": 124.793,
+      "exit": 0,
+      "terminal_chunk": "d70ecb",
+      "includes_new9": true
+    },
+    "plan_analysis_suite": {
+      "methods": 40,
+      "seconds": 0.091,
+      "exit": 0,
+      "terminal_chunk": "13e203"
+    },
+    "new9_targeted_run": {
+      "methods": 9,
+      "seconds": 5.2,
+      "exit": 0,
+      "terminal_chunk": "d64060"
+    },
+    "finite_VM_preflight_cases": "Lua51/Lua53 x ordinary/pressure; successful one Begin/one Action; all four missing/wrong/nonboolean/true prompt ports and busy/cannot-end/wrong bridge reject before Begin/Action.",
+    "software_driver_to_analyzers": "5 groups x 2 sides x 5 turns for each ordinary and pressure calendar; same real Lua clock and callback code, synthetic transport. 25 matched rows each; no extra closing END.",
+    "unknown_receipt": "Actual fixture action then lost receipt remains one attempted END, never replayed.",
+    "historical_140_through172_generated_END_bytes": "Exact equality with fixed 2ce2ec3db20d4c52edefc84dc7df25dd10d60008 for every supported ordinary/pressure version.",
+    "strict_types_mixed_versions_and_quality": "183 int admitted; bool/float/string/future184 rejected before transport; old172 source/receipt and dropped-profile samples rejected.",
+    "frozen_performance_budgets_changed": false,
+    "actual_Native_or_game_inputs_from_tests": 0,
+    "new_real_performance_samples": 0,
+    "git_diff_check": true
+  },
+  "local_model": {
+    "real_unfinished_context_files": 22,
+    "input_bytes": 432022,
+    "actual_three_message_generation_wire": false,
+    "maintenance": {
+      "date": "2026-11-24",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "availability_utc": "2026-11-24T03:46:41.903172+00:00",
+    "configured_model": "qwen38-coder",
+    "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "actual_readonly_GETs": [
+      {
+        "name": "models",
+        "status": 200,
+        "model_ids": [
+          "open-h3-2k"
+        ],
+        "total_ms": 9.066300000995398
+      },
+      {
+        "name": "health",
+        "status": 200,
+        "model_ids": null,
+        "total_ms": 2.594499848783016
+      }
+    ],
+    "generation_POSTs": 0,
+    "complete_SSE_candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "owner_implementation": true,
+    "cost": null,
+    "inference": "Configured qwen38-coder absent in actual /models response; no automatic H3 fallback and no service/config mutation."
+  },
+  "product_mod_changes": 0,
+  "release_version_bump": false,
+  "next": "Restore game from protected save under a fresh offline proof, finish functional gaps, then run the current183/.74 frozen original/MANY/NO_SITE complete Native performance matrix. Tools passing does not close TC036."
+}

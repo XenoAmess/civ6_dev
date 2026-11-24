@@ -1,0 +1,168 @@
+{
+  "schema": "civ6.source183-tc026-foreign-owner-fixture-unqualified/v1",
+  "utc": "2026-11-24T03:54:12.575873+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": "1.0.12.74",
+  "status": "QA_FIXTURE_FAILED_UNIT_OFFMAP_AND_PLACE_RETURN_UNKNOWN_NOT_PRODUCT_FAILURE_OR_TC026_PASS",
+  "case_TC026_complete": false,
+  "whole_mod_closed_cases": 35,
+  "whole_mod_total_cases": 40,
+  "percent": 87.5,
+  "remaining": [
+    "TC-026",
+    "TC-031",
+    "TC-036",
+    "TC-038",
+    "TC-040"
+  ],
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 11,
+  "purpose": "Prepare an original-owner city-state military unit before opening the old paid quote; actual levy and native return would provide a genuine ownership transition. No kill-and-clone equivalence or fake getter.",
+  "baseline": {
+    "turn": 114,
+    "own_cities": 11,
+    "own_units": 47,
+    "gold": 4524.2734375,
+    "original_actor": {
+      "owner": 0,
+      "id": 2162700,
+      "type": "UNIT_HORSEMAN",
+      "xy": [
+        42,
+        19
+      ],
+      "moves": 4
+    },
+    "target": {
+      "owner": 1,
+      "id": 524295,
+      "xy": [
+        41,
+        19
+      ],
+      "population": 1,
+      "quote": 300
+    },
+    "protected_original_and_bytecopy": {
+      "bytes": 568863,
+      "sha256": "194c4d3686b6cda12265519529ebbd9ced29c9e00a9d6af30e4378999f896044"
+    },
+    "ordinary183_files": 123,
+    "Lua_sources": 101,
+    "ordinary_archive_sha256": "9c84beac0c33dc4b5e7d79eae4f8a1616b374c64736ff6ac33e7638896c4fbd7"
+  },
+  "actual_explicit_QA_native_entries": {
+    "WorldBuilder_PlayerManager_AddPlayer": 1,
+    "WorldBuilder_PlayerManager_SetPlayerLeader": 1,
+    "WorldBuilder_CityManager_Create": 1,
+    "UnitManager_InitUnit": 1,
+    "UnitManager_PlaceUnit": 1,
+    "global_SDK_count": null
+  },
+  "qualifications": {
+    "added_player2_Core_initialized_and_Core_UI_alive": true,
+    "Geneva_leader_civ_and_citystate_hash_Core_UI": {
+      "leader": "LEADER_MINOR_CIV_GENEVA",
+      "civ": "CIVILIZATION_GENEVA",
+      "level_hash": -1034456971
+    },
+    "foreign_city_Core_UI": {
+      "owner": 2,
+      "id": 65536,
+      "xy": [
+        26,
+        13
+      ],
+      "population": 1
+    },
+    "full_old_0_1_62_63_city_unit_IDs_and_wallet_actor_target_quote_preserved_before_PlaceUnit": true,
+    "Core_UI_HasMet_differed": {
+      "Core": false,
+      "UI": true,
+      "equality_claim": false
+    }
+  },
+  "unit_fixture_failure": {
+    "first_InitUnit_return_not_effect_proof": true,
+    "fresh_Core_unit": {
+      "owner": 2,
+      "id": 65536,
+      "type": "UNIT_HORSEMAN",
+      "original_owner": 2,
+      "xy": [
+        -9999,
+        -9999
+      ],
+      "moves": 4,
+      "dead": false,
+      "delayed_death": false
+    },
+    "UI_original_unit_lookup_or_collection_visible": false,
+    "repeat_InitUnit": 0,
+    "repeat_PlaceUnit": 0,
+    "old_unit_65536_not_deleted_cloned_or_forged": true,
+    "PlaceUnit_scope": "One separately reserved original-native placement of the existing foreign2/65536 to its own city(26,13), entirely before formal paid quote.",
+    "PlaceUnit_original_raw_receipt": {
+      "name": "20261124T033914623429Z.json",
+      "decoded_messages": 14,
+      "last_observation": "TC026183_QA_PLACE_EXISTING_MINOR_NATIVE_ENTER 2 65536 26 13",
+      "terminal_native_return": null,
+      "sha256": "99a0483ee092149b0d2e7b427c81aea9f521470855478e2c350d45705e3ffc27"
+    },
+    "final_unit_owner_position_or_effect": null,
+    "read_only_endpoint_recovery_window_seconds": 180,
+    "final_readonly_CMDs": 0,
+    "current_endpoint": "UNAVAILABLE",
+    "cause": "UNKNOWN; temporal order does not prove engine/root/product cause."
+  },
+  "not_performed": {
+    "envoy_grants": 0,
+    "levy_requests": 0,
+    "actual_owner_transfer": 0,
+    "new_paid_quote_physical_inputs": 0,
+    "paid_confirmation": 0,
+    "normal_END": 0,
+    "UserForced_END": 0,
+    "Steam_actions": 0
+  },
+  "software_only": {
+    "AddPlayer_guard_cases_dual_VM": 44,
+    "SetPlayerLeader_guard_cases_dual_VM": 50,
+    "foreign_city_unit_guard_cases_dual_VM": 102,
+    "PlaceUnit_guard_cases_dual_VM": 42,
+    "Native_effect_granted_by_software_tests": false
+  },
+  "owner_errors_preserved": [
+    "Original AddPlayer driver rejected before intent/native because GameConfiguration.IsHotseat is UI-only; separate UI gate and actual Core product role check corrected without Add replay.",
+    "Original independent UI reader used absent Player.IsInitialized; complete Core raw retained and UI-only reader corrected without writer replay.",
+    "Geneva identity validator initially required Core/UI HasMet equality; both full identity observations retained, only diplomacy equality withdrawn.",
+    "First foreign-asset software harness syntax error corrected before Native.",
+    "Post-spawn reader completed Core but UI concatenation failed Lua51 compile before its query; Core offmap and prior UI absence retained.",
+    "Uppercase GUI label rejected before input; lowercase normal window close performed once.",
+    "Lost reader launch output recovered with no fabricated SID/exit; original writer terminal independently closed, no registered/active reader or query-attempt records, new uniquely named readonly reader used."
+  ],
+  "closure": {
+    "game_rendering": "No change after one normal game-menu click and one normal Windows close click.",
+    "OS_window_WM_NULL_response": 1,
+    "OS_IsHungAppWindow": false,
+    "do_not_claim_OS_window_unresponsive": true,
+    "user_authorized_exact_own_process_end": true,
+    "terminate_calls": 1,
+    "kill_calls": 0,
+    "exact_own_process_absent": true,
+    "process_wait_exit": 15,
+    "unsaved_foreign_QA_not_saved": true,
+    "prior_user_campaign_progress_since_baseline": 0,
+    "original_and_all_prior_protected_saves_verified_after": true,
+    "ordinary183_all123_and_marker_unchanged": true,
+    "new_cold_restore": "PENDING_FRESH_BACKGROUND_STEAM_OFFLINE_PROOF_AND_UNIQUE_LOAD",
+    "normal_Quit_or_clean_saved_exit_claim": false
+  },
+  "prior_TC026_scopes_retained": [
+    "docs/research/baiqi-source177-tc026-thirdparty-engine74-2026-11-22.json",
+    "docs/research/baiqi-source177-tc026-actor-absent-engine74-2026-11-22.json",
+    "docs/research/baiqi-source177-tc026-price-change-engine74-2026-11-22.json"
+  ],
+  "next": "Restore protected copy; avoid replaying these consumed QA writes. Continue remaining real cases; TC026 ownership clause remains open until a genuine native transition is independently proved."
+}

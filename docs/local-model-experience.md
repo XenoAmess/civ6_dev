@@ -1,5 +1,7 @@
 # Civ6 本地模型经验入口
 
+2026-11-24 [183性能工具真实接入任务](research/baiqi-source183-performance-driver-admission-software-2026-11-24.json)：22完整输入432022字节在实现前准备；同日OpenCode1.19.6缓存成功，03:46两GET200但仅H3、配置coder缺，0生成POST／候选／采用／原生生成，owner接管五消费者。112配对＋40规划分析方法通过，Native性能未跑；[TC026夹具原生未知](research/baiqi-source183-tc026-foreign-owner-fixture-unqualified-engine74-2026-11-24.json)独立记录，软件guard绿不授游戏实效，异上下文getter、先回执后实效、超时不重放及owner错误分列。成本／缓存token未知保留null。
+
 2026-11-23 [TC012真实修复前清点](research/baiqi-source179-tc012-existing-damage-and-api-census-engine74-2026-11-23.json)：R110真14源467899字节，1.19.6同日缓存、coder缺仅H3、0生成／候选／采用／OpenCode原生；Core/UI集合与setter可见性差异、owner只读失败和保护保存分列，尚无修复通过，成本null。
 
 2026-11-23 [TC034实际未确认与单次确认](research/baiqi-source179-tc034-no-confirmation-and-one-paid-engine74-2026-11-23.json)：R109真16源495353字节，1.19.6同日缓存、coder缺仅H3、0生成／候选／采用／OpenCode原生；owner原生表readonly诊断失败、命名空间代理与真实47单位／外交比较分别记录，成本null。
