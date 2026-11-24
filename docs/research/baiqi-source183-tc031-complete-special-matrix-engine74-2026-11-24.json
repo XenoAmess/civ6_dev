@@ -1,0 +1,262 @@
+{
+  "utc": "2026-11-24T08:43:52.808788+00:00",
+  "source_version": 183,
+  "engine": "1.0.12.74",
+  "frozen_TC031_four_mandatory_lines": "- 需求：BR-018、BR-023。夹具：F05，特殊对象支持矩阵已冻结；清点人口、建筑、区域、奇观、巨作／槽位、驻军、占领与忠诚度。\n- 步骤：对支持的普通／特有资产组合逐项征取并跨回合检查；对配置不支持的首都／城邦等检查明确拒绝。特殊类别各用独立副本。\n- 预期：支持与拒绝均按规则，不将某类技术失败变成未说明的永久禁令；资产保留／转换／损坏及收益有明确映射，无无解释丢失、复制或残留旧控制。赠送城邦通过不能替代主要文明城市测试。\n- 证据：完整资产清单及前后映射、合法性／拒绝原因、收益、占领与忠诚度状态；不能仅依赖读取建筑列表的源码存在。\n",
+  "mandatory_UTF8_LF_sha256": "34bafc3df9017461c79ada8485a1f538ee8e9c15c5a24ea200a2d8fdae6ad468",
+  "same_as_fixed_prior177_base": true,
+  "requirements": [
+    "BR-018",
+    "BR-023"
+  ],
+  "frozen_matrix_source": "docs/testing/baiqi-special-city-assets-73.md:7-15",
+  "matrix": [
+    {
+      "frozen_category": "主要文明普通城市／普通资产组合",
+      "requirement": "BR-018/BR-023: actual enemy major city same coordinates/old control removed, inventory and native conversion across normal turns.",
+      "evidence": [
+        "baiqi-source183-tc031-wonder-immediate-assets114-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-wonder-four-normal-turns118-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-before-yield-and-special-city-census-engine74-2026-11-24.json"
+      ],
+      "actual": "Major1 ordinary noncapital wonder city26214737,12pop11->0/851979, one1300; original4buildings/5works/5completed districts mapped, unfinished campus87/129 removed; normal114->118 and loyalty loss toFree62 mapped without refund/recharge.",
+      "status": "PASS"
+    },
+    {
+      "frozen_category": "原始首都",
+      "requirement": "Current support no capital exclusion; independent capital copy and actual conversion, not an invented ban.",
+      "evidence": [
+        "baiqi-source183-tc031-original-capital-normal115-engine74-2026-11-24.json"
+      ],
+      "actual": "Major1originalcapital6553640,11pop21,2300transfer; palace/work3 to foreignreplacementcapital131073, other13buildings/7completed districts andworks mapped; one actual normal115 plus original victory continuation.",
+      "status": "PASS"
+    },
+    {
+      "frozen_category": "真正城邦",
+      "requirement": "CITY_STATE identity and independent copy, last-city military/asset disposal; free-city sample cannot substitute.",
+      "evidence": [
+        "baiqi-source183-tc031-true-citystate-normal3-engine74-2026-11-24.json"
+      ],
+      "actual": "Realminor6VilniusnotFree62,300transfer lastcity, palace/emptyslot removed, eliminatedminorCore2offmapDelayed/UI0, currentnormal2->3/Monumentprogress1of60/loyalty100.",
+      "status": "PASS"
+    },
+    {
+      "frozen_category": "奇观／巨作／槽位及区域",
+      "requirement": "Exact inventory and keep/convert/damage/yield mapping; no loss/duplication assumption from SDK call.",
+      "evidence": [
+        "baiqi-source183-tc031-wonder-immediate-assets114-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-wonder-four-normal-turns118-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-before-yield-and-special-city-census-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-original-capital-normal115-engine74-2026-11-24.json"
+      ],
+      "actual": "Etemenanki/Artemis/nativepalacerelocation; all16initialuniqueID/type maps, targetoccupied+emptyslots, completed district IDs/coordinates/complete/pillage; noncomplete campus removal explicit. Before/after originaltooltips and actualfiscal periods, no unchanged-income or completeinternal-cause claim.",
+      "status": "PASS"
+    },
+    {
+      "frozen_category": "特有资产组合／原驻军",
+      "requirement": "Actual unique unit native owner/full ID/liveness/moves/damage/position/embark and next normal outcomes, no foreign commands.",
+      "evidence": [
+        "docs/research/baiqi-source177-tc023-complete-engine74-2026-11-22.json",
+        "docs/research/baiqi-source183-tc031-unique-guard-normal116-engine74-2026-11-24.json"
+      ],
+      "actual": "Dated177/.74immediate Heta1179657displacement41,19to40,19 retained via completeCapture/13consumerimpact; current183load+114->115->116: owner1fullID/TRAIT_LEADER_UNIT_HETAIROI/HEAVY_CAVALRY/embarked/damage37alive held. Currentcitycenter/emptyassets and300DONE held, Granary0/0/1of32.",
+      "status": "PASS_WITH_EXPLICIT_RETAINED177_IMMEDIATE_AND_CURRENT183_CONTINUATION"
+    },
+    {
+      "frozen_category": "占领／忠诚度／损坏与收益",
+      "requirement": "Record actual native occupation/loyalty/damage/yields across turns; no promise of complete conquest/permanent city or army survival.",
+      "evidence": [
+        "baiqi-source183-tc031-wonder-immediate-assets114-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-wonder-four-normal-turns118-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-before-yield-and-special-city-census-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-original-capital-normal115-engine74-2026-11-24.json",
+        "baiqi-source183-tc031-true-citystate-normal3-engine74-2026-11-24.json",
+        "docs/research/baiqi-source183-tc031-unique-guard-normal116-engine74-2026-11-24.json"
+      ],
+      "actual": "Native IsOccupiedfalse recorded; ordinary100->Free62, capital100->70.3125,minor100,guard100->72.3125->44.625. Completed assets/pillage and native damage/healing read; gold settlements and modifier/tooltip changes mapped, capital combat maintenance64->63 independently reconciled.",
+      "status": "PASS"
+    },
+    {
+      "frozen_category": "配置不支持类别拒绝",
+      "requirement": "Only if current config actually excludes a category; technical difficulty cannot become undisclosed permanent ban.",
+      "evidence": [
+        "mod/Baiqi/Lua/BaiqiRequisition.lua",
+        "mod/Baiqi/Lua/BaiqiConfig.lua"
+      ],
+      "actual": "No capital/citystate class exclusion, both actually eligible and transferred in current183; unsupported-class rejection subbranch is not applicable to this enabled matrix, generic invalid-condition refusal separately TC024/026.",
+      "status": "NOT_APPLICABLE_SPECIFIC_CLASS_BAN_NONE_CONFIGURED"
+    }
+  ],
+  "all_required_frozen_category_rows_qualified": true,
+  "case_TC031_closure_recommended": true,
+  "whole_mod_complete": false,
+  "remaining_after_this_closure": [
+    "TC-036",
+    "TC-038",
+    "TC-040"
+  ],
+  "scope_limits": [
+    "Representative frozen F05 combinations, not every civilization/unique-building/district/unit variant in the entire game. No global unique-building N/A is claimed.",
+    "Historical free62 paid73 fact remains dated, not relabeled current183 paid-free-city proof; current loyalty departure to62 is actual ownership/asset outcome. Truecitystate6 separately tested.",
+    "Current native UI/Core views independent; missing API metadata/collectiontombstones/initialvictory projection and exactcaller counters UNKNOWN preserved.",
+    "Retained177immediate guard is explicitly dated; current183newload/two-normal snapshots are separate, no new paid capture or all177clauses rerun claim.",
+    "All fixture QA/grants/partial source limitations retained; no manual domestic patch, forced END, foreign command, free asset restoration or refunded failed expectation."
+  ],
+  "delivery_preconditions": {
+    "protected_save": {
+      "utc": "2026-11-24T08:36:01.677665+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC031GuardNormal116.Civ6Save",
+      "bytes": 571678,
+      "sha256": "977d46f851f816455574262597597f20e684a47b9c0e5f392f9243ec90ffc90b",
+      "stable_repeated_read": true
+    },
+    "all_owned_QA0_formal_MainMenu": true,
+    "new_Quit_terminate_kill": 0
+  },
+  "next": "Publish currentguard report/finalmatrix and37of40ledger/README, continueTC038040036 withoutfinal/stop.",
+  "schema": "civ6.source183-tc031-complete-frozen-special-matrix/v1",
+  "status": "PASS_FROZEN_TC031_REQUIRED_SPECIAL_ASSET_MATRIX_CURRENT_ENGINE_SCOPED_RETENTION",
+  "whole_TC031": "CLOSED",
+  "whole_mod": "OPEN_CONTINUE_REMAINING3",
+  "whole_cases_closed": 37,
+  "whole_cases_total": 40,
+  "percent": 92.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 11,
+  "product_changes": 0,
+  "guard_current_evidence": "docs/research/baiqi-source183-tc031-unique-guard-normal116-engine74-2026-11-24.json",
+  "final_native_closeout": {
+    "utc": "2026-11-24T08:39:13.330609+00:00",
+    "source_version": 183,
+    "owner": {
+      "pid": 20032,
+      "created_at": 1795492680.2846515,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "save": {
+      "utc": "2026-11-24T08:36:01.677665+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC031GuardNormal116.Civ6Save",
+      "bytes": 571678,
+      "sha256": "977d46f851f816455574262597597f20e684a47b9c0e5f392f9243ec90ffc90b",
+      "stable_repeated_read": true
+    },
+    "all_owned_world_and_menu_QA_retired": true,
+    "official_MainMenu_and_no_world_contexts": true,
+    "actual_normal_ENDs": 2,
+    "new_Quit_terminate_kill": 0,
+    "case_TC031_complete": false
+  },
+  "model": {
+    "real_prepared_tasks": [
+      {
+        "task": "R202_REAL_TC031_RETAINED177_UNIQUE_CAVALRY_GUARD_CURRENT183_NORMAL_CONTINUATION",
+        "source_count": 112,
+        "original_source_bytes": 1751284,
+        "prepared_not_wire": true
+      },
+      {
+        "task": "R203_REAL_TC031_CURRENT_UNIQUE_GUARD114_NORMAL_PLAYER_PHASE_AND_NEXT_SETTLEMENT",
+        "source_count": 118,
+        "original_source_bytes": 1816883,
+        "prepared_not_wire": true
+      },
+      {
+        "task": "R204_REAL_TC031_LOW_YIELD_GRANARY_INTEGER_PROGRESS_NEXT_NORMAL_OBSERVATION",
+        "source_count": 123,
+        "original_source_bytes": 1865315,
+        "prepared_not_wire": true
+      },
+      {
+        "task": "R205_REAL_TC031_FROZEN_F05_MATRIX_FINAL_SCOPE_REVIEW_AND_LEDGER_DELIVERY",
+        "source_count": 126,
+        "original_source_bytes": 2118475,
+        "prepared_not_wire": true
+      }
+    ],
+    "latest_bounded_metadata_UTC": "2026-11-24T08:34:26.182371+00:00",
+    "configured_coder_absent": true,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "daily_maintenance": {
+      "date": "2026-11-24",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "cost": null,
+    "configuration_or_service_changes": 0
+  },
+  "damage_observations": {
+    "wonder_immediate": [
+      [
+        "200",
+        "100",
+        "0",
+        "0"
+      ]
+    ],
+    "capital_prepared_garrison_outer_damage": [
+      150,
+      300
+    ],
+    "capital_immediate": [
+      [
+        "200",
+        "100",
+        "300",
+        "0"
+      ]
+    ],
+    "capital_normal115": [
+      [
+        "200",
+        "80",
+        "300",
+        "0"
+      ]
+    ],
+    "minor_before_after": {
+      "before": [
+        [
+          "65536",
+          "6",
+          "200",
+          "150",
+          "0",
+          "0"
+        ]
+      ],
+      "after": [
+        [
+          "131073",
+          "0",
+          "200",
+          "100",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "guard_current114_116": {
+      "before": [
+        [
+          "200",
+          "100",
+          "0",
+          "0"
+        ]
+      ],
+      "after": [
+        [
+          "200",
+          "60",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "scope": "Original native getter rows retained; defense damage/healing and unpillaged asset mappings are observations, no synthetic compensation or universal no-damage guarantee."
+  }
+}
