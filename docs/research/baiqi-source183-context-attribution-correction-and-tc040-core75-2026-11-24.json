@@ -1,0 +1,173 @@
+{
+  "utc": "2026-11-24T10:20:23.754347+00:00",
+  "machine": "BF-202609141645",
+  "status": "OWNER_ATTRIBUTION_ERROR_CORRECTED_NO_NEW_GAME_CASE_CREDIT",
+  "error": "Owner incorrectly described WorldInput as Core when it is a UI Lua context. First TC040CorecodedGetType on WorldInput failed before fieldfault/new business input; independentactualBaiqiGameplayquery now confirmscorrectrealm.",
+  "correct_TC038_scope": {
+    "utc": "2026-11-24T10:20:23.754347+00:00",
+    "evidence": "docs/research/baiqi-source183-context-attribution-correction-and-tc040-core75-2026-11-24.json",
+    "wrong_previous_label": "The WorldInput second UI context was incorrectly labeled Core in the earlier owner report/reader artifact names.",
+    "actual_contexts": {
+      "BaiqiExecutor": "UI",
+      "WorldInput": "UI"
+    },
+    "current_TC038_window_Gameplay_Core_queries_proved": 0,
+    "prior_fixed_commit_with_error": "92034d134b0e25512e7fe923fe9c13861ed827f5",
+    "old_public_file_sha256": "6363cfb6d1eed58b5afb8b7e4352e9dc75a80d017b455ce0405941d8ff6fc683",
+    "raw_receipts_and_prior_Git_history_preserved": true,
+    "later_TC040_Gameplay75_read_is_not_retroactive_TC038_Core_evidence": true,
+    "closure_scope": "Retain only the exact frozen four TC038 clauses: actual original GUI/normal turn/wallet/deal evidence, independent Native SDK reads vs actual planner records, saved result and 222budget comparisons/scoped isolation. Frozen contract does not require a named Core realm; no Core count or query credit is retained from the mislabel. No new case credit or relaxed mandatory text."
+  },
+  "TC040_actual75": {
+    "UI_context": "BaiqiExecutor",
+    "Core_context": "BaiqiGameplay",
+    "UI_unit_count": 29,
+    "Core_unit_count": 30,
+    "gold_both": 2554.93359375,
+    "target_UI": [
+      [
+        "0",
+        "3735581",
+        "UNIT_MISSIONARY",
+        "16",
+        "14",
+        "0",
+        "1",
+        "2",
+        "1",
+        "false",
+        "false",
+        "false",
+        "nil"
+      ]
+    ],
+    "target_true_Core": [
+      [
+        "0",
+        "3735581",
+        "3",
+        "UNIT_MISSIONARY",
+        "16",
+        "14",
+        "0",
+        "1",
+        "2",
+        "1"
+      ]
+    ],
+    "actual_Core_ports": [
+      [
+        "function",
+        "nil",
+        "function",
+        "function"
+      ]
+    ],
+    "actual_current_journal": [
+      "OBSERVED",
+      "religion:0:1",
+      "OBSERVED"
+    ],
+    "earlier_completed_spread_not_cleared_replayed_or_relabeled_as_OPEN": true,
+    "faults_armed": 0,
+    "unknown_or_unaccepted_request_Native_credit": false
+  },
+  "lifecycle": {
+    "old20032": {
+      "utc": "2026-11-24T10:03:24.413966+00:00",
+      "owner": {
+        "pid": 20032,
+        "created_at": 1795492680.2846515,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "actual_same_owned_process_absent": true,
+      "all_Civ6_processes_absent": true,
+      "actual_original_mainmenu_Quit_and_confirm": true,
+      "protected_native143_and_all_original_saves_verified": true,
+      "terminate_calls": 1,
+      "kill_calls": 0,
+      "actual_exit_code": 15,
+      "natural_process_exit_claimed": false,
+      "Steam_actions": 0,
+      "reason": "Fully saved QA0 game had completed window/listener shutdown but left a180s+idleprocess; standard owner-only residue cleanup. No live gameplay/data-loss exception or old10772 permission reuse."
+    },
+    "new_private_owner": {
+      "pid": 16868,
+      "created_at": 1795514725.3613791,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "one_cold_Popen": 1,
+    "fresh_backend_offline_proof_age_after_Popen": 0.018579,
+    "Steam_actions": 0,
+    "private123_install_verified": true,
+    "same_source183_not_new_product_fix": true
+  },
+  "new_pre_dispatch_context_contract": {
+    "files": [
+      "tools/tuner_context_contract.py",
+      "tools/test_tuner_context_contract.py"
+    ],
+    "methods": 4,
+    "exit": 0,
+    "chunk": "41fa92",
+    "wrong_UI_or_unknown_context_refused_before_callable_side_effect": true,
+    "known_Core_exactly_once_and_return_or_original_error_preserved": true,
+    "future_private_caller_records_actual_realm_and_checked_core_uses_BaiqiGameplay": true,
+    "no_retroactive_revalidation_of_old_calls": true
+  },
+  "local_model": {
+    "genuine_R209_sources": 14,
+    "original_bytes": 367447,
+    "prepared_not_wire": true,
+    "latest_metadata": {
+      "utc": "2026-11-24T10:17:22.613374+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-24",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-24T10:17:22.598498+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 10.197199881076813,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-24T10:17:22.609513+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "cea53cd620ce076e8904fd077d3e256a792e37fe40fdc0d1b8bca94ec31d8ccd",
+          "total_ms": 2.949800342321396
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "cost": null
+  },
+  "whole_mod": "38OF40_95PERCENT_OPEN_TC040_AND_TC036",
+  "next": "Continue actualcurrent75deferredfault/sink+observerstaging/natural76; preservecompletedOBSERVED. Do not stop after attribution correction or publication."
+}
