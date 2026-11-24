@@ -1,0 +1,1022 @@
+{
+  "schema": "civ6.source183-tc040-complete-controlled-state-unknown/v1",
+  "utc": "2026-11-24T11:04:05.274248+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_FROZEN_F07_CONTROLLED_OWNER_FORMATION_LEGALITY_AND_UNFORWARDED_ARMED_REQUEST",
+  "whole_TC040": "CLOSED",
+  "whole_mod": "OPEN_CONTINUE_TC036",
+  "whole_cases_closed": 39,
+  "whole_cases_total": 40,
+  "percent": 97.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 11,
+  "new_product_changes": 0,
+  "frozen_contract": {
+    "mandatory_lines": [
+      "- 需求：BR-026。夹具：F07，合法测试钩子可分别模拟所有者／编队／合法性读取缺失及请求未被接受。",
+      "- 步骤：各分支触发规划；检查是否停发、是否有有界原因；对一条已发送但引擎未完成的请求查看结果记录；核对记录与独立状态。",
+      "- 预期：关键检查未知时跳过，不默认允许；“提交”“接受”“完成”“未知”不混用，不把未变化资产标成成功。记录能关联对象与动作来源，重试有上限，无持续刷屏；无法取证记阻塞。",
+      "- 证据：注入范围与方法、原始诊断、实际游戏状态、请求数和原因提示次数；日志字段可读不等于功能通过。"
+    ],
+    "mandatory_UTF8_LF_sha256": "633e639127b651a33be6c6aed41485bc4d906a3ea775b066a841f5d7bb533cb9",
+    "same_as_fixed177base": true,
+    "clause_review": [
+      {
+        "mandatory_line": "- 需求：BR-026。夹具：F07，合法测试钩子可分别模拟所有者／编队／合法性读取缺失及请求未被接受。",
+        "pass": true,
+        "evidence": "Current183/.74 private123 payload, original local reads run first, exact ready owner0/fullID3735581/Missionary scalar snapshot copy owner/formation masked to nil separately; exact local spread qualifier actualtrue masked to nil. Original SDK getters and CanStartOperation namespace unchanged. Inner one-target SDK RequestOperation sink intercepts SPREAD only; outer unchanged-forward passive observer records actual requests/updates. Full123/101Lua-per-VM/privateZIP/inverse checks and eight tool methods retained. F07 controlled fault, not a claim of actual engine getter failure."
+      },
+      {
+        "mandatory_line": "- 步骤：各分支触发规划；检查是否停发、是否有有界原因；对一条已发送但引擎未完成的请求查看结果记录；核对记录与独立状态。",
+        "pass": true,
+        "evidence": "Actual75to76 normal refresh; owner active-window29 copied reads/0target operations or commands; separate new-purpose75copy formation5 copied reads/0target operations and legality1 native-true-to-nil/0SPREAD plus independently qualified one SKIP. First unknown branch actualSPREADattempt1/Nativeforward0, same persistedARMED religion:0:2 across normal76to77; separate actual GameplayCore record and UI actor, no cancel/clear/reissue."
+      },
+      {
+        "mandatory_line": "- 预期：关键检查未知时跳过，不默认允许；“提交”“接受”“完成”“未知”不混用，不把未变化资产标成成功。记录能关联对象与动作来源，重试有上限，无持续刷屏；无法取证记阻塞。",
+        "pass": true,
+        "evidence": "Unknown owner/formation deny rather than allow, no spread when qualifier unknown. Real charges2,xy16/14,Nativeformation1,4moves preserved; knownstandby changes readiness only. One target unresolved notice and owner reason once; formation reason once76 and missionary wait once per actual75/76, no persistent spam. Final first observer4258updates/3SDKoperations=oneSPREAD76 plus oneSKIP76 and oneSKIP77, no command and no repeatedSPREAD. Request log sourceBACKGROUND/id0:76:15/fullID3735581 joins independent actor/currentCore bank. ARMED not labeledaccepted/completed; no fabricated SDK ACK."
+      },
+      {
+        "mandatory_line": "- 证据：注入范围与方法、原始诊断、实际游戏状态、请求数和原因提示次数；日志字段可读不等于功能通过。",
+        "pass": true,
+        "evidence": "Allfour actual current controlled branches retain exact injection/runtime method, private authored Native attempts and immutable returns, current actor/counters/trueGameplayCore readings and scoped reason/request logs. Two final official saves independently stable-byte/SHA checked, all own world/menuQA retired, formalMainMenu worldcontexts absent, originalQuit then exact own-process exit and ordinary123 restoration. Core in formation/legal was queried AFTER local maskretirement and is not mislabeled an active-window query. No log-only case credit."
+      }
+    ]
+  },
+  "fixture_provenance": {
+    "historical_QA_missionary_setup75": true,
+    "original_bytes": 483801,
+    "original_sha256": "b7506828348f713f3d2d2fe71dfeac0a659d24952b06206147d570a47e098e88",
+    "two_independent_purpose_bytecopies": "owner/unforwarded and subsequently still-unperformed formation/legality; savedunknown77 never cleared/reloaded/retried",
+    "initial75_natural_BACKGROUND_effect": "Original loaded fixture had3charges; actual own controller moves between588/632 and spreads once to2 before baseline. Not manual grants, not newpurchase/training proof. Actualbaseline OBSERVEDreligion:0:1/0moves/2charges preserved."
+  },
+  "method": {
+    "product_payload": 123,
+    "Lua_compiled_each_VM": 101,
+    "private_changed_files": [
+      "Lua/BaiqiController.lua"
+    ],
+    "new_product_source_mutations": 0,
+    "SDK_getter_or_qualifier_namespace_replaced": false,
+    "controlled_local_snapshot_copy_and_exact_spread_qualifier": true,
+    "private_mask_limit_each_mode": 64,
+    "private_max_rows": 192,
+    "private_archive_sha256": "bb0c39c0e58d8c15e0a932360e0a31303db01fa7b8e46ad97d7a0cc6f09318b3",
+    "sink_target": [
+      0,
+      3735581,
+      "UNIT_MISSIONARY",
+      1592408602
+    ],
+    "known_native_SKIP_hash": 745019656,
+    "observer_scope": "This UI context SDK RequestOperation/RequestCommand and Controller.Update, exact target; global Native writers unavailable.",
+    "retire_order": "local read adapters then outer SDK observer then inner SDK sink, all exact owned bindings only; marker metadata removed after completed actions."
+  },
+  "owner_negative": {
+    "utc": "2026-11-24T10:31:56.101806+00:00",
+    "UI": {
+      "ACTOR": [
+        [
+          "3735581",
+          "0",
+          "UNIT_MISSIONARY",
+          "16",
+          "14",
+          "4",
+          "2",
+          "1",
+          "1",
+          "true",
+          "true",
+          "false",
+          "nil"
+        ]
+      ],
+      "FAULT": [
+        [
+          "owner",
+          "true",
+          "true",
+          "false",
+          "false",
+          "29",
+          "0",
+          "0",
+          "0",
+          "0",
+          "29"
+        ]
+      ],
+      "MASK_ROW": [
+        [
+          "1",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "2",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "3",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "4",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "5",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "6",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "7",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "8",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "9",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "10",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "11",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "12",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "13",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "14",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "15",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "16",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "17",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "18",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "19",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "20",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "21",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "22",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "23",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "24",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "25",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "26",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "27",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "28",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "29",
+          "owner",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ]
+      ],
+      "OBSERVER": [
+        [
+          "1140",
+          "0",
+          "0",
+          "0",
+          "0",
+          "true",
+          "true",
+          "true"
+        ]
+      ],
+      "TARGET_REQUEST": [],
+      "SINK": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "true",
+          "false"
+        ]
+      ],
+      "SDK_CAN_SPREAD": [
+        [
+          "true"
+        ]
+      ],
+      "JOURNAL": [
+        [
+          "OBSERVED",
+          "religion:0:1",
+          "OBSERVED"
+        ]
+      ],
+      "WINDOW_DONE": [
+        [
+          "76"
+        ]
+      ]
+    },
+    "Core_BaiqiGameplay": [
+      "3735581",
+      "0",
+      "UNIT_MISSIONARY",
+      "16",
+      "14",
+      "4",
+      "2",
+      "1",
+      "1"
+    ],
+    "controlled_missing_read_not_engine_getter_absence": true
+  },
+  "formation_legality": {
+    "utc": "2026-11-24T10:56:12.450456+00:00",
+    "source_version": 183,
+    "owner": {
+      "pid": 16868,
+      "created_at": 1795514725.3613791,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "actual_captured_UI_windows": {
+      "WINDOW": [
+        [
+          "formation",
+          "true",
+          "false",
+          "false",
+          "0",
+          "5",
+          "0",
+          "0",
+          "0",
+          "324",
+          "0",
+          "0",
+          "0",
+          "0",
+          "OBSERVED",
+          "religion:0:1"
+        ],
+        [
+          "legality",
+          "true",
+          "false",
+          "false",
+          "0",
+          "5",
+          "1",
+          "0",
+          "0",
+          "336",
+          "1",
+          "0",
+          "0",
+          "0",
+          "OBSERVED",
+          "religion:0:1"
+        ]
+      ],
+      "ACTOR": [
+        [
+          "formation",
+          "3735581",
+          "0",
+          "UNIT_MISSIONARY",
+          "16",
+          "14",
+          "4",
+          "2",
+          "1",
+          "1",
+          "true",
+          "true",
+          "false",
+          "nil"
+        ],
+        [
+          "legality",
+          "3735581",
+          "0",
+          "UNIT_MISSIONARY",
+          "16",
+          "14",
+          "4",
+          "2",
+          "1",
+          "1",
+          "false",
+          "false",
+          "false",
+          "nil"
+        ]
+      ],
+      "MASK": [
+        [
+          "formation",
+          "1",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "formation",
+          "2",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "formation",
+          "3",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "formation",
+          "4",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "formation",
+          "5",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "nil"
+        ],
+        [
+          "legality",
+          "6",
+          "0",
+          "3735581",
+          "UNIT_MISSIONARY",
+          "1",
+          "4",
+          "true",
+          "true"
+        ]
+      ],
+      "REQUEST": [
+        [
+          "legality",
+          "1",
+          "operation",
+          "745019656",
+          "1",
+          "76"
+        ]
+      ],
+      "EXPORT_DONE": [
+        [
+          "true"
+        ]
+      ]
+    },
+    "true_Gameplay_Core_after_local_hook_retirement": [
+      "3735581",
+      "0",
+      "UNIT_MISSIONARY",
+      "16",
+      "14",
+      "4",
+      "2",
+      "1",
+      "1"
+    ],
+    "Core_queried_inside_active_window": false,
+    "controlled_local_read_missing_not_native_getter_absence": true,
+    "normal_ENDs": 1,
+    "military_waits": 14,
+    "UserForced": 0,
+    "manual_domestic_inputs": 0,
+    "prior_ARMED77_branch_protected_unchanged": true,
+    "whole_TC040": "FROZEN_REVIEW_CLEANUP_SAVE_RESTORE_PENDING"
+  },
+  "unaccepted_unknown": {
+    "utc": "2026-11-24T10:49:06.516318+00:00",
+    "source_version": 183,
+    "owner": {
+      "pid": 16868,
+      "created_at": 1795514725.3613791,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "UI": {
+      "ACTOR77": [
+        [
+          "3735581",
+          "0",
+          "UNIT_MISSIONARY",
+          "16",
+          "14",
+          "4",
+          "2",
+          "1",
+          "1",
+          "true",
+          "true",
+          "false",
+          "nil"
+        ]
+      ],
+      "SINK77": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "true",
+          "false"
+        ]
+      ],
+      "INTERCEPT77": [
+        [
+          "1",
+          "0",
+          "false",
+          "76;0;3735581;16;14;4;2;1;true;true;false;nil;true"
+        ]
+      ],
+      "OBSERVER77": [
+        [
+          "4022",
+          "2",
+          "0",
+          "0",
+          "0",
+          "true",
+          "true",
+          "true"
+        ]
+      ],
+      "REQUEST77": [
+        [
+          "1",
+          "operation",
+          "1592408602",
+          "0",
+          "76"
+        ],
+        [
+          "2",
+          "operation",
+          "745019656",
+          "1",
+          "76"
+        ]
+      ],
+      "JOURNAL77": [
+        [
+          "ARMED",
+          "religion:0:2",
+          "ARMED"
+        ]
+      ],
+      "FAULT_RETIRED77": [
+        [
+          "true"
+        ]
+      ],
+      "UNKNOWN77_DONE": [
+        [
+          "77"
+        ]
+      ]
+    },
+    "Core_Gameplay": [
+      "3735581",
+      "0",
+      "UNIT_MISSIONARY",
+      "16",
+      "14",
+      "4",
+      "2",
+      "1",
+      "1"
+    ],
+    "actual_Core_persistent_record": [
+      [
+        "3735581",
+        "ARMED",
+        "religion:0:2",
+        "3735581",
+        "2",
+        "1",
+        "16",
+        "14",
+        "65536"
+      ]
+    ],
+    "actual_normal_turns": [
+      76,
+      77
+    ],
+    "ordinary_ENDs": 1,
+    "military_waits": 14,
+    "original_sdk_operation_names": [
+      [
+        "745019656",
+        "UNITOPERATION_SKIP_TURN"
+      ],
+      [
+        "1592408602",
+        "UNITOPERATION_SPREAD_RELIGION"
+      ]
+    ],
+    "SDK_SPREAD_attempts": 1,
+    "Native_SPREAD_forwarded": 0,
+    "explicit_engine_rejection_tested": false,
+    "engine_acceptance_or_completion_fabricated": false,
+    "new_manual_missionary_or_journal_mutation": 0,
+    "owner_field_missing_branch_retained": true,
+    "formation_and_legality_not_passed": true,
+    "whole_TC040": "OPEN_REMAINING_TWO_CONTROLLED_READ_BRANCHES"
+  },
+  "source_and_notice_logs": {
+    "utc": "2026-11-24T10:59:45.741692+00:00",
+    "source_version": 183,
+    "logs": {
+      "owner_unknown": {
+        "source_log_bytes": 26869,
+        "source_log_sha256": "dc638568a54999e7309c9b37ae2e5aca159d35dc2d0320e2643766c775f29f1b",
+        "scope_marker": "TC040183_STAGE75_READY",
+        "target_log_rows": [
+          "BaiqiExecutor: BAIQI|wait|turn=76|key=civilian-eligibility:3735581|reason=文职所有权变更或无法确认，等待可核验的己方单位状态",
+          "BaiqiExecutor: BAIQI|request|turn=76|id=0:76:15|source=BACKGROUND|unit=3735581|operation=SPREAD_RELIGION|city=65536|charges=2",
+          "BaiqiExecutor: BAIQI|missionary_request_unresolved|turn=76|id=0:76:15|unit=3735581|awaiting_current_charge_proof=true",
+          "BaiqiExecutor: BAIQI|request|turn=76|id=0:76:16|source=BACKGROUND|unit=3735581|operation=SKIP_TURN|reason=entrusted_standby",
+          "BaiqiExecutor: BAIQI|request|turn=77|id=0:77:25|source=BACKGROUND|unit=3735581|operation=SKIP_TURN|reason=entrusted_standby"
+        ],
+        "reason_counts": {
+          "文职所有权变更或无法确认，等待可核验的己方单位状态": 1
+        },
+        "product_errors": []
+      },
+      "formation_legality": {
+        "source_log_bytes": 39583,
+        "source_log_sha256": "50a1c980dee2cbd1c7c2819b9e9419a655458b5eb79216050e6bfd09adcf651e",
+        "scope_marker": "TC040183FL_FORMAL_MAINMENU\ttrue",
+        "target_log_rows": [
+          "BaiqiExecutor: BAIQI|wait|turn=75|key=missionary:3735581|reason=传教士等待安全国内路径或原生传播资格",
+          "BaiqiExecutor: BAIQI|request|turn=75|id=0:75:1|source=BACKGROUND|unit=3735581|operation=MOVE_TO|plot=588|from=632",
+          "BaiqiExecutor: BAIQI|observed|turn=75|id=0:75:1|unit=3735581|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|request|turn=75|id=0:75:2|source=BACKGROUND|unit=3735581|operation=MOVE_TO|plot=632|from=588",
+          "BaiqiExecutor: BAIQI|observed|turn=75|id=0:75:2|unit=3735581|kind=MOVE_TO",
+          "BaiqiExecutor: BAIQI|request|turn=75|id=0:75:3|source=BACKGROUND|unit=3735581|operation=SPREAD_RELIGION|city=65536|charges=3",
+          "BaiqiExecutor: BAIQI|observed|turn=75|id=0:75:3|unit=3735581|kind=SPREAD_RELIGION|proof=core_and_ui_charge_decrease|charges=2",
+          "BaiqiExecutor: BAIQI|wait|turn=76|key=civilian-eligibility:3735581|reason=文职处于护送编队或编队信息不明，等待可确认的独立状态",
+          "BaiqiExecutor: BAIQI|wait|turn=76|key=missionary:3735581|reason=传教士等待安全国内路径或原生传播资格",
+          "BaiqiExecutor: BAIQI|request|turn=76|id=0:76:15|source=BACKGROUND|unit=3735581|operation=SKIP_TURN|plot=632|from=632"
+        ],
+        "reason_counts": {
+          "传教士等待安全国内路径或原生传播资格": 2,
+          "文职处于护送编队或编队信息不明，等待可确认的独立状态": 1
+        },
+        "product_errors": []
+      }
+    },
+    "scope": "Real logs supplement Native actor/state/passive counter evidence; log syntax alone is not case PASS."
+  },
+  "final_first_branch_counters": [
+    "4258",
+    "3",
+    "0",
+    "1",
+    "0"
+  ],
+  "TEST_PLAYER": {
+    "first_branch_ordinary_ENDs": 2,
+    "first_branch_military_waits": 28,
+    "second_branch_ordinary_ENDs": 1,
+    "second_branch_military_waits": 14,
+    "UserForced": 0,
+    "manual_domestic_inputs": 0,
+    "BACKGROUND_vs_TEST_PLAYER_sources_separate": true
+  },
+  "closeout": {
+    "unknown77_save": {
+      "utc": "2026-11-24T10:50:35.018821+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC040UnknownARMED77.Civ6Save",
+      "bytes": 484857,
+      "sha256": "b832e24bea9556a93b3fbf95e09f149a35678847c36767f56bbd03e8d3242921",
+      "stable_repeated_read": true
+    },
+    "formation_legality76_save": {
+      "utc": "2026-11-24T10:58:05.064400+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC040FormationLegality76.Civ6Save",
+      "bytes": 484906,
+      "sha256": "4588a38805d4c3f6679de091cd740c8ceaf6cba030a56d3c34136e15173a7412",
+      "stable_repeated_read": true
+    },
+    "all_owned_QA_retired": true,
+    "formal_MainMenu_world_contexts_absent": true,
+    "exit_and_ordinary_restore": {
+      "utc": "2026-11-24T11:03:51.256151+00:00",
+      "owner": {
+        "pid": 16868,
+        "created_at": 1795514725.3613791,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "actual_original_Quit_and_confirm": true,
+      "same_owned_process_absent": true,
+      "all_Civ6_processes_absent": true,
+      "terminate_calls": 1,
+      "kill_calls": 0,
+      "actual_exit_code": 15,
+      "natural_process_exit_claimed": false,
+      "ordinary183_exact123_restored": true,
+      "private123_and_marker_backed_up": 124,
+      "protected_two_native_saves": {
+        "utc": "2026-11-24T10:59:31.938997+00:00",
+        "source_version": 183,
+        "owner": {
+          "pid": 16868,
+          "created_at": 1795514725.3613791,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "field_save": {
+          "utc": "2026-11-24T10:58:05.064400+00:00",
+          "name": "Baiqi_P6_20261124_V183_TC040FormationLegality76.Civ6Save",
+          "bytes": 484906,
+          "sha256": "4588a38805d4c3f6679de091cd740c8ceaf6cba030a56d3c34136e15173a7412",
+          "stable_repeated_read": true
+        },
+        "protected_untouched_unknown77": {
+          "utc": "2026-11-24T10:50:35.018821+00:00",
+          "name": "Baiqi_P6_20261124_V183_TC040UnknownARMED77.Civ6Save",
+          "bytes": 484857,
+          "sha256": "b832e24bea9556a93b3fbf95e09f149a35678847c36767f56bbd03e8d3242921",
+          "stable_repeated_read": true
+        },
+        "all_owned_world_and_menu_QA_retired": true,
+        "official_MainMenu_world_contexts_absent": true,
+        "TC040_whole": "FROZEN_OWNER_REVIEW_PENDING",
+        "Steam_actions": 0,
+        "terminate_calls": 0,
+        "kill_calls": 0
+      },
+      "root_product_source_unchanged": true,
+      "Steam_actions": 0
+    }
+  },
+  "owner_errors_and_recovery": [
+    "First driver sampled owner29negative reads then slowCore/fullrowoutput before mode transition; bounded64 cap expired before formationArm. Assertion rejected nextArm, no formation/legal passclaimed and no END75 replay. Actual expiry allowed a SPREADattempt held by sink; continued that actual unknown76 state and saved77 without clearing it.",
+    "Separate new-purpose original75 bytecopy tested only remainingformation/legal. Minimal atomic query capturedformation5andarmedlegality in same Lua execution; next legalnil1 capture retired onlyownlocalreadhooks before expensive export/Core. No toolcapchange or live-sourcehotswap.",
+    "Truncated tool result lost first prospectiveunknown76parent status. Actual OS parent absence/registrationabsence/firstNativeattemptabsence were recorded with exitnull/chunknull, then a distinct strict76resume parent executed new actions. No fake terminal0/replay.",
+    "One GUI capture label with uppercase was rejected before input or image, then distinct validlowercase label used. No game action replay."
+  ],
+  "local_model": {
+    "genuine_R210_sources": 11,
+    "R210_bytes": 363410,
+    "genuine_R211_sources": 11,
+    "R211_bytes": 503799,
+    "prepared_not_wire": true,
+    "latest_bounded_metadata": {
+      "utc": "2026-11-24T10:42:19.006986+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-24",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-24T10:42:18.894373+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 83.76269973814487,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-24T10:42:18.983041+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "18b31186130efe6384166264aa809bea519d233e927354d8fc759f7ecbde6416",
+          "total_ms": 18.925100099295378
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "configuration_service_fallback_changes": 0,
+    "cost": null
+  },
+  "private_evidence_SHA256": {
+    "tc040183-76-owner-bounded-actual-window-qualified.json": "e3940381ad32b5d948b78408a6a73df9230bf0be73f62808590e8b2018441278",
+    "tc040183-76-owner-limit-current-state-recovered-no-replay.json": "f374936fb4255c14d34b80e1336dcd8665274ed4f36d6025995962f24ad2030b",
+    "tc040183-77-one-unforwarded-SPREAD-still-ARMED-normal-cycle-qualified.json": "f076704ca2b7e71b11f13b24024977d9294579cdc6c74f13023697d8913a8c6b",
+    "tc040183-unknown77-saved-all-world-QA-retired.json": "97b9f3f5dfff747e4a40a45e8bce6bb98581e156d51c114400d12aa4924d1ed7",
+    "tc040183fl-76-formation-legality-atomic-actual-windows-qualified.json": "73574b3863b9f38ad32ca97c4099169fd79d7bdaa9c9328ddb82f58b9e2d554a",
+    "tc040183fl-fields76-saved-all-world-QA-retired.json": "14ed584a9caa85464c0d7e874f419bf21b569b36d43f37abebbac2f75c624c97",
+    "tc040183fl-all-four-branches-saved-all-QA0-formal-MainMenu-qualified.json": "5801dff253e258f6c13ef46ce6f90f73e7c3e4877da284a188c692a5d6111cba",
+    "tc040183-current-two-branches-target-request-and-reason-log-audit.json": "6c781f75f54265497289832cb60815d8edb4de2096e60d39e8120db32e9b6663",
+    "tc040183-allbranches-exit-ordinary123-restored-qualified.json": "a29efa1b16b14501866fc4ca7a9fdf81c8660fdf9f53038ece9ea15c362d2e25",
+    "tc040183-prior-truncated-unknown76-launch-reconciled-no-Native-admission.json": "67a85b722e8d6ab318dbc700770ea741e92518105ee58496cea7a6e68209d829"
+  },
+  "limits": [
+    "F07 controlled fault scope only; explicit Native engine rejection return was not tested. Unforwarded SDK submission and persistent unfinishedARMED satisfy frozen notaccepted/unknown branch without inventing engineacceptance.",
+    "No old8650807/6684713/458752unknown canceled, cleared, reissued or declared recovered. The F07finitecase does not close those separate unsupported histories.",
+    "Source160/159olderengine faults are historical only; currentowner/formation/legality/unforwarded branches all new183/.74 Native.",
+    "Active formation/legal masks proved with exact capturedUI SDK actors/passivecounts; trueGameplayCore independent read afterward is labeledpostretirement. UI/Core aggregateunitcounts can differ and are not forcedequal.",
+    "TC036 three full current183/.74 performancecalendars still required. Frozen40case percentage is acceptance closure, not codecoverage or hoursremaining."
+  ]
+}

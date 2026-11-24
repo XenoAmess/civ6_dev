@@ -1567,3 +1567,7 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-24 [上下文归属更正及TC040真Core75](research/baiqi-source183-context-attribution-correction-and-tc040-core75-2026-11-24.json)：负责人将TC038的WorldInput误标Core，现明确撤销；实际为BaiqiExecutor／WorldInput两个UI上下文的原生SDK读数，原始回执与旧commit不改。TC038按冻结四条的原版GUI／实际回合／钱包协议／222真实预算／保存及隔离证据保留有限关闭，当前窗口Core查询授信0，不以新75补读追认旧143Core。整体38/40＝95%不增加完成项，余040／036。新私有16868正常冷启，真正BaiqiGameplay75为30单位、UI29分列，目标3735581身份／位置／0行动／2次数／教1一致，原OBSERVEDreligion:0:1保留，不冒称OPEN或重放传播；字段故障未武装。新增提交前上下文门禁4方法通过。旧20032正式Quit后四分钟无窗口／监听／CPU变化的已保存残留单次terminate1／kill0清理，如实不称自然退出；档案全核。R209真实14源367447准备、10:17canonical仍缺，0候选采用。继续TC040实机。
+
+
+2026-11-24 [183 TC040缺失状态／未知请求完整有限矩阵](research/baiqi-source183-tc040-complete-controlled-state-unknown-engine74-2026-11-24.json)关闭，[最新账本](research/baiqi-source183-finite40-engine74-tc040-closed-2026-11-24.json)39/40＝97.5%，仅余TC036；待发11／工坊172。实际183／.74：owner29缺失读取0目标操作，独立副本formation5缺失0操作／legality原生true置nil1且0传播、1已核待命；SDK getter不替换，仅读取副本／局部资格钩子。首分支唯一传播尝试被拦未转发，ARMEDreligion:0:2真实76→77仍在，GameplayCore账本及4行动／2次数／原位独立核对，无重发或假成功。4258自然Update仅1传播与两回合各1待命；原因每回合有界，42玩家待命／3普通END／0UserForced或手动内政。两份正式存档484857／b832e24b、484906／4588a388已核，全部QA撤除／主菜单／正式退出及普通123恢复。第一次64上限耗尽的编队切换未执行不授通过，保留实际未知后以新独立用途副本补剩余两项，原ARMED77保护不清空重试。F07有限通过不冒称旧未知存档修复或原生明确拒绝API返回；继续三组完整当前183／.74性能验收，预计3–5小时，提交后不停工。
+ R210／211真实11源363410／503799字节准备未上wire；canonical仍缺、同日维护缓存、0生成候选采用／原生生成、成本null。短诊断窗口的取证＋下一模式切换在同一次调用完成，Core与完整行导出移到钩子退役后；丢失终态按OS及既有意图核对，未知终端保持null，不盲重放。
