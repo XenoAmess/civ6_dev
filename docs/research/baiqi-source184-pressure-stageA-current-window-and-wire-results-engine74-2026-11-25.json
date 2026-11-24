@@ -1,0 +1,3218 @@
+{
+  "utc": "2026-11-24T20:25:29.318052+00:00",
+  "source_version": 184,
+  "status": "CURRENT184_PRESSURE_STAGEA_FINITE_RESULTS",
+  "MANY_B_plan": "PASS",
+  "NO_SITE_B_plan": "PASS",
+  "both_quiet_observers_qualified": true,
+  "sides": {
+    "many": {
+      "B_plan": "PASS",
+      "summary": {
+        "utc": "2026-11-24T20:09:48.477272+00:00",
+        "facts_sha256": "1cdec18b4bd557a724dc527e820e8d5fbf05458206e27af509bb22d397ec7b04",
+        "cities": 10,
+        "source": "baiqi184-pressure-stageA-v1",
+        "initial_turn": 6,
+        "sample_quality_ok": true,
+        "samples": 299,
+        "classification_counts": {
+          "Admin.Run": {
+            "pure_ten": 137,
+            "10_to_11": 0,
+            "eleven_city": 0,
+            "turn_crossing": 0,
+            "other_city_state": 0,
+            "outside_window": 0,
+            "before_native_anchor": 0
+          },
+          "Controller.RunNow": {
+            "pure_ten": 159,
+            "10_to_11": 0,
+            "eleven_city": 0,
+            "turn_crossing": 0,
+            "other_city_state": 0,
+            "outside_window": 0,
+            "before_native_anchor": 3
+          }
+        },
+        "eligible_calls_by_turn": {
+          "Admin.Run": {
+            "7": 27,
+            "8": 28,
+            "9": 27,
+            "10": 28,
+            "11": 27
+          },
+          "Controller.RunNow": {
+            "7": 31,
+            "8": 32,
+            "9": 31,
+            "10": 31,
+            "11": 34
+          }
+        },
+        "targets": {
+          "Admin.Run": {
+            "pure_ten_count": 137,
+            "p50_ms": 0.0,
+            "p95_ms": 1.0001659393310547,
+            "max_ms": 1.0001659393310547,
+            "above_20ms_count": 0,
+            "above_50ms_count": 0,
+            "budget_ok": true
+          },
+          "Controller.RunNow": {
+            "pure_ten_count": 159,
+            "p50_ms": 0.0,
+            "p95_ms": 0.9999275207519531,
+            "max_ms": 24.000167846679688,
+            "above_20ms_count": 1,
+            "above_50ms_count": 0,
+            "budget_ok": true
+          }
+        },
+        "overall_budget_ok": true,
+        "pre_anchor": {
+          "pending": 0,
+          "recorded": 3,
+          "validated": 3,
+          "errors": 0
+        },
+        "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass."
+      },
+      "all_wire_interval_audit": {
+        "quiet_observer_qualified": true,
+        "status": "QUALIFIED_ZERO_RECORDED_TRANSACTION_OVERLAP",
+        "anchors": {
+          "7": 1795550773.601,
+          "8": 1795550810.415,
+          "9": 1795550847.254,
+          "10": 1795550884.048,
+          "11": 1795550920.737
+        },
+        "clock_calibrations": [
+          {
+            "sequence": 13,
+            "host_start": "2026-11-24T20:06:06.814495+00:00",
+            "host_end": "2026-11-24T20:06:07.156352+00:00",
+            "actual_game_now": 1795550767.138,
+            "offset_low": -0.020352031707763674,
+            "offset_high": 0.3255049247741699
+          },
+          {
+            "sequence": 28,
+            "host_start": "2026-11-24T20:06:42.870636+00:00",
+            "host_end": "2026-11-24T20:06:43.116353+00:00",
+            "actual_game_now": 1795550803.084,
+            "offset_low": -0.03435292434692383,
+            "offset_high": 0.2153641242980957
+          },
+          {
+            "sequence": 43,
+            "host_start": "2026-11-24T20:07:19.737043+00:00",
+            "host_end": "2026-11-24T20:07:20.011955+00:00",
+            "actual_game_now": 1795550839.9950001,
+            "offset_low": -0.018954898834228517,
+            "offset_high": 0.25995722007751465
+          },
+          {
+            "sequence": 58,
+            "host_start": "2026-11-24T20:07:56.476578+00:00",
+            "host_end": "2026-11-24T20:07:56.709280+00:00",
+            "actual_game_now": 1795550876.6920002,
+            "offset_low": -0.019279863357543947,
+            "offset_high": 0.2174221534729004
+          },
+          {
+            "sequence": 73,
+            "host_start": "2026-11-24T20:08:33.335282+00:00",
+            "host_end": "2026-11-24T20:08:33.531745+00:00",
+            "actual_game_now": 1795550913.514,
+            "offset_low": -0.019745018005371096,
+            "offset_high": 0.18071785163879395
+          },
+          {
+            "sequence": 88,
+            "host_start": "2026-11-24T20:09:09.928922+00:00",
+            "host_end": "2026-11-24T20:09:10.065379+00:00",
+            "actual_game_now": 1795550950.033,
+            "offset_low": -0.0343789119720459,
+            "offset_high": 0.10607805442810059
+          },
+          {
+            "sequence": 103,
+            "host_start": "2026-11-24T20:09:46.395340+00:00",
+            "host_end": "2026-11-24T20:09:46.570823+00:00",
+            "actual_game_now": 1795550986.5540001,
+            "offset_low": -0.018822814941406252,
+            "offset_high": 0.1606601734161377
+          }
+        ],
+        "constant_offset_brackets_consistent": true,
+        "conservative_observed_game_minus_host_offset_union": [
+          -0.0343789119720459,
+          0.3255049247741699
+        ],
+        "actual_query_attempts": 108,
+        "actual_matched_wire_receipts": 108,
+        "unknown_matches": [],
+        "unmatched_wire_receipts": [],
+        "overlap_transactions": [],
+        "transactions": [
+          {
+            "sequence": 1,
+            "wire": "20261124T200307671876Z.json",
+            "wire_sha256": "f1f36d6a7a469cb78648090aac9260e3a88e17714f26cb6ec0aeda39f4bc0996",
+            "context": "MainMenu",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "58d66623d2efc025dbb1e98094ce25bc5630e5cead533760aec2cc64237064bc",
+            "host_start": 1795550587.669521,
+            "host_returned_record": 1795550587.888857,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 2,
+            "wire": "20261124T200408656426Z.json",
+            "wire_sha256": "d886410e6100148af82e9807f68fdca3de2e620f61b3afde35874c08477c44c4",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "4f8b27eeee1e030f9d4285dd9029f3dc54d830210b4255f04d560acdf660ccf5",
+            "host_start": 1795550648.654923,
+            "host_returned_record": 1795550649.01168,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 3,
+            "wire": "20261124T200411469422Z.json",
+            "wire_sha256": "cb46bd4e4ac9f8947e8c519f90aaf30abb526ef725ba99c94f2217c387402021",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "19ee9aee609f446ad9399885bea08c21a9ae3983cca48d87e21b25856335bc56",
+            "host_start": 1795550651.467564,
+            "host_returned_record": 1795550651.644084,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 4,
+            "wire": "20261124T200412470272Z.json",
+            "wire_sha256": "182abba8dbf2d9a52b2355f38e36b2ba4b63a33968c6bb8a72537ef7b4327c33",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "1d2fa921f0d5a8bc784bed4e479e06fe120349f7213fbc5ef92fbc638ae7d4a9",
+            "host_start": 1795550652.468652,
+            "host_returned_record": 1795550652.619338,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 5,
+            "wire": "20261124T200414452479Z.json",
+            "wire_sha256": "43466d9549b4cb7d1a91869f16c0840c588702ef3ac90093e98885f4865f8466",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "c9f267323a31a5228620481d7aad31fd022664cd128732ed533dc2f91e7339f0",
+            "host_start": 1795550654.450841,
+            "host_returned_record": 1795550654.656763,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 6,
+            "wire": "20261124T200519303805Z.json",
+            "wire_sha256": "6af8f9e0d1fc682ad2fa5830d176f9934bff806cedf98496dcb1009a4a91e169",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "f2ce88f66fbd5da06ae6f54722daac261aaa892c26e727ef832295c7a7cb9eb3",
+            "host_start": 1795550719.302078,
+            "host_returned_record": 1795550719.387196,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 7,
+            "wire": "20261124T200521894820Z.json",
+            "wire_sha256": "78ed963452c3c211e6996cccdb1825af8c1386881b09e7ead7ecfad30b1fc2b4",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "4193d88ac9c9d3345282527446d83bc431bc9199700afd17f16c7df6810396b7",
+            "host_start": 1795550721.893049,
+            "host_returned_record": 1795550721.998242,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 8,
+            "wire": "20261124T200522379606Z.json",
+            "wire_sha256": "e846b576c22a764634b93bcef85f145226ce2ec74cc6e2277122dbace19c5252",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "4489c3f74e554f4aab9bf530aa175856c0ea70e41c8e915944ea415f49049921",
+            "host_start": 1795550722.377621,
+            "host_returned_record": 1795550722.899899,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 9,
+            "wire": "20261124T200603576141Z.json",
+            "wire_sha256": "ad05fc9b09d418d108450b4277fecfaf6842988aa6e8ae397bfd352503274ca9",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "4f8b27eeee1e030f9d4285dd9029f3dc54d830210b4255f04d560acdf660ccf5",
+            "host_start": 1795550763.574196,
+            "host_returned_record": 1795550763.933115,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 10,
+            "wire": "20261124T200605846515Z.json",
+            "wire_sha256": "3359f20dc3ed3d0a016b8cf000dbf2936dba2a5299907aa5d043960358a4cad3",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "fcbf752283439b13f7ba0109515dd57aad726d6549c4e3044b55908bfc773106",
+            "host_start": 1795550765.844726,
+            "host_returned_record": 1795550766.006308,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 11,
+            "wire": "20261124T200606248728Z.json",
+            "wire_sha256": "c808af46ec192a7c2670a9429d9f3f32fd80f7d05f998b0e1fccdfe6a6779e72",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550766.246521,
+            "host_returned_record": 1795550766.395273,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 12,
+            "wire": "20261124T200606423396Z.json",
+            "wire_sha256": "89e8e1eb1694eaa93f7c2ba2742b4913a82f003e2f7bc010312892d6c998bf40",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "a95cedbc63ecd3dac0b1b392499658b52fb003cb1623b51864c0f5942b9662db",
+            "host_start": 1795550766.420995,
+            "host_returned_record": 1795550766.783433,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 13,
+            "wire": "20261124T200606817023Z.json",
+            "wire_sha256": "177646f15c5ad40ea5a034f1d6da81772a7c56cc7e9983aece79b088b13e78b8",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8597acf4e47f0e3339d14b3a8793c7f3162fdca9a90e7a5cd1641a6ab2cf743b",
+            "host_start": 1795550766.814495,
+            "host_returned_record": 1795550767.156352,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 14,
+            "wire": "20261124T200607199685Z.json",
+            "wire_sha256": "a0f9f46e791b96e7b263d94a2032180cc2c20c251ed605505955ab160ac09ea1",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550767.19625,
+            "host_returned_record": 1795550767.54281,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 15,
+            "wire": "20261124T200607572857Z.json",
+            "wire_sha256": "ff31e635ca1c7980edc507d72860ae4ee9c76767622719595c754f03dda99ddd",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7d3b5a3762c0a2e7331659b59f047ef26cbde67c28428a34bea8c621e3b82552",
+            "host_start": 1795550767.570586,
+            "host_returned_record": 1795550767.929458,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 16,
+            "wire": "20261124T200607959902Z.json",
+            "wire_sha256": "90ad6b2a3bf77b25b7d41b4be5d254e9954ce0b9409b07dc6928e512ee9e98bc",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550767.957685,
+            "host_returned_record": 1795550768.302492,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 17,
+            "wire": "20261124T200608359980Z.json",
+            "wire_sha256": "9c505f7fe42e689a7f8267d39c9d27742b2eb39f276e43e5a512f6162c1b3b6f",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "1bcfc0c22e2265f090e5f2caa8f69ed0ee31b686735da1aad814814c17865e60",
+            "host_start": 1795550768.357473,
+            "host_returned_record": 1795550768.680688,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 18,
+            "wire": "20261124T200608714270Z.json",
+            "wire_sha256": "704958c505b04000ea25525f2ca14bc9b8741e34731b7893aa1bebf4d5e5bde8",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "5b83e5b319ef11f7bf0e1277bcac0ecdce603dc70c3882056b6425264fce35c1",
+            "host_start": 1795550768.712103,
+            "host_returned_record": 1795550769.079979,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 19,
+            "wire": "20261124T200609122274Z.json",
+            "wire_sha256": "3e592f875335ec874863c590c62440ef5a950dcb6af975767755d92f1f859c30",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550769.119518,
+            "host_returned_record": 1795550769.524351,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 20,
+            "wire": "20261124T200609924872Z.json",
+            "wire_sha256": "019ef590fa0879fa41cb168b17a8ffdfc8f19e689bc017d9db2bb2fc989af5a0",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "1bcfc0c22e2265f090e5f2caa8f69ed0ee31b686735da1aad814814c17865e60",
+            "host_start": 1795550769.909503,
+            "host_returned_record": 1795550770.201568,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 21,
+            "wire": "20261124T200610429034Z.json",
+            "wire_sha256": "59e3b350fc013bedb594ae32e7c53a7324a1bb0b639c0d13b55367a4eb7d4d3e",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "6b113c7737740fc3a63f9596e9fb398f9f0cb28ab64eafa4103b27b958dae99d",
+            "host_start": 1795550770.413882,
+            "host_returned_record": 1795550770.580824,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 22,
+            "wire": "20261124T200610646990Z.json",
+            "wire_sha256": "93a9d21d9bcc46bfc7cdcd0981d5d74262e3774c86509aa0f1d69a25beef0454",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550770.643727,
+            "host_returned_record": 1795550770.950714,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 23,
+            "wire": "20261124T200611157336Z.json",
+            "wire_sha256": "f37894c68ae207e638c3fb1932929fd500454a90498c8f0e88c980860578cb6d",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "1bcfc0c22e2265f090e5f2caa8f69ed0ee31b686735da1aad814814c17865e60",
+            "host_start": 1795550771.154407,
+            "host_returned_record": 1795550771.317916,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 24,
+            "wire": "20261124T200611349390Z.json",
+            "wire_sha256": "db6fb44b0548bc57841bb97c901285bb3a949e2273ffe3a603c4afbc045ba343",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "5b83e5b319ef11f7bf0e1277bcac0ecdce603dc70c3882056b6425264fce35c1",
+            "host_start": 1795550771.34726,
+            "host_returned_record": 1795550771.708514,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 25,
+            "wire": "20261124T200611738088Z.json",
+            "wire_sha256": "7cf4b9fe3e18b798d11860566cafd01fe16d4d49d33076b43b7345a099192553",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550771.735801,
+            "host_returned_record": 1795550772.097145,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 26,
+            "wire": "20261124T200612153176Z.json",
+            "wire_sha256": "8e6c105f5a71607f1ac0b0abe7a3193512029a281aa151dd10dd2d8d7bb2ba2e",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "1bcfc0c22e2265f090e5f2caa8f69ed0ee31b686735da1aad814814c17865e60",
+            "host_start": 1795550772.150994,
+            "host_returned_record": 1795550772.470817,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 27,
+            "wire": "20261124T200612502350Z.json",
+            "wire_sha256": "df23fb95cbf39ffe6b6f38abf27478d5fa8f216ca8b0227569556c8d92cd29ba",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "144126aa3f5a005f1cd5eeda0492982efa64f3ee401ea649b688dcd1cb3e9c8e",
+            "host_start": 1795550772.50008,
+            "host_returned_record": 1795550772.844829,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 28,
+            "wire": "20261124T200642872827Z.json",
+            "wire_sha256": "e2c6aea802a2f57c06ef8263d188cef05231fc20a31e45b58d34e59c94b38f74",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8597acf4e47f0e3339d14b3a8793c7f3162fdca9a90e7a5cd1641a6ab2cf743b",
+            "host_start": 1795550802.870636,
+            "host_returned_record": 1795550803.116353,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 29,
+            "wire": "20261124T200644345355Z.json",
+            "wire_sha256": "45952019d68277d933efbfc35de2f85e6ca935114c4541776bdee283b1113c50",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550804.343233,
+            "host_returned_record": 1795550804.588347,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 30,
+            "wire": "20261124T200644614341Z.json",
+            "wire_sha256": "b31094f251cc22f32c55cdb647543d36ff661d2bd80df7b89b6a0fd7783fdbd6",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "94bb1d62dae91b8858131e408506961e1911bba4b67d12cd3758f0d1975a9346",
+            "host_start": 1795550804.612359,
+            "host_returned_record": 1795550804.964666,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 31,
+            "wire": "20261124T200644985631Z.json",
+            "wire_sha256": "316f73e88e64da140a1e6135ff488b515a15d1027307ccef85e769eec115a006",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550804.983845,
+            "host_returned_record": 1795550805.347772,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 32,
+            "wire": "20261124T200645381799Z.json",
+            "wire_sha256": "38053a1b9c4b477c9dfb24f56e16ad6bdbcb76bd6c2dc34f51413b1483f8884b",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "650fb6bd495c4d106dbc1058d2132e7c63472e91fb9a6c35c907fddf08c6d07f",
+            "host_start": 1795550805.380223,
+            "host_returned_record": 1795550805.720672,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 33,
+            "wire": "20261124T200645747307Z.json",
+            "wire_sha256": "015de9437c7fa3f88573da3db1f987503d311d4a18f708e0f9515c21f49f04d0",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "a1c8eaa8494a30e4ae7ad8e55db347e368e6fb06cf774f4bdaf52af1368b968f",
+            "host_start": 1795550805.745229,
+            "host_returned_record": 1795550806.094981,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 34,
+            "wire": "20261124T200646120171Z.json",
+            "wire_sha256": "6b61c5ff4098ee2cf05288379b7973dbcf82ee0e02222aaafd7dbad24f7ed370",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550806.11813,
+            "host_returned_record": 1795550806.452161,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 35,
+            "wire": "20261124T200646487472Z.json",
+            "wire_sha256": "fd34f78f30f24cd99edd3a623ecc6f7ad04363fb10d94d138b08256fdc0f2e8e",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "650fb6bd495c4d106dbc1058d2132e7c63472e91fb9a6c35c907fddf08c6d07f",
+            "host_start": 1795550806.485922,
+            "host_returned_record": 1795550806.826149,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 36,
+            "wire": "20261124T200646852112Z.json",
+            "wire_sha256": "72927b9fd551a9ec6a819513f3d77b1b5fdf7a2ece388a7b481351b724bacc3b",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "3f60b34b05c2a22a1c2f745057d34ca211321fcb74a03b14d53ea6478a19ae1f",
+            "host_start": 1795550806.850254,
+            "host_returned_record": 1795550807.19926,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 37,
+            "wire": "20261124T200647222539Z.json",
+            "wire_sha256": "36f955b241aafddcb1f535f5bd42acffac96903c0bf19fe89af5ef4142dd3da8",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550807.220761,
+            "host_returned_record": 1795550807.57146,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 38,
+            "wire": "20261124T200647608343Z.json",
+            "wire_sha256": "f8b1fea6d328b0059db50f2af58e3e01f7ee30bc0bd6586d5f75d01a91ba9a7a",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "650fb6bd495c4d106dbc1058d2132e7c63472e91fb9a6c35c907fddf08c6d07f",
+            "host_start": 1795550807.606929,
+            "host_returned_record": 1795550807.94271,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 39,
+            "wire": "20261124T200647970360Z.json",
+            "wire_sha256": "f4add5449873fc28d174a157fac7f483d562d34365da0044d3fb51103c0e0d16",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "a1c8eaa8494a30e4ae7ad8e55db347e368e6fb06cf774f4bdaf52af1368b968f",
+            "host_start": 1795550807.968297,
+            "host_returned_record": 1795550808.318806,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 40,
+            "wire": "20261124T200648342296Z.json",
+            "wire_sha256": "d157ee6378c8e6e9ff5adeb2ffd5b96899e53db8f738406830949be0dcbf51ea",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550808.340553,
+            "host_returned_record": 1795550808.977059,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 41,
+            "wire": "20261124T200649015532Z.json",
+            "wire_sha256": "13a32a37ec57d7595b8510e7c3fa2db950c77c471418d51bee18d077b8b811b8",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "650fb6bd495c4d106dbc1058d2132e7c63472e91fb9a6c35c907fddf08c6d07f",
+            "host_start": 1795550809.013756,
+            "host_returned_record": 1795550809.33581,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 42,
+            "wire": "20261124T200649360601Z.json",
+            "wire_sha256": "044edd2e1477912271946bdb52d904bb52135e48334eff6c3991bbc38bbb9b6a",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "0c72dd18bfafefb6b1dc02c9f307934e72d442aeea7f954db58c5f2fc91c089c",
+            "host_start": 1795550809.359003,
+            "host_returned_record": 1795550809.71226,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 43,
+            "wire": "20261124T200719739422Z.json",
+            "wire_sha256": "13c444fe67033eb168b65e05193141c1180f2c1ad4038c68251f74f21e96f537",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8597acf4e47f0e3339d14b3a8793c7f3162fdca9a90e7a5cd1641a6ab2cf743b",
+            "host_start": 1795550839.737043,
+            "host_returned_record": 1795550840.011955,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 44,
+            "wire": "20261124T200721232646Z.json",
+            "wire_sha256": "81d22d1868ab07c12d35bf3c747f2f50eac1b5a028787c4a68baaf5fd2ca47fc",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550841.231243,
+            "host_returned_record": 1795550841.520048,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 45,
+            "wire": "20261124T200721546489Z.json",
+            "wire_sha256": "9cd0020685ba0afbd4edbf89c3fd284655bf224f1c44d838cd040d287c081e1a",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "53b03b64c8cfaf04e695ef60a36a90fa4c0e7714c31235332fcda09c381fa733",
+            "host_start": 1795550841.544227,
+            "host_returned_record": 1795550841.911017,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 46,
+            "wire": "20261124T200721933828Z.json",
+            "wire_sha256": "7b01c01c4928a1beadbc2f6ae790f1717bbafb2fb76f74557338329de07127ec",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550841.932018,
+            "host_returned_record": 1795550842.271715,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 47,
+            "wire": "20261124T200722309205Z.json",
+            "wire_sha256": "29300d3a4d972400583b356a97683a34865300a3eae8801bad9f2c0629a70efc",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8de594729d92888113b1486c19928cdeee45ff64aad7eae8a8ac7da4a773fbae",
+            "host_start": 1795550842.307658,
+            "host_returned_record": 1795550842.661732,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 48,
+            "wire": "20261124T200722691472Z.json",
+            "wire_sha256": "44b4b372da6779d4679fcb05c5fe74af34b3fe31d52d8d9d10d73a86da86940b",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "031aabb3a8644d70048fc76921833c251e8a4514a324939c0509b20c5ed58e8b",
+            "host_start": 1795550842.689576,
+            "host_returned_record": 1795550843.021935,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 49,
+            "wire": "20261124T200723052984Z.json",
+            "wire_sha256": "431826dd5d0fbba3c9e46f9477991fd7b02d4b37bfb8aec58efccdc1d68e6b47",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550843.050622,
+            "host_returned_record": 1795550843.394093,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 50,
+            "wire": "20261124T200723445223Z.json",
+            "wire_sha256": "5b07d2089fbb02497e6468f89e2b0f081537c3a4e9b88f7f82a0ab157e30da58",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8de594729d92888113b1486c19928cdeee45ff64aad7eae8a8ac7da4a773fbae",
+            "host_start": 1795550843.443003,
+            "host_returned_record": 1795550843.782048,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 51,
+            "wire": "20261124T200723822477Z.json",
+            "wire_sha256": "7739c314ab144d7b8b22975d2ad13c931975078d3073c9651ef6e98c391c9171",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "eebc33399eb4b539130c899267ea8e30802f77fb5e12747faf1fc854aa1dbc1b",
+            "host_start": 1795550843.819514,
+            "host_returned_record": 1795550844.182083,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 52,
+            "wire": "20261124T200724350552Z.json",
+            "wire_sha256": "ea671cd046d03ab82bacc29878111fde22a79e5eba7c975399900e529b9371e5",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550844.336479,
+            "host_returned_record": 1795550844.562575,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 53,
+            "wire": "20261124T200724625714Z.json",
+            "wire_sha256": "f06eeaed47c89b60a881b4a996c9c719756455662750182e39e97ee503fb453b",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8de594729d92888113b1486c19928cdeee45ff64aad7eae8a8ac7da4a773fbae",
+            "host_start": 1795550844.623452,
+            "host_returned_record": 1795550844.94786,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 54,
+            "wire": "20261124T200724980903Z.json",
+            "wire_sha256": "df4f013319c17e38939d8f044daf240adb51bb8cd1a668679512fe260653cc49",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "031aabb3a8644d70048fc76921833c251e8a4514a324939c0509b20c5ed58e8b",
+            "host_start": 1795550844.978841,
+            "host_returned_record": 1795550845.304918,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 55,
+            "wire": "20261124T200725333944Z.json",
+            "wire_sha256": "79b19bff1bce1d56b1d940b799505520ac14e46f2b4f38ca44ea679eb0e16edf",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550845.331825,
+            "host_returned_record": 1795550845.691978,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 56,
+            "wire": "20261124T200725762903Z.json",
+            "wire_sha256": "ec4b7a5dd590237c1a12d3e5e92428026fa785444ac850769ef516e8f0bda7a6",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8de594729d92888113b1486c19928cdeee45ff64aad7eae8a8ac7da4a773fbae",
+            "host_start": 1795550845.760431,
+            "host_returned_record": 1795550846.079862,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 57,
+            "wire": "20261124T200726112124Z.json",
+            "wire_sha256": "2e0b261c2e035126eace52e389d28ffbd3136c4b651787bc3bdfae42ddab198b",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "365c7d3dd6f17b2a7b89697f5f4c4e82fef2c17b80f75373f4f30c7df854639a",
+            "host_start": 1795550846.109784,
+            "host_returned_record": 1795550846.45311,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 58,
+            "wire": "20261124T200756478449Z.json",
+            "wire_sha256": "2a6d92b0e81ee23906d751b4b23b8d138b9fe32e73989e27bb7d8ea88c077bf9",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8597acf4e47f0e3339d14b3a8793c7f3162fdca9a90e7a5cd1641a6ab2cf743b",
+            "host_start": 1795550876.476578,
+            "host_returned_record": 1795550876.70928,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 59,
+            "wire": "20261124T200757937492Z.json",
+            "wire_sha256": "47c34e937822c755a315375460b2e656aa3fcaf9241cd6f66d3be7db22b84413",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550877.935292,
+            "host_returned_record": 1795550878.165747,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 60,
+            "wire": "20261124T200758194600Z.json",
+            "wire_sha256": "2e7b69349e7aec45255dd31d92b7d1cc756c182b8a86c42d8d3a6f05057d93b3",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "9fdbce38475ae4e591133a6dba45a8a346d38e6f024043807813e0b364e3de06",
+            "host_start": 1795550878.191855,
+            "host_returned_record": 1795550878.539017,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 61,
+            "wire": "20261124T200758560957Z.json",
+            "wire_sha256": "db3a24517dd67dcabd8157d2619c48182abc452f2dc3af5fcccc221127a3c8c8",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550878.559304,
+            "host_returned_record": 1795550878.915259,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 62,
+            "wire": "20261124T200758960698Z.json",
+            "wire_sha256": "bd525349610cb8f7f8885d45bc68a9de740381e618fa2a0cf6bad215e5ef4cc3",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "b359a0ab3654ed5f6ecf3aa159e9829b3432244a76df9b5e3df212b4fcd2253d",
+            "host_start": 1795550878.958694,
+            "host_returned_record": 1795550879.286552,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 63,
+            "wire": "20261124T200759317641Z.json",
+            "wire_sha256": "a95de8ef781480902aaab42184fd5b7cb84a8e1e782304ad23c3d3ca0d3be6de",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "37cf7a3c4ea61e6c43bbeaf5c48996a1f90d36feb50f9fff1866c3667b98dce8",
+            "host_start": 1795550879.315368,
+            "host_returned_record": 1795550879.677067,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 64,
+            "wire": "20261124T200759705595Z.json",
+            "wire_sha256": "790979b69e5504a8604c2c320e88e3aedab63013c49a753fcba34f99b842300b",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550879.703615,
+            "host_returned_record": 1795550880.067538,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 65,
+            "wire": "20261124T200800111896Z.json",
+            "wire_sha256": "4a804c3cd3328c9604645e681a3e19a072334469954316e1b1d08fc708470355",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "b359a0ab3654ed5f6ecf3aa159e9829b3432244a76df9b5e3df212b4fcd2253d",
+            "host_start": 1795550880.108809,
+            "host_returned_record": 1795550880.437018,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 66,
+            "wire": "20261124T200800467252Z.json",
+            "wire_sha256": "b73f1b20530df33772177e65e7112ad1591cde9ad526e7c92680eb13e08f59e3",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e5d6dc0b6389af5054fc120face9ae780ad586f8755a0c07cedd0221f6c0cbd1",
+            "host_start": 1795550880.464976,
+            "host_returned_record": 1795550880.808482,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 67,
+            "wire": "20261124T200800834527Z.json",
+            "wire_sha256": "e94ecece733b94590c1bea08e2b41e7f5cfe78d9c73f0fc1b8b102853e99ee1a",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550880.83227,
+            "host_returned_record": 1795550881.199085,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 68,
+            "wire": "20261124T200801235121Z.json",
+            "wire_sha256": "6cf7c27b49f8e33ef01eb1370dfa15001c146fd9f09febbbaaad54eb04a6dae9",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "b359a0ab3654ed5f6ecf3aa159e9829b3432244a76df9b5e3df212b4fcd2253d",
+            "host_start": 1795550881.233166,
+            "host_returned_record": 1795550881.555414,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 69,
+            "wire": "20261124T200801578012Z.json",
+            "wire_sha256": "827e2065651cf937cfd4c7f867a278872e4dbbef45b683c6b472812a5c5631e2",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "37cf7a3c4ea61e6c43bbeaf5c48996a1f90d36feb50f9fff1866c3667b98dce8",
+            "host_start": 1795550881.576488,
+            "host_returned_record": 1795550881.945722,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 70,
+            "wire": "20261124T200801970815Z.json",
+            "wire_sha256": "df47fe2b758bdd735f333ab370c8017f0b469e025e327b993e2704aa0eed17bb",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550881.968304,
+            "host_returned_record": 1795550882.305642,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 71,
+            "wire": "20261124T200802344631Z.json",
+            "wire_sha256": "22065f6193f60fa912b916aac72298c5576d4b8595458f8f7f957d71ab009967",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "b359a0ab3654ed5f6ecf3aa159e9829b3432244a76df9b5e3df212b4fcd2253d",
+            "host_start": 1795550882.34301,
+            "host_returned_record": 1795550882.667603,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 72,
+            "wire": "20261124T200802692032Z.json",
+            "wire_sha256": "79f825aeaeaf0dcfb6cc49f01db73843d0dfbc3ac9d1bbdce49cd6ef98637470",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "78fcb950dc2a07c03acc97568dcc90cce82b6c01cab52c60e3ea1e7b36b960fa",
+            "host_start": 1795550882.689461,
+            "host_returned_record": 1795550883.307325,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 73,
+            "wire": "20261124T200833337619Z.json",
+            "wire_sha256": "c1887f6bd1eda37bc8b57a0bcaf03e7a673fb6d49c965a93a30bc7e8b52c4f9e",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8597acf4e47f0e3339d14b3a8793c7f3162fdca9a90e7a5cd1641a6ab2cf743b",
+            "host_start": 1795550913.335282,
+            "host_returned_record": 1795550913.531745,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 74,
+            "wire": "20261124T200834758293Z.json",
+            "wire_sha256": "6a84dc49db8b1e88d3d3e00268295e22aaf3979d84dcf75f9c27262d0d045697",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550914.756021,
+            "host_returned_record": 1795550915.000274,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 75,
+            "wire": "20261124T200835027443Z.json",
+            "wire_sha256": "bca5799b72946423ed541310740bc9132c2fdca5bc24791b73bc7375e6d7832b",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "1367bf1f52cc9f53c28506abc41d886562e5b05e41e36bf6f212111bdb2e3166",
+            "host_start": 1795550915.02535,
+            "host_returned_record": 1795550915.371771,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 76,
+            "wire": "20261124T200835400077Z.json",
+            "wire_sha256": "1dc4150ae3001763ec4a37a6f8b145b2703a5864dabe1dffd2f9c542f7b7d27e",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550915.39787,
+            "host_returned_record": 1795550915.742907,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 77,
+            "wire": "20261124T200835786670Z.json",
+            "wire_sha256": "974ac640c3d29d37d81f00e76ac436e07febbcb2d3becc01d348b8651b7308b2",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "259365b7a1709c9083f9bfb49890a1c9419c7e1b84a2c9d02827139ade9e52e9",
+            "host_start": 1795550915.784783,
+            "host_returned_record": 1795550916.129625,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 78,
+            "wire": "20261124T200836158099Z.json",
+            "wire_sha256": "bbe614aa376f7e1b2ec364300861368a912c99bcccc9d3edb1073de977bd283a",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "09af607179bd909ce85d7d238c6512cdeefc1deda5af29dd5c359c80fabee36a",
+            "host_start": 1795550916.156231,
+            "host_returned_record": 1795550916.502811,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 79,
+            "wire": "20261124T200836525896Z.json",
+            "wire_sha256": "a2c4f528747234868131aaa467b915cbd165d44626b7d6fbcec1c6c3c045ac44",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550916.52425,
+            "host_returned_record": 1795550916.874161,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 80,
+            "wire": "20261124T200836911318Z.json",
+            "wire_sha256": "c8d961bcb8acf2a52c93f0b886902f9da8a7a975536d8b29d3e052d155389d08",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "259365b7a1709c9083f9bfb49890a1c9419c7e1b84a2c9d02827139ade9e52e9",
+            "host_start": 1795550916.909763,
+            "host_returned_record": 1795550917.262462,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 81,
+            "wire": "20261124T200837291974Z.json",
+            "wire_sha256": "319aff08e2291456101117c61212e5e25ef5275d7e3ec9bc824ed07a4bc6f65e",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e253e5b3e4e6e8059bd6f37ed9f6cf61ae2eac7119d23bb1dcb4e1932343ff03",
+            "host_start": 1795550917.289884,
+            "host_returned_record": 1795550917.625817,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 82,
+            "wire": "20261124T200837655431Z.json",
+            "wire_sha256": "e30ff138be58282cefa42994eb47d2d67195afd9e1844382b392bd9e4f1a3b20",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550917.652216,
+            "host_returned_record": 1795550917.98451,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 83,
+            "wire": "20261124T200838033046Z.json",
+            "wire_sha256": "68ad1388fc7bd1b93ac66536cad00ab0a6bb7f58effce3bdb1c69a7839dfb603",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "259365b7a1709c9083f9bfb49890a1c9419c7e1b84a2c9d02827139ade9e52e9",
+            "host_start": 1795550918.030927,
+            "host_returned_record": 1795550918.373448,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 84,
+            "wire": "20261124T200838401225Z.json",
+            "wire_sha256": "c0d21b7c394f757acdde9686c9259fd03fcc531788c775d63547eebbe8bbb322",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "09af607179bd909ce85d7d238c6512cdeefc1deda5af29dd5c359c80fabee36a",
+            "host_start": 1795550918.398715,
+            "host_returned_record": 1795550918.761067,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 85,
+            "wire": "20261124T200838792365Z.json",
+            "wire_sha256": "094fce5dc00ac68575fa18beb7a970e267896676694143dc330da3d0d9626c12",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550918.788531,
+            "host_returned_record": 1795550919.145396,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 86,
+            "wire": "20261124T200839194752Z.json",
+            "wire_sha256": "47af8d6b3a335c46ea53803eddcf59b3d1c01e676c2f1f8f820ac47ac8ac18dc",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "259365b7a1709c9083f9bfb49890a1c9419c7e1b84a2c9d02827139ade9e52e9",
+            "host_start": 1795550919.19267,
+            "host_returned_record": 1795550919.521813,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 87,
+            "wire": "20261124T200839553527Z.json",
+            "wire_sha256": "1a3876ab343a7443a687c3be2c8a72b9c8bbd94cb03b085558fbba02848e5545",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "22b5912a8b333cdc5782c7cd83b7358d677d3f9effc03762d7e8e6092251d365",
+            "host_start": 1795550919.551588,
+            "host_returned_record": 1795550919.903775,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 88,
+            "wire": "20261124T200909930903Z.json",
+            "wire_sha256": "700a82d60277f4ec11cb13bc0cdc673fd68f8ed871f7dbf3abbcb7bf7d38464e",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8597acf4e47f0e3339d14b3a8793c7f3162fdca9a90e7a5cd1641a6ab2cf743b",
+            "host_start": 1795550949.928922,
+            "host_returned_record": 1795550950.065379,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 89,
+            "wire": "20261124T200911287174Z.json",
+            "wire_sha256": "e7a2b22dafd49a992bfb292c4ea4a2f0921430f51eca5163d776d49eeee7b62f",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550951.284878,
+            "host_returned_record": 1795550951.50946,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 90,
+            "wire": "20261124T200911527671Z.json",
+            "wire_sha256": "fa882022eac658f79a9ec4686f7ef4207ecb6d614d64a7ac23df8c1339fb09e1",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "daca0de469d4041da3604d0eafb23e949aa952a16f5d6b57b8fbe16daff8ca64",
+            "host_start": 1795550951.526307,
+            "host_returned_record": 1795550951.892905,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 91,
+            "wire": "20261124T200911919209Z.json",
+            "wire_sha256": "abfdaf5a76c5082938d3cfcd4dda9e16d0cf7b04247b3a772b47822ae31319ef",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550951.916563,
+            "host_returned_record": 1795550952.281339,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 92,
+            "wire": "20261124T200912325857Z.json",
+            "wire_sha256": "7fbbc65b27b29d7351450bd9e9b3d3096ee606164a303d6087265df8bd42147e",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "970143443d5d9db7f0cff7deb4f3cc350d6555c7c150f3aa30abdde19d5eb9ae",
+            "host_start": 1795550952.323953,
+            "host_returned_record": 1795550952.652867,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 93,
+            "wire": "20261124T200912680468Z.json",
+            "wire_sha256": "941c594cfe89084630c6caeab15b78e83e08f2e1405bd8f037ae73fb2b1878fb",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "618a24dd3c7101fbc3a193d3f3a5def70b2de98e85b6a3a6107b2bb34099aeee",
+            "host_start": 1795550952.678646,
+            "host_returned_record": 1795550953.027794,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 94,
+            "wire": "20261124T200913052160Z.json",
+            "wire_sha256": "39226f551094e2cb2a7a569da1197cc78a60207ba198fb36c6c52870c6b58b8e",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550953.050273,
+            "host_returned_record": 1795550953.387319,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 95,
+            "wire": "20261124T200913433448Z.json",
+            "wire_sha256": "265a506b5847fff751f46635754fc49b1bb120e2ca442a48d55819d0b57ab809",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "970143443d5d9db7f0cff7deb4f3cc350d6555c7c150f3aa30abdde19d5eb9ae",
+            "host_start": 1795550953.430453,
+            "host_returned_record": 1795550953.76006,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 96,
+            "wire": "20261124T200913789852Z.json",
+            "wire_sha256": "e73eab6b69ea0fc865b22dbc2c209d3b6cd17628eb8667661ad54bbc147222d1",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7728158b01bdf90ef55721bf3d84ee04429fa83fdb1994acb56feb87dca066f7",
+            "host_start": 1795550953.787843,
+            "host_returned_record": 1795550954.149233,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 97,
+            "wire": "20261124T200914172903Z.json",
+            "wire_sha256": "54f1fa2a1e83f2fbab397d192922ff52d3d39a4c2677945b7fd45078786ca6ae",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550954.171142,
+            "host_returned_record": 1795550954.5085,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 98,
+            "wire": "20261124T200914548692Z.json",
+            "wire_sha256": "96267ca16a7d7f55e7e4ca56875643357535b32b6863e53130fd556b53f6f2c6",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "970143443d5d9db7f0cff7deb4f3cc350d6555c7c150f3aa30abdde19d5eb9ae",
+            "host_start": 1795550954.547149,
+            "host_returned_record": 1795550954.89966,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 99,
+            "wire": "20261124T200914928977Z.json",
+            "wire_sha256": "ae2fac35f738ab25235546230ebc0289d3cb24202c8296812f883564504ccc67",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "618a24dd3c7101fbc3a193d3f3a5def70b2de98e85b6a3a6107b2bb34099aeee",
+            "host_start": 1795550954.926971,
+            "host_returned_record": 1795550955.273168,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 100,
+            "wire": "20261124T200915299224Z.json",
+            "wire_sha256": "0a47ec873234798c6034ba49dfc0e8ff301eeef41270e07a913b0522b9ad9e2b",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795550955.297237,
+            "host_returned_record": 1795550955.63453,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 101,
+            "wire": "20261124T200915668794Z.json",
+            "wire_sha256": "0db3c6b170834a5db3d64368f250e576da79cef667108d7a577951feadacf1db",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "970143443d5d9db7f0cff7deb4f3cc350d6555c7c150f3aa30abdde19d5eb9ae",
+            "host_start": 1795550955.667422,
+            "host_returned_record": 1795550956.010415,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 102,
+            "wire": "20261124T200916034939Z.json",
+            "wire_sha256": "84711bf726a8c87d151cf8e26eea62728835f3840a597c5a67a1831fed6df4d4",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "ff741feea5ddb740c01e09b0c01818dbc9f94f412256b617aa87e156d1a78ba7",
+            "host_start": 1795550956.032803,
+            "host_returned_record": 1795550956.37307,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 103,
+            "wire": "20261124T200946397059Z.json",
+            "wire_sha256": "bbb9ddbb65c4a60565248c6bc95c20769af4a9135d209c8d3ca89a8c410c0858",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8597acf4e47f0e3339d14b3a8793c7f3162fdca9a90e7a5cd1641a6ab2cf743b",
+            "host_start": 1795550986.39534,
+            "host_returned_record": 1795550986.570823,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 104,
+            "wire": "20261124T200947796538Z.json",
+            "wire_sha256": "bee07e74a6923b9205beb34072ea0f91353b20031851f531aabb3ef6df8381ed",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "0e491ffc96577d01a8fdc32640b6ccd736c36638abdde09b707ca5c1512d2ee1",
+            "host_start": 1795550987.794516,
+            "host_returned_record": 1795550988.082576,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 105,
+            "wire": "20261124T200948213724Z.json",
+            "wire_sha256": "c76c2eea0d64349e19339bb607eddefd470d918015c57a41e884b334033b4362",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "73db43dd09b692a2325e9ce21a630ee2d0198c99bf08da0c19f708a4a21fa989",
+            "host_start": 1795550988.211415,
+            "host_returned_record": 1795550988.456935,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 106,
+            "wire": "20261124T200950269598Z.json",
+            "wire_sha256": "a2e55a1e728c7dff5b3f15fb71c16cc8b488e5395973f8b145599ef807303f48",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "3133d305aecc71ac3f30bce68b67b2bd3d8e5951cd69d2adc44e404ac7b56a54",
+            "host_start": 1795550990.267013,
+            "host_returned_record": 1795550990.566952,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 107,
+            "wire": "20261124T200952971877Z.json",
+            "wire_sha256": "30ada703d87dcae1860996fe591af7abd238716b700114c0254ff5f184f4b0ac",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "39f9cb7752b33e34d950ad9d3854e6b48295cdbff7df02a0536bd61c362e1fe3",
+            "host_start": 1795550992.969561,
+            "host_returned_record": 1795550993.147575,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 108,
+            "wire": "20261124T200956937301Z.json",
+            "wire_sha256": "2d5312f9241029db4d16c650ed6fa98eb832412936e6f42ae4c3298ad14ab086",
+            "context": "InGameTopOptionsMenu",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "42eca0deedd1eea818a0b4cf0523f00efe33f055f10db494a69a379dea0e58b2",
+            "host_start": 1795550996.935194,
+            "host_returned_record": 1795550997.156658,
+            "window_overlaps": []
+          }
+        ],
+        "returned_exceptions": [],
+        "LSQ_only_endpoint_records": 11,
+        "all_LSQ_only_completed_before_armed": true,
+        "limits": "Finite observed host/game clock brackets with conservative full-call enclosure; not exact CMD CPU intervals, action completion proof, or a root cause claim.",
+        "utc": "2026-11-24T20:25:28.277880+00:00",
+        "source_version": 184,
+        "kind": "many",
+        "initial_turn": 6,
+        "actual_windows": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_product_fix185": false,
+        "old54and438FAIL_retained": true,
+        "original438_cause_proved": false,
+        "B_plan_budget_unchanged": true,
+        "whole_TC036_pass": false,
+        "Native_queries": 0
+      },
+      "launch": {
+        "utc": "2026-11-24T20:02:21.419219+00:00",
+        "owner": {
+          "pid": 19408,
+          "created_at": 1795550541.4167511,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "pid": 19408,
+        "created_at": 1795550541.4167511,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe",
+        "source_version": 184,
+        "mode": "baiqi184-pressure-stageA-v1",
+        "proof": {
+          "schema": "civ6.steam-qualified-native-readonly/v1",
+          "utc": "2026-11-24T20:02:21.298348+00:00",
+          "finished_utc": "2026-11-24T20:02:21.300174+00:00",
+          "machine": "BF-202609141645",
+          "nonce": "266d8a0ba42e0b6e686bb63bca708f0b",
+          "mode": "offline",
+          "steam_pid": 8788,
+          "steam_birth": 1795195446.682362,
+          "reference_commit": "8c23632b35626ef1554cbbdc9096d81f2cefe215",
+          "reference_files_sha256": {
+            "steam_offline_state_contract.py": "aaf493fc75e5a97fa7bccc7b380567edc789a68e8c0c8dd412dd38cf2516d02d",
+            "steam_offline_native_profiles.py": "e55a8b379a3a128da79f3603f30fdf269b5229c6dc4f9d66a42be53b196dbcb5",
+            "steam_offline_native_provider_v1.py": "e0766561e704164eb1ce4b34349e6546ad0791de1be89581d09c736f3af7963c",
+            "steam_offline_state_probe.py": "1fc34c340309318e6f7c6b7c89016c4ec326a58f482c3832088043023b2ed1a7"
+          },
+          "native_evidence": {
+            "machine_id": "BF-202609141645",
+            "observed_at_utc": "2026-11-24T20:02:21.298348+00:00",
+            "nonce": "266d8a0ba42e0b6e686bb63bca708f0b",
+            "module_base": "140722881167360",
+            "module_size": 19959808,
+            "value_rva": "18653399",
+            "value_address": "140722899820759",
+            "producer_rva": "6691596",
+            "producer_anchor_hex": "440fb605c385b600488d15c5297800488bcbe8dd0a3e00",
+            "producer_anchor_sha256": "e2ee13da1019c3cb41a999d4fda37bde192574390690cb2328c903de7fdd54c2",
+            "raw_samples": [
+              1,
+              1
+            ],
+            "steam_before": {
+              "pid": 8788,
+              "birth_filetime": "134396690466823619",
+              "exe": "C:\\Program Files (x86)\\Steam\\steam.exe",
+              "file_version": "11.23.65.88"
+            },
+            "steam_after": {
+              "pid": 8788,
+              "birth_filetime": "134396690466823619",
+              "exe": "C:\\Program Files (x86)\\Steam\\steam.exe",
+              "file_version": "11.23.65.88"
+            },
+            "source_before": {
+              "path": "C:\\Program Files (x86)\\Steam\\SteamUI.dll",
+              "bytes": 19675800,
+              "sha256": "2dfb0a5d50dd90667549cc7d413c7bfb0794c9af4ebaf08bf1cf7d938a11ea93",
+              "file_id": "562949953908736",
+              "mtime_ns": "1794535550000000000"
+            },
+            "source_after": {
+              "path": "C:\\Program Files (x86)\\Steam\\SteamUI.dll",
+              "bytes": 19675800,
+              "sha256": "2dfb0a5d50dd90667549cc7d413c7bfb0794c9af4ebaf08bf1cf7d938a11ea93",
+              "file_id": "562949953908736",
+              "mtime_ns": "1794535550000000000"
+            },
+            "tray_manager_pointer_rva": "18645800",
+            "tray_manager_address": "2582801223424",
+            "tray_state_offset": "352",
+            "tray_state_samples": [
+              4,
+              4
+            ]
+          },
+          "failure": null,
+          "input_sent": false,
+          "activation_api_called": false,
+          "focus_changed": false,
+          "window_move_api_called": false,
+          "screenshot_used": false,
+          "CEF_debugger_or_Steam_interface_called": false,
+          "account_configuration_read_or_written": false,
+          "borrowed_reference_machine_or_game_authority": false
+        },
+        "proof_age_seconds": 0.120885,
+        "CPU_affinity": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "Steam_actions": 0
+      },
+      "environment": {
+        "utc": "2026-11-24T20:02:25.593861+00:00",
+        "owner": {
+          "pid": 19408,
+          "created_at": 1795550541.4167511,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "program_name": "CivilizationVI_DX12.exe",
+        "exe_bytes": 21420896,
+        "exe_sha256": "9d5c0ce047493126a3b0606cabc7f8b03e203c19cf107588784647005045bc39",
+        "exe_mtime_ns": 1795186126686795200,
+        "file_version": "1.0.12.74",
+        "machine": "BF-202609141645",
+        "OS": "Windows-10-10.0.19045-SP0",
+        "CPU": "Intel(R) Xeon(R) CPU E5-2696 v3 @ 2.30GHz",
+        "physical_memory_bytes": 34193182720,
+        "CPU_affinity": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "launch_settings_guard_sha256": "48196389dc64054e5bf68b55fa7b0fcf4f4d298518e7a41d15efb86d14756166",
+        "settings_guard_passed": true,
+        "no_game_or_Steam_inputs": true,
+        "scope": "Fresh after-launch read outside formal. Current172 launch also verified the held program hash, size, mtime and affinity before launching; this receipt independently pins current paired environment."
+      },
+      "warmup": {
+        "utc": "2026-11-24T20:05:20.030801+00:00",
+        "owner": {
+          "pid": 19408,
+          "created_at": 1795550541.4167511,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "warmup_seconds": 64.73100018501282,
+        "archive_sha256": "2603acb6dec8ade884fa1f912e624b9ebc59db7b1126d8c71c53b722f220b24c"
+      },
+      "capture": {
+        "utc": "2026-11-24T20:09:48.084196+00:00",
+        "token": "a98dd9f4f1554959bfcae6ed728ea792",
+        "source": "baiqi184-pressure-stageA-v1",
+        "initial_turn": 6,
+        "phase": "COMPLETE",
+        "turn": 12,
+        "requested_turns": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "capture_start": 1795550766.751,
+        "capture_stop": 1795550988.049,
+        "samples": 299
+      },
+      "official_save": {
+        "utc": "2026-11-24T20:09:51.078772+00:00",
+        "name": "Baiqi_P6_20261125_V184_PressureManyPlanA12.Civ6Save",
+        "bytes": 329748,
+        "sha256": "a8020840a323e865aff00f1cc8f9ce16cbc35a04fc8de195cb83e5f72b2db6ce",
+        "stable_repeated_read": true
+      },
+      "formal_finished": {
+        "utc": "2026-11-24T20:09:55.050031+00:00",
+        "nonce": "65d78f9df2fb4de8803140337f770aae",
+        "capture_complete": true,
+        "quality_ok": true,
+        "B_plan": true,
+        "official_save_verified": true,
+        "retired": true,
+        "save": {
+          "utc": "2026-11-24T20:09:51.078772+00:00",
+          "name": "Baiqi_P6_20261125_V184_PressureManyPlanA12.Civ6Save",
+          "bytes": 329748,
+          "sha256": "a8020840a323e865aff00f1cc8f9ce16cbc35a04fc8de195cb83e5f72b2db6ce",
+          "stable_repeated_read": true
+        }
+      },
+      "exit": {
+        "utc": "2026-11-24T20:13:13.678883+00:00",
+        "exit_code": 15,
+        "terminate_count": 1,
+        "kill_escalations": 0,
+        "natural_exit_claimed": false
+      },
+      "cleanup": {
+        "utc": "2026-11-24T20:13:11.840463+00:00",
+        "owner": {
+          "pid": 19408,
+          "created_at": 1795550541.4167511,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "before": {
+          "all_windows": [],
+          "listeners": [],
+          "cpu_seconds": 660.90625,
+          "exit_age": 192.909805
+        },
+        "after2s": {
+          "all_windows": [],
+          "listeners": [],
+          "cpu_seconds": 660.90625,
+          "exit_age": 194.919795
+        },
+        "terminate_max": 1,
+        "Steam_actions": 0
+      },
+      "ordinary184_restored": {
+        "utc": "2026-11-24T20:13:20.654537+00:00",
+        "all_Civ6_absent": true,
+        "ordinary184_exact123_restored": true,
+        "private124_backed_up": true,
+        "exit_result": {
+          "utc": "2026-11-24T20:13:13.678883+00:00",
+          "exit_code": 15,
+          "terminate_count": 1,
+          "kill_escalations": 0,
+          "natural_exit_claimed": false
+        }
+      }
+    },
+    "nosite": {
+      "B_plan": "PASS",
+      "summary": {
+        "utc": "2026-11-24T20:21:21.817670+00:00",
+        "facts_sha256": "69064f5276c39892928f84e1be18e5e1038f2cc86b8db01fb5497d9b121fbdb2",
+        "cities": 10,
+        "source": "baiqi184-pressure-stageA-v1",
+        "initial_turn": 1,
+        "sample_quality_ok": true,
+        "samples": 294,
+        "classification_counts": {
+          "Admin.Run": {
+            "pure_ten": 138,
+            "10_to_11": 0,
+            "eleven_city": 0,
+            "turn_crossing": 0,
+            "other_city_state": 0,
+            "outside_window": 0,
+            "before_native_anchor": 0
+          },
+          "Controller.RunNow": {
+            "pure_ten": 155,
+            "10_to_11": 0,
+            "eleven_city": 0,
+            "turn_crossing": 0,
+            "other_city_state": 0,
+            "outside_window": 0,
+            "before_native_anchor": 1
+          }
+        },
+        "eligible_calls_by_turn": {
+          "Admin.Run": {
+            "2": 27,
+            "3": 28,
+            "4": 28,
+            "5": 27,
+            "6": 28
+          },
+          "Controller.RunNow": {
+            "2": 31,
+            "3": 31,
+            "4": 31,
+            "5": 31,
+            "6": 31
+          }
+        },
+        "targets": {
+          "Admin.Run": {
+            "pure_ten_count": 138,
+            "p50_ms": 0.0,
+            "p95_ms": 1.0001659393310547,
+            "max_ms": 1.0001659393310547,
+            "above_20ms_count": 0,
+            "above_50ms_count": 0,
+            "budget_ok": true
+          },
+          "Controller.RunNow": {
+            "pure_ten_count": 155,
+            "p50_ms": 0.0,
+            "p95_ms": 1.0001659393310547,
+            "max_ms": 2.000093460083008,
+            "above_20ms_count": 0,
+            "above_50ms_count": 0,
+            "budget_ok": true
+          }
+        },
+        "overall_budget_ok": true,
+        "pre_anchor": {
+          "pending": 0,
+          "recorded": 1,
+          "validated": 1,
+          "errors": 0
+        },
+        "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass."
+      },
+      "all_wire_interval_audit": {
+        "quiet_observer_qualified": true,
+        "status": "QUALIFIED_ZERO_RECORDED_TRANSACTION_OVERLAP",
+        "anchors": {
+          "2": 1795551466.684,
+          "3": 1795551503.168,
+          "4": 1795551539.8370001,
+          "5": 1795551576.543,
+          "6": 1795551613.421
+        },
+        "clock_calibrations": [
+          {
+            "sequence": 13,
+            "host_start": "2026-11-24T20:17:39.134397+00:00",
+            "host_end": "2026-11-24T20:17:39.494098+00:00",
+            "actual_game_now": 1795551459.477,
+            "offset_low": -0.019097949981689455,
+            "offset_high": 0.3446029682159424
+          },
+          {
+            "sequence": 28,
+            "host_start": "2026-11-24T20:18:16.076670+00:00",
+            "host_end": "2026-11-24T20:18:16.175736+00:00",
+            "actual_game_now": 1795551496.158,
+            "offset_low": -0.019735958099365236,
+            "offset_high": 0.0833300609588623
+          },
+          {
+            "sequence": 43,
+            "host_start": "2026-11-24T20:18:52.651397+00:00",
+            "host_end": "2026-11-24T20:18:52.906200+00:00",
+            "actual_game_now": 1795551532.887,
+            "offset_low": -0.02119984817504883,
+            "offset_high": 0.23760309410095215
+          },
+          {
+            "sequence": 58,
+            "host_start": "2026-11-24T20:19:29.357788+00:00",
+            "host_end": "2026-11-24T20:19:29.591306+00:00",
+            "actual_game_now": 1795551569.573,
+            "offset_low": -0.020306016921997072,
+            "offset_high": 0.21721186828613281
+          },
+          {
+            "sequence": 73,
+            "host_start": "2026-11-24T20:20:06.035169+00:00",
+            "host_end": "2026-11-24T20:20:06.335564+00:00",
+            "actual_game_now": 1795551606.3170002,
+            "offset_low": -0.02056374740600586,
+            "offset_high": 0.2838312644958496
+          },
+          {
+            "sequence": 88,
+            "host_start": "2026-11-24T20:20:42.869816+00:00",
+            "host_end": "2026-11-24T20:20:43.107866+00:00",
+            "actual_game_now": 1795551643.089,
+            "offset_low": -0.020866062164306642,
+            "offset_high": 0.22118392181396485
+          },
+          {
+            "sequence": 103,
+            "host_start": "2026-11-24T20:21:19.619317+00:00",
+            "host_end": "2026-11-24T20:21:19.899710+00:00",
+            "actual_game_now": 1795551679.882,
+            "offset_low": -0.019709970474243166,
+            "offset_high": 0.2646829147338867
+          }
+        ],
+        "constant_offset_brackets_consistent": true,
+        "conservative_observed_game_minus_host_offset_union": [
+          -0.02119984817504883,
+          0.3446029682159424
+        ],
+        "actual_query_attempts": 108,
+        "actual_matched_wire_receipts": 108,
+        "unknown_matches": [],
+        "unmatched_wire_receipts": [],
+        "overlap_transactions": [],
+        "transactions": [
+          {
+            "sequence": 1,
+            "wire": "20261124T201439067814Z.json",
+            "wire_sha256": "3060caceb92fd9f20796a00a89bad5cda57c28eedef75a65c5dd5ba0d7516bec",
+            "context": "MainMenu",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "dd1c536de732eff9bad5dfc26ea9ee947cf5940814baaf6ebca78d258a4b2497",
+            "host_start": 1795551279.066175,
+            "host_returned_record": 1795551279.344366,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 2,
+            "wire": "20261124T201530153541Z.json",
+            "wire_sha256": "9b57ff9539380971c0100748a9f3ea69f34e6ee4a916aa58c65ccca4c50a9e8a",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "5aff42ca6a89f5841c1606df5df6bc3085a1fb141d40555f2872825f463fcc01",
+            "host_start": 1795551330.15169,
+            "host_returned_record": 1795551330.483312,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 3,
+            "wire": "20261124T201533199828Z.json",
+            "wire_sha256": "dca9cfd163efc567add1864dcf8533831462b1511431641e3fe116592c0a89ec",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "96e331d1e69f161ab9383f75b2133129dc5f0c9e8ac0ae302e482627a2e26324",
+            "host_start": 1795551333.197812,
+            "host_returned_record": 1795551333.395981,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 4,
+            "wire": "20261124T201534262631Z.json",
+            "wire_sha256": "70904afa779b0b3ffed97a94b722d8654a18cde9c9fe02e7281b73d7fe8698f4",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "4d6d879039950927c061f4de8a6faa00d59fee9703cfc05718adf343c26835c6",
+            "host_start": 1795551334.260836,
+            "host_returned_record": 1795551334.646058,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 5,
+            "wire": "20261124T201536561782Z.json",
+            "wire_sha256": "ac3f64bb51292108bcd0886e3a62f03f901b134d6a77aaffa3f38c3af96fa7af",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7ba773d196ca7adadc3abfb6aad3c7c240d3c9eb9ad86b2eff5ae3eaedeee8f1",
+            "host_start": 1795551336.559593,
+            "host_returned_record": 1795551336.652033,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 6,
+            "wire": "20261124T201641376657Z.json",
+            "wire_sha256": "e50d2cf5a11fdea6ca603d8745875a30a6495354425f57cb4f2f100ee5966056",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "18af80d3bf8992c6e2dab17add69f2c722170c1245140e6fc530b95142d19a45",
+            "host_start": 1795551401.374034,
+            "host_returned_record": 1795551401.673036,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 7,
+            "wire": "20261124T201644109028Z.json",
+            "wire_sha256": "1957335c3bc36509f4b89d6c8ec949c383b53cd2270c0aabdd6f86b7af6cce22",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "d91c8892d06e9b407ff259843aa161c5faa06618b1ff93dad148ede5f75d4ff4",
+            "host_start": 1795551404.107399,
+            "host_returned_record": 1795551404.301602,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 8,
+            "wire": "20261124T201644717727Z.json",
+            "wire_sha256": "2e6fc90f9fe5c5ee7dcac3c9510da8d46af5fa9772d8f5e274b069ab4aff35da",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "0efd5c41b0b3e1e0a19421b9366c8a9d1052c76051285329662a3b8eb17bc7cf",
+            "host_start": 1795551404.715561,
+            "host_returned_record": 1795551405.206592,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 9,
+            "wire": "20261124T201735922858Z.json",
+            "wire_sha256": "5d04835fbdbac01b5c80f96d3d4db029250d3b3c6a63a8b7d13fc49b2df29e82",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "5aff42ca6a89f5841c1606df5df6bc3085a1fb141d40555f2872825f463fcc01",
+            "host_start": 1795551455.920989,
+            "host_returned_record": 1795551456.25529,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 10,
+            "wire": "20261124T201738228566Z.json",
+            "wire_sha256": "2349e5bc2326ee2b40963788322ad6ad1244abc43064758d1906426c9aaf35f5",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "4ee519dc5922d4ce76f6125e01f24036e3709adccb75484f6b54aa0c13d57b05",
+            "host_start": 1795551458.226334,
+            "host_returned_record": 1795551458.344788,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 11,
+            "wire": "20261124T201738482188Z.json",
+            "wire_sha256": "f8568ce18db203ce36a810e809c2613fa3bc64e61fd25da6f881210a5daf823b",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551458.480249,
+            "host_returned_record": 1795551458.717971,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 12,
+            "wire": "20261124T201738746706Z.json",
+            "wire_sha256": "cfb1715f87c11048c449109a5d59f051a1d7cfe26f87b71d0a7e57c6db97d0f4",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "66f0d406fcd9a64264e65a2a8f4a3d1d6c9969fc8acc67efc92d8ab498c2cf60",
+            "host_start": 1795551458.744522,
+            "host_returned_record": 1795551459.10584,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 13,
+            "wire": "20261124T201739137051Z.json",
+            "wire_sha256": "df97b7fa047f27b1d0c9b8ebd56f14bb0d97ed538c8c13ccf74c4b1c56ce9df8",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "43da88195a3d7bba8b1c542f4596dd8002a9b8b72d1aea2eeb025f867f4dc0d4",
+            "host_start": 1795551459.134397,
+            "host_returned_record": 1795551459.494098,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 14,
+            "wire": "20261124T201739541586Z.json",
+            "wire_sha256": "d4c9aeb4404301f80222349204182f78443de8b566e3bff35be399b3af939271",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551459.538832,
+            "host_returned_record": 1795551459.878141,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 15,
+            "wire": "20261124T201740075638Z.json",
+            "wire_sha256": "844bf75e7b0b38a89dcbcb2003126da83f701eed4eb635c9151c8c3eef3d1ce6",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "dbf9ca710d0b68d83ddb8189d34030dfbc25faad7e64c155201179be9b70c1c6",
+            "host_start": 1795551460.05839,
+            "host_returned_record": 1795551460.26593,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 16,
+            "wire": "20261124T201740328034Z.json",
+            "wire_sha256": "060fd69eba4accfdca85827d8283af8effde84201e03ffae38a094eb7d554001",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551460.323324,
+            "host_returned_record": 1795551460.645961,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 17,
+            "wire": "20261124T201740710472Z.json",
+            "wire_sha256": "4b66af6cc3d423cd9c65a429be34cd05218dff273bb196322efcc9782ac0c831",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "9daeabbf3793e1a474dd754bc4eb615d95957db1b282fe268ffc37d6a737e0ed",
+            "host_start": 1795551460.707955,
+            "host_returned_record": 1795551461.022263,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 18,
+            "wire": "20261124T201741075208Z.json",
+            "wire_sha256": "61565aa06a30c294f4b59a2adcd97bb468e82d8e0150c09c2f5e61b69ccab571",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "3e256e9b25d14cf826e8e4e74d693e829a9687ffd1031ad998df175405095663",
+            "host_start": 1795551461.072704,
+            "host_returned_record": 1795551461.42594,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 19,
+            "wire": "20261124T201741468499Z.json",
+            "wire_sha256": "10a926dfd7be5a5f145cd7f9237b9b12857f437c43175601839bd0af52c50f71",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551461.466022,
+            "host_returned_record": 1795551461.830614,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 20,
+            "wire": "20261124T201741901117Z.json",
+            "wire_sha256": "a5db1fc15c0822ef734047c88d00fa0633ea2db4e7db333d6afdabd33fc229db",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "9daeabbf3793e1a474dd754bc4eb615d95957db1b282fe268ffc37d6a737e0ed",
+            "host_start": 1795551461.89866,
+            "host_returned_record": 1795551462.252364,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 21,
+            "wire": "20261124T201742684787Z.json",
+            "wire_sha256": "1e9cc995aab156040fadd31b11194dfc7e63d53d11c4050e7ff339c72602d53c",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "be8c64818082813f8b389f56eec77e516b10583fd0a09bb814bd5447a4d7b02c",
+            "host_start": 1795551462.661371,
+            "host_returned_record": 1795551463.028382,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 22,
+            "wire": "20261124T201743396738Z.json",
+            "wire_sha256": "77cef8e6dc5d7b9b261716f7b253fd1461db4b52c7e34b8514c4f4bbae5b5cb0",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551463.371828,
+            "host_returned_record": 1795551463.793814,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 23,
+            "wire": "20261124T201743981942Z.json",
+            "wire_sha256": "035b1d22f8bde24b0fcd02907500b3f206ec6dd50573c3f6b4c500426babb26c",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "9daeabbf3793e1a474dd754bc4eb615d95957db1b282fe268ffc37d6a737e0ed",
+            "host_start": 1795551463.977672,
+            "host_returned_record": 1795551464.230049,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 24,
+            "wire": "20261124T201744652814Z.json",
+            "wire_sha256": "673366d9872471cc548d9be3544b83d3ba65c203f644f0f3f96f3deeb95a919c",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "3e256e9b25d14cf826e8e4e74d693e829a9687ffd1031ad998df175405095663",
+            "host_start": 1795551464.446483,
+            "host_returned_record": 1795551464.907833,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 25,
+            "wire": "20261124T201745014085Z.json",
+            "wire_sha256": "4bfc9cff20ee485dc18f39ddaf65b143f1c29867a4c57791258b6ff509afaa69",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551465.011048,
+            "host_returned_record": 1795551465.269009,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 26,
+            "wire": "20261124T201745322600Z.json",
+            "wire_sha256": "ad230159b57a03ce748011254aa6767c7a8fbc5cfb6346e6da4ea0a8e6c4ab2f",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "9daeabbf3793e1a474dd754bc4eb615d95957db1b282fe268ffc37d6a737e0ed",
+            "host_start": 1795551465.320303,
+            "host_returned_record": 1795551465.638342,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 27,
+            "wire": "20261124T201745671734Z.json",
+            "wire_sha256": "ac3b4c5eaa08c17ea1608a01eeeb682bdcd9f61f42586e688b1c2818fa06227a",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "a29c9a2efc93d77890970aa2b60f1944938e4a0cb7e9f61501726ca7efe8f62e",
+            "host_start": 1795551465.669502,
+            "host_returned_record": 1795551466.028537,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 28,
+            "wire": "20261124T201816079110Z.json",
+            "wire_sha256": "4de33c324928517661294fcd051a596c5e5c67fc55936ffbad58ebe836a17215",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "43da88195a3d7bba8b1c542f4596dd8002a9b8b72d1aea2eeb025f867f4dc0d4",
+            "host_start": 1795551496.07667,
+            "host_returned_record": 1795551496.175736,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 29,
+            "wire": "20261124T201817411581Z.json",
+            "wire_sha256": "a0c080c5e91e128932e9dcf09dcf397d9e7aa1727923f8a858e045f58804f8de",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551497.409246,
+            "host_returned_record": 1795551497.665949,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 30,
+            "wire": "20261124T201817703933Z.json",
+            "wire_sha256": "98759d41f0853a5aa6817c70b895938ba69a27bcce5fff3368c1f31c0c857d36",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "141401ee922f996a7134c0cc262ea29648ede87c208b83a18edeb2bd22f9e8b3",
+            "host_start": 1795551497.702047,
+            "host_returned_record": 1795551498.052123,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 31,
+            "wire": "20261124T201818102408Z.json",
+            "wire_sha256": "ec043f5e9f27172b0cb685f58a13e8c5d55ec016c4d8a1f57eb66346dcd2af94",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551498.089638,
+            "host_returned_record": 1795551498.422161,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 32,
+            "wire": "20261124T201818490891Z.json",
+            "wire_sha256": "ce6ca24e7afe4000c1f6b562f82d2bc13552d7237821339d3e45e0b2ee697b76",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e439c660c5f4e23946aebc9d7bc024d700ad723802684a3bc6f0aae8b7f3b58c",
+            "host_start": 1795551498.489135,
+            "host_returned_record": 1795551498.798212,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 33,
+            "wire": "20261124T201818845869Z.json",
+            "wire_sha256": "7c45dab58697559908d1bfffe37a7c2cbb516c545f4569f175b9869a389fa604",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "0c5caa0beb9d1da351f02cefc83b799eb0a71742944f6ae28ad35489117e6fa0",
+            "host_start": 1795551498.842819,
+            "host_returned_record": 1795551499.156759,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 34,
+            "wire": "20261124T201819203273Z.json",
+            "wire_sha256": "40aad937e3c8af0b7a88cf2f7a40987ee907f89cdc995856acb705b034b6e853",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551499.199485,
+            "host_returned_record": 1795551499.544188,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 35,
+            "wire": "20261124T201819602119Z.json",
+            "wire_sha256": "2533b4618888aac90bb70a83389944758ca177956539c2c41ff5fb8665dfa659",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e439c660c5f4e23946aebc9d7bc024d700ad723802684a3bc6f0aae8b7f3b58c",
+            "host_start": 1795551499.599785,
+            "host_returned_record": 1795551499.918688,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 36,
+            "wire": "20261124T201819961945Z.json",
+            "wire_sha256": "8c04f3dbbee8739bbaa3ad6bd4824fbd983a3481ba75d6528f523bff2734ff19",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "a4989953703a508620b8c931741a4831b224365c953d81eefd0af5a5611eda29",
+            "host_start": 1795551499.959833,
+            "host_returned_record": 1795551500.308309,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 37,
+            "wire": "20261124T201820345918Z.json",
+            "wire_sha256": "d6025b2844dec5dedd8fcac29324d706e8684584638394a89cb44bb1b923c87e",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551500.34442,
+            "host_returned_record": 1795551500.695729,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 38,
+            "wire": "20261124T201820761756Z.json",
+            "wire_sha256": "5e039228ba81c8d12f7c6f7b07e9e0d09655516146483b758d719201b66053f0",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e439c660c5f4e23946aebc9d7bc024d700ad723802684a3bc6f0aae8b7f3b58c",
+            "host_start": 1795551500.759373,
+            "host_returned_record": 1795551501.06893,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 39,
+            "wire": "20261124T201821115328Z.json",
+            "wire_sha256": "a2f6549805c62ade07ddc9c881bf061c027eaadf54b872edd8219b556b56a94b",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "0c5caa0beb9d1da351f02cefc83b799eb0a71742944f6ae28ad35489117e6fa0",
+            "host_start": 1795551501.113092,
+            "host_returned_record": 1795551501.446955,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 40,
+            "wire": "20261124T201821486084Z.json",
+            "wire_sha256": "21a60f8951679fc0b174a366195e46fd1a1c505f4afa9fdc5acc12d0afe0a837",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551501.484214,
+            "host_returned_record": 1795551501.832877,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 41,
+            "wire": "20261124T201821895742Z.json",
+            "wire_sha256": "aa713e47eefb30644a59cc2faa918ddf07371bb907f7873a144516c4aeb89332",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e439c660c5f4e23946aebc9d7bc024d700ad723802684a3bc6f0aae8b7f3b58c",
+            "host_start": 1795551501.893716,
+            "host_returned_record": 1795551502.219118,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 42,
+            "wire": "20261124T201822260513Z.json",
+            "wire_sha256": "2d7f9b671adeb08d8d7fcd36ae8d590f639b9c363f74c872c6dd516854670061",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "76733eb26546c5681c5e5990d60c6d7b022327351198e03815fb9d92e6b4fa86",
+            "host_start": 1795551502.258819,
+            "host_returned_record": 1795551502.610212,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 43,
+            "wire": "20261124T201852653443Z.json",
+            "wire_sha256": "31e66bc854f1f2bbf88957ad77978e4f514311aed300ebc8fd1d2abe2100cafc",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "43da88195a3d7bba8b1c542f4596dd8002a9b8b72d1aea2eeb025f867f4dc0d4",
+            "host_start": 1795551532.651397,
+            "host_returned_record": 1795551532.9062,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 44,
+            "wire": "20261124T201854148321Z.json",
+            "wire_sha256": "6806b57fdc9dd4dd502bbed5f10373020527109833b21bf2388de0724958bdd7",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551534.14652,
+            "host_returned_record": 1795551534.373513,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 45,
+            "wire": "20261124T201854406988Z.json",
+            "wire_sha256": "43c7bd1be1801230c61e671a19c00face9389e322d90c4a1cca2afcb54c69bca",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "ac2d9eb00bdff16a95fdb8c9a50536277e4f6e975ab386f39bb794a51f8800c4",
+            "host_start": 1795551534.404921,
+            "host_returned_record": 1795551534.747695,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 46,
+            "wire": "20261124T201854784138Z.json",
+            "wire_sha256": "1099b152a9751a94df3dc14c1c06ff8d363bb253680ccd3e859b9283173f225f",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551534.78219,
+            "host_returned_record": 1795551535.117479,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 47,
+            "wire": "20261124T201855177596Z.json",
+            "wire_sha256": "00b29f07ffb4e63e9f071c77c005f218a6fada9634d34ab6dd9b3fca947feeec",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "2be50302a4d1a03b22a9db272f8a0ea250b1e0ced16e464a7f6a942003024d5b",
+            "host_start": 1795551535.175827,
+            "host_returned_record": 1795551535.488847,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 48,
+            "wire": "20261124T201855532085Z.json",
+            "wire_sha256": "4d269fb05ae3833138cfe65a9a8e5ef9ee7421e040a4be5951bbc1fbcc46c7f4",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "c8a4eab1533d5d96faa7929e063fc364dd18b3846509f13fda115339f7c570bc",
+            "host_start": 1795551535.530321,
+            "host_returned_record": 1795551535.876187,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 49,
+            "wire": "20261124T201855919683Z.json",
+            "wire_sha256": "cdb9ad3e52cb9d31458a159c1bfb6142369d914aaf68bdf9e450e34ad9e380f6",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551535.917671,
+            "host_returned_record": 1795551536.270235,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 50,
+            "wire": "20261124T201856328144Z.json",
+            "wire_sha256": "34ef9ff493030c3c1f006373ba97e3bd36165b288ab71230ec883410684eea0f",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "2be50302a4d1a03b22a9db272f8a0ea250b1e0ced16e464a7f6a942003024d5b",
+            "host_start": 1795551536.325813,
+            "host_returned_record": 1795551536.63206,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 51,
+            "wire": "20261124T201856676479Z.json",
+            "wire_sha256": "352420ce06b1325bce51c6061fb075a1a9475bb37fd8ca27056985c436fab711",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "f81a790d29284c23480c65a4f7685b1f27dd2ba5db4b93f5320a5be24b707c5a",
+            "host_start": 1795551536.67429,
+            "host_returned_record": 1795551537.020367,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 52,
+            "wire": "20261124T201857057900Z.json",
+            "wire_sha256": "25054ae37703100cf8b95d48d368700f4d7d904360947ab451ec580ff119370c",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551537.055248,
+            "host_returned_record": 1795551537.403754,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 53,
+            "wire": "20261124T201857463016Z.json",
+            "wire_sha256": "c2a243b99e55e47cc31f96a24f40f0a3dfede11eba78b9432ddd8ee8d5253ea6",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "2be50302a4d1a03b22a9db272f8a0ea250b1e0ced16e464a7f6a942003024d5b",
+            "host_start": 1795551537.460747,
+            "host_returned_record": 1795551537.789451,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 54,
+            "wire": "20261124T201857829606Z.json",
+            "wire_sha256": "9e2f66079672ec814ea2b9ac63697727b53f936b98a183a0223f08ade18466a0",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "c8a4eab1533d5d96faa7929e063fc364dd18b3846509f13fda115339f7c570bc",
+            "host_start": 1795551537.827338,
+            "host_returned_record": 1795551538.15678,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 55,
+            "wire": "20261124T201858200603Z.json",
+            "wire_sha256": "0634eaa29ade7b0356868f029e159f986703fec09f332e5e123e5b3a2ac6d8f5",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551538.198548,
+            "host_returned_record": 1795551538.545337,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 56,
+            "wire": "20261124T201858610199Z.json",
+            "wire_sha256": "eb736220648f7856d7daa4abef12ef253def4c0e49e7265afe7d1e9e4f2ee93d",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "2be50302a4d1a03b22a9db272f8a0ea250b1e0ced16e464a7f6a942003024d5b",
+            "host_start": 1795551538.608315,
+            "host_returned_record": 1795551538.923384,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 57,
+            "wire": "20261124T201858974024Z.json",
+            "wire_sha256": "0d9ca0dd4e888ca2c6e13ce67683a25b498761bddb5d9216cbfed63958354f8c",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "02f08780bbe01c6bbb74ee651211edb47751e36991fb7668d69be68e568245cf",
+            "host_start": 1795551538.972217,
+            "host_returned_record": 1795551539.305587,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 58,
+            "wire": "20261124T201929360386Z.json",
+            "wire_sha256": "04b4b3a65ce5cd9b70e7cf750bec9ad915153f41775620fffd290d78d7819bda",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "43da88195a3d7bba8b1c542f4596dd8002a9b8b72d1aea2eeb025f867f4dc0d4",
+            "host_start": 1795551569.357788,
+            "host_returned_record": 1795551569.591306,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 59,
+            "wire": "20261124T201930836555Z.json",
+            "wire_sha256": "f49e630c702ea80d494aa611e40a6c3afa2607121b1f0c140597e7545e0fba0a",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551570.834841,
+            "host_returned_record": 1795551571.074545,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 60,
+            "wire": "20261124T201931113707Z.json",
+            "wire_sha256": "b20d226ce1a5cfb92f240fefae24d4dde6e1a7d40f3eb48037513bfbde1cbfbd",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "6b49f049df2e8892daed285a84d012b2f8065c7f57260c78e8290d6c1afad5c3",
+            "host_start": 1795551571.11184,
+            "host_returned_record": 1795551571.46304,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 61,
+            "wire": "20261124T201931503089Z.json",
+            "wire_sha256": "4214a11eb0f5a93dc42723dfc2b287abeed5bc6ec39d90027e7a8686ca50e685",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551571.500948,
+            "host_returned_record": 1795551571.823155,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 62,
+            "wire": "20261124T201931885691Z.json",
+            "wire_sha256": "7d8ad3d470fed4f31d8c1469b9f20449ca2053686b09fd0a9754412b8eea2be2",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "fdba25f09344854ae3a04c592d834eb805e9c6fd1d1b7040e6f64b937e3fb590",
+            "host_start": 1795551571.882861,
+            "host_returned_record": 1795551572.209727,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 63,
+            "wire": "20261124T201932235931Z.json",
+            "wire_sha256": "a4df708702e025e05948d19477d0ce70906d7a9e29ffbff5445bfa236c93b2f6",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "41d00975832f8bae69b0c41e0ab1580345ea37cd3a794e6c18fc8a62d33117e4",
+            "host_start": 1795551572.234285,
+            "host_returned_record": 1795551572.571287,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 64,
+            "wire": "20261124T201932611453Z.json",
+            "wire_sha256": "9fed00267b15bcc2d25636f45f513167661e04491a4039211364b7f4bcab9981",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551572.609649,
+            "host_returned_record": 1795551572.962322,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 65,
+            "wire": "20261124T201933023754Z.json",
+            "wire_sha256": "f36cc1ee5a7dec6423484428802fcccc7f89e435518dfe902c7f137af4934373",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "fdba25f09344854ae3a04c592d834eb805e9c6fd1d1b7040e6f64b937e3fb590",
+            "host_start": 1795551573.021059,
+            "host_returned_record": 1795551573.332164,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 66,
+            "wire": "20261124T201933374343Z.json",
+            "wire_sha256": "aead8155e65aefdadecf7230b26826027ffa7f77426047ff1173e96175402030",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "92c8e9965a1d2e13ba880fe5c058f3d8a25e7e786e6e12637e94b9c55804a172",
+            "host_start": 1795551573.372016,
+            "host_returned_record": 1795551573.72121,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 67,
+            "wire": "20261124T201933761259Z.json",
+            "wire_sha256": "01efbc04d50413ddb7b414557568890c521bd86a51f7e1ad28a56b347bdc7795",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551573.759082,
+            "host_returned_record": 1795551574.111023,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 68,
+            "wire": "20261124T201934171446Z.json",
+            "wire_sha256": "3726aec3bcec45a0645c7680f9dded5fe2e55bd8fbc2338527f6f3801b957886",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "fdba25f09344854ae3a04c592d834eb805e9c6fd1d1b7040e6f64b937e3fb590",
+            "host_start": 1795551574.168687,
+            "host_returned_record": 1795551574.483835,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 69,
+            "wire": "20261124T201934530392Z.json",
+            "wire_sha256": "b6838e2c46ed138c1a4be7202c41073570ac157323f638c4823ad3b02cac053d",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "41d00975832f8bae69b0c41e0ab1580345ea37cd3a794e6c18fc8a62d33117e4",
+            "host_start": 1795551574.527786,
+            "host_returned_record": 1795551574.859292,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 70,
+            "wire": "20261124T201934901199Z.json",
+            "wire_sha256": "e256ea05c9ac5cf60e8fe11a5b6a19f8e25c31337d97f02970678cd6cf5cb0dc",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551574.898816,
+            "host_returned_record": 1795551575.233142,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 71,
+            "wire": "20261124T201935301561Z.json",
+            "wire_sha256": "e8cc8e3f0ff2df0273decd2b2bb443a0b23cab0ec9480f105ae3c7ed0ceaa893",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "fdba25f09344854ae3a04c592d834eb805e9c6fd1d1b7040e6f64b937e3fb590",
+            "host_start": 1795551575.298539,
+            "host_returned_record": 1795551575.603719,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 72,
+            "wire": "20261124T201935644126Z.json",
+            "wire_sha256": "e3e299af931abaf7d4f96994287e16be22ac17d4ba829eae1567e60ff1640ef9",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "d658e0f82c99cca0e7fc6976fe9f2d6ebbd339184ee2c6ae36fa9b9048d85c01",
+            "host_start": 1795551575.642298,
+            "host_returned_record": 1795551575.994456,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 73,
+            "wire": "20261124T202006037540Z.json",
+            "wire_sha256": "32053485446bb3b4ebcba7bce051c8887dbfe9143caa3402500a10bc19b1cd94",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "43da88195a3d7bba8b1c542f4596dd8002a9b8b72d1aea2eeb025f867f4dc0d4",
+            "host_start": 1795551606.035169,
+            "host_returned_record": 1795551606.335564,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 74,
+            "wire": "20261124T202007584068Z.json",
+            "wire_sha256": "42c83510d223cecf9694db7b98ba92222e8538e9e9f1384a366b7aceee22237f",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551607.581191,
+            "host_returned_record": 1795551607.859139,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 75,
+            "wire": "20261124T202007894978Z.json",
+            "wire_sha256": "9c015f0eaa88919e1d3e2dd222590a535f186a67d9f3e90d4056dbd1a323237a",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "085c983af5a33fe565a39b4effaf5744521dddba152cc266955e1b52c2657a33",
+            "host_start": 1795551607.892541,
+            "host_returned_record": 1795551608.245392,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 76,
+            "wire": "20261124T202008281766Z.json",
+            "wire_sha256": "9874943ece6de17846e396eea4251e137c4347b0080931c0ea72ee04ab628124",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551608.279974,
+            "host_returned_record": 1795551608.635751,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 77,
+            "wire": "20261124T202008695965Z.json",
+            "wire_sha256": "af7cfcc43cbef9246f1fa68eef6ebdfdd60a7a1e60bec254e7973e4cde92f025",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "d908615df24fd9fb726fd9679d69ff2c7da6e0972294655d2e9caaf80c9eeedf",
+            "host_start": 1795551608.693983,
+            "host_returned_record": 1795551609.025256,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 78,
+            "wire": "20261124T202009065432Z.json",
+            "wire_sha256": "81b9c9f10217cfc33df07882b6f10a8f74123472fadd5e8a42878934bb9a098a",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "46514099eeb052208ed1a858a445d1ea3212917c057c2e1278e8cc999f610b65",
+            "host_start": 1795551609.06362,
+            "host_returned_record": 1795551609.398771,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 79,
+            "wire": "20261124T202009438883Z.json",
+            "wire_sha256": "ebdd9f3146604b15d0217ad06726aeced33d32404720ee107da3e3d0591869c7",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551609.436507,
+            "host_returned_record": 1795551609.785769,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 80,
+            "wire": "20261124T202009851671Z.json",
+            "wire_sha256": "82af9330b2ed793a71d3f53d61b3437cae32a0a1f57a660a2e36d4d10ef939f4",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "d908615df24fd9fb726fd9679d69ff2c7da6e0972294655d2e9caaf80c9eeedf",
+            "host_start": 1795551609.849925,
+            "host_returned_record": 1795551610.189078,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 81,
+            "wire": "20261124T202010236720Z.json",
+            "wire_sha256": "3dec3ac52e2206d79b2231f4af6dbfd1c93a5768202bc37fbe9b15849ab41833",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "1f664cebd6a1c681575c45e9c1f2d7ba2f940869619532496e0e6b6d3b54f6a4",
+            "host_start": 1795551610.234367,
+            "host_returned_record": 1795551610.578934,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 82,
+            "wire": "20261124T202010621891Z.json",
+            "wire_sha256": "22c8976209d4f19c2d96a16b91e5078a8fcae133d6ec336020fa2654a2657255",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551610.619145,
+            "host_returned_record": 1795551610.954102,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 83,
+            "wire": "20261124T202011007679Z.json",
+            "wire_sha256": "090dc27bf28c2f047635e13b6cf5e94d71e1264eb7fcb0bf29500129d6a69bb5",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "d908615df24fd9fb726fd9679d69ff2c7da6e0972294655d2e9caaf80c9eeedf",
+            "host_start": 1795551611.005945,
+            "host_returned_record": 1795551611.344633,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 84,
+            "wire": "20261124T202011388219Z.json",
+            "wire_sha256": "9054339a2df88587af5f6ac7f3a5f0a6eab2723e40b03b928da69f6eb4d7f7fc",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "46514099eeb052208ed1a858a445d1ea3212917c057c2e1278e8cc999f610b65",
+            "host_start": 1795551611.385373,
+            "host_returned_record": 1795551611.70425,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 85,
+            "wire": "20261124T202011741780Z.json",
+            "wire_sha256": "9779ea79e0e403ecf07999b6b5554182840a25a474def80881949b263ad76945",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551611.73921,
+            "host_returned_record": 1795551612.066544,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 86,
+            "wire": "20261124T202012131842Z.json",
+            "wire_sha256": "743856576030d1963339d5c8ffc975c1e2378c0c4b5153c93cc1e2072cf028ba",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "d908615df24fd9fb726fd9679d69ff2c7da6e0972294655d2e9caaf80c9eeedf",
+            "host_start": 1795551612.130136,
+            "host_returned_record": 1795551612.439497,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 87,
+            "wire": "20261124T202012486712Z.json",
+            "wire_sha256": "3dbdcdb711f75e53562acdfcb1f9fa757cb9afae15f92c4a97e55fb5e4015e32",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "c1fbe0be5ae3250c73fbd11fde56c5947d0123a894f42b46c2345d3f1442278d",
+            "host_start": 1795551612.483611,
+            "host_returned_record": 1795551612.826887,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 88,
+            "wire": "20261124T202042872317Z.json",
+            "wire_sha256": "0549603373ae46c395322625ad6ec698de5647e20a6c2e16a9ce1b8e5bfb99a0",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "43da88195a3d7bba8b1c542f4596dd8002a9b8b72d1aea2eeb025f867f4dc0d4",
+            "host_start": 1795551642.869816,
+            "host_returned_record": 1795551643.107866,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 89,
+            "wire": "20261124T202044351066Z.json",
+            "wire_sha256": "3f2e9eb8bf78848a11bb72d5fa4c82e91a8956aefd2c6c239327370e1a98f18b",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551644.348345,
+            "host_returned_record": 1795551644.587471,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 90,
+            "wire": "20261124T202044621416Z.json",
+            "wire_sha256": "d8e4d3030e3678ef68cf8b699f0cbd53695a25c6b008ab0fb3f4379952922cb9",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "9eed756f692137c64db69b7974d95b0be784df7ec63c85220b6172469b0d690b",
+            "host_start": 1795551644.618916,
+            "host_returned_record": 1795551644.979253,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 91,
+            "wire": "20261124T202045010909Z.json",
+            "wire_sha256": "83d27d0aa8437f437e3b269184257c994fdbcfc368bf4bee74c2fdda24b20ce1",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551645.008453,
+            "host_returned_record": 1795551645.36657,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 92,
+            "wire": "20261124T202045422412Z.json",
+            "wire_sha256": "1f0a62cb92b086ad7992ea1c9f4421c473116ea18746b2fde931e143a83fc297",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e986deab4adf011b2e5137fb098b36a78e88d0b39f385613b809cbcc534f61ca",
+            "host_start": 1795551645.420671,
+            "host_returned_record": 1795551645.739168,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 93,
+            "wire": "20261124T202045785795Z.json",
+            "wire_sha256": "075057f4c5a6c190f7ff9f4b16a08f7290919d6abfd9e9e3d7dd82da6b661787",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "aa3418435007006010bc65d2e606ad0dd7806b2aff255a708e7195c4a0f4a5fc",
+            "host_start": 1795551645.782886,
+            "host_returned_record": 1795551646.142642,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 94,
+            "wire": "20261124T202046193011Z.json",
+            "wire_sha256": "3f45e9bbf046c57fbddd69cb498fdd32b5d2e482489eed908fa0c5929069168b",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551646.19085,
+            "host_returned_record": 1795551646.529712,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 95,
+            "wire": "20261124T202046589293Z.json",
+            "wire_sha256": "1c2aa4ca65d708d201dd29cb4a2014f8b6051685ee6458033740868bc92f7604",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e986deab4adf011b2e5137fb098b36a78e88d0b39f385613b809cbcc534f61ca",
+            "host_start": 1795551646.587396,
+            "host_returned_record": 1795551646.90314,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 96,
+            "wire": "20261124T202046949511Z.json",
+            "wire_sha256": "aafdcc45c74bb4df7cdc98623aa589eb845a8154c4346607bd0ab984471e1d1e",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "de7d3d043f4d643de1ed0576e0b2249a27a25aa49f1c63cd7afe99f7b8000d26",
+            "host_start": 1795551646.947698,
+            "host_returned_record": 1795551647.28955,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 97,
+            "wire": "20261124T202047322032Z.json",
+            "wire_sha256": "3b4783ccde4b1828956508210a5347b0d904a676e743a1444cbf3f22060e847e",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551647.320075,
+            "host_returned_record": 1795551647.680031,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 98,
+            "wire": "20261124T202047738507Z.json",
+            "wire_sha256": "f8e15db0a2c54628f95e48b5c407c1bc05923bd744b89ac47c8116abb10495f4",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e986deab4adf011b2e5137fb098b36a78e88d0b39f385613b809cbcc534f61ca",
+            "host_start": 1795551647.736476,
+            "host_returned_record": 1795551648.055191,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 99,
+            "wire": "20261124T202048097747Z.json",
+            "wire_sha256": "623325f418704766f440839e146b37e808f6780884c4e1caf922aa4b92b318bc",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "aa3418435007006010bc65d2e606ad0dd7806b2aff255a708e7195c4a0f4a5fc",
+            "host_start": 1795551648.095785,
+            "host_returned_record": 1795551648.439501,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 100,
+            "wire": "20261124T202048498237Z.json",
+            "wire_sha256": "11b4f36176f615eb6f90b5abd7a044cdda6eb9b169d548b6360ea550815f9709",
+            "context": "DiplomacyActionView",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "7908d0eb5bb5f37a98c39fc87ea3cd5765cd0c6da1110d10591d31575f0fdf79",
+            "host_start": 1795551648.478092,
+            "host_returned_record": 1795551648.830086,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 101,
+            "wire": "20261124T202048896527Z.json",
+            "wire_sha256": "8f807839ec9070406ccb88bdc02c84719d0dae50befa290dd5c5e3994539400a",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "e986deab4adf011b2e5137fb098b36a78e88d0b39f385613b809cbcc534f61ca",
+            "host_start": 1795551648.894164,
+            "host_returned_record": 1795551649.201265,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 102,
+            "wire": "20261124T202049254329Z.json",
+            "wire_sha256": "8ecf0ebcd5d2ca5a0839ee3f87460a56c1c70803fc6ca49da1cceebb3cbc0dee",
+            "context": "ActionPanel",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "668688f57df98d6a375e8ab2075cb4bcb2c41b740ee151df2811a44dcd34f850",
+            "host_start": 1795551649.251172,
+            "host_returned_record": 1795551649.572407,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 103,
+            "wire": "20261124T202119621889Z.json",
+            "wire_sha256": "e685ba9afd878bb19de78b68c7fbae2df91b8a9a95c875f34bffa32acbb9e220",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "43da88195a3d7bba8b1c542f4596dd8002a9b8b72d1aea2eeb025f867f4dc0d4",
+            "host_start": 1795551679.619317,
+            "host_returned_record": 1795551679.89971,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 104,
+            "wire": "20261124T202121124532Z.json",
+            "wire_sha256": "69d9041180a4d45224c2599f295f6953f1829dac9a14ef57f9898f2348813c68",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "2c9caa0d0984c7f96f930c1b6013b994ea1da89f1d3dcb5f5e6a48adff4721f3",
+            "host_start": 1795551681.121408,
+            "host_returned_record": 1795551681.392605,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 105,
+            "wire": "20261124T202121467239Z.json",
+            "wire_sha256": "67877aa38bcd087bfdac553755c72fda34ec952855488feef5694de3f74e8a27",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "f6f735f20c9c705beb736a68c5f741e63a633241f2707a9960e16d753843eba5",
+            "host_start": 1795551681.465436,
+            "host_returned_record": 1795551681.786595,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 106,
+            "wire": "20261124T202123783447Z.json",
+            "wire_sha256": "534eea685629c0755b5c340cf43dd0c97df998a16e1fe61fe61a7c4660c633af",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "8c230be82fdfea32c25aaa79be6fa0fce2530424ee74474812aa1ac1b26a155c",
+            "host_start": 1795551683.781763,
+            "host_returned_record": 1795551684.174334,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 107,
+            "wire": "20261124T202129621747Z.json",
+            "wire_sha256": "0da71a09141fe35a7e2a628d57fc520367c0fcf4dea37262f17997a4902f3c75",
+            "context": "BaiqiExecutor",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "b21b527e2567203ea65119a96c79b21a2370a9bbd87a7e58b9df37caf7143141",
+            "host_start": 1795551689.619419,
+            "host_returned_record": 1795551689.930507,
+            "window_overlaps": []
+          },
+          {
+            "sequence": 108,
+            "wire": "20261124T202146211716Z.json",
+            "wire_sha256": "c1d2f88c69ed449660c58b97942795ef9b02749a0088acad45742bf53482ece5",
+            "context": "InGameTopOptionsMenu",
+            "role": "OWNER_AUTHORED_CONSOLE_CALL_NO_ACTION_RETRY",
+            "code_sha256": "d0d2c036de7c76774907646e53c722460a261a2cd82b8f6618ed23a3af9823c4",
+            "host_start": 1795551706.208288,
+            "host_returned_record": 1795551706.725716,
+            "window_overlaps": []
+          }
+        ],
+        "returned_exceptions": [],
+        "LSQ_only_endpoint_records": 13,
+        "all_LSQ_only_completed_before_armed": true,
+        "limits": "Finite observed host/game clock brackets with conservative full-call enclosure; not exact CMD CPU intervals, action completion proof, or a root cause claim.",
+        "utc": "2026-11-24T20:25:29.287146+00:00",
+        "source_version": 184,
+        "kind": "nosite",
+        "initial_turn": 1,
+        "actual_windows": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "new_product_fix185": false,
+        "old54and438FAIL_retained": true,
+        "original438_cause_proved": false,
+        "B_plan_budget_unchanged": true,
+        "whole_TC036_pass": false,
+        "Native_queries": 0
+      },
+      "launch": {
+        "utc": "2026-11-24T20:13:37.317586+00:00",
+        "owner": {
+          "pid": 3536,
+          "created_at": 1795551217.3143606,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "pid": 3536,
+        "created_at": 1795551217.3143606,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe",
+        "source_version": 184,
+        "mode": "baiqi184-pressure-stageA-v1",
+        "proof": {
+          "schema": "civ6.steam-qualified-native-readonly/v1",
+          "utc": "2026-11-24T20:13:37.161583+00:00",
+          "finished_utc": "2026-11-24T20:13:37.163287+00:00",
+          "machine": "BF-202609141645",
+          "nonce": "c96d1a7228276a89862097fc4b88536a",
+          "mode": "offline",
+          "steam_pid": 8788,
+          "steam_birth": 1795195446.682362,
+          "reference_commit": "8c23632b35626ef1554cbbdc9096d81f2cefe215",
+          "reference_files_sha256": {
+            "steam_offline_state_contract.py": "aaf493fc75e5a97fa7bccc7b380567edc789a68e8c0c8dd412dd38cf2516d02d",
+            "steam_offline_native_profiles.py": "e55a8b379a3a128da79f3603f30fdf269b5229c6dc4f9d66a42be53b196dbcb5",
+            "steam_offline_native_provider_v1.py": "e0766561e704164eb1ce4b34349e6546ad0791de1be89581d09c736f3af7963c",
+            "steam_offline_state_probe.py": "1fc34c340309318e6f7c6b7c89016c4ec326a58f482c3832088043023b2ed1a7"
+          },
+          "native_evidence": {
+            "machine_id": "BF-202609141645",
+            "observed_at_utc": "2026-11-24T20:13:37.161583+00:00",
+            "nonce": "c96d1a7228276a89862097fc4b88536a",
+            "module_base": "140722881167360",
+            "module_size": 19959808,
+            "value_rva": "18653399",
+            "value_address": "140722899820759",
+            "producer_rva": "6691596",
+            "producer_anchor_hex": "440fb605c385b600488d15c5297800488bcbe8dd0a3e00",
+            "producer_anchor_sha256": "e2ee13da1019c3cb41a999d4fda37bde192574390690cb2328c903de7fdd54c2",
+            "raw_samples": [
+              1,
+              1
+            ],
+            "steam_before": {
+              "pid": 8788,
+              "birth_filetime": "134396690466823619",
+              "exe": "C:\\Program Files (x86)\\Steam\\steam.exe",
+              "file_version": "11.23.65.88"
+            },
+            "steam_after": {
+              "pid": 8788,
+              "birth_filetime": "134396690466823619",
+              "exe": "C:\\Program Files (x86)\\Steam\\steam.exe",
+              "file_version": "11.23.65.88"
+            },
+            "source_before": {
+              "path": "C:\\Program Files (x86)\\Steam\\SteamUI.dll",
+              "bytes": 19675800,
+              "sha256": "2dfb0a5d50dd90667549cc7d413c7bfb0794c9af4ebaf08bf1cf7d938a11ea93",
+              "file_id": "562949953908736",
+              "mtime_ns": "1794535550000000000"
+            },
+            "source_after": {
+              "path": "C:\\Program Files (x86)\\Steam\\SteamUI.dll",
+              "bytes": 19675800,
+              "sha256": "2dfb0a5d50dd90667549cc7d413c7bfb0794c9af4ebaf08bf1cf7d938a11ea93",
+              "file_id": "562949953908736",
+              "mtime_ns": "1794535550000000000"
+            },
+            "tray_manager_pointer_rva": "18645800",
+            "tray_manager_address": "2582801223424",
+            "tray_state_offset": "352",
+            "tray_state_samples": [
+              4,
+              4
+            ]
+          },
+          "failure": null,
+          "input_sent": false,
+          "activation_api_called": false,
+          "focus_changed": false,
+          "window_move_api_called": false,
+          "screenshot_used": false,
+          "CEF_debugger_or_Steam_interface_called": false,
+          "account_configuration_read_or_written": false,
+          "borrowed_reference_machine_or_game_authority": false
+        },
+        "proof_age_seconds": 0.156022,
+        "CPU_affinity": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "Steam_actions": 0
+      },
+      "environment": {
+        "utc": "2026-11-24T20:13:40.278062+00:00",
+        "owner": {
+          "pid": 3536,
+          "created_at": 1795551217.3143606,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "program_name": "CivilizationVI_DX12.exe",
+        "exe_bytes": 21420896,
+        "exe_sha256": "9d5c0ce047493126a3b0606cabc7f8b03e203c19cf107588784647005045bc39",
+        "exe_mtime_ns": 1795186126686795200,
+        "file_version": "1.0.12.74",
+        "machine": "BF-202609141645",
+        "OS": "Windows-10-10.0.19045-SP0",
+        "CPU": "Intel(R) Xeon(R) CPU E5-2696 v3 @ 2.30GHz",
+        "physical_memory_bytes": 34193182720,
+        "CPU_affinity": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "launch_settings_guard_sha256": "48196389dc64054e5bf68b55fa7b0fcf4f4d298518e7a41d15efb86d14756166",
+        "settings_guard_passed": true,
+        "no_game_or_Steam_inputs": true,
+        "scope": "Fresh after-launch read outside formal. Current160 launch also verified the held program hash, size, mtime and affinity before launching; this receipt independently pins current paired environment."
+      },
+      "warmup": {
+        "utc": "2026-11-24T20:16:42.290566+00:00",
+        "owner": {
+          "pid": 3536,
+          "created_at": 1795551217.3143606,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "warmup_seconds": 65.02199983596802,
+        "archive_sha256": "086b2a9461fa9a86f89a4b68252ec5a0955b409113c2e4062824b6098a596dea"
+      },
+      "capture": {
+        "utc": "2026-11-24T20:21:21.394053+00:00",
+        "token": "32c548cbcc4f41949d46401491506fa4",
+        "source": "baiqi184-pressure-stageA-v1",
+        "initial_turn": 1,
+        "phase": "COMPLETE",
+        "turn": 7,
+        "requested_turns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "capture_start": 1795551459.088,
+        "capture_stop": 1795551681.374,
+        "samples": 294
+      },
+      "official_save": {
+        "utc": "2026-11-24T20:21:24.695497+00:00",
+        "name": "Baiqi_P6_20261125_V184_PressureNoSitePlanA7.Civ6Save",
+        "bytes": 299143,
+        "sha256": "76296d62f3751565fb17082b6cb00d4ab9c8836f8d0b4fbd5ba5a0cf2a1ea734",
+        "stable_repeated_read": true
+      },
+      "formal_finished": {
+        "utc": "2026-11-24T20:21:38.185744+00:00",
+        "nonce": "53725f9b4a794f7b824a3d50c1300097",
+        "capture_complete": true,
+        "quality_ok": true,
+        "B_plan": true,
+        "official_save_verified": true,
+        "retired": true,
+        "save": {
+          "utc": "2026-11-24T20:21:24.695497+00:00",
+          "name": "Baiqi_P6_20261125_V184_PressureNoSitePlanA7.Civ6Save",
+          "bytes": 299143,
+          "sha256": "76296d62f3751565fb17082b6cb00d4ab9c8836f8d0b4fbd5ba5a0cf2a1ea734",
+          "stable_repeated_read": true
+        }
+      },
+      "exit": {
+        "utc": "2026-11-24T20:25:07.079051+00:00",
+        "exit_code": 15,
+        "terminate_count": 1,
+        "kill_escalations": 0,
+        "natural_exit_claimed": false
+      },
+      "cleanup": {
+        "utc": "2026-11-24T20:25:05.328401+00:00",
+        "owner": {
+          "pid": 3536,
+          "created_at": 1795551217.3143606,
+          "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+        },
+        "before": {
+          "all_windows": [],
+          "listeners": [],
+          "cpu_seconds": 786.8125,
+          "exit_age": 197.130416
+        },
+        "after2s": {
+          "all_windows": [],
+          "listeners": [],
+          "cpu_seconds": 786.8125,
+          "exit_age": 199.141098
+        },
+        "terminate_max": 1,
+        "Steam_actions": 0
+      },
+      "ordinary184_restored": {
+        "utc": "2026-11-24T20:25:13.368141+00:00",
+        "all_Civ6_absent": true,
+        "ordinary184_exact123_restored": true,
+        "private124_backed_up": true,
+        "exit_result": {
+          "utc": "2026-11-24T20:25:07.079051+00:00",
+          "exit_code": 15,
+          "terminate_count": 1,
+          "kill_escalations": 0,
+          "natural_exit_claimed": false
+        }
+      }
+    }
+  },
+  "actual_parent_terminal": {
+    "utc": "2026-11-24T20:25:22.624075+00:00",
+    "tool_session": 64997,
+    "actual_terminal_exit": 0,
+    "terminal_chunk": "b88316",
+    "actual_OS_parent_absent": true,
+    "source_records_preserved": true,
+    "no_replay": true
+  },
+  "finite_cases_closed": 39,
+  "finite_cases_total": 40,
+  "whole_mod_percent": 97.5,
+  "TC036_closed": false,
+  "unpublished_product_packages": 12,
+  "new_product_fix185": false,
+  "observer_protocol": "quiet-after-END30-v1; actual complete transaction/window intervals separately audited",
+  "old54and438FAIL_retained": true,
+  "old438_cause_proved": false,
+  "old_actual438_overlap_counterexample_rejected_by_same_kernel": true,
+  "frozen_budget": {
+    "p95_ms": 20,
+    "max_ms": 50,
+    "retained_capacity": 4096,
+    "excluded_samples": 0
+  },
+  "next": "Continue current184 pressure full34/wholeturn-write matrices then five paired groups each. Any failed numeric or observer result remains unqualified and must be diagnosed without unchanged resampling to green."
+}
