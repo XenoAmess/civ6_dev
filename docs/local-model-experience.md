@@ -1640,3 +1640,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-25 [184当前压力自然资格工具准备](research/baiqi-source184-current-natural-pressure-census-prepared-engine74-2026-11-25.json)：独立123文件／101 Lua双VM观察包，仅Controller可逆计数、256cap，性能4096不变；实际36player／192双VM／14生命周期Lua／10启动门禁／8清理／6恢复守卫及同PID调用检查通过。初次软件夹具误改共享subprocess.Popen、在Git只读前被哨兵拦截，exit1原件保留；改为仅替换census module绑定后真实exit0，0游戏启动／动作重放。旧172数据仅作为解析器静态输入，不授当前资格。R238生成采用0、成本null。随后新严格父实际运行MANY自然>=12及NO_SITE几何；仍39/40、97.5%、待发12、无185，不在准备交付停工。
+
+
+2026-11-25 [184当前压力场景自然资格](research/baiqi-source184-current-natural-pressure-qualification-engine74-2026-11-25.json)：独立当前源观察包实测MANY原6自然AI调用admitted>=12、NO_SITE原1实际1144图块几何成立；两侧完整原始候选行／当前引擎／各自新鲜后台离线／正式存档退订退出与实际自身清理／普通184恢复分列。父实际exit0后独立复核并双推，只授场景资格、不授压力性能或TC036。仍39/40、97.5%、待发12、无185，立即继续完整压力矩阵。
