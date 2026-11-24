@@ -1,6 +1,6 @@
 import unittest
 
-from tools.plan_quiet_observation import observe_after_end, window_status
+from tools.plan_quiet_observation import observe_after_end, wait_then_observe, window_status
 
 
 class Clock:
@@ -25,6 +25,26 @@ class Clock:
 
 
 class QuietObservationTests(unittest.TestCase):
+    def test_wait_after_separately_qualified_ui_has_zero_end_requests(self):
+        c = Clock()
+        _, proof = wait_then_observe(c.read, clock=c.clock, sleep=c.sleep)
+        self.assertEqual(c.events[-1], ('READ', 40.0))
+        self.assertFalse(any(e[0] == 'END' for e in c.events))
+        self.assertEqual(proof['END_calls'], 0)
+        self.assertEqual(proof['observation_calls'], 1)
+
+    def test_ui_transition_previous_clock_guard(self):
+        c = Clock()
+        with self.assertRaises(ValueError):
+            wait_then_observe(c.read, clock=c.clock, sleep=c.sleep, not_before=11)
+        self.assertEqual(c.events, [])
+
+    def test_ui_transition_unknown_previous_clock_guard(self):
+        c = Clock()
+        with self.assertRaises(ValueError):
+            wait_then_observe(c.read, clock=c.clock, sleep=c.sleep, not_before=True)
+        self.assertEqual(c.events, [])
+
     def test_actual_end_wait_read_caller_has_no_observation_during_wait(self):
         c = Clock()
         state, proof = observe_after_end(c.end, c.read, clock=c.clock, sleep=c.sleep)

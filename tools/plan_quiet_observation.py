@@ -39,9 +39,26 @@ def observe_after_end(request_end, read_state, *, clock=time.monotonic, sleep=ti
     before_end = _number(clock(), 'monotonic clock')
     if request_end() is not True:
         raise ValueError('Unknown normal END acknowledgement; no observation')
+    state, proof = wait_then_observe(read_state, clock=clock, sleep=sleep,
+                                     not_before=before_end)
+    proof['END_calls'] = 1
+    return state, proof
+
+
+def wait_then_observe(read_state, *, clock=time.monotonic, sleep=time.sleep,
+                      not_before=None):
+    """Wait and observe without any input callback.
+
+    An owner can use this after a separately qualified original diplomacy
+    farewell. It never pretends that another END was requested.
+    """
+    if not all(callable(x) for x in (read_state, clock, sleep)):
+        raise TypeError('Explicit callable dependencies required')
+    if not_before is not None:
+        not_before = _number(not_before, 'previous monotonic clock')
     start = previous = _number(clock(), 'monotonic clock')
-    if start < before_end:
-        raise ValueError('Monotonic clock moved backwards during END')
+    if not_before is not None and start < not_before:
+        raise ValueError('Monotonic clock moved backwards during transition')
     sleeps = 0
     while True:
         now = _number(clock(), 'monotonic clock')
@@ -60,7 +77,7 @@ def observe_after_end(request_end, read_state, *, clock=time.monotonic, sleep=ti
     # The sole observation callback follows the entire quiet interval.
     state = read_state()
     return state, {'quiet_host_seconds': elapsed, 'sleep_calls': sleeps,
-                   'END_calls': 1, 'observation_calls': 1,
+                   'END_calls': 0, 'observation_calls': 1,
                    'game_window_complete_proved_by_host_wait': False}
 
 
