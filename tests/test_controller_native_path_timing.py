@@ -167,8 +167,8 @@ class NativePathArtifactTests(unittest.TestCase):
             self.assertTrue(result['release_text_recovers_exactly'])
             self.assertFalse(result['native_global_binding_modified'])
             self.assertTrue(result['lua51_compiled']and result['lua53_compiled'])
-            target=out/'Baiqi';names=manifest_files(target);self.assertEqual(len(names),119)
-            self.assertEqual(sum(n.endswith('.lua')for n in names),97)
+            target=out/'Baiqi';names=manifest_files(target);self.assertEqual(len(names),123)
+            self.assertEqual(sum(n.endswith('.lua')for n in names),101)
             changed=[n for n in names if digest(source/n)!=digest(target/n)]
             self.assertEqual(changed,['Lua/BaiqiController.lua'])
             appended=diagnostic.suffix(FINE,include_pre_observer=True,source_version=result['source_version'],native_path_timing=True).encode()

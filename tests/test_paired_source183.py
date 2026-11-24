@@ -30,11 +30,14 @@ CheckCityRangeAttackState=function()return false end
 
 
 class Source183PairedTests(unittest.TestCase):
+    source_version = 183
+
     def endpoint(self, runtime, pressure, change=''):
-        return preflight_fixture.Source151PreflightTests().invoke(runtime, pressure, change, source=183)
+        return preflight_fixture.Source151PreflightTests().invoke(runtime, pressure, change, source=self.source_version)
 
     def harness(self, pressure=False):
-        h = PressureHarness(source_version=183) if pressure else NormalHarness(source_version=183)
+        h = (PressureHarness(source_version=self.source_version) if pressure
+             else NormalHarness(source_version=self.source_version))
         h.lua.execute(READY)
         return h
 
@@ -43,9 +46,9 @@ class Source183PairedTests(unittest.TestCase):
             with (h.ledger/(name+'.json')).open('x', encoding='utf-8') as f:
                 json.dump(value, f)
         cb = make_callback(h.query, lambda *args: 'P6_PAIR142_NO_NEW_LEGAL_MILITARY_SKIP',
-                           record, h.visible, expected_source_version=183)
+                           record, h.visible, expected_source_version=self.source_version)
         return run(h.query, h.visible, h.close, h.now, h.sleep, h.emit, h.ledger,
-                   variant=variant, fixture_sha256='0'*64, expected_source_version=183,
+                   variant=variant, fixture_sha256='0'*64, expected_source_version=self.source_version,
                    request_normal_end=cb if callback is None else callback)
 
     def test_both_lua_versions_and_calendars_issue_once_after_clock(self):
@@ -90,17 +93,17 @@ class Source183PairedTests(unittest.TestCase):
                     self.assertTrue(h.lua.eval('P6PairClock:Snapshot().retired'))
                 pairs.append(pair)
             before = deepcopy(pairs)
-            result = (analyze_pressure_pairs(pairs, '0'*64, initial_turn=1, expected_source_version=183)
-                      if pressure else analyze_pairs(pairs, '0'*64, expected_source_version=183,
+            result = (analyze_pressure_pairs(pairs, '0'*64, initial_turn=1, expected_source_version=self.source_version)
+                      if pressure else analyze_pairs(pairs, '0'*64, expected_source_version=self.source_version,
                                                     require_ordinary=True))
             self.assertEqual(pairs, before)
             self.assertEqual(len(result['matched_rows']), 25)
             pairs[0]['control']['source_version'] = 172
             with self.assertRaises(ValueError):
                 if pressure:
-                    analyze_pressure_pairs(pairs, '0'*64, initial_turn=1, expected_source_version=183)
+                    analyze_pressure_pairs(pairs, '0'*64, initial_turn=1, expected_source_version=self.source_version)
                 else:
-                    analyze_pairs(pairs, '0'*64, expected_source_version=183, require_ordinary=True)
+                    analyze_pairs(pairs, '0'*64, expected_source_version=self.source_version, require_ordinary=True)
 
     def test_unknown_receipt_after_actual_fixture_action_is_never_replayed(self):
         for pressure in (False, True):
@@ -121,7 +124,7 @@ class Source183PairedTests(unittest.TestCase):
         h = self.harness(True)
         def bad(turn, token):
             return dict(turn=turn, token=token, requested=True, forced=False, initial_turn=1,
-                        source='baiqi172-pressure-paired-v1', source_version=183)
+                        source='baiqi172-pressure-paired-v1', source_version=self.source_version)
         with self.assertRaisesRegex(RuntimeError, 'issuance receipt'):
             h.run(bad)
         self.assertEqual(list(h.t.actions.values()), [])
@@ -129,31 +132,31 @@ class Source183PairedTests(unittest.TestCase):
     def test_pressure_tag_cannot_enter_ordinary_analyzer_without_calendar(self):
         h = self.harness()
         data = self.ordinary(h)
-        data['source'] = 'baiqi183-pressure-paired-v1'
+        data['source'] = f'baiqi{self.source_version}-pressure-paired-v1'
         from tools.analyze_paired_turns import validate_capture_mode
         with self.assertRaisesRegex(ValueError, 'pressure analyzer'):
-            validate_capture_mode(data, 183, True)
+            validate_capture_mode(data, self.source_version, True)
 
     def test_plan_analyzers_current_tags_and_accounting(self):
         ordinary = capture()
-        ordinary['source'] = 'baiqi183-stageA-v1'
+        ordinary['source'] = f'baiqi{self.source_version}-stageA-v1'
         pressure = pressure_plan_fixture.PressureAnalyzerTests()._pressure(210)
-        pressure['source'] = 'baiqi183-pressure-stageA-v1'
+        pressure['source'] = f'baiqi{self.source_version}-pressure-stageA-v1'
         for data, analyze in ((ordinary, analyze_plan_capture),
                               (pressure, analyze_pressure_plan_capture)):
             before = deepcopy(data)
-            self.assertTrue(analyze(data, expected_source_version=183)['overall_budget_ok'])
+            self.assertTrue(analyze(data, expected_source_version=self.source_version)['overall_budget_ok'])
             self.assertEqual(data, before)
             data['profile']['dropped'] = 1
             with self.assertRaises(ValueError):
-                analyze(data, expected_source_version=183)
+                analyze(data, expected_source_version=self.source_version)
             data['profile']['dropped'] = 0
-            data['source'] = data['source'].replace('183', '172')
+            data['source'] = data['source'].replace(str(self.source_version), '172')
             with self.assertRaises(ValueError):
-                analyze(data, expected_source_version=183)
+                analyze(data, expected_source_version=self.source_version)
 
     def test_invalid_version_types_reject_before_transport_or_child(self):
-        for version in (True, 183.0, '183', 184):
+        for version in (True, float(self.source_version), str(self.source_version), 185):
             calls = []
             q = lambda *args: calls.append(args)
             with self.assertRaises(ValueError):

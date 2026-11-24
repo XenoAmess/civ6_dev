@@ -1,0 +1,191 @@
+{
+  "utc": "2026-11-24T12:38:32.250531+00:00",
+  "source_version": 184,
+  "status": "REAL_NARROW_SCHEDULING_FIX_SOFTWARE_PASS_NATIVE_PERFORMANCE_PENDING",
+  "whole_mod_frozen_cases_closed": 39,
+  "whole_mod_total": 40,
+  "whole_mod_percent": 97.5,
+  "closed_case_evidence_version": 183,
+  "current184_targeted_Native_regression_pending": true,
+  "TC036_closed": false,
+  "unpublished_product_packages": 12,
+  "Workshop_version": 172,
+  "product_changed_files": [
+    "Baiqi.modinfo",
+    "Lua/BaiqiController.lua"
+  ],
+  "product_change": "New valid-clock builder routes retain query phase then yield to the next ordinary callback. That callback rebuilds current hints and retains all original BuilderRouteValid/query/validate/write/final RequestCivilian checks. No new cached target/permission, SDK binding, writer or military/diplomacy action. Missing-clock synchronous fallback and two-continuation fairness unchanged. Work is redistributed, not claimed removed.",
+  "original_failure_retained": {
+    "source_version": 183,
+    "raw_samples": 314,
+    "quality": "PASS",
+    "Controller_max_ms": 54.000139236450195,
+    "budget_max_ms": 50,
+    "status": "FAIL",
+    "root_cause": "UNKNOWN; selected-nested diagnostic did not reproduce original spike",
+    "report": "baiqi-source183-tc036-original85-plan-54ms-failure-engine74-2026-11-24.json"
+  },
+  "actual_selected_nested_diagnostic": {
+    "source_version": 183,
+    "engine": "1.0.12.74",
+    "owner": {
+      "pid": 15944,
+      "created_at": 1795522405.034812,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "one_normal_END": true,
+    "TEST_PLAYER_military_waits": 18,
+    "calls": 775,
+    "retained": 128,
+    "zero_aggregates": 647,
+    "capacity": 512,
+    "drops": 0,
+    "invalid_clocks": 0,
+    "metadata_errors": 0,
+    "first10s_retained": 83,
+    "max_RunNow_true_ms": 16.000032424926758,
+    "observed_max_ProcessBuilder_ms": 11.00015640258789,
+    "observed_max_AdvanceBuilderRoute_ms": 6,
+    "observed_max_BuilderTargets_ms": 2,
+    "qualification": "Inclusive instrumented wall time; interval containment and quantized equal endpoints are not exclusive CPU or a proved call stack. Limited one86 window is not formal acceptance or replacement of failed54ms.",
+    "analysis_sha256": "f3568da00a16959286aa287137016e0c5f370dce339fc6ed4ca2c289ee29b007",
+    "raw_rows_sha256": "2de883cf9b218515478c9132a130c292545831b0ad30603a9a6a95986c60cf62"
+  },
+  "saved_exit": {
+    "utc": "2026-11-24T12:31:20.673286+00:00",
+    "owner": {
+      "pid": 15944,
+      "created_at": 1795522405.034812,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "actual_normal_mainmenu_Quit_and_confirmation": true,
+    "selected_nested_profile_and_anchor_retired": true,
+    "own_process_absent": true,
+    "all_Civ6_processes_absent": true,
+    "terminate_calls": 1,
+    "kill_calls": 0,
+    "actual_exit_code": 15,
+    "natural_exit_claimed": false,
+    "protected_save": {
+      "utc": "2026-11-24T12:17:19.557752+00:00",
+      "name": "Baiqi_P6_20261124_V183_SelectedNested86.Civ6Save",
+      "bytes": 503824,
+      "sha256": "bf7c5c9d9556e912b97349c09ff27ee8c6982f5f8cbc637e9ce1730d60a7ccb5",
+      "stable_repeated_read": true
+    },
+    "ordinary183_exact123_restored": true,
+    "private123_and_marker_backed_up": 124,
+    "Steam_actions": 0
+  },
+  "software_validation_batches_not_unique_total": {
+    "builder-corrected": {
+      "methods": 114,
+      "terminal": 0,
+      "log_sha256": "32f790433f8b23184e92e2bcee2e528f7ef4ecf3580fc5fae3f060d666547319"
+    },
+    "paired": {
+      "methods": 84,
+      "terminal": 0,
+      "log_sha256": "610f0e7949d91c802d92b08a68a12a1971c3b576883f126e92e774ba5a87a2bd"
+    },
+    "plan": {
+      "methods": 107,
+      "terminal": 0,
+      "log_sha256": "1088cfb417422f1d1c9dc97fe5dfd40c9509cb040f481099d57929b48d639cf6"
+    },
+    "pressure-paired": {
+      "methods": 32,
+      "terminal": 0,
+      "log_sha256": "45328d8b900a0d575d1fa1690daafe345f1af92d989b030fd2fbc8b298080829"
+    },
+    "artifact": {
+      "methods": 10,
+      "terminal": 0,
+      "log_sha256": "9b779e48766e96a9fd31b8b6653ab14d92385ba94bdde90cb9eee609cd64d64c"
+    },
+    "native-path-artifact-corrected": {
+      "methods": 14,
+      "terminal": 0,
+      "log_sha256": "a8c60c2df3b8afc7dba6ec455f2fe635184d38fb6c7d08954215671a05937abc"
+    }
+  },
+  "additional_path_suite": {
+    "initial_methods": 103,
+    "passed": 102,
+    "failed": 1,
+    "failure": "One historical artifact test asserted119files/97Lua against actual123/101 current payload; updated those fixed current inventory assertions. The 14-method Native path suite including that artifact then passed. No Native call semantics or performance budget weakened.",
+    "initial_log_sha256": "431d871e43a8c139c55093d1d689a842e76b905e6f7471122b543fc9cb374ffc"
+  },
+  "initial_new_builder_test_failures_preserved": {
+    "methods": 114,
+    "failures": 4,
+    "errors": 1,
+    "cause": "Owner test adaptation errors: standalone reused setUp lacked runtime attribute, a mistaken begin_query helper placement, and pending-route retirement expectation ignored existing two-continuation fairness. Owner fixed tests while retaining zero-dispatch assertions; product guards unchanged.",
+    "log_sha256": "6474e8afc5c2992cbef4101d714a58f0a839799f182196a123fcdf87338d4be9"
+  },
+  "consumer_admission": {
+    "modules": 17,
+    "actual184_only": true,
+    "future185_bool_float_string_rejected": true,
+    "historical140_172_rendered_END_bytes_unchanged": true,
+    "current151plus_four_port_preflight_retained": true,
+    "current181_34_context_4096_quotas_retained": true,
+    "game_actions_from_software_tests": 0
+  },
+  "actual_builds": {
+    "ordinary_files": 123,
+    "ordinary_Lua_compiled_each_VM": 101,
+    "performance_packages": 12,
+    "scenarios": [
+      "original85",
+      "many6",
+      "nosite1"
+    ],
+    "stages": [
+      "plan",
+      "observed",
+      "enabled",
+      "control"
+    ],
+    "every123_ZIP_bytes_read_back": true,
+    "every101_Lua_each_VM_compiled": true,
+    "paired_canonical_inverse_verified": true,
+    "archive_SHA256": {
+      "original85-plan": "57fc61a4db1b50bb23d57e7209796f936437023d3bf651509f3f2624b3f94f83",
+      "original85-observed": "8152026af93c0abc2125decaf2c00dfdfa757135f56ac732502c7dbf81de30b8",
+      "original85-enabled": "c0171151e2ad425887c05b51543dbc15f49deb79dec5b5ca82d7ad7de0529f61",
+      "original85-control": "95318daaa92b3345a3c70bd68a1c37ab8320414861cdaf5c7d35fd6d46914db0",
+      "many-plan": "2603acb6dec8ade884fa1f912e624b9ebc59db7b1126d8c71c53b722f220b24c",
+      "many-observed": "e6010700184cb1372955430951d7984fdc3603afca189b53846cd03f4a4afbc7",
+      "many-enabled": "be4e1934f604ac8cee69f90e231a5012755dd2747cb011453982385ad22c1b82",
+      "many-control": "f86db6ef1a6cd269f6f387402d739b347b80415e2e8bb020f2b47c72f4f5fd20",
+      "nosite-plan": "086b2a9461fa9a86f89a4b68252ec5a0955b409113c2e4062824b6098a596dea",
+      "nosite-observed": "30078f6a3c996234aa800f16d02bea324000aa7c1716d7c9a619f3f8c57f8a42",
+      "nosite-enabled": "0e78fa35db6b56b35d009b3b1e8fc8bd5bb1022c77593dad2791e6f6dbc028c6",
+      "nosite-control": "f17d61bc4a53e850225a6399f950a9d8a50c8fd051e8a1c8118cb97b39f05193"
+    }
+  },
+  "model": {
+    "real_unfinished_R217_files": 17,
+    "R217_input_bytes": 458310,
+    "real_unfinished_R218_files": 22,
+    "R218_input_bytes": 202961,
+    "availability_utc": "2026-11-24T12:27:13.428507+00:00",
+    "canonical_present": false,
+    "fallback": false,
+    "maintenance": {
+      "date": "2026-11-24",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "cost": null
+  },
+  "impact_limits": "Only two product files differ from183: manifest and initial builder query boundary. Other39closed cases remain183 evidence; current184 builder scheduling/functional continuation and fullTC036 still require actual current Native results. No blanket184 revalidation claim. Old unknown intents remain unresolved; no cancel/clear/retry.",
+  "next": "Prepare qualified184original85one-parent fullB_plan execution, fresh background offline then one cold launch and unchanged five86..90 windows/sixordinaryENDs. If successful continue all12/threecalendars/fivegroups25pairsegments. Continue work after delivery; do not stop at this commit.",
+  "ETA": "Prior3–5hourforecastwithdrawn; completionunknownuntilnewcurrent184B_planandfunctionalregressionresults."
+}

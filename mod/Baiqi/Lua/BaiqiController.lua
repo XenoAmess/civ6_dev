@@ -4133,7 +4133,9 @@ local function ProcessBuilder(ctx, player, state, unit)
       search.tested[target.index]=true
       if planningStarted~=nil then
         search.activeTarget=target.index;search.phase="query"
-        return AdvanceBuilderRoute(ctx,player,state,unit,search)
+        -- Scan and path preparation use separate ordinary callbacks. Resume
+        -- from fresh hints and permissions through the existing query phase.
+        return false,true
       end
       local step=PathStep(unit,target.plot,player,state)
       if step then

@@ -114,6 +114,9 @@ class BuilderRejectedGoalPhaseFailureTests(unittest.TestCase):
 
     def test_validation_failure_does_not_index_cleared_target(self):
         self.c.RunNow()
+        self.assertEqual(self.private.Searches()[3].phase, 'query')
+        self.assertEqual(len(self.w.pathQueries),0)
+        self.c.RunNow()
         self.assertEqual(self.private.Searches()[3].phase, 'validate')
         self.w.enemyPlot=43
         self.c.RunNow()
