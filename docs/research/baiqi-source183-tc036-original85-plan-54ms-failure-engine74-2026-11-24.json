@@ -1,0 +1,252 @@
+{
+  "utc": "2026-11-24T11:35:54.451193+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": "1.0.12.74",
+  "status": "FAIL_CURRENT_NATIVE_B_PLAN_CONTROLLER_MAX_EXCEEDS_FROZEN50MS",
+  "whole_TC036": "OPEN_REPAIR_AND_RETEST_REQUIRED",
+  "whole_mod_closed_cases": 39,
+  "percent": 97.5,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 11,
+  "new_product_changes": 0,
+  "actual_complete_summary": {
+    "utc": "2026-11-24T11:30:22.889418+00:00",
+    "facts_sha256": "9a982cb9c0395fc3861af083fb654d6ac1b73fe8f60efc4431f1404399e83ca0",
+    "cities": 11,
+    "source": "baiqi183-stageA-v2",
+    "sample_quality_ok": true,
+    "samples": 314,
+    "classification_counts": {
+      "Admin.Run": {
+        "pure_ten": 119,
+        "10_to_11": 0,
+        "eleven_city": 15,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 0
+      },
+      "Controller.RunNow": {
+        "pure_ten": 147,
+        "10_to_11": 0,
+        "eleven_city": 15,
+        "turn_crossing": 0,
+        "other_city_state": 0,
+        "outside_window": 0,
+        "before_native_anchor": 18
+      }
+    },
+    "eligible_calls_by_turn": {
+      "Admin.Run": {
+        "86": 24,
+        "87": 28,
+        "88": 27,
+        "89": 28,
+        "90": 27
+      },
+      "Controller.RunNow": {
+        "86": 33,
+        "87": 31,
+        "88": 36,
+        "89": 32,
+        "90": 30
+      }
+    },
+    "targets": {
+      "Admin.Run": {
+        "pure_ten_count": 119,
+        "p50_ms": 0.0,
+        "p95_ms": 1.0001659393310547,
+        "max_ms": 9.000062942504883,
+        "above_20ms_count": 0,
+        "above_50ms_count": 0,
+        "budget_ok": true
+      },
+      "Controller.RunNow": {
+        "pure_ten_count": 147,
+        "p50_ms": 0.9999275207519531,
+        "p95_ms": 8.00013542175293,
+        "max_ms": 54.000139236450195,
+        "above_20ms_count": 2,
+        "above_50ms_count": 1,
+        "budget_ok": false
+      }
+    },
+    "overall_budget_ok": false,
+    "limits": "Independent planning-function inclusive wall-clock latency only; no B_turn, N_req, B_delta or whole TC-036 pass.",
+    "pre_anchor": {
+      "pending": 0,
+      "recorded": 18,
+      "validated": 18,
+      "errors": 0
+    }
+  },
+  "actual_maximum_original_row": {
+    "index": 15,
+    "name": "Controller.RunNow",
+    "seconds": 0.054000139236450195,
+    "failed": false,
+    "started": 1795519342.638,
+    "ended": 1795519342.6920002,
+    "turnStart": 86,
+    "turnEnd": 86,
+    "cityStart": 10,
+    "cityEnd": 10,
+    "anchor": 1795519340.672,
+    "windowEligible": true,
+    "preAnchor": false,
+    "argumentCount": 1,
+    "allowOrders": "true"
+  },
+  "interpretation": {
+    "Controller_pure_ten_count": 147,
+    "Controller_p50_ms": 0.9999275207519531,
+    "Controller_p95_ms": 8.00013542175293,
+    "Controller_max_ms": 54.000139236450195,
+    "Controller_above20_count": 2,
+    "Controller_above50_count": 1,
+    "Admin_pure_ten_count": 119,
+    "Admin_p95_ms": 1.0001659393310547,
+    "Admin_max_ms": 9.000062942504883,
+    "Admin_budget_pass": true,
+    "measured_thing": "Inclusive wall-clock of original planning entry; Native callees, scheduling and nested work included.",
+    "internal_cause": "UNKNOWN; originalsample has no internal call stack. Turn86andallowOrderstrue are facts, not proof that production/pathfinding/Native/OS caused54ms.",
+    "parent_terminal0_is_not_budget_PASS": true,
+    "sample_or_outlier_removed": 0,
+    "budget_threshold_weakened": false,
+    "unchanged_resample_to_replace_failure": false
+  },
+  "actual_native_episode": {
+    "owner": 8112,
+    "one_Popen": 1,
+    "initial_Load_and_formal_reload": 2,
+    "actual_warmup_seconds": 65.34299993515015,
+    "frozen_windows": [
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "closing_actual_turn": 91,
+    "city_count_initial": 10,
+    "city_count_final": 11,
+    "ordinary_ENDs": 6,
+    "actual_ended_turns": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "TEST_PLAYER_military_SKIPs_by_turn": {
+      "85": 18,
+      "86": 18,
+      "87": 18,
+      "88": 18,
+      "89": 18,
+      "90": 19
+    },
+    "ordinary_original_diplomacy_farewell_callbacks": 1,
+    "UserForced": 0,
+    "manual_domestic_inputs": 0,
+    "Steam_actions": 0,
+    "pre_anchor_recorded_and_validated": 18,
+    "all314_raw_samples_preserved": true,
+    "HTTP_Git_build_heavytests_during_formal": 0
+  },
+  "closeout": {
+    "official_save": {
+      "utc": "2026-11-24T11:30:27.262258+00:00",
+      "name": "Baiqi_P6_20261124_V183_PlanStageAComplete91.Civ6Save",
+      "bytes": 520402,
+      "sha256": "bad2d25a61fd0dfba4c1d0e84b46de91c1df1dd7c8bfade2e0925512db760181",
+      "stable_repeated_read": true
+    },
+    "all_owned_profile_hooks_retired": true,
+    "formal_released_after_dump_save_and_retire": true,
+    "original_OnExitGame_once": true,
+    "owned_idle_exit_residue": {
+      "utc": "2026-11-24T11:33:48.549262+00:00",
+      "exit_code": 15,
+      "terminate_count": 1,
+      "kill_escalations": 0,
+      "natural_exit_claimed": false
+    },
+    "all_game_processes_absent": true,
+    "current_installed": "ExactprivateStageA123retained; no game. Ordinaryproductrootunchanged. Nextdiagnostic installrequiresfull123currenthashesandbackup124."
+  },
+  "raw_SHA256": {
+    "plan183b-facts.json": "9a982cb9c0395fc3861af083fb654d6ac1b73fe8f60efc4431f1404399e83ca0",
+    "plan183b-summary.json": "59e33fe6f29cf3200c1c99804f4513fee0278f557760bc4e2bb662f640df9c0e",
+    "plan183b-capture-result.json": "c17e4832b56d78c05a92459f4b68f56dfcd4139e25ad48d53c5a6d5d97e32c84",
+    "plan183b-dump-response.json": "fbc9be17b9fbeade9764391e1abc5d855a2b9826324592234c8bad71729cb3fa",
+    "plan183b-complete-native-Lua-before-new-diagnosis.log": "2af1ab688dc919f0abb61112bb73536e5deb2b7163d275fe7fd335d460f4181b",
+    "perf183-original85-plan183b-parent-terminal.json": "b15e78e4d5461278a3239c78a4201fb404cab9f78810fa1bdf550706f8b890ef"
+  },
+  "model": {
+    "genuine_R215_sources": 17,
+    "source_bytes": 892824,
+    "prepared_not_wire": true,
+    "metadata": {
+      "utc": "2026-11-24T11:34:33.556050+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-24",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-24T11:34:33.524900+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 6.444999948143959,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-24T11:34:33.531880+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1154,
+          "over_64KiB": false,
+          "sha256": "4d1dee84df33df6e5a7866401f34569924259e3746be461c9a35dfb78f30cc8b",
+          "total_ms": 17.96809956431389
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "cost": null
+  },
+  "next": "Useexistingcanonical34context/101Luaobservedprivateartifact for a separatelynamedinternaldiagnosticordinary85to86window. Identifyrealnestedcostbeforeproductchange. Diagnosticinstrumentedlatencies are not replacement acceptance samples. PreserveFAILthenfixandrerunfullcurrentperformance.",
+  "time_plan": {
+    "previous_3_to5_hours_estimate": "WITHDRAWN_AFTER_ACTUAL_PERFORMANCE_FAILURE",
+    "next_internal_diagnostic_estimate_minutes": [
+      15,
+      30
+    ],
+    "repair_and_full_three_calendar_finish": "UNKNOWN_UNTIL_INTERNAL_CAUSE_AND_FIX_SCOPE_VERIFIED",
+    "no_stop_after_commit": true
+  }
+}

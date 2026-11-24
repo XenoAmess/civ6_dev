@@ -1577,3 +1577,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-24 [TC036启动前旧离线查询失败及当前入口修正](research/baiqi-source183-tc036-legacy-mode-query-rejected-before-Popen-current-gate-correction-2026-11-24.json)：183a父40232安装私有123成功，但借用旧base查询返回unavailable，在cold意图／Popen／Load／formal／END前停止，实际性能0；已核terminal1／OS消失，无Steam动作。当前既有正常gate后台原生只读11:12实际离线；新183b仅修路由且未来启动重新取15秒内当前实例证明，不把诊断当未来授权。原失败原件保留，新命名15消费者经58双Lua／12Python＋2旧对照／10只读＋8main通过，预算／场景不改，安装前强核旧私有123＋原回执＋无启动／读档意图。R213真实10源42684字节准备未wire，复用11:05canonical缺与同日维护缓存，0生成候选采用，成本null。整体39/40＝97.5%保持，继续实际采样。
+
+
+2026-11-24 [当前183／74原85规划性能真实失败](research/baiqi-source183-tc036-original85-plan-54ms-failure-engine74-2026-11-24.json)：314原始样本／86–90五窗口与18前锚全有效，但Controller纯十城147次p50约1／p95约8／max54.000139ms，1次超过冻结50ms，另1次21ms；Admin119次p95约1／max9通过。不能把父91219terminal0、错误0或p95绿说成本项通过，原始超限不删、不改预算、不用原样重采覆盖。最大为86回合RunNow(true)第15行；内部／Native／调度贡献未知，下一步独立34上下文内部诊断后修复。6普通END、实际军队待命逐回合分列，0UserForced／手动内政；91正式存520402／bad2d25a、全部计时钩子撤／正式Quit／185秒空闲自有残留单次terminate1kill0关闭，Steam0。整体39/40＝97.5%保持、仅余036、待发11；此前3–5小时估计撤回，先约15–30分钟内部定位再更新修复与全三场景节点，提交后继续。R215真实17源892824字节准备、11:34canonical仍缺、0生成候选采用／原生生成，成本null。
