@@ -1,0 +1,215 @@
+{
+  "utc": "2026-11-24T12:07:48.615945+00:00",
+  "source_version": 183,
+  "engine": "1.0.12.74",
+  "status": "PARTIAL_INTERNAL_DIAGNOSIS_NO_CONTROLLER_ROWS_SELECTED_NESTED_TOOL_SOFTWARE_PASS_NATIVE_NOT_RUN",
+  "whole_mod_closed_cases": 39,
+  "percent": 97.5,
+  "TC036_complete": false,
+  "unpublished_product_fix_packages": 11,
+  "product_source_changes": 0,
+  "original54msFAIL_preserved": true,
+  "actual_partial_diagnosis": {
+    "new_owned_PID": 14576,
+    "ordinary_ENDs": 1,
+    "military_waits": 18,
+    "UserForced": 0,
+    "manual_domestic_inputs": 0,
+    "instrumented_context": "UI/BaiqiExecutor.lua",
+    "total_calls": 1182,
+    "retained_rows": 66,
+    "zero_aggregate": 1116,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "exact86first10s_retained": 41,
+    "actual_names_and_counts": [
+      {
+        "name": "UI/BaiqiExecutor.lua:63:Update",
+        "count": 36,
+        "max_ms": 6.999969482421875
+      },
+      {
+        "name": "UI/BaiqiExecutor.lua:113:OnPlayback",
+        "count": 4,
+        "max_ms": 5.000114440917969
+      },
+      {
+        "name": "UI/BaiqiExecutor.lua:89:Activate",
+        "count": 1,
+        "max_ms": 3.999948501586914
+      }
+    ],
+    "actual_Controller_RunNow_rows": 0,
+    "internal_root_cause_of54ms": "STILL_UNKNOWN",
+    "protected_save": {
+      "utc": "2026-11-24T11:50:39.043118+00:00",
+      "name": "Baiqi_P6_20261124_V183_InternalProfile86.Civ6Save",
+      "bytes": 503826,
+      "sha256": "dec24318db6c758e396d26f4dde1a27455b45f83490c454ee8b8e1bf568b8680",
+      "stable_repeated_read": true
+    },
+    "closeout": {
+      "utc": "2026-11-24T12:03:09.496025+00:00",
+      "owner": {
+        "pid": 14576,
+        "created_at": 1795520615.479284,
+        "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+      },
+      "actual_normal_mainmenu_Quit_and_confirmation": true,
+      "all34_world_profiler_entries_retired": true,
+      "all_world_own_markers_retired": true,
+      "own_process_absent": true,
+      "all_Civ6_processes_absent": true,
+      "terminate_calls": 1,
+      "kill_calls": 0,
+      "actual_exit_code": 15,
+      "natural_exit_claimed": false,
+      "protected_save": {
+        "utc": "2026-11-24T11:50:39.043118+00:00",
+        "name": "Baiqi_P6_20261124_V183_InternalProfile86.Civ6Save",
+        "bytes": 503826,
+        "sha256": "dec24318db6c758e396d26f4dde1a27455b45f83490c454ee8b8e1bf568b8680",
+        "stable_repeated_read": true
+      },
+      "Steam_actions": 0
+    }
+  },
+  "owner_scope_correction": {
+    "wrong_assumption": "Owner expected the general owned-entry profiler to time nested Controller calls inside Executor.Update.",
+    "actual_source": "tools/lua/diagnostic_owned_roots.lua:21 bypasses nested timing when the same context root is alreadyactive. This is intentional inclusive entry-envelope behavior, not evidence that Controller belongs to a missing/different context.",
+    "all34_contexts_enable_would_resolve_this_nested_gap": false,
+    "old_current_or_historical_fullscript_envelope_reports_reclassified_as_internal_stack": false,
+    "original_acceptance_profiler_unchanged": true,
+    "earlier_UI_only_scope_claim_withdrawn": true
+  },
+  "new_tool": {
+    "files_sha256": {
+      "tools/lua/diagnostic_selected_nested.lua": "03770278c292e4240631756e9151f47f9dc7ff12bb37ce1cd77844956096ba36",
+      "tools/build_selected_nested_profile_mod.py": "e9c6f9d93b67095c0031344d848b868474b49ee1a12fe70db0527a7a8fd321a6",
+      "tools/test_selected_nested_diagnostic.py": "15262d5e900ff0be5191dfe25e4d75a2662944d41ff64eaa77e576bc8d90be98"
+    },
+    "purpose": "Separate bounded selected-nested internal diagnosis only; never product/runtime model code.",
+    "selected_actual_names": [
+      "BaiqiController.RunNow",
+      "Tick",
+      "PlayerContext",
+      "RefreshSettlement",
+      "ReadBack",
+      "NextCityForPlanning",
+      "ProcessCity",
+      "Economy",
+      "FirstHolySiteWanted",
+      "ProcessBuilder",
+      "AdvanceBuilderRoute",
+      "BuilderTargets",
+      "ProcessSettler",
+      "SettlementSites",
+      "ProcessTrader",
+      "KnownExpansionSupport",
+      "ProcessNaturalistPurchase",
+      "missionaryPurchase.Process"
+    ],
+    "maximum_retained_rows": 512,
+    "canonical_diagnostic_profile_source_unchanged": true,
+    "unselected_function_object_identity_and_original_call_result_preserved": true,
+    "selected_children_and_parent_timed_separately": true,
+    "timings_inclusive_not_exclusive_CPU_do_not_sum_nested": true,
+    "one_arm_typed_current_context_Stop_Retire_no_replay": true,
+    "same_function_args_nil_arity_and_original_error_preserved": true,
+    "no_SDK_getter_or_writer_namespace_replacement": true,
+    "no_game_actions_in_helper": true
+  },
+  "verification": {
+    "unit_test_methods": 8,
+    "each_real_Lua_VM": [
+      "5.1",
+      "5.3"
+    ],
+    "actual_terminal": 0,
+    "terminal_chunk": "b64221",
+    "covers": [
+      "actual nested child/parent timing",
+      "arity with nil,false,7,nil",
+      "original exception exactlyonce",
+      "cap1 dropsouterwithoutoverwritingchildmetadata",
+      "strictcurrentplayer/turn andonearm",
+      "Stop/Retire/readcopy",
+      "zeroaggregation andbrokenclock preserve originalresult",
+      "bounds,sparse/duplicate names reject"
+    ],
+    "first_failed_test": {
+      "methods": 8,
+      "errors": 5,
+      "all_errors_in_Lua53": "Canonical engine helper uses globalunpack, absent inLua53testVM.",
+      "fixed_by": "Only lexical localunpack=unpackortable.unpack in diagnosticNewProfileIIFE/testconstructor; canonicalfile unchanged.",
+      "prototype_archive_0099daad_not_installed": true,
+      "owner_built_after_failed_tests": "That first compilation artifact was preserved as ineligible; compile did not qualify it and no Native ran. After passing8methods, a new exclusiveoutputdirectory was built."
+    },
+    "private_artifact": {
+      "files": 123,
+      "Lua_each_VM": 101,
+      "changed_files": [
+        "Lua/BaiqiController.lua"
+      ],
+      "archive_sha256": "dc602e2a1a03b10fd89c3559d765d66c375b2abe90520a0fbc5d5673ae156763",
+      "actual_all123_ZIP_bytes_verified": true,
+      "actual_canonical_transform_regeneration_verified": true,
+      "product_root_unchanged": true,
+      "Native_selected_nested_runs": 0
+    }
+  },
+  "model": {
+    "genuine_R216_sources": 12,
+    "source_bytes": 396818,
+    "prepared_not_wire": true,
+    "metadata": {
+      "utc": "2026-11-24T11:58:19.773475+00:00",
+      "configured_model": "qwen38-coder",
+      "configuration_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+      "maintenance": {
+        "date": "2026-11-24",
+        "installed_version": "1.19.6",
+        "target_version": "1.19.6",
+        "cached": true
+      },
+      "results": [
+        {
+          "name": "models",
+          "utc": "2026-11-24T11:58:19.735422+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 547,
+          "over_64KiB": false,
+          "sha256": "21aa24b9dea19a6e904f012460eb42ecf72708a4fd42d599e6ccf548d1a2b124",
+          "total_ms": 9.887299966067076,
+          "model_ids": [
+            "open-h3-2k"
+          ]
+        },
+        {
+          "name": "health",
+          "utc": "2026-11-24T11:58:19.746007+00:00",
+          "status": 200,
+          "Content_Type": "application/json",
+          "bytes_retained": 1153,
+          "over_64KiB": false,
+          "sha256": "5e93886f7486d088ffd4e66552c20658e0ef7d0bfaa962bf0c1427488fb3915b",
+          "total_ms": 26.064699981361628
+        }
+      ],
+      "generation_POSTs": 0,
+      "new_logical_candidate_tasks": 0,
+      "Native_queries": 0,
+      "configuration_changes": 0,
+      "service_mutations": 0,
+      "automatic_fallback": false,
+      "formal_overlap": false
+    },
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "cost": null
+  },
+  "next": "Installonlyafterexactownedoldexit/hashbackup, freshcurrentbackendofflinebeforeunique newcold; actualselected18baseline thenmatchedordinary85to86subfunctiondiagnosis. Preservebothpartial66andfailed314 samples. Fixproductonlyafterevidence; original3to5hETAwithdrawn."
+}
