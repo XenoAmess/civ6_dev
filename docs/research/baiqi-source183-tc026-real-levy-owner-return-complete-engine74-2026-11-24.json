@@ -1,0 +1,315 @@
+{
+  "schema": "civ6.source183-tc026-complete-real-levy-return/v1",
+  "utc": "2026-11-24T05:15:12.074861+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 183,
+  "engine": "1.0.12.74",
+  "Build": 26595377,
+  "status": "PASS_FROZEN_TC026_ALL_REQUIRED_BRANCHES_CURRENT_ENGINE_SOURCE_IMPACT_REVIEWED",
+  "whole_TC026": "CLOSED",
+  "whole_mod": "OPEN_CONTINUE_OTHER4",
+  "whole_cases_closed": 36,
+  "whole_cases_total": 40,
+  "percent": 90.0,
+  "Workshop_source": 172,
+  "unpublished_product_fix_packages": 11,
+  "product_changes": 0,
+  "source_impact_review": {
+    "utc": "2026-11-24T05:11:53.413343+00:00",
+    "prior_product_base_commit": "0f12a8ddeee6b7306868ccd24736592a2b452ea3",
+    "current_product_head": "413441c4b5072f858d532f2b92d7f5d4c37c3627",
+    "source_version": 183,
+    "parts": [
+      {
+        "path": "mod/Baiqi/Lua/BaiqiRequisition.lua",
+        "scope": "entire file including Quote/Player/RequestID/Conflict",
+        "old_current_sha256": "a5e7227e85f647b42212e802419ab57e2414f42be07524b5b0db0caa67d4cdd2"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+        "scope": "BaiqiActions.Poll",
+        "old_current_sha256": "0b97ba3a28bfe6c79080424ac02d206962fc13d5bd3984bf0a289530c753ff09"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+        "scope": "BaiqiActions.WrapMove",
+        "old_current_sha256": "df0fa9610c909df9ae91a095a64577880c5ed527caf78e0acbcad6a0d0760ab4"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+        "scope": "BaiqiActions.WrapFlagOperation",
+        "old_current_sha256": "7d8cd0ac778dd4a37fa7c9b6b320aaf9fcc77c11c5364f2a82aac9ba2045cfac"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiActions.lua",
+        "scope": "Interact exact equality after removing the sole source178 four-line double-click event addition; original fresh Quote/cost/population/RequestID rejection and submission body unchanged",
+        "prior_sha256": "d27a458cbd19249771434c93ba9484226652761be7a35171b83febfcad817b37",
+        "current_sha256": "3ce888302ebff6a621eaf0ee0ef2c0c8ea0d488b15fb21673316cb96aed321e1",
+        "source178_insertion": "    BaiqiActions.OnCityConfirmationSubmitted(pid,quote.turn)\n    if LuaEvents and LuaEvents.BaiqiCityConfirmationSubmitted then\n      LuaEvents.BaiqiCityConfirmationSubmitted(pid,quote.turn)\n    end\n",
+        "other_changes_in_Interact": 0
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiPolicy.lua",
+        "scope": "BaiqiPolicy.Number",
+        "old_current_sha256": "de0a756151c6056dd6babbbad951819be8478304c894ca35cb2f62197a79b47d"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiPolicy.lua",
+        "scope": "BaiqiPolicy.MatchesID",
+        "old_current_sha256": "4354d3f59da8821fd84dad4807ceeae9137d019b93883c4e31240f4f3ee7ba00"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+        "scope": "cityRequisition",
+        "prior_current_value": "true"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+        "scope": "cityCostBase",
+        "prior_current_value": "200"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+        "scope": "cityCostPerPopulation",
+        "prior_current_value": "100"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+        "scope": "cityHealthPercent",
+        "prior_current_value": "35"
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+        "scope": "requisitionKey",
+        "prior_current_value": "\"BAIQI_REQUISITION_V1\""
+      },
+      {
+        "path": "mod/Baiqi/Lua/BaiqiConfig.lua",
+        "scope": "leader",
+        "prior_current_value": "\"LEADER_BAIQI\""
+      }
+    ],
+    "scope": "Retain exact source177/.74 balance/moves/distance/price/target/absence outcomes; new183/.74 real Native levy-owner return and physical old confirmation separately run. No grant for unrelated cases or Core tombstone Quote safety.",
+    "no_new_game_action": true
+  },
+  "retained_prior_branches": {
+    "balance": "docs/research/baiqi-source177-tc024-gold299-301-engine74-2026-11-22.json",
+    "moves": "docs/research/baiqi-source177-tc024-moves-cooldown-engine74-2026-11-22.json",
+    "distance": "docs/research/baiqi-source177-tc024-complete-engine74-2026-11-22.json",
+    "price": "docs/research/baiqi-source177-tc026-price-change-engine74-2026-11-22.json",
+    "actor_absence": "docs/research/baiqi-source177-tc026-actor-absent-engine74-2026-11-22.json",
+    "target_owner": "docs/research/baiqi-source177-tc026-thirdparty-engine74-2026-11-22.json"
+  },
+  "frozen_mapping": {
+    "balance": "Actual300 quote opened before one QA balance change.299 old-confirm rejects with no fee;300/301 settle300.",
+    "moves": "Actualoldquote before one QA FinishMoves, old-confirm no_moves/change notice/no fee or attack.",
+    "distance": "One original TEST_PLAYER move after oldquote fromadjacency1 to2; actual oldconfirm rejects, no new charge or continuation.",
+    "price": "Old300 quote, controlled population1to2, actualoldreject; visiblefresh400 and newphysicalconfirmation settle400 only.",
+    "target_owner": "Controlled transfer original major-city to existing realFreeCities62, oldconfirm refuses and preserves newowner; no substitution.",
+    "actor_absence": "One explicitQA removal, freshUI/Core absence, oldconfirm no fee/otheractor substitution.",
+    "actor_owner": "This current183/.74 realNative levy expiry-by-suzerain-tie after actual300quote; old UI fullID absent, source7 new fullIDs onmap, oldconfirm physically rejects/no fee/attack.",
+    "stale_task": "UI confirming reset by actual stale-confirm callback; request pending never created (0UIrequests), no requisition journal/result, popup notice dismissed; scoped wrappers and consumed QA retired, safeSave/formalMenu."
+  },
+  "current_real_owner_branch": {
+    "fixture": {
+      "utc": "2026-11-24T04:11:07.343610+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC026CityStates2_ByteCopy.Civ6Save",
+      "bytes": 639787,
+      "sha256": "c16ab1c83feca76aaca78cd5f9bc10eab0450c0d643938c002b59a323532eba1",
+      "original": {
+        "name": "Baiqi_P6_20261105_V75_VilniusPrepared2.Civ6Save",
+        "bytes": 639787,
+        "sha256": "c16ab1c83feca76aaca78cd5f9bc10eab0450c0d643938c002b59a323532eba1"
+      },
+      "source_version_to_load": 183,
+      "purpose": "Independentcurrent-enginequalificationofexistingrealengineinitializedcitystatesworld. Prior75isfixtureprovenance, nocurrentPASS. No runtimeforeignAdd/Create/Init/Place repeats."
+    },
+    "owner": {
+      "pid": 20032,
+      "created_at": 1795492680.2846515,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "turn": 2,
+    "original0_army": [
+      131073,
+      6,
+      15,
+      2
+    ],
+    "target": [
+      6,
+      65536,
+      5,
+      15,
+      1
+    ],
+    "initial_gold": 500,
+    "source_citystate7": "Palenque, actual scenario-initialized minor",
+    "QA_prerequisites": "One original player0 contact automatically yields first envoy, then two original free-envoy grants give3/suz0; rival1 original contact before quote. Explicit QA diplomacy, not Baiqi BACKGROUND.",
+    "one_original_TEST_PLAYER_UI_levy": {
+      "request_calls": 1,
+      "gold_before_after": [
+        500,
+        420
+      ],
+      "cost": 80,
+      "borrowed_owner_originalOwner": [
+        0,
+        7
+      ],
+      "borrowed_fullIDs": [
+        196608,
+        262146
+      ]
+    },
+    "prequote_movement": "Explicit QA ChangeMovesRemaining +40 onlyborrowed196608, original UI militaryMove once along9 actual empty/passable land nodes to6,14; moves40to29. Not natural refresh or background militarycontrol.",
+    "actual_quote": {
+      "requestID": "city:0:2:196608:6:65536:5:15",
+      "cost": 300,
+      "gold": 420,
+      "moves": 29,
+      "semantic_original_MoveUnitToPlot_entry": 1,
+      "physical_mapright": 0,
+      "actual_visible_original300_popup": true
+    },
+    "external_owner_change": "Afterquote rival1 receives three original freeenvoys one atatime.3/3tie removes suzerain0 (actualfinal-1), originalengine returns BOTHborrowedarmies; no4th grant, no directOwner setter/Kill/Spawn/Place.",
+    "Core_old_actor": "FullID196608 remains delayeddeath/offmap-9999,-9999 with historicalmoves29; never passed to Quote/MapDistance afterreturn.",
+    "UI_old_actor": "Fresh oldID absent, actualQuote owner_changed.",
+    "real_returned_source7_armies": [
+      [
+        7,
+        262144,
+        6,
+        14,
+        0
+      ],
+      [
+        7,
+        327683,
+        10,
+        8,
+        0
+      ]
+    ],
+    "physical_old_confirm": 1,
+    "actual_notice": "城市状态或报价已变化，请重新与城市交互。",
+    "notice_physically_dismissed": true,
+    "gold_before_after_confirmation": [
+      420,
+      420
+    ],
+    "target_and_original_owned_army_preserved": true,
+    "UI_interact_paidRequests_paidroute_attackContinuation": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "UI_observer_errors_dropped": [
+      0,
+      0
+    ],
+    "Native_global_request_count": null,
+    "cross_context_atomic": false,
+    "normal_END_or_UserForced": 0
+  },
+  "software_guard_cases": {
+    "prerequisite_dual_VM": 98,
+    "one_levy_dual_VM": 48,
+    "moves40_dual_VM": 44,
+    "rival_dual_VM": 100,
+    "current_actual_Actions_Requisition_UI_observer_dual_VM": 40
+  },
+  "owner_errors": [
+    "Native return parent terminal tool output lost at context boundary; completed full independent qualification and actual OS parent absence reconciled, terminal exit remains null, no writer replay.",
+    "Retirement first restored both exact owned UI bindings, then nil rawget in Civ UI sandbox failed before clearing globals. Followup required actual retired/restored observer and used explicit exact global assignments; no Retire/Native business replay. Core cleanup and Save occurred once."
+  ],
+  "model": {
+    "prepared_real_tasks": [
+      {
+        "task": "R184_REAL_TC026_EXISTING_REAL_CITYSTATE_WORLD_OFFICIAL_LOAD_AND_BOUNDED_CENSUS_BEFORE_LEVY",
+        "sources": 115,
+        "declared_original_bytes": 2953886,
+        "serialized_UTF8_source_bytes": 2953881,
+        "original_encoding_BOM_bytes_separate": true,
+        "generation_POSTs": 0,
+        "wire_sent": false
+      },
+      {
+        "task": "R185_REAL_TC026_NATIVE_CONTACT_AND_FREE_ENVOY_PREREQUISITE_FOR_EXISTING_PALENQUE7",
+        "sources": 119,
+        "declared_original_bytes": 3411599,
+        "serialized_UTF8_source_bytes": 3411594,
+        "original_encoding_BOM_bytes_separate": true,
+        "generation_POSTs": 0,
+        "wire_sent": false
+      },
+      {
+        "task": "R186_REAL_TC026_ONE_ORIGINAL_TEST_PLAYER_LEVY_MILITARY_AFTER_NATIVE_PALENQUE_QUALIFICATION",
+        "sources": 123,
+        "declared_original_bytes": 3431479,
+        "serialized_UTF8_source_bytes": 3431474,
+        "original_encoding_BOM_bytes_separate": true,
+        "generation_POSTs": 0,
+        "wire_sent": false
+      },
+      {
+        "task": "R187_REAL_TC026_PREQUOTE_BORROWED_ARMY_NATIVE_ROUTE_AND_MOVEMENT_CONDITIONS",
+        "sources": 129,
+        "declared_original_bytes": 3874504,
+        "serialized_UTF8_source_bytes": 3874499,
+        "original_encoding_BOM_bytes_separate": true,
+        "generation_POSTs": 0,
+        "wire_sent": false
+      },
+      {
+        "task": "R188_REAL_TC026_ACTUAL_OLD_QUOTE_NATIVE_LEVY_RETURN_AND_STALE_CONFIRMATION",
+        "sources": 135,
+        "declared_original_bytes": 3904146,
+        "serialized_UTF8_source_bytes": 3904141,
+        "original_encoding_BOM_bytes_separate": true,
+        "generation_POSTs": 0,
+        "wire_sent": false
+      }
+    ],
+    "latest_bounded_readiness_UTC": "2026-11-24T04:57:29.529771+00:00",
+    "configured_coder": "qwen38-coder absent; onlyopen-h3-2k; no fallback",
+    "shared_executor_config_sha256": "75b5a92349193407aab1b8156849461d877a2e87adae4234cacc02850b60b1b9",
+    "daily_OpenCode": "1.19.6 localNov24 cachedsuccessful maintenance",
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "cost": null
+  },
+  "closeout": {
+    "utc": "2026-11-24T05:11:08.775158+00:00",
+    "owner": {
+      "pid": 20032,
+      "created_at": 1795492680.2846515,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "source_version": 183,
+    "save": {
+      "utc": "2026-11-24T05:09:43.316966+00:00",
+      "name": "Baiqi_P6_20261124_V183_TC026LevyOwnerRejected2.Civ6Save",
+      "bytes": 648069,
+      "sha256": "5c9bb192c735fe4f8e5b5ed68e1acd72f7b6740d0346b160f93ac748716a9f18",
+      "stable_repeated_read": true
+    },
+    "all_owned_world_and_menu_QA_retired": true,
+    "official_MainMenu_and_no_world_contexts": true,
+    "normal_ENDs": 0,
+    "new_Quit_terminate_kill": 0,
+    "case_TC026_complete": false
+  },
+  "limits": [
+    "Only frozenTC026 coverage. Current owner branch uses original semantic map-entry, not a new physical mapright test; physicalmapright/cursoraway are separately retained prior177/.74 scopes.",
+    "One changed category is external military ownership; real native unlevy returns both borrowedarmies and their action points. Target/wallet/original ownarmy remain held. No claim onlyone field changed globally.",
+    "Core tombstone availability differs from UI. This safe UI absence result does not grant all arbitrary offmap Core Quote safety.",
+    "All source177 outcomes remain dated/source-attributed; exact shared consumers reviewed, not falsely relabeled full183 reruns.",
+    "Prior failed runtime-created foreignfixture and old8650807 FAIL_UNRESOLVED,6684713/458752 LEGACY_UNKNOWN preserved; no legacy unknown cleared/replayed.",
+    "No TC031 assets/loyalty, TC036 performance, TC038 externalbudgetshock or TC040 missingmetadata pass."
+  ],
+  "next": "Immediately continue current183/.74 TC031 special-city/assets full frozen mapping and independent wonder-prepared114 bytecopy. No stage/commit stop."
+}
