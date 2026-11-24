@@ -241,7 +241,7 @@ end
                 raise RuntimeError('Unexpected game turn')
             if turn!=last_turn:
                 last_turn=turn;deadline=now()+180
-            if turn==closing and anchored:
+            if turn==closing and anchored and ready:
                 stopped=_payload(query('BaiqiExecutor',stop_code('COMPLETE',True)),'P6_Q20_STOP')
                 if stopped!=['COMPLETE',str(closing)]:
                     raise RuntimeError('Completion stop not confirmed')

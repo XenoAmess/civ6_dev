@@ -1619,3 +1619,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-24 [184原85完整静默StageA与wire审计](research/baiqi-source184-canonical-five-window-quiet-observer-stageA-engine74-2026-11-24.json)：新一父冷启／原85精确副本预热重载／canonical123，六普通END至91、五86—90固定10秒窗，全部326行保留；新StageA资格=True，原始质量=True、冻结预算=True、实际wire静默资格=True。两目标分布及10→11／11城／preanchor均见完整原值，不挑尖峰／改阈值。正常外交告别一次后另等待，无额外END；已存91／退全部活动QA／释放形式锁／正式Quit／普通184精确123恢复。旧18354ms与184438msFAIL保留，未证明旧根因；本轮只授所测StageA范围，不授全34／Nreq／配对／压力矩阵或整例通过。仍39/40＝97.5%、余TC036、待发12，无185；R23226源397090字节仅已准备，尚未模型请求／测试／实机，继续余项不在阶段交付后停止。
+
+
+2026-11-25 [184全34当前调用器及91就绪门禁软件资格](research/baiqi-source184-full34-current-caller-and-closing-readiness-software-engine74-2026-11-25.json)：15模块改为同一登记Python PID顺序执行，实际Root／内部caller6分支、执行器5＋路径参数拒绝5、原生成30／双Lua六回合END432／实际main84通过；两Lua实际timing各408行且整回合记录与写入哨兵不变，44观测／压力／计时回归通过。新增实际91锚点＋空闲／消息就绪收尾，拒绝busy／processing提前COMPLETE。初始两次临时夹具缺旧脚本失败已保留；补隔离原件后全部通过，0Native／0Popen，尚无当前全34预算结果。使用真实Q通过与普通184123前置，修正旧183引用及通用fence路径，闭场后恢复普通184。原85StageA通过范围保留、旧54／438FAIL不删；仍39/40＝97.5%、余TC036／待发12，无185。R232真实26源397090字节／0生成采用，最后HTTP在本地11月24日，25日尚无模型调用；立即钉住并实测，不在软件提交停止。

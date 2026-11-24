@@ -49,6 +49,38 @@ class NormalObservedDriverTests(unittest.TestCase):
         self.assertFalse(any('UserForced' in q or 'UI.RequestAction(' in q for q in self.h.queries))
         self.assertTrue(self.h.all_recording(False))
 
+    def test_closing_anchor_waits_for_core_to_be_idle(self):
+        self.h.lua.execute('UI.IsGameCoreBusy=function()return World.turn==91 and World.clock<World.readyAt end')
+        def callback(turn, token):
+            receipt = self.callback(turn, token)
+            if turn == 90:
+                self.h.world.readyAt = float(self.h.world.clock) + 3
+            return receipt
+        result = self.run_capture(callback)
+        self.assertEqual(result['phase'], 'COMPLETE')
+        self.assertGreaterEqual(float(self.h.world.clock), float(self.h.world.readyAt))
+        self.assertEqual([x[0] for x in self.calls], list(range(85, 91)))
+
+    def test_closing_anchor_waits_for_message_processing_to_finish(self):
+        self.h.lua.execute('UI.IsProcessingMessages=function()return World.turn==91 and World.clock<World.readyAt end')
+        def callback(turn, token):
+            receipt = self.callback(turn, token)
+            if turn == 90:
+                self.h.world.readyAt = float(self.h.world.clock) + 4
+            return receipt
+        result = self.run_capture(callback)
+        self.assertEqual(result['phase'], 'COMPLETE')
+        self.assertGreaterEqual(float(self.h.world.clock), float(self.h.world.readyAt))
+        self.assertEqual([x[0] for x in self.calls], list(range(85, 91)))
+
+    def test_closing_anchor_without_readiness_times_out_without_extra_end(self):
+        self.h.lua.execute('UI.IsGameCoreBusy=function()return World.turn==91 end')
+        with self.assertRaises(TimeoutError):
+            self.run_capture()
+        self.assertEqual([x[0] for x in self.calls], list(range(85, 91)))
+        self.assertFalse(any('s.phase="COMPLETE"' in q for q in self.h.queries))
+        self.assertTrue(self.h.all_recording(False))
+
     def test_default_and_ambiguous_modes_fail_before_creating_capture(self):
         for options in ({}, {'legacy_forced': 1}, {'request_normal_end': False},
                         {'request_normal_end': self.callback, 'legacy_forced': True}):
