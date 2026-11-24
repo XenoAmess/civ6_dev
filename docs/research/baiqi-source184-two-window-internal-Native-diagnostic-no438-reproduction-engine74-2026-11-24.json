@@ -1,0 +1,662 @@
+{
+  "utc": "2026-11-24T13:41:22.478563+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 184,
+  "engine": "1.0.12.74",
+  "status": "TWO_WINDOW_DIAGNOSTIC_COMPLETE_ORIGINAL438MS_CAUSE_NOT_PROVED_NO_ACCEPTANCE_PASS",
+  "whole_mod_percent": 97.5,
+  "TC036_closed": false,
+  "unpublished_product_packages": 12,
+  "new_product_fix185": false,
+  "original184_323sample_438msFAIL_preserved": "baiqi-source184-original85-plan-result-and-builder-progress-engine74-2026-11-24.json",
+  "original18354msFAIL_preserved": true,
+  "actual": {
+    "owner": {
+      "pid": 4740,
+      "created_at": 1795527106.4367242,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "cold_Popen": 1,
+    "warmup_seconds": 60.71600008010864,
+    "matching_original85_bytecopy_and_reload": true,
+    "contexts_armed": [
+      "UI/BaiqiExecutor"
+    ],
+    "functions_selected": 27,
+    "explicit_Native_path_sites": 5,
+    "capacity": 2048,
+    "selected_calls": 3192,
+    "retained": 310,
+    "zero_success_aggregates": 2882,
+    "dropped": 0,
+    "invalid_clock": 0,
+    "metadata_errors": 0,
+    "gate_errors": 0,
+    "anchor_errors": 0,
+    "anchors": {
+      "86": 1795527314.145,
+      "87": 1795527338.052
+    },
+    "normal_ENDs": [
+      85,
+      86
+    ],
+    "TEST_PLAYER_military_by_turn": {
+      "85": 18,
+      "86": 18
+    },
+    "UserForced": 0,
+    "manual_civilian_inputs": 0,
+    "before_Native_actual_END_guard_cases_dualLua": 144,
+    "actual_literal_Lua_chunks_compiled_each_VM": 9
+  },
+  "window_results": {
+    "86": {
+      "all_retained_rows": 144,
+      "eligible_retained_rows": 144,
+      "maxima_by_function_and_Native_site": [
+        {
+          "name": "Lua/BaiqiController.lua:5669:Tick",
+          "Native_site": null,
+          "positive_retained_rows": 33,
+          "max_ms": 39.00003433227539,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5891:BaiqiController.RunNow",
+          "Native_site": null,
+          "positive_retained_rows": 33,
+          "max_ms": 39.00003433227539,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:4953:ProcessCity",
+          "Native_site": null,
+          "positive_retained_rows": 6,
+          "max_ms": 36.00001335144043,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:4091:ProcessBuilder",
+          "Native_site": null,
+          "positive_retained_rows": 4,
+          "max_ms": 15.000104904174805,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:827:RequestCivilian",
+          "Native_site": null,
+          "positive_retained_rows": 5,
+          "max_ms": 9.000062942504883,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:227:Safe",
+          "Native_site": null,
+          "positive_retained_rows": 13,
+          "max_ms": 6.000041961669922,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:4033:AdvanceBuilderRoute",
+          "Native_site": null,
+          "positive_retained_rows": 3,
+          "max_ms": 6.000041961669922,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:4455:Economy",
+          "Native_site": null,
+          "positive_retained_rows": 3,
+          "max_ms": 5.000114440917969,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:3600:PrepareBuilderPathPacket",
+          "Native_site": null,
+          "positive_retained_rows": 3,
+          "max_ms": 3.000020980834961,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5593:RetryCivilianOverlap",
+          "Native_site": null,
+          "positive_retained_rows": 8,
+          "max_ms": 2.000093460083008,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:3669:ValidateBuilderPathPacket",
+          "Native_site": null,
+          "positive_retained_rows": 3,
+          "max_ms": 1.9998550415039062,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:425:UnitSnapshot",
+          "Native_site": null,
+          "positive_retained_rows": 7,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Native.GetMoveToPathEx",
+          "Native_site": "builder-packet",
+          "positive_retained_rows": 3,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:98:GetVisibleUnits",
+          "Native_site": null,
+          "positive_retained_rows": 8,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:73:PlayerContext",
+          "Native_site": null,
+          "positive_retained_rows": 3,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5276:ReadBack",
+          "Native_site": null,
+          "positive_retained_rows": 3,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:609:RefreshSettlement",
+          "Native_site": null,
+          "positive_retained_rows": 4,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:2141:missionaryPurchase.Process",
+          "Native_site": null,
+          "positive_retained_rows": 1,
+          "max_ms": 0.9999275207519531,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5654:NextCityForPlanning",
+          "Native_site": null,
+          "positive_retained_rows": 1,
+          "max_ms": 0.9999275207519531,
+          "failed_rows": 0
+        }
+      ],
+      "largest_RunNow_true": {
+        "original_index": 69,
+        "name": "Lua/BaiqiController.lua:5891:BaiqiController.RunNow",
+        "seconds": 0.03900003433227539,
+        "failed": false,
+        "started": 1795527316.391,
+        "ended": 1795527316.43,
+        "turnStart": 86,
+        "turnEnd": 86,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "anchor": 1795527314.145,
+        "windowEligible": true,
+        "Native_site": null
+      },
+      "interval_contained_rows_not_proved_exclusive_stack": [
+        {
+          "original_index": 68,
+          "name": "Lua/BaiqiController.lua:5669:Tick",
+          "seconds": 0.03900003433227539,
+          "failed": false,
+          "started": 1795527316.391,
+          "ended": 1795527316.43,
+          "turnStart": 86,
+          "turnEnd": 86,
+          "argumentCount": 1,
+          "allowOrders": "nil",
+          "anchor": 1795527314.145,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 67,
+          "name": "Lua/BaiqiController.lua:4953:ProcessCity",
+          "seconds": 0.03600001335144043,
+          "failed": false,
+          "started": 1795527316.394,
+          "ended": 1795527316.43,
+          "turnStart": 86,
+          "turnEnd": 86,
+          "argumentCount": 4,
+          "allowOrders": "nil",
+          "anchor": 1795527314.145,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 65,
+          "name": "Lua/BaiqiController.lua:4455:Economy",
+          "seconds": 0.005000114440917969,
+          "failed": false,
+          "started": 1795527316.395,
+          "ended": 1795527316.4,
+          "turnStart": 86,
+          "turnEnd": 86,
+          "argumentCount": 1,
+          "allowOrders": "nil",
+          "anchor": 1795527314.145,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 63,
+          "name": "Lua/BaiqiController.lua:5276:ReadBack",
+          "seconds": 0.0010001659393310547,
+          "failed": false,
+          "started": 1795527316.392,
+          "ended": 1795527316.3930001,
+          "turnStart": 86,
+          "turnEnd": 86,
+          "argumentCount": 1,
+          "allowOrders": "nil",
+          "anchor": 1795527314.145,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 64,
+          "name": "Lua/BaiqiController.lua:5654:NextCityForPlanning",
+          "seconds": 0.0009999275207519531,
+          "failed": false,
+          "started": 1795527316.3930001,
+          "ended": 1795527316.394,
+          "turnStart": 86,
+          "turnEnd": 86,
+          "argumentCount": 1,
+          "allowOrders": "nil",
+          "anchor": 1795527314.145,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 66,
+          "name": "Lua/BaiqiController.lua:4455:Economy",
+          "seconds": 0.0009999275207519531,
+          "failed": false,
+          "started": 1795527316.4290001,
+          "ended": 1795527316.43,
+          "turnStart": 86,
+          "turnEnd": 86,
+          "argumentCount": 1,
+          "allowOrders": "nil",
+          "anchor": 1795527314.145,
+          "windowEligible": true,
+          "Native_site": null
+        }
+      ]
+    },
+    "87": {
+      "all_retained_rows": 166,
+      "eligible_retained_rows": 166,
+      "maxima_by_function_and_Native_site": [
+        {
+          "name": "Lua/BaiqiController.lua:4033:AdvanceBuilderRoute",
+          "Native_site": null,
+          "positive_retained_rows": 9,
+          "max_ms": 6.999969482421875,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5669:Tick",
+          "Native_site": null,
+          "positive_retained_rows": 32,
+          "max_ms": 6.999969482421875,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5891:BaiqiController.RunNow",
+          "Native_site": null,
+          "positive_retained_rows": 32,
+          "max_ms": 6.999969482421875,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:4193:ProcessTrader",
+          "Native_site": null,
+          "positive_retained_rows": 1,
+          "max_ms": 5.000114440917969,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:3600:PrepareBuilderPathPacket",
+          "Native_site": null,
+          "positive_retained_rows": 7,
+          "max_ms": 3.000020980834961,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:3669:ValidateBuilderPathPacket",
+          "Native_site": null,
+          "positive_retained_rows": 7,
+          "max_ms": 3.000020980834961,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:827:RequestCivilian",
+          "Native_site": null,
+          "positive_retained_rows": 7,
+          "max_ms": 2.000093460083008,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:4091:ProcessBuilder",
+          "Native_site": null,
+          "positive_retained_rows": 5,
+          "max_ms": 2.000093460083008,
+          "failed_rows": 0
+        },
+        {
+          "name": "Native.GetMoveToPathEx",
+          "Native_site": "builder-packet",
+          "positive_retained_rows": 5,
+          "max_ms": 2.000093460083008,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:227:Safe",
+          "Native_site": null,
+          "positive_retained_rows": 30,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:98:GetVisibleUnits",
+          "Native_site": null,
+          "positive_retained_rows": 8,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5276:ReadBack",
+          "Native_site": null,
+          "positive_retained_rows": 2,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:3938:BuilderTargets",
+          "Native_site": null,
+          "positive_retained_rows": 6,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:73:PlayerContext",
+          "Native_site": null,
+          "positive_retained_rows": 1,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:609:RefreshSettlement",
+          "Native_site": null,
+          "positive_retained_rows": 3,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:5593:RetryCivilianOverlap",
+          "Native_site": null,
+          "positive_retained_rows": 4,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:4953:ProcessCity",
+          "Native_site": null,
+          "positive_retained_rows": 1,
+          "max_ms": 1.0001659393310547,
+          "failed_rows": 0
+        },
+        {
+          "name": "Lua/BaiqiController.lua:425:UnitSnapshot",
+          "Native_site": null,
+          "positive_retained_rows": 6,
+          "max_ms": 0.9999275207519531,
+          "failed_rows": 0
+        }
+      ],
+      "largest_RunNow_true": {
+        "original_index": 204,
+        "name": "Lua/BaiqiController.lua:5891:BaiqiController.RunNow",
+        "seconds": 0.006000041961669922,
+        "failed": false,
+        "started": 1795527339.691,
+        "ended": 1795527339.697,
+        "turnStart": 87,
+        "turnEnd": 87,
+        "argumentCount": 1,
+        "allowOrders": "true",
+        "anchor": 1795527338.052,
+        "windowEligible": true,
+        "Native_site": null
+      },
+      "interval_contained_rows_not_proved_exclusive_stack": [
+        {
+          "original_index": 202,
+          "name": "Lua/BaiqiController.lua:4033:AdvanceBuilderRoute",
+          "seconds": 0.006000041961669922,
+          "failed": false,
+          "started": 1795527339.691,
+          "ended": 1795527339.697,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 5,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 203,
+          "name": "Lua/BaiqiController.lua:5669:Tick",
+          "seconds": 0.006000041961669922,
+          "failed": false,
+          "started": 1795527339.691,
+          "ended": 1795527339.697,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 1,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 196,
+          "name": "Lua/BaiqiController.lua:3600:PrepareBuilderPathPacket",
+          "seconds": 0.003000020980834961,
+          "failed": false,
+          "started": 1795527339.691,
+          "ended": 1795527339.694,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 5,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 201,
+          "name": "Lua/BaiqiController.lua:3669:ValidateBuilderPathPacket",
+          "seconds": 0.003000020980834961,
+          "failed": false,
+          "started": 1795527339.694,
+          "ended": 1795527339.697,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 5,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 195,
+          "name": "Native.GetMoveToPathEx",
+          "seconds": 0.0019998550415039062,
+          "failed": false,
+          "started": 1795527339.6920002,
+          "ended": 1795527339.694,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 2,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": "builder-packet"
+        },
+        {
+          "original_index": 194,
+          "name": "Lua/BaiqiController.lua:227:Safe",
+          "seconds": 0.0010001659393310547,
+          "failed": false,
+          "started": 1795527339.691,
+          "ended": 1795527339.6920002,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 2,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 198,
+          "name": "Lua/BaiqiController.lua:227:Safe",
+          "seconds": 0.0010001659393310547,
+          "failed": false,
+          "started": 1795527339.695,
+          "ended": 1795527339.696,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 3,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 197,
+          "name": "Lua/BaiqiController.lua:227:Safe",
+          "seconds": 0.0009999275207519531,
+          "failed": false,
+          "started": 1795527339.694,
+          "ended": 1795527339.695,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 3,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 199,
+          "name": "Lua/BaiqiController.lua:98:GetVisibleUnits",
+          "seconds": 0.0009999275207519531,
+          "failed": false,
+          "started": 1795527339.696,
+          "ended": 1795527339.697,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 1,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        },
+        {
+          "original_index": 200,
+          "name": "Lua/BaiqiController.lua:227:Safe",
+          "seconds": 0.0009999275207519531,
+          "failed": false,
+          "started": 1795527339.696,
+          "ended": 1795527339.697,
+          "turnStart": 87,
+          "turnEnd": 87,
+          "argumentCount": 3,
+          "allowOrders": "nil",
+          "anchor": 1795527338.052,
+          "windowEligible": true,
+          "Native_site": null
+        }
+      ]
+    }
+  },
+  "failed_rows_retained": [],
+  "crossing_rows_retained": [],
+  "scope_and_limits": [
+    "87RunNow(true)max6.000042msandNativebuilder-packetpositivewallrowsmax2.000093msdidNOTreproduce438ms. ThisdoesnotclearoriginalFAILorproveNativepathsarealwaysfast.",
+    "86RunNow(true)max39.000034mswithProcessCitymax36.000013ms; inclusiveintervalobservations,notprovedexclusiveCPUororiginal438cause.",
+    "All310rawrowskeptwithfailed/windowflags; zero-durationcallsaggregateglobally,soabsenceofapositiveNativesiterowisnotproofthatnocalloccurred.",
+    "Diagnosticusesqualifiedmilitarybatchcadence. OriginalfailedStageAusedmanyseparateLuaConsolequeriesandper-unitselect/skipsteps. Inputcadence/consoleallocationmaydiffer; potentialheap/schedulingcontributionisahypothesis,NOTaprovedrootcauseorinvalidatedpriorfailure.",
+    "Onlyfiveexplicitpathcallsitesinstrumented;othercapturedpathbindingsnotclaimed.",
+    "OneprivateControllerdiff/123payload,retiredNative.PathAPIkeptaspassthroughuntilworlddestroy;activehooks0."
+  ],
+  "software": {
+    "AST_consumers": 2,
+    "actual_END_preflight_cases": 144,
+    "complete_literal_Lua_chunks_each_VM": 9,
+    "same_actual_Python_parent_all_Native_inputs": true
+  },
+  "saved_exit_and_restore": {
+    "utc": "2026-11-24T13:39:15.711207+00:00",
+    "owner": {
+      "pid": 4740,
+      "created_at": 1795527106.4367242,
+      "exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sid Meier's Civilization VI\\Base\\Binaries\\Win64Steam\\CivilizationVI_DX12.exe"
+    },
+    "own_process_absent": true,
+    "all_Civ6_absent": true,
+    "save": {
+      "utc": "2026-11-24T13:36:03.978424+00:00",
+      "name": "Baiqi_P6_20261124_V184_WindowedPath87.Civ6Save",
+      "bytes": 505775,
+      "sha256": "d9c0b8d2bc12d02f6c254636b9174af3af16e8d3a5f324c0f1179d3c31a8742b",
+      "stable_repeated_read": true
+    },
+    "terminate_calls": 1,
+    "kill_calls": 0,
+    "actual_exit_code": 15,
+    "natural_exit_claimed": false,
+    "ordinary184_exact123_restored": true,
+    "private124_backed_up": true,
+    "Steam_actions": 0
+  },
+  "actual_parent_terminal": {
+    "utc": "2026-11-24T13:39:52.126841+00:00",
+    "tool_session": 28393,
+    "actual_terminal_exit": 0,
+    "terminal_chunk": "e153b8",
+    "actual_OS_parent_absent": true,
+    "source_records_preserved": true,
+    "no_replay": true
+  },
+  "raw_analysis_SHA256": "aad7d6a793640e62f683e7bb8e27b1fc436cd4f0ab89443eb37c561d1251bfaa",
+  "complete_Lua_log_SHA256": "3c7e6d3da9815f4dce9d01db7433edb6efe46c99b0a632380a2ceb9505cc111d",
+  "model": {
+    "real_R226_input_files": 14,
+    "real_input_bytes": 144018,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "HTTP_or_heavy_tests_during_parent": 0,
+    "cost": null
+  },
+  "next": "Preparecontrolleddiagnosticwithsame184two-windowbundleandactualoriginalper-unitLuaConsoleinputcadence,includingread-onlyoptionalLuaheapcountifexposedandactualpacketcounts. Preservebothfailuresandbatchdiagnosis; do notclaimGC/rootcausewithoutmeasuring. NeedrealrepairorqualifiedharnesscorrectionthenfullTC036; no unchanged acceptance rerun to green, no stopping after publication."
+}
