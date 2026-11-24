@@ -1,0 +1,104 @@
+{
+  "utc": "2026-11-24T15:02:30.434529+00:00",
+  "machine": "BF-202609141645",
+  "source_version": 184,
+  "engine": "1.0.12.74",
+  "status": "QUIET_OBSERVER_HELPER_SOFTWARE_QUALIFIED_NATIVE_CALLER_INTEGRATION_NOT_RUN",
+  "finite_cases_closed": 39,
+  "finite_cases_total": 40,
+  "whole_mod_percent": 97.5,
+  "TC036_closed": false,
+  "unpublished_product_packages": 12,
+  "product_source_changed": false,
+  "original54ms_and438msFAIL_retained": true,
+  "original438ms_cause_proved": false,
+  "helper": {
+    "files_sha256": {
+      "tools/plan_quiet_observation.py": "74e5766905f513516c065a1fb49ef66e888ba5359f8f11e4faed63061a85bc02",
+      "tests/test_plan_quiet_observation.py": "7da73ae9c9c76190481165b94f321c91fa8e7e5c6d3e8b5b97cac5bc342f7563"
+    },
+    "quiet_after_ack_host_seconds": 30,
+    "max_host_wait_seconds": 120,
+    "max_sleeps": 120,
+    "window_seconds_unchanged": 10,
+    "END_requests_per_invocation": 1,
+    "observations_per_successful_invocation": 1,
+    "queries_or_inputs_inside_host_wait": 0,
+    "exception_or_unknown_ack_replayed": false,
+    "host_wait_does_not_prove_actual_game_anchor": true,
+    "actual_game_time_and_readiness_still_required": true,
+    "full_actual_wire_interval_audit_still_required": true
+  },
+  "verification": {
+    "command": "python -m unittest tests.test_plan_quiet_observation tests.test_plan_stage_readiness",
+    "actual_exit": 0,
+    "test_methods_total": 23,
+    "new_helper_test_methods": 17,
+    "existing_readiness_test_methods": 6,
+    "Native_game_queries": 0,
+    "branch_scope": [
+      "END acknowledgement exactTrue; unknown/bool/int/string rejected as appropriate",
+      "actual helper sequence END then30s quiet thenone observation",
+      "quiet clock begins after END callback returns",
+      "END failure/read failure/interrupted wait not replayed",
+      "nonfinite/negative/bool/backward/stalled/large oversleep clocks fail closed",
+      "short sleeps cannot shorten total30s",
+      "unknown actual anchor never becomes complete from hostwait",
+      "actual10s/10.25s boundary; invalid game time/anchor rejected"
+    ],
+    "actual_future_Q_Native_caller_integration_tested": false
+  },
+  "unchanged_frozen_files_sha256": {
+    "docs/testing/baiqi-performance-protocol.md": "3fd74cc36a1ee779187fc6920a9c5276e296de3840b3c50c34964d5c0f764039",
+    "docs/testing/baiqi-pressure-performance-protocol.md": "0d28da8d9c121e6f288fc1f88ca4264d25240d8f49276b3fe63116df4c181aff",
+    "tools/lua/diagnostic_profile.lua": "a45e0d6488982c35e758b32b342fd0c147762030f626c379e6cb2b079560ea3c",
+    "tools/lua/diagnostic_plan_stage.lua": "7a78bf4ff1d7515a58dcdbbf16d252053b38466b60505f991fddb5e2046c8a20",
+    "tools/lua/diagnostic_plan_window.lua": "f836e3398f9f75cca6f33c356e6436cc501aff2c06bc7875cac7d004fd190304",
+    "tools/build_plan_profile_mod.py": "80700d6b496ad0b10c821c456e5c36252f64d193d3f18676ef7eedb2d776b782"
+  },
+  "budget_and_protocol_preserved": {
+    "B_plan_p95_ms": 20,
+    "B_plan_max_ms": 50,
+    "B_turn_full34contexts_each10s_ms": 1000,
+    "N_req_complete_turn": 64,
+    "B_delta_median_ms": 500,
+    "B_delta_median_percent": 10,
+    "original85_warmup_seconds": 60,
+    "formal_windows": [
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "global_samples_capacity": 4096,
+    "minimum_pure_ten_city_samples_per_target": 100
+  },
+  "limits": [
+    "This is a versioned observer-workload correction, not a claimed original438ms root-cause fix.",
+    "Earlier diagnostic E/H/I results and originalFAILs remain. No sample reset, outlier removal or unchanged acceptance resampling is authorized by software PASS.",
+    "Host sleep alone cannot establish actualactivation/windowcomplete or zero wireoverlap. Actual Native integration/clock-domain qualification/wire audit must precede any new full-result credit.",
+    "Ordinary player military/END qualifications and actual Core/UI/readiness/preanchor checks remain with caller. No game actions occur in these software tests.",
+    "Original/current74 three-calendar full B_plan/B_turn/N_req/B_delta matrices still incomplete."
+  ],
+  "model": {
+    "task": "R231",
+    "real_input_files": 25,
+    "real_input_bytes": 324630,
+    "metadata_utc": "2026-11-24T14:57:46.269410+00:00",
+    "configured_model": "qwen38-coder",
+    "configured_model_present": false,
+    "generation_POSTs": 0,
+    "candidates": 0,
+    "adoptions": 0,
+    "OpenCode_native_generation": 0,
+    "maintenance": {
+      "date": "2026-11-24",
+      "installed_version": "1.19.6",
+      "target_version": "1.19.6",
+      "cached": true
+    },
+    "cost": null
+  },
+  "next": "Integrate actual current184 original85 canonical five-window StageA into one new qualified parent with this quiet policy; exercise actual caller and all original four END ports before Native, preserve actual input vectors, freshoffline/current74/exact123/ordinaryrestore. Audit actual wire intervals and retain all original failures. Then remaining full34/per-turn/pairs/pressure calendars. Continue after helper publication."
+}
