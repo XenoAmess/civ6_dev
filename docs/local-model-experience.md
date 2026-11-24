@@ -1574,3 +1574,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-24 [TC036当前183／74采样准备](research/baiqi-source183-tc036-current74-twelve-packages-and-original85-chain-2026-11-24.json)：三场景共12个123文件／101Lua实际包及配对逆变换核验，原85执行链15文件；58双Lua实际语义、12真实Python范围＋2旧失败对照、10只读重连＋8main且动作未知不重放的软件分支通过。真实引擎74指纹与文件版本已核；新鲜后台离线证明限15秒且涵盖每次Load，单登记父进程／OS子孙，普通END四端口保持。以上为准备，Native性能0、整体39/40＝97.5%保持、仅余TC036、待发11／工坊172；接着启动规划采样不在提交后停工。R212真实29源437064字节准备，11:05模型仅H3、canonical缺、同日维护缓存、0生成候选采用／原生生成、成本null。
+
+
+2026-11-24 [TC036启动前旧离线查询失败及当前入口修正](research/baiqi-source183-tc036-legacy-mode-query-rejected-before-Popen-current-gate-correction-2026-11-24.json)：183a父40232安装私有123成功，但借用旧base查询返回unavailable，在cold意图／Popen／Load／formal／END前停止，实际性能0；已核terminal1／OS消失，无Steam动作。当前既有正常gate后台原生只读11:12实际离线；新183b仅修路由且未来启动重新取15秒内当前实例证明，不把诊断当未来授权。原失败原件保留，新命名15消费者经58双Lua／12Python＋2旧对照／10只读＋8main通过，预算／场景不改，安装前强核旧私有123＋原回执＋无启动／读档意图。R213真实10源42684字节准备未wire，复用11:05canonical缺与同日维护缓存，0生成候选采用，成本null。整体39/40＝97.5%保持，继续实际采样。
