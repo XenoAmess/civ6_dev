@@ -1634,3 +1634,6 @@ Native控制句柄的==比较和Lua表键匹配不同，不能用固定Lua对象
 
 
 2026-11-25 [184压力查询审计工具](research/baiqi-source184-pressure-query-audit-tool-software-engine74-2026-11-25.json)：实际12项软件测试通过，含并发／不重试／原始wire完整匹配／时钟不一致／窗口重叠拒绝；均为合成收据和时钟数据，不授压力实机。R237在原85十侧父实际退出后，复用本机本日维护成功缓存并新做两项GET200，配置模型仍不在列表，生成／候选／采用0、成本null；owner继续真实未完成的压力消费者校验，不更改服务或回退模型。仍39/40、97.5%、待发12、无185。
+
+
+2026-11-25 [184压力StageA实际消费者软件准备](research/baiqi-source184-pressure-stageA-consumers-software-awaiting-natural-engine74-2026-11-25.json)：36个实际player生成器、192项双VM完整军队／普通END行为、8项实际16字段producer/parser、22份其他完整Lua生成结果、14份run控制Lua、3正3负退出形状及1正7负当前自然资格守卫通过；真实source/ZIP123与原85十侧新存档字节复核。压力实机仍0。审查补出当前184自然MANY>=12与NO_SITE几何前置，安装守卫拒绝旧172/失败/未推送证据，admission尚未建立。R238真实27完整输入439776字节，03:28本地日维护缓存与新GET200后配置模型仍缺席，生成采用0／成本null；owner继续当前census，不在软件交付停工。仍39/40、97.5%、待发12、无185。
