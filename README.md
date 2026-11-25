@@ -1,6 +1,6 @@
 # civ6_dev
 
-正式版v1.0.0正在发布：内部185仅更新版本号与说明，101份Lua及其余122个产品文件与已验收184逐字节相同。[正式版资格与影响审阅](docs/releases/v1.0.0/stable-assessment.json)。GS单人／引擎1.0.12.74固定40项验收完成、性能三场景12项全通过；既有证据按原范围保留，并非全部条款重跑185。工坊上传与实际下载核验尚未完成，当前远端产品仍172。
+[正式版v1.0.0已发布到Steam创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3833805495)及[GitHub Release](https://github.com/XenoAmess/civ6_dev/releases/tag/v1.0.0)。内部185仅更新版本与说明，101份Lua及其余122个产品文件与已验收184相同；GS单人／1.0.12.74固定40项与12项性能指标均已通过，非全条款重跑185。GitHub ZIP实际下载与123文件校验通过；Steam两次消费端下载回调失败，日志为No workshop depot defined，安装包下载核验仍待完成，不能以上传成功替代。[发布回执](docs/workshop/v1.0.0/publication-evidence.json)及[下载验证缺口](docs/workshop/v1.0.0/download-verification.json)。已完成未发布产品工作包0。
 
 
 

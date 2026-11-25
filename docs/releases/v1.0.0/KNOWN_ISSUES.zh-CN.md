@@ -13,3 +13,7 @@
 [完整闭场证据](../../research/baiqi-source184-finite40-engine74-complete-2026-11-25.json)
 
 正式版资格及185元数据变更影响：[审阅记录](stable-assessment.json)。
+
+## 本轮Steam分发验证缺口
+
+工坊上传与公开页面／封面／12图／更新日志核验已成功，但当前客户端两次消费端下载回调均为`k_EResultFail`，日志明确`No workshop depot defined`。未证明根因，也未验证当前185的Steam安装文件；不把上传成功当下载通过。临时订阅已恢复原未订阅状态，Steam已独立确认离线。可改用已经实际下载并校验通过的[GitHub正式版ZIP](https://github.com/XenoAmess/civ6_dev/releases/tag/v1.0.0)。这项分发验证缺口与固定40项游戏验收分列。

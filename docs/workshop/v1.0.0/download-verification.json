@@ -1,0 +1,43 @@
+{
+  "schema": "civ6.workshop-download-verification/v1",
+  "utc": "2026-11-25T02:56:41.890856+00:00",
+  "release": "v1.0.0",
+  "internal_build": 185,
+  "published_file_id": 3833805495,
+  "status": "BLOCKED_CURRENT_CLIENT_WORKSHOP_DEPOT_METADATA",
+  "attempts": [
+    {
+      "scope": "Official ISteamUGC.DownloadItem, app289070, no subscription, no high priority",
+      "callback": {
+        "utc": "2026-11-25T02:46:09.1576189Z",
+        "stage": "download_callback",
+        "data": {
+          "received": true,
+          "app_id": 289070,
+          "result": "k_EResultFail"
+        }
+      }
+    },
+    {
+      "scope": "Official temporary SubscribeItem plus DownloadItem, app289070; original unsubscribed state restored",
+      "callback": {
+        "utc": "2026-11-25T02:54:12.6525490Z",
+        "stage": "download_callback",
+        "data": {
+          "received": true,
+          "app_id": 289070,
+          "result": "k_EResultFail"
+        }
+      }
+    }
+  ],
+  "successful_download_callbacks": 0,
+  "downloaded_current_product_hashes_verified": false,
+  "client_log_literal": "No workshop depot defined, skipping non-legacy item 3833805495",
+  "root_cause_proven": false,
+  "temporary_subscription_restored": true,
+  "unsubscribe_callback_result": "k_EResultOK",
+  "no_product_reupload_for_download_failure": true,
+  "workaround": "GitHub stable release ZIP actual remote bytes independently downloaded and verified;123 payload files match pinned product.",
+  "official_callback_contract": "https://partner.steamgames.com/doc/api/ISteamUGC#DownloadItem"
+}
