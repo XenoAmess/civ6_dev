@@ -1,4 +1,4 @@
-"""Check/stage the pinned Alpha Workshop package locally; never contacts Steam."""
+"""Check/stage a pinned Workshop release locally; never contacts Steam."""
 from __future__ import annotations
 
 import argparse
@@ -18,8 +18,8 @@ DOCS = ROOT / "docs/workshop" / DEFAULT_RELEASE
 
 
 def release_docs(release: str) -> Path:
-    if not isinstance(release, str) or not re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+-alpha\.[0-9]+", release):
-        raise ValueError("Expected an explicit Alpha release name")
+    if not isinstance(release, str) or not re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+(?:-alpha\.[0-9]+)?", release):
+        raise ValueError("Expected an explicit stable or Alpha release name")
     return contained(contained(ROOT, "docs/workshop"), release)
 
 

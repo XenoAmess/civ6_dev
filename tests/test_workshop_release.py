@@ -58,9 +58,25 @@ class WorkshopReleaseTests(unittest.TestCase):
         self.assertEqual(workshop.prepare(stage, release=self.release), result)
 
     def test_release_names_reject_traversal_and_unrecognized_formats(self):
-        for name in ("../alpha", "/v0.1.0-alpha.2", "v0.1.0", "v1.2.3-alpha.4/../x", "v1.2.3-alpha.4\n"):
+        for name in ("../alpha", "/v0.1.0-alpha.2", "v1.0", "v1.2.3-alpha.4/../x", "v1.2.3-alpha.4\n",
+                     "v1.0.0/../x", "v1.0.0\n", "v1.0.0-beta.1", "v1.0.0+meta", None):
             with self.subTest(name=name), self.assertRaises(ValueError):
                 workshop.release_docs(name)
+
+    def test_stable_release_is_pinned_and_staged_with_the_same_guards(self):
+        self.release = "v1.0.0"
+        self.docs = workshop.release_docs(self.release)
+        self.docs.mkdir(parents=True)
+        (self.docs / "description.bbcode").write_text("[h2]正式版[/h2]", encoding="utf-8")
+        (self.docs / "changenotes.bbcode").write_text("[b]1.0.0[/b]", encoding="utf-8")
+        self.plan["release"] = self.release
+        self.pin["release"] = self.release
+        self.write_plans()
+        stage = self.root / "dist/workshop/stable-fixture"
+        self.assertEqual(workshop.prepare(stage, release=self.release)["product_files"], 2)
+        (self.source / "A.sql").write_text("SELECT 3;", encoding="utf-8")
+        with self.assertRaises(ValueError):
+            workshop.prepare(stage, release=self.release)
 
     def test_build_release_and_count_are_strictly_pinned(self):
         for field, value in (("release", "v0.1.0-alpha.1"), ("internal_build", 74),
@@ -144,6 +160,12 @@ class PublisherOccupancyGateTests(unittest.TestCase):
         old = publisher.publication_paths(workshop.DEFAULT_RELEASE, 2, "1" * 12)
         self.assertEqual(old[1], publisher.ROOT / ".local-model/steam/workshop-alpha1/page-2")
         self.assertEqual(old[2].name, "input.json")
+        stable_a = publisher.publication_paths("v1.0.0", 1, "a" * 12)
+        stable_b = publisher.publication_paths("v1.0.0", 2, "b" * 12)
+        self.assertEqual(stable_a[1], stable_b[1])
+        self.assertNotEqual(stable_a[0], stable_b[0])
+        self.assertNotEqual(stable_a[2], stable_b[2])
+        self.assertNotEqual(stable_a[1], a[1])
 
     def test_cli_refuses_before_reading_a_nonexistent_sdk_or_release(self):
         root = Path(__file__).resolve().parents[1]
