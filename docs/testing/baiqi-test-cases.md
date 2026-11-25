@@ -461,6 +461,8 @@
 <a id="tc-036"></a>
 ### TC-036 十城性能与有界工作
 
+2026-11-25当前184／引擎.74：[完整三场景12项与最终40项台账](../research/baiqi-source184-finite40-engine74-complete-2026-11-25.json)有限通过，原始85／MANY6／NO_SITE1全量值和各25匹配差值保留，固定预算不变，旧54／438FAIL仍在原报告；范围限已测GS单人／BF-202609141645，其他环境不由本项授信。
+
 当前142：**PASS，限已测GS单人环境、精确夹具与BF-202609141645**。[原85](baiqi-performance142-frozen760.md)和[MANY／NO_SITE完整压力矩阵](baiqi-pressure-performance-results.md)的四项冻结预算均已满足，规划／全脚本覆盖／完整请求／五组25配对段、分布和压力资格均有独立证据。[最终报告](baiqi-performance142-complete805.md)明确R4替换失效侧和全部尖峰；其他规则集／地图／机器及完整40项功能不由本项授信，旧ARMED恢复FAIL继续。
 
 - 需求：BR-026、BR-028。夹具：F08，冻结 `B_plan`、`B_turn`、`B_delta`、`N_req`、样本长度和预热长度。
